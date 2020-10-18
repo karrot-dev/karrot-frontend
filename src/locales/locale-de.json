@@ -18,7 +18,7 @@
       },
       "DEMOCRATIC": {
         "DESCRIPTION": "Karrot ist freie und Open Source Software, die basierend auf Feedback und mit Teilnahme der Leute die sie benutzen entwickelt wird. Hauptsächlich wird Karrot von einem kleinen Team entwickelt, das konstant mit Leuten aus verschiedenen Gruppen im Austausch steht, um deren verschiedene Bedürfnisse unter einen Hut zu bringen und so die Richtung der Entwicklung zu bestimmen. Wir fühlen uns einer Ethik der Integrität und Nicht-Kommerzialisierung von Daten verpflichtet.",
-        "DESCRIPTION2": "Entwickler und Designer sind eingeladen, bei der Weiterentwicklung mitzumachen. Schau dir das Projekt auf {code} an!",
+        "DESCRIPTION2": "Entwickler*innen und Designer*innen sind eingeladen, bei der Weiterentwicklung mitzumachen. Schau dir das Projekt auf {code} an!",
         "TITLE": "Demokratische und partizipative Entwicklung"
       },
       "GROUPS": {
@@ -48,7 +48,7 @@
         "TITLE": "Aktives Team"
       },
       "TRANSLATIONS": {
-        "DESCRIPTION": "Karrot ist von Nutzern komplett übersetzbar und schon in vielen Sprachen verfügbar. Um beim Übersetzen mitzuhelfen, besuche einfach unser Projekt auf {translations}.",
+        "DESCRIPTION": "Karrot ist von Nutzerinnen und Nutzer komplett übersetzbar und schon in vielen Sprachen verfügbar. Um beim Übersetzen mitzuhelfen, besuche einfach unser Projekt auf {translations}.",
         "TITLE": "Mehrsprachigkeit"
       },
       "TRANSPARENCY": {
@@ -66,7 +66,7 @@
     "VISION_INTRO": "Karrot ist ein Werkzeug, das allen Arten von Graswurzelbewegungen dabei helfen kann zu wachsen und sich zu organisieren. Es bietet digitale Infrastruktur, die bei der Koordination von Aktivitäten in der echten Welt behilflich ist."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "Willst du wirklich diese regelmäßige Abholung löschen? Das löscht alle Abholungstermine, die zu der regelmäßigen Abholung gehören (außer wenn bereit Abholer eingetragen sind).",
+    "DELETE_SERIES_TEXT": "Willst du wirklich diese regelmäßige Abholung löschen? Das löscht alle Abholungstermine, die zu der regelmäßigen Abholung gehören (außer wenn bereits Abholende eingetragen sind).",
     "DELETE_SERIES_TITLE": "Regelmäßige Abholung löschen"
   },
   "ACTIVITYLIST": {
@@ -259,12 +259,12 @@
     "DATE": "Datum",
     "DIFFERS_WARNING": "Dieser Wert unterscheidet sich vom Standard. Um diese Änderung rückgängig zu machen, klicke auf die Pfeil-Schaltfläche und speichere die Änderungen.",
     "DISABLE_TITLE": "Abholungen deaktivieren?",
-    "ENABLE_DISABLE_MESSAGE": "Nutzer, die sich für diese Abholung eingetragen haben, werden benachrichtigt. Du kannst diesen Text ändern, um einen Grund anzugeben:",
+    "ENABLE_DISABLE_MESSAGE": "Nutzerinnen und Nutzer, die sich für diese Abholung eingetragen haben, werden benachrichtigt. Du kannst diesen Text ändern, um einen Grund anzugeben:",
     "ENABLE_TITLE": "Abholungen aktivieren?",
     "EXCEPTIONS_MESSAGE": "Einige anstehende Abholungen stimmen nicht mit den Einstellungen dieser regelmäßigen Abholung überein. Schaue unter '{upcomingLabel}' nach, um Abholungen zu ändern oder zu löschen, falls nötig.",
     "EXCEPTIONS_TITLE": "Kontrolliere deine Abholungen",
     "FREQUENCY": "Häufigkeit",
-    "MAX_PARTICIPANTS": "Anzahl Abholer",
+    "MAX_PARTICIPANTS": "Anzahl Abholende",
     "MAX_PARTICIPANTS_HELPER": "Wie viele Leute sollen bei der Abholung teilnehmen?",
     "RRULE": "Regelmäßigkeit",
     "RRULE_EXAMPLE": "'letzter Werktag eines jeden Monats'",
@@ -358,11 +358,11 @@
         "NAME": "Abholungs-Benachrichtigungen"
       },
       "new_application": {
-        "DESCRIPTION": "Lässt dich wissen wenn jemand der Gruppe beitreten will",
+        "DESCRIPTION": "Lässt dich wissen wenn jemensch der Gruppe beitreten will",
         "NAME": "Neue Bewerbungen"
       },
       "new_offer": {
-        "DESCRIPTION": "Lässt dich wissen, wenn jemand ein neues Angebot erstellt",
+        "DESCRIPTION": "Lässt dich wissen, wenn jemensch ein neues Angebot erstellt",
         "NAME": "Neue Angebote"
       },
       "weekly_summary": {
@@ -431,7 +431,7 @@
     "STORE_MODIFY": "hat die Einstellungen vom Ort {name} verändert"
   },
   "INACTIVITY": {
-    "HELP": "Jede Person, die sich seit {dayCount} Tagen oder länger nicht in die Gruppe eingeloggt hat, zählt als inaktiv. Diese Nutzer erhalten keine E-Mail-Benachrichtigungen mehr.",
+    "HELP": "Jede Person, die sich seit {dayCount} Tagen oder länger nicht in die Gruppe eingeloggt hat, zählt als inaktiv. Diese Nutzerinnen und Nutzer erhalten keine E-Mail-Benachrichtigungen mehr.",
     "WHAT": "Was bedeutet es inaktiv zu sein?"
   },
   "INFO": "Information",
@@ -460,7 +460,7 @@
         "TIME_UP": "Die Zeit ist abgelaufen!",
         "TOTAL_SCORE": "Gesamtergebnis",
         "UNDECIDED": "Leider konnte dieser Konflikt nicht entschieden werden.",
-        "UNDECIDED_REASON_1": "der betroffene Nutzer hat die Gruppe verlassen während der Konfliktlösungsprozess lief",
+        "UNDECIDED_REASON_1": "der oder die betroffene Nutzer*in hat die Gruppe verlassen während der Konfliktlösungsprozess lief",
         "UNDECIDED_REASON_2": "niemand hat über diesen Konflikt abgestimmt",
         "UNDECIDED_WHY": "Es gibt zwei mögliche Gründe dafür:"
       },
@@ -612,7 +612,7 @@
     }
   },
   "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(Benutzer nicht verfügbar oder gelöscht)"
+    "INACCESSIBLE_OR_DELETED": "(Benutzer*in nicht verfügbar oder gelöscht)"
   },
   "SETTINGS": {
     "TITLE": "Einstellungen"
@@ -707,7 +707,7 @@
     "DIALOGS": {
       "GIVE_TRUST": {
         "MESSAGE": "Vertraust du {userName} in {groupName}?",
-        "TITLE": "Benutzer vertrauen"
+        "TITLE": "Benutzer*in vertrauen"
       },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "Ich stimme zu",

@@ -2,8 +2,9 @@
   <StandardMap
     class="group-gallery-map"
     :markers="markers"
-    :force-center="coords"
-    :force-zoom="zoom"
+    :force-center="forceCenter"
+    :force-zoom="forceZoom"
+    :force-bounds="forceBounds"
     :show-attribution="false"
   />
 </template>
@@ -11,6 +12,7 @@
 <script>
 import StandardMap from '@/maps/components/StandardMap'
 import { groupMarker } from '@/maps/components/markers'
+import L from 'leaflet'
 
 export default {
   components: { StandardMap },
@@ -29,18 +31,24 @@ export default {
     },
   },
   computed: {
+    joinedGroupsWithCoords () {
+      return this.filteredMyGroups.filter(this.hasCoordinates)
+    },
+    otherGroupsWithCoords () {
+      return this.filteredOtherGroups.filter(this.hasCoordinates)
+    },
     markers () {
-      const items = []
-      const openGroupsWithCoords = this.filteredOtherGroups.filter(group => {
-        return group.latitude != null && group.longitude != null
-      })
-      items.push(...openGroupsWithCoords.map(groupMarker))
-
-      const joinedGroupsWithCoords = this.filteredMyGroups.filter(group => {
-        return group.latitude != null && group.longitude != null
-      })
-      items.push(...joinedGroupsWithCoords.map(groupMarker))
-      return items
+      return [
+        ...this.joinedGroupsWithCoords.map(groupMarker),
+        ...this.otherGroupsWithCoords.map(groupMarker),
+      ]
+    },
+    markersForBounds () {
+      return this.markers.slice(0, 2) // focus the map on the top few markers (closest)
+    },
+    forceBounds () {
+      if (this.markersForBounds.length === 0) return null
+      return L.latLngBounds(this.markersForBounds.map(m => m.latLng)).pad(0.2)
     },
     singleGroup () {
       if (this.filteredOtherGroups.length + this.filteredMyGroups.length === 1) {
@@ -51,24 +59,31 @@ export default {
       }
       return false
     },
-    coords () {
+    forceCenter () {
       if (this.singleGroup) {
         const gp = this.singleGroup
         return { lat: gp.latitude + this.offset[0], lng: gp.longitude + this.offset[1] }
       }
-      return { lat: 0.0, lng: -100 }
+      return null
+      // return { lat: 0.0, lng: -100 }
     },
-    zoom () {
+    forceZoom () {
       if (this.singleGroup) {
         return 10
       }
-      return window.innerHeight > 767 ? 2 : 1
+      return null
+      // return window.innerHeight > 767 ? 2 : 1
     },
     offset () {
       if (window.innerWidth > 767 && this.$q.platform.is.desktop) {
         return this.expanded ? [-0.05, -0.4] : [0.0, -0.2]
       }
       return [0.0, 0.0]
+    },
+  },
+  methods: {
+    hasCoordinates (item) {
+      return item.latitude != null && item.longitude != null
     },
   },
 }

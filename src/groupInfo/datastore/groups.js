@@ -51,7 +51,7 @@ export default {
         return obj
       }, {})).map(parseInt).sort()
     },
-    other: (state, getters) => getters.all.filter(e => !myGroupsWithApplications(e)).sort(sortByMemberCount),
+    other: (state, getters) => getters.all.filter(e => !myGroupsWithApplications(e)).sort(sortByDistanceOrMemberCount),
     activePreview: (state, getters) => getters.get(state.activePreviewId),
     saveStatus: (state, getters, rootState, rootGetters) => {
       const currentGroup = getters.get(rootGetters['currentGroup/id'])
@@ -140,7 +140,13 @@ function applicationsFirstThenSortByName (a, b) {
   return a.name.localeCompare(b.name)
 }
 
-function sortByMemberCount (a, b) {
+// Not sure how to best handle when only some have distance...
+// It also might put the playground group way too high as it currently has
+// loads of members...
+function sortByDistanceOrMemberCount (a, b) {
+  if (a.distance && b.distance) {
+    return a.distance - b.distance
+  }
   return b.members.length - a.members.length
 }
 

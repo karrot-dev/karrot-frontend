@@ -19,6 +19,11 @@ const backendProxy = {
       // as it is a blatant lie, but I don't think it does...
       proxyReq.setHeader('referer', backend)
     }
+    if (process.env.FAKE_IP_FOR_BACKEND) {
+      // This let's you set an IP address that will be used for geoip in the backend
+      // Otherwise it'll be 127.0.0.1 and it won't find a location for it
+      proxyReq.setHeader('x-forwarded-for', process.env.FAKE_IP_FOR_BACKEND)
+    }
   },
   onProxyReqWs: (proxyReq) => {
     proxyReq.setHeader('origin', backend)

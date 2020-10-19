@@ -90,13 +90,6 @@
         </div>
       </div>
       <KSpinner v-show="isPending" />
-      <GroupGalleryCard
-        v-if="showPlaygroundGroupAtTop"
-        style="width: 100%"
-        :group="playgroundGroup"
-        @preview="$emit('preview', playgroundGroup.id)"
-        @visit="$emit('visit', playgroundGroup.id)"
-      />
       <div
         v-if="hasMyGroupsToShow"
         class="join-groups"
@@ -134,17 +127,6 @@
           @preview="$emit('preview', arguments[0])"
         />
       </div>
-      <hr
-        v-if="showPlaygroundGroupAtBottom"
-        style="margin: 20px 10px; border-color: #eee"
-      >
-      <GroupGalleryCard
-        v-if="showPlaygroundGroupAtBottom"
-        style="width: 100%"
-        :group="playgroundGroup"
-        @preview="$emit('preview', playgroundGroup.id)"
-        @visit="$emit('visit', playgroundGroup.id)"
-      />
     </div>
   </div>
 </template>
@@ -152,7 +134,6 @@
 <script>
 import GroupGalleryMap from './GroupGalleryMap'
 import GroupGalleryCards from './GroupGalleryCards'
-import GroupGalleryCard from './GroupGalleryCard'
 import KSpinner from '@/utils/components/KSpinner'
 
 import {
@@ -168,7 +149,6 @@ export default {
   components: {
     GroupGalleryMap,
     GroupGalleryCards,
-    GroupGalleryCard,
     KSpinner,
     QBtn,
     QTooltip,
@@ -185,10 +165,6 @@ export default {
     otherGroups: {
       default: () => [],
       type: Array,
-    },
-    playgroundGroup: {
-      default: undefined,
-      type: Object,
     },
     isLoggedIn: {
       default: false,
@@ -221,9 +197,7 @@ export default {
       if (!this.showInactive) {
         filteredGroups = filteredGroups.filter(g => !g.isInactive)
       }
-      const hasSearchTerm = this.search !== ''
-      const hidePlaygroundByDefault = group => !hasSearchTerm ? !group.isPlayground : true
-      return filteredGroups.filter(hidePlaygroundByDefault)
+      return filteredGroups
     },
     filteredOtherInactiveGroups () {
       return this.searchInName(this.search, this.otherGroups).filter(g => g.isInactive)
@@ -233,24 +207,6 @@ export default {
     },
     hasOtherGroupsToShow () {
       return this.expanded && this.filteredOtherGroups.length > 0
-    },
-    showPlaygroundGroupAtTopOrBottom () {
-      if (this.search) return false
-      if (!this.expanded) return false
-      if (!this.playgroundGroup) return false
-      if (this.playgroundGroup && this.playgroundGroup.isMember) return false
-      return true
-    },
-    showPlaygroundGroupAtTop () {
-      if (this.showPlaygroundGroupAtTopOrBottom) {
-        if (this.isLoggedIn && !this.hasJoinedGroups) return true
-        if (!this.isLoggedIn) return true
-        return false
-      }
-      return false
-    },
-    showPlaygroundGroupAtBottom () {
-      return this.showPlaygroundGroupAtTopOrBottom && !this.showPlaygroundGroupAtTop
     },
   },
   methods: {

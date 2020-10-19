@@ -57,7 +57,6 @@ export default {
       const currentGroup = getters.get(rootGetters['currentGroup/id'])
       return currentGroup && currentGroup.saveStatus
     },
-    playground: (state, getters) => getters.all.find(g => g.isPlayground),
     ...metaStatuses(['create', 'fetch']),
   },
   actions: {

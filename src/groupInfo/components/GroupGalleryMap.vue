@@ -31,31 +31,28 @@ export default {
     },
   },
   computed: {
-    joinedGroupsWithCoords () {
-      return this.filteredMyGroups.filter(this.hasCoordinates)
-    },
-    otherGroupsWithCoords () {
-      return this.filteredOtherGroups.filter(this.hasCoordinates)
+    groupsWithCoordinates () {
+      return [
+        ...this.filteredMyGroups,
+        ...this.filteredOtherGroups,
+      ].filter(this.hasCoordinates)
     },
     markers () {
-      return [
-        ...this.joinedGroupsWithCoords.map(groupMarker),
-        ...this.otherGroupsWithCoords.map(groupMarker),
-      ]
+      return this.groupsWithCoordinates.map(groupMarker)
     },
-    markersForBounds () {
-      return this.markers.slice(0, 2) // focus the map on the top few markers (closest)
+    groupsForBounds () {
+      if (this.singleGroup) return []
+      // focus the map on the top few markers (closest)
+      const groupCountForFocus = 3
+      return this.groupsWithCoordinates.filter(this.hasDistance).slice(0, groupCountForFocus)
     },
     forceBounds () {
-      if (this.markersForBounds.length === 0) return null
-      return L.latLngBounds(this.markersForBounds.map(m => m.latLng)).pad(0.2)
+      if (this.groupsForBounds.length === 0) return null
+      return L.latLngBounds(this.groupsForBounds.map(this.toLatLng)).pad(0.2)
     },
     singleGroup () {
-      if (this.filteredOtherGroups.length + this.filteredMyGroups.length === 1) {
-        if (this.filteredOtherGroups.length === 1) {
-          return this.filteredOtherGroups[0]
-        }
-        return this.filteredMyGroups[0]
+      if (this.groupsWithCoordinates.length === 1) {
+        return this.groupsWithCoordinates[0]
       }
       return false
     },
@@ -65,14 +62,12 @@ export default {
         return { lat: gp.latitude + this.offset[0], lng: gp.longitude + this.offset[1] }
       }
       return null
-      // return { lat: 0.0, lng: -100 }
     },
     forceZoom () {
       if (this.singleGroup) {
         return 10
       }
       return null
-      // return window.innerHeight > 767 ? 2 : 1
     },
     offset () {
       if (window.innerWidth > 767 && this.$q.platform.is.desktop) {
@@ -84,6 +79,12 @@ export default {
   methods: {
     hasCoordinates (item) {
       return item.latitude != null && item.longitude != null
+    },
+    hasDistance (item) {
+      return item.distance !== null
+    },
+    toLatLng (item) {
+      return { lat: item.latitude, lng: item.longitude }
     },
   },
 }

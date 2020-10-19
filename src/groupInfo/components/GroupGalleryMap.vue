@@ -40,15 +40,23 @@ export default {
     markers () {
       return this.groupsWithCoordinates.map(groupMarker)
     },
-    groupsForBounds () {
+    nearbyGroups () {
       if (this.singleGroup) return []
+
       // focus the map on the top few markers (closest)
       const groupCountForFocus = 3
-      return this.groupsWithCoordinates.filter(this.hasDistance).slice(0, groupCountForFocus)
+
+      // if the groups are further than this, we don't consider them
+      const groupCloseKm = 300
+
+      return this.groupsWithCoordinates
+        .filter(this.hasDistance)
+        .filter(group => group.distance < groupCloseKm)
+        .slice(0, groupCountForFocus)
     },
     forceBounds () {
-      if (this.groupsForBounds.length === 0) return null
-      return L.latLngBounds(this.groupsForBounds.map(this.toLatLng)).pad(0.2)
+      if (this.nearbyGroups.length === 0) return null
+      return L.latLngBounds(this.nearbyGroups.map(this.toLatLng)).pad(0.2)
     },
     singleGroup () {
       if (this.groupsWithCoordinates.length === 1) {

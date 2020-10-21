@@ -22,6 +22,7 @@
             :user="user"
             :slim="$q.platform.is.mobile"
             :is-participant="data.isParticipant"
+            :draft-key="data.id"
             @submit="$emit('send', { id: data.id, ...arguments[0] })"
           />
           <QBanner

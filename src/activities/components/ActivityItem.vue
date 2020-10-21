@@ -19,7 +19,6 @@
               size="xs"
               class="q-pr-xs"
             />
-            {{ activity.typus.name }}
           </span>
           <span class="featured-text">
             {{ $d(activity.date, 'hourMinute') }}

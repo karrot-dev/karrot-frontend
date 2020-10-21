@@ -228,8 +228,22 @@ module.exports = configure(function (ctx) {
 
     // https://quasar.dev/quasar-cli/developing-pwa/configuring-pwa
     pwa: {
-      workboxPluginMode: 'InjectManifest', // 'GenerateSW' or 'InjectManifest'
-      workboxOptions: {}, // only for GenerateSW
+      workboxPluginMode: 'InjectManifest',
+      workboxOptions: {
+        // All the paths that already have file hashes in them
+        // other files will have a ?__WB_REVISION__=<revision> parameter added to them.
+        // Some people say that in theory workbox can already detect the ones with the hash, but doesn't seem so.
+        // if you want to see the entries in the cache you can put this in a service worker debugging console:
+        //
+        //     urls = (await (await caches.open((await caches.keys())[0])).keys()).map(e => e.url)
+        //
+        dontCacheBustURLsMatching: /^(css|js|img|fonts)\//,
+        exclude: [
+          // A partial solution to a more complex issue
+          // See https://github.com/yunity/karrot-frontend/issues/2209
+          'index.html',
+        ],
+      },
       manifest: {
         name: process.env.PWA_APP_NAME || 'Karrot local dev',
         short_name: process.env.PWA_APP_NAME || 'Karrot local dev',

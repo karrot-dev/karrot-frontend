@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- Highlight application form input @tiltec
 
 ## [8.8.1] - 2020-10-12
 ### Fixed

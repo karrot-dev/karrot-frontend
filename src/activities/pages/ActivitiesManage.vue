@@ -10,17 +10,18 @@
         </div>
         <QFab
           v-if="!newSeries"
-          vertical-actions-align="left"
+          class="fab-top-fix"
+          vertical-actions-align="right"
           size="sm"
           color="secondary"
           icon="fas fa-plus"
-          direction="up"
+          direction="down"
         >
           <QFabAction
             v-for="activityType in activityTypes"
             :key="activityType.id"
-            label-position="right"
-            padding="md"
+            class="fab-action-fix"
+            label-position="left"
             :color="activityType.colorName"
             :icon="activityType.icon"
             :label="activityType.name"
@@ -52,6 +53,7 @@
               side
             >
               <QIcon
+                v-if="series.activityType"
                 :name="series.activityType.icon"
                 :color="series.activityType.colorName"
                 :title="series.activityType.name"
@@ -95,6 +97,7 @@
                   side
                 >
                   <QIcon
+                    v-if="activity.activityType"
                     :name="activity.activityType.icon"
                     :color="activity.activityType.colorName"
                     :title="activity.activityType.name"
@@ -171,17 +174,17 @@
         </div>
         <QFab
           v-if="!newActivity"
-          vertical-actions-align="left"
+          vertical-actions-align="right"
           size="sm"
           color="secondary"
           icon="fas fa-plus"
-          direction="up"
+          direction="down"
         >
           <QFabAction
             v-for="activityType in activityTypes"
             :key="activityType.id"
-            label-position="right"
-            padding="md"
+            class="fab-action-fix"
+            label-position="left"
             :color="activityType.colorName"
             :icon="activityType.icon"
             :label="activityType.name"
@@ -214,6 +217,7 @@
               side
             >
               <QIcon
+                v-if="activity.activityType"
                 :name="activity.activityType.icon"
                 :color="activity.activityType.colorName"
                 :title="activity.activityType.name"
@@ -421,4 +425,13 @@ button.selected
     display block
     height 26px
     overflow hidden
+
+// let the top fab (series) display over the top of the lower one (one-off activities)
+.fab-top-fix
+  z-index $z-fab + 1
+
+// for some reason the font-awesome icons are displayed too big inside QFabAction
+.fab-action-fix
+  >>> .q-icon.fas
+    font-size 18px
 </style>

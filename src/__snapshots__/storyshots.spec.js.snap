@@ -843,9 +843,7 @@ exports[`Storyshots ActivityItem disabled 1`] = `
 <div class="q-card full">
   <div class="no-padding content q-card__section q-card__section--vert isDisabled">
     <div class="q-pa-sm full-width">
-      <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
-          Pickup
-        </span> <span class="featured-text">
+      <div><span><i aria-hidden="true" role="presentation" title="Pickup" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i></span> <span class="featured-text">
           12:00 PM
           <!----></span>
         Sunday, December 24, 2017
@@ -894,9 +892,7 @@ exports[`Storyshots ActivityItem full 1`] = `
 <div class="q-card full">
   <div class="no-padding content q-card__section q-card__section--vert">
     <div class="q-pa-sm full-width">
-      <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
-          Pickup
-        </span> <span class="featured-text">
+      <div><span><i aria-hidden="true" role="presentation" title="Pickup" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i></span> <span class="featured-text">
           12:00 PM
           <!----></span>
         Sunday, December 24, 2017
@@ -945,9 +941,7 @@ exports[`Storyshots ActivityItem join 1`] = `
 <div class="q-card">
   <div class="no-padding content q-card__section q-card__section--vert">
     <div class="q-pa-sm full-width">
-      <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
-          Pickup
-        </span> <span class="featured-text">
+      <div><span><i aria-hidden="true" role="presentation" title="Pickup" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i></span> <span class="featured-text">
           12:00 PM
           <!----></span>
         Sunday, December 24, 2017
@@ -997,9 +991,7 @@ exports[`Storyshots ActivityItem joined 1`] = `
 <div class="q-card full">
   <div class="no-padding content q-card__section q-card__section--vert isUserMember">
     <div class="q-pa-sm full-width">
-      <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
-          Pickup
-        </span> <span class="featured-text">
+      <div><span><i aria-hidden="true" role="presentation" title="Pickup" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i></span> <span class="featured-text">
           12:00 PM
           <!----></span>
         Sunday, December 24, 2017
@@ -1047,9 +1039,7 @@ exports[`Storyshots ActivityItem pending 1`] = `
 <div class="q-card">
   <div class="no-padding content q-card__section q-card__section--vert">
     <div class="q-pa-sm full-width">
-      <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
-          Pickup
-        </span> <span class="featured-text">
+      <div><span><i aria-hidden="true" role="presentation" title="Pickup" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i></span> <span class="featured-text">
           12:00 PM
           <!----></span>
         Sunday, December 24, 2017
@@ -1094,9 +1084,7 @@ exports[`Storyshots ActivityItem started 1`] = `
 <div class="q-card full">
   <div class="no-padding content q-card__section q-card__section--vert">
     <div class="q-pa-sm full-width">
-      <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
-          Pickup
-        </span> <span class="featured-text">
+      <div><span><i aria-hidden="true" role="presentation" title="Pickup" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i></span> <span class="featured-text">
           12:00 PM
           <!----></span>
         Sunday, December 24, 2017
@@ -1162,9 +1150,7 @@ exports[`Storyshots ActivityList Default 1`] = `
     <div class="q-card">
       <div class="no-padding content q-card__section q-card__section--vert isEmpty">
         <div class="q-pa-sm full-width">
-          <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
-          Pickup
-        </span> <span class="featured-text">
+          <div><span><i aria-hidden="true" role="presentation" title="Pickup" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i></span> <span class="featured-text">
           12:00 PM
           <!----></span>
             Sunday, December 24, 2017
@@ -1202,9 +1188,7 @@ exports[`Storyshots ActivityList Default 1`] = `
     <div class="q-card">
       <div class="no-padding content q-card__section q-card__section--vert isEmpty">
         <div class="q-pa-sm full-width">
-          <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
-          Pickup
-        </span> <span class="featured-text">
+          <div><span><i aria-hidden="true" role="presentation" title="Pickup" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i></span> <span class="featured-text">
           12:00 PM
           <!----></span>
             Sunday, December 24, 2017
@@ -1242,9 +1226,7 @@ exports[`Storyshots ActivityList Default 1`] = `
     <div class="q-card">
       <div class="no-padding content q-card__section q-card__section--vert isEmpty">
         <div class="q-pa-sm full-width">
-          <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
-          Pickup
-        </span> <span class="featured-text">
+          <div><span><i aria-hidden="true" role="presentation" title="Pickup" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i></span> <span class="featured-text">
           12:00 PM
           <!----></span>
             Sunday, December 24, 2017
@@ -1282,9 +1264,7 @@ exports[`Storyshots ActivityList Default 1`] = `
     <div class="q-card">
       <div class="no-padding content q-card__section q-card__section--vert isEmpty">
         <div class="q-pa-sm full-width">
-          <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
-          Pickup
-        </span> <span class="featured-text">
+          <div><span><i aria-hidden="true" role="presentation" title="Pickup" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i></span> <span class="featured-text">
           12:00 PM
           <!----></span>
             Sunday, December 24, 2017
@@ -1322,9 +1302,7 @@ exports[`Storyshots ActivityList Default 1`] = `
     <div class="q-card">
       <div class="no-padding content q-card__section q-card__section--vert isEmpty">
         <div class="q-pa-sm full-width">
-          <div><span class="typus"><i aria-hidden="true" role="presentation" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i>
-          Pickup
-        </span> <span class="featured-text">
+          <div><span><i aria-hidden="true" role="presentation" title="Pickup" class="q-pr-xs fas fa-shopping-basket q-icon notranslate" style="font-size:18px;"> </i></span> <span class="featured-text">
           12:00 PM
           <!----></span>
             Sunday, December 24, 2017
@@ -5234,7 +5212,7 @@ exports[`Storyshots Feedback ActivityFeedback 1`] = `
       <div class="row no-wrap image-and-text">
         <div class="image-and-text-left gt-sm"><img src="test-file-stub" style="width:100%;"></div>
         <div class="image-and-text-right">
-          <h4>Thank you for your activity!</h4>
+          <h4>Thank you for your participation!</h4>
           <p><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start grey-font q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--single q-field--standard q-field--float q-field--dark">
               <div class="q-field__inner relative-position col self-stretch column justify-center">
                 <div tabindex="-1" class="q-field__control relative-position row no-wrap">

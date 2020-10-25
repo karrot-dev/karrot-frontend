@@ -9,13 +9,11 @@
     >
       <div class="q-pa-sm full-width">
         <div>
-          <span
-            v-if="activity.typus"
-            class="typus"
-          >
+          <span v-if="activity.activityType">
             <QIcon
-              :name="activity.typus.icon"
-              :color="activity.typus.colorName"
+              :name="activity.activityType.icon"
+              :color="activity.activityType.colorName"
+              :title="activity.activityType.name"
               size="xs"
               class="q-pr-xs"
             />

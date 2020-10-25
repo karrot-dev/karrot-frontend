@@ -30,9 +30,9 @@
               >
                 <template #prepend>
                   <QIcon
-                    v-if="select && select.typus"
-                    :name="select.typus.icon"
-                    :title="select.typus.name"
+                    v-if="select && select.activityType"
+                    :name="select.activityType.icon"
+                    :title="select.activityType.name"
                   />
                 </template>
                 <template #option="{ index, opt: { value: activity }, itemProps, itemEvents }">
@@ -43,8 +43,8 @@
                   >
                     <QItemSection avatar>
                       <QIcon
-                        :name="activity.typus.icon"
-                        :title="activity.typus.name"
+                        :name="activity.activityType.icon"
+                        :title="activity.activityType.name"
                       />
                     </QItemSection>
                     <QItemSection>{{ getDateWithPlace(activity) }}</QItemSection>
@@ -75,13 +75,13 @@
           </div>
         </div>
         <FeedbackForm
-          v-if="select && select.typus"
+          v-if="select && select.activityType"
           :value="feedbackDefault"
           :status="saveStatus"
           :is-bike-kitchen="isBikeKitchen"
           :is-general-purpose="isGeneralPurpose"
           :has-multiple-participants="fellowParticipants.length > 0"
-          :has-weight="select.typus.hasFeedbackWeight"
+          :has-weight="select.activityType.hasFeedbackWeight"
           @save="$emit('save', arguments[0])"
         />
       </div>

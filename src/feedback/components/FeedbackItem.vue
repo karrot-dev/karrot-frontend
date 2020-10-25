@@ -142,7 +142,7 @@ export default {
       return this.feedback && this.feedback.about && this.feedback.about.date
     },
     activityType () {
-      return this.feedback && this.feedback.about && this.feedback.about.typus
+      return this.feedback && this.feedback.about && this.feedback.about.activityType
     },
   },
 }

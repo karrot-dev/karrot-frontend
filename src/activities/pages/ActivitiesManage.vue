@@ -52,9 +52,9 @@
               side
             >
               <QIcon
-                :name="series.typus.icon"
-                :color="series.typus.colorName"
-                :title="series.typus.name"
+                :name="series.activityType.icon"
+                :color="series.activityType.colorName"
+                :title="series.activityType.name"
               />
             </QItemSection>
             <QItemSection>
@@ -95,9 +95,9 @@
                   side
                 >
                   <QIcon
-                    :name="activity.typus.icon"
-                    :color="activity.typus.colorName"
-                    :title="activity.typus.name"
+                    :name="activity.activityType.icon"
+                    :color="activity.activityType.colorName"
+                    :title="activity.activityType.name"
                   />
                 </QItemSection>
                 <QItemSection>
@@ -214,9 +214,9 @@
               side
             >
               <QIcon
-                :name="activity.typus.icon"
-                :color="activity.typus.colorName"
-                :title="activity.typus.name"
+                :name="activity.activityType.icon"
+                :color="activity.activityType.colorName"
+                :title="activity.activityType.name"
               />
             </QItemSection>
             <QItemSection>
@@ -348,7 +348,7 @@ export default {
     }),
     createNewSeries (activityType) {
       this.newSeries = {
-        typus: activityType,
+        activityType,
         maxParticipants: 2,
         description: '',
         startDate: addHours(startOfTomorrow(), 10),
@@ -373,7 +373,7 @@ export default {
     createNewActivity (activityType) {
       const date = addHours(startOfTomorrow(), 10) // default to 10am tomorrow
       this.newActivity = {
-        typus: activityType,
+        activityType,
         maxParticipants: 2,
         description: '',
         date,

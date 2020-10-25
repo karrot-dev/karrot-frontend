@@ -5,7 +5,7 @@
   >
     <QToolbar
       class="text-white"
-      :class="activity && activity.typus ? `bg-${activity.typus.colorName}` : 'bg-secondary'"
+      :class="activity && activity.activityType ? `bg-${activity.activityType.colorName}` : 'bg-secondary'"
     >
       <QToolbarTitle
         v-if="activity"
@@ -16,11 +16,11 @@
             v-if="!$q.platform.is.mobile"
           >
             <QIcon
-              :name="activity.typus.icon"
+              :name="activity.activityType.icon"
               color="white"
               size="xs"
               class="q-pr-sm"
-            />{{ activity.typus.name }} </span>
+            />{{ activity.activityType.name }} </span>
           <strong>
             {{ $d(activity.date, 'weekdayHourMinute') }}
             <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>

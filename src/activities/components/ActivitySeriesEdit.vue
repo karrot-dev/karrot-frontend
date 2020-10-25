@@ -389,7 +389,7 @@ export default {
   mixins: [editMixin, statusMixin],
   computed: {
     activityType () {
-      return this.value.typus
+      return this.value.activityType
     },
     dayOptions,
     canSave () {
@@ -496,7 +496,7 @@ export default {
     getCreateData () {
       return {
         ...this.edit,
-        typus: this.activityType.id,
+        activityType: this.activityType.id,
       }
     },
     destroy (event) {

@@ -201,7 +201,7 @@ let activityIdCnt = 0
 export const makeActivity = data => {
   return {
     id: activityIdCnt++,
-    typus: activityTypes.pickup,
+    activityType: activityTypes.pickup,
     date: new Date(),
     dateEnd: addMinutes(new Date(), 30),
     series: null,
@@ -227,7 +227,7 @@ let activitySeriesIdCnt = 0
 export const makeActivitySeries = data => {
   return {
     id: activitySeriesIdCnt++,
-    typus: activityTypes.pickup,
+    activityType: activityTypes.pickup,
     place: null,
     maxParticipants: 10,
     startDate: new Date(),

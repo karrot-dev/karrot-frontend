@@ -175,7 +175,7 @@ export default {
     },
     typeFilter (activity) {
       if (this.type === 'all') return true
-      return activity.typus && String(activity.typus.id) === this.type
+      return activity.activityType && String(activity.activityType.id) === this.type
     },
   },
 }

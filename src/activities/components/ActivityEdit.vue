@@ -331,7 +331,7 @@ export default {
   },
   computed: {
     activityType () {
-      return this.value.typus
+      return this.value.activityType
     },
     now () {
       return reactiveNow.value
@@ -437,7 +437,7 @@ export default {
     getCreateData () {
       return {
         ...this.edit,
-        typus: this.activityType.id,
+        activityType: this.activityType.id,
       }
     },
     // Overrides mixin method to always provide start date if we have modified end date

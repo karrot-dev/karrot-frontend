@@ -1,59 +1,59 @@
 {
   "ABOUT_KARROT": {
-    "AND_MORE": "And more...",
-    "EXISTING_GROUPS": "A few groups already using Karrot",
+    "AND_MORE": "E mais...",
+    "EXISTING_GROUPS": "Alguns grupos que já estão usando Karrot",
     "LINKS": {
-      "CHAT": "team chat",
-      "FORUM": "community forum"
+      "CHAT": "chat do grupo",
+      "FORUM": "fórum da comunidade "
     },
     "SECTIONS": {
       "ACTIVITIES": {
-        "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later.",
-        "SUBTITLE": "Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.",
-        "TITLE": "Distribution of tasks and activities"
+        "DESCRIPTION": "Cada atividade tem um número de vagas no qual membros do grupo podem inscrever-se – desta forma todos podem saber quem está participando, onde e quando, e o retorno pode ser dado depois. ",
+        "SUBTITLE": "Atividades com espaço e horário específicos, como coletas de comida em caso de urgência (foodsaving), podem ser registrados no software. ",
+        "TITLE": "Distribuição de tarefas e atividades"
       },
       "COMMUNICATION": {
-        "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats.",
-        "TITLE": "Communication in the right context"
+        "DESCRIPTION": "Escreva uma mensagem que todos no grupo poderão ver ou mande uma mensagem privada para alguém. Tudo que está relacionado a uma atividade ou lugar pode ser discutido em seus respectivos chats. ",
+        "TITLE": "Comunicação no contexto adequado"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}.",
-        "TITLE": "Democratic and participative development"
+        "DESCRIPTION": "Karrot é um software gratuito e livre (open-source) desenvolvido com os comentários e participação de pessoas que o usam. Foi desenvolvido por um pequeno time central que está constantemente em contato com pessoas de diferentes grupos, para garantir que as necessidades divergentes e convergentes estejam orientadas ao desenvolvimento. Estamos de acordo com a ética da integridade e não comercialização de dados. ",
+        "DESCRIPTION2": "Desenvolvedores e designers são obviamente bem-vindos a participar do desenvolvimento. Veja o projeto em {code}",
+        "TITLE": "Desenvolvimento democrático e participativo "
       },
       "GROUPS": {
-        "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally.",
-        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
-        "TITLE": "Independent groups"
+        "DESCRIPTION": "No entanto, todos eles estão exibidos no mapa para que outras pessoas podem encontrar e se conectar a outros grupos na sua localização e até mesmo globalmente. ",
+        "SUBTITLE": "Cada grupo no Karrot é completamente independente e pode ter o seu próprio logo, procedimentos e regras. ",
+        "TITLE": "Grupos independentes"
       },
       "MAPS": {
-        "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online.",
-        "TITLE": "Maps and lists"
+        "DESCRIPTION": "Você tem um mapa onde os lugares e as pessoas fazendo atividades são localizadas. Você tem uma boa lista de eventos futuros e pode se inscrever neles virtualmente.",
+        "TITLE": "Mapas e listas"
       },
       "NOTIFICATIONS": {
-        "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!",
-        "TITLE": "Notifications"
+        "DESCRIPTION": "Você será notificado sobre atividades, novas mensagens e novas pessoas querendo se juntar ao seu grupo. Mas também você poderá desligar todas elas se precisar de mais paz! ",
+        "TITLE": "Notificações"
       },
       "OFFERS": {
-        "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat.",
-        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
-        "TITLE": "Share things"
+        "DESCRIPTION": "Ofertas estão visíveis para todos no grupo e pessoas podem mostrar interesse no chat de ofertas. ",
+        "SUBTITLE": "Cria um tipo de propaganda de qualquer coisa que você queira para compartilhar e doar. ",
+        "TITLE": "Compartilhar coisas"
       },
       "OPENSOURCE": {
         "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world.",
-        "TITLE": "Open source"
+        "TITLE": "Código aberto"
       },
       "TEAM": {
-        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}.",
-        "TITLE": "Responsive team"
+        "DESCRIPTION": "Você pode facilmente falar com as pessoas que estão desenvolvendo Karrot, no nosso {forum}, no {code}, ou em tempo real no nosso {chat}",
+        "TITLE": "Time responsivo"
       },
       "TRANSLATIONS": {
-        "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}.",
-        "TITLE": "Multi-language"
+        "DESCRIPTION": "Karrot é completamente traduzível pela comunidade e muitas linguagens já foram adicionadas. Para contribuir em mais traduções visite o projeto em {translations} e colabore! ",
+        "TITLE": "Multi-linguagem"
       },
       "TRANSPARENCY": {
-        "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here.",
-        "TITLE": "Transparency"
+        "DESCRIPTION": "A história mostra quem fez, o quê, e quando. Tudo de ligado a participação numa atividade, criar e editar lugares fica guardado aqui. ",
+        "TITLE": "Transparência "
       },
       "TRUST": {
         "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way.",
@@ -66,7 +66,7 @@
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "Você gostaria mesmo de deletar esta coleta recorrente? Esta ação vai também deletar todas as entregar pontuais que pertencerem a esta entrega recorrente (com excessão daquelas que pessoas já estão participando)",
+    "DELETE_SERIES_TEXT": "Você gostaria mesmo de deletar esta coleta recorrente? Esta ação vai também deletar todas as entregas pontuais que pertencerem a esta entrega recorrente (com excessão daquelas que pessoas já estão participando)",
     "DELETE_SERIES_TITLE": "Deletar coletas recorrentes"
   },
   "ACTIVITYLIST": {

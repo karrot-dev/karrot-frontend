@@ -56,7 +56,15 @@ export default {
     },
     forceBounds () {
       if (this.nearbyGroups.length === 0) return null
-      return L.latLngBounds(this.nearbyGroups.map(this.toLatLng)).pad(0.2)
+      const bounds = L.latLngBounds(this.nearbyGroups.map(this.toLatLng)).pad(0.2)
+      if (this.offset.lat !== 0 || this.offset.lng !== 0) {
+        // we have an offset!
+        // make the bounds extended to incorporate the offset into the calculation
+        const sw = bounds.getSouthWest()
+        const offsetPoint = L.latLng(sw.lat + this.offset.lat, sw.lng + this.offset.lng)
+        return bounds.extend(offsetPoint)
+      }
+      return bounds
     },
     singleGroup () {
       if (this.groupsWithCoordinates.length === 1) {
@@ -67,7 +75,7 @@ export default {
     forceCenter () {
       if (this.singleGroup) {
         const gp = this.singleGroup
-        return { lat: gp.latitude + this.offset[0], lng: gp.longitude + this.offset[1] }
+        return { lat: gp.latitude + this.offset.lat, lng: gp.longitude + this.offset.lng }
       }
       return null
     },
@@ -79,9 +87,9 @@ export default {
     },
     offset () {
       if (window.innerWidth > 767 && this.$q.platform.is.desktop) {
-        return this.expanded ? [-0.05, -0.4] : [0.0, -0.2]
+        return this.expanded ? { lat: 0, lng: -0.4 } : { lat: 0.05, lng: 0 }
       }
-      return [0.0, 0.0]
+      return { lat: 0.0, lng: 0.0 }
     },
   },
   methods: {

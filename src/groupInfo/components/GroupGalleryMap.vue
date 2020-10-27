@@ -47,7 +47,7 @@ export default {
       const groupCountForFocus = 3
 
       // if the groups are further than this, we don't consider them
-      const groupCloseKm = 300
+      const groupCloseKm = 200
 
       return this.groupsWithCoordinates
         .filter(this.hasDistance)

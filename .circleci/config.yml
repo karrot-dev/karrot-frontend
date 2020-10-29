@@ -403,6 +403,8 @@ jobs:
             git branch --delete --force $BRANCH || true
             git checkout -b $BRANCH
             yarn upgrade --latest --ignore-engines
+            # hold back from v4 until we have vue 3
+            (yarn list --pattern vue | grep vue@3) || yarn upgrade vuex-persistedstate@^3.1.0
             tee pr.txt \<<EOL
             [CI] update dependencies
 

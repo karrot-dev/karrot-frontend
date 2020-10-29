@@ -1,7 +1,7 @@
 <template>
   <QItem
     :to="{name: issue.isOngoing ? 'issueChat' : 'issueVote', params: { issueId: issue.id }}"
-    :class="{'router-link-active': issue.isSelected}"
+    :active="issue.isSelected"
   >
     <QItemSection side>
       <ProfilePicture

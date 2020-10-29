@@ -8,5 +8,8 @@ export default connect({
     pastIssues: 'issues/past',
     status: 'issues/fetchByGroupIdStatus',
   },
+  actionsToEvents: {
+    'clear-detail': 'detail/clear',
+  },
 })('IssueList', IssueListUI)
 </script>

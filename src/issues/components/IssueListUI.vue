@@ -15,6 +15,7 @@
         v-for="issue in ongoingIssues"
         :key="issue.id"
         :issue="issue"
+        @click.native="$emit('clear-detail')"
       />
       <QSeparator />
       <QExpansionItem
@@ -30,6 +31,7 @@
             v-for="issue in pastIssues"
             :key="issue.id"
             :issue="issue"
+            @click.native="$emit('clear-detail')"
           />
         </template>
       </QExpansionItem>

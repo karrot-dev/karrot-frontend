@@ -48,10 +48,7 @@
           @show="makeVisible('series', series.id)"
         >
           <template #header>
-            <QItemSection
-              v-if="!$q.platform.is.mobile"
-              side
-            >
+            <QItemSection side>
               <QIcon
                 v-if="series.activityType"
                 :name="series.activityType.icon"
@@ -92,10 +89,7 @@
               @show="makeVisible('activity', activity.id)"
             >
               <template #header>
-                <QItemSection
-                  v-if="!$q.platform.is.mobile"
-                  side
-                >
+                <QItemSection side>
                   <QIcon
                     v-if="activity.activityType"
                     :name="activity.activityType.icon"
@@ -212,10 +206,7 @@
           @show="makeVisible('activity', activity.id)"
         >
           <template #header>
-            <QItemSection
-              v-if="!$q.platform.is.mobile"
-              side
-            >
+            <QItemSection side>
               <QIcon
                 v-if="activity.activityType"
                 :name="activity.activityType.icon"

@@ -293,7 +293,6 @@ import {
   QIcon,
   QMenu,
   QDialog,
-  QSelect,
   Dialog,
   date,
 } from 'quasar'
@@ -320,7 +319,6 @@ export default {
     QIcon,
     QMenu,
     QDialog,
-    QSelect,
   },
   mixins: [editMixin, statusMixin],
   props: {

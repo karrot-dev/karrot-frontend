@@ -191,7 +191,7 @@ module.exports = configure(function (ctx) {
       // PWA needs https to load the service worker
       https: (ctx.dev && ctx.mode.pwa) ? getHttpsOptions() : false,
       port: 8080,
-      open: true, // opens browser window automatically
+      open: process.env.NO_OPEN_BROWSER ? false : true, // opens browser window automatically
       proxy: proxyTable,
     },
 

@@ -117,9 +117,11 @@
     "TOGETHER_WITH": "You did this activity together with:"
   },
   "ACTIVITY_TYPE_NAMES": {
-    "PICKUP": "Pickup",
-    "TASK": "Task",
-    "MEETING": "Meeting"
+    "Meeting": "Meeting",
+    "Pickup": "Pickup",
+    "Distribution": "Distribution",
+    "Event": "Event",
+    "Activity": "Activity"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "choose location on map",

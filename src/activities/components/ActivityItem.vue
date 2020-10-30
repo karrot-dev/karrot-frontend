@@ -9,15 +9,15 @@
     >
       <div class="q-pa-sm full-width">
         <div>
-          <span v-if="activity.activityType">
-            <QIcon
-              :name="activity.activityType.icon"
-              :color="activity.activityType.colorName"
-              :title="activity.activityType.name"
-              size="xs"
-              class="q-pr-xs"
-            />
-          </span>
+          <QIcon
+            v-if="activity.activityType"
+            :name="activity.activityType.icon"
+            :color="activity.activityType.colorName"
+            :title="activity.activityType.name"
+            size="xs"
+            class="q-pr-xs"
+            style="position: relative; bottom: 4px;"
+          />
           <span class="featured-text">
             {{ $d(activity.date, 'hourMinute') }}
             <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>
@@ -132,7 +132,7 @@ export default {
 
   .featured-text
     display inline
-    margin-right .5em
+    margin-right .3em
     font-size 1.5em
 
   &.isEmpty:not(.isDisabled)

@@ -4,7 +4,6 @@
       v-if="filter && activities.length > 0"
       class="row no-wrap items-center justify-between bg-white q-px-sm q-py-xs q-gutter-sm"
     >
-      <span v-t="'ACTIVITYLIST.TYPE'" />
       <QSelect
         v-model="type"
         :options="typeOptions"
@@ -14,8 +13,6 @@
         hide-bottom-space
         dense
       />
-
-      <span v-t="'ACTIVITYLIST.SLOTS'" />
       <QSelect
         v-model="slots"
         :options="slotsOptions"
@@ -127,7 +124,7 @@ export default {
       if (!this.filter) return []
       return [
         {
-          label: this.$t('ACTIVITYLIST.FILTER.ALL'),
+          label: this.$t('ACTIVITYLIST.FILTER.ALL_TYPES'),
           value: 'all',
         },
         ...this.filterActivityTypes.map(activityType => {

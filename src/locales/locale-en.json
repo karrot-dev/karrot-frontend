@@ -75,10 +75,9 @@
     "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "You can give feedback to an activity | {count} activities await your feedback",
     "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
-    "SLOTS": "Slots",
-    "TYPE": "Type",
     "FILTER": {
       "ALL": "All",
+      "ALL_TYPES": "All types",
       "EMPTY": "Only empty",
       "FREE": "With free slots"
     },

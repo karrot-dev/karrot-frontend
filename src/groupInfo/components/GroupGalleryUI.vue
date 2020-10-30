@@ -8,6 +8,7 @@
       :filtered-my-groups="filteredMyGroups"
       :filtered-other-groups="filteredOtherGroups"
       :expanded="expanded"
+      :my-coordinates="myCoordinates"
     />
     <div
       :class="{'expanded': expanded}"
@@ -97,6 +98,7 @@
         @preview="$emit('preview', playgroundGroup.id)"
         @visit="$emit('visit', playgroundGroup.id)"
       />
+      <pre>myCoordinates: {{ myCoordinates }}</pre>
       <div
         v-if="hasMyGroupsToShow"
         class="join-groups"
@@ -195,6 +197,10 @@ export default {
       type: Boolean,
     },
     fetchStatus: {
+      default: null,
+      type: Object,
+    },
+    myCoordinates: {
       default: null,
       type: Object,
     },

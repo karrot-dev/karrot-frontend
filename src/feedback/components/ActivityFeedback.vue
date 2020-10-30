@@ -78,8 +78,6 @@
           v-if="select && select.activityType"
           :value="feedbackDefault"
           :status="saveStatus"
-          :is-bike-kitchen="isBikeKitchen"
-          :is-general-purpose="isGeneralPurpose"
           :has-multiple-participants="fellowParticipants.length > 0"
           :has-weight="select.activityType.hasFeedbackWeight"
           @save="$emit('save', arguments[0])"

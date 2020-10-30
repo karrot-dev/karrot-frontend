@@ -12,7 +12,29 @@
         outlined
         hide-bottom-space
         dense
-      />
+      >
+        <template #option="{ index, opt, itemProps, itemEvents }">
+          <QItem
+            :key="index"
+            v-bind="itemProps"
+            v-on="itemEvents"
+          >
+            <QItemSection avatar>
+              <QIcon
+                v-if="opt.activityType"
+                :name="opt.activityType.icon"
+                :color="opt.activityType.colorName"
+                :title="opt.activityType.name"
+              />
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel>
+                {{ opt.label }}
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+        </template>
+      </QSelect>
       <QSelect
         v-model="slots"
         :options="slotsOptions"
@@ -58,6 +80,10 @@ import bindRoute from '@/utils/mixins/bindRoute'
 import {
   QSelect,
   QInfiniteScroll,
+  QItem,
+  QItemSection,
+  QItemLabel,
+  QIcon,
 } from 'quasar'
 
 const NUM_ACTIVITIES_PER_LOAD = 25
@@ -68,6 +94,10 @@ export default {
     ActivityItem,
     KSpinner,
     QSelect,
+    QItem,
+    QItemSection,
+    QItemLabel,
+    QIcon,
   },
   mixins: [
     bindRoute({
@@ -131,6 +161,7 @@ export default {
           return {
             label: activityType.name,
             value: String(activityType.id),
+            activityType,
           }
         }),
       ]

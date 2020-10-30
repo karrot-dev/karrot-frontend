@@ -18,12 +18,13 @@ export default {
     all: (state, getters) => Object.values(state.entries).map(getters.enrich),
     enrich: state => activityType => {
       if (!activityType) return
-      const { id, name, nameIsDefault } = activityType
+      const { id, name, nameIsTranslatable } = activityType
+      // this corresponds to the name used by the activity type stylesheet plugin
       const colorName = `activity-type-${id}`
       return {
         ...activityType,
         colorName,
-        name: nameIsDefault ? i18n.t(`ACTIVITY_TYPE_NAMES.${name.toUpperCase()}`) : name,
+        name: nameIsTranslatable ? i18n.t(`ACTIVITY_TYPE_NAMES.${name}`) : name,
       }
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {

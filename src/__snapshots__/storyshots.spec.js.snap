@@ -10231,6 +10231,7 @@ exports[`Storyshots Sidenav Group 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         Wall
       </div>
+      <!---->
       <div class="q-item__section column q-item__section--side justify-center">
         <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-secondary">
           4
@@ -10242,6 +10243,9 @@ exports[`Storyshots Sidenav Group 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         Activities
       </div>
+      <div class="q-item__section column q-item__section--side justify-center">
+        <div role="alert" aria-label="updated" title="These used to be called Pickups" class="q-pa-xs q-badge flex inline items-center no-wrap q-badge--single-line bg-blue">updated</div>
+      </div>
       <!---->
     </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
@@ -10250,6 +10254,7 @@ exports[`Storyshots Sidenav Group 1`] = `
         Feedback
       </div>
       <!---->
+      <!---->
     </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-users q-icon notranslate" style="font-size:1.1em;"> </i></div>
@@ -10257,12 +10262,14 @@ exports[`Storyshots Sidenav Group 1`] = `
         Members
       </div>
       <!---->
+      <!---->
     </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="far fa-clock q-icon notranslate" style="font-size:1.1em;"> </i></div>
       <div class="q-item__section column q-item__section--main justify-center">
         History
       </div>
+      <!---->
       <!---->
     </a></div>
   <!---->
@@ -10330,12 +10337,14 @@ exports[`Storyshots Sidenav Mobile 1`] = `
           Visit your profile
         </div>
         <!---->
+        <!---->
       </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
         <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-exchange-alt fa-fw q-icon notranslate" style="font-size:1.1em;"> </i></div>
         <div class="q-item__section column q-item__section--main justify-center">
           Change group
         </div>
+        <!---->
         <!---->
       </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
@@ -10344,6 +10353,7 @@ exports[`Storyshots Sidenav Mobile 1`] = `
           Settings
         </div>
         <!---->
+        <!---->
       </a>
       <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
         <div tabindex="-1" class="q-focus-helper"></div>
@@ -10351,6 +10361,7 @@ exports[`Storyshots Sidenav Mobile 1`] = `
         <div class="q-item__section column q-item__section--main justify-center">
           Logout
         </div>
+        <!---->
         <!---->
       </div>
     </div>

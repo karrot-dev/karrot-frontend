@@ -315,7 +315,8 @@
     "RECONNECTING": "Reconnecting...",
     "SEARCH_NOT_FOUND": "Not Found",
     "SEARCH_RESULTS": "Search results",
-    "SERVER_ERROR": "Server error"
+    "SERVER_ERROR": "Server error",
+    "CLEAR_FILTERS": "Clear filters"
   },
   "GROUP": {
     "ACTIVITIES": "Activities",

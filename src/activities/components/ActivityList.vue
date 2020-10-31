@@ -49,6 +49,24 @@
       </div>
     </div>
     <KSpinner v-show="pending" />
+    <div
+      v-if="!pending && filteredActivities.length === 0"
+      class="q-pa-md"
+    >
+      <QBanner class="bg-secondary text-white">
+        <h4 class="q-ma-xs">
+          {{ $t('ACTIVITYLIST.NONE') }}
+        </h4>
+        <p>{{ $t('ACTIVITYLIST.NONE_HINT') }}</p>
+        <template #action>
+          <QBtn
+            v-t="'GLOBAL.CLEAR_FILTERS'"
+            flat
+            @click="clearFilters()"
+          />
+        </template>
+      </QBanner>
+    </div>
     <QInfiniteScroll
       v-if="!pending"
       :disable="numDisplayed > filteredActivities.length"
@@ -84,6 +102,8 @@ import {
   QItemSection,
   QItemLabel,
   QIcon,
+  QBanner,
+  QBtn,
 } from 'quasar'
 
 const NUM_ACTIVITIES_PER_LOAD = 25
@@ -98,6 +118,8 @@ export default {
     QItemSection,
     QItemLabel,
     QIcon,
+    QBanner,
+    QBtn,
   },
   mixins: [
     bindRoute({
@@ -204,6 +226,10 @@ export default {
     typeFilter (activity) {
       if (this.type === 'all') return true
       return activity.activityType && String(activity.activityType.id) === this.type
+    },
+    clearFilters () {
+      this.slots = 'all'
+      this.type = 'all'
     },
   },
 }

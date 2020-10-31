@@ -46,17 +46,14 @@ export default {
     },
     nearbyGroups () {
       if (this.singleGroup) return []
-
-      // focus the map on the top few markers (closest)
-      const groupCountForFocus = 3
-
-      // if the groups are further than this, we don't consider them
-      const groupCloseKm = 200
-
-      return this.groupsWithCoordinates
-        .filter(this.hasDistance)
-        .filter(group => group.distance < groupCloseKm)
-        .slice(0, groupCountForFocus)
+      const groups = this.groupsWithCoordinates.filter(this.hasDistance)
+      if (groups.length === 0) return []
+      // Any group with max 3x distance of the closest group
+      // Minimum "closest distance" is 30km, so it won't filter for unhelpful
+      // distances like <3km if you happen to be 1km from a group...
+      const closestDistance = Math.max(groups[0].distance, 30)
+      const maxDistance = closestDistance * 3
+      return groups.filter(group => group.distance < maxDistance)
     },
     forceBounds () {
       if (this.nearbyGroups.length === 0) return null

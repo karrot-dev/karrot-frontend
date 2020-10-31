@@ -1,7 +1,7 @@
 <template>
   <QList dense>
     <QItem
-      v-for="{ label, icon, to, handler, badge } in entries"
+      v-for="{ label, icon, to, handler, badge, updatedNotice } in entries"
       :key="label"
       :to="to"
       clickable
@@ -18,6 +18,17 @@
       </QItemSection>
       <QItemSection>
         {{ label }}
+      </QItemSection>
+      <QItemSection
+        v-if="updatedNotice"
+        side
+      >
+        <QBadge
+          color="blue"
+          class="q-pa-xs"
+          :label="$t('GLOBAL.UPDATED')"
+          :title="updatedNotice"
+        />
       </QItemSection>
       <QItemSection
         v-if="badge && badge.condition"

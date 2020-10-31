@@ -316,11 +316,13 @@
     "SEARCH_NOT_FOUND": "Not Found",
     "SEARCH_RESULTS": "Search results",
     "SERVER_ERROR": "Server error",
-    "CLEAR_FILTERS": "Clear filters"
+    "CLEAR_FILTERS": "Clear filters",
+    "UPDATED": "updated"
   },
   "GROUP": {
     "ACTIVITIES": "Activities",
     "ACTIVITY": "Activity",
+    "PICKUPS_TO_ACTIVITIES": "These used to be called Pickups",
     "ADDED_BY": "added by {userName}",
     "ADDRESS": "Address",
     "APPLICATIONS": "Applications",

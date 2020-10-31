@@ -141,6 +141,7 @@ export default {
         },
       }, {
         label: this.$t('GROUP.ACTIVITIES'),
+        updatedNotice: this.$t('GROUP.PICKUPS_TO_ACTIVITIES'),
         icon: this.$icon('activity'),
         to: { name: 'groupActivities', params: { groupId: this.groupId } },
       }, {

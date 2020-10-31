@@ -175,14 +175,6 @@ export default {
       default: 0,
       type: Number,
     },
-    isBikeKitchen: {
-      type: Boolean,
-      default: false,
-    },
-    isGeneralPurpose: {
-      type: Boolean,
-      default: false,
-    },
   },
   computed: {
     feedbackDefault () {

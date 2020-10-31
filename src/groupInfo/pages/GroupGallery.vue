@@ -9,6 +9,7 @@ export default connect({
     otherGroups: 'groups/other',
     fetchStatus: 'groups/fetchStatus',
     isLoggedIn: 'auth/isLoggedIn',
+    myCoordinates: 'geo/myCoordinates',
   },
   methodsToEvents: {
     preview: (_, groupId) => router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }).catch(() => {}),

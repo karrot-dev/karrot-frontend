@@ -29,6 +29,10 @@ export default {
       default: true,
       type: Boolean,
     },
+    myCoordinates: {
+      default: null,
+      type: Object,
+    },
   },
   computed: {
     groupsWithCoordinates () {

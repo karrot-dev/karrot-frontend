@@ -8,6 +8,7 @@
       :filtered-my-groups="filteredMyGroups"
       :filtered-other-groups="filteredOtherGroups"
       :expanded="expanded"
+      :my-coordinates="myCoordinates"
     />
     <div
       :class="{'expanded': expanded}"
@@ -171,6 +172,10 @@ export default {
       type: Boolean,
     },
     fetchStatus: {
+      default: null,
+      type: Object,
+    },
+    myCoordinates: {
       default: null,
       type: Object,
     },

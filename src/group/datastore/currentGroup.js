@@ -80,8 +80,6 @@ export default {
           dispatch('agreements/fetch', group.activeAgreement, { root: true })
         }
 
-        dispatch('activityTypes/fetch', { groupId }, { root: true })
-
         commit('set', group)
       },
 

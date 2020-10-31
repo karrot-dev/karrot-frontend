@@ -32,8 +32,8 @@ export default {
     },
   },
   actions: {
-    async fetch ({ commit }, { groupId }) {
-      commit('update', await activityTypes.list({ group: groupId }))
+    async fetch ({ commit }) {
+      commit('update', await activityTypes.list())
     },
   },
   mutations: {
@@ -44,4 +44,15 @@ export default {
       state.entries = Object.freeze({ ...state.entries, ...indexById(activityTypes) })
     },
   },
+}
+
+export function plugin (datastore) {
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    if (isLoggedIn) {
+      datastore.dispatch('activityTypes/fetch')
+    }
+    else {
+      datastore.dispatch('activityTypes/clear')
+    }
+  })
 }

@@ -3,7 +3,6 @@ import { withMeta, createMetaModule, withPrefixedIdMeta, metaStatusesWithId, cre
 import { extend } from 'quasar'
 import i18n from '@/base/i18n'
 import { messages as loadMessages } from '@/locales/index'
-import iconService from '@/base/icons'
 
 function initialState () {
   return {
@@ -239,33 +238,6 @@ export function plugin (datastore) {
         if (datastore.getters['currentGroup/isBikeKitchen'] || datastore.getters['currentGroup/isGeneralPurpose']) return
 
         i18n.setLocaleMessage(locale, messages)
-      }
-    },
-    { immediate: true },
-  )
-  datastore.watch(
-    (state, getters) => [getters['currentGroup/isBikeKitchen'], getters['currentGroup/isGeneralPurpose']],
-    async ([isBikeKitchen, isGeneralPurpose] = []) => {
-      if (isBikeKitchen) {
-        const bikeKitchenIcons = await import('@/base/icons/bikekitchen.json')
-        if (!datastore.getters['currentGroup/isBikeKitchen']) return
-
-        iconService.set({
-          ...iconService.getAll(),
-          ...bikeKitchenIcons,
-        })
-      }
-      else if (isGeneralPurpose) {
-        const generalIcons = await import('@/base/icons/generalPurpose.json')
-        if (!datastore.getters['currentGroup/isGeneralPurpose']) return
-
-        iconService.set({
-          ...iconService.getAll(),
-          ...generalIcons,
-        })
-      }
-      else {
-        iconService.reset()
       }
     },
     { immediate: true },

@@ -1,22 +1,23 @@
 import { isNetworkError } from '@/utils/datastore/helpers'
-import { camelizeKeys } from '@/utils/utils'
+import bootstrap from '@/base/api/bootstrap'
 
 export default async function ({ store: datastore }) {
   // await datastore.dispatch('auth/refresh')
   // datastore.dispatch('groups/fetch')
 
-  const bootstrapData = camelizeKeys(await fetch('/api/bootstrap/').then(res => res.json()))
+  const bootstrapData = await bootstrap.fetch()
+  const { user, groups, geoip } = bootstrapData
   console.log('bootstrapData is', bootstrapData)
-  if (bootstrapData.groupsInfo) {
-    datastore.commit('groups/set', bootstrapData.groupsInfo)
+  if (groups) {
+    datastore.commit('groups/set', groups)
   }
-  if (bootstrapData.authUser) {
-    datastore.commit('auth/setUser', bootstrapData.authUser)
+  if (user) {
+    datastore.commit('auth/setUser', user)
     datastore.commit('auth/setMaybeLoggedOut', false)
   }
-  if (bootstrapData.geoip) {
-    console.log('geoip!!', bootstrapData.geoip)
-    datastore.commit('geo/set', bootstrapData.geoip)
+  if (geoip) {
+    console.log('geoip!!', geoip)
+    datastore.commit('geo/set', geoip)
   }
 
   async function fetchCommunityFeed () {

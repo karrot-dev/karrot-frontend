@@ -10,7 +10,7 @@ export default connect({
     playgroundGroup: 'groups/playground',
     fetchStatus: 'groups/fetchStatus',
     isLoggedIn: 'auth/isLoggedIn',
-    myCoordinates: 'geo/value',
+    myCoordinates: 'geo/myCoordinates',
   },
   methodsToEvents: {
     preview: (_, groupId) => router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }).catch(() => {}),

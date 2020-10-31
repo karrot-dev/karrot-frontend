@@ -5,9 +5,10 @@ function initialState () {
 }
 
 export default {
+  namespaced: true,
   state: initialState(),
   getters: {
-    value: state => state.value,
+    myCoordinates: state => state.value,
   },
   mutations: {
     set (state, value) {

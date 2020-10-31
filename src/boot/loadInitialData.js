@@ -16,7 +16,6 @@ export default async function ({ store: datastore }) {
     datastore.commit('auth/setMaybeLoggedOut', false)
   }
   if (geoip) {
-    console.log('geoip!!', geoip)
     datastore.commit('geo/set', geoip)
   }
 

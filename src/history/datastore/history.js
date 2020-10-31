@@ -36,7 +36,7 @@ export default {
     enrich: (state, getters, rootState, rootGetters) => entry => {
       if (!entry) return
       const place = rootGetters['places/get'](entry.place)
-      const msgValues = place ? { storeName: place.name, name: place.name } : {}
+      const msgValues = place ? { placeName: place.name, storeName: place.name, name: place.name } : {}
       if (entry.typus === 'APPLICATION_DECLINED') {
         msgValues.applicantName = entry.payload.applicantName
       }

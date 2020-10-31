@@ -60,10 +60,11 @@
         <p>{{ $t('ACTIVITYLIST.NONE_HINT') }}</p>
         <template #action>
           <QBtn
-            v-t="'GLOBAL.CLEAR_FILTERS'"
             flat
             @click="clearFilters()"
-          />
+          >
+            {{ $t('GLOBAL.CLEAR_FILTERS') }}
+          </QBtn>
         </template>
       </QBanner>
     </div>

@@ -13,7 +13,7 @@
       >
         <div>
           <span
-            v-if="!$q.platform.is.mobile"
+            v-if="!$q.platform.is.mobile && activity.activityType"
           >
             <QIcon
               :name="activity.activityType.icon"

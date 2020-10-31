@@ -60,7 +60,11 @@ export default {
     },
     forceBounds () {
       if (this.nearbyGroups.length === 0) return null
-      const bounds = L.latLngBounds(this.nearbyGroups.map(this.toLatLng)).pad(0.2)
+      const coordsForBounds = this.nearbyGroups.map(this.toLatLng)
+      if (this.myCoordinates) {
+        coordsForBounds.push(this.myCoordinates)
+      }
+      const bounds = L.latLngBounds(coordsForBounds).pad(0.2)
       if (this.offset.lat !== 0 || this.offset.lng !== 0) {
         // we have an offset!
         // make the bounds extended to incorporate the offset into the calculation

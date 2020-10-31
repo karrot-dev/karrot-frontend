@@ -18,16 +18,39 @@
  * Root component
  */
 import LoadingProgress from '@/topbar/components/LoadingProgress'
+import { provideGlobalActivities, useActivities } from '@/activities/data/use-activities'
+import { provideGlobalFoo, useFoo } from '@/activities/data/use-foo'
 
 export default {
   components: {
     LoadingProgress,
+  },
+  setup () {
+    console.log('App setup!')
+    const foo = useFoo()
+    provideGlobalFoo(foo)
+    const { groupId, setGroupId } = foo
+    provideGlobalActivities(useActivities({ groupId }))
+    return {
+      setGroupId,
+    }
   },
   computed: {
     hasView () {
       const firstMatched = this.$route.matched.length > 0 && this.$route.matched[0]
       if (!firstMatched) return
       return Boolean(firstMatched.components.default)
+    },
+  },
+  watch: {
+    // TODO: in next version of vue router there is composition-api hooks
+    //  see https://next.router.vuejs.org/guide/advanced/composition-api.html#accessing-the-router-and-current-route-inside-setup
+    '$route.params.groupId': {
+      handler (groupId) {
+        console.log('setting group id to', groupId)
+        this.setGroupId(groupId)
+      },
+      immediate: true,
     },
   },
 }

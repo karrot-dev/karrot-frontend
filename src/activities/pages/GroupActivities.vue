@@ -46,6 +46,8 @@ import { mapGetters, mapActions } from 'vuex'
 import ActivityList from '@/activities/components/ActivityList'
 import KNotice from '@/utils/components/KNotice'
 import PlaceList from '@/places/components/PlaceList'
+import { useGlobalActivities } from '@/activities/data/use-activities'
+import { watchEffect } from '@vue/composition-api'
 
 export default {
   components: {
@@ -54,6 +56,19 @@ export default {
     ActivityList,
     KNotice,
     PlaceList,
+  },
+  setup () {
+    const { activities, activityIds, status } = useGlobalActivities()
+    watchEffect(() => {
+      console.log('FOO activityIds are', activityIds.value)
+    })
+    watchEffect(() => {
+      const { state, startedAt, finishedAt } = status
+      console.log('yay status of activities is', state, startedAt, finishedAt)
+    })
+    return {
+      activities2: activities,
+    }
   },
   computed: {
     ...mapGetters({

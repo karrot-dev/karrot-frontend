@@ -222,7 +222,7 @@ import ActivitySeriesEdit from '@/activities/components/ActivitySeriesEdit'
 import ActivityEdit from '@/activities/components/ActivityEdit'
 import RandomArt from '@/utils/components/RandomArt'
 import KSpinner from '@/utils/components/KSpinner'
-import { useActivities } from '@/activities/data'
+// import { useGlobalActivities } from '@/activities/data/use-activities'
 
 import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
 
@@ -230,7 +230,7 @@ import addSeconds from 'date-fns/addSeconds'
 import addHours from 'date-fns/addHours'
 import startOfTomorrow from 'date-fns/startOfTomorrow'
 import { defaultDuration } from '@/activities/settings'
-import { watchEffect } from '@vue/composition-api'
+// import { watchEffect } from '@vue/composition-api'
 
 export default {
   components: {
@@ -249,13 +249,16 @@ export default {
     QIcon,
   },
   setup () {
-    const { activityIds, fetchListByGroupId } = useActivities()
-    const { status } = fetchListByGroupId()
-    watchEffect(() => {
-      console.log('status in component is', status.value)
-    })
+    // const { activityIds, fetchListByGroupId } = useGlobalActivities()
+    // const { status } = fetchListByGroupId()
+    // watchEffect(() => {
+    //   console.log('status in component is', status.value)
+    // })
+    // return {
+    //   activityIds,
+    // }
     return {
-      activityIds,
+      activityIds: [1, 2, 3],
     }
   },
   data () {

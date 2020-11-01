@@ -1,12 +1,12 @@
 import { ref, provide, inject, shallowReadonly } from '@vue/composition-api'
 
-const key = Symbol('Foo')
+const key = Symbol('GlobalCurrentGroup')
 
-export function provideGlobalFoo (foo) {
-  provide(key, foo)
+export function provideGlobalCurrentGroup (currentGroup) {
+  provide(key, currentGroup)
 }
 
-export function useGlobalFoo () {
+export function useGlobalCurrentGroup () {
   return inject(key)
 }
 

@@ -1,4 +1,4 @@
-import { ref, provide, inject, shallowReadonly } from '@vue/composition-api'
+import { ref, provide, inject, shallowReadonly, computed } from '@vue/composition-api'
 
 const key = Symbol('AuthUser')
 
@@ -19,5 +19,8 @@ export function useAuthUser () {
   return {
     authUserId: shallowReadonly(authUserId),
     setAuthUserId,
+    isLoggedIn: computed(() => {
+      return authUserId.value !== undefined
+    }),
   }
 }

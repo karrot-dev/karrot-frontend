@@ -22,19 +22,23 @@ import { provideGlobalActivities, useActivities } from '@/activities/data/use-ac
 import { provideGlobalAuthUser, useAuthUser } from '@/activities/data/useAuthUser'
 import { watch } from '@vue/composition-api'
 import { provideGlobalUsers, useUsers } from '@/activities/data/use-users'
-import { useCurrentGroup } from '@/activities/data/useCurrentGroup'
+import { provideGlobalCurrentGroup, useCurrentGroup } from '@/activities/data/useCurrentGroup'
+import { provideGlobalStatus, useStatus } from '@/activities/data/useStatus'
 
 export default {
   components: {
     LoadingProgress,
   },
   setup (props, { root }) {
-    const { currentGroupId, setCurrentGroupId } = useCurrentGroup()
+    const currentGroup = useCurrentGroup()
+    const { currentGroupId, setCurrentGroupId } = currentGroup
     const authUser = useAuthUser()
-    const { setAuthUserId } = authUser
+    const { setAuthUserId, isLoggedIn } = authUser
     provideGlobalAuthUser(authUser)
+    provideGlobalStatus(useStatus({ isLoggedIn }))
     provideGlobalUsers(useUsers())
     provideGlobalActivities(useActivities({ groupId: currentGroupId }))
+    provideGlobalCurrentGroup(currentGroup)
     watch(() => root.$store.getters['auth/userId'], id => setAuthUserId(id), { immediate: true })
     watch(() => root.$store.getters['currentGroup/id'], id => setCurrentGroupId(id), { immediate: true })
   },

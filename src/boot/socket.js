@@ -267,6 +267,7 @@ export default async function ({ store: datastore }) {
     }
     else if (topic === 'status') {
       datastore.commit('status/update', camelizeKeys(payload))
+      send('status', camelizeKeys(payload))
     }
   }
 

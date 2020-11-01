@@ -85,6 +85,9 @@ import {
 import SidenavBox from './SidenavBox'
 import SidenavMenu from './SidenavMenu'
 import GroupOptions from './GroupOptions'
+import { useGlobalStatus, useGroupStatus } from '@/activities/data/useStatus'
+import { useGlobalCurrentGroup } from '@/activities/data/useCurrentGroup'
+import { watchEffect } from '@vue/composition-api'
 
 export default {
   components: {
@@ -107,18 +110,29 @@ export default {
       default: () => [],
       type: Array,
     },
-    wallUnreadCount: {
-      default: 0,
-      type: Number,
-    },
-    feedbackPossibleCount: {
-      default: 0,
-      type: Number,
-    },
-    pendingApplicationCount: {
-      default: 0,
-      type: Number,
-    },
+    // wallUnreadCount: {
+    //   default: 0,
+    //   type: Number,
+    // },
+    // feedbackPossibleCount: {
+    //   default: 0,
+    //   type: Number,
+    // },
+    // pendingApplicationCount: {
+    //   default: 0,
+    //   type: Number,
+    // },
+  },
+  setup () {
+    const { currentGroupId } = useGlobalCurrentGroup()
+    const { status } = useGlobalStatus()
+    const { status: groupStatus } = useGroupStatus({ status, groupId: currentGroupId })
+    watchEffect(() => {
+      console.log('groupStatus is', groupStatus.value)
+    })
+    return {
+      ...groupStatus.value,
+    }
   },
   data () {
     return {

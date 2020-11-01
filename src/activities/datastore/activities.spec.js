@@ -103,6 +103,11 @@ describe('activities', () => {
         activityType: {
           ...activityTypes.pickup,
           colorName: `activity-type-${activityTypes.pickup.id}`,
+          iconProps: {
+            name: activityTypes.pickup.icon,
+            color: `activity-type-${activityTypes.pickup.id}`,
+            title: activityTypes.pickup.name,
+          },
         },
         participants: [{ id: userId, name: `Some Name${userId}` }],
         feedbackGivenBy: [],

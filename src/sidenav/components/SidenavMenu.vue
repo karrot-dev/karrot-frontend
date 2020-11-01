@@ -1,7 +1,7 @@
 <template>
   <QList dense>
     <QItem
-      v-for="{ label, icon, to, handler, badge, updatedNotice } in entries"
+      v-for="{ label, icon, to, handler, badge, info } in entries"
       :key="label"
       :to="to"
       clickable
@@ -20,15 +20,30 @@
         {{ label }}
       </QItemSection>
       <QItemSection
-        v-if="updatedNotice"
+        v-if="info"
         side
       >
-        <QBadge
-          color="blue"
-          class="q-pa-xs"
-          :label="$t('GLOBAL.UPDATED')"
-          :title="updatedNotice"
-        />
+        <QBtn
+          size="sm"
+          round
+          flat
+          color="green"
+          icon="fas fa-question-circle"
+          :title="info.title"
+        >
+          <QMenu>
+            <div class="q-pa-md text-center">
+              <p>{{ info.title }}</p>
+              <QBtn
+                type="a"
+                flat
+                :href="info.link.href"
+              >
+                {{ info.link.text }}
+              </QBtn>
+            </div>
+          </QMenu>
+        </QBtn>
       </QItemSection>
       <QItemSection
         v-if="badge && badge.condition"
@@ -52,6 +67,8 @@ import {
   QItem,
   QItemSection,
   QIcon,
+  QBtn,
+  QMenu,
   QBadge,
 } from 'quasar'
 
@@ -61,6 +78,8 @@ export default {
     QItem,
     QItemSection,
     QIcon,
+    QBtn,
+    QMenu,
     QBadge,
   },
   props: {

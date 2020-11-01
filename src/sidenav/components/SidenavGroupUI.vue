@@ -141,7 +141,13 @@ export default {
         },
       }, {
         label: this.$t('GROUP.ACTIVITIES'),
-        updatedNotice: this.$t('GROUP.PICKUPS_TO_ACTIVITIES'),
+        info: {
+          title: this.$t('GROUP.PICKUPS_TO_ACTIVITIES'),
+          link: {
+            text: this.$t('GLOBAL.READ_MORE'),
+            href: 'https://community.foodsaving.world', // TODO: create a topic for it
+          },
+        },
         icon: this.$icon('activity'),
         to: { name: 'groupActivities', params: { groupId: this.groupId } },
       }, {

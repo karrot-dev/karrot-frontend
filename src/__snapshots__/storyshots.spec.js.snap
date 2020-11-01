@@ -219,7 +219,7 @@ exports[`Storyshots ActivityEdit default 1`] = `
       <!---->
       <div class="q-ml-lg col-12 q-field__bottom">
         <div>
-          When should the activity take place?
+          When should it take place?
         </div>
       </div>
     </div>
@@ -249,7 +249,7 @@ exports[`Storyshots ActivityEdit default 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>How many people should participate in the activity?</div>
+                <div>How many people should participate?</div>
               </div>
             </transition-stub>
           </div>
@@ -269,7 +269,7 @@ exports[`Storyshots ActivityEdit default 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>What should people know when signing up to this activity?</div>
+                <div>What should people know when signing up to this?</div>
               </div>
             </transition-stub>
           </div>
@@ -324,7 +324,7 @@ exports[`Storyshots ActivityEdit disabled 1`] = `
       <!---->
       <div class="q-ml-lg col-12 q-field__bottom">
         <div>
-          When should the activity take place?
+          When should it take place?
         </div>
       </div>
     </div>
@@ -354,7 +354,7 @@ exports[`Storyshots ActivityEdit disabled 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>How many people should participate in the activity?</div>
+                <div>How many people should participate?</div>
               </div>
             </transition-stub>
           </div>
@@ -374,7 +374,7 @@ exports[`Storyshots ActivityEdit disabled 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>What should people know when signing up to this activity?</div>
+                <div>What should people know when signing up to this?</div>
               </div>
             </transition-stub>
           </div>
@@ -461,7 +461,7 @@ exports[`Storyshots ActivityEdit error 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>How many people should participate in the activity?</div>
+                <div>How many people should participate?</div>
               </div>
             </transition-stub>
           </div>
@@ -481,7 +481,7 @@ exports[`Storyshots ActivityEdit error 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>What should people know when signing up to this activity?</div>
+                <div>What should people know when signing up to this?</div>
               </div>
             </transition-stub>
           </div>
@@ -536,7 +536,7 @@ exports[`Storyshots ActivityEdit pending 1`] = `
       <!---->
       <div class="q-ml-lg col-12 q-field__bottom">
         <div>
-          When should the activity take place?
+          When should it take place?
         </div>
       </div>
     </div>
@@ -566,7 +566,7 @@ exports[`Storyshots ActivityEdit pending 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>How many people should participate in the activity?</div>
+                <div>How many people should participate?</div>
               </div>
             </transition-stub>
           </div>
@@ -586,7 +586,7 @@ exports[`Storyshots ActivityEdit pending 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>What should people know when signing up to this activity?</div>
+                <div>What should people know when signing up to this?</div>
               </div>
             </transition-stub>
           </div>
@@ -641,7 +641,7 @@ exports[`Storyshots ActivityEdit series changed 1`] = `
       <!---->
       <div class="q-ml-lg col-12 q-field__bottom">
         <div>
-          When should the activity take place?
+          When should it take place?
         </div>
       </div>
     </div>
@@ -671,7 +671,7 @@ exports[`Storyshots ActivityEdit series changed 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>How many people should participate in the activity?</div>
+                <div>How many people should participate?</div>
               </div>
             </transition-stub>
           </div>
@@ -693,7 +693,7 @@ exports[`Storyshots ActivityEdit series changed 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>What should people know when signing up to this activity?</div>
+                <div>What should people know when signing up to this?</div>
               </div>
             </transition-stub>
           </div>
@@ -763,7 +763,7 @@ exports[`Storyshots ActivityEdit with duration 1`] = `
       </label>
       <div class="q-ml-lg col-12 q-field__bottom">
         <div>
-          When should the activity take place?
+          When should it take place?
         </div>
       </div>
     </div>
@@ -793,7 +793,7 @@ exports[`Storyshots ActivityEdit with duration 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>How many people should participate in the activity?</div>
+                <div>How many people should participate?</div>
               </div>
             </transition-stub>
           </div>
@@ -813,7 +813,7 @@ exports[`Storyshots ActivityEdit with duration 1`] = `
           <div class="q-field__bottom row items-start q-field__bottom--animated">
             <transition-stub name="q-transition--field-message">
               <div class="q-field__messages col">
-                <div>What should people know when signing up to this activity?</div>
+                <div>What should people know when signing up to this?</div>
               </div>
             </transition-stub>
           </div>
@@ -882,6 +882,8 @@ exports[`Storyshots ActivityItem disabled 1`] = `
           <!---->
           <!---->
         </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -931,6 +933,8 @@ exports[`Storyshots ActivityItem full 1`] = `
           <!---->
           <!---->
         </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -981,6 +985,8 @@ exports[`Storyshots ActivityItem join 1`] = `
           </div>
           <!---->
         </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -1029,6 +1035,8 @@ exports[`Storyshots ActivityItem joined 1`] = `
           <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
           <!---->
         </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -1074,6 +1082,8 @@ exports[`Storyshots ActivityItem pending 1`] = `
           <!---->
           <!---->
         </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -1123,6 +1133,8 @@ exports[`Storyshots ActivityItem started 1`] = `
           <!---->
           <!---->
         </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -1182,6 +1194,8 @@ exports[`Storyshots ActivityList Default 1`] = `
                 <!---->
               </div>
             </div>
+            <!---->
+            <!---->
           </div>
         </div>
       </div>
@@ -1220,6 +1234,8 @@ exports[`Storyshots ActivityList Default 1`] = `
                 <!---->
               </div>
             </div>
+            <!---->
+            <!---->
           </div>
         </div>
       </div>
@@ -1258,6 +1274,8 @@ exports[`Storyshots ActivityList Default 1`] = `
                 <!---->
               </div>
             </div>
+            <!---->
+            <!---->
           </div>
         </div>
       </div>
@@ -1296,6 +1314,8 @@ exports[`Storyshots ActivityList Default 1`] = `
                 <!---->
               </div>
             </div>
+            <!---->
+            <!---->
           </div>
         </div>
       </div>
@@ -1334,6 +1354,8 @@ exports[`Storyshots ActivityList Default 1`] = `
                 <!---->
               </div>
             </div>
+            <!---->
+            <!---->
           </div>
         </div>
       </div>
@@ -1443,7 +1465,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>How many people should participate in the activity?</div>
+              <div>How many people should participate?</div>
             </div>
           </transition-stub>
         </div>
@@ -1459,7 +1481,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>What should people know when signing up to this activity?</div>
+              <div>What should people know when signing up to this?</div>
             </div>
           </transition-stub>
         </div>
@@ -1595,7 +1617,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule with duration 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>How many people should participate in the activity?</div>
+              <div>How many people should participate?</div>
             </div>
           </transition-stub>
         </div>
@@ -1611,7 +1633,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule with duration 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>What should people know when signing up to this activity?</div>
+              <div>What should people know when signing up to this?</div>
             </div>
           </transition-stub>
         </div>
@@ -1696,7 +1718,7 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
       </label>
       <div class="q-ml-lg col-12 q-field__bottom">
         <div>
-          When should the activity take place?
+          When should it take place?
         </div>
       </div>
     </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--multiple q-field--standard q-field--float q-field--labeled q-field--with-bottom">
@@ -1715,7 +1737,7 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>On which days should the activity take place?</div>
+              <div>On which days should it take place?</div>
             </div>
           </transition-stub>
         </div>
@@ -1747,7 +1769,7 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>How many people should participate in the activity?</div>
+              <div>How many people should participate?</div>
             </div>
           </transition-stub>
         </div>
@@ -1763,7 +1785,7 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>What should people know when signing up to this activity?</div>
+              <div>What should people know when signing up to this?</div>
             </div>
           </transition-stub>
         </div>
@@ -1855,7 +1877,7 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>On which days should the activity take place?</div>
+              <div>On which days should it take place?</div>
             </div>
           </transition-stub>
         </div>
@@ -1887,7 +1909,7 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>How many people should participate in the activity?</div>
+              <div>How many people should participate?</div>
             </div>
           </transition-stub>
         </div>
@@ -1903,7 +1925,7 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>What should people know when signing up to this activity?</div>
+              <div>What should people know when signing up to this?</div>
             </div>
           </transition-stub>
         </div>
@@ -1975,7 +1997,7 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
       <!---->
       <div class="q-ml-lg col-12 q-field__bottom">
         <div>
-          When should the activity take place?
+          When should it take place?
         </div>
       </div>
     </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--multiple q-field--standard q-field--float q-field--labeled q-field--with-bottom">
@@ -1994,7 +2016,7 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>On which days should the activity take place?</div>
+              <div>On which days should it take place?</div>
             </div>
           </transition-stub>
         </div>
@@ -2026,7 +2048,7 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>How many people should participate in the activity?</div>
+              <div>How many people should participate?</div>
             </div>
           </transition-stub>
         </div>
@@ -2042,7 +2064,7 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
         <div class="q-field__bottom row items-start q-field__bottom--animated">
           <transition-stub name="q-transition--field-message">
             <div class="q-field__messages col">
-              <div>What should people know when signing up to this activity?</div>
+              <div>What should people know when signing up to this?</div>
             </div>
           </transition-stub>
         </div>

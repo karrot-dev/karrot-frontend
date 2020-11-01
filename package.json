@@ -56,7 +56,7 @@
     "leaflet": "^1.7.1",
     "lodash.debounce": "^4.0.8",
     "loglevel": "^1.7.0",
-    "markdown-it": "^11.0.1",
+    "markdown-it": "^12.0.2",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-link-attributes": "^3.0.0",
     "quasar": "^1.14.1",

@@ -10265,9 +10265,7 @@ exports[`Storyshots Sidenav Group 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         Activities
       </div>
-      <div class="q-item__section column q-item__section--side justify-center">
-        <div role="alert" aria-label="updated" title="These used to be called Pickups" class="q-pa-xs q-badge flex inline items-center no-wrap q-badge--single-line bg-blue">updated</div>
-      </div>
+      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="These used to be called Pickups" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round text-green q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-question-circle q-icon notranslate"> </i><!----></span></span></button></div>
       <!---->
     </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>

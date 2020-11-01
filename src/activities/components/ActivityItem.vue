@@ -11,9 +11,7 @@
         <div>
           <QIcon
             v-if="activity.activityType"
-            :name="activity.activityType.icon"
-            :color="activity.activityType.colorName"
-            :title="activity.activityType.name"
+            v-bind="activity.activityType.iconProps"
             size="xs"
             class="q-pr-xs"
             style="position: relative; bottom: 4px;"

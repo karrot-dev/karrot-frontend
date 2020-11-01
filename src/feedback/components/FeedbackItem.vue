@@ -6,9 +6,7 @@
           <div class="row no-wrap items-baseline q-gutter-sm">
             <template v-if="activityType">
               <QIcon
-                :name="activityType.icon"
-                :color="activityType.colorName"
-                :title="activityType.name"
+                v-bind="activityType.iconProps"
               />
               <span>{{ activityType.name }}</span>
             </template>

@@ -19,8 +19,7 @@
     >
       <h3 v-if="activityType && isNew">
         <QIcon
-          :color="activityType.colorName"
-          :name="activityType.icon"
+          v-bind="activityType.iconProps"
           class="q-pr-sm"
         />
         {{ activityType.name }}

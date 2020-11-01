@@ -51,9 +51,7 @@
             <QItemSection side>
               <QIcon
                 v-if="series.activityType"
-                :name="series.activityType.icon"
-                :color="series.activityType.colorName"
-                :title="series.activityType.name"
+                v-bind="series.activityType.iconProps"
               />
             </QItemSection>
             <QItemSection>
@@ -92,9 +90,7 @@
                 <QItemSection side>
                   <QIcon
                     v-if="activity.activityType"
-                    :name="activity.activityType.icon"
-                    :color="activity.activityType.colorName"
-                    :title="activity.activityType.name"
+                    v-bind="activity.activityType.iconProps"
                   />
                 </QItemSection>
                 <QItemSection>
@@ -209,9 +205,7 @@
             <QItemSection side>
               <QIcon
                 v-if="activity.activityType"
-                :name="activity.activityType.icon"
-                :color="activity.activityType.colorName"
-                :title="activity.activityType.name"
+                v-bind="activity.activityType.iconProps"
               />
             </QItemSection>
             <QItemSection>

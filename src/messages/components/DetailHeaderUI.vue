@@ -16,7 +16,7 @@
             v-if="!$q.platform.is.mobile && activity.activityType"
           >
             <QIcon
-              :name="activity.activityType.icon"
+              v-bind="activity.activityType.iconProps"
               color="white"
               size="xs"
               class="q-pr-sm"

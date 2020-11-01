@@ -42,10 +42,7 @@
                     v-on="itemEvents"
                   >
                     <QItemSection avatar>
-                      <QIcon
-                        :name="activity.activityType.icon"
-                        :title="activity.activityType.name"
-                      />
+                      <QIcon v-bind="activity.activityType.iconProps" />
                     </QItemSection>
                     <QItemSection>{{ getDateWithPlace(activity) }}</QItemSection>
                   </QItem>

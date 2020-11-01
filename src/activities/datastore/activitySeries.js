@@ -32,11 +32,13 @@ export default {
 
       const firstDate = activities.length > 0 && activities[0].date
       const isSame = lookup => activities.every(p => p.date[lookup]() === firstDate[lookup]())
-      const similarities = firstDate ? {
-        isSameWeekday: isSame('getDay'),
-        isSameHour: isSame('getHours'),
-        isSameMinute: isSame('getMinutes'),
-      } : {}
+      const similarities = firstDate
+        ? {
+            isSameWeekday: isSame('getDay'),
+            isSameHour: isSame('getHours'),
+            isSameMinute: isSame('getMinutes'),
+          }
+        : {}
 
       return {
         ...entry,

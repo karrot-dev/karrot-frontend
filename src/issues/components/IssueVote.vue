@@ -207,8 +207,6 @@ export default {
     getLabel (score) {
       const getTranslationId = () => {
         switch (score) {
-          default:
-            return 'NEUTRAL'
           case 1:
             return 'SLIGHT_SUPPORT'
           case 2:
@@ -217,6 +215,8 @@ export default {
             return 'SLIGHT_RESISTANCE'
           case -2:
             return 'STRONG_RESISTANCE'
+          default:
+            return 'NEUTRAL'
         }
       }
       return this.$t(`ISSUE.VOTING.SCORE_LABELS.${getTranslationId()}`)

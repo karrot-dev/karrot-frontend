@@ -66,12 +66,13 @@ export function createMetaModule () {
 
         // enrich with a shortcut to first error message, if any
         function firstError (errList) {
-          for (const value of errList) {
-            if (typeof value === 'string') {
-              return value
-            }
-            return value[0]
+          if (!errList || !Array.isArray(errList) || errList.length < 1) return
+          const value = errList[0]
+
+          if (typeof value === 'string') {
+            return value
           }
+          return value[0]
         }
         const firstValidationError = firstError(Object.values(composed.validationErrors))
         const firstNonFieldError = firstError([

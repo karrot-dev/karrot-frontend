@@ -101,7 +101,7 @@ jobs:
               --runInBand \
               --reporters=default \
               --reporters=jest-junit
-      - run: bash <(curl -s https://codecov.io/bash)
+      - run: bash <(curl -s https://codecov.io/bash) || true
       - store_test_results:
           path: test-reports
       - store_artifacts:

@@ -141,10 +141,12 @@ export default {
   },
   data () {
     return {
-      message: this.value ? { ...this.value } : {
-        content: fetchDraft(this.draftKey, ''),
-        images: [],
-      },
+      message: this.value
+        ? { ...this.value }
+        : {
+            content: fetchDraft(this.draftKey, ''),
+            images: [],
+          },
       hasFocus: false,
       showImages: this.value && this.value.images.length > 0,
     }

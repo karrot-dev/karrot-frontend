@@ -225,13 +225,13 @@ export default {
     setNotifications (value) {
       const data = (this.conversation.thread && this.conversation.threadMeta)
         ? {
-          threadId: this.conversation.thread,
-          value,
-        }
+            threadId: this.conversation.thread,
+            value,
+          }
         : {
-          conversationId: this.conversation.id,
-          value,
-        }
+            conversationId: this.conversation.id,
+            value,
+          }
       this.$emit('save-conversation', data)
     },
     applicationInfo () {

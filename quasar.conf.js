@@ -252,42 +252,44 @@ module.exports = configure(function (ctx) {
         orientation: 'portrait',
         background_color: '#ffffff',
         theme_color: '#4a3520',
-        icons: process.env.KARROT_THEME === 'dev' ? [
-          {
-            src: 'icons/dev.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
-          {
-            src: 'icons/dev.svg',
-          },
-        ] : [
-          {
-            src: 'icons/icon-128x128.png',
-            sizes: '128x128',
-            type: 'image/png',
-          },
-          {
-            src: 'icons/icon-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
-          {
-            src: 'icons/icon-256x256.png',
-            sizes: '256x256',
-            type: 'image/png',
-          },
-          {
-            src: 'icons/icon-384x384.png',
-            sizes: '384x384',
-            type: 'image/png',
-          },
-          {
-            src: 'icons/icon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
-        ],
+        icons: process.env.KARROT_THEME === 'dev'
+          ? [
+              {
+                src: 'icons/dev.png',
+                sizes: '512x512',
+                type: 'image/png',
+              },
+              {
+                src: 'icons/dev.svg',
+              },
+            ]
+          : [
+              {
+                src: 'icons/icon-128x128.png',
+                sizes: '128x128',
+                type: 'image/png',
+              },
+              {
+                src: 'icons/icon-192x192.png',
+                sizes: '192x192',
+                type: 'image/png',
+              },
+              {
+                src: 'icons/icon-256x256.png',
+                sizes: '256x256',
+                type: 'image/png',
+              },
+              {
+                src: 'icons/icon-384x384.png',
+                sizes: '384x384',
+                type: 'image/png',
+              },
+              {
+                src: 'icons/icon-512x512.png',
+                sizes: '512x512',
+                type: 'image/png',
+              },
+            ],
       },
     },
 

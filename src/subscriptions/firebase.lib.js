@@ -1,3 +1,5 @@
 import 'firebase/messaging'
-import { initializeApp, messaging } from 'firebase/app'
+import firebase from 'firebase/app'
+
+const { initializeApp, messaging } = firebase
 export { initializeApp, messaging }

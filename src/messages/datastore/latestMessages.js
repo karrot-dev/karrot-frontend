@@ -63,9 +63,9 @@ export default {
       const enrichMessage = rootGetters['conversations/enrichMessage']
 
       return Object.values(state.threads)
+        .filter(thread => thread)
         .map(enrichMessage)
         .map(thread => {
-          if (!thread) return
           return {
             ...thread,
             latestMessage: enrichMessage(getFirst(state.threadMessages[thread.id])),

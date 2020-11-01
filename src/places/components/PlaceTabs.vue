@@ -67,16 +67,18 @@ export default {
           to: { name: 'placeHistory', params },
           label: this.$t('GROUP.HISTORY'),
         },
-        ...(this.isEditor ? [
-          {
-            to: { name: 'placeActivitiesManage', params },
-            label: this.$t('ACTIVITYMANAGE.TITLE'),
-          },
-          {
-            to: { name: 'placeEdit', params },
-            label: this.$t('STOREDETAIL.EDIT'),
-          },
-        ] : []),
+        ...(this.isEditor
+          ? [
+              {
+                to: { name: 'placeActivitiesManage', params },
+                label: this.$t('ACTIVITYMANAGE.TITLE'),
+              },
+              {
+                to: { name: 'placeEdit', params },
+                label: this.$t('STOREDETAIL.EDIT'),
+              },
+            ]
+          : []),
       ]
     },
   },

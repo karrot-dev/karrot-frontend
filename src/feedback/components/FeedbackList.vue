@@ -7,7 +7,7 @@
     <KSpinner v-show="isPending || (feedbackPossibleStatus && feedbackPossibleStatus.pending)" />
     <KNotice v-if="empty">
       <template #icon>
-        <i :class="$icon('feedback')" />
+        <QIcon :class="$icon('feedback')" />
       </template>
       {{ $t('FEEDBACKLIST.NONE') }}
       <template #desc>
@@ -37,7 +37,7 @@
 import FeedbackItem from './FeedbackItem'
 import statusMixin from '@/utils/mixins/statusMixin'
 import paginationMixin from '@/utils/mixins/paginationMixin'
-import { QInfiniteScroll } from 'quasar'
+import { QInfiniteScroll, QIcon } from 'quasar'
 import KNotice from '@/utils/components/KNotice'
 import KSpinner from '@/utils/components/KSpinner'
 import FeedbackNotice from '@/group/components/FeedbackNotice'
@@ -45,6 +45,7 @@ import FeedbackNotice from '@/group/components/FeedbackNotice'
 export default {
   components: {
     QInfiniteScroll,
+    QIcon,
     FeedbackItem,
     KNotice,
     FeedbackNotice,

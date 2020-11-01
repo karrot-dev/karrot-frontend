@@ -86,7 +86,7 @@
     </QCard>
     <KNotice v-else>
       <template #icon>
-        <i class="fas fa-bed" />
+        <QIcon class="fas fa-bed" />
       </template>
       {{ $t('FEEDBACKLIST.NO_DONE_ACTIVITIES') }}
       <template #desc>

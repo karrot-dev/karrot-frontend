@@ -13,7 +13,7 @@
     <template v-if="hasNoActivities">
       <KNotice>
         <template #icon>
-          <i class="fas fa-bed" />
+          <QIcon class="fas fa-bed" />
         </template>
         {{ $t('ACTIVITYLIST.NONE') }}
         <template #desc>
@@ -39,6 +39,7 @@
 <script>
 import {
   QCard,
+  QIcon,
   QCardSection,
 } from 'quasar'
 
@@ -51,6 +52,7 @@ import PlaceList from '@/places/components/PlaceList'
 export default {
   components: {
     QCard,
+    QIcon,
     QCardSection,
     ActivityList,
     KNotice,

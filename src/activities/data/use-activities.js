@@ -1,8 +1,24 @@
 /* eslint-disable no-unused-vars */
-import { computed, inject, provide, reactive, shallowReadonly, watch, watchEffect } from '@vue/composition-api'
+import {
+  computed,
+  inject, markRaw, onUnmounted,
+  provide,
+  reactive, shallowReactive,
+  shallowReadonly,
+  shallowRef,
+  ref,
+  watch,
+  watchEffect,
+  unref,
+} from '@vue/composition-api'
+import deepEqual from 'deep-equal'
 import activitiesAPI from '@/activities/api/activities'
+import differenceInSeconds from 'date-fns/differenceInSeconds'
 import { indexById } from '@/utils/datastore/helpers'
-import { withStatus, createActionStatus } from '@/activities/data/action-status'
+import { withStatus, createStatus } from '@/activities/data/action-status'
+import reactiveNow from '@/utils/reactiveNow'
+import { socketEvents } from '@/boot/socket'
+import { useSocket } from '@/activities/data/use-socket'
 
 const api = {
   activities: activitiesAPI,
@@ -18,68 +34,117 @@ export function useGlobalActivities () {
   return inject(injectionKey)
 }
 
-export function useActivities ({ groupId }) {
-  const defaultState = () => ({
-    entries: {},
-  })
+export function useEnrichedActivities ({ activities, authUserId, getUser, enrichUser }) {
+  function enrichActivity (activity) {
+    return {
+      ...activity,
+      isUserMember: activity.participants.includes(unref(authUserId)),
+      isEmpty: activity.participants.length === 0,
+      isFull: activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants,
+      participants: activity.participants.map(getUser).map(enrichUser),
+      // this causes recalculation on every reactiveNow change... maybe should computed it closer to the component?
+      hasStarted: activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
+      // hasStarted: false,
+      // TODO: these would go away...
+      joinStatus: {
+        pending: false,
+      },
+      leaveStatus: {
+        pending: false,
+      },
+    }
+  }
+  return {
+    enrichedActivities: computed(() => unref(activities).map(enrichActivity)),
+  }
+}
 
+export function useActivities ({
+  // a value or a ref specifying the group id
+  groupId,
+}) {
   // state
 
-  const state = reactive(defaultState())
-  const status = reactive(createActionStatus())
+  const entries = ref({})
+  const status = reactive(createStatus())
 
   // getters
 
-  const activityIds = computed(() => Object.keys(state.entries).map(id => parseInt(id)))
-  const activities = computed(() => activityIds.value.map(id => state.entries[id]))
+  const activities = computed(() => Object.keys(unref(entries)).map(id => unref(entries)[id]))
 
-  watch(() => groupId.value, (value, oldValue, onInvalidate) => {
-    console.log('WE groupid is', value)
+  // fetching
+
+  watch(() => unref(groupId), (value, oldValue, onInvalidate) => {
+    let invalid = false
     if (value) {
       withStatus(status, async () => {
-        console.log('requesting!', value)
-        const { results, next } = await api.activities.listByGroupId(value)
-        update(results)
+        const { results, next } = await api.activities.listByGroupId(unref(groupId))
+        if (!invalid) {
+          update(results)
+        }
       })
     }
     onInvalidate(() => {
-      console.log('on invalidate! .. reset! val was', value)
+      invalid = true
       reset()
     })
   }, { immediate: true })
 
   // websocket updates
 
-  on('activity:update', activity => {
-    if (state[activity.id]) {
-      // etc... whatever logic
+  const { on } = useSocket()
+
+  on('activities:activity', activity => {
+    if (unref(entries)[activity.id]) {
+      update([activity])
     }
   })
+
+  function checkValid (fn) {
+    const initialValue = fn()
+    return () => deepEqual(initialValue, fn())
+  }
+
+  // actions
+
+  // just a play/example really...
+  async function refreshIfStale () {
+    if (status.finishedAt && status.finishedAt) {
+      if (differenceInSeconds(new Date(), status.finishedAt) > 5) {
+        console.log('data is more than 5 seconds old! refreshing')
+        // TODO: woudl need an invalidation method here too
+        const valid = checkValid(() => unref(groupId))
+        const { results, next } = await api.activities.listByGroupId(unref(groupId))
+        if (valid()) {
+          update(results)
+          status.finishedAt = new Date()
+        }
+      }
+    }
+  }
 
   // utilities
 
   function update (activities) {
-    state.entries = Object.freeze({ ...state.entries, ...indexById(activities) })
-    console.log('updated entries', state.entries)
+    entries.value = { ...unref(entries), ...indexById(activities.map(markRaw)) }
   }
 
   function reset () {
-    Object.assign(state, defaultState())
+    entries.value = {}
+    Object.assign(status, createStatus())
   }
 
   return {
     // getters
-    activityIds,
+
     activities,
     status: shallowReadonly(status),
 
+    // actions
+    refreshIfStale,
+
     // utilities
+
     reset,
   }
-}
-
-// stuff that would be libary functions
-
-function on (topic, fn) {
-  // .dummy
 }

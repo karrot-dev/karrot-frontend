@@ -1,6 +1,3 @@
-// action statuses
-// eslint-disable-next-line no-unused-vars
-import { shallowReactive, toRefs } from '@vue/composition-api'
 import { isNetworkError, isServerError, isValidationError } from '@/utils/datastore/helpers'
 
 const INITIAL = 'INITIAL'
@@ -12,7 +9,7 @@ const SERVER_ERROR = 'SERVER_ERROR'
 const NETWORK_ERROR = 'NETWORK_ERROR'
 const UNHANDLED_ERROR = 'UNHANDLED_ERROR'
 
-export function createActionStatus () {
+export function createStatus () {
   return {
     state: INITIAL,
     pending: false,
@@ -25,19 +22,19 @@ export function createActionStatus () {
     aborted: false,
     unhandledError: null,
     result: null,
+    promise: null,
   }
 }
 
 export function withStatus (res, fn) {
-  // const res = shallowReactive(initialActionStatus())
-
   Object.assign(res, {
+    ...createStatus(), // reset it incase it's an old one...
     state: PENDING,
     pending: true,
     startedAt: new Date(),
   })
 
-  Promise.resolve(fn.apply(arguments)).then(result => {
+  res.promise = Promise.resolve(fn.apply(arguments)).then(result => {
     Object.assign(res, {
       result,
       finishedAt: new Date(),

@@ -1,8 +1,10 @@
 import { isNetworkError } from '@/utils/datastore/helpers'
 
-export default async function ({ store: datastore }) {
+export default async function ({ app, store: datastore }) {
   await datastore.dispatch('auth/refresh')
   datastore.dispatch('groups/fetch')
+
+  console.log('app', app)
 
   async function fetchCommunityFeed () {
     try {

@@ -10,13 +10,13 @@ export function useGlobalFoo () {
   return inject(key)
 }
 
-export function useFoo () {
+export function useCurrentGroup () {
   const groupId = ref(undefined)
-  function setGroupId (id) {
+  function setCurrentGroupId (id) {
     groupId.value = id
   }
   return {
-    groupId: shallowReadonly(groupId),
-    setGroupId,
+    currentGroupId: shallowReadonly(groupId),
+    setCurrentGroupId,
   }
 }

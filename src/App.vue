@@ -19,38 +19,30 @@
  */
 import LoadingProgress from '@/topbar/components/LoadingProgress'
 import { provideGlobalActivities, useActivities } from '@/activities/data/use-activities'
-import { provideGlobalFoo, useFoo } from '@/activities/data/use-foo'
+import { provideGlobalAuthUser, useAuthUser } from '@/activities/data/useAuthUser'
+import { watch } from '@vue/composition-api'
+import { provideGlobalUsers, useUsers } from '@/activities/data/use-users'
+import { useCurrentGroup } from '@/activities/data/useCurrentGroup'
 
 export default {
   components: {
     LoadingProgress,
   },
-  setup () {
-    console.log('App setup!')
-    const foo = useFoo()
-    provideGlobalFoo(foo)
-    const { groupId, setGroupId } = foo
-    provideGlobalActivities(useActivities({ groupId }))
-    return {
-      setGroupId,
-    }
+  setup (props, { root }) {
+    const { currentGroupId, setCurrentGroupId } = useCurrentGroup()
+    const authUser = useAuthUser()
+    const { setAuthUserId } = authUser
+    provideGlobalAuthUser(authUser)
+    provideGlobalUsers(useUsers())
+    provideGlobalActivities(useActivities({ groupId: currentGroupId }))
+    watch(() => root.$store.getters['auth/userId'], id => setAuthUserId(id), { immediate: true })
+    watch(() => root.$store.getters['currentGroup/id'], id => setCurrentGroupId(id), { immediate: true })
   },
   computed: {
     hasView () {
       const firstMatched = this.$route.matched.length > 0 && this.$route.matched[0]
       if (!firstMatched) return
       return Boolean(firstMatched.components.default)
-    },
-  },
-  watch: {
-    // TODO: in next version of vue router there is composition-api hooks
-    //  see https://next.router.vuejs.org/guide/advanced/composition-api.html#accessing-the-router-and-current-route-inside-setup
-    '$route.params.groupId': {
-      handler (groupId) {
-        console.log('setting group id to', groupId)
-        this.setGroupId(groupId)
-      },
-      immediate: true,
     },
   },
 }

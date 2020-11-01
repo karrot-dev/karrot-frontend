@@ -46,8 +46,10 @@ import { mapGetters, mapActions } from 'vuex'
 import ActivityList from '@/activities/components/ActivityList'
 import KNotice from '@/utils/components/KNotice'
 import PlaceList from '@/places/components/PlaceList'
-import { useGlobalActivities } from '@/activities/data/use-activities'
-import { watchEffect } from '@vue/composition-api'
+import { useEnrichedActivities, useGlobalActivities } from '@/activities/data/use-activities'
+import { watchEffect, unref } from '@vue/composition-api'
+import { useGlobalAuthUser } from '@/activities/data/useAuthUser'
+import { useEnrichedUsers, useGlobalUsers } from '@/activities/data/use-users'
 
 export default {
   components: {
@@ -58,25 +60,37 @@ export default {
     PlaceList,
   },
   setup () {
-    const { activities, activityIds, status } = useGlobalActivities()
+    const { authUserId } = useGlobalAuthUser()
+    const { getUser } = useGlobalUsers()
+    const { activities, status, refreshIfStale } = useGlobalActivities()
+    const { enrichUser } = useEnrichedUsers({ authUserId })
+    const { enrichedActivities } = useEnrichedActivities({ activities, authUserId, getUser, enrichUser })
+    refreshIfStale()
     watchEffect(() => {
-      console.log('FOO activityIds are', activityIds.value)
+      console.log('rawActivities are', unref(activities))
+    })
+    watchEffect(() => {
+      console.log('enriched activities are', unref(enrichedActivities))
     })
     watchEffect(() => {
       const { state, startedAt, finishedAt } = status
       console.log('yay status of activities is', state, startedAt, finishedAt)
     })
     return {
-      activities2: activities,
+      activities: enrichedActivities,
+      status,
     }
   },
   computed: {
     ...mapGetters({
       groupId: 'currentGroup/id',
-      activities: 'activities/byCurrentGroup',
-      pending: 'activities/fetchingForCurrentGroup',
+      // activities: 'activities/byCurrentGroup',
+      // pending: 'activities/fetchingForCurrentGroup',
       places: 'places/byCurrentGroup',
     }),
+    pending () {
+      return this.status.pending
+    },
     hasNoActivities () {
       if (this.pending) return false
       return this.activities && this.activities.length === 0

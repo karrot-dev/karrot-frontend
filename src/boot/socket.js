@@ -1,5 +1,6 @@
 import ReconnectingWebsocket from 'reconnecting-websocket'
 import { debounce, AppVisibility } from 'quasar'
+import Vue from 'vue'
 
 import log from '@/utils/log'
 import auth from '@/authuser/api/auth'
@@ -18,6 +19,8 @@ import { convert as convertIssue } from '@/issues/api/issues'
 import { convert as convertOffer } from '@/offers/api/offers'
 import { convert as convertGroup } from '@/group/api/groups'
 import { convert as convertNotification, convertMeta as convertNotificationMeta } from '@/notifications/api/notifications'
+
+export const socketEvents = new Vue()
 
 export default async function ({ store: datastore }) {
   let WEBSOCKET_ENDPOINT
@@ -211,7 +214,9 @@ export default async function ({ store: datastore }) {
       datastore.dispatch('places/update', [camelizeKeys(payload)])
     }
     else if (topic === 'activities:activity') {
-      datastore.commit('activities/update', [convertActivity(camelizeKeys(payload))])
+      const activity = convertActivity(camelizeKeys(payload))
+      socketEvents.$emit(topic, activity)
+      datastore.commit('activities/update', [activity])
     }
     else if (topic === 'activities:activity_deleted') {
       datastore.commit('activities/delete', convertActivity(camelizeKeys(payload)).id)

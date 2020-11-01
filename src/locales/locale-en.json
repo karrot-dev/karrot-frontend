@@ -87,7 +87,7 @@
       "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
       "LEAVE": "Leave",
       "LEAVE_CONFIRMATION_HEADER": "Leave Activity",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do the activity without you?"
+      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?"
     },
     "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
     "NONE": "No upcoming activities",
@@ -97,7 +97,7 @@
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
-    "ACTIVITY_DOES_NOT_MATCH": "This activity date doesn't match the recurrence pattern",
+    "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed",
     "SERIES": "Recurring activities",
     "SINGLE": "One-time activities",
@@ -114,7 +114,7 @@
     "PREVIOUS": "Previous feedback for {store}",
     "SET_AMOUNT": "Set amount",
     "TITLE": "Feedback",
-    "TOGETHER_WITH": "You did this activity together with:"
+    "TOGETHER_WITH": "You did this together with:"
   },
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Meeting",
@@ -263,7 +263,7 @@
   },
   "CREATEACTIVITY": {
     "COMMENT": "Additional information",
-    "COMMENT_HELPER": "What should people know when signing up to this activity?",
+    "COMMENT_HELPER": "What should people know when signing up to this?",
     "CUSTOM": "Custom",
     "DATE": "Date",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
@@ -274,17 +274,17 @@
     "EXCEPTIONS_TITLE": "Check your activities",
     "FREQUENCY": "Frequency",
     "MAX_PARTICIPANTS": "Max Slots",
-    "MAX_PARTICIPANTS_HELPER": "How many people should participate in the activity?",
+    "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
     "RRULE": "Recurrence rule",
     "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
     "RRULE_EXAMPLE2": "every second Monday",
     "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
     "RRULE_HELPER_URL": "iCalender rule",
     "STARTDATE_HELPER": "When should the series start?",
-    "TIME_HELPER": "When should the activity take place?",
+    "TIME_HELPER": "When should it take place?",
     "UNLIMITED": "unlimited",
     "WEEKDAYS": "Weekdays",
-    "WEEKDAYS_HELPER": "On which days should the activity take place?",
+    "WEEKDAYS_HELPER": "On which days should it take place?",
     "WEEKLY": "Weekly"
   },
   "CREATESTORE": {

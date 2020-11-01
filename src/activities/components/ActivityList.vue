@@ -50,14 +50,22 @@
     </div>
     <KSpinner v-show="pending" />
     <div
-      v-if="!pending && filteredActivities.length === 0"
+      v-if="!pending && noActivitiesDueToFilters"
       class="q-pa-md"
     >
-      <QBanner class="bg-secondary text-white">
-        <h4 class="q-ma-xs">
-          {{ $t('ACTIVITYLIST.NONE') }}
-        </h4>
-        <p>{{ $t('ACTIVITYLIST.NONE_HINT') }}</p>
+      <QBanner
+        class="bg-white"
+        inline-actions
+      >
+        <template #avatar>
+          <QIcon
+            name="fas fa-info-circle"
+            color="grey"
+          />
+        </template>
+        <h5 class="q-ma-xs">
+          {{ $t('ACTIVITYLIST.NONE_DUE_TO_FILTER') }}
+        </h5>
         <template #action>
           <QBtn
             flat
@@ -197,6 +205,9 @@ export default {
     },
     displayedActivities () {
       return this.filteredActivities.slice(0, this.numDisplayed)
+    },
+    noActivitiesDueToFilters () {
+      return this.activities.length > 0 && this.filteredActivities.length === 0
     },
   },
   watch: {

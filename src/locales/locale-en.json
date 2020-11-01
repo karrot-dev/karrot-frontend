@@ -91,6 +91,7 @@
     },
     "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
     "NONE": "No upcoming activities",
+    "NONE_DUE_TO_FILTER": "No activities match your filters",
     "NONE_HINT": "You can create a new activity on the place page.",
     "STORE_NONE_HINT": "You can create a new activity on the activity manage page."
   },

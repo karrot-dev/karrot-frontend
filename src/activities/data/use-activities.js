@@ -9,7 +9,7 @@ import {
   ref,
   watch,
   watchEffect,
-  unref,
+  unref, onMounted,
 } from '@vue/composition-api'
 import deepEqual from 'deep-equal'
 import activitiesAPI from '@/activities/api/activities'
@@ -17,8 +17,7 @@ import differenceInSeconds from 'date-fns/differenceInSeconds'
 import { indexById } from '@/utils/datastore/helpers'
 import { withStatus, createStatus } from '@/activities/data/action-status'
 import reactiveNow from '@/utils/reactiveNow'
-import { socketEvents } from '@/boot/socket'
-import { useSocket } from '@/activities/data/use-socket'
+import { useEvents } from '@/activities/data/useEvents'
 
 const api = {
   activities: activitiesAPI,
@@ -74,6 +73,16 @@ export function useActivities ({
 
   // fetching
 
+  // just an API concept
+  // status and data would be reactive, maybe data is a ref to whatever is returned?
+  // the first argument is passed into a watch function... and also then as params
+  // const { status, data } = useFetcher(() => ({
+  //   groupId: unref(groupId)
+  // }), async ({ groupId }) => {
+  //   return await api.activities.listByGroupId(unref(groupId))
+  // })
+  // const activities2 = computed(() => Object.keys(unref(data).results).map(id => unref(data).results[id]))
+
   watch(() => unref(groupId), (value, oldValue, onInvalidate) => {
     let invalid = false
     if (value) {
@@ -90,9 +99,13 @@ export function useActivities ({
     })
   }, { immediate: true })
 
+  onUnmounted(() => {
+    reset()
+  })
+
   // websocket updates
 
-  const { on } = useSocket()
+  const { on } = useEvents()
 
   on('activities:activity', activity => {
     if (unref(entries)[activity.id]) {

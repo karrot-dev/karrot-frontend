@@ -83,7 +83,7 @@
     "@storybook/addon-links": "^6.0.26",
     "@storybook/vue": "^6.0.26",
     "@types/jest": "^26.0.14",
-    "@vue/test-utils": "^1.1.0",
+    "@vue/test-utils": "^1.1.1",
     "axios-mock-adapter": "^1.18.2",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^26.5.2",

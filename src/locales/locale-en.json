@@ -121,7 +121,8 @@
     "Pickup": "Pickup",
     "Distribution": "Distribution",
     "Event": "Event",
-    "Activity": "Activity"
+    "Activity": "Activity",
+    "Task": "Task"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "choose location on map",

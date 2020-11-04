@@ -26,23 +26,27 @@ export function createStatus () {
   }
 }
 
+function getNow () {
+  return new Date().getTime()
+}
+
 export function withStatus (res, fn) {
   Object.assign(res, {
     ...createStatus(), // reset it incase it's an old one...
     state: PENDING,
     pending: true,
-    startedAt: new Date(),
+    startedAt: getNow(),
   })
 
   res.promise = Promise.resolve(fn.apply(arguments)).then(result => {
     Object.assign(res, {
       result,
-      finishedAt: new Date(),
+      finishedAt: getNow(),
       pending: false,
       state: SUCCESS,
     })
   }).catch(error => {
-    res.finishedAt = new Date()
+    res.finishedAt = getNow()
     res.pending = false
     if (error.type === 'ActionAborted') {
       console.warn('action aborted!')

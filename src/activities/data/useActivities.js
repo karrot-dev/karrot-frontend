@@ -1,23 +1,6 @@
-/* eslint-disable no-unused-vars */
-import {
-  computed,
-  inject,
-  markRaw,
-  provide,
-  reactive,
-  ref,
-  toRefs,
-  unref,
-  watch,
-  watchEffect,
-} from '@vue/composition-api'
-import deepEqual from 'deep-equal'
 import activitiesAPI from '@/activities/api/activities'
-import differenceInSeconds from 'date-fns/differenceInSeconds'
-import { indexById } from '@/utils/datastore/helpers'
-import { createStatus, withStatus } from '@/activities/data/action-status'
 import { useEvents } from '@/activities/data/useEvents'
-import { onCacheExpired, onCacheMounted, permitCachedUsage, useCached, usingCache } from '@/activities/data/useCached'
+import { permitCachedUsage } from '@/activities/data/useCached'
 import { useCollection } from '@/activities/data/useCollection'
 
 const api = {
@@ -40,8 +23,6 @@ export function useActivities ({ groupId }) {
       }
     }
   }
-
-  // websocket updates
 
   const { on } = useEvents()
 

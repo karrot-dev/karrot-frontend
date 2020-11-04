@@ -11,14 +11,11 @@ import {
   watch,
 } from '@vue/composition-api'
 import deepEqual from 'deep-equal'
-import differenceInSeconds from 'date-fns/differenceInSeconds'
 import { indexById } from '@/utils/datastore/helpers'
 import { createStatus, withStatus } from '@/activities/data/action-status'
-import { onCacheExpired, onCacheMounted, permitCachedUsage } from '@/activities/data/useCached'
+import { onCacheMounted } from '@/activities/data/useCached'
 
 export function useCollection (params, fetcher) {
-  permitCachedUsage()
-
   // state
 
   const entries = ref({})
@@ -34,6 +31,7 @@ export function useCollection (params, fetcher) {
     return Boolean(entries.value[id])
   }
 
+  // only one level...
   function toPlainObject (params) {
     const obj = {}
     for (const key of Object.keys(params)) {
@@ -57,11 +55,6 @@ export function useCollection (params, fetcher) {
     refreshIfStale()
   })
 
-  // onCacheExpired(() => {
-  //   console.log('collection cache expired!')
-  //   reset()
-  // })
-
   function checkValid (fn) {
     const initialValue = fn()
     const isValid = () => deepEqual(initialValue, fn())
@@ -72,13 +65,17 @@ export function useCollection (params, fetcher) {
   // actions
 
   // just a play/example really...
-  const STALE_SECONDS = 9999999 // disable for now
+  const STALE_MS = 10 * 1000
   function refreshIfStale () {
-    if (status.finishedAt && status.finishedAt && !status.pending) {
-      if (differenceInSeconds(new Date(), status.finishedAt) > STALE_SECONDS) {
-        console.log(`data is more than ${STALE_SECONDS} seconds old! refreshing`)
+    if (status.finishedAt && !status.pending) {
+      const now = new Date().getTime()
+      const age = now - status.finishedAt
+      if (age > STALE_MS) {
+        console.log(`data is more than ${STALE_MS}ms (${age}ms) old! refreshing`)
         const isValid = checkValid(() => toPlainObject(params))
-        fetcher(isValid.value, { isValid }).catch(error => {
+        fetcher(isValid.value, { isValid }).then(() => {
+          status.finishedAt = new Date().getTime()
+        }).catch(error => {
           // don't do much with errors, it's only background stuff...
           console.log('error with background refresh', error)
         })

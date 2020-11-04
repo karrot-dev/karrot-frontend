@@ -88,7 +88,7 @@ export function useCache () {
 }
 
 export function createCache (options) {
-  const OLD_MS = 3000
+  const OLD_MS = 30 * 1000
   let cache = {}
   function get (key) {
     const entry = cache[key]

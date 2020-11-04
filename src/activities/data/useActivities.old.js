@@ -4,7 +4,7 @@ import deepEqual from 'deep-equal'
 import activitiesAPI from '@/activities/api/activities'
 import differenceInSeconds from 'date-fns/differenceInSeconds'
 import { indexById } from '@/utils/datastore/helpers'
-import { createStatus, withStatus } from '@/activities/data/action-status'
+import { createStatus, withStatus } from '@/activities/data/actionStatus'
 import { useEvents } from '@/activities/data/useEvents'
 import { onCacheExpired, onCacheMounted, permitCachedUsage, useCached } from '@/activities/data/useCached'
 

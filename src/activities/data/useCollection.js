@@ -12,7 +12,7 @@ import {
 } from '@vue/composition-api'
 import deepEqual from 'deep-equal'
 import { indexById } from '@/utils/datastore/helpers'
-import { createStatus, withStatus } from '@/activities/data/action-status'
+import { createStatus, withStatus } from '@/activities/data/actionStatus'
 import { onCacheMounted } from '@/activities/data/useCached'
 
 export function useCollection (params, fetcher) {
@@ -27,7 +27,7 @@ export function useCollection (params, fetcher) {
 
   // helpers
 
-  function hasId (id) {
+  function getById (id) {
     return Boolean(entries.value[id])
   }
 
@@ -90,7 +90,6 @@ export function useCollection (params, fetcher) {
   }
 
   function reset () {
-    console.log('resetting collection')
     entries.value = {}
     Object.assign(status, createStatus())
 
@@ -102,9 +101,9 @@ export function useCollection (params, fetcher) {
     status: toRefs(status),
 
     // helpers
-    hasId,
+    getById,
 
-    // actions
+    // methods
     update,
   }
 }

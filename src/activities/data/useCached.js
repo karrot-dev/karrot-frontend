@@ -140,7 +140,7 @@ export function createCache (options) {
   }
 }
 
-function initialCaptured () {
+function resetHooks () {
   return {
     callbacks: {
       onCacheMounted: [],
@@ -150,10 +150,10 @@ function initialCaptured () {
   }
 }
 
-let captured = initialCaptured()
+let hooks = resetHooks()
 
 export function permitCachedUsage () {
-  captured.permitCachedUsage = true
+  hooks.permitCachedUsage = true
 }
 
 let isUsingCache = false
@@ -164,7 +164,7 @@ export function usingCache () {
 
 export function onCacheMounted (callback) {
   if (usingCache()) {
-    captured.callbacks.onCacheMounted.push(callback)
+    hooks.callbacks.onCacheMounted.push(callback)
   }
   else {
     onMounted(callback)
@@ -173,7 +173,7 @@ export function onCacheMounted (callback) {
 
 export function onCacheUnmounted (callback) {
   if (usingCache()) {
-    captured.callbacks.onCacheUnmounted.push(callback)
+    hooks.callbacks.onCacheUnmounted.push(callback)
   }
   else {
     onUnmounted(callback)
@@ -182,7 +182,7 @@ export function onCacheUnmounted (callback) {
 
 export function onCacheExpired (callback) {
   if (usingCache()) {
-    captured.callbacks.onCacheExpired.push(callback)
+    hooks.callbacks.onCacheExpired.push(callback)
   }
   else {
     onUnmounted(callback)
@@ -197,19 +197,19 @@ export function useCached (cacheKey, initializeCache) {
     try {
       const value = runInContext(() => initializeCache())
 
-      if (!captured.permitCachedUsage) {
+      if (!hooks.permitCachedUsage) {
         throw new Error('You did not call permitCachedUsage() inside a function that was cached. This is just to make you aware that it might need to support cached usage.')
       }
       item = {
         value,
         active: true,
-        ...captured.callbacks,
+        ...hooks.callbacks,
       }
       cache.set(cacheKey, item)
     }
     finally {
       isUsingCache = false
-      captured = initialCaptured()
+      hooks = resetHooks()
     }
   }
 

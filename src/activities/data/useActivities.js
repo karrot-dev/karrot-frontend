@@ -3,7 +3,7 @@ import { useEvents } from '@/activities/data/useEvents'
 import { permitCachedUsage } from '@/activities/data/useCached'
 import { useCollection } from '@/activities/data/useCollection'
 
-export function useActivities ({ groupId }) {
+export function useActivities ({ groupId, userId }) {
   permitCachedUsage()
 
   const { collection: activities, update, getById, status } = useCollection({ groupId }, fetcher)
@@ -29,8 +29,20 @@ export function useActivities ({ groupId }) {
     }
   })
 
+  // actions
+
+  function join () {
+    // TODO implement these, an decide whether to pass the user id in or not... :) oh also the activity id :)
+  }
+
+  function leave () {
+
+  }
+
   return {
     activities,
     status,
+    join,
+    leave,
   }
 }

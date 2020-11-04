@@ -67,7 +67,7 @@ export default {
     const { getUser, currentGroupId, authUserId } = useGlobal()
     const { activities, status } = useCached(
       'groupActivities',
-      () => useActivities({ groupId: currentGroupId }),
+      () => useActivities({ groupId: currentGroupId, userId: authUserId }),
     )
     // const { activities, status } = useActivities({ groupId: currentGroupId })
     const { upcomingAndStarted } = useEnrichedActivities({ activities, authUserId, getUser })

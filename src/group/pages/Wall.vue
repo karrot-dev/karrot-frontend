@@ -68,7 +68,7 @@ export default {
 
     const { activities, status } = useCached(
       'groupActivities',
-      () => useActivities({ groupId: currentGroupId }),
+      () => useActivities({ groupId: currentGroupId, userId: authUserId }),
     )
 
     // const { activities, status } = useActivities({ groupId: currentGroupId })

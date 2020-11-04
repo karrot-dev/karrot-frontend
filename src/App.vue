@@ -18,26 +18,28 @@
  * Root component
  */
 import LoadingProgress from '@/topbar/components/LoadingProgress'
-import { provideGlobalActivities, useActivities } from '@/activities/data/use-activities'
 import { provideGlobalAuthUser, useAuthUser } from '@/activities/data/useAuthUser'
-import { watch } from '@vue/composition-api'
-import { provideGlobalUsers, useUsers } from '@/activities/data/use-users'
+import { getCurrentInstance, watch } from '@vue/composition-api'
+import { provideGlobalUsers, useUsers } from '@/activities/data/useUsers'
 import { provideGlobalCurrentGroup, useCurrentGroup } from '@/activities/data/useCurrentGroup'
 import { provideGlobalStatus, useStatus } from '@/activities/data/useStatus'
+import { createCache, provideCache } from '@/activities/data/useCached'
 
 export default {
   components: {
     LoadingProgress,
   },
   setup (props, { root }) {
+    console.log('App setup')
+    provideCache(createCache())
     const currentGroup = useCurrentGroup()
-    const { currentGroupId, setCurrentGroupId } = currentGroup
+    const { setCurrentGroupId } = currentGroup
     const authUser = useAuthUser()
     const { setAuthUserId, isLoggedIn } = authUser
     provideGlobalAuthUser(authUser)
     provideGlobalStatus(useStatus({ isLoggedIn }))
     provideGlobalUsers(useUsers())
-    provideGlobalActivities(useActivities({ groupId: currentGroupId }))
+    // provideGlobalActivities(useActivities({ groupId: currentGroupId }))
     provideGlobalCurrentGroup(currentGroup)
     watch(() => root.$store.getters['auth/userId'], id => setAuthUserId(id), { immediate: true })
     watch(() => root.$store.getters['currentGroup/id'], id => setCurrentGroupId(id), { immediate: true })
@@ -47,6 +49,11 @@ export default {
       const firstMatched = this.$route.matched.length > 0 && this.$route.matched[0]
       if (!firstMatched) return
       return Boolean(firstMatched.components.default)
+    },
+  },
+  methods: {
+    rootfoo () {
+      console.log('running root foo! current instance is', getCurrentInstance())
     },
   },
 }

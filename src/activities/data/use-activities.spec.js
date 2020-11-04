@@ -4,7 +4,7 @@ import activitiesAPI from '@/activities/api/activities'
 
 import VueCompositionAPI from '@vue/composition-api'
 
-import { useActivities } from '@/activities/data/use-activities'
+import { useActivities } from '@/activities/data/useActivities'
 import { createLocalVue, mount } from '@vue/test-utils'
 
 const localVue = createLocalVue()

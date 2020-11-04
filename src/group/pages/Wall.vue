@@ -45,6 +45,15 @@ import WallConversation from '@/messages/components/WallConversation'
 import KSpinner from '@/utils/components/KSpinner'
 
 import { mapGetters, mapActions } from 'vuex'
+import { useEnrichedUsers } from '@/activities/data/useUsers'
+// eslint-disable-next-line no-unused-vars
+import { useActivities, useCachedActivities } from '@/activities/data/useActivities'
+import { useGlobal } from '@/activities/data/useGlobal'
+import { useEnrichedActivities } from '@/activities/data/useEnrichedActivities'
+// eslint-disable-next-line no-unused-vars
+import { onUnmounted, unref, watchEffect } from '@vue/composition-api'
+// eslint-disable-next-line no-unused-vars
+import { useCache } from '@/activities/data/useCached'
 
 export default {
   components: {
@@ -54,12 +63,48 @@ export default {
     FeedbackNotice,
     KSpinner,
   },
+  setup () {
+    const { getUser, currentGroupId, authUserId } = useGlobal()
+
+    // caching fucked for now!
+    // const { activities, status } = useCachedActivities(
+    //   'group',
+    //   { groupId: currentGroupId },
+    // )
+
+    const { activities, status } = useActivities({ groupId: currentGroupId })
+
+    const { enrichUser } = useEnrichedUsers({ authUserId })
+    const {
+      joinedActivities,
+      availableActivities,
+      feedbackPossibleActivities,
+    } = useEnrichedActivities({ activities, authUserId, getUser, enrichUser })
+
+    watchEffect(() => {
+      console.log('we have', unref(joinedActivities).length, 'joined activities (y)')
+    })
+
+    // const { cache } = useCache()
+    //
+    // onUnmounted(() => {
+    //   console.log('restting cache is unmounted!')
+    //   cache.reset()
+    // })
+
+    return {
+      joinedActivities,
+      availableActivities,
+      feedbackPossible: feedbackPossibleActivities,
+      fetchingActivities: status.pending,
+    }
+  },
   computed: {
     ...mapGetters({
-      joinedActivities: 'activities/joined',
-      availableActivities: 'activities/available',
-      fetchingActivities: 'activities/fetchingForCurrentGroup',
-      feedbackPossible: 'activities/feedbackPossibleByCurrentGroup',
+      // joinedActivities: 'activities/joined',
+      // availableActivities: 'activities/available',
+      // fetchingActivities: 'activities/fetchingForCurrentGroup',
+      // feedbackPossible: 'activities/feedbackPossibleByCurrentGroup',
       feedbackPossibleStatus: 'activities/fetchFeedbackPossibleStatus',
       conversation: 'currentGroup/conversation',
       user: 'auth/user',

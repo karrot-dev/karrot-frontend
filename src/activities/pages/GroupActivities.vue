@@ -46,10 +46,15 @@ import { mapGetters, mapActions } from 'vuex'
 import ActivityList from '@/activities/components/ActivityList'
 import KNotice from '@/utils/components/KNotice'
 import PlaceList from '@/places/components/PlaceList'
-import { useEnrichedActivities, useGlobalActivities } from '@/activities/data/use-activities'
+import {
+  useActivities,
+  // eslint-disable-next-line no-unused-vars
+  useCachedActivities,
+
+} from '@/activities/data/useActivities'
 import { watchEffect, unref } from '@vue/composition-api'
-import { useGlobalAuthUser } from '@/activities/data/useAuthUser'
-import { useEnrichedUsers, useGlobalUsers } from '@/activities/data/use-users'
+import { useGlobal } from '@/activities/data/useGlobal'
+import { useEnrichedActivities } from '@/activities/data/useEnrichedActivities'
 
 export default {
   components: {
@@ -60,25 +65,26 @@ export default {
     PlaceList,
   },
   setup () {
-    const { authUserId } = useGlobalAuthUser()
-    const { getUser } = useGlobalUsers()
-    const { activities, status, refreshIfStale } = useGlobalActivities()
-    const { enrichUser } = useEnrichedUsers({ authUserId })
-    const { enrichedActivities } = useEnrichedActivities({ activities, authUserId, getUser, enrichUser })
-    refreshIfStale()
+    const { getUser, currentGroupId, authUserId } = useGlobal()
+    // const { activities, status } = useCachedActivities(
+    //   'group',
+    //   { groupId: currentGroupId },
+    // )
+    const { activities, status } = useActivities({ groupId: currentGroupId })
+    const { upcomingAndStarted } = useEnrichedActivities({ activities, authUserId, getUser })
     watchEffect(() => {
-      console.log('rawActivities are', unref(activities))
+      console.log('we have', unref(activities).length, 'activities')
     })
     watchEffect(() => {
-      console.log('enriched activities are', unref(enrichedActivities))
+      console.log('we have', unref(upcomingAndStarted).length, 'upcomingAndStarted activities')
     })
     watchEffect(() => {
       const { state, startedAt, finishedAt } = status
-      console.log('yay status of activities is', state, startedAt, finishedAt)
+      console.log('yay status of activities is', unref(state), unref(startedAt), unref(finishedAt))
     })
     return {
-      activities: enrichedActivities,
-      status,
+      activities: upcomingAndStarted,
+      pending: status.pending,
     }
   },
   computed: {
@@ -88,9 +94,6 @@ export default {
       // pending: 'activities/fetchingForCurrentGroup',
       places: 'places/byCurrentGroup',
     }),
-    pending () {
-      return this.status.pending
-    },
     hasNoActivities () {
       if (this.pending) return false
       return this.activities && this.activities.length === 0

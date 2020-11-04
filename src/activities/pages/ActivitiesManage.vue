@@ -222,7 +222,7 @@ import ActivitySeriesEdit from '@/activities/components/ActivitySeriesEdit'
 import ActivityEdit from '@/activities/components/ActivityEdit'
 import RandomArt from '@/utils/components/RandomArt'
 import KSpinner from '@/utils/components/KSpinner'
-// import { useGlobalActivities } from '@/activities/data/use-activities'
+// import { useGlobalActivities } from '@/activities/data/useActivities'
 
 import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
 

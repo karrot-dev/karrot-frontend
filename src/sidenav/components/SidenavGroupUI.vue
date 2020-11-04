@@ -87,7 +87,6 @@ import SidenavMenu from './SidenavMenu'
 import GroupOptions from './GroupOptions'
 import { useGlobalStatus, useGroupStatus } from '@/activities/data/useStatus'
 import { useGlobalCurrentGroup } from '@/activities/data/useCurrentGroup'
-import { watchEffect } from '@vue/composition-api'
 
 export default {
   components: {
@@ -127,9 +126,9 @@ export default {
     const { currentGroupId } = useGlobalCurrentGroup()
     const { status } = useGlobalStatus()
     const { status: groupStatus } = useGroupStatus({ status, groupId: currentGroupId })
-    watchEffect(() => {
-      console.log('groupStatus is', groupStatus.value)
-    })
+    // watchEffect(() => {
+    //   console.log('groupStatus is', groupStatus.value)
+    // })
     return {
       ...groupStatus.value,
     }

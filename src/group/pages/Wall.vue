@@ -53,7 +53,7 @@ import { useEnrichedActivities } from '@/activities/data/useEnrichedActivities'
 // eslint-disable-next-line no-unused-vars
 import { onUnmounted, unref, watchEffect } from '@vue/composition-api'
 // eslint-disable-next-line no-unused-vars
-import { useCache } from '@/activities/data/useCached'
+import { useCache, useCached } from '@/activities/data/useCached'
 
 export default {
   components: {
@@ -66,13 +66,12 @@ export default {
   setup () {
     const { getUser, currentGroupId, authUserId } = useGlobal()
 
-    // caching fucked for now!
-    // const { activities, status } = useCachedActivities(
-    //   'group',
-    //   { groupId: currentGroupId },
-    // )
+    const { activities, status } = useCached(
+      'groupActivities',
+      () => useActivities({ groupId: currentGroupId }),
+    )
 
-    const { activities, status } = useActivities({ groupId: currentGroupId })
+    // const { activities, status } = useActivities({ groupId: currentGroupId })
 
     const { enrichUser } = useEnrichedUsers({ authUserId })
     const {

@@ -39,7 +39,6 @@ export default {
     provideGlobalAuthUser(authUser)
     provideGlobalStatus(useStatus({ isLoggedIn }))
     provideGlobalUsers(useUsers())
-    // provideGlobalActivities(useActivities({ groupId: currentGroupId }))
     provideGlobalCurrentGroup(currentGroup)
     watch(() => root.$store.getters['auth/userId'], id => setAuthUserId(id), { immediate: true })
     watch(() => root.$store.getters['currentGroup/id'], id => setCurrentGroupId(id), { immediate: true })

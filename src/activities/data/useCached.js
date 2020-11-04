@@ -1,6 +1,14 @@
 import Vue from 'vue'
-import LRU from 'lru-cache'
-import { provide, inject, onMounted, onUnmounted, getCurrentInstance } from '@vue/composition-api'
+// eslint-disable-next-line no-unused-vars
+import VueCompositionAPI, {
+  provide,
+  inject,
+  onMounted,
+  onUnmounted,
+  // eslint-disable-next-line no-unused-vars
+  // wrapHookCall,
+} from '@vue/composition-api'
+
 /*
 Hmmm the cache concept is totally fucked because the reactivity of the objects gets disabled when the component that it was
 initialized under gets unmounted:
@@ -22,14 +30,50 @@ HMMM but then I have my original problem, the cache won't receive any websocket 
 so, a simple way is to still always refetch...
 
  */
+// hmmmm... why do I need to do it here too? I guess the boot ones haven't been called?
+// Vue.use(VueCompositionAPI)
 
-const myvm = new Vue({
-  methods: {
-    foo () {
-      console.log('running foo! current instance is', getCurrentInstance())
+// const vmCache = {
+//   vm: null,
+//   childVm: null,
+// }
+
+// eslint-disable-next-line no-unused-vars
+// function runInContextWrap (fn) {
+//   // abuse of a vm to get it to use composition-api activateCurrentInstance / setCurrentInstance
+//   // so we don't have the thing destroyed later...
+//   return wrapHookCall(getCurrentInstance().$root, fn)()
+// }
+
+// eslint-disable-next-line no-unused-vars
+function runInContextVue (fn) {
+  // I don't actually unerstand how this works really. as I destroy it, but it doesn't make my reactive things
+  // that were created in it's context go away... the watchers stay active though...
+  const vm = new Vue({
+    name: 'CachedVMHack',
+    render () {
+      // TODO: should probably ensure it only runs once
+      return fn()
     },
-  },
-})
+  })
+  // total hack... it's just that this causes the render function to be immediately
+  // executed with the currentInstance set inside the composition api lib, thus setting the context for us
+  const result = vm.$options.render()
+  // vm.$destroy() // does this matter?
+  onCacheExpired(() => {
+    // console.log('destroying vm because cache expire!')
+    // this is nice as it triggers the onInvalidate callback in watchers...
+    vm.$destroy()
+  })
+  return result
+}
+
+// eslint-disable-next-line no-unused-vars
+function runInContextNone (fn) {
+  return fn()
+}
+
+const runInContext = runInContextVue
 
 const injectionKey = Symbol('cache')
 
@@ -44,26 +88,56 @@ export function useCache () {
 }
 
 export function createCache (options) {
-  const cache = new LRU({
-    max: 3,
-    ...options,
-    // maxAge: 50000,
-    // it does not pro-actively expire stuff...
-    dispose (key, item) {
-      if (item.onCacheExpired.length > 0) {
-        for (const callback of item.onCacheExpired) {
-          callback()
+  const OLD_MS = 3000
+  let cache = {}
+  function get (key) {
+    const entry = cache[key]
+    if (entry) {
+      entry.accessedAt = getNow()
+      return entry.value
+    }
+    return null
+  }
+
+  function set (key, value) {
+    cache[key] = { value, accessedAt: getNow() }
+  }
+
+  function getNow () {
+    return new Date().getTime()
+  }
+
+  const interval = setInterval(() => {
+    const now = getNow()
+    for (const key of Object.keys(cache)) {
+      const { value, accessedAt } = cache[key]
+      if ((now - accessedAt) > OLD_MS) {
+        if (value.active) {
+          value.accessedAt += OLD_MS // extend lifetime a bit more
+        }
+        else {
+          console.log('expiring item', value)
+          if (value.onCacheExpired.length > 0) {
+            for (const callback of value.onCacheExpired) {
+              callback()
+            }
+          }
+          delete cache[key]
         }
       }
-    },
-  })
+    }
+  }, OLD_MS)
 
   onUnmounted(() => {
-    console.log('resetting cache!')
-    cache.reset()
+    // reset!
+    cache = {}
+    clearInterval(interval)
   })
 
-  return cache
+  return {
+    get,
+    set,
+  }
 }
 
 function initialCaptured () {
@@ -89,7 +163,7 @@ export function usingCache () {
 }
 
 export function onCacheMounted (callback) {
-  if (usingCache) {
+  if (usingCache()) {
     captured.callbacks.onCacheMounted.push(callback)
   }
   else {
@@ -98,7 +172,7 @@ export function onCacheMounted (callback) {
 }
 
 export function onCacheUnmounted (callback) {
-  if (usingCache) {
+  if (usingCache()) {
     captured.callbacks.onCacheUnmounted.push(callback)
   }
   else {
@@ -107,7 +181,7 @@ export function onCacheUnmounted (callback) {
 }
 
 export function onCacheExpired (callback) {
-  if (usingCache) {
+  if (usingCache()) {
     captured.callbacks.onCacheExpired.push(callback)
   }
   else {
@@ -120,23 +194,15 @@ export function useCached (cacheKey, initializeCache) {
   let item = cache.get(cacheKey)
   if (!item) {
     isUsingCache = true
-
-    const vm = getCurrentInstance()
-    console.log('vm is use cached is', vm)
-    myvm.foo()
-    // vm.$root.rootfoo()
-    // const root = vm.$root
-
-    // console.log('root is', vm.$root)
-    // setCurrentInstance(root) // boo doesn't get exported :(
     try {
-      const value = initializeCache()
+      const value = runInContext(() => initializeCache())
+
       if (!captured.permitCachedUsage) {
         throw new Error('You did not call permitCachedUsage() inside a function that was cached. This is just to make you aware that it might need to support cached usage.')
       }
       item = {
         value,
-        // these might have been set because the initializeValue can call them globally...
+        active: true,
         ...captured.callbacks,
       }
       cache.set(cacheKey, item)
@@ -146,6 +212,15 @@ export function useCached (cacheKey, initializeCache) {
       captured = initialCaptured()
     }
   }
+
+  onMounted(() => {
+    item.active = true
+  })
+
+  onUnmounted(() => {
+    item.active = false
+  })
+
   if (item.onCacheMounted.length > 0) {
     onMounted(() => {
       for (const callback of item.onCacheMounted) {

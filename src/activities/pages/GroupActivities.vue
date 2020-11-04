@@ -48,13 +48,12 @@ import KNotice from '@/utils/components/KNotice'
 import PlaceList from '@/places/components/PlaceList'
 import {
   useActivities,
-  // eslint-disable-next-line no-unused-vars
-  useCachedActivities,
 
 } from '@/activities/data/useActivities'
 import { watchEffect, unref } from '@vue/composition-api'
 import { useGlobal } from '@/activities/data/useGlobal'
 import { useEnrichedActivities } from '@/activities/data/useEnrichedActivities'
+import { useCached } from '@/activities/data/useCached'
 
 export default {
   components: {
@@ -66,11 +65,11 @@ export default {
   },
   setup () {
     const { getUser, currentGroupId, authUserId } = useGlobal()
-    // const { activities, status } = useCachedActivities(
-    //   'group',
-    //   { groupId: currentGroupId },
-    // )
-    const { activities, status } = useActivities({ groupId: currentGroupId })
+    const { activities, status } = useCached(
+      'groupActivities',
+      () => useActivities({ groupId: currentGroupId }),
+    )
+    // const { activities, status } = useActivities({ groupId: currentGroupId })
     const { upcomingAndStarted } = useEnrichedActivities({ activities, authUserId, getUser })
     watchEffect(() => {
       console.log('we have', unref(activities).length, 'activities')

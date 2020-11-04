@@ -73,7 +73,7 @@ export function useStatus ({ isLoggedIn }) {
     else {
       clear()
     }
-  })
+  }, { immediate: true })
 
   const { on } = useEvents()
 

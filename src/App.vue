@@ -35,12 +35,12 @@ export default {
     const currentGroup = useCurrentGroup()
     const { setCurrentGroupId } = currentGroup
     const authUser = useAuthUser()
-    const { setAuthUserId, isLoggedIn } = authUser
+    const { setAuthUser, isLoggedIn } = authUser
     provideGlobalAuthUser(authUser)
     provideGlobalStatus(useStatus({ isLoggedIn }))
     provideGlobalUsers(useUsers())
     provideGlobalCurrentGroup(currentGroup)
-    watch(() => root.$store.getters['auth/userId'], id => setAuthUserId(id), { immediate: true })
+    watch(() => root.$store.getters['auth/user'], user => setAuthUser(user), { immediate: true })
     watch(() => root.$store.getters['currentGroup/id'], id => setCurrentGroupId(id), { immediate: true })
   },
   computed: {

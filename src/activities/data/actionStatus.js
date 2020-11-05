@@ -30,50 +30,52 @@ function getNow () {
   return new Date().getTime()
 }
 
-export function withStatus (res, fn) {
-  Object.assign(res, {
+export function withStatus (status, fn) {
+  if (status.state === PENDING) throw new Error('action already in progress!')
+  Object.assign(status, {
     ...createStatus(), // reset it incase it's an old one...
     state: PENDING,
     pending: true,
     startedAt: getNow(),
   })
 
-  res.promise = Promise.resolve(fn.apply(arguments)).then(result => {
-    Object.assign(res, {
+  status.promise = Promise.resolve(fn.apply(arguments)).then(result => {
+    Object.assign(status, {
       result,
       finishedAt: getNow(),
       pending: false,
       state: SUCCESS,
     })
   }).catch(error => {
-    res.finishedAt = getNow()
-    res.pending = false
+    status.finishedAt = getNow()
+    status.pending = false
     if (error.type === 'ActionAborted') {
       console.warn('action aborted!')
-      res.aborted = true
-      res.state = ABORTED
+      status.aborted = true
+      status.state = ABORTED
     }
     else if (isValidationError(error)) {
-      res.state = VALIDATION_ERRORS
-      res.validationErrors = error.response.data
+      status.state = VALIDATION_ERRORS
+      status.validationErrors = error.response.data
       // if (error.response.status === 403) {
       //   commit('auth/setMaybeLoggedOut', true, { root: true })
       // }
       // return false
     }
     else if (isServerError(error)) {
-      res.state = SERVER_ERROR
-      res.serverError = true
+      status.state = SERVER_ERROR
+      status.serverError = true
     }
     else if (isNetworkError(error)) {
-      res.state = NETWORK_ERROR
-      res.networkError = true
+      status.state = NETWORK_ERROR
+      status.networkError = true
     }
     else {
       // some other error, can't handle it here
-      res.unhandledError = error
-      res.state = UNHANDLED_ERROR
+      status.unhandledError = error
+      status.state = UNHANDLED_ERROR
       throw error
     }
   })
+  return status
 }

@@ -17,13 +17,6 @@ export function useEnrichedActivities ({ activities, authUserId, getUser }) {
       // this causes recalculation on every reactiveNow change... maybe should computed it closer to the component?
       hasStarted: activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
       // hasStarted: false,
-      // TODO: these would go away...
-      joinStatus: {
-        pending: false,
-      },
-      leaveStatus: {
-        pending: false,
-      },
     }
   }
 

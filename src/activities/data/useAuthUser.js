@@ -1,4 +1,5 @@
-import { ref, provide, inject, shallowReadonly, computed } from '@vue/composition-api'
+import { ref, provide, inject, unref, computed } from '@vue/composition-api'
+import { useEnrichedUsers } from '@/activities/data/useUsers'
 
 const key = Symbol('AuthUser')
 
@@ -11,16 +12,18 @@ export function useGlobalAuthUser () {
 }
 
 export function useAuthUser () {
-  const authUserId = ref(undefined)
-  function setAuthUserId (id) {
-    authUserId.value = id
-    console.log('set authUserId to', authUserId.value)
+  const authUser = ref(null)
+  const authUserId = computed(() => authUser.value && authUser.value.id)
+  const { enrichUser } = useEnrichedUsers({ authUserId })
+  function setAuthUser (user) {
+    authUser.value = user === undefined ? null : user
   }
   return {
-    authUserId: shallowReadonly(authUserId),
-    setAuthUserId,
+    authUser: computed(() => enrichUser(unref(authUser))),
+    authUserId: authUserId,
+    setAuthUser,
     isLoggedIn: computed(() => {
-      return authUserId.value !== undefined
+      return authUser.value !== null
     }),
   }
 }

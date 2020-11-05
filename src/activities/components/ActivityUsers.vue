@@ -20,7 +20,7 @@
           :size="size"
           :user="currentUser"
           :activity="activity"
-          @leave="$emit('leave')"
+          @leave="leave(activity)"
         />
         <div
           v-else
@@ -58,7 +58,7 @@
       :size="size"
       :hover-user="currentUser"
       :show-join="!activity.isUserMember"
-      @join="$emit('join')"
+      @join="join(activity)"
     />
 
     <EmptySlot
@@ -85,11 +85,14 @@ import ProfilePicture from '@/users/components/ProfilePicture'
 import UserSlot from './UserSlot'
 import EmptySlot from './EmptySlot'
 import CurrentUser from './CurrentUser'
-import { mapGetters } from 'vuex'
 import {
   QSpinner,
   QResizeObserver,
+  Dialog,
 } from 'quasar'
+import { useActivityActions } from '@/activities/data/useActivities'
+import { useI18n } from '@/activities/data/useI18n'
+import { useGlobalAuthUser } from '@/activities/data/useAuthUser'
 
 export default {
   components: {
@@ -110,22 +113,49 @@ export default {
       default: 36,
     },
   },
+  setup () {
+    const { t, d } = useI18n()
+    const { authUser: currentUser } = useGlobalAuthUser()
+    const { join, leave, joinStatus, leaveStatus } = useActivityActions()
+    return {
+      currentUser,
+      join (activity) {
+        Dialog.create({
+          title: t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER'),
+          message: t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_TEXT', { date: d(activity.date, 'long') }),
+          ok: t('BUTTON.OF_COURSE'),
+          cancel: t('BUTTON.CANCEL'),
+        })
+          .onOk(() => join(activity.id))
+      },
+      leave (activity) {
+        if (!activity.hasStarted) {
+          Dialog.create({
+            title: t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_HEADER'),
+            message: t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_TEXT'),
+            ok: t('BUTTON.YES'),
+            cancel: t('BUTTON.CANCEL'),
+          })
+            .onOk(() => leave(activity.id))
+        }
+      },
+      joinStatus,
+      leaveStatus,
+    }
+  },
   data () {
     return {
       slotsPerRow: 6,
     }
   },
   computed: {
-    ...mapGetters({
-      currentUser: 'auth/user',
-    }),
     isJoining () {
       // if request is in progress and user is not member yet (watches out for websocket updates!)
-      return this.activity.joinStatus.pending && !this.activity.isUserMember
+      return this.joinStatus.pending && !this.activity.isUserMember
     },
     isLeaving () {
       // if request is in progress and user has not left yet
-      return this.activity.leaveStatus.pending && this.activity.isUserMember
+      return this.leaveStatus.pending && this.activity.isUserMember
     },
     hasUnlimitedPlaces () {
       return this.activity.maxParticipants === null

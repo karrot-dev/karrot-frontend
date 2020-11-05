@@ -2,8 +2,10 @@ import api from '@/activities/api/activities'
 import { useEvents } from '@/activities/data/useEvents'
 import { permitCachedUsage } from '@/activities/data/useCached'
 import { useCollection } from '@/activities/data/useCollection'
+import { createStatus, withStatus } from '@/activities/data/actionStatus'
+import { reactive } from '@vue/composition-api'
 
-export function useActivities ({ groupId, userId }) {
+export function useActivities ({ groupId }) {
   permitCachedUsage()
 
   const { collection: activities, update, getById, status } = useCollection({ groupId }, fetcher)
@@ -29,20 +31,27 @@ export function useActivities ({ groupId, userId }) {
     }
   })
 
-  // actions
-
-  function join () {
-    // TODO implement these, an decide whether to pass the user id in or not... :) oh also the activity id :)
-  }
-
-  function leave () {
-
-  }
-
   return {
     activities,
     status,
+  }
+}
+
+export function useActivityActions () {
+  const joinStatus = reactive(createStatus())
+  const leaveStatus = reactive(createStatus())
+
+  function join (activityId) {
+    withStatus(joinStatus, () => api.join(activityId))
+  }
+
+  function leave (activityId) {
+    withStatus(leaveStatus, () => api.leave(activityId))
+  }
+  return {
     join,
     leave,
+    joinStatus,
+    leaveStatus,
   }
 }

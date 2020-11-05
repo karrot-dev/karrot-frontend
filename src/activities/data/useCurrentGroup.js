@@ -1,17 +1,16 @@
 import { ref, provide, inject, shallowReadonly } from '@vue/composition-api'
 
-const key = Symbol('GlobalCurrentGroup')
+const key = Symbol('CurrentGroup')
 
-export function provideGlobalCurrentGroup (currentGroup) {
+export function provideCurrentGroup (currentGroup) {
   provide(key, currentGroup)
 }
 
-export function useGlobalCurrentGroup () {
+export function useCurrentGroup () {
   return inject(key)
 }
 
-// TODO: think current group should always just keep itself updated... be a singluar one... given the word "current" is in it
-export function useCurrentGroup () {
+export function createCurrentGroup () {
   const groupId = ref(null)
   function setCurrentGroupId (id) {
     groupId.value = id === undefined ? null : id

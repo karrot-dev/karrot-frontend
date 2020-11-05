@@ -92,7 +92,7 @@ import {
 } from 'quasar'
 import { useActivityActions } from '@/activities/data/useActivities'
 import { useI18n } from '@/activities/data/useI18n'
-import { useGlobalAuthUser } from '@/activities/data/useAuthUser'
+import { useAuthUser } from '@/activities/data/useAuthUser'
 
 export default {
   components: {
@@ -115,7 +115,7 @@ export default {
   },
   setup () {
     const { t, d } = useI18n()
-    const { authUser: currentUser } = useGlobalAuthUser()
+    const { authUser: currentUser } = useAuthUser()
     const { join, leave, joinStatus, leaveStatus } = useActivityActions()
     return {
       currentUser,

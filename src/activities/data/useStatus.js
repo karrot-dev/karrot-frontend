@@ -6,11 +6,11 @@ import { useEvents } from '@/activities/data/useEvents'
 
 const injectionKey = Symbol('GlobalStatus')
 
-export function provideGlobalStatus (status) {
+export function provideStatus (status) {
   provide(injectionKey, status)
 }
 
-export function useGlobalStatus () {
+export function useStatus () {
   return inject(injectionKey)
 }
 
@@ -41,29 +41,41 @@ function initialState () {
   }
 }
 
-export function useGroupStatus ({ status, groupId }) {
+function initialGroupState () {
   return {
-    status: computed(() => {
-      return unref(status).groups[unref(groupId)] || {
-        pendingApplicationCount: 0,
-        feedbackPossibleCount: 0,
-        unreadWallMessageCount: 0,
-      }
-    }),
+    pendingApplicationCount: 0,
+    feedbackPossibleCount: 0,
+    unreadWallMessageCount: 0,
   }
 }
 
-export function usePlaceStatus ({ status, placeId }) {
+function initialPlaceState () {
   return {
-    status: computed(() => {
-      return unref(status).places[unref(placeId)] || {
-        unreadWallMessageCount: 0,
-      }
-    }),
+    unreadWallMessageCount: 0,
   }
 }
 
-export function useStatus ({ isLoggedIn }) {
+function getRefs (status, initialState) {
+  const refs = {}
+  for (const key of Object.keys(initialState)) {
+    refs[key] = computed(() => unref(status)[key] || initialState[key])
+  }
+  return refs
+}
+
+export function useGroupStatus ({ groupId }) {
+  const { status } = useStatus()
+  const groupStatus = computed(() => unref(status).groups[unref(groupId)] || {})
+  return getRefs(groupStatus, initialGroupState())
+}
+
+export function usePlaceStatus ({ placeId }) {
+  const { status } = useStatus()
+  const placeStatus = computed(() => unref(status).places[unref(placeId)] || {})
+  return getRefs(placeStatus, initialPlaceState())
+}
+
+export function createStatus ({ isLoggedIn }) {
   const status = ref(initialState())
 
   watch(() => unref(isLoggedIn), async isLoggedIn => {

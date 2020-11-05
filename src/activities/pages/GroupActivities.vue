@@ -51,9 +51,11 @@ import {
 
 } from '@/activities/data/useActivities'
 import { watchEffect, unref } from '@vue/composition-api'
-import { useGlobal } from '@/activities/data/useGlobal'
 import { useEnrichedActivities } from '@/activities/data/useEnrichedActivities'
 import { useCached } from '@/activities/data/useCached'
+import { useAuthUser } from '@/activities/data/useAuthUser'
+import { useGlobalUsers } from '@/activities/data/useUsers'
+import { useCurrentGroup } from '@/activities/data/useCurrentGroup'
 
 export default {
   components: {
@@ -64,7 +66,9 @@ export default {
     PlaceList,
   },
   setup () {
-    const { getUser, currentGroupId, authUserId } = useGlobal()
+    const { authUserId } = useAuthUser()
+    const { getUser } = useGlobalUsers()
+    const { currentGroupId } = useCurrentGroup()
     const { activities, status } = useCached(
       'groupActivities',
       () => useActivities({ groupId: currentGroupId, userId: authUserId }),

@@ -3,15 +3,15 @@ import { useEnrichedUsers } from '@/activities/data/useUsers'
 
 const key = Symbol('AuthUser')
 
-export function provideGlobalAuthUser (authUser) {
+export function provideAuthUser (authUser) {
   provide(key, authUser)
 }
 
-export function useGlobalAuthUser () {
+export function useAuthUser () {
   return inject(key)
 }
 
-export function useAuthUser () {
+export function createUseAuthUser () {
   const authUser = ref(null)
   const authUserId = computed(() => authUser.value && authUser.value.id)
   const { enrichUser } = useEnrichedUsers({ authUserId })

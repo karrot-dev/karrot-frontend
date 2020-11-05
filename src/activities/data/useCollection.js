@@ -32,6 +32,7 @@ export function useCollection (params, fetcher) {
   }
 
   // only one level...
+  // params is expected to be an object of either plain values, or refs, such that unref() works on them
   function toPlainObject (params) {
     const obj = {}
     for (const key of Object.keys(params)) {
@@ -42,6 +43,9 @@ export function useCollection (params, fetcher) {
 
   // run the fetcher when params change
 
+  // hmm, I think this kind of watcher will be re-run if the param values are the same... maybe it's ok, but not pefect!
+  // OR does it do special handling when given an object to check each value? well, I guess it should only re-run when the watchers
+  // are triggers anyway...
   watch(() => toPlainObject(params), (value, oldValue, onInvalidate) => {
     let valid = true
     withStatus(status, () => fetcher(value, { isValid: () => valid }))

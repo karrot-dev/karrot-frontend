@@ -18,11 +18,11 @@
  * Root component
  */
 import LoadingProgress from '@/topbar/components/LoadingProgress'
-import { provideGlobalAuthUser, useAuthUser } from '@/activities/data/useAuthUser'
+import { provideAuthUser, createUseAuthUser } from '@/activities/data/useAuthUser'
 import { getCurrentInstance, watch } from '@vue/composition-api'
 import { provideGlobalUsers, useUsers } from '@/activities/data/useUsers'
-import { provideGlobalCurrentGroup, useCurrentGroup } from '@/activities/data/useCurrentGroup'
-import { provideGlobalStatus, useStatus } from '@/activities/data/useStatus'
+import { provideCurrentGroup, createCurrentGroup } from '@/activities/data/useCurrentGroup'
+import { provideStatus, createStatus } from '@/activities/data/useStatus'
 import { createCache, provideCache } from '@/activities/data/useCached'
 
 export default {
@@ -32,14 +32,16 @@ export default {
   setup (props, { root }) {
     console.log('App setup')
     provideCache(createCache())
-    const currentGroup = useCurrentGroup()
+    const currentGroup = createCurrentGroup()
     const { setCurrentGroupId } = currentGroup
-    const authUser = useAuthUser()
+    const authUser = createUseAuthUser()
     const { setAuthUser, isLoggedIn } = authUser
-    provideGlobalAuthUser(authUser)
-    provideGlobalStatus(useStatus({ isLoggedIn }))
+    // "singletons"
+    provideAuthUser(authUser)
+    provideCurrentGroup(currentGroup)
+    provideStatus(createStatus({ isLoggedIn }))
+    // global
     provideGlobalUsers(useUsers())
-    provideGlobalCurrentGroup(currentGroup)
     watch(() => root.$store.getters['auth/user'], user => setAuthUser(user), { immediate: true })
     watch(() => root.$store.getters['currentGroup/id'], id => setCurrentGroupId(id), { immediate: true })
   },

@@ -45,15 +45,13 @@ import WallConversation from '@/messages/components/WallConversation'
 import KSpinner from '@/utils/components/KSpinner'
 
 import { mapGetters, mapActions } from 'vuex'
-import { useEnrichedUsers } from '@/activities/data/useUsers'
-// eslint-disable-next-line no-unused-vars
-import { useActivities, useCachedActivities } from '@/activities/data/useActivities'
-import { useGlobal } from '@/activities/data/useGlobal'
+import { useEnrichedUsers, useGlobalUsers } from '@/activities/data/useUsers'
+import { useActivities } from '@/activities/data/useActivities'
 import { useEnrichedActivities } from '@/activities/data/useEnrichedActivities'
-// eslint-disable-next-line no-unused-vars
-import { onUnmounted, unref, watchEffect } from '@vue/composition-api'
-// eslint-disable-next-line no-unused-vars
-import { useCache, useCached } from '@/activities/data/useCached'
+import { unref, watchEffect } from '@vue/composition-api'
+import { useCached } from '@/activities/data/useCached'
+import { useAuthUser } from '@/activities/data/useAuthUser'
+import { useCurrentGroup } from '@/activities/data/useCurrentGroup'
 
 export default {
   components: {
@@ -64,14 +62,14 @@ export default {
     KSpinner,
   },
   setup () {
-    const { getUser, currentGroupId, authUserId } = useGlobal()
+    const { authUserId } = useAuthUser()
+    const { currentGroupId } = useCurrentGroup()
+    const { getUser } = useGlobalUsers()
 
     const { activities, status } = useCached(
       'groupActivities',
       () => useActivities({ groupId: currentGroupId, userId: authUserId }),
     )
-
-    // const { activities, status } = useActivities({ groupId: currentGroupId })
 
     const { enrichUser } = useEnrichedUsers({ authUserId })
     const {

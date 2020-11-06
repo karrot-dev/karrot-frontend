@@ -1,20 +1,16 @@
 <template>
   <div class="wrapper">
     <div class="notices">
-      <KSpinner v-show="fetchingActivities || feedbackPossibleStatus.pending" />
+      <KSpinner v-show="fetchingActivities" />
       <div v-if="joinedActivities.length > 0">
         <JoinedActivities
           :activities="joinedActivities"
-          @join="join"
-          @leave="leave"
           @detail="detail"
         />
       </div>
       <div v-if="availableActivities.length > 0">
         <AvailableActivities
           :activities="availableActivities"
-          @join="join"
-          @leave="leave"
           @detail="detail"
         />
       </div>
@@ -46,12 +42,9 @@ import KSpinner from '@/utils/components/KSpinner'
 
 import { mapGetters, mapActions } from 'vuex'
 import { useEnrichedUsers, useGlobalUsers } from '@/activities/data/useUsers'
-import { useActivities } from '@/activities/data/useActivities'
+import { useCachedActivities } from '@/activities/data/useActivities'
 import { useEnrichedActivities } from '@/activities/data/useEnrichedActivities'
-import { unref, watchEffect } from '@vue/composition-api'
-import { useCached } from '@/activities/data/useCached'
 import { useAuthUser } from '@/activities/data/useAuthUser'
-import { useCurrentGroup } from '@/activities/data/useCurrentGroup'
 
 export default {
   components: {
@@ -62,34 +55,17 @@ export default {
     KSpinner,
   },
   setup () {
-    const { authUserId } = useAuthUser()
-    const { currentGroupId } = useCurrentGroup()
+    const { authUserId, authUser: user } = useAuthUser()
     const { getUser } = useGlobalUsers()
-
-    const { activities, status } = useCached(
-      'groupActivities',
-      () => useActivities({ groupId: currentGroupId, userId: authUserId }),
-    )
-
+    const { activities, status } = useCachedActivities('groupActivities')
     const { enrichUser } = useEnrichedUsers({ authUserId })
     const {
       joinedActivities,
       availableActivities,
       feedbackPossibleActivities,
     } = useEnrichedActivities({ activities, authUserId, getUser, enrichUser })
-
-    watchEffect(() => {
-      console.log('we have', unref(joinedActivities).length, 'joined activities (y)')
-    })
-
-    // const { cache } = useCache()
-    //
-    // onUnmounted(() => {
-    //   console.log('restting cache is unmounted!')
-    //   cache.reset()
-    // })
-
     return {
+      user,
       joinedActivities,
       availableActivities,
       feedbackPossible: feedbackPossibleActivities,
@@ -102,15 +78,15 @@ export default {
       // availableActivities: 'activities/available',
       // fetchingActivities: 'activities/fetchingForCurrentGroup',
       // feedbackPossible: 'activities/feedbackPossibleByCurrentGroup',
-      feedbackPossibleStatus: 'activities/fetchFeedbackPossibleStatus',
+      // feedbackPossibleStatus: 'activities/fetchFeedbackPossibleStatus',
       conversation: 'currentGroup/conversation',
-      user: 'auth/user',
+      // user: 'auth/user',
     }),
   },
   methods: {
     ...mapActions({
-      join: 'activities/join',
-      leave: 'activities/leave',
+      // join: 'activities/join',
+      // leave: 'activities/leave',
       detail: 'detail/openForActivity',
       openThread: 'detail/openForThread',
       send: 'conversations/send',

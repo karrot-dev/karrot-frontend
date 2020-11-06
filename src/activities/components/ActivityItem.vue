@@ -46,11 +46,7 @@
         >{{ activity.description }}</div>
         <!-- eslint-enable vue/multiline-html-element-content-newline -->
         <div class="q-my-xs full-width">
-          <ActivityUsers
-            :activity="activity"
-            @leave="leave"
-            @join="join"
-          />
+          <ActivityUsers :activity="activity" />
         </div>
       </div>
     </QCardSection>
@@ -59,7 +55,6 @@
 
 <script>
 import {
-  Dialog,
   QCard,
   QCardSection,
   QIcon,
@@ -84,26 +79,6 @@ export default {
     },
   },
   methods: {
-    join () {
-      Dialog.create({
-        title: this.$t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER'),
-        message: this.$t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_TEXT', { date: this.$d(this.activity.date, 'long') }),
-        ok: this.$t('BUTTON.OF_COURSE'),
-        cancel: this.$t('BUTTON.CANCEL'),
-      })
-        .onOk(() => this.$emit('join', this.activity.id))
-    },
-    leave () {
-      if (!this.activity.hasStarted) {
-        Dialog.create({
-          title: this.$t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_HEADER'),
-          message: this.$t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_TEXT'),
-          ok: this.$t('BUTTON.YES'),
-          cancel: this.$t('BUTTON.CANCEL'),
-        })
-          .onOk(() => this.$emit('leave', this.activity.id))
-      }
-    },
     detail (event) {
       if (event.target.closest('a')) return // ignore actual links
       this.$emit('detail', this.activity)

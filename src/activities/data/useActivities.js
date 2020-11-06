@@ -1,9 +1,11 @@
 import api from '@/activities/api/activities'
 import { useEvents } from '@/activities/data/useEvents'
-import { permitCachedUsage } from '@/activities/data/useCached'
+import { permitCachedUsage, useCached } from '@/activities/data/useCached'
 import { useCollection } from '@/activities/data/useCollection'
 import { createStatus, withStatus } from '@/activities/data/actionStatus'
 import { reactive } from '@vue/composition-api'
+import { useAuthUser } from '@/activities/data/useAuthUser'
+import { useCurrentGroup } from '@/activities/data/useCurrentGroup'
 
 export function useActivities ({ groupId }) {
   permitCachedUsage()
@@ -54,4 +56,13 @@ export function useActivityActions () {
     joinStatus,
     leaveStatus,
   }
+}
+
+export function useCachedActivities (key) {
+  const { authUserId } = useAuthUser()
+  const { currentGroupId } = useCurrentGroup()
+  return useCached(
+    key,
+    () => useActivities({ groupId: currentGroupId, userId: authUserId }),
+  )
 }

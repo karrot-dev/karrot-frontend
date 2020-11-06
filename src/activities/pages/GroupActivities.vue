@@ -5,8 +5,6 @@
       :pending="pending"
       place-link
       filter
-      @join="join"
-      @leave="leave"
       @detail="detail"
     />
     <template v-if="hasNoActivities">
@@ -46,13 +44,9 @@ import { mapGetters, mapActions } from 'vuex'
 import ActivityList from '@/activities/components/ActivityList'
 import KNotice from '@/utils/components/KNotice'
 import PlaceList from '@/places/components/PlaceList'
-import {
-  useActivities,
-
-} from '@/activities/data/useActivities'
+import { useCachedActivities } from '@/activities/data/useActivities'
 import { watchEffect, unref } from '@vue/composition-api'
 import { useEnrichedActivities } from '@/activities/data/useEnrichedActivities'
-import { useCached } from '@/activities/data/useCached'
 import { useAuthUser } from '@/activities/data/useAuthUser'
 import { useGlobalUsers } from '@/activities/data/useUsers'
 import { useCurrentGroup } from '@/activities/data/useCurrentGroup'
@@ -68,12 +62,8 @@ export default {
   setup () {
     const { authUserId } = useAuthUser()
     const { getUser } = useGlobalUsers()
-    const { currentGroupId } = useCurrentGroup()
-    const { activities, status } = useCached(
-      'groupActivities',
-      () => useActivities({ groupId: currentGroupId, userId: authUserId }),
-    )
-    // const { activities, status } = useActivities({ groupId: currentGroupId })
+    const { currentGroupId: groupId } = useCurrentGroup()
+    const { activities, status } = useCachedActivities('groupActivities')
     const { upcomingAndStarted } = useEnrichedActivities({ activities, authUserId, getUser })
     watchEffect(() => {
       console.log('we have', unref(activities).length, 'activities')
@@ -86,13 +76,14 @@ export default {
       console.log('yay status of activities is', unref(state), unref(startedAt), unref(finishedAt))
     })
     return {
+      groupId,
       activities: upcomingAndStarted,
       pending: status.pending,
     }
   },
   computed: {
     ...mapGetters({
-      groupId: 'currentGroup/id',
+      // groupId: 'currentGroup/id',
       // activities: 'activities/byCurrentGroup',
       // pending: 'activities/fetchingForCurrentGroup',
       places: 'places/byCurrentGroup',
@@ -104,8 +95,6 @@ export default {
   },
   methods: {
     ...mapActions({
-      join: 'activities/join',
-      leave: 'activities/leave',
       detail: 'detail/openForActivity',
     }),
   },

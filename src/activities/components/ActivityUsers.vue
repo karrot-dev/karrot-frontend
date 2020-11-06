@@ -116,6 +116,9 @@ export default {
   setup () {
     const { t, d } = useI18n()
     const { authUser: currentUser } = useAuthUser()
+    // TODO: maybe put these up to the ActivityList component so there is not one per activity?
+    // ... but then need to pass status up through props, so maybe actions could return the status too? but then status can be null so lots more if checks...
+    // ... maybe it's fine
     const { join, leave, joinStatus, leaveStatus } = useActivityActions()
     return {
       currentUser,

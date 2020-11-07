@@ -162,6 +162,7 @@ export default async function ({ store: datastore }) {
     }
     else if (topic === 'conversations:message') {
       const message = convertMessage(camelizeKeys(payload))
+      send(topic, message)
       if (message.thread) {
         datastore.dispatch('currentThread/receiveMessage', message)
         datastore.dispatch('latestMessages/updateThreadsAndRelated', { messages: [message] })
@@ -176,16 +177,20 @@ export default async function ({ store: datastore }) {
     }
     else if (topic === 'conversations:conversation') {
       const conversation = convertConversation(camelizeKeys(payload))
+      send(topic, conversation)
       datastore.dispatch('conversations/updateConversation', conversation)
       datastore.dispatch('latestMessages/updateConversationsAndRelated', { conversations: [conversation] })
     }
     else if (topic === 'conversations:meta') {
-      datastore.commit('latestMessages/setEntryMeta', convertConversationMeta(camelizeKeys(payload)))
+      const conversationMeta = convertConversationMeta(camelizeKeys(payload))
+      send(topic, conversationMeta)
+      datastore.commit('latestMessages/setEntryMeta', conversationMeta)
     }
     else if (topic === 'community_feed:meta') {
       datastore.commit('communityFeed/setMeta', convertCommunityFeedMeta(camelizeKeys(payload)))
     }
     else if (topic === 'conversations:leave') {
+      send(topic, camelizeKeys(payload)) // TODO: what is in payload?
       // refresh latest messages
       if (!datastore.getters['latestMessages/fetchInitialPending']) {
         datastore.dispatch('latestMessages/clear')
@@ -193,7 +198,9 @@ export default async function ({ store: datastore }) {
       }
     }
     else if (topic === 'groups:group_detail') {
-      datastore.dispatch('currentGroup/maybeUpdate', convertGroup(camelizeKeys(payload)))
+      const group = convertGroup(camelizeKeys(payload))
+      send(topic, group)
+      datastore.dispatch('currentGroup/maybeUpdate', group)
     }
     else if (topic === 'groups:group_preview') {
       datastore.commit('groups/update', [camelizeKeys(payload)])
@@ -217,7 +224,9 @@ export default async function ({ store: datastore }) {
       datastore.commit('activities/update', [activity])
     }
     else if (topic === 'activities:activity_deleted') {
-      datastore.commit('activities/delete', convertActivity(camelizeKeys(payload)).id)
+      const activity = convertActivity(camelizeKeys(payload))
+      send(topic, activity)
+      datastore.commit('activities/delete', activity.id)
     }
     else if (topic === 'activities:series') {
       datastore.commit('activitySeries/update', [convertSeries(camelizeKeys(payload))])
@@ -241,15 +250,18 @@ export default async function ({ store: datastore }) {
     }
     else if (topic === 'auth:user') {
       const user = camelizeKeys(payload)
+      send(topic, user)
       datastore.commit('auth/setUser', user)
       datastore.commit('users/update', [user])
       datastore.dispatch('users/refreshProfile', user)
     }
     else if (topic === 'auth:logout') {
+      send(topic, camelizeKeys(payload)) // TODO: what is in payload?
       datastore.dispatch('auth/refresh')
     }
     else if (topic === 'users:user') {
       const user = camelizeKeys(payload)
+      send(topic, user)
       datastore.commit('users/update', [user])
       datastore.dispatch('users/refreshProfile', user)
     }
@@ -266,8 +278,9 @@ export default async function ({ store: datastore }) {
       datastore.commit('notifications/setEntryMeta', convertNotificationMeta(camelizeKeys(payload)))
     }
     else if (topic === 'status') {
-      datastore.commit('status/update', camelizeKeys(payload))
-      send('status', camelizeKeys(payload))
+      const status = camelizeKeys(payload)
+      send('status', status)
+      datastore.commit('status/update', status)
     }
   }
 

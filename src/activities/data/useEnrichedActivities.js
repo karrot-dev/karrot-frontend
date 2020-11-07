@@ -4,7 +4,7 @@ import reactiveNow from '@/utils/reactiveNow'
 import { isWithinOneWeek, sortByDate } from '@/activities/datastore/activities'
 
 export function useEnrichedActivities ({ activities, authUserId, getUser }) {
-  const { getEnrichedUser } = useEnrichedUsers({ authUserId, getUser })
+  const { enrichUser } = useEnrichedUsers({ authUserId })
 
   function enrichActivity (activity) {
     return {
@@ -13,7 +13,7 @@ export function useEnrichedActivities ({ activities, authUserId, getUser }) {
       isUserMember: activity.participants.includes(unref(authUserId)),
       isEmpty: activity.participants.length === 0,
       isFull: activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants,
-      participants: activity.participants.map(getEnrichedUser),
+      participants: activity.participants.map(getUser).map(enrichUser),
       // this causes recalculation on every reactiveNow change... maybe should computed it closer to the component?
       hasStarted: activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
       // hasStarted: false,

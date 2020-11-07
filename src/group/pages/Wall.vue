@@ -46,14 +46,16 @@ import WallConversation from '@/messages/components/WallConversation'
 import KSpinner from '@/utils/components/KSpinner'
 
 import { mapGetters, mapActions } from 'vuex'
-import { useEnrichedUsers, useGlobalUsers } from '@/activities/data/useUsers'
 import { useCachedActivities } from '@/activities/data/useActivities'
 import { useEnrichedActivities } from '@/activities/data/useEnrichedActivities'
 import { useAuthUser } from '@/activities/data/useAuthUser'
 import { useCurrentGroup } from '@/activities/data/useCurrentGroup'
 import { useGroupStatus } from '@/activities/data/useStatus'
-import { watch, ref } from '@vue/composition-api'
 import { useEnrichedConversation } from '@/activities/data/useEnrichedConversation'
+import { useConversation } from '@/activities/data/useConversation'
+// eslint-disable-next-line no-unused-vars
+import { useCached } from '@/activities/data/useCached'
+import { useGlobalUsers } from '@/activities/data/useUsers'
 
 export default {
   components: {
@@ -63,26 +65,19 @@ export default {
     FeedbackNotice,
     KSpinner,
   },
-  setup (props, { root }) {
+  setup () {
     const { currentGroupId: groupId } = useCurrentGroup()
     const { authUserId, authUser: user } = useAuthUser()
     const { getUser } = useGlobalUsers()
+
     const { activities, status: activitiesStatus } = useCachedActivities('groupActivities')
-    const { enrichUser } = useEnrichedUsers({ authUserId })
     const {
       joinedActivities,
       availableActivities,
-    } = useEnrichedActivities({ activities, authUserId, getUser, enrichUser })
+    } = useEnrichedActivities({ activities, authUserId, getUser })
+
     const { feedbackPossibleCount } = useGroupStatus({ groupId })
-    const conversationId = ref(null)
-    watch(() => root.$store.getters['currentGroup/conversation'], conversation => {
-      if (conversation) {
-        conversationId.value = conversation.id
-      }
-      else {
-        conversationId.value = null
-      }
-    }, { immediate: true })
+
     const {
       conversation,
       messages,
@@ -90,11 +85,17 @@ export default {
       fetchMore,
       fetchMoreStatus,
       canFetchMore,
-    } = useEnrichedConversation({ conversationId, getUser, authUserId })
+    } = useConversation({ groupId })
+
+    const {
+      enrichedConversation,
+      enrichedMessages,
+    } = useEnrichedConversation(conversation, messages, { getUser, authUserId })
+
     return {
       user,
-      conversation,
-      messages,
+      conversation: enrichedConversation,
+      messages: enrichedMessages,
       fetchStatus: status,
       fetchMore,
       fetchMoreStatus,

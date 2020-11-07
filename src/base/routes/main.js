@@ -144,8 +144,8 @@ export default [
         name: 'group',
         path: 'wall',
         meta: {
-          beforeEnter: 'conversations/fetchForGroup',
-          afterLeave: 'conversations/clearForGroup',
+          // beforeEnter: 'conversations/fetchForGroup',
+          // afterLeave: 'conversations/clearForGroup',
         },
         component: GroupWall,
       },

@@ -2,19 +2,9 @@ import { sortByName } from '@/messages/datastore/conversations'
 import { useEnrichedUsers } from '@/activities/data/useUsers'
 import i18n from '@/base/i18n'
 import differenceInSeconds from 'date-fns/differenceInSeconds'
-// eslint-disable-next-line no-unused-vars
-import { isReactive, ref, unref, computed } from '@vue/composition-api'
-import { useConversation } from '@/activities/data/useConversation'
+import { unref, computed } from '@vue/composition-api'
 
-export function useEnrichedConversation ({ conversationId, authUserId, getUser }) {
-  const {
-    conversation: conversationRef,
-    messages,
-    status,
-    fetchMore,
-    fetchMoreStatus,
-    canFetchMore,
-  } = useConversation({ conversationId })
+export function useEnrichedConversation (conversationRef, messagesRef, { authUserId, getUser }) {
   const { enrichUser } = useEnrichedUsers({ authUserId })
 
   function enrichConversation (conversation) {
@@ -116,12 +106,8 @@ export function useEnrichedConversation ({ conversationId, authUserId, getUser }
   }
 
   return {
-    conversation: computed(() => enrichConversation(unref(conversationRef))),
-    messages: computed(() => unref(messages).map(enrichMessage)),
-    status,
-    fetchMore,
-    fetchMoreStatus,
-    canFetchMore,
+    enrichedConversation: computed(() => enrichConversation(unref(conversationRef))),
+    enrichedMessages: computed(() => unref(messagesRef).map(enrichMessage)),
   }
 }
 

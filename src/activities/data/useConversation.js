@@ -2,88 +2,118 @@
 
 import messagesAPI from '@/messages/api/messages'
 import conversationsAPI from '@/messages/api/conversations'
-import { toPlainObject, useCollection } from '@/activities/data/useCollection'
-import { computed, reactive, ref, toRefs, unref, watch } from '@vue/composition-api'
-import { createStatus, withStatus } from '@/activities/data/actionStatus'
+import groupsAPI from '@/group/api/groups'
+import { ref, unref, computed } from '@vue/composition-api'
 import { insertSorted } from '@/messages/datastore/conversations'
+import { useFetcher } from '@/activities/data/useFetcher'
+import { useCursorPagination } from '@/activities/data/useCursorPagination'
+import { useEvents } from '@/activities/data/useEvents'
+// eslint-disable-next-line no-unused-vars
+import { onCacheUnmounted, permitCachedUsage } from '@/activities/data/useCached'
 
-export function useConversation ({ conversationId }) {
-  // TODO: refactor into a useValue or something... a singular one to go with useCollection
-  const conversation = ref(null)
-  watch(() => toPlainObject({ conversationId }), async (value, oldValue, onInvalidate) => {
-    let valid = true
-    if (value.conversationId) {
-      const result = await conversationsAPI.get(value.conversationId)
-      if (valid) {
-        console.log('loaded conversation!', result)
-        conversation.value = result
+// you can pass _one_ of
+export function useConversation (params) {
+  permitCachedUsage()
+  if (Object.keys(params).length !== 1) throw new Error('Please pass in exactly one param for finding conversation')
+
+  const conversationRef = ref(null)
+  const messagesRef = ref([])
+
+  const conversationId = computed(() => {
+    // Either use the param we passed in...
+    if (params.conversationId) return unref(params.conversationId)
+    // Or the id from the actual fetched conversation
+    const conversation = unref(conversationRef)
+    return conversation && conversation.id
+  })
+
+  function fetchConversation ({ groupId, conversationId }) {
+    if (groupId) return groupsAPI.conversation(groupId)
+    if (conversationId) return conversationsAPI.get(conversationId)
+    throw new Error('No params for getting conversation!')
+  }
+
+  const { status: conversationStatus } = useFetcher(params, {
+    async fetcher ({ conversationId, groupId }, { isValid }) {
+      if (groupId || conversationId) {
+        const result = await fetchConversation({ groupId, conversationId })
+        if (isValid()) {
+          conversationRef.value = result
+        }
       }
-    }
-    onInvalidate(() => {
-      valid = false
-      conversation.value = null
-    })
-  }, { immediate: true })
-  // ----------------------------------------------------------------------------------------------------------
+    },
+    onInvalidate () {
+      conversationRef.value = null
+    },
+  })
 
-  const fetchMoreStatus = reactive(createStatus())
-  const cursor = ref(null)
+  // nice idea but not so simple as we don't have the right pagination ref to then continue...
+  // arguably we can't either... maybe better without cursor pagination, but timestamp based pagination?
+  // onCacheUnmounted(() => {
+  //   invalidatePagination()
+  //   messagesRef.value.length = 10
+  // })
 
-  // TODO: hmmm I need a different state storage here for messages... so we can't use the update mechanism
-  // but it actually seems OK as its only really handling status... but also reset... maybe pass it a reset function...
-  const { status } = useCollection({ conversationId }, fetcher)
+  const { status } = useFetcher({ conversationId }, {
+    async fetcher ({ conversationId }, { isValid }) {
+      if (conversationId) {
+        const { results, next } = await messagesAPI.list(conversationId)
+        if (isValid()) {
+          setCursor(next)
+          updateMessages(results)
+        }
+      }
+    },
+    onInvalidate () {
+      messagesRef.value = []
+      invalidatePagination()
+    },
+  })
 
-  watch(() => unref(conversationId), (value, oldValue, onInvalidate) => {
-    onInvalidate(() => {
-      reset()
-    })
-  }, { immediate: true })
-
-  const messages = ref([])
-
-  function update (newMessages) {
-    messages.value = insertSorted(messages.value, newMessages)
-  }
-
-  function reset () {
-    console.log('resetting!')
-    cursor.value = null
-    messages.value = []
-    Object.assign(fetchMoreStatus, createStatus())
-  }
-
-  async function fetcher ({ conversationId }, { isValid }) {
-    if (conversationId) {
-      const { results, next } = await messagesAPI.list(conversationId)
+  const {
+    moreStatus,
+    fetchMore,
+    canFetchMore,
+    setCursor,
+    invalidatePagination,
+  } = useCursorPagination({
+    async fetcher (cursor, { isValid }) {
+      const { results, next } = await messagesAPI.listMore(cursor)
       if (isValid()) {
-        cursor.value = next
-        update(results)
+        setCursor(next)
+        updateMessages(results)
       }
+    },
+  })
+
+  function updateMessages (newMessages) {
+    messagesRef.value = insertSorted(messagesRef.value, newMessages)
+  }
+
+  const { on } = useEvents()
+
+  on('conversations:conversation', updatedConversation => {
+    const conversation = unref(conversationRef)
+    if (conversation.id === updatedConversation.id) {
+      conversationRef.value = updatedConversation
     }
-  }
+  })
 
-  function fetchMore () {
-    if (!unref(cursor)) return true
-    return withStatus(fetchMoreStatus, async () => {
-      const cursorValue = unref(cursor)
-      const { results, next } = await messagesAPI.listMore(cursorValue)
-      if (cursorValue === unref(cursor)) {
-        cursor.value = next
-        update(results)
-        return !next
-      }
-      return false
-    })
-  }
-
-  const canFetchMore = computed(() => Boolean(unref(cursor)))
+  on('conversations:message', message => {
+    const conversation = unref(conversationRef)
+    if (message.conversation === conversation.id && (!message.thread || message.thread === message.id)) {
+      // Only main thread messages... I guess we'd have a useThread for the threads...?
+      updateMessages([message])
+    }
+  })
 
   return {
-    conversation,
-    messages,
+    conversation: conversationRef,
+    conversationStatus,
+    messages: messagesRef,
     status,
     fetchMore,
-    fetchMoreStatus: toRefs(fetchMoreStatus),
+    fetchMoreStatus: moreStatus,
     canFetchMore,
   }
 }

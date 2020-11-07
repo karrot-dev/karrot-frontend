@@ -23,6 +23,7 @@ export function useEnrichedActivities ({ activities, authUserId, getUser }) {
   const enrichedActivities = computed(() => unref(activities).map(enrichActivity))
 
   // TODO: find out if these computed things get precalculated (then might want to seperate them), or only when used (best)
+  // yay, theydon't
 
   // upcomingAndStarted: (state, getters) => {
   //   return Object.values(state.entries)

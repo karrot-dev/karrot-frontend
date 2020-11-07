@@ -15,8 +15,8 @@
         />
       </div>
       <FeedbackNotice
-        v-if="feedbackPossible.length > 0"
-        :feedback-possible="feedbackPossible"
+        v-if="feedbackPossibleCount > 0"
+        :feedback-possible-count="feedbackPossibleCount"
       />
     </div>
     <WallConversation
@@ -45,6 +45,8 @@ import { useEnrichedUsers, useGlobalUsers } from '@/activities/data/useUsers'
 import { useCachedActivities } from '@/activities/data/useActivities'
 import { useEnrichedActivities } from '@/activities/data/useEnrichedActivities'
 import { useAuthUser } from '@/activities/data/useAuthUser'
+import { useCurrentGroup } from '@/activities/data/useCurrentGroup'
+import { useGroupStatus } from '@/activities/data/useStatus'
 
 export default {
   components: {
@@ -55,6 +57,7 @@ export default {
     KSpinner,
   },
   setup () {
+    const { currentGroupId: groupId } = useCurrentGroup()
     const { authUserId, authUser: user } = useAuthUser()
     const { getUser } = useGlobalUsers()
     const { activities, status } = useCachedActivities('groupActivities')
@@ -62,13 +65,13 @@ export default {
     const {
       joinedActivities,
       availableActivities,
-      feedbackPossibleActivities,
     } = useEnrichedActivities({ activities, authUserId, getUser, enrichUser })
+    const { feedbackPossibleCount } = useGroupStatus({ groupId })
     return {
       user,
       joinedActivities,
       availableActivities,
-      feedbackPossible: feedbackPossibleActivities,
+      feedbackPossibleCount,
       fetchingActivities: status.pending,
     }
   },

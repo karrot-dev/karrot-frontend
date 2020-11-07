@@ -1,10 +1,10 @@
 <template>
   <div class="k-feedback-list">
     <FeedbackNotice
-      v-if="feedbackPossible.length > 0"
-      :feedback-possible="feedbackPossible"
+      v-if="feedbackPossibleCount > 0"
+      :feedback-possible-count="feedbackPossibleCount"
     />
-    <KSpinner v-show="isPending || (feedbackPossibleStatus && feedbackPossibleStatus.pending)" />
+    <KSpinner v-show="isPending" />
     <KNotice v-if="empty">
       <template #icon>
         <i :class="$icon('feedback')" />
@@ -41,6 +41,8 @@ import { QInfiniteScroll } from 'quasar'
 import KNotice from '@/utils/components/KNotice'
 import KSpinner from '@/utils/components/KSpinner'
 import FeedbackNotice from '@/group/components/FeedbackNotice'
+import { useCurrentGroup } from '@/activities/data/useCurrentGroup'
+import { useGroupStatus } from '@/activities/data/useStatus'
 
 export default {
   components: {
@@ -53,11 +55,14 @@ export default {
   mixins: [statusMixin, paginationMixin],
   props: {
     feedback: { required: true, type: Array },
-    feedbackPossible: { default: () => [], type: Array },
-    feedbackPossibleStatus: {
-      default: null,
-      type: Object,
-    },
+  },
+
+  setup () {
+    const { currentGroupId: groupId } = useCurrentGroup()
+    const { feedbackPossibleCount } = useGroupStatus({ groupId })
+    return {
+      feedbackPossibleCount,
+    }
   },
   computed: {
     empty () {

@@ -1,7 +1,7 @@
 <template>
   <div class="activity-feedback-wrapper">
     <QCard
-      v-if="activities.length > 0 || editFeedbackId || fetchFeedbackPossibleStatus.pending"
+      v-if="activities.length > 0 || editFeedbackId || feedbackPossiblePending"
       class="no-mobile-margin no-shadow grey-border"
     >
       <RandomArt
@@ -102,6 +102,10 @@ import FeedbackForm from './FeedbackForm'
 import KNotice from '@/utils/components/KNotice'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import cart from '@/feedback/assets/cart.png'
+import { useCachedActivities } from '@/activities/data/useActivities'
+import { useEnrichedActivities } from '@/activities/data/useEnrichedActivities'
+import { useAuthUser } from '@/activities/data/useAuthUser'
+import { useUsers } from '@/activities/data/useUsers'
 
 export default {
   components: {
@@ -114,10 +118,6 @@ export default {
     KNotice,
   },
   props: {
-    activities: {
-      required: true,
-      type: Array,
-    },
     editFeedbackId: {
       default: null,
       type: Number,
@@ -138,10 +138,6 @@ export default {
       required: true,
       type: Object,
     },
-    fetchFeedbackPossibleStatus: {
-      type: Object,
-      default: () => ({}),
-    },
     seedId: {
       default: 0,
       type: Number,
@@ -154,6 +150,16 @@ export default {
       type: Boolean,
       default: false,
     },
+  },
+  setup () {
+    const { authUserId } = useAuthUser()
+    const { getUser } = useUsers()
+    const { activities, status } = useCachedActivities('groupActivities')
+    const { feedbackPossibleActivities } = useEnrichedActivities({ activities, authUserId, getUser })
+    return {
+      activities: feedbackPossibleActivities,
+      feedbackPossiblePending: status.pending,
+    }
   },
   computed: {
     feedbackDefault () {

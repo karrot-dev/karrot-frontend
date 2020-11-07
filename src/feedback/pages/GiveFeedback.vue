@@ -4,7 +4,7 @@ import ActivityFeedback from '@/feedback/components/ActivityFeedback'
 
 export default connect({
   gettersToProps: {
-    activities: 'activities/feedbackPossibleByCurrentGroup',
+    // activities: 'activities/feedbackPossibleByCurrentGroup',
     editFeedbackId: 'feedback/selectedId',
     editFeedback: 'feedback/selected',
     existingFeedback: 'feedback/byCurrentGroup',

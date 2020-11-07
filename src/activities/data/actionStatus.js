@@ -39,13 +39,14 @@ export function withStatus (status, fn) {
     startedAt: getNow(),
   })
 
-  status.promise = Promise.resolve(fn.apply(arguments)).then(result => {
+  return Promise.resolve(fn.apply(arguments)).then(result => {
     Object.assign(status, {
       result,
       finishedAt: getNow(),
       pending: false,
       state: SUCCESS,
     })
+    return result
   }).catch(error => {
     status.finishedAt = getNow()
     status.pending = false
@@ -77,5 +78,4 @@ export function withStatus (status, fn) {
       throw error
     }
   })
-  return status
 }

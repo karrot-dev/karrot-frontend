@@ -1,7 +1,12 @@
 <template>
   <div>
+    <pre>
+      canFetchPast: {{ canFetchPast }}
+      messages.length: {{ messages.length }}
+      hasLoaded: {{ hasLoaded }}
+    </pre>
     <QInfiniteScroll
-      :disable="conversation && !canFetchPast"
+      :disable="messages.length === 0 || !canFetchPast"
       @load="maybeFetchPast"
     >
       <QList
@@ -135,16 +140,13 @@ export default {
   },
   computed: {
     hasLoaded () {
-      return Boolean(this.conversation)
-      // TODO: reimplement
-      // eslint-disable-next-line no-unreachable
-      if (!this.data) return false
-      const s = this.data.fetchStatus
-      return !s.pending && !s.hasValidationErrors
+      if (!this.conversation) return false
+      const s = this.fetchStatus
+      return !s.pending.value && !s.hasValidationErrors.value
     },
     messagePrompt () {
       if (!this.data) return ''
-      if (this.data.messages.length > 0) {
+      if (this.messages.length > 0) {
         return this.$t('WALL.WRITE_MESSAGE')
       }
       else {
@@ -159,8 +161,9 @@ export default {
         done()
         return
       }
-      await this.fetchPast()
-      done()
+      const value = await this.fetchPast()
+      console.log('fetch past result?', value)
+      done(value)
     },
     setNotifications (value) {
       this.$emit('save-conversation', {

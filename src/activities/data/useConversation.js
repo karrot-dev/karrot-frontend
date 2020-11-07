@@ -33,10 +33,23 @@ export function useConversation ({ conversationId }) {
   // but it actually seems OK as its only really handling status... but also reset... maybe pass it a reset function...
   const { status } = useCollection({ conversationId }, fetcher)
 
+  watch(() => unref(conversationId), (value, oldValue, onInvalidate) => {
+    onInvalidate(() => {
+      reset()
+    })
+  }, { immediate: true })
+
   const messages = ref([])
 
   function update (newMessages) {
     messages.value = insertSorted(messages.value, newMessages)
+  }
+
+  function reset () {
+    console.log('resetting!')
+    cursor.value = null
+    messages.value = []
+    Object.assign(fetchMoreStatus, createStatus())
   }
 
   async function fetcher ({ conversationId }, { isValid }) {
@@ -50,17 +63,16 @@ export function useConversation ({ conversationId }) {
   }
 
   function fetchMore () {
-    if (!unref(cursor)) return
-    console.log('fetching more!!!', unref(cursor))
-    if (fetchMoreStatus.state === 'PENDING') {
-      console.log('ignoring fetch more as we arere in progress')
-      return // should I return a boolean/
-    }
-    withStatus(fetchMoreStatus, async () => {
-      const { results, next } = await messagesAPI.listMore(unref(cursor))
-      // TODO: check valid! ... needs to also be if conversationId changes
-      cursor.value = next
-      update(results)
+    if (!unref(cursor)) return true
+    return withStatus(fetchMoreStatus, async () => {
+      const cursorValue = unref(cursor)
+      const { results, next } = await messagesAPI.listMore(cursorValue)
+      if (cursorValue === unref(cursor)) {
+        cursor.value = next
+        update(results)
+        return !next
+      }
+      return false
     })
   }
 

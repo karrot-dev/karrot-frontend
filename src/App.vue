@@ -32,9 +32,9 @@ export default {
   setup (props, { root }) {
     console.log('App setup')
     provideCache(createCache())
+    const authUser = createUseAuthUser()
     const currentGroup = createCurrentGroup()
     const { setCurrentGroupId } = currentGroup
-    const authUser = createUseAuthUser()
     const { setAuthUser, isLoggedIn } = authUser
     // "singletons"
     provideAuthUser(authUser)

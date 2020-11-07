@@ -1,6 +1,3 @@
-/* eslint-disable */
-import Vue from 'vue'
-// eslint-disable-next-line no-unused-vars
 import {
   computed,
   markRaw,
@@ -29,16 +26,6 @@ export function useCollection (params, fetcher) {
 
   function getById (id) {
     return Boolean(entries.value[id])
-  }
-
-  // only one level...
-  // params is expected to be an object of either plain values, or refs, such that unref() works on them
-  function toPlainObject (params) {
-    const obj = {}
-    for (const key of Object.keys(params)) {
-      obj[key] = unref(params[key])
-    }
-    return obj
   }
 
   // run the fetcher when params change
@@ -96,7 +83,6 @@ export function useCollection (params, fetcher) {
   function reset () {
     entries.value = {}
     Object.assign(status, createStatus())
-
   }
 
   return {
@@ -110,4 +96,14 @@ export function useCollection (params, fetcher) {
     // methods
     update,
   }
+}
+
+// only one level...
+// params is expected to be an object of either plain values, or refs, such that unref() works on them
+export function toPlainObject (params) {
+  const obj = {}
+  for (const key of Object.keys(params)) {
+    obj[key] = unref(params[key])
+  }
+  return obj
 }

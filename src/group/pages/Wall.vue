@@ -19,10 +19,15 @@
         :feedback-possible-count="feedbackPossibleCount"
       />
     </div>
+    <!--<pre>messages: {{ messages[messages.length - 1] }}</pre>-->
     <WallConversation
-      :data="conversation"
+      :conversation="conversation"
+      :messages="messages"
       :user="user"
-      :fetch-past="fetchPast"
+      :fetch-status="fetchStatus"
+      :fetch-past="fetchMore"
+      :fetch-past-status="fetchMoreStatus"
+      :can-fetch-past="canFetchMore"
       @send="send"
       @save-message="saveMessage"
       @mark-all-read="markAllRead"
@@ -47,6 +52,8 @@ import { useEnrichedActivities } from '@/activities/data/useEnrichedActivities'
 import { useAuthUser } from '@/activities/data/useAuthUser'
 import { useCurrentGroup } from '@/activities/data/useCurrentGroup'
 import { useGroupStatus } from '@/activities/data/useStatus'
+import { watch, ref } from '@vue/composition-api'
+import { useEnrichedConversation } from '@/activities/data/useEnrichedConversation'
 
 export default {
   components: {
@@ -56,23 +63,46 @@ export default {
     FeedbackNotice,
     KSpinner,
   },
-  setup () {
+  setup (props, { root }) {
     const { currentGroupId: groupId } = useCurrentGroup()
     const { authUserId, authUser: user } = useAuthUser()
     const { getUser } = useGlobalUsers()
-    const { activities, status } = useCachedActivities('groupActivities')
+    const { activities, status: activitiesStatus } = useCachedActivities('groupActivities')
     const { enrichUser } = useEnrichedUsers({ authUserId })
     const {
       joinedActivities,
       availableActivities,
     } = useEnrichedActivities({ activities, authUserId, getUser, enrichUser })
     const { feedbackPossibleCount } = useGroupStatus({ groupId })
+    const conversationId = ref(null)
+    watch(() => root.$store.getters['currentGroup/conversation'], conversation => {
+      if (conversation) {
+        conversationId.value = conversation.id
+      }
+      else {
+        conversationId.value = null
+      }
+    }, { immediate: true })
+    const {
+      conversation,
+      messages,
+      status,
+      fetchMore,
+      fetchMoreStatus,
+      canFetchMore,
+    } = useEnrichedConversation({ conversationId, getUser, authUserId })
     return {
       user,
+      conversation,
+      messages,
+      fetchStatus: status,
+      fetchMore,
+      fetchMoreStatus,
+      canFetchMore,
       joinedActivities,
       availableActivities,
       feedbackPossibleCount,
-      fetchingActivities: status.pending,
+      fetchingActivities: activitiesStatus.pending,
     }
   },
   computed: {
@@ -82,7 +112,7 @@ export default {
       // fetchingActivities: 'activities/fetchingForCurrentGroup',
       // feedbackPossible: 'activities/feedbackPossibleByCurrentGroup',
       // feedbackPossibleStatus: 'activities/fetchFeedbackPossibleStatus',
-      conversation: 'currentGroup/conversation',
+      // conversation: 'currentGroup/conversation',
       // user: 'auth/user',
     }),
   },

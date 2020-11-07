@@ -105,7 +105,7 @@ import cart from '@/feedback/assets/cart.png'
 import { useCachedActivities } from '@/activities/data/useActivities'
 import { useEnrichedActivities } from '@/activities/data/useEnrichedActivities'
 import { useAuthUser } from '@/activities/data/useAuthUser'
-import { useUsers } from '@/activities/data/useUsers'
+import { useGlobalUsers } from '@/activities/data/useUsers'
 
 export default {
   components: {
@@ -153,7 +153,7 @@ export default {
   },
   setup () {
     const { authUserId } = useAuthUser()
-    const { getUser } = useUsers()
+    const { getUser } = useGlobalUsers()
     const { activities, status } = useCachedActivities('groupActivities')
     const { feedbackPossibleActivities } = useEnrichedActivities({ activities, authUserId, getUser })
     return {

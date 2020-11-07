@@ -2,6 +2,8 @@ import Vue from 'vue'
 // eslint-disable-next-line no-unused-vars
 import { ref, unref, provide, inject, reactive, shallowRef, markRaw } from '@vue/composition-api'
 import userAPI from '@/users/api/users'
+// eslint-disable-next-line no-unused-vars
+import { useEnrichedCurrentGroup } from '@/activities/data/useCurrentGroup'
 
 const api = {
   users: userAPI,
@@ -17,14 +19,47 @@ export function useGlobalUsers () {
   return inject(key)
 }
 
-export function useEnrichedUsers ({ authUserId }) {
+export function useEnrichedUsers ({ authUserId, getUser }) {
+  // const { memberships } = useEnrichedCurrentGroup() // TODO: hmmm... lots of depending on current stuff now...
+  function enrichUser (user) {
+    return {
+      ...user,
+      isCurrentUser: user.id === unref(authUserId),
+      displayName: user.displayName || '?',
+      // TODO: I wonder if this is an enrichmene too far...
+      // membership: unref(memberships)[unref(authUserId)],
+    }
+  }
+  function getEnrichedUser (id) {
+    if (!getUser) throw new Error('getUser was not provided to useEnrichedUsers')
+    return enrichUser(getUser(id))
+  }
   return {
-    enrichUser (user) {
-      return {
-        ...user,
-        isCurrentUser: user.id === unref(authUserId),
+    enrichUser,
+    getEnrichedUser,
+  }
+}
+
+const pendingUsers = []
+
+function fetchPendingUsers () {
+  if (pendingUsers.length === 0) return
+
+  // immediately copy and truncate so we don't double fetch
+  const usersToFetch = [...pendingUsers]
+  pendingUsers.length = 0
+
+  console.log('could fetch', usersToFetch.length, 'users at once!!')
+  for (const user of usersToFetch) {
+    api.users.get(user.id).then(data => {
+      for (const key in data) {
+        Vue.set(user, key, data[key])
       }
-    },
+      user.__state = 'found'
+    }).catch(() => {
+      // console.log('error getting user!', error)
+      user.__state = 'notfound' // TODO: not true! could be a different error.. should check for 404
+    })
   }
 }
 
@@ -37,15 +72,13 @@ export function useUsers () {
     if (users[id]) {
       return users[id]
     }
-    const user = reactive({ id })
+    const user = reactive({
+      id,
+      __state: 'initial',
+    })
     users[id] = user
-    // TODO: this would need to be a lot fancier... to get in bulk, and maybe also checking we don't have a list query in progress
-    // .. and also update from elsewhere...
-    api.users.get(id).then(data => {
-      for (const key in data) {
-        Vue.set(user, key, data[key])
-      }
-    }) // errors?
+    pendingUsers.push(user)
+    Vue.nextTick(fetchPendingUsers)
     return user
   }
 

@@ -44,11 +44,11 @@ export function useActivityActions () {
   const leaveStatus = reactive(createStatus())
 
   function join (activityId) {
-    withStatus(joinStatus, () => api.join(activityId))
+    return withStatus(joinStatus, () => api.join(activityId))
   }
 
   function leave (activityId) {
-    withStatus(leaveStatus, () => api.leave(activityId))
+    return withStatus(leaveStatus, () => api.leave(activityId))
   }
   return {
     join,

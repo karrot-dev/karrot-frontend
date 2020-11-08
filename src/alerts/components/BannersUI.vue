@@ -98,11 +98,15 @@ export default {
       return {
         className: 'bg-warning text-white',
         icon: 'report_problem',
-        message: reconnecting ? 'GLOBAL.RECONNECTING' : 'GLOBAL.OFFLINE_RECONNECT',
-        action: reconnecting ? null : ({
-          icon: 'refresh',
-          handler: () => this.$emit('reconnect'),
-        }),
+        message: reconnecting
+          ? 'GLOBAL.RECONNECTING'
+          : 'GLOBAL.OFFLINE_RECONNECT',
+        action: reconnecting
+          ? null
+          : ({
+              icon: 'refresh',
+              handler: () => this.$emit('reconnect'),
+            }),
       }
     },
 

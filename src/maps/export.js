@@ -27,29 +27,10 @@ export function markersAsGPX (markers) {
           lon,
         },
         // Remove this handling if https://github.com/davidcalhoun/jstoxml/issues/41 gets fixed!
-        _content: escapeObject(marker.gpx),
+        _content: marker.gpx,
       }
     }),
   }, {
     header: true,
   })
-}
-
-// Only escapes top level values and assumes they are strings
-function escapeObject (obj) {
-  const newObj = {}
-  for (const key of Object.keys(obj)) {
-    newObj[key] = escapeValue(obj[key])
-  }
-  return newObj
-}
-
-function escapeValue (content) {
-  return content.replace(/[<>&"']/g, c => ({
-    '<': '&lt;',
-    '>': '&gt;',
-    '&': '&amp;',
-    '"': '&quot;',
-    "'": '&apos;',
-  }[c]))
 }

@@ -1,12 +1,12 @@
 import 'firebase/messaging'
-import { initializeApp, messaging as messagingFactory } from 'firebase/app'
+import firebase from 'firebase/app'
 import firebaseConfig from '@/subscriptions/firebase.config'
 
-const app = initializeApp(firebaseConfig)
+const app = firebase.initializeApp(firebaseConfig)
 
 export async function init () {
   // Actually start showing background notifications
-  const messaging = messagingFactory(app)
+  const messaging = firebase.messaging(app)
 
   messaging.onBackgroundMessage(payload => {
     // not actually used, but without it here firefox does not receive messages...

@@ -17,7 +17,7 @@ app.use(compression())
 app.use(express.static(join(__dirname, '../dist/pwa')))
 
 Object.keys(proxyTable).forEach(function (context) {
-  var options = proxyTable[context]
+  let options = proxyTable[context]
   if (typeof options === 'string') {
     options = { target: options }
   }

@@ -5,7 +5,7 @@ exports[`Storyshots ActivitiesManage default 1`] = `
   <div class="no-shadow grey-border q-card">
     <div class="row justify-between no-wrap q-mb-md q-card__section q-card__section--vert">
       <div class="text-h6"><i class="fas fa-redo on-left"></i>
-        Recurring activities
+        Activity series
       </div>
       <div class="q-fab z-fab row inline justify-center fab-top-fix q-fab--align-right q-fab--form-rounded"><a tabindex="0" role="link" aria-expanded="false" aria-haspopup="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle q-btn--rounded bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--fab q-btn--no-uppercase q-fab--form-rounded"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row no-wrap text-no-wrap"><div class="q-fab__icon-holder"><i aria-hidden="true" role="presentation" class="q-fab__icon absolute-full fas fa-plus q-icon notranslate"> </i><i aria-hidden="true" role="presentation" class="q-fab__active-icon absolute-full material-icons q-icon notranslate">close</i></div></span></span></a>
         <div class="q-fab__actions flex no-wrap inline q-fab__actions--down"><a tabindex="-1" role="link" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline fab-action-fix q-btn--standard q-btn--rectangle q-btn--rounded disabled q-btn--fab-mini q-btn--no-uppercase q-fab--form-rounded"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row no-wrap text-no-wrap"><div class="q-fab__label q-fab__label--internal q-fab__label--internal-left">Pickup</div><i aria-hidden="true" role="presentation" class="fas fa-shopping-basket q-icon notranslate"> </i></span></span></a></div>
@@ -298,7 +298,7 @@ exports[`Storyshots ActivityEdit default 1`] = `
 exports[`Storyshots ActivityEdit disabled 1`] = `
 <div class="edit-box">
   <div class="q-mb-lg"><b class="text-negative">
-      This activity has been disabled.
+      This is disabled.
     </b></div>
   <form class="q-gutter-y-lg" style="max-width:700px;">
     <!---->
@@ -849,7 +849,7 @@ exports[`Storyshots ActivityItem disabled 1`] = `
         Sunday, December 24, 2017
         <span><strong>Open Chat <i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">chat</i></strong></span>
       </div>
-      <div class="q-my-xs"><b class="text-negative">This activity has been disabled.</b></div>
+      <div class="q-my-xs"><b class="text-negative">This is disabled.</b></div>
       <!---->
       <div class="q-my-xs multiline">This activity is already full.</div>
       <div class="q-my-xs full-width">
@@ -1101,7 +1101,7 @@ exports[`Storyshots ActivityItem started 1`] = `
         <span><strong>Open Chat <i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">chat</i></strong></span>
       </div>
       <!---->
-      <div class="q-my-xs"><b class="text-orange">This activity has already started.</b></div>
+      <div class="q-my-xs"><b class="text-orange">This has already started.</b></div>
       <div class="q-my-xs multiline">This activity is already full.</div>
       <div class="q-my-xs full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
@@ -4706,7 +4706,7 @@ exports[`Storyshots Detail activity 1`] = `
       <div class="bg-grey-2 q-list">
         <div class="q-item q-item-type row no-wrap">
           <div class="q-item__section column q-item__section--main justify-center">
-            <div class="q-item__label"><b class="text-negative">This activity has been disabled.</b></div>
+            <div class="q-item__label"><b class="text-negative">This is disabled.</b></div>
           </div>
         </div>
       </div>
@@ -8682,7 +8682,7 @@ exports[`Storyshots Notifications activity_disabled 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-times q-icon notranslate"> </i>
-      Activity at Sunday, December 24, 12:00 PM was disabled
+      Pickup on Sunday, December 24, 12:00 PM was disabled
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8702,7 +8702,7 @@ exports[`Storyshots Notifications activity_enabled 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-check q-icon notranslate"> </i>
-      Activity at Sunday, December 24, 12:00 PM was enabled again
+      Pickup on Sunday, December 24, 12:00 PM was enabled again
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8722,7 +8722,7 @@ exports[`Storyshots Notifications activity_moved 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline far fa-clock q-icon notranslate"> </i>
-      Activity was moved to Sunday, December 24, 12:00 PM
+      Pickup was moved to Sunday, December 24, 12:00 PM
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -8742,7 +8742,7 @@ exports[`Storyshots Notifications activity_upcoming 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-shopping-basket q-icon notranslate"> </i>
-      Reminder: You have an activity at 12:00 PM
+      Reminder: Pickup at 12:00 PM
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 2:00 PM" style="display:inline;">
@@ -8945,7 +8945,7 @@ exports[`Storyshots Notifications feedback_possible 1`] = `
   <!---->
   <div class="q-item__section column q-item__section--main justify-center">
     <div class="q-item__label" style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;"><i aria-hidden="true" role="presentation" class="q-mx-xs vertical-baseline fas fa-balance-scale q-icon notranslate"> </i>
-      You can give feedback for the activity you did on Sunday 12:00 PM
+      You can give feedback - Pickup on Sunday 12:00 PM
     </div>
     <div class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
@@ -9341,7 +9341,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--stale">
                 <div class="q-field__messages col">
-                  <div>How many weeks in advance should recurring activity dates be shown?</div>
+                  <div>How many weeks in advance should activities for series be created?</div>
                 </div>
               </div>
             </div>
@@ -9473,7 +9473,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
               </div>
               <div class="q-field__bottom row items-start q-field__bottom--stale">
                 <div class="q-field__messages col">
-                  <div>How many weeks in advance should recurring activity dates be shown?</div>
+                  <div>How many weeks in advance should activities for series be created?</div>
                 </div>
               </div>
             </div>
@@ -10265,7 +10265,7 @@ exports[`Storyshots Sidenav Group 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         Activities
       </div>
-      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="These used to be called Pickups" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round text-green q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-question-circle q-icon notranslate"> </i><!----></span></span></button></div>
+      <div class="q-item__section column q-item__section--side justify-center"><button tabindex="0" type="button" role="button" title="You can organise more than just pickups now!" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round text-green q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-question-circle q-icon notranslate"> </i><!----></span></span></button></div>
       <!---->
     </a><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>

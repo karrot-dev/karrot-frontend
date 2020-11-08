@@ -207,7 +207,8 @@
     "SUBMIT": "Submit",
     "UNSUBSCRIBE": "Unsubscribe",
     "WITHDRAW": "Withdraw",
-    "YES": "Yes"
+    "YES": "Yes",
+    "READ_MORE": "Read more"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
@@ -318,8 +319,7 @@
     "SEARCH_NOT_FOUND": "Not Found",
     "SEARCH_RESULTS": "Search results",
     "SERVER_ERROR": "Server error",
-    "CLEAR_FILTERS": "Clear filters",
-    "READ_MORE": "Read more"
+    "CLEAR_FILTERS": "Clear filters"
   },
   "GROUP": {
     "ACTIVITIES": "Activities",

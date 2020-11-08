@@ -42,6 +42,12 @@
             </p>
             <p>{{ info.description }}</p>
             <QBtn
+              v-close-popup
+              flat
+            >
+              {{ $t('BUTTON.CLOSE') }}
+            </QBtn>
+            <QBtn
               type="a"
               flat
               :href="info.link.href"

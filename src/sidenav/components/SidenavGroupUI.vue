@@ -103,6 +103,10 @@ export default {
       default: null,
       type: Number,
     },
+    theme: {
+      type: String,
+      default: null,
+    },
     features: {
       default: () => [],
       type: Array,
@@ -141,11 +145,11 @@ export default {
         },
       }, {
         label: this.$t('GROUP.ACTIVITIES'),
-        info: {
+        info: this.theme === 'foodsaving' && {
           title: this.$t('GROUP.PICKUPS_TO_ACTIVITIES'),
           description: this.$t('GROUP.PICKUPS_TO_ACTIVITIES_DESCRIPTION'),
           link: {
-            text: this.$t('GLOBAL.READ_MORE'),
+            text: this.$t('BUTTON.READ_MORE'),
             href: 'https://community.foodsaving.world/t/what-are-activity-types-in-karrot/563',
           },
         },

@@ -17,12 +17,20 @@ export function useFetcher (params, { fetcher, onInvalidate }) {
   // OR does it do special handling when given an object to check each value? well, I guess it should only re-run when the watchers
   // are triggers anyway...
   watch(() => toPlainObject(params), (value, oldValue, watchOnInvalidate) => {
+    const hasChanged = !deepEqual(value, oldValue)
     let valid = true
-    withStatus(status, () => fetcher(value, { isValid: () => valid }))
+    if (hasChanged) {
+      withStatus(status, () => fetcher(value, { isValid: () => valid }))
+    }
     watchOnInvalidate(() => {
       valid = false
-      Object.assign(status, createStatus())
-      onInvalidate()
+      // this crap is to make sure if it didn't change that we don't invalidate the last lot...
+      // seems a bit messy.... but yeah.... maybe can be implemented in a nicer way... so the watcher is only called really when
+      // the values actually change...
+      if (!deepEqual(toPlainObject(params), value)) {
+        Object.assign(status, createStatus())
+        onInvalidate()
+      }
     })
   }, { immediate: true })
 

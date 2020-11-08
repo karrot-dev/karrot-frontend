@@ -103,7 +103,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Kommande upphämtningar i denna serie"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "Mängd mat du har lyckats spara (i kg)",
+    "AMOUNT": "Mängd mat du har lyckats rädda (i kg)",
     "AMOUNT_INFO": "För platsstatistiken kommer vi att summera alla feedbacks.",
     "COMMENT_PLACEHOLDER": "Gick allt bra? Var alla med? Din kommentar här...",
     "DELETE_AMOUNT": "Radera mängden",

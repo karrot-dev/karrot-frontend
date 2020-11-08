@@ -99,10 +99,20 @@
         v-if="activityPayload"
       >
         <QItemSection side>
-          <QIcon :name="$icon('activity_fw')" />
+          <QIcon
+            v-if="activityType"
+            v-bind="activityType.iconProps"
+          />
+          <QIcon
+            v-else
+            :name="$icon('activity_fw')"
+          />
         </QItemSection>
         <QItemSection>
           <QItemLabel>
+            <template v-if="activityType">
+              <strong>{{ activityType.name }}</strong>
+            </template>
             {{ $d(activityPayload.date, 'long') }}
             <template v-if="activityPayload.hasDuration">
               &mdash; {{ $d(activityPayload.dateEnd, 'hourMinute') }}
@@ -162,6 +172,7 @@ import DateAsWords from '@/utils/components/DateAsWords'
 import HistoryPayloadDetail from '@/history/components/HistoryPayloadDetail'
 import dateFnsHelper from '@/utils/dateFnsHelper'
 import { convert as convertActivity } from '@/activities/api/activities'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -188,6 +199,15 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      getActivityType: 'activityTypes/get',
+    }),
+    activityType () {
+      if (this.activityPayload) {
+        return this.getActivityType(this.activityPayload.activityType)
+      }
+      return null
+    },
     activityPayload () {
       if ([
         'ACTIVITY_JOIN',

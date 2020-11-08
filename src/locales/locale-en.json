@@ -325,6 +325,7 @@
     "ACTIVITIES": "Activities",
     "ACTIVITY": "Activity",
     "PICKUPS_TO_ACTIVITIES": "These used to be called Pickups",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available in foodsaving groups. We just added other types of activities, like Meetings, Events and Distributions",
     "ADDED_BY": "added by {userName}",
     "ADDRESS": "Address",
     "APPLICATIONS": "Applications",

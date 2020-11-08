@@ -31,17 +31,23 @@
           icon="fas fa-question-circle"
           :title="info.title"
         >
-          <QMenu>
-            <div class="q-pa-md text-center">
-              <p>{{ info.title }}</p>
-              <QBtn
-                type="a"
-                flat
-                :href="info.link.href"
-              >
-                {{ info.link.text }}
-              </QBtn>
-            </div>
+          <QMenu
+            square
+            dark
+            max-width="280px"
+            content-class="q-pa-md text-center bg-primary"
+          >
+            <p class="text-h5">
+              {{ info.title }}
+            </p>
+            <p>{{ info.description }}</p>
+            <QBtn
+              type="a"
+              flat
+              :href="info.link.href"
+            >
+              {{ info.link.text }}
+            </QBtn>
           </QMenu>
         </QBtn>
       </QItemSection>

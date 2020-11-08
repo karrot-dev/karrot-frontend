@@ -143,9 +143,10 @@ export default {
         label: this.$t('GROUP.ACTIVITIES'),
         info: {
           title: this.$t('GROUP.PICKUPS_TO_ACTIVITIES'),
+          description: this.$t('GROUP.PICKUPS_TO_ACTIVITIES_DESCRIPTION'),
           link: {
             text: this.$t('GLOBAL.READ_MORE'),
-            href: 'https://community.foodsaving.world', // TODO: create a topic for it
+            href: 'https://community.foodsaving.world/t/what-are-activity-types-in-karrot/563',
           },
         },
         icon: this.$icon('activity'),

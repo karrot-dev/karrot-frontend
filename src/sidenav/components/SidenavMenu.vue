@@ -45,6 +45,7 @@
               type="a"
               flat
               :href="info.link.href"
+              target="_blank"
             >
               {{ info.link.text }}
             </QBtn>

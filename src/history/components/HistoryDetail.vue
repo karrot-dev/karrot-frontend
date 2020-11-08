@@ -203,13 +203,14 @@ export default {
       getActivityType: 'activityTypes/get',
     }),
     activityType () {
-      if (this.activityPayload) {
-        return this.getActivityType(this.activityPayload.activityType)
+      if (this.entry.payload && this.entry.payload.activityType) {
+        return this.getActivityType(this.entry.payload.activityType)
       }
       return null
     },
     activityPayload () {
       if ([
+        'ACTIVITY_CREATE',
         'ACTIVITY_JOIN',
         'ACTIVITY_LEAVE',
       ].includes(this.entry.typus)) {

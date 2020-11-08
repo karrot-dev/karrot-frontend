@@ -36,9 +36,30 @@ export default {
     enrich: (state, getters, rootState, rootGetters) => entry => {
       if (!entry) return
       const place = rootGetters['places/get'](entry.place)
-      const msgValues = place ? { placeName: place.name, storeName: place.name, name: place.name } : {}
+      const msgValues = {}
+      if (place) {
+        Object.assign(msgValues, {
+          placeName: place.name,
+          storeName: place.name,
+          name: place.name,
+        })
+      }
+      if (entry.payload && entry.payload.activityType) {
+        const activityType = rootGetters['activityTypes/get'](entry.payload.activityType)
+        Object.assign(msgValues, {
+          activityType: activityType.name,
+        })
+      }
+      else {
+        // Generic name incase the payload doesn't not provide activityType
+        Object.assign(msgValues, {
+          activityType: i18n.t('GROUP.ACTIVITY'),
+        })
+      }
       if (entry.typus === 'APPLICATION_DECLINED') {
-        msgValues.applicantName = entry.payload.applicantName
+        Object.assign(msgValues, {
+          applicantName: entry.payload.applicantName,
+        })
       }
       return {
         ...entry,

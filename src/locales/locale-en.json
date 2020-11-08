@@ -66,14 +66,14 @@
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "Do you really want to delete this recurring activity? This will also delete all one-time activities that belong to this recurring activity (except where people joined already).",
-    "DELETE_SERIES_TITLE": "Delete recurring activity"
+    "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
+    "DELETE_SERIES_TITLE": "Delete series"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "This activity has been disabled.",
-    "ACTIVITY_STARTED": "This activity has already started.",
+    "ACTIVITY_DISABLED": "This is disabled.",
+    "ACTIVITY_STARTED": "This has already started.",
     "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
-    "AVAILABLE_FEEDBACK": "You can give feedback to an activity | {count} activities await your feedback",
+    "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
     "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
       "ALL": "All",
@@ -93,13 +93,13 @@
     "NONE": "No upcoming activities",
     "NONE_DUE_TO_FILTER": "No activities match your filters",
     "NONE_HINT": "You can create a new activity on the place page.",
-    "STORE_NONE_HINT": "You can create a new activity on the activity manage page."
+    "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page."
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
     "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed",
-    "SERIES": "Recurring activities",
+    "SERIES": "Activity series",
     "SINGLE": "One-time activities",
     "TITLE": "Manage activities",
     "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
@@ -132,18 +132,18 @@
   "AGREEMENT": {
     "AGREE": "You must agree to {title}",
     "BLURB1": "You don't have an agreement yet!",
-    "BLURB2": "If you add one then people will have to agree to it before they can do activities.",
+    "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
     "CONTENT": "Content",
     "CONTENT_HELPER": "The text of your agreement",
     "DIALOGS": {
       "REMOVE": {
         "CONFIRM": "Yes, remove agreement",
-        "MESSAGE": "This means anyone will be able to do an activity",
+        "MESSAGE": "This means anyone will be able to do a pickup",
         "TITLE": "Remove agreement?"
       },
       "REPLACE": {
         "CONFIRM": "Yes, change agreement",
-        "MESSAGE": "Everyone will have to agree again before they can signup for activities",
+        "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
         "TITLE": "Change agreement?"
       }
     },
@@ -268,10 +268,10 @@
     "CUSTOM": "Custom",
     "DATE": "Date",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
-    "DISABLE_TITLE": "Disable activity?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined this activity will get a notification. You can change this text to provide a reason:",
-    "ENABLE_TITLE": "Enable activity?",
-    "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this recurring activity. Have a look below at '{upcomingLabel}' to change or disable activities, if needed.",
+    "DISABLE_TITLE": "Disable?",
+    "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
+    "ENABLE_TITLE": "Enable?",
+    "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
     "EXCEPTIONS_TITLE": "Check your activities",
     "FREQUENCY": "Frequency",
     "MAX_PARTICIPANTS": "Max Slots",
@@ -300,7 +300,7 @@
     "NONE": "No feedback yet",
     "NONE_HINT": "This page will be filled once more feedback is available",
     "NO_DONE_ACTIVITIES": "All done!",
-    "NO_DONE_ACTIVITIES_HINT": "You currently have no activities to give feedback to. Why not join another activity?",
+    "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
     "NUMBER_ACTIVITIES": "{count} activities done",
     "NUMBER_FEEDBACK": "{count} feedback entries given",
     "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
@@ -324,8 +324,8 @@
   "GROUP": {
     "ACTIVITIES": "Activities",
     "ACTIVITY": "Activity",
-    "PICKUPS_TO_ACTIVITIES": "These used to be called Pickups",
-    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available in foodsaving groups. We just added other types of activities, like Meetings, Events and Distributions",
+    "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
     "ADDED_BY": "added by {userName}",
     "ADDRESS": "Address",
     "APPLICATIONS": "Applications",
@@ -415,15 +415,15 @@
     "TITLE": "Map"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "created a new one-time activity",
-    "ACTIVITY_DELETE": "deleted an activity",
-    "ACTIVITY_DISABLE": "disabled an activity",
-    "ACTIVITY_DONE": "did an activity at {placeName}",
-    "ACTIVITY_ENABLE": "enabled an activity",
-    "ACTIVITY_JOIN": "signed up to do an activity at {placeName}",
-    "ACTIVITY_LEAVE": "stepped back from doing an activity at {placeName}",
+    "ACTIVITY_CREATE": "{activityType} created",
+    "ACTIVITY_DELETE": "{activityType} deleted",
+    "ACTIVITY_DISABLE": "{activityType} disabled",
+    "ACTIVITY_DONE": "did {activityType} at {placeName}",
+    "ACTIVITY_ENABLE": "{activityType} enabled",
+    "ACTIVITY_JOIN": "signed up for {activityType} at {placeName}",
+    "ACTIVITY_LEAVE": "stepped back from {activityType} at {placeName}",
     "ACTIVITY_LEAVE_DISTANCE": "{distance} before scheduled time",
-    "ACTIVITY_MISSED": "An activity at {placeName} was missed!",
+    "ACTIVITY_MISSED": "{activityType} at {placeName} had no participants!",
     "ACTIVITY_MODIFY": "changed the settings of an activity",
     "APPLICATION_DECLINED": "declined an application from {applicantName}",
     "DETAILS": "More information",
@@ -437,9 +437,9 @@
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
     "MEMBER_REMOVED": "was removed due to group decision",
     "NOTHING_HAPPENEND": "Nothing happened so far...",
-    "SERIES_CREATE": "created a new recurring activity",
-    "SERIES_DELETE": "deleted a recurring activity",
-    "SERIES_MODIFY": "changed the settings of a recurring activity",
+    "SERIES_CREATE": "{activityType} series created",
+    "SERIES_DELETE": "{activityType} series deleted",
+    "SERIES_MODIFY": "changed the settings of a series",
     "STORE_CREATE": "created place {name}",
     "STORE_DELETE": "deleted place {name}",
     "STORE_MODIFY": "changed the settings of place {name}"
@@ -540,10 +540,10 @@
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   },
   "NOTIFICATION_BELLS": {
-    "ACTIVITY_DISABLED": "Activity at {dateTime} was disabled",
-    "ACTIVITY_ENABLED": "Activity at {dateTime} was enabled again",
-    "ACTIVITY_MOVED": "Activity was moved to {dateTime}",
-    "ACTIVITY_UPCOMING": "Reminder: You have an activity at {time}",
+    "ACTIVITY_DISABLED": "{activityType} on {dateTime} was disabled",
+    "ACTIVITY_ENABLED": "{activityType} on {dateTime} was enabled again",
+    "ACTIVITY_MOVED": "{activityType} was moved to {dateTime}",
+    "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
     "APPLICATION_ACCEPTED": "Your application was accepted!",
     "APPLICATION_DECLINED": "Your application was declined",
     "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
@@ -553,7 +553,8 @@
     "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
-    "FEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
+    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
+    "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName} accepted your invitation",
     "NEW_APPLICANT": "{userName} applied to join your group",
     "NEW_MEMBER": "{userName} joined your group",
@@ -677,8 +678,8 @@
     "SHOW_ACTIVE_ONLY": "Only show active places",
     "SHOW_ALL": "Show all places",
     "STATUS": "Status",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should recurring activity dates be shown?",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks activities are shown. Existing leftover activities will get deleted if nobody has joined them. You can disable all other activities manually, if needed."
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
   },
   "STORESTATUS": {
     "ACTIVE": "Co-operating",

@@ -16,10 +16,12 @@
           v-model="userFilter"
           :label="$t('STATISTICS.FILTER_USER_LABEL')"
           filled
-          :options="userOptions"
-          :display-value="userFilter ? usersById[userFilter].displayName : $t('STATISTICS.FILTER_ALL_USERS')"
-          emit-value
+          :options="userFilterOptions"
+          use-input
+          fill-input
+          hide-selected
           class="q-mr-sm"
+          @filter="filterUser"
         />
         <QSelect
           v-model="periodFilter"
@@ -40,6 +42,7 @@ import subMonths from 'date-fns/subMonths'
 import api from '@/statistics/api/statistics'
 import { mapGetters } from 'vuex'
 import { indexById } from '@/utils/datastore/helpers'
+
 export default {
   components: {
     QSelect,
@@ -50,6 +53,7 @@ export default {
       loading: true,
       periodFilter: null,
       userFilter: null,
+      userFilterByName: null, // when the user types something in
       data: [],
       columns: [
         {
@@ -91,16 +95,18 @@ export default {
       return this.users.map(user => ({
         label: user.displayName,
         value: user.id,
-      }))
+      })).sort((a, b) => a.label.localeCompare(b.label))
     },
-    userOptions () {
+    userFilterOptions () {
       return [
         {
           label: 'All users',
           value: null,
         },
         ...this.usersAsOptions,
-      ]
+      ].filter(option => {
+        return !this.userFilterByName || option.label.toLowerCase().includes(this.userFilterByName)
+      })
     },
     periodFilterOptions () {
       return [
@@ -124,7 +130,7 @@ export default {
         {
           label: this.$t('STATISTICS.FILTER_TIME_FOREVER'),
           value: null,
-          disable: this.userFilter !== null,
+          disable: this.userFilter && this.userFilter.value !== null,
         },
       ]
     },
@@ -160,7 +166,7 @@ export default {
     query () {
       return {
         group: this.currentGroupId,
-        user: this.userFilter,
+        user: this.userFilter && this.userFilter.value,
         ...this.dateQuery,
       }
     },
@@ -192,7 +198,7 @@ export default {
     },
   },
   watch: {
-    userFilter (value) {
+    'userFilter.value' (value) {
       if (value !== null && this.periodFilter.value === null) {
         // It's required to have a period if have a user...
         this.periodFilter = this.periodFilterOptions.find(option => option.value === '6months')
@@ -202,7 +208,10 @@ export default {
       immediate: true,
       async handler (params) {
         if (Object.keys(params).length === 0) return
-        if (params.user && !params.dateAfter) return // don't permit user filters without date filter
+        // don't run until options have been initialized
+        if (!this.userFilter || !this.periodFilter) return
+        // never permit user filters without date filter
+        if (params.user && !params.dateAfter) return
         this.loading = true
         try {
           this.data = await api.activityHistory(params)
@@ -214,8 +223,15 @@ export default {
     },
   },
   created () {
-    // Initial value
+    // Initial values
     this.periodFilter = this.periodFilterOptions[0]
+    this.userFilter = this.userFilterOptions[0]
+  },
+  methods: {
+    filterUser (val, update) {
+      this.userFilterByName = val
+      update()
+    },
   },
 }
 </script>

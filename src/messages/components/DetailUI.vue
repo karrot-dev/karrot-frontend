@@ -53,7 +53,7 @@
         <QBtnGroup
           flat
           spread
-          class="bg-grey-2"
+          class="bg-grey-2 q-my-sm q-mx-md"
         >
           <QBtn
             flat

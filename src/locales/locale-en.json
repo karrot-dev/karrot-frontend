@@ -633,6 +633,7 @@
     "FILTER_TIME_LABEL": "Time period",
     "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
     "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "FILTER_TIME_FOREVER": "Forever",
     "COLUMN_PLACE": "Place",
     "COLUMN_ACTIVITY_DONE": "Done",
     "COLUMN_ACTIVITY_LEFT": "Left",

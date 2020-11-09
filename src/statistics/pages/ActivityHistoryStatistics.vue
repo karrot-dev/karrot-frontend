@@ -46,29 +46,9 @@ export default {
     QTable,
   },
   data () {
-    const periodFilterOptions = [
-      // If you add new options, be sure to handle them in dateQuery too
-      {
-        label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_DAYS', { count: 7 }),
-        value: '7days',
-      },
-      {
-        label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_DAYS', { count: 30 }),
-        value: '30days',
-      },
-      {
-        label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_MONTHS', { count: 3 }),
-        value: '3months',
-      },
-      {
-        label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_MONTHS', { count: 6 }),
-        value: '6months',
-      },
-    ]
     return {
       loading: true,
-      periodFilter: periodFilterOptions[1],
-      periodFilterOptions,
+      periodFilter: null,
       userFilter: null,
       data: [],
       columns: [
@@ -122,6 +102,32 @@ export default {
         ...this.usersAsOptions,
       ]
     },
+    periodFilterOptions () {
+      return [
+        // If you add new options, be sure to handle them in dateQuery too
+        {
+          label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_DAYS', { count: 7 }),
+          value: '7days',
+        },
+        {
+          label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_DAYS', { count: 30 }),
+          value: '30days',
+        },
+        {
+          label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_MONTHS', { count: 3 }),
+          value: '3months',
+        },
+        {
+          label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_MONTHS', { count: 6 }),
+          value: '6months',
+        },
+        {
+          label: this.$t('STATISTICS.FILTER_TIME_FOREVER'),
+          value: null,
+          disable: this.userFilter !== null,
+        },
+      ]
+    },
     totals () {
       return [
         'doneCount',
@@ -159,7 +165,7 @@ export default {
       }
     },
     dateQuery () {
-      if (!this.periodFilter.value) return {}
+      if (!this.periodFilter) return {}
       const now = new Date()
       switch (this.periodFilter.value) {
         case '7days':
@@ -178,16 +184,25 @@ export default {
           return {
             dateAfter: subMonths(now, 6),
           }
+        case null:
+          return {}
         default:
           throw new Error(`unknown date filter option: ${this.periodFilter.value}`)
       }
     },
   },
   watch: {
+    userFilter (value) {
+      if (value !== null && this.periodFilter.value === null) {
+        // It's required to have a period if have a user...
+        this.periodFilter = this.periodFilterOptions.find(option => option.value === '6months')
+      }
+    },
     query: {
       immediate: true,
       async handler (params) {
         if (Object.keys(params).length === 0) return
+        if (params.user && !params.dateAfter) return // don't permit user filters without date filter
         this.loading = true
         try {
           this.data = await api.activityHistory(params)
@@ -197,6 +212,10 @@ export default {
         }
       },
     },
+  },
+  created () {
+    // Initial value
+    this.periodFilter = this.periodFilterOptions[0]
   },
 }
 </script>

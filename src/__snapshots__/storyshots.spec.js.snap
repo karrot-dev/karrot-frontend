@@ -2359,7 +2359,6 @@ exports[`Storyshots Applications ApplicationList 1`] = `
         </div>
         <!---->
       </div>
-      <!---->
     </div>
     <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
@@ -2377,7 +2376,6 @@ exports[`Storyshots Applications ApplicationList 1`] = `
         </div>
         <!---->
       </div>
-      <!---->
     </div>
     <div tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
@@ -2395,7 +2393,6 @@ exports[`Storyshots Applications ApplicationList 1`] = `
         </div>
         <!---->
       </div>
-      <!---->
     </div>
     <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
     <div sublabel="9 entries" class="q-expansion-item q-item-type q-expansion-item--collapsed q-expansion-item--standard">
@@ -4886,6 +4883,11 @@ exports[`Storyshots Detail application 1`] = `
               <!---->
             </div>
           </div>
+          <div class="q-btn-group row no-wrap q-btn-group--spread bg-grey-2 q-btn-group--flat"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-pa-sm q-btn--flat q-btn--rectangle text-positive q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-fw fa-check q-icon notranslate"> </i>
+          Accept
+        </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-pa-sm q-btn--flat q-btn--rectangle text-negative q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-fw fa-times q-icon notranslate"> </i>
+          Decline
+        </span></span></button></div>
           <div filled="" square="" class="q-pb-md">
             <div class="q-item q-item-type row no-wrap">
               <!---->

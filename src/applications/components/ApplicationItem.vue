@@ -2,7 +2,7 @@
   <QItem
     :class="{ isNonPending: !application.isPending }"
     clickable
-    @click="openChatIfCannotDecide"
+    @click="$emit('open-chat', application)"
   >
     <QItemSection side>
       <ProfilePicture
@@ -47,70 +47,14 @@
         </template>
       </QItemLabel>
     </QItemSection>
-    <QMenu
-      v-if="application.canDecide"
-      touch-position
-    >
-      <QList>
-        <QItem
-          v-close-popup
-          clickable
-          dense
-          @click="openChat"
-        >
-          <QItemSection side>
-            <QIcon name="fas fa-fw fa-comments" />
-          </QItemSection>
-          <QItemSection>
-            {{ $t('BUTTON.OPEN') }}
-          </QItemSection>
-        </QItem>
-        <QItem
-          v-close-popup
-          clickable
-          dense
-          @click="pressAccept"
-        >
-          <QItemSection side>
-            <QIcon
-              name="fas fa-fw fa-check"
-              color="positive"
-            />
-          </QItemSection>
-          <QItemSection>
-            {{ $t('BUTTON.ACCEPT') }}
-          </QItemSection>
-        </QItem>
-        <QItem
-          v-close-popup
-          clickable
-          dense
-          @click="decline"
-        >
-          <QItemSection side>
-            <QIcon
-              name="fas fa-fw fa-times"
-              color="negative"
-            />
-          </QItemSection>
-          <QItemSection>
-            {{ $t('BUTTON.DECLINE') }}
-          </QItemSection>
-        </QItem>
-      </QList>
-    </QMenu>
   </QItem>
 </template>
 
 <script>
 import {
-  Dialog,
   QItem,
   QItemSection,
   QItemLabel,
-  QMenu,
-  QList,
-  QIcon,
 } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
@@ -120,9 +64,6 @@ export default {
     QItem,
     QItemSection,
     QItemLabel,
-    QMenu,
-    QList,
-    QIcon,
     ProfilePicture,
     DateAsWords,
   },
@@ -159,33 +100,6 @@ export default {
           return 'GROUP.DECLINED_BY'
       }
       return null
-    },
-  },
-  methods: {
-    openChat () {
-      this.$emit('open-chat', this.application)
-    },
-    openChatIfCannotDecide () {
-      if (this.application.canDecide) return
-      this.openChat()
-    },
-    pressAccept () {
-      Dialog.create({
-        title: this.$t('APPLICATION.ACCEPT_CONFIRMATION_HEADER'),
-        message: this.$t('APPLICATION.ACCEPT_CONFIRMATION_TEXT', { userName: this.userName }),
-        ok: this.$t('BUTTON.YES'),
-        cancel: this.$t('BUTTON.CANCEL'),
-      })
-        .onOk(() => this.$emit('accept', this.application.id))
-    },
-    decline () {
-      Dialog.create({
-        title: this.$t('APPLICATION.DECLINE_CONFIRMATION_HEADER'),
-        message: this.$t('APPLICATION.DECLINE_CONFIRMATION_TEXT', { userName: this.userName }),
-        ok: this.$t('BUTTON.YES'),
-        cancel: this.$t('BUTTON.CANCEL'),
-      })
-        .onOk(() => this.$emit('decline', this.application.id))
     },
   },
 }

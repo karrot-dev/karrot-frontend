@@ -426,7 +426,7 @@
     "SERIES_CREATE": "skapade en återkommande hämtning",
     "SERIES_DELETE": "tog bort en återkommande hämtning",
     "SERIES_MODIFY": "ändrade inställningar för en återkommande hämtning",
-    "STORE_CREATE": "skapa plats {name}",
+    "STORE_CREATE": "skapade platsen {name}",
     "STORE_DELETE": "ta bort platsen {name}",
     "STORE_MODIFY": "ändrade inställningar för platsen {name}"
   },

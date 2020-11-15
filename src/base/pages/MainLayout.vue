@@ -312,6 +312,7 @@ export default {
 body.desktop .mainContent-page:not(.fullpage)
   min-width 350px
   max-width 57em
+  margin-top 8px
   margin-right auto
   margin-bottom 4.5em
   margin-left auto

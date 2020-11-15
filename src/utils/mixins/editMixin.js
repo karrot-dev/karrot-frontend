@@ -28,11 +28,14 @@ export default {
   methods: {
     save (event) {
       if (this.isNew) {
-        this.$emit('save', this.edit, event)
+        this.$emit('save', this.getCreateData(), event)
       }
       else {
         this.$emit('save', { ...this.getPatchData(), id: this.value.id }, event)
       }
+    },
+    getCreateData () {
+      return this.edit
     },
     getPatchData () {
       return objectDiff(this.value, this.edit)

@@ -10,14 +10,14 @@
     />
 
     <AmountPicker
-      v-if="!isBikeKitchen && !isGeneralPurpose"
+      v-if="hasWeight"
       v-model="edit.weight"
       class="q-ml-sm"
       style="margin-top: 40px"
     />
 
     <div
-      v-if="!isBikeKitchen && !isGeneralPurpose && hasMultipleParticipants"
+      v-if="hasWeight && hasMultipleParticipants"
       class="row no-wrap items-center q-mx-sm text-caption"
     >
       <QIcon
@@ -77,17 +77,13 @@ export default {
   },
   mixins: [statusMixin, editMixin],
   props: {
-    isBikeKitchen: {
-      type: Boolean,
-      default: false,
-    },
-    isGeneralPurpose: {
-      type: Boolean,
-      default: false,
-    },
     hasMultipleParticipants: {
       type: Boolean,
       default: false,
+    },
+    hasWeight: {
+      type: Boolean,
+      default: true,
     },
   },
   computed: {

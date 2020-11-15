@@ -26,6 +26,11 @@ const datastore = options => createDatastore({
       createStatus: () => statusMocks.default(),
     },
   },
+  activityTypes: {
+    getters: {
+      byCurrentGroup: () => Object.values(factories.activityTypes),
+    },
+  },
   places: {
     getters: {
       activePlaceId: () => place.id,

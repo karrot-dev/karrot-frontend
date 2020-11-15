@@ -3,7 +3,6 @@ import { withMeta, createMetaModule, withPrefixedIdMeta, metaStatusesWithId, cre
 import { extend } from 'quasar'
 import i18n from '@/base/i18n'
 import { messages as loadMessages } from '@/locales/index'
-import iconService from '@/base/icons'
 
 function initialState () {
   return {
@@ -63,6 +62,7 @@ export default {
     membership: (state, getters, rootState, rootGetters) => getters.memberships[rootGetters['auth/userId']],
     roles: (state, getters) => getters.membership ? getters.value.membership.roles : [],
     features: state => state.current && state.current.features ? state.current.features : [],
+    theme: state => state.current && state.current.theme,
     isEditor: (state, getters) => getters.roles.includes('editor'),
     isBikeKitchen: (state, getters) => Boolean(getters.value && getters.value.isBikeKitchen),
     isGeneralPurpose: (state, getters) => Boolean(getters.value && getters.value.isGeneralPurpose),
@@ -80,6 +80,7 @@ export default {
         if (group.activeAgreement) {
           dispatch('agreements/fetch', group.activeAgreement, { root: true })
         }
+
         commit('set', group)
       },
 
@@ -236,33 +237,6 @@ export function plugin (datastore) {
         if (datastore.getters['currentGroup/isBikeKitchen'] || datastore.getters['currentGroup/isGeneralPurpose']) return
 
         i18n.setLocaleMessage(locale, messages)
-      }
-    },
-    { immediate: true },
-  )
-  datastore.watch(
-    (state, getters) => [getters['currentGroup/isBikeKitchen'], getters['currentGroup/isGeneralPurpose']],
-    async ([isBikeKitchen, isGeneralPurpose] = []) => {
-      if (isBikeKitchen) {
-        const bikeKitchenIcons = await import('@/base/icons/bikekitchen.json')
-        if (!datastore.getters['currentGroup/isBikeKitchen']) return
-
-        iconService.set({
-          ...iconService.getAll(),
-          ...bikeKitchenIcons,
-        })
-      }
-      else if (isGeneralPurpose) {
-        const generalIcons = await import('@/base/icons/generalPurpose.json')
-        if (!datastore.getters['currentGroup/isGeneralPurpose']) return
-
-        iconService.set({
-          ...iconService.getAll(),
-          ...generalIcons,
-        })
-      }
-      else {
-        iconService.reset()
       }
     },
     { immediate: true },

@@ -27,7 +27,27 @@
                 emit-value
                 map-options
                 class="grey-font"
-              />
+              >
+                <template #prepend>
+                  <QIcon
+                    v-if="select && select.activityType"
+                    :name="select.activityType.icon"
+                    :title="select.activityType.name"
+                  />
+                </template>
+                <template #option="{ index, opt: { value: activity }, itemProps, itemEvents }">
+                  <QItem
+                    :key="index"
+                    v-bind="itemProps"
+                    v-on="itemEvents"
+                  >
+                    <QItemSection avatar>
+                      <QIcon v-bind="activity.activityType.iconProps" />
+                    </QItemSection>
+                    <QItemSection>{{ getDateWithPlace(activity) }}</QItemSection>
+                  </QItem>
+                </template>
+              </QSelect>
               <span v-else-if="editFeedback">
                 {{ getDateWithPlace(editFeedback.about) }}
               </span>
@@ -52,18 +72,18 @@
           </div>
         </div>
         <FeedbackForm
+          v-if="select && select.activityType"
           :value="feedbackDefault"
           :status="saveStatus"
-          :is-bike-kitchen="isBikeKitchen"
-          :is-general-purpose="isGeneralPurpose"
           :has-multiple-participants="fellowParticipants.length > 0"
+          :has-weight="select.activityType.hasFeedbackWeight"
           @save="$emit('save', arguments[0])"
         />
       </div>
     </QCard>
     <KNotice v-else>
       <template #icon>
-        <i class="fas fa-bed" />
+        <QIcon class="fas fa-bed" />
       </template>
       {{ $t('FEEDBACKLIST.NO_DONE_ACTIVITIES') }}
       <template #desc>
@@ -93,6 +113,9 @@
 
 <script>
 import {
+  QIcon,
+  QItem,
+  QItemSection,
   QCard,
   QSelect,
 } from 'quasar'
@@ -107,6 +130,9 @@ export default {
   components: {
     RandomArt,
     ProfilePicture,
+    QIcon,
+    QItem,
+    QItemSection,
     QCard,
     QSelect,
     FeedbackForm,
@@ -145,14 +171,6 @@ export default {
     seedId: {
       default: 0,
       type: Number,
-    },
-    isBikeKitchen: {
-      type: Boolean,
-      default: false,
-    },
-    isGeneralPurpose: {
-      type: Boolean,
-      default: false,
     },
   },
   computed: {

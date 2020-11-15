@@ -21,6 +21,7 @@
           @toggle-reaction="$emit('toggle-reaction', arguments[0])"
           @save="$emit('save-message', arguments[0])"
         />
+        <slot name="before-chat-compose" />
         <ConversationCompose
           v-if="compose && !conversation.canFetchFuture && !conversation.isClosed"
           ref="compose"

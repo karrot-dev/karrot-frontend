@@ -19,13 +19,16 @@ export default {
       return getters.enrich(state.entries[applicationId])
     },
     enrich: (state, getters, rootState, rootGetters) => application => {
+      // We only know if we are editor of the current group, so also need to check the application is for the current group
+      // Therefore, we don't support accepting/declining applications if you do not have the group selected as your current group
+      const isEditorOfApplicationGroup = () => application.group === rootGetters['currentGroup/id'] && rootGetters['currentGroup/isEditor']
       return application && {
         ...application,
         user: rootGetters['users/get'](application.user.id),
         group: rootGetters['groups/get'](application.group),
         decidedBy: rootGetters['users/get'](application.decidedBy),
         isPending: application.status === 'pending',
-        canDecide: application.status === 'pending' && rootGetters['currentGroup/isEditor'],
+        canDecide: application.status === 'pending' && isEditorOfApplicationGroup(),
       }
     },
     getMineInGroup: (state, getters, rootState, rootGetters) => groupId => {

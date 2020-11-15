@@ -14,8 +14,8 @@ export default connect({
     isEditor: 'currentGroup/isEditor',
   },
   actionsToEvents: {
-    togglePlaces: 'sidenavBoxes/toggle/placesOnMap',
-    toggleUsers: 'sidenavBoxes/toggle/usersOnMap',
+    'toggle-places': 'sidenavBoxes/toggle/placesOnMap',
+    'toggle-users': 'sidenavBoxes/toggle/usersOnMap',
   },
 })('SidenavMap', SidenavMapUI)
 </script>

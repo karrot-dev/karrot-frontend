@@ -66,41 +66,43 @@
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "你真的想要刪除此固定開放食物領取日期？這也將刪除所有屬於此固定食物領取日期的一次性的開放食物領取日期（已有夥伴排班的日期將會保留）。",
-    "DELETE_SERIES_TITLE": "刪除循環出現的開放領取日期"
+    "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
+    "DELETE_SERIES_TITLE": "Delete series"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "This pickup has been disabled.",
-    "ACTIVITY_STARTED": "This pickup has already started.",
-    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
-    "AVAILABLE_FEEDBACK": "你能給予一項領取任務回饋 | {count}項領取任務等待你的回饋",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
+    "ACTIVITY_DISABLED": "This is disabled.",
+    "ACTIVITY_STARTED": "This has already started.",
+    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
+    "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
+    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
       "ALL": "All",
+      "ALL_TYPES": "All types",
       "EMPTY": "Only empty",
       "FREE": "With free slots"
     },
     "ITEM": {
       "JOIN": "加入",
-      "JOIN_CONFIRMATION_HEADER": "加入排班領取食物",
-      "JOIN_CONFIRMATION_TEXT": "你確定你在 {date} 的時候有時間領取食物嗎？",
+      "JOIN_CONFIRMATION_HEADER": "Join {activityType}",
+      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
       "LEAVE": "離開",
-      "LEAVE_CONFIRMATION_HEADER": "退出食物領取",
-      "LEAVE_CONFIRMATION_TEXT": "你真的確定其他人能夠在沒有你的情況下領取食物嗎？"
+      "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
+      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?"
     },
-    "JOINEDNOTICE": "接下來還有一份食物領取等著你！接下來還有 {count} 份食物領取等著你！",
-    "NONE": "沒有後續的開放領取",
-    "NONE_HINT": "You can create a new pickup on the place page.",
-    "STORE_NONE_HINT": "你可以在領取任務管理頁面創建新的領取任務"
+    "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
+    "NONE": "No upcoming activities",
+    "NONE_DUE_TO_FILTER": "No activities match your filters",
+    "NONE_HINT": "You can create a new activity on the place page.",
+    "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page."
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
-    "ACTIVITY_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
+    "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed",
-    "SERIES": "重復開放領取",
-    "SINGLE": "一次性開放領取",
-    "TITLE": "管理食物領取",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "此系列接下來的開放領取日期"
+    "SERIES": "Activity series",
+    "SINGLE": "One-time activities",
+    "TITLE": "Manage activities",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
   },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Amount of food you were able to save (in kg)",
@@ -108,11 +110,19 @@
     "COMMENT_PLACEHOLDER": "一切都順利嗎？大家都有到場嗎？在這裡留言...",
     "DELETE_AMOUNT": "刪除數量",
     "EDIT": "編輯回饋",
-    "HEADER": "謝謝你領取食物！",
+    "HEADER": "Thank you for your participation!",
     "PREVIOUS": "先前對於{store}的回饋",
     "SET_AMOUNT": "設定數量",
     "TITLE": "回饋",
-    "TOGETHER_WITH": "你和:        一起領這次的食物"
+    "TOGETHER_WITH": "You did this together with:"
+  },
+  "ACTIVITY_TYPE_NAMES": {
+    "Meeting": "Meeting",
+    "Pickup": "Pickup",
+    "Distribution": "Distribution",
+    "Event": "Event",
+    "Activity": "Activity",
+    "Task": "Task"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "choose location on map",
@@ -197,7 +207,8 @@
     "SUBMIT": "提交",
     "UNSUBSCRIBE": "Unsubscribe",
     "WITHDRAW": "退出",
-    "YES": "是"
+    "YES": "是",
+    "READ_MORE": "Read more"
   },
   "COMMUNITY_FEED": {
     "HEADER": "來自{community}的更新",
@@ -254,28 +265,28 @@
   },
   "CREATEACTIVITY": {
     "COMMENT": "更多資訊",
-    "COMMENT_HELPER": "有什麼事項是報名領取食物者應注意的？",
+    "COMMENT_HELPER": "What should people know when signing up to this?",
     "CUSTOM": "客製的",
     "DATE": "日期",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
-    "DISABLE_TITLE": "Disable pickup?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
-    "ENABLE_TITLE": "Enable pickup?",
-    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed.",
-    "EXCEPTIONS_TITLE": "Check your pickups",
+    "DISABLE_TITLE": "Disable?",
+    "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
+    "ENABLE_TITLE": "Enable?",
+    "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
+    "EXCEPTIONS_TITLE": "Check your activities",
     "FREQUENCY": "頻率",
     "MAX_PARTICIPANTS": "最大值",
-    "MAX_PARTICIPANTS_HELPER": "徵求多少人領取食物？",
+    "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
     "RRULE": "循環規則",
     "RRULE_EXAMPLE": "每個月的最後一個工作天(星期一到五)",
     "RRULE_EXAMPLE2": "每個月第二個星期一",
     "RRULE_HELPER": "輸入有效的{ruleHelper}, 例如: {ruleExample} 或是{ruleExample2}",
     "RRULE_HELPER_URL": "iCalender規則",
     "STARTDATE_HELPER": "此系列活動從甚麼時候開始?",
-    "TIME_HELPER": "應該在甚麼時候領取食物？",
+    "TIME_HELPER": "When should it take place?",
     "UNLIMITED": "沒有限制",
     "WEEKDAYS": "平日",
-    "WEEKDAYS_HELPER": "應該在哪幾天領取食物？",
+    "WEEKDAYS_HELPER": "On which days should it take place?",
     "WEEKLY": "每周的"
   },
   "CREATESTORE": {
@@ -290,8 +301,8 @@
     "NONE": "尚未有回饋",
     "NONE_HINT": "當有更多回饋時，它們就會填入這個頁面",
     "NO_DONE_ACTIVITIES": "都完成了",
-    "NO_DONE_ACTIVITIES_HINT": "你現在沒有食物領取要回饋了，何不再登記一個食物領取?",
-    "NUMBER_ACTIVITIES": "{count} 項領取已完成",
+    "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
+    "NUMBER_ACTIVITIES": "{count} activities done",
     "NUMBER_FEEDBACK": "有{count} 項領取回饋 ",
     "SAVED_FOOD": "至少有 1 公斤的食物不會被浪費掉了，| 謝謝你 ! 大家已經給  {amout}公斤的食物領取回饋了。繼續加油 !    ",
     "WEIGHT_SUM": "{sum} 公斤的食物已被領取"
@@ -307,11 +318,14 @@
     "RECONNECTING": "Reconnecting...",
     "SEARCH_NOT_FOUND": "無符合的搜尋結果",
     "SEARCH_RESULTS": "Search results",
-    "SERVER_ERROR": "伺服器錯誤"
+    "SERVER_ERROR": "伺服器錯誤",
+    "CLEAR_FILTERS": "Clear filters"
   },
   "GROUP": {
-    "ACTIVITIES": "開放領取食物",
-    "ACTIVITY": "領取",
+    "ACTIVITIES": "Activities",
+    "ACTIVITY": "Activity",
+    "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
     "ADDED_BY": "由{userName}加入",
     "ADDRESS": "地址",
     "APPLICATIONS": "申請",
@@ -354,8 +368,8 @@
         "NAME": "New conflict resolution processes"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day",
-        "NAME": "領取通知"
+        "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
+        "NAME": "Activity notifications"
       },
       "new_application": {
         "DESCRIPTION": "當有人想加入你的社團時通知你",
@@ -401,16 +415,16 @@
     "TITLE": "地圖"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "創建新的一次性開放外帶",
-    "ACTIVITY_DELETE": "刪除開放外帶",
-    "ACTIVITY_DISABLE": "disabled a pickup",
-    "ACTIVITY_DONE": "有去{store}拿取食物",
-    "ACTIVITY_ENABLE": "enabled a pickup",
-    "ACTIVITY_JOIN": "註冊以在{store}取貨",
-    "ACTIVITY_LEAVE": "取消在{storeName}開放領取食物",
+    "ACTIVITY_CREATE": "{activityType} created",
+    "ACTIVITY_DELETE": "{activityType} deleted",
+    "ACTIVITY_DISABLE": "{activityType} disabled",
+    "ACTIVITY_DONE": "did {activityType} at {placeName}",
+    "ACTIVITY_ENABLE": "{activityType} enabled",
+    "ACTIVITY_JOIN": "signed up for {activityType} at {placeName}",
+    "ACTIVITY_LEAVE": "stepped back from {activityType} at {placeName}",
     "ACTIVITY_LEAVE_DISTANCE": "{distance} before scheduled time",
-    "ACTIVITY_MISSED": "在{store}的食物領取被放鳥了！",
-    "ACTIVITY_MODIFY": "變更開放外帶的設定",
+    "ACTIVITY_MISSED": "{activityType} at {placeName} had no participants!",
+    "ACTIVITY_MODIFY": "changed the settings of an activity",
     "APPLICATION_DECLINED": "拒絕{applicantName}的申請",
     "DETAILS": "更多資訊",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
@@ -423,9 +437,9 @@
     "MEMBER_BECAME_EDITOR": "取得編輯許可",
     "MEMBER_REMOVED": "was removed due to group decision",
     "NOTHING_HAPPENEND": "目前沒有任何事情發生",
-    "SERIES_CREATE": "創建新的循環出現開放外帶",
-    "SERIES_DELETE": "刪除循環出現的開放外帶",
-    "SERIES_MODIFY": "變更循環出現的開放外帶設定",
+    "SERIES_CREATE": "{activityType} series created",
+    "SERIES_DELETE": "{activityType} series deleted",
+    "SERIES_MODIFY": "changed the settings of a series",
     "STORE_CREATE": "created place {name}",
     "STORE_DELETE": "deleted place {name}",
     "STORE_MODIFY": "changed the settings of place {name}"
@@ -526,10 +540,10 @@
     "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的驗證信。請檢查您的電子信箱。"
   },
   "NOTIFICATION_BELLS": {
-    "ACTIVITY_DISABLED": "Pickup at {dateTime} was disabled",
-    "ACTIVITY_ENABLED": "Pickup at {dateTime} was enabled again",
-    "ACTIVITY_MOVED": "Pickup was moved to {dateTime}",
-    "ACTIVITY_UPCOMING": "提醒: 你在{time}有領取任務",
+    "ACTIVITY_DISABLED": "{activityType} on {dateTime} was disabled",
+    "ACTIVITY_ENABLED": "{activityType} on {dateTime} was enabled again",
+    "ACTIVITY_MOVED": "{activityType} was moved to {dateTime}",
+    "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
     "APPLICATION_ACCEPTED": "你的申請已通過!",
     "APPLICATION_DECLINED": "你的申請被拒絕了",
     "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
@@ -539,7 +553,8 @@
     "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
-    "FEEDBACK_POSSIBLE": "你可以給你在{date}的食物領取回饋",
+    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
+    "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName}接受了你的邀請",
     "NEW_APPLICANT": "{userName}申請加入社團",
     "NEW_MEMBER": "{userName}加入了你的團隊",
@@ -606,9 +621,9 @@
     "SUBSCRIPTION": {
       "HEADER": "Do you want to mark this place as your favourite?",
       "NO": "no",
-      "NO_TEXT": "None of the above. You can still sign up for pickups though.",
+      "NO_TEXT": "None of the above. You can still sign up for activities though.",
       "YES": "yes",
-      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups."
+      "YES_TEXT": "Shows available activities on the group wall and sends emails about upcoming activities."
     }
   },
   "PROFILE": {
@@ -633,6 +648,7 @@
     "FILTER_TIME_LABEL": "Time period",
     "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
     "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "FILTER_TIME_FOREVER": "Forever",
     "COLUMN_PLACE": "Place",
     "COLUMN_ACTIVITY_DONE": "Done",
     "COLUMN_ACTIVITY_LEFT": "Left",
@@ -663,8 +679,8 @@
     "SHOW_ACTIVE_ONLY": "Only show active places",
     "SHOW_ALL": "Show all places",
     "STATUS": "狀態",
-    "WEEKS_IN_ADVANCE": "多少週以前要顯示可重複開放領取的日期？",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed."
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
   },
   "STORESTATUS": {
     "ACTIVE": "合作中",
@@ -721,7 +737,7 @@
     "MOBILE_NUMBER": "電話號碼",
     "NEWCOMER": "新加入成員",
     "NEWCOMER_GUIDANCE": "{userName}剛加入你的社團，可能需要一點指引",
-    "NEWCOMER_INFO": "你現在是{groupName}裡的新成員，而你可能會因為寫訊息、認識其他成員、進行領取任務與給予回饋而開始活躍。一旦{threshold}個成員表示他們對你的信任，你就會得到編輯許可，一起協助社團管理。",
+    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser}信任{groupName}裡的{userName}。| {count}個人信任{groupName}裡的{userName}。",
     "OTHER_PEOPLE_TRUST_YOU": "在{groupName}裡的{otherUser}信任你。| {count}個{groupName}裡的成員信任你",
     "PASSWORD": "密碼",

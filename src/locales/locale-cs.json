@@ -66,41 +66,43 @@
     "VISION_INTRO": "Karrot je nástrojem pro všechny druhy místních iniciativ, které se spojují a rostou. Podporuje koordinaci osobních činností s vrstvou digitální infrastruktury."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "Opravdu chcete odstranit toto opakující se datum vyzvednutí? Tím se také odstraní všechna jednorázová data vyzvednutí, která patří k tomuto opakovanému datu vyzvednutí (kromě případů, kdy se lidé již připojili).",
-    "DELETE_SERIES_TITLE": "Odstranit opakující se datum vyzvednutí"
+    "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
+    "DELETE_SERIES_TITLE": "Delete series"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "Toto vyzvednutí bylo deaktivováno.",
-    "ACTIVITY_STARTED": "Toto vyzvednutí již začalo.",
-    "AVAILABLE": "Čeká na vás jedno vyzvednutí na vašem oblíbeném místě. | Čekají na vás {count}  vyzvednutí na vašich oblíbených místech.",
-    "AVAILABLE_FEEDBACK": "Můžete dát zpětnou vazbu k vyzvednutí  | {count} vyzvednutí čeká na vaši zpětnou vazbu",
-    "AVAILABLE_FROM_STORES": "Zobrazuje vyzvednutí z vašich oblíbených míst v následujících dnech. Na postranním panelu můžete přistupovat k dalším místům.",
+    "ACTIVITY_DISABLED": "This is disabled.",
+    "ACTIVITY_STARTED": "This has already started.",
+    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
+    "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
+    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
       "ALL": "Vše",
+      "ALL_TYPES": "All types",
       "EMPTY": "Pouze prázdný",
       "FREE": "S volnými sloty"
     },
     "ITEM": {
       "JOIN": "Připojit",
-      "JOIN_CONFIRMATION_HEADER": "Připojit se k vyzvednutí",
-      "JOIN_CONFIRMATION_TEXT": "Opravdu máte čas vyzvednout v {date}?",
+      "JOIN_CONFIRMATION_HEADER": "Join {activityType}",
+      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
       "LEAVE": "Odejít",
-      "LEAVE_CONFIRMATION_HEADER": "Opustit  vyzvednutí",
-      "LEAVE_CONFIRMATION_TEXT": "Jste si jisti, že ostatní to mohou vyzvednout bez vás?"
+      "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
+      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?"
     },
-    "JOINEDNOTICE": "Máte jedno nadcházející vyzvednutí | Máte {count} nadcházejících vyzvednutí",
-    "NONE": "Žádné nadcházející vyzvednutí",
-    "NONE_HINT": "Na stránce Místa můžete vytvořit nové vyzvednutí.",
-    "STORE_NONE_HINT": "Na stránce pro správu vyzvednutí můžete vytvořit nové vyzvednutí."
+    "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
+    "NONE": "No upcoming activities",
+    "NONE_DUE_TO_FILTER": "No activities match your filters",
+    "NONE_HINT": "You can create a new activity on the place page.",
+    "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page."
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "„Další informace“ byly změněny",
-    "ACTIVITY_DOES_NOT_MATCH": "Datum tohoto vyzvednutí neodpovídá vzoru opakování.",
+    "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "Maximální počet slotů byl změněn",
-    "SERIES": "Opakující se vyzvednutí",
-    "SINGLE": "Jednorázové vyzvednutí",
-    "TITLE": "Spravujte vyzvednutí",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Připravované vyzvednutí v této sérii"
+    "SERIES": "Activity series",
+    "SINGLE": "One-time activities",
+    "TITLE": "Manage activities",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
   },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Množství jídla, které jste dokázali ušetřit (v kg)",
@@ -108,11 +110,19 @@
     "COMMENT_PLACEHOLDER": "Bylo všechno v pořádku? Žádné komplikace? Napište komentář zde ...",
     "DELETE_AMOUNT": "Smazat množství",
     "EDIT": "Upravit zpětnou vazbu",
-    "HEADER": "Děkujeme za vyzvednutí!",
+    "HEADER": "Thank you for your participation!",
     "PREVIOUS": "Předchozí zpětná vazba pro {store}",
     "SET_AMOUNT": "Nastavit množství",
     "TITLE": "Zpětná vazba",
-    "TOGETHER_WITH": "Toto vyzvednutí jste provedli společně s:"
+    "TOGETHER_WITH": "You did this together with:"
+  },
+  "ACTIVITY_TYPE_NAMES": {
+    "Meeting": "Meeting",
+    "Pickup": "Pickup",
+    "Distribution": "Distribution",
+    "Event": "Event",
+    "Activity": "Activity",
+    "Task": "Task"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "zvolte umístění na mapě",
@@ -197,7 +207,8 @@
     "SUBMIT": "Odeslat",
     "UNSUBSCRIBE": "Odhlásit odběr",
     "WITHDRAW": "Zrušit",
-    "YES": "Ano"
+    "YES": "Ano",
+    "READ_MORE": "Read more"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Aktualizace z {community}",
@@ -254,28 +265,28 @@
   },
   "CREATEACTIVITY": {
     "COMMENT": "Dodatečné informace",
-    "COMMENT_HELPER": "Co by měli lidé vědět při přihlášení k tomuto vyzvednutí?",
+    "COMMENT_HELPER": "What should people know when signing up to this?",
     "CUSTOM": "Vlastní",
     "DATE": "Datum",
     "DIFFERS_WARNING": "Tato hodnota se liší od výchozí hodnoty. Chcete-li tuto změnu vrátit zpět, klikněte na tlačítko se šipkou a uložte změny.",
-    "DISABLE_TITLE": "Zakázat vyzvednutí?",
-    "ENABLE_DISABLE_MESSAGE": "Uživatelé, kteří se k tomuto vyzvednutí připojí, dostanou oznámení. Tento text můžete změnit a uvést důvod:",
-    "ENABLE_TITLE": "Povolit vyzvednutí?",
-    "EXCEPTIONS_MESSAGE": "Některé nadcházející vyzvednutí neodpovídají nastavení tohoto opakujícího se vyzvednutí. Podívejte se níže na '{upcomingLabel}' a změňte nebo deaktivujte vyzvednutí, pokud je to potřeba.",
-    "EXCEPTIONS_TITLE": "Zkontrolovat své vyzvednutí",
+    "DISABLE_TITLE": "Disable?",
+    "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
+    "ENABLE_TITLE": "Enable?",
+    "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
+    "EXCEPTIONS_TITLE": "Check your activities",
     "FREQUENCY": "Frekvence",
     "MAX_PARTICIPANTS": "Maximum slotů",
-    "MAX_PARTICIPANTS_HELPER": "Kolik lidí by se mělo na vyzvednutí zúčastnit?",
+    "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
     "RRULE": "Pravidlo opakování",
     "RRULE_EXAMPLE": "poslední pracovní den (Po-Pá) každý měsíc",
     "RRULE_EXAMPLE2": "každé druhé pondělí",
     "RRULE_HELPER": "Zadejte platný {ruleHelper}, např. {ruleExample} nebo {ruleExample2}",
     "RRULE_HELPER_URL": "Pravidlo iCalendar",
     "STARTDATE_HELPER": "Kdy by měla série začít?",
-    "TIME_HELPER": "Kdy by mělo dojít k vyzvednutí?",
+    "TIME_HELPER": "When should it take place?",
     "UNLIMITED": "neomezený",
     "WEEKDAYS": "Pracovní dny",
-    "WEEKDAYS_HELPER": "Ve kterých dnech by se mělo vyzvednout?",
+    "WEEKDAYS_HELPER": "On which days should it take place?",
     "WEEKLY": "Týdně"
   },
   "CREATESTORE": {
@@ -290,8 +301,8 @@
     "NONE": "Zatím žádná zpětná vazba",
     "NONE_HINT": "Tato stránka bude vyplněna, jakmile bude k dispozici další zpětná vazba",
     "NO_DONE_ACTIVITIES": "Vše hotovo!",
-    "NO_DONE_ACTIVITIES_HINT": "V současné době nemáte žádné vyzvednutí, na které byste mohli poskytnout zpětnou vazbu. Proč se nepřipojit k jinému vyzvednutí?",
-    "NUMBER_ACTIVITIES": "{count} vyzvednutí hotovo",
+    "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
+    "NUMBER_ACTIVITIES": "{count} activities done",
     "NUMBER_FEEDBACK": "{count} zadané komentáře",
     "SAVED_FOOD": "Zde bylo ušetřeno nejméně 1 kg. Děkujeme! | Lidé již poskytli zpětnou vazbu na {amount} kg ušetřeného jídla! Pokračujte ve skvělé práci!",
     "WEIGHT_SUM": "{sum} kg zachráněného jídla"
@@ -307,11 +318,14 @@
     "RECONNECTING": "Opětovné připojení ...",
     "SEARCH_NOT_FOUND": "Nenalezeno",
     "SEARCH_RESULTS": "Výsledky vyhledávání",
-    "SERVER_ERROR": "Chyba serveru"
+    "SERVER_ERROR": "Chyba serveru",
+    "CLEAR_FILTERS": "Clear filters"
   },
   "GROUP": {
-    "ACTIVITIES": "Vyzvednutí",
-    "ACTIVITY": "Vyzvednutí",
+    "ACTIVITIES": "Activities",
+    "ACTIVITY": "Activity",
+    "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
     "ADDED_BY": "přidal {userName}",
     "ADDRESS": "Adresa",
     "APPLICATIONS": "Žádosti",
@@ -354,8 +368,8 @@
         "NAME": "Nové procesy řešení konfliktů"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "Připomíná vám vaše vyzvednutí a řekne vám o prázdných nebo neúplných vyzvednutích vašich oblíbených míst v příštím dnu",
-        "NAME": "Oznámení o vyzvednutí"
+        "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
+        "NAME": "Activity notifications"
       },
       "new_application": {
         "DESCRIPTION": "Oznámí vám, když se někdo chce připojit k vaší skupině",
@@ -401,16 +415,16 @@
     "TITLE": "Mapa"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "vytvořil nové jednorázové vyzvednutí",
-    "ACTIVITY_DELETE": "smazal vyzvednutí",
-    "ACTIVITY_DISABLE": "nepovoleno vyzvednutí",
-    "ACTIVITY_DONE": "vyzvedl v {storeName}",
-    "ACTIVITY_ENABLE": "povoleno vyzvednutí",
-    "ACTIVITY_JOIN": "přihlášeni k vyzvednutí na {storeName}",
-    "ACTIVITY_LEAVE": "odstoupil od vyzvednutí {storeName}",
+    "ACTIVITY_CREATE": "{activityType} created",
+    "ACTIVITY_DELETE": "{activityType} deleted",
+    "ACTIVITY_DISABLE": "{activityType} disabled",
+    "ACTIVITY_DONE": "did {activityType} at {placeName}",
+    "ACTIVITY_ENABLE": "{activityType} enabled",
+    "ACTIVITY_JOIN": "signed up for {activityType} at {placeName}",
+    "ACTIVITY_LEAVE": "stepped back from {activityType} at {placeName}",
     "ACTIVITY_LEAVE_DISTANCE": "{distance} před plánovaným časem",
-    "ACTIVITY_MISSED": "Vyzvednutí na {storeName} bylo zmeškáno!",
-    "ACTIVITY_MODIFY": "změněno nastavení vyzvednutí",
+    "ACTIVITY_MISSED": "{activityType} at {placeName} had no participants!",
+    "ACTIVITY_MODIFY": "changed the settings of an activity",
     "APPLICATION_DECLINED": "odmítl žádost od {applicantName}",
     "DETAILS": "Více informací",
     "GROUP_CHANGE_PHOTO": "změněno logo skupiny",
@@ -423,9 +437,9 @@
     "MEMBER_BECAME_EDITOR": "získal oprávnění k úpravám",
     "MEMBER_REMOVED": "byl odstraněn kvůli rozhodnutí skupiny",
     "NOTHING_HAPPENEND": "Zatím se nic nestalo ...",
-    "SERIES_CREATE": "vytvořil nové opakující se vyzvednutí",
-    "SERIES_DELETE": "odstranil opakující se vyzvednutí",
-    "SERIES_MODIFY": "změnil nastavení opakovaného vyzvednutí",
+    "SERIES_CREATE": "{activityType} series created",
+    "SERIES_DELETE": "{activityType} series deleted",
+    "SERIES_MODIFY": "changed the settings of a series",
     "STORE_CREATE": "vytvořené místo {name}",
     "STORE_DELETE": "smazané místo {name}",
     "STORE_MODIFY": "změněno nastavení místa {name}"
@@ -526,10 +540,10 @@
     "VERIFICATION_EMAIL_SENT": "Poslali jsme vám další ověřovací e-mail. Zkontrolujte prosím doručenou poštu."
   },
   "NOTIFICATION_BELLS": {
-    "ACTIVITY_DISABLED": "Vyzvednutí v {dateTime} bylo zakázáno",
-    "ACTIVITY_ENABLED": "Vyzvednutí v {dateTime} bylo znovu povoleno",
-    "ACTIVITY_MOVED": "Vyzvednutí bylo přesunuto na {dateTime}",
-    "ACTIVITY_UPCOMING": "Připomenutí: Máte vyzvednutí v {time}",
+    "ACTIVITY_DISABLED": "{activityType} on {dateTime} was disabled",
+    "ACTIVITY_ENABLED": "{activityType} on {dateTime} was enabled again",
+    "ACTIVITY_MOVED": "{activityType} was moved to {dateTime}",
+    "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
     "APPLICATION_ACCEPTED": "Vaše žádost  byla přijata!",
     "APPLICATION_DECLINED": "Vaše přihláška byla zamítnuta",
     "CONFLICT_RESOLUTION_CONTINUED": "Proces řešení konfliktu s {userName} pokračuje",
@@ -539,7 +553,8 @@
     "CONFLICT_RESOLUTION_DECIDED": "Proces řešení konfliktu s {userName} byl rozhodnut",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Bylo rozhodnuto v procesu řešení konfliktů s vámi",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Byl jste odstraněn ze skupiny",
-    "FEEDBACK_POSSIBLE": "Můžete poskytnout zpětnou vazbu pro vyzvednutí, které jste provedli {date}",
+    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
+    "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName} přijal vaše pozvání",
     "NEW_APPLICANT": "{userName} přihlášen do vaší skupiny",
     "NEW_MEMBER": "{userName} se připojil k vaší skupině",
@@ -606,9 +621,9 @@
     "SUBSCRIPTION": {
       "HEADER": "Chcete toto místo označit jako své oblíbené?",
       "NO": "ne",
-      "NO_TEXT": "Nic z výše uvedeného. I přesto se můžete přihlásit k odběru.",
+      "NO_TEXT": "None of the above. You can still sign up for activities though.",
       "YES": "ano",
-      "YES_TEXT": "Zobrazuje dostupná vyzvednutí na zdi skupiny a odešle e-maily o nadcházejících vyzvednutí."
+      "YES_TEXT": "Shows available activities on the group wall and sends emails about upcoming activities."
     }
   },
   "PROFILE": {
@@ -633,6 +648,7 @@
     "FILTER_TIME_LABEL": "Časový úsek",
     "FILTER_TIME_PREVIOUS_DAYS": "Předchozích {count} dnů",
     "FILTER_TIME_PREVIOUS_MONTHS": "Předchozích {count} měsíců",
+    "FILTER_TIME_FOREVER": "Forever",
     "COLUMN_PLACE": "Místo",
     "COLUMN_ACTIVITY_DONE": "Hotovo",
     "COLUMN_ACTIVITY_LEFT": "Zbývá",
@@ -663,8 +679,8 @@
     "SHOW_ACTIVE_ONLY": "Zobrazit pouze aktivní místa",
     "SHOW_ALL": "Zobrazit všechna místa",
     "STATUS": "Stav",
-    "WEEKS_IN_ADVANCE": "Kolik týdnů předem by se měla zobrazit opakovaná data vyzvednutí?",
-    "WEEKS_IN_ADVANCE_WARNING": "Chystáte se snížit počet zobrazených týdnů vyzvednutí. Existující zbývající vyzvednutí budou odstraněny, pokud se k nim nikdo nepřipojí. V případě potřeby můžete všechny ostatní vyzvednutí deaktivovat ručně."
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
   },
   "STORESTATUS": {
     "ACTIVE": "Spolupracuje",
@@ -721,7 +737,7 @@
     "MOBILE_NUMBER": "Telefonní číslo",
     "NEWCOMER": "Nový příchozí",
     "NEWCOMER_GUIDANCE": "{userName} je pro vaši skupinu nový a může vyžadovat nějakou pomoc.",
-    "NEWCOMER_INFO": "V současné době jste nováčkem ve skupině {groupName} a můžete být aktivní tím, že píšete zprávy, setkáváte se s členy, vyzvedáváte a poskytujete zpětnou vazbu. Jakmile {threshold} členové vyjádří důvěru ve vás, získáte oprávnění k úpravám, která  pomohou se správou skupiny.",
+    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} důvěřuje {userName} v {groupName}. | {count} lidé důvěřují {userName} ve skupině {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vám věří v {groupName}. | {count} lidé vám věří v {groupName}.",
     "PASSWORD": "Heslo",

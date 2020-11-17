@@ -1,54 +1,24 @@
 <template>
-  <div
-    class="notice q-pa-sm"
-    style="margin: 0 auto"
-  >
-    <QCard
-      class="generic-padding card items-center q-pa-none bg-secondary text-white"
-      :class="$q.platform.is.mobile ? 'column' : 'row no-wrap'"
-    >
-      <div class="icon">
-        <slot name="icon" />
-      </div>
-      <div :class="!$q.platform.is.mobile ? 'q-ml-md' : 'text-center'">
-        <div
-          :class="$q.platform.is.mobile && 'q-mt-sm'"
-        >
-          <slot />
-        </div>
-        <div class="desc q-mt-md">
-          <slot name="desc" />
-        </div>
-      </div>
-    </QCard>
-  </div>
+  <QBanner class="q-ma-lg q-pa-lg bg-secondary text-white">
+    <template #avatar>
+      <slot name="icon" />
+    </template>
+    <h5 class="q-ma-none">
+      <slot />
+    </h5>
+    <slot name="desc" />
+    <template #action>
+      <slot name="action" />
+    </template>
+  </QBanner>
 </template>
 
 <script>
-import { QCard } from 'quasar'
+import { QBanner } from 'quasar'
 
 export default {
-  components: { QCard },
+  components: {
+    QBanner,
+  },
 }
 </script>
-
-<style scoped lang="stylus">
-@import '~variables'
-@keyframes rotateIn
-  0%
-    transform rotate(0deg)
-
-  100%
-    transform rotate(-3deg)
-
-.notice
-  max-width 90%
-  transform rotate(-3deg)
-  animation .3s ease-out 0s 1 rotateIn
-
-  .icon
-    font-size 4.5rem
-
-  .desc
-    font-size 80%
-</style>

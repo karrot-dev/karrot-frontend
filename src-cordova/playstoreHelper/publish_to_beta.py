@@ -10,7 +10,6 @@ import os
 from pathlib import Path
 
 TRACK = 'beta'
-USER_FRACTION = 1
 APK_FILE = '../platforms/android/build/outputs/apk/release/android-release.apk'
 CREDENTIALS_JSON = 'playstore-service-account.json'
 
@@ -71,8 +70,7 @@ def main(argv):
                     'language': 'en-US'
                 }],
                 'versionCodes': [apk_response['versionCode']],
-                'userFraction': USER_FRACTION,
-                'status': 'inProgress',
+                'status': 'completed',
             }]
         }
     ).execute()

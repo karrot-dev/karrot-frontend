@@ -66,41 +66,43 @@
     "VISION_INTRO": "Karrot ist ein Werkzeug, das allen Arten von Graswurzelbewegungen dabei helfen kann zu wachsen und sich zu organisieren. Es bietet digitale Infrastruktur, die bei der Koordination von Aktivitäten in der echten Welt behilflich ist."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "Willst du wirklich diese regelmäßige Abholung löschen? Das löscht alle Abholungstermine, die zu der regelmäßigen Abholung gehören (außer wenn bereits Abholende eingetragen sind).",
-    "DELETE_SERIES_TITLE": "Regelmäßige Abholung löschen"
+    "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
+    "DELETE_SERIES_TITLE": "Delete series"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "Diese Abholung wurde deaktiviert.",
-    "ACTIVITY_STARTED": "Diese Abholung hat bereits begonnen.",
-    "AVAILABLE": "Es gibt eine Abholung bei deinen Lieblingsorten, die auf dich wartet! | Es gibt '{count}' Abholungen bei deinen Lieblingsorten, die auf dich warten!",
-    "AVAILABLE_FEEDBACK": "Du kannst Feedback zu einer Abholung geben | {count} Abholungen warten auf dein Feedback.",
-    "AVAILABLE_FROM_STORES": "Hier werden Abholung der nächsten Tage deiner Lieblingsorte angezeigt. Du erhältst über die Seitenleiste Zugang zu anderen Orten.",
+    "ACTIVITY_DISABLED": "This is disabled.",
+    "ACTIVITY_STARTED": "This has already started.",
+    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
+    "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
+    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
       "ALL": "Alle",
+      "ALL_TYPES": "All types",
       "EMPTY": "Nur leere",
       "FREE": "Mit offenen Slots"
     },
     "ITEM": {
       "JOIN": "Abholen",
-      "JOIN_CONFIRMATION_HEADER": "Abholen",
-      "JOIN_CONFIRMATION_TEXT": "Bist du sicher, dass du am {date} Zeit hast um abzuholen?",
+      "JOIN_CONFIRMATION_HEADER": "Join {activityType}",
+      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
       "LEAVE": "Nicht mehr abholen",
-      "LEAVE_CONFIRMATION_HEADER": "Nicht abholen",
-      "LEAVE_CONFIRMATION_TEXT": "Bist du dir sicher, dass die anderen die Abholung ohne dich schaffen?"
+      "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
+      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?"
     },
-    "JOINEDNOTICE": "Du hast dich für eine Abholung gemeldet | Du hast dich für {count} Abholungen gemeldet",
-    "NONE": "Es stehen keine Abholungen an.",
-    "NONE_HINT": "Du kannst eine neue Abholung auf der Seite des Ortes erstellen.",
-    "STORE_NONE_HINT": "Im Abholzeiten-Editor kannst du eine neue Abholung erstellen."
+    "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
+    "NONE": "No upcoming activities",
+    "NONE_DUE_TO_FILTER": "No activities match your filters",
+    "NONE_HINT": "You can create a new activity on the place page.",
+    "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page."
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "'Zusätzliche Information' wurde geändert",
-    "ACTIVITY_DOES_NOT_MATCH": "Dieses Abholungsdatum stimmt nicht mit der Frequenz sonstiger Abholungen überein.",
+    "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' wurde geändert",
-    "SERIES": "Wiederkehrende Abholungen",
-    "SINGLE": "Einmalige Abholungen",
-    "TITLE": "Abholzeiten-Editor",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Kommende Einzelabholungen"
+    "SERIES": "Activity series",
+    "SINGLE": "One-time activities",
+    "TITLE": "Manage activities",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
   },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Menge des geretteten Essens (in kg)",
@@ -108,11 +110,19 @@
     "COMMENT_PLACEHOLDER": "Lief alles gut? Sind alle aufgetaucht? Dein Kommentar bitte...",
     "DELETE_AMOUNT": "Gewicht löschen",
     "EDIT": "Rückmeldung bearbeiten",
-    "HEADER": "Danke für deine Abholung!",
+    "HEADER": "Thank you for your participation!",
     "PREVIOUS": "Bisheriges Feedback für {store}",
     "SET_AMOUNT": "Gewicht eingeben",
     "TITLE": "Feedback",
-    "TOGETHER_WITH": "Du hast zusammen abgeholt mit:"
+    "TOGETHER_WITH": "You did this together with:"
+  },
+  "ACTIVITY_TYPE_NAMES": {
+    "Meeting": "Meeting",
+    "Pickup": "Pickup",
+    "Distribution": "Distribution",
+    "Event": "Event",
+    "Activity": "Activity",
+    "Task": "Task"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "wähle den Ort auf der Karte",
@@ -197,7 +207,8 @@
     "SUBMIT": "Absenden",
     "UNSUBSCRIBE": "Abmelden",
     "WITHDRAW": "Zurückziehen",
-    "YES": "Ja"
+    "YES": "Ja",
+    "READ_MORE": "Read more"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates der {community}",
@@ -254,28 +265,28 @@
   },
   "CREATEACTIVITY": {
     "COMMENT": "Zusätzliche Informationen",
-    "COMMENT_HELPER": "Was sollten die Leute wissen, wenn sie bei dieser Abholung teilnehmen?",
+    "COMMENT_HELPER": "What should people know when signing up to this?",
     "CUSTOM": "Benutzerdefiniert",
     "DATE": "Datum",
     "DIFFERS_WARNING": "Dieser Wert unterscheidet sich vom Standard. Um diese Änderung rückgängig zu machen, klicke auf die Pfeil-Schaltfläche und speichere die Änderungen.",
-    "DISABLE_TITLE": "Abholungen deaktivieren?",
-    "ENABLE_DISABLE_MESSAGE": "Nutzerinnen und Nutzer, die sich für diese Abholung eingetragen haben, werden benachrichtigt. Du kannst diesen Text ändern, um einen Grund anzugeben:",
-    "ENABLE_TITLE": "Abholungen aktivieren?",
-    "EXCEPTIONS_MESSAGE": "Einige anstehende Abholungen stimmen nicht mit den Einstellungen dieser regelmäßigen Abholung überein. Schaue unter '{upcomingLabel}' nach, um Abholungen zu ändern oder zu löschen, falls nötig.",
-    "EXCEPTIONS_TITLE": "Kontrolliere deine Abholungen",
+    "DISABLE_TITLE": "Disable?",
+    "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
+    "ENABLE_TITLE": "Enable?",
+    "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
+    "EXCEPTIONS_TITLE": "Check your activities",
     "FREQUENCY": "Häufigkeit",
     "MAX_PARTICIPANTS": "Anzahl Abholende",
-    "MAX_PARTICIPANTS_HELPER": "Wie viele Leute sollen bei der Abholung teilnehmen?",
+    "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
     "RRULE": "Regelmäßigkeit",
     "RRULE_EXAMPLE": "'letzter Werktag eines jeden Monats'",
     "RRULE_EXAMPLE2": "'jeder zweite Montag'",
     "RRULE_HELPER": "Gib eine gültige {ruleHelper} ein, z.B. {ruleExample} oder {ruleExample2}.",
     "RRULE_HELPER_URL": "RRULE",
     "STARTDATE_HELPER": "Wann sollen die Abholungen beginnen?",
-    "TIME_HELPER": "Wann soll die Abholung stattfinden?",
+    "TIME_HELPER": "When should it take place?",
     "UNLIMITED": "unbegrenzt",
     "WEEKDAYS": "Wochentage",
-    "WEEKDAYS_HELPER": "An welchen Tagen soll die Abholung stattfinden?",
+    "WEEKDAYS_HELPER": "On which days should it take place?",
     "WEEKLY": "Wöchentlich"
   },
   "CREATESTORE": {
@@ -290,8 +301,8 @@
     "NONE": "Bisher kein Feedback",
     "NONE_HINT": "Auf dieser Seite wird etwas stehen, sobald Feedback abgegeben wurde",
     "NO_DONE_ACTIVITIES": "Alles erledigt!",
-    "NO_DONE_ACTIVITIES_HINT": "Du hast derzeit keine erledigten Abholungen, auf die du Rückmeldung geben kannst. Warum nicht gleich zur nächsten Abholung eintragen?",
-    "NUMBER_ACTIVITIES": "{count} Abholungen",
+    "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
+    "NUMBER_ACTIVITIES": "{count} activities done",
     "NUMBER_FEEDBACK": "{count} Rückmeldungen",
     "SAVED_FOOD": "Mindestens 1 kg wurde hier gerettet. Dankeschön! | Es wurde bereits für {amount} kg gerettete Lebensmittel Feedback gegeben! Weiter so!",
     "WEIGHT_SUM": "{sum} kg Lebensmittel gerettet"
@@ -307,11 +318,14 @@
     "RECONNECTING": "Verbindung wird wiederhergestellt...",
     "SEARCH_NOT_FOUND": "Nicht gefunden",
     "SEARCH_RESULTS": "Suchergebnisse",
-    "SERVER_ERROR": "Server-Fehler"
+    "SERVER_ERROR": "Server-Fehler",
+    "CLEAR_FILTERS": "Clear filters"
   },
   "GROUP": {
-    "ACTIVITIES": "Abholungen",
-    "ACTIVITY": "Abholung",
+    "ACTIVITIES": "Activities",
+    "ACTIVITY": "Activity",
+    "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
     "ADDED_BY": "hinzugefügt von {userName}",
     "ADDRESS": "Adresse",
     "APPLICATIONS": "Bewerbungen",
@@ -354,8 +368,8 @@
         "NAME": "Neue Konfliktresolutionsprozesse"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "Erinnert dich an deine Abholungen und lässt dich über leere oder unvollständige Abholungen deiner Lieblingsorte des nächsten Tages wissen",
-        "NAME": "Abholungs-Benachrichtigungen"
+        "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
+        "NAME": "Activity notifications"
       },
       "new_application": {
         "DESCRIPTION": "Lässt dich wissen wenn jemensch der Gruppe beitreten will",
@@ -401,16 +415,16 @@
     "TITLE": "Karte"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "hat einen neuen einmaligen Abholtermin erstellt",
-    "ACTIVITY_DELETE": "hat einen Abholtermin gelöscht",
-    "ACTIVITY_DISABLE": "hat eine Abholung deaktiviert",
-    "ACTIVITY_DONE": "haben bei Betrieb {storeName} abgeholt",
-    "ACTIVITY_ENABLE": "hat eine Abholung aktiviert",
-    "ACTIVITY_JOIN": "hat sich gemeldet, um bei Betrieb {storeName} abzuholen",
-    "ACTIVITY_LEAVE": "ist von der Abholung bei {storeName} zurückgetreten",
+    "ACTIVITY_CREATE": "{activityType} created",
+    "ACTIVITY_DELETE": "{activityType} deleted",
+    "ACTIVITY_DISABLE": "{activityType} disabled",
+    "ACTIVITY_DONE": "did {activityType} at {placeName}",
+    "ACTIVITY_ENABLE": "{activityType} enabled",
+    "ACTIVITY_JOIN": "signed up for {activityType} at {placeName}",
+    "ACTIVITY_LEAVE": "stepped back from {activityType} at {placeName}",
     "ACTIVITY_LEAVE_DISTANCE": "{distance} vor der geplanten Zeit",
-    "ACTIVITY_MISSED": "Eine Abholung bei {storeName} wurde verpasst!",
-    "ACTIVITY_MODIFY": "hat die Eigenschaften eines Abholtermins geändert",
+    "ACTIVITY_MISSED": "{activityType} at {placeName} had no participants!",
+    "ACTIVITY_MODIFY": "changed the settings of an activity",
     "APPLICATION_DECLINED": "hat eine Bewerbung von {applicantName} abgelehnt",
     "DETAILS": "Mehr Infos",
     "GROUP_CHANGE_PHOTO": "hat das Gruppenlogo geändert",
@@ -423,9 +437,9 @@
     "MEMBER_BECAME_EDITOR": "erhielt Bearbeitungsrechte",
     "MEMBER_REMOVED": "wurde wegen Gruppenentscheidung ausgeschlossen",
     "NOTHING_HAPPENEND": "Bisher ist nichts passiert...",
-    "SERIES_CREATE": "hat einen neuen regelmäßigen Abholtermin erstellt",
-    "SERIES_DELETE": "hat einen regelmäßigen Abholtermin gelöscht",
-    "SERIES_MODIFY": "hat die Eigenschaften eines regelmäßigen Abholtermins geändert",
+    "SERIES_CREATE": "{activityType} series created",
+    "SERIES_DELETE": "{activityType} series deleted",
+    "SERIES_MODIFY": "changed the settings of a series",
     "STORE_CREATE": "hat den Ort {name} erstellt",
     "STORE_DELETE": "hat den Ort {name} gelöscht",
     "STORE_MODIFY": "hat die Einstellungen vom Ort {name} verändert"
@@ -526,10 +540,10 @@
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   },
   "NOTIFICATION_BELLS": {
-    "ACTIVITY_DISABLED": "Abholung am {dateTime} wurde deaktiviert",
-    "ACTIVITY_ENABLED": "Abholung am {dateTime} wurde wieder aktiviert",
-    "ACTIVITY_MOVED": "Abholung wurde nach {dateTime} verschoben",
-    "ACTIVITY_UPCOMING": "Erinnerung: Du hast um {time} eine Abholung",
+    "ACTIVITY_DISABLED": "{activityType} on {dateTime} was disabled",
+    "ACTIVITY_ENABLED": "{activityType} on {dateTime} was enabled again",
+    "ACTIVITY_MOVED": "{activityType} was moved to {dateTime}",
+    "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
     "APPLICATION_ACCEPTED": "Deine Bewerbung wurde akzeptiert!",
     "APPLICATION_DECLINED": "Deine Bewerbung wurde abgelehnt",
     "CONFLICT_RESOLUTION_CONTINUED": "Der Konfliktlösungsprozess mit {userName} geht weiter",
@@ -539,7 +553,8 @@
     "CONFLICT_RESOLUTION_DECIDED": "Der Konfliktlösungsprozess mit {userName} wurde entschieden",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Der Konfliktlösungsprozess mit dir wurde entschieden",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du wurdest von der Gruppe ausgeschlossen",
-    "FEEDBACK_POSSIBLE": "Du kannst ein Feedback zu der Abholung vom '{date}' geben.",
+    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
+    "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName} hat deine Einladung angenommen",
     "NEW_APPLICANT": "{userName} bewarb sich, um deiner Gruppe beizutreten",
     "NEW_MEMBER": "{userName} schloss sich deiner Gruppe an",
@@ -606,9 +621,9 @@
     "SUBSCRIPTION": {
       "HEADER": "Willst du diesen Ort als Favoriten markieren?",
       "NO": "nein",
-      "NO_TEXT": "Nichts von oben. Du kannst dich trotzdem für Abholungen einschreiben.",
+      "NO_TEXT": "None of the above. You can still sign up for activities though.",
       "YES": "ja",
-      "YES_TEXT": "Zeigt verfügbare Abholungen auf der Gruppen-Pinnwand und versendet E-Mails zu anstehenden Abholungen."
+      "YES_TEXT": "Shows available activities on the group wall and sends emails about upcoming activities."
     }
   },
   "PROFILE": {
@@ -633,6 +648,7 @@
     "FILTER_TIME_LABEL": "Time period",
     "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
     "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "FILTER_TIME_FOREVER": "Forever",
     "COLUMN_PLACE": "Place",
     "COLUMN_ACTIVITY_DONE": "Done",
     "COLUMN_ACTIVITY_LEFT": "Left",
@@ -663,8 +679,8 @@
     "SHOW_ACTIVE_ONLY": "Nur aktive Orte anzeigen",
     "SHOW_ALL": "Alle Orte anzeigen",
     "STATUS": "Status",
-    "WEEKS_IN_ADVANCE": "Wieviele Wochen im Voraus sollen die wiederkehrenden Abholungen angezeigt werden?",
-    "WEEKS_IN_ADVANCE_WARNING": "Du bist dabei, die Anzahl der Wochen zu reduzieren, in denen Abholungen angezeigt werden. Übrige noch existierende Abholungen werden gelöscht, falls sich dort niemand eingetragen hat. Falls nötig, kannst du alle anderen Abholungen manuell löschen."
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
   },
   "STORESTATUS": {
     "ACTIVE": "Kooperiert",
@@ -721,7 +737,7 @@
     "MOBILE_NUMBER": "Telefonnummer",
     "NEWCOMER": "Neuling",
     "NEWCOMER_GUIDANCE": "{userName} ist neu in eurer Gruppe und könnte etwas Führung brauchen.",
-    "NEWCOMER_INFO": "Du bist gerade ein Neuling in {groupName} und du kannst aktiv werden, indem du Nachrichten schreibst, andere Gruppenmitglieder triffst, Abholungen erledigst und Feedback gibst. Sobald {threshold} Mitglieder dir ihr Vertrauen ausgedrückt haben, erhältst du Bearbeitungsrechte, um bei der Gruppenverwaltung zu helfen.",
+    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} vertraut {userName} in {groupName}. | {count} Menschen vertrauen {userName} in {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vertraut dir in {groupName}. | {count} Menschen vertrauen dir in {groupName}.",
     "PASSWORD": "Passwort",

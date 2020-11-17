@@ -18,6 +18,8 @@ export default connect({
     'save-message': 'conversations/saveMessage',
     'fetch-past': 'conversations/fetchPast',
     'fetch-future': 'currentThread/fetchFuture',
+    'application-accept': 'applications/accept',
+    'application-decline': 'applications/decline',
   },
 })('Detail', DetailUI)
 </script>

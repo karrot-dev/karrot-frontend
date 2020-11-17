@@ -46,6 +46,35 @@
           </div>
         </QExpansionItem>
       </template>
+      <template
+        v-if="application && application.canDecide"
+        #before-chat-compose
+      >
+        <QBtnGroup
+          flat
+          spread
+          class="bg-grey-2 q-my-sm q-mx-md"
+        >
+          <QBtn
+            flat
+            icon="fas fa-fw fa-check"
+            color="positive"
+            class="q-pa-sm"
+            @click="applicationAccept(application)"
+          >
+            {{ $t('BUTTON.ACCEPT') }}
+          </QBtn>
+          <QBtn
+            flat
+            icon="fas fa-fw fa-times"
+            color="negative"
+            class="q-pa-sm"
+            @click="applicationDecline(application)"
+          >
+            {{ $t('BUTTON.DECLINE') }}
+          </QBtn>
+        </QBtnGroup>
+      </template>
       <template #after-chat-messages>
         <QList
           v-if="activity && activity.isDisabled"
@@ -76,6 +105,9 @@ import {
   QItem,
   QItemSection,
   QItemLabel,
+  QBtn,
+  QBtnGroup,
+  Dialog,
 } from 'quasar'
 
 export default {
@@ -89,6 +121,8 @@ export default {
     QItem,
     QItemSection,
     QItemLabel,
+    QBtn,
+    QBtnGroup,
   },
   props: {
     inline: {
@@ -133,6 +167,26 @@ export default {
         ...this.conversation,
         messages,
       }
+    },
+  },
+  methods: {
+    applicationAccept (application) {
+      Dialog.create({
+        title: this.$t('APPLICATION.ACCEPT_CONFIRMATION_HEADER'),
+        message: this.$t('APPLICATION.ACCEPT_CONFIRMATION_TEXT', { userName: application.user.displayName }),
+        ok: this.$t('BUTTON.YES'),
+        cancel: this.$t('BUTTON.CANCEL'),
+      })
+        .onOk(() => this.$emit('application-accept', application.id))
+    },
+    applicationDecline (application) {
+      Dialog.create({
+        title: this.$t('APPLICATION.DECLINE_CONFIRMATION_HEADER'),
+        message: this.$t('APPLICATION.DECLINE_CONFIRMATION_TEXT', { userName: application.user.displayName }),
+        ok: this.$t('BUTTON.YES'),
+        cancel: this.$t('BUTTON.CANCEL'),
+      })
+        .onOk(() => this.$emit('application-decline', application.id))
     },
   },
 }

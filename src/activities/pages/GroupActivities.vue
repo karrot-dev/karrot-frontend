@@ -5,6 +5,7 @@
       :pending="pending"
       place-link
       filter
+      :filter-activity-types="activityTypes"
       @join="join"
       @leave="leave"
       @detail="detail"
@@ -12,7 +13,7 @@
     <template v-if="hasNoActivities">
       <KNotice>
         <template #icon>
-          <i class="fas fa-bed" />
+          <QIcon class="fas fa-bed" />
         </template>
         {{ $t('ACTIVITYLIST.NONE') }}
         <template #desc>
@@ -38,6 +39,7 @@
 <script>
 import {
   QCard,
+  QIcon,
   QCardSection,
 } from 'quasar'
 
@@ -50,6 +52,7 @@ import PlaceList from '@/places/components/PlaceList'
 export default {
   components: {
     QCard,
+    QIcon,
     QCardSection,
     ActivityList,
     KNotice,
@@ -59,6 +62,7 @@ export default {
     ...mapGetters({
       groupId: 'currentGroup/id',
       activities: 'activities/byCurrentGroup',
+      activityTypes: 'activityTypes/byCurrentGroup',
       pending: 'activities/fetchingForCurrentGroup',
       places: 'places/byCurrentGroup',
     }),

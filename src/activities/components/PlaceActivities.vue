@@ -2,7 +2,7 @@
   <div>
     <KNotice v-if="isInactive">
       <template #icon>
-        <i class="far fa-handshake" />
+        <QIcon class="far fa-handshake" />
       </template>
       {{ $t('STOREDETAIL.INACTIVE') }}
       <template #desc>
@@ -16,7 +16,7 @@
     </KNotice>
     <KNotice v-else-if="hasNoActivities">
       <template #icon>
-        <i class="fas fa-bed" />
+        <QIcon class="fas fa-bed" />
       </template>
       {{ $t('ACTIVITYLIST.NONE') }}
       <template #desc>
@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import { QIcon } from 'quasar'
+
 import ActivityList from '@/activities/components/ActivityList'
 import KNotice from '@/utils/components/KNotice'
 
@@ -51,6 +53,7 @@ export default {
   components: {
     ActivityList,
     KNotice,
+    QIcon,
   },
   computed: {
     ...mapGetters({

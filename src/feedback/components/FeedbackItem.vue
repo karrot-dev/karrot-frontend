@@ -3,7 +3,13 @@
     <QCardSection class="q-pa-md">
       <div class="row no-wrap">
         <div class="content full-width">
-          <div class="row no-wrap items-baseline">
+          <div class="row no-wrap items-baseline q-gutter-sm">
+            <template v-if="activityType">
+              <QIcon
+                v-bind="activityType.iconProps"
+              />
+              <span>{{ activityType.name }}</span>
+            </template>
             <strong
               v-measure
               class="q-mr-sm"
@@ -20,7 +26,7 @@
             </RouterLink>
             <RouterLink
               v-if="feedback.isEditable"
-              class="edit-button q-ml-sm"
+              class="edit-button"
               :to="{ name: 'editFeedback', params: { feedbackId: feedback.id }}"
             >
               <QIcon
@@ -132,6 +138,9 @@ export default {
     },
     activityDate () {
       return this.feedback && this.feedback.about && this.feedback.about.date
+    },
+    activityType () {
+      return this.feedback && this.feedback.about && this.feedback.about.activityType
     },
   },
 }

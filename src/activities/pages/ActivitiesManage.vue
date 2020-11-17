@@ -8,15 +8,26 @@
           />
           {{ $t('ACTIVITYMANAGE.SERIES') }}
         </div>
-        <QBtn
+        <QFab
           v-if="!newSeries"
+          class="fab-top-fix"
+          vertical-actions-align="right"
           size="sm"
-          round
           color="secondary"
           icon="fas fa-plus"
-          :title="$t('BUTTON.CREATE')"
-          @click="createNewSeries"
-        />
+          direction="down"
+        >
+          <QFabAction
+            v-for="activityType in activityTypes"
+            :key="activityType.id"
+            class="fab-action-fix"
+            label-position="left"
+            :color="activityType.colorName"
+            :icon="activityType.icon"
+            :label="activityType.name"
+            @click="createNewSeries(activityType)"
+          />
+        </QFab>
       </QCardSection>
       <QItem v-if="newSeries">
         <ActivitySeriesEdit
@@ -34,11 +45,24 @@
         <QExpansionItem
           v-for="series in activitySeries"
           :key="series.id"
-          :label="seriesLabel(series)"
-          :sublabel="seriesSublabel(series)"
-          icon="fas fa-calendar-alt"
           @show="makeVisible('series', series.id)"
         >
+          <template #header>
+            <QItemSection side>
+              <QIcon
+                v-if="series.activityType"
+                v-bind="series.activityType.iconProps"
+              />
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel>
+                {{ seriesLabel(series) }}
+              </QItemLabel>
+              <QItemLabel caption>
+                {{ seriesSublabel(series) }}
+              </QItemLabel>
+            </QItemSection>
+          </template>
           <QItem v-if="visible.series[series.id]">
             <ActivitySeriesEdit
               :value="series"
@@ -63,11 +87,11 @@
               @show="makeVisible('activity', activity.id)"
             >
               <template #header>
-                <QItemSection
-                  v-if="!$q.platform.is.mobile"
-                  side
-                >
-                  <QIcon :name="$icon('activity')" />
+                <QItemSection side>
+                  <QIcon
+                    v-if="activity.activityType"
+                    v-bind="activity.activityType.iconProps"
+                  />
                 </QItemSection>
                 <QItemSection>
                   <QItemLabel
@@ -138,15 +162,25 @@
           />
           {{ $t('ACTIVITYMANAGE.SINGLE') }}
         </div>
-        <QBtn
+        <QFab
           v-if="!newActivity"
+          vertical-actions-align="right"
           size="sm"
-          round
           color="secondary"
           icon="fas fa-plus"
-          :title="$t('BUTTON.CREATE')"
-          @click="createNewActivity"
-        />
+          direction="down"
+        >
+          <QFabAction
+            v-for="activityType in activityTypes"
+            :key="activityType.id"
+            class="fab-action-fix"
+            label-position="left"
+            :color="activityType.colorName"
+            :icon="activityType.icon"
+            :label="activityType.name"
+            @click="createNewActivity(activityType)"
+          />
+        </QFab>
       </QCardSection>
       <QItem v-if="newActivity">
         <ActivityEdit
@@ -168,11 +202,11 @@
           @show="makeVisible('activity', activity.id)"
         >
           <template #header>
-            <QItemSection
-              v-if="!$q.platform.is.mobile"
-              side
-            >
-              <QIcon name="fas fa-calendar-alt" />
+            <QItemSection side>
+              <QIcon
+                v-if="activity.activityType"
+                v-bind="activity.activityType.iconProps"
+              />
             </QItemSection>
             <QItemSection>
               <QItemLabel
@@ -212,8 +246,9 @@ import {
   QItem,
   QItemSection,
   QExpansionItem,
-  QBtn,
   QIcon,
+  QFab,
+  QFabAction,
 } from 'quasar'
 import ActivitySeriesEdit from '@/activities/components/ActivitySeriesEdit'
 import ActivityEdit from '@/activities/components/ActivityEdit'
@@ -240,8 +275,9 @@ export default {
     QItem,
     QItemSection,
     QExpansionItem,
-    QBtn,
     QIcon,
+    QFab,
+    QFabAction,
   },
   data () {
     return {
@@ -259,6 +295,7 @@ export default {
       activitySeries: 'activitySeries/byActivePlace',
       fetchActivitySeriesStatus: 'activitySeries/fetchListForActivePlaceStatus',
       activities: 'activities/byActivePlace',
+      activityTypes: 'activityTypes/byCurrentGroup',
       fetchActivityPending: 'activities/fetchingForCurrentGroup',
       activityCreateStatus: 'activities/createStatus',
       seriesCreateStatus: 'activitySeries/createStatus',
@@ -298,8 +335,9 @@ export default {
       createActivity: 'activities/create',
       saveActivity: 'activities/save',
     }),
-    createNewSeries () {
+    createNewSeries (activityType) {
       this.newSeries = {
+        activityType,
         maxParticipants: 2,
         description: '',
         startDate: addHours(startOfTomorrow(), 10),
@@ -321,9 +359,10 @@ export default {
     cancelNewSeries () {
       this.newSeries = null
     },
-    createNewActivity () {
+    createNewActivity (activityType) {
       const date = addHours(startOfTomorrow(), 10) // default to 10am tomorrow
       this.newActivity = {
+        activityType,
         maxParticipants: 2,
         description: '',
         date,
@@ -371,4 +410,13 @@ button.selected
     display block
     height 26px
     overflow hidden
+
+// let the top fab (series) display over the top of the lower one (one-off activities)
+.fab-top-fix
+  z-index $z-fab + 1
+
+// for some reason the font-awesome icons are displayed too big inside QFabAction
+.fab-action-fix
+  >>> .q-icon.fas
+    font-size 18px
 </style>

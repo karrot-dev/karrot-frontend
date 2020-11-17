@@ -66,41 +66,43 @@
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "¿Realmente deseas eliminar esta fecha recurrente de recogidas? Esto también eliminará todas las fechas de recogidas únicas que pertenecen a esta fecha recurrente de recogidas (excepto cuando las personas ya se unieron).",
-    "DELETE_SERIES_TITLE": "Eliminar fecha de recogidas recurrentes"
+    "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
+    "DELETE_SERIES_TITLE": "Delete series"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "Esta recogida ha sido desactivada.",
-    "ACTIVITY_STARTED": "Esta recogida ya ha comenzado.",
-    "AVAILABLE": "¡Hay una recogida en tus lugares favoritos esperándote! ¡Hay {count}recogidas en tus lugares favoritos esperándote!",
-    "AVAILABLE_FEEDBACK": "Puedes dejar un comentario sobre una recogida | {count} recogidas esperan tus comentarios",
-    "AVAILABLE_FROM_STORES": "Esto muestra las recogidas en tus lugares favoritos en los próximos días. Puedes acceder a otros lugares en la barra lateral.",
+    "ACTIVITY_DISABLED": "This is disabled.",
+    "ACTIVITY_STARTED": "This has already started.",
+    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
+    "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
+    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
       "ALL": "Todo",
+      "ALL_TYPES": "All types",
       "EMPTY": "Solo vacios",
       "FREE": "Con espacios libres"
     },
     "ITEM": {
       "JOIN": "Unirse",
-      "JOIN_CONFIRMATION_HEADER": "Unirse a la recogida",
-      "JOIN_CONFIRMATION_TEXT": "Estás segurx que tienes tiempo para hacer la recogida el {date}?",
+      "JOIN_CONFIRMATION_HEADER": "Join {activityType}",
+      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
       "LEAVE": "Salir",
-      "LEAVE_CONFIRMATION_HEADER": "Dejar la recogida",
-      "LEAVE_CONFIRMATION_TEXT": "¿De verdad las otras personas pueden hacer la recogida sin ti?"
+      "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
+      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?"
     },
-    "JOINEDNOTICE": "Tienes una recogida pendiente | Tienes {count} recogidas pendientes",
-    "NONE": "Ninguna recogida inminente",
-    "NONE_HINT": "Puedes crear una nueva recogida en la página del lugar.",
-    "STORE_NONE_HINT": "Puede crear una nueva recogida en la página de administración de recogidas."
+    "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
+    "NONE": "No upcoming activities",
+    "NONE_DUE_TO_FILTER": "No activities match your filters",
+    "NONE_HINT": "You can create a new activity on the place page.",
+    "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page."
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "\"Información adicional\" ha sido cambiada",
-    "ACTIVITY_DOES_NOT_MATCH": "La fecha de las recogidas no coinciden con el patrón.",
+    "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "\"Máx ranuras\" ha sido cambiado",
-    "SERIES": "Recogidas recurrentes",
-    "SINGLE": "Recogidas únicas",
-    "TITLE": "Manejar recogidas",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Próximas recogidas en esta serie"
+    "SERIES": "Activity series",
+    "SINGLE": "One-time activities",
+    "TITLE": "Manage activities",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
   },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "La cantidad de comida que se salvó (en kg)",
@@ -108,11 +110,19 @@
     "COMMENT_PLACEHOLDER": "Fue todo bien? Se vino todo el mundo? Tu comentario aquí...",
     "DELETE_AMOUNT": "Eliminar cantidad",
     "EDIT": "Editar comentarios",
-    "HEADER": "Gracias por tu recogida!",
+    "HEADER": "Thank you for your participation!",
     "PREVIOUS": "Comentarios anteriores para {store}",
     "SET_AMOUNT": "Establecer cantidad",
     "TITLE": "Comentario",
-    "TOGETHER_WITH": "Realizaste esta recogida con:"
+    "TOGETHER_WITH": "You did this together with:"
+  },
+  "ACTIVITY_TYPE_NAMES": {
+    "Meeting": "Meeting",
+    "Pickup": "Pickup",
+    "Distribution": "Distribution",
+    "Event": "Event",
+    "Activity": "Activity",
+    "Task": "Task"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "elegir localización en el mapa",
@@ -197,7 +207,8 @@
     "SUBMIT": "Enviar",
     "UNSUBSCRIBE": "Darse de baja",
     "WITHDRAW": "Retirar",
-    "YES": "Si"
+    "YES": "Si",
+    "READ_MORE": "Read more"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Actualizaciones de {community}",
@@ -254,28 +265,28 @@
   },
   "CREATEACTIVITY": {
     "COMMENT": "Información adicional",
-    "COMMENT_HELPER": "¿Qué debería saber la gente cuando se registra en esta recogida?",
+    "COMMENT_HELPER": "What should people know when signing up to this?",
     "CUSTOM": "Personalizado",
     "DATE": "Fecha",
     "DIFFERS_WARNING": "Este valor difiere del predeterminado. Para deshacer este cambio, haga clic en la flecha y guarde los cambios.",
-    "DISABLE_TITLE": "¿Deshabilitar recogida?",
-    "ENABLE_DISABLE_MESSAGE": "Las personas que se unieron a esta recogida recibirán una notificación. Puedes cambiar este texto para proporcionar una razón:",
-    "ENABLE_TITLE": "¿Habilitar recogida?",
-    "EXCEPTIONS_MESSAGE": "Algunas próximas recogidas no coinciden con la configuración de esta recogida recurrente. Echa un vistazo a {upcomingLabel} para cambiar o deshabilitar las recolecciones, si es necesario.",
-    "EXCEPTIONS_TITLE": "Chequea tus recogidas",
+    "DISABLE_TITLE": "Disable?",
+    "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
+    "ENABLE_TITLE": "Enable?",
+    "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
+    "EXCEPTIONS_TITLE": "Check your activities",
     "FREQUENCY": "Frecuencia",
     "MAX_PARTICIPANTS": "Máx ranuras",
-    "MAX_PARTICIPANTS_HELPER": "Cuántas personas deberían participar en la recogida?",
+    "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
     "RRULE": "Regla de recurrencia",
     "RRULE_EXAMPLE": "último día hábil (Mo-Fr) cada mes",
     "RRULE_EXAMPLE2": "cada segundo lunes",
     "RRULE_HELPER": "Escriba un {ruleHelper} válido, p. {ruleExample} o {ruleExample2}",
     "RRULE_HELPER_URL": "regla iCalender",
     "STARTDATE_HELPER": "¿Cuándo debería comenzar la serie?",
-    "TIME_HELPER": "¿Cuándo debe llevarse a cabo la recogida?",
+    "TIME_HELPER": "When should it take place?",
     "UNLIMITED": "ilimitado",
     "WEEKDAYS": "Día de la semana",
-    "WEEKDAYS_HELPER": "¿En qué días debería tener lugar el retiro?",
+    "WEEKDAYS_HELPER": "On which days should it take place?",
     "WEEKLY": "Semanal"
   },
   "CREATESTORE": {
@@ -290,8 +301,8 @@
     "NONE": "Aún no hay comentarios",
     "NONE_HINT": "Esta página se completará una vez que haya más comentarios disponibles",
     "NO_DONE_ACTIVITIES": "¡Todo hecho!",
-    "NO_DONE_ACTIVITIES_HINT": "No tienes recogidas en las que dejar comentarios. ¿Por qué no te unes a otra recogida?",
-    "NUMBER_ACTIVITIES": "{count}recogidas realizadas",
+    "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
+    "NUMBER_ACTIVITIES": "{count} activities done",
     "NUMBER_FEEDBACK": "{count}comentarios dados",
     "SAVED_FOOD": "Al menos 1 kg fue rescatado aquí. ¡Gracias! | ¡La gente ya dejó un comentario de {amount}kg de comida rescatada! ¡Mantengamos el buen trabajo!",
     "WEIGHT_SUM": "{sum}kg de comida rescatados"
@@ -307,11 +318,14 @@
     "RECONNECTING": "Reconnecting...",
     "SEARCH_NOT_FOUND": "No encontrado",
     "SEARCH_RESULTS": "Buscar resultados",
-    "SERVER_ERROR": "Error del servidor"
+    "SERVER_ERROR": "Error del servidor",
+    "CLEAR_FILTERS": "Clear filters"
   },
   "GROUP": {
-    "ACTIVITIES": "Recogidas",
-    "ACTIVITY": "Recogida",
+    "ACTIVITIES": "Activities",
+    "ACTIVITY": "Activity",
+    "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
     "ADDED_BY": "Añadido por {userName}",
     "ADDRESS": "Dirección",
     "APPLICATIONS": "Solicitudes",
@@ -354,8 +368,8 @@
         "NAME": "Nuevos procesos de resolución de conflictos"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "Te recuerda tus recogidas y te informa sobre las recogidas libres en tus lugares favoritos al siguiente día ",
-        "NAME": "Notificación de recogida"
+        "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
+        "NAME": "Activity notifications"
       },
       "new_application": {
         "DESCRIPTION": "Te avisa cuando alguien quiere unirse a tu grupo",
@@ -401,16 +415,16 @@
     "TITLE": "Mapa"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "creó una nueva recogida única ",
-    "ACTIVITY_DELETE": "eliminó una recogida",
-    "ACTIVITY_DISABLE": "deshabilitó una recogida",
-    "ACTIVITY_DONE": "hizo una recogida en {storeName}",
-    "ACTIVITY_ENABLE": "habilitó una recogida",
-    "ACTIVITY_JOIN": "se apuntó a una recogida en {storeName}",
-    "ACTIVITY_LEAVE": "dio un paso atrás al hacer una recolección en {storeName}",
+    "ACTIVITY_CREATE": "{activityType} created",
+    "ACTIVITY_DELETE": "{activityType} deleted",
+    "ACTIVITY_DISABLE": "{activityType} disabled",
+    "ACTIVITY_DONE": "did {activityType} at {placeName}",
+    "ACTIVITY_ENABLE": "{activityType} enabled",
+    "ACTIVITY_JOIN": "signed up for {activityType} at {placeName}",
+    "ACTIVITY_LEAVE": "stepped back from {activityType} at {placeName}",
     "ACTIVITY_LEAVE_DISTANCE": "{distance} before scheduled time",
-    "ACTIVITY_MISSED": "Faltó una recogida en {storeName}!",
-    "ACTIVITY_MODIFY": "cambió la configuración de un pick-up",
+    "ACTIVITY_MISSED": "{activityType} at {placeName} had no participants!",
+    "ACTIVITY_MODIFY": "changed the settings of an activity",
     "APPLICATION_DECLINED": "rechazó la solicitud de {applicantName}",
     "DETAILS": "Más información ",
     "GROUP_CHANGE_PHOTO": "cambió el logo del grupo",
@@ -423,9 +437,9 @@
     "MEMBER_BECAME_EDITOR": "obtuvo permisos de edición",
     "MEMBER_REMOVED": "fue eliminado por decisión del grupo",
     "NOTHING_HAPPENEND": "Todavía nada ha pasado...",
-    "SERIES_CREATE": "creado una nueva recogida recurrente",
-    "SERIES_DELETE": "eliminó una recolección recurrente",
-    "SERIES_MODIFY": "cambió la configuración de un pick-up recurrente",
+    "SERIES_CREATE": "{activityType} series created",
+    "SERIES_DELETE": "{activityType} series deleted",
+    "SERIES_MODIFY": "changed the settings of a series",
     "STORE_CREATE": "creó el lugar {name}",
     "STORE_DELETE": "eliminó el lugar{name}",
     "STORE_MODIFY": "cambió los ajustes del lugar {name}"
@@ -526,10 +540,10 @@
     "VERIFICATION_EMAIL_SENT": "Se te envió otro correo electrónico de verificación. Por favor, chequea tu buzón. "
   },
   "NOTIFICATION_BELLS": {
-    "ACTIVITY_DISABLED": "La recogida a las {dateTime}fue desactivada",
-    "ACTIVITY_ENABLED": "Recogida a las {dateTime}fue activada de nuevo",
-    "ACTIVITY_MOVED": "La recogida fue cambiada a las {dateTime}",
-    "ACTIVITY_UPCOMING": "Recordatorio: tienes una recogida a las {time}",
+    "ACTIVITY_DISABLED": "{activityType} on {dateTime} was disabled",
+    "ACTIVITY_ENABLED": "{activityType} on {dateTime} was enabled again",
+    "ACTIVITY_MOVED": "{activityType} was moved to {dateTime}",
+    "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
     "APPLICATION_ACCEPTED": "¡Tu solicitud ha sido aceptada!",
     "APPLICATION_DECLINED": "Tu solicitud ha sido rechazada",
     "CONFLICT_RESOLUTION_CONTINUED": "El proceso de resolver problemas con {userName}continúa",
@@ -539,7 +553,8 @@
     "CONFLICT_RESOLUTION_DECIDED": "Se ha tomado una decisión sobre el proceso de resolver problemas con {userName}",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Se ha tomado una decisión sobre el proceso de resolver problemas contigo",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Has sido eliminada del grupo",
-    "FEEDBACK_POSSIBLE": "Puedes dejar un comentario sobre la recogida que hiciste el {date}",
+    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
+    "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName}ha aceptado tu solicitud",
     "NEW_APPLICANT": "{userName}ha solicitado unirse a este grupo",
     "NEW_MEMBER": "{userName}se ha unido al grupo",
@@ -606,9 +621,9 @@
     "SUBSCRIPTION": {
       "HEADER": "¿Quieres marcar este lugar como favorito?",
       "NO": "no",
-      "NO_TEXT": "Ninguna de las anteriores. Sin embargo, todavía puedes registrarte para recogidas.",
+      "NO_TEXT": "None of the above. You can still sign up for activities though.",
       "YES": "si",
-      "YES_TEXT": "Muestra las recogidas disponibles en el muro del grupo y envía correos electrónicos sobre las próximas recogidas."
+      "YES_TEXT": "Shows available activities on the group wall and sends emails about upcoming activities."
     }
   },
   "PROFILE": {
@@ -633,6 +648,7 @@
     "FILTER_TIME_LABEL": "Time period",
     "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
     "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "FILTER_TIME_FOREVER": "Forever",
     "COLUMN_PLACE": "Place",
     "COLUMN_ACTIVITY_DONE": "Done",
     "COLUMN_ACTIVITY_LEFT": "Left",
@@ -663,8 +679,8 @@
     "SHOW_ACTIVE_ONLY": "Mostrar solo lugares activos",
     "SHOW_ALL": "Mostrar todos los lugares archivados",
     "STATUS": "Estado",
-    "WEEKS_IN_ADVANCE": "¿Con cuántas semanas de anticipación se mostrarán las fechas recurrentes de recogidas?",
-    "WEEKS_IN_ADVANCE_WARNING": "Estás a punto de reducir el número de recogidas semanales que se muestran. Las recogidas sobrantes serán eliminadas si nadie se ha unido a ellas. Puedes desactivar las demás recogidas manualmente si es necesario."
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
   },
   "STORESTATUS": {
     "ACTIVE": "En cooperación",
@@ -721,7 +737,7 @@
     "MOBILE_NUMBER": "Número de teléfono",
     "NEWCOMER": "Recién llegado",
     "NEWCOMER_GUIDANCE": "{userName}es nuevo/a en tu grupo y puede necesitar indicaciones.",
-    "NEWCOMER_INFO": "Eres una recién llegada en {groupName}y puedes participar escribiendo mensajes, reuniéndote con otros miembros, haciendo recogidas y dejando comentarios. Tan pronto como {threshold} miembros expresen su confianza en ti, obtendrás permisos de edición para ayudar con la administración del grupo.",
+    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser}confia en {userName} en {groupName}. {count}personas confian en {userName} en{groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser}confia en ti en {groupName}. {count}personas confian en ti en {groupName}.",
     "PASSWORD": "Contraseña",

@@ -222,6 +222,12 @@ export default async function ({ store: datastore }) {
     else if (topic === 'activities:series_deleted') {
       datastore.commit('activitySeries/delete', convertSeries(camelizeKeys(payload)).id)
     }
+    else if (topic === 'activities:type') {
+      datastore.commit('activityTypes/update', [camelizeKeys(payload)])
+    }
+    else if (topic === 'activities:type_deleted') {
+      datastore.commit('activityTypes/delete', payload.id)
+    }
     else if (topic === 'offers:offer') {
       const offer = convertOffer(camelizeKeys(payload))
       datastore.commit('offers/update', [offer])

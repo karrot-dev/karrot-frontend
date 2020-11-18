@@ -49,6 +49,12 @@ export default {
     update (state, activityTypes) {
       state.entries = Object.freeze({ ...state.entries, ...indexById(activityTypes) })
     },
+    delete (state, activityTypeId) {
+      if (!state.entries[activityTypeId]) return
+      const { [activityTypeId]: _, ...rest } = state.entries
+      Object.freeze(rest)
+      state.entries = rest
+    },
   },
 }
 

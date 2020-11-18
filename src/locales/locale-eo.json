@@ -66,43 +66,43 @@
     "VISION_INTRO": "Karrot estas ilo por ĉiaj popolaj iniciatoj, por konekti kaj helpi ilin kreskiĝi por subteni organizado de vizaĝaj aktivaĵoj per virtualaj rimedoj."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
-    "DELETE_SERIES_TITLE": "Delete series"
+    "DELETE_SERIES_TEXT": "Ĉu vi vere volas forigi tiun ĉi periodan aktivaĵon? Tio ĉi forigos ankaŭ ĉiujn aktivaĵojn kiuj apartenas al tiu ĉi periodan aktivaĵon (krom kaze ke homoj jam aliĝis).",
+    "DELETE_SERIES_TITLE": "Forigi periodan aktivaĵon"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "This is disabled.",
-    "ACTIVITY_STARTED": "This has already started.",
-    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
-    "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
-    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
+    "ACTIVITY_DISABLED": "Ĉi tio estas malebligita",
+    "ACTIVITY_STARTED": "Ĉi tio jam komenciĝis",
+    "AVAILABLE": "Aktivaĵo atendas vin en viaj preferataj lokoj! {count}aktivaĵoj atendas vin en viaj preferataj lokoj!",
+    "AVAILABLE_FEEDBACK": "Vi povas komenti aktivaĵojn | {count}aktivaĵoj atendas komentojn viajn",
+    "AVAILABLE_FROM_STORES": "Tio ĉi montras aktivaĵojn en viaj preferataj lokoj en venontaj tagoj. Vi povas aliri aliajn lokojn je la flankpanelo.",
     "FILTER": {
       "ALL": "Ĉiuj",
-      "ALL_TYPES": "All types",
+      "ALL_TYPES": "Ĉiuj tipoj",
       "EMPTY": "Nur malplenaj",
       "FREE": "Kun vaka savlokoj"
     },
     "ITEM": {
       "JOIN": "Aliĝi",
-      "JOIN_CONFIRMATION_HEADER": "Join {activityType}",
-      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
+      "JOIN_CONFIRMATION_HEADER": "Aliĝu {activityType}",
+      "JOIN_CONFIRMATION_TEXT": "Ĉu vi certas ke vi havas tempon por je {date}?",
       "LEAVE": "Forlasi",
-      "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?"
+      "LEAVE_CONFIRMATION_HEADER": "Malaliĝi {activityType}",
+      "LEAVE_CONFIRMATION_TEXT": "Ĉu vere la aliaj povas fari tion ĉi sen vi?"
     },
-    "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
-    "NONE": "No upcoming activities",
-    "NONE_DUE_TO_FILTER": "No activities match your filters",
-    "NONE_HINT": "You can create a new activity on the place page.",
-    "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page."
+    "JOINEDNOTICE": "Vi havas baldaŭan aktivaĵon | Vi havas {count}baldaŭajn aktivaĵojn",
+    "NONE": "Ne estas venontaj aktivaĵoj",
+    "NONE_DUE_TO_FILTER": "Ne estas aktivaĵo kun viaj kondiĉoj",
+    "NONE_HINT": "Vi povas krei novan aktivaĵon en la loka paĝo.",
+    "STORE_NONE_HINT": "Vi povas krei novan aktivaĵon en la \"Agordu aktivaĵojn\"-a paĝo."
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "'Aldona informo' ŝanĝiĝis",
-    "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
+    "ACTIVITY_DOES_NOT_MATCH": "La dato ne kongruas kun la perioda regulo",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Maks savlokoj' ŝanĝiĝis",
-    "SERIES": "Activity series",
-    "SINGLE": "One-time activities",
-    "TITLE": "Manage activities",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
+    "SERIES": "Periodaj aktivaĵoj",
+    "SINGLE": "Unufojaj aktivaĵoj",
+    "TITLE": "Agordi aktivaĵojn",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Venontaj aktivaĵoj en tiu ĉi aktivaĵo perioda"
   },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Manĝkvanto kiun vi povis savi (en kg)",
@@ -110,19 +110,19 @@
     "COMMENT_PLACEHOLDER": "Ĉu ĉio enordas? Ĉu ĉiuj iris savi? Vian komenton ĉi tie...",
     "DELETE_AMOUNT": "Forigi kvanton",
     "EDIT": "Redakti komenton",
-    "HEADER": "Thank you for your participation!",
+    "HEADER": "Dankon por via partopreno!",
     "PREVIOUS": "Antaŭaj komentoj de {store}",
     "SET_AMOUNT": "Agordi kvanton",
     "TITLE": "Komentoj",
-    "TOGETHER_WITH": "You did this together with:"
+    "TOGETHER_WITH": "Ni faris tion ĉi kun:"
   },
   "ACTIVITY_TYPE_NAMES": {
-    "Meeting": "Meeting",
-    "Pickup": "Pickup",
-    "Distribution": "Distribution",
-    "Event": "Event",
-    "Activity": "Activity",
-    "Task": "Task"
+    "Meeting": "Renkontiĝo",
+    "Pickup": "Savado",
+    "Distribution": "Disdivido",
+    "Event": "Evento",
+    "Activity": "Activivaĵo",
+    "Task": "Tasko"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "Elekti lokon sur mapo",
@@ -202,13 +202,13 @@
     "SAVE_CHANGES": "Konservi ŝanĝojn",
     "SEARCH": "Serĉi",
     "SHOW": "Montri",
-    "SHOW_LESS": "Show less",
+    "SHOW_LESS": "Montri malpli",
     "SHOW_MORE": "Montri pli",
     "SUBMIT": "Sendi",
     "UNSUBSCRIBE": "Malaboni",
     "WITHDRAW": "Nuligi",
     "YES": "Jes",
-    "READ_MORE": "Read more"
+    "READ_MORE": "Legi pli"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Ĝisdatigoj de {community}",
@@ -219,7 +219,7 @@
   "CONFLICT": {
     "FIND_OUT_MORE": "Malkovru pli!",
     "INFO": {
-      "MESSAGE": "This is a score voting in which group members can participate to determine how to deal with a social conflict that affects the whole group.",
+      "MESSAGE": "Tiu ĉi estas voĉdonado en kiu grupanoj kun redaktpermesoj povas partopreni por decidi kiel agi rilate al socia problemo kiu damaĝas la grupon.",
       "TITLE": "Kiel ĉi tiu proceso funkcias?"
     },
     "INITIAL": "Informo",
@@ -229,15 +229,15 @@
     "SETUP_HEADER": "Ĉu estas problemo kun {user}?",
     "STATEMENT": "Deklaracio",
     "STEPPER1a": "Vi preskaŭ komencis problemsolvadan proceson grupnivele!",
-    "STEPPER1b": "This will involve all members to find the best way to proceed.",
+    "STEPPER1b": "Ĉi tio inkludos ĉiujn anojn kun redaktipermesojn por trovi la plej bonan manieron por kunagi.",
     "STEPPER2a": "Dankon ke vi zorgas pri la komunumo!",
     "STEPPER2b": "Gravas paroli pri sociaj konfliktoj, kvankam kelkfoje malkomfortas. Dankon pro via kuraĝo!",
     "STEPPER3a": "Jen kio okazos:",
     "STEPPER3b": "La proceso malfermos babilejon kaj voĉdonadon.",
-    "STEPPER3c": "The chat will be visible for members and includes {userName}.",
+    "STEPPER3c": "La babilejo estos videbla por anoj kaj inkludas {userName}.",
     "STEPPER3d": "La voĉdonado estas anonima. Ĝi daŭros {votingDuration}tagojn. Dum tiu ĉi tempo ĉiuj voĉdonantoj povas ŝanĝi siajn opinion kaj voĉdonon kiom multe ili volos.",
     "STEPPER4a": "Bonvolu klarigi kial vi komencis la problemsolvadan proceson!",
-    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members.",
+    "STEPPER4b": "Klarigu al la grupo kial komenci la proceson. Tiu ĉi deklaracio legeblos por {userName}kaj grupanoj.",
     "VOTING": {
       "HEADLINE": "Kiel vi volas daŭrigi kun la aktuala problemo kun {userName}?"
     },
@@ -265,28 +265,28 @@
   },
   "CREATEACTIVITY": {
     "COMMENT": "Aldona informo",
-    "COMMENT_HELPER": "What should people know when signing up to this?",
+    "COMMENT_HELPER": "Kion devas la homoj scii antaŭ vi aliĝos por tiu ĉi?",
     "CUSTOM": "Personaligo",
     "DATE": "Dato",
     "DIFFERS_WARNING": "Ĉi karaktero kaj la dekomenca nesamas. Por nuligi la ŝanĝon alklaku la sagan butonon kaj konservu la ŝanĝojn.",
-    "DISABLE_TITLE": "Disable?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
-    "ENABLE_TITLE": "Enable?",
-    "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
-    "EXCEPTIONS_TITLE": "Check your activities",
+    "DISABLE_TITLE": "Ĉu malebligi?",
+    "ENABLE_DISABLE_MESSAGE": "Uzantoj kiuj aliĝis ricevos sciigon. Vi povas ŝanĝi tiu ĉi tekston por prezenti kialon:",
+    "ENABLE_TITLE": "Ĉu ebligi?",
+    "EXCEPTIONS_MESSAGE": "Kelkaj venontaj aktivaĵoj ne kongruas kun la agordoj de tiu ĉi perioda aktivaĵo. Kontrolu sube je '{upcomingLabel}' por ŝanĝi aŭ nuligi savadojn, kaze de bezono.",
+    "EXCEPTIONS_TITLE": "Kontroli aktivaĵojn",
     "FREQUENCY": "Ofteco",
     "MAX_PARTICIPANTS": "Maks Savlokoj",
-    "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
+    "MAX_PARTICIPANTS_HELPER": "Kiom da homoj partoprenu?",
     "RRULE": "Rikura regulo",
     "RRULE_EXAMPLE": "lasta labortago (Lu-Ve) ĉiumonate",
     "RRULE_EXAMPLE2": "ĉiu dua lundo",
     "RRULE_HELPER": "Tajpu laŭ valida {ruleHelper}, ekzemple {ruleExample}aŭ {ruleExample2}",
     "RRULE_HELPER_URL": "iCalender-a regulo",
     "STARTDATE_HELPER": "Kiam devas komenci la serion?",
-    "TIME_HELPER": "When should it take place?",
+    "TIME_HELPER": "Kiam ĝi okazu?",
     "UNLIMITED": "senlima",
     "WEEKDAYS": "Semajntagoj",
-    "WEEKDAYS_HELPER": "On which days should it take place?",
+    "WEEKDAYS_HELPER": "En kiuj tagoj okazu?",
     "WEEKLY": "Semajne"
   },
   "CREATESTORE": {
@@ -301,31 +301,31 @@
     "NONE": "Neniu komento ankoraŭ",
     "NONE_HINT": "Tiu ĉi paĝo pleniĝos kiam komentoj disponeblos",
     "NO_DONE_ACTIVITIES": "Ĉio farita!",
-    "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
-    "NUMBER_ACTIVITIES": "{count} activities done",
+    "NO_DONE_ACTIVITIES_HINT": "Nuntempe vi ne havas ion ajn por komenti. Kial vi ne aliĝas alian aktivaĵon?",
+    "NUMBER_ACTIVITIES": "{count}faritaj aktivaĵoj",
     "NUMBER_FEEDBACK": "{count}komentoj skribitaj",
     "SAVED_FOOD": "Almenaŭ 1 kg estis savita ĉi tie. Dankon! Homoj komenti por {amount} kg de savitaj manĝaĵoj! Daŭrigi la bonan laboron!",
     "WEIGHT_SUM": "{sum}kg savitaj"
   },
   "GLOBAL": {
     "ABOUT_KARROT": "Pri Karrot",
-    "APP_INSTALLED": "App successfully installed!",
+    "APP_INSTALLED": "La aplikaĵo estis sukcese instalita!",
     "GENERIC_ERROR": "Pardonon sed io ne bone funkciis",
     "GITHUB_NOTE": "Ellaboro",
     "INVALID_LINK": "Pardonon, la ligilo ne validas.",
     "NOT_CONNECTED": "Vi ne estas konektita al la servilo",
-    "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
-    "RECONNECTING": "Reconnecting...",
+    "OFFLINE_RECONNECT": "Malkonektita. Premu ĉi tiun por rekonektiĝi",
+    "RECONNECTING": "Rekonektanta...",
     "SEARCH_NOT_FOUND": "Netrovita",
     "SEARCH_RESULTS": "Serĉi rezultojn",
     "SERVER_ERROR": "Eraro servila",
-    "CLEAR_FILTERS": "Clear filters"
+    "CLEAR_FILTERS": "Forigi filtrojn"
   },
   "GROUP": {
-    "ACTIVITIES": "Activities",
-    "ACTIVITY": "Activity",
-    "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
-    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
+    "ACTIVITIES": "Activivaĵoj",
+    "ACTIVITY": "Activivaĵo",
+    "PICKUPS_TO_ACTIVITIES": "Nun vi povas organizi pli ol nur savadojn!",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Aktivaĵoj nomitaj savadoj ankoraŭ realigeblas sed ni aldoni aliajn tipojn de aktivaĵojn kiel renkontiĝojn, eventojn kaj disdividojn",
     "ADDED_BY": "aldonita de {userName}",
     "ADDRESS": "Adreso",
     "APPLICATIONS": "Kandidatiĝoj",
@@ -357,7 +357,7 @@
     "LEAVE_TEXT": "Ĉu vi vere volas forlasi la grupon?",
     "LOGO": "Grupa logotipo",
     "MANAGE_AGREEMENT": "Agordi akordon",
-    "MEMBERLIST": "Your group has {total} members in total.",
+    "MEMBERLIST": "Via grupo havas {total} anoj entute.",
     "MEMBERS": "Anoj",
     "MESSAGES": "Mesaĝoj",
     "NONMEMBER_REDIRECT": "Vi ne anas en tiu ĉi grupo",
@@ -368,8 +368,8 @@
         "NAME": "Nova proceso de problemsolvado"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
-        "NAME": "Activity notifications"
+        "DESCRIPTION": "Memorigas vin pri viaj aktivaĵoj kaj informas vin pri neplenaj aktivaĵoj en viaj preferataj lokoj en la venonta tago",
+        "NAME": "Sciigo de aktivaĵoj"
       },
       "new_application": {
         "DESCRIPTION": "Ĝi rakontas kiam iu volas aliĝi la grupon",
@@ -391,7 +391,7 @@
     "SHOW_INACTIVE": "Montri neaktivajn grupojn",
     "SORT_JOINDATE": "Ordigi laŭ dato",
     "SORT_NAME": "Ordigi laŭ nomo",
-    "STATISTICS": "Statistics",
+    "STATISTICS": "Statistikoj",
     "TIMEZONE": "Horzono de la grupo",
     "TITLE": "Titolo de ĉi tiu grupo",
     "WALL": "Muro",
@@ -415,16 +415,16 @@
     "TITLE": "Mapo"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "{activityType} created",
-    "ACTIVITY_DELETE": "{activityType} deleted",
-    "ACTIVITY_DISABLE": "{activityType} disabled",
-    "ACTIVITY_DONE": "did {activityType} at {placeName}",
-    "ACTIVITY_ENABLE": "{activityType} enabled",
-    "ACTIVITY_JOIN": "signed up for {activityType} at {placeName}",
-    "ACTIVITY_LEAVE": "stepped back from {activityType} at {placeName}",
-    "ACTIVITY_LEAVE_DISTANCE": "{distance} before scheduled time",
-    "ACTIVITY_MISSED": "{activityType} at {placeName} had no participants!",
-    "ACTIVITY_MODIFY": "changed the settings of an activity",
+    "ACTIVITY_CREATE": "{activityType} kreita",
+    "ACTIVITY_DELETE": "{activityType} forigita",
+    "ACTIVITY_DISABLE": "{activityType} malebligita",
+    "ACTIVITY_DONE": "faris {activityType}n ĉe {placeName}",
+    "ACTIVITY_ENABLE": "{activityType} ebligita",
+    "ACTIVITY_JOIN": "aliĝis por {activityType} ĉe {placeName}",
+    "ACTIVITY_LEAVE": "malaliĝis de {activityType} ĉe {placeName}",
+    "ACTIVITY_LEAVE_DISTANCE": "{distance} antaŭ dattempo",
+    "ACTIVITY_MISSED": "{activityType} ĉe {placeName} havis neniun aliĝinton!",
+    "ACTIVITY_MODIFY": "ŝanĝitaj agordoj de la aktivaĵo",
     "APPLICATION_DECLINED": "malakceptis kandidatiĝo de {applicantName}",
     "DETAILS": "Plia informo",
     "GROUP_CHANGE_PHOTO": "ŝanĝis la grupan logotipon",
@@ -437,9 +437,9 @@
     "MEMBER_BECAME_EDITOR": "ricevis redaktpermesojn",
     "MEMBER_REMOVED": "estis forigita pro grupa decido",
     "NOTHING_HAPPENEND": "Neniu okazis ĝis nun...",
-    "SERIES_CREATE": "{activityType} series created",
-    "SERIES_DELETE": "{activityType} series deleted",
-    "SERIES_MODIFY": "changed the settings of a series",
+    "SERIES_CREATE": "{activityType} perioda aktivaĵo kreita",
+    "SERIES_DELETE": "{activityType} perioda aktivaĵo forigita",
+    "SERIES_MODIFY": "ŝanĝitaj agordoj de la perioda aktivaĵo",
     "STORE_CREATE": "loko kreita{name}",
     "STORE_DELETE": "forigita loko {name}",
     "STORE_MODIFY": "ŝanĝis la agordojn de la loko {name}"
@@ -540,10 +540,10 @@
     "VERIFICATION_EMAIL_SENT": "Ni sendis alian kontrolan retmesaĝon. Bonvolu vizitu vian retpoŝtkeston."
   },
   "NOTIFICATION_BELLS": {
-    "ACTIVITY_DISABLED": "{activityType} on {dateTime} was disabled",
-    "ACTIVITY_ENABLED": "{activityType} on {dateTime} was enabled again",
-    "ACTIVITY_MOVED": "{activityType} was moved to {dateTime}",
-    "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
+    "ACTIVITY_DISABLED": "{activityType} je {dateTime} estis malebligita",
+    "ACTIVITY_ENABLED": "{activityType} je {dateTime} estis ebligita denove",
+    "ACTIVITY_MOVED": "{activityType} estis ŝanĝita al {dateTime}",
+    "ACTIVITY_UPCOMING": "Memorigo: {activityType} je {time}",
     "APPLICATION_ACCEPTED": "Kandidatiĝo akceptita!",
     "APPLICATION_DECLINED": "Kandidatiĝo malakceptita",
     "CONFLICT_RESOLUTION_CONTINUED": "La problemsolvada proceso kun {userName}daŭras",
@@ -553,8 +553,8 @@
     "CONFLICT_RESOLUTION_DECIDED": "La problemsolvada proceso kun {userName}finiĝis.",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "La problemsolvada proceso kun vi finiĝis",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Vi estis forigita de la grupo",
-    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
-    "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
+    "OFFFEEDBACK_POSSIBLE": "Vi povas komenti la aktivaĵon vi faris je la {date}",
+    "FEEDBACK_POSSIBLE": "Vi povas komenti la aktivaĵon - {activityType} je {date}",
     "INVITATION_ACCEPTED": "{userName}akceptis vian inviton",
     "NEW_APPLICANT": "{userName}kandidatiĝis al la grupo",
     "NEW_MEMBER": "{userName}aliĝis vian grupon",
@@ -621,9 +621,9 @@
     "SUBSCRIPTION": {
       "HEADER": "Ĉu vi volas marki ĉi lokon kiel preferatan?",
       "NO": "ne",
-      "NO_TEXT": "None of the above. You can still sign up for activities though.",
+      "NO_TEXT": "Neniu supra eblo. Vi ankoraŭ povas aliĝi aktivaĵojn",
       "YES": "jes",
-      "YES_TEXT": "Shows available activities on the group wall and sends emails about upcoming activities."
+      "YES_TEXT": "Ĝi montras disponeblajn aktivaĵojn en la muro de la grupo kaj sendas retmesaĝojn pri baldaŭaj aktivaĵoj."
     }
   },
   "PROFILE": {
@@ -642,19 +642,19 @@
     "TITLE": "Registriĝu!"
   },
   "STATISTICS": {
-    "ACTIVITY_HISTORY": "Activity statistics",
-    "FILTER_USER_LABEL": "User",
-    "FILTER_ALL_USERS": "All users",
-    "FILTER_TIME_LABEL": "Time period",
-    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
-    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
-    "FILTER_TIME_FOREVER": "Forever",
-    "COLUMN_PLACE": "Place",
-    "COLUMN_ACTIVITY_DONE": "Done",
-    "COLUMN_ACTIVITY_LEFT": "Left",
-    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
-    "COLUMN_FEEDBACK_WEIGHT": "Weight",
-    "TOTAL_LABEL": "Total"
+    "ACTIVITY_HISTORY": "Statistikoj de aktivaĵoj",
+    "FILTER_USER_LABEL": "Uzanto",
+    "FILTER_ALL_USERS": "Ĉiuj uzantoj",
+    "FILTER_TIME_LABEL": "Tempa periodo",
+    "FILTER_TIME_PREVIOUS_DAYS": "Antaŭ {count} tagoj",
+    "FILTER_TIME_PREVIOUS_MONTHS": "Antaŭaj {count} monatoj",
+    "FILTER_TIME_FOREVER": "Ĉiam",
+    "COLUMN_PLACE": "Loko",
+    "COLUMN_ACTIVITY_DONE": "Faritaj",
+    "COLUMN_ACTIVITY_LEFT": "Malaliĝitaj",
+    "COLUMN_ACTIVITY_LEFT_LATE": "Malfrue malaliĝitaj",
+    "COLUMN_FEEDBACK_WEIGHT": "Pezo",
+    "TOTAL_LABEL": "Entute"
   },
   "STOREDETAIL": {
     "ARCHIVED": "La loko arkiviĝis",
@@ -679,8 +679,8 @@
     "SHOW_ACTIVE_ONLY": "Nur montri aktivajn lokojn",
     "SHOW_ALL": "Montri ĉiujn lokojn",
     "STATUS": "Stato",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
+    "WEEKS_IN_ADVANCE": "Antaŭ kiom da semajnoj oni montru periodajn aktivaĵojn?",
+    "WEEKS_IN_ADVANCE_WARNING": "Vi malaltigos la kvanton de montritaj semajnoj. Restantaj aktivaĵoj estos forigitaj se neniu aliĝis. Aliajn aktivaĵojn vi povas forigi mane kaze de bezono."
   },
   "STORESTATUS": {
     "ACTIVE": "Kunlabori",
@@ -700,7 +700,7 @@
   "TOPBAR": {
     "CHANGE_GROUP": "Ŝanĝi grupon",
     "LOGOUT": "Elsaluti",
-    "SHOW_ALL_GROUPS": "Show all groups",
+    "SHOW_ALL_GROUPS": "Montri ĉiujn grupojn",
     "USERPROFILE": "Vizitu vian profilon"
   },
   "UNSUBSCRIBE": {
@@ -737,7 +737,7 @@
     "MOBILE_NUMBER": "Telefonan numeron",
     "NEWCOMER": "Novulo",
     "NEWCOMER_GUIDANCE": "{userName}estas novulo kaj eble bezonas helpon.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "NEWCOMER_INFO": "Vi estas novulo en {groupName} kaj vi povas iĝi aktiva skribante mesaĝojn, renkontante anojn, savante kaj komentante aktivaĵojn. Kiam {threshold} anoj fidos vin, vi ricevos redaktpermesojn por helpi la grupan administradon.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser}fidas{userName}en {groupName}| {count}homoj fidas {userName} en {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} fidas vin en {groupName}. | {count} homoj fidas vin en {groupName}.",
     "PASSWORD": "Pasvorto",
@@ -747,9 +747,9 @@
     "PROFILE_TITLE": "Profilo",
     "PUSH": "Sciigoj",
     "PUSH_CURRENT_BROWSER": "Nuna retumilo",
-    "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
-    "APP": "App",
-    "INSTALL_APP": "Install Karrot app to your device",
+    "PUSH_BLOCKED": "Ni ne povis ebligi sciigojn, ĉu eble vi ne donis la permeson?",
+    "APP": "Aplikaĵo",
+    "INSTALL_APP": "Instali la aplikaĵo Karrot en via aparato",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Ni sendis retmesaĝon al vi por ke vi finu la forigan proceduron."
     },

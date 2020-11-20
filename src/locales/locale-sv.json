@@ -66,53 +66,63 @@
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "Vill du verkligen radera denna regelbunden upphämtning? Det kommer också att radera engångsupphämtningar som tillhör denna serie (förutom där folk redan gått med på).",
-    "DELETE_SERIES_TITLE": "Radera regelbundet upphämtningsdatum"
+    "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
+    "DELETE_SERIES_TITLE": "Delete series"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "Upphämtningen har inaktiverats.",
-    "ACTIVITY_STARTED": "Upphämtningen har redan påbörjats.",
-    "AVAILABLE": "Det finns en upphämtning på dina favoritplatser som väntar på dig! | Det finns {count} upphämtning på dina favoritplatser som väntar på dig!",
-    "AVAILABLE_FEEDBACK": "Du kan ge feedback till en upphämtning | {count} upphämtningar väntar på din feedback",
-    "AVAILABLE_FROM_STORES": "Detta visar upphämtningar från dina favoritplatser de närmaste dagarna. Du kan komma åt andra platser i sidofältet.",
+    "ACTIVITY_DISABLED": "This is disabled.",
+    "ACTIVITY_STARTED": "This has already started.",
+    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
+    "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
+    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
       "ALL": "Allt",
+      "ALL_TYPES": "All types",
       "EMPTY": "Endast tomma",
       "FREE": "Med lediga öppningar"
     },
     "ITEM": {
       "JOIN": "Gå med",
-      "JOIN_CONFIRMATION_HEADER": "Gå med i upphämtning",
-      "JOIN_CONFIRMATION_TEXT": "Är du säker du har tid att hämta den {date}?",
+      "JOIN_CONFIRMATION_HEADER": "Join {activityType}",
+      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
       "LEAVE": "Lämna",
-      "LEAVE_CONFIRMATION_HEADER": "Lämna upphämtning",
-      "LEAVE_CONFIRMATION_TEXT": "Är du säker att andra kan göra upphämtningen utan dig?"
+      "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
+      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?"
     },
-    "JOINEDNOTICE": "Du har en kommande upphämtning | Du har {count} kommande upphämtningar",
-    "NONE": "Inga bokade upphämtningar",
-    "NONE_HINT": "Du kan skapa en ny upphämtning på platssidan.",
-    "STORE_NONE_HINT": "Du kan skapa en ny upphämtning i \"hantera upphämtningar\""
+    "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
+    "NONE": "No upcoming activities",
+    "NONE_DUE_TO_FILTER": "No activities match your filters",
+    "NONE_HINT": "You can create a new activity on the place page.",
+    "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page."
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "'Mer information' har ändrats",
-    "ACTIVITY_DOES_NOT_MATCH": "Upphämtningsdatumet passar inte återkommande mönstret",
+    "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max antal platser' har ändrats",
-    "SERIES": "Regelbundna upphämtningar",
-    "SINGLE": "Engångsupphämtning",
-    "TITLE": "Hantera upphämtningar",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Kommande upphämtningar i denna serie"
+    "SERIES": "Activity series",
+    "SINGLE": "One-time activities",
+    "TITLE": "Manage activities",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "Mängd mat du har lyckats spara (i kg)",
+    "AMOUNT": "Mängd mat du har lyckats rädda (i kg)",
     "AMOUNT_INFO": "För platsstatistiken kommer vi att summera alla feedbacks.",
     "COMMENT_PLACEHOLDER": "Gick allt bra? Var alla med? Din kommentar här...",
     "DELETE_AMOUNT": "Radera mängden",
     "EDIT": "Redigera feedback",
-    "HEADER": "Tack för din upphämtning!",
+    "HEADER": "Thank you for your participation!",
     "PREVIOUS": "Föregående feedback för {store}",
     "SET_AMOUNT": "Ange mängden",
     "TITLE": "Feedback",
-    "TOGETHER_WITH": "Du gjorde upphämtningen tillsammans med:"
+    "TOGETHER_WITH": "You did this together with:"
+  },
+  "ACTIVITY_TYPE_NAMES": {
+    "Meeting": "Meeting",
+    "Pickup": "Pickup",
+    "Distribution": "Distribution",
+    "Event": "Event",
+    "Activity": "Activity",
+    "Task": "Task"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "välj plats på kartan",
@@ -197,7 +207,8 @@
     "SUBMIT": "Skicka in",
     "UNSUBSCRIBE": "Avsluta prenumeration",
     "WITHDRAW": "Ta bort",
-    "YES": "Ja"
+    "YES": "Ja",
+    "READ_MORE": "Read more"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Uppdateringar från {community}",
@@ -254,28 +265,28 @@
   },
   "CREATEACTIVITY": {
     "COMMENT": "Mer information",
-    "COMMENT_HELPER": "Vad bör folk veta när de ska gå med hämtningen?",
+    "COMMENT_HELPER": "What should people know when signing up to this?",
     "CUSTOM": "Skräddarsytt",
     "DATE": "Datum",
     "DIFFERS_WARNING": "Detta värde skiljer sig från standard. För att ångra denna ändring, klicka på pilknappen och spara ändringarna.",
-    "DISABLE_TITLE": "Inaktivera upphämtning?",
-    "ENABLE_DISABLE_MESSAGE": "Alla som skrev upp sig till denna upphämtning kommer att få ett meddelande. Du kan ändra texten för att ge en anledning:",
-    "ENABLE_TITLE": "Aktivera upphämtning?",
-    "EXCEPTIONS_MESSAGE": "Vissa kommande hämtningar passar inte inställningar för denna återkommande upphämtning. Ta en titt där nere på '{upcomingLabel}' för att ändra eller inaktivera upphämtningar om det behövs.",
-    "EXCEPTIONS_TITLE": "Kolla dina upphämtningar",
+    "DISABLE_TITLE": "Disable?",
+    "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
+    "ENABLE_TITLE": "Enable?",
+    "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
+    "EXCEPTIONS_TITLE": "Check your activities",
     "FREQUENCY": "Hur ofta",
     "MAX_PARTICIPANTS": "Max Slots",
-    "MAX_PARTICIPANTS_HELPER": "Hur många bör delta i hämtningen?",
+    "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
     "RRULE": "Återkomstregel",
     "RRULE_EXAMPLE": "Sista arbetsdag (Mån-Fre) varje månad",
     "RRULE_EXAMPLE2": "varannan måndag",
     "RRULE_HELPER": "Skriv in en giltig {ruleHelper}, t.ex. {ruleExample} eller {ruleExample2}",
     "RRULE_HELPER_URL": "iCalenders regel",
     "STARTDATE_HELPER": "När ska serien börja?",
-    "TIME_HELPER": "När ska hämtningen ske?",
+    "TIME_HELPER": "When should it take place?",
     "UNLIMITED": "obegränsat",
     "WEEKDAYS": "Helg",
-    "WEEKDAYS_HELPER": "Vilka dagar ska man hämta?",
+    "WEEKDAYS_HELPER": "On which days should it take place?",
     "WEEKLY": "Varje vecka"
   },
   "CREATESTORE": {
@@ -290,8 +301,8 @@
     "NONE": "Ingen feedback ännu",
     "NONE_HINT": "Den här sidan kommer att fyllas när det finns mer feedback",
     "NO_DONE_ACTIVITIES": "Klar!",
-    "NO_DONE_ACTIVITIES_HINT": "Du har ingen feedback att ge. Varför inte gå med en upphämtning?",
-    "NUMBER_ACTIVITIES": "{count} upphämtningar gjort",
+    "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
+    "NUMBER_ACTIVITIES": "{count} activities done",
     "NUMBER_FEEDBACK": "{count} feedbacks",
     "SAVED_FOOD": "Minst 1 kg räddades här. Tack ska du ha! Folk har redan gett feedback för {amount} kg räddad mat! Bra jobbat!",
     "WEIGHT_SUM": "{sum} kg räddade mat"
@@ -307,11 +318,14 @@
     "RECONNECTING": "Reconnecting...",
     "SEARCH_NOT_FOUND": "Kunde inte hittas",
     "SEARCH_RESULTS": "Sökresultat",
-    "SERVER_ERROR": "Server fel"
+    "SERVER_ERROR": "Server fel",
+    "CLEAR_FILTERS": "Clear filters"
   },
   "GROUP": {
-    "ACTIVITIES": "Upphämtningar",
-    "ACTIVITY": "Upphämtning",
+    "ACTIVITIES": "Activities",
+    "ACTIVITY": "Activity",
+    "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
     "ADDED_BY": "tillagd av {userName}",
     "ADDRESS": "Adress",
     "APPLICATIONS": "Ansökningar",
@@ -354,8 +368,8 @@
         "NAME": "Nya processer för konfliktlösning"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "Påminner dig om dina upphämtningar och berättar om lediga upphämtningar på dina favoritplatser",
-        "NAME": "Notifikationer om upphämtningar"
+        "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
+        "NAME": "Activity notifications"
       },
       "new_application": {
         "DESCRIPTION": "När någon vill gå med i gruppen",
@@ -401,16 +415,16 @@
     "TITLE": "Karta"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "skapade en hämtning",
-    "ACTIVITY_DELETE": "tog bort en hämtning",
-    "ACTIVITY_DISABLE": "inaktivera en upphämtning",
-    "ACTIVITY_DONE": "gjorde en hämtning på {storeName}",
-    "ACTIVITY_ENABLE": "aktivera en upphämtning",
-    "ACTIVITY_JOIN": "skrev upp sig för att hämta på {storeName}",
-    "ACTIVITY_LEAVE": "gav upp om att hämta på {storeName}",
+    "ACTIVITY_CREATE": "{activityType} created",
+    "ACTIVITY_DELETE": "{activityType} deleted",
+    "ACTIVITY_DISABLE": "{activityType} disabled",
+    "ACTIVITY_DONE": "did {activityType} at {placeName}",
+    "ACTIVITY_ENABLE": "{activityType} enabled",
+    "ACTIVITY_JOIN": "signed up for {activityType} at {placeName}",
+    "ACTIVITY_LEAVE": "stepped back from {activityType} at {placeName}",
     "ACTIVITY_LEAVE_DISTANCE": "{distance} before scheduled time",
-    "ACTIVITY_MISSED": "Ingen upphämtning på {storeName}!",
-    "ACTIVITY_MODIFY": "ändrade inställningarna för en hämtning",
+    "ACTIVITY_MISSED": "{activityType} at {placeName} had no participants!",
+    "ACTIVITY_MODIFY": "changed the settings of an activity",
     "APPLICATION_DECLINED": "avböjde en ansökan från {applicantName}",
     "DETAILS": "Mer information",
     "GROUP_CHANGE_PHOTO": "ändrade gruppens logotyp",
@@ -423,10 +437,10 @@
     "MEMBER_BECAME_EDITOR": "fick behörighet att redigera",
     "MEMBER_REMOVED": "togs bort på grund av gruppbeslut",
     "NOTHING_HAPPENEND": "Inget händer än så länge...",
-    "SERIES_CREATE": "skapade en återkommande hämtning",
-    "SERIES_DELETE": "tog bort en återkommande hämtning",
-    "SERIES_MODIFY": "ändrade inställningar för en återkommande hämtning",
-    "STORE_CREATE": "skapa plats {name}",
+    "SERIES_CREATE": "{activityType} series created",
+    "SERIES_DELETE": "{activityType} series deleted",
+    "SERIES_MODIFY": "changed the settings of a series",
+    "STORE_CREATE": "skapade platsen {name}",
     "STORE_DELETE": "ta bort platsen {name}",
     "STORE_MODIFY": "ändrade inställningar för platsen {name}"
   },
@@ -526,10 +540,10 @@
     "VERIFICATION_EMAIL_SENT": "Vi skickade ett till verifieringsmejl. Varsågod och kolla din inkorg."
   },
   "NOTIFICATION_BELLS": {
-    "ACTIVITY_DISABLED": "Upphämtning den {dateTime} har inaktiverats",
-    "ACTIVITY_ENABLED": "Upphämtning den {dateTime} har aktiverats igen",
-    "ACTIVITY_MOVED": "Upphämtningen har ändrats till {dateTime}",
-    "ACTIVITY_UPCOMING": "Påminnelse: Du har en upphämtning kl {time}  ",
+    "ACTIVITY_DISABLED": "{activityType} on {dateTime} was disabled",
+    "ACTIVITY_ENABLED": "{activityType} on {dateTime} was enabled again",
+    "ACTIVITY_MOVED": "{activityType} was moved to {dateTime}",
+    "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
     "APPLICATION_ACCEPTED": "Din ansökan har beviljats!",
     "APPLICATION_DECLINED": "Din ansökan har avböjts",
     "CONFLICT_RESOLUTION_CONTINUED": "Processen för konfliktlösning med {userName} fortsätter",
@@ -539,7 +553,8 @@
     "CONFLICT_RESOLUTION_DECIDED": "Processen för konfliktlösning med {userName} beslutades",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Konfliktlösningsprocessen med dig beslutades",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du togs bort från gruppen",
-    "FEEDBACK_POSSIBLE": "Du kan ge feedback för en upphämtning du gjorde den {date}",
+    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
+    "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName} beviljade din ansökan",
     "NEW_APPLICANT": "{userName} ansökte om att gå med i din grupp",
     "NEW_MEMBER": "{userName} gick med i din grupp",
@@ -606,9 +621,9 @@
     "SUBSCRIPTION": {
       "HEADER": "Vill du markera den här platsen som din favorit?",
       "NO": "nej",
-      "NO_TEXT": "Inget av ovanstående. Du kan ändå skriva upp dig för upphämtningar.",
+      "NO_TEXT": "None of the above. You can still sign up for activities though.",
       "YES": "ja",
-      "YES_TEXT": "Visa tillgängliga upphämtningar i gruppens chattvägg och skickar mejl om kommande upphämtningar."
+      "YES_TEXT": "Shows available activities on the group wall and sends emails about upcoming activities."
     }
   },
   "PROFILE": {
@@ -633,6 +648,7 @@
     "FILTER_TIME_LABEL": "Time period",
     "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
     "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "FILTER_TIME_FOREVER": "Forever",
     "COLUMN_PLACE": "Place",
     "COLUMN_ACTIVITY_DONE": "Done",
     "COLUMN_ACTIVITY_LEFT": "Left",
@@ -663,8 +679,8 @@
     "SHOW_ACTIVE_ONLY": "Visa endast aktiva platser",
     "SHOW_ALL": "Visa alla platser",
     "STATUS": "Status",
-    "WEEKS_IN_ADVANCE": "Hur många veckor i förväg skall återkommande upphämtningar synas?",
-    "WEEKS_IN_ADVANCE_WARNING": "Du håller på att minska antalet veckor som upphämtningar visas. Befintliga resterande upphämtningar raderas om ingen har anslutit sig till dem. Du kan inaktivera alla andra upphämtningar manuellt om det behövs."
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
   },
   "STORESTATUS": {
     "ACTIVE": "Samarbetar",
@@ -721,7 +737,7 @@
     "MOBILE_NUMBER": "Mobilnr.",
     "NEWCOMER": "Nybörjare",
     "NEWCOMER_GUIDANCE": "{userName} är ny i din grupp och kanske behöver lite vägledning.",
-    "NEWCOMER_INFO": "Du är en nybörjare i {groupName} och du kan engagera dig genom att skriva meddelande, träffa andra medlemmar, göra upphämtningar och ge feedback. Så fort {threshold} medlemmar har litat på dig med tillitsmorötter, kommer du få behörighet att hjälpa till med gruppadministration.",
+    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} litar på {userName} i {groupName}. | {count} person(er) litar på {userName} i {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} litar på dig {groupName}. | {count} litar på dig i {groupName}.",
     "PASSWORD": "Lösenord",

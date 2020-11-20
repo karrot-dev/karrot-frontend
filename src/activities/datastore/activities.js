@@ -21,6 +21,7 @@ export default {
       if (!activity) return
       const userId = rootGetters['auth/userId']
       const place = rootGetters['places/get'](activity.place)
+      const activityType = rootGetters['activityTypes/get'](activity.activityType)
       const group = place && place.group
       return {
         ...activity,
@@ -28,6 +29,7 @@ export default {
         isEmpty: activity.participants.length === 0,
         isFull: activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants,
         place,
+        activityType,
         group,
         participants: activity.participants.map(rootGetters['users/get']),
         feedbackGivenBy: activity.feedbackGivenBy ? activity.feedbackGivenBy.map(rootGetters['users/get']) : [],

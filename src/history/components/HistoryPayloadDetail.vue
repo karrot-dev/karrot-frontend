@@ -77,7 +77,7 @@ export default {
     },
     value: {
       type: [Array, String, Date, Number, Boolean],
-      required: true,
+      default: null,
     },
   },
   computed: {

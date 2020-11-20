@@ -6,6 +6,10 @@ function getMessageParams (type, context) {
     userName: context.user && context.user.displayName,
   }
 
+  function getActivityTypeName () {
+    return context.activity && context.activity.activityType && context.activity.activityType.name
+  }
+
   switch (type) {
     case 'new_applicant':
       return {
@@ -14,16 +18,19 @@ function getMessageParams (type, context) {
     case 'feedback_possible':
       return {
         date: context.activity && i18n.d(context.activity.date, 'weekdayHourMinute'),
+        activityType: getActivityTypeName(),
       }
     case 'activity_upcoming':
       return {
         time: context.activity && i18n.d(context.activity.date, 'hourMinute'),
+        activityType: getActivityTypeName(),
       }
     case 'activity_disabled':
     case 'activity_enabled':
     case 'activity_moved':
       return {
         dateTime: context.activity && i18n.d(context.activity.date, 'dateAndTime'),
+        activityType: getActivityTypeName(),
       }
     case 'new_place':
       return {
@@ -53,8 +60,14 @@ function getIcon (type, context) {
     case 'new_member':
       return 'fas fa-user-plus'
     case 'feedback_possible':
+      if (context.activity && context.activity.activityType) {
+        return context.activity.activityType.feedbackIcon
+      }
       return icons.get('feedback')
     case 'activity_upcoming':
+      if (context.activity && context.activity.activityType) {
+        return context.activity.activityType.icon
+      }
       return 'fas fa-calendar-alt'
     case 'new_place':
       return icons.get('place')

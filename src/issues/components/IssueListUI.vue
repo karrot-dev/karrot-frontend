@@ -3,7 +3,7 @@
     <KSpinner v-show="isPending" />
     <KNotice v-if="hasNoOngoing">
       <template #icon>
-        <i class="fas fa-bed" />
+        <QIcon class="fas fa-bed" />
       </template>
       {{ $t('ISSUE.NO_ONGOING') }}
     </KNotice>
@@ -50,6 +50,7 @@ import {
   QExpansionItem,
   QSeparator,
   QList,
+  QIcon,
 } from 'quasar'
 
 export default {
@@ -60,6 +61,7 @@ export default {
     QExpansionItem,
     QSeparator,
     QList,
+    QIcon,
   },
   mixins: [statusMixin],
   props: {

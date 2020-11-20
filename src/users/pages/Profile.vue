@@ -27,7 +27,7 @@
         <SwitchGroupButton
           :user="user"
           :groups="user.groups"
-          @selectGroup="selectGroup"
+          @select-group="selectGroup"
         />
       </div>
       <div class="photoAndName row no-wrap ellipsis">

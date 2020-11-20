@@ -66,41 +66,43 @@
     "VISION_INTRO": "Karrot एक ऐसा माध्यम है जो सारे जमीनी स्तर वाले उपक्रम को जोड़ता है, डिजिटल माध्यम से आमने-सामने की गतिविधियों के समन्वय करता है,उन्हें बढ़ने में मदद करता है, "
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "क्या आप वास्तव में इस आवर्ती पिक अप तारीख को हटाना चाहते हैं? यह सभी बार-बार पिक अप तिथियों को भी हटा देगा जो इस आवर्ती पिक अप तारीख से संबंधित हैं (जहां लोग पहले ही शामिल हो गए थे)।",
-    "DELETE_SERIES_TITLE": "पुनरावर्ती पिकअप तारीख को हटाएं"
+    "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
+    "DELETE_SERIES_TITLE": "Delete series"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "इस पिक अप को निष्क्रिय कर दिया गया है।",
-    "ACTIVITY_STARTED": "यह पिक अप पहले ही शुरू हो चुका है।",
-    "AVAILABLE": "आपके पसंदीदा स्थानों में एक पिक अप है जो आपकी प्रतीक्षा कर रहा है! | आपके पसंदीदा स्थानों में {count} पिक अप हैं जो आपकी प्रतीक्षा कर रहे हैं!",
-    "AVAILABLE_FEEDBACK": "आप एक पिक अप को प्रतिक्रिया दे सकते हैं | {count} पिकअप आपकी प्रतिक्रिया का इंतजार कर रहे हैं",
-    "AVAILABLE_FROM_STORES": "यह आपके पसंदीदा स्थानों के अगले दिनों के पिकअप दिखाता है। आप साइडबार में अन्य स्थानों को भी देख सकते हैं।",
+    "ACTIVITY_DISABLED": "This is disabled.",
+    "ACTIVITY_STARTED": "This has already started.",
+    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
+    "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
+    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
       "ALL": "सब",
+      "ALL_TYPES": "All types",
       "EMPTY": "केवल खाली",
       "FREE": "खाली स्लॉट के साथ"
     },
     "ITEM": {
       "JOIN": "शामिल होना",
-      "JOIN_CONFIRMATION_HEADER": "पिकअप में शामिल हों",
-      "JOIN_CONFIRMATION_TEXT": "क्या आप सुनिश्चित हैं कि आपके पास {date} को लेने का समय है?",
+      "JOIN_CONFIRMATION_HEADER": "Join {activityType}",
+      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
       "LEAVE": "छोड़ना",
-      "LEAVE_CONFIRMATION_HEADER": "पिक अप छोड़ना",
-      "LEAVE_CONFIRMATION_TEXT": "क्या आप वास्तव में यह सुनिश्चित कर रहे हैं कि दूसरे आपके बिना पिक अप कर सकते हैं?"
+      "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
+      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?"
     },
-    "JOINEDNOTICE": "आपके पास एक आगामी पिक अप है | आपके पास {count} आगामी पिक अप हैं",
-    "NONE": "कोई आगामी पिकअप नहीं",
-    "NONE_HINT": "आप स्थान पृष्ठ पर एक नया पिक अप बना सकते हैं।",
-    "STORE_NONE_HINT": "आप पिकअप प्रबंधन पृष्ठ पर एक नया पिकअप बना सकते हैं।"
+    "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
+    "NONE": "No upcoming activities",
+    "NONE_DUE_TO_FILTER": "No activities match your filters",
+    "NONE_HINT": "You can create a new activity on the place page.",
+    "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page."
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "'अतिरिक्त जानकारी' बदल दी गई है",
-    "ACTIVITY_DOES_NOT_MATCH": "यह पिकअप की तारीख पुनरावृत्ति पैटर्न से मेल नहीं खाती है",
+    "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'अधिकतम स्लॉट' बदल दिए गए हैं",
-    "SERIES": "आवर्ती पिकअप",
-    "SINGLE": "एक बार पिकअप",
-    "TITLE": "पिकअप को प्रबंधित करें",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "इस श्रृंखला में आगामी पिकअप"
+    "SERIES": "Activity series",
+    "SINGLE": "One-time activities",
+    "TITLE": "Manage activities",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
   },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "भोजन की मात्रा जिसे आप बचाने में सक्षम थे (किलो में)",
@@ -108,11 +110,19 @@
     "COMMENT_PLACEHOLDER": "क्या सब कुछ ठीक था? क्या सभी लोग आये थे? आपकी टिप्पणी यहां दे...",
     "DELETE_AMOUNT": "राशि हटाएं",
     "EDIT": "प्रतिक्रिया संपादित करें",
-    "HEADER": "अपने पिकअप के लिए धन्यवाद!",
+    "HEADER": "Thank you for your participation!",
     "PREVIOUS": "{store} के लिए पिछली प्रतिक्रिया",
     "SET_AMOUNT": "राशि तय करें",
     "TITLE": "प्रतिक्रिया",
-    "TOGETHER_WITH": "आपने यह पिक अप इन के साथ में किया:"
+    "TOGETHER_WITH": "You did this together with:"
+  },
+  "ACTIVITY_TYPE_NAMES": {
+    "Meeting": "Meeting",
+    "Pickup": "Pickup",
+    "Distribution": "Distribution",
+    "Event": "Event",
+    "Activity": "Activity",
+    "Task": "Task"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "नक़्शे पर स्थान चुनें",
@@ -197,7 +207,8 @@
     "SUBMIT": "निवेदन करें",
     "UNSUBSCRIBE": "सदस्यता समाप्त",
     "WITHDRAW": "निकालना",
-    "YES": "हाँ"
+    "YES": "हाँ",
+    "READ_MORE": "Read more"
   },
   "COMMUNITY_FEED": {
     "HEADER": "{community} से अपडेट",
@@ -254,28 +265,28 @@
   },
   "CREATEACTIVITY": {
     "COMMENT": "अधिक जानकारी",
-    "COMMENT_HELPER": "इस पिकअप तक साइन अप करते समय लोगों को क्या पता होना चाहिए?",
+    "COMMENT_HELPER": "What should people know when signing up to this?",
     "CUSTOM": "स्वनिर्धारित",
     "DATE": "तारीख",
     "DIFFERS_WARNING": "यह मुल्य डिफ़ॉल्ट मुल्य से भिन्न है। इस परिवर्तन को पूर्ववत करने के लिए, तीर बटन पर क्लिक करें और परिवर्तनों को सहेजें।",
-    "DISABLE_TITLE": "पिक अप अक्षम करें?",
-    "ENABLE_DISABLE_MESSAGE": "इस पिक अप में शामिल होने वाले उपयोगकर्ताओं को एक सूचना मिलेगी। कारण बताने के लिए आप इस पाठ को बदल सकते हैं:",
-    "ENABLE_TITLE": "पिक अप सक्षम करें?",
-    "EXCEPTIONS_MESSAGE": "कुछ आगामी पिक अप इस आवर्ती पिक अप की सेटिंग से मेल नहीं खाते हैं। यदि आवश्यक हो, तो पिकअप को बदलने या अक्षम करने के लिए '{upcomingLabel}' पर एक नज़र डालें।",
-    "EXCEPTIONS_TITLE": "अपने पिकअप की जाँच करें",
+    "DISABLE_TITLE": "Disable?",
+    "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
+    "ENABLE_TITLE": "Enable?",
+    "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
+    "EXCEPTIONS_TITLE": "Check your activities",
     "FREQUENCY": "आवृत्ति",
     "MAX_PARTICIPANTS": "अधिकतम स्लॉट",
-    "MAX_PARTICIPANTS_HELPER": "पिक-अप में कितने लोगों को भाग लेना चाहिए?",
+    "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
     "RRULE": "पुनरावृत्ति नियम",
     "RRULE_EXAMPLE": "हर महीने का आखरी कामकाजी दिन (सोम-शुक्र) ",
     "RRULE_EXAMPLE2": "प्रत्येक दूसरे सोमवार",
     "RRULE_HELPER": "वैध में टाइप करें {ruleHelper} जैसे {ruleExample} या {ruleExample2}",
     "RRULE_HELPER_URL": "iCalender नियम",
     "STARTDATE_HELPER": "कब श्रृंखला शुरू होनी चाहिए?",
-    "TIME_HELPER": "पिक-अप कब होना चाहिए?",
+    "TIME_HELPER": "When should it take place?",
     "UNLIMITED": "असीमित",
     "WEEKDAYS": "सप्ताहांत",
-    "WEEKDAYS_HELPER": "पिक-अप को किस दिन ले जाना चाहिए?",
+    "WEEKDAYS_HELPER": "On which days should it take place?",
     "WEEKLY": "साप्ताहिक"
   },
   "CREATESTORE": {
@@ -290,8 +301,8 @@
     "NONE": "अभी तक कोई प्रतिक्रिया नहीं",
     "NONE_HINT": "और प्रतिक्रिया उपलब्ध होने पर यह पृष्ठ भर जाएगा",
     "NO_DONE_ACTIVITIES": "सब कुछ कर दिया!",
-    "NO_DONE_ACTIVITIES_HINT": "वर्तमान में आपके पास प्रतिक्रिया देने के लिए कोई पिक अप नहीं है। क्यों ना दूसरे पिक अप में शामिल हो ?",
-    "NUMBER_ACTIVITIES": "{count} पिकअप किए गये",
+    "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
+    "NUMBER_ACTIVITIES": "{count} activities done",
     "NUMBER_FEEDBACK": "{count} प्रतिक्रिया दी गई",
     "SAVED_FOOD": "धन्यवाद!! यहां कम से कम 1 किलो बचाया गया था। लोगों ने {amount} किलो बचाए हुए भोजन को पहले ही प्रतिक्रिया दे दि है! अच्छा काम करते रहिए!",
     "WEIGHT_SUM": "{sum} किलो खाना बचाया गया"
@@ -307,11 +318,14 @@
     "RECONNECTING": "Reconnecting...",
     "SEARCH_NOT_FOUND": "नहीं मिला",
     "SEARCH_RESULTS": "खोज परिणाम",
-    "SERVER_ERROR": "सर्वर त्रुटि"
+    "SERVER_ERROR": "सर्वर त्रुटि",
+    "CLEAR_FILTERS": "Clear filters"
   },
   "GROUP": {
-    "ACTIVITIES": "पिकप",
-    "ACTIVITY": "पिक अप",
+    "ACTIVITIES": "Activities",
+    "ACTIVITY": "Activity",
+    "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
     "ADDED_BY": "{userName} द्वारा जोड़ा गया",
     "ADDRESS": "पता",
     "APPLICATIONS": "आवेदन",
@@ -354,8 +368,8 @@
         "NAME": "नए संघर्ष समाधान प्रक्रियाँए"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "आपको अपने पिकअप की याद दिलाता है, और आपको अगले दिन अपने पसंदीदा स्थानों के खाली या पूर्ण-भरे पिकअप के बारे में बताता है",
-        "NAME": "पिक अप सूचनाएं"
+        "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
+        "NAME": "Activity notifications"
       },
       "new_application": {
         "DESCRIPTION": "आपको बताता है कि जब कोई आपके समूह में शामिल होना चाहता है",
@@ -401,16 +415,16 @@
     "TITLE": "नक्शा"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "नया एक बार पिक-अप बनाया",
-    "ACTIVITY_DELETE": "एक पिक-अप को हटा दिया",
-    "ACTIVITY_DISABLE": "पिक अप अक्षम किया",
-    "ACTIVITY_DONE": "{storeName} पर पिक-अप किया",
-    "ACTIVITY_ENABLE": "पिक अप को सक्षम किया",
-    "ACTIVITY_JOIN": "{storeName} पर पिक-अप करने के लिए साइन अप हुआ",
-    "ACTIVITY_LEAVE": "{storeName} पर पिक-अप करने का कदम वापस लिया",
+    "ACTIVITY_CREATE": "{activityType} created",
+    "ACTIVITY_DELETE": "{activityType} deleted",
+    "ACTIVITY_DISABLE": "{activityType} disabled",
+    "ACTIVITY_DONE": "did {activityType} at {placeName}",
+    "ACTIVITY_ENABLE": "{activityType} enabled",
+    "ACTIVITY_JOIN": "signed up for {activityType} at {placeName}",
+    "ACTIVITY_LEAVE": "stepped back from {activityType} at {placeName}",
     "ACTIVITY_LEAVE_DISTANCE": "{distance} before scheduled time",
-    "ACTIVITY_MISSED": "{storeName} पर एक पिक अप छूट गया था!",
-    "ACTIVITY_MODIFY": "पिक-अप की सेटिंग बदल दी",
+    "ACTIVITY_MISSED": "{activityType} at {placeName} had no participants!",
+    "ACTIVITY_MODIFY": "changed the settings of an activity",
     "APPLICATION_DECLINED": "{applicantName} के आवेदन को अस्वीकार कर दिया गया",
     "DETAILS": "अधिक जानकारी",
     "GROUP_CHANGE_PHOTO": "समूह का प्रतीक चिन्ह बदल दिया गया",
@@ -423,9 +437,9 @@
     "MEMBER_BECAME_EDITOR": "संपादन अनुमति प्राप्त की गयी",
     "MEMBER_REMOVED": "समूह निर्णय के कारण हटा दिया गया था",
     "NOTHING_HAPPENEND": "अभी तक कुछ नहीं हुआ ...",
-    "SERIES_CREATE": "एक नया पुनरावर्ती पिक-अप बनाया",
-    "SERIES_DELETE": "एक पुनरावर्ती पिक-अप को हटा दिया",
-    "SERIES_MODIFY": "एक पुनरावर्ती पिक-अप की सेटिंग बदल दी",
+    "SERIES_CREATE": "{activityType} series created",
+    "SERIES_DELETE": "{activityType} series deleted",
+    "SERIES_MODIFY": "changed the settings of a series",
     "STORE_CREATE": "{name} स्थान बनाया गया",
     "STORE_DELETE": "{name} स्थान हटाई गई",
     "STORE_MODIFY": "{name} स्थान की सेटिंग बदल दी"
@@ -526,10 +540,10 @@
     "VERIFICATION_EMAIL_SENT": "हमने आपको दूसरा सत्यापन ईमेल भेजा है कृपया अपने इनबॉक्स की जांच करें"
   },
   "NOTIFICATION_BELLS": {
-    "ACTIVITY_DISABLED": "{dateTime} बजे पिक अप अक्षम था",
-    "ACTIVITY_ENABLED": "{dateTime} बजे पिक अप को फिर से सक्षम किया गया",
-    "ACTIVITY_MOVED": "पिक अप को {dateTime} बजे स्थानांतरित कर दिया गया",
-    "ACTIVITY_UPCOMING": "अनुस्मारक: आपके पास {time} बजे एक पिक अप है",
+    "ACTIVITY_DISABLED": "{activityType} on {dateTime} was disabled",
+    "ACTIVITY_ENABLED": "{activityType} on {dateTime} was enabled again",
+    "ACTIVITY_MOVED": "{activityType} was moved to {dateTime}",
+    "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
     "APPLICATION_ACCEPTED": "आपका आवेदन स्वीकार कर लिया गया था!",
     "APPLICATION_DECLINED": "आपके आवेदन को अस्वीकार कर दिया गया था",
     "CONFLICT_RESOLUTION_CONTINUED": "{userName} के साथ संघर्ष समाधान प्रक्रिया जारी है",
@@ -539,7 +553,8 @@
     "CONFLICT_RESOLUTION_DECIDED": "{userName} के साथ संघर्ष समाधान प्रक्रिया का निर्णय लिया गया",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "आपके साथ संघर्ष समाधान प्रक्रिया का निर्णय लिया गया",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "आपको समूह से निकाल दिया गया था",
-    "FEEDBACK_POSSIBLE": "आप {date} को किए गए पिक अप के लिए प्रतिक्रिया दे सकते हैं",
+    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
+    "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName} ने आपका निमंत्रण स्वीकार कर लिया",
     "NEW_APPLICANT": "{userName} ने आपके समूह में शामिल होने के लिए आवेदन किया",
     "NEW_MEMBER": "{userName} आपके ग्रुप में शामिल हो गया",
@@ -606,9 +621,9 @@
     "SUBSCRIPTION": {
       "HEADER": "क्या आप इस स्थान को अपने पसंदीदा के रूप में चिह्नित करना चाहते हैं?",
       "NO": "नहीं",
-      "NO_TEXT": "इनमे से कोई भी नहीं। आप अभी भी पिकअप के लिए जुड़ सकते हैं।",
+      "NO_TEXT": "None of the above. You can still sign up for activities though.",
       "YES": "हाँ ",
-      "YES_TEXT": "समूह पर उपलब्ध पिकअप दिखाता है और आगामी पिकअप के बारे में ईमेल भेजता है।"
+      "YES_TEXT": "Shows available activities on the group wall and sends emails about upcoming activities."
     }
   },
   "PROFILE": {
@@ -633,6 +648,7 @@
     "FILTER_TIME_LABEL": "Time period",
     "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
     "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "FILTER_TIME_FOREVER": "Forever",
     "COLUMN_PLACE": "Place",
     "COLUMN_ACTIVITY_DONE": "Done",
     "COLUMN_ACTIVITY_LEFT": "Left",
@@ -663,8 +679,8 @@
     "SHOW_ACTIVE_ONLY": "केवल सक्रिय स्थान दिखाएं",
     "SHOW_ALL": "सभी स्थानों को दिखाएँ",
     "STATUS": "स्थिति",
-    "WEEKS_IN_ADVANCE": "कितने सप्ताह अग्रिम में पिकअप की तारीखों को दिखाया जाना चाहिए?",
-    "WEEKS_IN_ADVANCE_WARNING": "आप पिकउप को कितने सप्ताह तक दिखाया जाए, इस सँख्या को कम करने जा रहे हैं| मौजूदा बचे हुए पिकअप को हटा दिया जाएगा यदि कोई भी उनके साथ नहीं जुड़ा है। यदि आवश्यक हो, तो आप अन्य सभी पिकअप को स्वयँ अक्षम कर सकते हैं।"
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
   },
   "STORESTATUS": {
     "ACTIVE": "सहयोग",
@@ -721,7 +737,7 @@
     "MOBILE_NUMBER": "दूरध्वनी",
     "NEWCOMER": "नवागंतुक",
     "NEWCOMER_GUIDANCE": "{userName} आपके समूह में नया है और उन्हें कुछ मार्गदर्शन की आवश्यकता हो सकती है ",
-    "NEWCOMER_INFO": "आप वर्तमान में {groupName} में एक नए सदस्य हैं और आप संदेश लिखने, साथी सदस्यों से मिलने, पिकअप करने और प्रतिक्रिया देने से सक्रिय सदस्य हो सकते हैं। जैसे ही {threshold} सदस्यों ने आप पर भरोसा जताया, आप समूह प्रशासन के साथ मदद करने के लिए संपादन अनुमति प्राप्त करेंगे।",
+    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} {groupName} में {userName} पर भरोसा करता है| {count} लोग {groupName} में {userName} पर भरोसा करते हैं|",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} {groupName} में आप पर भरोसा करता है| {count} लोग {groupName} में आप पर भरोसा करते हैं",
     "PASSWORD": "पासवर्ड",

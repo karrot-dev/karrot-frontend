@@ -9,6 +9,13 @@
     >
       <div class="q-pa-sm full-width">
         <div>
+          <QIcon
+            v-if="activity.activityType"
+            v-bind="activity.activityType.iconProps"
+            size="xs"
+            class="q-pr-xs"
+            style="position: relative; bottom: 4px;"
+          />
           <span class="featured-text">
             {{ $d(activity.date, 'hourMinute') }}
             <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>
@@ -47,6 +54,64 @@
         <!-- eslint-enable vue/multiline-html-element-content-newline -->
         <div class="q-my-xs full-width">
           <ActivityUsers :activity="activity" />
+          <CustomDialog v-model="joinDialog">
+            <template #title>
+              <QIcon
+                v-bind="activity.activityType.iconProps"
+                size="sm"
+                class="q-pr-sm"
+              />
+              {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER', { activityType: activity.activityType.name }) }}
+            </template>
+            <template #message>
+              {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_TEXT', { date: $d(activity.date, 'long') }) }}
+            </template>
+            <template #actions>
+              <QBtn
+                v-close-popup
+                flat
+                color="primary"
+                :label="$t('BUTTON.CANCEL')"
+              />
+              <QBtn
+                v-close-popup
+                flat
+                color="primary"
+                data-autofocus
+                :label="$t('BUTTON.OF_COURSE')"
+                @click="$emit('join', activity.id)"
+              />
+            </template>
+          </CustomDialog>
+          <CustomDialog v-model="leaveDialog">
+            <template #title>
+              <QIcon
+                v-bind="activity.activityType.iconProps"
+                size="sm"
+                class="q-pr-sm"
+              />
+              {{ $t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_HEADER', { activityType: activity.activityType.name }) }}
+            </template>
+            <template #message>
+              {{ $t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_TEXT') }}
+            </template>
+            <template #actions>
+              <QBtn
+                v-close-popup
+                flat
+                color="primary"
+                :label="$t('BUTTON.CANCEL')"
+              />
+              <QBtn
+                v-close-popup
+                flat
+                color="primary"
+                data-autofocus
+                :label="$t('BUTTON.YES')"
+                @click="$emit('leave', activity.id)"
+              />
+            </template>
+          </CustomDialog>
         </div>
       </div>
     </QCardSection>
@@ -58,14 +123,18 @@ import {
   QCard,
   QCardSection,
   QIcon,
+  QBtn,
 } from 'quasar'
 import ActivityUsers from './ActivityUsers'
+import CustomDialog from '@/activities/components/CustomDialog'
 
 export default {
   components: {
+    CustomDialog,
     QCard,
     QCardSection,
     QIcon,
+    QBtn,
     ActivityUsers,
   },
   props: {
@@ -78,7 +147,23 @@ export default {
       default: false,
     },
   },
+  data () {
+    return {
+      joinDialog: false,
+      leaveDialog: false,
+    }
+  },
   methods: {
+    join () {
+      this.leaveDialog = false
+      this.joinDialog = true
+    },
+    leave () {
+      if (!this.activity.hasStarted) {
+        this.joinDialog = false
+        this.leaveDialog = true
+      }
+    },
     detail (event) {
       if (event.target.closest('a')) return // ignore actual links
       this.$emit('detail', this.activity)
@@ -98,7 +183,7 @@ export default {
 
   .featured-text
     display inline
-    margin-right .5em
+    margin-right .3em
     font-size 1.5em
 
   &.isEmpty:not(.isDisabled)

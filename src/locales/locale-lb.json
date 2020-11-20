@@ -66,41 +66,43 @@
     "VISION_INTRO": "Karrot ass ee Geschier fir all Zort vu Wuerzel-Initiativ fir sech ze verbannen an ze wuessen an ënnerstëtzt d'Koordinatioun vun An-zu-An-Aktivitéite mat enger Schicht digitaler Infrastruktur."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "Wëlls du wierklech dësen Datum vun den Ofhuelungen, déi ëmmer nees sinn, läschen? Dëst wäert och all d'eemoleg Ofhuelunge läschen, déi zu dësen Ofhuelungen, déi ëmmer nees sinn, gehéieren (ausser et hunn sech scho Leit derfir ugemellt).",
-    "DELETE_SERIES_TITLE": "Een Datum vun Ofhuelungen, déi ëmmer nees sinn, läschen"
+    "DELETE_SERIES_TEXT": "Wëlls du dës Serie wierklech läschen? Dëst wäert och all d'Aktivitéite läschen, déi zu dëser Serie gehéieren (ausser et hu sech scho Leit derfir ugemellt).",
+    "DELETE_SERIES_TITLE": "Serie läschen"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "Dës Ofhuelung ass desaktivéiert ginn.",
-    "ACTIVITY_STARTED": "Dës Ofhuelung huet schonn ugefaangen.",
-    "AVAILABLE": "Et gëtt eng Ofhuelung op denge favoriséierte Platze fir dech! | Et gëtt {count} Ofhuelungen op denge favoriséierte Platze fir dech!",
-    "AVAILABLE_FEEDBACK": "Du kanns Feedback zu enger Ofhuelung ofginn | {count} Ofhuelunge waarden op däi Feedback",
-    "AVAILABLE_FROM_STORES": "Dëst weist d'Ofhuelunge vun denge favoriséierte Platzen an den nächsten Deeg. Du kanns un aner Platzen iwwert d'Sidebar dru kommen.",
+    "ACTIVITY_DISABLED": "Dëst ass deaktivéiert.",
+    "ACTIVITY_STARTED": "Dëst huet schonn ugefaangen.",
+    "AVAILABLE": "Et gëtt eng Aktivitéit op denge favoriséierte Platze fir dech! | Et gëtt {count} Aktivitéiten op denge favoriséierte Platze fir dech!",
+    "AVAILABLE_FEEDBACK": "Du kanns Feedback ofginn | {count} Aktivitéite waarden op däi Feedback",
+    "AVAILABLE_FROM_STORES": "Dëst weist d'Aktivitéite vun denge favoriséierte Platzen an den nächsten Deeg. Du kanns un aner Platzen iwwert d'Sidebar dru kommen.",
     "FILTER": {
       "ALL": "All",
+      "ALL_TYPES": "All d'Typpen",
       "EMPTY": "Just eideler",
       "FREE": "Mat eidele Platzen"
     },
     "ITEM": {
       "JOIN": "Matmaachen",
-      "JOIN_CONFIRMATION_HEADER": "Bei Ofhuelung matmaachen",
-      "JOIN_CONFIRMATION_TEXT": "Bass du sécher, dass du Zäit fir den {date} ofzehuelen?",
+      "JOIN_CONFIRMATION_HEADER": "Bei {activityType} matmaachen",
+      "JOIN_CONFIRMATION_TEXT": "Bass du sécher, dass du den {date} Zäit hues?",
       "LEAVE": "Verloossen",
-      "LEAVE_CONFIRMATION_HEADER": "Vun Ofhuelung ofmellen",
-      "LEAVE_CONFIRMATION_TEXT": "Bass du sécher, dass déi aner d'Ofhuelung ouni dech maache kënnen?"
+      "LEAVE_CONFIRMATION_HEADER": "{activityType} verloossen",
+      "LEAVE_CONFIRMATION_TEXT": "Bass du sécher, dass déi aner dëst ouni dech maache kënnen?"
     },
-    "JOINEDNOTICE": "Du hues eng zukünfteg Ofhuelung | Du hues {count} zukünfteg Ofhuelungen",
-    "NONE": "Keng zukünfteg Ofhuelungen",
-    "NONE_HINT": "Du kanns eng nei Ofhuelung op der Säit vun der Platz erstellen.",
-    "STORE_NONE_HINT": "Du kanns eng nei Ofhuelung op der Säit erstellen, wou's du d'Ofhuelunge verwalte kanns."
+    "JOINEDNOTICE": "Du hues eng zukünfteg Aktivitéit | Du hues {count} zukünfteg Aktivitéiten",
+    "NONE": "Keng zukünfteg Aktivitéiten",
+    "NONE_DUE_TO_FILTER": "Keng Aktivitéit passt op deng Filter",
+    "NONE_HINT": "Du kanns eng nei Aktivitéit op der Säit vun der Platz erstellen.",
+    "STORE_NONE_HINT": "Du kanns eng nei Aktivitéit op der Säit \"Aktivitéite verwalten\" uleeën."
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "\"Zousätzlech Informatiounen\" gouf geännert",
-    "ACTIVITY_DOES_NOT_MATCH": "Den Datum vun dëser Ofhuelung ass verschidde vun deenen aneren Ofhuelungen.",
+    "ACTIVITY_DOES_NOT_MATCH": "Dësen Datum passt net zum Widderhuelungsmuster",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "\"Max. Platzen\" gouf geännert",
-    "SERIES": "Ofhuelungen, déi ëmmer nees sinn",
-    "SINGLE": "Eemoleg Ofhuelungen",
-    "TITLE": "Ofhuelunge verwalten",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Zukünfteg Ofhuelungen an dëser Serie"
+    "SERIES": "Aktivitéitsserie",
+    "SINGLE": "Eemoleg Aktivitéiten",
+    "TITLE": "Aktivitéite verwalten",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Zukünfteg Aktivitéiten an dëser Serie"
   },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Quantitéit vu Liewensmëttel déi's du rette konnts (a kg)",
@@ -108,11 +110,19 @@
     "COMMENT_PLACEHOLDER": "War alles gutt? War jidderee komm? Däi Kommentar hei...",
     "DELETE_AMOUNT": "Quantitéit läschen",
     "EDIT": "Feedback veränneren",
-    "HEADER": "Merci fir deng Ofhuelung!",
+    "HEADER": "Merci fir deng Bedeelegung!",
     "PREVIOUS": "Feedback vu virdru fir {store}",
     "SET_AMOUNT": "Quantitéit aginn",
     "TITLE": "Feedback",
-    "TOGETHER_WITH": "Du hues dës Ofhuelung zesumme gemaach mam:"
+    "TOGETHER_WITH": "Du hues dëst zesumme gemaach mam:"
+  },
+  "ACTIVITY_TYPE_NAMES": {
+    "Meeting": "Treffen",
+    "Pickup": "Ofhuelung",
+    "Distribution": "Verdeelung",
+    "Event": "Veranstaltung",
+    "Activity": "Aktivitéit",
+    "Task": "Aufgab"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "wiel den Uert op der Kaart",
@@ -197,7 +207,8 @@
     "SUBMIT": "Areechen",
     "UNSUBSCRIBE": "Desabonéieren",
     "WITHDRAW": "Zréckzéien",
-    "YES": "Jo"
+    "YES": "Jo",
+    "READ_MORE": "Méi liesen"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Neiegkeete vun der {community}",
@@ -254,28 +265,28 @@
   },
   "CREATEACTIVITY": {
     "COMMENT": "Zousätzlech Informatiounen",
-    "COMMENT_HELPER": "Wat sollen d'Leit wësse wann si sech fir dës Ofhuelung androen?",
+    "COMMENT_HELPER": "Wat sollen d'Leit wësse wann si sech fir dës Aktivitéit androen?",
     "CUSTOM": "Op d'Mooss gemaach",
     "DATE": "Datum",
     "DIFFERS_WARNING": "Dëse Wäert ass anescht wéi de Standard. Fir dës Ännerung réckgängeg ze maachen, klicks de op de Feil an dann op Späicheren.",
-    "DISABLE_TITLE": "Ofhuelung desaktivéieren?",
-    "ENABLE_DISABLE_MESSAGE": "Benotzer, déi dëser Ofhuelung bäitrieden, kréien eng Benoriichtegung. Du kanns dësen Text ännere fir ee Grond unzeginn:",
-    "ENABLE_TITLE": "Ofhuelungen aktivéieren?",
-    "EXCEPTIONS_MESSAGE": "E puer zukünfteg Ofhuelungen stëmmen net mat den Astellunge vun dëser Ofhuelung, déi ëmmer nees ass, iwwerteneen. Kuck eng Kéier hei drënner op '{upcomingLabel}' fir Ofhuelungen ze änneren oder ze desaktivéieren, falls néideg.",
-    "EXCEPTIONS_TITLE": "Deng Ofhuelunge kontrolléieren",
+    "DISABLE_TITLE": "Desaktivéieren?",
+    "ENABLE_DISABLE_MESSAGE": "Benotzer, déi matmaachen, kréien eng Benoriichtegung. Du kanns dësen Text ännere fir ee Grond unzeginn:",
+    "ENABLE_TITLE": "Aktivéieren?",
+    "EXCEPTIONS_MESSAGE": "E puer zukünfteg Aktivitéite passen net zu den Astellunge vun dëser Serie. Kuck eng Kéier hei drënner op \"{upcomingLabel}\" fir se ze änneren oder ze desaktivéieren wann et néideg ass.",
+    "EXCEPTIONS_TITLE": "Deng Aktivitéite kontrolléieren",
     "FREQUENCY": "Frequenz",
     "MAX_PARTICIPANTS": "Max. Platzen",
-    "MAX_PARTICIPANTS_HELPER": "Wéi vill Leit solle bei der Ofhuelung matmaachen?",
+    "MAX_PARTICIPANTS_HELPER": "Wéi vill Leit solle matmaachen?",
     "RRULE": "Widderhuelungs-Reegel",
     "RRULE_EXAMPLE": "läscht Wochendeeg (Mé-Fr) all Mount",
     "RRULE_EXAMPLE2": "all zweete Méindeg",
     "RRULE_HELPER": "Gëff e gültegen {ruleHelper} an, z.B. {ruleExample} oder {ruleExample2}",
     "RRULE_HELPER_URL": "Kalenner-Reegel",
     "STARTDATE_HELPER": "Wéini soll d'Serie ufänken?",
-    "TIME_HELPER": "Wéini soll d'Ofhuelung sinn?",
+    "TIME_HELPER": "Wéini soll et sinn?",
     "UNLIMITED": "onendlech",
     "WEEKDAYS": "All Wochendag",
-    "WEEKDAYS_HELPER": "Op wéi engen Deeg sinn d'Ofhuelungen?",
+    "WEEKDAYS_HELPER": "Op wéi engen Deeg soll et sinn?",
     "WEEKLY": "All Woch"
   },
   "CREATESTORE": {
@@ -290,8 +301,8 @@
     "NONE": "Nach kee Feedback",
     "NONE_HINT": "Dës Säit wäert gefëllt sinn esoubal et méi Feedback gëtt",
     "NO_DONE_ACTIVITIES": "Alles fäerdeg!",
-    "NO_DONE_ACTIVITIES_HINT": "Du hues grad keng Ofhuelunge fir déi's de Feedback kanns ginn. Firwat mëss net bei enger weiderer Ofhuelung mat?",
-    "NUMBER_ACTIVITIES": "{count} Ofhuelunge gemaach",
+    "NO_DONE_ACTIVITIES_HINT": "Du hues grad keng Aktivitéite fir déi's de Feedback kanns ginn. Firwat mëss net bei enger weiderer Aktivitéit mat?",
+    "NUMBER_ACTIVITIES": "{count} Aktivitéite gemaach",
     "NUMBER_FEEDBACK": "{count} Feedbacke ginn",
     "SAVED_FOOD": "Mindestens 1 kg gouf hei gerett! Merci! | Leit hu Feedback fir {amount} kg gerette Liewensmëttel ofginn! Maach weider esou!",
     "WEIGHT_SUM": "{sum} kg Liewensmëttel gerett"
@@ -307,11 +318,14 @@
     "RECONNECTING": "Nees verbannen...",
     "SEARCH_NOT_FOUND": "Net fonnt",
     "SEARCH_RESULTS": "Sichresultater",
-    "SERVER_ERROR": "Server-Feeler"
+    "SERVER_ERROR": "Server-Feeler",
+    "CLEAR_FILTERS": "Filter läschen"
   },
   "GROUP": {
-    "ACTIVITIES": "Ofhuelungen",
-    "ACTIVITY": "Ofhuelung",
+    "ACTIVITIES": "Aktivitéiten",
+    "ACTIVITY": "Aktivitéit",
+    "PICKUPS_TO_ACTIVITIES": "Du kann elo méi wéi nëmmen Ofhuelungen organiséieren!",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Aktivitéiten, déi Ofhuelungen heeschen, sinn nach ëmmer do, mä mir hunn nach aner Typpen, wéi Treffen, Veranstaltungen a Verdeelungen derbäi gemaach",
     "ADDED_BY": "derbäigemaach gi vum {userName}",
     "ADDRESS": "Adress",
     "APPLICATIONS": "Bewerbungen",
@@ -354,8 +368,8 @@
         "NAME": "Neie Konflikt-Léisungsprozess"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "Erënnert dech un deng Ofhuelungen, a seet dir Bescheed iwwert Ofhuelungen, op déi nach keng oder net genuch Leit ginn, vun denge favoriséierte Platzen den nächsten Dag",
-        "NAME": "Benoriichtegungen iwwert Ofhuelungen"
+        "DESCRIPTION": "Erënnert dech un deng Aktivitéiten, a seet dir Bescheed iwwert Aktivitéiten vun denge favoriséierte Platzen den nächsten Dag, un deenen nach keng oder net genuch Leit matmaachen",
+        "NAME": "Benoriichtegungen iwwert Aktivitéiten"
       },
       "new_application": {
         "DESCRIPTION": "Bescheed soe wann een der Grupp bäitriede wëll",
@@ -401,16 +415,16 @@
     "TITLE": "Kaart"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "huet eng eemoleg Ofhuelung erstallt",
-    "ACTIVITY_DELETE": "huet eng Ofhuelung geläscht",
-    "ACTIVITY_DISABLE": "huet eng Ofhuelung desaktivéiert",
-    "ACTIVITY_DONE": "huet beim {storeName} ofgeholl",
-    "ACTIVITY_ENABLE": "huet eng Ofhuelung aktivéiert",
-    "ACTIVITY_JOIN": "huet sech fir eng Ofhuelung beim {storeName} agedroen",
-    "ACTIVITY_LEAVE": "ass zréckgetruede fir eng Ofhuelung beim {storeName} ze maachen",
+    "ACTIVITY_CREATE": "{activityType} erstallt",
+    "ACTIVITY_DELETE": "{activityType} geläscht",
+    "ACTIVITY_DISABLE": "{activityType} desaktivéiert",
+    "ACTIVITY_DONE": "huet deelgeholl un {activityType} beim {placeName}",
+    "ACTIVITY_ENABLE": "{activityType} aktivéiert",
+    "ACTIVITY_JOIN": "huet sech ugemellt fir {activityType} beim {placeName}",
+    "ACTIVITY_LEAVE": "ass zréckgetruede fir eng {activityType} beim {placeName} ze maachen",
     "ACTIVITY_LEAVE_DISTANCE": "{distance} virun der geplangter Zäit",
-    "ACTIVITY_MISSED": "Ofhuelung beim {storeName} gouf vergiess!",
-    "ACTIVITY_MODIFY": "huet d'Astellungen vun enger Ofhuelung geännert",
+    "ACTIVITY_MISSED": "{activityType} beim {placeName} hat keng Participanten!",
+    "ACTIVITY_MODIFY": "huet d'Astellungen vun enger Aktivitéit geännert",
     "APPLICATION_DECLINED": "huet eng Bewerbung vum {applicantName} ofgeleent",
     "DETAILS": "Méi Informatiounen",
     "GROUP_CHANGE_PHOTO": "huet de Logo vun der Grupp geännert",
@@ -423,9 +437,9 @@
     "MEMBER_BECAME_EDITOR": "duerf elo beaarbechten",
     "MEMBER_REMOVED": "gouf wéinst enger Gruppenentscheedung aus der Grupp geheit",
     "NOTHING_HAPPENEND": "Bis elo ass nach näischt geschitt...",
-    "SERIES_CREATE": "huet eng nei Ofhuelung, déi ëmmer nees ass, erstallt",
-    "SERIES_DELETE": "huet eng Ofhuelung, déi ëmmer nees ass, geläscht",
-    "SERIES_MODIFY": "huet d'Astellungen vun enger Ofhuelung, déi ëmmer nees ass, geännert",
+    "SERIES_CREATE": "{activityType}-Serie erstallt",
+    "SERIES_DELETE": "{activityType}-Serie geläscht",
+    "SERIES_MODIFY": "huet d'Astellungen vun enger Serie geännert",
     "STORE_CREATE": "huet d'Platz {name} erstallt",
     "STORE_DELETE": "huet d'Platz {name} geläscht",
     "STORE_MODIFY": "huet d'Astellunge vun der Platz {name} verännert"
@@ -526,10 +540,10 @@
     "VERIFICATION_EMAIL_SENT": "Mir hunn dir eng aner E-Mail fir ze verifizéieren geschéckt. Kuck w.e.g. an deng E-Mailen."
   },
   "NOTIFICATION_BELLS": {
-    "ACTIVITY_DISABLED": "Ofhuelung den {dateTime} gouf desaktivéiert",
-    "ACTIVITY_ENABLED": "Ofhuelung den {dateTime} gouf nees aktivéiert",
-    "ACTIVITY_MOVED": "Ofhuelung gouf verréckelt op den {dateTime}",
-    "ACTIVITY_UPCOMING": "Erënnerung: Du hues eng Ofhuelung um {time}",
+    "ACTIVITY_DISABLED": "{activityType} den {dateTime} gouf desaktivéiert",
+    "ACTIVITY_ENABLED": "{activityType} den {dateTime} gouf nees aktivéiert",
+    "ACTIVITY_MOVED": "{activityType} gouf verréckelt op den {dateTime}",
+    "ACTIVITY_UPCOMING": "Erënnerung: {activityType} um {time}",
     "APPLICATION_ACCEPTED": "Deng Bewerbung gouf ugeholl!",
     "APPLICATION_DECLINED": "Deng Bewerbung gouf ofgeleent",
     "CONFLICT_RESOLUTION_CONTINUED": "De Konflikt-Léisungsprozess mat {userName} geet weider",
@@ -539,7 +553,8 @@
     "CONFLICT_RESOLUTION_DECIDED": "De Konflikt-Léisungsprozess mat {userName} gouf entscheet",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "De Konflikt-Léisungsprozess mat dir gouf entscheet",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du goufs aus der Grupp geheit",
-    "FEEDBACK_POSSIBLE": "Du kanns Feedback zu der Ofhuelung, déi's du den {date} gemaach hues, ginn",
+    "OFFFEEDBACK_POSSIBLE": "Du kanns Feedback zu der Aktivitéit, déi's du den {date} gemaach hues, ofginn",
+    "FEEDBACK_POSSIBLE": "Du kanns Feedback ofginn - {activityType} den {date}",
     "INVITATION_ACCEPTED": "{userName} huet deng Aluedung ugeholl",
     "NEW_APPLICANT": "{userName} huet seng Bewerbung agereecht fir denger Grupp bäizetrieden",
     "NEW_MEMBER": "{userName} ass denger Grupp bäigetrueden",
@@ -606,9 +621,9 @@
     "SUBSCRIPTION": {
       "HEADER": "Wëlls du dës Platz als Favorit markéieren?",
       "NO": "nee",
-      "NO_TEXT": "Näischt vun uewendriwwer. Du kanns dech awer fir Ofhuelungen androen.",
+      "NO_TEXT": "Näischt vun uewendriwwer. Du kanns dech awer fir Aktivitéiten androen.",
       "YES": "jo",
-      "YES_TEXT": "Weist Ofhuelungen, déi et ginn, op der Mauer vun der Grupp a schéckt E-Mailen iwwert zukünfteg Ofhuelungen."
+      "YES_TEXT": "Weist Aktivitéiten, déi et ginn, op der Mauer vun der Grupp a schéckt E-Mailen iwwert zukünfteg Aktivitéiten."
     }
   },
   "PROFILE": {
@@ -633,6 +648,7 @@
     "FILTER_TIME_LABEL": "Zäitperiod",
     "FILTER_TIME_PREVIOUS_DAYS": "Läscht {count} Deeg",
     "FILTER_TIME_PREVIOUS_MONTHS": "Läscht {count} Méint",
+    "FILTER_TIME_FOREVER": "Fir ëmmer",
     "COLUMN_PLACE": "Platz",
     "COLUMN_ACTIVITY_DONE": "Gemaach",
     "COLUMN_ACTIVITY_LEFT": "Zréckgetrueden",
@@ -663,8 +679,8 @@
     "SHOW_ACTIVE_ONLY": "Just déi aktiv Platzen weisen",
     "SHOW_ALL": "All d'Platze weisen",
     "STATUS": "Status",
-    "WEEKS_IN_ADVANCE": "Wéi vill Wochen am Viraus sollen d'Ofhuelungen, déi ëmmer nees sinn, ugewise ginn?",
-    "WEEKS_IN_ADVANCE_WARNING": "Du bass derbäi fir d'Unzuel u Wochen ze reduzéiere fir déi d'Ofhuelungen ugewise ginn. Ofhhuelunge fir déi sech nach keen agedroen huet wäerte geläscht ginn. Déi aner Ofhuelunge kanns de manuell desaktivéiere wann et néideg ass."
+    "WEEKS_IN_ADVANCE": "Wéi vill Wochen am Viraus sollen d'Aktivitéiten, déi ëmmer nees sinn, ugewise ginn?",
+    "WEEKS_IN_ADVANCE_WARNING": "Du bass derbäi fir d'Unzuel un Aktivitéiten, déi et ginn, ze reduzéieren. Aktivitéite, fir déi sech nach keen ugemellt huet, wäerte geläscht ginn. Déi aner Aktivitéite kanns du manuell desaktivéiere wann et néideg ass."
   },
   "STORESTATUS": {
     "ACTIVE": "Kooperéiert",
@@ -721,7 +737,7 @@
     "MOBILE_NUMBER": "Telefonsnummer",
     "NEWCOMER": "Nei hei",
     "NEWCOMER_GUIDANCE": "{userName} ass nei an denger Grupp a brauch vläicht bësse Rot.",
-    "NEWCOMER_INFO": "Du bass grad nei an {groupName} an du kanns aktiv ginn andeem's du Noriichte schreifs, aner Memberen trëffs, Ofhuelunge mëss a Feedback gëss. Esoubal {threshold} Memberen dir hiert Vertrauen ausgedréckt hunn, duerfs eppes beaarbechte fir ze hëllefen d'Grupp ze administréieren.",
+    "NEWCOMER_INFO": "Du bass grad nei an {groupName} an du kanns aktiv ginn andeem's du Noriichte schreifs, aner Memberen trëffs, un Aktivitéiten deelhëls a Feedback gëss. Esoubal {threshold} Memberen dir hiert Vertrauen ausgedréckt hunn, duerfs eppes beaarbechte fir ze hëllefen d'Grupp ze administréieren.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} vertraut {userName} an {groupName}. | {count} Leit vertrauen {userName} an {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vertraut dir an {groupName}. | {count} Leit vertrauen dir an {groupName}.",
     "PASSWORD": "Passwuert",

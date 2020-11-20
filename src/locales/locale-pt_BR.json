@@ -66,41 +66,43 @@
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "Você gostaria mesmo de deletar esta coleta recorrente? Esta ação vai também deletar todas as entregas pontuais que pertencerem a esta entrega recorrente (com excessão daquelas que pessoas já estão participando)",
-    "DELETE_SERIES_TITLE": "Deletar coletas recorrentes"
+    "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
+    "DELETE_SERIES_TITLE": "Delete series"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "This pickup has been disabled.",
-    "ACTIVITY_STARTED": "This pickup has already started.",
-    "AVAILABLE": "There is one pickup in your favorite places waiting for you! | There are {count} pickups in your favorite places waiting for you!",
-    "AVAILABLE_FEEDBACK": "Você pode deixar sua impressão de uma coleta | {count} coletas esperando seus comentários",
-    "AVAILABLE_FROM_STORES": "This shows pickups from your favorite places in the next days. You can access other places in the sidebar.",
+    "ACTIVITY_DISABLED": "This is disabled.",
+    "ACTIVITY_STARTED": "This has already started.",
+    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
+    "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
+    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
       "ALL": "All",
+      "ALL_TYPES": "All types",
       "EMPTY": "Only empty",
       "FREE": "With free slots"
     },
     "ITEM": {
       "JOIN": "Participar",
-      "JOIN_CONFIRMATION_HEADER": "Participar da coleta",
-      "JOIN_CONFIRMATION_TEXT": "Você tem certeza que tem tempo para fazer esta coleta no dia {date}?",
+      "JOIN_CONFIRMATION_HEADER": "Join {activityType}",
+      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
       "LEAVE": "Sair",
-      "LEAVE_CONFIRMATION_HEADER": "Deixar a coleta",
-      "LEAVE_CONFIRMATION_TEXT": "Você tem certeza que outra pessoa pode fazer a coleta sem você?"
+      "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
+      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?"
     },
-    "JOINEDNOTICE": "Você possuí uma coleta para fazer | Você possuí {count} coletas para fazer",
-    "NONE": "Você não possuí coletas futuras",
-    "NONE_HINT": "You can create a new pickup on the place page.",
-    "STORE_NONE_HINT": "Você pode criar uma nova coleta na página de gerenciamento de coletas."
+    "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
+    "NONE": "No upcoming activities",
+    "NONE_DUE_TO_FILTER": "No activities match your filters",
+    "NONE_HINT": "You can create a new activity on the place page.",
+    "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page."
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
-    "ACTIVITY_DOES_NOT_MATCH": "This pickups' date doesn't match the recurrence pattern",
+    "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed",
-    "SERIES": "Coletas recorrentes",
-    "SINGLE": "Coletas pontuais",
-    "TITLE": "Gerenciar coletas",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Próximas coletas nesta série"
+    "SERIES": "Activity series",
+    "SINGLE": "One-time activities",
+    "TITLE": "Manage activities",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
   },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Amount of food you were able to save (in kg)",
@@ -108,11 +110,19 @@
     "COMMENT_PLACEHOLDER": "Foi tudo tranquilo? Alguém apareceu? Deixe seu comentário aqui...",
     "DELETE_AMOUNT": "Delete amount",
     "EDIT": "Editar seu comentário",
-    "HEADER": "Agradecemos sua coleta!",
+    "HEADER": "Thank you for your participation!",
     "PREVIOUS": "Comentários anteriores para {store}",
     "SET_AMOUNT": "Set amount",
     "TITLE": "Comentários",
-    "TOGETHER_WITH": "You did this pickup together with:"
+    "TOGETHER_WITH": "You did this together with:"
+  },
+  "ACTIVITY_TYPE_NAMES": {
+    "Meeting": "Meeting",
+    "Pickup": "Pickup",
+    "Distribution": "Distribution",
+    "Event": "Event",
+    "Activity": "Activity",
+    "Task": "Task"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "choose location on map",
@@ -197,7 +207,8 @@
     "SUBMIT": "Enviar",
     "UNSUBSCRIBE": "Desinscrever",
     "WITHDRAW": "Retirar",
-    "YES": "Sim"
+    "YES": "Sim",
+    "READ_MORE": "Read more"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
@@ -254,28 +265,28 @@
   },
   "CREATEACTIVITY": {
     "COMMENT": "Informações adicionais",
-    "COMMENT_HELPER": "O que as pessoas devem saber antes de se candidatar para esta coleta?",
+    "COMMENT_HELPER": "What should people know when signing up to this?",
     "CUSTOM": "Personalizado",
     "DATE": "Dia",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
-    "DISABLE_TITLE": "Disable pickup?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined this pickup will get a notification. You can change this text to provide a reason:",
-    "ENABLE_TITLE": "Enable pickup?",
-    "EXCEPTIONS_MESSAGE": "Some upcoming pickups don't match the settings of this recurring pickup. Have a look below at '{upcomingLabel}' to change or disable pickups, if needed.",
-    "EXCEPTIONS_TITLE": "Check your pickups",
+    "DISABLE_TITLE": "Disable?",
+    "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
+    "ENABLE_TITLE": "Enable?",
+    "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
+    "EXCEPTIONS_TITLE": "Check your activities",
     "FREQUENCY": "Frequência",
     "MAX_PARTICIPANTS": "Número máximo de slots",
-    "MAX_PARTICIPANTS_HELPER": "Quantas pessoas podem participar dessa coleta?",
+    "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
     "RRULE": "Recorrência",
     "RRULE_EXAMPLE": "último dia de trabalho (Mo-Fr) todo mês",
     "RRULE_EXAMPLE2": "toda segunda-feira",
     "RRULE_HELPER": "Entre com uma {ruleHelper} válida, ex. {ruleExample} ou {ruleExample2}",
     "RRULE_HELPER_URL": "Regra iCalendar",
     "STARTDATE_HELPER": "Quando a série deve começar?",
-    "TIME_HELPER": "Quando a coleta deve acontecer?",
+    "TIME_HELPER": "When should it take place?",
     "UNLIMITED": "sem limite",
     "WEEKDAYS": "Dias da semana",
-    "WEEKDAYS_HELPER": "Em quais dias a coleta deve acontecer?",
+    "WEEKDAYS_HELPER": "On which days should it take place?",
     "WEEKLY": "Semanalmente"
   },
   "CREATESTORE": {
@@ -290,8 +301,8 @@
     "NONE": "Sem comentários, ainda",
     "NONE_HINT": "Esta página sera preenchida assim que mais comentários apareçam",
     "NO_DONE_ACTIVITIES": "Tudo pronto!",
-    "NO_DONE_ACTIVITIES_HINT": "Você, atualmente não possuí nenhuma coleta esperando por um comentário. Por que não participar de outra coleta?",
-    "NUMBER_ACTIVITIES": "{count} pickups done",
+    "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
+    "NUMBER_ACTIVITIES": "{count} activities done",
     "NUMBER_FEEDBACK": "{count} feedback entries given",
     "SAVED_FOOD": "At least 1 kg was saved here. Thank you! | People gave feedback for {amount} kg of saved food already! Keep up the great work!",
     "WEIGHT_SUM": "{sum} kg of food saved"
@@ -307,11 +318,14 @@
     "RECONNECTING": "Reconnecting...",
     "SEARCH_NOT_FOUND": "Não encontrado",
     "SEARCH_RESULTS": "Resultados da pesquisa",
-    "SERVER_ERROR": "Erro no servidor"
+    "SERVER_ERROR": "Erro no servidor",
+    "CLEAR_FILTERS": "Clear filters"
   },
   "GROUP": {
-    "ACTIVITIES": "Coletas",
-    "ACTIVITY": "Coletas",
+    "ACTIVITIES": "Activities",
+    "ACTIVITY": "Activity",
+    "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
     "ADDED_BY": "Adicionado por {userName}",
     "ADDRESS": "Endereço",
     "APPLICATIONS": "Aplicações",
@@ -354,8 +368,8 @@
         "NAME": "New conflict resolution processes"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "Reminds you of your pickups, and tells you about empty or not-full pickups of your favorite places in the next day",
-        "NAME": "Notificação de coletas"
+        "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
+        "NAME": "Activity notifications"
       },
       "new_application": {
         "DESCRIPTION": "Tells you when somebody wants to join your group",
@@ -401,16 +415,16 @@
     "TITLE": "Mapa"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "criou uma nova coleta pontual",
-    "ACTIVITY_DELETE": "deletou uma coleta",
-    "ACTIVITY_DISABLE": "disabled a pickup",
-    "ACTIVITY_DONE": "fez uma coleta na loja {storeName}",
-    "ACTIVITY_ENABLE": "enabled a pickup",
-    "ACTIVITY_JOIN": "se candidatou para a coleta na loja {storeName}",
-    "ACTIVITY_LEAVE": "desisistiu de fazer a coleta na loja {storeName}",
+    "ACTIVITY_CREATE": "{activityType} created",
+    "ACTIVITY_DELETE": "{activityType} deleted",
+    "ACTIVITY_DISABLE": "{activityType} disabled",
+    "ACTIVITY_DONE": "did {activityType} at {placeName}",
+    "ACTIVITY_ENABLE": "{activityType} enabled",
+    "ACTIVITY_JOIN": "signed up for {activityType} at {placeName}",
+    "ACTIVITY_LEAVE": "stepped back from {activityType} at {placeName}",
     "ACTIVITY_LEAVE_DISTANCE": "{distance} before scheduled time",
-    "ACTIVITY_MISSED": "A coleta na {storeName} não foi feita!",
-    "ACTIVITY_MODIFY": "modificou as configurações de uma coleta",
+    "ACTIVITY_MISSED": "{activityType} at {placeName} had no participants!",
+    "ACTIVITY_MODIFY": "changed the settings of an activity",
     "APPLICATION_DECLINED": "declined an application from {applicantName}",
     "DETAILS": "Mais informação",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
@@ -423,9 +437,9 @@
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
     "MEMBER_REMOVED": "was removed due to group decision",
     "NOTHING_HAPPENEND": "Nada aconteceu até agora...",
-    "SERIES_CREATE": "crirou uma nova coleta recorrente",
-    "SERIES_DELETE": "deletou uma coleta recorrente",
-    "SERIES_MODIFY": "modificou as configurações para uma coleta recorrente",
+    "SERIES_CREATE": "{activityType} series created",
+    "SERIES_DELETE": "{activityType} series deleted",
+    "SERIES_MODIFY": "changed the settings of a series",
     "STORE_CREATE": "created place {name}",
     "STORE_DELETE": "deleted place {name}",
     "STORE_MODIFY": "changed the settings of place {name}"
@@ -526,10 +540,10 @@
     "VERIFICATION_EMAIL_SENT": "Nós enviamos outra verificação para seu e-mail. Por favor, verifique a sua caixa de entrada."
   },
   "NOTIFICATION_BELLS": {
-    "ACTIVITY_DISABLED": "Pickup at {dateTime} was disabled",
-    "ACTIVITY_ENABLED": "Pickup at {dateTime} was enabled again",
-    "ACTIVITY_MOVED": "Pickup was moved to {dateTime}",
-    "ACTIVITY_UPCOMING": "Reminder: You have a pickup at {time}",
+    "ACTIVITY_DISABLED": "{activityType} on {dateTime} was disabled",
+    "ACTIVITY_ENABLED": "{activityType} on {dateTime} was enabled again",
+    "ACTIVITY_MOVED": "{activityType} was moved to {dateTime}",
+    "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
     "APPLICATION_ACCEPTED": "Your application was accepted!",
     "APPLICATION_DECLINED": "Your application was declined",
     "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
@@ -539,7 +553,8 @@
     "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
-    "FEEDBACK_POSSIBLE": "You can give feedback for the pickup you did on {date}",
+    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
+    "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName} accepted your invitation",
     "NEW_APPLICANT": "{userName} applied to join your group",
     "NEW_MEMBER": "{userName} joined your group",
@@ -606,9 +621,9 @@
     "SUBSCRIPTION": {
       "HEADER": "Do you want to mark this place as your favourite?",
       "NO": "no",
-      "NO_TEXT": "None of the above. You can still sign up for pickups though.",
+      "NO_TEXT": "None of the above. You can still sign up for activities though.",
       "YES": "yes",
-      "YES_TEXT": "Shows available pickups on the group wall and sends emails about upcoming pickups."
+      "YES_TEXT": "Shows available activities on the group wall and sends emails about upcoming activities."
     }
   },
   "PROFILE": {
@@ -633,6 +648,7 @@
     "FILTER_TIME_LABEL": "Time period",
     "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
     "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
+    "FILTER_TIME_FOREVER": "Forever",
     "COLUMN_PLACE": "Place",
     "COLUMN_ACTIVITY_DONE": "Done",
     "COLUMN_ACTIVITY_LEFT": "Left",
@@ -663,8 +679,8 @@
     "SHOW_ACTIVE_ONLY": "Only show active places",
     "SHOW_ALL": "Show all places",
     "STATUS": "Estado",
-    "WEEKS_IN_ADVANCE": "Com quantas semanas de antecedência as coletas recorrentes devem ser mostradas??",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of weeks pickups are shown. Existing leftover pickups will get deleted if nobody has joined them. You can disable all other pickups manually, if needed."
+    "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
+    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
   },
   "STORESTATUS": {
     "ACTIVE": "cooperação",
@@ -721,7 +737,7 @@
     "MOBILE_NUMBER": "Telefone",
     "NEWCOMER": "Newcomer",
     "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing pickups and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
     "PASSWORD": "Senha",

@@ -12,8 +12,6 @@ export default connect({
     fetchStatus: 'feedback/fetchStatus',
     fetchFeedbackPossibleStatus: 'activities/fetchFeedbackPossibleStatus',
     seedId: 'currentGroup/id',
-    isBikeKitchen: 'currentGroup/isBikeKitchen',
-    isGeneralPurpose: 'currentGroup/isGeneralPurpose',
   },
   actionsToEvents: {
     save: 'feedback/save',

@@ -105,6 +105,12 @@ describe('currentGroup', () => {
     },
   }
 
+  const activityTypes = {
+    actions: {
+      fetch: jest.fn(),
+    },
+  }
+
   describe('getters', () => {
     beforeEach(() => {
       datastore = createDatastore({
@@ -150,6 +156,7 @@ describe('currentGroup', () => {
         agreements,
         auth,
         conversations,
+        activityTypes,
       })
     })
 

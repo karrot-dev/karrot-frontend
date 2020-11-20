@@ -13,6 +13,7 @@ describe('activitySeries module', () => {
       datastore = createDatastore({
         activitySeries: require('./activitySeries').default,
         activities: { getters: { upcomingAndStarted: () => [] } },
+        activityTypes: { getters: { get: () => () => null } },
         places: { getters: { get: () => () => null } },
       })
     })

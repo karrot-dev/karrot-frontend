@@ -8,6 +8,14 @@
       style="max-width: 700px"
       @submit.prevent="maybeSave"
     >
+      <h3 v-if="activityType && isNew">
+        <QIcon
+          :color="activityType.colorName"
+          :name="activityType.icon"
+          class="q-pr-sm"
+        />
+        {{ activityType.name }}
+      </h3>
       <QField
         stack-label
         borderless
@@ -380,6 +388,9 @@ export default {
   },
   mixins: [editMixin, statusMixin],
   computed: {
+    activityType () {
+      return this.value.activityType
+    },
     dayOptions,
     canSave () {
       if (!this.isNew && !this.hasChanged) {
@@ -481,6 +492,12 @@ export default {
     maybeSave () {
       if (!this.canSave) return
       this.save()
+    },
+    getCreateData () {
+      return {
+        ...this.edit,
+        activityType: this.activityType.id,
+      }
     },
     destroy (event) {
       Dialog.create({

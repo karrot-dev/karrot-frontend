@@ -4,11 +4,14 @@ import {
   computed,
   // eslint-disable-next-line no-unused-vars
   markRaw, reactive,
-  ref,
+  ref, toRefs,
   unref,
 } from '@vue/composition-api'
 import { indexById } from '@/utils/datastore/helpers'
 import { useFetcher } from '@/activities/data/useFetcher'
+// eslint-disable-next-line no-unused-vars
+import { objectDiff } from '@/utils/utils'
+import deepEqual from 'deep-equal'
 
 function defaultEnrich (value) {
   return value
@@ -32,6 +35,16 @@ export function useCollection (params, fetcher, enrich = defaultEnrich) {
     return Boolean(entries.value[id])
   }
 
+  function objectDiffNoNewKeys (a, b) {
+    const diff = {}
+    for (const key of Object.keys(a)) {
+      if (!deepEqual(a[key], b[key])) {
+        diff[key] = b[key]
+      }
+    }
+    return diff
+  }
+
   // utilities
 
   function update (items) {
@@ -40,7 +53,14 @@ export function useCollection (params, fetcher, enrich = defaultEnrich) {
     for (const entry of items) {
       let reactiveEntry = reactives.value[entry.id]
       if (reactiveEntry) {
-        Object.assign(reactiveEntry, entry)
+        // only update the individual properties that have changed
+        // does not handle new keys... on purpose I guess... but wondering for the case of the pre-emptive fetching... maybe can
+        // do Vue.set on those specifically... knowing they are pre-emptive objects...
+        const diff = objectDiffNoNewKeys(reactiveEntry, entry)
+        if (Object.keys(diff).length > 0) {
+          console.log('object diff', diff)
+          Object.assign(reactiveEntry, diff)
+        }
       }
       else {
         reactiveEntry = reactive(entry)
@@ -55,7 +75,11 @@ export function useCollection (params, fetcher, enrich = defaultEnrich) {
         //   ...reactiveEntry, // does this copy the reactiveness of the values??? probably not...
         //   enriched: computed(() => enrich(reactiveEntry)), // meh I don't want this inside it...
         // })
-        const newEntry = enrich(reactiveEntry)
+        // const newEntry = reactive(enrich(reactiveEntry)
+        const newEntry = reactive({
+          ...toRefs(reactiveEntry),
+          ...enrich(reactiveEntry),
+        })
         Vue.set(entries.value, entry.id, newEntry)
       }
     }

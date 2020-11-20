@@ -105,20 +105,49 @@ export function useEnrichActivity ({ authUserId, getUser }) {
     })
   }
 
-  // eslint-disable-next-line no-unused-vars
+  function loggedComputed (obj) {
+    const res = {}
+    for (const key of Object.keys(obj)) {
+      const fn = obj[key]
+      res[key] = computed(() => {
+        console.log('running computed', key)
+        return fn()
+      })
+    }
+    return res
+  }
+
   function enrichActivity (activity) {
+    return {
+      isEmpty: computed(() => activity.participants.length === 0),
+      isFull: computed(() => activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants),
+      participants: computed(() => activity.participants.map(getUser).map(enrichUser)),
+      isUserMember: computed(() => activity.participants.includes(unref(authUserId))),
+      hasStarted: computed(() => activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value),
+    }
+  }
+
+  // eslint-disable-next-line no-unused-vars
+  function enrichActivityNOW (activity) {
     console.log('enriching activity', activity.id, isReactive(activity))
     return reactive({
       // ah, if we want the activity passed in to be reactive, then this doesn't work...
       ...toRefs(activity), // aha, toRefs is the magic answer
       // __enriched: true, // maybe this is useful to know?
       // Oh, we always get the new activity when it changes, so we don't need the computed's unless it's for an external thing...?
+      ...loggedComputed({
+        isEmpty: () => activity.participants.length === 0,
+        isFull: () => activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants,
+        participants: () => activity.participants.map(getUser).map(enrichUser),
+        isUserMember: () => activity.participants.includes(unref(authUserId)),
+        hasStarted: () => activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
+      }),
 
-      isEmpty: computed(() => activity.participants.length === 0),
-      isFull: computed(() => activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants),
-      participants: computed(() => activity.participants.map(getUser).map(enrichUser)),
-      isUserMember: computed(() => activity.participants.includes(unref(authUserId))),
-      hasStarted: computed(() => activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value),
+      // isEmpty: computed(() => activity.participants.length === 0),
+      // isFull: computed(() => activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants),
+      // participants: computed(() => activity.participants.map(getUser).map(enrichUser)),
+      // isUserMember: computed(() => activity.participants.includes(unref(authUserId))),
+      // hasStarted: computed(() => activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value),
 
       // isEmpty: activity.participants.length === 0,
       // isFull: activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants,

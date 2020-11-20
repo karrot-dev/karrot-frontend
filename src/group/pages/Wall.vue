@@ -74,7 +74,8 @@ export default {
     const { currentGroupId: groupId } = useCurrentGroup()
     const { authUserId, authUser: user } = useAuthUser()
     const { getUser } = useGlobalUsers()
-    const { enrichActivity } = useEnrichActivity({ authUserId, getUser })
+    // eslint-disable-next-line no-unused-vars
+    const { enrichActivity, enrichActivityFn } = useEnrichActivity({ authUserId, getUser })
 
     // function enrichActivity (activity) {
     //   return reactive({

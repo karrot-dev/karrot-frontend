@@ -84,11 +84,21 @@ export function useEnrichedActivities ({ activities, authUserId, getUser }) {
 export function useEnrichActivity ({ authUserId, getUser }) {
   const { enrichUser } = useEnrichedUsers({ authUserId })
 
+  function enrichActivityFn (activity) {
+    return {
+      isEmpty: activity.participants.length === 0,
+      isFull: activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants,
+      participants: activity.participants.map(getUser).map(enrichUser),
+      isUserMember: activity.participants.includes(unref(authUserId)),
+      hasStarted: activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
+    }
+  }
+
   function enrichActivity (activity) {
     console.log('enriching activity', activity.id)
     return reactive({
       // ah, if we want the activity passed in to be reactive, then this doesn't work...
-      ...activity,
+      ...activity, // or maybe it does, is that passing down the reactivity??/
       // __enriched: true, // maybe this is useful to know?
       // Oh, we always get the new activity when it changes, so we don't need the computed's unless it's for an external thing...?
 
@@ -123,5 +133,6 @@ export function useEnrichActivity ({ authUserId, getUser }) {
 
   return {
     enrichActivity,
+    enrichActivityFn,
   }
 }

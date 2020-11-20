@@ -111,6 +111,7 @@ export function useCollection (params, fetcher, enrich = defaultEnrich) {
   }
 
   function onInvalidate () {
+    reactives.value = {}
     entries.value = {}
   }
 

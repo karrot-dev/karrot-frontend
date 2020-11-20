@@ -1,4 +1,4 @@
-const QuasarConfig = require('@quasar/app/lib/quasar-config')
+const QuasarConfFile = require('@quasar/app/lib/quasar-conf-file')
 const getQuasarCtx = require('@quasar/app/lib/helpers/get-quasar-ctx')
 
 module.exports = {
@@ -16,10 +16,10 @@ module.exports = {
       dev: configType === 'DEVELOPMENT',
       prod: configType === 'PRODUCTION'
     })
-    const quasarConfig = new QuasarConfig(ctx)
+    const quasarConfig = new QuasarConfFile(ctx)
     await quasarConfig.prepare()
     await quasarConfig.compile()
-    const webpackConfig = quasarConfig.getWebpackConfig()
+    const webpackConfig = quasarConfig.webpackConf
 
     // Manual merge with our webpack config
     config.module.rules = webpackConfig.module.rules

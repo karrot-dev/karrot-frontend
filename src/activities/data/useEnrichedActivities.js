@@ -1,26 +1,47 @@
 import { useEnrichedUsers } from '@/activities/data/useUsers'
-import { computed, unref } from '@vue/composition-api'
+import { computed, unref, reactive } from '@vue/composition-api'
 import reactiveNow from '@/utils/reactiveNow'
 import { isWithinOneWeek, sortByDate } from '@/activities/datastore/activities'
 
 export function useEnrichedActivities ({ activities, authUserId, getUser }) {
-  const { enrichUser } = useEnrichedUsers({ authUserId })
+  // const { enrichUser } = useEnrichedUsers({ authUserId })
 
-  function enrichActivity (activity) {
-    return {
-      ...activity,
-      __enriched: true, // maybe this is useful to know?
-      isUserMember: activity.participants.includes(unref(authUserId)),
-      isEmpty: activity.participants.length === 0,
-      isFull: activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants,
-      participants: activity.participants.map(getUser).map(enrichUser),
-      // this causes recalculation on every reactiveNow change... maybe should computed it closer to the component?
-      hasStarted: activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
-      // hasStarted: false,
-    }
-  }
+  // function enrichActivity (activity) {
+  //   console.log('enriching activity', activity.id)
+  //   return reactive({
+  //     ...activity,
+  //     __enriched: true, // maybe this is useful to know?
+  //     isUserMember: computed(() => {
+  //       console.log('enriching isUserMember', activity.id)
+  //       return activity.participants.includes(unref(authUserId))
+  //     }),
+  //     isEmpty: computed(() => activity.participants.length === 0),
+  //     isFull: computed(() => activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants),
+  //     participants: computed(() => activity.participants.map(getUser).map(enrichUser)),
+  //     // this causes recalculation on every reactiveNow change... maybe should computed it closer to the component?
+  //     hasStarted: computed(() => activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value),
+  //     // hasStarted: activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
+  //     // hasStarted: false,
+  //     enriched: computed(() => {
+  //       console.log('recalcaulting enriched details', activity.id)
+  //       return {
+  //         isUserMember: activity.participants.includes(unref(authUserId)),
+  //         isEmpty: activity.participants.length === 0,
+  //         isFull: activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants,
+  //         participants: activity.participants.map(getUser).map(enrichUser),
+  //         // this causes recalculation on every reactiveNow change... maybe should computed it closer to the component?
+  //         hasStarted: activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
+  //       }
+  //     }),
+  //   })
+  // }
 
-  const enrichedActivities = computed(() => unref(activities).map(enrichActivity))
+  // const enrichedActivities = computed(() => {
+  //   const items = unref(activities)
+  //   console.log('enriching activity list', items.length)
+  //   return items.map(enrichActivity)
+  // })
+  const enrichedActivities = activities
 
   // TODO: find out if these computed things get precalculated (then might want to seperate them), or only when used (best)
   // yay, theydon't
@@ -50,12 +71,57 @@ export function useEnrichedActivities ({ activities, authUserId, getUser }) {
     .sort(sortByDate))
 
   return {
-    enrichActivity,
+    // enrichActivity,
     activities: enrichedActivities,
     enrichedActivities,
     upcomingAndStarted,
     joinedActivities,
     availableActivities,
     feedbackPossibleActivities,
+  }
+}
+
+export function useEnrichActivity ({ authUserId, getUser }) {
+  const { enrichUser } = useEnrichedUsers({ authUserId })
+
+  function enrichActivity (activity) {
+    console.log('enriching activity', activity.id)
+    return reactive({
+      // ah, if we want the activity passed in to be reactive, then this doesn't work...
+      ...activity,
+      // __enriched: true, // maybe this is useful to know?
+      // Oh, we always get the new activity when it changes, so we don't need the computed's unless it's for an external thing...?
+
+      isEmpty: computed(() => activity.participants.length === 0),
+      isFull: computed(() => activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants),
+      participants: computed(() => activity.participants.map(getUser).map(enrichUser)),
+      isUserMember: computed(() => activity.participants.includes(unref(authUserId))),
+      hasStarted: computed(() => activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value),
+
+      // isEmpty: activity.participants.length === 0,
+      // isFull: activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants,
+      // participants: activity.participants.map(getUser).map(enrichUser),
+      // isUserMember: activity.participants.includes(unref(authUserId)),
+      // hasStarted: activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
+
+      // this causes recalculation on every reactiveNow change... maybe should computed it closer to the component?
+      // hasStarted: activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
+      // hasStarted: false,
+      // enriched: computed(() => {
+      //   console.log('recalcaulting enriched details', activity.id)
+      //   return {
+      //     isUserMember: activity.participants.includes(unref(authUserId)),
+      //     isEmpty: activity.participants.length === 0,
+      //     isFull: activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants,
+      //     participants: activity.participants.map(getUser).map(enrichUser),
+      //     // this causes recalculation on every reactiveNow change... maybe should computed it closer to the component?
+      //     hasStarted: activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
+      //   }
+      // }),
+    })
+  }
+
+  return {
+    enrichActivity,
   }
 }

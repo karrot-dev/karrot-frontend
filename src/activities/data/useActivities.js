@@ -7,10 +7,10 @@ import { reactive } from '@vue/composition-api'
 import { useAuthUser } from '@/activities/data/useAuthUser'
 import { useCurrentGroup } from '@/activities/data/useCurrentGroup'
 
-export function useActivities ({ groupId }) {
+export function useActivities ({ groupId }, enrich) {
   permitCachedUsage()
 
-  const { collection: activities, update, getById, status } = useCollection({ groupId }, fetcher)
+  const { collection: activities, update, getById, status } = useCollection({ groupId }, fetcher, enrich)
 
   async function fetcher ({ groupId }, { isValid }) {
     if (groupId) {

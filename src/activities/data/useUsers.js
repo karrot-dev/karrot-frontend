@@ -1,6 +1,6 @@
 import Vue from 'vue'
 // eslint-disable-next-line no-unused-vars
-import { ref, unref, provide, inject, reactive, shallowRef, markRaw } from '@vue/composition-api'
+import { ref, unref, provide, inject, reactive, shallowRef, markRaw, computed, isReactive } from '@vue/composition-api'
 import userAPI from '@/users/api/users'
 // eslint-disable-next-line no-unused-vars
 import { useEnrichedCurrentGroup } from '@/activities/data/useCurrentGroup'
@@ -22,13 +22,13 @@ export function useGlobalUsers () {
 export function useEnrichedUsers ({ authUserId, getUser }) {
   // const { memberships } = useEnrichedCurrentGroup() // TODO: hmmm... lots of depending on current stuff now...
   function enrichUser (user) {
-    return {
+    return reactive({
       ...user,
       isCurrentUser: user.id === unref(authUserId),
       displayName: user.displayName || '?',
       // TODO: I wonder if this is an enrichmene too far...
       // membership: unref(memberships)[unref(authUserId)],
-    }
+    })
   }
   function getEnrichedUser (id) {
     if (!getUser) throw new Error('getUser was not provided to useEnrichedUsers')
@@ -55,7 +55,11 @@ function fetchPendingUsers () {
       for (const key in data) {
         Vue.set(user, key, data[key])
       }
+      console.log('user is reactive?', isReactive(user))
       user.__state = 'found'
+      Vue.set(user, 'displayName', computed(() => {
+        return '+' + data.displayName
+      }))
     }).catch(() => {
       // console.log('error getting user!', error)
       user.__state = 'notfound' // TODO: not true! could be a different error.. should check for 404

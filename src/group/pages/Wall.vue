@@ -20,6 +20,8 @@
       />
     </div>
     <!--<pre>messages: {{ messages[messages.length - 1] }}</pre>-->
+    <pre>activities: {{ activities }}</pre>
+    <pre>foo: {{ foo }}</pre>
     <WallConversation
       :conversation="conversation"
       :messages="messages"
@@ -46,8 +48,11 @@ import WallConversation from '@/messages/components/WallConversation'
 import KSpinner from '@/utils/components/KSpinner'
 
 import { mapGetters, mapActions } from 'vuex'
-import { useCachedActivities } from '@/activities/data/useActivities'
-import { useEnrichedActivities } from '@/activities/data/useEnrichedActivities'
+// eslint-disable-next-line no-unused-vars
+import { computed, isReactive, isRef, reactive, ref, unref } from '@vue/composition-api'
+// eslint-disable-next-line no-unused-vars
+import { useActivities, useCachedActivities } from '@/activities/data/useActivities'
+import { useEnrichedActivities, useEnrichActivity } from '@/activities/data/useEnrichedActivities'
 import { useAuthUser } from '@/activities/data/useAuthUser'
 import { useCurrentGroup } from '@/activities/data/useCurrentGroup'
 import { useGroupStatus } from '@/activities/data/useStatus'
@@ -69,10 +74,21 @@ export default {
     const { currentGroupId: groupId } = useCurrentGroup()
     const { authUserId, authUser: user } = useAuthUser()
     const { getUser } = useGlobalUsers()
+    const { enrichActivity } = useEnrichActivity({ authUserId, getUser })
 
-    const { activities, status: activitiesStatus } = useCachedActivities('groupActivities')
+    // function enrichActivity (activity) {
+    //   return reactive({
+    //     ...activity,
+    //     description: computed(() => {
+    //       return '*' + activity.description
+    //     }),
+    //   })
+    // }
+
+    // const { activities, status: activitiesStatus } = useCachedActivities('groupActivities')
+    const { activities, status: activitiesStatus } = useActivities({ groupId, userId: authUserId }, enrichActivity)
     const {
-      joinedActivities,
+      joinedActivities: joinedActivitiesOriginal,
       availableActivities,
     } = useEnrichedActivities({ activities, authUserId, getUser })
 
@@ -92,15 +108,65 @@ export default {
       enrichedMessages,
     } = useEnrichedConversation(conversation, messages, { getUser, authUserId })
 
+    const a = reactive({})
+    const b = computed(() => ({}))
+
+    const foo = reactive([
+      {
+        aIsReactive: isReactive(a),
+        bIsReactive: isReactive(b),
+        aIsRef: isRef(a),
+        bIsRef: isRef(b),
+      },
+      computed(() => {
+        return 'a computed value in an array!'
+      }),
+      computed(() => {
+        return {
+          woah: 'a computed that returns an object',
+        }
+      }),
+      reactive({
+        text: 'some text in a nested reactive!',
+      }),
+      reactive({
+        omg: computed(() => {
+          return 'computed inside a reactive inside an array!'
+        }),
+      }),
+      ref('a ref inside an array!'),
+    ])
+
+    // const counter = ref(0)
+    //
+    // setInterval(() => {
+    //   counter.value += 1
+    // }, 1000)
+    //
+    // const joinedActivities = computed(() => {
+    //   console.log('computing joinedActivities')
+    //   return unref(joinedActivitiesOriginal).map(activity => {
+    //     return reactive({
+    //       ...activity,
+    //       description: computed(() => {
+    //         console.log('computing activity description', activity.id)
+    //         return 'woah ' + unref(counter)
+    //       }),
+    //     })
+    //   })
+    // })
+
     return {
+      foo,
       user,
+      activities,
       conversation: enrichedConversation,
       messages: enrichedMessages,
       fetchStatus: status,
       fetchMore,
       fetchMoreStatus,
       canFetchMore,
-      joinedActivities,
+      joinedActivities: joinedActivitiesOriginal,
       availableActivities,
       feedbackPossibleCount,
       fetchingActivities: activitiesStatus.pending,

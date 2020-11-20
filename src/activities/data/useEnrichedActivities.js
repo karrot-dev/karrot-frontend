@@ -1,5 +1,5 @@
 import { useEnrichedUsers } from '@/activities/data/useUsers'
-import { computed, unref, reactive } from '@vue/composition-api'
+import { computed, unref, reactive, isReactive, toRefs } from '@vue/composition-api'
 import reactiveNow from '@/utils/reactiveNow'
 import { isWithinOneWeek, sortByDate } from '@/activities/datastore/activities'
 
@@ -94,11 +94,23 @@ export function useEnrichActivity ({ authUserId, getUser }) {
     }
   }
 
+  // eslint-disable-next-line no-unused-vars
+  function enrichActivityNO (activity) {
+    return Object.assign(activity, {
+      isEmpty: computed(() => activity.participants.length === 0),
+      isFull: computed(() => activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants),
+      participants: computed(() => activity.participants.map(getUser).map(enrichUser)),
+      isUserMember: computed(() => activity.participants.includes(unref(authUserId))),
+      hasStarted: computed(() => activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value),
+    })
+  }
+
+  // eslint-disable-next-line no-unused-vars
   function enrichActivity (activity) {
-    console.log('enriching activity', activity.id)
+    console.log('enriching activity', activity.id, isReactive(activity))
     return reactive({
       // ah, if we want the activity passed in to be reactive, then this doesn't work...
-      ...activity, // or maybe it does, is that passing down the reactivity??/
+      ...toRefs(activity), // aha, toRefs is the magic answer
       // __enriched: true, // maybe this is useful to know?
       // Oh, we always get the new activity when it changes, so we don't need the computed's unless it's for an external thing...?
 

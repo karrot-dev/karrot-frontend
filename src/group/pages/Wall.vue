@@ -20,6 +20,8 @@
       />
     </div>
     <!--<pre>messages: {{ messages[messages.length - 1] }}</pre>-->
+    <pre>testing: {{ testing }}</pre>
+    <pre>testing2: {{ testing2 }}</pre>
     <pre>activities: {{ activities }}</pre>
     <pre>foo: {{ foo }}</pre>
     <WallConversation
@@ -49,7 +51,7 @@ import KSpinner from '@/utils/components/KSpinner'
 
 import { mapGetters, mapActions } from 'vuex'
 // eslint-disable-next-line no-unused-vars
-import { computed, isReactive, isRef, reactive, ref, unref } from '@vue/composition-api'
+import { computed, isReactive, isRef, reactive, ref, toRefs, unref } from '@vue/composition-api'
 // eslint-disable-next-line no-unused-vars
 import { useActivities, useCachedActivities } from '@/activities/data/useActivities'
 import { useEnrichedActivities, useEnrichActivity } from '@/activities/data/useEnrichedActivities'
@@ -112,6 +114,31 @@ export default {
     const a = reactive({})
     const b = computed(() => ({}))
 
+    const num = ref(0)
+
+    const testing = reactive({
+      num,
+      bar: computed(() => {
+        return num.value + 1
+      }),
+    })
+
+    const testing2 = reactive({ ...toRefs(testing) })
+
+    // const testingSpread = Object.assign(testing, reactive({
+    //   foo: computed(() => {
+    //     return num.value + 1
+    //   }),
+    // }))
+
+    testing.foo = computed(() => {
+      return num.value + 1
+    })
+
+    setInterval(() => {
+      num.value += 1
+    }, 1000)
+
     const foo = reactive([
       {
         aIsReactive: isReactive(a),
@@ -158,6 +185,8 @@ export default {
     // })
 
     return {
+      testing,
+      testing2,
       foo,
       user,
       activities,

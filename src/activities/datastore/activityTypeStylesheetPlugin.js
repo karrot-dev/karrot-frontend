@@ -14,29 +14,13 @@
  *
  */
 export default datastore => {
-  let stylesheet
+  const { updateActivityTypes } = createActivityTypeStylesheet()
+  datastore.watch((state, getters) => getters['activityTypes/all'], updateActivityTypes, { immediate: true })
+}
 
+export function createActivityTypeStylesheet (suffix = '') {
   const defaultColour = '#FF0000'
-
-  datastore.watch((state, getters) => getters['activityTypes/all'], activityTypes => {
-    const styles = activityTypes.map(activityType => {
-      let color = activityType.colour || defaultColour
-      if (color[0] !== '#') color = '#' + color
-
-      // For how to define custom colors for quasar see:
-      // https://quasar.dev/style/color-palette#Adding-Your-Own-Colors
-      return `
-          .text-activity-type-${activityType.id} {
-            color: ${color};
-          }
-          .bg-activity-type-${activityType.id} {
-            background: ${color};
-          }
-        `
-    }).join('\n')
-
-    updateStyles(styles)
-  }, { immediate: true })
+  let stylesheet
 
   function getStylesheet () {
     if (!stylesheet) {
@@ -50,5 +34,41 @@ export default datastore => {
 
   function updateStyles (styles) {
     getStylesheet().innerText = styles
+  }
+
+  function updateActivityTypes (activityTypes) {
+    const colorNames = {} // id -> colorName
+    const styles = activityTypes.map(activityType => {
+      let color = activityType.colour || defaultColour
+      if (color[0] !== '#') color = '#' + color
+      const colorName = `activity-type-${activityType.id}${suffix}`
+      colorNames[activityType.id] = colorName
+
+      // For how to define custom colors for quasar see:
+      // https://quasar.dev/style/color-palette#Adding-Your-Own-Colors
+      return `
+          .text-${colorName} {
+            color: ${color};
+          }
+          .bg-${colorName} {
+            background: ${color};
+          }
+        `
+    }).join('\n')
+
+    updateStyles(styles)
+
+    return colorNames
+  }
+
+  function removeStylesheet () {
+    if (stylesheet) {
+      stylesheet.remove()
+    }
+  }
+
+  return {
+    updateActivityTypes,
+    removeStylesheet,
   }
 }

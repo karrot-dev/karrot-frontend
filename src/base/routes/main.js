@@ -13,7 +13,9 @@ const LatestConversations = () => import('@/messages/components/LatestConversati
 const LatestThreads = () => import('@/messages/components/LatestThreads')
 const Notifications = () => import('@/notifications/pages/Notifications')
 const GroupMap = () => import('@/maps/pages/Map')
+const GroupEditLayout = () => import('@/group/pages/EditLayout')
 const GroupEdit = () => import('@/group/pages/Edit')
+const GroupEditActivityTypes = () => import('@/group/pages/EditActivityTypes')
 const GroupManageAgreement = () => import('@/agreements/pages/ManageAgreement')
 const GroupCreate = () => import('@/group/pages/Create')
 const GroupPreview = () => import('@/groupInfo/pages/GroupPreview')
@@ -371,13 +373,28 @@ export default [
       {
         name: 'groupEdit',
         path: 'edit',
+        redirect: 'edit/main',
         meta: {
           breadcrumbs: [
             { translation: 'GROUP.EDIT', route: { name: 'groupEdit' } },
           ],
           beforeEnter: 'timezones/fetch',
         },
-        component: GroupEdit,
+        components: {
+          default: GroupEditLayout,
+        },
+        children: [
+          {
+            name: 'groupEditMain',
+            path: 'main',
+            component: GroupEdit,
+          },
+          {
+            name: 'groupEditActivityTypes',
+            path: 'activity-types',
+            component: GroupEditActivityTypes,
+          },
+        ],
       },
       {
         // TODO: kept for transitionary purposes, remove in some months

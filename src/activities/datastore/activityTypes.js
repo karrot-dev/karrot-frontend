@@ -1,5 +1,5 @@
 import activityTypes from '@/activities/api/activityTypes'
-import { indexById } from '@/utils/datastore/helpers'
+import { createMetaModule, indexById, metaStatusesWithId, withMeta } from '@/utils/datastore/helpers'
 import i18n from '@/base/i18n'
 
 function initialState () {
@@ -10,15 +10,16 @@ function initialState () {
 
 export default {
   namespaced: true,
+  modules: { meta: createMetaModule() },
   state: initialState(),
   getters: {
     get: (state, getters) => activityTypeId => {
       return getters.enrich(state.entries[activityTypeId])
     },
     all: (state, getters) => Object.values(state.entries).map(getters.enrich),
-    enrich: state => activityType => {
+    enrich: (state, getters) => activityType => {
       if (!activityType) return
-      const { id, icon, name, nameIsTranslatable } = activityType
+      const { id, icon, feedbackIcon, name, nameIsTranslatable } = activityType
       // this corresponds to the name used by the activity type stylesheet plugin
       const colorName = `activity-type-${id}`
       const maybeTranslatedName = nameIsTranslatable ? i18n.t(`ACTIVITY_TYPE_NAMES.${name}`) : name
@@ -30,7 +31,13 @@ export default {
           color: colorName,
           title: maybeTranslatedName,
         },
+        feedbackIconProps: {
+          name: feedbackIcon,
+          color: colorName,
+          title: maybeTranslatedName,
+        },
         name: maybeTranslatedName,
+        ...metaStatusesWithId(getters, ['save'], activityType.id),
       }
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
@@ -38,9 +45,15 @@ export default {
     },
   },
   actions: {
-    async fetch ({ commit }) {
-      commit('update', await activityTypes.list())
-    },
+    ...withMeta({
+      async fetch ({ commit }) {
+        commit('update', await activityTypes.list())
+      },
+      async save ({ commit, dispatch }, activityType) {
+        const data = await activityTypes.save(activityType)
+        commit('update', [data])
+      },
+    }),
   },
   mutations: {
     clear (state) {

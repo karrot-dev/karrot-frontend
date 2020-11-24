@@ -8,26 +8,16 @@
       style="max-width: 700px"
       @submit.prevent="maybeSave"
     >
-      <QToggle
-        v-model="edit.status"
-        label="Active"
-        true-value="active"
-        false-value="archived"
-      />
-      <QBtnToggle
-        v-model="edit.status"
-        :options="[
-          { label: 'active', value: 'active' },
-          { label: 'archived', value: 'archived' },
-        ]"
-      />
-      <QBtnToggle
-        v-model="edit.nameIsTranslatable"
-        :options="[
-          { label: 'Use standard name', value: true },
-          { label: 'Use custom name', value: false },
-        ]"
-      />
+      <QField borderless>
+        <template #control>
+          <QToggle
+            v-model="edit.status"
+            :label="edit.status"
+            true-value="active"
+            false-value="archived"
+          />
+        </template>
+      </QField>
       <QSelect
         v-if="edit.nameIsTranslatable"
         v-model="edit.name"
@@ -37,10 +27,22 @@
         :error-message="nameError"
         :autofocus="!$q.platform.has.touch"
         autocomplete="off"
+        :hint="edit.nameIsTranslatable ? 'name will be available in other languages' : 'name will be used exactly as you write it'"
         @blur="$v.edit.name.$touch"
       >
         <template #before>
-          <QIcon name="fas fa-fw fa-star" />
+          <QBtnToggle
+            v-model="edit.nameIsTranslatable"
+            :options="[
+              { label: 'Standard name', value: true },
+              { label: 'Custom name', value: false },
+            ]"
+            rounded
+            unelevated
+            toggle-color="primary"
+            color="white"
+            text-color="primary"
+          />
         </template>
       </QSelect>
       <QInput
@@ -53,117 +55,158 @@
         :error-message="nameError"
         :autofocus="!$q.platform.has.touch"
         autocomplete="off"
+        :hint="edit.nameIsTranslatable ? 'name will be available in other languages' : 'name will be used exactly as you write it'"
         @blur="$v.edit.name.$touch"
       >
         <template #before>
-          <QIcon name="fas fa-fw fa-star" />
+          <QBtnToggle
+            v-model="edit.nameIsTranslatable"
+            :options="[
+              { label: 'Standard name', value: true },
+              { label: 'Custom name', value: false },
+            ]"
+            rounded
+            unelevated
+            toggle-color="primary"
+            color="white"
+            text-color="primary"
+          />
         </template>
-      </QInput>``
+      </QInput>
 
-      <QIcon
-        :name="edit.icon"
-        size="lg"
-        :color="`activity-type-${edit.id}-edit`"
-      />
-
-      <QBtn
-        label="Change icon"
-        flat
-        class="q-ml-sm"
-      >
-        <QMenu
-          ref="iconMenu"
-          square
-        >
-          <QInput
-            v-model="iconFilter"
-            label="Filter"
-            outlined
-            clearable
-            class="q-ma-md"
-            autofocus
+      <QField borderless>
+        <template #before>
+          <QIcon
+            :name="edit.icon"
+            size="lg"
+            :color="`activity-type-${edit.id}-edit`"
           />
-          <QIconPicker
-            v-model="edit.icon"
-            icon-set="fontawesome-v5"
-            :filter="iconFilter"
-            :color="colour"
-            selected-color="white"
-            :selected-background-color="colour"
-            :pagination.sync="iconPagination"
-            style="height: 220px;"
-          />
-        </QMenu>
-      </QBtn>
-
-      <QBtn
-        label="Change colour"
-        flat
-      >
-        <QMenu
-          auto-close
-          square
-        >
-          <QColor
-            v-model="colour"
-            style="width: 350px; max-width: 100%;"
-            format-model="hex"
-            no-footer
-            no-header
-            default-view="palette"
-            :palette="paletteColours"
-            square
+        </template>
+        <template #control>
+          <QBtn
+            label="Change icon"
             flat
-          />
-        </QMenu>
-      </QBtn>
+          >
+            <QMenu
+              ref="iconMenu"
+              square
+            >
+              <QInput
+                v-model="iconFilter"
+                label="Filter"
+                outlined
+                clearable
+                class="q-ma-md"
+                autofocus
+              />
+              <QIconPicker
+                v-model="edit.icon"
+                icon-set="fontawesome-v5"
+                :filter="iconFilter"
+                :color="colour"
+                selected-color="white"
+                :selected-background-color="colour"
+                :pagination.sync="iconPagination"
+                style="height: 220px;"
+              />
+            </QMenu>
+          </QBtn>
 
-      <br>
+          <QBtn
+            label="Change colour"
+            flat
+          >
+            <QMenu
+              auto-close
+              square
+            >
+              <QColor
+                v-model="colour"
+                style="width: 350px; max-width: 100%;"
+                format-model="hex"
+                no-footer
+                no-header
+                default-view="palette"
+                :palette="paletteColours"
+                square
+                flat
+              />
+            </QMenu>
+          </QBtn>
+        </template>
+      </QField>
 
-      <QToggle
-        v-model="edit.hasFeedback"
-        label="Has feedback"
-      />
+      <!--
+      <QField
+        borderless
+        hide-bottom-space
+      >
+        <QToolbar>
+          <QToolbarTitle>Feedback</QToolbarTitle>
+        </QToolbar>
+        <QToggle
+          v-model="edit.hasFeedback"
+          :label="edit.hasFeedback ? 'enabled' : 'disabled'"
+        />
+      </QField>
+      -->
+
+      <QField
+        borderless
+        hide-bottom-space
+        :hint="edit.hasFeedback ? 'After the activity the participants will be asked to provide feedback' : 'No feedback will be requested'"
+      >
+        <QToggle
+          v-model="edit.hasFeedback"
+          :label="edit.hasFeedback ? 'Feedback' : 'No feedback'"
+        />
+      </QField>
 
       <template v-if="edit.hasFeedback">
-        <QToggle
-          v-model="edit.hasFeedbackWeight"
-          label="Has feedback weight"
-        />
-
-        <QIcon
-          :name="edit.feedbackIcon"
-          size="lg"
-          :color="`activity-type-${edit.id}-edit`"
-        />
-        <QBtn
-          label="Change icon"
-          flat
-          class="q-ml-sm"
-        >
-          <QMenu
-            ref="feedbackIconMenu"
-          >
-            <QInput
-              v-model="feedbackIconFilter"
-              label="Filter"
-              outlined
-              clearable
-              class="q-ma-md"
-              autofocus
+        <QField borderless>
+          <template #before>
+            <QIcon
+              :name="edit.feedbackIcon"
+              size="lg"
+              :color="`activity-type-${edit.id}-edit`"
             />
-            <QIconPicker
-              v-model="edit.feedbackIcon"
-              icon-set="fontawesome-v5"
-              :filter="feedbackIconFilter"
-              :color="colour"
-              selected-color="white"
-              :selected-background-color="colour"
-              :pagination.sync="feedbackIconPagination"
-              style="height: 220px;"
-            />
-          </QMenu>
-        </QBtn>
+          </template>
+          <template #control>
+            <QBtn
+              label="Change icon"
+              flat
+            >
+              <QMenu
+                ref="feedbackIconMenu"
+              >
+                <QInput
+                  v-model="feedbackIconFilter"
+                  label="Filter"
+                  outlined
+                  clearable
+                  class="q-ma-md"
+                  autofocus
+                />
+                <QIconPicker
+                  v-model="edit.feedbackIcon"
+                  icon-set="fontawesome-v5"
+                  :filter="feedbackIconFilter"
+                  :color="colour"
+                  selected-color="white"
+                  :selected-background-color="colour"
+                  :pagination.sync="feedbackIconPagination"
+                  style="height: 220px;"
+                />
+              </QMenu>
+            </QBtn>
+          </template>
+        </QField>
+        <QField borderless>
+          <QToggle
+            v-model="edit.hasFeedbackWeight"
+            label="ask for feedback weight"
+          />
+        </QField>
       </template>
 
       <div class="row justify-end q-gutter-sm q-mt-sm">
@@ -198,12 +241,15 @@ import { required } from 'vuelidate/lib/validators'
 import {
   QSelect,
   QInput,
+  QField,
   QBtn,
   QBtnToggle,
   QToggle,
   QMenu,
   QIcon,
   QColor,
+  QToolbar,
+  QToolbarTitle,
   colors,
 } from 'quasar'
 import { createActivityTypeStylesheet } from '@/activities/datastore/activityTypeStylesheetPlugin'
@@ -214,12 +260,17 @@ export default {
   components: {
     QSelect,
     QInput,
+    QField,
     QBtn,
     QBtnToggle,
     QToggle,
     QMenu,
     QIcon,
     QColor,
+    // eslint-disable-next-line vue/no-unused-components
+    QToolbar,
+    // eslint-disable-next-line vue/no-unused-components
+    QToolbarTitle,
     QIconPicker,
   },
   mixins: [validationMixin, editMixin, statusMixin],
@@ -303,6 +354,14 @@ export default {
     },
     'edit.feedbackIcon' () {
       this.$refs.feedbackIconMenu.hide()
+    },
+    'edit.nameIsTranslatable' (nameIsTranslatable) {
+      if (nameIsTranslatable) {
+        // make sure the value is one of the entries...
+        if (!this.translatableNameOptions.includes(this.edit.name)) {
+          this.edit.name = this.translatableNameOptions[0]
+        }
+      }
     },
   },
   beforeCreate () {

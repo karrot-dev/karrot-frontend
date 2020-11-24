@@ -1,7 +1,6 @@
 <template>
   <div>
     <QCard>
-      <pre>editActivityTypeId: {{ editActivityTypeId }}</pre>
       <QTable
         :columns="columns"
         :data="activityTypes"
@@ -36,12 +35,16 @@
                 <QBtn
                   size="sm"
                   flat
-                  :icon="props.expand ? 'remove' : 'add'"
                   @click="editActivityTypeId === props.row.id ? stopEdit(props.row.id) : startEdit(props.row.id)"
                 >
                   Edit
                 </QBtn>
               </QBtnGroup>
+              <template v-else-if="col.name === 'hasFeedbackWeight'">
+                <span v-show="props.row.hasFeedback">
+                  {{ col.value }}
+                </span>
+              </template>
               <template v-else>
                 {{ col.value }}
               </template>

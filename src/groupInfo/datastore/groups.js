@@ -140,12 +140,17 @@ function applicationsFirstThenSortByName (a, b) {
   return a.name.localeCompare(b.name)
 }
 
-// Not sure how to best handle when only some have distance...
-// It also might put the playground group way too high as it currently has
-// loads of members...
+// Puts ones with distance at the top in order of distance
+// ... then ones without distance below, ordered by member count
 function sortByDistanceOrMemberCount (a, b) {
   if (a.distance && b.distance) {
     return a.distance - b.distance
+  }
+  else if (a.distance === null) {
+    return 1
+  }
+  else if (b.distance === null) {
+    return -1
   }
   return b.members.length - a.members.length
 }

@@ -736,7 +736,7 @@
     "LOGOUT_SUCCESS": "Du bass ausgeloggt ginn!",
     "MOBILE_NUMBER": "Telefonsnummer",
     "NEWCOMER": "Nei hei",
-    "NEWCOMER_GUIDANCE": "{userName} ass nei an denger Grupp a brauch vläicht bësse Rot.",
+    "NEWCOMER_GUIDANCE": "{userName} ass nei an denger Grupp a brauch vläicht e bëssen Hëllef.",
     "NEWCOMER_INFO": "Du bass grad nei an {groupName} an du kanns aktiv ginn andeem's du Noriichte schreifs, aner Memberen trëffs, un Aktivitéiten deelhëls a Feedback gëss. Esoubal {threshold} Memberen dir hiert Vertrauen ausgedréckt hunn, duerfs eppes beaarbechte fir ze hëllefen d'Grupp ze administréieren.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} vertraut {userName} an {groupName}. | {count} Leit vertrauen {userName} an {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vertraut dir an {groupName}. | {count} Leit vertrauen dir an {groupName}.",

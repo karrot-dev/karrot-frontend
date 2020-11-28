@@ -33,13 +33,13 @@ run({
 const HEADER = `
 # Karrot Roadmap
 
-## General Direction
+## General Direction as of 2020-11-22
 
-Main topics of Karrot are currently generalization, that means making the features on Karrot available for customization beyond just food pick-ups.
-We also want to work on governance topics: how to make decision both in groups and about further Karrot development.
-We are taking steps to connect more with the existing user community, but also other people via social media (e.g. Mastodon) and academia.
-
-In the next months, we want to continue working on the stuff that we already started before. In the last months, we established a steady work flow that should help us to do things and put the "dreaming" part on a back-burner.
+- usability! maybe a pipeline, people notice little niggles, katie can sketch some solutions, and bruno and the students can implement it! supported with Nicks help
+- finish the governance design process, let's see about actually implementing
+- conceptualizing of karrot itself, values, etc... a clearer message, leading to outreach, what is it and how does it work? a rocket chat channel...?
+- generalization progress, continuing momentum
+- maintainance + code improvements
 `
 
 async function run ({ owner, repo }) {

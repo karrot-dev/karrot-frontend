@@ -156,6 +156,10 @@ export default {
       type: Number,
       default: null,
     },
+    forceBounds: {
+      type: Object,
+      default: null,
+    },
   },
   data () {
     return {
@@ -191,6 +195,7 @@ export default {
       return ''
     },
     bounds () {
+      if (this.forceBounds) return this.forceBounds
       if (this.forceCenter && !Number.isNaN(this.forceCenter.lat)) return null
       if (!this.preventZoom && this.hasMarkers && !this.hasOneMarker) {
         return L.latLngBounds(this.markersForBound.map(m => m.latLng)).pad(0.2)

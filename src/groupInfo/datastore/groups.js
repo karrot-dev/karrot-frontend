@@ -51,13 +51,12 @@ export default {
         return obj
       }, {})).map(parseInt).sort()
     },
-    other: (state, getters) => getters.all.filter(e => !myGroupsWithApplications(e)).sort(sortByMemberCount),
+    other: (state, getters) => getters.all.filter(e => !myGroupsWithApplications(e)).sort(sortByDistanceOrMemberCount),
     activePreview: (state, getters) => getters.get(state.activePreviewId),
     saveStatus: (state, getters, rootState, rootGetters) => {
       const currentGroup = getters.get(rootGetters['currentGroup/id'])
       return currentGroup && currentGroup.saveStatus
     },
-    playground: (state, getters) => getters.all.find(g => g.isPlayground),
     ...metaStatuses(['create', 'fetch']),
   },
   actions: {
@@ -141,7 +140,18 @@ function applicationsFirstThenSortByName (a, b) {
   return a.name.localeCompare(b.name)
 }
 
-function sortByMemberCount (a, b) {
+// Puts ones with distance at the top in order of distance
+// ... then ones without distance below, ordered by member count
+function sortByDistanceOrMemberCount (a, b) {
+  if (a.distance && b.distance) {
+    return a.distance - b.distance
+  }
+  else if (a.distance === null) {
+    return 1
+  }
+  else if (b.distance === null) {
+    return -1
+  }
   return b.members.length - a.members.length
 }
 

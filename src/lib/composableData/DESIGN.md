@@ -1,4 +1,4 @@
-# compostable data design document
+# composable data design document
 
 This is a more abstract document to reflect on the design goals of the library. The [README](README.md) has the more walkthrough kind of approach for an actual user.
 

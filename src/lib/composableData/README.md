@@ -1,4 +1,4 @@
-# compostable data (working name!)
+# composable data (working name!)
 
 This is a way of using the new compositional philosophy in vue to manage data.
 

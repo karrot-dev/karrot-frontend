@@ -88,8 +88,8 @@ export default {
     //   })
     // }
 
-    // const { activities, status: activitiesStatus } = useCachedActivities('groupActivities')
-    const { activities, status: activitiesStatus } = useActivities({ groupId, userId: authUserId }, enrichActivity)
+    const { activities, status: activitiesStatus } = useCachedActivities('groupActivities')
+    // const { activities, status: activitiesStatus } = useActivities({ groupId, userId: authUserId }, enrichActivity)
     const {
       joinedActivities: joinedActivitiesOriginal,
       availableActivities,

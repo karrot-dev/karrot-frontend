@@ -6,6 +6,8 @@ import { createStatus, withStatus } from '@/activities/data/actionStatus'
 import { reactive } from '@vue/composition-api'
 import { useAuthUser } from '@/activities/data/useAuthUser'
 import { useCurrentGroup } from '@/activities/data/useCurrentGroup'
+import { useEnrichActivity } from '@/activities/data/useEnrichedActivities'
+import { useGlobalUsers } from '@/activities/data/useUsers'
 
 export function useActivities ({ groupId }, enrich) {
   permitCachedUsage()
@@ -59,10 +61,12 @@ export function useActivityActions () {
 }
 
 export function useCachedActivities (key) {
+  const { getUser } = useGlobalUsers()
   const { authUserId } = useAuthUser()
   const { currentGroupId } = useCurrentGroup()
+  const { enrichActivity } = useEnrichActivity({ authUserId, getUser })
   return useCached(
     key,
-    () => useActivities({ groupId: currentGroupId, userId: authUserId }),
+    () => useActivities({ groupId: currentGroupId }, enrichActivity),
   )
 }

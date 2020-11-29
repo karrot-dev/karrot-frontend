@@ -66,43 +66,43 @@
     "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
-    "DELETE_SERIES_TITLE": "Delete series"
+    "DELETE_SERIES_TEXT": "Vill du verkligen radera denna serie? Det kommer också att radera alla aktiviteter som tillhör denna serie (förutom där folk redan gått med på).",
+    "DELETE_SERIES_TITLE": "Radera serier"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "This is disabled.",
-    "ACTIVITY_STARTED": "This has already started.",
-    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
-    "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
-    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
+    "ACTIVITY_DISABLED": "Detta har inaktiverats",
+    "ACTIVITY_STARTED": "Det har redan påbörjats.",
+    "AVAILABLE": "Det finns en aktivitet på dina favoritplatser som väntar på dig! | Det finns {count} aktiviteter på dina favoritplatser som väntar på dig!",
+    "AVAILABLE_FEEDBACK": "Du kan ge feedback till en aktivitet | {count} aktiviteter väntar på din feedback",
+    "AVAILABLE_FROM_STORES": "Detta visar aktiviteter från dina favoritplatser de närmaste dagarna. Du kan komma åt andra platser i sidofältet.",
     "FILTER": {
       "ALL": "Allt",
-      "ALL_TYPES": "All types",
+      "ALL_TYPES": "Alla typer",
       "EMPTY": "Endast tomma",
       "FREE": "Med lediga öppningar"
     },
     "ITEM": {
       "JOIN": "Gå med",
-      "JOIN_CONFIRMATION_HEADER": "Join {activityType}",
-      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
+      "JOIN_CONFIRMATION_HEADER": "Gå med {activityType}",
+      "JOIN_CONFIRMATION_TEXT": "Är du säker på att du har tid den {date}?",
       "LEAVE": "Lämna",
-      "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?"
+      "LEAVE_CONFIRMATION_HEADER": "Lämna {activityType}",
+      "LEAVE_CONFIRMATION_TEXT": "Är du säker att andra kan göra det utan dig?"
     },
-    "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
-    "NONE": "No upcoming activities",
-    "NONE_DUE_TO_FILTER": "No activities match your filters",
-    "NONE_HINT": "You can create a new activity on the place page.",
-    "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page."
+    "JOINEDNOTICE": "Du har en kommande aktivitet | Du har {count} kommande aktiviteter",
+    "NONE": "Inga bokade aktiviteter",
+    "NONE_DUE_TO_FILTER": "Ingen aktivitet passar dina filter",
+    "NONE_HINT": "Du kan skapa en ny aktivitet på platssidan.",
+    "STORE_NONE_HINT": "Du kan skapa en ny aktivitet på \"Redigera aktiviteter\"."
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "'Mer information' har ändrats",
-    "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
+    "ACTIVITY_DOES_NOT_MATCH": "Datumet passar inte återkommande serie",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max antal platser' har ändrats",
-    "SERIES": "Activity series",
-    "SINGLE": "One-time activities",
-    "TITLE": "Manage activities",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
+    "SERIES": "Serie av aktivitet",
+    "SINGLE": "Engångsaktivitet",
+    "TITLE": "Redigera aktiviteter",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Kommande aktiviteter i denna serie"
   },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Mängd mat du har lyckats rädda (i kg)",
@@ -110,19 +110,19 @@
     "COMMENT_PLACEHOLDER": "Gick allt bra? Var alla med? Din kommentar här...",
     "DELETE_AMOUNT": "Radera mängden",
     "EDIT": "Redigera feedback",
-    "HEADER": "Thank you for your participation!",
+    "HEADER": "Tack för deltagande!",
     "PREVIOUS": "Föregående feedback för {store}",
     "SET_AMOUNT": "Ange mängden",
     "TITLE": "Feedback",
-    "TOGETHER_WITH": "You did this together with:"
+    "TOGETHER_WITH": "Du gjorde det tillsammans med:"
   },
   "ACTIVITY_TYPE_NAMES": {
-    "Meeting": "Meeting",
-    "Pickup": "Pickup",
-    "Distribution": "Distribution",
+    "Meeting": "Möte",
+    "Pickup": "Upphämtning",
+    "Distribution": "Utdelning",
     "Event": "Event",
-    "Activity": "Activity",
-    "Task": "Task"
+    "Activity": "Aktivitet",
+    "Task": "Uppgift"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "välj plats på kartan",
@@ -202,7 +202,7 @@
     "SAVE_CHANGES": "Spara ändringar",
     "SEARCH": "Söka",
     "SHOW": "Visa",
-    "SHOW_LESS": "Show less",
+    "SHOW_LESS": "Visa mindre",
     "SHOW_MORE": "Visa mer",
     "SUBMIT": "Skicka in",
     "UNSUBSCRIBE": "Avsluta prenumeration",
@@ -265,28 +265,28 @@
   },
   "CREATEACTIVITY": {
     "COMMENT": "Mer information",
-    "COMMENT_HELPER": "What should people know when signing up to this?",
+    "COMMENT_HELPER": "Vad bör folk veta när de ska gå med?",
     "CUSTOM": "Skräddarsytt",
     "DATE": "Datum",
     "DIFFERS_WARNING": "Detta värde skiljer sig från standard. För att ångra denna ändring, klicka på pilknappen och spara ändringarna.",
-    "DISABLE_TITLE": "Disable?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
-    "ENABLE_TITLE": "Enable?",
-    "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
-    "EXCEPTIONS_TITLE": "Check your activities",
+    "DISABLE_TITLE": "Inaktivera?",
+    "ENABLE_DISABLE_MESSAGE": "Alla som skrev upp sig kommer att få en notifikation. Du kan ändra texten för att ge en anledning.",
+    "ENABLE_TITLE": "Aktivera?",
+    "EXCEPTIONS_MESSAGE": "Vissa kommande aktiviteter passar inte inställningar för denna serie. Titta där nere på '{upcomingLabel}' för att ändra eller inaktivera dem om det behövs.",
+    "EXCEPTIONS_TITLE": "Kolla dina aktiviteter",
     "FREQUENCY": "Hur ofta",
-    "MAX_PARTICIPANTS": "Max Slots",
-    "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
+    "MAX_PARTICIPANTS": "Max Platser",
+    "MAX_PARTICIPANTS_HELPER": "Hur många ska delta?",
     "RRULE": "Återkomstregel",
     "RRULE_EXAMPLE": "Sista arbetsdag (Mån-Fre) varje månad",
     "RRULE_EXAMPLE2": "varannan måndag",
     "RRULE_HELPER": "Skriv in en giltig {ruleHelper}, t.ex. {ruleExample} eller {ruleExample2}",
     "RRULE_HELPER_URL": "iCalenders regel",
     "STARTDATE_HELPER": "När ska serien börja?",
-    "TIME_HELPER": "When should it take place?",
+    "TIME_HELPER": "När ska det ske?",
     "UNLIMITED": "obegränsat",
     "WEEKDAYS": "Helg",
-    "WEEKDAYS_HELPER": "On which days should it take place?",
+    "WEEKDAYS_HELPER": "Vilka dagar ska det vara?",
     "WEEKLY": "Varje vecka"
   },
   "CREATESTORE": {
@@ -301,8 +301,8 @@
     "NONE": "Ingen feedback ännu",
     "NONE_HINT": "Den här sidan kommer att fyllas när det finns mer feedback",
     "NO_DONE_ACTIVITIES": "Klar!",
-    "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
-    "NUMBER_ACTIVITIES": "{count} activities done",
+    "NO_DONE_ACTIVITIES_HINT": "Du har ingen feedback att ge. Varför inte gå med en aktivitet?",
+    "NUMBER_ACTIVITIES": "{count} aktiviteter gjort",
     "NUMBER_FEEDBACK": "{count} feedbacks",
     "SAVED_FOOD": "Minst 1 kg räddades här. Tack ska du ha! Folk har redan gett feedback för {amount} kg räddad mat! Bra jobbat!",
     "WEIGHT_SUM": "{sum} kg räddade mat"
@@ -319,13 +319,13 @@
     "SEARCH_NOT_FOUND": "Kunde inte hittas",
     "SEARCH_RESULTS": "Sökresultat",
     "SERVER_ERROR": "Server fel",
-    "CLEAR_FILTERS": "Clear filters"
+    "CLEAR_FILTERS": "Rensa filter"
   },
   "GROUP": {
-    "ACTIVITIES": "Activities",
-    "ACTIVITY": "Activity",
-    "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
-    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
+    "ACTIVITIES": "Aktiviteter",
+    "ACTIVITY": "Aktivitet",
+    "PICKUPS_TO_ACTIVITIES": "Du kan samordna mer än bara upphämtningar nu!",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Aktiviteter som heter upphämtningar är fortfarande tillgängliga, men vi la till andra typer också: Möte, Event och Utdelning.",
     "ADDED_BY": "tillagd av {userName}",
     "ADDRESS": "Adress",
     "APPLICATIONS": "Ansökningar",
@@ -357,7 +357,7 @@
     "LEAVE_TEXT": "Är du säker på att du vill lämna denna gruppen?",
     "LOGO": "Gruppens logga",
     "MANAGE_AGREEMENT": "Redigera överenskommelse",
-    "MEMBERLIST": "Your group has {total} members in total.",
+    "MEMBERLIST": "Din grupp har sammanlagt {total}medlemmar.",
     "MEMBERS": "Medlemmar",
     "MESSAGES": "Meddelanden",
     "NONMEMBER_REDIRECT": "Du är inte en medlem i denna grupp",
@@ -368,8 +368,8 @@
         "NAME": "Nya processer för konfliktlösning"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
-        "NAME": "Activity notifications"
+        "DESCRIPTION": "Påminner dig om dina aktiviteter och berättar om lediga aktiviteter på dina favoritplatser",
+        "NAME": "Notifikationer om aktiviteter"
       },
       "new_application": {
         "DESCRIPTION": "När någon vill gå med i gruppen",
@@ -391,7 +391,7 @@
     "SHOW_INACTIVE": "Visa inaktiva grupper",
     "SORT_JOINDATE": "Sortera efter inträdesdatum",
     "SORT_NAME": "Sortera efter namn",
-    "STATISTICS": "Statistics",
+    "STATISTICS": "Statistik",
     "TIMEZONE": "Gruppens tidszon",
     "TITLE": "Gruppens namn",
     "WALL": "Chattvägg",
@@ -415,16 +415,16 @@
     "TITLE": "Karta"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "{activityType} created",
-    "ACTIVITY_DELETE": "{activityType} deleted",
-    "ACTIVITY_DISABLE": "{activityType} disabled",
-    "ACTIVITY_DONE": "did {activityType} at {placeName}",
-    "ACTIVITY_ENABLE": "{activityType} enabled",
-    "ACTIVITY_JOIN": "signed up for {activityType} at {placeName}",
-    "ACTIVITY_LEAVE": "stepped back from {activityType} at {placeName}",
-    "ACTIVITY_LEAVE_DISTANCE": "{distance} before scheduled time",
-    "ACTIVITY_MISSED": "{activityType} at {placeName} had no participants!",
-    "ACTIVITY_MODIFY": "changed the settings of an activity",
+    "ACTIVITY_CREATE": "{activityType} skapad",
+    "ACTIVITY_DELETE": "{activityType} raderad",
+    "ACTIVITY_DISABLE": "{activityType} inaktiverad",
+    "ACTIVITY_DONE": "var med på {activityType} på {placeName}",
+    "ACTIVITY_ENABLE": "{activityType} aktiverad",
+    "ACTIVITY_JOIN": "skrev upp sig för {activityType} på {placeName}",
+    "ACTIVITY_LEAVE": "gav upp om {activityType} på {placeName}",
+    "ACTIVITY_LEAVE_DISTANCE": "{distance} innan bokade tid",
+    "ACTIVITY_MISSED": "Ingen skrev upp sig för {activityType} på {placeName}!",
+    "ACTIVITY_MODIFY": "ändrade inställningar för en aktivitet",
     "APPLICATION_DECLINED": "avböjde en ansökan från {applicantName}",
     "DETAILS": "Mer information",
     "GROUP_CHANGE_PHOTO": "ändrade gruppens logotyp",
@@ -437,9 +437,9 @@
     "MEMBER_BECAME_EDITOR": "fick behörighet att redigera",
     "MEMBER_REMOVED": "togs bort på grund av gruppbeslut",
     "NOTHING_HAPPENEND": "Inget händer än så länge...",
-    "SERIES_CREATE": "{activityType} series created",
-    "SERIES_DELETE": "{activityType} series deleted",
-    "SERIES_MODIFY": "changed the settings of a series",
+    "SERIES_CREATE": "Serie av {activityType} skapad",
+    "SERIES_DELETE": "Serie av {activityType} raderad",
+    "SERIES_MODIFY": "ändrade inställningar för en serie aktivitet",
     "STORE_CREATE": "skapade platsen {name}",
     "STORE_DELETE": "ta bort platsen {name}",
     "STORE_MODIFY": "ändrade inställningar för platsen {name}"
@@ -540,10 +540,10 @@
     "VERIFICATION_EMAIL_SENT": "Vi skickade ett till verifieringsmejl. Varsågod och kolla din inkorg."
   },
   "NOTIFICATION_BELLS": {
-    "ACTIVITY_DISABLED": "{activityType} on {dateTime} was disabled",
-    "ACTIVITY_ENABLED": "{activityType} on {dateTime} was enabled again",
-    "ACTIVITY_MOVED": "{activityType} was moved to {dateTime}",
-    "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
+    "ACTIVITY_DISABLED": "{activityType} den {dateTime} har inaktiverats",
+    "ACTIVITY_ENABLED": "{activityType} den {dateTime} har aktiverats igen.",
+    "ACTIVITY_MOVED": "{activityType} flyttades till den {dateTime}",
+    "ACTIVITY_UPCOMING": "Påminnelse: {activityType} {time}",
     "APPLICATION_ACCEPTED": "Din ansökan har beviljats!",
     "APPLICATION_DECLINED": "Din ansökan har avböjts",
     "CONFLICT_RESOLUTION_CONTINUED": "Processen för konfliktlösning med {userName} fortsätter",
@@ -553,8 +553,8 @@
     "CONFLICT_RESOLUTION_DECIDED": "Processen för konfliktlösning med {userName} beslutades",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Konfliktlösningsprocessen med dig beslutades",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du togs bort från gruppen",
-    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
-    "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
+    "OFFFEEDBACK_POSSIBLE": "Du kan ge feedback till en aktivitet du gjorde den {date}",
+    "FEEDBACK_POSSIBLE": "Du kan ge feedback - {activityType} den {date}",
     "INVITATION_ACCEPTED": "{userName} beviljade din ansökan",
     "NEW_APPLICANT": "{userName} ansökte om att gå med i din grupp",
     "NEW_MEMBER": "{userName} gick med i din grupp",
@@ -621,9 +621,9 @@
     "SUBSCRIPTION": {
       "HEADER": "Vill du markera den här platsen som din favorit?",
       "NO": "nej",
-      "NO_TEXT": "None of the above. You can still sign up for activities though.",
+      "NO_TEXT": "Inget av ovanstående. Du kan ändå skriva upp dig för aktiviteter.",
       "YES": "ja",
-      "YES_TEXT": "Shows available activities on the group wall and sends emails about upcoming activities."
+      "YES_TEXT": "Visa tillgängliga aktiviteter i gruppens chattvägg och skickar mejl om kommande aktiviteter."
     }
   },
   "PROFILE": {
@@ -642,7 +642,7 @@
     "TITLE": "Gå med!"
   },
   "STATISTICS": {
-    "ACTIVITY_HISTORY": "Activity statistics",
+    "ACTIVITY_HISTORY": "Statistik om aktiviteter",
     "FILTER_USER_LABEL": "User",
     "FILTER_ALL_USERS": "All users",
     "FILTER_TIME_LABEL": "Time period",
@@ -679,8 +679,8 @@
     "SHOW_ACTIVE_ONLY": "Visa endast aktiva platser",
     "SHOW_ALL": "Visa alla platser",
     "STATUS": "Status",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
+    "WEEKS_IN_ADVANCE": "Hur många veckor i förväg skall återkommande aktiviteter synas?",
+    "WEEKS_IN_ADVANCE_WARNING": "Du håller på att minska antalet veckor som aktiviteter visas. Befintliga aktiviteter raderas om ingen har anslutit sig till dem. Du kan inaktivera alla andra aktiviteter manuellt om det behövs."
   },
   "STORESTATUS": {
     "ACTIVE": "Samarbetar",
@@ -700,7 +700,7 @@
   "TOPBAR": {
     "CHANGE_GROUP": "Byta grupp",
     "LOGOUT": "Logga ut",
-    "SHOW_ALL_GROUPS": "Show all groups",
+    "SHOW_ALL_GROUPS": "Visa alla grupper",
     "USERPROFILE": "Gå till din profil"
   },
   "UNSUBSCRIBE": {
@@ -715,7 +715,7 @@
   },
   "UPDATE_AVAILABLE": {
     "DETAIL": "En ny version av Karrot finns tillgänglig.",
-    "RELOAD": "Reload"
+    "RELOAD": "Ladda om"
   },
   "USERDATA": {
     "ACCOUNT": "Konto",
@@ -737,7 +737,7 @@
     "MOBILE_NUMBER": "Mobilnr.",
     "NEWCOMER": "Nybörjare",
     "NEWCOMER_GUIDANCE": "{userName} är ny i din grupp och kanske behöver lite vägledning.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "NEWCOMER_INFO": "Du är en nybörjare i {groupName} och du kan engagera dig genom att skriva meddelande, träffa andra medlemmar, vara med på aktiviteter och ge feedback. Så fort {threshold} medlemmar har litat på dig med tillitsmorötter, kommer du få behörighet att hjälpa till med gruppadministration.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} litar på {userName} i {groupName}. | {count} person(er) litar på {userName} i {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} litar på dig {groupName}. | {count} litar på dig i {groupName}.",
     "PASSWORD": "Lösenord",

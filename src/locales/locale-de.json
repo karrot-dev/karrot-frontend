@@ -66,30 +66,30 @@
     "VISION_INTRO": "Karrot ist ein Werkzeug, das allen Arten von Graswurzelbewegungen dabei helfen kann zu wachsen und sich zu organisieren. Es bietet digitale Infrastruktur, die bei der Koordination von Aktivitäten in der echten Welt behilflich ist."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
-    "DELETE_SERIES_TITLE": "Delete series"
+    "DELETE_SERIES_TEXT": "Willst du wirklich diese Serie löschen? Das löscht alle Termine, die zu dieser regelmäßigen Aktivität gehören (außer wenn bereits Teilnehmer eingetragen sind).",
+    "DELETE_SERIES_TITLE": "Lösche Serie"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "This is disabled.",
+    "ACTIVITY_DISABLED": "Aktivität wurde deaktiviert.",
     "ACTIVITY_STARTED": "Das hat bereits begonnen.",
-    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
-    "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
-    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
+    "AVAILABLE": "Es gibt eine Aktivität an deinen Lieblingsorten, die auf dich wartet! | Es gibt '{count}' Aktivitäten an deinen Lieblingsorten, die auf dich warten!",
+    "AVAILABLE_FEEDBACK": "Du kannst Feedback zu einer Aktivität geben | {count} Aktivitäten warten auf dein Feedback.",
+    "AVAILABLE_FROM_STORES": "Hier werden Aktivitäten der nächsten Tage an deinen Lieblingsorten angezeigt. Du erhältst über die Seitenleiste Zugang zu anderen Orten.",
     "FILTER": {
       "ALL": "Alle",
-      "ALL_TYPES": "All types",
+      "ALL_TYPES": "Alle Aktivitätenarten",
       "EMPTY": "Nur leere",
       "FREE": "Mit offenen Slots"
     },
     "ITEM": {
       "JOIN": "Abholen",
-      "JOIN_CONFIRMATION_HEADER": "Join {activityType}",
-      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
+      "JOIN_CONFIRMATION_HEADER": "Nimm an {activityType} teil",
+      "JOIN_CONFIRMATION_TEXT": "Bist du sicher, dass du am {date} Zeit hast?",
       "LEAVE": "Nicht mehr abholen",
-      "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?"
+      "LEAVE_CONFIRMATION_HEADER": "Verlasse {activityType}",
+      "LEAVE_CONFIRMATION_TEXT": "Bist du dir sicher, dass die anderen das ohne dich schaffen?"
     },
-    "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
+    "JOINEDNOTICE": "Du hast dich für eine Aktivität gemeldet | Du hast dich für {count} Aktivitäten gemeldet",
     "NONE": "No upcoming activities",
     "NONE_DUE_TO_FILTER": "No activities match your filters",
     "NONE_HINT": "You can create a new activity on the place page.",
@@ -99,10 +99,10 @@
     "ACTIVITY_DESCRIPTION_CHANGED": "'Zusätzliche Information' wurde geändert",
     "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' wurde geändert",
-    "SERIES": "Activity series",
-    "SINGLE": "One-time activities",
-    "TITLE": "Manage activities",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
+    "SERIES": "Aktivitätsserien",
+    "SINGLE": "einmalige Aktivitäten",
+    "TITLE": "Aktivitäten bearbeiten",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Kommende Aktivitäten in dieser Serie"
   },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Menge des geretteten Essens (in kg)",
@@ -110,19 +110,19 @@
     "COMMENT_PLACEHOLDER": "Lief alles gut? Sind alle aufgetaucht? Dein Kommentar bitte...",
     "DELETE_AMOUNT": "Gewicht löschen",
     "EDIT": "Rückmeldung bearbeiten",
-    "HEADER": "Thank you for your participation!",
+    "HEADER": "Danke für deine Teilnahme!",
     "PREVIOUS": "Bisheriges Feedback für {store}",
     "SET_AMOUNT": "Gewicht eingeben",
     "TITLE": "Feedback",
-    "TOGETHER_WITH": "You did this together with:"
+    "TOGETHER_WITH": "Du warst dabei mit:"
   },
   "ACTIVITY_TYPE_NAMES": {
-    "Meeting": "Meeting",
-    "Pickup": "Pickup",
-    "Distribution": "Distribution",
-    "Event": "Event",
-    "Activity": "Activity",
-    "Task": "Task"
+    "Meeting": "Treffen",
+    "Pickup": "Abholung",
+    "Distribution": "Verteilung",
+    "Event": "Veranstaltung",
+    "Activity": "Aktivität",
+    "Task": "Aufgabe"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "wähle den Ort auf der Karte",
@@ -208,7 +208,7 @@
     "UNSUBSCRIBE": "Abmelden",
     "WITHDRAW": "Zurückziehen",
     "YES": "Ja",
-    "READ_MORE": "Read more"
+    "READ_MORE": "Lies mehr"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates der {community}",
@@ -265,13 +265,13 @@
   },
   "CREATEACTIVITY": {
     "COMMENT": "Zusätzliche Informationen",
-    "COMMENT_HELPER": "What should people know when signing up to this?",
+    "COMMENT_HELPER": "Was sollten die Leute wissen, wenn sie hier teilnehmen?",
     "CUSTOM": "Benutzerdefiniert",
     "DATE": "Datum",
     "DIFFERS_WARNING": "Dieser Wert unterscheidet sich vom Standard. Um diese Änderung rückgängig zu machen, klicke auf die Pfeil-Schaltfläche und speichere die Änderungen.",
-    "DISABLE_TITLE": "Disable?",
+    "DISABLE_TITLE": "Deaktivieren?",
     "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
-    "ENABLE_TITLE": "Enable?",
+    "ENABLE_TITLE": "Aktivieren?",
     "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
     "EXCEPTIONS_TITLE": "Check your activities",
     "FREQUENCY": "Häufigkeit",

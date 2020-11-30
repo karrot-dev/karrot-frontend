@@ -30,6 +30,7 @@
           color="green"
           icon="fas fa-question-circle"
           :title="info.title"
+          @click.prevent
         >
           <QMenu
             square

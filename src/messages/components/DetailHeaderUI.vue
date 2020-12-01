@@ -20,7 +20,7 @@
               color="white"
               size="xs"
               class="q-pr-sm"
-            />{{ activity.activityType.name }} </span>
+            />{{ activity.activityType.translatedName }} </span>
           <strong>
             {{ $d(activity.date, 'weekdayHourMinute') }}
             <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>

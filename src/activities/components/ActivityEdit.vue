@@ -22,7 +22,7 @@
           v-bind="activityType.iconProps"
           class="q-pr-sm"
         />
-        {{ activityType.name }}
+        {{ activityType.translatedName }}
       </h3>
       <template v-if="canEditDate">
         <div class="row q-mt-xs">

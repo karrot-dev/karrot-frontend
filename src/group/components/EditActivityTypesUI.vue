@@ -137,7 +137,7 @@ export default {
         {
           name: 'name',
           label: this.$t('name'),
-          field: row => row.name,
+          field: row => row.translatedName,
           align: 'left',
           classes: 'text-weight-bold',
         },

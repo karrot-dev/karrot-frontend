@@ -7,7 +7,7 @@ function getMessageParams (type, context) {
   }
 
   function getActivityTypeName () {
-    return context.activity && context.activity.activityType && context.activity.activityType.name
+    return context.activity && context.activity.activityType && context.activity.activityType.translatedName
   }
 
   switch (type) {

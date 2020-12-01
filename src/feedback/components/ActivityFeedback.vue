@@ -32,7 +32,7 @@
                   <QIcon
                     v-if="select && select.activityType"
                     :name="select.activityType.icon"
-                    :title="select.activityType.name"
+                    :title="select.activityType.translatedName"
                   />
                 </template>
                 <template #option="{ index, opt: { value: activity }, itemProps, itemEvents }">

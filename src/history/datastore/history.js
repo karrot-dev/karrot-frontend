@@ -47,7 +47,7 @@ export default {
       if (entry.payload && entry.payload.activityType) {
         const activityType = rootGetters['activityTypes/get'](entry.payload.activityType)
         Object.assign(msgValues, {
-          activityType: activityType.name,
+          activityType: activityType.translatedName,
         })
       }
       else {

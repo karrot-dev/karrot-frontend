@@ -24,7 +24,7 @@
             label-position="left"
             :color="activityType.colorName"
             :icon="activityType.icon"
-            :label="activityType.name"
+            :label="activityType.translatedName"
             @click="createNewSeries(activityType)"
           />
         </QFab>
@@ -177,7 +177,7 @@
             label-position="left"
             :color="activityType.colorName"
             :icon="activityType.icon"
-            :label="activityType.name"
+            :label="activityType.translatedName"
             @click="createNewActivity(activityType)"
           />
         </QFab>

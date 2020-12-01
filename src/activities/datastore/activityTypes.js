@@ -22,21 +22,21 @@ export default {
       const { id, icon, feedbackIcon, name, nameIsTranslatable } = activityType
       // this corresponds to the name used by the activity type stylesheet plugin
       const colorName = `activity-type-${id}`
-      const maybeTranslatedName = nameIsTranslatable ? i18n.t(`ACTIVITY_TYPE_NAMES.${name}`) : name
+      const translatedName = nameIsTranslatable ? i18n.t(`ACTIVITY_TYPE_NAMES.${name}`) : name
       return {
         ...activityType,
+        translatedName,
         colorName,
         iconProps: {
           name: icon,
           color: colorName,
-          title: maybeTranslatedName,
+          title: translatedName,
         },
         feedbackIconProps: {
           name: feedbackIcon,
           color: colorName,
-          title: maybeTranslatedName,
+          title: translatedName,
         },
-        name: maybeTranslatedName,
         ...metaStatusesWithId(getters, ['save'], activityType.id),
       }
     },

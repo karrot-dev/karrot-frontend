@@ -19,63 +19,6 @@
           />
         </template>
       </QField>
-      <QSelect
-        v-if="edit.nameIsTranslatable"
-        v-model="edit.name"
-        filled
-        emit-value
-        map-options
-        :options="translatableNameOptions"
-        :error="hasNameError"
-        :error-message="nameError"
-        :autofocus="!$q.platform.has.touch"
-        autocomplete="off"
-        :hint="edit.nameIsTranslatable ? 'name will be available in other languages' : 'name will be used exactly as you write it'"
-        @blur="$v.edit.name.$touch"
-      >
-        <template #before>
-          <QBtnToggle
-            v-model="edit.nameIsTranslatable"
-            :options="[
-              { label: 'Standard name', value: true },
-              { label: 'Custom name', value: false },
-            ]"
-            rounded
-            unelevated
-            toggle-color="primary"
-            color="white"
-            text-color="primary"
-          />
-        </template>
-      </QSelect>
-      <QInput
-        v-else
-        id="name"
-        v-model="edit.name"
-        filled
-        :label="$t('name')"
-        :error="hasNameError"
-        :error-message="nameError"
-        :autofocus="!$q.platform.has.touch"
-        autocomplete="off"
-        :hint="edit.nameIsTranslatable ? 'name will be available in other languages' : 'name will be used exactly as you write it'"
-        @blur="$v.edit.name.$touch"
-      >
-        <template #before>
-          <QBtnToggle
-            v-model="edit.nameIsTranslatable"
-            :options="[
-              { label: 'Standard name', value: true },
-              { label: 'Custom name', value: false },
-            ]"
-            rounded
-            unelevated
-            toggle-color="primary"
-            color="white"
-            text-color="primary"
-          />
-        </template>
-      </QInput>
 
       <QField borderless>
         <template #before>
@@ -141,6 +84,84 @@
           </QBtn>
         </template>
       </QField>
+
+      <QSelect
+        v-model="edit.name"
+        filled
+        emit-value
+        map-options
+        use-input
+        fill-input
+        hide-selected
+        :label="$t('name')"
+        :options="translatableNameOptions"
+        :error="hasNameError"
+        :error-message="nameError"
+        autocomplete="off"
+        :hint="edit.nameIsTranslatable ? 'Name will be available in other languages' : 'Name will be used exactly as you write it and not translated'"
+        @blur="$v.edit.name.$touch"
+        @input-value="onNameInput"
+      />
+
+      <!--
+      <QSelect
+        v-if="edit.nameIsTranslatable"
+        v-model="edit.name"
+        filled
+        emit-value
+        map-options
+        :options="translatableNameOptions"
+        :error="hasNameError"
+        :error-message="nameError"
+        :autofocus="!$q.platform.has.touch"
+        autocomplete="off"
+        :hint="edit.nameIsTranslatable ? 'name will be available in other languages' : 'name will be used exactly as you write it'"
+        @blur="$v.edit.name.$touch"
+      >
+        <template #before>
+          <QBtnToggle
+            v-model="edit.nameIsTranslatable"
+            :options="[
+              { label: 'Standard name', value: true },
+              { label: 'Custom name', value: false },
+            ]"
+            rounded
+            unelevated
+            toggle-color="primary"
+            color="white"
+            text-color="primary"
+          />
+        </template>
+      </QSelect>
+      <QInput
+        v-else
+        id="name"
+        v-model="edit.name"
+        filled
+        :label="$t('name')"
+        :error="hasNameError"
+        :error-message="nameError"
+        :autofocus="!$q.platform.has.touch"
+        autocomplete="off"
+        :hint="edit.nameIsTranslatable ? 'name will be available in other languages' : 'name will be used exactly as you write it'"
+        @blur="$v.edit.name.$touch"
+      >
+        <template #before>
+          <QBtnToggle
+            v-model="edit.nameIsTranslatable"
+            :options="[
+              { label: 'Standard name', value: true },
+              { label: 'Custom name', value: false },
+            ]"
+            rounded
+            unelevated
+            toggle-color="primary"
+            color="white"
+            text-color="primary"
+          />
+        </template>
+      </QInput>
+      -->
 
       <!--
       <QField
@@ -269,6 +290,7 @@ export default {
     QInput,
     QField,
     QBtn,
+    // eslint-disable-next-line vue/no-unused-components
     QBtnToggle,
     QToggle,
     QMenu,
@@ -322,7 +344,7 @@ export default {
     }
   },
   computed: {
-    translatableNameOptions () {
+    translatableNames () {
       return [
         // alphabetical
         'Activity',
@@ -331,7 +353,10 @@ export default {
         'Meeting',
         'Pickup',
         'Task',
-      ].map(value => ({
+      ]
+    },
+    translatableNameOptions () {
+      return this.translatableNames.map(value => ({
         value,
         label: this.$t(`ACTIVITY_TYPE_NAMES.${value}`),
         // prevent people from trying to choose a name that is already used (it's not allowed, and enforced by backend too)
@@ -362,6 +387,9 @@ export default {
         this.edit.colour = val.substring(1)
       },
     },
+    nameIsTranslatable () {
+      return this.translatableNames.includes(this.edit.name)
+    },
   },
   watch: {
     'edit.colour': {
@@ -379,24 +407,30 @@ export default {
     'edit.feedbackIcon' () {
       this.$refs.feedbackIconMenu.hide()
     },
-    'edit.nameIsTranslatable' (nameIsTranslatable) {
-      if (nameIsTranslatable) {
-        // We just switched to use translatable name
-        // Keep a copy of the custom value so we can restore it if nameIsTranslatable is set to false later
-        this.customName = this.edit.name
-
-        // make sure the value is one of the entries...
-        if (!this.translatableNameOptions.map(option => option.value).includes(this.edit.name)) {
-          this.edit.name = this.translatableNameOptions[0].value
-        }
-      }
-      else {
-        // We just switched back to custom name
-        if (this.customName) {
-          this.edit.name = this.customName
-        }
-      }
+    'edit.name': {
+      handler (val) {
+        console.log('name is', val)
+      },
+      immediate: true,
     },
+    // 'edit.nameIsTranslatable' (nameIsTranslatable) {
+    //   if (nameIsTranslatable) {
+    //     // We just switched to use translatable name
+    //     // Keep a copy of the custom value so we can restore it if nameIsTranslatable is set to false later
+    //     this.customName = this.edit.name
+    //
+    //     // make sure the value is one of the entries...
+    //     if (!this.translatableNameOptions.map(option => option.value).includes(this.edit.name)) {
+    //       this.edit.name = this.translatableNameOptions[0].value
+    //     }
+    //   }
+    //   else {
+    //     // We just switched back to custom name
+    //     if (this.customName) {
+    //       this.edit.name = this.customName
+    //     }
+    //   }
+    // },
   },
   beforeCreate () {
     const { updateActivityTypes, removeStylesheet } = createActivityTypeStylesheet('-edit')
@@ -418,6 +452,20 @@ export default {
     maybeSave () {
       if (!this.canSave) return
       this.save()
+    },
+    onNameInput (value) {
+      // See if the typed in value is one of our option values OR labels (i.e. the translated text)
+      const option = this.translatableNameOptions.find(option => option.label === value || option.value === value)
+      if (option) {
+        // It is, therefore translatable!
+        this.edit.name = option.value
+        this.edit.nameIsTranslatable = true
+      }
+      else {
+        // Nope, it's a custom name
+        this.edit.name = value
+        this.edit.nameIsTranslatable = false
+      }
     },
   },
   validations: {

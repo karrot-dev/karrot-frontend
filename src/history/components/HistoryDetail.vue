@@ -111,7 +111,7 @@
         <QItemSection>
           <QItemLabel>
             <template v-if="activityType">
-              <strong>{{ activityType.name }}</strong>
+              <strong>{{ activityType.translatedName }}</strong>
             </template>
             {{ $d(activityPayload.date, 'long') }}
             <template v-if="activityPayload.hasDuration">

@@ -83,7 +83,7 @@
     "@sentry/cli": "^1.59.0",
     "@storybook/addon-actions": "^6.1.8",
     "@storybook/addon-links": "^6.1.8",
-    "@storybook/vue": "^6.1.8",
+    "@storybook/vue": "^6.1.9",
     "@types/jest": "^26.0.15",
     "@vue/test-utils": "^1.1.1",
     "axios-mock-adapter": "^1.19.0",

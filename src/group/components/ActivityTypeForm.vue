@@ -22,6 +22,8 @@
         v-if="edit.nameIsTranslatable"
         v-model="edit.name"
         filled
+        emit-value
+        map-options
         :options="translatableNameOptions"
         :error="hasNameError"
         :error-message="nameError"
@@ -301,6 +303,7 @@ export default {
     ]
     return {
       paletteColours: colourNumbers.flatMap(number => colourNames.map(name => getPaletteColor(`${name}-${number}`))),
+      customName: '',
       iconFilter: '',
       iconPagination: {
         itemsPerPage: 20,
@@ -375,9 +378,19 @@ export default {
     },
     'edit.nameIsTranslatable' (nameIsTranslatable) {
       if (nameIsTranslatable) {
+        // We just switched to use translatable name
+        // Keep a copy of the custom value so we can restore it if nameIsTranslatable is set to false later
+        this.customName = this.edit.name
+
         // make sure the value is one of the entries...
-        if (!this.translatableNameOptions.includes(this.edit.name)) {
-          this.edit.name = this.translatableNameOptions[0]
+        if (!this.translatableNameOptions.map(option => option.value).includes(this.edit.name)) {
+          this.edit.name = this.translatableNameOptions[0].value
+        }
+      }
+      else {
+        // We just switched back to custom name
+        if (this.customName) {
+          this.edit.name = this.customName
         }
       }
     },

@@ -15,6 +15,7 @@
             :label="edit.status"
             true-value="active"
             false-value="archived"
+            color="green"
           />
         </template>
       </QField>
@@ -87,7 +88,9 @@
         <template #control>
           <QBtn
             label="Change icon"
-            flat
+            unelevated
+            color="primary"
+            class="q-mr-sm"
           >
             <QMenu
               ref="iconMenu"
@@ -116,7 +119,8 @@
 
           <QBtn
             label="Change colour"
-            flat
+            unelevated
+            color="primary"
           >
             <QMenu
               auto-close
@@ -176,7 +180,8 @@
           <template #control>
             <QBtn
               label="Change icon"
-              flat
+              unelevated
+              color="primary"
             >
               <QMenu
                 ref="feedbackIconMenu"

@@ -4,7 +4,7 @@ import EditActivityTypesUI from '@/group/components/EditActivityTypesUI'
 
 export default connect({
   gettersToProps: {
-    activityTypes: 'activityTypes/all',
+    activityTypes: 'activityTypes/byCurrentGroup',
     status: 'activityTypes/saveStatus',
   },
   actionsToEvents: {

@@ -81,7 +81,7 @@
     "@quasar/app": "^2.1.8",
     "@quasar/quasar-app-extension-dotenv": "^1.0.5",
     "@sentry/cli": "^1.59.0",
-    "@storybook/addon-actions": "^6.1.8",
+    "@storybook/addon-actions": "^6.1.9",
     "@storybook/addon-links": "^6.1.8",
     "@storybook/vue": "^6.1.8",
     "@types/jest": "^26.0.15",

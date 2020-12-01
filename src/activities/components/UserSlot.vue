@@ -3,6 +3,7 @@
     class="user-slot-wrapper"
     :class="{ greyedOut: !showJoin, active: showJoin }"
     :style="{ width: size + 'px', height: size + 'px' }"
+    @click.stop="$emit('join')"
   >
     <div :class="{ hoverHide: showJoin }" />
     <div
@@ -14,7 +15,6 @@
         :user="hoverUser"
         :size="size"
         :is-link="false"
-        @click.native.stop="$emit('join')"
       />
     </div>
   </div>
@@ -67,14 +67,18 @@ export default {
   .hoverShow
     display none
 
-.user-slot-wrapper.active:hover
-  border 0
+// ios safari will require two clicks if we define a hover state
+// so only use the hover thing when the browser can support hover properly
+// see https://css-tricks.com/annoying-mobile-double-tap-link-issue/
+@media (hover)
+  .user-slot-wrapper.active:hover
+    border 0
 
-  .hoverHide
-    display none
+    .hoverHide
+      display none
 
-  .hoverShow
-    display inline-block
+    .hoverShow
+      display inline-block
 
 .greyedOut
   cursor ini

@@ -65,6 +65,7 @@
               <ActivityTypeForm
                 :value="editActivityType"
                 :activity-types="activityTypes"
+                :status="editActivityType.saveStatus"
                 @save="save"
               />
             </QTd>
@@ -154,6 +155,18 @@ export default {
           autoWidth: true,
         },
       ].filter(Boolean)
+    },
+  },
+  watch: {
+    'editActivityType.saveStatus' (status, prevStatus) {
+      if (!status || !prevStatus) return
+      if (prevStatus.pending && !status.pending && !status.hasValidationErrors) {
+        // Means we just saved! I hate this convoluted way to find out the simplest of things...
+        // I'm hoping the composable data layer concept will address this
+        // See https://github.com/yunity/karrot-frontend/pull/2252
+        // Hide the form..
+        this.editActivityTypeId = null
+      }
     },
   },
   methods: {

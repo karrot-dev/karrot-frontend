@@ -187,6 +187,12 @@
           v-model="edit.hasFeedback"
           :label="edit.hasFeedback ? 'Feedback' : 'No feedback'"
         />
+        <QToggle
+          v-if="edit.hasFeedback"
+          v-model="edit.hasFeedbackWeight"
+          label="Ask for feedback weight"
+          class="q-ml-lg"
+        />
       </QField>
 
       <template v-if="edit.hasFeedback">
@@ -228,12 +234,6 @@
               </QMenu>
             </QBtn>
           </template>
-        </QField>
-        <QField borderless>
-          <QToggle
-            v-model="edit.hasFeedbackWeight"
-            label="ask for feedback weight"
-          />
         </QField>
       </template>
 

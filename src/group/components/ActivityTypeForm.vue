@@ -274,6 +274,12 @@ export default {
     QIconPicker,
   },
   mixins: [validationMixin, editMixin, statusMixin],
+  props: {
+    activityTypes: {
+      type: Array,
+      required: true,
+    },
+  },
   data () {
     // See https://quasar.dev/style/color-palette#Color-List
     const colourNames = [
@@ -295,15 +301,6 @@ export default {
     ]
     return {
       paletteColours: colourNumbers.flatMap(number => colourNames.map(name => getPaletteColor(`${name}-${number}`))),
-      translatableNameOptions: [
-        // alphabetical
-        'Activity',
-        'Distribution',
-        'Event',
-        'Meeting',
-        'Pickup',
-        'Task',
-      ],
       iconFilter: '',
       iconPagination: {
         itemsPerPage: 20,
@@ -317,6 +314,27 @@ export default {
     }
   },
   computed: {
+    translatableNameOptions () {
+      return [
+        // alphabetical
+        'Activity',
+        'Distribution',
+        'Event',
+        'Meeting',
+        'Pickup',
+        'Task',
+      ].map(value => ({
+        value,
+        label: this.$t(`ACTIVITY_TYPE_NAMES.${value}`),
+        // prevent people from trying to choose a name that is already used (it's not allowed, and enforced by backend too)
+        disable: this.activityTypeNamesInUse.includes(value),
+      }))
+    },
+    activityTypeNamesInUse () {
+      return this.activityTypes
+        .filter(activityType => activityType.id !== this.edit.id)
+        .map(activityType => activityType.name)
+    },
     hasNameError () {
       return !!this.nameError
     },

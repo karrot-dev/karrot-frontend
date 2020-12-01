@@ -58,6 +58,7 @@
             <QTd colspan="100%">
               <ActivityTypeForm
                 :value="editActivityType"
+                :activity-types="activityTypes"
                 @save="save"
               />
             </QTd>

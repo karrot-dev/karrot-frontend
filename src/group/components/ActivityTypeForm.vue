@@ -106,81 +106,6 @@
         @input-value="onNameInput"
       />
 
-      <!--
-      <QSelect
-        v-if="edit.nameIsTranslatable"
-        v-model="edit.name"
-        filled
-        emit-value
-        map-options
-        :options="translatableNameOptions"
-        :error="hasNameError"
-        :error-message="nameError"
-        :autofocus="!$q.platform.has.touch"
-        autocomplete="off"
-        :hint="edit.nameIsTranslatable ? 'name will be available in other languages' : 'name will be used exactly as you write it'"
-        @blur="$v.edit.name.$touch"
-      >
-        <template #before>
-          <QBtnToggle
-            v-model="edit.nameIsTranslatable"
-            :options="[
-              { label: 'Standard name', value: true },
-              { label: 'Custom name', value: false },
-            ]"
-            rounded
-            unelevated
-            toggle-color="primary"
-            color="white"
-            text-color="primary"
-          />
-        </template>
-      </QSelect>
-      <QInput
-        v-else
-        id="name"
-        v-model="edit.name"
-        filled
-        :label="$t('name')"
-        :error="hasNameError"
-        :error-message="nameError"
-        :autofocus="!$q.platform.has.touch"
-        autocomplete="off"
-        :hint="edit.nameIsTranslatable ? 'name will be available in other languages' : 'name will be used exactly as you write it'"
-        @blur="$v.edit.name.$touch"
-      >
-        <template #before>
-          <QBtnToggle
-            v-model="edit.nameIsTranslatable"
-            :options="[
-              { label: 'Standard name', value: true },
-              { label: 'Custom name', value: false },
-            ]"
-            rounded
-            unelevated
-            toggle-color="primary"
-            color="white"
-            text-color="primary"
-          />
-        </template>
-      </QInput>
-      -->
-
-      <!--
-      <QField
-        borderless
-        hide-bottom-space
-      >
-        <QToolbar>
-          <QToolbarTitle>Feedback</QToolbarTitle>
-        </QToolbar>
-        <QToggle
-          v-model="edit.hasFeedback"
-          :label="edit.hasFeedback ? 'enabled' : 'disabled'"
-        />
-      </QField>
-      -->
-
       <QField
         borderless
         hide-bottom-space
@@ -264,28 +189,53 @@
 </template>
 
 <script>
-import { Component as QIconPicker } from '@quasar/quasar-ui-qiconpicker'
-import editMixin from '@/utils/mixins/editMixin'
-import statusMixin from '@/utils/mixins/statusMixin'
-import { validationMixin } from 'vuelidate'
-import { required } from 'vuelidate/lib/validators'
 import {
   QSelect,
   QInput,
   QField,
   QBtn,
-  QBtnToggle,
   QToggle,
   QMenu,
   QIcon,
   QColor,
-  QToolbar,
-  QToolbarTitle,
   colors,
 } from 'quasar'
+import { Component as QIconPicker } from '@quasar/quasar-ui-qiconpicker'
+import { validationMixin } from 'vuelidate'
+import { required } from 'vuelidate/lib/validators'
+
 import { createActivityTypeStylesheet } from '@/activities/datastore/activityTypeStylesheetPlugin'
 
+import editMixin from '@/utils/mixins/editMixin'
+import statusMixin from '@/utils/mixins/statusMixin'
+
 const { getPaletteColor } = colors
+
+// We provide a limited palette of colours to choose from that we think will look nice
+// See https://quasar.dev/style/color-palette#Color-List
+const COLOUR_NAMES = [
+  'pink',
+  'purple',
+  'indigo',
+  'light-blue',
+  'cyan',
+  'teal',
+  'green',
+  'amber',
+  'deep-orange',
+  'blue-grey',
+]
+
+const COLOUR_SHADES = [
+  8,
+  9,
+  10,
+]
+
+// For the colour picker we need to provide a flat array with all the colours and shades
+// Quasar warns that "getPaletteColor" is quite expensive function to call, putting it here means it's only called
+// once for the whole module when it's first loaded (which would be async hopefully), not once per form
+const PALETTE_COLOURS = COLOUR_SHADES.flatMap(number => COLOUR_NAMES.map(name => getPaletteColor(`${name}-${number}`)))
 
 export default {
   components: {
@@ -293,16 +243,10 @@ export default {
     QInput,
     QField,
     QBtn,
-    // eslint-disable-next-line vue/no-unused-components
-    QBtnToggle,
     QToggle,
     QMenu,
     QIcon,
     QColor,
-    // eslint-disable-next-line vue/no-unused-components
-    QToolbar,
-    // eslint-disable-next-line vue/no-unused-components
-    QToolbarTitle,
     QIconPicker,
   },
   mixins: [validationMixin, editMixin, statusMixin],
@@ -313,26 +257,8 @@ export default {
     },
   },
   data () {
-    // See https://quasar.dev/style/color-palette#Color-List
-    const colourNames = [
-      'pink',
-      'purple',
-      'indigo',
-      'light-blue',
-      'cyan',
-      'teal',
-      'green',
-      'amber',
-      'deep-orange',
-      'blue-grey',
-    ]
-    const colourNumbers = [
-      8,
-      9,
-      10,
-    ]
     return {
-      paletteColours: colourNumbers.flatMap(number => colourNames.map(name => getPaletteColor(`${name}-${number}`))),
+      paletteColours: PALETTE_COLOURS,
       customName: '',
       iconFilter: '',
       iconPagination: {
@@ -398,11 +324,10 @@ export default {
     'edit.colour': {
       handler () {
         // TODO: this doesn't handle yet when it doesn't have an id (new...)
-        const mapping = this.updateActivityTypes([this.edit])
-        console.log('got mapping!', mapping)
+        // Keep our activity type class names up to date!
+        this.updateActivityTypes([this.edit])
       },
       immediate: true,
-      // deep: true,
     },
     'edit.icon' () {
       this.$refs.iconMenu.hide()
@@ -410,24 +335,6 @@ export default {
     'edit.feedbackIcon' () {
       this.$refs.feedbackIconMenu.hide()
     },
-    // 'edit.nameIsTranslatable' (nameIsTranslatable) {
-    //   if (nameIsTranslatable) {
-    //     // We just switched to use translatable name
-    //     // Keep a copy of the custom value so we can restore it if nameIsTranslatable is set to false later
-    //     this.customName = this.edit.name
-    //
-    //     // make sure the value is one of the entries...
-    //     if (!this.translatableNameOptions.map(option => option.value).includes(this.edit.name)) {
-    //       this.edit.name = this.translatableNameOptions[0].value
-    //     }
-    //   }
-    //   else {
-    //     // We just switched back to custom name
-    //     if (this.customName) {
-    //       this.edit.name = this.customName
-    //     }
-    //   }
-    // },
   },
   beforeCreate () {
     const { updateActivityTypes, removeStylesheet } = createActivityTypeStylesheet('-edit')

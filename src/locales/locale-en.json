@@ -138,6 +138,7 @@
     "STATUS": "Status",
     "STANDARD_NAME_HINT": "Name will be available in other languages",
     "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
+    "MANAGE_TYPES": "Manage types...",
     "SHOW_ARCHIVED": "Show archived",
     "STATUS_ACTIVE_HINT": "You will be able to create new activities and series of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new activities or series of this type, but existing ones will still be available"

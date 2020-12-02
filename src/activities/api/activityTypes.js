@@ -11,7 +11,7 @@ export default {
   },
 
   async create (activityType) {
-    return (await axios.post('/api/activities-types/', activityType)).data
+    return (await axios.post('/api/activity-types/', activityType)).data
   },
 
   async save (activityType) {

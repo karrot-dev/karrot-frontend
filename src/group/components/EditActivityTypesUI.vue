@@ -5,6 +5,7 @@
         :columns="columns"
         :data="filteredActivityTypes"
         hide-pagination
+        :pagination="{ rowsPerPage: 0 }"
         flat
       >
         <template #top-left>
@@ -13,12 +14,22 @@
             :label="$t('ACTIVITY_TYPES.SHOW_ARCHIVED')"
           />
         </template>
+        <template #top-right>
+          <QBtn
+            round
+            unelevated
+            color="green"
+            @click="createNewActivityType()"
+          >
+            Add
+          </QBtn>
+        </template>
         <template #body="props">
           <QTr
             :key="props.key"
             :props="props"
             class="cursor-pointer"
-            @click="editActivityTypeId === props.row.id ? stopEdit(props.row.id) : startEdit(props.row.id)"
+            @click="toggleEdit(props.row)"
           >
             <QTd
               v-for="col in props.cols"
@@ -72,12 +83,24 @@
           </QTr>
         </template>
       </QTable>
+      <div
+        v-if="newActivityType"
+        class="q-pa-md"
+      >
+        <h2>New Activity Type!</h2>
+        <ActivityTypeForm
+          :value="newActivityType"
+          :activity-types="activityTypes"
+          @save="saveNewActivityType"
+        />
+      </div>
     </QCard>
   </div>
 </template>
 
 <script>
 import {
+  QBtn,
   QCard,
   QTable,
   QTr,
@@ -91,6 +114,7 @@ import ActivityTypeForm from '@/group/components/ActivityTypeForm'
 export default {
   components: {
     ActivityTypeForm,
+    QBtn,
     QCard,
     QTr,
     QTable,
@@ -104,11 +128,16 @@ export default {
       type: Array,
       required: true,
     },
+    activityTypeCreateStatus: {
+      type: Object,
+      required: true,
+    },
   },
   data () {
     return {
       showArchived: false,
       editActivityTypeId: null,
+      newActivityType: null,
     }
   },
   computed: {
@@ -159,24 +188,23 @@ export default {
   },
   watch: {
     'editActivityType.saveStatus' (status, prevStatus) {
-      if (!status || !prevStatus) return
-      if (prevStatus.pending && !status.pending && !status.hasValidationErrors) {
-        // Means we just saved! I hate this convoluted way to find out the simplest of things...
-        // I'm hoping the composable data layer concept will address this
-        // See https://github.com/yunity/karrot-frontend/pull/2252
-        // Hide the form..
-        this.editActivityTypeId = null
+      if (this.wasSuccessful(status, prevStatus)) {
+        this.editActivityTypeId = null // hide the edit form
+      }
+    },
+    activityTypeCreateStatus (status, prevStatus) {
+      if (this.wasSuccessful(status, prevStatus)) {
+        this.newActivityType = null // hide the new form
       }
     },
   },
   methods: {
-    startEdit (id) {
-      this.editActivityTypeId = id
-    },
-    stopEdit (id) {
-      // Maybe check if they have changed anything... or pass it to the form, or something...
-      if (id === this.editActivityTypeId) { // we might have switched directly to another one already (if clicking on another edit button)
+    toggleEdit (activityType) {
+      if (this.editActivityTypeId === activityType.id) {
         this.editActivityTypeId = null
+      }
+      else {
+        this.editActivityTypeId = activityType.id
       }
     },
     save (activityType) {
@@ -187,6 +215,28 @@ export default {
         active: 'green',
         archived: 'grey',
       }[status] || 'primary'
+    },
+    createNewActivityType () {
+      this.newActivityType = {
+        name: '',
+        nameIsTranslatable: true,
+        colour: '555555',
+        status: 'active',
+        icon: 'fas fa-asterisk',
+        feedbackIcon: 'fas fa-reply',
+        hasFeedback: false,
+        hasFeedbackWeight: false,
+      }
+    },
+    saveNewActivityType (activityType) {
+      this.$emit('create', activityType)
+    },
+    wasSuccessful (status, prevStatus) {
+      // Means we just saved! I hate this convoluted way to find out the simplest of things...
+      // I'm hoping the composable data layer concept will address this
+      // See https://github.com/yunity/karrot-frontend/pull/2252
+      if (!status || !prevStatus) return
+      return prevStatus.pending && !status.pending && !status.hasValidationErrors
     },
   },
 }

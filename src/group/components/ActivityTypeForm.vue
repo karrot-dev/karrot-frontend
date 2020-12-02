@@ -9,6 +9,7 @@
       @submit.prevent="maybeSave"
     >
       <QField
+        v-if="!isNew"
         borderless
         :hint="$t(`ACTIVITY_TYPES.STATUS_${edit.status.toUpperCase()}_HINT`)"
       >
@@ -294,7 +295,7 @@ export default {
     },
     activityTypeNamesInUse () {
       return this.activityTypes
-        .filter(activityType => activityType.id !== this.edit.id)
+        .filter(activityType => activityType.id && activityType.id !== this.edit.id)
         .map(activityType => activityType.name)
     },
     hasNameError () {
@@ -316,8 +317,8 @@ export default {
         this.edit.colour = val.substring(1)
       },
     },
-    nameIsTranslatable () {
-      return this.translatableNames.includes(this.edit.name)
+    activityTypesDebug () {
+      return this.activityTypes.map(({ id, name, status, group }) => ({ id, name, status, group }))
     },
   },
   watch: {

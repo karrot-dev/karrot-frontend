@@ -1,5 +1,5 @@
 import activityTypes from '@/activities/api/activityTypes'
-import { createMetaModule, indexById, metaStatusesWithId, withMeta } from '@/utils/datastore/helpers'
+import { createMetaModule, indexById, metaStatuses, metaStatusesWithId, withMeta } from '@/utils/datastore/helpers'
 import i18n from '@/base/i18n'
 
 function initialState () {
@@ -43,6 +43,10 @@ export default {
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
       return getters.all.filter(({ group }) => group === rootGetters['currentGroup/id'])
     },
+    activeByCurrentGroup: (state, getters) => {
+      return getters.byCurrentGroup.filter(activityType => activityType.status === 'active')
+    },
+    ...metaStatuses(['create']),
   },
   actions: {
     ...withMeta({
@@ -60,7 +64,14 @@ export default {
           },
         }, { root: true })
       },
+      async create ({ commit, dispatch, rootGetters }, data) {
+        await activityTypes.create({ group: rootGetters['currentGroup/id'], ...data })
+        dispatch('refresh')
+      },
     }),
+    refresh ({ dispatch }) {
+      dispatch('fetch')
+    },
   },
   mutations: {
     clear (state) {

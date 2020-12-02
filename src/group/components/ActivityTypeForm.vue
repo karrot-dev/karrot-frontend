@@ -96,7 +96,7 @@
         use-input
         fill-input
         hide-selected
-        :label="$t('name')"
+        :label="$t('ACTIVITY_TYPES.NAME')"
         :options="translatableNameOptions"
         :error="hasNameError"
         :error-message="nameError"
@@ -113,7 +113,7 @@
       >
         <QToggle
           v-model="edit.hasFeedback"
-          :label="$t('ACTIVITY_TYPES.FEEDBACK_LABEL')"
+          :label="$t('ACTIVITY_TYPES.FEEDBACK')"
         />
         <QToggle
           v-if="edit.hasFeedback"

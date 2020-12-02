@@ -10,7 +10,7 @@
         <template #top-left>
           <QToggle
             v-model="showArchived"
-            label="Show archived"
+            :label="$t('ACTIVITY_TYPES.SHOW_ARCHIVED')"
           />
         </template>
         <template #body="props">
@@ -47,7 +47,7 @@
               </template>
               <QBadge
                 v-else-if="col.name === 'status'"
-                :color="colorForStatus(col.value)"
+                :color="colourForStatus(col.value)"
               >
                 {{ col.value }}
               </QBadge>
@@ -124,7 +124,7 @@ export default {
       return [
         this.showArchived && { // don't need to see status unless we're viewing all ...
           name: 'status',
-          label: this.$t('status'),
+          label: this.$t('ACTIVITY_TYPES.STATUS'),
           field: row => row.status,
           align: 'left',
           autoWidth: true,
@@ -136,20 +136,20 @@ export default {
         },
         {
           name: 'name',
-          label: this.$t('name'),
+          label: this.$t('ACTIVITY_TYPES.NAME'),
           field: row => row.translatedName,
           align: 'left',
           classes: 'text-weight-bold',
         },
         {
           name: 'feedback',
-          label: this.$t('feedback'),
+          label: this.$t('ACTIVITY_TYPES.FEEDBACK'),
           align: 'left',
           autoWidth: true,
         },
         {
           name: 'feedbackWeight',
-          label: this.$t('feedbackWeight'),
+          label: this.$t('ACTIVITY_TYPES.FEEDBACK_WEIGHT'),
           field: row => row.hasFeedbackWeight,
           align: 'left',
           autoWidth: true,
@@ -182,7 +182,7 @@ export default {
     save (activityType) {
       this.$emit('save', activityType)
     },
-    colorForStatus (status) {
+    colourForStatus (status) {
       return {
         active: 'green',
         archived: 'grey',

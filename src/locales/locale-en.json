@@ -131,10 +131,14 @@
   "ACTIVITY_TYPES": {
     "FEEDBACK_YES_HINT": "The participants will be asked for feedback about the activity",
     "FEEDBACK_NO_HINT": "No feedback will be requested",
-    "FEEDBACK_LABEL": "Feedback",
     "FEEDBACK_WEIGHT_LABEL": "Ask for weight?",
+    "NAME": "Name",
+    "FEEDBACK": "Feedback",
+    "FEEDBACK_WEIGHT": "Feedback weight",
+    "STATUS": "Status",
     "STANDARD_NAME_HINT": "Name will be available in other languages",
     "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
+    "SHOW_ARCHIVED": "Show archived",
     "STATUS_ACTIVE_HINT": "You will be able to create new activities and series of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new activities or series of this type, but existing ones will still be available"
   },

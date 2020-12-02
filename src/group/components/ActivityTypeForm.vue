@@ -8,6 +8,9 @@
       style="max-width: 700px"
       @submit.prevent="maybeSave"
     >
+      <h3 v-if="isNew">
+        {{ $t('ACTIVITY_TYPES.ADD') }}
+      </h3>
       <QField
         v-if="!isNew"
         borderless
@@ -49,7 +52,7 @@
                 outlined
                 clearable
                 class="q-ma-md"
-                autofocus
+                :autofocus="!$q.platform.has.touch"
               />
               <QIconPicker
                 v-model="edit.icon"
@@ -101,6 +104,7 @@
         :options="translatableNameOptions"
         :error="hasNameError"
         :error-message="nameError"
+        :autofocus="!$q.platform.has.touch && isNew"
         autocomplete="off"
         :hint="edit.nameIsTranslatable ? $t('ACTIVITY_TYPES.STANDARD_NAME_HINT') : $t('ACTIVITY_TYPES.CUSTOM_NAME_HINT')"
         @blur="$v.edit.name.$touch"
@@ -148,7 +152,7 @@
                   outlined
                   clearable
                   class="q-ma-md"
-                  autofocus
+                  :autofocus="!$q.platform.has.touch"
                 />
                 <QIconPicker
                   v-model="edit.feedbackIcon"
@@ -168,12 +172,10 @@
 
       <div class="row justify-end q-gutter-sm q-mt-sm">
         <QBtn
-          v-if="!isNew"
           type="button"
-          :disable="!hasChanged"
-          @click="reset"
+          @click="$emit('cancel')"
         >
-          {{ $t('BUTTON.RESET') }}
+          {{ $t('BUTTON.CANCEL') }}
         </QBtn>
 
         <QBtn

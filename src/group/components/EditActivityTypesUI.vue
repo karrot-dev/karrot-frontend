@@ -17,12 +17,10 @@
         <template #top-right>
           <QBtn
             round
-            unelevated
             color="green"
+            icon="fas fa-plus"
             @click="createNewActivityType()"
-          >
-            Add
-          </QBtn>
+          />
         </template>
         <template #body="props">
           <QTr
@@ -78,22 +76,21 @@
                 :activity-types="activityTypes"
                 :status="editActivityType.saveStatus"
                 @save="save"
+                @cancel="cancelActivityType"
               />
             </QTd>
           </QTr>
         </template>
       </QTable>
-      <div
+      <ActivityTypeForm
         v-if="newActivityType"
-        class="q-pa-md"
-      >
-        <h2>New Activity Type!</h2>
-        <ActivityTypeForm
-          :value="newActivityType"
-          :activity-types="activityTypes"
-          @save="saveNewActivityType"
-        />
-      </div>
+        :value="newActivityType"
+        :activity-types="activityTypes"
+        :status="activityTypeCreateStatus"
+        class="q-ma-md"
+        @save="saveNewActivityType"
+        @cancel="cancelNewActivityType"
+      />
     </QCard>
   </div>
 </template>
@@ -220,7 +217,7 @@ export default {
       this.newActivityType = {
         name: '',
         nameIsTranslatable: true,
-        colour: '555555',
+        colour: '455a64', // blue-grey / 8
         status: 'active',
         icon: 'fas fa-asterisk',
         feedbackIcon: 'fas fa-reply',
@@ -231,12 +228,26 @@ export default {
     saveNewActivityType (activityType) {
       this.$emit('create', activityType)
     },
+    cancelNewActivityType () {
+      this.newActivityType = null
+      this.resetNewActivityType()
+    },
+    cancelActivityType () {
+      this.editActivityTypeId = null
+      this.resetActivityType()
+    },
     wasSuccessful (status, prevStatus) {
       // Means we just saved! I hate this convoluted way to find out the simplest of things...
       // I'm hoping the composable data layer concept will address this
       // See https://github.com/yunity/karrot-frontend/pull/2252
       if (!status || !prevStatus) return
       return prevStatus.pending && !status.pending && !status.hasValidationErrors
+    },
+    resetNewActivityType () {
+      this.$store.dispatch('activityTypes/meta/clear', ['create'])
+    },
+    resetActivityType (activityId) {
+      this.$store.dispatch('activityTypes/meta/clear', ['save', activityId])
     },
   },
 }

@@ -129,6 +129,7 @@
     "ARCHIVED": "Archived"
   },
   "ACTIVITY_TYPES": {
+    "ADD": "Add new type",
     "FEEDBACK_YES_HINT": "The participants will be asked for feedback about the activity",
     "FEEDBACK_NO_HINT": "No feedback will be requested",
     "FEEDBACK_WEIGHT_LABEL": "Ask for weight?",

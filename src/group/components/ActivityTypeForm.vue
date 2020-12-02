@@ -8,11 +8,14 @@
       style="max-width: 700px"
       @submit.prevent="maybeSave"
     >
-      <QField borderless>
+      <QField
+        borderless
+        :hint="$t(`ACTIVITY_TYPES.STATUS_${edit.status.toUpperCase()}_HINT`)"
+      >
         <template #control>
           <QToggle
             v-model="edit.status"
-            :label="edit.status"
+            :label="$t(`ACTIVITY_TYPE_STATUS.${edit.status.toUpperCase()}`)"
             true-value="active"
             false-value="archived"
             color="green"
@@ -30,8 +33,8 @@
         </template>
         <template #control>
           <QBtn
-            label="Change icon"
-            unelevated
+            :label="$t('BUTTON.CHANGE_ICON')"
+            flat
             color="primary"
             class="q-mr-sm"
           >
@@ -61,8 +64,8 @@
           </QBtn>
 
           <QBtn
-            label="Change colour"
-            unelevated
+            :label="$t('BUTTON.CHANGE_COLOUR')"
+            flat
             color="primary"
           >
             <QMenu
@@ -98,7 +101,7 @@
         :error="hasNameError"
         :error-message="nameError"
         autocomplete="off"
-        :hint="edit.nameIsTranslatable ? 'Name will be available in other languages' : 'Name will be used exactly as you write it and not translated'"
+        :hint="edit.nameIsTranslatable ? $t('ACTIVITY_TYPES.STANDARD_NAME_HINT') : $t('ACTIVITY_TYPES.CUSTOM_NAME_HINT')"
         @blur="$v.edit.name.$touch"
         @input-value="onNameInput"
       />
@@ -181,16 +184,16 @@
       <QField
         borderless
         hide-bottom-space
-        :hint="edit.hasFeedback ? 'After the activity the participants will be asked to provide feedback' : 'No feedback will be requested'"
+        :hint="edit.hasFeedback ? $t('ACTIVITY_TYPES.FEEDBACK_YES_HINT') : $t('ACTIVITY_TYPES.FEEDBACK_NO_HINT')"
       >
         <QToggle
           v-model="edit.hasFeedback"
-          :label="edit.hasFeedback ? 'Feedback' : 'No feedback'"
+          :label="$t('ACTIVITY_TYPES.FEEDBACK_LABEL')"
         />
         <QToggle
           v-if="edit.hasFeedback"
           v-model="edit.hasFeedbackWeight"
-          label="Ask for feedback weight"
+          :label="$t('ACTIVITY_TYPES.FEEDBACK_WEIGHT_LABEL')"
           class="q-ml-lg"
         />
       </QField>
@@ -206,8 +209,8 @@
           </template>
           <template #control>
             <QBtn
-              label="Change icon"
-              unelevated
+              :label="$t('BUTTON.CHANGE_ICON')"
+              flat
               color="primary"
             >
               <QMenu
@@ -406,12 +409,6 @@ export default {
     },
     'edit.feedbackIcon' () {
       this.$refs.feedbackIconMenu.hide()
-    },
-    'edit.name': {
-      handler (val) {
-        console.log('name is', val)
-      },
-      immediate: true,
     },
     // 'edit.nameIsTranslatable' (nameIsTranslatable) {
     //   if (nameIsTranslatable) {

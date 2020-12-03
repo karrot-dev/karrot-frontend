@@ -1,6 +1,6 @@
 <template>
   <div>
-    <QCard>
+    <component :is="$q.platform.is.mobile ? 'div' : 'QCard'">
       <QTable
         :columns="columns"
         :data="filteredActivityTypes"
@@ -70,7 +70,10 @@
             :key="`${props.key}-expand`"
             :props="props"
           >
-            <QTd colspan="100%">
+            <QTd
+              colspan="100%"
+              style="padding: 0;"
+            >
               <ActivityTypeForm
                 :value="editActivityType"
                 :activity-types="activityTypes"
@@ -87,11 +90,11 @@
         :value="newActivityType"
         :activity-types="activityTypes"
         :status="activityTypeCreateStatus"
-        class="q-ma-md"
+        :class="$q.platform.is.mobile ? '' : 'q-ma-md'"
         @save="saveNewActivityType"
         @cancel="cancelNewActivityType"
       />
-    </QCard>
+    </component>
   </div>
 </template>
 
@@ -180,8 +183,9 @@ export default {
           field: row => row.hasFeedbackWeight,
           align: 'center',
           autoWidth: true,
+          hideOnMobile: true,
         },
-      ].filter(Boolean)
+      ].filter(Boolean).filter(col => !(this.$q.platform.is.mobile && col.hideOnMobile))
     },
   },
   watch: {

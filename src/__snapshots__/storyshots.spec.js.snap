@@ -5877,48 +5877,66 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
 `;
 
 exports[`Storyshots GroupEdit create 1`] = `
-<div>
-  <div class="q-card" style="max-width:700px;">
-    <div class="edit-box k-change-photo"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--standard q-field--float q-field--labeled q-field--auto-height q-field--with-bottom">
-        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-camera q-icon notranslate"> </i></div>
-        <div class="q-field__inner relative-position col self-stretch column justify-center">
-          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-              <div class="q-field__native row">
-                <div class="q-mt-sm croppa-container       cursor-pointer"><input type="file" style="height:1px;width:1px;overflow:hidden;margin-left:-99999px;position:absolute;">
-                  <div class="slots" style="width:0;height:0;visibility:hidden;"> <img src="statics/add_a_photo.svg"></div> <canvas></canvas>
-                  <!---->
-                  <!---->
-                </div> <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-              </div>
-              <div class="q-field__label no-pointer-events absolute ellipsis">Group logo</div>
+<div class="q-card">
+  <div class="edit-box k-change-photo"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-field--standard q-field--float q-field--labeled q-field--auto-height q-field--with-bottom">
+      <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-camera q-icon notranslate"> </i></div>
+      <div class="q-field__inner relative-position col self-stretch column justify-center">
+        <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+            <div class="q-field__native row">
+              <div class="q-mt-sm croppa-container       cursor-pointer"><input type="file" style="height:1px;width:1px;overflow:hidden;margin-left:-99999px;position:absolute;">
+                <div class="slots" style="width:0;height:0;visibility:hidden;"> <img src="statics/add_a_photo.svg"></div> <canvas></canvas>
+                <!---->
+                <!---->
+              </div> <object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
             </div>
-          </div>
-          <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <transition-stub name="q-transition--field-message">
-              <div class="q-field__messages col">
-                <div>Click to upload your group logo!</div>
-              </div>
-            </transition-stub>
+            <div class="q-field__label no-pointer-events absolute ellipsis">Group logo</div>
           </div>
         </div>
-      </label>
-      <!---->
-      <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+        <div class="q-field__bottom row items-start q-field__bottom--animated">
+          <transition-stub name="q-transition--field-message">
+            <div class="q-field__messages col">
+              <div>Click to upload your group logo!</div>
+            </div>
+          </transition-stub>
+        </div>
+      </div>
+    </label>
+    <!---->
+    <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Reset
     </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
       Delete
     </span></span></button> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span></span></span></span>
-          <transition-stub name="q-transition--fade"></transition-stub>
-        </button></div>
-    </div>
-    <div class="edit-box">
-      <form><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
-          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-star q-icon notranslate"> </i></div>
+        <transition-stub name="q-transition--fade"></transition-stub>
+      </button></div>
+  </div>
+  <div class="edit-box">
+    <form><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-input q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-star q-icon notranslate"> </i></div>
+        <div class="q-field__inner relative-position col self-stretch column justify-center">
+          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" data-autofocus="true" aria-label="Title of this group" id="f_80808080-8080-4080-8080-808080808080" autocomplete="off" type="text" value="05_testgroup" class="q-field__native q-placeholder">
+              <div class="q-field__label no-pointer-events absolute ellipsis">Title of this group</div>
+            </div>
+          </div>
+          <div class="q-field__bottom row items-start q-field__bottom--animated">
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col"></div>
+            </transition-stub>
+          </div>
+        </div>
+      </label>
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-question q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" data-autofocus="true" aria-label="Title of this group" id="f_80808080-8080-4080-8080-808080808080" autocomplete="off" type="text" value="05_testgroup" class="q-field__native q-placeholder">
-                <div class="q-field__label no-pointer-events absolute ellipsis">Title of this group</div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Public group information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">This is the public description
+It would make sense if it was markdown
+
+# then this would be a header
+[and this a link](www.google.de)</textarea>
+                <div class="q-field__label no-pointer-events absolute ellipsis">Public group information</div>
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
@@ -5927,109 +5945,16 @@ exports[`Storyshots GroupEdit create 1`] = `
               </transition-stub>
             </div>
           </div>
-        </label>
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
-            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-question q-icon notranslate"> </i></div>
-            <div class="q-field__inner relative-position col self-stretch column justify-center">
-              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Public group information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">This is the public description
-It would make sense if it was markdown
-
-# then this would be a header
-[and this a link](www.google.de)</textarea>
-                  <div class="q-field__label no-pointer-events absolute ellipsis">Public group information</div>
-                </div>
-              </div>
-              <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <transition-stub name="q-transition--field-message">
-                  <div class="q-field__messages col"></div>
-                </transition-stub>
-              </div>
-            </div>
-          </label> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
-            <!----></span></span>
-          </button></div>
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
-            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-address-card q-icon notranslate"> </i></div>
-            <div class="q-field__inner relative-position col self-stretch column justify-center">
-              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Group description, visible for members" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
-                  <div class="q-field__label no-pointer-events absolute ellipsis">Group description, visible for members</div>
-                </div>
-              </div>
-              <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <transition-stub name="q-transition--field-message">
-                  <div class="q-field__messages col"></div>
-                </transition-stub>
-              </div>
-            </div>
-          </label>
-          <!---->
-        </div>
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
-            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-address-card q-icon notranslate"> </i></div>
-            <div class="q-field__inner relative-position col self-stretch column justify-center">
-              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Welcome message sent to new members" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
-                  <div class="q-field__label no-pointer-events absolute ellipsis">Welcome message sent to new members</div>
-                </div>
-              </div>
-              <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <transition-stub name="q-transition--field-message">
-                  <div class="q-field__messages col"></div>
-                </transition-stub>
-              </div>
-            </div>
-          </label>
-          <!---->
-        </div>
-        <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--standard q-field--float q-field--labeled q-field--with-bottom">
-            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-map-marker q-icon notranslate"> </i></div>
-            <div class="q-field__inner relative-position col self-stretch column justify-center">
-              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                  <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" id="f_80808080-8080-4080-8080-808080808080" tabindex="0" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="q-field__input q-placeholder col q-field__input--padding"></div>
-                  <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
-                </div>
-                <div class="q-field__append q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="cursor-pointer material-icons q-icon notranslate">cancel</i></div>
-              </div>
-              <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <transition-stub name="q-transition--field-message">
-                  <div class="q-field__messages col"></div>
-                </transition-stub>
-              </div>
-            </div>
-          </label>
-          <div class="vue2leaflet-map k-map map">
-            <!---->
-          </div>
-        </div>
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
-            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-question q-icon notranslate"> </i></div>
-            <div class="q-field__inner relative-position col self-stretch column justify-center">
-              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Questions for people who want to join this group" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">Hello stranger! :smiley: :wave: Do you want to help us save all the good food from being wasted? Please tell us how you plan to contribute and who or what made you aware of our existence! Looking forward to working with you!</textarea>
-                  <div class="q-field__label no-pointer-events absolute ellipsis">Questions for people who want to join this group</div>
-                </div>
-              </div>
-              <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <transition-stub name="q-transition--field-message">
-                  <div class="q-field__messages col"></div>
-                </transition-stub>
-              </div>
-            </div>
-          </label> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
-            <!----></span></span>
-          </button></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--standard q-field--labeled q-field--with-bottom">
-          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-globe q-icon notranslate"> </i></div>
+        </label> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
+          <!----></span></span>
+        </button></div>
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-address-card q-icon notranslate"> </i></div>
           <div class="q-field__inner relative-position col self-stretch column justify-center">
             <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
-                <div class="q-field__native row items-center"><input type="search" id="f_80808080-8080-4080-8080-808080808080" tabindex="0" value="" class="q-field__input q-placeholder col"></div>
-                <div class="q-field__label no-pointer-events absolute ellipsis">Time zone of group</div>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Group description, visible for members" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+                <div class="q-field__label no-pointer-events absolute ellipsis">Group description, visible for members</div>
               </div>
-              <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="q-select__dropdown-icon material-icons q-icon notranslate">arrow_drop_down</i></div>
-              <!---->
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
               <transition-stub name="q-transition--field-message">
@@ -6039,15 +5964,88 @@ It would make sense if it was markdown
           </div>
         </label>
         <!---->
-        <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-            Reset
-          </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-            Save changes
-          </span></span>
-            <transition-stub name="q-transition--fade"></transition-stub>
-          </button></div>
-      </form>
-    </div>
+      </div>
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
+          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-address-card q-icon notranslate"> </i></div>
+          <div class="q-field__inner relative-position col self-stretch column justify-center">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Welcome message sent to new members" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+                <div class="q-field__label no-pointer-events absolute ellipsis">Welcome message sent to new members</div>
+              </div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
+            </div>
+          </div>
+        </label>
+        <!---->
+      </div>
+      <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-map-marker q-icon notranslate"> </i></div>
+          <div class="q-field__inner relative-position col self-stretch column justify-center">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+                <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" id="f_80808080-8080-4080-8080-808080808080" tabindex="0" value="Darmstadt, Regierungsbezirk Darmstadt, Hessen, Deutschland" class="q-field__input q-placeholder col q-field__input--padding"></div>
+                <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
+              </div>
+              <div class="q-field__append q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="cursor-pointer material-icons q-icon notranslate">cancel</i></div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
+            </div>
+          </div>
+        </label>
+        <div class="vue2leaflet-map k-map map">
+          <!---->
+        </div>
+      </div>
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--labeled q-field--with-bottom">
+          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-question q-icon notranslate"> </i></div>
+          <div class="q-field__inner relative-position col self-stretch column justify-center">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Questions for people who want to join this group" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:100px;">Hello stranger! :smiley: :wave: Do you want to help us save all the good food from being wasted? Please tell us how you plan to contribute and who or what made you aware of our existence! Looking forward to working with you!</textarea>
+                <div class="q-field__label no-pointer-events absolute ellipsis">Questions for people who want to join this group</div>
+              </div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
+            </div>
+          </div>
+        </label> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
+          <!----></span></span>
+        </button></div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--standard q-field--labeled q-field--with-bottom">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-globe q-icon notranslate"> </i></div>
+        <div class="q-field__inner relative-position col self-stretch column justify-center">
+          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+              <div class="q-field__native row items-center"><input type="search" id="f_80808080-8080-4080-8080-808080808080" tabindex="0" value="" class="q-field__input q-placeholder col"></div>
+              <div class="q-field__label no-pointer-events absolute ellipsis">Time zone of group</div>
+            </div>
+            <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="q-select__dropdown-icon material-icons q-icon notranslate">arrow_drop_down</i></div>
+            <!---->
+          </div>
+          <div class="q-field__bottom row items-start q-field__bottom--animated">
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col"></div>
+            </transition-stub>
+          </div>
+        </div>
+      </label>
+      <!---->
+      <div class="row justify-end q-gutter-sm q-mt-sm"><button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+          Reset
+        </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+          Save changes
+        </span></span>
+          <transition-stub name="q-transition--fade"></transition-stub>
+        </button></div>
+    </form>
   </div>
 </div>
 `;

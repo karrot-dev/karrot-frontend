@@ -1,7 +1,7 @@
 <template>
   <div>
     <QTabs
-      class="shadow-3 bg-white k-place-tabs"
+      class="bg-white"
       align="left"
     >
       <QRouteTab

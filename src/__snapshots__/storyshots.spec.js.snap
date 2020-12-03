@@ -8,7 +8,7 @@ exports[`Storyshots ActivitiesManage default 1`] = `
         Activity series
       </div>
       <div class="q-fab z-fab row inline justify-center fab-top-fix q-fab--align-right q-fab--form-rounded"><a tabindex="0" role="link" aria-expanded="false" aria-haspopup="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle q-btn--rounded bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--fab q-btn--no-uppercase q-fab--form-rounded"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row no-wrap text-no-wrap"><div class="q-fab__icon-holder"><i aria-hidden="true" role="presentation" class="q-fab__icon absolute-full fas fa-plus q-icon notranslate"> </i><i aria-hidden="true" role="presentation" class="q-fab__active-icon absolute-full material-icons q-icon notranslate">close</i></div></span></span></a>
-        <div class="q-fab__actions flex no-wrap inline q-fab__actions--down"><a tabindex="-1" role="link" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline fab-action-fix q-btn--standard q-btn--rectangle q-btn--rounded disabled q-btn--fab-mini q-btn--no-uppercase q-fab--form-rounded"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row no-wrap text-no-wrap"><div class="q-fab__label q-fab__label--internal q-fab__label--internal-left">Pickup</div><i aria-hidden="true" role="presentation" class="fas fa-shopping-basket q-icon notranslate"> </i></span></span></a></div>
+        <div class="q-fab__actions flex no-wrap inline q-fab__actions--down"> <a tabindex="-1" role="link" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline fab-action-fix bg-white q-btn--outline q-btn--rectangle q-btn--rounded disabled q-btn--fab-mini q-btn--no-uppercase q-fab--form-rounded"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row no-wrap text-no-wrap"><div class="q-fab__label q-fab__label--internal q-fab__label--internal-right">Manage types...</div></span></span></a></div>
       </div>
     </div>
     <!---->
@@ -61,7 +61,7 @@ exports[`Storyshots ActivitiesManage default 1`] = `
         One-time activities
       </div>
       <div class="q-fab z-fab row inline justify-center q-fab--align-right q-fab--form-rounded"><a tabindex="0" role="link" aria-expanded="false" aria-haspopup="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle q-btn--rounded bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--fab q-btn--no-uppercase q-fab--form-rounded"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row no-wrap text-no-wrap"><div class="q-fab__icon-holder"><i aria-hidden="true" role="presentation" class="q-fab__icon absolute-full fas fa-plus q-icon notranslate"> </i><i aria-hidden="true" role="presentation" class="q-fab__active-icon absolute-full material-icons q-icon notranslate">close</i></div></span></span></a>
-        <div class="q-fab__actions flex no-wrap inline q-fab__actions--down"><a tabindex="-1" role="link" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline fab-action-fix q-btn--standard q-btn--rectangle q-btn--rounded disabled q-btn--fab-mini q-btn--no-uppercase q-fab--form-rounded"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row no-wrap text-no-wrap"><div class="q-fab__label q-fab__label--internal q-fab__label--internal-left">Pickup</div><i aria-hidden="true" role="presentation" class="fas fa-shopping-basket q-icon notranslate"> </i></span></span></a></div>
+        <div class="q-fab__actions flex no-wrap inline q-fab__actions--down"> <a tabindex="-1" role="link" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline fab-action-fix bg-white q-btn--outline q-btn--rectangle q-btn--rounded disabled q-btn--fab-mini q-btn--no-uppercase q-fab--form-rounded"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row no-wrap text-no-wrap"><div class="q-fab__label q-fab__label--internal q-fab__label--internal-right">Manage types...</div></span></span></a></div>
       </div>
     </div>
     <!---->
@@ -7217,7 +7217,7 @@ exports[`Storyshots History List Default 1`] = `
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label"><span class="content">
-          did something
+
         </span></div>
         <div stamp="" class="q-item__label mobile-only text-weight-light">
           <div title="Oct 2, 2017, 9:15 AM">
@@ -7243,7 +7243,7 @@ exports[`Storyshots History List Default 1`] = `
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label"><span class="content">
-          did something
+
         </span></div>
         <div stamp="" class="q-item__label mobile-only text-weight-light">
           <div title="Oct 2, 2017, 9:15 AM">
@@ -7269,7 +7269,7 @@ exports[`Storyshots History List Default 1`] = `
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label"><span class="content">
-          did something
+
         </span></div>
         <div stamp="" class="q-item__label mobile-only text-weight-light">
           <div title="Oct 2, 2017, 9:15 AM">
@@ -7295,7 +7295,7 @@ exports[`Storyshots History List Default 1`] = `
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label"><span class="content">
-          did something
+
         </span></div>
         <div stamp="" class="q-item__label mobile-only text-weight-light">
           <div title="Oct 2, 2017, 9:12 AM">
@@ -7321,7 +7321,7 @@ exports[`Storyshots History List Default 1`] = `
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label"><span class="content">
-          did something
+
         </span></div>
         <div stamp="" class="q-item__label mobile-only text-weight-light">
           <div title="Oct 2, 2017, 9:12 AM">
@@ -7345,7 +7345,7 @@ exports[`Storyshots History List Default 1`] = `
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label"><span class="content">
-          did something
+
         </span></div>
         <div stamp="" class="q-item__label mobile-only text-weight-light">
           <div title="Oct 2, 2017, 8:00 AM">
@@ -7371,7 +7371,7 @@ exports[`Storyshots History List Default 1`] = `
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label"><span class="content">
-          did something
+
         </span></div>
         <div stamp="" class="q-item__label mobile-only text-weight-light">
           <div title="Oct 1, 2017, 4:28 PM">
@@ -7397,7 +7397,7 @@ exports[`Storyshots History List Default 1`] = `
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label"><span class="content">
-          did something
+
         </span></div>
         <div stamp="" class="q-item__label mobile-only text-weight-light">
           <div title="Oct 1, 2017, 4:28 PM">
@@ -7423,7 +7423,7 @@ exports[`Storyshots History List Default 1`] = `
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label"><span class="content">
-          did something
+
         </span></div>
         <div stamp="" class="q-item__label mobile-only text-weight-light">
           <div title="Oct 1, 2017, 4:27 PM">
@@ -9701,7 +9701,7 @@ exports[`Storyshots Profile member 1`] = `
             </div>
             <div class="q-item__section column q-item__section--main justify-center">
               <div class="q-item__label"><span class="content">
-          Changed the group picture
+
         </span></div>
               <div stamp="" class="q-item__label mobile-only text-weight-light">
                 <div title="Dec 23, 2017, 10:00 AM">
@@ -9813,7 +9813,7 @@ exports[`Storyshots Profile non-member 1`] = `
             </div>
             <div class="q-item__section column q-item__section--main justify-center">
               <div class="q-item__label"><span class="content">
-          Changed the group picture
+
         </span></div>
               <div stamp="" class="q-item__label mobile-only text-weight-light">
                 <div title="Dec 23, 2017, 10:00 AM">

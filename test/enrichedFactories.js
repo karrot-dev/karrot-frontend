@@ -189,11 +189,13 @@ export const activityTypes = {
   pickup: {
     id: activityTypeIdCnt++,
     name: 'Pickup',
+    translatedName: 'Pickup',
     colour: '007700',
     icon: 'fas fa-shopping-basket',
     feedbackIcon: 'fas fa-balance-scale',
     hasFeedback: true,
     hasFeedbackWeight: true,
+    saveStatus: statusMocks.default(),
   },
 }
 

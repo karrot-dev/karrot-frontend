@@ -276,6 +276,12 @@ export default {
     }
   },
   computed: {
+    canSave () {
+      if (!this.isNew && !this.hasChanged) {
+        return false
+      }
+      return true
+    },
     translatableNames () {
       return [
         // alphabetical
@@ -350,12 +356,6 @@ export default {
     this.removeStylesheet()
   },
   methods: {
-    canSave () {
-      if (!this.isNew && !this.hasChanged) {
-        return false
-      }
-      return true
-    },
     maybeSave () {
       if (!this.canSave) return
       this.save()

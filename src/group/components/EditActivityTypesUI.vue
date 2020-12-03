@@ -105,6 +105,7 @@ import {
   QIcon,
   QToggle,
   QBadge,
+  Dialog,
 } from 'quasar'
 import ActivityTypeForm from '@/group/components/ActivityTypeForm'
 
@@ -157,7 +158,7 @@ export default {
         },
         {
           name: 'icon',
-          align: 'right',
+          align: 'center',
           autoWidth: true,
         },
         {
@@ -170,14 +171,14 @@ export default {
         {
           name: 'feedback',
           label: this.$t('ACTIVITY_TYPES.FEEDBACK'),
-          align: 'left',
+          align: 'center',
           autoWidth: true,
         },
         {
           name: 'feedbackWeight',
           label: this.$t('ACTIVITY_TYPES.FEEDBACK_WEIGHT'),
           field: row => row.hasFeedbackWeight,
-          align: 'left',
+          align: 'center',
           autoWidth: true,
         },
       ].filter(Boolean)
@@ -205,7 +206,24 @@ export default {
       }
     },
     save (activityType) {
-      this.$emit('save', activityType)
+      Dialog.create({
+        title: this.$t('ACTIVITY_TYPES.CONFIRM_CHANGES'),
+        message: this.$t('ACTIVITY_TYPES.CONFIRM_CHANGES_HINT'),
+        prompt: {
+          model: '',
+          type: 'text',
+        },
+        cancel: this.$t('BUTTON.CANCEL'),
+        ok: this.$t('BUTTON.SAVE_CHANGES'),
+      })
+        .onOk(updatedMessage => {
+          if (updatedMessage) {
+            this.$emit('save', { updatedMessage, ...activityType })
+          }
+          else {
+            this.$emit('save', activityType)
+          }
+        })
     },
     colourForStatus (status) {
       return {

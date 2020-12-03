@@ -93,6 +93,7 @@
       </QField>
 
       <QSelect
+        ref="nameInput"
         v-model="edit.name"
         filled
         emit-value
@@ -106,9 +107,11 @@
         :error-message="nameError"
         :autofocus="!$q.platform.has.touch && isNew"
         autocomplete="off"
+        type="input"
         :hint="edit.nameIsTranslatable ? $t('ACTIVITY_TYPES.STANDARD_NAME_HINT') : $t('ACTIVITY_TYPES.CUSTOM_NAME_HINT')"
         @blur="$v.edit.name.$touch"
         @input-value="onNameInput"
+        @keyup.enter="() => $refs.nameInput.hidePopup()"
       />
 
       <QField

@@ -2,6 +2,39 @@
 
 This is a more abstract document to reflect on the design goals of the library. The [README](README.md) has the more walkthrough kind of approach for an actual user.
 
+## Rationale for changes
+
+We currently use vuex with a bunch of modules. We've used a mix of approaches for getting the data into components:
+- vuex-connect at the "page" level, and props-down, events-up philosophy
+- mapGetters/mapActions into the components themselves (when adding a vuex-connect wrapper seems a bit much)
+- ... probably a little bit of usage of this.$store, although not much
+
+Inside the modules we used a few patterns:
+- enriching objects in the getters with related objects and calculated properties
+- storing id -> object mappings to allow effecient getById
+- using "function getters" to get individual items
+- we wrap the actions with a layer that can extract status and various kinds of error states, to be exposed via getters
+- minimising use of Vue.set in loops to batch updates (replace whole object instead)
+- "maybeFetchSomething" actions, which check if something is already in the store, otherwise fetch
+- an "initialState" function, that can be used to reset on logout
+- various watchers to trigger actions to fetch related data when something changes (e.g. when changing group, fetch info again for new group)
+- router plugin so we can define router actions to be called during routing
+- triggering toasts and routing inside actions
+- ... probably some more
+
+There are various complications arriving from our current setup:
+- the data layer is one of the hardest bits for new devs to understand
+- hard to reason about the logic flow between vuex modules + watchers, and aaaaah... quite interconnected in hard to understand ways
+- we kind of gave up on adding new frontend tests, partly because we can't use the store modules in isolation, and mocking them ALL would be overwhelming
+- a feeling we recalculate data too much (e.g. one property in one object changes, and multiple list getters are re-run)
+- a feeling we end up with some performance related issues due to our patterns
+- our system for extracing status/errors is quite hard to use because the actions and getters are seperated
+- not so happy using strings to define everything (actions/getters), would prefer imports and functions
+- too much data-bureaucracy when more local data would be fine, but don't want multiple approaches for local vs global really
+- ... probably some more stuff too
+
+My feeling has been that vuex on it's own only covers a very small scope really, and our patterns of use that we layer on top of it have reached their limit, but vuex makes it quite hard to add higher level abstractions.
+
 ## Aspects to consider
 
 Having explored our real-world usage of data, I came up with this aspects that any data management solution should at least consider, if not address itself. So easy to make a library that works for simple usage but gives up when the shit gets real!

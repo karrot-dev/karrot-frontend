@@ -92,7 +92,7 @@
     "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
     "NONE": "No upcoming activities",
     "NONE_DUE_TO_FILTER": "No activities match your filters",
-    "NONE_HINT": "You can create a new activity on the place page.",
+    "NONE_HINT": "Na stránce místa můžete vytvořit novou aktivitu.",
     "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page."
   },
   "ACTIVITYMANAGE": {
@@ -102,7 +102,7 @@
     "SERIES": "Activity series",
     "SINGLE": "One-time activities",
     "TITLE": "Manage activities",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Připravované aktivity v této sérii"
   },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Množství jídla, které jste dokázali ušetřit (v kg)",
@@ -114,7 +114,7 @@
     "PREVIOUS": "Předchozí zpětná vazba pro {store}",
     "SET_AMOUNT": "Nastavit množství",
     "TITLE": "Zpětná vazba",
-    "TOGETHER_WITH": "You did this together with:"
+    "TOGETHER_WITH": "Udělali jste to společně s:"
   },
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Meeting",
@@ -270,7 +270,7 @@
     "DATE": "Datum",
     "DIFFERS_WARNING": "Tato hodnota se liší od výchozí hodnoty. Chcete-li tuto změnu vrátit zpět, klikněte na tlačítko se šipkou a uložte změny.",
     "DISABLE_TITLE": "Disable?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
+    "ENABLE_DISABLE_MESSAGE": "Uživatelé, kteří se připojili, obdrží oznámení. Tento text můžete změnit a uvést důvod:",
     "ENABLE_TITLE": "Enable?",
     "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
     "EXCEPTIONS_TITLE": "Check your activities",
@@ -286,7 +286,7 @@
     "TIME_HELPER": "When should it take place?",
     "UNLIMITED": "neomezený",
     "WEEKDAYS": "Pracovní dny",
-    "WEEKDAYS_HELPER": "On which days should it take place?",
+    "WEEKDAYS_HELPER": "Ve které dny by se to mělo konat?",
     "WEEKLY": "Týdně"
   },
   "CREATESTORE": {
@@ -322,8 +322,8 @@
     "CLEAR_FILTERS": "Clear filters"
   },
   "GROUP": {
-    "ACTIVITIES": "Activities",
-    "ACTIVITY": "Activity",
+    "ACTIVITIES": "Aktivity",
+    "ACTIVITY": "Aktivita",
     "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
     "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
     "ADDED_BY": "přidal {userName}",
@@ -369,7 +369,7 @@
       },
       "daily_activity_notification": {
         "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
-        "NAME": "Activity notifications"
+        "NAME": "Oznámení o aktivitě"
       },
       "new_application": {
         "DESCRIPTION": "Oznámí vám, když se někdo chce připojit k vaší skupině",
@@ -437,9 +437,9 @@
     "MEMBER_BECAME_EDITOR": "získal oprávnění k úpravám",
     "MEMBER_REMOVED": "byl odstraněn kvůli rozhodnutí skupiny",
     "NOTHING_HAPPENEND": "Zatím se nic nestalo ...",
-    "SERIES_CREATE": "{activityType} series created",
-    "SERIES_DELETE": "{activityType} series deleted",
-    "SERIES_MODIFY": "changed the settings of a series",
+    "SERIES_CREATE": "{activityType} série vytvořena",
+    "SERIES_DELETE": "{activityType} série smazána",
+    "SERIES_MODIFY": "změněno nastavení série",
     "STORE_CREATE": "vytvořené místo {name}",
     "STORE_DELETE": "smazané místo {name}",
     "STORE_MODIFY": "změněno nastavení místa {name}"
@@ -554,7 +554,7 @@
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Bylo rozhodnuto v procesu řešení konfliktů s vámi",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Byl jste odstraněn ze skupiny",
     "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
-    "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
+    "FEEDBACK_POSSIBLE": "Můžete poskytnout zpětnou vazbu -{activityType} na {date}",
     "INVITATION_ACCEPTED": "{userName} přijal vaše pozvání",
     "NEW_APPLICANT": "{userName} přihlášen do vaší skupiny",
     "NEW_MEMBER": "{userName} se připojil k vaší skupině",
@@ -623,7 +623,7 @@
       "NO": "ne",
       "NO_TEXT": "None of the above. You can still sign up for activities though.",
       "YES": "ano",
-      "YES_TEXT": "Shows available activities on the group wall and sends emails about upcoming activities."
+      "YES_TEXT": "Zobrazuje dostupné aktivity na zdi skupiny a odesílá e-maily o nadcházejících aktivitách."
     }
   },
   "PROFILE": {
@@ -679,8 +679,8 @@
     "SHOW_ACTIVE_ONLY": "Zobrazit pouze aktivní místa",
     "SHOW_ALL": "Zobrazit všechna místa",
     "STATUS": "Stav",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
+    "WEEKS_IN_ADVANCE": "Kolik týdnů předem by měly být vytvořeny aktivity pro série?",
+    "WEEKS_IN_ADVANCE_WARNING": "Chystáte se snížit počet vytvořených aktivit. Stávající budou smazány, pokud se k nim nikdo nepřipojil. V případě potřeby můžete ostatní deaktivovat ručně."
   },
   "STORESTATUS": {
     "ACTIVE": "Spolupracuje",
@@ -737,7 +737,7 @@
     "MOBILE_NUMBER": "Telefonní číslo",
     "NEWCOMER": "Nový příchozí",
     "NEWCOMER_GUIDANCE": "{userName} je pro vaši skupinu nový a může vyžadovat nějakou pomoc.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "NEWCOMER_INFO": "Momentálně jste v {groupName} nováčkem a můžete se stát aktivním psaním zpráv, setkáváním s ostatními členy, prováděním aktivit a poskytováním zpětné vazby. Jakmile vám členové {threshold} vyjádří důvěru, získáte oprávnění k úpravám, které vám pomohou se správou skupiny.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} důvěřuje {userName} v {groupName}. | {count} lidé důvěřují {userName} ve skupině {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vám věří v {groupName}. | {count} lidé vám věří v {groupName}.",
     "PASSWORD": "Heslo",

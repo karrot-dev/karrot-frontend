@@ -21,8 +21,22 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Add activity types @nicksellen #2207
+- Add "forever" activity statistics time period @nicksellen #2230
+- Save message drafts @nicksellen #2211
+- Emphasize nearby groups @nicksellen #2212
+
 ### Changed
-- Highlight application form input @tiltec
+- Highlight application form input @tiltec #2210
+- Accept/decline applications from the chat sidebar @nicksellen #2232
+
+### Fixed
+- Don't cache index.html @nicksellen #2210
+- Fix issue selection @tiltec
+- Fix small map toggles @nicksellen #2231
+- Fix playstore rollout method @tiltec
+- Fix group select on profile page @brnsolikyl #2234
 
 ## [8.8.1] - 2020-10-12
 ### Fixed

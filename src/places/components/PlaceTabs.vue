@@ -73,10 +73,6 @@ export default {
                 to: { name: 'placeActivitiesManage', params },
                 label: this.$t('ACTIVITYMANAGE.TITLE'),
               },
-              {
-                to: { name: 'placeEdit', params },
-                label: this.$t('STOREDETAIL.EDIT'),
-              },
             ]
           : []),
       ]

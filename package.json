@@ -41,7 +41,7 @@
     "build-docs": "gitbook install docs && gitbook build docs docs-dist"
   },
   "dependencies": {
-    "@quasar/extras": "^1.9.10",
+    "@quasar/extras": "^1.9.11",
     "@sentry/browser": "^5.29.0",
     "@sentry/integrations": "^5.29.0",
     "axios": "^0.21.0",
@@ -84,7 +84,7 @@
     "@storybook/addon-actions": "^6.1.10",
     "@storybook/addon-links": "^6.1.10",
     "@storybook/vue": "^6.1.10",
-    "@types/jest": "^26.0.18",
+    "@types/jest": "^26.0.19",
     "@vue/test-utils": "^1.1.1",
     "axios-mock-adapter": "^1.19.0",
     "babel-eslint": "^10.0.3",

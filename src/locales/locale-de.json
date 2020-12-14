@@ -77,7 +77,7 @@
     "AVAILABLE_FROM_STORES": "Hier werden Aktivitäten der nächsten Tage an deinen Lieblingsorten angezeigt. Du erhältst über die Seitenleiste Zugang zu anderen Orten.",
     "FILTER": {
       "ALL": "Alle",
-      "ALL_TYPES": "Alle Aktivitätenarten",
+      "ALL_TYPES": "Alle Aktivitätsarten",
       "EMPTY": "Nur leere",
       "FREE": "Mit offenen Slots"
     },
@@ -90,14 +90,14 @@
       "LEAVE_CONFIRMATION_TEXT": "Bist du dir sicher, dass die anderen das ohne dich schaffen?"
     },
     "JOINEDNOTICE": "Du hast dich für eine Aktivität gemeldet | Du hast dich für {count} Aktivitäten gemeldet",
-    "NONE": "No upcoming activities",
-    "NONE_DUE_TO_FILTER": "No activities match your filters",
-    "NONE_HINT": "You can create a new activity on the place page.",
-    "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page."
+    "NONE": "Es stehen keine Aktivitäten an.",
+    "NONE_DUE_TO_FILTER": "Keine Aktivitäten entsprechen deinen Kriterien",
+    "NONE_HINT": "Du kannst eine neue Aktivität auf der Seite des Ortes erstellen.",
+    "STORE_NONE_HINT": "Du kannst eine neue Aktivität auf der Seite „Verwalte Aktivitäten“ erstellen."
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "'Zusätzliche Information' wurde geändert",
-    "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
+    "ACTIVITY_DOES_NOT_MATCH": "Dieses Datum stimmt nicht mit der Frequenz der Serie überein.",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' wurde geändert",
     "SERIES": "Aktivitätsserien",
     "SINGLE": "einmalige Aktivitäten",
@@ -270,23 +270,23 @@
     "DATE": "Datum",
     "DIFFERS_WARNING": "Dieser Wert unterscheidet sich vom Standard. Um diese Änderung rückgängig zu machen, klicke auf die Pfeil-Schaltfläche und speichere die Änderungen.",
     "DISABLE_TITLE": "Deaktivieren?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
+    "ENABLE_DISABLE_MESSAGE": "Nutzer*innen, die sich für diese Aktivität eingetragen haben, werden benachrichtigt. Du kannst diesen Text ändern, um einen Grund anzugeben:",
     "ENABLE_TITLE": "Aktivieren?",
-    "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
-    "EXCEPTIONS_TITLE": "Check your activities",
+    "EXCEPTIONS_MESSAGE": "Einige anstehende Aktivitäten stimmen nicht mit den Einstellungen dieser Aktivitätsserie überein. Schaue unter „{upcomingLabel}“ nach, um Abholungen zu ändern oder zu löschen, falls nötig.",
+    "EXCEPTIONS_TITLE": "Kontrolliere deine Aktivitäten",
     "FREQUENCY": "Häufigkeit",
     "MAX_PARTICIPANTS": "Anzahl Abholende",
-    "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
+    "MAX_PARTICIPANTS_HELPER": "Wie viele Leute sollen teilnehmen?",
     "RRULE": "Regelmäßigkeit",
     "RRULE_EXAMPLE": "'letzter Werktag eines jeden Monats'",
     "RRULE_EXAMPLE2": "'jeder zweite Montag'",
     "RRULE_HELPER": "Gib eine gültige {ruleHelper} ein, z.B. {ruleExample} oder {ruleExample2}.",
     "RRULE_HELPER_URL": "RRULE",
     "STARTDATE_HELPER": "Wann sollen die Abholungen beginnen?",
-    "TIME_HELPER": "When should it take place?",
+    "TIME_HELPER": "Wann soll die Aktivität stattfinden?",
     "UNLIMITED": "unbegrenzt",
     "WEEKDAYS": "Wochentage",
-    "WEEKDAYS_HELPER": "On which days should it take place?",
+    "WEEKDAYS_HELPER": "An welchen Tagen soll die Aktivität stattfinden?",
     "WEEKLY": "Wöchentlich"
   },
   "CREATESTORE": {
@@ -301,15 +301,15 @@
     "NONE": "Bisher kein Feedback",
     "NONE_HINT": "Auf dieser Seite wird etwas stehen, sobald Feedback abgegeben wurde",
     "NO_DONE_ACTIVITIES": "Alles erledigt!",
-    "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
-    "NUMBER_ACTIVITIES": "{count} activities done",
+    "NO_DONE_ACTIVITIES_HINT": "Du hast derzeit keine Aktivität, für die du eine Rückmeldung geben kannst. Warum nicht gleich zur nächsten Aktivität eintragen?",
+    "NUMBER_ACTIVITIES": "  {count} Aktivitäten wurden erledigt",
     "NUMBER_FEEDBACK": "{count} Rückmeldungen",
     "SAVED_FOOD": "Mindestens 1 kg wurde hier gerettet. Dankeschön! | Es wurde bereits für {amount} kg gerettete Lebensmittel Feedback gegeben! Weiter so!",
     "WEIGHT_SUM": "{sum} kg Lebensmittel gerettet"
   },
   "GLOBAL": {
     "ABOUT_KARROT": "Über Karrot",
-    "APP_INSTALLED": "App successfully installed!",
+    "APP_INSTALLED": "App erfolgreich installiert!",
     "GENERIC_ERROR": "Entschuldige, ein Fehler ist aufgetreten",
     "GITHUB_NOTE": "Entwicklung",
     "INVALID_LINK": "Der Link ist ungültig.",
@@ -319,13 +319,13 @@
     "SEARCH_NOT_FOUND": "Nicht gefunden",
     "SEARCH_RESULTS": "Suchergebnisse",
     "SERVER_ERROR": "Server-Fehler",
-    "CLEAR_FILTERS": "Clear filters"
+    "CLEAR_FILTERS": "Leere Filter"
   },
   "GROUP": {
-    "ACTIVITIES": "Activities",
-    "ACTIVITY": "Activity",
-    "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
-    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
+    "ACTIVITIES": "Aktivitäten",
+    "ACTIVITY": "Aktivität",
+    "PICKUPS_TO_ACTIVITIES": "Du kannst jetzt mehr als Abholungen organisieren!",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Der Aktivitätstyp Abholung ist weiter verfügbar, aber wir haben auch andere Typen wie Treffen, Veranstaltungen und Verteilungen hinzugefügt.",
     "ADDED_BY": "hinzugefügt von {userName}",
     "ADDRESS": "Adresse",
     "APPLICATIONS": "Bewerbungen",
@@ -368,8 +368,8 @@
         "NAME": "Neue Konfliktresolutionsprozesse"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
-        "NAME": "Activity notifications"
+        "DESCRIPTION": "Erinnert dich an deine Aktivitäten und informiert dich über Aktivitäten deiner Lieblingsorte des nächsten Tages ohne Teilnehmer oder wenn sie noch nicht voll sind.",
+        "NAME": "Aktivitätsbenachrichtigungen"
       },
       "new_application": {
         "DESCRIPTION": "Lässt dich wissen wenn jemensch der Gruppe beitreten will",
@@ -391,7 +391,7 @@
     "SHOW_INACTIVE": "Zeige inaktive Gruppen",
     "SORT_JOINDATE": "Nach Beitrittsdatum sortieren",
     "SORT_NAME": "Nach Namen sortieren",
-    "STATISTICS": "Statistics",
+    "STATISTICS": "Statistiken",
     "TIMEZONE": "Zeitzone der Gruppe",
     "TITLE": "Name der Gruppe",
     "WALL": "Wall",
@@ -415,16 +415,16 @@
     "TITLE": "Karte"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "{activityType} created",
-    "ACTIVITY_DELETE": "{activityType} deleted",
-    "ACTIVITY_DISABLE": "{activityType} disabled",
-    "ACTIVITY_DONE": "did {activityType} at {placeName}",
-    "ACTIVITY_ENABLE": "{activityType} enabled",
-    "ACTIVITY_JOIN": "signed up for {activityType} at {placeName}",
-    "ACTIVITY_LEAVE": "stepped back from {activityType} at {placeName}",
+    "ACTIVITY_CREATE": "{activityType} erstellt",
+    "ACTIVITY_DELETE": "{activityType}gelöscht",
+    "ACTIVITY_DISABLE": "{activityType} deaktiviert",
+    "ACTIVITY_DONE": "{activityType} bei {placeName} erledigt",
+    "ACTIVITY_ENABLE": "{activityType} aktiviert",
+    "ACTIVITY_JOIN": "hat sich für {activityType} bei {placeName} gemeldet",
+    "ACTIVITY_LEAVE": "hat sich für {activityType} bei {placeName} abgemeldet",
     "ACTIVITY_LEAVE_DISTANCE": "{distance} vor der geplanten Zeit",
-    "ACTIVITY_MISSED": "{activityType} at {placeName} had no participants!",
-    "ACTIVITY_MODIFY": "changed the settings of an activity",
+    "ACTIVITY_MISSED": "{activityType} bei {placeName} hatte keine Teilnehmer!",
+    "ACTIVITY_MODIFY": "hat die Eigenschaften einer Aktivität geändert",
     "APPLICATION_DECLINED": "hat eine Bewerbung von {applicantName} abgelehnt",
     "DETAILS": "Mehr Infos",
     "GROUP_CHANGE_PHOTO": "hat das Gruppenlogo geändert",
@@ -437,9 +437,9 @@
     "MEMBER_BECAME_EDITOR": "erhielt Bearbeitungsrechte",
     "MEMBER_REMOVED": "wurde wegen Gruppenentscheidung ausgeschlossen",
     "NOTHING_HAPPENEND": "Bisher ist nichts passiert...",
-    "SERIES_CREATE": "{activityType} series created",
-    "SERIES_DELETE": "{activityType} series deleted",
-    "SERIES_MODIFY": "changed the settings of a series",
+    "SERIES_CREATE": "Serie für {activityType} erstellt",
+    "SERIES_DELETE": "Serie für {activityType} gelöscht",
+    "SERIES_MODIFY": "hat die Eigenschaften einer Serie geändert",
     "STORE_CREATE": "hat den Ort {name} erstellt",
     "STORE_DELETE": "hat den Ort {name} gelöscht",
     "STORE_MODIFY": "hat die Einstellungen vom Ort {name} verändert"
@@ -540,10 +540,10 @@
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   },
   "NOTIFICATION_BELLS": {
-    "ACTIVITY_DISABLED": "{activityType} on {dateTime} was disabled",
-    "ACTIVITY_ENABLED": "{activityType} on {dateTime} was enabled again",
-    "ACTIVITY_MOVED": "{activityType} was moved to {dateTime}",
-    "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
+    "ACTIVITY_DISABLED": "{activityType} am {dateTime} wurde deaktiviert",
+    "ACTIVITY_ENABLED": "{activityType} am {dateTime} wurde aktiviert",
+    "ACTIVITY_MOVED": "{activityType} wurde verschoben zum {dateTime}",
+    "ACTIVITY_UPCOMING": "Erinnerung: {activityType} um {time}  ",
     "APPLICATION_ACCEPTED": "Deine Bewerbung wurde akzeptiert!",
     "APPLICATION_DECLINED": "Deine Bewerbung wurde abgelehnt",
     "CONFLICT_RESOLUTION_CONTINUED": "Der Konfliktlösungsprozess mit {userName} geht weiter",
@@ -553,8 +553,8 @@
     "CONFLICT_RESOLUTION_DECIDED": "Der Konfliktlösungsprozess mit {userName} wurde entschieden",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Der Konfliktlösungsprozess mit dir wurde entschieden",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du wurdest von der Gruppe ausgeschlossen",
-    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
-    "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
+    "OFFFEEDBACK_POSSIBLE": "Du kannst eine Rückmeldung für die Aktivität am {date} geben",
+    "FEEDBACK_POSSIBLE": "Du kannst eine Rückmeldung zu {activityType} am {date} geben",
     "INVITATION_ACCEPTED": "{userName} hat deine Einladung angenommen",
     "NEW_APPLICANT": "{userName} bewarb sich, um deiner Gruppe beizutreten",
     "NEW_MEMBER": "{userName} schloss sich deiner Gruppe an",
@@ -621,9 +621,9 @@
     "SUBSCRIPTION": {
       "HEADER": "Willst du diesen Ort als Favoriten markieren?",
       "NO": "nein",
-      "NO_TEXT": "None of the above. You can still sign up for activities though.",
+      "NO_TEXT": "Nichts von oben. Du kannst dich trotzdem für Aktivitäten anmelden.",
       "YES": "ja",
-      "YES_TEXT": "Shows available activities on the group wall and sends emails about upcoming activities."
+      "YES_TEXT": "Zeigt verfügbare Aktivitäten auf der Gruppen-Pinnwand und versendet E-Mails zu anstehenden Abholungen."
     }
   },
   "PROFILE": {
@@ -642,19 +642,19 @@
     "TITLE": "Neuanmeldung"
   },
   "STATISTICS": {
-    "ACTIVITY_HISTORY": "Activity statistics",
-    "FILTER_USER_LABEL": "User",
-    "FILTER_ALL_USERS": "All users",
-    "FILTER_TIME_LABEL": "Time period",
-    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
-    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
-    "FILTER_TIME_FOREVER": "Forever",
-    "COLUMN_PLACE": "Place",
-    "COLUMN_ACTIVITY_DONE": "Done",
-    "COLUMN_ACTIVITY_LEFT": "Left",
-    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
-    "COLUMN_FEEDBACK_WEIGHT": "Weight",
-    "TOTAL_LABEL": "Total"
+    "ACTIVITY_HISTORY": "Statistik der Aktivitäten",
+    "FILTER_USER_LABEL": "Benutzer",
+    "FILTER_ALL_USERS": "alle Benutzer",
+    "FILTER_TIME_LABEL": "Zeitraum",
+    "FILTER_TIME_PREVIOUS_DAYS": "Letzte {count} Tage",
+    "FILTER_TIME_PREVIOUS_MONTHS": "Letzte {count} Monate",
+    "FILTER_TIME_FOREVER": "Seit Beginn",
+    "COLUMN_PLACE": "Ort",
+    "COLUMN_ACTIVITY_DONE": "erledigt",
+    "COLUMN_ACTIVITY_LEFT": "Verbleibend",
+    "COLUMN_ACTIVITY_LEFT_LATE": "Spät verbleibend ",
+    "COLUMN_FEEDBACK_WEIGHT": "Gewicht",
+    "TOTAL_LABEL": "Gesamt"
   },
   "STOREDETAIL": {
     "ARCHIVED": "Dieser Ort wurde archiviert",
@@ -679,8 +679,8 @@
     "SHOW_ACTIVE_ONLY": "Nur aktive Orte anzeigen",
     "SHOW_ALL": "Alle Orte anzeigen",
     "STATUS": "Status",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
+    "WEEKS_IN_ADVANCE": "Wie viele Wochen im voraus sollen die wiederkehrenden Aktivitäten angezeigt werden?",
+    "WEEKS_IN_ADVANCE_WARNING": "Du bist dabei, die Anzahl der Wochen zu reduzieren, in denen Aktivitäten angezeigt werden. Übrige noch existierende Aktivitäten werden gelöscht, falls sich dort niemand eingetragen hat. Falls nötig, kannst du alle anderen Aktivitäten manuell löschen."
   },
   "STORESTATUS": {
     "ACTIVE": "Kooperiert",
@@ -737,7 +737,7 @@
     "MOBILE_NUMBER": "Telefonnummer",
     "NEWCOMER": "Neuling",
     "NEWCOMER_GUIDANCE": "{userName} ist neu in eurer Gruppe und könnte etwas Führung brauchen.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "NEWCOMER_INFO": "Du bist gerade ein Neuling in {groupName} und du kannst aktiv werden, indem du Nachrichten schreibst, andere Gruppenmitglieder triffst, Aktivitäten erledigst und Feedback gibst. Sobald {threshold} Mitglieder dir ihr Vertrauen ausgedrückt haben, erhältst du Bearbeitungsrechte, um bei der Gruppenverwaltung zu helfen.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} vertraut {userName} in {groupName}. | {count} Menschen vertrauen {userName} in {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vertraut dir in {groupName}. | {count} Menschen vertrauen dir in {groupName}.",
     "PASSWORD": "Passwort",
@@ -747,9 +747,9 @@
     "PROFILE_TITLE": "Profil",
     "PUSH": "Push-Benachrichtigungen",
     "PUSH_CURRENT_BROWSER": "Aktueller Browser",
-    "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
+    "PUSH_BLOCKED": "Könntest du Push-Benachrichtigungen aktivieren? Vielleicht hast du sie nicht erlaubt.",
     "APP": "App",
-    "INSTALL_APP": "Install Karrot app to your device",
+    "INSTALL_APP": "Installiere die Karrot-App auf deinem Gerät.",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Wir haben dir eine E-Mail gesendet, mit dem du die Account-Löschung bestätigen kannst."
     },

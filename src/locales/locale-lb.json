@@ -8,12 +8,12 @@
     },
     "SECTIONS": {
       "ACTIVITIES": {
-        "DESCRIPTION": "All Aktivitéit huet eng Unzuel u Platze fir déi sech d'Membere vun der Gruppe kënnen umellen – Esou gesäit jidderee wie wou a wéini geet. A Feedback ka méi spéit hannerlooss ginn.",
-        "SUBTITLE": "Aktivitéite mat enger spezifescher Zäit a Platz, wéi Liewensmëttel-Ofhuelungen am Kontext vu Liewensmëttelretten, kënnen an d'Software agi ginn.",
+        "DESCRIPTION": "All Aktivitéit huet eng Unzuel u Plaze fir déi sech d'Membere vun der Gruppe kënnen umellen – Esou gesäit jidderee wie wou a wéini geet. A Feedback ka méi spéit hannerlooss ginn.",
+        "SUBTITLE": "Aktivitéite mat enger spezifescher Zäit a Plaz, wéi Liewensmëttel-Ofhuelungen am Kontext vu Liewensmëttelretten, kënnen an d'Software agi ginn.",
         "TITLE": "Verdeelung vun Aufgaben an Aktivitéiten"
       },
       "COMMUNICATION": {
-        "DESCRIPTION": "Schreif eng Noriicht déi jiddereen am Grupp gesi soll oder eng privat Noriicht un eng Persoun. Alles wat mat enger eenzeler Aktivitéit oder Platz ze dinn huet kann an hire respektive Chats diskutéiert ginn.",
+        "DESCRIPTION": "Schreif eng Noriicht déi jiddereen am Grupp gesi soll oder eng privat Noriicht un eng Persoun. Alles wat mat enger eenzeler Aktivitéit oder Plaz ze dinn huet kann an hire respektive Chats diskutéiert ginn.",
         "TITLE": "Kommunikatioun am richtege Kontext"
       },
       "DEMOCRATIC": {
@@ -22,12 +22,12 @@
         "TITLE": "Demokratesch a participativ Entwécklung"
       },
       "GROUPS": {
-        "DESCRIPTION": "Dës ginn awer all op der Kaart ugewise fir dass d'Leit se kënne fannen an sech mat anere Gruppen op hirer Platz a global kënne verbannen.",
+        "DESCRIPTION": "Dës ginn awer all op der Kaart ugewise fir dass d'Leit se kënne fannen an sech mat anere Gruppen op hirer Plaz a global kënne verbannen.",
         "SUBTITLE": "All Grupp op karrot ass komplett onofhängeg a kann hier eegene Logo, hier eege Prozesser an Reegelen hunn.",
         "TITLE": "Onofhängeg Gruppen"
       },
       "MAPS": {
-        "DESCRIPTION": "Du hues eng Kart mat de Platzen an de Leit, déi d'Aktivitéite maachen. Du hues eng schéi Lëscht mat allen zukünftegen Aktivitéiten an du kanns dech fir dës online androen.",
+        "DESCRIPTION": "Du hues eng Kart mat de Plazen an de Leit, déi d'Aktivitéite maachen. Du hues eng schéi Lëscht mat allen zukünftegen Aktivitéiten an du kanns dech fir dës online androen.",
         "TITLE": "Karten a Lëschten"
       },
       "NOTIFICATIONS": {
@@ -52,7 +52,7 @@
         "TITLE": "Méisproochegkeet"
       },
       "TRANSPARENCY": {
-        "DESCRIPTION": "D'Vergaangenheet weist wien wat a wéini gemaach huet. Alles, vum Matmaache bei enger Aktivitéit bis zum Ännere vun enger Platz, ass hei geloggt.",
+        "DESCRIPTION": "D'Vergaangenheet weist wien wat a wéini gemaach huet. Alles, vum Matmaache bei enger Aktivitéit bis zum Ännere vun enger Plaz, ass hei geloggt.",
         "TITLE": "Transparenz"
       },
       "TRUST": {
@@ -62,7 +62,7 @@
     },
     "SUBTITLE1": "Karrot ass fir Gruppe vu Leit déi Saache virun der Verschwendung retten an se deele wëllen. Et erlaabt dëse Gruppe fir sech effektiv ze organiséieren, op enger lokaler a fräiwëlleger Basis.",
     "SUBTITLE2": "Saachen, souwéi Iessen, Vëloen, Kleeder a méi ginn iwwerdriwwen ewechgeheit oder net genotzt am Kontext vun enger Konsumgesellschaft.",
-    "TITLE": "Am Platz vu Verschwenden: Retten an Deelen!",
+    "TITLE": "Amplaz vu Verschwenden: Retten an Deelen!",
     "VISION_INTRO": "Karrot ass ee Geschier fir all Zort vu Wuerzel-Initiativ fir sech ze verbannen an ze wuessen an ënnerstëtzt d'Koordinatioun vun An-zu-An-Aktivitéite mat enger Schicht digitaler Infrastruktur."
   },
   "ACTIVITYDELETE": {
@@ -72,14 +72,14 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "Dëst ass deaktivéiert.",
     "ACTIVITY_STARTED": "Dëst huet schonn ugefaangen.",
-    "AVAILABLE": "Et gëtt eng Aktivitéit op denge favoriséierte Platze fir dech! | Et gëtt {count} Aktivitéiten op denge favoriséierte Platze fir dech!",
+    "AVAILABLE": "Et gëtt eng Aktivitéit op denge favoriséierte Plaze fir dech! | Et gëtt {count} Aktivitéiten op denge favoriséierte Plaze fir dech!",
     "AVAILABLE_FEEDBACK": "Du kanns Feedback ofginn | {count} Aktivitéite waarden op däi Feedback",
-    "AVAILABLE_FROM_STORES": "Dëst weist d'Aktivitéite vun denge favoriséierte Platzen an den nächsten Deeg. Du kanns un aner Platzen iwwert d'Sidebar dru kommen.",
+    "AVAILABLE_FROM_STORES": "Dëst weist d'Aktivitéite vun denge favoriséierte Plazen an den nächsten Deeg. Du kanns un aner Plazen iwwert d'Sidebar dru kommen.",
     "FILTER": {
       "ALL": "All",
       "ALL_TYPES": "All d'Typpen",
       "EMPTY": "Just eideler",
-      "FREE": "Mat eidele Platzen"
+      "FREE": "Mat eidele Plazen"
     },
     "ITEM": {
       "JOIN": "Matmaachen",
@@ -92,13 +92,13 @@
     "JOINEDNOTICE": "Du hues eng zukünfteg Aktivitéit | Du hues {count} zukünfteg Aktivitéiten",
     "NONE": "Keng zukünfteg Aktivitéiten",
     "NONE_DUE_TO_FILTER": "Keng Aktivitéit passt op deng Filter",
-    "NONE_HINT": "Du kanns eng nei Aktivitéit op der Säit vun der Platz erstellen.",
+    "NONE_HINT": "Du kanns eng nei Aktivitéit op der Säit vun der Plaz erstellen.",
     "STORE_NONE_HINT": "Du kanns eng nei Aktivitéit op der Säit \"Aktivitéite verwalten\" uleeën."
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "\"Zousätzlech Informatiounen\" gouf geännert",
     "ACTIVITY_DOES_NOT_MATCH": "Dësen Datum passt net zum Widderhuelungsmuster",
-    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "\"Max. Platzen\" gouf geännert",
+    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "\"Max. Plazen\" gouf geännert",
     "SERIES": "Aktivitéitsserie",
     "SINGLE": "Eemoleg Aktivitéiten",
     "TITLE": "Aktivitéite verwalten",
@@ -106,7 +106,7 @@
   },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Quantitéit vu Liewensmëttel déi's du rette konnts (a kg)",
-    "AMOUNT_INFO": "Fir Statistiken zur Platz gëtt d'Quantitéit vun all Feedback zesummegerechent.",
+    "AMOUNT_INFO": "Fir Statistiken zur Plaz gëtt d'Quantitéit vun all Feedback zesummegerechent.",
     "COMMENT_PLACEHOLDER": "War alles gutt? War jidderee komm? Däi Kommentar hei...",
     "DELETE_AMOUNT": "Quantitéit läschen",
     "EDIT": "Feedback veränneren",
@@ -275,7 +275,7 @@
     "EXCEPTIONS_MESSAGE": "E puer zukünfteg Aktivitéite passen net zu den Astellunge vun dëser Serie. Kuck eng Kéier hei drënner op \"{upcomingLabel}\" fir se ze änneren oder ze desaktivéieren wann et néideg ass.",
     "EXCEPTIONS_TITLE": "Deng Aktivitéite kontrolléieren",
     "FREQUENCY": "Frequenz",
-    "MAX_PARTICIPANTS": "Max. Platzen",
+    "MAX_PARTICIPANTS": "Max. Plazen",
     "MAX_PARTICIPANTS_HELPER": "Wéi vill Leit solle matmaachen?",
     "RRULE": "Widderhuelungs-Reegel",
     "RRULE_EXAMPLE": "läscht Wochendeeg (Mé-Fr) all Mount",
@@ -290,7 +290,7 @@
     "WEEKLY": "All Woch"
   },
   "CREATESTORE": {
-    "TITLE": "Eng nei Platz erstellen"
+    "TITLE": "Eng nei Plaz erstellen"
   },
   "DELETEACCOUNT": {
     "SUCCESS": "Däi Konto gouf erfollegräich geläscht!",
@@ -368,7 +368,7 @@
         "NAME": "Neie Konflikt-Léisungsprozess"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "Erënnert dech un deng Aktivitéiten, a seet dir Bescheed iwwert Aktivitéiten vun denge favoriséierte Platzen den nächsten Dag, un deenen nach keng oder net genuch Leit matmaachen",
+        "DESCRIPTION": "Erënnert dech un deng Aktivitéiten, a seet dir Bescheed iwwert Aktivitéiten vun denge favoriséierte Plazen den nächsten Dag, un deenen nach keng oder net genuch Leit matmaachen",
         "NAME": "Benoriichtegungen iwwert Aktivitéiten"
       },
       "new_application": {
@@ -385,7 +385,7 @@
       }
     },
     "OFFERS": "Offeren",
-    "PLACES": "Platzen",
+    "PLACES": "Plazen",
     "PLAYGROUND_INFO": "Dëst ass eng Spillplaz-Grupp, hei kanns du näischt futti maachen. Entdeck, klick iwwerall! Vill Spaass!",
     "SET_LOGO": "Klick fir de Logo vun der Grupp eropzelueden!",
     "SHOW_INACTIVE": "Inaktiv Gruppe weisen",
@@ -406,11 +406,11 @@
     "EXPORT": "Exportéieren",
     "FULL_SCREEN": "Am Vollbildschierm weisen",
     "HIDE_GROUPS": "Gruppe verstoppen",
-    "HIDE_PLACES": "Platze verstoppen",
+    "HIDE_PLACES": "Plaze verstoppen",
     "HIDE_USERS": "Benotzer verstoppen",
     "SET_LOCATION": "Uert setzen",
     "SHOW_GROUPS": "Gruppe weisen",
-    "SHOW_PLACES": "Platze weisen",
+    "SHOW_PLACES": "Plaze weisen",
     "SHOW_USERS": "Benotzer weisen",
     "TITLE": "Kaart"
   },
@@ -440,9 +440,9 @@
     "SERIES_CREATE": "{activityType}-Serie erstallt",
     "SERIES_DELETE": "{activityType}-Serie geläscht",
     "SERIES_MODIFY": "huet d'Astellungen vun enger Serie geännert",
-    "STORE_CREATE": "huet d'Platz {name} erstallt",
-    "STORE_DELETE": "huet d'Platz {name} geläscht",
-    "STORE_MODIFY": "huet d'Astellunge vun der Platz {name} verännert"
+    "STORE_CREATE": "huet d'Plaz {name} erstallt",
+    "STORE_DELETE": "huet d'Plaz {name} geläscht",
+    "STORE_MODIFY": "huet d'Astellunge vun der Plaz {name} verännert"
   },
   "INACTIVITY": {
     "HELP": "All Persoun, déi sech wärend {dayCount} oder méi Deeg net an d'Grupp ageloggt huet, gëtt als inaktiv markéiert. Dës Notzer wäerte keng Benoriichtegunge via E-Mail méi kréien.",
@@ -617,9 +617,9 @@
     "TITLE": "Passwuert zrécksetzen"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} Leit hunn dës Platz als Favorit markéiert",
+    "SUBSCRIBED_USERS": "{count} Leit hunn dës Plaz als Favorit markéiert",
     "SUBSCRIPTION": {
-      "HEADER": "Wëlls du dës Platz als Favorit markéieren?",
+      "HEADER": "Wëlls du dës Plaz als Favorit markéieren?",
       "NO": "nee",
       "NO_TEXT": "Näischt vun uewendriwwer. Du kanns dech awer fir Aktivitéiten androen.",
       "YES": "jo",
@@ -649,7 +649,7 @@
     "FILTER_TIME_PREVIOUS_DAYS": "Läscht {count} Deeg",
     "FILTER_TIME_PREVIOUS_MONTHS": "Läscht {count} Méint",
     "FILTER_TIME_FOREVER": "Fir ëmmer",
-    "COLUMN_PLACE": "Platz",
+    "COLUMN_PLACE": "Plaz",
     "COLUMN_ACTIVITY_DONE": "Gemaach",
     "COLUMN_ACTIVITY_LEFT": "Zréckgetrueden",
     "COLUMN_ACTIVITY_LEFT_LATE": "Spéit zréckgetrueden",
@@ -657,27 +657,27 @@
     "TOTAL_LABEL": "Total"
   },
   "STOREDETAIL": {
-    "ARCHIVED": "Dës Platz gouf archivéiert",
+    "ARCHIVED": "Dës Plaz gouf archivéiert",
     "CHANGE_STATUS": "Du kanns de Status op der Säit mat den Astellungen änneren.",
     "DIRECTIONS": "Weebeschreiwung weisen",
-    "EDIT": "Platz veränneren",
-    "INACTIVE": "Dës Platz kooperéiert grad net.",
-    "NO_DESCRIPTION": "Dës Platz huet nach keng Beschreiwung."
+    "EDIT": "Plaz veränneren",
+    "INACTIVE": "Dës Plaz kooperéiert grad net.",
+    "NO_DESCRIPTION": "Dës Plaz huet nach keng Beschreiwung."
   },
   "STOREEDIT": {
     "ADDRESS": "Adress",
     "DESCRIPTION": "Beschreiwung",
     "DIALOGS": {
       "ARCHIVE": {
-        "CONFIRM": "Jo, Platz archivéieren",
+        "CONFIRM": "Jo, Plaz archivéieren",
         "MESSAGE": "Bass du sécher?",
-        "TITLE": "Platz archivéieren"
+        "TITLE": "Plaz archivéieren"
       }
     },
     "NAME": "Numm",
     "RESTORE": "Réckgäng maachen",
-    "SHOW_ACTIVE_ONLY": "Just déi aktiv Platzen weisen",
-    "SHOW_ALL": "All d'Platze weisen",
+    "SHOW_ACTIVE_ONLY": "Just déi aktiv Plazen weisen",
+    "SHOW_ALL": "All d'Plaze weisen",
     "STATUS": "Status",
     "WEEKS_IN_ADVANCE": "Wéi vill Wochen am Viraus sollen d'Aktivitéiten, déi ëmmer nees sinn, ugewise ginn?",
     "WEEKS_IN_ADVANCE_WARNING": "Du bass derbäi fir d'Unzuel un Aktivitéiten, déi et ginn, ze reduzéieren. Aktivitéite, fir déi sech nach keen ugemellt huet, wäerte geläscht ginn. Déi aner Aktivitéite kanns du manuell desaktivéiere wann et néideg ass."

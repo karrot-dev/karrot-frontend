@@ -21,22 +21,24 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [9.0.0] - 2020-12-16
 ### Added
-- Add activity types @nicksellen #2207
-- Add "forever" activity statistics time period @nicksellen #2230
-- Save message drafts @nicksellen #2211
-- Emphasize nearby groups @nicksellen #2212
+- Add activity types @nicksellen [#2207]
+- Add "forever" activity statistics time period @nicksellen [#2230]
+- Save message drafts @nicksellen [#2211]
+- Emphasize nearby groups @nicksellen [#2212]
 
 ### Changed
-- Highlight application form input @tiltec #2210
-- Accept/decline applications from the chat sidebar @nicksellen #2232
+- Highlight application form input @tiltec [#2210]
+- Accept/decline applications from the chat sidebar @nicksellen [#2232]
 
 ### Fixed
-- Don't cache index.html @nicksellen #2210
+- Don't cache index.html @nicksellen [#2210]
 - Fix issue selection @tiltec
-- Fix small map toggles @nicksellen #2231
+- Fix small map toggles @nicksellen [#2231]
 - Fix playstore rollout method @tiltec
-- Fix group select on profile page @brnsolikyl #2234
+- Fix group select on profile page @brnsolikyl [#2234]
 
 ## [8.8.1] - 2020-10-12
 ### Fixed
@@ -612,8 +614,17 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2151]: https://github.com/yunity/karrot-frontend/issues/2151
 [#2157]: https://github.com/yunity/karrot-frontend/issues/2157
 [#2161]: https://github.com/yunity/karrot-frontend/issues/2161
+[#2207]: https://github.com/yunity/karrot-frontend/issues/2207
+[#2210]: https://github.com/yunity/karrot-frontend/issues/2210
+[#2211]: https://github.com/yunity/karrot-frontend/issues/2211
+[#2212]: https://github.com/yunity/karrot-frontend/issues/2212
+[#2230]: https://github.com/yunity/karrot-frontend/issues/2230
+[#2231]: https://github.com/yunity/karrot-frontend/issues/2231
+[#2232]: https://github.com/yunity/karrot-frontend/issues/2232
+[#2234]: https://github.com/yunity/karrot-frontend/issues/2234
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v8.8.1...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v9.0.0...HEAD
+[9.0.0]: https://github.com/yunity/karrot-frontend/compare/v8.8.1...v9.0.0
 [8.8.1]: https://github.com/yunity/karrot-frontend/compare/v8.8.0...v8.8.1
 [8.8.0]: https://github.com/yunity/karrot-frontend/compare/v8.7.2...v8.8.0
 [8.7.2]: https://github.com/yunity/karrot-frontend/compare/v8.7.1...v8.7.2

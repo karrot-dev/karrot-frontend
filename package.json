@@ -41,9 +41,9 @@
     "build-docs": "gitbook install docs && gitbook build docs docs-dist"
   },
   "dependencies": {
-    "@quasar/extras": "^1.9.11",
-    "@sentry/browser": "^5.29.0",
-    "@sentry/integrations": "^5.29.0",
+    "@quasar/extras": "^1.9.12",
+    "@sentry/browser": "^5.29.2",
+    "@sentry/integrations": "^5.29.2",
     "axios": "^0.21.0",
     "clone-deep": "^4.0.1",
     "core-js": "^3.8.1",
@@ -52,7 +52,7 @@
     "deepmerge": "^4.2.2",
     "element-closest": "^3.0.0",
     "escape-string-regexp": "^4.0.0",
-    "firebase": "^8.2.0",
+    "firebase": "^8.2.1",
     "intl": "^1.2.5",
     "jstimezonedetect": "^1.0.7",
     "leaflet": "^1.7.1",
@@ -78,9 +78,9 @@
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.12.1",
     "@octokit/rest": "^18.0.12",
-    "@quasar/app": "^2.1.11",
+    "@quasar/app": "^2.1.12",
     "@quasar/quasar-app-extension-dotenv": "^1.0.5",
-    "@sentry/cli": "^1.60.1",
+    "@sentry/cli": "^1.61.0",
     "@storybook/addon-actions": "^6.1.11",
     "@storybook/addon-links": "^6.1.11",
     "@storybook/vue": "^6.1.11",
@@ -102,7 +102,7 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^5.0.0",
-    "eslint-plugin-vue": "^7.2.0",
+    "eslint-plugin-vue": "^7.3.0",
     "express": "^4.17.1",
     "file-saver": "^2.0.5",
     "gitbook-cli": "^2.3.2",
@@ -130,7 +130,7 @@
     "vue-jest": "^3.0.7",
     "vue-server-renderer": "^2.6.12",
     "vue-template-compiler": "^2.6.12",
-    "webpack-bundle-analyzer": "^4.2.0",
+    "webpack-bundle-analyzer": "^4.3.0",
     "workbox-webpack-plugin": "^6.0.2"
   },
   "browserslist": [

@@ -143,8 +143,8 @@ function applicationsFirstThenSortByName (a, b) {
 // Puts ones with distance at the top in order of distance
 // ... then ones without distance below, ordered by member count
 function sortByDistanceOrMemberCount (a, b) {
-  if (a.distance && b.distance) {
-    return a.distance - b.distance
+  if (a.distance === null && b.distance === null) {
+    return b.members.length - a.members.length
   }
   else if (a.distance === null) {
     return 1
@@ -152,7 +152,7 @@ function sortByDistanceOrMemberCount (a, b) {
   else if (b.distance === null) {
     return -1
   }
-  return b.members.length - a.members.length
+  return a.distance - b.distance
 }
 
 function myGroupsWithApplications (group) {

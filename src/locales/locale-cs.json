@@ -66,42 +66,42 @@
     "VISION_INTRO": "Karrot je nástrojem pro všechny druhy místních iniciativ, které se spojují a rostou. Podporuje koordinaci osobních činností s vrstvou digitální infrastruktury."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
-    "DELETE_SERIES_TITLE": "Delete series"
+    "DELETE_SERIES_TEXT": "Opravdu chcete tuto sérii smazat? Tím také odstraníte všechny aktivity, které patří do této série (kromě případů, kdy se již lidé připojili).",
+    "DELETE_SERIES_TITLE": "Smazat sérii"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "This is disabled.",
-    "ACTIVITY_STARTED": "This has already started.",
-    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
-    "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
-    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
+    "ACTIVITY_DISABLED": "To je zakázáno.",
+    "ACTIVITY_STARTED": "Toto již začalo.",
+    "AVAILABLE": "Na vašich oblíbených místech na vás čeká jedna aktivita! | Čekají na vás {count} aktivity na vašich oblíbených místech!",
+    "AVAILABLE_FEEDBACK": "Můžete dát zpětnou vazbu | {count} aktivity čekají na vaši zpětnou vazbu",
+    "AVAILABLE_FROM_STORES": "To ukazuje aktivity z vašich oblíbených míst v příštích dnech. V postranním panelu můžete přistupovat k dalším místům.",
     "FILTER": {
       "ALL": "Vše",
-      "ALL_TYPES": "All types",
+      "ALL_TYPES": "Všechny typy",
       "EMPTY": "Pouze prázdný",
       "FREE": "S volnými sloty"
     },
     "ITEM": {
       "JOIN": "Připojit",
-      "JOIN_CONFIRMATION_HEADER": "Join {activityType}",
-      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
+      "JOIN_CONFIRMATION_HEADER": "Připojit {activityType}",
+      "JOIN_CONFIRMATION_TEXT": "Opravdu máte čas {date}?",
       "LEAVE": "Odejít",
-      "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?"
+      "LEAVE_CONFIRMATION_HEADER": "Opustit {activityType}",
+      "LEAVE_CONFIRMATION_TEXT": "Co by lidé měli vědět, když to k tomu přihlásili?"
     },
-    "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
-    "NONE": "No upcoming activities",
-    "NONE_DUE_TO_FILTER": "No activities match your filters",
+    "JOINEDNOTICE": "Máte jednu nadcházející aktivitu | Máte {count} nadcházející aktivity",
+    "NONE": "Žádné nadcházející aktivity",
+    "NONE_DUE_TO_FILTER": "Vašim filtrům neodpovídají žádné aktivity",
     "NONE_HINT": "Na stránce místa můžete vytvořit novou aktivitu.",
-    "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page."
+    "STORE_NONE_HINT": "Na stránce „Správa aktivit“ můžete vytvořit novou aktivitu."
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "„Další informace“ byly změněny",
-    "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
+    "ACTIVITY_DOES_NOT_MATCH": "Toto datum neodpovídá vzoru opakování",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "Maximální počet slotů byl změněn",
-    "SERIES": "Activity series",
-    "SINGLE": "One-time activities",
-    "TITLE": "Manage activities",
+    "SERIES": "Série aktivit",
+    "SINGLE": "Jednorázové aktivity",
+    "TITLE": "Spravovat aktivity",
     "UPCOMING_ACTIVITIES_IN_SERIES": "Připravované aktivity v této sérii"
   },
   "ACTIVITY_FEEDBACK": {
@@ -110,19 +110,19 @@
     "COMMENT_PLACEHOLDER": "Bylo všechno v pořádku? Žádné komplikace? Napište komentář zde ...",
     "DELETE_AMOUNT": "Smazat množství",
     "EDIT": "Upravit zpětnou vazbu",
-    "HEADER": "Thank you for your participation!",
+    "HEADER": "Děkujeme za Vaši účast!",
     "PREVIOUS": "Předchozí zpětná vazba pro {store}",
     "SET_AMOUNT": "Nastavit množství",
     "TITLE": "Zpětná vazba",
     "TOGETHER_WITH": "Udělali jste to společně s:"
   },
   "ACTIVITY_TYPE_NAMES": {
-    "Meeting": "Meeting",
-    "Pickup": "Pickup",
-    "Distribution": "Distribution",
-    "Event": "Event",
-    "Activity": "Activity",
-    "Task": "Task"
+    "Meeting": "Setkání",
+    "Pickup": "Vyzvednutí",
+    "Distribution": "Distribuce",
+    "Event": "Událost",
+    "Activity": "Aktivita",
+    "Task": "Úkol"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "zvolte umístění na mapě",
@@ -208,7 +208,7 @@
     "UNSUBSCRIBE": "Odhlásit odběr",
     "WITHDRAW": "Zrušit",
     "YES": "Ano",
-    "READ_MORE": "Read more"
+    "READ_MORE": "Přečtěte si více"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Aktualizace z {community}",
@@ -265,25 +265,25 @@
   },
   "CREATEACTIVITY": {
     "COMMENT": "Dodatečné informace",
-    "COMMENT_HELPER": "What should people know when signing up to this?",
+    "COMMENT_HELPER": "Co by lidé měli vědět, když se k tomu přihlásí?",
     "CUSTOM": "Vlastní",
     "DATE": "Datum",
     "DIFFERS_WARNING": "Tato hodnota se liší od výchozí hodnoty. Chcete-li tuto změnu vrátit zpět, klikněte na tlačítko se šipkou a uložte změny.",
-    "DISABLE_TITLE": "Disable?",
+    "DISABLE_TITLE": "Zakázat?",
     "ENABLE_DISABLE_MESSAGE": "Uživatelé, kteří se připojili, obdrží oznámení. Tento text můžete změnit a uvést důvod:",
-    "ENABLE_TITLE": "Enable?",
-    "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
-    "EXCEPTIONS_TITLE": "Check your activities",
+    "ENABLE_TITLE": "Povolit?",
+    "EXCEPTIONS_MESSAGE": "Některé nadcházející aktivity neodpovídají nastavení této série. Podívejte se níže na '{upcomingLabel}' a v případě potřeby je změňte nebo deaktivujte.",
+    "EXCEPTIONS_TITLE": "Zkontrolujte své aktivity",
     "FREQUENCY": "Frekvence",
     "MAX_PARTICIPANTS": "Maximum slotů",
-    "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
+    "MAX_PARTICIPANTS_HELPER": "Kolik lidí by se mělo zúčastnit?",
     "RRULE": "Pravidlo opakování",
     "RRULE_EXAMPLE": "poslední pracovní den (Po-Pá) každý měsíc",
     "RRULE_EXAMPLE2": "každé druhé pondělí",
     "RRULE_HELPER": "Zadejte platný {ruleHelper}, např. {ruleExample} nebo {ruleExample2}",
     "RRULE_HELPER_URL": "Pravidlo iCalendar",
     "STARTDATE_HELPER": "Kdy by měla série začít?",
-    "TIME_HELPER": "When should it take place?",
+    "TIME_HELPER": "Kdy by se to mělo uskutečnit?",
     "UNLIMITED": "neomezený",
     "WEEKDAYS": "Pracovní dny",
     "WEEKDAYS_HELPER": "Ve které dny by se to mělo konat?",
@@ -301,8 +301,8 @@
     "NONE": "Zatím žádná zpětná vazba",
     "NONE_HINT": "Tato stránka bude vyplněna, jakmile bude k dispozici další zpětná vazba",
     "NO_DONE_ACTIVITIES": "Vše hotovo!",
-    "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
-    "NUMBER_ACTIVITIES": "{count} activities done",
+    "NO_DONE_ACTIVITIES_HINT": "V současné době nemáte čemu dávat zpětnou vazbu. Proč se nepřipojit k aktivitě?",
+    "NUMBER_ACTIVITIES": "{count} aktivit hotovo",
     "NUMBER_FEEDBACK": "{count} zadané komentáře",
     "SAVED_FOOD": "Zde bylo ušetřeno nejméně 1 kg. Děkujeme! | Lidé již poskytli zpětnou vazbu na {amount} kg ušetřeného jídla! Pokračujte ve skvělé práci!",
     "WEIGHT_SUM": "{sum} kg zachráněného jídla"
@@ -319,13 +319,13 @@
     "SEARCH_NOT_FOUND": "Nenalezeno",
     "SEARCH_RESULTS": "Výsledky vyhledávání",
     "SERVER_ERROR": "Chyba serveru",
-    "CLEAR_FILTERS": "Clear filters"
+    "CLEAR_FILTERS": "Vymazat filtry"
   },
   "GROUP": {
     "ACTIVITIES": "Aktivity",
     "ACTIVITY": "Aktivita",
-    "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
-    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
+    "PICKUPS_TO_ACTIVITIES": "Nyní můžete uspořádat více než jen vyzvednutí!",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Aktivity s názvem vyzvednutí jsou stále k dispozici, ale přidali jsme i další typy, například schůzky, události a distribuce",
     "ADDED_BY": "přidal {userName}",
     "ADDRESS": "Adresa",
     "APPLICATIONS": "Žádosti",
@@ -368,7 +368,7 @@
         "NAME": "Nové procesy řešení konfliktů"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
+        "DESCRIPTION": "Připomene vám vaše aktivity a řekne vám o prázdných nebo nenaplněných aktivitách vašich oblíbených míst příštího dne",
         "NAME": "Oznámení o aktivitě"
       },
       "new_application": {
@@ -415,16 +415,16 @@
     "TITLE": "Mapa"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "{activityType} created",
-    "ACTIVITY_DELETE": "{activityType} deleted",
-    "ACTIVITY_DISABLE": "{activityType} disabled",
-    "ACTIVITY_DONE": "did {activityType} at {placeName}",
-    "ACTIVITY_ENABLE": "{activityType} enabled",
-    "ACTIVITY_JOIN": "signed up for {activityType} at {placeName}",
-    "ACTIVITY_LEAVE": "stepped back from {activityType} at {placeName}",
+    "ACTIVITY_CREATE": "{activityType} vytvořeno",
+    "ACTIVITY_DELETE": "{activityType} smazáno",
+    "ACTIVITY_DISABLE": "{activityType} zakázán",
+    "ACTIVITY_DONE": "dělá {activityType} v {placeName}",
+    "ACTIVITY_ENABLE": "{activityType} povoleno",
+    "ACTIVITY_JOIN": "přihlášen k {activityType} v {placeName}",
+    "ACTIVITY_LEAVE": "odstoupeno od {activityType} v {placeName}",
     "ACTIVITY_LEAVE_DISTANCE": "{distance} před plánovaným časem",
-    "ACTIVITY_MISSED": "{activityType} at {placeName} had no participants!",
-    "ACTIVITY_MODIFY": "changed the settings of an activity",
+    "ACTIVITY_MISSED": "{activityType} v {placeName} nemá účastníky!",
+    "ACTIVITY_MODIFY": "změněno nastavení aktivity",
     "APPLICATION_DECLINED": "odmítl žádost od {applicantName}",
     "DETAILS": "Více informací",
     "GROUP_CHANGE_PHOTO": "změněno logo skupiny",
@@ -540,10 +540,10 @@
     "VERIFICATION_EMAIL_SENT": "Poslali jsme vám další ověřovací e-mail. Zkontrolujte prosím doručenou poštu."
   },
   "NOTIFICATION_BELLS": {
-    "ACTIVITY_DISABLED": "{activityType} on {dateTime} was disabled",
-    "ACTIVITY_ENABLED": "{activityType} on {dateTime} was enabled again",
-    "ACTIVITY_MOVED": "{activityType} was moved to {dateTime}",
-    "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
+    "ACTIVITY_DISABLED": "{activityType} v {dateTime} bylo zrušeno",
+    "ACTIVITY_ENABLED": "{activityType} v {dateTime} byl znovu povolen",
+    "ACTIVITY_MOVED": "{activityType} bylo přesunuto na {dateTime}",
+    "ACTIVITY_UPCOMING": "Připomenutí: {activityType} v {time}",
     "APPLICATION_ACCEPTED": "Vaše žádost  byla přijata!",
     "APPLICATION_DECLINED": "Vaše přihláška byla zamítnuta",
     "CONFLICT_RESOLUTION_CONTINUED": "Proces řešení konfliktu s {userName} pokračuje",
@@ -553,7 +553,7 @@
     "CONFLICT_RESOLUTION_DECIDED": "Proces řešení konfliktu s {userName} byl rozhodnut",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Bylo rozhodnuto v procesu řešení konfliktů s vámi",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Byl jste odstraněn ze skupiny",
-    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
+    "OFFFEEDBACK_POSSIBLE": "Můžete poskytnout zpětnou vazbu k aktivitě, na které jste se věnovali {date}",
     "FEEDBACK_POSSIBLE": "Můžete poskytnout zpětnou vazbu -{activityType} na {date}",
     "INVITATION_ACCEPTED": "{userName} přijal vaše pozvání",
     "NEW_APPLICANT": "{userName} přihlášen do vaší skupiny",
@@ -621,7 +621,7 @@
     "SUBSCRIPTION": {
       "HEADER": "Chcete toto místo označit jako své oblíbené?",
       "NO": "ne",
-      "NO_TEXT": "None of the above. You can still sign up for activities though.",
+      "NO_TEXT": "Nic z výše uvedeného. Stále se však můžete zaregistrovat k aktivitám.",
       "YES": "ano",
       "YES_TEXT": "Zobrazuje dostupné aktivity na zdi skupiny a odesílá e-maily o nadcházejících aktivitách."
     }
@@ -648,7 +648,7 @@
     "FILTER_TIME_LABEL": "Časový úsek",
     "FILTER_TIME_PREVIOUS_DAYS": "Předchozích {count} dnů",
     "FILTER_TIME_PREVIOUS_MONTHS": "Předchozích {count} měsíců",
-    "FILTER_TIME_FOREVER": "Forever",
+    "FILTER_TIME_FOREVER": "Navždy",
     "COLUMN_PLACE": "Místo",
     "COLUMN_ACTIVITY_DONE": "Hotovo",
     "COLUMN_ACTIVITY_LEFT": "Zbývá",

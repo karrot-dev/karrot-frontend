@@ -78,7 +78,7 @@
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.12.1",
     "@octokit/rest": "^18.0.12",
-    "@quasar/app": "^2.1.13",
+    "@quasar/app": "^2.1.14",
     "@quasar/quasar-app-extension-dotenv": "^1.0.5",
     "@sentry/cli": "^1.61.0",
     "@storybook/addon-actions": "^6.1.11",

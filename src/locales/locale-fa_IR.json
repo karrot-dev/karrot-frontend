@@ -1,10 +1,10 @@
 {
   "ABOUT_KARROT": {
-    "AND_MORE": "And more...",
-    "EXISTING_GROUPS": "A few groups already using Karrot",
+    "AND_MORE": "بیشتر",
+    "EXISTING_GROUPS": "گروه‌هایی از karrot استاده می کنند",
     "LINKS": {
-      "CHAT": "team chat",
-      "FORUM": "community forum"
+      "CHAT": "گفت‌وگو",
+      "FORUM": "انجمن"
     },
     "SECTIONS": {
       "ACTIVITIES": {
@@ -18,38 +18,38 @@
       },
       "DEMOCRATIC": {
         "DESCRIPTION": "Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}.",
-        "TITLE": "Democratic and participative development"
+        "DESCRIPTION2": "از مشارکت طراحان و توسعه دهندگان استقبال می کنیم.این پروژه را در {code} پیگری کنید.",
+        "TITLE": "توسعه مشارکتی و دموکراتیک"
       },
       "GROUPS": {
-        "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally.",
-        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
-        "TITLE": "Independent groups"
+        "DESCRIPTION": "آنها روی نقشه نمایش داده می شوند و افراد می توانند آنها را پیدا کنند و به آنها ارتباط برقرار کنند.",
+        "SUBTITLE": "هر گروه در karrot مستقل هست و می تواند نشان ، قوانین و فرآیند خودش را داشته باشه.",
+        "TITLE": "گروه‌های مستقل"
       },
       "MAPS": {
         "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online.",
-        "TITLE": "Maps and lists"
+        "TITLE": "نقشه ها و لیست‌ها"
       },
       "NOTIFICATIONS": {
         "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!",
-        "TITLE": "Notifications"
+        "TITLE": "اعلان‌ها"
       },
       "OFFERS": {
         "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat.",
-        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
-        "TITLE": "Share things"
+        "SUBTITLE": "ایجاد یک آگهی شبه-تبلیغاتی برای چیزهایی که می خواهید به اشتراک بگذارید یا اهدا کنید. ",
+        "TITLE": "اشتراک گذاشتن چیزها"
       },
       "OPENSOURCE": {
-        "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world.",
-        "TITLE": "Open source"
+        "DESCRIPTION": "همه چیزها شفاف و قابل تغییر هست. ما تشویق می کنیم که گروه ها اگر می توانند نمونه خودشان را از این پلتفرم بسازند و میزبانی کنند. با اینحال ما یک نمونه از این دلتفرم را روی ادرس karrot.world میزبانی می کنیم.",
+        "TITLE": "متن باز"
       },
       "TEAM": {
-        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}.",
+        "DESCRIPTION": "شما به سادگی می توانید با توسعه دهندگان  karrot تماس برقرار کنید.در {forum}یا {code} ویا به طور زنده در {chat} .",
         "TITLE": "Responsive team"
       },
       "TRANSLATIONS": {
         "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}.",
-        "TITLE": "Multi-language"
+        "TITLE": "چند زبانی"
       },
       "TRANSPARENCY": {
         "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here.",

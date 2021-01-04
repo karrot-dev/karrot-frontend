@@ -2,6 +2,7 @@
   <QTabs
     class="shadow-3 bg-white k-place-tabs"
     align="left"
+    mobile-arrows
   >
     <QRouteTab
       v-for="(tab, idx) in tabs"

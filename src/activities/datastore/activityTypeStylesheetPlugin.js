@@ -18,6 +18,17 @@ export default datastore => {
   datastore.watch((state, getters) => getters['activityTypes/all'], updateActivityTypes, { immediate: true })
 }
 
+let nextId = 0
+
+function idFor (activityType) {
+  if (typeof activityType.id !== 'undefined') {
+    return activityType.id
+  }
+  else {
+    return `new-${nextId++}`
+  }
+}
+
 export function createActivityTypeStylesheet (suffix = '') {
   const defaultColour = '#FF0000'
   let stylesheet
@@ -37,12 +48,12 @@ export function createActivityTypeStylesheet (suffix = '') {
   }
 
   function updateActivityTypes (activityTypes) {
-    const colorNames = {} // id -> colorName
+    const colorNames = []
     const styles = activityTypes.map(activityType => {
       let color = activityType.colour || defaultColour
       if (color[0] !== '#') color = '#' + color
-      const colorName = `activity-type-${activityType.id}${suffix}`
-      colorNames[activityType.id] = colorName
+      const colorName = `activity-type-${idFor(activityType)}${suffix}`
+      colorNames.push(colorName)
 
       // For how to define custom colors for quasar see:
       // https://quasar.dev/style/color-palette#Adding-Your-Own-Colors
@@ -61,6 +72,10 @@ export function createActivityTypeStylesheet (suffix = '') {
     return colorNames
   }
 
+  function updateActivityType (activityType) {
+    return updateActivityTypes([activityType])[0]
+  }
+
   function removeStylesheet () {
     if (stylesheet) {
       stylesheet.remove()
@@ -69,6 +84,7 @@ export function createActivityTypeStylesheet (suffix = '') {
 
   return {
     updateActivityTypes,
+    updateActivityType,
     removeStylesheet,
   }
 }

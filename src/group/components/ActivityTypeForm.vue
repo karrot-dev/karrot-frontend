@@ -32,7 +32,7 @@
           <QIcon
             :name="edit.icon"
             size="lg"
-            :color="`activity-type-${edit.id}-edit`"
+            :color="colorName"
           />
         </template>
         <template #control>
@@ -169,7 +169,7 @@
             <QIcon
               :name="edit.feedbackIcon"
               size="lg"
-              :color="`activity-type-${edit.id}-edit`"
+              :color="colorName"
             />
           </template>
           <template #control>
@@ -306,6 +306,7 @@ export default {
     return {
       paletteColours: PALETTE_COLOURS,
       customName: '',
+      colorName: null,
       iconFilter: '',
       iconPagination: {
         itemsPerPage: 20,
@@ -383,9 +384,8 @@ export default {
   watch: {
     'edit.colour': {
       handler () {
-        // TODO: this doesn't handle yet when it doesn't have an id (new...)
         // Keep our activity type class names up to date!
-        this.updateActivityTypes([this.edit])
+        this.colorName = this.updateActivityType(this.edit)
       },
       immediate: true,
     },
@@ -397,9 +397,9 @@ export default {
     },
   },
   beforeCreate () {
-    const { updateActivityTypes, removeStylesheet } = createActivityTypeStylesheet('-edit')
+    const { updateActivityType, removeStylesheet } = createActivityTypeStylesheet('-edit')
     Object.assign(this, {
-      updateActivityTypes,
+      updateActivityType,
       removeStylesheet,
     })
   },

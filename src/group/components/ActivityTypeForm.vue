@@ -412,8 +412,16 @@ export default {
       this.save()
     },
     onNameInput (value) {
-      // See if the typed in value is one of our option values OR labels (i.e. the translated text)
-      const option = this.translatableNameOptions.find(option => option.label === value || option.value === value)
+      // See if the user typed in a standard name
+      const option = this.translatableNameOptions.find(option =>
+        // (ignore the "special" option)
+        !option.useCustomName && (
+          // check if it matches the translated value
+          option.label === value ||
+          // or the non-translated value
+          option.value === value
+        ),
+      )
       if (option) {
         // It is, therefore translatable!
         this.edit.name = option.value

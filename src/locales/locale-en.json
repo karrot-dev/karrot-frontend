@@ -129,7 +129,7 @@
     "ARCHIVED": "Archived"
   },
   "ACTIVITY_TYPES": {
-    "ADD": "Add new type",
+    "ADD": "Add new activity type",
     "FEEDBACK_YES_HINT": "The participants will be asked for feedback about the activity",
     "FEEDBACK_NO_HINT": "No feedback will be requested",
     "FEEDBACK_WEIGHT_LABEL": "Ask for weight?",
@@ -139,8 +139,11 @@
     "FEEDBACK": "Feedback",
     "FEEDBACK_WEIGHT": "Feedback weight",
     "STATUS": "Status",
+    "STANDARD_NAME_HEADING": "Standard names",
     "STANDARD_NAME_HINT": "Name will be available in other languages",
     "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
+    "CUSTOM_NAME_USE": "Use custom name {name}",
+    "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
     "MANAGE_TYPES": "Manage types...",
     "SHOW_ARCHIVED": "Show archived",
     "STATUS_ACTIVE_HINT": "You will be able to create new activities and series of this type",

@@ -105,14 +105,46 @@
         :options="translatableNameOptions"
         :error="hasNameError"
         :error-message="nameError"
-        :autofocus="!$q.platform.has.touch && isNew"
         autocomplete="off"
         type="input"
         :hint="edit.nameIsTranslatable ? $t('ACTIVITY_TYPES.STANDARD_NAME_HINT') : $t('ACTIVITY_TYPES.CUSTOM_NAME_HINT')"
         @blur="$v.edit.name.$touch"
         @input-value="onNameInput"
         @keyup.enter="() => $refs.nameInput.hidePopup()"
-      />
+      >
+        <template #option="{ index, itemProps, itemEvents, opt: { label: itemLabel, useCustomName } }">
+          <QItem
+            :key="index"
+            v-bind="itemProps"
+            v-on="itemEvents"
+          >
+            <QItemSection>
+              <QItemLabel v-if="useCustomName">
+                <i18n
+                  v-if="itemLabel && !edit.nameIsTranslatable"
+                  path="ACTIVITY_TYPES.CUSTOM_NAME_USE"
+                >
+                  <template #name>
+                    <strong>{{ itemLabel }}</strong>
+                  </template>
+                </i18n>
+                <span v-else>
+                  {{ $t('ACTIVITY_TYPES.CUSTOM_NAME_PROMPT') }}
+                </span>
+              </QItemLabel>
+              <QItemLabel v-else>
+                {{ itemLabel }}
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+          <template v-if="useCustomName">
+            <QSeparator />
+            <QItemLabel header>
+              {{ $t('ACTIVITY_TYPES.STANDARD_NAME_HEADING') }}
+            </QItemLabel>
+          </template>
+        </template>
+      </QSelect>
 
       <QField
         borderless
@@ -204,6 +236,10 @@ import {
   QMenu,
   QIcon,
   QColor,
+  QItem,
+  QItemSection,
+  QItemLabel,
+  QSeparator,
   colors,
 } from 'quasar'
 import { Component as QIconPicker } from '@quasar/quasar-ui-qiconpicker'
@@ -254,6 +290,10 @@ export default {
     QIcon,
     QColor,
     QIconPicker,
+    QItem,
+    QItemSection,
+    QItemLabel,
+    QSeparator,
   },
   mixins: [validationMixin, editMixin, statusMixin],
   props: {
@@ -297,12 +337,20 @@ export default {
       ]
     },
     translatableNameOptions () {
-      return this.translatableNames.map(value => ({
-        value,
-        label: this.$t(`ACTIVITY_TYPE_NAMES.${value}`),
-        // prevent people from trying to choose a name that is already used (it's not allowed, and enforced by backend too)
-        disable: this.activityTypeNamesInUse.includes(value),
-      }))
+      return [
+        {
+          value: this.edit.name,
+          label: this.edit.name && this.edit.nameIsTranslatable ? this.$t(`ACTIVITY_TYPE_NAMES.${this.edit.name}`) : this.edit.name,
+          useCustomName: true,
+          disable: this.edit.nameIsTranslatable,
+        },
+        ...this.translatableNames.map((value, idx) => ({
+          value,
+          label: this.$t(`ACTIVITY_TYPE_NAMES.${value}`),
+          // prevent people from trying to choose a name that is already used (it's not allowed, and enforced by backend too)
+          disable: this.activityTypeNamesInUse.includes(value),
+        })),
+      ]
     },
     activityTypeNamesInUse () {
       return this.activityTypes

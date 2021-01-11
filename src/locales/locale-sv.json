@@ -117,11 +117,11 @@
     "TOGETHER_WITH": "Du gjorde det tillsammans med:"
   },
   "ACTIVITY_TYPE_NAMES": {
-    "Meeting": "Möte",
-    "Pickup": "Upphämtning",
+    "Meeting": "möte",
+    "Pickup": "upphämtning",
     "Distribution": "Utdelning",
-    "Event": "Event",
-    "Activity": "Aktivitet",
+    "Event": "event",
+    "Activity": "aktivitet",
     "Task": "Uppgift"
   },
   "ADDRESS_PICKER": {
@@ -418,7 +418,7 @@
     "ACTIVITY_CREATE": "{activityType} skapad",
     "ACTIVITY_DELETE": "{activityType} raderad",
     "ACTIVITY_DISABLE": "{activityType} inaktiverad",
-    "ACTIVITY_DONE": "var med på {activityType} på {placeName}",
+    "ACTIVITY_DONE": "var med på en {activityType} på {placeName}",
     "ACTIVITY_ENABLE": "{activityType} aktiverad",
     "ACTIVITY_JOIN": "skrev upp sig för {activityType} på {placeName}",
     "ACTIVITY_LEAVE": "gav upp om {activityType} på {placeName}",

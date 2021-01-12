@@ -54,7 +54,7 @@
         </QItemSection>
       </QItem>
 
-      <QItem>
+      <QItem v-if="entry.message">
         <QItemSection side>
           <QIcon name="far fa-fw fa-comment" />
         </QItemSection>
@@ -96,7 +96,7 @@
       </QItem>
 
       <QItem
-        v-if="activityPayload"
+        v-if="activityType"
       >
         <QItemSection side>
           <QIcon
@@ -111,11 +111,13 @@
         <QItemSection>
           <QItemLabel>
             <template v-if="activityType">
-              <strong>{{ activityType.name }}</strong>
+              <strong>{{ activityType.translatedName }}</strong>
             </template>
-            {{ $d(activityPayload.date, 'long') }}
-            <template v-if="activityPayload.hasDuration">
-              &mdash; {{ $d(activityPayload.dateEnd, 'hourMinute') }}
+            <template v-if="activityPayload">
+              {{ $d(activityPayload.date, 'long') }}
+              <template v-if="activityPayload.hasDuration">
+                &mdash; {{ $d(activityPayload.dateEnd, 'hourMinute') }}
+              </template>
             </template>
           </QItemLabel>
         </QItemSection>
@@ -205,6 +207,12 @@ export default {
     activityType () {
       if (this.entry.payload && this.entry.payload.activityType) {
         return this.getActivityType(this.entry.payload.activityType)
+      }
+      else if (this.entry.after && [
+        'ACTIVITY_TYPE_CREATE',
+        'ACTIVITY_TYPE_MODIFY',
+      ].includes(this.entry.typus)) {
+        return this.getActivityType(this.entry.after.id)
       }
       return null
     },

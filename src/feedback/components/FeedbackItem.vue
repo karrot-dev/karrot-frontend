@@ -8,7 +8,7 @@
               <QIcon
                 v-bind="activityType.iconProps"
               />
-              <span>{{ activityType.name }}</span>
+              <span>{{ activityType.translatedName }}</span>
             </template>
             <strong
               v-measure

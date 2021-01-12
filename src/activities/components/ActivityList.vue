@@ -24,7 +24,7 @@
                 v-if="opt.activityType"
                 :name="opt.activityType.icon"
                 :color="opt.activityType.colorName"
-                :title="opt.activityType.name"
+                :title="opt.activityType.translatedName"
               />
             </QItemSection>
             <QItemSection>
@@ -190,7 +190,7 @@ export default {
         },
         ...this.filterActivityTypes.map(activityType => {
           return {
-            label: activityType.name,
+            label: activityType.translatedName,
             value: String(activityType.id),
             activityType,
           }

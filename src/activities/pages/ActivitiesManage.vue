@@ -24,8 +24,14 @@
             label-position="left"
             :color="activityType.colorName"
             :icon="activityType.icon"
-            :label="activityType.name"
+            :label="activityType.translatedName"
             @click="createNewSeries(activityType)"
+          />
+          <QFabAction
+            class="fab-action-fix bg-white"
+            :label="$t('ACTIVITY_TYPES.MANAGE_TYPES')"
+            outline
+            :to="{ name: 'groupEditActivityTypes' }"
           />
         </QFab>
       </QCardSection>
@@ -177,8 +183,14 @@
             label-position="left"
             :color="activityType.colorName"
             :icon="activityType.icon"
-            :label="activityType.name"
+            :label="activityType.translatedName"
             @click="createNewActivity(activityType)"
+          />
+          <QFabAction
+            class="fab-action-fix bg-white"
+            :label="$t('ACTIVITY_TYPES.MANAGE_TYPES')"
+            outline
+            :to="{ name: 'groupEditActivityTypes' }"
           />
         </QFab>
       </QCardSection>
@@ -295,7 +307,7 @@ export default {
       activitySeries: 'activitySeries/byActivePlace',
       fetchActivitySeriesStatus: 'activitySeries/fetchListForActivePlaceStatus',
       activities: 'activities/byActivePlace',
-      activityTypes: 'activityTypes/byCurrentGroup',
+      activityTypes: 'activityTypes/activeByCurrentGroup',
       fetchActivityPending: 'activities/fetchingForCurrentGroup',
       activityCreateStatus: 'activities/createStatus',
       seriesCreateStatus: 'activitySeries/createStatus',

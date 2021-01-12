@@ -1,5 +1,5 @@
 import activityTypes from '@/activities/api/activityTypes'
-import { indexById } from '@/utils/datastore/helpers'
+import { createMetaModule, indexById, metaStatuses, metaStatusesWithId, withMeta } from '@/utils/datastore/helpers'
 import i18n from '@/base/i18n'
 
 function initialState () {
@@ -10,36 +10,67 @@ function initialState () {
 
 export default {
   namespaced: true,
+  modules: { meta: createMetaModule() },
   state: initialState(),
   getters: {
     get: (state, getters) => activityTypeId => {
       return getters.enrich(state.entries[activityTypeId])
     },
     all: (state, getters) => Object.values(state.entries).map(getters.enrich),
-    enrich: state => activityType => {
+    enrich: (state, getters) => activityType => {
       if (!activityType) return
-      const { id, icon, name, nameIsTranslatable } = activityType
+      const { id, icon, feedbackIcon, name, nameIsTranslatable } = activityType
       // this corresponds to the name used by the activity type stylesheet plugin
       const colorName = `activity-type-${id}`
-      const maybeTranslatedName = nameIsTranslatable ? i18n.t(`ACTIVITY_TYPE_NAMES.${name}`) : name
+      const translatedName = nameIsTranslatable ? i18n.t(`ACTIVITY_TYPE_NAMES.${name}`) : name
       return {
         ...activityType,
+        translatedName,
         colorName,
         iconProps: {
           name: icon,
           color: colorName,
-          title: maybeTranslatedName,
+          title: translatedName,
         },
-        name: maybeTranslatedName,
+        feedbackIconProps: {
+          name: feedbackIcon,
+          color: colorName,
+          title: translatedName,
+        },
+        ...metaStatusesWithId(getters, ['save'], activityType.id),
       }
     },
     byCurrentGroup: (state, getters, rootState, rootGetters) => {
       return getters.all.filter(({ group }) => group === rootGetters['currentGroup/id'])
     },
+    activeByCurrentGroup: (state, getters) => {
+      return getters.byCurrentGroup.filter(activityType => activityType.status === 'active')
+    },
+    ...metaStatuses(['create']),
   },
   actions: {
-    async fetch ({ commit }) {
-      commit('update', await activityTypes.list())
+    ...withMeta({
+      async fetch ({ commit }) {
+        commit('update', await activityTypes.list())
+      },
+      async save ({ commit, dispatch }, activityType) {
+        const data = await activityTypes.save(activityType)
+        commit('update', [data])
+        dispatch('toasts/show', {
+          message: 'NOTIFICATIONS.CHANGES_SAVED',
+          config: {
+            timeout: 2000,
+            icon: 'thumb_up',
+          },
+        }, { root: true })
+      },
+      async create ({ commit, dispatch, rootGetters }, data) {
+        await activityTypes.create({ group: rootGetters['currentGroup/id'], ...data })
+        dispatch('refresh')
+      },
+    }),
+    refresh ({ dispatch }) {
+      dispatch('fetch')
     },
   },
   mutations: {
@@ -48,6 +79,12 @@ export default {
     },
     update (state, activityTypes) {
       state.entries = Object.freeze({ ...state.entries, ...indexById(activityTypes) })
+    },
+    delete (state, activityTypeId) {
+      if (!state.entries[activityTypeId]) return
+      const { [activityTypeId]: _, ...rest } = state.entries
+      Object.freeze(rest)
+      state.entries = rest
     },
   },
 }

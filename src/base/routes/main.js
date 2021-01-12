@@ -373,7 +373,7 @@ export default [
       {
         name: 'groupEdit',
         path: 'edit',
-        redirect: 'edit/main',
+        redirect: 'edit/details',
         meta: {
           breadcrumbs: [
             { translation: 'GROUP.EDIT', route: { name: 'groupEdit' } },
@@ -385,8 +385,8 @@ export default [
         },
         children: [
           {
-            name: 'groupEditMain',
-            path: 'main',
+            name: 'groupEditDetails',
+            path: 'details',
             component: GroupEdit,
           },
           {

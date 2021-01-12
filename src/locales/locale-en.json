@@ -363,6 +363,8 @@
     "DESCRIPTION": "Description",
     "DESCRIPTION_VERBOSE": "Group description, visible for members",
     "EDIT": "Edit group",
+    "EDIT_ACTIVITY_TYPES": "Activity types",
+    "EDIT_DETAILS": "Group details",
     "EMAIL_NOTIFICATIONS": "Email notifications",
     "HISTORY": "History",
     "HOME": "Home",

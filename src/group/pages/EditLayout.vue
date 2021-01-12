@@ -47,12 +47,12 @@ export default {
       const params = { groupId: this.groupId }
       return [
         {
-          to: { name: 'groupEditMain', params },
-          label: this.$t('main'),
+          to: { name: 'groupEditDetails', params },
+          label: this.$t('GROUP.EDIT_DETAILS'),
         },
         {
           to: { name: 'groupEditActivityTypes', params },
-          label: this.$t('activity types'),
+          label: this.$t('GROUP.EDIT_ACTIVITY_TYPES'),
         },
       ]
     },

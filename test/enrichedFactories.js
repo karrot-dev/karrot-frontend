@@ -189,6 +189,7 @@ export const activityTypes = {
   pickup: {
     id: activityTypeIdCnt++,
     name: 'Pickup',
+    status: 'active',
     translatedName: 'Pickup',
     colour: '007700',
     icon: 'fas fa-shopping-basket',

@@ -28,7 +28,7 @@ const datastore = options => createDatastore({
   },
   activityTypes: {
     getters: {
-      byCurrentGroup: () => Object.values(factories.activityTypes),
+      activeByCurrentGroup: () => Object.values(factories.activityTypes).map(t => t.status === 'active'),
     },
   },
   places: {

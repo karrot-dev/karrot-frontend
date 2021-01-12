@@ -20,6 +20,11 @@ const otherPlaces = [...Array(5).keys()].map(() => makePlace({
 const places = [place, ...otherPlaces]
 
 const headerDatastore = createDatastore({
+  currentGroup: {
+    getters: {
+      isEditor: () => false,
+    },
+  },
   places: {
     getters: {
       activePlace: () => place,

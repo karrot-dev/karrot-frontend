@@ -211,8 +211,8 @@ export default {
     },
     save (activityType) {
       Dialog.create({
-        title: this.$t('ACTIVITY_TYPES.CONFIRM_CHANGES'),
-        message: this.$t('ACTIVITY_TYPES.CONFIRM_CHANGES_HINT'),
+        title: this.$t('HISTORY.CONFIRM_CHANGES'),
+        message: this.$t('HISTORY.CONFIRM_CHANGES_HINT'),
         prompt: {
           model: '',
           type: 'text',

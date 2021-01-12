@@ -76,7 +76,6 @@ export default {
         group: rootGetters['groups/get'](entry.group),
         place,
         description: i18n.t(`HISTORY.${entry.typus}`, msgValues),
-        // TODO enrich payload
       }
     },
     active: (state, getters, rootState, rootGetters) => getters.get(state.activeId),

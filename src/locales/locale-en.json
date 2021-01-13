@@ -9,7 +9,7 @@
     "SECTIONS": {
       "ACTIVITIES": {
         "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later.",
-        "SUBTITLE": "Activities with a specific time and place, like meetings, or food pickups in the case of foodsaving, can be entered in the software.",
+        "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
         "TITLE": "Distribution of tasks and activities"
       },
       "COMMUNICATION": {
@@ -23,7 +23,7 @@
       },
       "GROUPS": {
         "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally.",
-        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
+        "SUBTITLE": "Every group on Karrot is completely independent and can have their own logo, processes, rules and agreements.",
         "TITLE": "Independent groups"
       },
       "MAPS": {
@@ -36,7 +36,7 @@
       },
       "OFFERS": {
         "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat.",
-        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
+        "SUBTITLE": "Create an offer of whatever you want to share or give away.",
         "TITLE": "Share things"
       },
       "OPENSOURCE": {

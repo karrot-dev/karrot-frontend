@@ -57,13 +57,13 @@
       },
       "TRUST": {
         "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way.",
-        "TITLE": "Democratic and trust-based group management"
+        "TITLE": "Democratic and trust-based group governance"
       }
     },
     "SUBTITLE1": "Karrot exists for groups of people who want to coordinate real-life activities on a local, autonomous and voluntary basis.",
-    "SUBTITLE2": "No bosses and no profit, whether you are saving food, sharing bikes, caring for a community garden or maintaining a makerspace.",
+    "SUBTITLE2": "It is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
     "TITLE": "Start a group, become a community",
-    "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure."
+    "VISION_INTRO": "No bosses, no admin superpowers, and no profit, whether you are saving food, sharing bikes, caring for a community garden or maintaining a makerspace."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",

@@ -6,6 +6,7 @@ import PlaceEdit from '@/places/components/PlaceEdit'
 export default connect({
   gettersToProps: {
     allPlaces: 'places/byCurrentGroup',
+    currentGroup: 'currentGroup/value',
     status: 'places/createStatus',
   },
   actionsToEvents: {

@@ -23,6 +23,7 @@ Please document your changes in this format:
 ## [Unreleased]
 ### Changed
 - use default group location for defaultMapCenter when creating a new place @larzon83 [#2293]
+- Remove disabled pickups on applied filters on pickups page @pogopaule [#2271]
 
 ## [9.1.0] - 2020-01-06
 ### Fixed

@@ -231,8 +231,8 @@ export default {
       done()
     },
     slotFilter (activity) {
-      if (this.slots === 'free') return !activity.isFull
-      if (this.slots === 'empty') return activity.isEmpty
+      if (this.slots === 'free') return !activity.isFull && !activity.isDisabled
+      if (this.slots === 'empty') return activity.isEmpty && !activity.isDisabled
       return true
     },
     typeFilter (activity) {

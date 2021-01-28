@@ -56,7 +56,7 @@
     <UserSlot
       v-if="canJoin"
       :size="size"
-      :hover-user="currentUser"
+      :user="currentUser"
       :show-join="!activity.isUserMember"
       @join="$emit('join')"
     />

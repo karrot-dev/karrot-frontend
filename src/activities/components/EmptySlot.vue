@@ -31,6 +31,6 @@ export default {
     vertical-align middle
 
 .greyedOut
-  cursor ini
+  cursor default
   border-color lightgrey
 </style>

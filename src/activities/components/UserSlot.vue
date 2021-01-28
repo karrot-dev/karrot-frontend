@@ -3,18 +3,17 @@
     class="user-slot-wrapper"
     :class="{ greyedOut: !showJoin, active: showJoin }"
     :style="{ width: size + 'px', height: size + 'px' }"
+    @click.stop="showJoin ? $emit('join') : null"
   >
-    <div :class="{ hoverHide: showJoin }" />
     <div
-      v-if="hoverUser && showJoin"
-      :class="{ hoverShow: showJoin }"
+      v-if="user && showJoin"
+      :class="{ 'show-picture-on-hover': showJoin }"
       :title="$t('ACTIVITYLIST.ITEM.JOIN')"
     >
       <ProfilePicture
-        :user="hoverUser"
+        :user="user"
         :size="size"
         :is-link="false"
-        @click.native.stop="$emit('join')"
       />
     </div>
   </div>
@@ -32,7 +31,7 @@ export default {
       type: Number,
       default: 20,
     },
-    hoverUser: {
+    user: {
       default: null,
       type: Object,
     },
@@ -64,19 +63,20 @@ export default {
   text-align center
   cursor pointer
 
-  .hoverShow
+  .show-picture-on-hover
     display none
 
-.user-slot-wrapper.active:hover
-  border 0
+// ios safari will require two clicks if we define a hover state
+// so only use the hover thing when the browser can support hover properly
+// see https://css-tricks.com/annoying-mobile-double-tap-link-issue/
+@media (hover)
+  .user-slot-wrapper.active:hover
+    border 0
 
-  .hoverHide
-    display none
-
-  .hoverShow
-    display inline-block
+    .show-picture-on-hover
+      display inline-block
 
 .greyedOut
-  cursor ini
+  cursor default
   border-color lightgrey
 </style>

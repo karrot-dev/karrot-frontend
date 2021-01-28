@@ -170,6 +170,7 @@ export default {
     },
     detail (event) {
       if (event.target.closest('a')) return // ignore actual links
+      if (event.target.classList.contains('user-slot-wrapper')) return // ignore actual links
       this.$emit('detail', this.activity)
     },
   },

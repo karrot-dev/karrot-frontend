@@ -976,8 +976,7 @@ exports[`Storyshots ActivityItem join 1`] = `
           </div>
           <!---->
           <div class="user-slot-wrapper active" style="width:36px;height:36px;">
-            <div class="hoverHide"></div>
-            <div title="Join" class="hoverShow">
+            <div title="Join" class="show-picture-on-hover">
               <div class="wrapper" style="width:36px;height:36px;">
                 <div text="User 1" seed="1" class="randomArt fill"></div>
               </div>
@@ -1176,8 +1175,7 @@ exports[`Storyshots ActivityList Default 1`] = `
             <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
               <!---->
               <div class="user-slot-wrapper active" style="width:36px;height:36px;">
-                <div class="hoverHide"></div>
-                <div title="Join" class="hoverShow">
+                <div title="Join" class="show-picture-on-hover">
                   <div class="wrapper" style="width:36px;height:36px;">
                     <div text="User 11" seed="11" class="randomArt fill"></div>
                   </div>
@@ -1216,8 +1214,7 @@ exports[`Storyshots ActivityList Default 1`] = `
             <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
               <!---->
               <div class="user-slot-wrapper active" style="width:36px;height:36px;">
-                <div class="hoverHide"></div>
-                <div title="Join" class="hoverShow">
+                <div title="Join" class="show-picture-on-hover">
                   <div class="wrapper" style="width:36px;height:36px;">
                     <div text="User 11" seed="11" class="randomArt fill"></div>
                   </div>
@@ -1256,8 +1253,7 @@ exports[`Storyshots ActivityList Default 1`] = `
             <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
               <!---->
               <div class="user-slot-wrapper active" style="width:36px;height:36px;">
-                <div class="hoverHide"></div>
-                <div title="Join" class="hoverShow">
+                <div title="Join" class="show-picture-on-hover">
                   <div class="wrapper" style="width:36px;height:36px;">
                     <div text="User 11" seed="11" class="randomArt fill"></div>
                   </div>
@@ -1296,8 +1292,7 @@ exports[`Storyshots ActivityList Default 1`] = `
             <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
               <!---->
               <div class="user-slot-wrapper active" style="width:36px;height:36px;">
-                <div class="hoverHide"></div>
-                <div title="Join" class="hoverShow">
+                <div title="Join" class="show-picture-on-hover">
                   <div class="wrapper" style="width:36px;height:36px;">
                     <div text="User 11" seed="11" class="randomArt fill"></div>
                   </div>
@@ -1336,8 +1331,7 @@ exports[`Storyshots ActivityList Default 1`] = `
             <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
               <!---->
               <div class="user-slot-wrapper active" style="width:36px;height:36px;">
-                <div class="hoverHide"></div>
-                <div title="Join" class="hoverShow">
+                <div title="Join" class="show-picture-on-hover">
                   <div class="wrapper" style="width:36px;height:36px;">
                     <div text="User 11" seed="11" class="randomArt fill"></div>
                   </div>
@@ -2090,8 +2084,7 @@ exports[`Storyshots ActivityUsers empty 1`] = `
 <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
   <!---->
   <div class="user-slot-wrapper active" style="width:36px;height:36px;">
-    <div class="hoverHide"></div>
-    <div title="Join" class="hoverShow">
+    <div title="Join" class="show-picture-on-hover">
       <div class="wrapper" style="width:36px;height:36px;">
         <div text="Current User" seed="5" class="randomArt fill"></div>
       </div>
@@ -2213,8 +2206,7 @@ exports[`Storyshots ActivityUsers joinable 1`] = `
   </div>
   <!---->
   <div class="user-slot-wrapper active" style="width:36px;height:36px;">
-    <div class="hoverHide"></div>
-    <div title="Join" class="hoverShow">
+    <div title="Join" class="show-picture-on-hover">
       <div class="wrapper" style="width:36px;height:36px;">
         <div text="Current User" seed="5" class="randomArt fill"></div>
       </div>

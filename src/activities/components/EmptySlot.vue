@@ -2,6 +2,7 @@
   <div
     class="user-slot-wrapper greyedOut"
     :style="{ width: size + 'px', height: size + 'px' }"
+    @click.stop
   />
 </template>
 

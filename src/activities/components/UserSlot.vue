@@ -3,7 +3,7 @@
     class="user-slot-wrapper"
     :class="{ greyedOut: !showJoin, active: showJoin }"
     :style="{ width: size + 'px', height: size + 'px' }"
-    @click.stop="showJoin ? $emit('join') : null"
+    @click.stop="$emit('join')"
   >
     <div
       v-if="user && showJoin"

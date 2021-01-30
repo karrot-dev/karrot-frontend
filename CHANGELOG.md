@@ -25,6 +25,9 @@ Please document your changes in this format:
 - use default group location for defaultMapCenter when creating a new place @larzon83 [#2293]
 - Remove disabled pickups on applied filters on pickups page @pogopaule [#2271]
 
+### Fixed
+- activities: only hover pictures if device supports it @larzon83 [#2297]
+
 ## [9.1.0] - 2020-01-06
 ### Fixed
 - Fix group switcher image sizes @nicksellen [#2283]

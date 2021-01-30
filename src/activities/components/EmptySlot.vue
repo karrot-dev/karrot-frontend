@@ -2,6 +2,7 @@
   <div
     class="user-slot-wrapper greyedOut"
     :style="{ width: size + 'px', height: size + 'px' }"
+    @click.stop
   />
 </template>
 
@@ -31,6 +32,6 @@ export default {
     vertical-align middle
 
 .greyedOut
-  cursor ini
+  cursor default
   border-color lightgrey
 </style>

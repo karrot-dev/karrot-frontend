@@ -41,7 +41,7 @@
     "build-docs": "gitbook install docs && gitbook build docs docs-dist"
   },
   "dependencies": {
-    "@quasar/extras": "^1.9.14",
+    "@quasar/extras": "^1.9.15",
     "@sentry/browser": "^6.0.2",
     "@sentry/integrations": "^6.0.2",
     "axios": "^0.21.1",

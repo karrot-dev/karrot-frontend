@@ -1957,10 +1957,10 @@
     core-js "^3.6.5"
     core-js-compat "^3.6.5"
 
-"@quasar/extras@^1.9.14":
-  version "1.9.14"
-  resolved "https://registry.yarnpkg.com/@quasar/extras/-/extras-1.9.14.tgz#d9a14547b8d4e43c95a98b24058ff0cdffd92df4"
-  integrity sha512-8g2C0qsdKmaSbIR16C87yQbpY/pDubcZU6r69E9NuX/oNLhudWwg1kux9mdk3rlHHG4z7qty3i9+Dedampwt2A==
+"@quasar/extras@^1.9.15":
+  version "1.9.15"
+  resolved "https://registry.yarnpkg.com/@quasar/extras/-/extras-1.9.15.tgz#bfc22bf4edcb079820dea248c06fe21f73221262"
+  integrity sha512-dm2oztROc3PgjieMEMAaqEcJ6ZC6PUGIZQet/eP2p/2vJTPwcyzhCGTBWoRJzEjOKoQeIJzM+F5diMhCaFFksA==
 
 "@quasar/fastclick@1.1.4":
   version "1.1.4"

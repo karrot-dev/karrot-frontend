@@ -199,9 +199,25 @@ export default {
     },
     filteredActivities () {
       if (!this.activities) return []
+
+      let dateIterated = ''
       return this.activities
         .filter(this.slotFilter)
         .filter(this.typeFilter)
+        .map(activity => {
+          // grouping ActivityItems by date:
+          // the date in each ActivityItem will only get shown, if "dateGroupedHeadline" is not an empty string
+          let dateGroupedHeadline = ''
+          const activityDateWithDayName = this.$d(activity.date, 'dateWithDayName')
+          if (activityDateWithDayName !== dateIterated) {
+            dateGroupedHeadline = activityDateWithDayName
+          }
+          dateIterated = activityDateWithDayName
+          return {
+            ...activity,
+            dateGroupedHeadline,
+          }
+        })
     },
     displayedActivities () {
       return this.filteredActivities.slice(0, this.numDisplayed)

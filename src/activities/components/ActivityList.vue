@@ -82,16 +82,26 @@
       :offset="100"
       @load="displayMoreActivities"
     >
-      <ActivityItem
-        v-for="activity in displayedActivities"
-        :key="activity.id"
-        v-measure
-        :activity="activity"
-        :place-link="placeLink"
-        @join="$emit('join', arguments[0])"
-        @leave="$emit('leave', arguments[0])"
-        @detail="$emit('detail', arguments[0])"
-      />
+      <template
+        v-for="(day, index) in displayedActivitiesGroupedByDate"
+      >
+        <div
+          :key="`day-${index}`"
+          class="q-px-sm q-pt-lg full-width date-with-day-name"
+        >
+          {{ day.date }}
+        </div>
+        <ActivityItem
+          v-for="activity in day.activities"
+          :key="activity.id"
+          v-measure
+          :activity="activity"
+          :place-link="placeLink"
+          @join="$emit('join', arguments[0])"
+          @leave="$emit('leave', arguments[0])"
+          @detail="$emit('detail', arguments[0])"
+        />
+      </template>
       <template #loading>
         <KSpinner />
       </template>
@@ -199,28 +209,23 @@ export default {
     },
     filteredActivities () {
       if (!this.activities) return []
-
-      let dateIterated = ''
       return this.activities
         .filter(this.slotFilter)
         .filter(this.typeFilter)
-        .map(activity => {
-          // grouping ActivityItems by date:
-          // the date in each ActivityItem will only get shown, if "dateGroupedHeadline" is not an empty string
-          let dateGroupedHeadline = ''
-          const activityDateWithDayName = this.$d(activity.date, 'dateWithDayName')
-          if (activityDateWithDayName !== dateIterated) {
-            dateGroupedHeadline = activityDateWithDayName
-          }
-          dateIterated = activityDateWithDayName
-          return {
-            ...activity,
-            dateGroupedHeadline,
-          }
-        })
     },
-    displayedActivities () {
-      return this.filteredActivities.slice(0, this.numDisplayed)
+    displayedActivitiesGroupedByDate () {
+      const result = []
+      let dateIterated = ''
+      for (const [index, activity] of this.filteredActivities.entries()) {
+        if (index === this.numDisplayed) break
+        const dateWithDayName = this.$d(activity.date, 'dateWithDayName')
+        if (dateWithDayName !== dateIterated) {
+          result.push({ date: dateWithDayName, activities: [] })
+        }
+        result[result.length - 1].activities.push(activity)
+        dateIterated = dateWithDayName
+      }
+      return result
     },
     noActivitiesDueToFilters () {
       return this.activities.length > 0 && this.filteredActivities.length === 0
@@ -262,3 +267,10 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="stylus">
+.date-with-day-name
+  font-weight 700
+  color rgba(0, 0, 0, 0.7)
+  text-align center
+</style>

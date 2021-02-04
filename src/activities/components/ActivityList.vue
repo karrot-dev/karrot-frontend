@@ -86,6 +86,7 @@
         v-for="(day, index) in displayedActivitiesGroupedByDate"
       >
         <div
+          v-if="!dense"
           :key="`day-${index}`"
           class="q-px-sm q-pt-lg full-width date-with-day-name"
         >
@@ -95,6 +96,7 @@
           v-for="activity in day.activities"
           :key="activity.id"
           v-measure
+          :dense="dense"
           :activity="activity"
           :place-link="placeLink"
           @join="$emit('join', arguments[0])"
@@ -156,6 +158,10 @@ export default {
       default: false,
     },
     pending: {
+      type: Boolean,
+      default: false,
+    },
+    dense: {
       type: Boolean,
       default: false,
     },

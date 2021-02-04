@@ -14,6 +14,10 @@
               <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>
             </strong>
             <template v-if="placeLink">
+              <template v-if="dense">
+                <span>{{ $d(activity.date, 'dateWithDayName') }}</span>
+                <br>
+              </template>
               <span v-if="activity.place">
                 <RouterLink :to="{ name: 'place', params: { placeId: activity.place.id }}">
                   {{ activity.place.name }}
@@ -178,6 +182,10 @@ export default {
     activity: {
       type: Object,
       required: true,
+    },
+    dense: {
+      type: Boolean,
+      default: false,
     },
     placeLink: {
       type: Boolean,

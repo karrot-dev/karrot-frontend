@@ -364,6 +364,11 @@
     "EDIT_ACTIVITY_TYPES": "Activity types",
     "EDIT_DETAILS": "Group details",
     "EMAIL_NOTIFICATIONS": "Email notifications",
+    "HEADINGS":{
+      "GENERAL": "General",
+      "LOCATION": "Location",
+      "USER_HANDLING": "User Handling"
+    },
     "HISTORY": "History",
     "HOME": "Home",
     "INACTIVE": "Inactive",

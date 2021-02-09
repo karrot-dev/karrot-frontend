@@ -13,6 +13,10 @@
       :class="{ changed: hasChanged }"
     >
       <form @submit.prevent="maybeSave">
+        <h4 class="text-primary">
+          {{ $t('GROUP.HEADINGS.GENERAL') }}
+        </h4>
+
         <QInput
           v-if="!edit.isPlayground"
           id="group-title"
@@ -54,6 +58,10 @@
           @keyup.ctrl.enter="maybeSave"
         />
 
+        <h4 class="text-primary">
+          {{ $t('GROUP.HEADINGS.LOCATION') }}
+        </h4>
+
         <AddressPicker
           v-model="edit"
           :color="isNew ? 'blue' : 'positive'"
@@ -85,6 +93,10 @@
             <QIcon name="fas fa-fw fa-globe" />
           </template>
         </QSelect>
+
+        <h4 class="text-primary">
+          {{ $t('GROUP.HEADINGS.USER_HANDLING') }}
+        </h4>
 
         <MarkdownInput
           v-if="!edit.isOpen"

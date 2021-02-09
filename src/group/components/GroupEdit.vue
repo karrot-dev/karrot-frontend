@@ -2,10 +2,10 @@
   <component :is="$q.platform.is.mobile ? 'div' : 'QCard'">
     <ChangePhoto
       v-if="!isNew"
-      :value="value"
-      :status="status"
-      :label="$t('GROUP.LOGO')"
       :hint="$t('GROUP.SET_LOGO')"
+      :label="$t('GROUP.LOGO')"
+      :status="status"
+      :value="value"
       @save="$emit('save', { id: value.id, photo: arguments[0] })"
     />
     <div
@@ -21,10 +21,10 @@
           v-if="!edit.isPlayground"
           id="group-title"
           v-model="edit.name"
-          :label="$t('GROUP.TITLE')"
+          :autofocus="!$q.platform.has.touch"
           :error="hasNameError"
           :error-message="nameError"
-          :autofocus="!$q.platform.has.touch"
+          :label="$t('GROUP.TITLE')"
           autocomplete="off"
           outlined
           class="q-mb-lg"
@@ -38,10 +38,10 @@
         <MarkdownInput
           v-if="!edit.isPlayground"
           v-model="edit.publicDescription"
-          icon="fas fa-fw fa-question"
-          :label="$t('GROUPINFO.TITLE')"
           :error="hasError('publicDescription')"
           :error-message="firstError('publicDescription')"
+          :label="$t('GROUPINFO.TITLE')"
+          icon="fas fa-fw fa-question"
           outlined
           class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
@@ -49,10 +49,10 @@
 
         <MarkdownInput
           v-model="edit.description"
-          icon="fas fa-fw fa-address-card"
-          :label="$t('GROUP.DESCRIPTION_VERBOSE')"
           :error="hasError('description')"
           :error-message="firstError('description')"
+          :label="$t('GROUP.DESCRIPTION_VERBOSE')"
+          icon="fas fa-fw fa-address-card"
           outlined
           class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
@@ -65,26 +65,26 @@
         <AddressPicker
           v-model="edit"
           :color="isNew ? 'blue' : 'positive'"
-          font-icon="fas fa-home"
-          outlined
-          icon="fas fa-fw fa-map-marker"
-          :label="$t('GROUP.ADDRESS')"
           :error="hasAddressError"
           :error-message="addressError"
+          :label="$t('GROUP.ADDRESS')"
+          font-icon="fas fa-home"
+          icon="fas fa-fw fa-map-marker"
+          outlined
           class="q-mb-lg"
         />
 
         <QSelect
           v-model="edit.timezone"
-          :label="$t('GROUP.TIMEZONE')"
           :error="hasTimezoneError"
           :error-message="timezoneError"
-          input-debounce="0"
+          :label="$t('GROUP.TIMEZONE')"
           :options="filteredTimezones"
-          use-input
           fill-input
           hide-selected
+          input-debounce="0"
           outlined
+          use-input
           class="q-mb-lg"
           @filter="timezoneFilter"
           @blur="$v.edit.timezone.$touch"
@@ -100,11 +100,11 @@
 
         <MarkdownInput
           v-if="!edit.isOpen"
-          icon="fas fa-fw fa-question"
-          :value="applicationQuestionsOrDefault"
-          :label="$t('GROUP.APPLICATION_QUESTIONS')"
           :error="hasError('applicationQuestions')"
           :error-message="firstError('applicationQuestions')"
+          :label="$t('GROUP.APPLICATION_QUESTIONS')"
+          :value="applicationQuestionsOrDefault"
+          icon="fas fa-fw fa-question"
           outlined
           class="q-mb-lg"
           @input="applicationQuestionsInput"
@@ -114,10 +114,10 @@
         <MarkdownInput
           v-if="!edit.isOpen"
           v-model="edit.welcomeMessage"
-          icon="fas fa-fw fa-address-card"
-          :label="$t('GROUP.WELCOMEMESSAGE_VERBOSE')"
           :error="hasError('welcomeMessage')"
           :error-message="firstError('welcomeMessage')"
+          :label="$t('GROUP.WELCOMEMESSAGE_VERBOSE')"
+          icon="fas fa-fw fa-address-card"
           outlined
           class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
@@ -313,5 +313,4 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
-
 </style>

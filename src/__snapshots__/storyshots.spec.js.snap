@@ -1177,7 +1177,7 @@ exports[`Storyshots ActivityList Default 1`] = `
     </svg></div>
   <!---->
   <div class="q-infinite-scroll">
-    <div class="q-px-sm q-pt-lg full-width date-with-day-name">
+    <div class="q-px-sm q-pt-lg full-width text-center text-bold" style="color:rgba(0, 0, 0, 0.7);">
       Sun, December 24
     </div>
     <div class="q-card">

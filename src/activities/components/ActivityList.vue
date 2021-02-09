@@ -88,7 +88,8 @@
         <div
           v-if="!dense"
           :key="`day-${index}`"
-          class="q-px-sm q-pt-lg full-width date-with-day-name"
+          class="q-px-sm q-pt-lg full-width text-center text-bold"
+          style="color: rgba(0, 0, 0, 0.7);"
         >
           {{ day.date }}
         </div>
@@ -273,10 +274,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-.date-with-day-name
-  font-weight 700
-  color rgba(0, 0, 0, 0.7)
-  text-align center
-</style>

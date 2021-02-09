@@ -22,6 +22,7 @@
           :error-message="nameError"
           :autofocus="!$q.platform.has.touch"
           autocomplete="off"
+          outlined
           @blur="$v.edit.name.$touch"
         >
           <template #before>
@@ -36,6 +37,7 @@
           :label="$t('GROUPINFO.TITLE')"
           :error="hasError('publicDescription')"
           :error-message="firstError('publicDescription')"
+          outlined
           @keyup.ctrl.enter="maybeSave"
         />
 
@@ -45,16 +47,7 @@
           :label="$t('GROUP.DESCRIPTION_VERBOSE')"
           :error="hasError('description')"
           :error-message="firstError('description')"
-          @keyup.ctrl.enter="maybeSave"
-        />
-
-        <MarkdownInput
-          v-if="!edit.isOpen"
-          v-model="edit.welcomeMessage"
-          icon="fas fa-fw fa-address-card"
-          :label="$t('GROUP.WELCOMEMESSAGE_VERBOSE')"
-          :error="hasError('welcomeMessage')"
-          :error-message="firstError('welcomeMessage')"
+          outlined
           @keyup.ctrl.enter="maybeSave"
         />
 
@@ -62,21 +55,11 @@
           v-model="edit"
           :color="isNew ? 'blue' : 'positive'"
           font-icon="fas fa-home"
+          outlined
           icon="fas fa-fw fa-map-marker"
           :label="$t('GROUP.ADDRESS')"
           :error="hasAddressError"
           :error-message="addressError"
-        />
-
-        <MarkdownInput
-          v-if="!edit.isOpen"
-          icon="fas fa-fw fa-question"
-          :value="applicationQuestionsOrDefault"
-          :label="$t('GROUP.APPLICATION_QUESTIONS')"
-          :error="hasError('applicationQuestions')"
-          :error-message="firstError('applicationQuestions')"
-          @input="applicationQuestionsInput"
-          @keyup.ctrl.enter="maybeSave"
         />
 
         <QSelect
@@ -89,6 +72,7 @@
           use-input
           fill-input
           hide-selected
+          outlined
           @filter="timezoneFilter"
           @blur="$v.edit.timezone.$touch"
         >
@@ -97,12 +81,36 @@
           </template>
         </QSelect>
 
+        <MarkdownInput
+          v-if="!edit.isOpen"
+          icon="fas fa-fw fa-question"
+          :value="applicationQuestionsOrDefault"
+          :label="$t('GROUP.APPLICATION_QUESTIONS')"
+          :error="hasError('applicationQuestions')"
+          :error-message="firstError('applicationQuestions')"
+          outlined
+          @input="applicationQuestionsInput"
+          @keyup.ctrl.enter="maybeSave"
+        />
+
+        <MarkdownInput
+          v-if="!edit.isOpen"
+          v-model="edit.welcomeMessage"
+          icon="fas fa-fw fa-address-card"
+          :label="$t('GROUP.WELCOMEMESSAGE_VERBOSE')"
+          :error="hasError('welcomeMessage')"
+          :error-message="firstError('welcomeMessage')"
+          outlined
+          @keyup.ctrl.enter="maybeSave"
+        />
+
         <div
           v-if="hasNonFieldError"
           class="text-negative"
         >
           {{ firstNonFieldError }}
         </div>
+
         <div class="row justify-end q-gutter-sm q-mt-sm">
           <QBtn
             v-if="!isNew"

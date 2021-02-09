@@ -23,6 +23,7 @@
           :autofocus="!$q.platform.has.touch"
           autocomplete="off"
           outlined
+          class="q-mb-lg"
           @blur="$v.edit.name.$touch"
         >
           <template #before>
@@ -38,6 +39,7 @@
           :error="hasError('publicDescription')"
           :error-message="firstError('publicDescription')"
           outlined
+          class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
         />
 
@@ -48,6 +50,7 @@
           :error="hasError('description')"
           :error-message="firstError('description')"
           outlined
+          class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
         />
 
@@ -60,6 +63,7 @@
           :label="$t('GROUP.ADDRESS')"
           :error="hasAddressError"
           :error-message="addressError"
+          class="q-mb-xl"
         />
 
         <QSelect
@@ -73,6 +77,7 @@
           fill-input
           hide-selected
           outlined
+          class="q-mb-lg"
           @filter="timezoneFilter"
           @blur="$v.edit.timezone.$touch"
         >
@@ -89,6 +94,7 @@
           :error="hasError('applicationQuestions')"
           :error-message="firstError('applicationQuestions')"
           outlined
+          class="q-mb-lg"
           @input="applicationQuestionsInput"
           @keyup.ctrl.enter="maybeSave"
         />
@@ -101,6 +107,7 @@
           :error="hasError('welcomeMessage')"
           :error-message="firstError('welcomeMessage')"
           outlined
+          class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
         />
 
@@ -294,4 +301,5 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
+
 </style>

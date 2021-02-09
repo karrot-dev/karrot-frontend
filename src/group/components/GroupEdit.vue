@@ -95,7 +95,7 @@
         </QSelect>
 
         <h4 class="text-primary q-mt-xl q-mb-lg">
-          {{ $t('GROUP.HEADINGS.NEW_MEMBER_SIGNUP') }}
+          {{ $t('GROUP.HEADINGS.NEW_MEMBERS_SIGNUP') }}
         </h4>
 
         <MarkdownInput

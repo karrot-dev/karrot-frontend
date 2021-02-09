@@ -13,7 +13,7 @@
       :class="{ changed: hasChanged }"
     >
       <form @submit.prevent="maybeSave">
-        <h4 class="text-primary">
+        <h4 class="text-primary q-mt-none q-mb-lg">
           {{ $t('GROUP.HEADINGS.GENERAL') }}
         </h4>
 
@@ -58,7 +58,7 @@
           @keyup.ctrl.enter="maybeSave"
         />
 
-        <h4 class="text-primary">
+        <h4 class="text-primary q-mt-xl q-mb-lg">
           {{ $t('GROUP.HEADINGS.LOCATION') }}
         </h4>
 
@@ -71,7 +71,7 @@
           :label="$t('GROUP.ADDRESS')"
           :error="hasAddressError"
           :error-message="addressError"
-          class="q-mb-xl"
+          class="q-mb-lg"
         />
 
         <QSelect
@@ -94,8 +94,8 @@
           </template>
         </QSelect>
 
-        <h4 class="text-primary">
-          {{ $t('GROUP.HEADINGS.USER_HANDLING') }}
+        <h4 class="text-primary q-mt-xl q-mb-lg">
+          {{ $t('GROUP.HEADINGS.NEW_MEMBER_SIGNUP') }}
         </h4>
 
         <MarkdownInput

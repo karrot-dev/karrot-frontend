@@ -245,7 +245,7 @@ export default {
   box-shadow 0 -1px 0 rgba(0, 0, 0, 0.06)
 
 .q-btn.open-conversation-button
-  ::v-deep .q-btn__wrapper
+  >>> .q-btn__wrapper
     padding 10px 12px !important
 
     .icon-left

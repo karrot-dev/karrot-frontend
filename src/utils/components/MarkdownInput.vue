@@ -143,4 +143,9 @@ export default {
 .markdown-input-preview-card
   min-width 60%
   max-width 700px
+
+.q-field--outlined >>> .q-field__control:before {
+  border 1px solid rgba(0, 0, 0, 0.15)
+}
+
 </style>

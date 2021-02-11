@@ -43,7 +43,7 @@
           :label="$t('GROUPINFO.TITLE')"
           icon="fas fa-fw fa-question"
           outlined
-          class="q-mb-lg"
+          class="q-mb-lg test"
           @keyup.ctrl.enter="maybeSave"
         />
 
@@ -60,6 +60,32 @@
 
         <h4 class="text-primary q-mt-xl q-mb-lg">
           {{ $t('GROUP.HEADINGS.LOCATION') }}
+          <QBtn
+            size="sm"
+            round
+            flat
+            icon="fas fa-info-circle"
+            @click.prevent
+          >
+            <QMenu
+              square
+              dark
+              max-width="280px"
+              content-class="q-pa-md text-center bg-primary"
+            >
+              <p class="text-h5">
+                Extra Info
+              </p>
+              <!-- ToDo -->
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy e</p>
+              <QBtn
+                v-close-popup
+                flat
+              >
+                {{ $t('BUTTON.CLOSE') }}
+              </QBtn>
+            </QMenu>
+          </QBtn>
         </h4>
 
         <AddressPicker
@@ -96,6 +122,32 @@
 
         <h4 class="text-primary q-mt-xl q-mb-lg">
           {{ $t('GROUP.HEADINGS.NEW_MEMBERS_SIGNUP') }}
+          <QBtn
+            size="sm"
+            round
+            flat
+            icon="fas fa-info-circle"
+            @click.prevent
+          >
+            <QMenu
+              square
+              dark
+              max-width="280px"
+              content-class="q-pa-md text-center bg-primary"
+            >
+              <p class="text-h5">
+                Extra Info
+              </p>
+              <!-- ToDo -->
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy e</p>
+              <QBtn
+                v-close-popup
+                flat
+              >
+                {{ $t('BUTTON.CLOSE') }}
+              </QBtn>
+            </QMenu>
+          </QBtn>
         </h4>
 
         <MarkdownInput
@@ -160,6 +212,7 @@ import {
   QCard,
   QInput,
   QBtn,
+  QMenu,
   QSelect,
   QIcon,
 } from 'quasar'
@@ -177,6 +230,7 @@ export default {
     QCard,
     QInput,
     QBtn,
+    QMenu,
     QSelect,
     QIcon,
     AddressPicker,
@@ -313,4 +367,9 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
+
+.q-field--outlined >>> .q-field__control:before {
+  border 1px solid rgba(0, 0, 0, 0.15)
+}
+
 </style>

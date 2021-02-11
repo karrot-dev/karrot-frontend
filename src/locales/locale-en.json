@@ -60,10 +60,10 @@
         "TITLE": "Democratic and trust-based group governance"
       }
     },
-    "SUBTITLE1": "Karrot exists for groups of people who want to coordinate real-life activities on a local, autonomous and voluntary basis.",
-    "SUBTITLE2": "It is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure.",
+    "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
+    "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
     "TITLE": "Start a group, become a community",
-    "VISION_INTRO": "No bosses, no admin superpowers, and no profit, whether you are saving food, sharing bikes, caring for a community garden or maintaining a makerspace."
+    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kichen..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",

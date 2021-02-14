@@ -19,6 +19,9 @@ fi
 STORYBOOK_URL=
 APK_URL=
 DEPLOY_DOCS="false"
+BUNDLE_FILENAME_BASE="karrot-frontend"
+STORYBOOK_BUNDLE_FILENAME_BASE=
+DOCS_BUNDLE_FILENAME_BASE=
 
 if [ "$TYPE" == "release" ]; then
 
@@ -29,7 +32,7 @@ if [ "$TYPE" == "release" ]; then
   DEPLOY_EMOJI=":rocket:"
   URL="https://karrot.world"
   APK_URL="https://karrot.world/app.apk"
-  ZIP_FILENAME="karrot-frontend-production.zip"
+  BUNDLE_FILENAME_BASE="$BUNDLE_FILENAME_BASE-production"
 
 elif [ "$TYPE" == "dev" ]; then
 
@@ -48,11 +51,11 @@ elif [ "$TYPE" == "dev" ]; then
   DEPLOY_EMOJI=":beer:"
   URL="https://dev.karrot.world"
   APK_URL="https://dev.karrot.world/app.apk"
+  BUNDLE_FILENAME_BASE="$BUNDLE_FILENAME_BASE-dev"
   STORYBOOK_URL="https://storybook.karrot.world"
-  STORYBOOK_ZIP_FILENAME="karrot-frontend-storybook-dev.zip"
+  STORYBOOK_BUNDLE_FILENAME_BASE="$BUNDLE_FILENAME_BASE-storybook"
   DEPLOY_DOCS="true"
-  DOCS_ZIP_FILENAME="karrot-frontend-docs-dev.zip"
-  ZIP_FILENAME="karrot-frontend-dev.zip"
+  DOCS_BUNDLE_FILENAME_BASE="$BUNDLE_FILENAME_BASE-docs"
 
 elif [ "$TYPE" == "branch" ]; then
 
@@ -71,7 +74,7 @@ elif [ "$TYPE" == "branch" ]; then
   DEPLOY_EMOJI=":construction_worker:"
   URL="https://$SAFE_DIR.dev.karrot.world"
   DEPLOY_DOCS="false"
-  ZIP_FILENAME="karrot-frontend-branch-$SAFE_REF.zip"
+  BUNDLE_FILENAME_BASE="$BUNDLE_FILENAME_BASE-branch-$SAFE_REF"
 
 else
 
@@ -107,13 +110,15 @@ echo "$about_json" > dist/pwa/about.json
 rsync -avz --delete dist/pwa/ "deploy@$HOST:karrot-frontend/$DIR/"
 
 # build a zipped version for next-gen deployment method :)
+ZIP_FILENAME="$BUNDLE_FILENAME_BASE.zip"
 (cd dist/pwa && zip -r "../../$ZIP_FILENAME" .)
 rsync -avz "$ZIP_FILENAME" "karrot-download@$HOST:www/"
 
 if [ ! -z "$STORYBOOK_URL" ]; then
   echo "$about_json" > storybook-static/about.json
   rsync -avz --delete storybook-static/ "deploy@$HOST:karrot-frontend-storybook/$DIR/"
-  if [ ! -z "$STORYBOOK_ZIP_FILENAME" ]; then
+  if [ ! -z "$STORYBOOK_BUNDLE_FILENAME_BASE" ]; then
+    STORYBOOK_ZIP_FILENAME="$STORYBOOK_BUNDLE_FILENAME_BASE.zip"
     (cd storybook-static && zip -r "../$STORYBOOK_ZIP_FILENAME" .)
     rsync -avz "$STORYBOOK_ZIP_FILENAME" "karrot-download@$HOST:www/"
   fi
@@ -121,7 +126,8 @@ fi
 
 if [ "$DEPLOY_DOCS" == "true" ] && [ -d docs-dist/gitbook ]; then
   rsync -avz --delete docs-dist/ "deploy@$HOST:karrot-docs/$DIR/"
-  if [ ! -z "$DOCS_ZIP_FILENAME" ]; then
+  if [ ! -z "$DOCS_BUNDLE_FILENAME_BASE" ]; then
+    DOCS_ZIP_FILENAME="$DOCS_BUNDLE_FILENAME_BASE.zip"
     (cd docs-dist && zip -r "../$DOCS_ZIP_FILENAME" .)
     rsync -avz "$DOCS_ZIP_FILENAME" "karrot-download@$HOST:www/"
   fi

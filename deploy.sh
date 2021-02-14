@@ -29,6 +29,7 @@ if [ "$TYPE" == "release" ]; then
   DEPLOY_EMOJI=":rocket:"
   URL="https://karrot.world"
   APK_URL="https://karrot.world/app.apk"
+  ZIP_FILENAME="karrot-frontend-production.zip"
 
 elif [ "$TYPE" == "dev" ]; then
 
@@ -48,7 +49,10 @@ elif [ "$TYPE" == "dev" ]; then
   URL="https://dev.karrot.world"
   APK_URL="https://dev.karrot.world/app.apk"
   STORYBOOK_URL="https://storybook.karrot.world"
+  STORYBOOK_ZIP_FILENAME="karrot-frontend-storybook-dev.zip"
   DEPLOY_DOCS="true"
+  DOCS_ZIP_FILENAME="karrot-frontend-docs-dev.zip"
+  ZIP_FILENAME="karrot-frontend-dev.zip"
 
 elif [ "$TYPE" == "branch" ]; then
 
@@ -60,12 +64,14 @@ elif [ "$TYPE" == "branch" ]; then
 
   # branch deployment
 
-  SAFE_DIR="$(echo -n "$REF" | tr -c '[a-zA-Z0-9]-' '-' | tr "[:upper:]" "[:lower:]")"
+  SAFE_REF="$(echo -n "$REF" | tr -c '[a-zA-Z0-9.]-' '-' | tr "[:upper:]" "[:lower:]")"
+  SAFE_DIR="$(echo -n "$SAFE_REF" | replace '.' '-')" # ... also without dots
   DIR="branches/$SAFE_DIR"
   DEPLOY_ENV="branch/$REF"
   DEPLOY_EMOJI=":construction_worker:"
   URL="https://$SAFE_DIR.dev.karrot.world"
-  DEPLOY_DOCS="true"
+  DEPLOY_DOCS="false"
+  ZIP_FILENAME="karrot-frontend-branch-$SAFE_REF.zip"
 
 else
 
@@ -100,13 +106,25 @@ echo "$about_json" > dist/pwa/about.json
 # send it all to the host
 rsync -avz --delete dist/pwa/ "deploy@$HOST:karrot-frontend/$DIR/"
 
+# build a zipped version for next-gen deployment method :)
+(cd dist/pwa && zip -r "../../$ZIP_FILENAME" .)
+rsync -avz "$ZIP_FILENAME" "karrot-download@$HOST:www/"
+
 if [ ! -z "$STORYBOOK_URL" ]; then
   echo "$about_json" > storybook-static/about.json
   rsync -avz --delete storybook-static/ "deploy@$HOST:karrot-frontend-storybook/$DIR/"
+  if [ ! -z "$STORYBOOK_ZIP_FILENAME" ]; then
+    (cd storybook-static && zip -r "../../$STORYBOOK_ZIP_FILENAME" .)
+    rsync -avz "$STORYBOOK_ZIP_FILENAME" "karrot-download@$HOST:www/"
+  fi
 fi
 
 if [ "$DEPLOY_DOCS" == "true" ] && [ -d docs-dist/gitbook ]; then
   rsync -avz --delete docs-dist/ "deploy@$HOST:karrot-docs/$DIR/"
+  if [ ! -z "$DOCS_ZIP_FILENAME" ]; then
+    (cd docs-dist && zip -r "../../$DOCS_ZIP_FILENAME" .)
+    rsync -avz "$DOCS_ZIP_FILENAME" "karrot-download@$HOST:www/"
+  fi
 fi
 
 if [ ! -z "$ROCKETCHAT_WEBHOOK_URL" ]; then

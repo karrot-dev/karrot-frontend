@@ -114,7 +114,7 @@ if [ ! -z "$STORYBOOK_URL" ]; then
   echo "$about_json" > storybook-static/about.json
   rsync -avz --delete storybook-static/ "deploy@$HOST:karrot-frontend-storybook/$DIR/"
   if [ ! -z "$STORYBOOK_ZIP_FILENAME" ]; then
-    (cd storybook-static && zip -r "../../$STORYBOOK_ZIP_FILENAME" .)
+    (cd storybook-static && zip -r "../$STORYBOOK_ZIP_FILENAME" .)
     rsync -avz "$STORYBOOK_ZIP_FILENAME" "karrot-download@$HOST:www/"
   fi
 fi
@@ -122,7 +122,7 @@ fi
 if [ "$DEPLOY_DOCS" == "true" ] && [ -d docs-dist/gitbook ]; then
   rsync -avz --delete docs-dist/ "deploy@$HOST:karrot-docs/$DIR/"
   if [ ! -z "$DOCS_ZIP_FILENAME" ]; then
-    (cd docs-dist && zip -r "../../$DOCS_ZIP_FILENAME" .)
+    (cd docs-dist && zip -r "../$DOCS_ZIP_FILENAME" .)
     rsync -avz "$DOCS_ZIP_FILENAME" "karrot-download@$HOST:www/"
   fi
 fi

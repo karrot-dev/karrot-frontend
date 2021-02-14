@@ -1,154 +1,154 @@
 {
   "ABOUT_KARROT": {
-    "AND_MORE": "And more...",
-    "EXISTING_GROUPS": "A few groups already using Karrot",
+    "AND_MORE": "És még több...",
+    "EXISTING_GROUPS": "Néhány csoport akik már használják a Karrot-ot",
     "LINKS": {
-      "CHAT": "team chat",
-      "FORUM": "community forum"
+      "CHAT": "csoportos beszélgetés",
+      "FORUM": "közösségi fórum"
     },
     "SECTIONS": {
       "ACTIVITIES": {
-        "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later.",
-        "SUBTITLE": "Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.",
-        "TITLE": "Distribution of tasks and activities"
+        "DESCRIPTION": "Minden tevékenységhez van több hely, amelyekre a csoport tagjai jelentkezhetnek – így mindenki tudja, ki megy hova és mikor, és később visszajelzést lehet adni.",
+        "SUBTITLE": "Tevékenységek adott helyen és időben, például ételfelvételek ételmentés esetén, beírhatók a szoftverbe.",
+        "TITLE": "Feladatok és tevékenységek elosztása"
       },
       "COMMUNICATION": {
-        "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats.",
-        "TITLE": "Communication in the right context"
+        "DESCRIPTION": "Írj egy üzenetet amit mindenki a csoportban lát, vagy egy privát üzenetet valakinek. Mindent ami egy adott tevékenységhez kapcsolódik a saját beszélgetésében meg lehet tárgyalni.",
+        "TITLE": "Megfelelő kontextusokban való kommunikáció"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}.",
-        "TITLE": "Democratic and participative development"
+        "DESCRIPTION": "A Karrot egy ingyenes és nyílt forráskódú szoftver, a felhasználók visszajelzésével és részvételével fejlesztve. Elsősorban egy kis fejlesztői csapat munkája, akik folyamatos kapcsolatban vannak különböző csoportok tagjaival, hogy megértsék a szerteágazó igényeket és ezeknek megfelelő irányba tereljék a fejlesztést. Az adatok integritásának megtartása és kereskedelmi forgalomba nem hozatalának elvei szerint működünk.",
+        "DESCRIPTION2": "Fejlesztők és dizájnerek természetesen részt vehetnek a fejlesztésében. Nézd meg a projektet a {code}-on.",
+        "TITLE": "Demokratikus és részvételi fejlesztés"
       },
       "GROUPS": {
-        "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally.",
-        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
-        "TITLE": "Independent groups"
+        "DESCRIPTION": "Ugyanakkor mind rajta vannak ugyanazon a térképen, hogy bárki megtalálhasson és csatlakozhasson más csoportokhoz a tartózkodási helyükön, vagy akár globálisan is.",
+        "SUBTITLE": "Minden csoport a Karrot-on teljesen független és lehet saját logója, működési szokásai és szabályzata.",
+        "TITLE": "Független csoportok"
       },
       "MAPS": {
-        "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online.",
-        "TITLE": "Maps and lists"
+        "DESCRIPTION": "Egy térképen láthatod, hogy hol és kik végeznek tevékenységeket. Van egy jó kis lista a közelgő tevékenységekről és online tudsz rájuk jelentkezni.",
+        "TITLE": "Térképek és listák"
       },
       "NOTIFICATIONS": {
-        "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!",
-        "TITLE": "Notifications"
+        "DESCRIPTION": "Értesítéseket kapsz az üres tevékenységekről, új üzenetekről és a csoportodhoz csatlakozni akaró új emberekről. De mindet ki is kapcsolhatod ha több nyugalmat szeretnél!",
+        "TITLE": "Értesítések"
       },
       "OFFERS": {
-        "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat.",
-        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
-        "TITLE": "Share things"
+        "DESCRIPTION": "Az ajánlatok mindenkinek láthatóak a csoportban és a tagok az ajánlat beszélgetésében tudnak érdeklődni.",
+        "SUBTITLE": "Hozz létre egy hirdetés szerű ajánlatot bármiről amit meg akarsz osztani másokkal, vagy el akarsz ajándékozni.",
+        "TITLE": "Ossz meg dolgokat"
       },
       "OPENSOURCE": {
-        "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world.",
-        "TITLE": "Open source"
+        "DESCRIPTION": "Minden átlátható és meg lehet változtatni. Ha van rá lehetőségük, akkor bátorítjuk a csoportokat, hogy saját szervert futtassanak, de hozzáférést biztosítunk a karrot.world-ön futtatott verzióhoz is.",
+        "TITLE": "Nyílt forráskód"
       },
       "TEAM": {
-        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}.",
-        "TITLE": "Responsive team"
+        "DESCRIPTION": "Könnyedén beszélhetsz a Karrot-ot fejlesztő emberekkel, a {forum}-unkon, {code}-on vagy valós időben a {chat}-ünkben.",
+        "TITLE": "Segítőkész fejlesztői csapat"
       },
       "TRANSLATIONS": {
-        "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}.",
-        "TITLE": "Multi-language"
+        "DESCRIPTION": "A Karrot teljesen lefordítható a közösség által, és rengeteg nyelv már hozzá lett adva. Még több fordítás hozzáadásához látogasd meg a projektet {translations}-en.",
+        "TITLE": "Többnyelvűség"
       },
       "TRANSPARENCY": {
-        "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here.",
-        "TITLE": "Transparency"
+        "DESCRIPTION": "Az krónika mutatja, hogy ki mit csinált és mikor. Itt a tevékenységeken való részvételtől a helyek létrehozásáig és szerkesztéséig minden rögzítésre kerül.",
+        "TITLE": "Átláthatóság"
       },
       "TRUST": {
-        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way.",
-        "TITLE": "Democratic and trust-based group management"
+        "DESCRIPTION": "Egy Karrot csoportban sincsenek adminisztratív szupererők. Azok a tagok akik elég bizalom-répát kapnak a társaiktól szerkeszthetik és megváltoztathatják a csoport beállításait. Amikor új emberek akarnak csatlakozni a csoporthoz, jelentkezéskor meg kell válaszoljanak kérdéseket, amelyeket a csoportod állíthat be. Ezeket a jelentkezéseket bárki akinek van szerkesztői jogosultsága elutasíthatja vagy elfogadhatja. Hasonlóképpen, ha konfliktus keletkezik a csoport használhat egy szavazási rendszert, hogy közösségi módon oldja meg azt.",
+        "TITLE": "Demokratikus és bizalom alapú csoport kezelés"
       }
     },
-    "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
-    "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
-    "TITLE": "Save things from being wasted, share them instead!",
-    "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure."
+    "SUBTITLE1": "A Karrot olyan csoportok részére létezik akik meg akarnak menteni dolgokat attól, hogy kárba menjenek és ehelyett megosztanák őket, lehetővé téve, hogy ezek a csoportok hatékonyan szerveződjenek helyi és önkéntes alapon.",
+    "SUBTITLE2": "Olyan dolgokat, mint élelmiszer, kerékpárok, ruhák vagy bármi, amit szertelenül kidobnak vagy nem használják a fogyasztói társadalomban.",
+    "TITLE": "Ments meg dolgokat a pazarlástól, inkább oszt meg őket!",
+    "VISION_INTRO": "A Karrot egy eszköz helyi szintű kezdeményezések részére a kapcsolattartáshoz és növekedéshez, a személyes tevékenységek szervezésének digitális infrastruktúrával való támogatására."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
-    "DELETE_SERIES_TITLE": "Delete series"
+    "DELETE_SERIES_TEXT": "Biztosan törlöd ezt a sorozatot? Ezzel törölsz minden hozzá tartozó tevékenységet is (kivéve azokat ahol már csatlakoztak emberek).",
+    "DELETE_SERIES_TITLE": "Eseménysorozat törlése"
   },
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "This is disabled.",
-    "ACTIVITY_STARTED": "This has already started.",
-    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
-    "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
-    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
+    "ACTIVITY_STARTED": "Már elkezdődött",
+    "AVAILABLE": "Egy tevékenység vár rád az egyik kedvenc helyeden! | {count} tevékenység vár rád a kedvenc helyeiden!",
+    "AVAILABLE_FEEDBACK": "Visszajelzést küldhetsz |  {count} tevékenység vár a visszajelzésedre",
+    "AVAILABLE_FROM_STORES": "Itt láthatod a tevékenységeket a kedvenc helyeidről az elkövetkező pár napban. A többi helyet az oldalmenüben találod.",
     "FILTER": {
-      "ALL": "All",
-      "ALL_TYPES": "All types",
-      "EMPTY": "Only empty",
-      "FREE": "With free slots"
+      "ALL": "Mind",
+      "ALL_TYPES": "Minden tevékenységtípus",
+      "EMPTY": "Csak üres",
+      "FREE": "Üres helyekkel"
     },
     "ITEM": {
-      "JOIN": "Join",
+      "JOIN": "Csatlakozás",
       "JOIN_CONFIRMATION_HEADER": "Join {activityType}",
-      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
+      "JOIN_CONFIRMATION_TEXT": "Biztosan ráérsz ekkor: {date}?",
       "LEAVE": "Leave",
       "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?"
+      "LEAVE_CONFIRMATION_TEXT": "Biztos vagy benne, hogy a többiek meg tudják csinálni ezt nélküled?"
     },
-    "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
-    "NONE": "No upcoming activities",
-    "NONE_DUE_TO_FILTER": "No activities match your filters",
-    "NONE_HINT": "You can create a new activity on the place page.",
-    "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page."
+    "JOINEDNOTICE": "Egy közelgő eseményed van | {count} közelgő tevékenységed van",
+    "NONE": "Nincsenek közelgő tevékenységek",
+    "NONE_DUE_TO_FILTER": "Nincs a szűrésnek megfelelő tevékenység",
+    "NONE_HINT": "Új tevékenységet a hely oldalán hozhatsz létre.",
+    "STORE_NONE_HINT": "Új tevékenységet a 'Tevékenységek kezelése' oldalon tudsz létrehozni."
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
     "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
-    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed",
-    "SERIES": "Activity series",
-    "SINGLE": "One-time activities",
-    "TITLE": "Manage activities",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
+    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max résztvevők száma' megváltozott",
+    "SERIES": "Tevékenységsorozat",
+    "SINGLE": "Egyszeri tevékenységek",
+    "TITLE": "Tevékenységek kezelése",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Közelgő tevékenységek ebben az eseménysorozatban"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "Amount of food you were able to save (in kg)",
-    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
-    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
-    "DELETE_AMOUNT": "Delete amount",
-    "EDIT": "Edit feedback",
-    "HEADER": "Thank you for your participation!",
+    "AMOUNT": "A megmentett étel mennyisége (kilóban)",
+    "AMOUNT_INFO": "A helystatisztikához összeadjuk az összes visszajelzést.",
+    "COMMENT_PLACEHOLDER": "Minden rendben volt? Mindenki eljött? Ide írhatod az észrevételeidet.",
+    "DELETE_AMOUNT": "Mennyiség törlése",
+    "EDIT": "Visszajelzés szerkesztése",
+    "HEADER": "Köszönjük, hogy részt vettél!",
     "PREVIOUS": "Previous feedback for {store}",
-    "SET_AMOUNT": "Set amount",
-    "TITLE": "Feedback",
+    "SET_AMOUNT": "Mennyiség beállítása",
+    "TITLE": "Visszajelzés",
     "TOGETHER_WITH": "You did this together with:"
   },
   "ACTIVITY_TYPE_NAMES": {
-    "Meeting": "Meeting",
-    "Pickup": "Pickup",
-    "Distribution": "Distribution",
-    "Event": "Event",
-    "Activity": "Activity",
-    "Task": "Task"
+    "Meeting": "Találkozó",
+    "Pickup": "Felvétel",
+    "Distribution": "Elosztás",
+    "Event": "Esemény",
+    "Activity": "Tevékenység",
+    "Task": "Feladat"
   },
   "ACTIVITY_TYPE_STATUS": {
-    "ACTIVE": "Active",
-    "ARCHIVED": "Archived"
+    "ACTIVE": "Aktív",
+    "ARCHIVED": "Archivált"
   },
   "ACTIVITY_TYPES": {
-    "ADD": "Add new activity type",
-    "FEEDBACK_YES_HINT": "The participants will be asked for feedback about the activity",
-    "FEEDBACK_NO_HINT": "No feedback will be requested",
+    "ADD": "Új tevékenységtípus hozzáadása",
+    "FEEDBACK_YES_HINT": "A résztvevők meg lesznek kérve, hogy visszajelzést adjanak a tevékenységről.",
+    "FEEDBACK_NO_HINT": "Nem lesz visszajelzés kérve",
     "FEEDBACK_WEIGHT_LABEL": "Ask for weight?",
-    "NAME": "Name",
-    "FEEDBACK": "Feedback",
+    "NAME": "Név",
+    "FEEDBACK": "Visszajelzés",
     "FEEDBACK_WEIGHT": "Feedback weight",
     "STATUS": "Status",
     "STANDARD_NAME_HEADING": "Standard names",
-    "STANDARD_NAME_HINT": "Name will be available in other languages",
-    "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
+    "STANDARD_NAME_HINT": "A név elérhető lesz más nyelveken",
+    "CUSTOM_NAME_HINT": "A név úgy lesz használva ahogyan leírod és nem lesz lefordítva",
     "CUSTOM_NAME_USE": "Use custom name {name}",
     "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
     "MANAGE_TYPES": "Manage types...",
-    "SHOW_ARCHIVED": "Show archived",
+    "SHOW_ARCHIVED": "Archiváltak mutatása",
     "STATUS_ACTIVE_HINT": "You will be able to create new activities and series of this type",
-    "STATUS_ARCHIVED_HINT": "It will not be possible to create new activities or series of this type, but existing ones will still be available"
+    "STATUS_ARCHIVED_HINT": "Nem lesz lehetséges új tevékenység vagy tevékenységsorozat létrehozása ebből a tevékenységtípusból, de a már létezők elérhetőek lesznek"
   },
   "ADDRESS_PICKER": {
-    "CHOOSE_LOCATION": "choose location on map",
+    "CHOOSE_LOCATION": "hely kiválasztása a térképen",
     "KEEP_EXISTING_LOCATION": "keep existing location on map",
     "SET_AS": "Set address as"
   },
@@ -179,20 +179,20 @@
   },
   "APPLICATION": {
     "ACCEPTED": "You accepted {userName} into this group!",
-    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
-    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
-    "APPLICATION": "Application",
-    "DECLINED": "You declined the application of {userName}.",
-    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
-    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
-    "FORM_HEADER": "Apply",
-    "FORM_TITLE": "Apply to join {groupName}",
-    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
+    "ACCEPT_CONFIRMATION_HEADER": "Jelentkezés elfogadása",
+    "ACCEPT_CONFIRMATION_TEXT": "Biztos vagy benne, hogy elfogadod {userName} jelentkezését ebbe a csoportba?",
+    "APPLICATION": "Jelentkezés",
+    "DECLINED": "Elutasítottad {userName} jelentkezését",
+    "DECLINE_CONFIRMATION_HEADER": "Jelentkezés elutasítása",
+    "DECLINE_CONFIRMATION_TEXT": "Biztosan el akarod utasítani {userName} jelentkezését?",
+    "FORM_HEADER": "Jelentkezés",
+    "FORM_TITLE": "Jelentkezés {groupName} csoportba",
+    "GALLERY_TOOLTIP": "Jelentkeztél ebbe a csoportba. A jelentkezésed még függőben van.",
     "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
     "INITIAL": "Initial questions and answers",
-    "PAST": "Past applications",
+    "PAST": "Korábbi jelentkezések",
     "SUBMITTED_ON": "Submitted on {date}",
-    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
+    "WALL_NOTICE": "Egy jelentkezés van függőben! | {count} jelentkezés van függőben!",
     "WHAT": "What is this chat about?",
     "WITHDRAWN": "withdrawn {relativeDate}"
   },
@@ -201,20 +201,20 @@
     "ACCEPT": "Accept",
     "AGREE": "I agree",
     "APPLY": "Apply",
-    "ARCHIVE": "Archive",
+    "ARCHIVE": "Archiválás",
     "BACK": "Back",
     "CANCEL": "Cancel",
-    "CHANGE_COLOUR": "Change colour",
-    "CHANGE_EMAIL": "Change e-mail address",
+    "CHANGE_COLOUR": "Szín megváltoztatása",
+    "CHANGE_EMAIL": "Email cím megváltoztatása",
     "CHANGE_ICON": "Change icon",
-    "CHANGE_PASSWORD": "Change password",
+    "CHANGE_PASSWORD": "Jelszó megváltoztatása",
     "CLOSE": "Close",
     "CREATE": "Create",
     "DECLINE": "Decline",
     "DELETE": "Delete",
-    "DELETE_ACCOUNT": "Delete account",
+    "DELETE_ACCOUNT": "Fiók törlése",
     "DISABLE": "Disable",
-    "EDIT": "Edit",
+    "EDIT": "Szerkesztés",
     "ENABLE": "Enable",
     "HIDE": "Hide",
     "JOIN": "Join",
@@ -223,11 +223,11 @@
     "OPEN": "Open",
     "PREVIEW": "Preview",
     "REMOVE": "Remove",
-    "RESET": "Reset",
+    "RESET": "Visszaállítás",
     "SAVE_CHANGES": "Save changes",
-    "SEARCH": "Search",
+    "SEARCH": "Keresés",
     "SHOW": "Show",
-    "SHOW_LESS": "Show less",
+    "SHOW_LESS": "Kevesebb mutatása",
     "SHOW_MORE": "Show more",
     "SUBMIT": "Submit",
     "UNSUBSCRIBE": "Unsubscribe",
@@ -245,54 +245,54 @@
     "FIND_OUT_MORE": "Find out more!",
     "INFO": {
       "MESSAGE": "This is a score voting in which group members can participate to determine how to deal with a social conflict that affects the whole group.",
-      "TITLE": "How does this process work?"
+      "TITLE": "Hogyan működik ez a folyamat?"
     },
-    "INITIAL": "Information",
+    "INITIAL": "Információ",
     "REQUIREMENTS": {
       "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
     },
-    "SETUP_HEADER": "Is there a conflict with {user}?",
+    "SETUP_HEADER": "Konfliktus van {user} felhasználóval?",
     "STATEMENT": "Statement",
-    "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
+    "STEPPER1a": "Egy csoport szintű konfliktusmegoldási folyamat indítására készülsz!",
     "STEPPER1b": "This will involve all members to find the best way to proceed.",
     "STEPPER2a": "Thank you for caring for your community!",
     "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
     "STEPPER3a": "Here's what will happen:",
     "STEPPER3b": "This process will start a chat and a vote.",
     "STEPPER3c": "The chat will be visible for members and includes {userName}.",
-    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
-    "STEPPER4a": "Please explain why you are starting this conflict resolution process!",
+    "STEPPER3d": "A szavazás anonim. {votingDuration} napig fog tartani. Ezalatt a szavazók meggondolhatják magukat és megváltoztathatják a szavazatukat ahányszor csak akarják.",
+    "STEPPER4a": "Kérünk magyarázd el, hogy miért indítod ezt a konfliktusmegoldási folyamatot!",
     "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members.",
     "VOTING": {
       "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
     },
-    "WITH": "This process is to resolve a conflict with {userName}"
+    "WITH": "Ennek a folyamatnak az a célja, hogy megoldjon egy konfliktust {userName} felhasználóval"
   },
   "CONVERSATION": {
     "CLOSED": "This conversation has been closed automatically.",
-    "CONVERSATIONS": "Conversations",
+    "CONVERSATIONS": "Beszélgetések",
     "EDITED": "edited",
-    "MARK_READ": "Mark all as read",
+    "MARK_READ": "Összes megjelölése olvasottként",
     "MESSAGE_NOT_FOUND": "Message not found",
     "MUTED": "Notifications are disabled",
     "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation.",
-    "NO_CONVERSATIONS": "No conversations yet.",
+    "NO_CONVERSATIONS": "Még nincsenek beszélgetések.",
     "OPEN": "Open Chat",
     "REACTIONS": {
-      "AND": "and",
+      "AND": "és",
       "REACTED_WITH": "{users} reacted with {reaction}",
       "YOU": "you"
     },
-    "REPLIES": "Replies",
-    "REPLIES_COUNT": "1 reply | {count} replies",
+    "REPLIES": "Válaszok",
+    "REPLIES_COUNT": "1 válasz | {count} válaszok",
     "REPLY_TO_MESSAGE": "Reply to message...",
-    "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages."
+    "UNREAD_MESSAGES": "Van egy olvasatlan üzeneted. | {count} olvasatlan üzeneted van."
   },
   "CREATEACTIVITY": {
     "COMMENT": "Additional information",
     "COMMENT_HELPER": "What should people know when signing up to this?",
     "CUSTOM": "Custom",
-    "DATE": "Date",
+    "DATE": "Dátum",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
     "DISABLE_TITLE": "Disable?",
     "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
@@ -300,30 +300,30 @@
     "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
     "EXCEPTIONS_TITLE": "Check your activities",
     "FREQUENCY": "Frequency",
-    "MAX_PARTICIPANTS": "Max Slots",
+    "MAX_PARTICIPANTS": "Max résztvevők száma",
     "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
     "RRULE": "Recurrence rule",
-    "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
-    "RRULE_EXAMPLE2": "every second Monday",
+    "RRULE_EXAMPLE": "minden hónap utolsó munkanapja (hétfő-péntek)",
+    "RRULE_EXAMPLE2": "Minden második hétfő",
     "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
     "RRULE_HELPER_URL": "iCalender rule",
     "STARTDATE_HELPER": "When should the series start?",
     "TIME_HELPER": "When should it take place?",
     "UNLIMITED": "unlimited",
-    "WEEKDAYS": "Weekdays",
+    "WEEKDAYS": "Hétköznapok",
     "WEEKDAYS_HELPER": "On which days should it take place?",
-    "WEEKLY": "Weekly"
+    "WEEKLY": "Hetente"
   },
   "CREATESTORE": {
-    "TITLE": "Create a new place"
+    "TITLE": "Új hely létrehozása"
   },
   "DELETEACCOUNT": {
-    "SUCCESS": "Your account was successfully deleted!",
-    "TITLE": "Account deletion"
+    "SUCCESS": "A fiókod törlése sikeres volt!",
+    "TITLE": "Fiók törlése"
   },
   "ENTRY": "1 entry | {count} entries",
   "FEEDBACKLIST": {
-    "NONE": "No feedback yet",
+    "NONE": "Még nincsen visszajelzés",
     "NONE_HINT": "This page will be filled once more feedback is available",
     "NO_DONE_ACTIVITIES": "All done!",
     "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
@@ -334,7 +334,7 @@
   },
   "GLOBAL": {
     "ABOUT_KARROT": "About Karrot",
-    "APP_INSTALLED": "App successfully installed!",
+    "APP_INSTALLED": "Applikáció sikeresen telepítve!",
     "GENERIC_ERROR": "Sorry, something went wrong",
     "GITHUB_NOTE": "Development",
     "INVALID_LINK": "Sorry, the link you've opened is invalid.",
@@ -342,111 +342,111 @@
     "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
     "RECONNECTING": "Reconnecting...",
     "SEARCH_NOT_FOUND": "Not Found",
-    "SEARCH_RESULTS": "Search results",
-    "SERVER_ERROR": "Server error",
-    "CLEAR_FILTERS": "Clear filters"
+    "SEARCH_RESULTS": "Keresési eredmények",
+    "SERVER_ERROR": "Szerverhiba",
+    "CLEAR_FILTERS": "Filterek törlése"
   },
   "GROUP": {
     "ACTIVITIES": "Activities",
     "ACTIVITY": "Activity",
     "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
-    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "A felvétel nevű tevékenységek továbbra is elérhetőek, de hozzáadtunk más tevékenységtípusokat is, például Találkozókat, Eseményeket és Elosztásokat",
     "ADDED_BY": "added by {userName}",
     "ADDRESS": "Address",
-    "APPLICATIONS": "Applications",
-    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
-    "CREATE_TITLE": "Create new group",
+    "APPLICATIONS": "Jelentkezések",
+    "APPLICATION_QUESTIONS": "Kérdések a csoporthoz csatlakozni kívánó emberek számára",
+    "CREATE_TITLE": "Új csoport létrehozása",
     "DECLINED": "declined {relativeDate}",
     "DECLINED_BY": "declined by {userName}",
-    "DESCRIPTION": "Description",
-    "DESCRIPTION_VERBOSE": "Group description, visible for members",
-    "EDIT": "Edit group",
+    "DESCRIPTION": "Leírás",
+    "DESCRIPTION_VERBOSE": "Csoport leírása, a tagok láthatják",
+    "EDIT": "Csoport szerkesztése",
     "EDIT_ACTIVITY_TYPES": "Activity types",
     "EDIT_DETAILS": "Group details",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
-    "HISTORY": "History",
-    "HOME": "Home",
-    "INACTIVE": "Inactive",
-    "INVITATIONS": "Invitations",
+    "EMAIL_NOTIFICATIONS": "Email értesítések",
+    "HISTORY": "Krónika",
+    "HOME": "Kezdőlap",
+    "INACTIVE": "Inaktív",
+    "INVITATIONS": "Meghívók",
     "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
     "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
     "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
-    "INVITE_EMAIL": "Enter an e-mail address",
-    "INVITE_SEND": "Send invitation",
+    "INVITE_EMAIL": "Írj be egy email címet",
+    "INVITE_SEND": "Meghívó küldése",
     "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
     "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
-    "INVITE_TITLE": "Invite users to your group",
-    "JOINED": "joined {relativeDate}",
+    "INVITE_TITLE": "Felhasználók meghívása a csoportodba",
+    "JOINED": "{relativeDate} napja csatlakozott",
     "JOIN_ANOTHER_GROUP": "Join another group",
     "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
-    "LEAVE": "Leave group...",
-    "LEAVE_CONFIRMATION": "You left {groupName}",
-    "LEAVE_TEXT": "Are you sure you want to leave this group?",
-    "LOGO": "Group logo",
+    "LEAVE": "Csoport elhagyása...",
+    "LEAVE_CONFIRMATION": "Elhagytad a(z) {groupName} csoportot",
+    "LEAVE_TEXT": "Biztos ki akarsz lépni ebből a csoportból?",
+    "LOGO": "Csoport logó",
     "MANAGE_AGREEMENT": "Manage agreement",
-    "MEMBERLIST": "Your group has {total} members in total.",
-    "MEMBERS": "Members",
-    "MESSAGES": "Messages",
-    "NONMEMBER_REDIRECT": "You are not a member of this group.",
+    "MEMBERLIST": "A csoportodnak összesen {total} tagja van.",
+    "MEMBERS": "Tagok",
+    "MESSAGES": "Üzenetek",
+    "NONMEMBER_REDIRECT": "Nem vagy tagja ennek a csoportnak.",
     "NOTIFICATIONS_BY_GROUP": "Notifications by group",
     "NOTIFICATION_TYPES": {
       "conflict_resolution": {
-        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group",
-        "NAME": "New conflict resolution processes"
+        "DESCRIPTION": "Értesítés küldése amikor egy új konfliktusmegoldási folyamat kezdődik a csoportodban",
+        "NAME": "Új konfliktusmegoldási folyamatok"
       },
       "daily_activity_notification": {
         "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
         "NAME": "Activity notifications"
       },
       "new_application": {
-        "DESCRIPTION": "Tells you when somebody wants to join your group",
-        "NAME": "New applications"
+        "DESCRIPTION": "Értesítés küldése amikor valaki csatlakozni akar a csoportodhoz",
+        "NAME": "Új jelentkezések"
       },
       "new_offer": {
-        "DESCRIPTION": "Tells you when somebody creates a new offer",
-        "NAME": "New offers"
+        "DESCRIPTION": "Értesítés küldése amikor valaki egy új ajánlatot hoz létre",
+        "NAME": "Új ajánlatok"
       },
       "weekly_summary": {
         "DESCRIPTION": "Keep up to date with what's been happening in the group.",
-        "NAME": "Weekly summary"
+        "NAME": "Heti összegzés"
       }
     },
-    "OFFERS": "Offers",
-    "PLACES": "Places",
+    "OFFERS": "Ajánlatok",
+    "PLACES": "Helyek",
     "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "SET_LOGO": "Click to upload your group logo!",
-    "SHOW_INACTIVE": "Show inactive groups",
-    "SORT_JOINDATE": "Sort by join date",
-    "SORT_NAME": "Sort by name",
-    "STATISTICS": "Statistics",
-    "TIMEZONE": "Time zone of group",
-    "TITLE": "Title of this group",
-    "WALL": "Wall",
-    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members"
+    "SET_LOGO": "Kattints ide a csoport logójának feltöltéséhez!",
+    "SHOW_INACTIVE": "Inaktív csoportok mutatása",
+    "SORT_JOINDATE": "Rendezés csatlakozási idő szerint",
+    "SORT_NAME": "Rendezés név szerint",
+    "STATISTICS": "Statisztikák",
+    "TIMEZONE": "Csoport időzónája",
+    "TITLE": "Csoport neve",
+    "WALL": "Üzenőfal",
+    "WELCOMEMESSAGE_VERBOSE": "Üdvözlő üzenet az új tagoknak"
   },
   "GROUPINFO": {
-    "MEMBER_VIEW": "You are member of this group. Click here to switch to full view.",
-    "META": "Show public group information",
-    "TITLE": "Public group information"
+    "MEMBER_VIEW": "Tagja vagy ennek a csoportnak. Kattints ide a teljes nézetre váltáshoz.",
+    "META": "Nyilvános csoport információ mutatása",
+    "TITLE": "Nyilvános csoport információ"
   },
   "GROUPMAP": {
-    "EXPORT": "Export",
-    "FULL_SCREEN": "Show full screen",
-    "HIDE_GROUPS": "Hide groups",
-    "HIDE_PLACES": "Hide places",
-    "HIDE_USERS": "Hide users",
-    "SET_LOCATION": "Set location",
-    "SHOW_GROUPS": "Show groups",
-    "SHOW_PLACES": "Show places",
-    "SHOW_USERS": "Show users",
-    "TITLE": "Map"
+    "EXPORT": "Exportálás",
+    "FULL_SCREEN": "Teljes képernyőben mutasd",
+    "HIDE_GROUPS": "Csoportok elrejtése",
+    "HIDE_PLACES": "Helyek elrejtése",
+    "HIDE_USERS": "Felhasználók elrejtése",
+    "SET_LOCATION": "Hely beállítása",
+    "SHOW_GROUPS": "Csoportok mutatása",
+    "SHOW_PLACES": "Helyek mutatása",
+    "SHOW_USERS": "Felhasználók mutatása",
+    "TITLE": "Térkép"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "{activityType} created",
-    "ACTIVITY_DELETE": "{activityType} deleted",
+    "ACTIVITY_CREATE": "{activityType} létrehozva",
+    "ACTIVITY_DELETE": "{activityType} törölve",
     "ACTIVITY_DISABLE": "{activityType} disabled",
     "ACTIVITY_DONE": "did {activityType} at {placeName}",
-    "ACTIVITY_ENABLE": "{activityType} enabled",
+    "ACTIVITY_ENABLE": "{activityType} engedélyezve",
     "ACTIVITY_JOIN": "signed up for {activityType} at {placeName}",
     "ACTIVITY_LEAVE": "stepped back from {activityType} at {placeName}",
     "ACTIVITY_LEAVE_DISTANCE": "{distance} before scheduled time",
@@ -454,20 +454,20 @@
     "ACTIVITY_MODIFY": "changed the settings of an activity",
     "ACTIVITY_TYPE_CREATE": "{activityType} type created",
     "ACTIVITY_TYPE_MODIFY": "{activityType} type modified",
-    "APPLICATION_DECLINED": "declined an application from {applicantName}",
-    "CONFIRM_CHANGES": "Confirm changes?",
+    "APPLICATION_DECLINED": "Elutasított egy jelentkezést {applicantName} felhasználótól",
+    "CONFIRM_CHANGES": "Megerősíted a változtatásokat?",
     "CONFIRM_CHANGES_HINT": "You can write a message here to explain your changes that will be displayed in the history",
     "DETAILS": "More information",
-    "GROUP_CHANGE_PHOTO": "changed the group logo",
-    "GROUP_CREATE": "created this group",
-    "GROUP_DELETE_PHOTO": "deleted the group logo",
-    "GROUP_JOIN": "joined this group",
-    "GROUP_LEAVE": "left this group",
-    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
-    "GROUP_MODIFY": "changed the settings of this group",
-    "MEMBER_BECAME_EDITOR": "gained editing permissions",
-    "MEMBER_REMOVED": "was removed due to group decision",
-    "NOTHING_HAPPENEND": "Nothing happened so far...",
+    "GROUP_CHANGE_PHOTO": "megváltoztatta a csoport logóját",
+    "GROUP_CREATE": "létrehozta a csoportot",
+    "GROUP_DELETE_PHOTO": "törölte a csoport logóját",
+    "GROUP_JOIN": "csatlakozott a csoporthoz",
+    "GROUP_LEAVE": "elhagyta a csoportot",
+    "GROUP_LEAVE_INACTIVE": "el lett távolítva inaktivitás miatt",
+    "GROUP_MODIFY": "megváltoztatta a csoport beállításait",
+    "MEMBER_BECAME_EDITOR": "szerkesztői jogosultságot kapott",
+    "MEMBER_REMOVED": "el lett távolítva csoportdöntés következtében",
+    "NOTHING_HAPPENEND": "Még semmi nem történt...",
     "SERIES_CREATE": "{activityType} series created",
     "SERIES_DELETE": "{activityType} series deleted",
     "SERIES_MODIFY": "changed the settings of a series",
@@ -476,40 +476,40 @@
     "STORE_MODIFY": "changed the settings of place {name}"
   },
   "INACTIVITY": {
-    "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore.",
-    "WHAT": "What does it mean to be inactive?"
+    "HELP": "Azok akik legalább {dayCount} napig nem léptek be a csoportba inaktívnak számítanak. Ezek a felhasználók nem fognak email értesítéseket kapni.",
+    "WHAT": "Mit jelent inaktívnak lenni?"
   },
   "INFO": "Info",
   "ISSUE": {
     "CHAT": "Chat",
     "CREATION": {
-      "TOAST": "You successfully started a conflict resolution process"
+      "TOAST": "Sikeresen indítottál konfliktusmegoldási folyamatot"
     },
-    "NO_ONGOING": "No ongoing issues.",
+    "NO_ONGOING": "Jelenleg nincsenek problémák.",
     "PARTICIPANTS": "{count} members have been added to this discussion.",
-    "PAST": "Past issues",
-    "PREVIOUS_VOTINGS": "Previous votings in this issue",
-    "TITLE": "Issues",
-    "VOTE": "Vote",
+    "PAST": "Korábbi problémák",
+    "PREVIOUS_VOTINGS": "Korábbi szavazások erről a problémáról",
+    "TITLE": "Problémák",
+    "VOTE": "Szavazás",
     "VOTING": {
-      "ANONYMOUS": "Your vote will be anonymous.",
-      "BTN_DELETE": "Delete vote",
-      "BTN_START": "Vote now",
+      "ANONYMOUS": "A szavazatod anonim lesz.",
+      "BTN_DELETE": "Szavazat törlése",
+      "BTN_START": "Szavazás most",
       "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
       "NO_CHANGE": "No change: {userName} stays in {groupName}",
       "REMOVE_USER": "{userName} gets removed from {groupName}",
       "RESULTS": {
         "ENDED_AT": "This voting round ended on {date}",
         "KEEP_DISCUSSING": "Your group voted to keep discussing",
-        "PARTICIPANTS": "{number} members participated in the voting.",
+        "PARTICIPANTS": "{number} tag vett részt a szavazásban.",
         "TIME_UP": "Time is up!",
         "TOTAL_SCORE": "Total score",
         "UNDECIDED": "Unfortunately this conflict could not be decided.",
         "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
-        "UNDECIDED_REASON_2": "nobody voted on this issue",
+        "UNDECIDED_REASON_2": "senki nem szavazott ezen a problémán",
         "UNDECIDED_WHY": "There are two possible reasons for that:"
       },
-      "SAVE": "Save",
+      "SAVE": "Mentés",
       "SCORE_LABELS": {
         "NEUTRAL": "neutral",
         "SLIGHT_RESISTANCE": "resistance",
@@ -517,43 +517,43 @@
         "STRONG_RESISTANCE": "strong resistance",
         "STRONG_SUPPORT": "strong support"
       },
-      "SEE_RESULTS": "See the results",
+      "SEE_RESULTS": "Eredmény megtekintése",
       "TIME_LEFT": "Time left to vote",
       "TOAST": "Your vote was successfully submitted",
       "TOAST_DELETE": "Your vote was deleted"
     }
   },
   "JOINGROUP": {
-    "ALL_GROUPS": "All groups",
-    "APPLICATION_PENDING": "Your application is pending!",
-    "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
-    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!",
+    "ALL_GROUPS": "Minden csoport",
+    "APPLICATION_PENDING": "A jelentkezésed függőben van!",
+    "APPLICATION_SUBMITTED": "Sikeresen elküldted a jelentkezésedet!",
+    "APPLICATION_WITHDRAWN": "Sikeresen visszavontad a jelentkezésedet!",
     "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!",
     "BROWSE_GROUPS": "Browse existing groups",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "You are currently logged out. {login}",
+      "LOGGED_OUT": "Ki vagy jelentkezve. {login}",
       "LOG_IN": "Log in to see your groups!"
     },
-    "MY_GROUPS": "My groups",
-    "NO_PUBLIC_DESCRIPTION": "(This group has no public description... yet)",
-    "NUM_MEMBERS": "Member | Members",
-    "OR": "{joinGroup} or {createGroup}",
+    "MY_GROUPS": "Csoportjaim",
+    "NO_PUBLIC_DESCRIPTION": "(Ennek a csoportnak nincsen nyilvános leírása... még)",
+    "NUM_MEMBERS": "Tag | Tagok",
+    "OR": "{joinGroup} vagy {createGroup}",
     "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members.",
-    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
-    "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
+    "SIGNUP_OR_LOGIN": "Jelentkezz be vagy regisztrálj, hogy csatlakozhass ehhez a csoporthoz!",
+    "VERIFY_EMAIL_ADDRESS": "Erősítsd meg az email címedet a csatlakozáshoz",
     "WHICHGROUP": "Which group do you want to join?",
-    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
-    "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?"
+    "WITHDRAW_CONFIRMATION_HEADER": "Jelentkezés visszavonása",
+    "WITHDRAW_CONFIRMATION_TEXT": "Biztosan visszavonod a jelentkezésedet a {groupName} csoportba?"
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Help translating!",
+    "ADD_MORE": "Segíts fordítani!",
     "SWITCH": "Switch language"
   },
   "LOGIN": {
-    "FORGOT_PASSWORD": "Forgot your password?",
+    "FORGOT_PASSWORD": "Elfelejtett jelszó?",
     "SIGNUP": "Sign up!",
-    "SUBMIT": "Login",
-    "TITLE": "Login"
+    "SUBMIT": "Bejelentkezés",
+    "TITLE": "Bejelentkezés"
   },
   "MARKDOWN_INPUT": {
     "BOLD": "bold",
@@ -566,46 +566,46 @@
     "CHANGES_SAVED": "Your changes have been saved.",
     "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you",
-    "NOT_VERIFIED": "{email} is not verified",
-    "RESEND_VERIFICATION": "resend verification email",
-    "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
+    "NOT_VERIFIED": "{email} nincs megerősítve",
+    "RESEND_VERIFICATION": "megerősítő email újraküldése",
+    "VERIFICATION_EMAIL_SENT": "Küldtünk egy új megerősítő emailt. Nézd meg a beérkező leveleidet."
   },
   "NOTIFICATION_BELLS": {
     "ACTIVITY_DISABLED": "{activityType} on {dateTime} was disabled",
     "ACTIVITY_ENABLED": "{activityType} on {dateTime} was enabled again",
     "ACTIVITY_MOVED": "{activityType} was moved to {dateTime}",
-    "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
-    "APPLICATION_ACCEPTED": "Your application was accepted!",
-    "APPLICATION_DECLINED": "Your application was declined",
-    "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
+    "ACTIVITY_UPCOMING": "Emlékeztető: {activityType} {time}-kor",
+    "APPLICATION_ACCEPTED": "A jelentkezésedet elfogadták!",
+    "APPLICATION_DECLINED": "A jelentkezésedet elutasították!",
+    "CONFLICT_RESOLUTION_CONTINUED": "A konfliktusmegoldási folyamat {userName} felhasználóval folytatódik",
     "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "The conflict resolution process with you continues",
     "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
-    "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
+    "CONFLICT_RESOLUTION_DECIDED": "Egy konfliktusmegoldási folyamat {userName} felhasználóval eldőlt",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
-    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "El lettél távolítva a csoportból",
     "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
     "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
-    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
-    "NEW_APPLICANT": "{userName} applied to join your group",
-    "NEW_MEMBER": "{userName} joined your group",
-    "NEW_PLACE": "{placeName} has been created",
-    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
-    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!",
-    "YOU_BECAME_EDITOR": "You gained editing permissions"
+    "INVITATION_ACCEPTED": "{userName} elfogadta a meghívásod",
+    "NEW_APPLICANT": "{userName} jelentkezett a csoportodba",
+    "NEW_MEMBER": "{userName} csatlakozott a csoportodhoz",
+    "NEW_PLACE": "{placeName} létre lett hozva",
+    "USER_BECAME_EDITOR": "{userName} szerkesztői jogosultságot kapott",
+    "VOTING_ENDS_SOON": "A szavazásnak hamarosan vége, ne felejts el részt venni!",
+    "YOU_BECAME_EDITOR": "Szerkesztői jogosultságot kaptál"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "NO_ITEMS": "We currently don't have notifications for you.",
-    "TITLE": "Notifications"
+    "NO_ITEMS": "Nincsenek értesítéseid.",
+    "TITLE": "Értesítések"
   },
   "NOTIFICATION_TOGGLE": {
-    "ALL": "all",
-    "ALL_TEXT": "Via app/website, email and push notifications.",
-    "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
-    "NONE": "none",
-    "NONE_TEXT": "No notifications.",
-    "SOME": "some",
-    "SOME_TEXT": "Via app/website."
+    "ALL": "összes",
+    "ALL_TEXT": "Az alkalmazásban/böngészőben, emailben és Push értesítésként.",
+    "HEADER": "Milyen értesítéseket szeretnél kapni az új üzenetekről ebben a beszélgetésben?",
+    "NONE": "semmi",
+    "NONE_TEXT": "Nincsenek értesítések",
+    "SOME": "néhány",
+    "SOME_TEXT": "Az alkalmazásban/böngészőben"
   },
   "NOT_FOUND": {
     "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
@@ -613,17 +613,17 @@
   },
   "OFFER": {
     "CREATE_TITLE": "Create offer",
-    "DESCRIPTION": "Description",
+    "DESCRIPTION": "Leírás",
     "FILTER": {
       "STATUS": {
-        "ACTIVE": "Available",
-        "ARCHIVED": "My archived offers"
+        "ACTIVE": "Aktív",
+        "ARCHIVED": "Archivált ajánlataim"
       }
     },
-    "MARK_AS_ARCHIVED": "Archive",
-    "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
-    "NAME": "Name",
-    "NAME_HELPER": "Short name for the item you are offering"
+    "MARK_AS_ARCHIVED": "Archiválás",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Jelöld archiváltnak ezt az ajánlatot, hogy eltávolítsd az aktív ajánlatok közül.",
+    "NAME": "Név",
+    "NAME_HELPER": "Az általad kínált dolog rövid neve"
   },
   "OUTDATED_BROWSER": {
     "LINK": "Please update or switch your browser",
@@ -634,41 +634,41 @@
       "SUCCESS": "Your new password has been saved."
     },
     "RESET": {
-      "OK": "Save",
+      "OK": "Mentés",
       "SUCCESS": "Your new password has been saved.",
-      "TITLE": "Reset password"
+      "TITLE": "Jelszó visszaállítása"
     }
   },
   "PASSWORDRESET": {
-    "EMAIL": "Email address",
-    "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
-    "LOGIN": "Back to login page",
+    "EMAIL": "Email cím",
+    "INTRO": "Írd be az email címed és küldünk neked egy linket az új jelszavad beállításához (ha van regisztrált fiókod).",
+    "LOGIN": "Vissza a bejelentkezéshez",
     "SUBMIT": "Get new password",
     "SUCCESS": "The request was successfully sent. Have a look at your Emails!",
-    "TITLE": "Password reset"
+    "TITLE": "Jelszó visszaállítása"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
+    "SUBSCRIBED_USERS": "{count} ember jelölte meg ezt a helyet kedvencnek.",
     "SUBSCRIPTION": {
-      "HEADER": "Do you want to mark this place as your favourite?",
-      "NO": "no",
-      "NO_TEXT": "None of the above. You can still sign up for activities though.",
-      "YES": "yes",
-      "YES_TEXT": "Shows available activities on the group wall and sends emails about upcoming activities."
+      "HEADER": "Szeretnéd ezt a helyet kedvencként megjelölni?",
+      "NO": "nem",
+      "NO_TEXT": "A fentiek egyikét sem csinálja. Ettől még jelentkezhetsz tevékenységekre.",
+      "YES": "igen",
+      "YES_TEXT": "Megmutatja az elérhető tevékenységeket a csoport üzenőfalán és emaileket küld a közelgő tevékenységekről"
     }
   },
   "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
+    "INACCESSIBLE_OR_DELETED": "(Felhasználó nem megjeleníthető vagy törölve)"
   },
   "SETTINGS": {
-    "TITLE": "Settings"
+    "TITLE": "Beállítások"
   },
   "SIDENAV": {
-    "GIT_SUB": "See our code!",
-    "INFO_SUB": "How to build your foodsaving group"
+    "GIT_SUB": "Nézd meg a kódunkat!",
+    "INFO_SUB": "Hogyan építsd az ételmentő csoportodat"
   },
   "SIGNUP": {
-    "BACK": "Back to Login",
+    "BACK": "Vissza a bejelentkezéshez",
     "OK": "Join",
     "TITLE": "Sign Up!"
   },
@@ -680,7 +680,7 @@
     "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
     "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
     "FILTER_TIME_FOREVER": "Forever",
-    "COLUMN_PLACE": "Place",
+    "COLUMN_PLACE": "Hely",
     "COLUMN_ACTIVITY_DONE": "Done",
     "COLUMN_ACTIVITY_LEFT": "Left",
     "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
@@ -688,138 +688,138 @@
     "TOTAL_LABEL": "Total"
   },
   "STOREDETAIL": {
-    "ARCHIVED": "This place has been archived",
+    "ARCHIVED": "Ez a hely archiválva lett",
     "CHANGE_STATUS": "You can change the status on the settings page.",
-    "DIRECTIONS": "Show directions",
-    "EDIT": "Edit place",
-    "INACTIVE": "This place is currently not cooperating.",
-    "NO_DESCRIPTION": "This place does not have a description yet"
+    "DIRECTIONS": "Útvonal mutatása",
+    "EDIT": "Hely szerkesztése",
+    "INACTIVE": "Ez a hely jelenleg nem működik együtt.",
+    "NO_DESCRIPTION": "Ennek a helynek még nincs leírása"
   },
   "STOREEDIT": {
-    "ADDRESS": "Address",
-    "DESCRIPTION": "Description",
+    "ADDRESS": "Cím",
+    "DESCRIPTION": "Leírás",
     "DIALOGS": {
       "ARCHIVE": {
-        "CONFIRM": "Yes, archive place",
-        "MESSAGE": "Are you sure?",
-        "TITLE": "Archive place"
+        "CONFIRM": "Igen, hely archiválása",
+        "MESSAGE": "Biztos vagy benne?",
+        "TITLE": "Hely archiválása"
       }
     },
-    "NAME": "Name",
-    "RESTORE": "Restore",
-    "SHOW_ACTIVE_ONLY": "Only show active places",
-    "SHOW_ALL": "Show all places",
+    "NAME": "Név",
+    "RESTORE": "Visszaállítás",
+    "SHOW_ACTIVE_ONLY": "Csak aktív helyek mutatása",
+    "SHOW_ALL": "Összes hely mutatása",
     "STATUS": "Status",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
+    "WEEKS_IN_ADVANCE": "Hány héttel előre jöjjenek létre a tevékenységsorozatokhoz tartozó tevékenységek?",
     "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
   },
   "STORESTATUS": {
     "ACTIVE": "Co-operating",
-    "ARCHIVED": "Archived",
+    "ARCHIVED": "Archiválva",
     "CREATED": "Just created",
     "DECLINED": "Don't want to cooperate",
     "NEGOTIATING": "Negotiating"
   },
   "SWITCHGROUP": {
-    "CHOOSE": "Choose a group:",
-    "COMMON_GROUPS": "Groups you have in common",
-    "NOT_MEMBER": "{userName} is not member of {groupName}.",
+    "CHOOSE": "Válassz egy csoportot:",
+    "COMMON_GROUPS": "Közös csoportok",
+    "NOT_MEMBER": "{userName} nem tagja a {groupName} csoportnak.",
     "OTHER_GROUPS": "Other groups"
   },
-  "THANKS": "Thank you!",
+  "THANKS": "Köszönöm!",
   "TO": "to",
   "TOPBAR": {
     "CHANGE_GROUP": "Change group",
-    "LOGOUT": "Logout",
-    "SHOW_ALL_GROUPS": "Show all groups",
-    "USERPROFILE": "Visit your profile"
+    "LOGOUT": "Kijelentkezés",
+    "SHOW_ALL_GROUPS": "Összes csoport mutatása",
+    "USERPROFILE": "Saját profil megtekintése"
   },
   "UNSUBSCRIBE": {
     "ALL": "Unsubscribe all",
     "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies.",
-    "FROM_CONVERSATION": "unsubscribe from just this conversation",
-    "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
+    "FROM_CONVERSATION": "Leiratkozás csak erről a beszélgetésről",
+    "FROM_GROUP": "Leiratkozás a(z) {groupName} csoport email értesítéseiről.",
     "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
     "FROM_THREAD": "unsubscribe from just this thread",
-    "HEADER": "Unsubscribe",
-    "SUCCESS": "You were successfully unsubscribed!"
+    "HEADER": "Leiratkozás",
+    "SUCCESS": "Sikeresen leiratkoztál!"
   },
   "UPDATE_AVAILABLE": {
-    "DETAIL": "A new version of karrot is available.",
-    "RELOAD": "Reload"
+    "DETAIL": "A karrot új verziója elérhető.",
+    "RELOAD": "Újratöltés"
   },
   "USERDATA": {
-    "ACCOUNT": "Account",
-    "CONFIRM_PASSWORD": "Confirm your password",
+    "ACCOUNT": "Fiók",
+    "CONFIRM_PASSWORD": "Erősítsd meg a jelszót",
     "DIALOGS": {
       "GIVE_TRUST": {
-        "MESSAGE": "Do you trust {userName} in {groupName}?",
-        "TITLE": "Trust user"
+        "MESSAGE": "Megbízol {userName} felhasználóban a {groupName} csoportban?",
+        "TITLE": "Felhasználó megbízása"
       },
       "REQUEST_DELETE_ACCOUNT": {
-        "CONFIRM": "Confirm",
-        "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
-        "TITLE": "Account deletion"
+        "CONFIRM": "Megerősítés",
+        "MESSAGE": "Biztos vagy? A fiókod és a személyes adataid véglegesen törlődnek. Bármi amit a platformon csináltál anonimmá válik. Ha megerősíted, küldünk egy emailt a törlési folyamat befejezéséhez szükséges linkkel.",
+        "TITLE": "Fiók törlése"
       }
     },
-    "EMAIL": "E-mail",
-    "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
-    "LOGOUT_SUCCESS": "You have been logged out!",
-    "MOBILE_NUMBER": "Phone number",
-    "NEWCOMER": "Newcomer",
-    "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
-    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
-    "PASSWORD": "Password",
-    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
-    "PHOTO": "Profile photo",
-    "PRIVATE_MESSAGE": "Send a private message to {userName}",
-    "PROFILE_TITLE": "Profile",
-    "PUSH": "Push notifications",
-    "PUSH_CURRENT_BROWSER": "Current browser",
-    "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
-    "APP": "App",
-    "INSTALL_APP": "Install Karrot app to your device",
+    "EMAIL": "Email",
+    "FIRST_TRUST": "Légy az első, hogy megbízz {userName} felhasználóban a {groupName} csoportban.",
+    "LOGOUT_SUCCESS": "Sikeresen kijelentkeztél!",
+    "MOBILE_NUMBER": "Telefonszám",
+    "NEWCOMER": "Újonc",
+    "NEWCOMER_GUIDANCE": "{userName} új a csoportodban és segítségre lehet szüksége.",
+    "NEWCOMER_INFO": "Újonc vagy a {groupName} csoportban. Üzenetek írásával, tagokkal való ismerkedéssel, tevékenységek végzésével és visszajelzés küldésével aktivizálhatod magad. Amint {threshold} tag bizalmat ad neked, szerkesztői jogosultságot kapsz, hogy a csoport adminisztrációjában segíthess.",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} megbízik {userName} felhasználóban a {groupName} csoportban. | {count} ember bízik {userName} felhasználóban a {groupName} csoportban.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} megbízik benned a {groupName} csoportban. | {count} ember bízik benned a {groupName} csoportban.",
+    "PASSWORD": "Jelszó",
+    "PEOPLE_TRUST_USER": "Te és {otherUser} megbíztok {userName}felhasználóban a {groupName} csoportban. | Te és {count} másik ember bíztok {userName} felhasználóban a {groupName} csoportban.",
+    "PHOTO": "Profilkép",
+    "PRIVATE_MESSAGE": "Privát üzenet küldése {userName} felhasználónak",
+    "PROFILE_TITLE": "Profil",
+    "PUSH": "Értesítések",
+    "PUSH_CURRENT_BROWSER": "Ebben a böngészőben",
+    "PUSH_BLOCKED": "Nem sikerült bekapcsolni az értesítéseket. Lehet, hogy nem engedélyezted?",
+    "APP": "Alkalmazás",
+    "INSTALL_APP": "Töltsd le a Karrot alkalmazást az eszközödre",
     "REQUEST_DELETE_ACCOUNT": {
-      "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
+      "SUCCESS": "Küldtünk egy emailt a törlési folyamat befejezéséhez szükséges linkkel."
     },
-    "SET_PHOTO": "Set your profile photo...",
+    "SET_PHOTO": "Állítsd be a profilképed...",
     "TRUST_INFO": {
-      "LINK": "Click here to find out more.",
-      "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
-      "TITLE": "What is this carrot button about?"
+      "LINK": "Kattints ide további információkért.",
+      "MESSAGE": "A Karrot bizalom rendszer része. Megmutatja ha egy csoporttag újonc és hogy mennyi bizalom szükséges a szerkesztői engedély megszerzéséhez.",
+      "TITLE": "Mire jó ez a répa gomb?"
     },
-    "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
-    "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "USERNAME": "Name",
-    "WHERE_FROM": "Where you are from (not required)",
-    "YOU_TRUST_USER": "You trust {userName} in {groupName}."
+    "TRUST_PROGRESS_TEXT": "Még {trustNeeded} bizalom szükséges",
+    "TRUST_PROGRESS_TEXT_LONG": "Még {trustNeeded} embernek ki kell fejeznie a bizalmát {userName} felhasználóban, hogy szerkesztői engedélyt kapjon.",
+    "USERNAME": "Név",
+    "WHERE_FROM": "Lakhely (nem kötelező)",
+    "YOU_TRUST_USER": "Megbízol {userName} felhasználóban a {groupName} csoportban."
   },
   "USERDETAIL": {
-    "DESCRIPTION": "About you",
-    "DISPLAY_NAME": "Name",
-    "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "New password"
+    "DESCRIPTION": "Rólad",
+    "DISPLAY_NAME": "Név",
+    "OLD_PASSWORD": "Erősítsd meg a régi jelszót",
+    "PASSWORD": "Új jelszó"
   },
   "VALIDATION": {
     "IMAGE_REQUIRED": "You must add an image",
-    "MAXLENGTH": "Too long, please use less than {max} characters.",
-    "MINLENGTH": "Please enter more than {min} characters.",
-    "REQUIRED": "This field is required.",
-    "UNIQUE": "Name already exists, please choose another.",
-    "VALID_EMAIL": "Enter a valid e-mail address.",
-    "VALID_TIMEZONE": "Enter a valid timezone."
+    "MAXLENGTH": "Túl hosszú, használj kevesebb mint {max} karaktert.",
+    "MINLENGTH": "Írj be több mint {min} karaktert.",
+    "REQUIRED": "Ezt a mezőt kötelező kitölteni.",
+    "UNIQUE": "Ez a név már foglalt, válassz másikat.",
+    "VALID_EMAIL": "Írj be egy érvényes email címet!",
+    "VALID_TIMEZONE": "Írj be egy érvényes időzónát."
   },
   "VERIFYMAIL": {
-    "SUCCESS": "Your e-mail address was successfully verified!",
-    "TITLE": "E-Mail verification"
+    "SUCCESS": "Az email címed sikeresen meg lett erősítve!",
+    "TITLE": "Email megerősítése"
   },
   "WALL": {
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail",
-    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
-    "WRITE_FIRST_MESSAGE": "Write the first message...",
-    "WRITE_MESSAGE": "Write a message..."
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Erősítsd meg az email címedet, hogy email értesítéseket kaphass",
+    "WRITE_FIRST_MESSAGE": "Írd meg az első üzenetet...",
+    "WRITE_MESSAGE": "Írj egy üzenetet..."
   },
-  "YOU": "You"
+  "YOU": "Te"
 }

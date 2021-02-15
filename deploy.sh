@@ -150,6 +150,7 @@ export ANSIBLE_HOST_KEY_CHECKING=False
   ANSIBLE_CONFIG="ansible.ci.cfg" \
   ansible-playbook \
     -u "$DEPLOY_USER" \
+    --become-user "$DEPLOY_USER" \
     "playbooks/$DEPLOY_SITE/deploy-frontend.playbook.yml" \
     --extra-vars "karrot_frontend__download_filename=$ZIP_FILENAME"
 )

@@ -19,6 +19,8 @@ fi
 STORYBOOK_URL=
 APK_URL=
 DEPLOY_DOCS="false"
+DEPLOY_SITE=
+DEPLOY_VARIANT=
 BUNDLE_FILENAME_BASE="karrot-frontend"
 STORYBOOK_BUNDLE_FILENAME_BASE=
 DOCS_BUNDLE_FILENAME_BASE=
@@ -29,10 +31,12 @@ if [ "$TYPE" == "release" ]; then
 
   DIR="release"
   DEPLOY_ENV="production"
+  DEPLOY_SITE="karrot-world"
+  DEPLOY_VARIANT="production"
   DEPLOY_EMOJI=":rocket:"
   URL="https://karrot.world"
   APK_URL="https://karrot.world/app.apk"
-  BUNDLE_FILENAME_BASE="$BUNDLE_FILENAME_BASE-production"
+  BUNDLE_FILENAME_BASE="$BUNDLE_FILENAME_BASE-$DEPLOY_VARIANT"
 
 elif [ "$TYPE" == "dev" ]; then
 
@@ -48,10 +52,12 @@ elif [ "$TYPE" == "dev" ]; then
 
   DIR="master"
   DEPLOY_ENV="development"
+  DEPLOY_SITE="karrot-dev"
+  DEPLOY_VARIANT="dev"
   DEPLOY_EMOJI=":beer:"
   URL="https://dev.karrot.world"
   APK_URL="https://dev.karrot.world/app.apk"
-  BUNDLE_FILENAME_BASE="$BUNDLE_FILENAME_BASE-dev"
+  BUNDLE_FILENAME_BASE="$BUNDLE_FILENAME_BASE-$DEPLOY_VARIANT"
   STORYBOOK_URL="https://storybook.karrot.world"
   STORYBOOK_BUNDLE_FILENAME_BASE="$BUNDLE_FILENAME_BASE-storybook"
   DEPLOY_DOCS="true"
@@ -71,10 +77,12 @@ elif [ "$TYPE" == "branch" ]; then
   SAFE_DIR="$(echo -n "$SAFE_REF" | replace '.' '-')" # ... also without dots
   DIR="branches/$SAFE_DIR"
   DEPLOY_ENV="branch/$REF"
+  DEPLOY_SITE="karrot-dev"
+  DEPLOY_VARIANT="branch-$SAFE_REF"
   DEPLOY_EMOJI=":construction_worker:"
   URL="https://$SAFE_DIR.dev.karrot.world"
   DEPLOY_DOCS="false"
-  BUNDLE_FILENAME_BASE="$BUNDLE_FILENAME_BASE-branch-$SAFE_REF"
+  BUNDLE_FILENAME_BASE="$BUNDLE_FILENAME_BASE-$DEPLOY_VARIANT"
 
 else
 
@@ -132,6 +140,18 @@ if [ "$DEPLOY_DOCS" == "true" ] && [ -d docs-dist/gitbook ]; then
     rsync -avz "$DOCS_ZIP_FILENAME" "karrot-download@$HOST:www/"
   fi
 fi
+
+DEPLOY_USER="$DEPLOY_SITE-deploy"
+git clone https://github.com/yunity/yuca yuca
+export ANSIBLE_HOST_KEY_CHECKING=False
+(
+  cd yuca && \
+  ansible-galaxy install -r galaxy-requirements.yml && \
+  ansible-playbook \
+    -u "$DEPLOY_USER" \
+    "playbooks/$DEPLOY_SITE/deploy-frontend.playbook.yml" \
+    --extra-vars "karrot_frontend__download_filename=$ZIP_FILENAME"
+)
 
 if [ ! -z "$ROCKETCHAT_WEBHOOK_URL" ]; then
 

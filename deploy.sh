@@ -157,7 +157,7 @@ export ANSIBLE_HOST_KEY_CHECKING=False
     -u "$DEPLOY_USER" \
     --become-user "$DEPLOY_USER" \
     "playbooks/$DEPLOY_SITE/deploy-frontend.playbook.yml" \
-    --extra-vars "karrot_frontend__variant=$DEPLOY_VARIANT ansistrano_release_version==$DEPLOY_VERSION"
+    --extra-vars "karrot_frontend__variant=$DEPLOY_VARIANT ansistrano_release_version=$DEPLOY_VERSION"
 )
 
 if [ ! -z "$ROCKETCHAT_WEBHOOK_URL" ]; then

@@ -142,6 +142,11 @@ if [ "$DEPLOY_DOCS" == "true" ] && [ -d docs-dist/gitbook ]; then
 fi
 
 DEPLOY_USER="$DEPLOY_SITE-deploy"
+
+# this controls the directory ansistrano creates for the release
+# the first part is the same as the default part, then we at @<short-ref>
+DEPLOY_VERSION="$(date -u +%Y%m%d%H%M%SZ)@$(git rev-parse --short HEAD)"
+
 git clone https://github.com/yunity/yuca yuca
 export ANSIBLE_HOST_KEY_CHECKING=False
 (
@@ -152,7 +157,7 @@ export ANSIBLE_HOST_KEY_CHECKING=False
     -u "$DEPLOY_USER" \
     --become-user "$DEPLOY_USER" \
     "playbooks/$DEPLOY_SITE/deploy-frontend.playbook.yml" \
-    --extra-vars "karrot_frontend__variant=$DEPLOY_VARIANT"
+    --extra-vars "karrot_frontend__variant=$DEPLOY_VARIANT ansistrano_release_version==$DEPLOY_VERSION"
 )
 
 if [ ! -z "$ROCKETCHAT_WEBHOOK_URL" ]; then

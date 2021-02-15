@@ -147,6 +147,7 @@ export ANSIBLE_HOST_KEY_CHECKING=False
 (
   cd yuca && \
   ansible-galaxy install -r galaxy-requirements.yml && \
+  ANSIBLE_CONFIG="ansible.ci.cfg" \
   ansible-playbook \
     -u "$DEPLOY_USER" \
     "playbooks/$DEPLOY_SITE/deploy-frontend.playbook.yml" \

@@ -9,6 +9,7 @@
       autogrow
       bottom-slots
       hide-hint
+      :class="{ 'tmp-new-border-style': $attrs['tmp-new-border-style'] }"
       v-on="$listeners"
     >
       <template
@@ -144,8 +145,12 @@ export default {
   min-width 60%
   max-width 700px
 
-.q-field--outlined >>> .q-field__control:before {
+.q-field--outlined.tmp-new-border-style >>> .q-field__control:before {
   border 1px solid rgba(0, 0, 0, 0.15)
+}
+
+.q-field--outlined.q-field--highlighted.tmp-new-border-style >>> .q-field__control:not(.text-negative):after {
+  border-color rgba(0, 0, 0, 0.45)
 }
 
 </style>

@@ -12,6 +12,7 @@
       :placeholder="$t('BUTTON.SEARCH')"
       :value="value.address"
       :input-debounce="1000"
+      :class="{ 'tmp-new-border-style': tmpNewBorderStyle }"
       @input="input"
       @filter="search"
     >
@@ -135,6 +136,10 @@ export default {
       default: null,
       type: Object,
     },
+    tmpNewBorderStyle: {
+      default: false,
+      type: Boolean,
+    },
   },
   data () {
     return {
@@ -210,4 +215,12 @@ export default {
   height 260px
   margin-top -10px
   margin-left 37px
+
+.q-field--outlined.tmp-new-border-style >>> .q-field__control:before {
+  border 1px solid rgba(0, 0, 0, 0.15)
+}
+
+.q-field--outlined.q-field--highlighted.tmp-new-border-style >>> .q-field__control:not(.text-negative):after {
+  border-color rgba(0, 0, 0, 0.45)
+}
 </style>

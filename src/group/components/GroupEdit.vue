@@ -44,7 +44,7 @@
           icon="fas fa-fw fa-question"
           outlined
           :tmp-new-border-style="true"
-          class="q-mb-lg test"
+          class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
         />
 

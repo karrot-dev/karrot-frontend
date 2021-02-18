@@ -17,7 +17,7 @@
             >
           </div>
           <div class="image-and-text-right">
-            <h4>{{ $t(editFeedbackId ? 'ACTIVITY_FEEDBACK.EDIT' : 'ACTIVITY_FEEDBACK.HEADER') }}</h4>
+            <h4> {{ $t(editFeedbackId ? 'ACTIVITY_FEEDBACK.EDIT' : 'ACTIVITY_FEEDBACK.HEADER') }}</h4>
             <p>
               <QSelect
                 v-if="!editFeedbackId"

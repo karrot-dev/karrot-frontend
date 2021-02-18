@@ -37,24 +37,69 @@
       {{ anyFirstError }}
     </div>
 
-    <div class="row justify-end q-ma-md q-gutter-sm">
-      <QBtn
-        v-if="!isNew"
-        type="button"
-        :disable="!hasChanged"
-        @click="reset"
-      >
-        {{ $t('BUTTON.RESET') }}
-      </QBtn>
-      <QBtn
-        type="submit"
-        color="secondary"
-        :loading="isPending"
-        :disable="!canSave"
-      >
-        <span v-t="isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES'" />
-      </QBtn>
+    <div class="row q-ma-md">
+      <div class="col">
+        <QBtn
+          v-if="isNew"
+          type="button"
+          @click="dismissDialog = !dismissDialog"
+        >
+          Dismiss
+        </QBtn>
+      </div>
+
+      <div class="col col-grow">
+        <div class="row justify-end q-gutter-sm">
+          <QBtn
+            v-if="!isNew"
+            type="button"
+            :disable="!hasChanged"
+            @click="reset"
+          >
+            {{ $t('BUTTON.RESET') }}
+          </QBtn>
+          <QBtn
+            type="submit"
+            color="secondary"
+            :loading="isPending"
+            :disable="!canSave"
+          >
+            <span v-t="isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES'" />
+          </QBtn>
+        </div>
+      </div>
     </div>
+    <CustomDialog v-model="dismissDialog">
+      <template #title>
+        <!-- <QIcon
+          v-bind="activity.activityType.iconProps"
+          size="sm"
+          class="q-pr-sm"
+        />
+        {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER', { activityType: activity.activityType.translatedName }) }} -->
+        Headline
+      </template>
+      <template #message>
+        text text text
+        <!-- {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_TEXT', { date: $d(activity.date, 'long') }) }} -->
+      </template>
+      <template #actions>
+        <QBtn
+          v-close-popup
+          flat
+          color="primary"
+          :label="$t('BUTTON.CANCEL')"
+        />
+        <!-- <QBtn
+          v-close-popup
+          flat
+          color="primary"
+          data-autofocus
+          :label="$t('BUTTON.OF_COURSE')"
+          @click="$emit('join', activity.id)"
+        /> -->
+      </template>
+    </CustomDialog>
   </form>
 </template>
 
@@ -64,12 +109,14 @@ import {
   QIcon,
 } from 'quasar'
 import AmountPicker from './AmountPicker'
+import CustomDialog from '@/activities/components/CustomDialog'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {
+    CustomDialog,
     QBtn,
     QIcon,
     AmountPicker,
@@ -86,6 +133,11 @@ export default {
       default: true,
     },
   },
+  data () {
+    return {
+      dismissDialog: false,
+    }
+  },
   computed: {
     canSave () {
       if (!this.isNew && !this.hasChanged) {
@@ -98,6 +150,9 @@ export default {
     maybeSave () {
       if (!this.canSave) return
       this.save()
+    },
+    dismiss () {
+      alert('Are you sure?')
     },
   },
 }

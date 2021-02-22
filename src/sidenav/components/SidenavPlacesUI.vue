@@ -13,6 +13,7 @@
         <QToggle
           :value="showAllPlaces"
           :title="$t(showAllPlaces ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL')"
+          icon="place"
           @input="$emit('toggle-show-all-places')"
         />
         <QBtn

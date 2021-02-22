@@ -197,7 +197,7 @@ export default {
     bounds () {
       if (this.forceBounds) return this.forceBounds
       if (this.forceCenter && !Number.isNaN(this.forceCenter.lat)) return null
-      if (!this.preventZoom && this.hasMarkers && !this.hasOneMarker) {
+      if (!this.preventZoom && this.hasMarkers) {
         return L.latLngBounds(this.markersForBound.map(m => m.latLng)).pad(0.2)
       }
       return undefined

@@ -28,6 +28,7 @@ Please document your changes in this format:
 
 ### Fixed
 - activities: only hover pictures if device supports it @larzon83 [#2297]
+- set map bounds correctly if there is only on place @pogopaule [#2290]
 
 ## [9.1.0] - 2020-01-06
 ### Fixed

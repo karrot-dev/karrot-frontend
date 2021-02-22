@@ -3,7 +3,7 @@
   "activity_fw": "fas fa-fw fa-asterisk",
   "feedback": "fas fa-reply",
   "place": "fas fa-circle",
-  "place_fw": "fas fa-fw fa-circle",
+  "place_fw": "fas fa-fw fa-map-marker-alt",
   "offer": "fas fa-gift",
   "offer_fw": "fas fa-fw fa-gift"
 }

@@ -14,5 +14,14 @@ export default connect({
   actionsToEvents: {
     'toggle-show-all-places': 'places/toggle/showAll',
   },
+  lifecycle: {
+    mounted (store) {
+      const hasActivatedPlaces = store.getters['places/all'].filter(place => place.status === 'active').length > 0
+      const showAll = store.getters['places/toggle/showAll']
+      if (!hasActivatedPlaces && !showAll) {
+        store.dispatch('places/toggle/showAll')
+      }
+    },
+  },
 })('SidenavPlaces', SidenavPlacesUI)
 </script>

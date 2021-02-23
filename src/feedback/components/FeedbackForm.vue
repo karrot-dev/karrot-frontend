@@ -44,7 +44,7 @@
           type="button"
           @click="dismissDialog = !dismissDialog"
         >
-          Dismiss
+          Dismiss it
         </QBtn>
       </div>
 

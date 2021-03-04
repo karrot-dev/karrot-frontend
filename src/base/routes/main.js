@@ -1,5 +1,6 @@
 import { Platform } from 'quasar'
 const Landing = () => import('@/base/pages/Landing')
+const About = () => import('@/base/pages/About')
 const GroupWall = () => import('@/group/pages/Wall')
 const GroupActivities = () => import('@/activities/pages/GroupActivities')
 const GroupOffers = () => import('@/offers/pages/GroupOffers')
@@ -63,6 +64,17 @@ export default [
       ],
     },
     component: Landing,
+  },
+  {
+    name: 'about',
+    path: '/about',
+    meta: {
+      fullpage: true,
+      breadcrumbs: [
+        { translation: 'KARROT' },
+      ],
+    },
+    component: About,
   },
   {
     name: 'groupsGallery',

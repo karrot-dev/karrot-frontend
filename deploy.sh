@@ -74,7 +74,7 @@ elif [ "$TYPE" == "branch" ]; then
   # branch deployment
 
   SAFE_REF="$(echo -n "$REF" | tr -c '[a-zA-Z0-9.]-' '-' | tr "[:upper:]" "[:lower:]")"
-  SAFE_DIR="$(echo -n "$SAFE_REF" | replace '.' '-')" # ... also without dots
+  SAFE_DIR="$(echo -n "$SAFE_REF" | tr '.' '-')" # ... also without dots
   DIR="branches/$SAFE_DIR"
   DEPLOY_ENV="branch/$REF"
   DEPLOY_SITE="karrot-dev"

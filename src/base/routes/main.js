@@ -49,8 +49,13 @@ const ActivityHistoryStatistics = () => import('@/statistics/pages/ActivityHisto
 
 export default [
   {
-    name: 'landing',
+    name: 'home',
     path: '/',
+    redirect: { name: 'landing' }, // default redirect, there is more logic in routerPlugin.js
+  },
+  {
+    name: 'landing',
+    path: '/welcome',
     meta: {
       fullpage: true,
       breadcrumbs: [

@@ -14,6 +14,7 @@
 
     <p class="text-center q-py-lg">
       <RouterLink
+        v-if="!isLoggedIn"
         v-t="'SIGNUP.TITLE'"
         class="button"
         :to="{ name: 'signup' }"
@@ -88,6 +89,7 @@
 
       <p class="text-center q-py-lg">
         <RouterLink
+          v-if="!isLoggedIn"
           v-t="'SIGNUP.TITLE'"
           class="button"
           :to="{ name: 'signup' }"
@@ -154,6 +156,7 @@
 
       <p class="text-center">
         <RouterLink
+          v-if="!isLoggedIn"
           v-t="'SIGNUP.TITLE'"
           class="button"
           :to="{ name: 'signup' }"
@@ -206,6 +209,7 @@ export default {
   computed: {
     ...mapGetters({
       groups: 'groups/other',
+      isLoggedIn: 'auth/isLoggedIn',
     }),
     groupsToShow () {
       // We might not have enough groups to show, so this is a bit more complicated than it might have been...

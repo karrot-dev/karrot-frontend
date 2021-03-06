@@ -1,5 +1,6 @@
 import { Platform } from 'quasar'
 const Landing = () => import('@/base/pages/Landing')
+const About = () => import('@/base/pages/About')
 const GroupWall = () => import('@/group/pages/Wall')
 const GroupActivities = () => import('@/activities/pages/GroupActivities')
 const GroupOffers = () => import('@/offers/pages/GroupOffers')
@@ -51,8 +52,13 @@ const ActivityHistoryStatistics = () => import('@/statistics/pages/ActivityHisto
 
 export default [
   {
-    name: 'landing',
+    name: 'home',
     path: '/',
+    redirect: { name: 'landing' }, // default redirect, there is more logic in routerPlugin.js
+  },
+  {
+    name: 'landing',
+    path: '/welcome',
     meta: {
       fullpage: true,
       breadcrumbs: [
@@ -60,6 +66,17 @@ export default [
       ],
     },
     component: Landing,
+  },
+  {
+    name: 'about',
+    path: '/about',
+    meta: {
+      fullpage: true,
+      breadcrumbs: [
+        { translation: 'KARROT' },
+      ],
+    },
+    component: About,
   },
   {
     name: 'groupsGallery',

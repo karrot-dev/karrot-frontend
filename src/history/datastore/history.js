@@ -47,7 +47,16 @@ export default {
       if (entry.payload && entry.payload.activityType) {
         const activityType = rootGetters['activityTypes/get'](entry.payload.activityType)
         Object.assign(msgValues, {
-          activityType: activityType.name,
+          activityType: activityType.translatedName,
+        })
+      }
+      else if ([
+        'ACTIVITY_TYPE_CREATE',
+        'ACTIVITY_TYPE_MODIFY',
+      ].includes(entry.typus) && entry.after) {
+        const { name, nameIsTranslatable } = entry.after
+        Object.assign(msgValues, {
+          activityType: nameIsTranslatable ? i18n.t(`ACTIVITY_TYPE_NAMES.${name}`) : name,
         })
       }
       else {
@@ -66,8 +75,7 @@ export default {
         users: entry.users && entry.users.map(rootGetters['users/get']),
         group: rootGetters['groups/get'](entry.group),
         place,
-        message: i18n.t(`HISTORY.${entry.typus}`, msgValues),
-        // TODO enrich payload
+        description: i18n.t(`HISTORY.${entry.typus}`, msgValues),
       }
     },
     active: (state, getters, rootState, rootGetters) => getters.get(state.activeId),

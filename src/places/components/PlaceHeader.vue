@@ -98,6 +98,15 @@
             :title="$t('STOREDETAIL.DIRECTIONS')"
           />
         </component>
+        <QBtn
+          v-if="isEditor"
+          small
+          round
+          color="secondary"
+          icon="fas fa-pencil-alt"
+          :to="{name: 'placeEdit'}"
+          :title="$t('STOREDETAIL.EDIT')"
+        />
       </div>
     </div>
     <div

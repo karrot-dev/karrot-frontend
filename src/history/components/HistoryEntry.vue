@@ -17,7 +17,7 @@
             v-measure
             class="content"
           >
-            {{ entry.message }}
+            {{ entry.description }}
           </span>
         </QItemLabel>
         <QItemLabel

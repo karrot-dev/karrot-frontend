@@ -21,6 +21,21 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- enabled Hungarian locale
+
+### Changed
+- use default group location for defaultMapCenter when creating a new place @larzon83 [#2293]
+- Remove disabled pickups on applied filters on pickups page @pogopaule [#2271]
+- activities: improve design and UX of activities listing @larzon83 [#2303]
+
+### Fixed
+- activities: only hover pictures if device supports it @larzon83 [#2297]
+
+## [9.1.0] - 2020-01-06
+### Fixed
+- Fix group switcher image sizes @nicksellen [#2283]
+- Fix group ordering when no geoip @nicksellen
 
 ## [9.0.0] - 2020-12-16
 ### Added
@@ -622,8 +637,10 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2231]: https://github.com/yunity/karrot-frontend/issues/2231
 [#2232]: https://github.com/yunity/karrot-frontend/issues/2232
 [#2234]: https://github.com/yunity/karrot-frontend/issues/2234
+[#2283]: https://github.com/yunity/karrot-frontend/issues/2283
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v9.0.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v9.1.0...HEAD
+[9.1.0]: https://github.com/yunity/karrot-frontend/compare/v9.0.0...v9.1.0
 [9.0.0]: https://github.com/yunity/karrot-frontend/compare/v8.8.1...v9.0.0
 [8.8.1]: https://github.com/yunity/karrot-frontend/compare/v8.8.0...v8.8.1
 [8.8.0]: https://github.com/yunity/karrot-frontend/compare/v8.7.2...v8.8.0

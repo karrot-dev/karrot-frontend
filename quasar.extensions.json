@@ -5,5 +5,6 @@
     "common_root_object": "none",
     "create_env_files": true,
     "add_env_to_gitignore": false
-  }
+  },
+  "@quasar/qiconpicker": {}
 }

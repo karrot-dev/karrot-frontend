@@ -61,10 +61,11 @@ export default {
     border 2px dashed
     border-radius 0
 
-.user-slot-wrapper:hover
-  .leave-icon
-    visibility visible
+@media (hover)
+  .user-slot-wrapper:hover
+    .leave-icon
+      visibility visible
 
-  .profile-picture
-    visibility hidden
+    .profile-picture
+      visibility hidden
 </style>

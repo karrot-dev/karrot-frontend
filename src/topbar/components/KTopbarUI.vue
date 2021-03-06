@@ -32,10 +32,12 @@
               avatar
               class="groups"
             >
-              <img
+              <QAvatar
                 v-if="group.hasPhoto"
-                :src="group.photoUrls.thumbnail"
+                square
               >
+                <img :src="group.photoUrls.thumbnail">
+              </QAvatar>
               <QIcon
                 v-else
                 name="fas fa-users"
@@ -196,6 +198,7 @@
 
 <script>
 import {
+  QAvatar,
   QToolbar,
   QToolbarTitle,
   QBtn,
@@ -213,6 +216,7 @@ import NotificationButton from '@/notifications/components/NotificationButton'
 
 export default {
   components: {
+    QAvatar,
     QToolbar,
     QToolbarTitle,
     QBtn,

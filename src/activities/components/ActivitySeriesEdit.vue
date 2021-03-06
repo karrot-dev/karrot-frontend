@@ -14,7 +14,7 @@
           :name="activityType.icon"
           class="q-pr-sm"
         />
-        {{ activityType.name }}
+        {{ activityType.translatedName }}
       </h3>
       <QField
         stack-label

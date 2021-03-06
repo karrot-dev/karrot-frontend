@@ -224,6 +224,11 @@ export default {
         status: 'created',
       }),
     },
+    currentGroup: {
+      required: false,
+      type: Object,
+      default: () => ({}),
+    },
     allPlaces: { required: true, type: Array },
   },
   computed: {
@@ -273,7 +278,7 @@ export default {
       return null
     },
     defaultMapCenter () {
-      const { latitude: lat, longitude: lng } = this.edit.group || {}
+      const { latitude: lat, longitude: lng } = this.edit.group || this.currentGroup || {}
       if (lat && lng) return { lat, lng }
       return null
     },

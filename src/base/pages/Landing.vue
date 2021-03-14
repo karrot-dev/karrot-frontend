@@ -37,7 +37,7 @@
         class="screenshot q-my-lg"
       >
         <QCarouselSlide
-          name="first"
+          name="1"
           :img-src="screenshots.activities"
           draggable="false"
         >
@@ -48,16 +48,26 @@
         </QCarouselSlide>
         <QCarouselSlide
           name="2"
-          img-src="./images/screenshot-custom-activity.png"
+          img-src="./images/screenshot-activity-chat.png"
           draggable="false"
         >
           <div class="absolute-bottom caption">
-            <h2>Custom activities and tasks</h2>
-            <div v-t="`ABOUT_KARROT.SECTIONS.ACTIVITIES.SUBTITLE`" />
+            <h2 v-t="`ABOUT_KARROT.SECTIONS.COMMUNICATION.TITLE`" />
+            <div v-t="`ABOUT_KARROT.SECTIONS.COMMUNICATION.DESCRIPTION`" />
           </div>
         </QCarouselSlide>
         <QCarouselSlide
           name="3"
+          img-src="./images/screenshot-custom-activity.png"
+          draggable="false"
+        >
+          <div class="absolute-bottom caption">
+            <h2 v-t="`ABOUT_KARROT.SECTIONS.ACTIVITY_TYPES.TITLE`" />
+            <div v-t="`ABOUT_KARROT.SECTIONS.ACTIVITY_TYPES.DESCRIPTION`" />
+          </div>
+        </QCarouselSlide>
+        <QCarouselSlide
+          name="4"
           img-src="./images/screenshot-groups-gbg.png"
         >
           <div class="absolute-bottom caption">
@@ -67,7 +77,7 @@
           </div>
         </QCarouselSlide>
         <QCarouselSlide
-          name="4"
+          name="5"
           img-src="./images/screenshot-offers.png"
         >
           <div class="absolute-bottom caption">
@@ -77,12 +87,39 @@
           </div>
         </QCarouselSlide>
         <QCarouselSlide
-          name="5"
+          name="6"
           img-src="./images/screenshot-sthlm-history.png"
         >
           <div class="absolute-bottom caption">
             <h2 v-t="`ABOUT_KARROT.SECTIONS.TRANSPARENCY.TITLE`" />
             <div v-t="`ABOUT_KARROT.SECTIONS.TRANSPARENCY.DESCRIPTION`" />
+          </div>
+        </QCarouselSlide>
+        <QCarouselSlide
+          name="7"
+          img-src="./images/screenshot-application-vasilis.png"
+        >
+          <div class="absolute-bottom caption">
+            <h2 v-t="`ABOUT_KARROT.SECTIONS.APPLICATIONS.TITLE`" />
+            <div v-t="`ABOUT_KARROT.SECTIONS.APPLICATIONS.DESCRIPTION`" />
+          </div>
+        </QCarouselSlide>
+        <QCarouselSlide
+          name="8"
+          img-src="./images/screenshot-trust.png"
+        >
+          <div class="absolute-bottom caption">
+            <h2 v-t="`ABOUT_KARROT.SECTIONS.TRUST.TITLE`" />
+            <div v-t="`ABOUT_KARROT.SECTIONS.TRUST.DESCRIPTION`" />
+          </div>
+        </QCarouselSlide>
+        <QCarouselSlide
+          name="9"
+          img-src="./images/screenshot-notifications.png"
+        >
+          <div class="absolute-bottom caption">
+            <h2 v-t="`ABOUT_KARROT.SECTIONS.NOTIFICATIONS.TITLE`" />
+            <div v-t="`ABOUT_KARROT.SECTIONS.NOTIFICATIONS.DESCRIPTION`" />
           </div>
         </QCarouselSlide>
       </QCarousel>
@@ -114,59 +151,6 @@
       />
 
       <p class="text-center q-py-lg">
-        <RouterLink
-          v-if="!isLoggedIn"
-          v-t="'SIGNUP.TITLE'"
-          class="button"
-          :to="{ name: 'signup' }"
-        />
-        <RouterLink
-          v-t="'JOINGROUP.BROWSE_GROUPS'"
-          class="button"
-          :to="{ name: 'groupsGallery' }"
-        />
-      </p>
-    </section>
-
-    <section>
-      <p>
-        <em v-t="'ABOUT_KARROT.AND_MORE'" />
-      </p>
-      <ul>
-        <li
-          v-for="item in more"
-          :key="item"
-        >
-          <p>
-            <strong v-t="`ABOUT_KARROT.SECTIONS.${item}.TITLE`" />:
-            <i18n
-              :path="`ABOUT_KARROT.SECTIONS.${item}.DESCRIPTION`"
-              tag="span"
-            >
-              <a
-                slot="code"
-                href="https://github.com/yunity/karrot-frontend"
-              >GitHub</a>
-              <a
-                slot="forum"
-                v-t="'ABOUT_KARROT.LINKS.FORUM'"
-                href="https://community.foodsaving.world"
-              />
-              <a
-                slot="chat"
-                v-t="'ABOUT_KARROT.LINKS.CHAT'"
-                href="https://chat.foodsaving.world/channel/karrot-dev"
-              />
-              <a
-                slot="translations"
-                href="https://www.transifex.com/yunity-1/karrot/frontend/"
-              >Transifex</a>
-            </i18n>
-          </p>
-        </li>
-      </ul>
-
-      <p class="text-center">
         <RouterLink
           v-if="!isLoggedIn"
           v-t="'SIGNUP.TITLE'"
@@ -226,7 +210,7 @@ export default {
   },
   data () {
     return {
-      slide: 'first',
+      slide: '1',
     }
   },
   computed: {

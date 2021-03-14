@@ -8,9 +8,16 @@
     },
     "SECTIONS": {
       "ACTIVITIES": {
-        "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later.",
-        "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
+        "DESCRIPTION": "Each activity has a specific time, place and number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later.",
         "TITLE": "Distribution of tasks and activities"
+      },
+      "ACTIVITY_TYPES": {
+        "DESCRIPTION": "Whatever specific types of activity your group needs can be entered in the software, for example meetings, food pickups, community events, etc.",
+        "TITLE": "Custom activity types"
+      },
+      "APPLICATIONS": {
+        "DESCRIPTION": "When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve.",
+        "TITLE": "Accepting new members"
       },
       "COMMUNICATION": {
         "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats.",
@@ -56,7 +63,7 @@
         "TITLE": "Transparency"
       },
       "TRUST": {
-        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way.",
+        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. If there is a conflict, the group can enter a voting system to resolve it in a communal way.",
         "TITLE": "Democratic and trust-based group governance"
       }
     },

@@ -1,5 +1,5 @@
 <template>
-  <div class="landing">
+  <div class="about">
     <p class="text-center">
       <img
         :src="logo"
@@ -48,7 +48,7 @@ export default {
 <style scoped lang="stylus">
 @import '~variables'
 
-.landing
+.about
 
   width 1050px
   max-width 100vw

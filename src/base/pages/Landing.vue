@@ -27,11 +27,65 @@
     </p>
 
     <p class="text-center">
-      <QImg
-        :src="screenshots.activities"
-        alt="karrot"
-        class="screenshot screenshot-fullwidth q-my-lg"
-      />
+      <QCarousel
+        v-model="slide"
+        arrows
+        animated
+        swipeable
+        control-color="primary"
+        control-type="push"
+        class="screenshot q-my-lg"
+      >
+        <QCarouselSlide
+          name="first"
+          :img-src="screenshots.activities"
+          draggable="false"
+        >
+          <div class="absolute-bottom caption">
+            <h2 v-t="`ABOUT_KARROT.SECTIONS.ACTIVITIES.TITLE`" />
+            <div v-t="`ABOUT_KARROT.SECTIONS.ACTIVITIES.DESCRIPTION`" />
+          </div>
+        </QCarouselSlide>
+        <QCarouselSlide
+          name="2"
+          img-src="./images/screenshot-custom-activity.png"
+          draggable="false"
+        >
+          <div class="absolute-bottom caption">
+            <h2>Custom activities and tasks</h2>
+            <div v-t="`ABOUT_KARROT.SECTIONS.ACTIVITIES.SUBTITLE`" />
+          </div>
+        </QCarouselSlide>
+        <QCarouselSlide
+          name="3"
+          img-src="./images/screenshot-groups-gbg.png"
+        >
+          <div class="absolute-bottom caption">
+            <h2 v-t="`ABOUT_KARROT.SECTIONS.GROUPS.TITLE`" />
+            <div v-t="`ABOUT_KARROT.SECTIONS.GROUPS.SUBTITLE`" />
+            <small v-t="`ABOUT_KARROT.SECTIONS.GROUPS.DESCRIPTION`" />
+          </div>
+        </QCarouselSlide>
+        <QCarouselSlide
+          name="4"
+          img-src="./images/screenshot-offers.png"
+        >
+          <div class="absolute-bottom caption">
+            <h2 v-t="`ABOUT_KARROT.SECTIONS.OFFERS.TITLE`" />
+            <div v-t="`ABOUT_KARROT.SECTIONS.OFFERS.SUBTITLE`" />
+            <small v-t="`ABOUT_KARROT.SECTIONS.OFFERS.DESCRIPTION`" />
+          </div>
+        </QCarouselSlide>
+        <QCarouselSlide
+          name="5"
+          img-src="./images/screenshot-sthlm-history.png"
+        >
+          <div class="absolute-bottom caption">
+            <h2 v-t="`ABOUT_KARROT.SECTIONS.TRANSPARENCY.TITLE`" />
+            <div v-t="`ABOUT_KARROT.SECTIONS.TRANSPARENCY.DESCRIPTION`" />
+          </div>
+        </QCarouselSlide>
+      </QCarousel>
     </p>
 
     <section>
@@ -47,34 +101,6 @@
             :src="image"
             :ratio="1"
           />
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div
-        v-for="(feature, idx) in features"
-        :key="feature"
-        class="q-my-md"
-      >
-        <div class="row q-my-lg q-py-lg">
-          <div class="col-sm-8 q-px-lg self-center">
-            <h2 v-t="`ABOUT_KARROT.SECTIONS.${feature}.TITLE`" />
-            <p>
-              <strong v-t="`ABOUT_KARROT.SECTIONS.${feature}.SUBTITLE`" />
-            </p>
-            <p v-t="`ABOUT_KARROT.SECTIONS.${feature}.DESCRIPTION`" />
-          </div>
-          <div
-            class="col q-px-lg self-center"
-            :class="{ swap: idx % 2 !== 0 }"
-          >
-            <img
-              :src="screenshots[feature]"
-              alt="karrot"
-              class="screenshot"
-            >
-          </div>
         </div>
       </div>
     </section>
@@ -100,20 +126,6 @@
           :to="{ name: 'groupsGallery' }"
         />
       </p>
-    </section>
-
-    <section>
-      <h2 v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.TITLE'" />
-      <p v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION'" />
-      <i18n
-        path="ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION2"
-        tag="p"
-      >
-        <a
-          slot="code"
-          href="https://github.com/yunity/karrot-frontend"
-        >GitHub</a>
-      </i18n>
     </section>
 
     <section>
@@ -172,7 +184,11 @@
 </template>
 
 <script>
-import { QImg } from 'quasar'
+import {
+  QImg,
+  QCarousel,
+  QCarouselSlide,
+} from 'quasar'
 import { mapGetters } from 'vuex'
 
 import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
@@ -204,7 +220,14 @@ function groupSortScore (group) {
 export default {
   components: {
     QImg,
+    QCarousel,
+    QCarouselSlide,
     GroupGalleryCards,
+  },
+  data () {
+    return {
+      slide: 'first',
+    }
   },
   computed: {
     ...mapGetters({
@@ -334,6 +357,12 @@ export default {
     width 1200px
     margin-left 50%
     transform translateX(-50%)
+
+.caption
+  padding 8px
+  color white
+  text-align center
+  background-color rgba(0, 0, 0, .3)
 
 // on wider screens alternate the left/right ordering
 @media (min-width: 600px)

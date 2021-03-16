@@ -9,7 +9,7 @@
     "SECTIONS": {
       "ACTIVITIES": {
         "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later.",
-        "SUBTITLE": "Activities with a specific time and place, like food pickups in the case of foodsaving, can be entered in the software.",
+        "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
         "TITLE": "Distribution of tasks and activities"
       },
       "COMMUNICATION": {
@@ -17,13 +17,13 @@
         "TITLE": "Communication in the right context"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot is a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
+        "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
         "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development. Check out the project on {code}.",
         "TITLE": "Democratic and participative development"
       },
       "GROUPS": {
         "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally.",
-        "SUBTITLE": "Every group on karrot is completely independent and can have their own logo, processes and rules.",
+        "SUBTITLE": "Every group on Karrot is completely independent and can have their own logo, processes, rules and agreements.",
         "TITLE": "Independent groups"
       },
       "MAPS": {
@@ -36,7 +36,7 @@
       },
       "OFFERS": {
         "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat.",
-        "SUBTITLE": "Create an ad-like offer of whatever you want to share or give away.",
+        "SUBTITLE": "Create an offer of whatever you want to share or give away.",
         "TITLE": "Share things"
       },
       "OPENSOURCE": {
@@ -60,10 +60,10 @@
         "TITLE": "Democratic and trust-based group management"
       }
     },
-    "SUBTITLE1": "Karrot exists for groups of people who want to save things from being wasted and share them instead, allowing these groups to organise efficiently, on a local and voluntary basis.",
-    "SUBTITLE2": "Things such as food, bikes, clothes or whatever is being excessively thrown away or unused in the context of a consumerist society.",
-    "TITLE": "Save things from being wasted, share them instead!",
-    "VISION_INTRO": "Karrot is a tool for all kinds of grassroots initiatives to connect and grow, supporting the co-ordination of face-to-face activities with a layer of digital infrastructure."
+    "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
+    "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
+    "TITLE": "Start a group, become a community",
+    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kichen..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",

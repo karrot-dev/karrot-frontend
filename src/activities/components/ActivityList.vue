@@ -82,16 +82,29 @@
       :offset="100"
       @load="displayMoreActivities"
     >
-      <ActivityItem
-        v-for="activity in displayedActivities"
-        :key="activity.id"
-        v-measure
-        :activity="activity"
-        :place-link="placeLink"
-        @join="$emit('join', arguments[0])"
-        @leave="$emit('leave', arguments[0])"
-        @detail="$emit('detail', arguments[0])"
-      />
+      <template
+        v-for="(day, index) in displayedActivitiesGroupedByDate"
+      >
+        <div
+          v-if="!dense"
+          :key="`day-${index}`"
+          class="q-px-sm q-pt-lg full-width text-center text-bold"
+          style="color: rgba(0, 0, 0, 0.7);"
+        >
+          {{ day.date }}
+        </div>
+        <ActivityItem
+          v-for="activity in day.activities"
+          :key="activity.id"
+          v-measure
+          :dense="dense"
+          :activity="activity"
+          :place-link="placeLink"
+          @join="$emit('join', arguments[0])"
+          @leave="$emit('leave', arguments[0])"
+          @detail="$emit('detail', arguments[0])"
+        />
+      </template>
       <template #loading>
         <KSpinner />
       </template>
@@ -146,6 +159,10 @@ export default {
       default: false,
     },
     pending: {
+      type: Boolean,
+      default: false,
+    },
+    dense: {
       type: Boolean,
       default: false,
     },
@@ -219,8 +236,19 @@ export default {
           }
         })
     },
-    displayedActivities () {
-      return this.filteredActivities.slice(0, this.numDisplayed)
+    displayedActivitiesGroupedByDate () {
+      const result = []
+      let dateIterated = ''
+      for (const [index, activity] of this.filteredActivities.entries()) {
+        if (index === this.numDisplayed) break
+        const dateWithDayName = this.$d(activity.date, 'dateWithDayName')
+        if (dateWithDayName !== dateIterated) {
+          result.push({ date: dateWithDayName, activities: [] })
+        }
+        result[result.length - 1].activities.push(activity)
+        dateIterated = dateWithDayName
+      }
+      return result
     },
     noActivitiesDueToFilters () {
       return this.activities.length > 0 && this.filteredActivities.length === 0

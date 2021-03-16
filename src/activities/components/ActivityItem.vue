@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div>
     <div
       v-if="activity.dateGroupedHeadline"
@@ -127,6 +128,55 @@
               </template>
             </CustomDialog>
           </div>
+=======
+  <QCard
+    :class="{ full: activity.isFull }"
+  >
+    <QCardSection
+      class="no-padding content"
+      :class="{ isEmpty: activity.isEmpty, isUserMember: activity.isUserMember, isDisabled: activity.isDisabled }"
+    >
+      <div class="content-inner">
+        <div class="row no-wrap items-start justify-between">
+          <div>
+            <strong class="featured-text">
+              {{ $d(activity.date, 'hourMinute') }}
+              <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>
+            </strong>
+            <template v-if="placeLink">
+              <template v-if="dense">
+                <span>{{ $d(activity.date, 'dateWithDayName') }}</span>
+                <br>
+              </template>
+              <span v-if="activity.place">
+                <RouterLink :to="{ name: 'place', params: { placeId: activity.place.id }}">
+                  {{ activity.place.name }}
+                </RouterLink>
+              </span>
+            </template>
+            <template v-else>
+              {{ $d(activity.date, 'dateLongWithDayName') }}
+            </template>
+          </div>
+          <QIcon
+            v-if="activity.activityType"
+            v-bind="activity.activityType.iconProps"
+            title=""
+            size="xs"
+            class="q-ml-sm"
+            style="top: 1px;"
+          >
+            <q-tooltip v-if="activity.activityType.iconProps && activity.activityType.iconProps.title">
+              {{ activity.activityType.iconProps.title }}
+            </q-tooltip>
+          </QIcon>
+        </div>
+        <div
+          v-if="activity.isDisabled"
+          class="q-my-xs"
+        >
+          <b class="text-negative">{{ $t('ACTIVITYLIST.ACTIVITY_DISABLED') }}</b>
+>>>>>>> 211e69168b2b56eb6bbb7728f6cf437074db11b1
         </div>
       </QCardSection>
       <QCardSection
@@ -142,13 +192,33 @@
           class="open-conversation-button"
           @click.native.stop="detail"
         >
+<<<<<<< HEAD
           <template #default>
             <div>
+=======
+          <b class="text-orange">{{ $t('ACTIVITYLIST.ACTIVITY_STARTED') }}</b>
+        </div>
+        <!-- eslint-disable vue/multiline-html-element-content-newline -->
+        <div
+          v-if="activity.description"
+          class="q-my-xs multiline"
+        >{{ activity.description }}</div>
+        <!-- eslint-enable vue/multiline-html-element-content-newline -->
+        <div class="q-mt-sm q-mb-none full-width">
+          <ActivityUsers
+            :activity="activity"
+            @leave="leave"
+            @join="join"
+          />
+          <CustomDialog v-model="joinDialog">
+            <template #title>
+>>>>>>> 211e69168b2b56eb6bbb7728f6cf437074db11b1
               <QIcon
                 name="chat"
                 size="xs"
                 class="q-mr-xs icon-left"
               />
+<<<<<<< HEAD
               <span>{{ $t('CONVERSATION.OPEN') }}</span>
             </div>
             <QIcon
@@ -161,6 +231,44 @@
       </QCardSection>
     </QCard>
   </div>
+=======
+            </template>
+          </CustomDialog>
+        </div>
+      </div>
+    </QCardSection>
+    <QCardSection
+      :class="{ 'justify-end': !$q.platform.is.mobile }"
+      class="row no-padding full-width conversation-section"
+    >
+      <QBtn
+        flat
+        no-caps
+        align="between"
+        color="secondary"
+        :class="{ 'full-width': $q.platform.is.mobile }"
+        class="open-conversation-button"
+        @click.native.stop="detail"
+      >
+        <template #default>
+          <div>
+            <QIcon
+              name="chat"
+              size="xs"
+              class="q-mr-xs icon-left"
+            />
+            <span>{{ $t('CONVERSATION.OPEN') }}</span>
+          </div>
+          <QIcon
+            name="chevron_right"
+            :class="{ 'q-ml-sm': !$q.platform.is.mobile }"
+            class="icon-right"
+          />
+        </template>
+      </QBtn>
+    </QCardSection>
+  </QCard>
+>>>>>>> 211e69168b2b56eb6bbb7728f6cf437074db11b1
 </template>
 
 <script>
@@ -186,6 +294,10 @@ export default {
     activity: {
       type: Object,
       required: true,
+    },
+    dense: {
+      type: Boolean,
+      default: false,
     },
     placeLink: {
       type: Boolean,
@@ -250,7 +362,11 @@ export default {
   box-shadow 0 -1px 0 rgba(0, 0, 0, 0.06)
 
 .q-btn.open-conversation-button
+<<<<<<< HEAD
   ::v-deep .q-btn__wrapper
+=======
+  >>> .q-btn__wrapper
+>>>>>>> 211e69168b2b56eb6bbb7728f6cf437074db11b1
     padding 10px 12px !important
 
     .icon-left

@@ -21,6 +21,9 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- enabled Hungarian locale
+
 ### Changed
 - use default group location for defaultMapCenter when creating a new place @larzon83 [#2293]
 - Remove disabled pickups on applied filters on pickups page @pogopaule [#2271]

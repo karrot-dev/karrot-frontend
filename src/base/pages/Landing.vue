@@ -176,9 +176,9 @@ import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
 import logo from '@/logo/assets/carrot-logo.svg'
 import screenshotActivities from './images/karrot-screenshot.png'
 
-import screenshotGallery from './images/karrot-gallery.236x236.jpg'
-import screenshotManageActivities from './images/karrot-manage-activities.236x236.jpg'
-import screenshotOffers from './images/solikyl-offers.236x236.jpg'
+import screenshotGallery from './images/karrot-gallery-map.236x236.jpg'
+import screenshotManageActivities from './images/karrot-custom-activities.236x236.jpg'
+import screenshotOffers from './images/screenshot-offers.236x236.jpg'
 
 import imageSavedFood from './images/oestersund-saved-food.200x200.jpg'
 import imageVolunteers from './images/oestersund-volunteers.200x200.jpg'

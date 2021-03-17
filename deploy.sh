@@ -163,7 +163,7 @@ export ANSIBLE_HOST_KEY_CHECKING=False
 )
 
 if [ "$DELETE_BUNDLE_AFTER_DEPLOY" == "true" ]; then
-  ssh "$HOST" rm "www/$ZIP_FILENAME"
+  ssh "karrot-download@$HOST" rm "www/$ZIP_FILENAME"
 fi
 
 if [ ! -z "$ROCKETCHAT_WEBHOOK_URL" ]; then

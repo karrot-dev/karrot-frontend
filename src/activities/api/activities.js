@@ -4,6 +4,7 @@ import { convert as convertConversation } from '@/messages/api/conversations'
 export default {
 
   async create (activity) {
+    console.log('create foobar')
     return convert((await axios.post('/api/activities/', convertDateToRange(activity))).data)
   },
 
@@ -51,6 +52,10 @@ export default {
 
   async conversation (activityId) {
     return convertConversation((await axios.get(`/api/activities/${activityId}/conversation/`)).data)
+  },
+
+  async dismissFeedback (activityId) {
+    await axios.post(`/api/activities/${activityId}/dismiss_feedback/`, {})
   },
 
 }

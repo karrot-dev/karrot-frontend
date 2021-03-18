@@ -56,13 +56,15 @@ export default {
         .filter(e => !e.isFull && !e.isUserMember && !e.isDisabled && !e.hasStarted)
         .filter(e => e.place.isSubscribed),
     feedbackPossibleByCurrentGroup: (state, getters) => {
-      return Object.values(state.entries)
+      const foobar = Object.values(state.entries)
         .filter(p => p.dateEnd < reactiveNow.value && p.feedbackDue > reactiveNow.value)
         .map(getters.enrich)
         .filter(p => p.isUserMember)
         .filter(p => p.group && p.group.isCurrentGroup)
         .filter(p => !p.feedbackGivenBy.find(u => u.isCurrentUser))
         .sort(sortByDate)
+      console.log('xxxxxxxxxxxxxxxxx' + foobar.length)
+      return foobar
     },
     feedbackPossibleByActivePlace: (state, getters) =>
       getters.feedbackPossibleByCurrentGroup
@@ -134,6 +136,13 @@ export default {
       const groupId = rootGetters['currentGroup/id']
       if (groupId) {
         dispatch('fetchListByGroupId', groupId)
+      }
+    },
+    async dismissFeedback ({ commit, rootGetters }, activityId) {
+      await activities.dismissFeedback(activityId)
+      const groupId = rootGetters['currentGroup/id']
+      if (groupId) {
+        commit('update', (await activities.listFeedbackPossible(groupId)).results)
       }
     },
   },

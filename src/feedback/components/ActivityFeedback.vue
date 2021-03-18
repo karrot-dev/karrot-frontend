@@ -78,6 +78,7 @@
           :has-multiple-participants="fellowParticipants.length > 0"
           :has-weight="select.activityType.hasFeedbackWeight"
           @save="$emit('save', arguments[0])"
+          @dismiss="$emit('dismiss', arguments[0])"
         />
       </div>
     </QCard>
@@ -205,7 +206,7 @@ export default {
       if (!list) return []
       return list.map((e) => {
         return {
-          label: this.getDateWithPlace(e),
+          label: e.id + ': ' + this.getDateWithPlace(e),
           value: e,
         }
       })

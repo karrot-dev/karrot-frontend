@@ -90,14 +90,14 @@
           color="primary"
           :label="$t('BUTTON.CANCEL')"
         />
-        <!-- <QBtn
+        <QBtn
           v-close-popup
           flat
           color="primary"
           data-autofocus
           :label="$t('BUTTON.OF_COURSE')"
-          @click="$emit('join', activity.id)"
-        /> -->
+          @click="$emit('dismiss', value.about)"
+        />
       </template>
     </CustomDialog>
   </form>
@@ -113,6 +113,7 @@ import CustomDialog from '@/activities/components/CustomDialog'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
+import activities from '@/activities/api/activities'
 
 export default {
   components: {
@@ -140,20 +141,19 @@ export default {
   },
   computed: {
     canSave () {
-      if (!this.isNew && !this.hasChanged) {
-        return false
-      }
-      return true
+      return this.isNew || this.hasChanged
     },
   },
   methods: {
     maybeSave () {
-      if (!this.canSave) return
-      this.save()
+      if (this.canSave) {
+        this.save()
+      }
     },
-    dismiss () {
-      alert('Are you sure?')
+    dismissFeedback () {
+      activities.dismissFeedback(this.value.about)
     },
+
   },
 }
 </script>

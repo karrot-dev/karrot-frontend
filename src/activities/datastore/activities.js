@@ -33,6 +33,7 @@ export default {
         group,
         participants: activity.participants.map(rootGetters['users/get']),
         feedbackGivenBy: activity.feedbackGivenBy ? activity.feedbackGivenBy.map(rootGetters['users/get']) : [],
+        feedbackDismissedBy: activity.feedbackDismissedBy ? activity.feedbackDismissedBy.map(rootGetters['users/get']) : [],
         hasStarted: activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], activity.id),
       }
@@ -62,7 +63,9 @@ export default {
         .filter(p => p.isUserMember)
         .filter(p => p.group && p.group.isCurrentGroup)
         .filter(p => !p.feedbackGivenBy.find(u => u.isCurrentUser))
+        .filter(p => !p.feedbackDismissedBy.find(f => f.isCurrentUser))
         .sort(sortByDate)
+      console.log('foobar:', foobar)
       console.log('xxxxxxxxxxxxxxxxx' + foobar.length)
       return foobar
     },
@@ -141,6 +144,8 @@ export default {
     async dismissFeedback ({ commit, rootGetters }, activityId) {
       await activities.dismissFeedback(activityId)
       const groupId = rootGetters['currentGroup/id']
+      // TODO: use only one activity coming from api
+      // commit('update', [a])
       if (groupId) {
         commit('update', (await activities.listFeedbackPossible(groupId)).results)
       }

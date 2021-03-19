@@ -42,7 +42,7 @@
         <QBtn
           v-if="isNew"
           type="button"
-          @click="dismissDialog = !dismissDialog"
+          @click="dismissDialogIsVisible = !dismissDialogIsVisible"
         >
           Dismiss it
         </QBtn>
@@ -69,7 +69,7 @@
         </div>
       </div>
     </div>
-    <CustomDialog v-model="dismissDialog">
+    <CustomDialog v-model="dismissDialogIsVisible">
       <template #title>
         <!-- <QIcon
           v-bind="activity.activityType.iconProps"
@@ -135,7 +135,7 @@ export default {
   },
   data () {
     return {
-      dismissDialog: false,
+      dismissDialogIsVisible: false,
     }
   },
   computed: {

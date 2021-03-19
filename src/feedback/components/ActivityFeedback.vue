@@ -17,7 +17,7 @@
             >
           </div>
           <div class="image-and-text-right">
-            <h4> {{ $t(editFeedbackId ? 'ACTIVITY_FEEDBACK.EDIT' : 'ACTIVITY_FEEDBACK.HEADER') }}</h4>
+            <h4>{{ $t(editFeedbackId ? 'ACTIVITY_FEEDBACK.EDIT' : 'ACTIVITY_FEEDBACK.HEADER') }}</h4>
             <p>
               <QSelect
                 v-if="!editFeedbackId"
@@ -206,6 +206,8 @@ export default {
       if (!list) return []
       return list.map((e) => {
         return {
+          // TODO: remove printing of id
+          // -> label: this.getDateWithPlace(e),
           label: e.id + ': ' + this.getDateWithPlace(e),
           value: e,
         }

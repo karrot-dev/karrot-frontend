@@ -57,7 +57,7 @@ export default {
         .filter(e => !e.isFull && !e.isUserMember && !e.isDisabled && !e.hasStarted)
         .filter(e => e.place.isSubscribed),
     feedbackPossibleByCurrentGroup: (state, getters) => {
-      const foobar = Object.values(state.entries)
+      return Object.values(state.entries)
         .filter(p => p.dateEnd < reactiveNow.value && p.feedbackDue > reactiveNow.value)
         .map(getters.enrich)
         .filter(p => p.isUserMember)
@@ -65,9 +65,6 @@ export default {
         .filter(p => !p.feedbackGivenBy.find(u => u.isCurrentUser))
         .filter(p => !p.feedbackDismissedBy.find(f => f.isCurrentUser))
         .sort(sortByDate)
-      console.log('foobar:', foobar)
-      console.log('xxxxxxxxxxxxxxxxx' + foobar.length)
-      return foobar
     },
     feedbackPossibleByActivePlace: (state, getters) =>
       getters.feedbackPossibleByCurrentGroup

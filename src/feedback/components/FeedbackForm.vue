@@ -113,7 +113,6 @@ import CustomDialog from '@/activities/components/CustomDialog'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
-import activities from '@/activities/api/activities'
 
 export default {
   components: {
@@ -150,10 +149,6 @@ export default {
         this.save()
       }
     },
-    dismissFeedback () {
-      activities.dismissFeedback(this.value.about)
-    },
-
   },
 }
 </script>

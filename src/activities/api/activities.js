@@ -4,7 +4,6 @@ import { convert as convertConversation } from '@/messages/api/conversations'
 export default {
 
   async create (activity) {
-    console.log('create foobar')
     return convert((await axios.post('/api/activities/', convertDateToRange(activity))).data)
   },
 

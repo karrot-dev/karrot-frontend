@@ -3,7 +3,6 @@ import { convert as convertActivity } from '@/activities/api/activities'
 
 export default {
   async create (feedback) {
-    console.log('feedback_create')
     return convert((await axios.post('/api/feedback/', feedback)).data)
   },
 
@@ -33,7 +32,6 @@ export default {
   async save (feedback) {
     return convert((await axios.patch(`/api/feedback/${feedback.id}/`, feedback)).data)
   },
-
 }
 
 export function convert (val) {

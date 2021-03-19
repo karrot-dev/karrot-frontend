@@ -96,7 +96,7 @@
           color="primary"
           data-autofocus
           :label="$t('BUTTON.OF_COURSE')"
-          @click="$emit('dismiss', value.about)"
+          @click="$emit('dismissFeedback', value.about)"
         />
       </template>
     </CustomDialog>

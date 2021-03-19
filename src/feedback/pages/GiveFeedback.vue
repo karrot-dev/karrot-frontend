@@ -15,7 +15,7 @@ export default connect({
   },
   actionsToEvents: {
     save: 'feedback/save',
-    dismiss: 'activities/dismissFeedback',
+    dismissFeedback: 'activities/dismissFeedback',
   },
 })('GiveFeedback', ActivityFeedback)
 </script>

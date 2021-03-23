@@ -116,6 +116,7 @@ describe('activities', () => {
         },
         participants: [{ id: userId, name: `Some Name${userId}` }],
         feedbackGivenBy: [],
+        feedbackDismissedBy: [],
         hasStarted: false,
       })
     })
@@ -140,6 +141,7 @@ describe('activities', () => {
         id: activityId,
         participants: [],
         feedbackGivenBy: [],
+        feedbackDismissedBy: [],
         date,
         dateEnd,
         isUserMember: false,

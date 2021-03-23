@@ -21,9 +21,11 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [9.2.0] - 2020-03-23
 ### Added
 - enabled Hungarian locale @nicksellen [#2313]
-- add activity type editing @nicksellen [#2245] 
+- add activity type editing @nicksellen [#2245]
 
 ### Changed
 - use default group location for defaultMapCenter when creating a new place @larzon83 [#2293]
@@ -639,9 +641,17 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2231]: https://github.com/yunity/karrot-frontend/issues/2231
 [#2232]: https://github.com/yunity/karrot-frontend/issues/2232
 [#2234]: https://github.com/yunity/karrot-frontend/issues/2234
+[#2245]: https://github.com/yunity/karrot-frontend/issues/2245
+[#2266]: https://github.com/yunity/karrot-frontend/issues/2266
+[#2271]: https://github.com/yunity/karrot-frontend/issues/2271
 [#2283]: https://github.com/yunity/karrot-frontend/issues/2283
+[#2293]: https://github.com/yunity/karrot-frontend/issues/2293
+[#2297]: https://github.com/yunity/karrot-frontend/issues/2297
+[#2303]: https://github.com/yunity/karrot-frontend/issues/2303
+[#2313]: https://github.com/yunity/karrot-frontend/issues/2313
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v9.1.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v9.2.0...HEAD
+[9.2.0]: https://github.com/yunity/karrot-frontend/compare/v9.1.0...v9.2.0
 [9.1.0]: https://github.com/yunity/karrot-frontend/compare/v9.0.0...v9.1.0
 [9.0.0]: https://github.com/yunity/karrot-frontend/compare/v8.8.1...v9.0.0
 [8.8.1]: https://github.com/yunity/karrot-frontend/compare/v8.8.0...v8.8.1

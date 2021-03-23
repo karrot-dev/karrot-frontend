@@ -206,9 +206,7 @@ export default {
       if (!list) return []
       return list.map((e) => {
         return {
-          // TODO: remove printing of id
-          // -> label: this.getDateWithPlace(e),
-          label: e.id + ': ' + this.getDateWithPlace(e),
+          label: this.getDateWithPlace(e),
           value: e,
         }
       })

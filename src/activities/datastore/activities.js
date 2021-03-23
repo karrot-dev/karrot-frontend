@@ -140,12 +140,6 @@ export default {
     },
     async dismissFeedback ({ commit, rootGetters }, activityId) {
       await activities.dismissFeedback(activityId)
-      const groupId = rootGetters['currentGroup/id']
-      // TODO: use only one activity coming from api
-      // commit('update', [a])
-      if (groupId) {
-        commit('update', (await activities.listFeedbackPossible(groupId)).results)
-      }
     },
   },
   mutations: {

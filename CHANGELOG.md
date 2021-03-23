@@ -23,6 +23,7 @@ Please document your changes in this format:
 ## [Unreleased]
 ### Added
 - enabled Hungarian locale
+- allow to dismiss feedback @dpaque @layla19 @larzon83 @pogopaule [#2319]
 
 ### Changed
 - use default group location for defaultMapCenter when creating a new place @larzon83 [#2293]

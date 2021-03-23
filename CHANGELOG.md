@@ -22,12 +22,14 @@ Please document your changes in this format:
 
 ## [Unreleased]
 ### Added
-- enabled Hungarian locale
+- enabled Hungarian locale @nicksellen [#2313]
+- add activity type editing @nicksellen [#2245] 
 
 ### Changed
 - use default group location for defaultMapCenter when creating a new place @larzon83 [#2293]
 - Remove disabled pickups on applied filters on pickups page @pogopaule [#2271]
 - activities: improve design and UX of activities listing @larzon83 [#2303]
+- Small redesign of place page @brnsolikyl [#2266]
 
 ### Fixed
 - activities: only hover pictures if device supports it @larzon83 [#2297]

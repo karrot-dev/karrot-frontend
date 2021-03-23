@@ -24,6 +24,7 @@ DEPLOY_VARIANT=
 BUNDLE_FILENAME_BASE="karrot-frontend"
 STORYBOOK_BUNDLE_FILENAME_BASE=
 DOCS_BUNDLE_FILENAME_BASE=
+DELETE_BUNDLE_AFTER_DEPLOY="false"
 
 if [ "$TYPE" == "release" ]; then
 
@@ -74,7 +75,7 @@ elif [ "$TYPE" == "branch" ]; then
   # branch deployment
 
   SAFE_REF="$(echo -n "$REF" | tr -c '[a-zA-Z0-9.]-' '-' | tr "[:upper:]" "[:lower:]")"
-  SAFE_DIR="$(echo -n "$SAFE_REF" | replace '.' '-')" # ... also without dots
+  SAFE_DIR="$(echo -n "$SAFE_REF" | tr '.' '-')" # ... also without dots
   DIR="branches/$SAFE_DIR"
   DEPLOY_ENV="branch/$REF"
   DEPLOY_SITE="karrot-dev"
@@ -83,6 +84,7 @@ elif [ "$TYPE" == "branch" ]; then
   URL="https://$SAFE_DIR.dev.karrot.world"
   DEPLOY_DOCS="false"
   BUNDLE_FILENAME_BASE="$BUNDLE_FILENAME_BASE-$DEPLOY_VARIANT"
+  DELETE_BUNDLE_AFTER_DEPLOY="true" # so we don't end up with loads piling up
 
 else
 
@@ -159,6 +161,10 @@ export ANSIBLE_HOST_KEY_CHECKING=False
     "playbooks/$DEPLOY_SITE/deploy-frontend.playbook.yml" \
     --extra-vars "karrot_frontend__variant=$DEPLOY_VARIANT ansistrano_release_version=$DEPLOY_VERSION"
 )
+
+if [ "$DELETE_BUNDLE_AFTER_DEPLOY" == "true" ]; then
+  ssh "$HOST" rm "www/$ZIP_FILENAME"
+fi
 
 if [ ! -z "$ROCKETCHAT_WEBHOOK_URL" ]; then
 

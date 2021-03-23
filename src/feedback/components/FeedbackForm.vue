@@ -42,7 +42,7 @@
         <QBtn
           v-if="isNew"
           type="button"
-          @click="dismissDialogIsVisible = !dismissDialogIsVisible"
+          @click="isDismissFeedbackDialogVisible = !isDismissFeedbackDialogVisible"
         >
           {{ $t('ACTIVITY_FEEDBACK_DISMISS.BUTTON_LABEL') }}
         </QBtn>
@@ -69,7 +69,7 @@
         </div>
       </div>
     </div>
-    <CustomDialog v-model="dismissDialogIsVisible">
+    <CustomDialog v-model="isDismissFeedbackDialogVisible">
       <template #title>
         {{ $t('ACTIVITY_FEEDBACK_DISMISS.PROMPT_HEADLINE') }}
       </template>
@@ -128,7 +128,7 @@ export default {
   },
   data () {
     return {
-      dismissDialogIsVisible: false,
+      isDismissFeedbackDialogVisible: false,
     }
   },
   computed: {

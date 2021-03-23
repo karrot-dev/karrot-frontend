@@ -33,7 +33,6 @@
       class="text-negative"
       style="margin-top: 3em"
     >
-      <i class="fas fa-exclamation-triangle" />
       {{ anyFirstError }}
     </div>
 
@@ -44,7 +43,7 @@
           type="button"
           @click="dismissDialogIsVisible = !dismissDialogIsVisible"
         >
-          Dismiss it
+          {{ $t('ACTIVITY_FEEDBACK_DISMISS.BUTTON_LABEL') }}
         </QBtn>
       </div>
 
@@ -71,17 +70,10 @@
     </div>
     <CustomDialog v-model="dismissDialogIsVisible">
       <template #title>
-        <!-- <QIcon
-          v-bind="activity.activityType.iconProps"
-          size="sm"
-          class="q-pr-sm"
-        />
-        {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER', { activityType: activity.activityType.translatedName }) }} -->
-        Headline
+        {{ $t('ACTIVITY_FEEDBACK_DISMISS.PROMPT_HEADLINE') }}
       </template>
       <template #message>
-        text text text
-        <!-- {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_TEXT', { date: $d(activity.date, 'long') }) }} -->
+        {{ $t('ACTIVITY_FEEDBACK_DISMISS.PROMPT_MESSAGE') }}
       </template>
       <template #actions>
         <QBtn

@@ -116,6 +116,13 @@
     "TITLE": "Feedback",
     "TOGETHER_WITH": "You did this together with:"
   },
+
+  "ACTIVITY_FEEDBACK_DISMISS": {
+    "BUTTON_LABEL": "Dismiss",
+    "PROMPT_HEADLINE": "Dismiss feedback",
+    "PROMPT_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
+  },
+
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Meeting",
     "Pickup": "Pickup",

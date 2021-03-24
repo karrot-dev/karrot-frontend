@@ -33,6 +33,15 @@
           <span>
             <strong>{{ $t('CONVERSATION.OPEN') }} <QIcon name="chat" /></strong>
           </span>
+          <a
+            class="ics-export-icon"
+            :href="`/api/activities-ics/${activity.id}/`"
+            :title="$t('ACTIVITYLIST.ITEM.EXPORT_ICS')"
+          >
+            <QIcon
+              name="fas fa-calendar-plus"
+            />
+          </a>
         </div>
         <div
           v-if="activity.isDisabled"
@@ -205,4 +214,8 @@ export default {
 
   &.isDisabled
     background $lightRed
+
+  .ics-export-icon
+    float right
+    font-size 18px
 </style>

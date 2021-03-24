@@ -40,15 +40,6 @@
               {{ activity.activityType.iconProps.title }}
             </q-tooltip>
           </QIcon>
-          <a
-            class="ics-export-icon"
-            :href="`/api/activities-ics/${activity.id}/`"
-            :title="$t('ACTIVITYLIST.ITEM.EXPORT_ICS')"
-          >
-            <QIcon
-              name="fas fa-calendar-plus"
-            />
-          </a>
         </div>
         <div
           v-if="activity.isDisabled"
@@ -143,9 +134,30 @@
         flat
         no-caps
         align="between"
+        type="a"
         color="secondary"
         :class="{ 'full-width': $q.platform.is.mobile }"
-        class="open-conversation-button"
+        class="activity-item-button"
+        :href="`/api/activities-ics/${activity.id}/`"
+      >
+        <template #default>
+          <div>
+            <QIcon
+              name="fas fa-calendar-plus"
+              size="xs"
+              class="q-mr-xs icon-left"
+            />
+            <span>{{ $t('ACTIVITYLIST.ITEM.EXPORT_ICS') }}</span>
+          </div>
+        </template>
+      </QBtn>
+      <QBtn
+        flat
+        no-caps
+        align="between"
+        color="secondary"
+        :class="{ 'full-width': $q.platform.is.mobile }"
+        class="activity-item-button"
         @click.native.stop="detail"
       >
         <template #default>
@@ -239,7 +251,7 @@ export default {
 
   &.isDisabled
     background $lightRed
-    
+
   .content-inner
     width 100%
     padding 12px
@@ -247,7 +259,7 @@ export default {
     .featured-text
       display inline
       margin-right .3em
-      
+
   .ics-export-icon
     float right
     font-size 18px
@@ -257,7 +269,7 @@ export default {
   color $secondary
   box-shadow 0 -1px 0 rgba(0, 0, 0, 0.06)
 
-.q-btn.open-conversation-button
+.q-btn.activity-item-button
   >>> .q-btn__wrapper
     padding 10px 12px !important
 

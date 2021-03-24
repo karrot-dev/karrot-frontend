@@ -1,0 +1,825 @@
+{
+  "ABOUT_KARROT": {
+    "AND_MORE": "És még több...",
+    "EXISTING_GROUPS": "Néhány csoport akik már használják a Karrotot",
+    "LINKS": {
+      "CHAT": "csoportos beszélgetés",
+      "FORUM": "közösségi fórum"
+    },
+    "SECTIONS": {
+      "ACTIVITIES": {
+        "DESCRIPTION": "Minden tevékenységre van adott számú hely, amelyekre a csoport tagjai jelentkezhetnek – így mindenki tudja, ki mikor hova megy, és később visszajelzést is tudtok adni.",
+        "SUBTITLE": "A szoftverbe adott hellyel és időponttal lehet beírni tevékenységeket, például ételfelvételeket ételmentés esetén.",
+        "TITLE": "Feladatok és tevékenységek elosztása"
+      },
+      "COMMUNICATION": {
+        "DESCRIPTION": "Írj egy üzenetet amit mindenki a csoportban lát, vagy egy privát üzenetet valakinek. Mindent ami egy adott tevékenységhez kapcsolódik a saját külön beszélgetésében meg tudjátok tárgyalni.",
+        "TITLE": "Kommunikáció a megfelelő csatornákon keresztül"
+      },
+      "DEMOCRATIC": {
+        "DESCRIPTION": "A Karrot egy ingyenes és nyílt forráskódú szoftver, a felhasználók visszajelzésével és részvételével fejlesztve. Elsősorban egy kis fejlesztői csapat munkája, akik folyamatos kapcsolatban vannak különböző csoportok tagjaival, hogy megértsék a szerteágazó igényeket és ezeknek megfelelő irányba tereljék a fejlesztést. Betartjuk az adatok integritásának megtartásának és kereskedelmi forgalomba nem hozatalának elveit.",
+        "DESCRIPTION2": "Fejlesztők és dizájnerek természetesen részt vehetnek a fejlesztésében. Nézd meg a projektet a {code}on.",
+        "TITLE": "Demokratikus és részvételi fejlesztés"
+      },
+      "GROUPS": {
+        "DESCRIPTION": "Ugyanakkor mind rajta vannak egyazon térképen, hogy bárki megtalálhassa a többi csoportot és csatlakozhassanak más csoportokhoz helyi szinten, vagy akár globálisan is.",
+        "SUBTITLE": "Minden csoport a Karroton teljesen független és lehet saját logója, működési szokásai és szabályzata.",
+        "TITLE": "Független csoportok"
+      },
+      "MAPS": {
+        "DESCRIPTION": "Egy térképen láthatod, hogy hol és kik végeznek tevékenységeket. Van egy kedves kis lista a közelgő tevékenységekről és online tudsz rájuk jelentkezni.",
+        "TITLE": "Térképek és listák"
+      },
+      "NOTIFICATIONS": {
+        "DESCRIPTION": "Értesítéseket kapsz az üres tevékenységekről, új üzenetekről és a csoportodhoz csatlakozni akaró új emberekről. De mindet ki is kapcsolhatod ha több nyugalmat szeretnél!",
+        "TITLE": "Értesítések"
+      },
+      "OFFERS": {
+        "DESCRIPTION": "Az ajánlatok mindenki számára láthatóak a csoportban és a tagok az ajánlat beszélgetésében tudnak érdeklődni.",
+        "SUBTITLE": "Hozz létre egy hirdetésszerű ajánlatot bármiről amit meg akarsz osztani másokkal, vagy el akarsz ajándékozni.",
+        "TITLE": "Ossz meg dolgokat"
+      },
+      "OPENSOURCE": {
+        "DESCRIPTION": "Minden átlátható és meg lehet változtatni. Ha van rá lehetőségük, akkor bátorítjuk a csoportokat, hogy saját szervert hostoljanak, de hozzáférést biztosítunk a karrot.world-ön hostolt verzióhoz is.",
+        "TITLE": "Nyílt forráskód"
+      },
+      "TEAM": {
+        "DESCRIPTION": "Könnyedén beszélhetsz a Karrot-ot fejlesztő emberekkel, a {forum}unkon, {code}on vagy valós időben a {chat}ünkben.",
+        "TITLE": "Segítőkész fejlesztői csapat"
+      },
+      "TRANSLATIONS": {
+        "DESCRIPTION": "A Karrot teljesen lefordítható a közösség által, és rengeteg nyelv már hozzá lett adva. Még több fordítás hozzáadásához látogasd meg a projektet {translations}-en.",
+        "TITLE": "Többnyelvűség"
+      },
+      "TRANSPARENCY": {
+        "DESCRIPTION": "A Tevékenységnapló mutatja, hogy ki mit csinált és mikor. Itt a tevékenységeken való részvételtől a helyek létrehozásáig és szerkesztéséig minden rögzítésre kerül.",
+        "TITLE": "Átláthatóság"
+      },
+      "TRUST": {
+        "DESCRIPTION": "Egy Karrot csoportban sincsenek adminisztratív szupererők. Azok a tagok akik elég bizalomrépát kapnak a társaiktól szerkeszthetik és megváltoztathatják a csoport beállításait. Amikor új emberek akarnak csatlakozni a csoporthoz, jelentkezéskor meg kell válaszoljanak kérdéseket, amelyeket a csoportod állíthat be. Ezeket a jelentkezéseket bárki akinek van szerkesztői jogosultsága elutasíthatja vagy elfogadhatja. Hasonlóképpen, ha konfliktus keletkezik a csoport használhat egy szavazási rendszert, hogy közösségi módon oldja meg azt.",
+        "TITLE": "Demokratikus és bizalom alapú csoportkezelés"
+      }
+    },
+    "SUBTITLE1": "A Karrot olyan csoportoknak van akik meg akarnak menteni dolgokat attól, hogy kárba menjenek és ehelyett megosztanák őket. Lehetővé teszi, hogy ezek a csoportok hatékonyan szerveződjenek helyi és önkéntes alapon.",
+    "SUBTITLE2": "Olyan dolgokat, mint élelmiszer, kerékpárok, ruhák vagy bármi, amit szertelenül kidobnak vagy nem használják a fogyasztói társadalomban.",
+    "TITLE": "Ments meg dolgokat a pazarlástól, inkább oszt meg őket!",
+    "VISION_INTRO": "A Karrot egy eszköz helyi szintű kezdeményezések részére a kapcsolattartáshoz és növekedéshez, a személyes tevékenységek szervezésének digitális infrastruktúrával való támogatására."
+  },
+  "ACTIVITYDELETE": {
+    "DELETE_SERIES_TEXT": "Biztosan törlöd ezt a sorozatot? Ezzel törölsz minden hozzá tartozó tevékenységet is (kivéve azokat ahol már csatlakoztak emberek).",
+    "DELETE_SERIES_TITLE": "Sorozat törlése"
+  },
+  "ACTIVITYLIST": {
+    "ACTIVITY_DISABLED": "Ez ki van kapcsolva.",
+    "ACTIVITY_STARTED": "Ez már elkezdődött.",
+    "AVAILABLE": "Egy tevékenység vár rád az egyik kedvenc helyeden! | {count} tevékenység vár rád a kedvenc helyeiden!",
+    "AVAILABLE_FEEDBACK": "Visszajelzést küldhetsz | {count} tevékenység vár a visszajelzésedre",
+    "AVAILABLE_FROM_STORES": "Ez mutatja a közelgő tevékenységeket a kedvenc helyeidről a következő pár napban. A többi helyet az oldalmenüben találod.",
+    "FILTER": {
+      "ALL": "Mind",
+      "ALL_TYPES": "Minden tevékenységtípus",
+      "EMPTY": "Csak üres",
+      "FREE": "Üres helyekkel"
+    },
+    "ITEM": {
+      "JOIN": "Csatlakozás",
+      "JOIN_CONFIRMATION_HEADER": "Csatlakozás ehhez: {activityType}",
+      "JOIN_CONFIRMATION_TEXT": "Biztosan ráérsz ekkor: {date}?",
+      "LEAVE": "Elhagyás",
+      "LEAVE_CONFIRMATION_HEADER": "{activityType} elhagyása",
+      "LEAVE_CONFIRMATION_TEXT": "Biztos vagy benne, hogy a többiek meg tudják csinálni ezt nélküled?"
+    },
+    "JOINEDNOTICE": "Egy közelgő tevékenységed van | {count} közelgő tevékenységed van",
+    "NONE": "Nincsenek közelgő tevékenységek",
+    "NONE_DUE_TO_FILTER": "Nincs a szűrésednek megfelelő tevékenység",
+    "NONE_HINT": "Új tevékenységet a hely oldalán hozhatsz létre.",
+    "STORE_NONE_HINT": "Új tevékenységet a 'Tevékenységek kezelése' oldalon tudsz létrehozni."
+  },
+  "ACTIVITYMANAGE": {
+    "ACTIVITY_DESCRIPTION_CHANGED": "'További infók' megváltozott",
+    "ACTIVITY_DOES_NOT_MATCH": "Ez a dátum nem egyezik az ismétlődési mintával",
+    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Maximum résztvevők száma' megváltozott",
+    "SERIES": "Tevékenységsorozat",
+    "SINGLE": "Egyszeri tevékenységek",
+    "TITLE": "Tevékenységek kezelése",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Közelgő tevékenységek ebben az sorozatban"
+  },
+  "ACTIVITY_FEEDBACK": {
+    "AMOUNT": "A megmentett étel mennyisége (kilóban)",
+    "AMOUNT_INFO": "A helystatisztikához összeadjuk az összes visszajelzést.",
+    "COMMENT_PLACEHOLDER": "Minden rendben volt? Mindenki eljött? Ide írhatod az észrevételeidet...",
+    "DELETE_AMOUNT": "Mennyiség törlése",
+    "EDIT": "Visszajelzés szerkesztése",
+    "HEADER": "Köszönjük, hogy részt vettél!",
+    "PREVIOUS": "Korábbi visszajelzés {store} részére",
+    "SET_AMOUNT": "Mennyiség beállítása",
+    "TITLE": "Visszajelzés",
+    "TOGETHER_WITH": "Veled csinálta még:"
+  },
+  "ACTIVITY_TYPE_NAMES": {
+    "Meeting": "Találkozó",
+    "Pickup": "Felvétel",
+    "Distribution": "Elosztás",
+    "Event": "Esemény",
+    "Activity": "Tevékenység",
+    "Task": "Feladat"
+  },
+  "ACTIVITY_TYPE_STATUS": {
+    "ACTIVE": "Aktív",
+    "ARCHIVED": "Archivált"
+  },
+  "ACTIVITY_TYPES": {
+    "ADD": "Új tevékenységtípus hozzáadása",
+    "FEEDBACK_YES_HINT": "A résztvevők meg lesznek kérve, hogy visszajelzést adjanak a tevékenységről",
+    "FEEDBACK_NO_HINT": "Nem lesz visszajelzés kérve",
+    "FEEDBACK_WEIGHT_LABEL": "Súly kérése?",
+    "NAME": "Név",
+    "FEEDBACK": "Visszajelzések",
+    "FEEDBACK_WEIGHT": "Visszajelzett súly",
+    "STATUS": "Státusz",
+    "STANDARD_NAME_HEADING": "Alapértelmezett nevek",
+    "STANDARD_NAME_HINT": "A név elérhető lesz más nyelveken",
+    "CUSTOM_NAME_HINT": "A név úgy lesz használva ahogyan leírod és nem lesz lefordítva",
+    "CUSTOM_NAME_USE": "{name} egyéni név használata",
+    "CUSTOM_NAME_PROMPT": "Írj be egy egyéni nevet, vagy válassz az alapértelmezettek közül",
+    "MANAGE_TYPES": "Típusok kezelése...",
+    "SHOW_ARCHIVED": "Archiváltak mutatása",
+    "STATUS_ACTIVE_HINT": "Új tevékenységeket és sorozatokat tudsz majd létrehozni ebből a típusból",
+    "STATUS_ARCHIVED_HINT": "Nem lesz lehetséges új tevékenység vagy sorozat létrehozása ebből a tevékenységtípusból, de amik már léteznek elérhetőek maradnak"
+  },
+  "ADDRESS_PICKER": {
+    "CHOOSE_LOCATION": "hely kiválasztása a térképen",
+    "KEEP_EXISTING_LOCATION": "meglévő hely megtartása a térképen",
+    "SET_AS": "Címként való beállítás:"
+  },
+  "AGREEMENT": {
+    "AGREE": "Bele kell egyezned a(z) {title} egyezménybe",
+    "BLURB1": "Még nincsen egyezményetek!",
+    "BLURB2": "Ha hozzáadsz egyet, akkor mindenkinek bele kell majd egyeznie mielőtt részt vehetnek felvételekben.",
+    "CONTENT": "Szöveg",
+    "CONTENT_HELPER": "Az egyezmény szövege",
+    "DIALOGS": {
+      "REMOVE": {
+        "CONFIRM": "Igen, egyezmény eltávolítása",
+        "MESSAGE": "Ez azt jelenti, hogy bárki részt vehet majd a felvételekben",
+        "TITLE": "Egyezmény eltávolítása?"
+      },
+      "REPLACE": {
+        "CONFIRM": "Igen, egyezmény megváltoztatása",
+        "MESSAGE": "Mindenkinek újra bele kell majd egyeznie, mielőtt jelentkezhetnek felvételekre",
+        "TITLE": "Egyezmény megváltoztatása?"
+      }
+    },
+    "MINOR_EDIT": "Kisebb szerkesztés?",
+    "MINOR_EDIT_HELPER": "Elírások, formázás, stb... nem kell majd mindenkinek újra beleegyeznie",
+    "NEW": "Új egyezmény",
+    "TITLE": "Cím",
+    "TITLE_HELPER": "Adj címet az egyezménynek, pl: Közösségi Szabályok",
+    "VIEW": "Egyezmény megtekintése"
+  },
+  "APPLICATION": {
+    "ACCEPTED": "Elfogadtad {userName} jelentkezését ebbe a csoportba!",
+    "ACCEPT_CONFIRMATION_HEADER": "Jelentkezés elfogadása",
+    "ACCEPT_CONFIRMATION_TEXT": "Biztos vagy benne, hogy elfogadod {userName} jelentkezését ebbe a csoportba?",
+    "APPLICATION": "Jelentkezés",
+    "DECLINED": "Elutasítottad {userName} jelentkezését",
+    "DECLINE_CONFIRMATION_HEADER": "Jelentkezés elutasítása",
+    "DECLINE_CONFIRMATION_TEXT": "Biztosan el akarod utasítani {userName} jelentkezését?",
+    "FORM_HEADER": "Jelentkezés",
+    "FORM_TITLE": "Jelentkezés {groupName} csoportba",
+    "GALLERY_TOOLTIP": "Jelentkeztél ebbe a csoportba. A jelentkezésed még függőben van.",
+    "HELP": "Ez egy beszélgetés a(z) {groupName} csoport tagjai és az új jelentkező, {userName} között. Az a lényege, hogy meg tudjátok ismerni egymást mielőtt eldöntitek, hogy elfogadjátok, elutasítjátok vagy visszavonjátok a jelentkezést.",
+    "INITIAL": "Kezdő kérdések és válaszok",
+    "PAST": "Korábbi jelentkezések",
+    "SUBMITTED_ON": "Elküldve ekkor: {date}",
+    "WALL_NOTICE": "Egy jelentkezés van függőben! | {count} jelentkezés van függőben!",
+    "WHAT": "Minek van ez a beszélgetés?",
+    "WITHDRAWN": "{relativeDate} visszavonva"
+  },
+  "ATTENTION": "Figyelem!",
+  "BUTTON": {
+    "ACCEPT": "Elfogadás",
+    "AGREE": "Egyetértek",
+    "APPLY": "Jelentkezés",
+    "ARCHIVE": "Archiválás",
+    "BACK": "Vissza",
+    "CANCEL": "Mégse",
+    "CHANGE_COLOUR": "Szín megváltoztatása",
+    "CHANGE_EMAIL": "Email cím megváltoztatása",
+    "CHANGE_ICON": "Szimbólum megváltoztatása",
+    "CHANGE_PASSWORD": "Jelszó megváltoztatása",
+    "CLOSE": "Bezárás",
+    "CREATE": "Létrehozás",
+    "DECLINE": "Elutasítás",
+    "DELETE": "Törlés",
+    "DELETE_ACCOUNT": "Fiók törlése",
+    "DISABLE": "Letiltás",
+    "EDIT": "Szerkesztés",
+    "ENABLE": "Engedélyezés",
+    "HIDE": "Elrejtés",
+    "JOIN": "Csatlakozás",
+    "NEXT": "Következő",
+    "OF_COURSE": "Igen, persze!",
+    "OPEN": "Megnyitás",
+    "PREVIEW": "Előnézet",
+    "REMOVE": "Eltávolítás",
+    "RESET": "Visszaállítás",
+    "SAVE_CHANGES": "Változtatások mentése",
+    "SEARCH": "Keresés",
+    "SHOW": "Mutatás",
+    "SHOW_LESS": "Kevesebb mutatása",
+    "SHOW_MORE": "Több mutatása",
+    "SUBMIT": "Elküldés",
+    "UNSUBSCRIBE": "Leiratkozás",
+    "WITHDRAW": "Visszavonás",
+    "YES": "Igen",
+    "READ_MORE": "Továbbiak"
+  },
+  "COMMUNITY_FEED": {
+    "HEADER": "Hírek a(z) {community} közösségből",
+    "HEADER_LINK": "ételmentő világközösség",
+    "KARROT_DISCUSSION": "Beszélgetések a Karrotról",
+    "LAST_UPDATED": "Legutóbb {relativeDate} frissítve"
+  },
+  "CONFLICT": {
+    "FIND_OUT_MORE": "Tudj meg többet!",
+    "INFO": {
+      "MESSAGE": "Ez egy szavazás, amelyikben a csoporttagok eldönthetik, hogy hogyan oldjanak meg egy közösségi problémát amelyik az egész csoportra kihat.",
+      "TITLE": "Hogyan működik ez a folyamat?"
+    },
+    "INITIAL": "Információ",
+    "REQUIREMENTS": {
+      "NEWCOMER": "Mielőtt elkezdhetsz egy konfliktusmegoldási folyamatot, több bizalmat és szerkesztési jogosultságokat kell szerezned. Addig kérj meg valakit, hogy indítsa el a folyamatot neked."
+    },
+    "SETUP_HEADER": "Konfliktusod van {user} felhasználóval?",
+    "STATEMENT": "Nyilatkozat",
+    "STEPPER1a": "Egy egész csoportot bevonó konfliktusmegoldási folyamat indítására készülsz!",
+    "STEPPER1b": "Ebbe minden csoporttag be lesz vonva, hogy megtaláljátok a legjobb megoldást.",
+    "STEPPER2a": "Köszönjük, hogy törődsz a közösségeddel!",
+    "STEPPER2b": "A közösségi problémákkal fontos foglalkozni, még akkor is, ha néha kellemetlen tud lenni. Köszönjük a bátorságod!",
+    "STEPPER3a": "Ez fog történni:",
+    "STEPPER3b": "Ez a folyamat elindít egy beszélgetést és egy szavazást",
+    "STEPPER3c": "A beszélgetés minden csoporttag számára látható lesz, beleértve {userName} felhasználót.",
+    "STEPPER3d": "A szavazás anonim. {votingDuration} napig fog tartani. Ezalatt a szavazók meggondolhatják magukat és megváltoztathatják a szavazatukat ahányszor csak akarják.",
+    "STEPPER4a": "Kérünk magyarázd el, hogy miért indítod ezt a konfliktusmegoldási folyamatot!",
+    "STEPPER4b": "Mond el a csoportodnak, hogy miért gondolod jogosnak és szükségesnek ezt a folyamatot. Ez a nyilatkozat látható lesz {userName} és minden másik csoporttag számára.",
+    "VOTING": {
+      "HEADLINE": "Hogyan akarsz előrehaladni a folyamatban lévő konfliktussal {userName} felhasználóval?"
+    },
+    "WITH": "Ennek a folyamatnak az a célja, hogy megoldjon egy konfliktust {userName} felhasználóval"
+  },
+  "CONVERSATION": {
+    "CLOSED": "Ez a beszélgetés automatikusan lezárult.",
+    "CONVERSATIONS": "Beszélgetések",
+    "EDITED": "szerkesztve",
+    "MARK_READ": "Összes megjelölése olvasottként",
+    "MESSAGE_NOT_FOUND": "Üzenet nem található",
+    "MUTED": "Az értesítések ki vannak kapcsolva",
+    "NOT_PARTICIPATED": "Az üzenet elküldésével feliratkozol az erről a beszélgetésről való értesítésekre.",
+    "NO_CONVERSATIONS": "Még nincsenek beszélgetések.",
+    "OPEN": "Beszélgetés megnyitása",
+    "REACTIONS": {
+      "AND": "és",
+      "REACTED_WITH": "{reaction}-t reagált {users}",
+      "YOU": "te"
+    },
+    "REPLIES": "Válaszok",
+    "REPLIES_COUNT": "1 válasz | {count} válasz",
+    "REPLY_TO_MESSAGE": "Válasz az üzenetre...",
+    "UNREAD_MESSAGES": "Egy olvasatlan üzeneted van. | {count} olvasatlan üzeneted van."
+  },
+  "CREATEACTIVITY": {
+    "COMMENT": "További infók",
+    "COMMENT_HELPER": "Mit kell, hogy tudjanak akik erre jelentkeznek?",
+    "CUSTOM": "Egyéni",
+    "DATE": "Dátum",
+    "DIFFERS_WARNING": "Ez az érték különbözik az alapértelmezettől. Hogy visszavond ezt a változtatást, kattints a nyíl gombra és mentsd el a változtatásokat.",
+    "DISABLE_TITLE": "Letiltás?",
+    "ENABLE_DISABLE_MESSAGE": "A csatlakozott felhasználók értesítést kapnak. Ezt a szöveget megváltoztathatod, hogy megadj egy okot:",
+    "ENABLE_TITLE": "Engedélyezés?",
+    "EXCEPTIONS_MESSAGE": "Egyes közelgő tevékenységek nem felelnek meg a sorozat beállításainak. Nézd meg alább a(z) '{upcomingLabel}' elemet, hogy módosítsd vagy letiltsd ha kell.",
+    "EXCEPTIONS_TITLE": "Nézd meg a tevékenységeidet",
+    "FREQUENCY": "Ismétlődés",
+    "MAX_PARTICIPANTS": "Maximum résztvevők száma",
+    "MAX_PARTICIPANTS_HELPER": "Hány ember vegyen részt?",
+    "RRULE": "Ismétlődés",
+    "RRULE_EXAMPLE": "minden hónap utolsó munkanapja (hétfő-péntek)",
+    "RRULE_EXAMPLE2": "minden második hétfő",
+    "RRULE_HELPER": "Írj be egy érvényes {ruleHelper}t, például {ruleExample} vagy {ruleExample2}",
+    "RRULE_HELPER_URL": "iCalendar szabály",
+    "STARTDATE_HELPER": "Mikor kezdődjön a sorozat?",
+    "TIME_HELPER": "Mikor legyen?",
+    "UNLIMITED": "végtelen",
+    "WEEKDAYS": "Hétköznapok",
+    "WEEKDAYS_HELPER": "Melyik napokon legyen?",
+    "WEEKLY": "Hetente"
+  },
+  "CREATESTORE": {
+    "TITLE": "Új hely létrehozása"
+  },
+  "DELETEACCOUNT": {
+    "SUCCESS": "A fiókod törlése sikeres volt!",
+    "TITLE": "Fiók törlése"
+  },
+  "ENTRY": "1 bejegyzés | {count}bejegyzés",
+  "FEEDBACKLIST": {
+    "NONE": "Még nincsenek visszajelzések",
+    "NONE_HINT": "Ez az oldal fel fog töltődni amint lesz több elérhető visszajelzés",
+    "NO_DONE_ACTIVITIES": "Minden kész!",
+    "NO_DONE_ACTIVITIES_HINT": "Jelenleg nincs miről visszajelezned. Esetleg csatlakozz egy tevékenységhez?",
+    "NUMBER_ACTIVITIES": "{count} tevékenység elvégezve",
+    "NUMBER_FEEDBACK": "{count} visszajelzés adva",
+    "SAVED_FOOD": "Legalább 1 kg meg lett itt mentve. Köszönjük! | Már {amount} kg megmentett ételről van ide visszajelzés! További jó munkát!",
+    "WEIGHT_SUM": "{sum} kg étel megmentve"
+  },
+  "GLOBAL": {
+    "ABOUT_KARROT": "A Karrotról",
+    "APP_INSTALLED": "Applikáció sikeresen telepítve!",
+    "GENERIC_ERROR": "Bocsi, valami nem sikerült",
+    "GITHUB_NOTE": "Fejlesztés",
+    "INVALID_LINK": "Bocsi, a link amit megnyitottál nem érvényes.",
+    "NOT_CONNECTED": "Nem kapcsolódsz a szerverhez",
+    "OFFLINE_RECONNECT": "Nincs internetkapcsolat. Kattints ide az újrakapcsolódáshoz.",
+    "RECONNECTING": "Újracsatlakozás...",
+    "SEARCH_NOT_FOUND": "Nem található",
+    "SEARCH_RESULTS": "Keresési eredmények",
+    "SERVER_ERROR": "Szerverhiba",
+    "CLEAR_FILTERS": "Filterek törlése"
+  },
+  "GROUP": {
+    "ACTIVITIES": "Tevékenységek",
+    "ACTIVITY": "Tevékenység",
+    "PICKUPS_TO_ACTIVITIES": "Most már nem csak felvételeket szervezhetsz!",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "A felvétel nevű tevékenységek továbbra is elérhetőek, de hozzáadtunk más tevékenységtípusokat is, például Találkozókat, Eseményeket és Elosztásokat",
+    "ADDED_BY": "{userName} adta hozzá",
+    "ADDRESS": "Cím",
+    "APPLICATIONS": "Jelentkezések",
+    "APPLICATION_QUESTIONS": "Kérdések a csoporthoz csatlakozni kívánó emberek számára",
+    "CREATE_TITLE": "Új csoport létrehozása",
+    "DECLINED": "{relativeDate} elutasítva",
+    "DECLINED_BY": "{userName} utasította el",
+    "DESCRIPTION": "Leírás",
+    "DESCRIPTION_VERBOSE": "Csoportleírás, a tagok számára látható",
+    "EDIT": "Csoport szerkesztése",
+    "EDIT_ACTIVITY_TYPES": "Tevékenységtípusok",
+    "EDIT_DETAILS": "Csoport részletei",
+    "EMAIL_NOTIFICATIONS": "Email értesítések",
+    "HISTORY": "Tevékenységnapló",
+    "HOME": "Kezdőlap",
+    "INACTIVE": "Inaktív",
+    "INVITATIONS": "Meghívók",
+    "INVITATION_ACCEPT_ERROR": "Hoppá, nem sikerült elfogadni a meghívót!",
+    "INVITATION_ACCEPT_SUCCESS": "Üdv! Sikeresen elfogadtad a meghívót",
+    "INVITED_LIST": "Meghívók már ki lettek küldve a következő email címekre:",
+    "INVITE_EMAIL": "Írj be egy email címet",
+    "INVITE_SEND": "Meghívó küldése",
+    "INVITE_SEND_ERROR": "Hoppá, nem sikerült elküldeni a meghívót!",
+    "INVITE_SEND_SUCCESS": "Meghívó sikeresen elküldve!",
+    "INVITE_TITLE": "Felhasználók meghívása a csoportodba",
+    "JOINED": "{relativeDate} napja csatlakozott",
+    "JOIN_ANOTHER_GROUP": "Csatlakozás egy másik csoporthoz",
+    "JOIN_PLAYGROUND": "Csatlakozz a játszótér csoporthoz, hogy felfedezd a Karrotot",
+    "LEAVE": "Csoport elhagyása...",
+    "LEAVE_CONFIRMATION": "Elhagytad a(z) {groupName} csoportot",
+    "LEAVE_TEXT": "Biztosan ki akarsz lépni ebből a csoportból?",
+    "LOGO": "Csoport logója",
+    "MANAGE_AGREEMENT": "Egyezmény kezelése",
+    "MEMBERLIST": "A csoportodnak összesen {total} tagja van.",
+    "MEMBERS": "Tagok",
+    "MESSAGES": "Üzenetek",
+    "NONMEMBER_REDIRECT": "Nem vagy tagja ennek a csoportnak.",
+    "NOTIFICATIONS_BY_GROUP": "Értesítések csoportonként",
+    "NOTIFICATION_TYPES": {
+      "conflict_resolution": {
+        "DESCRIPTION": "Értesít amikor egy új konfliktusmegoldási folyamat kezdődik a csoportodban",
+        "NAME": "Új konfliktusmegoldási folyamatok"
+      },
+      "daily_activity_notification": {
+        "DESCRIPTION": "Emlékeztet a tevékenységeidre és értesít az üres, vagy még nem betelt eseményekről amik a kedvenc helyeiden lesznek a következő egy napban",
+        "NAME": "Tevékenység értesítések"
+      },
+      "new_application": {
+        "DESCRIPTION": "Értesít amikor valaki csatlakozni akar a csoportodhoz",
+        "NAME": "Új jelentkezések"
+      },
+      "new_offer": {
+        "DESCRIPTION": "Értesítés küldése amikor valaki egy új ajánlatot hoz létre",
+        "NAME": "Új ajánlatok"
+      },
+      "weekly_summary": {
+        "DESCRIPTION": "Maradj napra kész, hogy mi történt a csoportban.",
+        "NAME": "Heti összegzés"
+      }
+    },
+    "OFFERS": "Ajánlatok",
+    "PLACES": "Helyek",
+    "PLAYGROUND_INFO": "Ez egy játszótér csoport, itt semmit nem tudsz elrontani. Fedezz fel, kattingass és érezd jól magad!",
+    "SET_LOGO": "Kattints ide a csoport logójának feltöltéséhez!",
+    "SHOW_INACTIVE": "Inaktív csoportok mutatása",
+    "SORT_JOINDATE": "Rendezés csatlakozási idő szerint",
+    "SORT_NAME": "Rendezés név szerint",
+    "STATISTICS": "Statisztikák",
+    "TIMEZONE": "Csoport időzónája",
+    "TITLE": "Csoport neve",
+    "WALL": "Üzenőfal",
+    "WELCOMEMESSAGE_VERBOSE": "Üdvözlő üzenet az új tagoknak"
+  },
+  "GROUPINFO": {
+    "MEMBER_VIEW": "Tagja vagy ennek a csoportnak. Kattints ide a teljes nézetre váltáshoz.",
+    "META": "Nyilvános csoportinformáció mutatása",
+    "TITLE": "Nyilvános csoport információ"
+  },
+  "GROUPMAP": {
+    "EXPORT": "Exportálás",
+    "FULL_SCREEN": "Teljes képernyős mutatás",
+    "HIDE_GROUPS": "Csoportok elrejtése",
+    "HIDE_PLACES": "Helyek elrejtése",
+    "HIDE_USERS": "Felhasználók elrejtése",
+    "SET_LOCATION": "Hely beállítása",
+    "SHOW_GROUPS": "Csoportok mutatása",
+    "SHOW_PLACES": "Helyek mutatása",
+    "SHOW_USERS": "Felhasználók mutatása",
+    "TITLE": "Térkép"
+  },
+  "HISTORY": {
+    "ACTIVITY_CREATE": "{activityType} létrehozva",
+    "ACTIVITY_DELETE": "{activityType} törölve",
+    "ACTIVITY_DISABLE": "{activityType} törölve",
+    "ACTIVITY_DONE": "részt vett egy {activityType} tevékenységben a(z){placeName} helyen.",
+    "ACTIVITY_ENABLE": "{activityType} engedélyezve",
+    "ACTIVITY_JOIN": "jelentkezett egy {activityType} tevékenységre a(z) {placeName} helyen",
+    "ACTIVITY_LEAVE": "vissza mondott egy {activityType} tevékenységet a(z) {placeName} helyen",
+    "ACTIVITY_LEAVE_DISTANCE": "a tervezett idő előtt ennyivel: {distance}",
+    "ACTIVITY_MISSED": "{activityType}tevékenységnek a(z) {placeName} helyen nem voltak résztvevői",
+    "ACTIVITY_MODIFY": "megváltoztatta egy tevékenység beállításait",
+    "ACTIVITY_TYPE_CREATE": "{activityType} típus létrehozva",
+    "ACTIVITY_TYPE_MODIFY": "{activityType} típus módosítva",
+    "APPLICATION_DECLINED": "elutasított egy jelentkezést {applicantName} felhasználótól",
+    "CONFIRM_CHANGES": "Megerősíted a változtatásokat?",
+    "CONFIRM_CHANGES_HINT": "Ide írhatsz egy üzenetet, ami elmagyarázza a változtatásaidat és látható lesz a Tevékenységnaplóban",
+    "DETAILS": "További információ",
+    "GROUP_CHANGE_PHOTO": "megváltoztatta a csoport logóját",
+    "GROUP_CREATE": "létrehozta a csoportot",
+    "GROUP_DELETE_PHOTO": "törölte a csoport logóját",
+    "GROUP_JOIN": "csatlakozott a csoporthoz",
+    "GROUP_LEAVE": "elhagyta a csoportot",
+    "GROUP_LEAVE_INACTIVE": "el lett távolítva inaktivitás miatt",
+    "GROUP_MODIFY": "megváltoztatta a csoport beállításait",
+    "MEMBER_BECAME_EDITOR": "szerkesztői jogosultságot kapott",
+    "MEMBER_REMOVED": "el lett távolítva csoportdöntés következtében",
+    "NOTHING_HAPPENEND": "Még semmi nem történt...",
+    "SERIES_CREATE": "{activityType} sorozat létrehozva",
+    "SERIES_DELETE": "{activityType} sorozat törölve",
+    "SERIES_MODIFY": "megváltoztatta egy sorozat beállításait",
+    "STORE_CREATE": "létrehozta a(z) {name} helyet",
+    "STORE_DELETE": "{name} hely törlése",
+    "STORE_MODIFY": "megváltoztatta {name} hely beállításait"
+  },
+  "INACTIVITY": {
+    "HELP": "Azok akik legalább {dayCount} napig nem léptek be a csoportba inaktívnak számítanak. Ezek a felhasználók nem fognak email értesítéseket kapni.",
+    "WHAT": "Mit jelent inaktívnak lenni?"
+  },
+  "INFO": "Infó",
+  "ISSUE": {
+    "CHAT": "Beszélgetés",
+    "CREATION": {
+      "TOAST": "Sikeresen indítottál konfliktusmegoldási folyamatot"
+    },
+    "NO_ONGOING": "Jelenleg nincsenek ügyek.",
+    "PARTICIPANTS": "{count} tag lett hozzáadva ehhez a vitához.",
+    "PAST": "Korábbi ügyek",
+    "PREVIOUS_VOTINGS": "Korábbi szavazások erről az ügyről",
+    "TITLE": "Ügyek",
+    "VOTE": "Szavazás",
+    "VOTING": {
+      "ANONYMOUS": "A szavazatod anonim lesz.",
+      "BTN_DELETE": "Szavazat törlése",
+      "BTN_START": "Szavazás most",
+      "FURTHER_DISCUSSION": "További vita: idő meghosszabbítása egy új szavazás kezdésével",
+      "NO_CHANGE": "Nincs változás: {userName} bennmarad a(z) {groupName} csoportban",
+      "REMOVE_USER": "{userName} eltávolításra kerül a(z) {groupName} csoportból",
+      "RESULTS": {
+        "ENDED_AT": "Ez a szavazás véget ért ekkor: {date}",
+        "KEEP_DISCUSSING": "A csoportod a vita meghosszabbítására szavazott",
+        "PARTICIPANTS": "{number} tag vett részt a szavazásban.",
+        "TIME_UP": "Lejárt az idő!",
+        "TOTAL_SCORE": "Összes szavazat",
+        "UNDECIDED": "Sajnos ezt a konfliktust nem sikerült eldönteni.",
+        "UNDECIDED_REASON_1": "az érintett felhasználó elhagyta a csoportot, miközben a konfliktusmegoldási folyamat még tartott",
+        "UNDECIDED_REASON_2": "senki nem szavazott erről az ügyről",
+        "UNDECIDED_WHY": "Erre két lehetséges ok van:"
+      },
+      "SAVE": "Mentés",
+      "SCORE_LABELS": {
+        "NEUTRAL": "semleges",
+        "SLIGHT_RESISTANCE": "ellenzés",
+        "SLIGHT_SUPPORT": "támogatás",
+        "STRONG_RESISTANCE": "erős ellenzés",
+        "STRONG_SUPPORT": "erős támogatás"
+      },
+      "SEE_RESULTS": "Eredmény megtekintése",
+      "TIME_LEFT": "Szavazásra maradt idő",
+      "TOAST": "Sikeresen elküldted a szavazatodat",
+      "TOAST_DELETE": "A szavazatod törlésre került"
+    }
+  },
+  "JOINGROUP": {
+    "ALL_GROUPS": "Minden csoport",
+    "APPLICATION_PENDING": "A jelentkezésed függőben van!",
+    "APPLICATION_SUBMITTED": "Sikeresen elküldted a jelentkezésedet!",
+    "APPLICATION_WITHDRAWN": "Sikeresen visszavontad a jelentkezésedet!",
+    "ARCHIVED_NOTE": "Ennek a csoportnak nincsenek tagjai. Ha szeretnéd újraéleszteni, vedd fel a kapcsolatot az oldal rendszergazdáival!",
+    "BROWSE_GROUPS": "Létező csoportok tallózása",
+    "LOGOUT_MESSAGE": {
+      "LOGGED_OUT": "Ki vagy jelentkezve. {login}",
+      "LOG_IN": "Jelentkezz be, hogy lásd a csoportjaidat!"
+    },
+    "MY_GROUPS": "Csoportjaim",
+    "NO_PUBLIC_DESCRIPTION": "(Ennek a csoportnak nincsen nyilvános leírása... még)",
+    "NUM_MEMBERS": "Tag | Tagok",
+    "OR": "{joinGroup} vagy {createGroup}",
+    "PROFILE_NOTE": "A csoporthoz való csatlakozással a profilod adatai láthatóvá válnak a többi csoporttag részére.",
+    "SIGNUP_OR_LOGIN": "Jelentkezz be vagy regisztrálj, hogy csatlakozhass ehhez a csoporthoz!",
+    "VERIFY_EMAIL_ADDRESS": "Erősítsd meg az email címedet a csatlakozáshoz",
+    "WHICHGROUP": "Melyik csoporthoz szeretnél csatlakozni?",
+    "WITHDRAW_CONFIRMATION_HEADER": "Jelentkezés visszavonása",
+    "WITHDRAW_CONFIRMATION_TEXT": "Biztosan visszavonod a jelentkezésedet a(z) {groupName} csoportba?"
+  },
+  "LANGUAGECHOOSER": {
+    "ADD_MORE": "Segíts fordítani!",
+    "SWITCH": "Nyelv átállítása"
+  },
+  "LOGIN": {
+    "FORGOT_PASSWORD": "Elfelejtett jelszó?",
+    "SIGNUP": "Regisztrálj!",
+    "SUBMIT": "Bejelentkezés",
+    "TITLE": "Bejelentkezés"
+  },
+  "MARKDOWN_INPUT": {
+    "BOLD": "félkövér",
+    "HELP": "Mi az a Markdown?",
+    "ITALIC": "dőlt",
+    "QUOTE": "idézet",
+    "STRIKE": "áthúzott"
+  },
+  "NOTIFICATIONS": {
+    "CHANGES_SAVED": "A változtatásaid el lettek mentve.",
+    "CHECK_YOUR_MAILS": "Kérünk nézd meg az emailjeidet, vagy kattints ide: {resend}",
+    "EMAIL_NOT_DELIVERED": "Egy emailt nem sikerült kézbesíteni számodra | {count} e-mailt nem sikerült kézbesíteni számodra",
+    "NOT_VERIFIED": "{email} nincs megerősítve",
+    "RESEND_VERIFICATION": "megerősítő email újraküldése",
+    "VERIFICATION_EMAIL_SENT": "Küldtünk egy új megerősítő emailt. Nézd meg a beérkező leveleidet."
+  },
+  "NOTIFICATION_BELLS": {
+    "ACTIVITY_DISABLED": "a(z) {activityType} {dateTime}kor törölve lett",
+    "ACTIVITY_ENABLED": "a(z) {activityType} {dateTime}kor újra lett szervezve",
+    "ACTIVITY_MOVED": "{activityType} át lett rakva ekkorra: {dateTime}",
+    "ACTIVITY_UPCOMING": "Emlékeztető: {activityType} {time}kor",
+    "APPLICATION_ACCEPTED": "A jelentkezésedet elfogadták!",
+    "APPLICATION_DECLINED": "A jelentkezésedet elutasították",
+    "CONFLICT_RESOLUTION_CONTINUED": "A konfliktusmegoldási folyamat {userName} felhasználóval folytatódik",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "A veled való konfliktusmegoldási folyamat folytatódik",
+    "CONFLICT_RESOLUTION_CREATED": "Csatlakozz a vitához egy konfliktusról {userName} felhasználóval",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Konfliktusmegoldási folyamat indult veled",
+    "CONFLICT_RESOLUTION_DECIDED": "A konfliktusmegoldási folyamat {userName} felhasználóval eldőlt",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "A veled való konfliktusmegoldási folyamat el lett döntve",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "El lettél távolítva a csoportból",
+    "OFFFEEDBACK_POSSIBLE": "Visszajelzést küldhetsz egy tevékenységről amit ekkor csináltál: {date}",
+    "FEEDBACK_POSSIBLE": "Visszajelzést küldhetsz - {activityType} ekkor: {date}",
+    "INVITATION_ACCEPTED": "{userName} elfogadta a meghívásod",
+    "NEW_APPLICANT": "{userName} jelentkezett a csoportodba",
+    "NEW_MEMBER": "{userName} csatlakozott a csoportodhoz",
+    "NEW_PLACE": "a(z) {placeName} hely létre lett hozva",
+    "USER_BECAME_EDITOR": "{userName} szerkesztői jogosultságot kapott",
+    "VOTING_ENDS_SOON": "A szavazásnak hamarosan vége, ne felejts el részt venni!",
+    "YOU_BECAME_EDITOR": "Szerkesztői jogosultságot kaptál"
+  },
+  "NOTIFICATION_BELLS_LIST": {
+    "NO_ITEMS": "Jelenleg nincsenek értesítéseid.",
+    "TITLE": "Értesítések"
+  },
+  "NOTIFICATION_TOGGLE": {
+    "ALL": "összes",
+    "ALL_TEXT": "Az alkalmazásban/böngészőben, emailben és Push értesítésként.",
+    "HEADER": "Milyen értesítéseket szeretnél kapni az új üzenetekről ebben a beszélgetésben?",
+    "NONE": "semmi",
+    "NONE_TEXT": "Nincsenek értesítések",
+    "SOME": "néhány",
+    "SOME_TEXT": "Az alkalmazásban/böngészőben"
+  },
+  "NOT_FOUND": {
+    "EXPLANATION": "Bocsi, sehol nem találtuk ezt az oldalt.",
+    "HOME": "Vigyél haza"
+  },
+  "OFFER": {
+    "CREATE_TITLE": "Ajánlat létrehozása",
+    "DESCRIPTION": "Leírás",
+    "FILTER": {
+      "STATUS": {
+        "ACTIVE": "Aktív",
+        "ARCHIVED": "Archivált ajánlataim"
+      }
+    },
+    "MARK_AS_ARCHIVED": "Archiválás",
+    "MARK_AS_ARCHIVED_DESCRIPTION": "Jelöld archiváltnak ezt az ajánlatot, hogy eltávolítsd az aktív ajánlatok közül.",
+    "NAME": "Név",
+    "NAME_HELPER": "Az általad felajánlott dolog rövid neve"
+  },
+  "OUTDATED_BROWSER": {
+    "LINK": "Kérünk frissítsd, vagy váltsd másikra a böngésződet",
+    "MESSAGE": "Nem támogatott böngészőt használsz. {upgradeBrowser}, hogy minden funkciót használhass."
+  },
+  "PASSWORD": {
+    "CHANGE": {
+      "SUCCESS": "Az új jelszavad el lett mentve."
+    },
+    "RESET": {
+      "OK": "Mentés",
+      "SUCCESS": "Az új jelszavad el lett mentve.",
+      "TITLE": "Jelszó visszaállítása"
+    }
+  },
+  "PASSWORDRESET": {
+    "EMAIL": "Email cím",
+    "INTRO": "Írd be az email címed és küldünk neked egy linket az új jelszavad beállításához (ha van regisztrált fiókod).",
+    "LOGIN": "Vissza a bejelentkezéshez",
+    "SUBMIT": "Új jelszó",
+    "SUCCESS": "A kérésed sikeresen elküldtük. Nézd meg az emailjeidet!",
+    "TITLE": "Jelszó visszaállítása"
+  },
+  "PLACEWALL": {
+    "SUBSCRIBED_USERS": "{count} ember jelölte meg ezt a helyet kedvencnek",
+    "SUBSCRIPTION": {
+      "HEADER": "Szeretnéd ezt a helyet kedvencként megjelölni?",
+      "NO": "nem",
+      "NO_TEXT": "A fentiek egyikét sem csinálja. Ettől még jelentkezhetsz tevékenységekre.",
+      "YES": "igen",
+      "YES_TEXT": "Megmutatja az elérhető tevékenységeket a csoport üzenőfalán és emaileket küld a közelgő tevékenységekről"
+    }
+  },
+  "PROFILE": {
+    "INACCESSIBLE_OR_DELETED": "(Felhasználó nem megjeleníthető vagy törölve)"
+  },
+  "SETTINGS": {
+    "TITLE": "Beállítások"
+  },
+  "SIDENAV": {
+    "GIT_SUB": "Nézd meg a kódunkat!",
+    "INFO_SUB": "Hogyan építsd az ételmentő csoportodat"
+  },
+  "SIGNUP": {
+    "BACK": "Vissza a bejelentkezéshez",
+    "OK": "Csatlakozás",
+    "TITLE": "Regisztrálj!"
+  },
+  "STATISTICS": {
+    "ACTIVITY_HISTORY": "Tevékenység statisztikák",
+    "FILTER_USER_LABEL": "Felhasználó",
+    "FILTER_ALL_USERS": "Minden felhasználó",
+    "FILTER_TIME_LABEL": "Időszak",
+    "FILTER_TIME_PREVIOUS_DAYS": "Előző {count} nap",
+    "FILTER_TIME_PREVIOUS_MONTHS": "Előző {count} hónap",
+    "FILTER_TIME_FOREVER": "Mindenkori",
+    "COLUMN_PLACE": "Hely",
+    "COLUMN_ACTIVITY_DONE": "Teljesítette",
+    "COLUMN_ACTIVITY_LEFT": "Távozott",
+    "COLUMN_ACTIVITY_LEFT_LATE": "Későn távozott",
+    "COLUMN_FEEDBACK_WEIGHT": "Súly",
+    "TOTAL_LABEL": "Összesen"
+  },
+  "STOREDETAIL": {
+    "ARCHIVED": "Ez a hely archiválva lett",
+    "CHANGE_STATUS": "A státuszt a beállítások oldalon tudod megváltoztatni.",
+    "DIRECTIONS": "Útvonal mutatása",
+    "EDIT": "Hely szerkesztése",
+    "INACTIVE": "Ez a hely jelenleg nem működik együtt.",
+    "NO_DESCRIPTION": "Ennek a helynek még nincs leírása"
+  },
+  "STOREEDIT": {
+    "ADDRESS": "Cím",
+    "DESCRIPTION": "Leírás",
+    "DIALOGS": {
+      "ARCHIVE": {
+        "CONFIRM": "Igen, hely archiválása",
+        "MESSAGE": "Biztos vagy benne?",
+        "TITLE": "Hely archiválása"
+      }
+    },
+    "NAME": "Név",
+    "RESTORE": "Visszaállítás",
+    "SHOW_ACTIVE_ONLY": "Csak aktív helyek mutatása",
+    "SHOW_ALL": "Összes hely mutatása",
+    "STATUS": "Státusz",
+    "WEEKS_IN_ADVANCE": "Hány héttel előre jöjjenek létre a sorozatokhoz tartozó tevékenységek?",
+    "WEEKS_IN_ADVANCE_WARNING": "Ezzel lecsökkented a létrehozott tevékenységek számát. A már létezők törölve lesznek, ha még senki nem jelentkezett rájuk. Ha szükséges, a többit egyenként tudod törölni."
+  },
+  "STORESTATUS": {
+    "ACTIVE": "Együttműködik",
+    "ARCHIVED": "Archiválva",
+    "CREATED": "Nemrég létrehozva",
+    "DECLINED": "Nem akar együttműködni",
+    "NEGOTIATING": "Tárgyalás alatt"
+  },
+  "SWITCHGROUP": {
+    "CHOOSE": "Válassz egy csoportot:",
+    "COMMON_GROUPS": "Közös csoportok",
+    "NOT_MEMBER": "{userName} nem tagja a(z) {groupName} csoportnak.",
+    "OTHER_GROUPS": "Többi csoport"
+  },
+  "THANKS": "Köszönjük!",
+  "TO": "-",
+  "TOPBAR": {
+    "CHANGE_GROUP": "Csoportváltás",
+    "LOGOUT": "Kijelentkezés",
+    "SHOW_ALL_GROUPS": "Összes csoport mutatása",
+    "USERPROFILE": "Saját profil megtekintése"
+  },
+  "UNSUBSCRIBE": {
+    "ALL": "Leiratkozás mindről",
+    "COUNTS": "Leiratkoztál {formerConversations} beszélgetésről és {formerReplies} válaszról.",
+    "FROM_CONVERSATION": "Leiratkozás csak erről a beszélgetésről",
+    "FROM_GROUP": "Leiratkozás a(z) {groupName} csoport összes email értesítéséről",
+    "FROM_NOTIFICATION_TYPE": "{notificationType} értesítésekről való leiratkozás",
+    "FROM_THREAD": "leiratkozás csak erről a beszélgetésről",
+    "HEADER": "Leiratkozás",
+    "SUCCESS": "Sikeresen leiratkoztál!"
+  },
+  "UPDATE_AVAILABLE": {
+    "DETAIL": "A Karrot új verziója elérhető.",
+    "RELOAD": "Újratöltés"
+  },
+  "USERDATA": {
+    "ACCOUNT": "Fiók",
+    "CONFIRM_PASSWORD": "Jelszó megerősítése",
+    "DIALOGS": {
+      "GIVE_TRUST": {
+        "MESSAGE": "Megbízol {userName} felhasználóban a {groupName} csoportban?",
+        "TITLE": "Felhasználó megbízása"
+      },
+      "REQUEST_DELETE_ACCOUNT": {
+        "CONFIRM": "Megerősítés",
+        "MESSAGE": "Biztos vagy? A fiókod és a személyes adataid véglegesen törlődnek. Bármi amit a platformon csináltál anonimmá válik. Ha megerősíted, küldünk egy emailt a törlési folyamat befejezéséhez szükséges linkkel.",
+        "TITLE": "Fiók törlése"
+      }
+    },
+    "EMAIL": "Email",
+    "FIRST_TRUST": "Légy az első, hogy megbízz {userName} felhasználóban a {groupName} csoportban.",
+    "LOGOUT_SUCCESS": "Sikeresen kijelentkeztél!",
+    "MOBILE_NUMBER": "Telefonszám",
+    "NEWCOMER": "Újonc",
+    "NEWCOMER_GUIDANCE": "{userName} új a csoportodban és segítségre lehet szüksége.",
+    "NEWCOMER_INFO": "Újonc vagy a {groupName} csoportban. Üzenetek írásával, tagokkal való ismerkedéssel, tevékenységek végzésével és visszajelzés küldésével aktivizálhatod magad. Amint {threshold} tag bizalmat ad neked, szerkesztői jogosultságot kapsz, hogy a csoport adminisztrációjában segíthess.",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} megbízik {userName} felhasználóban a {groupName} csoportban. | {count} ember bízik {userName} felhasználóban a {groupName} csoportban.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} megbízik benned a {groupName} csoportban. | {count} ember bízik benned a {groupName} csoportban.",
+    "PASSWORD": "Jelszó",
+    "PEOPLE_TRUST_USER": "Te és {otherUser} megbíztok {userName}felhasználóban a {groupName} csoportban. | Te és {count} másik ember bíztok {userName} felhasználóban a {groupName} csoportban.",
+    "PHOTO": "Profilkép",
+    "PRIVATE_MESSAGE": "Privát üzenet küldése {userName} felhasználónak",
+    "PROFILE_TITLE": "Profil",
+    "PUSH": "Push értesítések",
+    "PUSH_CURRENT_BROWSER": "Ebben a böngészőben",
+    "PUSH_BLOCKED": "Nem sikerült bekapcsolni a Push értesítéseket. Lehet, hogy nem engedélyezted?",
+    "APP": "Alkalmazás",
+    "INSTALL_APP": "Töltsd le a Karrot alkalmazást az eszközödre",
+    "REQUEST_DELETE_ACCOUNT": {
+      "SUCCESS": "Küldtünk egy emailt a törlési folyamat befejezéséhez szükséges linkkel."
+    },
+    "SET_PHOTO": "Állítsd be a profilképed...",
+    "TRUST_INFO": {
+      "LINK": "Kattints ide további információkért.",
+      "MESSAGE": "A Karrot bizalom rendszer része. Megmutatja ha egy csoporttag újonc és hogy mennyi bizalom szükséges a szerkesztői engedély megszerzéséhez.",
+      "TITLE": "Mire jó ez a répa gomb?"
+    },
+    "TRUST_PROGRESS_TEXT": "Még {trustNeeded} bizalom szükséges",
+    "TRUST_PROGRESS_TEXT_LONG": "Még {trustNeeded} embernek ki kell fejeznie a bizalmát {userName} felhasználóban, hogy szerkesztői engedélyt kapjon.",
+    "USERNAME": "Név",
+    "WHERE_FROM": "Lakhely (nem kötelező)",
+    "YOU_TRUST_USER": "Megbízol {userName} felhasználóban a {groupName} csoportban."
+  },
+  "USERDETAIL": {
+    "DESCRIPTION": "Rólad",
+    "DISPLAY_NAME": "Név",
+    "OLD_PASSWORD": "Erősítsd meg a régi jelszót",
+    "PASSWORD": "Új jelszó"
+  },
+  "VALIDATION": {
+    "IMAGE_REQUIRED": "Fel kell töltened egy képet",
+    "MAXLENGTH": "Túl hosszú, használj kevesebb mint {max} karaktert.",
+    "MINLENGTH": "Írj be több mint {min} karaktert.",
+    "REQUIRED": "Ezt a mezőt kötelező kitölteni.",
+    "UNIQUE": "Ez a név már foglalt, válassz másikat.",
+    "VALID_EMAIL": "Írj be egy érvényes email címet!",
+    "VALID_TIMEZONE": "Írj be egy érvényes időzónát."
+  },
+  "VERIFYMAIL": {
+    "SUCCESS": "Az email címed sikeresen meg lett erősítve!",
+    "TITLE": "Email megerősítése"
+  },
+  "WALL": {
+    "RECEIVED_VIA_EMAIL": "Ez az üzenet emailben lett elküldve",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Erősítsd meg az email címedet, hogy email értesítéseket kaphass",
+    "WRITE_FIRST_MESSAGE": "Írd meg az első üzenetet...",
+    "WRITE_MESSAGE": "Írj egy üzenetet..."
+  },
+  "YOU": "Te"
+}

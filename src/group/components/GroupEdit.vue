@@ -76,10 +76,9 @@
               content-class="q-pa-md text-center bg-primary"
             >
               <p class="text-h5">
-                Extra Info
+                {{ $t('INFO') }}
               </p>
-              <!-- ToDo -->
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy e</p>
+              <p> {{ $t('GROUP.EXTRA_INFO.LOCATION') }} </p>
               <QBtn
                 v-close-popup
                 flat
@@ -139,10 +138,9 @@
               content-class="q-pa-md text-center bg-primary"
             >
               <p class="text-h5">
-                Extra Info
+                {{ $t('INFO') }}
               </p>
-              <!-- ToDo -->
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy e</p>
+              <p> {{ $t('GROUP.EXTRA_INFO.NEW_MEMBERS') }} </p>
               <QBtn
                 v-close-popup
                 flat

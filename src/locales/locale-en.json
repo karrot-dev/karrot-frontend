@@ -364,14 +364,12 @@
     "EDIT_ACTIVITY_TYPES": "Activity types",
     "EDIT_DETAILS": "Group details",
     "EMAIL_NOTIFICATIONS": "Email notifications",
-    "EXTRA_INFO": {
-      "LOCATION": "If you want your group's location to be made visible on a public map, enter an adress or pick a location on the map below.",
-      "NEW_MEMBERS": "New members will have to apply and get accepted to your group. You can always change the application and welcome message later in the group settings."
-    },
-    "HEADINGS":{
+    "HEADINGS": {
       "GENERAL": "General",
       "LOCATION": "Location",
-      "NEW_MEMBERS_SIGNUP": "New Members Signup"
+      "LOCATION_HINT": "If you want your group's location to be made visible on a public map, enter an adress or pick a location on the map below.",
+      "NEW_MEMBERS_SIGNUP": "New Members Signup",
+      "NEW_MEMBERS_SIGNUP_HINT": "New members will have to apply and get accepted to your group. You can always change the application and welcome message later in the group settings."
     },
     "HISTORY": "History",
     "HOME": "Home",

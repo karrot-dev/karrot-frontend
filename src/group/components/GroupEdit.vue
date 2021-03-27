@@ -78,7 +78,7 @@
               <p class="text-h5">
                 {{ $t('INFO') }}
               </p>
-              <p> {{ $t('GROUP.EXTRA_INFO.LOCATION') }} </p>
+              <p> {{ $t('GROUP.HEADINGS.LOCATION_HINT') }} </p>
               <QBtn
                 v-close-popup
                 flat
@@ -140,7 +140,7 @@
               <p class="text-h5">
                 {{ $t('INFO') }}
               </p>
-              <p> {{ $t('GROUP.EXTRA_INFO.NEW_MEMBERS') }} </p>
+              <p> {{ $t('GROUP.HEADINGS.NEW_MEMBERS_SIGNUP_HINT') }} </p>
               <QBtn
                 v-close-popup
                 flat

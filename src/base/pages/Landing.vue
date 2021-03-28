@@ -112,6 +112,21 @@
           href="https://github.com/yunity/karrot-frontend"
         >GitHub</a>
       </i18n>
+
+      <p class="text-center q-mt-lg">
+        <QBtn
+          @click="toggleAbout"
+        >
+          <img
+            :src="logo"
+            class="about-logo"
+          >
+          {{ $t("GLOBAL.ABOUT_KARROT") }}
+        </QBtn>
+        <QDialog v-model="showAbout">
+          <KAbout @close="toggleAbout" />
+        </QDialog>
+      </p>
     </section>
 
     <section>
@@ -169,10 +184,15 @@
 </template>
 
 <script>
-import { QImg } from 'quasar'
+import {
+  QDialog,
+  QImg,
+  QBtn,
+} from 'quasar'
 import { mapGetters } from 'vuex'
 
 import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
+import KAbout from '@/base/components/KAbout'
 import logo from '@/logo/assets/carrot-logo.svg'
 import screenshotActivities from './images/karrot-screenshot.png'
 
@@ -201,7 +221,15 @@ function groupSortScore (group) {
 export default {
   components: {
     QImg,
+    QBtn,
+    QDialog,
     GroupGalleryCards,
+    KAbout,
+  },
+  data () {
+    return {
+      showAbout: false,
+    }
   },
   computed: {
     ...mapGetters({
@@ -257,6 +285,9 @@ export default {
     preview (groupId) {
       router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }).catch(() => {})
     },
+    toggleAbout () {
+      this.showAbout = !this.showAbout
+    },
   },
 }
 </script>
@@ -298,6 +329,11 @@ export default {
 
   h2
     margin-top 0
+
+  .about-logo
+    width 50px
+    height 50px
+    margin-right 10px
 
   .button
     display inline-block

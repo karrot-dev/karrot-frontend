@@ -14,6 +14,22 @@
         <QItem
           tag="a"
           rel="noopener noreferrer"
+          href="https://community.foodsaving.world/t/how-to-get-involved-onboarding-into-the-karrot-team/661"
+          target="_blank"
+        >
+          <QItemSection side>
+            <QIcon name="fas fa-users" />
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel>
+              How to Get Involved
+            </QItemLabel>
+          </QItemSection>
+        </QItem>
+
+        <QItem
+          tag="a"
+          rel="noopener noreferrer"
           href="https://github.com/yunity/karrot-frontend"
           target="_blank"
         >

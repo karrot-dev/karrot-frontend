@@ -22,6 +22,7 @@
           </QItemSection>
           <QItemSection>
             <QItemLabel>
+              <!-- this is in English because so far people working on Karrot are communicating in English only-->
               How to Get Involved
             </QItemLabel>
           </QItemSection>

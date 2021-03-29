@@ -103,18 +103,11 @@
     <section>
       <h2 v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.TITLE'" />
       <p v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION'" />
-      <i18n
-        path="ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION2"
-        tag="p"
-      >
-        <a
-          slot="code"
-          href="https://github.com/yunity/karrot-frontend"
-        >GitHub</a>
-      </i18n>
+      <p v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION2'" />
 
       <p class="text-center q-mt-lg">
         <QBtn
+          unelevated
           @click="toggleAbout"
         >
           <img

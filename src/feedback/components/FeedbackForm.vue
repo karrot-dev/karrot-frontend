@@ -44,7 +44,7 @@
           type="button"
           @click="isDismissFeedbackDialogVisible = !isDismissFeedbackDialogVisible"
         >
-          {{ $t('ACTIVITY_FEEDBACK_DISMISS.BUTTON_LABEL') }}
+          {{ $t('ACTIVITY_FEEDBACK.DISMISS_LABEL') }}
         </QBtn>
       </div>
 
@@ -71,10 +71,10 @@
     </div>
     <CustomDialog v-model="isDismissFeedbackDialogVisible">
       <template #title>
-        {{ $t('ACTIVITY_FEEDBACK_DISMISS.PROMPT_HEADLINE') }}
+        {{ $t('ACTIVITY_FEEDBACK.DISMISS_TITLE') }}
       </template>
       <template #message>
-        {{ $t('ACTIVITY_FEEDBACK_DISMISS.PROMPT_MESSAGE') }}
+        {{ $t('ACTIVITY_FEEDBACK.DISMISS_MESSAGE') }}
       </template>
       <template #actions>
         <QBtn
@@ -102,7 +102,7 @@ import {
   QIcon,
 } from 'quasar'
 import AmountPicker from './AmountPicker'
-import CustomDialog from '@/activities/components/CustomDialog'
+import CustomDialog from '@/utils/components/CustomDialog'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'

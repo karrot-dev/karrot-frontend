@@ -85,9 +85,9 @@
         />
         <QBtn
           v-close-popup
+          autofocus
           flat
           color="primary"
-          data-autofocus
           :label="$t('BUTTON.OF_COURSE')"
           @click="$emit('dismissFeedback', value.about)"
         />

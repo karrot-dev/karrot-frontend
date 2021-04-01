@@ -72,6 +72,15 @@ const locales = {
     quasar: () => import('quasar/lang/en-us'), // TODO switch when translated
   },
 
+  hu: {
+    name: 'magyar nyelv',
+    locale: 'hu',
+    messages: () => import('@/locales/locale-hu.json'),
+    intlLocale: () => import('intl/locale-data/jsonp/hu'),
+    dateFnsLocale: () => import('date-fns/locale/hu'),
+    quasar: () => import('quasar/lang/hu'),
+  },
+
   it: {
     name: 'Italiano',
     locale: 'it',

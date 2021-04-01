@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: karrot/python:2.3
+    - image: karrot/python:2.5
 
 android-defaults: &android-defaults
   working_directory: ~/repo

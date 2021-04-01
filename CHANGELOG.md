@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- Landing page: change text and screenshots, add "about Karrot" component @brnsolikyl [#2317]
 
 ## [9.2.0] - 2020-03-23
 ### Added

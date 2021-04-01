@@ -62,31 +62,10 @@
 
         <h4 class="text-primary q-mt-xl q-mb-lg">
           {{ $t('GROUP.HEADINGS.LOCATION') }}
-          <QBtn
-            size="sm"
-            round
-            flat
-            icon="fas fa-info-circle"
-            @click.prevent
-          >
-            <QMenu
-              square
-              dark
-              max-width="280px"
-              content-class="q-pa-md text-center bg-primary"
-            >
-              <p class="text-h5">
-                {{ $t('INFO') }}
-              </p>
-              <p> {{ $t('GROUP.HEADINGS.LOCATION_HINT') }} </p>
-              <QBtn
-                v-close-popup
-                flat
-              >
-                {{ $t('BUTTON.CLOSE') }}
-              </QBtn>
-            </QMenu>
-          </QBtn>
+          <InfoPopup
+            :title="$t('INFO')"
+            :description="$t('GROUP.HEADINGS.LOCATION_HINT')"
+          />
         </h4>
 
         <AddressPicker
@@ -124,31 +103,10 @@
 
         <h4 class="text-primary q-mt-xl q-mb-lg">
           {{ $t('GROUP.HEADINGS.NEW_MEMBERS_SIGNUP') }}
-          <QBtn
-            size="sm"
-            round
-            flat
-            icon="fas fa-info-circle"
-            @click.prevent
-          >
-            <QMenu
-              square
-              dark
-              max-width="280px"
-              content-class="q-pa-md text-center bg-primary"
-            >
-              <p class="text-h5">
-                {{ $t('INFO') }}
-              </p>
-              <p> {{ $t('GROUP.HEADINGS.NEW_MEMBERS_SIGNUP_HINT') }} </p>
-              <QBtn
-                v-close-popup
-                flat
-              >
-                {{ $t('BUTTON.CLOSE') }}
-              </QBtn>
-            </QMenu>
-          </QBtn>
+          <InfoPopup
+            :title="$t('INFO')"
+            :description="$t('GROUP.HEADINGS.NEW_MEMBERS_SIGNUP_HINT')"
+          />
         </h4>
 
         <MarkdownInput
@@ -226,6 +184,7 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
+import InfoPopup from '@/utils/components/InfoPopup'
 
 export default {
   name: 'GroupEdit',
@@ -239,6 +198,7 @@ export default {
     AddressPicker,
     MarkdownInput,
     ChangePhoto,
+    InfoPopup,
   },
   mixins: [validationMixin, editMixin, statusMixin],
   props: {

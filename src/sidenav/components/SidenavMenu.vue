@@ -23,41 +23,11 @@
         v-if="info"
         side
       >
-        <QBtn
-          size="sm"
-          round
-          flat
-          color="green"
-          icon="fas fa-question-circle"
+        <InfoPopup
           :title="info.title"
-          @click.prevent
-        >
-          <QMenu
-            square
-            dark
-            max-width="280px"
-            content-class="q-pa-md text-center bg-primary"
-          >
-            <p class="text-h5">
-              {{ info.title }}
-            </p>
-            <p>{{ info.description }}</p>
-            <QBtn
-              v-close-popup
-              flat
-            >
-              {{ $t('BUTTON.CLOSE') }}
-            </QBtn>
-            <QBtn
-              type="a"
-              flat
-              :href="info.link.href"
-              target="_blank"
-            >
-              {{ info.link.text }}
-            </QBtn>
-          </QMenu>
-        </QBtn>
+          :description="info.description"
+          :info-link="{ text: info.link.text, href: info.link.href }"
+        />
       </QItemSection>
       <QItemSection
         v-if="badge && badge.condition"
@@ -76,24 +46,22 @@
 </template>
 
 <script>
+import InfoPopup from '@/utils/components/InfoPopup'
 import {
   QList,
   QItem,
   QItemSection,
   QIcon,
-  QBtn,
-  QMenu,
   QBadge,
 } from 'quasar'
 
 export default {
   components: {
+    InfoPopup,
     QList,
     QItem,
     QItemSection,
     QIcon,
-    QBtn,
-    QMenu,
     QBadge,
   },
   props: {

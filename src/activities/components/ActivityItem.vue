@@ -260,10 +260,6 @@ export default {
       display inline
       margin-right .3em
 
-  .ics-export-icon
-    float right
-    font-size 18px
-
 .conversation-section
   font-weight 500
   color $secondary

@@ -9,7 +9,7 @@
     "SECTIONS": {
       "ACTIVITIES": {
         "DESCRIPTION": "Cada actividad tiene un número de espacios a los que puede unirse miembros del grupo – de esta manera todo el mundo sabe quién va a dónde y cuándo, y se pueden comentar después.",
-        "SUBTITLE": "Actividades con un momento y lugar específicos, como recogidas en el caso de salvar comida, se pueden meter en el programa.",
+        "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
         "TITLE": "Distribución de tareas y actividades"
       },
       "COMMUNICATION": {
@@ -17,13 +17,13 @@
         "TITLE": "Comunicación en el contexto adecuado"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot es un programa libre y de código abierto desarrollado con los comentarios y participación de quienes lo usan. Un pequeño grupo central lo desarrolla, pero este está en continuo contacto con los usuarios  para que guie su desarrollo las distintas necesidades de cada grupo. En Karrot seguimos los principio de integridad y no comercialización de datos.",
-        "DESCRIPTION2": "Invitamos a quienes desarrollan y diseñan software a participar en el desarrollo de Karrot. Echa una mirada al proyecto en {code}.",
+        "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
+        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development.",
         "TITLE": "Desarrollo democrático y participativo"
       },
       "GROUPS": {
         "DESCRIPTION": "Ahora todos están visibles en el mapa para que la gente pueda entrar en contacto con otros grupos local y globalmente.",
-        "SUBTITLE": "Cada grupo en Karrot es completamente independiente y tiene su propio logotipo, procedimientos y reglas.",
+        "SUBTITLE": "Every group on Karrot is completely independent and can have their own logo, processes, rules and agreements.",
         "TITLE": "Grupos independientes"
       },
       "MAPS": {
@@ -36,7 +36,7 @@
       },
       "OFFERS": {
         "DESCRIPTION": "Las ofertas son visibles para todo el grupo y la gente puede mostrar su interés al respecto en chat de ofertas.",
-        "SUBTITLE": "Crear un anuncio de oferta o cualquier cosa que quieras compartir o regalar.",
+        "SUBTITLE": "Create an offer of whatever you want to share or give away.",
         "TITLE": "Compartir cosas"
       },
       "OPENSOURCE": {
@@ -60,10 +60,10 @@
         "TITLE": "Gestión democrática y basada en confianza grupal"
       }
     },
-    "SUBTITLE1": "Karrot existe gracias a que facilitar que grupos de gente que prefiere compartir a que las cosas acaben en la basura se organicen eficientemente en base local y de participación voluntaria.",
-    "SUBTITLE2": "Cosas como comida, bicicletas, ropa o lo que sea que se tira en exceso o no se usa en el contexto de una sociedad de consumo.",
-    "TITLE": "Salvar cosas de acabar en la basura, ¡compartirlas en lugar de tirarlas!",
-    "VISION_INTRO": "Karrot es una herramient para todo tipo de iniciativas de base para conectar y crecer apoyando la coordinación de actividades cara a cara añadiendo la capa de la infraestructura digital."
+    "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
+    "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
+    "TITLE": "Start a group, become a community",
+    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kichen..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "¿Realmente deseas eliminar esta serie? Esto también eliminará todas las actividades que pertenecen a esta serie (excepto cuando las personas ya se apuntaron).",

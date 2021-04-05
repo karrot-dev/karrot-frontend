@@ -24,6 +24,9 @@ Please document your changes in this format:
 ### Added
 - allow to dismiss feedback @dpaque @layla19 @larzon83 @pogopaule [#2319]
 
+### Changed
+- Landing page: change text and screenshots, add "about Karrot" component @brnsolikyl [#2317]
+
 ## [9.2.0] - 2020-03-23
 ### Added
 - enabled Hungarian locale @nicksellen [#2313]

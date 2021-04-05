@@ -9,7 +9,7 @@
     "SECTIONS": {
       "ACTIVITIES": {
         "DESCRIPTION": "Minden tevékenységre van adott számú hely, amelyekre a csoport tagjai jelentkezhetnek – így mindenki tudja, ki mikor hova megy, és később visszajelzést is tudtok adni.",
-        "SUBTITLE": "A szoftverbe adott hellyel és időponttal lehet beírni tevékenységeket, például ételfelvételeket ételmentés esetén.",
+        "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
         "TITLE": "Feladatok és tevékenységek elosztása"
       },
       "COMMUNICATION": {
@@ -17,13 +17,13 @@
         "TITLE": "Kommunikáció a megfelelő csatornákon keresztül"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "A Karrot egy ingyenes és nyílt forráskódú szoftver, a felhasználók visszajelzésével és részvételével fejlesztve. Elsősorban egy kis fejlesztői csapat munkája, akik folyamatos kapcsolatban vannak különböző csoportok tagjaival, hogy megértsék a szerteágazó igényeket és ezeknek megfelelő irányba tereljék a fejlesztést. Betartjuk az adatok integritásának megtartásának és kereskedelmi forgalomba nem hozatalának elveit.",
-        "DESCRIPTION2": "Fejlesztők és dizájnerek természetesen részt vehetnek a fejlesztésében. Nézd meg a projektet a {code}on.",
+        "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
+        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development.",
         "TITLE": "Demokratikus és részvételi fejlesztés"
       },
       "GROUPS": {
         "DESCRIPTION": "Ugyanakkor mind rajta vannak egyazon térképen, hogy bárki megtalálhassa a többi csoportot és csatlakozhassanak más csoportokhoz helyi szinten, vagy akár globálisan is.",
-        "SUBTITLE": "Minden csoport a Karroton teljesen független és lehet saját logója, működési szokásai és szabályzata.",
+        "SUBTITLE": "Every group on Karrot is completely independent and can have their own logo, processes, rules and agreements.",
         "TITLE": "Független csoportok"
       },
       "MAPS": {
@@ -36,7 +36,7 @@
       },
       "OFFERS": {
         "DESCRIPTION": "Az ajánlatok mindenki számára láthatóak a csoportban és a tagok az ajánlat beszélgetésében tudnak érdeklődni.",
-        "SUBTITLE": "Hozz létre egy hirdetésszerű ajánlatot bármiről amit meg akarsz osztani másokkal, vagy el akarsz ajándékozni.",
+        "SUBTITLE": "Create an offer of whatever you want to share or give away.",
         "TITLE": "Ossz meg dolgokat"
       },
       "OPENSOURCE": {
@@ -60,10 +60,10 @@
         "TITLE": "Demokratikus és bizalom alapú csoportkezelés"
       }
     },
-    "SUBTITLE1": "A Karrot olyan csoportoknak van akik meg akarnak menteni dolgokat attól, hogy kárba menjenek és ehelyett megosztanák őket. Lehetővé teszi, hogy ezek a csoportok hatékonyan szerveződjenek helyi és önkéntes alapon.",
-    "SUBTITLE2": "Olyan dolgokat, mint élelmiszer, kerékpárok, ruhák vagy bármi, amit szertelenül kidobnak vagy nem használják a fogyasztói társadalomban.",
-    "TITLE": "Ments meg dolgokat a pazarlástól, inkább oszt meg őket!",
-    "VISION_INTRO": "A Karrot egy eszköz helyi szintű kezdeményezések részére a kapcsolattartáshoz és növekedéshez, a személyes tevékenységek szervezésének digitális infrastruktúrával való támogatására."
+    "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
+    "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
+    "TITLE": "Start a group, become a community",
+    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kichen..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Biztosan törlöd ezt a sorozatot? Ezzel törölsz minden hozzá tartozó tevékenységet is (kivéve azokat ahol már csatlakoztak emberek).",

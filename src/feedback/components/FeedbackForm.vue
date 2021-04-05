@@ -37,24 +37,62 @@
       {{ anyFirstError }}
     </div>
 
-    <div class="row justify-end q-ma-md q-gutter-sm">
-      <QBtn
-        v-if="!isNew"
-        type="button"
-        :disable="!hasChanged"
-        @click="reset"
-      >
-        {{ $t('BUTTON.RESET') }}
-      </QBtn>
-      <QBtn
-        type="submit"
-        color="secondary"
-        :loading="isPending"
-        :disable="!canSave"
-      >
-        <span v-t="isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES'" />
-      </QBtn>
+    <div class="row q-ma-md">
+      <div class="col">
+        <QBtn
+          v-if="isNew"
+          type="button"
+          @click="isDismissFeedbackDialogVisible = !isDismissFeedbackDialogVisible"
+        >
+          {{ $t('ACTIVITY_FEEDBACK.DISMISS_LABEL') }}
+        </QBtn>
+      </div>
+
+      <div class="col col-grow">
+        <div class="row justify-end q-gutter-sm">
+          <QBtn
+            v-if="!isNew"
+            type="button"
+            :disable="!hasChanged"
+            @click="reset"
+          >
+            {{ $t('BUTTON.RESET') }}
+          </QBtn>
+          <QBtn
+            type="submit"
+            color="secondary"
+            :loading="isPending"
+            :disable="!canSave"
+          >
+            <span v-t="isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES'" />
+          </QBtn>
+        </div>
+      </div>
     </div>
+    <CustomDialog v-model="isDismissFeedbackDialogVisible">
+      <template #title>
+        {{ $t('ACTIVITY_FEEDBACK.DISMISS_TITLE') }}
+      </template>
+      <template #message>
+        {{ $t('ACTIVITY_FEEDBACK.DISMISS_MESSAGE') }}
+      </template>
+      <template #actions>
+        <QBtn
+          v-close-popup
+          flat
+          color="primary"
+          :label="$t('BUTTON.CANCEL')"
+        />
+        <QBtn
+          v-close-popup
+          autofocus
+          flat
+          color="primary"
+          :label="$t('BUTTON.OF_COURSE')"
+          @click="$emit('dismissFeedback', value.about)"
+        />
+      </template>
+    </CustomDialog>
   </form>
 </template>
 
@@ -64,12 +102,14 @@ import {
   QIcon,
 } from 'quasar'
 import AmountPicker from './AmountPicker'
+import CustomDialog from '@/utils/components/CustomDialog'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {
+    CustomDialog,
     QBtn,
     QIcon,
     AmountPicker,
@@ -86,18 +126,21 @@ export default {
       default: true,
     },
   },
+  data () {
+    return {
+      isDismissFeedbackDialogVisible: false,
+    }
+  },
   computed: {
     canSave () {
-      if (!this.isNew && !this.hasChanged) {
-        return false
-      }
-      return true
+      return this.isNew || this.hasChanged
     },
   },
   methods: {
     maybeSave () {
-      if (!this.canSave) return
-      this.save()
+      if (this.canSave) {
+        this.save()
+      }
     },
   },
 }

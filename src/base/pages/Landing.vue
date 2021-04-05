@@ -103,15 +103,23 @@
     <section>
       <h2 v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.TITLE'" />
       <p v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION'" />
-      <i18n
-        path="ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION2"
-        tag="p"
-      >
-        <a
-          slot="code"
-          href="https://github.com/yunity/karrot-frontend"
-        >GitHub</a>
-      </i18n>
+      <p v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION2'" />
+
+      <p class="text-center q-mt-lg">
+        <QBtn
+          unelevated
+          @click="toggleAbout"
+        >
+          <img
+            :src="logo"
+            class="about-logo"
+          >
+          {{ $t("GLOBAL.ABOUT_KARROT") }}
+        </QBtn>
+        <QDialog v-model="showAbout">
+          <KAbout @close="toggleAbout" />
+        </QDialog>
+      </p>
     </section>
 
     <section>
@@ -169,16 +177,21 @@
 </template>
 
 <script>
-import { QImg } from 'quasar'
+import {
+  QDialog,
+  QImg,
+  QBtn,
+} from 'quasar'
 import { mapGetters } from 'vuex'
 
 import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
+import KAbout from '@/base/components/KAbout'
 import logo from '@/logo/assets/carrot-logo.svg'
 import screenshotActivities from './images/karrot-screenshot.png'
 
-import screenshotGallery from './images/karrot-gallery.236x236.jpg'
-import screenshotManageActivities from './images/karrot-manage-activities.236x236.jpg'
-import screenshotOffers from './images/solikyl-offers.236x236.jpg'
+import screenshotGallery from './images/karrot-gallery-map.236x236.jpg'
+import screenshotManageActivities from './images/karrot-custom-activities.236x236.jpg'
+import screenshotOffers from './images/screenshot-offers.236x236.jpg'
 
 import imageSavedFood from './images/oestersund-saved-food.200x200.jpg'
 import imageVolunteers from './images/oestersund-volunteers.200x200.jpg'
@@ -201,7 +214,15 @@ function groupSortScore (group) {
 export default {
   components: {
     QImg,
+    QBtn,
+    QDialog,
     GroupGalleryCards,
+    KAbout,
+  },
+  data () {
+    return {
+      showAbout: false,
+    }
   },
   computed: {
     ...mapGetters({
@@ -257,6 +278,9 @@ export default {
     preview (groupId) {
       router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }).catch(() => {})
     },
+    toggleAbout () {
+      this.showAbout = !this.showAbout
+    },
   },
 }
 </script>
@@ -298,6 +322,11 @@ export default {
 
   h2
     margin-top 0
+
+  .about-logo
+    width 50px
+    height 50px
+    margin-right 10px
 
   .button
     display inline-block

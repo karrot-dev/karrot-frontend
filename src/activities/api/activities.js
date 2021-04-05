@@ -53,6 +53,10 @@ export default {
     return convertConversation((await axios.get(`/api/activities/${activityId}/conversation/`)).data)
   },
 
+  async dismissFeedback (activityId) {
+    await axios.post(`/api/activities/${activityId}/dismiss_feedback/`, {})
+  },
+
 }
 
 export function convert (val) {

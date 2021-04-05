@@ -9,7 +9,7 @@
     "SECTIONS": {
       "ACTIVITIES": {
         "DESCRIPTION": "All Aktivitéit huet eng Unzuel u Plaze fir déi sech d'Membere vun der Gruppe kënnen umellen – Esou gesäit jidderee wie wou a wéini geet. A Feedback ka méi spéit hannerlooss ginn.",
-        "SUBTITLE": "Aktivitéite mat enger spezifescher Zäit a Plaz, wéi Liewensmëttel-Ofhuelungen am Kontext vu Liewensmëttelretten, kënnen an d'Software agi ginn.",
+        "SUBTITLE": "Aktivitéite mat enger spezifescher Zäit a Plaz, wéi Treffen, Liewensmëttel-Ofhuelungen, Gemeinschafts-Evenementer, oder wat och ëmmer deng Grupp brauch, kënnen an d'Software agi ginn.",
         "TITLE": "Verdeelung vun Aufgaben an Aktivitéiten"
       },
       "COMMUNICATION": {
@@ -17,13 +17,13 @@
         "TITLE": "Kommunikatioun am richtege Kontext"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot ass fräi a quelloppe Software, déi entwéckelt gëtt mam Feedback an der Bedeelegung vun de Leit, déi se benotzen. Si gëtt haaptsächlech vun engem klenge Kär-Team entwéckelt, wat konstant am Kontakt mat Leit aus verschiddene Gruppen ass fir hier divergent a konvergent Besoinen ze verstoen an esou d'Entwécklung ze guidéieren. Mir besti mat der Ethik vun Integritéit a Non-Kommerzialisatioun vun Daten.",
-        "DESCRIPTION2": "Entwéckler an Designer sinn natierlech wëllkomm bei senger Entwécklung matzemaachen. Kuck de Projet op {code}.",
+        "DESCRIPTION": "Karrot ass vu sengen Notzer gemaach: eng fräi a quelloppe Software, déi entwéckelt gëtt mam Feedback an der Bedeelegung vun de Leit, déi se benotzen. Si gëtt haaptsächlech vun engem klenge Kär-Team entwéckelt, wat konstant am Kontakt mat Leit aus verschiddene Gruppen ass fir hier divergent a konvergent Besoinen ze verstoen an esou d'Entwécklung ze guidéieren. Mir besti mat der Ethik vun Integritéit a Non-Kommerzialisatioun vun Daten.",
+        "DESCRIPTION2": "Entwéckler*innen an Designer*innen sinn natierlech wëllkomm bei der Entwécklung matzemaachen.",
         "TITLE": "Demokratesch a participativ Entwécklung"
       },
       "GROUPS": {
         "DESCRIPTION": "Dës ginn awer all op der Kaart ugewise fir dass d'Leit se kënne fannen an sech mat anere Gruppen op hirer Plaz a global kënne verbannen.",
-        "SUBTITLE": "All Grupp op karrot ass komplett onofhängeg a kann hier eegene Logo, hier eege Prozesser an Reegelen hunn.",
+        "SUBTITLE": "All Grupp op Karrot ass komplett onofhängeg a kann hieren eegene Logo, hier eege Prozesser, Reegelen an Ofkommes hunn.",
         "TITLE": "Onofhängeg Gruppen"
       },
       "MAPS": {
@@ -36,7 +36,7 @@
       },
       "OFFERS": {
         "DESCRIPTION": "Offeren si siichtbar fir jiddereen an der Grupp a Leit kënnen hiren Interessi am Chat vun der Offer ausdrécken.",
-        "SUBTITLE": "Erstell eng Offer, déi wéi eng Annonce funktionéiert, vu wat och ëmmer's du deelen oder ewechgi wëlls.",
+        "SUBTITLE": "Erstell eng Offer vu wat och ëmmer's du deelen oder ewechgi wëlls.",
         "TITLE": "Saachen deelen"
       },
       "OPENSOURCE": {
@@ -60,10 +60,10 @@
         "TITLE": "Gruppen-Management baséierend op Demokratie a Vertrauen"
       }
     },
-    "SUBTITLE1": "Karrot ass fir Gruppe vu Leit déi Saache virun der Verschwendung retten an se deele wëllen. Et erlaabt dëse Gruppe fir sech effektiv ze organiséieren, op enger lokaler a fräiwëlleger Basis.",
-    "SUBTITLE2": "Saachen, souwéi Iessen, Vëloen, Kleeder a méi ginn iwwerdriwwen ewechgeheit oder net genotzt am Kontext vun enger Konsumgesellschaft.",
-    "TITLE": "Amplaz vu Verschwenden: Retten an Deelen!",
-    "VISION_INTRO": "Karrot ass ee Geschier fir all Zort vu Wuerzel-Initiativ fir sech ze verbannen an ze wuessen an ënnerstëtzt d'Koordinatioun vun An-zu-An-Aktivitéite mat enger Schicht digitaler Infrastruktur."
+    "SUBTITLE1": "Karrot ass ee fräit Geschier mat oppene Quelle fir all Zort vu Wuerzel-Initiativen a Gruppe vu Leit, déi Gesicht-zu-Gesicht-Aktivitéiten op enger lokaler, autonomer a fräiwëlleger Basis koordinéiere wëllen.",
+    "SUBTITLE2": "Et ass designt esou, dass Gemeinschaftsbildung vereinfacht an eng méi transparent, demokratesch a participativ Gouvernance vun ärem Grupp ënnerstëtzt gëtt.",
+    "TITLE": "Start eng Grupp, gitt eng Gemeinschaft",
+    "VISION_INTRO": "Egal ob dir Liewensmëttel rett an deelt, ee fräie Shop, ee Makerspace, ee Gemeinschaftsgaart oder eng Vëlos-Kichen hutt..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Wëlls du dës Serie wierklech läschen? Dëst wäert och all d'Aktivitéite läschen, déi zu dëser Serie gehéieren (ausser et hu sech scho Leit derfir ugemellt).",

@@ -212,6 +212,7 @@ export const makeActivity = data => {
     maxParticipants: 10,
     participants: [],
     feedbackGivenBy: [],
+    feedbackDismissedBy: [],
     hasStarted: false,
     description: '',
     isDisabled: false,

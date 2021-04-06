@@ -114,7 +114,10 @@
     "PREVIOUS": "{દુકાન} માટે પાછલી પ્રતિસાદ",
     "SET_AMOUNT": "Set amount",
     "TITLE": "પ્રતિસાદ",
-    "TOGETHER_WITH": "You did this together with:"
+    "TOGETHER_WITH": "You did this together with:",
+    "DISMISS_LABEL": "Dismiss",
+    "DISMISS_TITLE": "Dismiss feedback",
+    "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
   },
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Meeting",

@@ -5,6 +5,7 @@
     :force-center="forceCenter"
     :force-zoom="forceZoom"
     :force-bounds="forceBounds"
+    :padding-top-left="paddingTopLeft"
     :show-attribution="false"
   />
 </template>
@@ -32,6 +33,10 @@ export default {
     myCoordinates: {
       default: null,
       type: Object,
+    },
+    paddingTopLeft: {
+      default: () => ([0, 0]),
+      type: Array,
     },
   },
   computed: {
@@ -61,15 +66,7 @@ export default {
       if (this.myCoordinates) {
         coordsForBounds.push(this.myCoordinates)
       }
-      const bounds = L.latLngBounds(coordsForBounds).pad(0.2)
-      if (this.offset.lat !== 0 || this.offset.lng !== 0) {
-        // we have an offset!
-        // make the bounds extended to incorporate the offset into the calculation
-        const sw = bounds.getSouthWest()
-        const offsetPoint = L.latLng(sw.lat + this.offset.lat, sw.lng + this.offset.lng)
-        return bounds.extend(offsetPoint)
-      }
-      return bounds
+      return L.latLngBounds(coordsForBounds).pad(0.2)
     },
     singleGroup () {
       if (this.groupsWithCoordinates.length === 1) {
@@ -90,12 +87,6 @@ export default {
       }
       return null
     },
-    offset () {
-      if (window.innerWidth > 767 && this.$q.platform.is.desktop) {
-        return this.expanded ? { lat: 0, lng: -0.4 } : { lat: 0.05, lng: 0 }
-      }
-      return { lat: 0.0, lng: 0.0 }
-    },
   },
   methods: {
     hasCoordinates (item) {
@@ -112,4 +103,11 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.debug
+  position fixed
+  top 40px
+  right 40px
+  z-index 10000000
+  padding 20px
+  background-color rgba(255, 255, 255, 0.5)
 </style>

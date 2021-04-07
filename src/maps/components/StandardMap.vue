@@ -4,7 +4,9 @@
     :bounds="bounds"
     :center="center"
     :zoom="zoom"
+    :padding-top-left="paddingTopLeft"
     :min-zoom="2"
+    ref="map"
     @click="mapClick"
     @moveend="$emit('map-move-end', arguments[0].target)"
     @update:zoom="updateZoom"
@@ -160,6 +162,10 @@ export default {
       type: Object,
       default: null,
     },
+    paddingTopLeft: {
+      type: Array,
+      default: null,
+    },
   },
   data () {
     return {
@@ -234,6 +240,13 @@ export default {
   watch: {
     zoom (val) {
       if (Number.isInteger(val)) this.lastZoom = val
+    },
+    paddingTopLeft () {
+      if (this.bounds) {
+        // unfortunately it doesn't auto update when we change the padding, so we have to do it ourselves...
+        // the $nextTick improved the behaviour when resizing in practise
+        this.$nextTick(() => this.$refs.map.fitBounds(this.bounds))
+      }
     },
   },
   methods: {

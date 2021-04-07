@@ -9,7 +9,7 @@
     "SECTIONS": {
       "ACTIVITIES": {
         "DESCRIPTION": "Ĉiu aktivaĵo havas savlokojn al kiuj oni povas aliĝi. Tiel, ĉiuj scias kiu iras kien kaj kiam kaj tiamaniere facilas poste komenti.",
-        "SUBTITLE": "Oni povas meti aktivaĵojn kun specifaj tempo kaj loko, kiel savadon de manĝaĵo.",
+        "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
         "TITLE": "Distribuo de taskoj kaj aktivaĵoj"
       },
       "COMMUNICATION": {
@@ -17,13 +17,13 @@
         "TITLE": "Komunikado en la korekta kunteksto"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot estas libera kaj malferma programo kiu disvolviĝas per la komentoj kaj partopreno de la uzantoj. Malgranda ĉefteamo konstante kontaktas homojn de malsamaj grupoj por lerni pri la diversaj kaj komunaj bezonoj kaj uzi ilin kiel gvidliniojn. Ni sekvas etikon de honesteco kaj nekomercigo de datumoj.",
-        "DESCRIPTION2": "Ni bonvenas programistojn kaj dezajnistojn partopreni en la disvolvigo de Karrot. Vidu la projekton en {code}.",
+        "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
+        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development.",
         "TITLE": "Demokrata kaj partoprenema disvolviĝo"
       },
       "GROUPS": {
         "DESCRIPTION": "Nun ili estas videblaj sur la mapo. Tiel la homoj povas trovi la grupojn kaj konekti kun ili surloke aŭ tutmonde.",
-        "SUBTITLE": "Ĉiu grupo en Karrot estas tute sendependa kaj povas havi sian propran logotipon, procedurojn kaj regulojn.",
+        "SUBTITLE": "Every group on Karrot is completely independent and can have their own logo, processes, rules and agreements.",
         "TITLE": "Sendependaj grupoj"
       },
       "MAPS": {
@@ -36,7 +36,7 @@
       },
       "OFFERS": {
         "DESCRIPTION": "Ofertoj videblas al ĉiuj en la grupo. Homoj povas montri sian intereson en la oferta babilejo.",
-        "SUBTITLE": "Krei oferton de io ajn kiun vi volas donaci aŭ disdoni.",
+        "SUBTITLE": "Create an offer of whatever you want to share or give away.",
         "TITLE": "Disdoni aĵojn"
       },
       "OPENSOURCE": {
@@ -60,10 +60,10 @@
         "TITLE": "Demokrata kaj fideca grupa-administrado"
       }
     },
-    "SUBTITLE1": "Karrot ekzistas por grupoj de homoj kiuj volas savi aĵojn kaj disdoni ilin. Ĝi faciligas la organizadon de tiaj grupoj loke kaj volontule.",
-    "SUBTITLE2": "Aĵoj kiel manĝaĵojn, biciklojn, vestaĵojn, ktp tro kutime estas ĵetitaj al rubujoj aŭ neuzitaj en la konsumema socio.",
-    "TITLE": "Savu aĵojn, disdoni ilin!",
-    "VISION_INTRO": "Karrot estas ilo por ĉiaj popolaj iniciatoj, por konekti kaj helpi ilin kreskiĝi por subteni organizado de vizaĝaj aktivaĵoj per virtualaj rimedoj."
+    "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
+    "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
+    "TITLE": "Start a group, become a community",
+    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kichen..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Ĉu vi vere volas forigi tiun ĉi periodan aktivaĵon? Tio ĉi forigos ankaŭ ĉiujn aktivaĵojn kiuj apartenas al tiu ĉi periodan aktivaĵon (krom kaze ke homoj jam aliĝis).",
@@ -114,7 +114,10 @@
     "PREVIOUS": "Antaŭaj komentoj de {store}",
     "SET_AMOUNT": "Agordi kvanton",
     "TITLE": "Komentoj",
-    "TOGETHER_WITH": "Ni faris tion ĉi kun:"
+    "TOGETHER_WITH": "Ni faris tion ĉi kun:",
+    "DISMISS_LABEL": "Dismiss",
+    "DISMISS_TITLE": "Dismiss feedback",
+    "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
   },
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Renkontiĝo",

@@ -9,7 +9,7 @@
     "SECTIONS": {
       "ACTIVITIES": {
         "DESCRIPTION": "Každá aktivita má několik slotů, do kterých se mohou členové skupiny přihlásit – tímto způsobem každý ví, kdo kam a kdy má jít. Později může být poskytnuta zpětná vazba.",
-        "SUBTITLE": "Do softwaru lze zadávat činnosti s konkrétním časem a místem, jako je např.  vyzvednutí  potravin v případě záchrany nesnězených potravin.",
+        "SUBTITLE": "V softwaru lze zadat aktivity s konkrétním časem a místem, jako jsou schůzky, vyzvednutí jídla, společenské akce nebo cokoli, co vaše skupina potřebuje.",
         "TITLE": "Rozdělení úkolů a činností"
       },
       "COMMUNICATION": {
@@ -17,13 +17,13 @@
         "TITLE": "Komunikace ve správném kontextu"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot je bezplatný open-source software vyvinutý se zpětnou vazbou a účastí lidí, kteří jej používají. Je vyvíjen malým jádrem týmu, který je neustále v kontaktu s lidmi v různých skupinách, aby pochopil jejich odlišné i společné potřeby, a tak vedl vývoj. Dodržujeme etiku integrity a nekomerčního využití dat.",
-        "DESCRIPTION2": "Vývojáři a designéři jsou samozřejmě vítáni k účasti na vývoji software. Podívejte se na projekt na {code}u.",
+        "DESCRIPTION": "Karrot je vyráběn jeho uživateli: bezplatný a open-source software vyvinutý na základě zpětné vazby a účasti lidí, kteří jej používají. Vyvíjí jej hlavně malý základní tým, který je neustále v kontaktu s lidmi v různých skupinách, aby pochopil jejich odlišné a konvergující potřeby, a tím řídil vývoj. Řídíme se etikou integrity a nekomercializace dat.",
+        "DESCRIPTION2": "Vývojáři a designéři jsou samozřejmě vítáni, aby se podíleli na jeho vývoji.",
         "TITLE": "Demokratický a participativní vývoj"
       },
       "GROUPS": {
         "DESCRIPTION": "Přesto jsou všechny zobrazeny na mapě, aby je lidé mohli najít a připojit se i k jiným skupinám ve své lokalitě. A dokonce i celosvětově.",
-        "SUBTITLE": "Každá skupina v aplikaci Karrot je zcela nezávislá a může mít své vlastní logo, procesy a pravidla.",
+        "SUBTITLE": "Každá skupina na Karrotu je zcela nezávislá a může mít své vlastní logo, procesy, pravidla a dohody.",
         "TITLE": "Nezávislé skupiny"
       },
       "MAPS": {
@@ -36,7 +36,7 @@
       },
       "OFFERS": {
         "DESCRIPTION": "Nabídky jsou viditelné pro všechny ve skupině a lidé mohou projevit zájem o nabídku svým komentářem.",
-        "SUBTITLE": "Vytvořte nabídku podobnou inzerátům, co chcete sdílet, nebo nabídnout.",
+        "SUBTITLE": "Vytvořte nabídku všeho, co chcete sdílet nebo rozdat.",
         "TITLE": "Sdílejte věci"
       },
       "OPENSOURCE": {
@@ -60,10 +60,10 @@
         "TITLE": "Demokratické a na důvěře založené vedení skupiny"
       }
     },
-    "SUBTITLE1": "Karrot tu je pro skupiny lidí, kteří chtějí zachránit věci před plýtváním. Místo toho je mohou sdílet. Umožňuje těmto skupinám organizovat se na místním a dobrovolném základě.",
-    "SUBTITLE2": "Věci, jako je nesnězené jídlo, jízdní kola, oblečení nebo cokoli, jsou v kontextu konzumní společnosti zbytečně vyhazovány, nebo nevyužity.",
-    "TITLE": "Zachraňte věci před vyhozením. Místo toho je někomu nabídněte!",
-    "VISION_INTRO": "Karrot je nástrojem pro všechny druhy místních iniciativ, které se spojují a rostou. Podporuje koordinaci osobních činností s vrstvou digitální infrastruktury."
+    "SUBTITLE1": "Karrot je bezplatný a otevřený nástroj pro místní iniciativy a skupiny lidí, které chtějí koordinovat osobní činnosti na místní, autonomní a dobrovolné bázi.",
+    "SUBTITLE2": "Je navržen tak, aby umožňoval budování komunity a podporoval transparentnější, demokratičtější a participativnější správu vaší skupiny.",
+    "TITLE": "Založte skupinu, staňte se komunitou",
+    "VISION_INTRO": "Ať už šetříte a sdílíte jídlo, provozujete bezplatný obchod nebo tržiště, udržujete komunitní zahradu nebo kuchyňku na kolech ..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Opravdu chcete tuto sérii smazat? Tím také odstraníte všechny aktivity, které patří do této série (kromě případů, kdy se již lidé připojili).",
@@ -114,7 +114,10 @@
     "PREVIOUS": "Předchozí zpětná vazba pro {store}",
     "SET_AMOUNT": "Nastavit množství",
     "TITLE": "Zpětná vazba",
-    "TOGETHER_WITH": "Udělali jste to společně s:"
+    "TOGETHER_WITH": "Udělali jste to společně s:",
+    "DISMISS_LABEL": "Dismiss",
+    "DISMISS_TITLE": "Dismiss feedback",
+    "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
   },
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Setkání",

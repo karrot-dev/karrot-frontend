@@ -279,7 +279,7 @@ import {
   QBtn,
 } from 'quasar'
 import ActivityUsers from './ActivityUsers'
-import CustomDialog from '@/activities/components/CustomDialog'
+import CustomDialog from '@/utils/components/CustomDialog'
 
 export default {
   components: {

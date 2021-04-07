@@ -9,7 +9,7 @@
     "SECTIONS": {
       "ACTIVITIES": {
         "DESCRIPTION": "प्रत्येक गतिविधि में कई स्लॉट होते हैं, जिसके लिए समूह के सदस्य जुड़ सकते हैं –  इस तरह से हर कोई जानता है कि कौन कहाँ और कब जाता है, और प्रतिक्रिया बाद में दी जा सकती है।",
-        "SUBTITLE": "एक विशिष्ट समय और स्थान के साथ गतिविधियों, जैसे भोजन की बचत के मामले में भोजन पिकअप, को ऐप में दर्ज किया जा सकता है।",
+        "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
         "TITLE": "कार्यों और गतिविधियों का वितरण"
       },
       "COMMUNICATION": {
@@ -17,13 +17,13 @@
         "TITLE": "सही संदर्भ में संचार"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot एक स्वतंत्र और ओपन-सोर्स ऐप है जो इसे इस्तेमाल करने वाले लोगों की प्रतिक्रिया और भागीदारी के साथ विकसित किया गया है। यह मुख्य रूप से एक छोटी सी कोर टीम द्वारा विकसित किया गया है जो विभिन्न समूहों में लोगों के साथ लगातार संपर्क में है, ताकि उनकी अपसारी और मिलने की जरूरतों को समझ सकें और इस प्रकार विकास को दिशा दे सकें। हम अखंडता और डेटा के गैर-व्यावसायीकरण की नैतिकता का पालन करते हैं।",
-        "DESCRIPTION2": "डेवलपर्स और डिजाइनर का इस ऐप के विकास में भाग लेने लिए हम स्वागत करते हैं। {code} पर प्रोजेक्ट की जाँच करें।",
+        "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
+        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development.",
         "TITLE": "लोकतांत्रिक और सहभागी विकास"
       },
       "GROUPS": {
         "DESCRIPTION": "फिर भी वे सभी नक़्शे पर प्रदर्शित किए जाते हैं ताकि लोग अपने स्थान और यहां तक कि वैश्विक स्तर पर अन्य समूहों को ढूंढ सकें और उनसे जुड़ सकें।",
-        "SUBTITLE": "karrot पर हर समूह पूरी तरह से स्वतंत्र है और उनके अपने प्रतीक चिन्ह, प्रक्रियाएं और नियम हो सकते हैं।",
+        "SUBTITLE": "Every group on Karrot is completely independent and can have their own logo, processes, rules and agreements.",
         "TITLE": "स्वतंत्र समूह"
       },
       "MAPS": {
@@ -36,7 +36,7 @@
       },
       "OFFERS": {
         "DESCRIPTION": "समूह में प्रस्ताव सभी को दिखाई देते हैं और लोग प्रस्ताव में चैट द्वारा अपनी रुचि दिखा सकते हैं।",
-        "SUBTITLE": "जो भी आप साझा करना चाहते हैं या देना चाहते हैं, उसका एक विज्ञापन जैसा प्रस्ताव बनाएं।",
+        "SUBTITLE": "Create an offer of whatever you want to share or give away.",
         "TITLE": "बातें साझा करें"
       },
       "OPENSOURCE": {
@@ -60,10 +60,10 @@
         "TITLE": "लोकतांत्रिक और विश्वास-आधारित समूह प्रबंधन"
       }
     },
-    "SUBTITLE1": "Karrot उन लोगों के समूहों के लिए मौजूद है जो चीजों को बर्बाद होने से बचाना चाहते हैं और उन्हें साझा करना चाहते हैं, जिससे इन समूहों को स्थानीय और स्वैच्छिक आधार पर कुशलतापूर्वक व्यवस्थित करने की अनुमति मिलती है।",
-    "SUBTITLE2": "ऐसी चीजें जो उपभोक्तावादी समाज द्वारा भोजन, बाइक, कपड़े या जो कुछ भी अत्यधिक फेंका या अप्रयुक्त किया जाता है।",
-    "TITLE": "चीजों को बर्बाद होने से बचाएं, इसके बजाय उन्हें साझा करें!",
-    "VISION_INTRO": "Karrot एक ऐसा माध्यम है जो सारे जमीनी स्तर वाले उपक्रम को जोड़ता है, डिजिटल माध्यम से आमने-सामने की गतिविधियों के समन्वय करता है,उन्हें बढ़ने में मदद करता है, "
+    "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
+    "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
+    "TITLE": "Start a group, become a community",
+    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kichen..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
@@ -114,7 +114,10 @@
     "PREVIOUS": "{store} के लिए पिछली प्रतिक्रिया",
     "SET_AMOUNT": "राशि तय करें",
     "TITLE": "प्रतिक्रिया",
-    "TOGETHER_WITH": "You did this together with:"
+    "TOGETHER_WITH": "You did this together with:",
+    "DISMISS_LABEL": "Dismiss",
+    "DISMISS_TITLE": "Dismiss feedback",
+    "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
   },
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Meeting",

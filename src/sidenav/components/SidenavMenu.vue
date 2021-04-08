@@ -24,6 +24,7 @@
         side
       >
         <InfoPopup
+          :tooltip="info.title"
           :title="info.title"
           :description="info.description"
           :info-link="{ text: info.link.text, href: info.link.href }"

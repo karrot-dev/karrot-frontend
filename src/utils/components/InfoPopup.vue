@@ -5,7 +5,7 @@
     flat
     color="green"
     icon="fas fa-question-circle"
-    :title="title"
+    :title="tooltip"
     @click.prevent
   >
     <QMenu
@@ -52,6 +52,10 @@ export default {
     QMenu,
   },
   props: {
+    tooltip: {
+      default: '',
+      type: String,
+    },
     title: {
       default: '',
       type: String,

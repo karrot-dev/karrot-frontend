@@ -100,7 +100,7 @@ export default {
     userFilterOptions () {
       return [
         {
-          label: 'All users',
+          label: this.$t('STATISTICS.FILTER_ALL_USERS'),
           value: null,
         },
         ...this.usersAsOptions,

@@ -2,10 +2,10 @@
   <component :is="$q.platform.is.mobile ? 'div' : 'QCard'">
     <ChangePhoto
       v-if="!isNew"
-      :value="value"
-      :status="status"
-      :label="$t('GROUP.LOGO')"
       :hint="$t('GROUP.SET_LOGO')"
+      :label="$t('GROUP.LOGO')"
+      :status="status"
+      :value="value"
       @save="$emit('save', { id: value.id, photo: arguments[0] })"
     />
     <div
@@ -13,15 +13,21 @@
       :class="{ changed: hasChanged }"
     >
       <form @submit.prevent="maybeSave">
+        <h4 class="text-primary q-mt-none q-mb-lg">
+          {{ $t('GROUP.HEADINGS.GENERAL') }}
+        </h4>
+
         <QInput
           v-if="!edit.isPlayground"
           id="group-title"
           v-model="edit.name"
-          :label="$t('GROUP.TITLE')"
+          :autofocus="!$q.platform.has.touch"
           :error="hasNameError"
           :error-message="nameError"
-          :autofocus="!$q.platform.has.touch"
+          :label="$t('GROUP.TITLE')"
           autocomplete="off"
+          outlined
+          class="q-mb-lg"
           @blur="$v.edit.name.$touch"
         >
           <template #before>
@@ -32,63 +38,58 @@
         <MarkdownInput
           v-if="!edit.isPlayground"
           v-model="edit.publicDescription"
-          icon="fas fa-fw fa-question"
-          :label="$t('GROUPINFO.TITLE')"
           :error="hasError('publicDescription')"
           :error-message="firstError('publicDescription')"
+          :label="$t('GROUPINFO.TITLE')"
+          icon="fas fa-fw fa-question"
+          outlined
+          class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
         />
 
         <MarkdownInput
           v-model="edit.description"
-          icon="fas fa-fw fa-address-card"
-          :label="$t('GROUP.DESCRIPTION_VERBOSE')"
           :error="hasError('description')"
           :error-message="firstError('description')"
+          :label="$t('GROUP.DESCRIPTION_VERBOSE')"
+          icon="fas fa-fw fa-address-card"
+          outlined
+          class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
         />
 
-        <MarkdownInput
-          v-if="!edit.isOpen"
-          v-model="edit.welcomeMessage"
-          icon="fas fa-fw fa-address-card"
-          :label="$t('GROUP.WELCOMEMESSAGE_VERBOSE')"
-          :error="hasError('welcomeMessage')"
-          :error-message="firstError('welcomeMessage')"
-          @keyup.ctrl.enter="maybeSave"
-        />
+        <h4 class="text-primary q-mt-xl q-mb-lg">
+          {{ $t('GROUP.HEADINGS.LOCATION') }}
+          <InfoPopup
+            :title="$t('INFO')"
+            :description="$t('GROUP.HEADINGS.LOCATION_HINT')"
+          />
+        </h4>
 
         <AddressPicker
           v-model="edit"
           :color="isNew ? 'blue' : 'positive'"
-          font-icon="fas fa-home"
-          icon="fas fa-fw fa-map-marker"
-          :label="$t('GROUP.ADDRESS')"
           :error="hasAddressError"
           :error-message="addressError"
-        />
-
-        <MarkdownInput
-          v-if="!edit.isOpen"
-          icon="fas fa-fw fa-question"
-          :value="applicationQuestionsOrDefault"
-          :label="$t('GROUP.APPLICATION_QUESTIONS')"
-          :error="hasError('applicationQuestions')"
-          :error-message="firstError('applicationQuestions')"
-          @input="applicationQuestionsInput"
-          @keyup.ctrl.enter="maybeSave"
+          :label="$t('GROUP.ADDRESS')"
+          font-icon="fas fa-home"
+          icon="fas fa-fw fa-map-marker"
+          outlined
+          class="q-mb-lg"
         />
 
         <QSelect
           v-model="edit.timezone"
-          :label="$t('GROUP.TIMEZONE')"
           :error="hasTimezoneError"
           :error-message="timezoneError"
-          input-debounce="0"
+          :label="$t('GROUP.TIMEZONE')"
           :options="filteredTimezones"
-          use-input
           fill-input
           hide-selected
+          input-debounce="0"
+          outlined
+          use-input
+          class="q-mb-lg"
           @filter="timezoneFilter"
           @blur="$v.edit.timezone.$touch"
         >
@@ -97,12 +98,46 @@
           </template>
         </QSelect>
 
+        <h4 class="text-primary q-mt-xl q-mb-lg">
+          {{ $t('GROUP.HEADINGS.NEW_MEMBERS_SIGNUP') }}
+          <InfoPopup
+            :title="$t('INFO')"
+            :description="$t('GROUP.HEADINGS.NEW_MEMBERS_SIGNUP_HINT')"
+          />
+        </h4>
+
+        <MarkdownInput
+          v-if="!edit.isOpen"
+          :error="hasError('applicationQuestions')"
+          :error-message="firstError('applicationQuestions')"
+          :label="$t('GROUP.APPLICATION_QUESTIONS')"
+          :value="applicationQuestionsOrDefault"
+          icon="fas fa-fw fa-question"
+          outlined
+          class="q-mb-lg"
+          @input="applicationQuestionsInput"
+          @keyup.ctrl.enter="maybeSave"
+        />
+
+        <MarkdownInput
+          v-if="!edit.isOpen"
+          v-model="edit.welcomeMessage"
+          :error="hasError('welcomeMessage')"
+          :error-message="firstError('welcomeMessage')"
+          :label="$t('GROUP.WELCOMEMESSAGE_VERBOSE')"
+          icon="fas fa-fw fa-address-card"
+          outlined
+          class="q-mb-lg"
+          @keyup.ctrl.enter="maybeSave"
+        />
+
         <div
           v-if="hasNonFieldError"
           class="text-negative"
         >
           {{ firstNonFieldError }}
         </div>
+
         <div class="row justify-end q-gutter-sm q-mt-sm">
           <QBtn
             v-if="!isNew"
@@ -133,6 +168,7 @@ import {
   QCard,
   QInput,
   QBtn,
+  QMenu,
   QSelect,
   QIcon,
 } from 'quasar'
@@ -143,6 +179,7 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
+import InfoPopup from '@/utils/components/InfoPopup'
 
 export default {
   name: 'GroupEdit',
@@ -150,11 +187,13 @@ export default {
     QCard,
     QInput,
     QBtn,
+    QMenu,
     QSelect,
     QIcon,
     AddressPicker,
     MarkdownInput,
     ChangePhoto,
+    InfoPopup,
   },
   mixins: [validationMixin, editMixin, statusMixin],
   props: {

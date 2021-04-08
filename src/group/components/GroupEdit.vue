@@ -43,7 +43,6 @@
           :label="$t('GROUPINFO.TITLE')"
           icon="fas fa-fw fa-question"
           outlined
-          :tmp-new-border-style="true"
           class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
         />
@@ -55,7 +54,6 @@
           :label="$t('GROUP.DESCRIPTION_VERBOSE')"
           icon="fas fa-fw fa-address-card"
           outlined
-          :tmp-new-border-style="true"
           class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
         />
@@ -74,7 +72,6 @@
           :error="hasAddressError"
           :error-message="addressError"
           :label="$t('GROUP.ADDRESS')"
-          :tmp-new-border-style="true"
           font-icon="fas fa-home"
           icon="fas fa-fw fa-map-marker"
           outlined
@@ -117,7 +114,6 @@
           :value="applicationQuestionsOrDefault"
           icon="fas fa-fw fa-question"
           outlined
-          :tmp-new-border-style="true"
           class="q-mb-lg"
           @input="applicationQuestionsInput"
           @keyup.ctrl.enter="maybeSave"
@@ -131,7 +127,6 @@
           :label="$t('GROUP.WELCOMEMESSAGE_VERBOSE')"
           icon="fas fa-fw fa-address-card"
           outlined
-          :tmp-new-border-style="true"
           class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
         />
@@ -330,13 +325,4 @@ export default {
 
 <style scoped lang="stylus">
 @import '~editbox'
-
-.q-field--outlined >>> .q-field__control:before {
-  border 1px solid rgba(0, 0, 0, 0.15)
-}
-
-.q-field--outlined.q-field--highlighted >>> .q-field__control:not(.text-negative):after {
-  border-color rgba(0, 0, 0, 0.45)
-}
-
 </style>

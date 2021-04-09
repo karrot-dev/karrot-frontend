@@ -138,7 +138,7 @@
         color="secondary"
         :class="{ 'full-width': $q.platform.is.mobile }"
         class="activity-item-button"
-        :href="`/api/activities-ics/${activity.id}/`"
+        :href="`/api/activities/${activity.id}/ics/`"
       >
         <template #default>
           <div>

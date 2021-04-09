@@ -131,12 +131,12 @@
       class="row no-padding full-width conversation-section"
     >
       <QBtn
+        v-if="activity.isUserMember"
         flat
         no-caps
         align="between"
         type="a"
         color="secondary"
-        :class="{ 'full-width': $q.platform.is.mobile }"
         class="activity-item-button"
         :href="`/api/activities/${activity.id}/ics/`"
       >
@@ -147,7 +147,7 @@
               size="xs"
               class="q-mr-xs icon-left"
             />
-            <span>{{ $t('ACTIVITYLIST.ITEM.EXPORT_ICS') }}</span>
+            <span>{{ $t('ACTIVITYLIST.ITEM.DOWNLOAD_ICS') }}</span>
           </div>
         </template>
       </QBtn>
@@ -156,7 +156,6 @@
         no-caps
         align="between"
         color="secondary"
-        :class="{ 'full-width': $q.platform.is.mobile }"
         class="activity-item-button"
         @click.native.stop="detail"
       >

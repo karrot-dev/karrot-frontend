@@ -13,3 +13,4 @@ Closes ___ (e.g. #230)
 - [ ] asked someone for a code review
 - [ ] joined [chat.foodsaving.world/channel/karrot-dev](https://chat.foodsaving.world/channel/karrot-dev)
 - [ ] added an entry to CHANGELOG.md (description, pull request link, username(s))
+- [ ] tried out on a mobile device (does everything work as expected on a smaller screen?)

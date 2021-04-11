@@ -1,0 +1,63 @@
+<template>
+  <div
+    class="row q-gutter-md q-mt-md landing-buttons"
+    :class="{ 'align-left-on-bigger-screens': alignLeftOnBiggerScreens }"
+  >
+    <RouterLink
+      :to="{ name: 'signup' }"
+    >
+      <QBtn
+        :label="$t('SIGNUP.TITLE')"
+        color="secondary"
+        unelevated
+        class="button"
+      />
+    </RouterLink>
+    <RouterLink
+      :to="{ name: 'groupsGallery' }"
+    >
+      <QBtn
+        :label="$t('JOINGROUP.BROWSE_GROUPS')"
+        color="secondary"
+        outline
+        class="button"
+      />
+    </RouterLink>
+  </div>
+</template>
+
+<script>
+import { QBtn } from 'quasar'
+
+export default {
+  components: {
+    QBtn,
+  },
+  props: {
+    alignLeftOnBiggerScreens: {
+      type: Boolean,
+      default: false,
+    },
+  },
+}
+</script>
+
+<style scoped lang="stylus">
+.landing-buttons
+  justify-content center
+  margin-left -10px
+
+  > *
+    margin-left 10px
+
+  &.align-left-on-bigger-screens
+    @media (min-width: 600px)
+      justify-content flex-start
+
+  a
+    flex-shrink 0
+
+    .button
+      @media (min-width: 410px)
+        font-size 1rem
+</style>

@@ -63,7 +63,7 @@
     "SUBTITLE1": "Karrot je bezplatný a otevřený nástroj pro místní iniciativy a skupiny lidí, které chtějí koordinovat osobní činnosti na místní, autonomní a dobrovolné bázi.",
     "SUBTITLE2": "Je navržen tak, aby umožňoval budování komunity a podporoval transparentnější, demokratičtější a participativnější správu vaší skupiny.",
     "TITLE": "Založte skupinu, staňte se komunitou",
-    "VISION_INTRO": "Ať už šetříte a sdílíte jídlo, provozujete bezplatný obchod nebo tržiště, udržujete komunitní zahradu nebo kuchyňku na kolech ..."
+    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kitchen..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Opravdu chcete tuto sérii smazat? Tím také odstraníte všechny aktivity, které patří do této série (kromě případů, kdy se již lidé připojili).",
@@ -115,9 +115,9 @@
     "SET_AMOUNT": "Nastavit množství",
     "TITLE": "Zpětná vazba",
     "TOGETHER_WITH": "Udělali jste to společně s:",
-    "DISMISS_LABEL": "Dismiss",
-    "DISMISS_TITLE": "Dismiss feedback",
-    "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
+    "DISMISS_LABEL": "Odmítnout",
+    "DISMISS_TITLE": "Odmítnout zpětnou vazbu",
+    "DISMISS_MESSAGE": "Opravdu chcete tuto zpětnou vazbu odmítnout? Později k této aktivitě nebudete moci poskytnout zpětnou vazbu."
   },
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Setkání",
@@ -240,7 +240,7 @@
   },
   "COMMUNITY_FEED": {
     "HEADER": "Aktualizace z {community}",
-    "HEADER_LINK": "světová komunita pro záchranu jída",
+    "HEADER_LINK": "světová komunita pro záchranu jídla",
     "KARROT_DISCUSSION": "Diskuze o Karrot",
     "LAST_UPDATED": "Naposledy aktualizováno {relativeDate}"
   },
@@ -367,6 +367,13 @@
     "EDIT_ACTIVITY_TYPES": "Typy aktivit",
     "EDIT_DETAILS": "Podrobnosti o skupině",
     "EMAIL_NOTIFICATIONS": "E-mailová oznámení",
+    "HEADINGS": {
+      "GENERAL": "Všeobecné",
+      "LOCATION": "Umístění",
+      "LOCATION_HINT": "Pokud chcete, aby se poloha vaší skupiny zviditelnila na veřejné mapě, zadejte adresu nebo vyberte umístění na mapě níže.",
+      "NEW_MEMBERS_SIGNUP": "Registrace nových členů",
+      "NEW_MEMBERS_SIGNUP_HINT": "Noví členové budou muset podat přihlášku a být přijati do vaší skupiny. Aplikaci a uvítací zprávu můžete kdykoli později změnit v nastavení skupiny."
+    },
     "HISTORY": "Historie",
     "HOME": "Hlavní strana",
     "INACTIVE": "Neaktivní",

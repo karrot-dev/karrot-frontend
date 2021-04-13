@@ -4,6 +4,7 @@
     :class="{ 'align-left-on-bigger-screens': alignLeftOnBiggerScreens }"
   >
     <RouterLink
+      v-if="!isLoggedIn"
       :to="{ name: 'signup' }"
     >
       <QBtn
@@ -27,6 +28,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { QBtn } from 'quasar'
 
 export default {
@@ -38,6 +40,11 @@ export default {
       type: Boolean,
       default: false,
     },
+  },
+  computed: {
+    ...mapGetters({
+      isLoggedIn: 'auth/isLoggedIn',
+    }),
   },
 }
 </script>

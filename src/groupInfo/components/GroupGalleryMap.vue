@@ -35,7 +35,7 @@ export default {
       type: Object,
     },
     paddingTopLeft: {
-      default: () => ([0, 0]),
+      default: null,
       type: Array,
     },
   },

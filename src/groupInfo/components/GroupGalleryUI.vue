@@ -227,7 +227,7 @@ export default {
       if (this.expanded && window.innerWidth > 767 && this.$q.platform.is.desktop) {
         return [this.width, 0]
       }
-      return [0, 0]
+      return null
     },
   },
   methods: {

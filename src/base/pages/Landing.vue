@@ -153,7 +153,7 @@
         </li>
       </ul>
 
-      <div class="text-center q-pt-md">
+      <div class="text-center q-pt-sm">
         <KLandingButtons />
       </div>
     </section>

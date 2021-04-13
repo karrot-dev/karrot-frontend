@@ -65,7 +65,7 @@
             <p v-t="`ABOUT_KARROT.SECTIONS.${feature}.DESCRIPTION`" />
           </div>
           <div
-            class="col self-center"
+            class="col self-center feature_img"
             :class="[ idx % 2 !== 0 ? 'swap feature_img-left' : 'feature_img-right' ]"
           >
             <img
@@ -360,11 +360,12 @@ export default {
       text-underline-offset 2px
 
   >>> p
-    margin 7px 0
+    margin 8px 0
     font-size 1.0625rem // 17px
     color rgba(0, 0, 0, 0.74)
 
     @media (min-width: 600px)
+      margin 11px 0
       font-size 1.25rem // 20px
 
   h2
@@ -399,8 +400,13 @@ export default {
       margin-left 50%
       transform translateX(-50%)
 
-  // on wider screens alternate the left/right ordering
+  .feature_img
+    padding-top 11px
+    @media (min-width: 600px)
+      padding-top 0
+
   @media (min-width: 600px)
+    // on wider screens alternate the left/right ordering
     .swap
       order -1000
 

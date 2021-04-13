@@ -189,7 +189,7 @@ export default {
   },
   data () {
     return {
-      width: -1,
+      width: -1, // will get set by our QResizeObserver later
       search: '',
       expanded: true,
       showInactive: false,
@@ -224,7 +224,7 @@ export default {
     paddingTopLeft () {
       // when the sidebar is open on a wide enough desktop screen
       // we set the padding so the markers aren't displayed underneath the sidebar
-      if (this.expanded && this.$q.platform.is.desktop) {
+      if (this.expanded && this.$q.platform.is.desktop && this.width !== -1) {
         return [this.width, 0]
       }
       return null

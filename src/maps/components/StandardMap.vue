@@ -1,12 +1,12 @@
 <template>
   <LMap
+    ref="map"
     class="k-map"
     :bounds="bounds"
     :center="center"
     :zoom="zoom"
     :padding-top-left="paddingTopLeft"
     :min-zoom="2"
-    ref="map"
     @click="mapClick"
     @moveend="$emit('map-move-end', arguments[0].target)"
     @update:zoom="updateZoom"

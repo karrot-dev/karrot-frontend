@@ -32,6 +32,7 @@ Please document your changes in this format:
 ### Added
 - enabled Hungarian locale @nicksellen [#2313]
 - add activity type editing @nicksellen [#2245]
+- add ics export for activities @amengsk [#2321]
 
 ### Changed
 - use default group location for defaultMapCenter when creating a new place @larzon83 [#2293]

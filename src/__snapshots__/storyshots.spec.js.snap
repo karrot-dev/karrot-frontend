@@ -888,8 +888,9 @@ exports[`Storyshots ActivityItem disabled 1`] = `
       </div>
     </div>
   </div>
-  <div class="row no-padding full-width conversation-section q-card__section q-card__section--vert justify-end"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline open-conversation-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-between row"><div><i aria-hidden="true" role="presentation" class="q-mr-xs icon-left material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span>Open Chat</span></div> <i aria-hidden="true" role="presentation" class="icon-right material-icons q-icon notranslate q-ml-sm">chevron_right</i></span></span></button>
-</div>
+  <div class="row no-padding full-width justify-end bottom-actions q-card__section q-card__section--vert">
+    <!----> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline action-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="q-mr-xs icon-chat material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span class="block">Open Chat</span></span></span></button>
+  </div>
 </div>
 `;
 
@@ -942,8 +943,9 @@ exports[`Storyshots ActivityItem full 1`] = `
       </div>
     </div>
   </div>
-  <div class="row no-padding full-width conversation-section q-card__section q-card__section--vert justify-end"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline open-conversation-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-between row"><div><i aria-hidden="true" role="presentation" class="q-mr-xs icon-left material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span>Open Chat</span></div> <i aria-hidden="true" role="presentation" class="icon-right material-icons q-icon notranslate q-ml-sm">chevron_right</i></span></span></button>
-</div>
+  <div class="row no-padding full-width justify-end bottom-actions q-card__section q-card__section--vert">
+    <!----> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline action-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="q-mr-xs icon-chat material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span class="block">Open Chat</span></span></span></button>
+  </div>
 </div>
 `;
 
@@ -996,8 +998,9 @@ exports[`Storyshots ActivityItem join 1`] = `
       </div>
     </div>
   </div>
-  <div class="row no-padding full-width conversation-section q-card__section q-card__section--vert justify-end"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline open-conversation-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-between row"><div><i aria-hidden="true" role="presentation" class="q-mr-xs icon-left material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span>Open Chat</span></div> <i aria-hidden="true" role="presentation" class="icon-right material-icons q-icon notranslate q-ml-sm">chevron_right</i></span></span></button>
-</div>
+  <div class="row no-padding full-width justify-end bottom-actions q-card__section q-card__section--vert">
+    <!----> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline action-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="q-mr-xs icon-chat material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span class="block">Open Chat</span></span></span></button>
+  </div>
 </div>
 `;
 
@@ -1049,8 +1052,7 @@ exports[`Storyshots ActivityItem joined 1`] = `
       </div>
     </div>
   </div>
-  <div class="row no-padding full-width conversation-section q-card__section q-card__section--vert justify-end"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline open-conversation-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-between row"><div><i aria-hidden="true" role="presentation" class="q-mr-xs icon-left material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span>Open Chat</span></div> <i aria-hidden="true" role="presentation" class="icon-right material-icons q-icon notranslate q-ml-sm">chevron_right</i></span></span></button>
-</div>
+  <div class="row no-padding full-width justify-end bottom-actions q-card__section q-card__section--vert"><a tabindex="0" role="link" href="/api/activities/3/ics/" class="q-btn q-btn-item non-selectable no-outline action-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="q-mr-xs fas fa-calendar-plus q-icon notranslate" style="font-size:18px;"> </i> <span>Download ICS</span></span></span></a> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline action-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="q-mr-xs icon-chat material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span class="block">Open Chat</span></span></span></button></div>
 </div>
 `;
 
@@ -1099,8 +1101,9 @@ exports[`Storyshots ActivityItem pending 1`] = `
       </div>
     </div>
   </div>
-  <div class="row no-padding full-width conversation-section q-card__section q-card__section--vert justify-end"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline open-conversation-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-between row"><div><i aria-hidden="true" role="presentation" class="q-mr-xs icon-left material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span>Open Chat</span></div> <i aria-hidden="true" role="presentation" class="icon-right material-icons q-icon notranslate q-ml-sm">chevron_right</i></span></span></button>
-</div>
+  <div class="row no-padding full-width justify-end bottom-actions q-card__section q-card__section--vert">
+    <!----> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline action-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="q-mr-xs icon-chat material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span class="block">Open Chat</span></span></span></button>
+  </div>
 </div>
 `;
 
@@ -1153,8 +1156,9 @@ exports[`Storyshots ActivityItem started 1`] = `
       </div>
     </div>
   </div>
-  <div class="row no-padding full-width conversation-section q-card__section q-card__section--vert justify-end"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline open-conversation-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-between row"><div><i aria-hidden="true" role="presentation" class="q-mr-xs icon-left material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span>Open Chat</span></div> <i aria-hidden="true" role="presentation" class="icon-right material-icons q-icon notranslate q-ml-sm">chevron_right</i></span></span></button>
-</div>
+  <div class="row no-padding full-width justify-end bottom-actions q-card__section q-card__section--vert">
+    <!----> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline action-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="q-mr-xs icon-chat material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span class="block">Open Chat</span></span></span></button>
+  </div>
 </div>
 `;
 
@@ -1219,178 +1223,183 @@ exports[`Storyshots ActivityList Default 1`] = `
           </div>
         </div>
       </div>
-      <div class="row no-padding full-width conversation-section q-card__section q-card__section--vert justify-end"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline open-conversation-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-between row"><div><i aria-hidden="true" role="presentation" class="q-mr-xs icon-left material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span>Open Chat</span></div> <i aria-hidden="true" role="presentation" class="icon-right material-icons q-icon notranslate q-ml-sm">chevron_right</i></span></span></button>
+      <div class="row no-padding full-width justify-end bottom-actions q-card__section q-card__section--vert">
+        <!----> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline action-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="q-mr-xs icon-chat material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span class="block">Open Chat</span></span></span></button>
+      </div>
     </div>
-  </div>
-  <div class="q-card">
-    <div class="no-padding content q-card__section q-card__section--vert isEmpty">
-      <div class="content-inner">
-        <div class="row no-wrap items-start justify-between">
-          <div><strong class="featured-text">
+    <div class="q-card">
+      <div class="no-padding content q-card__section q-card__section--vert isEmpty">
+        <div class="content-inner">
+          <div class="row no-wrap items-start justify-between">
+            <div><strong class="featured-text">
             12:00 PM
             <!----></strong>
-            Sunday, December 24, 2017
-          </div> <i aria-hidden="true" role="presentation" title="" class="q-ml-sm q-icon notranslate" style="font-size:18px;top:1px;"></i>
-        </div>
-        <!---->
-        <!---->
-        <!---->
-        <div class="q-mt-sm q-mb-none full-width">
-          <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-            <!---->
-            <div class="user-slot-wrapper active" style="width:36px;height:36px;">
-              <div title="Join" class="show-picture-on-hover">
-                <div class="wrapper" style="width:36px;height:36px;">
-                  <div text="User 11" seed="11" class="randomArt fill"></div>
+              Sunday, December 24, 2017
+            </div> <i aria-hidden="true" role="presentation" title="" class="q-ml-sm q-icon notranslate" style="font-size:18px;top:1px;"></i>
+          </div>
+          <!---->
+          <!---->
+          <!---->
+          <div class="q-mt-sm q-mb-none full-width">
+            <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+              <!---->
+              <div class="user-slot-wrapper active" style="width:36px;height:36px;">
+                <div title="Join" class="show-picture-on-hover">
+                  <div class="wrapper" style="width:36px;height:36px;">
+                    <div text="User 11" seed="11" class="randomArt fill"></div>
+                  </div>
                 </div>
               </div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="emptySlots" style="width:36px;height:36px;">
+                <div></div> <span>+ 4</span>
+                <!---->
+                <!---->
+              </div>
             </div>
-            <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-            <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-            <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-            <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-            <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-            <div class="emptySlots" style="width:36px;height:36px;">
-              <div></div> <span>+ 4</span>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+      <div class="row no-padding full-width justify-end bottom-actions q-card__section q-card__section--vert">
+        <!----> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline action-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="q-mr-xs icon-chat material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span class="block">Open Chat</span></span></span></button>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="no-padding content q-card__section q-card__section--vert isEmpty">
+        <div class="content-inner">
+          <div class="row no-wrap items-start justify-between">
+            <div><strong class="featured-text">
+            12:00 PM
+            <!----></strong>
+              Sunday, December 24, 2017
+            </div> <i aria-hidden="true" role="presentation" title="" class="q-ml-sm q-icon notranslate" style="font-size:18px;top:1px;"></i>
+          </div>
+          <!---->
+          <!---->
+          <!---->
+          <div class="q-mt-sm q-mb-none full-width">
+            <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
               <!---->
+              <div class="user-slot-wrapper active" style="width:36px;height:36px;">
+                <div title="Join" class="show-picture-on-hover">
+                  <div class="wrapper" style="width:36px;height:36px;">
+                    <div text="User 11" seed="11" class="randomArt fill"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="emptySlots" style="width:36px;height:36px;">
+                <div></div> <span>+ 4</span>
+                <!---->
+                <!---->
+              </div>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+      <div class="row no-padding full-width justify-end bottom-actions q-card__section q-card__section--vert">
+        <!----> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline action-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="q-mr-xs icon-chat material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span class="block">Open Chat</span></span></span></button>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="no-padding content q-card__section q-card__section--vert isEmpty">
+        <div class="content-inner">
+          <div class="row no-wrap items-start justify-between">
+            <div><strong class="featured-text">
+            12:00 PM
+            <!----></strong>
+              Sunday, December 24, 2017
+            </div> <i aria-hidden="true" role="presentation" title="" class="q-ml-sm q-icon notranslate" style="font-size:18px;top:1px;"></i>
+          </div>
+          <!---->
+          <!---->
+          <!---->
+          <div class="q-mt-sm q-mb-none full-width">
+            <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
               <!---->
-            </div>
-          </div>
-          <!---->
-          <!---->
-        </div>
-      </div>
-    </div>
-    <div class="row no-padding full-width conversation-section q-card__section q-card__section--vert justify-end"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline open-conversation-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-between row"><div><i aria-hidden="true" role="presentation" class="q-mr-xs icon-left material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span>Open Chat</span></div> <i aria-hidden="true" role="presentation" class="icon-right material-icons q-icon notranslate q-ml-sm">chevron_right</i></span></span></button>
-  </div>
-</div>
-<div class="q-card">
-  <div class="no-padding content q-card__section q-card__section--vert isEmpty">
-    <div class="content-inner">
-      <div class="row no-wrap items-start justify-between">
-        <div><strong class="featured-text">
-            12:00 PM
-            <!----></strong>
-          Sunday, December 24, 2017
-        </div> <i aria-hidden="true" role="presentation" title="" class="q-ml-sm q-icon notranslate" style="font-size:18px;top:1px;"></i>
-      </div>
-      <!---->
-      <!---->
-      <!---->
-      <div class="q-mt-sm q-mb-none full-width">
-        <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <!---->
-          <div class="user-slot-wrapper active" style="width:36px;height:36px;">
-            <div title="Join" class="show-picture-on-hover">
-              <div class="wrapper" style="width:36px;height:36px;">
-                <div text="User 11" seed="11" class="randomArt fill"></div>
+              <div class="user-slot-wrapper active" style="width:36px;height:36px;">
+                <div title="Join" class="show-picture-on-hover">
+                  <div class="wrapper" style="width:36px;height:36px;">
+                    <div text="User 11" seed="11" class="randomArt fill"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="emptySlots" style="width:36px;height:36px;">
+                <div></div> <span>+ 4</span>
+                <!---->
+                <!---->
               </div>
             </div>
-          </div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="emptySlots" style="width:36px;height:36px;">
-            <div></div> <span>+ 4</span>
             <!---->
             <!---->
           </div>
         </div>
-        <!---->
-        <!---->
+      </div>
+      <div class="row no-padding full-width justify-end bottom-actions q-card__section q-card__section--vert">
+        <!----> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline action-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="q-mr-xs icon-chat material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span class="block">Open Chat</span></span></span></button>
       </div>
     </div>
-  </div>
-  <div class="row no-padding full-width conversation-section q-card__section q-card__section--vert justify-end"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline open-conversation-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-between row"><div><i aria-hidden="true" role="presentation" class="q-mr-xs icon-left material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span>Open Chat</span></div> <i aria-hidden="true" role="presentation" class="icon-right material-icons q-icon notranslate q-ml-sm">chevron_right</i></span></span></button>
-</div>
-</div>
-<div class="q-card">
-  <div class="no-padding content q-card__section q-card__section--vert isEmpty">
-    <div class="content-inner">
-      <div class="row no-wrap items-start justify-between">
-        <div><strong class="featured-text">
+    <div class="q-card">
+      <div class="no-padding content q-card__section q-card__section--vert isEmpty">
+        <div class="content-inner">
+          <div class="row no-wrap items-start justify-between">
+            <div><strong class="featured-text">
             12:00 PM
             <!----></strong>
-          Sunday, December 24, 2017
-        </div> <i aria-hidden="true" role="presentation" title="" class="q-ml-sm q-icon notranslate" style="font-size:18px;top:1px;"></i>
-      </div>
-      <!---->
-      <!---->
-      <!---->
-      <div class="q-mt-sm q-mb-none full-width">
-        <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+              Sunday, December 24, 2017
+            </div> <i aria-hidden="true" role="presentation" title="" class="q-ml-sm q-icon notranslate" style="font-size:18px;top:1px;"></i>
+          </div>
           <!---->
-          <div class="user-slot-wrapper active" style="width:36px;height:36px;">
-            <div title="Join" class="show-picture-on-hover">
-              <div class="wrapper" style="width:36px;height:36px;">
-                <div text="User 11" seed="11" class="randomArt fill"></div>
+          <!---->
+          <!---->
+          <div class="q-mt-sm q-mb-none full-width">
+            <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
+              <!---->
+              <div class="user-slot-wrapper active" style="width:36px;height:36px;">
+                <div title="Join" class="show-picture-on-hover">
+                  <div class="wrapper" style="width:36px;height:36px;">
+                    <div text="User 11" seed="11" class="randomArt fill"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
+              <div class="emptySlots" style="width:36px;height:36px;">
+                <div></div> <span>+ 4</span>
+                <!---->
+                <!---->
               </div>
             </div>
-          </div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="emptySlots" style="width:36px;height:36px;">
-            <div></div> <span>+ 4</span>
             <!---->
             <!---->
           </div>
         </div>
-        <!---->
-        <!---->
+      </div>
+      <div class="row no-padding full-width justify-end bottom-actions q-card__section q-card__section--vert">
+        <!----> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline action-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="q-mr-xs icon-chat material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span class="block">Open Chat</span></span></span></button>
       </div>
     </div>
   </div>
-  <div class="row no-padding full-width conversation-section q-card__section q-card__section--vert justify-end"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline open-conversation-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-between row"><div><i aria-hidden="true" role="presentation" class="q-mr-xs icon-left material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span>Open Chat</span></div> <i aria-hidden="true" role="presentation" class="icon-right material-icons q-icon notranslate q-ml-sm">chevron_right</i></span></span></button>
-</div>
-</div>
-<div class="q-card">
-  <div class="no-padding content q-card__section q-card__section--vert isEmpty">
-    <div class="content-inner">
-      <div class="row no-wrap items-start justify-between">
-        <div><strong class="featured-text">
-            12:00 PM
-            <!----></strong>
-          Sunday, December 24, 2017
-        </div> <i aria-hidden="true" role="presentation" title="" class="q-ml-sm q-icon notranslate" style="font-size:18px;top:1px;"></i>
-      </div>
-      <!---->
-      <!---->
-      <!---->
-      <div class="q-mt-sm q-mb-none full-width">
-        <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
-          <!---->
-          <div class="user-slot-wrapper active" style="width:36px;height:36px;">
-            <div title="Join" class="show-picture-on-hover">
-              <div class="wrapper" style="width:36px;height:36px;">
-                <div text="User 11" seed="11" class="randomArt fill"></div>
-              </div>
-            </div>
-          </div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="user-slot-wrapper greyedOut" style="width:36px;height:36px;"></div>
-          <div class="emptySlots" style="width:36px;height:36px;">
-            <div></div> <span>+ 4</span>
-            <!---->
-            <!---->
-          </div>
-        </div>
-        <!---->
-        <!---->
-      </div>
-    </div>
-  </div>
-  <div class="row no-padding full-width conversation-section q-card__section q-card__section--vert justify-end"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline open-conversation-button q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-between row"><div><i aria-hidden="true" role="presentation" class="q-mr-xs icon-left material-icons q-icon notranslate" style="font-size:18px;">chat</i> <span>Open Chat</span></div> <i aria-hidden="true" role="presentation" class="icon-right material-icons q-icon notranslate q-ml-sm">chevron_right</i></span></span></button>
-</div>
-</div>
-</div>
 </div>
 `;
 

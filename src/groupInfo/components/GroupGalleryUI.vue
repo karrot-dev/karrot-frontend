@@ -9,11 +9,16 @@
       :filtered-other-groups="filteredOtherGroups"
       :expanded="expanded"
       :my-coordinates="myCoordinates"
+      :padding-top-left="paddingTopLeft"
     />
     <div
       :class="{'expanded': expanded}"
       class="sidebar"
     >
+      <QResizeObserver
+        style="width: 100%"
+        @resize="onResize"
+      />
       <QBanner
         v-if="!isLoggedIn"
         class="q-ma-sm bg-warning text-white shadow-2"
@@ -144,6 +149,7 @@ import {
   QInput,
   QCheckbox,
   QIcon,
+  QResizeObserver,
 } from 'quasar'
 
 export default {
@@ -157,6 +163,7 @@ export default {
     QInput,
     QCheckbox,
     QIcon,
+    QResizeObserver,
   },
   props: {
     myGroups: {
@@ -182,6 +189,7 @@ export default {
   },
   data () {
     return {
+      width: -1, // will get set by our QResizeObserver later
       search: '',
       expanded: true,
       showInactive: false,
@@ -213,8 +221,19 @@ export default {
     hasOtherGroupsToShow () {
       return this.expanded && this.filteredOtherGroups.length > 0
     },
+    paddingTopLeft () {
+      // when the sidebar is open on a wide enough desktop screen
+      // we set the padding so the markers aren't displayed underneath the sidebar
+      if (this.expanded && this.$q.platform.is.desktop && this.width !== -1) {
+        return [this.width, 0]
+      }
+      return null
+    },
   },
   methods: {
+    onResize ({ width }) {
+      this.width = width
+    },
     searchInName (term, list) {
       if (!term || term === '') return list
       return list.filter(group => {

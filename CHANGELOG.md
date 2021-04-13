@@ -27,11 +27,13 @@ Please document your changes in this format:
 ### Changed
 - group: improve create/edit group form @larzon83 @layla19 @dpaque @pogopaule @brnsolikyl [#2306]
 - Landing page: change text and screenshots, add "about Karrot" component @brnsolikyl [#2317]
+- Improve calculation of map bounds on group gallery @nicksellen [#2333]
 
 ## [9.2.0] - 2020-03-23
 ### Added
 - enabled Hungarian locale @nicksellen [#2313]
 - add activity type editing @nicksellen [#2245]
+- add ics export for activities @amengsk [#2321]
 
 ### Changed
 - use default group location for defaultMapCenter when creating a new place @larzon83 [#2293]

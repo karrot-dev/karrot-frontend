@@ -63,7 +63,7 @@
     "SUBTITLE1": "Karrot ass ee fräit Geschier mat oppene Quelle fir all Zort vu Wuerzel-Initiativen a Gruppe vu Leit, déi Gesicht-zu-Gesicht-Aktivitéiten op enger lokaler, autonomer a fräiwëlleger Basis koordinéiere wëllen.",
     "SUBTITLE2": "Et ass designt esou, dass Gemeinschaftsbildung vereinfacht an eng méi transparent, demokratesch a participativ Gouvernance vun ärem Grupp ënnerstëtzt gëtt.",
     "TITLE": "Start eng Grupp, gitt eng Gemeinschaft",
-    "VISION_INTRO": "Egal ob dir Liewensmëttel rett an deelt, ee fräie Shop, ee Makerspace, ee Gemeinschaftsgaart oder eng Vëlos-Kichen hutt..."
+    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kitchen..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Wëlls du dës Serie wierklech läschen? Dëst wäert och all d'Aktivitéite läschen, déi zu dëser Serie gehéieren (ausser et hu sech scho Leit derfir ugemellt).",
@@ -115,9 +115,9 @@
     "SET_AMOUNT": "Quantitéit aginn",
     "TITLE": "Feedback",
     "TOGETHER_WITH": "Du hues dëst zesumme gemaach mam:",
-    "DISMISS_LABEL": "Dismiss",
-    "DISMISS_TITLE": "Dismiss feedback",
-    "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
+    "DISMISS_LABEL": "Verwerfen",
+    "DISMISS_TITLE": "Feedback verwerfen",
+    "DISMISS_MESSAGE": "Wëlls du dëse Feedback wierklech verwerfen? Du kanns en duerno net méi ginn."
   },
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Treffen",
@@ -151,8 +151,8 @@
     "STATUS_ARCHIVED_HINT": "Et wäert net méiglech sinn nei Aktivitéiten a Serie vun dësem Typ ze erstellen, awer déi, déi et ginn, wäerte bleiwen"
   },
   "ADDRESS_PICKER": {
-    "CHOOSE_LOCATION": "wiel den Uert op der Kaart",
-    "KEEP_EXISTING_LOCATION": "behal den Uert op der Kaart",
+    "CHOOSE_LOCATION": "wiel d'Plaz op der Kaart",
+    "KEEP_EXISTING_LOCATION": "behal d'Plaz op der Kaart",
     "SET_AS": "Adress setzen als"
   },
   "AGREEMENT": {
@@ -367,6 +367,13 @@
     "EDIT_ACTIVITY_TYPES": "Aktivitéitstypen",
     "EDIT_DETAILS": "Detailer vun der Grupp",
     "EMAIL_NOTIFICATIONS": "Benoriichtegungen via E-Mail",
+    "HEADINGS": {
+      "GENERAL": "Generell",
+      "LOCATION": "Plaz",
+      "LOCATION_HINT": "Wann's du d'Plaz vun denger Grupp op der ëffentlecher Kaart wëlls uweisen, gëff eng Adress an oder wiel eng Plaz op der Kaart hei drënner.",
+      "NEW_MEMBERS_SIGNUP": "Umeldung vun neie Memberen",
+      "NEW_MEMBERS_SIGNUP_HINT": "Nei Membere mussen sech bewerben a vun denger Grupp ugeholl ginn. D'Noriichte fir d'Bewerbung a fir d'Begréissung fir nei Membere kënne spéider an den Astellunge vum Grupp geännert ginn."
+    },
     "HISTORY": "Vergaangenheet",
     "HOME": "Doheem",
     "INACTIVE": "Inaktiv",
@@ -438,7 +445,7 @@
     "HIDE_GROUPS": "Gruppe verstoppen",
     "HIDE_PLACES": "Plaze verstoppen",
     "HIDE_USERS": "Benotzer verstoppen",
-    "SET_LOCATION": "Uert setzen",
+    "SET_LOCATION": "Plaz setzen",
     "SHOW_GROUPS": "Gruppe weisen",
     "SHOW_PLACES": "Plaze weisen",
     "SHOW_USERS": "Benotzer weisen",

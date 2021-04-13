@@ -8,7 +8,7 @@
       :filtered-my-groups="filteredMyGroups"
       :filtered-other-groups="filteredOtherGroups"
       :expanded="expanded"
-      :my-coordinates="false"
+      :my-coordinates="myCoordinates"
       :padding-top-left="paddingTopLeft"
     />
     <div

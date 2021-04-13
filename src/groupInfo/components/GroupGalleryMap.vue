@@ -101,13 +101,3 @@ export default {
   },
 }
 </script>
-
-<style scoped lang="stylus">
-.debug
-  position fixed
-  top 40px
-  right 40px
-  z-index 10000000
-  padding 20px
-  background-color rgba(255, 255, 255, 0.5)
-</style>

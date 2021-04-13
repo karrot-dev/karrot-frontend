@@ -224,7 +224,7 @@ export default {
     paddingTopLeft () {
       // when the sidebar is open on a wide enough desktop screen
       // we set the padding so the markers aren't displayed underneath the sidebar
-      if (this.expanded && window.innerWidth > 767 && this.$q.platform.is.desktop) {
+      if (this.expanded && this.$q.platform.is.desktop) {
         return [this.width, 0]
       }
       return null

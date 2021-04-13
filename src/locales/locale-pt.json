@@ -63,7 +63,7 @@
     "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
     "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
     "TITLE": "Start a group, become a community",
-    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kichen..."
+    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kitchen..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
@@ -367,6 +367,13 @@
     "EDIT_ACTIVITY_TYPES": "Activity types",
     "EDIT_DETAILS": "Group details",
     "EMAIL_NOTIFICATIONS": "Notificações por e-mail",
+    "HEADINGS": {
+      "GENERAL": "General",
+      "LOCATION": "Location",
+      "LOCATION_HINT": "If you want your group's location to be made visible on a public map, enter an adress or pick a location on the map below.",
+      "NEW_MEMBERS_SIGNUP": "New Members Signup",
+      "NEW_MEMBERS_SIGNUP_HINT": "New members will have to apply and get accepted to your group. You can always change the application and welcome message later in the group settings."
+    },
     "HISTORY": "Histórico",
     "HOME": "Home",
     "INACTIVE": "Inativos",

@@ -23,7 +23,7 @@
       <QImg
         :src="screenshots.activities"
         alt="karrot"
-        class="screenshot sdw3 screenshot-fullwidth"
+        class="sdw3 screenshot-fullwidth"
       />
     </div>
 
@@ -51,30 +51,20 @@
       <div
         v-for="(feature, idx) in features"
         :key="feature"
+        class="feature"
+        :class="[ idx === 0 ? 'q-mb-lg q-pb-lg' : 'q-my-lg q-py-lg', { swap: idx % 2 !== 0 }]"
       >
-        <div
-          class="row"
-          :class="[ idx === 0 ? 'q-mb-lg q-pb-lg' : 'q-my-lg q-py-lg']"
-        >
-          <div
-            class="col-sm-8 self-center"
-            :class="[ idx % 2 !== 0 ? 'feature_text-right' : 'feature_text-left' ]"
-          >
-            <h2 v-t="`ABOUT_KARROT.SECTIONS.${feature}.TITLE`" />
-            <p v-t="`ABOUT_KARROT.SECTIONS.${feature}.SUBTITLE`" />
-            <p v-t="`ABOUT_KARROT.SECTIONS.${feature}.DESCRIPTION`" />
-          </div>
-          <div
-            class="col self-center feature_img"
-            :class="[ idx % 2 !== 0 ? 'swap feature_img-left' : 'feature_img-right' ]"
-          >
-            <img
-              :src="screenshots[feature]"
-              alt="karrot"
-              class="screenshot sdw2"
-            >
-          </div>
+        <div class="feature__content">
+          <h2 v-t="`ABOUT_KARROT.SECTIONS.${feature}.TITLE`" />
+          <p v-t="`ABOUT_KARROT.SECTIONS.${feature}.SUBTITLE`" />
+          <p v-t="`ABOUT_KARROT.SECTIONS.${feature}.DESCRIPTION`" />
         </div>
+        <!-- TODO: create proper alt tags per image -->
+        <img
+          :src="screenshots[feature]"
+          alt="karrot"
+          class="feature__img sdw2"
+        >
       </div>
     </section>
 
@@ -346,6 +336,16 @@ export default {
       @media (min-width: 1050px)
         margin-right 25px
 
+  .screenshot-fullwidth
+    width 100%
+
+    @media (min-width: 1200px)
+      // horizontally center the oversized image
+      // (also needed an "overflow-x hidden" on the main page container, in Root)
+      width 1200px
+      margin-left 50%
+      transform translateX(-50%)
+
   section
     padding 30px 0
     margin 30px 0
@@ -389,33 +389,26 @@ export default {
     .img
       border-radius 4px
 
-  .screenshot
-    width 100%
+  .feature
+    display grid
+    grid-template-columns 1fr
+    grid-gap 15px
+    align-items center
+    justify-items end
 
-  .screenshot-fullwidth
-    @media (min-width: 1200px)
-      // horizontally center the oversized image
-      // (also needed an "overflow-x hidden" on the main page container, in Root)
-      width 1200px
-      margin-left 50%
-      transform translateX(-50%)
+    .feature__img
+      width 100%
+      min-width 220px
+      @media (min-width: 600px)
+        max-width 260px
 
-  .feature_img
-    padding-top 11px
     @media (min-width: 600px)
-      padding-top 0
+      grid-template-columns 1.35fr 0.65fr
+      grid-gap 48px
 
-  @media (min-width: 600px)
-    // on wider screens alternate the left/right ordering
-    .swap
-      order -1000
+      &.swap
+        grid-template-columns 0.65fr 1.35fr
 
-    .feature_text-left,
-    .feature_img-left
-      padding-right 24px
-
-    .feature_text-right,
-    .feature_img-right
-      padding-left 24px
-
+        .feature__img
+          order -1000
 </style>

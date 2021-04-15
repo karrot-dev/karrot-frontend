@@ -4,7 +4,8 @@
   >
     <MarkdownInput
       v-model="edit.comment"
-      class="q-mx-sm"
+      outlined
+      class="q-mx-md q-mt-md"
       :label="$t('ACTIVITY_FEEDBACK.COMMENT_PLACEHOLDER')"
       @keyup.ctrl.enter="maybeSave"
     />
@@ -12,7 +13,7 @@
     <AmountPicker
       v-if="hasWeight"
       v-model="edit.weight"
-      class="q-ml-sm"
+      class="q-mx-md"
       style="margin-top: 40px"
     />
 

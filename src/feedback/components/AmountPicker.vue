@@ -47,18 +47,20 @@
         <QSlider
           :value="limitedValue"
           :min="0"
-          :max="70"
+          :max="100"
           :step="0.5"
           label
-          class="self-center q-mx-md"
+          class="self-center q-mr-lg"
+          style="margin-left: 8px"
           @input="$emit('input', arguments[0])"
         />
         <!-- don't use type="number" here because browsers might enforce different decimal setting
         depending on browser locale-->
         <QInput
           v-model="valueToNumber"
-          size="4"
-          class="q-mr-md"
+          dense
+          outlined
+          size="8"
         >
           <template #append>
             <span class="text-caption">kg</span>
@@ -101,7 +103,7 @@ export default {
     },
     limitedValue: {
       get () {
-        return Math.min(70, this.value)
+        return Math.min(100, this.value)
       },
       set (v) {
         this.$emit('input', v)

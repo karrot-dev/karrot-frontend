@@ -1,6 +1,6 @@
 # Karrot Roadmap
 
-## General Direction as of [2020-04-05](https://community.foodsaving.world/t/roadmap-meeting/410/3)
+## General Direction as of [2020-04-05](https://community.foodsaving.world/t/roadmap-meeting/410/4)
 
 - Refining UX and some user testing
 - Finish testing prototype for community governance features. Begin implementation?

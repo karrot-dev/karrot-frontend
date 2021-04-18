@@ -42,7 +42,7 @@ export default {
     transform scale(1)
 
 img
-  height 90%
+  height 100%
 
 .loading
   animation myanim 1s cubic-bezier(.4, 0, .5, 1) infinite

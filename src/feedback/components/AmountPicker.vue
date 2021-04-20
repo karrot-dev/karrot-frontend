@@ -68,8 +68,11 @@
         </QInput>
       </div>
     </div>
-    <div class="content-more-weight-info">
-      {{ $t('ACTIVITY_FEEDBACK.INCREASE_AMOUNT_HINT') }}
+    <div
+      class="content-more-weight-info"
+      :class="{'is-visible': isOnMaxOfSlider}"
+    >
+      <span v-if="isOnMaxOfSlider">{{ $t('ACTIVITY_FEEDBACK.INCREASE_AMOUNT_HINT') }}</span>
     </div>
   </div>
 </template>
@@ -112,6 +115,9 @@ export default {
         this.$emit('input', v)
       },
     },
+    isOnMaxOfSlider () {
+      return this.value === 100
+    },
     valueToNumber: {
       get () {
         return this.value
@@ -145,12 +151,14 @@ export default {
   line-height 30px
   text-align center
   background hsl(0deg 0% 97%)
-  background $info
   border-bottom-right-radius 13px
   border-bottom-left-radius 13px
 
+  &.is-visible
+    background $info
+
 .showOverlay .content,
-.showOverlay .content2
+.showOverlay .content-more-weight-info
   filter blur(3px)
   opacity 0.3
 </style>

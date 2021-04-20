@@ -19,7 +19,7 @@
 
     <div
       v-if="hasWeight && hasMultipleParticipants"
-      class="row no-wrap items-center q-mx-sm text-caption"
+      class="row no-wrap items-center q-mx-sm q-mt-sm text-caption"
     >
       <QIcon
         name="info"

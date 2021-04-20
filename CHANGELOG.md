@@ -25,6 +25,7 @@ Please document your changes in this format:
 - allow to dismiss feedback @dpaque @layla19 @larzon83 @pogopaule [#2319]
 
 ### Changed
+- amount-picker: improve UX of weight slider limits @larzon83 @layla19 @dpaque @pogopaule [#2348]
 - group: improve create/edit group form @larzon83 @layla19 @dpaque @pogopaule @brnsolikyl [#2306]
 - Landing page: change text and screenshots, add "about Karrot" component @brnsolikyl [#2317]
 - Improve calculation of map bounds on group gallery @nicksellen [#2333]

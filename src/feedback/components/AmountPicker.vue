@@ -68,6 +68,9 @@
         </QInput>
       </div>
     </div>
+    <div class="content-more-weight-info">
+      {{ $t('ACTIVITY_FEEDBACK.INCREASE_AMOUNT_HINT') }}
+    </div>
   </div>
 </template>
 
@@ -124,10 +127,30 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
+
 .wrapper
   position relative
 
-.showOverlay .content
+.content
+  padding 30px 20px 5px
+  background hsl(0deg 0% 97%)
+  border-top-left-radius 13px
+  border-top-right-radius 13px
+
+.content-more-weight-info
+  height 30px
+  padding 0 20px
+  font-size 0.75rem
+  line-height 30px
+  text-align center
+  background hsl(0deg 0% 97%)
+  background $info
+  border-bottom-right-radius 13px
+  border-bottom-left-radius 13px
+
+.showOverlay .content,
+.showOverlay .content2
   filter blur(3px)
   opacity 0.3
 </style>

@@ -14,7 +14,6 @@
       v-if="hasWeight"
       v-model="edit.weight"
       class="q-mx-md"
-      style="margin-top: 40px"
     />
 
     <div

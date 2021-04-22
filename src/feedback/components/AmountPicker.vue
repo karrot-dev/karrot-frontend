@@ -47,11 +47,10 @@
         <QSlider
           :value="limitedValue"
           :min="0"
-          :max="100"
+          :max="SLIDER_LIMIT"
           :step="0.5"
           label
-          class="self-center q-mr-lg"
-          style="margin-left: 8px"
+          class="self-center q-mr-lg q-ml-sm"
           @input="$emit('input', arguments[0])"
         />
         <!-- don't use type="number" here because browsers might enforce different decimal setting
@@ -109,14 +108,14 @@ export default {
     },
     limitedValue: {
       get () {
-        return Math.min(100, this.value)
+        return Math.min(this.SLIDER_LIMIT, this.value)
       },
       set (v) {
         this.$emit('input', v)
       },
     },
     isOnMaxOfSlider () {
-      return this.value === 100
+      return this.value === this.SLIDER_LIMIT
     },
     valueToNumber: {
       get () {
@@ -129,6 +128,7 @@ export default {
       },
     },
   },
+  created () { this.SLIDER_LIMIT = 100 },
 }
 </script>
 

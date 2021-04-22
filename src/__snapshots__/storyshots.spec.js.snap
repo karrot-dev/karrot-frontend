@@ -5457,8 +5457,8 @@ exports[`Storyshots Feedback AmountBox 1`] = `
 exports[`Storyshots Feedback AmountPicker 1`] = `
 <div class="wrapper">
   <!---->
-  <div class="content">
-    <div class="row no-wrap">
+  <div class="content q-px-lg q-pt-lg q-pb-xs">
+    <div class="row no-wrap q-mt-sm">
       <div class="container amount" style="width:100px;height:100px;"><img width="100px" height="100px" src="test-file-stub"> <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-47deg);top:10px;">
         <div class="text-bottom" style="bottom:5px;"><span style="font-size:23px;">
         1.0
@@ -5470,7 +5470,7 @@ exports[`Storyshots Feedback AmountPicker 1`] = `
       </div> <button tabindex="0" type="button" role="button" title="Delete amount" class="q-btn q-btn-item non-selectable no-outline self-start q-btn--flat q-btn--round text-red q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-times q-icon notranslate"> </i></span></span></button>
     </div>
     <div class="row no-wrap">
-      <div role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" data-step="0.5" aria-valuenow="1" tabindex="0" class="self-center q-mr-lg q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label" style="margin-left:8px;">
+      <div role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" data-step="0.5" aria-valuenow="1" tabindex="0" class="self-center q-mr-lg q-ml-sm q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label">
         <div class="q-slider__track-container q-slider__track-container--h absolute">
           <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:1%;"></div>
         </div>
@@ -5493,7 +5493,7 @@ exports[`Storyshots Feedback AmountPicker 1`] = `
       </label>
     </div>
   </div>
-  <div class="content-more-weight-info">
+  <div class="content-more-weight-info text-center text-caption q-px-lg">
     <!---->
   </div>
 </div>

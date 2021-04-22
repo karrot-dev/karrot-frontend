@@ -12,8 +12,8 @@
     >
       {{ $t('ACTIVITY_FEEDBACK.SET_AMOUNT') }}
     </QBtn>
-    <div class="content">
-      <div class="row no-wrap">
+    <div class="content q-px-lg q-pt-lg q-pb-xs">
+      <div class="row no-wrap q-mt-sm">
         <AmountBox
           class="amount"
           :amount="value"
@@ -68,8 +68,8 @@
       </div>
     </div>
     <div
-      class="content-more-weight-info"
-      :class="{'is-visible': isOnMaxOfSlider}"
+      class="content-more-weight-info text-center text-caption q-px-lg"
+      :class="{'bg-info': isOnMaxOfSlider}"
     >
       <span v-if="isOnMaxOfSlider">{{ $t('ACTIVITY_FEEDBACK.INCREASE_AMOUNT_HINT') }}</span>
     </div>
@@ -133,29 +133,25 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+$border-radius = 13px
+$info-box-height = 30px
+
 @import '~variables'
 
 .wrapper
   position relative
 
 .content
-  padding 30px 20px 5px
-  background hsl(0deg 0% 97%)
-  border-top-left-radius 13px
-  border-top-right-radius 13px
+  background $grey-2
+  border-top-left-radius $border-radius
+  border-top-right-radius $border-radius
 
 .content-more-weight-info
-  height 30px
-  padding 0 20px
-  font-size 0.75rem
-  line-height 30px
-  text-align center
-  background hsl(0deg 0% 97%)
-  border-bottom-right-radius 13px
-  border-bottom-left-radius 13px
-
-  &.is-visible
-    background $info
+  height $info-box-height
+  line-height $info-box-height
+  background $grey-2
+  border-bottom-right-radius $border-radius
+  border-bottom-left-radius $border-radius
 
 .showOverlay .content,
 .showOverlay .content-more-weight-info

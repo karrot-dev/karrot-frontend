@@ -51,6 +51,7 @@
         :membership="user.membership"
         small
         @create-trust="$emit('create-trust', arguments[0])"
+        @revoke-trust="$emit('revoke-trust', arguments[0])"
       />
     </QItemSection>
   </QItem>

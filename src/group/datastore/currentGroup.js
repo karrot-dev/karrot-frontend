@@ -94,8 +94,10 @@ export default {
       },
 
       async trustUser ({ getters }, userId) {
-        if (!getters.id) return
-        await groups.trustUser(getters.id, userId)
+        if (getters.id) {
+          await groups.trustUser(getters.id, userId)
+        }
+      },
 
       async revokeTrust ({ getters }, userId) {
         if (getters.id) {

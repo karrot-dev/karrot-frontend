@@ -213,10 +213,10 @@ export default {
     },
     showRevokeTrustDialog () {
       Dialog.create({
-        title: 'revoke trust',
-        message: 'blabla',
+        title: this.$t('USERDATA.DIALOGS.REVOKE_TRUST.TITLE'),
+        message: this.$t('USERDATA.DIALOGS.REVOKE_TRUST.MESSAGE', { userName: this.user.displayName, groupName: this.group.name }),
         cancel: this.$t('BUTTON.CANCEL'),
-        ok: this.$t('BUTTON.OF_COURSE'),
+        ok: this.$t('BUTTON.YES'),
       }).onOk(() => this.$emit('revoke-trust', this.user.id))
     },
   },

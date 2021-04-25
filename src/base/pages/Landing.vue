@@ -32,15 +32,16 @@
 
       <div class="row inline-images q-col-gutter-md q-mt-lg q-mb-xl">
         <div
-          v-for="image in images"
-          :key="image"
+          v-for="(image, idx) in images"
+          :key="`inline-image-${idx}`"
           class="col-4"
         >
-          <!-- TODO: create proper alt tags per image -->
           <QImg
-            :src="image"
+            :sizes="image.sources.sizes"
+            :srcset="image.sources.srcset"
+            :src="image.sources.src"
             :ratio="1"
-            alt=""
+            :alt="image.alt"
             class="img sdw"
           />
         </div>
@@ -162,18 +163,12 @@ import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
 import KAbout from '@/base/components/KAbout'
 import KLandingButtons from '@/base/components/KLandingButtons'
 import logo from '@/logo/assets/carrot-logo.svg'
-import screenshotActivities from './images/karrot-screenshot.png'
+import { getImgSources, presets } from '@/utils/srcsetUtils'
 
+import screenshotActivities from './images/karrot-screenshot.png'
 import screenshotGallery from './images/karrot-gallery-map.236x236.jpg'
 import screenshotManageActivities from './images/karrot-custom-activities.236x236.jpg'
 import screenshotOffers from './images/screenshot-offers.236x236.jpg'
-
-import imageSavedFood from './images/oestersund-saved-food.200x200.jpg'
-import imageVolunteers from './images/oestersund-volunteers.200x200.jpg'
-import imageBikeworkshop from './images/bikeworkshop.200x200.jpg'
-import imageSavers from './images/solikyl-savers.200x200.jpg'
-import imageFairShare from './images/fsmaastricht-fairshare.200x200.jpg'
-import imageSavers2 from './images/fsmaastricht-foodsavers.200x200.jpg'
 
 import router from '@/router'
 
@@ -226,13 +221,68 @@ export default {
       ACTIVITIES: screenshotManageActivities,
       OFFERS: screenshotOffers,
     }
+    this.imagesOptions = {
+      basePath: 'base/pages/images/',
+      preset: presets.WELCOME_IMGS,
+    }
     this.images = [
-      imageSavedFood,
-      imageVolunteers,
-      imageBikeworkshop,
-      imageSavers,
-      imageFairShare,
-      imageSavers2,
+      {
+        alt: 'oestersund saved food',
+        sources: getImgSources({
+          baseFileName: 'oestersund-saved-food',
+          physicalWidth: 500,
+          ...this.imagesOptions,
+        }),
+      },
+      {
+        alt: 'oestersund volunteers',
+        sources: getImgSources({
+          baseFileName: 'oestersund-volunteers',
+          physicalWidth: 435,
+          ...this.imagesOptions,
+        }),
+      },
+      {
+        alt: 'bike workshop',
+        sources: getImgSources({
+          baseFileName: 'bike-workshop',
+          physicalWidth: 600,
+          ...this.imagesOptions,
+        }),
+      },
+      {
+        alt: 'solikyl savers',
+        sources: getImgSources({
+          baseFileName: 'solikyl-savers',
+          physicalWidth: 450,
+          ...this.imagesOptions,
+        }),
+      },
+      {
+        alt: 'maastricht fairshare',
+        sources: getImgSources({
+          baseFileName: 'fsmaastricht-fairshare',
+          physicalWidth: 480,
+          ...this.imagesOptions,
+        }),
+      },
+      {
+        alt: 'maastricht foodsavers',
+        sources: getImgSources({
+          baseFileName: 'fsmaastricht-foodsavers',
+          physicalWidth: 600,
+          ...this.imagesOptions,
+        }),
+      },
+      // NOTE: only for testing responsive sizes
+      {
+        alt: 'responsive srcset test',
+        sources: getImgSources({
+          baseFileName: 'responsive-test',
+          physicalWidth: 600,
+          ...this.imagesOptions,
+        }),
+      },
     ]
     this.features = [
       'GROUPS',

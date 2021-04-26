@@ -87,7 +87,8 @@
       "JOIN_CONFIRMATION_TEXT": "Är du säker på att du har tid den {date}?",
       "LEAVE": "Lämna",
       "LEAVE_CONFIRMATION_HEADER": "Lämna {activityType}",
-      "LEAVE_CONFIRMATION_TEXT": "Är du säker att andra kan göra det utan dig?"
+      "LEAVE_CONFIRMATION_TEXT": "Är du säker att andra kan göra det utan dig?",
+      "DOWNLOAD_ICS": "Download ICS"
     },
     "JOINEDNOTICE": "Du har en kommande aktivitet | Du har {count} kommande aktiviteter",
     "NONE": "Inga bokade aktiviteter",

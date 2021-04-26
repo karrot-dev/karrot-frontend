@@ -9,7 +9,7 @@
     "SECTIONS": {
       "ACTIVITIES": {
         "DESCRIPTION": "Cada actividad tiene un número de espacios a los que puede unirse miembros del grupo – de esta manera todo el mundo sabe quién va a dónde y cuándo, y se pueden comentar después.",
-        "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
+        "SUBTITLE": "Actividades con un momento y lugar específicos, como quedadas, recogidas en el caso de salvar comida, eventos comunitarios o lo que sea que necesite tu grupo se pueden meter en el programa.",
         "TITLE": "Distribución de tareas y actividades"
       },
       "COMMUNICATION": {
@@ -17,13 +17,13 @@
         "TITLE": "Comunicación en el contexto adecuado"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development.",
+        "DESCRIPTION": "Karrot es un programa libre y de código abierto desarrollado con los comentarios y participación de la gente que lo usa. Un pequeño grupo central lo desarrolla, pero este está en continuo contacto con los usuarios  para que guie su desarrollo las distintas necesidades de cada grupo. En Karrot seguimos los principio de integridad y no comercialización de datos.",
+        "DESCRIPTION2": "Invitamos a quienes desarrollan y diseñan software a participar en este desarrollo.",
         "TITLE": "Desarrollo democrático y participativo"
       },
       "GROUPS": {
         "DESCRIPTION": "Ahora todos están visibles en el mapa para que la gente pueda entrar en contacto con otros grupos local y globalmente.",
-        "SUBTITLE": "Every group on Karrot is completely independent and can have their own logo, processes, rules and agreements.",
+        "SUBTITLE": "Cada grupo en Karrot es completamente independiente y tiene su propio logotipo, procedimientos y reglas.",
         "TITLE": "Grupos independientes"
       },
       "MAPS": {
@@ -36,7 +36,7 @@
       },
       "OFFERS": {
         "DESCRIPTION": "Las ofertas son visibles para todo el grupo y la gente puede mostrar su interés al respecto en chat de ofertas.",
-        "SUBTITLE": "Create an offer of whatever you want to share or give away.",
+        "SUBTITLE": "Crear un anuncio de cualquier cosa que quieras compartir o regalar.",
         "TITLE": "Compartir cosas"
       },
       "OPENSOURCE": {
@@ -60,10 +60,10 @@
         "TITLE": "Gestión democrática y basada en confianza grupal"
       }
     },
-    "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
-    "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
-    "TITLE": "Start a group, become a community",
-    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kitchen..."
+    "SUBTITLE1": "Karrot es una herramient para todo tipo de iniciativas de base para conectar y crecer apoyando la coordinación de actividades cara a cara a nivel local, autónomo y voluntario.",
+    "SUBTITLE2": "Está diseñado de forma que facilite el crecimiento de la comunidad y apoye una mas transparencia, democracia y gestión participativa de tu grupo.",
+    "TITLE": "Empieza un grupo, comienza tu comunidad",
+    "VISION_INTRO": "Tanto si salvas o compartes comida, si gestionas una tienda libre o un espacio creativo, si participas en un jardín comunitario o una taller de autoreparación..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "¿Realmente deseas eliminar esta serie? Esto también eliminará todas las actividades que pertenecen a esta serie (excepto cuando las personas ya se apuntaron).",
@@ -87,7 +87,8 @@
       "JOIN_CONFIRMATION_TEXT": "¿Seguro que tienes tiempo para hacer la recogida el {date}?",
       "LEAVE": "Salir",
       "LEAVE_CONFIRMATION_HEADER": "Dejar {activityType}",
-      "LEAVE_CONFIRMATION_TEXT": "¿De verdad que las otras personas pueden hacer la recogida sin ti?"
+      "LEAVE_CONFIRMATION_TEXT": "¿De verdad que las otras personas pueden hacer la recogida sin ti?",
+      "DOWNLOAD_ICS": "Descargar ICS"
     },
     "JOINEDNOTICE": "Tienes una actividad pendiente | Tienes {count} actividades pendientes",
     "NONE": "No hay actividades pendientes",
@@ -115,9 +116,9 @@
     "SET_AMOUNT": "Establecer cantidad",
     "TITLE": "Comentario",
     "TOGETHER_WITH": "Realizaste esta actividad con:",
-    "DISMISS_LABEL": "Dismiss",
-    "DISMISS_TITLE": "Dismiss feedback",
-    "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
+    "DISMISS_LABEL": "Rechazar",
+    "DISMISS_TITLE": "Rechazar comentario",
+    "DISMISS_MESSAGE": "¿De verdad quieres rechazar este comentario? No podrás dejar un comentario para esta actividad más tarde."
   },
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Encuentro",
@@ -128,27 +129,27 @@
     "Task": "Tarea"
   },
   "ACTIVITY_TYPE_STATUS": {
-    "ACTIVE": "Active",
-    "ARCHIVED": "Archived"
+    "ACTIVE": "Activo",
+    "ARCHIVED": "Archivados"
   },
   "ACTIVITY_TYPES": {
-    "ADD": "Add new activity type",
-    "FEEDBACK_YES_HINT": "The participants will be asked for feedback about the activity",
-    "FEEDBACK_NO_HINT": "No feedback will be requested",
-    "FEEDBACK_WEIGHT_LABEL": "Ask for weight?",
-    "NAME": "Name",
-    "FEEDBACK": "Feedback",
-    "FEEDBACK_WEIGHT": "Feedback weight",
-    "STATUS": "Status",
-    "STANDARD_NAME_HEADING": "Standard names",
-    "STANDARD_NAME_HINT": "Name will be available in other languages",
-    "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
-    "CUSTOM_NAME_USE": "Use custom name {name}",
-    "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
-    "MANAGE_TYPES": "Manage types...",
-    "SHOW_ARCHIVED": "Show archived",
-    "STATUS_ACTIVE_HINT": "You will be able to create new activities and series of this type",
-    "STATUS_ARCHIVED_HINT": "It will not be possible to create new activities or series of this type, but existing ones will still be available"
+    "ADD": "Añadir nuevo tipo de actividad",
+    "FEEDBACK_YES_HINT": "Se pedirá comentar al respecto a quienes participen en al actividad",
+    "FEEDBACK_NO_HINT": "No se pedirán comentarios",
+    "FEEDBACK_WEIGHT_LABEL": "¿Pidiendo peso?",
+    "NAME": "Nombre",
+    "FEEDBACK": "Comentarios",
+    "FEEDBACK_WEIGHT": "Peso de los comentarios",
+    "STATUS": "Estado",
+    "STANDARD_NAME_HEADING": "Nombres estándar",
+    "STANDARD_NAME_HINT": "El nombre estará disponible en otros idiomas",
+    "CUSTOM_NAME_HINT": "El nombre se mostrará sin modificar y no será traducido",
+    "CUSTOM_NAME_USE": "Usar nombre personalizado {name}",
+    "CUSTOM_NAME_PROMPT": "Escribe un nombre personalizado o elige un nombre estándar",
+    "MANAGE_TYPES": "Gestionar tipos",
+    "SHOW_ARCHIVED": "Mostrar archivados",
+    "STATUS_ACTIVE_HINT": "Será capaz de crear nuevas actividades y series de este tipo de actividad",
+    "STATUS_ARCHIVED_HINT": "No será posible crear nuevas actividades o series de actividades de este tipo, pero las existentes todavía estarán disponibles"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "elegir localización en el mapa",
@@ -207,9 +208,9 @@
     "ARCHIVE": "Archivo",
     "BACK": "Atrás",
     "CANCEL": "Cancelar",
-    "CHANGE_COLOUR": "Change colour",
+    "CHANGE_COLOUR": "ar color",
     "CHANGE_EMAIL": "Cambiar correo electrónico",
-    "CHANGE_ICON": "Change icon",
+    "CHANGE_ICON": "Cambiar icono",
     "CHANGE_PASSWORD": "Nueva contraseña",
     "CLOSE": "Cerrar",
     "CREATE": "Crear",
@@ -364,15 +365,15 @@
     "DESCRIPTION": "Descripción",
     "DESCRIPTION_VERBOSE": "Descripción del grupo, visible para los miembros",
     "EDIT": "Editar grupo",
-    "EDIT_ACTIVITY_TYPES": "Activity types",
-    "EDIT_DETAILS": "Group details",
+    "EDIT_ACTIVITY_TYPES": "Tipos de actividades",
+    "EDIT_DETAILS": "Detalles del grupo",
     "EMAIL_NOTIFICATIONS": "Notificaciones por correo electrónico",
     "HEADINGS": {
       "GENERAL": "General",
-      "LOCATION": "Location",
-      "LOCATION_HINT": "If you want your group's location to be made visible on a public map, enter an adress or pick a location on the map below.",
-      "NEW_MEMBERS_SIGNUP": "New Members Signup",
-      "NEW_MEMBERS_SIGNUP_HINT": "New members will have to apply and get accepted to your group. You can always change the application and welcome message later in the group settings."
+      "LOCATION": "Localización",
+      "LOCATION_HINT": "Si quieres que la localización del grupo sea visible en un mapa público, introduce la dirección o escoge una localización en el mapa inferior.",
+      "NEW_MEMBERS_SIGNUP": "Registro de nuevos miembros",
+      "NEW_MEMBERS_SIGNUP_HINT": "Nuevos miembros tendrán que solicitar entrar y ser aceptados en el grupo. Siempre puedes cambiar los mensajes de solicitud y de bienvenida en las opciones del grupo."
     },
     "HISTORY": "Historia",
     "HOME": "Hogar",
@@ -462,11 +463,11 @@
     "ACTIVITY_LEAVE_DISTANCE": "{distance} antes de la hora programada",
     "ACTIVITY_MISSED": "¡Nadie se ha apuntado a {activityType} en {placeName}! ",
     "ACTIVITY_MODIFY": "cambió la configuración de la actividad",
-    "ACTIVITY_TYPE_CREATE": "{activityType} type created",
-    "ACTIVITY_TYPE_MODIFY": "{activityType} type modified",
+    "ACTIVITY_TYPE_CREATE": "Tipo {activityType} creado",
+    "ACTIVITY_TYPE_MODIFY": "Tipo {activityType} modificado",
     "APPLICATION_DECLINED": "rechazó la solicitud de {applicantName}",
-    "CONFIRM_CHANGES": "Confirm changes?",
-    "CONFIRM_CHANGES_HINT": "You can write a message here to explain your changes that will be displayed in the history",
+    "CONFIRM_CHANGES": "¿Confirmar cambios?",
+    "CONFIRM_CHANGES_HINT": "Puedes escribir un mensaje aquí para explicar los cambios que se mostrará en el historial",
     "DETAILS": "Más información ",
     "GROUP_CHANGE_PHOTO": "cambió el logo del grupo",
     "GROUP_CREATE": "creó este grupo",

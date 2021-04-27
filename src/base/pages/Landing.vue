@@ -1,6 +1,6 @@
 <template>
   <div class="landing sdw">
-    <div class="hero-wrapper row items-center q-pb-xl">
+    <div class="hero-wrapper section-padding row items-center q-pb-xl">
       <div class="col">
         <div class="row">
           <h1 v-t="'ABOUT_KARROT.TITLE'" />
@@ -16,138 +16,170 @@
       </div>
     </div>
 
-    <p v-t="'ABOUT_KARROT.SUBTITLE1'" />
-    <p v-t="'ABOUT_KARROT.SUBTITLE2'" />
+    <div class="section-padding">
+      <p v-t="'ABOUT_KARROT.SUBTITLE1'" />
+      <p v-t="'ABOUT_KARROT.SUBTITLE2'" />
+    </div>
 
-    <div class="text-center q-my-xl">
+    <!-- FIXME: delete, if new screens are ok -->
+    <!-- <div class="text-center q-my-xl">
       <QImg
         :src="screenshots.activities"
         alt="karrot"
         class="sdw3 screenshot-fullwidth"
       />
+    </div> -->
+
+    <div class="app-screenshots">
+      <div class="browser">
+        <div class="top-bar row items-center">
+          <div class="traffic-light" />
+          <div class="traffic-light" />
+          <div class="traffic-light" />
+        </div>
+        <QImg
+          :src="screenshots.activities"
+          alt="karrot browser screenshot"
+          class="browser-screenshot"
+          no-default-spinner
+          :ratio="1322 / 863"
+        />
+      </div>
+      <div class="phone">
+        <!-- <div class="phone-screenshot" /> -->
+        <QImg
+          :src="screenshots.mobile"
+          alt="karrot mobile screenshot"
+          class="phone-screenshot"
+          no-default-spinner
+          :ratio="575 / 267"
+        />
+      </div>
     </div>
 
-    <section>
-      <p v-t="'ABOUT_KARROT.VISION_INTRO'" />
+    <div class="section-padding">
+      <section>
+        <p v-t="'ABOUT_KARROT.VISION_INTRO'" />
 
-      <div class="row inline-images q-col-gutter-md q-mt-lg q-mb-xl">
-        <div
-          v-for="(image, idx) in images"
-          :key="`inline-image-${idx}`"
-          class="col-4"
-        >
-          <QImg
-            :sizes="image.sources.sizes"
-            :srcset="image.sources.srcset"
-            :src="image.sources.src"
-            :ratio="1"
-            :alt="image.alt"
-            class="img sdw"
-          />
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div
-        v-for="(feature, idx) in features"
-        :key="feature"
-        class="feature"
-        :class="[ idx === 0 ? 'q-mb-lg q-pb-lg' : 'q-my-lg q-py-lg', { swap: idx % 2 !== 0 }]"
-      >
-        <div class="feature__content">
-          <h2 v-t="`ABOUT_KARROT.SECTIONS.${feature}.TITLE`" />
-          <p v-t="`ABOUT_KARROT.SECTIONS.${feature}.SUBTITLE`" />
-          <p v-t="`ABOUT_KARROT.SECTIONS.${feature}.DESCRIPTION`" />
-        </div>
-        <!-- TODO: create proper alt tags per image -->
-        <img
-          :src="screenshots[feature]"
-          alt="karrot"
-          class="feature__img sdw2"
-        >
-      </div>
-    </section>
-
-    <section v-if="groupsToShow.length > 0">
-      <h2 v-t="'ABOUT_KARROT.EXISTING_GROUPS'" />
-
-      <GroupGalleryCards
-        :groups="groupsToShow"
-        class="q-mt-xl"
-        @preview="preview(arguments[0])"
-      />
-
-      <div class="text-center q-pt-xs q-pb-xl">
-        <KLandingButtons />
-      </div>
-    </section>
-
-    <section>
-      <h2 v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.TITLE'" />
-      <p v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION'" />
-      <p v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION2'" />
-
-      <p class="text-center q-mt-lg q-pt-sm">
-        <QBtn
-          unelevated
-          @click="toggleAbout"
-        >
-          <img
-            :src="logo"
-            alt="Karrot Logo"
-            class="about-logo"
+        <div class="row inline-images q-col-gutter-md q-mt-lg q-mb-xl">
+          <div
+            v-for="(image, idx) in images"
+            :key="`inline-image-${idx}`"
+            class="col-4"
           >
-          {{ $t("GLOBAL.ABOUT_KARROT") }}
-        </QBtn>
-        <QDialog v-model="showAbout">
-          <KAbout @close="toggleAbout" />
-        </QDialog>
-      </p>
-    </section>
+            <QImg
+              :sizes="image.sources.sizes"
+              :srcset="image.sources.srcset"
+              :src="image.sources.src"
+              :ratio="1"
+              :alt="image.alt"
+              class="img sdw"
+            />
+          </div>
+        </div>
+      </section>
 
-    <section>
-      <p>
-        <em v-t="'ABOUT_KARROT.AND_MORE'" />
-      </p>
-      <ul>
-        <li
-          v-for="item in more"
-          :key="item"
+      <section>
+        <div
+          v-for="(feature, idx) in features"
+          :key="feature"
+          class="feature"
+          :class="[ idx === 0 ? 'q-mb-lg q-pb-lg' : 'q-my-lg q-py-lg', { swap: idx % 2 !== 0 }]"
         >
-          <p>
-            <strong v-t="`ABOUT_KARROT.SECTIONS.${item}.TITLE`" />:
-            <i18n
-              :path="`ABOUT_KARROT.SECTIONS.${item}.DESCRIPTION`"
-              tag="span"
-            >
-              <a
-                slot="code"
-                href="https://github.com/yunity/karrot-frontend"
-              >GitHub</a>
-              <a
-                slot="forum"
-                v-t="'ABOUT_KARROT.LINKS.FORUM'"
-                href="https://community.foodsaving.world"
-              />
-              <a
-                slot="chat"
-                v-t="'ABOUT_KARROT.LINKS.CHAT'"
-                href="https://chat.foodsaving.world/channel/karrot-dev"
-              />
-              <a
-                slot="translations"
-                href="https://www.transifex.com/yunity-1/karrot/frontend/"
-              >Transifex</a>
-            </i18n>
-          </p>
-        </li>
-      </ul>
+          <div class="feature__content">
+            <h2 v-t="`ABOUT_KARROT.SECTIONS.${feature}.TITLE`" />
+            <p v-t="`ABOUT_KARROT.SECTIONS.${feature}.SUBTITLE`" />
+            <p v-t="`ABOUT_KARROT.SECTIONS.${feature}.DESCRIPTION`" />
+          </div>
+          <!-- TODO: create proper alt tags per image -->
+          <img
+            :src="screenshots[feature]"
+            alt="karrot"
+            class="feature__img sdw2"
+          >
+        </div>
+      </section>
 
-      <div class="text-center q-pt-sm">
-        <KLandingButtons />
-      </div>
-    </section>
+      <section v-if="groupsToShow.length > 0">
+        <h2 v-t="'ABOUT_KARROT.EXISTING_GROUPS'" />
+
+        <GroupGalleryCards
+          :groups="groupsToShow"
+          class="q-mt-xl"
+          @preview="preview(arguments[0])"
+        />
+
+        <div class="text-center q-pt-xs q-pb-xl">
+          <KLandingButtons />
+        </div>
+      </section>
+
+      <section>
+        <h2 v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.TITLE'" />
+        <p v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION'" />
+        <p v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION2'" />
+
+        <p class="text-center q-mt-lg q-pt-sm">
+          <QBtn
+            unelevated
+            @click="toggleAbout"
+          >
+            <img
+              :src="logo"
+              alt="Karrot Logo"
+              class="about-logo"
+            >
+            {{ $t("GLOBAL.ABOUT_KARROT") }}
+          </QBtn>
+          <QDialog v-model="showAbout">
+            <KAbout @close="toggleAbout" />
+          </QDialog>
+        </p>
+      </section>
+
+      <section>
+        <p>
+          <em v-t="'ABOUT_KARROT.AND_MORE'" />
+        </p>
+        <ul>
+          <li
+            v-for="item in more"
+            :key="item"
+          >
+            <p>
+              <strong v-t="`ABOUT_KARROT.SECTIONS.${item}.TITLE`" />:
+              <i18n
+                :path="`ABOUT_KARROT.SECTIONS.${item}.DESCRIPTION`"
+                tag="span"
+              >
+                <a
+                  slot="code"
+                  href="https://github.com/yunity/karrot-frontend"
+                >GitHub</a>
+                <a
+                  slot="forum"
+                  v-t="'ABOUT_KARROT.LINKS.FORUM'"
+                  href="https://community.foodsaving.world"
+                />
+                <a
+                  slot="chat"
+                  v-t="'ABOUT_KARROT.LINKS.CHAT'"
+                  href="https://chat.foodsaving.world/channel/karrot-dev"
+                />
+                <a
+                  slot="translations"
+                  href="https://www.transifex.com/yunity-1/karrot/frontend/"
+                >Transifex</a>
+              </i18n>
+            </p>
+          </li>
+        </ul>
+
+        <div class="text-center q-pt-sm">
+          <KLandingButtons />
+        </div>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -166,6 +198,7 @@ import logo from '@/logo/assets/carrot-logo.svg'
 import { getImgSources, presets } from '@/utils/srcsetUtils'
 
 import screenshotActivities from './images/karrot-screenshot.png'
+import screenshotMobile from './images/karrot-mobile.png'
 import screenshotGallery from './images/karrot-gallery-map.236x236.jpg'
 import screenshotManageActivities from './images/karrot-custom-activities.236x236.jpg'
 import screenshotOffers from './images/screenshot-offers.236x236.jpg'
@@ -217,6 +250,7 @@ export default {
     this.logo = logo
     this.screenshots = {
       activities: screenshotActivities,
+      mobile: screenshotMobile,
       GROUPS: screenshotGallery,
       ACTIVITIES: screenshotManageActivities,
       OFFERS: screenshotOffers,
@@ -318,13 +352,18 @@ export default {
   --h1-fontsize 1.75rem // 28px
   --h1-letterspacing -0.005em
   --h2-fontsize 1.375rem // 22px
-  --landing-padding 30px 20px 40px
+  --landing-padding-top 30px
+  --section-padding-x 20px
+  --app-screenshots-padding 40px 20px
+  --app-screenshots-box-sdw 0 3px 22px -3px rgba(0, 0, 0, 0.2)
 
   @media (min-width: 410px)
     --h1-fontsize 2.375rem // 38px
 
   @media (min-width: 500px)
-    --landing-padding 45px 40px 40px
+    --landing-padding-top 45px
+    --section-padding-x 40px
+    --app-screenshots-padding 55px 40px
 
   @media (min-width: 600px)
     --h1-fontsize 2.75rem // 44px
@@ -335,7 +374,9 @@ export default {
     --h1-fontsize 3.125rem // 50px
 
   @media (min-width: 1050px)
-    --landing-padding 60px 100px 40px
+    --landing-padding-top 60px
+    --section-padding-x 100px
+    --app-screenshots-padding 55px 100px
 
 .sdw,
 >>> .groupPreviewCard
@@ -348,10 +389,14 @@ export default {
   // box-shadow 0 1.9px 2.2px -5px rgba(0, 0, 0, 0.034), 0 4.5px 5.3px -5px rgba(0, 0, 0, 0.048), 0 8.5px 10px -5px rgba(0, 0, 0, 0.06), 0 15.2px 17.9px -5px rgba(0, 0, 0, 0.072), 0 28.4px 33.4px -5px rgba(0, 0, 0, 0.086), 0 68px 80px -5px rgba(0, 0, 0, 0.12)
   box-shadow 0 0.4px 4.5px -5px rgba(0, 0, 0, 0.066), 0 1.4px 8.7px -5px rgba(0, 0, 0, 0.094), 0 3px 12.6px -5px rgba(0, 0, 0, 0.108), 0 5.5px 16.8px -5px rgba(0, 0, 0, 0.121), 0 9.4px 23.2px -5px rgba(0, 0, 0, 0.14), 0 17px 37px -5px rgba(0, 0, 0, 0.18)
 
+.section-padding
+  padding-right var(--section-padding-x)
+  padding-left var(--section-padding-x)
+
 .landing
   width 1050px
   max-width 100vw
-  padding var(--landing-padding)
+  padding var(--landing-padding-top) 0 40px
   margin 0 auto
   color #111111
   background white
@@ -386,15 +431,70 @@ export default {
       @media (min-width: 1050px)
         margin-right 25px
 
-  .screenshot-fullwidth
-    width 100%
+  // FIXME: delete, if new screens are ok
+  // .screenshot-fullwidth
+  //   width 100%
 
-    @media (min-width: 1200px)
-      // horizontally center the oversized image
-      // (also needed an "overflow-x hidden" on the main page container, in Root)
-      width 1200px
-      margin-left 50%
-      transform translateX(-50%)
+  //   @media (min-width: 1200px)
+  //     // horizontally center the oversized image
+  //     // (also needed an "overflow-x hidden" on the main page container, in Root)
+  //     width 1200px
+  //     margin-left 50%
+  //     transform translateX(-50%)
+
+  .app-screenshots
+    position relative
+    padding var(--app-screenshots-padding)
+    margin-top 40px
+    background #FCCB3F
+
+    .browser
+      border-radius 17px
+      box-shadow var(--app-screenshots-box-sdw)
+
+      .top-bar
+        height 34px
+        background #FFF5D9
+        border-radius 15px 15px 0 0
+
+        .traffic-light
+          width 10px
+          height 10px
+          margin-left 6px
+          border-radius 50%
+
+          &:nth-child(1)
+            margin-left 20px
+            background #FF5E58
+
+          &:nth-child(2)
+            background #FFBF30
+
+          &:nth-child(3)
+            background #27C840
+
+      .browser-screenshot
+        border-radius 0 0 15px 15px
+
+    .phone
+      position absolute
+      right 20px
+      bottom 20px
+      // width 267px
+      // width 34.7%
+      // height 575px
+      height 82%
+      overflow hidden
+      background-color #fff
+      border 10px solid white
+      border-radius 35px
+      box-shadow var(--app-screenshots-box-sdw)
+
+      .phone-screenshot
+        position relative
+        width 100%
+        height 100%
+        background red
 
   section
     padding 30px 0

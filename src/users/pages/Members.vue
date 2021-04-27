@@ -32,7 +32,7 @@
             </QCardSection>
             <QCardSection>
               <div>
-                Click the link to copy and send it to the person you want to invite.
+                Copy the link and send it to the person you want to invite.
               </div>
             </QCardSection>
             <QCardSection class="q-pt-none">
@@ -114,7 +114,7 @@ export default {
       return this.group && this.group.id
     },
     linkToCopy () {
-      return 'https://karrot.world/#/groupPreview/' + this.groupId
+      return window.location.protocol + '//' + window.location.host + '/#/groupPreview/' + this.group.id
     },
   },
   methods: {

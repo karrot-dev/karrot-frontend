@@ -12,52 +12,30 @@
     >
       {{ $t('ACTIVITY_FEEDBACK.SET_AMOUNT') }}
     </QBtn>
-    <div class="content q-px-lg q-pt-lg q-pb-xs">
-      <div class="row no-wrap q-mt-sm">
-        <AmountBox
-          class="amount"
-          :amount="value"
-        />
+    <div class="content column no-wrap q-pl-lg q-pb-lg">
+      <div class="row no-wrap items-center justify-between q-pt-xs">
         <div
-          style="margin-left: .6em"
-          class="col"
-        >
-          <div
-            v-t="'ACTIVITY_FEEDBACK.AMOUNT'"
-            class="q-pb-sm"
-          />
-          <AmountViewer
-            v-if="!$q.platform.is.mobile"
-            :amount="value"
-          />
-        </div>
+          v-t="'ACTIVITY_FEEDBACK.AMOUNT'"
+          class="col-9 text-bold q-py-md"
+        />
         <QBtn
           v-if="!showOverlay"
           round
           flat
           color="red"
-          class="self-start"
+          class="self-center q-my-xs q-mr-sm"
           :title="$t('ACTIVITY_FEEDBACK.DELETE_AMOUNT')"
           @click="$emit('input', null)"
         >
           <QIcon name="fas fa-times" />
         </QBtn>
       </div>
-      <div class="row no-wrap">
-        <QSlider
-          :value="limitedValue"
-          :min="0"
-          :max="SLIDER_LIMIT"
-          :step="0.5"
-          label
-          class="self-center q-mr-lg q-ml-sm"
-          @input="$emit('input', arguments[0])"
-        />
+      <div class="content-body row no-wrap items-center">
         <!-- don't use type="number" here because browsers might enforce different decimal setting
         depending on browser locale-->
         <QInput
           v-model="valueToNumber"
-          dense
+          class="q-pr-lg"
           outlined
           size="8"
         >
@@ -65,13 +43,13 @@
             <span class="text-caption">kg</span>
           </template>
         </QInput>
+        <div
+          v-if="!$q.platform.is.mobile"
+          class="col q-ml-md"
+        >
+          <AmountViewer :amount="value" />
+        </div>
       </div>
-    </div>
-    <div
-      class="content-more-weight-info text-center text-caption q-px-lg"
-      :class="{'bg-info': isOnMaxOfSlider}"
-    >
-      <span v-if="isOnMaxOfSlider">{{ $t('ACTIVITY_FEEDBACK.INCREASE_AMOUNT_HINT') }}</span>
     </div>
   </div>
 </template>
@@ -79,22 +57,18 @@
 <script>
 import {
   QInput,
-  QSlider,
   QBtn,
   QIcon,
 } from 'quasar'
 
 import AmountViewer from './AmountViewer'
-import AmountBox from './AmountBox'
 
 export default {
   components: {
     QInput,
-    QSlider,
     QBtn,
     QIcon,
     AmountViewer,
-    AmountBox,
   },
   props: {
     value: {
@@ -105,17 +79,6 @@ export default {
   computed: {
     showOverlay () {
       return this.value === null
-    },
-    limitedValue: {
-      get () {
-        return Math.min(this.SLIDER_LIMIT, this.value)
-      },
-      set (v) {
-        this.$emit('input', v)
-      },
-    },
-    isOnMaxOfSlider () {
-      return this.value === this.SLIDER_LIMIT
     },
     valueToNumber: {
       get () {
@@ -128,13 +91,11 @@ export default {
       },
     },
   },
-  created () { this.SLIDER_LIMIT = 100 },
 }
 </script>
 
 <style scoped lang="stylus">
 $border-radius = 13px
-$info-box-height = 30px
 
 @import '~variables'
 
@@ -143,18 +104,22 @@ $info-box-height = 30px
 
 .content
   background $grey-2
-  border-top-left-radius $border-radius
-  border-top-right-radius $border-radius
+  border-radius 13px
 
-.content-more-weight-info
-  height $info-box-height
-  line-height $info-box-height
-  background $grey-2
-  border-bottom-right-radius $border-radius
-  border-bottom-left-radius $border-radius
+  .content-body
+    position relative
+    height 60px
 
-.showOverlay .content,
-.showOverlay .content-more-weight-info
+    &:after
+      position absolute
+      top 0
+      right 0
+      width 60px
+      height 100%
+      content ''
+      background linear-gradient(90deg, transparent 0%, $grey-2 75%)
+
+.showOverlay .content
   filter blur(3px)
   opacity 0.3
 </style>

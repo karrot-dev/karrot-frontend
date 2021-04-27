@@ -13,7 +13,7 @@
     <AmountPicker
       v-if="hasWeight"
       v-model="edit.weight"
-      class="q-mx-md"
+      class="q-mx-md q-mt-xl q-mb-lg"
     />
 
     <div

@@ -39,21 +39,23 @@
         </div>
         <QImg
           :src="screenshots.activities"
-          alt="karrot browser screenshot"
-          class="browser-screenshot"
-          no-default-spinner
           :ratio="1322 / 863"
+          alt="karrot browser screenshot"
+          class="browser-content"
+          no-default-spinner
         />
       </div>
-      <div class="phone">
-        <!-- <div class="phone-screenshot" /> -->
-        <QImg
-          :src="screenshots.mobile"
-          alt="karrot mobile screenshot"
-          class="phone-screenshot"
-          no-default-spinner
-          :ratio="575 / 267"
-        />
+      <div class="mobile-wrapper">
+        <div class="device-outer">
+          <div class="device-content">
+            <QImg
+              :src="screenshots.mobile"
+              alt="karrot mobile screenshot"
+              no-default-spinner
+            />
+          </div>
+          <div class="device-frame" />
+        </div>
       </div>
     </div>
 
@@ -198,7 +200,7 @@ import logo from '@/logo/assets/carrot-logo.svg'
 import { getImgSources, presets } from '@/utils/srcsetUtils'
 
 import screenshotActivities from './images/karrot-screenshot.png'
-import screenshotMobile from './images/karrot-mobile.png'
+import screenshotMobile from './images/karrot-mobile.jpg'
 import screenshotGallery from './images/karrot-gallery-map.236x236.jpg'
 import screenshotManageActivities from './images/karrot-custom-activities.236x236.jpg'
 import screenshotOffers from './images/screenshot-offers.236x236.jpg'
@@ -354,8 +356,10 @@ export default {
   --h2-fontsize 1.375rem // 22px
   --landing-padding-top 30px
   --section-padding-x 20px
-  --app-screenshots-padding 40px 20px
+  // --app-screenshots-padding 40px 20px
+  --app-screenshots-padding 40px 120px 50px 20px
   --app-screenshots-box-sdw 0 3px 22px -3px rgba(0, 0, 0, 0.2)
+  --app-screenshots-device-bg-color #FFF5D9
 
   @media (min-width: 410px)
     --h1-fontsize 2.375rem // 38px
@@ -363,7 +367,8 @@ export default {
   @media (min-width: 500px)
     --landing-padding-top 45px
     --section-padding-x 40px
-    --app-screenshots-padding 55px 40px
+    // --app-screenshots-padding 55px 40px
+    --app-screenshots-padding 55px 120px 65px 40px
 
   @media (min-width: 600px)
     --h1-fontsize 2.75rem // 44px
@@ -376,7 +381,8 @@ export default {
   @media (min-width: 1050px)
     --landing-padding-top 60px
     --section-padding-x 100px
-    --app-screenshots-padding 55px 100px
+    // --app-screenshots-padding 55px 100px
+    --app-screenshots-padding 55px 120px 65px 50px
 
 .sdw,
 >>> .groupPreviewCard
@@ -446,15 +452,17 @@ export default {
     position relative
     padding var(--app-screenshots-padding)
     margin-top 40px
+    overflow hidden
     background #FCCB3F
 
     .browser
+      background var(--app-screenshots-device-bg-color)
       border-radius 17px
       box-shadow var(--app-screenshots-box-sdw)
 
       .top-bar
         height 34px
-        background #FFF5D9
+        background var(--app-screenshots-device-bg-color)
         border-radius 15px 15px 0 0
 
         .traffic-light
@@ -464,7 +472,7 @@ export default {
           border-radius 50%
 
           &:nth-child(1)
-            margin-left 20px
+            margin-left 16px
             background #FF5E58
 
           &:nth-child(2)
@@ -473,28 +481,42 @@ export default {
           &:nth-child(3)
             background #27C840
 
-      .browser-screenshot
+      .browser-content
         border-radius 0 0 15px 15px
 
-    .phone
+    .mobile-wrapper
       position absolute
-      right 20px
-      bottom 20px
-      // width 267px
-      // width 34.7%
-      // height 575px
-      height 82%
-      overflow hidden
-      background-color #fff
-      border 10px solid white
-      border-radius 35px
-      box-shadow var(--app-screenshots-box-sdw)
+      right 35px
+      bottom 38px
+      z-index 1
+      width 26%
 
-      .phone-screenshot
+      .device-outer
         position relative
         width 100%
-        height 100%
-        background red
+        filter drop-shadow(0 3px 14px rgba(0, 0, 0, 0.2))
+        transform translateZ(0)
+
+        .device-content
+          position absolute
+          top 2.7%
+          left 5.8%
+          width 88.4%
+          height 94.6%
+          overflow hidden
+          background var(--app-screenshots-device-bg-color)
+          border-radius 10px
+
+        .device-frame
+          position relative
+          z-index 2
+          width 100%
+          height 0
+          padding-bottom 200%
+          background-image url('./images/iphone-x-frame.svg')
+          background-repeat no-repeat
+          background-position center
+          background-size cover
 
   section
     padding 30px 0

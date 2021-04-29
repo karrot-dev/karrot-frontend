@@ -62,9 +62,11 @@ export default {
 @import '~variables'
 
 .logo
+  width 32px
   height 32px
+  // mimic logged-in positioning of the logo
   margin-top -4px
-  margin-left 1em
+  margin-left 8px
 
 .actions .router-link-exact-active
   display none

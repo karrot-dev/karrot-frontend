@@ -26,6 +26,7 @@ Please document your changes in this format:
 
 ### Changed
 - group: improve create/edit group form @larzon83 @layla19 @dpaque @pogopaule @brnsolikyl [#2306]
+- landingpage: improve design @larzon83 [#2340]
 - Landing page: change text and screenshots, add "about Karrot" component @brnsolikyl [#2317]
 
 ## [9.2.0] - 2020-03-23

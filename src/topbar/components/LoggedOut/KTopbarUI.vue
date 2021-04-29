@@ -59,8 +59,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-
 .logo
   width 32px
   height 32px

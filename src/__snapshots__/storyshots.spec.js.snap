@@ -5464,7 +5464,7 @@ exports[`Storyshots Feedback AmountPicker 1`] = `
     <div class="content-body row no-wrap items-center"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-pr-lg q-input q-field--outlined q-field--float q-validation-component">
         <div class="q-field__inner relative-position col self-stretch">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="8" id="f_80808080-8080-4080-8080-808080808080" type="text" value="1" class="q-field__native q-placeholder"></div>
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" inputmode="decimal" min="0" step="0.1" size="8" id="f_80808080-8080-4080-8080-808080808080" type="number" value="1" class="q-field__native q-placeholder"></div>
             <div class="q-field__append q-field__marginal row no-wrap items-center"><span class="text-caption">kg</span></div>
           </div>
         </div>

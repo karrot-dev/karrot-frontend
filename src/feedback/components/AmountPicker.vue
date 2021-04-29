@@ -31,10 +31,12 @@
         </QBtn>
       </div>
       <div class="content-body row no-wrap items-center">
-        <!-- don't use type="number" here because browsers might enforce different decimal setting
-        depending on browser locale-->
         <QInput
           v-model="valueToNumber"
+          type="number"
+          inputmode="decimal"
+          min="0"
+          step="0.1"
           class="q-pr-lg"
           outlined
           size="8"
@@ -84,9 +86,7 @@ export default {
       get () {
         return this.value
       },
-      set (v) {
-        let value = parseFloat(v, 10)
-        value = isNaN(value) ? 0 : Math.max(0, value)
+      set (value) {
         this.$emit('input', value)
       },
     },
@@ -117,7 +117,7 @@ $border-radius = 13px
       width 60px
       height 100%
       content ''
-      background linear-gradient(90deg, transparent 0%, $grey-2 75%)
+      background linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, $grey-2 75%)
 
 .showOverlay .content
   filter blur(3px)

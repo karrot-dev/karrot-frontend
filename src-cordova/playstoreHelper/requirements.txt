@@ -49,7 +49,7 @@ pytz==2019.3
     # via google-api-core
 requests==2.23.0
     # via google-api-core
-rsa==4.1
+rsa==4.7
     # via
     #   google-auth
     #   oauth2client

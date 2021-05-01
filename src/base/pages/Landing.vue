@@ -31,30 +31,39 @@
     </div> -->
 
     <div class="app-screenshots">
-      <div class="browser">
-        <div class="top-bar row items-center">
-          <div class="traffic-light" />
-          <div class="traffic-light" />
-          <div class="traffic-light" />
-        </div>
-        <QImg
-          :src="screenshots.activities"
-          :ratio="1322 / 863"
-          alt="karrot browser screenshot"
-          class="browser-content"
-          no-default-spinner
-        />
-      </div>
-      <div class="mobile-wrapper">
-        <div class="device-outer">
-          <div class="device-content">
+      <div class="outer-wrapper">
+        <div class="inner-wrapper">
+          <div class="browser">
+            <div class="top-bar row items-center">
+              <div class="traffic-light" />
+              <div class="traffic-light" />
+              <div class="traffic-light" />
+            </div>
             <QImg
-              :src="screenshots.mobile"
-              alt="karrot mobile screenshot"
+              :src="screenshots.activities"
+              :ratio="1322 / 863"
+              alt="karrot browser screenshot"
+              class="browser-content"
               no-default-spinner
+              position="50% var(--app-screenshots-browser-img-position-y)"
+              :img-style="{
+                width: 'calc(100% - var(--app-screenshots-browser-img-offset))',
+                'background-size': 'var(--app-screenshots-browser-img-bg-sizing)'
+              }"
             />
           </div>
-          <div class="device-frame" />
+          <div class="phone-wrapper">
+            <div class="device-outer">
+              <div class="device-content">
+                <QImg
+                  :src="screenshots.mobile"
+                  alt="karrot mobile screenshot"
+                  no-default-spinner
+                />
+              </div>
+              <div class="device-frame" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -356,10 +365,23 @@ export default {
   --h2-fontsize 1.375rem // 22px
   --landing-padding-top 30px
   --section-padding-x 20px
-  // --app-screenshots-padding 40px 20px
-  --app-screenshots-padding 40px 120px 50px 20px
+  --app-screenshots-padding 25px 0 25px var(--section-padding-x)
   --app-screenshots-box-sdw 0 3px 22px -3px rgba(0, 0, 0, 0.2)
-  --app-screenshots-device-bg-color #FFF5D9
+  --app-screenshots-devices-bg-color #FFF5D9
+  --app-screenshots-outer-wrapper-width 150%
+  --app-screenshots-browser-top-bar-position absolute
+  --app-screenshots-browser-top-bar-height 18px
+  --app-screenshots-browser-top-bar-border-radius 10px
+  --app-screenshots-browser-traffic-light-size 6px
+  --app-screenshots-browser-traffic-light-margin 3px
+  --app-screenshots-browser-width 132%
+  --app-screenshots-browser-img-bg-sizing contain
+  --app-screenshots-browser-img-position-y var(--app-screenshots-browser-top-bar-height)
+  --app-screenshots-browser-img-offset 25px
+  --app-screenshots-phone-position relative
+  --app-screenshots-phone-width 43%
+  --app-screenshots-phone-right unset
+  --app-screenshots-phone-bottom unset
 
   @media (min-width: 410px)
     --h1-fontsize 2.375rem // 38px
@@ -367,21 +389,41 @@ export default {
   @media (min-width: 500px)
     --landing-padding-top 45px
     --section-padding-x 40px
-    // --app-screenshots-padding 55px 40px
-    --app-screenshots-padding 55px 120px 65px 40px
+    --app-screenshots-browser-top-bar-height 24px
+    --app-screenshots-browser-top-bar-border-radius 13px
+    --app-screenshots-browser-traffic-light-size 8px
+    --app-screenshots-browser-traffic-light-margin 4px
+    --app-screenshots-browser-img-offset 34px
 
   @media (min-width: 600px)
     --h1-fontsize 2.75rem // 44px
     --h2-fontsize 1.875rem // 30px
     --h1-letterspacing -0.025em
 
+  @media (min-width: 700px)
+    --app-screenshots-padding 55px 120px 65px var(--section-padding-x)
+    --app-screenshots-outer-wrapper-width 100%
+    --app-screenshots-browser-top-bar-position relative
+    --app-screenshots-browser-top-bar-height 34px
+    --app-screenshots-browser-top-bar-border-radius 15px
+    --app-screenshots-browser-traffic-light-size 10px
+    --app-screenshots-browser-traffic-light-margin 6px
+    --app-screenshots-browser-width 100%
+    --app-screenshots-browser-img-bg-sizing cover
+    --app-screenshots-browser-img-position-y 50%
+    --app-screenshots-browser-img-offset 0px
+    --app-screenshots-phone-position absolute
+    --app-screenshots-phone-width 32.5%
+    --app-screenshots-phone-right -105px
+    --app-screenshots-phone-bottom -27px
+
   @media (min-width: 850px)
     --h1-fontsize 3.125rem // 50px
+    --app-screenshots-phone-width 31.023%
 
   @media (min-width: 1050px)
     --landing-padding-top 60px
     --section-padding-x 100px
-    // --app-screenshots-padding 55px 100px
     --app-screenshots-padding 55px 120px 65px 50px
 
 .sdw,
@@ -449,74 +491,91 @@ export default {
   //     transform translateX(-50%)
 
   .app-screenshots
-    position relative
     padding var(--app-screenshots-padding)
     margin-top 40px
     overflow hidden
-    background #FCCB3F
+    background $boldYellow
 
-    .browser
-      background var(--app-screenshots-device-bg-color)
-      border-radius 17px
-      box-shadow var(--app-screenshots-box-sdw)
+    .outer-wrapper
+      width var(--app-screenshots-outer-wrapper-width)
 
-      .top-bar
-        height 34px
-        background var(--app-screenshots-device-bg-color)
-        border-radius 15px 15px 0 0
-
-        .traffic-light
-          width 10px
-          height 10px
-          margin-left 6px
-          border-radius 50%
-
-          &:nth-child(1)
-            margin-left 16px
-            background #FF5E58
-
-          &:nth-child(2)
-            background #FFBF30
-
-          &:nth-child(3)
-            background #27C840
-
-      .browser-content
-        border-radius 0 0 15px 15px
-
-    .mobile-wrapper
-      position absolute
-      right 35px
-      bottom 38px
-      z-index 1
-      width 26%
-
-      .device-outer
+      .inner-wrapper
         position relative
-        width 100%
-        filter drop-shadow(0 3px 14px rgba(0, 0, 0, 0.2))
-        transform translateZ(0)
+        display flex
+        flex-direction row-reverse
 
-        .device-content
-          position absolute
-          top 2.7%
-          left 5.8%
-          width 88.4%
-          height 94.6%
-          overflow hidden
-          background var(--app-screenshots-device-bg-color)
-          border-radius 10px
-
-        .device-frame
+        .browser
           position relative
-          z-index 2
-          width 100%
-          height 0
-          padding-bottom 200%
-          background-image url('./images/iphone-x-frame.svg')
-          background-repeat no-repeat
-          background-position center
-          background-size cover
+          width var(--app-screenshots-browser-width)
+          background var(--app-screenshots-devices-bg-color)
+          // slightly bigger border-radius then top-bar and browser-content
+          // to make sure, box-shadow doesn't create a harsh line at the shadow start
+          border-radius calc(var(--app-screenshots-browser-top-bar-border-radius) + 2px)
+          box-shadow var(--app-screenshots-box-sdw)
+
+          .top-bar
+            position var(--app-screenshots-browser-top-bar-position)
+            height var(--app-screenshots-browser-top-bar-height)
+            padding 0
+            background var(--app-screenshots-devices-bg-color)
+            border-radius var(--app-screenshots-browser-top-bar-border-radius) var(--app-screenshots-browser-top-bar-border-radius) 0 0
+
+            .traffic-light
+              width var(--app-screenshots-browser-traffic-light-size)
+              height var(--app-screenshots-browser-traffic-light-size)
+              margin-left var(--app-screenshots-browser-traffic-light-margin)
+              border-radius 50%
+
+              &:nth-child(1)
+                margin-left 16px
+                margin-left calc(var(--app-screenshots-browser-traffic-light-size) + 5px)
+                background #FF5E58
+
+              &:nth-child(2)
+                background #FFBF30
+
+              &:nth-child(3)
+                background #27C840
+
+          .browser-content
+            border-radius 0 0 var(--app-screenshots-browser-top-bar-border-radius) var(--app-screenshots-browser-top-bar-border-radius)
+
+        .phone-wrapper
+          position var(--app-screenshots-phone-position)
+          right var(--app-screenshots-phone-right)
+          bottom var(--app-screenshots-phone-bottom)
+          z-index 1
+          width var(--app-screenshots-phone-width)
+          margin-right 20px
+
+          .device-outer
+            position relative
+            width 100%
+            filter drop-shadow(0 3px 14px rgba(0, 0, 0, 0.2))
+            transform translateZ(0)
+
+            .device-content
+              position absolute
+              top 2.7%
+              left 5.8%
+              width 88.4%
+              height 94.6%
+              overflow hidden
+              background var(--app-screenshots-devices-bg-color)
+              border-radius 10px
+              // prevent 1px gaps between frame and screenshot in some resolutions
+              box-shadow 0px 0px 0px 1px #3f3a2d
+
+            .device-frame
+              position relative
+              z-index 2
+              width 100%
+              height 0
+              padding-bottom 200%
+              background-image url('./images/iphone-x-frame.svg')
+              background-repeat no-repeat
+              background-position center
+              background-size cover
 
   section
     padding 30px 0

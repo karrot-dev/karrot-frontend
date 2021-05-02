@@ -337,7 +337,8 @@ body.desktop .mainContent-page:not(.fullpage)
   border-radius 50%
 
 .logo
-  height 25px
+  width auto
+  height 19px
 </style>
 
 <style lang="stylus">

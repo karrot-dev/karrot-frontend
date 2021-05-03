@@ -35,7 +35,7 @@
                 Copy the link and send it to the person you want to invite.
               </div>
             </QCardSection>
-            <QCardSection class="q-pt-none">
+            <QCardSection class="q-py-md">
               <QField filled>
                 <template #append>
                   <QBtn
@@ -43,7 +43,14 @@
                     rounded
                     icon="fas fa-copy"
                     @click="copyLink"
-                  />
+                  >
+                    <q-tooltip
+                      anchor="top middle"
+                      self="bottom middle"
+                    >
+                      Click to copy
+                    </q-tooltip>
+                  </QBtn>
                 </template>
                 <template #control>
                   <div class="self-center full-width no-outline">
@@ -51,6 +58,13 @@
                   </div>
                 </template>
               </QField>
+            </QCardSection>
+            <QCardSection align="right">
+              <QBtn
+                v-close-popup
+                flat
+                :label="$t('BUTTON.CLOSE')"
+              />
             </QCardSection>
           </QCard>
         </QDialog>

@@ -148,7 +148,7 @@ export default {
       Dialog.create({
         title: this.$t('INACTIVITY.WHAT'),
         message: this.$t('INACTIVITY.HELP', { dayCount: this.group.memberInactiveAfterDays }),
-        ok: this.$t('BUTTON.BACK'),
+        ok: this.$t('BUTTON.CLOSE'),
       })
     },
   },

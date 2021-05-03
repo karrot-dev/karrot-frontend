@@ -1,10 +1,38 @@
 export const presets = {
   WELCOME_IMGS: 'welcomeImgs',
+  WELCOME_SCREENSHOTS_BROWSER: 'screenshotsMainBrowser',
+  WELCOME_SCREENSHOTS_PHONE: 'screenshotsMainPhone',
 }
 
 const presetsDefs = {
+  [presets.WELCOME_SCREENSHOTS_BROWSER]: {
+    maxWidthRetina: 1776,
+    possibleWidths: [400, 600, 800, 880, 889, 1200, 1600, 1760, 1776],
+    sizes: `
+          (max-width: 386px) 400px,
+          (max-width: 583px) 600px,
+          (max-width: 699px) 800px,
+          (max-width: 760px) 600px,
+          (max-width: 960px) 800px,
+          (max-width: 1049px) 889px,
+          880px
+          `,
+  },
+  [presets.WELCOME_SCREENSHOTS_PHONE]: {
+    maxWidthRetina: 490,
+    possibleWidths: [100, 120, 130, 160, 200, 211, 240, 245, 260, 320, 422, 490],
+    sizes: `
+          (max-width: 340px) 100px,
+          (max-width: 401px) 120px,
+          (max-width: 432px) 130px,
+          (max-width: 544px) 160px,
+          (max-width: 699px) 211px,
+          (max-width: 716px) 160px,
+          (max-width: 929px) 211px,
+          245px
+          `,
+  },
   [presets.WELCOME_IMGS]: {
-    maxWidth: 300,
     maxWidthRetina: 600,
     possibleWidths: [100, 150, 200, 250, 300, 400, 500, 600],
     sizes: `
@@ -69,9 +97,11 @@ export const getImgSources = ({ baseFileName = '', basePath = '', physicalWidth 
     widths = sliceAndSpliceSrcsetWidths(possibleWidths, physicalWidth)
   }
 
-  return {
+  const res = {
     src: require(`@/${basePath}${baseFileName}-${baseWidth.toString()}w.jpg`),
     sizes: presetsDefs[preset].sizes,
     srcset: generateSrcsetEntries(baseFileName, basePath, widths),
   }
+  console.log('res:', res)
+  return res
 }

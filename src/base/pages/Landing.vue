@@ -40,9 +40,11 @@
               <div class="traffic-light" />
             </div>
             <QImg
-              :src="screenshots.activities"
+              :sizes="screenshotsMain.browser.sources.sizes"
+              :srcset="screenshotsMain.browser.sources.srcset"
+              :src="screenshotsMain.browser.sources.src"
+              :alt="screenshotsMain.browser.alt"
               :ratio="1322 / 863"
-              alt="karrot browser screenshot"
               class="browser-content"
               no-default-spinner
               position="50% var(--app-screenshots-browser-img-position-y)"
@@ -56,8 +58,10 @@
             <div class="device-outer">
               <div class="device-content">
                 <QImg
-                  :src="screenshots.mobile"
-                  alt="karrot mobile screenshot"
+                  :sizes="screenshotsMain.phone.sources.sizes"
+                  :srcset="screenshotsMain.phone.sources.srcset"
+                  :src="screenshotsMain.phone.sources.src"
+                  :alt="screenshotsMain.phone.alt"
                   no-default-spinner
                 />
               </div>
@@ -208,13 +212,17 @@ import KLandingButtons from '@/base/components/KLandingButtons'
 import logo from '@/logo/assets/carrot-logo.svg'
 import { getImgSources, presets } from '@/utils/srcsetUtils'
 
+// FIXME: delete, if new screens are ok
 import screenshotActivities from './images/karrot-screenshot.png'
 import screenshotMobile from './images/karrot-mobile.jpg'
+
 import screenshotGallery from './images/karrot-gallery-map.236x236.jpg'
 import screenshotManageActivities from './images/karrot-custom-activities.236x236.jpg'
 import screenshotOffers from './images/screenshot-offers.236x236.jpg'
 
 import router from '@/router'
+
+const SCREENSHOTS_BASE_PATH = 'base/pages/images/'
 
 // Prefer active non-playground groups with a photo
 function groupSortScore (group) {
@@ -260,14 +268,34 @@ export default {
   created () {
     this.logo = logo
     this.screenshots = {
-      activities: screenshotActivities,
-      mobile: screenshotMobile,
+      activities: screenshotActivities, // FIXME: delete, if new screens are ok
+      mobile: screenshotMobile, // FIXME: delete, if new screens are ok
       GROUPS: screenshotGallery,
       ACTIVITIES: screenshotManageActivities,
       OFFERS: screenshotOffers,
     }
+    this.screenshotsMain = {
+      browser: {
+        alt: 'karrot browser screenshot',
+        sources: getImgSources({
+          baseFileName: 'karrot-screenshot-browser',
+          physicalWidth: 1776,
+          basePath: SCREENSHOTS_BASE_PATH,
+          preset: presets.WELCOME_SCREENSHOTS_BROWSER,
+        }),
+      },
+      phone: {
+        alt: 'karrot mobile screenshot',
+        sources: getImgSources({
+          baseFileName: 'karrot-screenshot-phone',
+          physicalWidth: 490,
+          basePath: SCREENSHOTS_BASE_PATH,
+          preset: presets.WELCOME_SCREENSHOTS_PHONE,
+        }),
+      },
+    }
     this.imagesOptions = {
-      basePath: 'base/pages/images/',
+      basePath: SCREENSHOTS_BASE_PATH,
       preset: presets.WELCOME_IMGS,
     }
     this.images = [

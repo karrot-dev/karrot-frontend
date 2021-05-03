@@ -348,14 +348,14 @@ export default {
         }),
       },
       // NOTE: only for testing responsive sizes
-      {
-        alt: 'responsive srcset test',
-        sources: getImgSources({
-          baseFileName: 'responsive-test',
-          physicalWidth: 600,
-          ...this.imagesOptions,
-        }),
-      },
+      // {
+      //   alt: 'responsive srcset test',
+      //   sources: getImgSources({
+      //     baseFileName: 'responsive-test',
+      //     physicalWidth: 600,
+      //     ...this.imagesOptions,
+      //   }),
+      // },
     ]
     this.features = [
       'GROUPS',

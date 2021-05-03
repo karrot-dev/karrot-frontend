@@ -47,7 +47,7 @@ export default {
           trusted: membership.trustedBy.includes(authUserId),
           trustProgress: isEditor ? 1 : membership.trustedBy.length / trustThresholdForNewcomer,
           trustThresholdForNewcomer,
-          ...metaStatusesWithId(getters, ['trustUser'], parseInt(userId)),
+          ...metaStatusesWithId(getters, ['trustUser', 'revokeTrust'], parseInt(userId)),
         }
         return obj
       }, {})

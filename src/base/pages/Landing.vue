@@ -21,15 +21,6 @@
       <p v-t="'ABOUT_KARROT.SUBTITLE2'" />
     </div>
 
-    <!-- FIXME: delete, if new screens are ok -->
-    <!-- <div class="text-center q-my-xl">
-      <QImg
-        :src="screenshots.activities"
-        alt="karrot"
-        class="sdw3 screenshot-fullwidth"
-      />
-    </div> -->
-
     <div class="app-screenshots">
       <div class="outer-wrapper">
         <div class="inner-wrapper">
@@ -212,10 +203,6 @@ import KLandingButtons from '@/base/components/KLandingButtons'
 import logo from '@/logo/assets/carrot-logo.svg'
 import { getImgSources, presets } from '@/utils/srcsetUtils'
 
-// FIXME: delete, if new screens are ok
-import screenshotActivities from './images/karrot-screenshot.png'
-import screenshotMobile from './images/karrot-mobile.jpg'
-
 import screenshotGallery from './images/karrot-gallery-map.236x236.jpg'
 import screenshotManageActivities from './images/karrot-custom-activities.236x236.jpg'
 import screenshotOffers from './images/screenshot-offers.236x236.jpg'
@@ -268,8 +255,6 @@ export default {
   created () {
     this.logo = logo
     this.screenshots = {
-      activities: screenshotActivities, // FIXME: delete, if new screens are ok
-      mobile: screenshotMobile, // FIXME: delete, if new screens are ok
       GROUPS: screenshotGallery,
       ACTIVITIES: screenshotManageActivities,
       OFFERS: screenshotOffers,

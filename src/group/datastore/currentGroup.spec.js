@@ -16,6 +16,7 @@ function enrichMemberships (memberships, users, currentUserId) {
       trusted: membership.trustedBy.includes(currentUserId),
       trustThresholdForNewcomer: 3,
       trustUserStatus: statusMocks.default(),
+      revokeTrustStatus: statusMocks.default(),
     }
     return obj
   }, {})

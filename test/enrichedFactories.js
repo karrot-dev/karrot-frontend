@@ -16,18 +16,18 @@ import { optionsFor } from '@/places/placeStatus'
 
 // Reusing the landing page images :)
 
-import imageLarge from '@/base/pages/images/karrot-screenshot.png'
+import imageLarge from '@/base/pages/images/karrot-screenshot-browser-1200w.jpg'
 
 import image236a from '@/base/pages/images/karrot-gallery.236x236.jpg'
 import image236b from '@/base/pages/images/karrot-manage-activities.236x236.jpg'
 import image236c from '@/base/pages/images/solikyl-offers.236x236.jpg'
 
-import image200a from '@/base/pages/images/oestersund-saved-food.200x200.jpg'
-import image200b from '@/base/pages/images/oestersund-volunteers.200x200.jpg'
-import image200c from '@/base/pages/images/bikeworkshop.200x200.jpg'
-import image200d from '@/base/pages/images/solikyl-savers.200x200.jpg'
-import image200e from '@/base/pages/images/fsmaastricht-fairshare.200x200.jpg'
-import image200f from '@/base/pages/images/fsmaastricht-foodsavers.200x200.jpg'
+import image200a from '@/base/pages/images/oestersund-saved-food-200w.jpg'
+import image200b from '@/base/pages/images/oestersund-volunteers-200w.jpg'
+import image200c from '@/base/pages/images/bike-workshop-200w.jpg'
+import image200d from '@/base/pages/images/solikyl-savers-200w.jpg'
+import image200e from '@/base/pages/images/fsmaastricht-fairshare-200w.jpg'
+import image200f from '@/base/pages/images/fsmaastricht-foodsavers-200w.jpg'
 
 let notificationIdCnt = 0
 export const makeNotification = data => {

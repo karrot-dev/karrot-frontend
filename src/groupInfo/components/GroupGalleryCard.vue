@@ -150,7 +150,7 @@ export default {
   box-shadow 0 2px 15px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.15)
 
   &:hover
-    box-shadow rgba(252, 203, 63, 0.7) 0px 0px 0px 3px
+    box-shadow rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px
 
   *
     overflow hidden

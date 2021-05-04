@@ -25,6 +25,7 @@
       >
         <img
           v-if="group.hasPhoto"
+          :alt="group.name || ''"
           :src="group.photoUrls['200']"
         >
         <RandomArt

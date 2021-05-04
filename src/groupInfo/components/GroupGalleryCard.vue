@@ -67,7 +67,7 @@
         </span>
         <div class="overlay" />
       </QCardSection>
-      <QSeparator />
+      <QSeparator v-if="group.isMember" />
       <QCardActions v-if="group.isMember">
         <QBtn
           flat

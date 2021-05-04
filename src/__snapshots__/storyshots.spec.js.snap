@@ -7999,69 +7999,67 @@ exports[`Storyshots Issues results - expelled 1`] = `
 
 exports[`Storyshots KAbout KAbout 1`] = `
 <div class="bg-white q-pa-md">
-  <div class="layout-padding">
-    <div class="k-logo-container"><a><img src="test-file-stub"></a>
-      <h4></h4>
-    </div>
-    <div class="q-list"><a tabindex="0" rel="noopener noreferrer" href="https://community.foodsaving.world/t/how-to-get-involved-onboarding-into-the-karrot-team/661" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-        <div tabindex="-1" class="q-focus-helper"></div>
-        <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-users q-icon notranslate"> </i></div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label">
-            How to Get Involved
-          </div>
+  <div class="k-logo-container"><a><img src="test-file-stub" class="logo"></a>
+    <h4></h4>
+  </div>
+  <div class="q-mt-md q-list"><a tabindex="0" rel="noopener noreferrer" href="https://community.foodsaving.world/t/how-to-get-involved-onboarding-into-the-karrot-team/661" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-users q-icon notranslate"> </i></div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label">
+          How to Get Involved
         </div>
-      </a> <a tabindex="0" rel="noopener noreferrer" href="https://github.com/yunity/karrot-frontend" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-        <div tabindex="-1" class="q-focus-helper"></div>
-        <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fab fa-fw fa-github q-icon notranslate"> </i></div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label">
-            Development
-          </div>
-          <div class="q-item__label q-item__label--caption text-caption">
-            See our code!
-          </div>
+      </div>
+    </a> <a tabindex="0" rel="noopener noreferrer" href="https://github.com/yunity/karrot-frontend" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fab fa-fw fa-github q-icon notranslate"> </i></div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label">
+          Development
         </div>
-      </a> <a tabindex="0" rel="noopener noreferrer" href="https://fosstodon.org/@karrot" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-        <div tabindex="-1" class="q-focus-helper"></div>
-        <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fab fa-fw fa-mastodon q-icon notranslate"> </i></div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label">
-            Mastodon
-          </div>
+        <div class="q-item__label q-item__label--caption text-caption">
+          See our code!
         </div>
-      </a> <a tabindex="0" rel="noopener noreferrer" href="https://foodsaving.world" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-        <div tabindex="-1" class="q-focus-helper"></div>
-        <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-globe q-icon notranslate"> </i></div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label">
-            Info
-          </div>
-          <div class="q-item__label q-item__label--caption text-caption">
-            How to build your foodsaving group
-          </div>
+      </div>
+    </a> <a tabindex="0" rel="noopener noreferrer" href="https://fosstodon.org/@karrot" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fab fa-fw fa-mastodon q-icon notranslate"> </i></div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label">
+          Mastodon
         </div>
-      </a> <a tabindex="0" rel="noopener noreferrer" href="mailto:karrot@foodsaving.world" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
-        <div tabindex="-1" class="q-focus-helper"></div>
-        <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate"> </i></div>
-        <div class="q-item__section column q-item__section--main justify-center">
-          <div class="q-item__label">
-            karrot@foodsaving.world
-          </div>
+      </div>
+    </a> <a tabindex="0" rel="noopener noreferrer" href="https://foodsaving.world" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-globe q-icon notranslate"> </i></div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label">
+          Info
         </div>
-      </a></div>
-    <div class="text-center k-about-footer">
-      karrot
-      <a href="" target="_blank" rel="noopener">
-        local dev
-      </a> <br><br>
-      made with
-      <i class="fas fa-heart text-red"></i>
-      by
-      <a href="https://foodsaving.world" target="_blank" rel="noopener">
-        foodsaving worldwide
-      </a>
-    </div>
+        <div class="q-item__label q-item__label--caption text-caption">
+          How to build your foodsaving group
+        </div>
+      </div>
+    </a> <a tabindex="0" rel="noopener noreferrer" href="mailto:karrot@foodsaving.world" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+      <div tabindex="-1" class="q-focus-helper"></div>
+      <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate"> </i></div>
+      <div class="q-item__section column q-item__section--main justify-center">
+        <div class="q-item__label">
+          karrot@foodsaving.world
+        </div>
+      </div>
+    </a></div>
+  <div class="text-center k-about-footer">
+    karrot
+    <a href="" target="_blank" rel="noopener">
+      local dev
+    </a> <br><br>
+    made with
+    <i class="fas fa-heart text-red"></i>
+    by
+    <a href="https://foodsaving.world" target="_blank" rel="noopener">
+      foodsaving worldwide
+    </a>
   </div>
   <div class="row justify-end q-mt-sm"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Close</span></span></span></button></div>
 </div>

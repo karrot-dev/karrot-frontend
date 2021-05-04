@@ -6170,7 +6170,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
               </div>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+            <!---->
             <!---->
           </div>
         </div>
@@ -6193,7 +6193,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
       </span>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+            <!---->
             <!---->
           </div>
         </div>
@@ -6216,7 +6216,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
       </span>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+            <!---->
             <!---->
           </div>
         </div>
@@ -6239,7 +6239,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
       </span>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+            <!---->
             <!---->
           </div>
         </div>
@@ -6265,7 +6265,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
               </div>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+            <!---->
             <!---->
           </div>
         </div>
@@ -6291,7 +6291,7 @@ exports[`Storyshots GroupGallery signup view 1`] = `
               </div>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+            <!---->
             <!---->
           </div>
         </div>
@@ -6458,7 +6458,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
               </div>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+            <!---->
             <!---->
           </div>
         </div>
@@ -6481,7 +6481,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
       </span>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+            <!---->
             <!---->
           </div>
         </div>
@@ -6504,7 +6504,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
       </span>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+            <!---->
             <!---->
           </div>
         </div>
@@ -6527,7 +6527,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
       </span>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+            <!---->
             <!---->
           </div>
         </div>
@@ -6553,7 +6553,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
               </div>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+            <!---->
             <!---->
           </div>
         </div>
@@ -6579,7 +6579,7 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
               </div>
               <div class="overlay"></div>
             </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+            <!---->
             <!---->
           </div>
         </div>
@@ -6615,7 +6615,7 @@ exports[`Storyshots GroupGalleryCard isMember = false 1`] = `
       </div>
       <div class="overlay"></div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+    <!---->
     <!---->
   </div>
 </div>
@@ -6647,7 +6647,7 @@ exports[`Storyshots GroupGalleryCard isMember = false, application pending 1`] =
       </div>
       <div class="overlay"></div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+    <!---->
     <!---->
   </div>
 </div>
@@ -6705,7 +6705,7 @@ exports[`Storyshots GroupGalleryCard without public description 1`] = `
       </span>
       <div class="overlay"></div>
     </div>
-    <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
+    <!---->
     <!---->
   </div>
 </div>

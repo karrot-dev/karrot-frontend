@@ -146,10 +146,10 @@ export default {
 
 .groupPreviewCard
   cursor pointer
-  box-shadow 0 2px 6px 0 rgba(0, 0, 0, 0.2)
+  box-shadow 0 2px 15px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.15)
 
   &:hover
-    box-shadow 0 7px 11px 0 rgba(0, 0, 0, 0.2)
+    box-shadow rgba(252, 203, 63, 0.7) 0px 0px 0px 3px
 
   *
     overflow hidden

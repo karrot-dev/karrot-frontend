@@ -172,7 +172,7 @@ export default {
       width 100%
       height 100%
       content ''
-      background linear-gradient(transparent 80%, white)
+      background linear-gradient(rgba(255, 255, 255, 0) 80%, white 100%)
 
   .smaller-text >>> *
     font-size 1em

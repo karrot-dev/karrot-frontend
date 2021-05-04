@@ -2,11 +2,17 @@
   <div
     class="bg-white q-pa-md"
   >
-    <div class="k-logo-container">
-      <RouterLink :to="'/'">
-        <KarrotLogo class="logo" />
+    <div class="k-logo-container row no-wrap items-center">
+      <RouterLink
+        :to="'/'"
+        class="logo self-start"
+      >
+        <KarrotLogo />
       </RouterLink>
-      <h4 v-t="'GLOBAL.ABOUT_KARROT'" />
+      <h4
+        v-t="'GLOBAL.ABOUT_KARROT'"
+        class="col q-ma-none q-pl-md"
+      />
     </div>
 
     <QList class="q-mt-md">
@@ -197,18 +203,12 @@ export default {
   height 75px
 
   .logo
-    width auto
-    height 90%
+    width 62px
+    height 62px
 
   > div
     height 80px
     filter drop-shadow(0px 1px 1px rgba(0, 0, 0, .7))
-
-  h4
-    position relative
-    bottom 15px
-    display inline-block
-    padding-left 15px
 
 .k-about-footer
   margin-top 50px

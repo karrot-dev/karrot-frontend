@@ -7999,8 +7999,8 @@ exports[`Storyshots Issues results - expelled 1`] = `
 
 exports[`Storyshots KAbout KAbout 1`] = `
 <div class="bg-white q-pa-md">
-  <div class="k-logo-container"><a><img src="test-file-stub" class="logo"></a>
-    <h4></h4>
+  <div class="k-logo-container row no-wrap items-center"><a class="logo self-start"><img src="test-file-stub"></a>
+    <h4 class="col q-ma-none q-pl-md"></h4>
   </div>
   <div class="q-mt-md q-list"><a tabindex="0" rel="noopener noreferrer" href="https://community.foodsaving.world/t/how-to-get-involved-onboarding-into-the-karrot-team/661" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>

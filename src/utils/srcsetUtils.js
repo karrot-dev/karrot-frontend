@@ -97,11 +97,9 @@ export const getImgSources = ({ baseFileName = '', basePath = '', physicalWidth 
     widths = sliceAndSpliceSrcsetWidths(possibleWidths, physicalWidth)
   }
 
-  const res = {
+  return {
     src: require(`@/${basePath}${baseFileName}-${baseWidth.toString()}w.jpg`),
     sizes: presetsDefs[preset].sizes,
     srcset: generateSrcsetEntries(baseFileName, basePath, widths),
   }
-  console.log('res:', res)
-  return res
 }

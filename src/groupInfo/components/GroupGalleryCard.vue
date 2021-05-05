@@ -23,11 +23,14 @@
       <div
         class="photo text-white relative-position row justify-center"
       >
-        <img
+        <QImg
           v-if="group.hasPhoto"
           :alt="group.name || ''"
           :src="group.photoUrls['200']"
-        >
+          :ratio="1"
+          contain
+          no-default-spinner
+        />
         <RandomArt
           v-else
           :seed="group.id"
@@ -104,6 +107,7 @@ import {
   QBtn,
   QTooltip,
   QIcon,
+  QImg,
   QBadge,
 } from 'quasar'
 import Markdown from '@/utils/components/Markdown'
@@ -120,6 +124,7 @@ export default {
     QBtn,
     QTooltip,
     QIcon,
+    QImg,
     QBadge,
   },
   props: {
@@ -178,13 +183,9 @@ export default {
   .smaller-text >>> *
     font-size 1em
 
-  .photo
+  .photo,
+  .q-img
     height 160px
-
-    img
-      display block
-      width auto
-      height 100%
 
     .k-media-overlay
       background-color rgba(0, 0, 0, 0.47)

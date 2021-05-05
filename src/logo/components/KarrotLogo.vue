@@ -2,6 +2,7 @@
   <img
     :src="logo"
     :class="{ loading: isLoading }"
+    alt="karrot logo"
   >
 </template>
 

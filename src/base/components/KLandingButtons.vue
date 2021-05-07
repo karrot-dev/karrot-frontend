@@ -52,6 +52,8 @@ export default {
 <style scoped lang="stylus">
 .landing-buttons
   justify-content center
+  // q-gutter-md defines a 16px gutter which isn't optimal
+  // -> override x-axis gutter to be 10px instead
   margin-left -10px
 
   > *

@@ -7999,7 +7999,7 @@ exports[`Storyshots Issues results - expelled 1`] = `
 
 exports[`Storyshots KAbout KAbout 1`] = `
 <div class="bg-white q-pa-md">
-  <div class="k-logo-container row no-wrap items-center"><a class="logo self-start"><img src="test-file-stub"></a>
+  <div class="k-logo-container row no-wrap items-center"><a class="logo self-start"><img src="test-file-stub" alt="karrot logo"></a>
     <h4 class="col q-ma-none q-pl-md"></h4>
   </div>
   <div class="q-mt-md q-list"><a tabindex="0" rel="noopener noreferrer" href="https://community.foodsaving.world/t/how-to-get-involved-onboarding-into-the-karrot-team/661" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
@@ -8487,7 +8487,7 @@ exports[`Storyshots Latest Messages type: thread 1`] = `
 `;
 
 exports[`Storyshots Layout KTopbar 1`] = `
-<div class="q-toolbar row no-wrap items-center text-white bg-primary row justify-between"> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip" style="padding:4px 8px 8px;min-width:0;min-height:0;"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="logo"><img src="test-file-stub"></div> <!----></span></span></button>
+<div class="q-toolbar row no-wrap items-center text-white bg-primary row justify-between"> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip" style="padding:4px 8px 8px;min-width:0;min-height:0;"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><div class="logo"><img src="test-file-stub" alt="karrot logo"></div> <!----></span></span></button>
   <div class="no-wrap text-center q-toolbar__title ellipsis">
     <div class="column text-center">
       <div class="wrapper bread">

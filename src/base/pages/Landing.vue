@@ -10,7 +10,7 @@
       <div class="col-auto text-center">
         <img
           :src="logo"
-          alt="Karrot Logo"
+          alt="karrot logo"
           class="hero-logo"
         >
       </div>
@@ -31,10 +31,10 @@
               <div class="traffic-light" />
             </div>
             <QImg
-              :sizes="screenshotsMain.browser.sources.sizes"
-              :srcset="screenshotsMain.browser.sources.srcset"
-              :src="screenshotsMain.browser.sources.src"
-              :alt="screenshotsMain.browser.alt"
+              :sizes="appScreenshots.browser.sources.sizes"
+              :srcset="appScreenshots.browser.sources.srcset"
+              :src="appScreenshots.browser.sources.src"
+              :alt="appScreenshots.browser.alt"
               :ratio="1322 / 863"
               class="browser-content"
               no-default-spinner
@@ -49,10 +49,11 @@
             <div class="device-outer">
               <div class="device-content">
                 <QImg
-                  :sizes="screenshotsMain.phone.sources.sizes"
-                  :srcset="screenshotsMain.phone.sources.srcset"
-                  :src="screenshotsMain.phone.sources.src"
-                  :alt="screenshotsMain.phone.alt"
+                  :sizes="appScreenshots.phone.sources.sizes"
+                  :srcset="appScreenshots.phone.sources.srcset"
+                  :src="appScreenshots.phone.sources.src"
+                  :alt="appScreenshots.phone.alt"
+                  :ratio="750 / 1624"
                   no-default-spinner
                 />
               </div>
@@ -67,9 +68,9 @@
       <section>
         <p v-t="'ABOUT_KARROT.VISION_INTRO'" />
 
-        <div class="row inline-images q-col-gutter-md q-mt-lg q-mb-xl">
+        <div class="row random-images q-col-gutter-md q-mt-lg q-mb-xl">
           <div
-            v-for="(image, idx) in images"
+            v-for="(image, idx) in randomImages"
             :key="`inline-image-${idx}`"
             class="col-4"
           >
@@ -87,22 +88,26 @@
 
       <section>
         <div
-          v-for="(feature, idx) in features"
-          :key="feature"
+          v-for="(feature, idx) in featureScreenshots"
+          :key="feature.ident"
           class="feature"
           :class="[ idx === 0 ? 'q-mb-lg q-pb-lg' : 'q-my-lg q-py-lg', { swap: idx % 2 !== 0 }]"
+          :style="{ '--feature-offset-extend': `${feature.extendOffsetPx}px`}"
         >
           <div class="feature__content">
-            <h2 v-t="`ABOUT_KARROT.SECTIONS.${feature}.TITLE`" />
-            <p v-t="`ABOUT_KARROT.SECTIONS.${feature}.SUBTITLE`" />
-            <p v-t="`ABOUT_KARROT.SECTIONS.${feature}.DESCRIPTION`" />
+            <h2 v-t="`ABOUT_KARROT.SECTIONS.${feature.ident}.TITLE`" />
+            <p v-t="`ABOUT_KARROT.SECTIONS.${feature.ident}.SUBTITLE`" />
+            <p v-t="`ABOUT_KARROT.SECTIONS.${feature.ident}.DESCRIPTION`" />
           </div>
-          <!-- TODO: create proper alt tags per image -->
-          <img
-            :src="screenshots[feature]"
-            alt="karrot"
-            class="feature__img sdw2"
-          >
+          <div class="feature__img">
+            <QImg
+              :sizes="feature.sources.sizes"
+              :srcset="feature.sources.srcset"
+              :src="feature.sources.src"
+              :ratio="feature.sources.physicalWidth / feature.sources.physicalHeight"
+              :alt="$t(`ABOUT_KARROT.SECTIONS.${feature.ident}.TITLE`)"
+            />
+          </div>
         </div>
       </section>
 
@@ -132,7 +137,7 @@
           >
             <img
               :src="logo"
-              alt="Karrot Logo"
+              alt="karrot logo"
               class="about-logo"
             >
             {{ $t("GLOBAL.ABOUT_KARROT") }}
@@ -203,10 +208,6 @@ import KLandingButtons from '@/base/components/KLandingButtons'
 import logo from '@/logo/assets/carrot-logo.svg'
 import { getImgSources, presets } from '@/utils/srcsetUtils'
 
-import screenshotGallery from './images/karrot-gallery-map.236x236.jpg'
-import screenshotManageActivities from './images/karrot-custom-activities.236x236.jpg'
-import screenshotOffers from './images/screenshot-offers.236x236.jpg'
-
 import router from '@/router'
 
 const SCREENSHOTS_BASE_PATH = 'base/pages/images/'
@@ -254,19 +255,14 @@ export default {
   },
   created () {
     this.logo = logo
-    this.screenshots = {
-      GROUPS: screenshotGallery,
-      ACTIVITIES: screenshotManageActivities,
-      OFFERS: screenshotOffers,
-    }
-    this.screenshotsMain = {
+    this.appScreenshots = {
       browser: {
         alt: 'karrot browser screenshot',
         sources: getImgSources({
           baseFileName: 'karrot-screenshot-browser',
           physicalWidth: 1776,
           basePath: SCREENSHOTS_BASE_PATH,
-          preset: presets.WELCOME_SCREENSHOTS_BROWSER,
+          preset: presets.LANDINGPAGE_APP_SCREENSHOTS_BROWSER,
         }),
       },
       phone: {
@@ -275,21 +271,21 @@ export default {
           baseFileName: 'karrot-screenshot-phone',
           physicalWidth: 490,
           basePath: SCREENSHOTS_BASE_PATH,
-          preset: presets.WELCOME_SCREENSHOTS_PHONE,
+          preset: presets.LANDINGPAGE_APP_SCREENSHOTS_PHONE,
         }),
       },
     }
-    this.imagesOptions = {
+    this.randomImagesOptions = {
       basePath: SCREENSHOTS_BASE_PATH,
-      preset: presets.WELCOME_IMGS,
+      preset: presets.LANDINGPAGE_RANDOM_IMGS,
     }
-    this.images = [
+    this.randomImages = [
       {
         alt: 'oestersund saved food',
         sources: getImgSources({
           baseFileName: 'oestersund-saved-food',
           physicalWidth: 500,
-          ...this.imagesOptions,
+          ...this.randomImagesOptions,
         }),
       },
       {
@@ -297,7 +293,7 @@ export default {
         sources: getImgSources({
           baseFileName: 'oestersund-volunteers',
           physicalWidth: 435,
-          ...this.imagesOptions,
+          ...this.randomImagesOptions,
         }),
       },
       {
@@ -305,7 +301,7 @@ export default {
         sources: getImgSources({
           baseFileName: 'bike-workshop',
           physicalWidth: 600,
-          ...this.imagesOptions,
+          ...this.randomImagesOptions,
         }),
       },
       {
@@ -313,7 +309,7 @@ export default {
         sources: getImgSources({
           baseFileName: 'solikyl-savers',
           physicalWidth: 450,
-          ...this.imagesOptions,
+          ...this.randomImagesOptions,
         }),
       },
       {
@@ -321,7 +317,7 @@ export default {
         sources: getImgSources({
           baseFileName: 'fsmaastricht-fairshare',
           physicalWidth: 480,
-          ...this.imagesOptions,
+          ...this.randomImagesOptions,
         }),
       },
       {
@@ -329,7 +325,7 @@ export default {
         sources: getImgSources({
           baseFileName: 'fsmaastricht-foodsavers',
           physicalWidth: 600,
-          ...this.imagesOptions,
+          ...this.randomImagesOptions,
         }),
       },
       // NOTE: only for testing responsive sizes
@@ -338,14 +334,45 @@ export default {
       //   sources: getImgSources({
       //     baseFileName: 'responsive-test',
       //     physicalWidth: 600,
-      //     ...this.imagesOptions,
+      //     ...this.randomImagesOptions,
       //   }),
       // },
     ]
-    this.features = [
-      'GROUPS',
-      'ACTIVITIES',
-      'OFFERS',
+    this.featureScreenshotsOptions = {
+      basePath: SCREENSHOTS_BASE_PATH,
+      preset: presets.LANDINGPAGE_FEATURE_SCREENSHOTS,
+    }
+    this.featureScreenshots = [
+      {
+        ident: 'GROUPS',
+        extendOffsetPx: '8',
+        sources: getImgSources({
+          baseFileName: 'karrot-feature-groups',
+          physicalWidth: 978,
+          physicalHeight: 978,
+          ...this.featureScreenshotsOptions,
+        }),
+      },
+      {
+        ident: 'ACTIVITIES',
+        extendOffsetPx: '0',
+        sources: getImgSources({
+          baseFileName: 'karrot-feature-activities',
+          physicalWidth: 978,
+          physicalHeight: 852,
+          ...this.featureScreenshotsOptions,
+        }),
+      },
+      {
+        ident: 'OFFERS',
+        extendOffsetPx: '8',
+        sources: getImgSources({
+          baseFileName: 'karrot-feature-offers',
+          physicalWidth: 978,
+          physicalHeight: 936,
+          ...this.featureScreenshotsOptions,
+        }),
+      },
     ]
     this.more = [
       'COMMUNICATION',
@@ -443,13 +470,6 @@ export default {
 >>> .groupPreviewCard
   box-shadow 0 2px 15px rgba(84, 70, 35, 0.07), 0 1px 3px rgba(84, 70, 35, 0.15)
 
-.sdw2
-  box-shadow 0 2.8px 2.2px rgba(0, 0, 0, 0.014), 0 6.7px 5.3px rgba(0, 0, 0, 0.02), 0 12.5px 10px rgba(0, 0, 0, 0.025), 0 22.3px 17.9px rgba(0, 0, 0, 0.03), 0 41.8px 33.4px rgba(0, 0, 0, 0.036), 0 100px 80px rgba(0, 0, 0, 0.05)
-
-.sdw3
-  // box-shadow 0 1.9px 2.2px -5px rgba(0, 0, 0, 0.034), 0 4.5px 5.3px -5px rgba(0, 0, 0, 0.048), 0 8.5px 10px -5px rgba(0, 0, 0, 0.06), 0 15.2px 17.9px -5px rgba(0, 0, 0, 0.072), 0 28.4px 33.4px -5px rgba(0, 0, 0, 0.086), 0 68px 80px -5px rgba(0, 0, 0, 0.12)
-  box-shadow 0 0.4px 4.5px -5px rgba(0, 0, 0, 0.066), 0 1.4px 8.7px -5px rgba(0, 0, 0, 0.094), 0 3px 12.6px -5px rgba(0, 0, 0, 0.108), 0 5.5px 16.8px -5px rgba(0, 0, 0, 0.121), 0 9.4px 23.2px -5px rgba(0, 0, 0, 0.14), 0 17px 37px -5px rgba(0, 0, 0, 0.18)
-
 .section-padding
   padding-right var(--section-padding-x)
   padding-left var(--section-padding-x)
@@ -459,6 +479,7 @@ export default {
   max-width 100vw
   padding var(--landing-padding-top) 0 40px
   margin 0 auto
+  overflow hidden
   color #111111
   background white
 
@@ -625,7 +646,7 @@ export default {
     padding-bottom 8px
     margin-right 10px
 
-  .inline-images
+  .random-images
     @media (min-width: 600px)
       // on wider screens, give them a bit more room to breathe
       padding 0 40px
@@ -642,17 +663,38 @@ export default {
 
     .feature__img
       width 100%
-      min-width 220px
-      @media (min-width: 600px)
-        max-width 260px
+      min-width 270px
+      padding 15px
+      border-radius 4px
+      box-shadow 0 2px 8px rgba(84, 70, 35, 0.15), 0 1px 3px rgba(84, 70, 35, 0.15)
+      @media (min-width: 1050px)
+        max-width 384px
 
     @media (min-width: 600px)
-      grid-template-columns 1.35fr 0.65fr
-      grid-gap 48px
+      --feature-offset-extend 0px
+      // make feature look cut-off at the side
+      // use 'extendOffsetPx' on the vue image object to further shift a feature out of view
+      // NOTE: all images on the same side should have the same extend value
+      --feature-offset calc(var(--section-padding-x) * -1 - 15px - var(--feature-offset-extend))
+      grid-template-areas 'left right'
+      grid-template-columns 1.15fr 0.85fr
+      grid-gap calc(60px + var(--feature-offset-extend))
+      margin-right var(--feature-offset)
+
+      .feature__content
+        grid-area left
+
+      .feature__img
+        grid-area right
 
       &.swap
-        grid-template-columns 0.65fr 1.35fr
+        grid-template-columns 0.85fr 1.15fr
+        margin-right 0
+        margin-left var(--feature-offset)
+
+        .feature__content
+          grid-area right
 
         .feature__img
-          order -1000
+          grid-area left
 </style>

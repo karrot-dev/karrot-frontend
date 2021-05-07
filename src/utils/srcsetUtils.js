@@ -1,11 +1,12 @@
 export const presets = {
-  WELCOME_IMGS: 'welcomeImgs',
-  WELCOME_SCREENSHOTS_BROWSER: 'screenshotsMainBrowser',
-  WELCOME_SCREENSHOTS_PHONE: 'screenshotsMainPhone',
+  LANDINGPAGE_APP_SCREENSHOTS_BROWSER: 'landingpageAppScreenshotsBrowser',
+  LANDINGPAGE_APP_SCREENSHOTS_PHONE: 'landingpageAppScreenshotsPhone',
+  LANDINGPAGE_FEATURE_SCREENSHOTS: 'landingpageFeatures',
+  LANDINGPAGE_RANDOM_IMGS: 'landingpageRandomImgs',
 }
 
 const presetsDefs = {
-  [presets.WELCOME_SCREENSHOTS_BROWSER]: {
+  [presets.LANDINGPAGE_APP_SCREENSHOTS_BROWSER]: {
     maxWidthRetina: 1776,
     possibleWidths: [400, 600, 800, 880, 889, 1200, 1600, 1760, 1776],
     sizes: `
@@ -18,7 +19,7 @@ const presetsDefs = {
           880px
           `,
   },
-  [presets.WELCOME_SCREENSHOTS_PHONE]: {
+  [presets.LANDINGPAGE_APP_SCREENSHOTS_PHONE]: {
     maxWidthRetina: 490,
     possibleWidths: [100, 120, 130, 160, 200, 211, 240, 245, 260, 320, 422, 490],
     sizes: `
@@ -32,7 +33,23 @@ const presetsDefs = {
           245px
           `,
   },
-  [presets.WELCOME_IMGS]: {
+  [presets.LANDINGPAGE_FEATURE_SCREENSHOTS]: {
+    maxWidthRetina: 978,
+    possibleWidths: [240, 270, 300, 330, 354, 370, 380, 429, 489, 480, 540, 600, 660, 708, 740, 760, 858, 978],
+    sizes: `
+          (max-width: 340px) 270px,
+          (max-width: 400px) 330px,
+          (max-width: 440px) 370px,
+          (max-width: 539px) 429px,
+          (max-width: 599px) 489px,
+          (max-width: 720px) 240px,
+          (max-width: 860px) 300px,
+          (max-width: 988px) 354px,
+          (max-width: 1049px) 380px,
+          354px
+          `,
+  },
+  [presets.LANDINGPAGE_RANDOM_IMGS]: {
     maxWidthRetina: 600,
     possibleWidths: [100, 150, 200, 250, 300, 400, 500, 600],
     sizes: `

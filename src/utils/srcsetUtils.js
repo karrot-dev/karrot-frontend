@@ -98,8 +98,14 @@ const generateSrcsetEntries = (baseFileName, basePath, entries) => {
   }, '')
 }
 
-// TODO: add params description
-// TODO: add usage to docs?
+/**
+ * Returns an object with sources to be used with responsive images.
+ * @param {string} baseFileName - original image-filename without extension
+ * @param {string} basePath - path (from root) to the folder containing the images eg 'base/pages/images/'
+ * @param {number} physicalWidth - width of the largest generated image
+ * @param {string} preset - name of the preset (defined in 'presetsDefs' (see above)) to be used to generate output
+ * @returns {object} src, srcset and sizes
+ */
 export const getImgSources = ({ baseFileName = '', basePath = '', physicalWidth = 0, preset = '' } = {}) => {
   if (!baseFileName || !basePath || !physicalWidth || !preset) {
     return {}

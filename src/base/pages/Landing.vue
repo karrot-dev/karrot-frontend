@@ -505,17 +505,6 @@ export default {
       @media (min-width: 1050px)
         margin-right 25px
 
-  // FIXME: delete, if new screens are ok
-  // .screenshot-fullwidth
-  //   width 100%
-
-  //   @media (min-width: 1200px)
-  //     // horizontally center the oversized image
-  //     // (also needed an "overflow-x hidden" on the main page container, in Root)
-  //     width 1200px
-  //     margin-left 50%
-  //     transform translateX(-50%)
-
   .app-screenshots
     padding var(--app-screenshots-padding)
     margin 40px calc(var(--landing-padding-x) * -1) 0

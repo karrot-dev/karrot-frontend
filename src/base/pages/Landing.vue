@@ -32,8 +32,8 @@
               :sizes="appScreenshots.browser.sources.sizes"
               :srcset="appScreenshots.browser.sources.srcset"
               :src="appScreenshots.browser.sources.src"
+              :ratio="1776 / 1159"
               :alt="appScreenshots.browser.alt"
-              :ratio="1322 / 863"
               class="browser-content"
               no-default-spinner
               position="50% var(--app-screenshots-browser-img-position-y)"
@@ -50,8 +50,8 @@
                   :sizes="appScreenshots.phone.sources.sizes"
                   :srcset="appScreenshots.phone.sources.srcset"
                   :src="appScreenshots.phone.sources.src"
+                  :ratio="490 / 1061"
                   :alt="appScreenshots.phone.alt"
-                  :ratio="750 / 1624"
                   no-default-spinner
                 />
               </div>

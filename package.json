@@ -37,8 +37,8 @@
     "build-storybook": "build-storybook",
     "locales:pull": "updateLocalesHelper/env/bin/python updateLocalesHelper/updateLocaleStatus.py && updateLocalesHelper/env/bin/tx pull -a --force --no-interactive",
     "locales:push": "updateLocalesHelper/env/bin/tx push -s",
-    "docs": "gitbook install docs && gitbook serve docs",
-    "build-docs": "gitbook install docs && gitbook build docs docs-dist"
+    "docs": "cd docs && mdbook serve",
+    "build-docs": "cd docs && mdbook build --dest-dir ../docs-dist"
   },
   "dependencies": {
     "@quasar/extras": "^1.10.3",
@@ -106,7 +106,6 @@
     "eslint-plugin-vue": "^7.9.0",
     "express": "^4.17.1",
     "file-saver": "^2.0.5",
-    "gitbook-cli": "^2.3.2",
     "glob": "^7.1.6",
     "hard-source-webpack-plugin": "^0.13.1",
     "http-proxy-middleware": "^1.1.2",

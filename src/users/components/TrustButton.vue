@@ -63,6 +63,7 @@
             >
           </QBtn>
           <QBtn
+            id="revokeTrustButton"
             v-if="trusted && !user.isCurrentUser"
             color="negative"
             :loading="membership.revokeTrustStatus.pending"

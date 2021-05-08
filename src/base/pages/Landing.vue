@@ -1,6 +1,6 @@
 <template>
   <div class="landing sdw">
-    <div class="hero-wrapper section-padding row items-center q-pb-xl">
+    <div class="hero-wrapper row items-center q-pb-xl">
       <div class="col">
         <div class="row">
           <h1 v-t="'ABOUT_KARROT.TITLE'" />
@@ -16,10 +16,8 @@
       </div>
     </div>
 
-    <div class="section-padding">
-      <p v-t="'ABOUT_KARROT.SUBTITLE1'" />
-      <p v-t="'ABOUT_KARROT.SUBTITLE2'" />
-    </div>
+    <p v-t="'ABOUT_KARROT.SUBTITLE1'" />
+    <p v-t="'ABOUT_KARROT.SUBTITLE2'" />
 
     <div class="app-screenshots">
       <div class="outer-wrapper">
@@ -64,133 +62,131 @@
       </div>
     </div>
 
-    <div class="section-padding">
-      <section>
-        <p v-t="'ABOUT_KARROT.VISION_INTRO'" />
+    <section>
+      <p v-t="'ABOUT_KARROT.VISION_INTRO'" />
 
-        <div class="row random-images q-col-gutter-md q-mt-lg q-mb-xl">
-          <div
-            v-for="(image, idx) in randomImages"
-            :key="`inline-image-${idx}`"
-            class="col-4"
-          >
-            <QImg
-              :sizes="image.sources.sizes"
-              :srcset="image.sources.srcset"
-              :src="image.sources.src"
-              :ratio="1"
-              :alt="image.alt"
-              class="img sdw"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section>
+      <div class="row random-images q-col-gutter-md q-mt-lg q-mb-xl">
         <div
-          v-for="(feature, idx) in featureScreenshots"
-          :key="feature.ident"
-          class="feature"
-          :class="[ idx === 0 ? 'q-mb-lg q-pb-lg' : 'q-my-lg q-py-lg', { swap: idx % 2 !== 0 }]"
-          :style="{ '--feature-offset-extend': `${feature.extendOffsetPx}px`}"
+          v-for="(image, idx) in randomImages"
+          :key="`inline-image-${idx}`"
+          class="col-4"
         >
-          <div class="feature__content">
-            <h2 v-t="`ABOUT_KARROT.SECTIONS.${feature.ident}.TITLE`" />
-            <p v-t="`ABOUT_KARROT.SECTIONS.${feature.ident}.SUBTITLE`" />
-            <p v-t="`ABOUT_KARROT.SECTIONS.${feature.ident}.DESCRIPTION`" />
-          </div>
-          <div class="feature__img">
-            <QImg
-              :sizes="feature.sources.sizes"
-              :srcset="feature.sources.srcset"
-              :src="feature.sources.src"
-              :ratio="feature.sources.physicalWidth / feature.sources.physicalHeight"
-              :alt="$t(`ABOUT_KARROT.SECTIONS.${feature.ident}.TITLE`)"
-            />
-          </div>
+          <QImg
+            :sizes="image.sources.sizes"
+            :srcset="image.sources.srcset"
+            :src="image.sources.src"
+            :ratio="1"
+            :alt="image.alt"
+            class="img sdw"
+          />
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section v-if="groupsToShow.length > 0">
-        <h2 v-t="'ABOUT_KARROT.EXISTING_GROUPS'" />
-
-        <GroupGalleryCards
-          :groups="groupsToShow"
-          class="q-mt-xl"
-          @preview="preview(arguments[0])"
-        />
-
-        <div class="text-center q-pt-xs q-pb-xl">
-          <KLandingButtons />
+    <section>
+      <div
+        v-for="(feature, idx) in featureScreenshots"
+        :key="feature.ident"
+        class="feature"
+        :class="[ idx === 0 ? 'q-mb-lg q-pb-lg' : 'q-my-lg q-py-lg', { swap: idx % 2 !== 0 }]"
+        :style="{ '--feature-offset-extend': `${feature.extendOffsetPx}px`}"
+      >
+        <div class="feature__content">
+          <h2 v-t="`ABOUT_KARROT.SECTIONS.${feature.ident}.TITLE`" />
+          <p v-t="`ABOUT_KARROT.SECTIONS.${feature.ident}.SUBTITLE`" />
+          <p v-t="`ABOUT_KARROT.SECTIONS.${feature.ident}.DESCRIPTION`" />
         </div>
-      </section>
+        <div class="feature__img">
+          <QImg
+            :sizes="feature.sources.sizes"
+            :srcset="feature.sources.srcset"
+            :src="feature.sources.src"
+            :ratio="feature.sources.physicalWidth / feature.sources.physicalHeight"
+            :alt="$t(`ABOUT_KARROT.SECTIONS.${feature.ident}.TITLE`)"
+          />
+        </div>
+      </div>
+    </section>
 
-      <section>
-        <h2 v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.TITLE'" />
-        <p v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION'" />
-        <p v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION2'" />
+    <section v-if="groupsToShow.length > 0">
+      <h2 v-t="'ABOUT_KARROT.EXISTING_GROUPS'" />
 
-        <p class="text-center q-mt-lg q-pt-sm">
-          <QBtn
-            unelevated
-            @click="toggleAbout"
+      <GroupGalleryCards
+        :groups="groupsToShow"
+        class="q-mt-xl"
+        @preview="preview(arguments[0])"
+      />
+
+      <div class="text-center q-pt-xs q-pb-xl">
+        <KLandingButtons />
+      </div>
+    </section>
+
+    <section>
+      <h2 v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.TITLE'" />
+      <p v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION'" />
+      <p v-t="'ABOUT_KARROT.SECTIONS.DEMOCRATIC.DESCRIPTION2'" />
+
+      <p class="text-center q-mt-lg q-pt-sm">
+        <QBtn
+          unelevated
+          @click="toggleAbout"
+        >
+          <img
+            :src="logo"
+            alt="karrot logo"
+            class="about-logo"
           >
-            <img
-              :src="logo"
-              alt="karrot logo"
-              class="about-logo"
+          {{ $t("GLOBAL.ABOUT_KARROT") }}
+        </QBtn>
+        <QDialog v-model="showAbout">
+          <KAbout @close="toggleAbout" />
+        </QDialog>
+      </p>
+    </section>
+
+    <section>
+      <p>
+        <em v-t="'ABOUT_KARROT.AND_MORE'" />
+      </p>
+      <ul>
+        <li
+          v-for="item in more"
+          :key="item"
+        >
+          <p>
+            <strong v-t="`ABOUT_KARROT.SECTIONS.${item}.TITLE`" />:
+            <i18n
+              :path="`ABOUT_KARROT.SECTIONS.${item}.DESCRIPTION`"
+              tag="span"
             >
-            {{ $t("GLOBAL.ABOUT_KARROT") }}
-          </QBtn>
-          <QDialog v-model="showAbout">
-            <KAbout @close="toggleAbout" />
-          </QDialog>
-        </p>
-      </section>
+              <a
+                slot="code"
+                href="https://github.com/yunity/karrot-frontend"
+              >GitHub</a>
+              <a
+                slot="forum"
+                v-t="'ABOUT_KARROT.LINKS.FORUM'"
+                href="https://community.foodsaving.world"
+              />
+              <a
+                slot="chat"
+                v-t="'ABOUT_KARROT.LINKS.CHAT'"
+                href="https://chat.foodsaving.world/channel/karrot-dev"
+              />
+              <a
+                slot="translations"
+                href="https://www.transifex.com/yunity-1/karrot/frontend/"
+              >Transifex</a>
+            </i18n>
+          </p>
+        </li>
+      </ul>
 
-      <section>
-        <p>
-          <em v-t="'ABOUT_KARROT.AND_MORE'" />
-        </p>
-        <ul>
-          <li
-            v-for="item in more"
-            :key="item"
-          >
-            <p>
-              <strong v-t="`ABOUT_KARROT.SECTIONS.${item}.TITLE`" />:
-              <i18n
-                :path="`ABOUT_KARROT.SECTIONS.${item}.DESCRIPTION`"
-                tag="span"
-              >
-                <a
-                  slot="code"
-                  href="https://github.com/yunity/karrot-frontend"
-                >GitHub</a>
-                <a
-                  slot="forum"
-                  v-t="'ABOUT_KARROT.LINKS.FORUM'"
-                  href="https://community.foodsaving.world"
-                />
-                <a
-                  slot="chat"
-                  v-t="'ABOUT_KARROT.LINKS.CHAT'"
-                  href="https://chat.foodsaving.world/channel/karrot-dev"
-                />
-                <a
-                  slot="translations"
-                  href="https://www.transifex.com/yunity-1/karrot/frontend/"
-                >Transifex</a>
-              </i18n>
-            </p>
-          </li>
-        </ul>
-
-        <div class="text-center q-pt-sm">
-          <KLandingButtons />
-        </div>
-      </section>
-    </div>
+      <div class="text-center q-pt-sm">
+        <KLandingButtons />
+      </div>
+    </section>
   </div>
 </template>
 
@@ -404,8 +400,8 @@ export default {
   --h1-letterspacing -0.005em
   --h2-fontsize 1.375rem // 22px
   --landing-padding-top 30px
-  --section-padding-x 20px
-  --app-screenshots-padding 25px 0 25px var(--section-padding-x)
+  --landing-padding-x 20px
+  --app-screenshots-padding 25px 0 25px var(--landing-padding-x)
   --app-screenshots-box-sdw 0 3px 22px -3px rgba(0, 0, 0, 0.2)
   --app-screenshots-devices-bg-color #FFF5D9
   --app-screenshots-outer-wrapper-width 150%
@@ -428,7 +424,7 @@ export default {
 
   @media (min-width: 500px)
     --landing-padding-top 45px
-    --section-padding-x 40px
+    --landing-padding-x 40px
     --app-screenshots-browser-top-bar-height 24px
     --app-screenshots-browser-top-bar-border-radius 13px
     --app-screenshots-browser-traffic-light-size 8px
@@ -441,7 +437,7 @@ export default {
     --h1-letterspacing -0.025em
 
   @media (min-width: 700px)
-    --app-screenshots-padding 55px 120px 65px var(--section-padding-x)
+    --app-screenshots-padding 55px 120px 65px var(--landing-padding-x)
     --app-screenshots-outer-wrapper-width 100%
     --app-screenshots-browser-top-bar-position relative
     --app-screenshots-browser-top-bar-height 34px
@@ -463,21 +459,17 @@ export default {
 
   @media (min-width: 1050px)
     --landing-padding-top 60px
-    --section-padding-x 100px
+    --landing-padding-x 100px
     --app-screenshots-padding 55px 120px 65px 50px
 
 .sdw,
 >>> .groupPreviewCard
   box-shadow 0 2px 15px rgba(84, 70, 35, 0.07), 0 1px 3px rgba(84, 70, 35, 0.15)
 
-.section-padding
-  padding-right var(--section-padding-x)
-  padding-left var(--section-padding-x)
-
 .landing
   width 1050px
   max-width 100vw
-  padding var(--landing-padding-top) 0 40px
+  padding var(--landing-padding-top) var(--landing-padding-x) 40px
   margin 0 auto
   overflow hidden
   color #111111
@@ -526,7 +518,7 @@ export default {
 
   .app-screenshots
     padding var(--app-screenshots-padding)
-    margin-top 40px
+    margin 40px calc(var(--landing-padding-x) * -1) 0
     overflow hidden
     background $boldYellow
 
@@ -675,7 +667,7 @@ export default {
       // make feature look cut-off at the side
       // use 'extendOffsetPx' on the vue image object to further shift a feature out of view
       // NOTE: all images on the same side should have the same extend value
-      --feature-offset calc(var(--section-padding-x) * -1 - 15px - var(--feature-offset-extend))
+      --feature-offset calc(var(--landing-padding-x) * -1 - 15px - var(--feature-offset-extend))
       grid-template-areas 'left right'
       grid-template-columns 1.15fr 0.85fr
       grid-gap calc(60px + var(--feature-offset-extend))

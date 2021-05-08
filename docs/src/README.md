@@ -11,7 +11,7 @@ Purposes would/could be to document:
 
 ## Contents
 
-{% include "./SUMMARY.md" %}
+{{#include SUMMARY.md:4:}}
 
 ## Useful links
 

@@ -68,7 +68,7 @@
       <div class="row random-images q-col-gutter-md q-mt-lg q-mb-xl">
         <div
           v-for="(image, idx) in randomImages"
-          :key="`inline-image-${idx}`"
+          :key="`random-image-${idx}`"
           class="col-4"
         >
           <QImg

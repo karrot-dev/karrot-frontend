@@ -582,7 +582,7 @@ export default {
               background var(--app-screenshots-devices-bg-color)
               border-radius 10px
               // prevent 1px gaps between frame and screenshot in some resolutions
-              box-shadow 0px 0px 0px 1px #3f3a2d
+              box-shadow 0px 0px 0px 1px #3f3a2d // same color as iPhone frame
 
             .device-frame
               position relative

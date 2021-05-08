@@ -402,6 +402,7 @@ export default {
   --paragraph-fontsize 1.0625rem // 17px
   --landing-padding-top 30px
   --landing-padding-x 20px
+  --img-border-radius 4px
   --app-screenshots-padding 25px 0 25px var(--landing-padding-x)
   --app-screenshots-box-sdw 0 3px 22px -3px rgba(0, 0, 0, 0.2)
   --app-screenshots-devices-bg-color #FFF5D9
@@ -634,7 +635,7 @@ export default {
       padding 0 40px
 
     .img
-      border-radius 4px
+      border-radius var(--img-border-radius)
 
   .feature
     display grid
@@ -647,7 +648,7 @@ export default {
       width 100%
       min-width 270px
       padding 15px
-      border-radius 4px
+      border-radius var(--img-border-radius)
       box-shadow 0 2px 8px rgba(84, 70, 35, 0.15), 0 1px 3px rgba(84, 70, 35, 0.15)
       @media (min-width: 1050px)
         max-width 384px

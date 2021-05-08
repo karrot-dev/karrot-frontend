@@ -399,6 +399,7 @@ export default {
   --h1-fontsize 1.75rem // 28px
   --h1-letterspacing -0.005em
   --h2-fontsize 1.375rem // 22px
+  --paragraph-fontsize 1.0625rem // 17px
   --landing-padding-top 30px
   --landing-padding-x 20px
   --app-screenshots-padding 25px 0 25px var(--landing-padding-x)
@@ -433,8 +434,9 @@ export default {
 
   @media (min-width: 600px)
     --h1-fontsize 2.75rem // 44px
-    --h2-fontsize 1.875rem // 30px
     --h1-letterspacing -0.025em
+    --h2-fontsize 1.875rem // 30px
+    --paragraph-fontsize 1.25rem // 20px
 
   @media (min-width: 700px)
     --app-screenshots-padding 55px 120px 65px var(--landing-padding-x)
@@ -607,12 +609,11 @@ export default {
 
   >>> p
     margin 8px 0
-    font-size 1.0625rem // 17px
+    font-size var(--paragraph-fontsize)
     color rgba(0, 0, 0, 0.74)
 
     @media (min-width: 600px)
       margin 11px 0
-      font-size 1.25rem // 20px
 
   h2
     margin 0 0 15px

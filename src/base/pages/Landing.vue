@@ -32,7 +32,7 @@
               :sizes="appScreenshots.browser.sources.sizes"
               :srcset="appScreenshots.browser.sources.srcset"
               :src="appScreenshots.browser.sources.src"
-              :ratio="1776 / 1159"
+              :ratio="appScreenshots.browser.ratio"
               :alt="appScreenshots.browser.alt"
               class="browser-content"
               no-default-spinner
@@ -50,7 +50,7 @@
                   :sizes="appScreenshots.phone.sources.sizes"
                   :srcset="appScreenshots.phone.sources.srcset"
                   :src="appScreenshots.phone.sources.src"
-                  :ratio="490 / 1061"
+                  :ratio="appScreenshots.phone.ratio"
                   :alt="appScreenshots.phone.alt"
                   no-default-spinner
                 />
@@ -101,7 +101,7 @@
             :sizes="feature.sources.sizes"
             :srcset="feature.sources.srcset"
             :src="feature.sources.src"
-            :ratio="feature.sources.physicalWidth / feature.sources.physicalHeight"
+            :ratio="feature.ratio"
             :alt="$t(`ABOUT_KARROT.SECTIONS.${feature.ident}.TITLE`)"
           />
         </div>
@@ -254,6 +254,7 @@ export default {
     this.appScreenshots = {
       browser: {
         alt: 'karrot browser screenshot',
+        ratio: 1776 / 1159,
         sources: getImgSources({
           baseFileName: 'karrot-screenshot-browser',
           physicalWidth: 1776,
@@ -263,6 +264,7 @@ export default {
       },
       phone: {
         alt: 'karrot mobile screenshot',
+        ratio: 490 / 1061,
         sources: getImgSources({
           baseFileName: 'karrot-screenshot-phone',
           physicalWidth: 490,
@@ -342,30 +344,30 @@ export default {
       {
         ident: 'GROUPS',
         extendOffsetPx: '8',
+        ratio: 978 / 978,
         sources: getImgSources({
           baseFileName: 'karrot-feature-groups',
           physicalWidth: 978,
-          physicalHeight: 978,
           ...this.featureScreenshotsOptions,
         }),
       },
       {
         ident: 'ACTIVITIES',
         extendOffsetPx: '0',
+        ratio: 978 / 852,
         sources: getImgSources({
           baseFileName: 'karrot-feature-activities',
           physicalWidth: 978,
-          physicalHeight: 852,
           ...this.featureScreenshotsOptions,
         }),
       },
       {
         ident: 'OFFERS',
         extendOffsetPx: '8',
+        ratio: 978 / 936,
         sources: getImgSources({
           baseFileName: 'karrot-feature-offers',
           physicalWidth: 978,
-          physicalHeight: 936,
           ...this.featureScreenshotsOptions,
         }),
       },

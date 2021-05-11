@@ -28,14 +28,54 @@
           :label="$t('STATISTICS.FILTER_TIME_LABEL')"
           filled
           :options="periodFilterOptions"
+          class="q-mr-sm"
         />
+        <QBtn
+          icon="fas fa-ellipsis-v"
+          flat
+          round
+          size="sm"
+        >
+          <QMenu
+            anchor="bottom right"
+            self="top right"
+          >
+            <div class="text-subtitle1 q-ma-md">
+              Left activities
+            </div>
+            <QList>
+              <QItem tag="label">
+                <QItemSection avatar>
+                  <QToggle v-model="leftFilter.missed" />
+                </QItemSection>
+                <QItemSection>
+                  <QItemLabel>Missed</QItemLabel>
+                  <QItemLabel caption>
+                    Only count if the activity ended up being missed after they left
+                  </QItemLabel>
+                </QItemSection>
+              </QItem>
+              <QItem tag="label">
+                <QItemSection avatar>
+                  <QToggle v-model="leftFilter.late" />
+                </QItemSection>
+                <QItemSection>
+                  <QItemLabel>Late</QItemLabel>
+                  <QItemLabel caption>
+                    Only count if they left less than 24 hours before the activity started
+                  </QItemLabel>
+                </QItemSection>
+              </QItem>
+            </QList>
+          </QMenu>
+        </QBtn>
       </template>
     </QTable>
   </div>
 </template>
 
 <script>
-import { QSelect, QTable } from 'quasar'
+import { QSelect, QTable, QBtn, QToggle, QList, QItem, QItemSection, QItemLabel, QMenu } from 'quasar'
 import subDays from 'date-fns/subDays'
 import subMonths from 'date-fns/subMonths'
 
@@ -47,6 +87,13 @@ export default {
   components: {
     QSelect,
     QTable,
+    QBtn,
+    QToggle,
+    QMenu,
+    QList,
+    QItem,
+    QItemSection,
+    QItemLabel,
   },
   data () {
     return {
@@ -55,31 +102,10 @@ export default {
       userFilter: null,
       userFilterByName: null, // when the user types something in
       data: [],
-      columns: [
-        {
-          name: 'place',
-          label: this.$t('STATISTICS.COLUMN_PLACE'),
-          field: row => row.place && row.place.name,
-          align: 'left',
-        },
-        ...[
-          ['doneCount', this.$t('STATISTICS.COLUMN_ACTIVITY_DONE')],
-          ['leaveCount', this.$t('STATISTICS.COLUMN_ACTIVITY_LEFT')],
-          ['leaveLateCount', this.$t('STATISTICS.COLUMN_ACTIVITY_LEFT_LATE')],
-        ].map(([field, label]) => ({
-          name: field,
-          label,
-          field: row => row[field],
-          align: 'right',
-        })),
-        {
-          name: 'feedbackWeight',
-          label: this.$t('STATISTICS.COLUMN_FEEDBACK_WEIGHT'),
-          field: row => row.feedbackWeight.toFixed(1),
-          format: value => `${value} kg`,
-          align: 'right',
-        },
-      ],
+      leftFilter: {
+        missed: true,
+        late: false,
+      },
     }
   },
   computed: {
@@ -88,6 +114,50 @@ export default {
       users: 'users/byCurrentGroup',
       getPlace: 'places/get',
     }),
+    hasUserFilter () {
+      return this.userFilter && this.userFilter.value !== null
+    },
+    columns () {
+      return [
+        {
+          name: 'place',
+          label: this.$t('STATISTICS.COLUMN_PLACE'),
+          field: row => row.place && row.place.name,
+          align: 'left',
+        },
+        {
+          name: 'doneCount',
+          label: this.$t('STATISTICS.COLUMN_ACTIVITY_DONE'),
+          field: row => row.doneCount,
+          align: 'right',
+        },
+        {
+          name: 'feedbackCount',
+          label: this.$t('STATISTICS.COLUMN_FEEDBACK'),
+          field: row => row.feedbackCount,
+          align: 'right',
+        },
+        !this.hasUserFilter && {
+          name: 'missedCount',
+          label: this.$t('STATISTICS.COLUMN_ACTIVITY_MISSED'),
+          field: row => row.missedCount,
+          align: 'right',
+        },
+        {
+          name: 'leaveCount',
+          label: this.leftLabel,
+          field: row => this.leaveCount(row),
+          align: 'right',
+        },
+        {
+          name: 'feedbackWeight',
+          label: this.$t('STATISTICS.COLUMN_FEEDBACK_WEIGHT'),
+          field: row => row.feedbackWeight.toFixed(1),
+          format: value => `${value} kg`,
+          align: 'right',
+        },
+      ].filter(Boolean)
+    },
     usersById () {
       return indexById(this.users)
     },
@@ -130,16 +200,32 @@ export default {
         {
           label: this.$t('STATISTICS.FILTER_TIME_FOREVER'),
           value: null,
-          disable: this.userFilter && this.userFilter.value !== null,
+          disable: this.hasUserFilter,
         },
       ]
+    },
+    leftLabel () {
+      const label = this.$t('STATISTICS.COLUMN_ACTIVITY_LEFT')
+      const modifiers = []
+      if (this.leftFilter.missed) {
+        modifiers.push(this.$t('STATISTICS.COLUMN_ACTIVITY_MISSED'))
+      }
+      if (this.leftFilter.late) {
+        modifiers.push(this.$t('STATISTICS.COLUMN_ACTIVITY_LATE'))
+      }
+      return modifiers.length > 0 ? `${label} [${modifiers.join(' + ')}]` : label
     },
     totals () {
       return [
         'doneCount',
+        'feedbackCount',
+        'missedCount',
         'leaveCount',
-        'leaveLateCount',
         'feedbackWeight',
+        // TODO: huh? how can it be reading these values? shouldn't it also read "leaveCount"? (which would then need correcting...) confused :s
+        'leaveMissedLateCount',
+        'leaveLateCount',
+        'leaveMissedCount',
       ].reduce((acc, field) => {
         acc[field] = this.data.reduce((sum, entry) => sum + entry[field], 0)
         return acc
@@ -231,6 +317,15 @@ export default {
     filterUser (val, update) {
       this.userFilterByName = val
       update()
+    },
+    leaveCount (row) {
+      const { late, missed } = this.leftFilter
+      if (late) {
+        return missed ? row.leaveMissedLateCount : row.leaveLateCount
+      }
+      else {
+        return missed ? row.leaveMissedCount : row.leaveCount
+      }
     },
   },
 }

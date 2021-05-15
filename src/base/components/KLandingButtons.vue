@@ -68,5 +68,5 @@ export default {
 
     .button
       @media (min-width: 410px)
-        font-size 1rem
+        font-size 1rem // 16px
 </style>

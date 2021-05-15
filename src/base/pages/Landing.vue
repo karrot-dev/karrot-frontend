@@ -2,9 +2,7 @@
   <div class="landing sdw">
     <div class="hero-wrapper row items-center q-pb-xl">
       <div class="col">
-        <div class="row">
-          <h1 v-t="'ABOUT_KARROT.TITLE'" />
-        </div>
+        <h1 v-t="'ABOUT_KARROT.TITLE'" />
         <KLandingButtons align-left-on-bigger-screens />
       </div>
       <div class="col-auto text-center">

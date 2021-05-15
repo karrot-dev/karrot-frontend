@@ -111,17 +111,17 @@ export const getImgSources = ({ baseFileName = '', basePath = '', physicalWidth 
     return {}
   }
 
-  let baseWidth = presetsDefs[preset].maxWidthRetina
+  let defaultWidth = presetsDefs[preset].maxWidthRetina
   const possibleWidths = presetsDefs[preset].possibleWidths
   let widths = possibleWidths
 
   if (physicalWidth < presetsDefs[preset].maxWidthRetina) {
-    baseWidth = physicalWidth
+    defaultWidth = physicalWidth
     widths = sliceAndSpliceSrcsetWidths(possibleWidths, physicalWidth)
   }
 
   return {
-    src: require(`@/${basePath}${baseFileName}-${baseWidth.toString()}w.jpg`),
+    defaultSrc: require(`@/${basePath}${baseFileName}-${defaultWidth.toString()}w.jpg`),
     sizes: presetsDefs[preset].sizes,
     srcset: generateSrcsetEntries(baseFileName, basePath, widths),
   }

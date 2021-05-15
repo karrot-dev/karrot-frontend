@@ -29,7 +29,7 @@
             <QImg
               :sizes="appScreenshots.browser.sources.sizes"
               :srcset="appScreenshots.browser.sources.srcset"
-              :src="appScreenshots.browser.sources.src"
+              :src="appScreenshots.browser.sources.defaultSrc"
               :ratio="appScreenshots.browser.ratio"
               :alt="appScreenshots.browser.alt"
               class="browser-content"
@@ -47,7 +47,7 @@
                 <QImg
                   :sizes="appScreenshots.phone.sources.sizes"
                   :srcset="appScreenshots.phone.sources.srcset"
-                  :src="appScreenshots.phone.sources.src"
+                  :src="appScreenshots.phone.sources.defaultSrc"
                   :ratio="appScreenshots.phone.ratio"
                   :alt="appScreenshots.phone.alt"
                   no-default-spinner
@@ -72,7 +72,7 @@
           <QImg
             :sizes="image.sources.sizes"
             :srcset="image.sources.srcset"
-            :src="image.sources.src"
+            :src="image.sources.defaultSrc"
             :ratio="1"
             :alt="image.alt"
             class="img sdw"
@@ -98,7 +98,7 @@
           <QImg
             :sizes="feature.sources.sizes"
             :srcset="feature.sources.srcset"
-            :src="feature.sources.src"
+            :src="feature.sources.defaultSrc"
             :ratio="feature.ratio"
             :alt="$t(`ABOUT_KARROT.SECTIONS.${feature.ident}.TITLE`)"
           />

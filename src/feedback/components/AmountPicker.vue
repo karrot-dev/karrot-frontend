@@ -95,8 +95,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-$border-radius = 13px
-
 @import '~variables'
 
 .wrapper

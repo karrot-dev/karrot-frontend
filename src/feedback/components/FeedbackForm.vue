@@ -30,8 +30,8 @@
 
     <div
       v-if="hasAnyError"
-      class="text-negative"
-      style="margin-top: 3em"
+      class="text-negative q-mx-md"
+      style="margin-top: 1.5em"
     >
       <i class="fas fa-exclamation-triangle" />
       {{ anyFirstError }}

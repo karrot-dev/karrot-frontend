@@ -200,7 +200,7 @@ import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
 import KAbout from '@/base/components/KAbout'
 import KLandingButtons from '@/base/components/KLandingButtons'
 import logo from '@/logo/assets/carrot-logo.svg'
-import { getImgSources, presets } from '@/utils/srcsetUtils'
+import { getImgSources, presets } from '@/base/srcsetUtils'
 
 import router from '@/router'
 

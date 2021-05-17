@@ -394,6 +394,7 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+$box-shadow-color = 84, 84, 84
 
 >>>
   --h1-fontsize 1.75rem // 28px
@@ -467,7 +468,7 @@ export default {
 
 .sdw,
 >>> .groupPreviewCard
-  box-shadow 0 2px 15px rgba(84, 70, 35, 0.07), 0 1px 3px rgba(84, 70, 35, 0.15)
+  box-shadow 0 2px 15px rgba($box-shadow-color, 0.07), 0 1px 3px rgba($box-shadow-color, 0.15)
 
 .landing
   width 1050px
@@ -649,7 +650,7 @@ export default {
       min-width 270px
       padding 15px
       border-radius var(--img-border-radius)
-      box-shadow 0 2px 8px rgba(84, 70, 35, 0.15), 0 1px 3px rgba(84, 70, 35, 0.15)
+      box-shadow 0 2px 8px rgba($box-shadow-color, 0.15), 0 1px 3px rgba($box-shadow-color, 0.15)
       @media (min-width: 1050px)
         max-width 384px
 

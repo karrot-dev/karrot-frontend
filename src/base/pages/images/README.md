@@ -1,3 +1,7 @@
+NOTE: deprecated -> new usage info is coming
+
+---
+
 Handy tip for a command to resize images using [ImageMagick](https://imagemagick.org):
 
 ```

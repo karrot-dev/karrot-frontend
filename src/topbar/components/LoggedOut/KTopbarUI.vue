@@ -62,7 +62,9 @@ export default {
 .logo
   width 32px
   height 32px
-  // mimic logged-in positioning of the logo
+  // In this component (logged-out) the logo is a RouterLink (a href)
+  // but in the logged-in component the logo is a QBtn with distinct paddings
+  // -> these margins make the logo visually positioned the same way as in the logged-in component
   margin-top -4px
   margin-left 8px
 

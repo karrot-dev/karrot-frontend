@@ -8,7 +8,7 @@
       <div class="col-auto text-center">
         <img
           :src="logo"
-          alt="karrot logo"
+          :alt="$t('GLOBAL.LOGO_ALT')"
           class="hero-logo"
         >
       </div>
@@ -132,7 +132,7 @@
         >
           <img
             :src="logo"
-            alt="karrot logo"
+            :alt="$t('GLOBAL.LOGO_ALT')"
             class="about-logo"
           >
           {{ $t("GLOBAL.ABOUT_KARROT") }}

@@ -2,7 +2,7 @@
   <img
     :src="logo"
     :class="{ loading: isLoading }"
-    alt="karrot logo"
+    :alt="$t('GLOBAL.LOGO_ALT')"
   >
 </template>
 

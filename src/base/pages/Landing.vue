@@ -591,7 +591,7 @@ $box-shadow-color = 84, 84, 84
               width 100%
               height 0
               padding-bottom 200%
-              background-image url('./images/iphone-x-frame.svg')
+              background-image url('../assets/iphone-x-frame.svg')
               background-repeat no-repeat
               background-position center
               background-size cover

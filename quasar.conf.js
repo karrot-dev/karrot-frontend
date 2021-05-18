@@ -12,7 +12,6 @@ const { resolve } = require('path')
 const fs = require('fs')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 function getHttpsOptions () {
@@ -160,17 +159,6 @@ module.exports = configure(function (ctx) {
             rel: 'prefetch',
           }),
         )
-
-        if (dev) {
-          cfg.plugins.push(new HardSourceWebpackPlugin({
-            configHash: function (webpackConfig) {
-              return require('node-object-hash')({ sort: false }).hash([
-                webpackConfig,
-                appEnv,
-              ])
-            },
-          }))
-        }
 
         if (!dev) {
           cfg.plugins.push(new BundleAnalyzerPlugin({

@@ -61,7 +61,7 @@
     "markdown-it": "^12.0.5",
     "markdown-it-emoji": "^2.0.0",
     "markdown-it-link-attributes": "^3.0.0",
-    "quasar": "^1.15.10",
+    "quasar": "^2.0.0-beta.17",
     "reconnecting-websocket": "^4.4.0",
     "twemoji": "^13.0.2",
     "vue": "^2.6.12",
@@ -78,7 +78,7 @@
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.13.8",
     "@octokit/rest": "^18.5.2",
-    "@quasar/app": "^2.2.4",
+    "@quasar/app": "^3.0.0-beta.25",
     "@quasar/quasar-app-extension-dotenv": "^1.1.0",
     "@quasar/quasar-app-extension-qiconpicker": "^1.2.10",
     "@sentry/cli": "^1.64.0",

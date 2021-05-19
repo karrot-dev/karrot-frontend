@@ -154,8 +154,8 @@
         >
           <p>
             <strong v-t="`ABOUT_KARROT.SECTIONS.${item}.TITLE`" />:
-            <i18n
-              :path="`ABOUT_KARROT.SECTIONS.${item}.DESCRIPTION`"
+            <i18n-t
+              :keypath="`ABOUT_KARROT.SECTIONS.${item}.DESCRIPTION`"
               tag="span"
             >
               <a

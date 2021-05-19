@@ -40,7 +40,7 @@
               />
             </QItemSection>
             <QItemSection>
-              <i18n path="COMMUNITY_FEED.HEADER">
+              <i18n-t keypath="COMMUNITY_FEED.HEADER">
                 <a
                   slot="community"
                   href="https://community.foodsaving.world"
@@ -90,8 +90,8 @@
                 caption
                 lines="1"
               >
-                <i18n
-                  path="COMMUNITY_FEED.LAST_UPDATED"
+                <i18n-t
+                  keypath="COMMUNITY_FEED.LAST_UPDATED"
                   tag="div"
                 >
                   <DateAsWords

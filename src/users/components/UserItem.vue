@@ -18,8 +18,8 @@
         </RouterLink>
       </QItemLabel>
       <QItemLabel caption>
-        <i18n
-          path="GROUP.JOINED"
+        <i18n-t
+          keypath="GROUP.JOINED"
         >
           <DateAsWords
             slot="relativeDate"
@@ -29,8 +29,8 @@
         </i18n>
         <template v-if="addedBy">
           ·
-          <i18n
-            path="GROUP.ADDED_BY"
+          <i18n-t
+            keypath="GROUP.ADDED_BY"
           >
             <RouterLink
               slot="userName"

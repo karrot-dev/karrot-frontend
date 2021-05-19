@@ -14,9 +14,9 @@
       </template>
       <p>{{ $t('NOTIFICATIONS.NOT_VERIFIED', { email: user.unverifiedEmail }) }}</p>
       <p>{{ $t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS') }}</p>
-      <i18n
+      <i18n-t
         v-if="!success"
-        path="NOTIFICATIONS.CHECK_YOUR_MAILS"
+        keypath="NOTIFICATIONS.CHECK_YOUR_MAILS"
         tag="span"
       >
         <a

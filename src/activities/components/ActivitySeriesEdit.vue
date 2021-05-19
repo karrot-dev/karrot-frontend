@@ -220,7 +220,7 @@
           <QIcon name="code" />
         </template>
         <template #hint>
-          <i18n path="CREATEACTIVITY.RRULE_HELPER">
+          <i18n-t keypath="CREATEACTIVITY.RRULE_HELPER">
             <a
               slot="ruleHelper"
               v-t="'CREATEACTIVITY.RRULE_HELPER_URL'"

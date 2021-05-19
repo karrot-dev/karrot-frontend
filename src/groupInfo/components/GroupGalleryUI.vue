@@ -31,7 +31,7 @@
             style="font-size: 24px"
           />
         </template>
-        <i18n path="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
+        <i18n-t keypath="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
           <RouterLink
             slot="login"
             :to="{ name: 'login' }"
@@ -45,7 +45,7 @@
         v-if="!hasJoinedGroups"
         class="text-primary header"
       >
-        <i18n path="JOINGROUP.OR">
+        <i18n-t keypath="JOINGROUP.OR">
           <template #joinGroup>
             {{ $t('JOINGROUP.WHICHGROUP') }}
           </template>
@@ -113,7 +113,7 @@
         v-if="hasJoinedGroups && hasOtherGroupsToShow"
         class="text-primary header"
       >
-        <i18n path="JOINGROUP.OR">
+        <i18n-t keypath="JOINGROUP.OR">
           <template #joinGroup>
             {{ $t('JOINGROUP.WHICHGROUP') }}
           </template>

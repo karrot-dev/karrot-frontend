@@ -22,8 +22,8 @@
         v-if="application.status !== 'pending'"
         caption
       >
-        <i18n
-          :path="decision"
+        <i18n-t
+          :keypath="decision"
         >
           <DateAsWords
             slot="relativeDate"
@@ -33,8 +33,8 @@
         </i18n>
         <template v-if="application.status !== 'withdrawn'">
           <br>
-          <i18n
-            :path="personDeciding"
+          <i18n-t
+            :keypath="personDeciding"
           >
             <RouterLink
               slot="userName"

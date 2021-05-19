@@ -3,9 +3,9 @@
     v-if="unsupportedBrowser"
     class="browser-warning bg-warning text-white"
   >
-    <i18n
+    <i18n-t
       tag="span"
-      path="OUTDATED_BROWSER.MESSAGE"
+      keypath="OUTDATED_BROWSER.MESSAGE"
     >
       <a
         slot="upgradeBrowser"

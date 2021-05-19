@@ -120,9 +120,9 @@
           >
             <QItemSection>
               <QItemLabel v-if="useCustomName">
-                <i18n
+                <i18n-t
                   v-if="itemLabel && !edit.nameIsTranslatable"
-                  path="ACTIVITY_TYPES.CUSTOM_NAME_USE"
+                  keypath="ACTIVITY_TYPES.CUSTOM_NAME_USE"
                 >
                   <template #name>
                     <strong>{{ itemLabel }}</strong>

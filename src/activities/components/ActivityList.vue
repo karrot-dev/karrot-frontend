@@ -47,6 +47,77 @@
       <div class="text-caption q-ml-xs col text-right">
         {{ filteredActivities.length }} / {{ activities.length }}
       </div>
+      <div class="col text-right">
+        <QBtn
+          flat
+          dense
+        >
+          <QIcon
+            name="fas fa-calendar-plus"
+            size="xs"
+          />
+          <QMenu
+            anchor="bottom right"
+            self="top right"
+          >
+            <QList
+              v-close-popup
+              dense
+            >
+              <QItem
+                clickable
+                tag="a"
+                :href="icsUrl"
+              >
+                <QItemSection side>
+                  <QIcon
+                    size="1em"
+                    name="fas fa-download fa-fw"
+                  />
+                </QItemSection>
+                <QItemSection>
+                  {{ $t('ACTIVITYLIST.ICS_LIST.DOWNLOAD') }}
+                </QItemSection>
+              </QItem>
+              <QItem
+                clickable
+                @click="openIcsDialog"
+              >
+                <QItemSection side>
+                  <QIcon
+                    size="1em"
+                    name="fas fa-sync fa-fw"
+                  />
+                </QItemSection>
+                <QItemSection>
+                  {{ $t('ACTIVITYLIST.ICS_LIST.SUBSCRIBE') }}
+                </QItemSection>
+              </QItem>
+            </QList>
+          </QMenu>
+        </QBtn>
+        <CustomDialog v-model="icsDialog">
+          <template #title>
+            {{ $t('ACTIVITYLIST.ICS_LIST.SUBSCRIPTION_DIALOG_TITLE') }}
+          </template>
+          <template #message>
+            {{ $t('ACTIVITYLIST.ICS_LIST.SUBSCRIBE_EXPLANATION') }}
+            <QInput
+              :value="icsUrl"
+              readonly
+            />
+          </template>
+          <template #actions>
+            <QBtn
+              v-close-popup
+              flat
+              color="primary"
+              data-autofocus
+              :label="$t('BUTTON.CLOSE')"
+            />
+          </template>
+        </CustomDialog>
+      </div>
     </div>
     <KSpinner v-show="pending" />
     <div
@@ -115,6 +186,7 @@
 <script>
 import ActivityItem from './ActivityItem'
 import KSpinner from '@/utils/components/KSpinner'
+import CustomDialog from '@/utils/components/CustomDialog'
 import bindRoute from '@/utils/mixins/bindRoute'
 
 import {
@@ -124,6 +196,9 @@ import {
   QItemSection,
   QItemLabel,
   QIcon,
+  QInput,
+  QMenu,
+  QList,
   QBanner,
   QBtn,
 } from 'quasar'
@@ -132,6 +207,7 @@ const NUM_ACTIVITIES_PER_LOAD = 25
 
 export default {
   components: {
+    CustomDialog,
     QInfiniteScroll,
     ActivityItem,
     KSpinner,
@@ -140,6 +216,9 @@ export default {
     QItemSection,
     QItemLabel,
     QIcon,
+    QInput,
+    QMenu,
+    QList,
     QBanner,
     QBtn,
   },
@@ -174,11 +253,16 @@ export default {
       type: Array,
       default: () => [],
     },
+    icsUrl: {
+      type: String,
+      default: null,
+    },
   },
   data () {
     return {
       numDisplayed: NUM_ACTIVITIES_PER_LOAD,
       types: [],
+      icsDialog: false,
     }
   },
   computed: {
@@ -270,6 +354,9 @@ export default {
     clearFilters () {
       this.slots = 'all'
       this.type = 'all'
+    },
+    openIcsDialog () {
+      this.icsDialog = true
     },
   },
 }

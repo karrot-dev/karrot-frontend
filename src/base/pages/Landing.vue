@@ -27,11 +27,11 @@
               <div class="traffic-light" />
             </div>
             <QImg
-              :sizes="appScreenshots.browser.sources.sizes"
-              :srcset="appScreenshots.browser.sources.srcset"
-              :src="appScreenshots.browser.sources.defaultSrc"
-              :ratio="appScreenshots.browser.ratio"
-              :alt="appScreenshots.browser.alt"
+              :sizes="images.browser.sizes"
+              :srcset="images.browser.srcset"
+              :src="images.browser.src"
+              :ratio="images.browser.ratio"
+              :alt="images.browser.alt"
               class="browser-content"
               no-default-spinner
               position="50% var(--app-screenshots-browser-img-position-y)"
@@ -45,11 +45,11 @@
             <div class="device-outer">
               <div class="device-content">
                 <QImg
-                  :sizes="appScreenshots.phone.sources.sizes"
-                  :srcset="appScreenshots.phone.sources.srcset"
-                  :src="appScreenshots.phone.sources.defaultSrc"
-                  :ratio="appScreenshots.phone.ratio"
-                  :alt="appScreenshots.phone.alt"
+                  :sizes="images.phone.sizes"
+                  :srcset="images.phone.srcset"
+                  :src="images.phone.src"
+                  :ratio="images.phone.ratio"
+                  :alt="images.phone.alt"
                   no-default-spinner
                 />
               </div>
@@ -65,15 +65,15 @@
 
       <div class="row random-images q-col-gutter-md q-mt-lg q-mb-xl">
         <div
-          v-for="(image, idx) in randomImages"
+          v-for="(image, idx) in images.randomImgs"
           :key="`random-image-${idx}`"
           class="col-4"
         >
           <QImg
-            :sizes="image.sources.sizes"
-            :srcset="image.sources.srcset"
-            :src="image.sources.defaultSrc"
-            :ratio="1"
+            :sizes="image.sizes"
+            :srcset="image.srcset"
+            :src="image.src"
+            :ratio="image.ratio"
             :alt="image.alt"
             class="img sdw"
           />
@@ -83,7 +83,7 @@
 
     <section>
       <div
-        v-for="(feature, idx) in featureScreenshots"
+        v-for="(feature, idx) in images.features"
         :key="feature.ident"
         class="feature"
         :class="[ idx === 0 ? 'q-mb-lg q-pb-lg' : 'q-my-lg q-py-lg', { swap: idx % 2 !== 0 }]"
@@ -96,9 +96,9 @@
         </div>
         <div class="feature__img">
           <QImg
-            :sizes="feature.sources.sizes"
-            :srcset="feature.sources.srcset"
-            :src="feature.sources.defaultSrc"
+            :sizes="feature.sizes"
+            :srcset="feature.srcset"
+            :src="feature.src"
             :ratio="feature.ratio"
             :alt="$t(`ABOUT_KARROT.SECTIONS.${feature.ident}.TITLE`)"
           />
@@ -200,11 +200,10 @@ import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
 import KAbout from '@/base/components/KAbout'
 import KLandingButtons from '@/base/components/KLandingButtons'
 import logo from '@/logo/assets/carrot-logo.svg'
-import { getImgSources, presets } from '@/base/srcsetUtils'
+import { dirNames, dirs } from '@/base/images-config.mjs'
+import generatedImages from '@/base/images.min.json'
 
 import router from '@/router'
-
-const SCREENSHOTS_BASE_PATH = 'base/pages/images/'
 
 // Prefer active non-playground groups with a photo
 function groupSortScore (group) {
@@ -249,127 +248,7 @@ export default {
   },
   created () {
     this.logo = logo
-    this.appScreenshots = {
-      browser: {
-        alt: 'karrot browser screenshot',
-        ratio: 1776 / 1159,
-        sources: getImgSources({
-          baseFileName: 'karrot-screenshot-browser',
-          physicalWidth: 1776,
-          basePath: SCREENSHOTS_BASE_PATH,
-          preset: presets.LANDINGPAGE_APP_SCREENSHOTS_BROWSER,
-        }),
-      },
-      phone: {
-        alt: 'karrot mobile screenshot',
-        ratio: 490 / 1061,
-        sources: getImgSources({
-          baseFileName: 'karrot-screenshot-phone',
-          physicalWidth: 490,
-          basePath: SCREENSHOTS_BASE_PATH,
-          preset: presets.LANDINGPAGE_APP_SCREENSHOTS_PHONE,
-        }),
-      },
-    }
-    this.randomImagesOptions = {
-      basePath: SCREENSHOTS_BASE_PATH,
-      preset: presets.LANDINGPAGE_RANDOM_IMGS,
-    }
-    this.randomImages = [
-      {
-        alt: 'oestersund saved food',
-        sources: getImgSources({
-          baseFileName: 'oestersund-saved-food',
-          physicalWidth: 500,
-          ...this.randomImagesOptions,
-        }),
-      },
-      {
-        alt: 'oestersund volunteers',
-        sources: getImgSources({
-          baseFileName: 'oestersund-volunteers',
-          physicalWidth: 435,
-          ...this.randomImagesOptions,
-        }),
-      },
-      {
-        alt: 'bike workshop',
-        sources: getImgSources({
-          baseFileName: 'bike-workshop',
-          physicalWidth: 600,
-          ...this.randomImagesOptions,
-        }),
-      },
-      {
-        alt: 'solikyl savers',
-        sources: getImgSources({
-          baseFileName: 'solikyl-savers',
-          physicalWidth: 450,
-          ...this.randomImagesOptions,
-        }),
-      },
-      {
-        alt: 'maastricht fairshare',
-        sources: getImgSources({
-          baseFileName: 'fsmaastricht-fairshare',
-          physicalWidth: 480,
-          ...this.randomImagesOptions,
-        }),
-      },
-      {
-        alt: 'maastricht foodsavers',
-        sources: getImgSources({
-          baseFileName: 'fsmaastricht-foodsavers',
-          physicalWidth: 600,
-          ...this.randomImagesOptions,
-        }),
-      },
-      // NOTE: only for testing responsive sizes
-      // {
-      //   alt: 'responsive srcset test',
-      //   sources: getImgSources({
-      //     baseFileName: 'responsive-test',
-      //     physicalWidth: 600,
-      //     ...this.randomImagesOptions,
-      //   }),
-      // },
-    ]
-    this.featureScreenshotsOptions = {
-      basePath: SCREENSHOTS_BASE_PATH,
-      preset: presets.LANDINGPAGE_FEATURE_SCREENSHOTS,
-    }
-    this.featureScreenshots = [
-      {
-        ident: 'GROUPS',
-        extendOffsetPx: '8',
-        ratio: 978 / 978,
-        sources: getImgSources({
-          baseFileName: 'karrot-feature-groups',
-          physicalWidth: 978,
-          ...this.featureScreenshotsOptions,
-        }),
-      },
-      {
-        ident: 'ACTIVITIES',
-        extendOffsetPx: '0',
-        ratio: 978 / 852,
-        sources: getImgSources({
-          baseFileName: 'karrot-feature-activities',
-          physicalWidth: 978,
-          ...this.featureScreenshotsOptions,
-        }),
-      },
-      {
-        ident: 'OFFERS',
-        extendOffsetPx: '8',
-        ratio: 978 / 936,
-        sources: getImgSources({
-          baseFileName: 'karrot-feature-offers',
-          physicalWidth: 978,
-          ...this.featureScreenshotsOptions,
-        }),
-      },
-    ]
+    this.images = this.getImages()
     this.more = [
       'COMMUNICATION',
       'TRUST',
@@ -387,6 +266,103 @@ export default {
     },
     toggleAbout () {
       this.showAbout = !this.showAbout
+    },
+    getImages () {
+      Object.values(dirNames).forEach(dirName => {
+        generatedImages[dirName] = this.enrichImages(dirName)
+      })
+
+      return {
+        browser: generatedImages[dirNames.APP_SCREENSHOTS_BROWSER][0],
+        phone: generatedImages[dirNames.APP_SCREENSHOTS_PHONE][0],
+        features: generatedImages[dirNames.FEATURE_SCREENSHOTS],
+        randomImgs: generatedImages[dirNames.RANDOM_IMGS],
+      }
+    },
+    enrichImages (dirName) {
+      const widths = dirs[dirName].widths
+      const images = generatedImages[dirName].map(img => {
+        const srcset = widths.reduce((acc, curr, index) => {
+          const divider = index < widths.length - 1 ? ', ' : ''
+          const currWidth = curr.toString()
+          const entry = this.requireImage({
+            fileName: img.baseFileName,
+            ext: img.ext,
+            width: currWidth,
+            dirName,
+          }) + ` ${currWidth}w`
+          return acc + entry + divider
+        }, '')
+
+        const enrichedImg = {
+          ...img,
+          alt: img.baseFileName.replace(/-/g, ' '),
+          sizes: dirs[dirName].sizes.replace(/\s+/g, ''), // remove whitespaces and line-breaks
+          srcset,
+          src: this.requireImage({
+            fileName: img.baseFileName,
+            ext: img.ext,
+            width: dirs[dirName].maxWidth.toString(),
+            dirName,
+          }),
+        }
+
+        if (img.baseFileName === 'karrot-feature-groups') {
+          enrichedImg.ident = 'GROUPS'
+          enrichedImg.extendOffsetPx = '8'
+        }
+        else if (img.baseFileName === 'karrot-feature-activities') {
+          enrichedImg.ident = 'ACTIVITIES'
+          enrichedImg.extendOffsetPx = '0'
+        }
+        else if (img.baseFileName === 'karrot-feature-offers') {
+          enrichedImg.ident = 'OFFERS'
+          enrichedImg.extendOffsetPx = '8'
+        }
+
+        return enrichedImg
+      })
+
+      let sortingArr
+
+      if (dirName === dirNames.FEATURE_SCREENSHOTS) {
+        sortingArr = [
+          'karrot-feature-groups',
+          'karrot-feature-activities',
+          'karrot-feature-offers',
+        ]
+      }
+      else if (dirName === dirNames.RANDOM_IMGS) {
+        sortingArr = [
+          'oestersund-saved-food',
+          'oestersund-volunteers',
+          'bike-workshop',
+          'solikyl-savers',
+          'fsmaastricht-fairshare',
+          'fsmaastricht-foodsavers',
+        ]
+      }
+
+      if (sortingArr) {
+        images.sort((a, b) => {
+          const indexA = sortingArr.indexOf(a.baseFileName)
+          const indexB = sortingArr.indexOf(b.baseFileName)
+          if (indexA < indexB) {
+            return -1
+          }
+          else if (indexA > indexB) {
+            return 1
+          }
+          else {
+            return 0
+          }
+        })
+      }
+
+      return images
+    },
+    requireImage ({ fileName, ext, width, dirName } = {}) {
+      return require(`@/base/pages/images/${dirName}/${fileName}-${width}${ext}`)
     },
   },
 }

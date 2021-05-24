@@ -1,3 +1,6 @@
+# Summary
+
+- [Home](README.md)
 - [FAQ](faq.md)
 - [Features](features.md)
   - [Groups](features/groups.md)

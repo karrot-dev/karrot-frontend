@@ -12,7 +12,7 @@ Karrot groups are closed (with the exception of the "Playground" group which is 
 ## Notifications
 
 | type | notification | to who | condition |
-|--|--|--|
+|-|-|-|-|
 | email | new application created | group members | member has "new application" notification type enabled |
-| email | application accepted | user who applied | &nbsp; |
-| email | application declined | user who applied | &nbsp; |
+| email | application accepted | user who applied | |
+| email | application declined | user who applied | |

@@ -127,32 +127,40 @@
       </div>
     </QCardSection>
     <QCardSection
-      :class="{ 'justify-end': !$q.platform.is.mobile }"
-      class="row no-padding full-width conversation-section"
+      class="row no-padding full-width justify-end bottom-actions"
     >
+      <QBtn
+        v-if="activity.isUserMember"
+        :href="`/api/activities/${activity.id}/ics/`"
+        flat
+        no-caps
+        type="a"
+        color="secondary"
+        class="action-button"
+      >
+        <template #default>
+          <QIcon
+            name="fas fa-calendar-plus"
+            size="xs"
+            class="q-mr-xs"
+          />
+          <span>{{ $t('ACTIVITYLIST.ITEM.DOWNLOAD_ICS') }}</span>
+        </template>
+      </QBtn>
       <QBtn
         flat
         no-caps
-        align="between"
         color="secondary"
-        :class="{ 'full-width': $q.platform.is.mobile }"
-        class="open-conversation-button"
+        class="action-button"
         @click.native.stop="detail"
       >
         <template #default>
-          <div>
-            <QIcon
-              name="chat"
-              size="xs"
-              class="q-mr-xs icon-left"
-            />
-            <span>{{ $t('CONVERSATION.OPEN') }}</span>
-          </div>
           <QIcon
-            name="chevron_right"
-            :class="{ 'q-ml-sm': !$q.platform.is.mobile }"
-            class="icon-right"
+            name="chat"
+            size="xs"
+            class="q-mr-xs icon-chat"
           />
+          <span class="block">{{ $t('CONVERSATION.OPEN') }}</span>
         </template>
       </QBtn>
     </QCardSection>
@@ -239,19 +247,15 @@ export default {
       display inline
       margin-right .3em
 
-.conversation-section
+.bottom-actions
   font-weight 500
   color $secondary
   box-shadow 0 -1px 0 rgba(0, 0, 0, 0.06)
 
-.q-btn.open-conversation-button
+.q-btn.action-button
   >>> .q-btn__wrapper
-    padding 10px 12px !important
+    padding 10px 16px !important
 
-    .icon-left
+    .icon-chat
       transform rotateY(180deg)
-
-    .icon-right
-      margin-right -6px
-      font-size 24px
 </style>

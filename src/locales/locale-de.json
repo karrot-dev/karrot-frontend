@@ -9,7 +9,7 @@
     "SECTIONS": {
       "ACTIVITIES": {
         "DESCRIPTION": "Für jede Aktivität kann sich eine gewisse Anzahl Mitglieder der Gruppe eintragen – auf diese Art wissen alle wer wohin geht. Später kann Feedback gegeben werden.",
-        "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
+        "SUBTITLE": "Aktivitäten mit einer bestimmten Zeit und einem bestimmten Ort, wie z.B. Treffen, Essensabholungen, Gemeinschaftsveranstaltungen oder was auch immer deine Gruppe benötigt, können in Karrot verwaltet werden.",
         "TITLE": "Aufgabenverteilung"
       },
       "COMMUNICATION": {
@@ -18,12 +18,12 @@
       },
       "DEMOCRATIC": {
         "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development.",
+        "DESCRIPTION2": "Softwareentwickler:innen und Designer:innen sind natürlich herzlich eingeladen, sich an der Entwicklung zu beteiligen.",
         "TITLE": "Demokratische und partizipative Entwicklung"
       },
       "GROUPS": {
         "DESCRIPTION": "Dennoch sind sie alle auf der Karte zu finden, damit Menschen Kontakt zu anderen Gruppen in ihrer Nähe und weltweit aufnehmen können.",
-        "SUBTITLE": "Every group on Karrot is completely independent and can have their own logo, processes, rules and agreements.",
+        "SUBTITLE": "Jede Gruppe auf Karrot ist völlig unabhängig und kann ihr eigenes Logo, ihre eigenen Prozesse, Regeln und Vereinbarungen haben.",
         "TITLE": "Unabhängige Gruppen"
       },
       "MAPS": {
@@ -36,7 +36,7 @@
       },
       "OFFERS": {
         "DESCRIPTION": "Die Angebote sind für jeden in der Gruppe sichtbar und im integrierten Chat können Leute ihr Interesse bekunden.",
-        "SUBTITLE": "Create an offer of whatever you want to share or give away.",
+        "SUBTITLE": "Erstelle eine Anzeige für das, was du teilen oder verschenken möchtest.",
         "TITLE": "Miteinander teilen"
       },
       "OPENSOURCE": {
@@ -62,8 +62,8 @@
     },
     "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
     "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
-    "TITLE": "Start a group, become a community",
-    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kichen..."
+    "TITLE": "Starte eine Gruppe, werde zur Gemeinschaft",
+    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kitchen..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Willst du wirklich diese Serie löschen? Das löscht alle Termine, die zu dieser regelmäßigen Aktivität gehören (außer wenn bereits Teilnehmer eingetragen sind).",
@@ -87,7 +87,8 @@
       "JOIN_CONFIRMATION_TEXT": "Bist du sicher, dass du am {date} Zeit hast?",
       "LEAVE": "Nicht mehr abholen",
       "LEAVE_CONFIRMATION_HEADER": "Verlasse {activityType}",
-      "LEAVE_CONFIRMATION_TEXT": "Bist du dir sicher, dass die anderen das ohne dich schaffen?"
+      "LEAVE_CONFIRMATION_TEXT": "Bist du dir sicher, dass die anderen das ohne dich schaffen?",
+      "DOWNLOAD_ICS": "Download ICS"
     },
     "JOINEDNOTICE": "Du hast dich für eine Aktivität gemeldet | Du hast dich für {count} Aktivitäten gemeldet",
     "NONE": "Es stehen keine Aktivitäten an.",
@@ -115,9 +116,9 @@
     "SET_AMOUNT": "Gewicht eingeben",
     "TITLE": "Feedback",
     "TOGETHER_WITH": "Du warst dabei mit:",
-    "DISMISS_LABEL": "Dismiss",
-    "DISMISS_TITLE": "Dismiss feedback",
-    "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
+    "DISMISS_LABEL": "Verwerfen",
+    "DISMISS_TITLE": "Feedback verwerfen",
+    "DISMISS_MESSAGE": "Möchtest du das Feedback wirklich verwerfen? Du kannst das Feedback für die Aktivität später nicht mehr geben."
   },
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Treffen",
@@ -128,25 +129,25 @@
     "Task": "Aufgabe"
   },
   "ACTIVITY_TYPE_STATUS": {
-    "ACTIVE": "Active",
-    "ARCHIVED": "Archived"
+    "ACTIVE": "Aktiv",
+    "ARCHIVED": "Archiviert"
   },
   "ACTIVITY_TYPES": {
-    "ADD": "Add new activity type",
-    "FEEDBACK_YES_HINT": "The participants will be asked for feedback about the activity",
-    "FEEDBACK_NO_HINT": "No feedback will be requested",
-    "FEEDBACK_WEIGHT_LABEL": "Ask for weight?",
-    "NAME": "Name",
+    "ADD": "Neuen Aktivitätstypen hinzufügen",
+    "FEEDBACK_YES_HINT": "Die Teilnehmer:innen werden um ein Feedback zu dieser Aktivität gebeten",
+    "FEEDBACK_NO_HINT": "Es wird um kein Feedback gebeten.",
+    "FEEDBACK_WEIGHT_LABEL": "Nach Gewicht fragen?",
+    "NAME": "Bezeichnung",
     "FEEDBACK": "Feedback",
-    "FEEDBACK_WEIGHT": "Feedback weight",
+    "FEEDBACK_WEIGHT": "Gewichtsfeedback",
     "STATUS": "Status",
-    "STANDARD_NAME_HEADING": "Standard names",
-    "STANDARD_NAME_HINT": "Name will be available in other languages",
-    "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
-    "CUSTOM_NAME_USE": "Use custom name {name}",
-    "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
-    "MANAGE_TYPES": "Manage types...",
-    "SHOW_ARCHIVED": "Show archived",
+    "STANDARD_NAME_HEADING": "Standard Bezeichnungen",
+    "STANDARD_NAME_HINT": "Die Bezeichnung ist auch in anderen Sprachen verfügbar.",
+    "CUSTOM_NAME_HINT": "Die Bezeichnung wird genau so benutzt und nicht übersetzt.",
+    "CUSTOM_NAME_USE": "Benutze eigene Bezeichnung {name}",
+    "CUSTOM_NAME_PROMPT": "Gib einen eigene Bezeichnung ein oder wähle eine Standard Bezeichnung",
+    "MANAGE_TYPES": "Aktivitätstypen bearbeiten...",
+    "SHOW_ARCHIVED": "Archivierte anzeigen",
     "STATUS_ACTIVE_HINT": "You will be able to create new activities and series of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new activities or series of this type, but existing ones will still be available"
   },
@@ -207,9 +208,9 @@
     "ARCHIVE": "Archivieren",
     "BACK": "Zurück",
     "CANCEL": "Abbrechen",
-    "CHANGE_COLOUR": "Change colour",
+    "CHANGE_COLOUR": "Farbe ändern",
     "CHANGE_EMAIL": "E-Mail-Adresse ändern",
-    "CHANGE_ICON": "Change icon",
+    "CHANGE_ICON": "Icon ändern",
     "CHANGE_PASSWORD": "Password ändern",
     "CLOSE": "Schließen",
     "CREATE": "Erstellen",
@@ -364,9 +365,16 @@
     "DESCRIPTION": "Beschreibung",
     "DESCRIPTION_VERBOSE": "Gruppenbeschreibung, nur für Mitglieder sichtbar",
     "EDIT": "Gruppe bearbeiten",
-    "EDIT_ACTIVITY_TYPES": "Activity types",
-    "EDIT_DETAILS": "Group details",
+    "EDIT_ACTIVITY_TYPES": "Aktivitätstypen",
+    "EDIT_DETAILS": "Gruppen Details",
     "EMAIL_NOTIFICATIONS": "Email-Benachrichtigungen",
+    "HEADINGS": {
+      "GENERAL": "General",
+      "LOCATION": "Location",
+      "LOCATION_HINT": "If you want your group's location to be made visible on a public map, enter an adress or pick a location on the map below.",
+      "NEW_MEMBERS_SIGNUP": "New Members Signup",
+      "NEW_MEMBERS_SIGNUP_HINT": "New members will have to apply and get accepted to your group. You can always change the application and welcome message later in the group settings."
+    },
     "HISTORY": "History",
     "HOME": "Start",
     "INACTIVE": "Inaktiv",
@@ -455,10 +463,10 @@
     "ACTIVITY_LEAVE_DISTANCE": "{distance} vor der geplanten Zeit",
     "ACTIVITY_MISSED": "{activityType} bei {placeName} hatte keine Teilnehmer!",
     "ACTIVITY_MODIFY": "hat die Eigenschaften einer Aktivität geändert",
-    "ACTIVITY_TYPE_CREATE": "{activityType} type created",
-    "ACTIVITY_TYPE_MODIFY": "{activityType} type modified",
+    "ACTIVITY_TYPE_CREATE": "{activityType} Aktivitätstyp erstellt",
+    "ACTIVITY_TYPE_MODIFY": "{activityType} Aktivitätstyp geändert",
     "APPLICATION_DECLINED": "hat eine Bewerbung von {applicantName} abgelehnt",
-    "CONFIRM_CHANGES": "Confirm changes?",
+    "CONFIRM_CHANGES": "Änderungen bestätigen?",
     "CONFIRM_CHANGES_HINT": "You can write a message here to explain your changes that will be displayed in the history",
     "DETAILS": "Mehr Infos",
     "GROUP_CHANGE_PHOTO": "hat das Gruppenlogo geändert",

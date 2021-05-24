@@ -87,7 +87,8 @@
       "JOIN_CONFIRMATION_TEXT": "Bass du sécher, dass du den {date} Zäit hues?",
       "LEAVE": "Verloossen",
       "LEAVE_CONFIRMATION_HEADER": "{activityType} verloossen",
-      "LEAVE_CONFIRMATION_TEXT": "Bass du sécher, dass déi aner dëst ouni dech maache kënnen?"
+      "LEAVE_CONFIRMATION_TEXT": "Bass du sécher, dass déi aner dëst ouni dech maache kënnen?",
+      "DOWNLOAD_ICS": "ISC eroflueden"
     },
     "JOINEDNOTICE": "Du hues eng zukünfteg Aktivitéit | Du hues {count} zukünfteg Aktivitéiten",
     "NONE": "Keng zukünfteg Aktivitéiten",
@@ -115,9 +116,9 @@
     "SET_AMOUNT": "Quantitéit aginn",
     "TITLE": "Feedback",
     "TOGETHER_WITH": "Du hues dëst zesumme gemaach mam:",
-    "DISMISS_LABEL": "Dismiss",
-    "DISMISS_TITLE": "Dismiss feedback",
-    "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
+    "DISMISS_LABEL": "Verwerfen",
+    "DISMISS_TITLE": "Feedback verwerfen",
+    "DISMISS_MESSAGE": "Wëlls du dëse Feedback wierklech verwerfen? Du kanns en duerno net méi ginn."
   },
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Treffen",
@@ -151,8 +152,8 @@
     "STATUS_ARCHIVED_HINT": "Et wäert net méiglech sinn nei Aktivitéiten a Serie vun dësem Typ ze erstellen, awer déi, déi et ginn, wäerte bleiwen"
   },
   "ADDRESS_PICKER": {
-    "CHOOSE_LOCATION": "wiel den Uert op der Kaart",
-    "KEEP_EXISTING_LOCATION": "behal den Uert op der Kaart",
+    "CHOOSE_LOCATION": "wiel d'Plaz op der Kaart",
+    "KEEP_EXISTING_LOCATION": "behal d'Plaz op der Kaart",
     "SET_AS": "Adress setzen als"
   },
   "AGREEMENT": {
@@ -294,7 +295,7 @@
   "CREATEACTIVITY": {
     "COMMENT": "Zousätzlech Informatiounen",
     "COMMENT_HELPER": "Wat sollen d'Leit wësse wann si sech fir dës Aktivitéit androen?",
-    "CUSTOM": "Op d'Mooss gemaach",
+    "CUSTOM": "Ugepasst",
     "DATE": "Datum",
     "DIFFERS_WARNING": "Dëse Wäert ass anescht wéi de Standard. Fir dës Ännerung réckgängeg ze maachen, klicks de op de Feil an dann op Späicheren.",
     "DISABLE_TITLE": "Desaktivéieren?",
@@ -367,6 +368,13 @@
     "EDIT_ACTIVITY_TYPES": "Aktivitéitstypen",
     "EDIT_DETAILS": "Detailer vun der Grupp",
     "EMAIL_NOTIFICATIONS": "Benoriichtegungen via E-Mail",
+    "HEADINGS": {
+      "GENERAL": "Generell",
+      "LOCATION": "Plaz",
+      "LOCATION_HINT": "Wann's du d'Plaz vun denger Grupp op der ëffentlecher Kaart wëlls uweisen, gëff eng Adress an oder wiel eng Plaz op der Kaart hei drënner.",
+      "NEW_MEMBERS_SIGNUP": "Umeldung vun neie Memberen",
+      "NEW_MEMBERS_SIGNUP_HINT": "Nei Membere mussen sech bewerben a vun denger Grupp ugeholl ginn. D'Noriichte fir d'Bewerbung a fir d'Begréissung fir nei Membere kënne spéider an den Astellunge vum Grupp geännert ginn."
+    },
     "HISTORY": "Vergaangenheet",
     "HOME": "Doheem",
     "INACTIVE": "Inaktiv",
@@ -438,7 +446,7 @@
     "HIDE_GROUPS": "Gruppe verstoppen",
     "HIDE_PLACES": "Plaze verstoppen",
     "HIDE_USERS": "Benotzer verstoppen",
-    "SET_LOCATION": "Uert setzen",
+    "SET_LOCATION": "Plaz setzen",
     "SHOW_GROUPS": "Gruppe weisen",
     "SHOW_PLACES": "Plaze weisen",
     "SHOW_USERS": "Benotzer weisen",
@@ -730,7 +738,7 @@
     "OTHER_GROUPS": "Aner Gruppen"
   },
   "THANKS": "Merci!",
-  "TO": "un",
+  "TO": "bis",
   "TOPBAR": {
     "CHANGE_GROUP": "Grupp veränneren",
     "LOGOUT": "Ausloggen",

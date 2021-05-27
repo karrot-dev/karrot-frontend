@@ -1,3 +1,6 @@
+<!-- View this file with embedded videos on GitHub: -->
+<!-- https://github.com/yunity/karrot-frontend/blob/master/src/base/generate-images-readme.md -->
+
 # Generate Landingpage Images
 
 **TL:DR**
@@ -44,12 +47,13 @@ Requirements of each folder inside `_raws`:
 
 Screenshots for all folders (expect `random-imgs`) have to be taken with browser devtools. Here is an example of how it has to be done in Chrome. Firefox is about the same.
 
-<figure style="margin: 0; padding: 0;">
-  <video controls="true" allowfullscreen="true" width="400">
-    <source src="assets/generate-images-readme/taking-screenshots-example.mp4" type="video/mp4">
-  </video>
-  <figcaption><i>Example: taking screenshot for "karrot-screenshot-browser.png"</i></figcaption>
-</figure>
+<video controls="true" allowfullscreen="true" width="400">
+  <source src="assets/generate-images-readme/taking-screenshots-example.mp4" type="video/mp4">
+</video>
+
+https://user-images.githubusercontent.com/23213583/119812392-67513f00-bee8-11eb-9036-23b3dbab3d63.mp4
+
+<i>Example: taking screenshot for "karrot-screenshot-browser.png"</i>
 
 <br />
 
@@ -79,6 +83,8 @@ Screenshots for all folders (expect `random-imgs`) have to be taken with browser
       <source src="assets/generate-images-readme/karrot-feature-activities.mp4" type="video/mp4">
     </video>
 
+    https://user-images.githubusercontent.com/23213583/119814776-14c55200-beeb-11eb-9f19-fb5c81ed50e3.mp4
+
 - `karrot-feature-groups.png`
   - set width/height to 1200 x 773
   - follow these steps:
@@ -90,6 +96,10 @@ Screenshots for all folders (expect `random-imgs`) have to be taken with browser
       <source src="assets/generate-images-readme/karrot-feature-groups-2.mp4" type="video/mp4">
     </video>
 
+    https://user-images.githubusercontent.com/23213583/119814920-42120000-beeb-11eb-89ce-260ec3aa9e17.mp4
+
+    https://user-images.githubusercontent.com/23213583/119814997-5bb34780-beeb-11eb-9ec6-0cb9b08757e9.mp4
+
 - `karrot-feature-offers.png`
   - set width/height to 860 x 820
   - follow these steps:
@@ -97,6 +107,9 @@ Screenshots for all folders (expect `random-imgs`) have to be taken with browser
     <video controls="true" allowfullscreen="true" width="400">
       <source src="assets/generate-images-readme/taking-screenshots-offers.mp4" type="video/mp4">
     </video>
+
+    https://user-images.githubusercontent.com/23213583/119815292-afbe2c00-beeb-11eb-881c-185383db630e.mp4
+
 <br />
 
 ## Run the script

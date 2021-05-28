@@ -216,9 +216,7 @@ const run = async () => {
     console.table(warningItems)
   }
 
-  // create minified json-file for production
-  writeFileSync(join(__dirname, 'src/base/images.min.json'), JSON.stringify(jsonContent))
-  // create json-file with intendation for inspecting output
+  // create json-file with list of images per folder
   writeFileSync(join(__dirname, 'src/base/images.json'), JSON.stringify(jsonContent, null, 2))
 }
 

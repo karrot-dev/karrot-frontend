@@ -201,7 +201,7 @@ import KAbout from '@/base/components/KAbout'
 import KLandingButtons from '@/base/components/KLandingButtons'
 import logo from '@/logo/assets/carrot-logo.svg'
 import { dirNames, dirs } from '@/base/images-config.mjs'
-import generatedImages from '@/base/images.min.json'
+import generatedImages from '@/base/images.json'
 
 import router from '@/router'
 

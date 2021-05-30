@@ -23,7 +23,8 @@ Please document your changes in this format:
 ## [Unreleased]
 ### Added
 - allow to dismiss feedback @dpaque @layla19 @larzon83 @pogopaule [#2319]
-- add ics subscription feature for activities @amengsk [#2368]
+- add ics export for activities @amengsk @larzon83 [#2321]
+- add ics subscription feature for lists of activities @amengsk [#2368]
 
 ### Changed
 - group: improve create/edit group form @larzon83 @layla19 @dpaque @pogopaule @brnsolikyl [#2306]
@@ -35,7 +36,6 @@ Please document your changes in this format:
 ### Added
 - enabled Hungarian locale @nicksellen [#2313]
 - add activity type editing @nicksellen [#2245]
-- add ics export for activities @amengsk [#2321]
 
 ### Changed
 - use default group location for defaultMapCenter when creating a new place @larzon83 [#2293]

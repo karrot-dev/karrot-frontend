@@ -38,7 +38,8 @@
     "locales:pull": "updateLocalesHelper/env/bin/python updateLocalesHelper/updateLocaleStatus.py && updateLocalesHelper/env/bin/tx pull -a --force --no-interactive",
     "locales:push": "updateLocalesHelper/env/bin/tx push -s",
     "docs": "cd docs && mdbook serve",
-    "build-docs": "cd docs && mdbook build --dest-dir ../docs-dist"
+    "build-docs": "cd docs && mdbook build --dest-dir ../docs-dist",
+    "generate-landing-images": "node src/base/generate-images.mjs"
   },
   "dependencies": {
     "@quasar/extras": "^1.10.3",
@@ -77,6 +78,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.13.8",
+    "@mapbox/appropriate-images": "^4.1.0",
     "@octokit/rest": "^18.5.2",
     "@quasar/app": "^2.2.4",
     "@quasar/quasar-app-extension-dotenv": "^1.1.0",

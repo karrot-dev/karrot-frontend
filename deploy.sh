@@ -134,7 +134,7 @@ if [ ! -z "$STORYBOOK_URL" ]; then
   fi
 fi
 
-if [ "$DEPLOY_DOCS" == "true" ] && [ -d docs-dist/gitbook ]; then
+if [ "$DEPLOY_DOCS" == "true" ] && [ -d docs-dist/css ]; then
   rsync -avz --delete docs-dist/ "deploy@$HOST:karrot-docs/$DIR/"
   if [ ! -z "$DOCS_BUNDLE_FILENAME_BASE" ]; then
     DOCS_ZIP_FILENAME="$DOCS_BUNDLE_FILENAME_BASE.zip"

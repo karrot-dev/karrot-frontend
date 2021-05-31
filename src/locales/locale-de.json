@@ -87,7 +87,8 @@
       "JOIN_CONFIRMATION_TEXT": "Bist du sicher, dass du am {date} Zeit hast?",
       "LEAVE": "Nicht mehr abholen",
       "LEAVE_CONFIRMATION_HEADER": "Verlasse {activityType}",
-      "LEAVE_CONFIRMATION_TEXT": "Bist du dir sicher, dass die anderen das ohne dich schaffen?"
+      "LEAVE_CONFIRMATION_TEXT": "Bist du dir sicher, dass die anderen das ohne dich schaffen?",
+      "DOWNLOAD_ICS": "Download ICS"
     },
     "JOINEDNOTICE": "Du hast dich für eine Aktivität gemeldet | Du hast dich für {count} Aktivitäten gemeldet",
     "NONE": "Es stehen keine Aktivitäten an.",

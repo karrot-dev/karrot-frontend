@@ -1,0 +1,6 @@
+[book]
+title = "Karrot Developer Documentation"
+author = "Karrot Team"
+description = "Documentation for Karrot developers."
+src = "src"
+language = "en"

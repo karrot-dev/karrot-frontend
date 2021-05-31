@@ -2,6 +2,7 @@
   <img
     :src="logo"
     :class="{ loading: isLoading }"
+    :alt="$t('GLOBAL.LOGO_ALT')"
   >
 </template>
 
@@ -42,7 +43,8 @@ export default {
     transform scale(1)
 
 img
-  height 90%
+  width 100%
+  height 100%
 
 .loading
   animation myanim 1s cubic-bezier(.4, 0, .5, 1) infinite

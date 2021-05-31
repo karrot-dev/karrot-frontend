@@ -63,7 +63,7 @@
     "SUBTITLE1": "Karrot ass ee fräit Geschier mat oppene Quelle fir all Zort vu Wuerzel-Initiativen a Gruppe vu Leit, déi Gesicht-zu-Gesicht-Aktivitéiten op enger lokaler, autonomer a fräiwëlleger Basis koordinéiere wëllen.",
     "SUBTITLE2": "Et ass designt esou, dass Gemeinschaftsbildung vereinfacht an eng méi transparent, demokratesch a participativ Gouvernance vun ärem Grupp ënnerstëtzt gëtt.",
     "TITLE": "Start eng Grupp, gitt eng Gemeinschaft",
-    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kitchen..."
+    "VISION_INTRO": "Egal ob dir Liewensmëttel rett an deelt, ee fräie Shop, ee Makerspace, ee Gemeinschaftsgaart oder eng Vëlos-Kichen hutt..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Wëlls du dës Serie wierklech läschen? Dëst wäert och all d'Aktivitéite läschen, déi zu dëser Serie gehéieren (ausser et hu sech scho Leit derfir ugemellt).",
@@ -87,7 +87,8 @@
       "JOIN_CONFIRMATION_TEXT": "Bass du sécher, dass du den {date} Zäit hues?",
       "LEAVE": "Verloossen",
       "LEAVE_CONFIRMATION_HEADER": "{activityType} verloossen",
-      "LEAVE_CONFIRMATION_TEXT": "Bass du sécher, dass déi aner dëst ouni dech maache kënnen?"
+      "LEAVE_CONFIRMATION_TEXT": "Bass du sécher, dass déi aner dëst ouni dech maache kënnen?",
+      "DOWNLOAD_ICS": "ISC eroflueden"
     },
     "JOINEDNOTICE": "Du hues eng zukünfteg Aktivitéit | Du hues {count} zukünfteg Aktivitéiten",
     "NONE": "Keng zukünfteg Aktivitéiten",
@@ -294,7 +295,7 @@
   "CREATEACTIVITY": {
     "COMMENT": "Zousätzlech Informatiounen",
     "COMMENT_HELPER": "Wat sollen d'Leit wësse wann si sech fir dës Aktivitéit androen?",
-    "CUSTOM": "Op d'Mooss gemaach",
+    "CUSTOM": "Ugepasst",
     "DATE": "Datum",
     "DIFFERS_WARNING": "Dëse Wäert ass anescht wéi de Standard. Fir dës Ännerung réckgängeg ze maachen, klicks de op de Feil an dann op Späicheren.",
     "DISABLE_TITLE": "Desaktivéieren?",
@@ -737,7 +738,7 @@
     "OTHER_GROUPS": "Aner Gruppen"
   },
   "THANKS": "Merci!",
-  "TO": "un",
+  "TO": "bis",
   "TOPBAR": {
     "CHANGE_GROUP": "Grupp veränneren",
     "LOGOUT": "Ausloggen",

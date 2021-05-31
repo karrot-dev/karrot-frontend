@@ -16,18 +16,18 @@ import { optionsFor } from '@/places/placeStatus'
 
 // Reusing the landing page images :)
 
-import imageLarge from '@/base/pages/images/karrot-screenshot.png'
+import imageLarge from '@/base/pages/images/app-screenshots-browser/karrot-screenshot-browser-1776.png'
 
-import image236a from '@/base/pages/images/karrot-gallery.236x236.jpg'
-import image236b from '@/base/pages/images/karrot-manage-activities.236x236.jpg'
-import image236c from '@/base/pages/images/solikyl-offers.236x236.jpg'
+import imageFeatureA from '@/base/pages/images/feature-screenshots/karrot-feature-groups-978.png'
+import imageFeatureB from '@/base/pages/images/feature-screenshots/karrot-feature-activities-978.png'
+import imageFeatureC from '@/base/pages/images/feature-screenshots/karrot-feature-offers-978.png'
 
-import image200a from '@/base/pages/images/oestersund-saved-food.200x200.jpg'
-import image200b from '@/base/pages/images/oestersund-volunteers.200x200.jpg'
-import image200c from '@/base/pages/images/bikeworkshop.200x200.jpg'
-import image200d from '@/base/pages/images/solikyl-savers.200x200.jpg'
-import image200e from '@/base/pages/images/fsmaastricht-fairshare.200x200.jpg'
-import image200f from '@/base/pages/images/fsmaastricht-foodsavers.200x200.jpg'
+import imageRandomA from '@/base/pages/images/random-imgs/oestersund-saved-food-200.jpg'
+import imageRandomB from '@/base/pages/images/random-imgs/oestersund-volunteers-200.jpg'
+import imageRandomC from '@/base/pages/images/random-imgs/bike-workshop-200.jpg'
+import imageRandomD from '@/base/pages/images/random-imgs/solikyl-savers-200.jpg'
+import imageRandomE from '@/base/pages/images/random-imgs/fsmaastricht-fairshare-200.jpg'
+import imageRandomF from '@/base/pages/images/random-imgs/fsmaastricht-foodsavers-200.jpg'
 
 let notificationIdCnt = 0
 export const makeNotification = data => {
@@ -459,15 +459,15 @@ export const makeInvitation = data => {
 }
 
 const images = [
-  image200a,
-  image200b,
-  image200c,
-  image200d,
-  image200e,
-  image200f,
-  image236a,
-  image236b,
-  image236c,
+  imageRandomA,
+  imageRandomB,
+  imageRandomC,
+  imageRandomD,
+  imageRandomE,
+  imageRandomF,
+  imageFeatureA,
+  imageFeatureB,
+  imageFeatureC,
   imageLarge,
 ]
 

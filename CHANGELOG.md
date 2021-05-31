@@ -29,6 +29,7 @@ Please document your changes in this format:
 - landingpage: improve design @larzon83 [#2340]
 - Landing page: change text and screenshots, add "about Karrot" component @brnsolikyl [#2317]
 - Improve calculation of map bounds on group gallery @nicksellen [#2333]
+- main-layout: use scaled down background-image @larzon83 [#2371]
 - Use roboto font in latin-ext variant @nicksellen [#2345]
 
 ## [9.2.0] - 2020-03-23

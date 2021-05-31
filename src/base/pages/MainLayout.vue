@@ -318,9 +318,8 @@ body.desktop .mainContent-page:not(.fullpage)
   margin-left auto
 
 .background
-  background-image url('../assets/repeating_grey.png')
+  background-image url('../assets/repeating_grey-600.png')
   background-attachment fixed
-  background-size 600px
 
   &.bikekitchen
     background-image url('../assets/bikekitchen_background.jpg')

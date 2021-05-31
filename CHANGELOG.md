@@ -32,6 +32,9 @@ Please document your changes in this format:
 - main-layout: use scaled down background-image @larzon83 [#2371]
 - Use roboto font in latin-ext variant @nicksellen [#2345]
 
+### Fixed
+- place-header: correctly display linear-gradient in Safari @larzon83 [#2372]
+
 ## [9.2.0] - 2020-03-23
 ### Added
 - enabled Hungarian locale @nicksellen [#2313]

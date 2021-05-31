@@ -86,7 +86,9 @@ export default {
       get () {
         return this.value
       },
-      set (value) {
+      set (v) {
+        let value = parseFloat(v, 10)
+        value = isNaN(value) ? 0 : Math.max(0, value)
         this.$emit('input', value)
       },
     },

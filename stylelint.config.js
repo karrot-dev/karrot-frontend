@@ -33,6 +33,7 @@ module.exports = {
       'vw',
       'vh',
       'vmax',
+      'fr',
     ],
   },
   plugins: [

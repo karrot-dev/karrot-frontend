@@ -87,7 +87,8 @@
       "JOIN_CONFIRMATION_TEXT": "Czy na pewno masz czas {date}?",
       "LEAVE": "Zrezygnuj",
       "LEAVE_CONFIRMATION_HEADER": "Zrezygnuj z {activityType}",
-      "LEAVE_CONFIRMATION_TEXT": "Czy na pewno inni poradzą sobie bez Ciebie?"
+      "LEAVE_CONFIRMATION_TEXT": "Czy na pewno inni poradzą sobie bez Ciebie?",
+      "DOWNLOAD_ICS": "Download ICS"
     },
     "JOINEDNOTICE": "Masz jedną nadchodzącą aktywność | Masz {count} nadchodzących aktywności",
     "NONE": "Brak nadchodzących aktywności",

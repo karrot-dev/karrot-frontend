@@ -9,7 +9,7 @@
     "SECTIONS": {
       "ACTIVITIES": {
         "DESCRIPTION": "Ĉiu aktivaĵo havas savlokojn al kiuj oni povas aliĝi. Tiel, ĉiuj scias kiu iras kien kaj kiam kaj tiamaniere facilas poste komenti.",
-        "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
+        "SUBTITLE": "Aktivaĵojn difinitajn tempe kaj loke, kiel renkontiĝojn, savadojn de manĝaĵo, komunumajn eventojn aŭ ion ajn kion via grupo necesas povas profiti el la programo.",
         "TITLE": "Distribuo de taskoj kaj aktivaĵoj"
       },
       "COMMUNICATION": {
@@ -17,13 +17,13 @@
         "TITLE": "Komunikado en la korekta kunteksto"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development.",
+        "DESCRIPTION": "Karrot estas libera kaj malferma programo kiu disvolviĝas per la komentoj kaj partopreno de la uzantoj. Malgranda ĉefteamo konstante kontaktas homojn de malsamaj grupoj por lerni pri la diversaj kaj komunaj bezonoj kaj uzi ilin kiel gvidliniojn. Ni sekvas etikon de honesteco kaj nekomercigo de datumoj.",
+        "DESCRIPTION2": "Ni bonvenas programistojn kaj dezajnistojn partopreni ĉi tiun disvolvigon.",
         "TITLE": "Demokrata kaj partoprenema disvolviĝo"
       },
       "GROUPS": {
         "DESCRIPTION": "Nun ili estas videblaj sur la mapo. Tiel la homoj povas trovi la grupojn kaj konekti kun ili surloke aŭ tutmonde.",
-        "SUBTITLE": "Every group on Karrot is completely independent and can have their own logo, processes, rules and agreements.",
+        "SUBTITLE": "Ĉiu grupo en Karrot estas tute sendependa kaj povas havi sian propran logotipon, procedurojn kaj regulojn.",
         "TITLE": "Sendependaj grupoj"
       },
       "MAPS": {
@@ -36,7 +36,7 @@
       },
       "OFFERS": {
         "DESCRIPTION": "Ofertoj videblas al ĉiuj en la grupo. Homoj povas montri sian intereson en la oferta babilejo.",
-        "SUBTITLE": "Create an offer of whatever you want to share or give away.",
+        "SUBTITLE": "Kreu oferton de tio kion vi volas donaci aŭ disdoni.",
         "TITLE": "Disdoni aĵojn"
       },
       "OPENSOURCE": {
@@ -60,10 +60,10 @@
         "TITLE": "Demokrata kaj fideca grupa-administrado"
       }
     },
-    "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
-    "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
-    "TITLE": "Start a group, become a community",
-    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kitchen..."
+    "SUBTITLE1": "Karrot estas ilo senpaga kaj libera ilo por popolaj iniciatoj kaj grupoj kiuj volas kunordigi lokajn, sendependajn kaj volontulajn aktivaĵojn.",
+    "SUBTITLE2": "Ĝi estas kreita por helpi la komunuman konstruadon kaj subteni pli travideblan, demokratan kaj aktivigan mastrumadon de via grupo.",
+    "TITLE": "Komencu grupon, iĝu komunumo",
+    "VISION_INTRO": "Se vi savas aŭ disdonas manĝaĵojn, estras senpagan vendejon aŭ kreeman spacon, partoprenas komunan ĝardenon aŭ biciklan kuirejon..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Ĉu vi vere volas forigi tiun ĉi periodan aktivaĵon? Tio ĉi forigos ankaŭ ĉiujn aktivaĵojn kiuj apartenas al tiu ĉi periodan aktivaĵon (krom kaze ke homoj jam aliĝis).",
@@ -87,7 +87,8 @@
       "JOIN_CONFIRMATION_TEXT": "Ĉu vi certas ke vi havas tempon por je {date}?",
       "LEAVE": "Forlasi",
       "LEAVE_CONFIRMATION_HEADER": "Malaliĝi {activityType}",
-      "LEAVE_CONFIRMATION_TEXT": "Ĉu vere la aliaj povas fari tion ĉi sen vi?"
+      "LEAVE_CONFIRMATION_TEXT": "Ĉu vere la aliaj povas fari tion ĉi sen vi?",
+      "DOWNLOAD_ICS": "Elŝuti ICSn"
     },
     "JOINEDNOTICE": "Vi havas baldaŭan aktivaĵon | Vi havas {count}baldaŭajn aktivaĵojn",
     "NONE": "Ne estas venontaj aktivaĵoj",
@@ -115,9 +116,9 @@
     "SET_AMOUNT": "Agordi kvanton",
     "TITLE": "Komentoj",
     "TOGETHER_WITH": "Ni faris tion ĉi kun:",
-    "DISMISS_LABEL": "Dismiss",
-    "DISMISS_TITLE": "Dismiss feedback",
-    "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
+    "DISMISS_LABEL": "Formeti",
+    "DISMISS_TITLE": "Formeti komenton",
+    "DISMISS_MESSAGE": "Ĉu vi vere volas formeti ĉi tiun komenton? Vi ne povos komenti ĉi tiun aktivaĵon poste."
   },
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Renkontiĝo",
@@ -128,27 +129,27 @@
     "Task": "Tasko"
   },
   "ACTIVITY_TYPE_STATUS": {
-    "ACTIVE": "Active",
-    "ARCHIVED": "Archived"
+    "ACTIVE": "Aktiva",
+    "ARCHIVED": "Arkivita"
   },
   "ACTIVITY_TYPES": {
-    "ADD": "Add new activity type",
-    "FEEDBACK_YES_HINT": "The participants will be asked for feedback about the activity",
-    "FEEDBACK_NO_HINT": "No feedback will be requested",
-    "FEEDBACK_WEIGHT_LABEL": "Ask for weight?",
-    "NAME": "Name",
-    "FEEDBACK": "Feedback",
-    "FEEDBACK_WEIGHT": "Feedback weight",
-    "STATUS": "Status",
-    "STANDARD_NAME_HEADING": "Standard names",
-    "STANDARD_NAME_HINT": "Name will be available in other languages",
-    "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
-    "CUSTOM_NAME_USE": "Use custom name {name}",
-    "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
-    "MANAGE_TYPES": "Manage types...",
-    "SHOW_ARCHIVED": "Show archived",
-    "STATUS_ACTIVE_HINT": "You will be able to create new activities and series of this type",
-    "STATUS_ARCHIVED_HINT": "It will not be possible to create new activities or series of this type, but existing ones will still be available"
+    "ADD": "Aldoni novan tipon de aktivaĵo",
+    "FEEDBACK_YES_HINT": "Oni petos komentoj de la partoprenantoj pri la aktivaĵo",
+    "FEEDBACK_NO_HINT": "Neniu komento estos petita",
+    "FEEDBACK_WEIGHT_LABEL": "Ĉu vi volas pezon?",
+    "NAME": "Nomo",
+    "FEEDBACK": "Komentoj",
+    "FEEDBACK_WEIGHT": "Pezo de komentoj",
+    "STATUS": "Statuso",
+    "STANDARD_NAME_HEADING": "Normaj nomoj",
+    "STANDARD_NAME_HINT": "Nomo estos videbla en aliaj lingvoj",
+    "CUSTOM_NAME_HINT": "La originala nomo estos montrita: Ĝi ne estos tradukita",
+    "CUSTOM_NAME_USE": "Uzi personigitan nomon {name}",
+    "CUSTOM_NAME_PROMPT": "Tajpu personigitan nomon aŭ elektu norman nomon",
+    "MANAGE_TYPES": "Agordi tipojn",
+    "SHOW_ARCHIVED": "Montri arkivitajn",
+    "STATUS_ACTIVE_HINT": "Vi povos krei novajn aktivaĵojn kaj seriojn de ĉi tiu tipo de aktivaĵo",
+    "STATUS_ARCHIVED_HINT": "Ne eblos kreis novajn aŭ seriojn de ĉi tiu tipo de aktivaĵoj, sed ekzistantaj disponeblos."
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "Elekti lokon sur mapo",
@@ -207,9 +208,9 @@
     "ARCHIVE": "Arkivo",
     "BACK": "Reen",
     "CANCEL": "Nuligi",
-    "CHANGE_COLOUR": "Change colour",
+    "CHANGE_COLOUR": "Ŝanĝi koloron",
     "CHANGE_EMAIL": "Ŝanĝi retadreson",
-    "CHANGE_ICON": "Change icon",
+    "CHANGE_ICON": "Ŝanĝi piktogramon",
     "CHANGE_PASSWORD": "Ŝanĝi pasvorton",
     "CLOSE": "Fermi",
     "CREATE": "Krei",
@@ -364,15 +365,15 @@
     "DESCRIPTION": "Priskribo",
     "DESCRIPTION_VERBOSE": "Grupa preskribo, videbla por anoj",
     "EDIT": "Redakti grupon",
-    "EDIT_ACTIVITY_TYPES": "Activity types",
-    "EDIT_DETAILS": "Group details",
+    "EDIT_ACTIVITY_TYPES": "Tipoj de aktivaĵoj",
+    "EDIT_DETAILS": "Grupaj detaloj",
     "EMAIL_NOTIFICATIONS": "Retmesaĝaj sciigoj",
     "HEADINGS": {
-      "GENERAL": "General",
-      "LOCATION": "Location",
-      "LOCATION_HINT": "If you want your group's location to be made visible on a public map, enter an adress or pick a location on the map below.",
-      "NEW_MEMBERS_SIGNUP": "New Members Signup",
-      "NEW_MEMBERS_SIGNUP_HINT": "New members will have to apply and get accepted to your group. You can always change the application and welcome message later in the group settings."
+      "GENERAL": "Ĝeneralaĵoj",
+      "LOCATION": "Loko",
+      "LOCATION_HINT": "Se vi volas ke la loko de via grupo estos montrita en publika mapo, enmetu adreson aŭ elektu lokon en la suba mapo.",
+      "NEW_MEMBERS_SIGNUP": "Novaj membroj aliĝu",
+      "NEW_MEMBERS_SIGNUP_HINT": "Novaj membroj devos kandidatiĝi kaj estis akceptitaj en la grupo. Vi ĉiam povas ŝanĝi la kandidatiĝan kaj bonvenan mesaĝon je la grupaj agordoj."
     },
     "HISTORY": "Historio",
     "HOME": "Ĉefpaĝo",
@@ -462,11 +463,11 @@
     "ACTIVITY_LEAVE_DISTANCE": "{distance} antaŭ dattempo",
     "ACTIVITY_MISSED": "{activityType} ĉe {placeName} havis neniun aliĝinton!",
     "ACTIVITY_MODIFY": "ŝanĝitaj agordoj de la aktivaĵo",
-    "ACTIVITY_TYPE_CREATE": "{activityType} type created",
-    "ACTIVITY_TYPE_MODIFY": "{activityType} type modified",
+    "ACTIVITY_TYPE_CREATE": "Tipo de aktivaĵo {activityType} kreita",
+    "ACTIVITY_TYPE_MODIFY": "Tipo de aktivaĵo {activityType} modifita",
     "APPLICATION_DECLINED": "malakceptis kandidatiĝo de {applicantName}",
-    "CONFIRM_CHANGES": "Confirm changes?",
-    "CONFIRM_CHANGES_HINT": "You can write a message here to explain your changes that will be displayed in the history",
+    "CONFIRM_CHANGES": "Konfirmin ŝanĝojn?",
+    "CONFIRM_CHANGES_HINT": "Vi povas skribi mesaĝon ĉi tie por klarigi viajn ŝanĝojn, kiu estos montritaj en la historia raporto",
     "DETAILS": "Plia informo",
     "GROUP_CHANGE_PHOTO": "ŝanĝis la grupan logotipon",
     "GROUP_CREATE": "kreis ĉi tiun grupon",

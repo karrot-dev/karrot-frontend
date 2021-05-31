@@ -9,7 +9,7 @@
     "SECTIONS": {
       "ACTIVITIES": {
         "DESCRIPTION": "Minden tevékenységre van adott számú hely, amelyekre a csoport tagjai jelentkezhetnek – így mindenki tudja, ki mikor hova megy, és később visszajelzést is tudtok adni.",
-        "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
+        "SUBTITLE": "Tevékenységek adott helyen és időben, például gyűlések, ételfelvételek, közösségi programok, vagy bármi amire a csoportodnak szüksége van beírható a szoftverbe.",
         "TITLE": "Feladatok és tevékenységek elosztása"
       },
       "COMMUNICATION": {
@@ -87,7 +87,8 @@
       "JOIN_CONFIRMATION_TEXT": "Biztosan ráérsz ekkor: {date}?",
       "LEAVE": "Elhagyás",
       "LEAVE_CONFIRMATION_HEADER": "{activityType} elhagyása",
-      "LEAVE_CONFIRMATION_TEXT": "Biztos vagy benne, hogy a többiek meg tudják csinálni ezt nélküled?"
+      "LEAVE_CONFIRMATION_TEXT": "Biztos vagy benne, hogy a többiek meg tudják csinálni ezt nélküled?",
+      "DOWNLOAD_ICS": "Download ICS"
     },
     "JOINEDNOTICE": "Egy közelgő tevékenységed van | {count} közelgő tevékenységed van",
     "NONE": "Nincsenek közelgő tevékenységek",
@@ -120,10 +121,10 @@
     "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
   },
   "ACTIVITY_TYPE_NAMES": {
-    "Meeting": "Találkozó",
+    "Meeting": "Gyűlés",
     "Pickup": "Felvétel",
     "Distribution": "Elosztás",
-    "Event": "Esemény",
+    "Event": "Program",
     "Activity": "Tevékenység",
     "Task": "Feladat"
   },
@@ -353,7 +354,7 @@
     "ACTIVITIES": "Tevékenységek",
     "ACTIVITY": "Tevékenység",
     "PICKUPS_TO_ACTIVITIES": "Most már nem csak felvételeket szervezhetsz!",
-    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "A felvétel nevű tevékenységek továbbra is elérhetőek, de hozzáadtunk más tevékenységtípusokat is, például Találkozókat, Eseményeket és Elosztásokat",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "A felvétel nevű tevékenységek továbbra is elérhetőek, de hozzáadtunk más tevékenységtípusokat is, például Találkozókat, Programokat és Elosztásokat",
     "ADDED_BY": "{userName} adta hozzá",
     "ADDRESS": "Cím",
     "APPLICATIONS": "Jelentkezések",

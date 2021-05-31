@@ -63,7 +63,7 @@
     "SUBTITLE1": "Karrot je bezplatný a otevřený nástroj pro místní iniciativy a skupiny lidí, které chtějí koordinovat osobní činnosti na místní, autonomní a dobrovolné bázi.",
     "SUBTITLE2": "Je navržen tak, aby umožňoval budování komunity a podporoval transparentnější, demokratičtější a participativnější správu vaší skupiny.",
     "TITLE": "Založte skupinu, staňte se komunitou",
-    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kitchen..."
+    "VISION_INTRO": "Ať už šetříte a sdílíte jídlo, provozujete bezplatný obchod nebo makerspace, udržujete komunitní zahradu nebo pojízdné občerstvení ..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Opravdu chcete tuto sérii smazat? Tím také odstraníte všechny aktivity, které patří do této série (kromě případů, kdy se již lidé připojili).",
@@ -87,7 +87,8 @@
       "JOIN_CONFIRMATION_TEXT": "Opravdu máte čas {date}?",
       "LEAVE": "Odejít",
       "LEAVE_CONFIRMATION_HEADER": "Opustit {activityType}",
-      "LEAVE_CONFIRMATION_TEXT": "Co by lidé měli vědět, když to k tomu přihlásili?"
+      "LEAVE_CONFIRMATION_TEXT": "Co by lidé měli vědět, když to k tomu přihlásili?",
+      "DOWNLOAD_ICS": "Stáhnout ICS"
     },
     "JOINEDNOTICE": "Máte jednu nadcházející aktivitu | Máte {count} nadcházející aktivity",
     "NONE": "Žádné nadcházející aktivity",

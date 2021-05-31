@@ -59,11 +59,14 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-
 .logo
-  height 36px
-  margin-left 1em
+  width 32px
+  height 32px
+  // In this component (logged-out) the logo is a RouterLink (a href)
+  // but in the logged-in component the logo is a QBtn with distinct paddings
+  // -> these margins make the logo visually positioned the same way as in the logged-in component
+  margin-top -4px
+  margin-left 8px
 
 .actions .router-link-exact-active
   display none

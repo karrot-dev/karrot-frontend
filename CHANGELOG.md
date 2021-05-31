@@ -26,8 +26,10 @@ Please document your changes in this format:
 
 ### Changed
 - group: improve create/edit group form @larzon83 @layla19 @dpaque @pogopaule @brnsolikyl [#2306]
+- landingpage: improve design @larzon83 [#2340]
 - Landing page: change text and screenshots, add "about Karrot" component @brnsolikyl [#2317]
 - Improve calculation of map bounds on group gallery @nicksellen [#2333]
+- Use roboto font in latin-ext variant @nicksellen [#2345]
 
 ## [9.2.0] - 2020-03-23
 ### Added

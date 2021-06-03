@@ -23,6 +23,10 @@ Please document your changes in this format:
 ## [Unreleased]
 ### Added
 - allow to dismiss feedback @dpaque @layla19 @larzon83 @pogopaule [#2319]
+- Add request/db timeout options @nicksellen [#1143](https://github.com/yunity/karrot-backend/pull/1143)
+- Added country code and timezone to geo ip info @nicksellen [#1134](https://github.com/yunity/karrot-backend/pull/1134)
+- API for revoking trust @pogopaule [#1133](https://github.com/yunity/karrot-backend/pull/1133)
+- API for calendar subscriptions @amengsk [#1132](https://github.com/yunity/karrot-backend/pull/1132)
 
 ### Changed
 - group: improve create/edit group form @larzon83 @layla19 @dpaque @pogopaule @brnsolikyl [#2306]
@@ -32,7 +36,12 @@ Please document your changes in this format:
 - main-layout: use scaled down background-image @larzon83 [#2371]
 - Use roboto font in latin-ext variant @nicksellen [#2345]
 
-## [9.2.0] - 2020-03-23
+### Fixed
+- Place statistics feedback weight should be summed @nicksellen [#1137](https://github.com/yunity/karrot-backend/pull/1137)
+- Fixed slow messages query @tiltec [#1141](https://github.com/yunity/karrot-backend/pull/1141)
+- Fixed slow place statistics query @tiltec [#1144](https://github.com/yunity/karrot-backend/pull/1144)
+
+## [9.2.0] - 2021-03-23
 ### Added
 - enabled Hungarian locale @nicksellen [#2313]
 - add activity type editing @nicksellen [#2245]

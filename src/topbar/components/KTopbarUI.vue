@@ -6,6 +6,7 @@
     <slot />
     <QBtn
       v-if="!$q.platform.is.mobile"
+      padding="4px 8px 8px"
       flat
     >
       <div class="logo">
@@ -303,7 +304,8 @@ export default {
 @import '~variables'
 
 .logo
-  height 36px
+  width 32px
+  height 32px
 
 .groups
   width 36px

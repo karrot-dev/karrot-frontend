@@ -23,10 +23,14 @@
       <div
         class="photo text-white relative-position row justify-center"
       >
-        <img
+        <QImg
           v-if="group.hasPhoto"
+          :alt="group.name || ''"
           :src="group.photoUrls['200']"
-        >
+          :ratio="1"
+          contain
+          no-default-spinner
+        />
         <RandomArt
           v-else
           :seed="group.id"
@@ -67,7 +71,7 @@
         </span>
         <div class="overlay" />
       </QCardSection>
-      <QSeparator />
+      <QSeparator v-if="group.isMember" />
       <QCardActions v-if="group.isMember">
         <QBtn
           flat
@@ -103,6 +107,7 @@ import {
   QBtn,
   QTooltip,
   QIcon,
+  QImg,
   QBadge,
 } from 'quasar'
 import Markdown from '@/utils/components/Markdown'
@@ -119,6 +124,7 @@ export default {
     QBtn,
     QTooltip,
     QIcon,
+    QImg,
     QBadge,
   },
   props: {
@@ -143,13 +149,14 @@ export default {
 
 <style scoped lang="stylus">
 @import '~variables'
+$box-shadow-color = 0, 0, 0
 
 .groupPreviewCard
   cursor pointer
-  box-shadow 0 2px 6px 0 rgba(0, 0, 0, 0.2)
+  box-shadow 0 2px 15px rgba($box-shadow-color, 0.07), 0 1px 3px rgba($box-shadow-color, 0.15)
 
   &:hover
-    box-shadow 0 7px 11px 0 rgba(0, 0, 0, 0.2)
+    box-shadow rgba($box-shadow-color, 0.09) 0px 4px 16px, rgba($box-shadow-color, 0.09) 0px 8px 24px, rgba($box-shadow-color, 0.09) 0px 16px 56px
 
   *
     overflow hidden
@@ -172,18 +179,14 @@ export default {
       width 100%
       height 100%
       content ''
-      background linear-gradient(transparent 80%, white)
+      background linear-gradient(rgba(255, 255, 255, 0) 80%, white 100%)
 
   .smaller-text >>> *
     font-size 1em
 
-  .photo
+  .photo,
+  .q-img
     height 160px
-
-    img
-      display block
-      width auto
-      height 100%
 
     .k-media-overlay
       background-color rgba(0, 0, 0, 0.47)

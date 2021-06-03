@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [9.3.0] - 2021-06-03
 ### Added
 - allow to dismiss feedback @dpaque @layla19 @larzon83 @pogopaule [#2319]
 - Add request/db timeout options @nicksellen [#1143](https://github.com/yunity/karrot-backend/pull/1143)
@@ -668,9 +670,18 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2293]: https://github.com/yunity/karrot-frontend/issues/2293
 [#2297]: https://github.com/yunity/karrot-frontend/issues/2297
 [#2303]: https://github.com/yunity/karrot-frontend/issues/2303
+[#2306]: https://github.com/yunity/karrot-frontend/issues/2306
 [#2313]: https://github.com/yunity/karrot-frontend/issues/2313
+[#2317]: https://github.com/yunity/karrot-frontend/issues/2317
+[#2319]: https://github.com/yunity/karrot-frontend/issues/2319
+[#2321]: https://github.com/yunity/karrot-frontend/issues/2321
+[#2333]: https://github.com/yunity/karrot-frontend/issues/2333
+[#2340]: https://github.com/yunity/karrot-frontend/issues/2340
+[#2345]: https://github.com/yunity/karrot-frontend/issues/2345
+[#2371]: https://github.com/yunity/karrot-frontend/issues/2371
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v9.2.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v9.3.0...HEAD
+[9.3.0]: https://github.com/yunity/karrot-frontend/compare/v9.2.0...v9.3.0
 [9.2.0]: https://github.com/yunity/karrot-frontend/compare/v9.1.0...v9.2.0
 [9.1.0]: https://github.com/yunity/karrot-frontend/compare/v9.0.0...v9.1.0
 [9.0.0]: https://github.com/yunity/karrot-frontend/compare/v8.8.1...v9.0.0

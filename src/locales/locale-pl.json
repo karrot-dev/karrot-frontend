@@ -9,7 +9,7 @@
     "SECTIONS": {
       "ACTIVITIES": {
         "DESCRIPTION": "Każda aktywność ma określoną liczbę okienek, do których członkowie grupy mogą się zapisywać – dzięki temu każdy wie, kiedy i gdzie trzeba pojechać. Później istnieje też możliwość dodania komentarzy.",
-        "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
+        "SUBTITLE": "Można dodawać nowe aktywności, jak na przykład odbiory jedzenia, spotkania albo wspólne wydarzenia. Każda aktywność ma podany czas i miejsce.",
         "TITLE": "Podział zadań i aktywności"
       },
       "COMMUNICATION": {
@@ -17,13 +17,13 @@
         "TITLE": "Komunikacja we właściwym kontekście"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development.",
+        "DESCRIPTION": "Karrot jest tworzony przez użytkowników: to darmowy program typu open source, rozwijany z udziałem ludzi, którzy używają go na co dzień. Nad rozwojem Karrota czuwa niewielki zespół, który pozostaje w ciągłym kontakcie z grupami Foodsharing na całym świecie i dopasowuje się do ich indywidualnych potrzeb. Przestrzegamy zasad uczciwości i nierozpowszechniania danych do celów komercyjnych.",
+        "DESCRIPTION2": "Zapraszamy do współpracy deweloperów i projektantów.",
         "TITLE": "Demokratyczny i partycypacyjny rozwój"
       },
       "GROUPS": {
         "DESCRIPTION": "Na mapie wyświetlają się wszystkie istniejące grupy, dzięki czemu użytkownicy mogą dołączać do grup na całym świecie.",
-        "SUBTITLE": "Every group on Karrot is completely independent and can have their own logo, processes, rules and agreements.",
+        "SUBTITLE": "Każda grupa na karrocie działa zupełnie niezależnie i może mieć własne logo i zasady działania.",
         "TITLE": "Samodzielne grupy"
       },
       "MAPS": {
@@ -36,7 +36,7 @@
       },
       "OFFERS": {
         "DESCRIPTION": "Oferty są widoczne dla wszystkich członków grupy. Zainteresowani mogą dołączyć do czatu przypisanego do oferty.",
-        "SUBTITLE": "Create an offer of whatever you want to share or give away.",
+        "SUBTITLE": "Dodaj ofertę, jeśli chcesz coś oddać lub czymś się podzielić.",
         "TITLE": "Podziel się"
       },
       "OPENSOURCE": {
@@ -60,17 +60,17 @@
         "TITLE": "Zarządzanie grupą oparte na demokracji i wzajemnym zaufaniu"
       }
     },
-    "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
-    "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
-    "TITLE": "Start a group, become a community",
-    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kitchen..."
+    "SUBTITLE1": "Karrot jest darmowym narzędziem typu open source dla wszelkiego rodzaju oddolnych inicjatyw, które chcą koordynować swoje aktywności w realnym świecie.",
+    "SUBTITLE2": "Karrot został zaprojektowany tak, aby wspierać budowanie społeczności i promować transparentne, demokratyczne i partycypacyjne zarządzanie grupą.",
+    "TITLE": "Załóż grupę, stwórz społeczność",
+    "VISION_INTRO": "Obojętnie czy zajmujesz się ratowaniem i dzieleniem się jedzeniem, prowadzisz darmowy sklep lub otwarty warsztat, współtworzysz ogród społeczny albo bike kitchen..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Czy na pewno chcesz usunąć tę serię aktywności? Ta czynność usunie również wszystkie aktywności, które należą do serii (oprócz tych, na które już ktoś się zapisał).",
     "DELETE_SERIES_TITLE": "Usuń serię"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "Ta aktywność została zdezaktywowana.",
+    "ACTIVITY_DISABLED": "Aktywność odwołana.",
     "ACTIVITY_STARTED": "Aktywność już się rozpoczęła.",
     "AVAILABLE": "Dostępna jest jedna aktywność w Twoich ulubionych miejscach! | Dostępne są {count} aktywności w Twoich ulubionych miejscach!",
     "AVAILABLE_FEEDBACK": "Możesz dodać komentarz | Możesz dodać komentarz do {count} aktywności",
@@ -88,7 +88,7 @@
       "LEAVE": "Zrezygnuj",
       "LEAVE_CONFIRMATION_HEADER": "Zrezygnuj z {activityType}",
       "LEAVE_CONFIRMATION_TEXT": "Czy na pewno inni poradzą sobie bez Ciebie?",
-      "DOWNLOAD_ICS": "Download ICS"
+      "DOWNLOAD_ICS": "Pobierz ICS"
     },
     "JOINEDNOTICE": "Masz jedną nadchodzącą aktywność | Masz {count} nadchodzących aktywności",
     "NONE": "Brak nadchodzących aktywności",
@@ -116,9 +116,9 @@
     "SET_AMOUNT": "Wprowadź ilość",
     "TITLE": "Komentarz",
     "TOGETHER_WITH": "Uczestniczyłaś/-eś wspólnie z:",
-    "DISMISS_LABEL": "Dismiss",
-    "DISMISS_TITLE": "Dismiss feedback",
-    "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
+    "DISMISS_LABEL": "Zrezygnuj",
+    "DISMISS_TITLE": "Zrezygnuj z komentarza",
+    "DISMISS_MESSAGE": "Czy na pewno chcesz zrezygnować z komentarza? Później nie będziesz już miał/-a możliwości skomentowania tej aktywności."
   },
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Spotkanie",
@@ -217,7 +217,7 @@
     "DECLINE": "Odrzuć",
     "DELETE": "Usuń",
     "DELETE_ACCOUNT": "Usuń konto",
-    "DISABLE": "Dezaktywuj",
+    "DISABLE": "Odwołaj",
     "EDIT": "Edytuj",
     "ENABLE": "Aktywuj",
     "HIDE": "Ukryj",
@@ -298,10 +298,10 @@
     "CUSTOM": "Inne",
     "DATE": "Data",
     "DIFFERS_WARNING": "Ta wartość różni się od domyślnej. Aby cofnąć, kliknij przycisk ze strzałką i zapisz zmiany.",
-    "DISABLE_TITLE": "Dezaktywować?",
+    "DISABLE_TITLE": "Odwołać?",
     "ENABLE_DISABLE_MESSAGE": "Użytkownicy, którzy dołączyli, otrzymają powiadomienie. W tym miejscu możesz podać przyczynę:",
     "ENABLE_TITLE": "Aktywować?",
-    "EXCEPTIONS_MESSAGE": "Niektóre z nadchodzących aktywności mają inne ustawienia niż ta seria. Sprawdź {upcomingLabel}, aby zmienić lub zdezaktywować nadchodzące aktywności. ",
+    "EXCEPTIONS_MESSAGE": "Niektóre z nadchodzących aktywności mają inne ustawienia niż ta seria. Sprawdź {upcomingLabel}, aby zmienić lub odwołać nadchodzące aktywności. ",
     "EXCEPTIONS_TITLE": "Sprawdź swoje aktywności",
     "FREQUENCY": "Częstotliwość",
     "MAX_PARTICIPANTS": "Maksymalna liczba okienek",
@@ -342,6 +342,7 @@
     "GENERIC_ERROR": "Ups, coś poszło nie tak...",
     "GITHUB_NOTE": "Development",
     "INVALID_LINK": "Przepraszamy, otwarty przez Ciebie link jest nieprawidłowy.",
+    "LOGO_ALT": "logo karrota",
     "NOT_CONNECTED": "Brak połączenia z serwerem",
     "OFFLINE_RECONNECT": "Offline. Naciśnij tutaj, aby połączyć jeszcze raz.",
     "RECONNECTING": "Ponowne łączenie...",
@@ -369,11 +370,11 @@
     "EDIT_DETAILS": "Szczegóły grupy",
     "EMAIL_NOTIFICATIONS": "Powiadomienia e-mail",
     "HEADINGS": {
-      "GENERAL": "General",
-      "LOCATION": "Location",
-      "LOCATION_HINT": "If you want your group's location to be made visible on a public map, enter an adress or pick a location on the map below.",
-      "NEW_MEMBERS_SIGNUP": "New Members Signup",
-      "NEW_MEMBERS_SIGNUP_HINT": "New members will have to apply and get accepted to your group. You can always change the application and welcome message later in the group settings."
+      "GENERAL": "Główne",
+      "LOCATION": "Lokalizacja",
+      "LOCATION_HINT": "Jeśli chcesz, aby lokalizacja Twojej grupy była widoczna na publicznej mapie, wpisz adres lub wybierz lokalizację na mapie.",
+      "NEW_MEMBERS_SIGNUP": "Zgłoszenia do grupy",
+      "NEW_MEMBERS_SIGNUP_HINT": "Nowi użytkownicy muszą zgłosić się i zostać zaakceptowani przez grupę. Jeśli chcesz zmienić treść zgłoszenia i Twoją wiadomość powitalną, zawsze możesz to zrobić później poprzez ustawienia grupy."
     },
     "HISTORY": "Historia",
     "HOME": "Strona główna",
@@ -455,7 +456,7 @@
   "HISTORY": {
     "ACTIVITY_CREATE": "dodał/-a {activityType}",
     "ACTIVITY_DELETE": "usunął/-ęła {activityType}",
-    "ACTIVITY_DISABLE": "zdezaktywował/-a {activityType}",
+    "ACTIVITY_DISABLE": "odwołał/-a {activityType}",
     "ACTIVITY_DONE": "był/-a na {activityType} w {placeName}",
     "ACTIVITY_ENABLE": "aktywował/-a {activityType}",
     "ACTIVITY_JOIN": "zapisał/-a się na {activityType} w {placeName}",
@@ -582,7 +583,7 @@
     "VERIFICATION_EMAIL_SENT": "Wysłaliśmy nowy e-mail weryfikacyjny. Sprawdź swoją pocztę."
   },
   "NOTIFICATION_BELLS": {
-    "ACTIVITY_DISABLED": "{activityType} w dniu {dateTime} zostało zdezaktywowane",
+    "ACTIVITY_DISABLED": "{activityType} w dniu {dateTime} zostało odwołane",
     "ACTIVITY_ENABLED": "{activityType} w dniu {dateTime} zostało ponownie aktywowane",
     "ACTIVITY_MOVED": "{activityType} zostało przeniesione na {dateTime}",
     "ACTIVITY_UPCOMING": "Przypomnienie: {activityType} o {time}",
@@ -722,7 +723,7 @@
     "SHOW_ALL": "Pokaż wszystkie punkty",
     "STATUS": "Status",
     "WEEKS_IN_ADVANCE": "Na ile tygodni do przodu chcesz stworzyć tę serię aktywności?",
-    "WEEKS_IN_ADVANCE_WARNING": "Zamierzasz zmniejszyć liczbę aktywności. Nadchodzące aktywności, na które nikt się nie zapisał, zostaną usunięte. Jeśli chcesz zdezaktywować pozostałe odbiory, możesz to zrobić ręcznie."
+    "WEEKS_IN_ADVANCE_WARNING": "Zamierzasz zmniejszyć liczbę aktywności. Nadchodzące aktywności, na które nikt się nie zapisał, zostaną usunięte. Jeśli chcesz odwołać pozostałe odbiory, możesz to zrobić ręcznie."
   },
   "STORESTATUS": {
     "ACTIVE": "Współpracuje",

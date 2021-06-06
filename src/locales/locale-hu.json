@@ -17,13 +17,13 @@
         "TITLE": "Kommunikáció a megfelelő csatornákon keresztül"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development.",
+        "DESCRIPTION": "A Karrot-ot a felhasználók készítik: egy ingyenes és nyílt forráskódú szoftver, a felhasználók visszajelzésével és részvételével fejlesztve. Elsősorban egy kis fejlesztői csapat munkája, akik folyamatos kapcsolatban vannak különböző csoportok tagjaival, hogy megértsék a szerteágazó igényeket és ezeknek megfelelő irányba tereljék a fejlesztést. Betartjuk az adatok integritásának és kereskedelmi forgalomba nem hozatalának elveit.",
+        "DESCRIPTION2": "Fejlesztők és dizájnerek természetesen részt vehetnek a fejlesztésben.",
         "TITLE": "Demokratikus és részvételi fejlesztés"
       },
       "GROUPS": {
         "DESCRIPTION": "Ugyanakkor mind rajta vannak egyazon térképen, hogy bárki megtalálhassa a többi csoportot és csatlakozhassanak más csoportokhoz helyi szinten, vagy akár globálisan is.",
-        "SUBTITLE": "Every group on Karrot is completely independent and can have their own logo, processes, rules and agreements.",
+        "SUBTITLE": "Minden csoport a Karroton teljesen független és lehet saját logója, működési szokásai, szabályai és egyezségei.",
         "TITLE": "Független csoportok"
       },
       "MAPS": {
@@ -36,7 +36,7 @@
       },
       "OFFERS": {
         "DESCRIPTION": "Az ajánlatok mindenki számára láthatóak a csoportban és a tagok az ajánlat beszélgetésében tudnak érdeklődni.",
-        "SUBTITLE": "Create an offer of whatever you want to share or give away.",
+        "SUBTITLE": "Hozz létre egy ajánlatot bármiről amit meg akarsz osztani másokkal, vagy el akarsz ajándékozni.",
         "TITLE": "Ossz meg dolgokat"
       },
       "OPENSOURCE": {
@@ -60,10 +60,10 @@
         "TITLE": "Demokratikus és bizalom alapú csoportkezelés"
       }
     },
-    "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
-    "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
-    "TITLE": "Start a group, become a community",
-    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kitchen..."
+    "SUBTITLE1": "A Karrot egy ingyenes és nyílt forráskódú eszköz helyi szintű kezdeményezések és tevékenységeiket helyi, autonóm és önkéntes alapon koordinálni kívánó csoportok részére.",
+    "SUBTITLE2": "Úgy lett tervezve, hogy lehetővé tegye a közösségépítést és csoportod átlátható, demokratikus és részvételi alapú irányítását.",
+    "TITLE": "Indítsatok egy csoportot, váljatok közösséggé",
+    "VISION_INTRO": "Akár takarékoskodsz és megosztod az ételt, akár egy ingyenes boltot, alkotóteret, közösségi kertet vagy közösségi műhelyt csinálsz..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Biztosan törlöd ezt a sorozatot? Ezzel törölsz minden hozzá tartozó tevékenységet is (kivéve azokat ahol már csatlakoztak emberek).",
@@ -88,7 +88,7 @@
       "LEAVE": "Elhagyás",
       "LEAVE_CONFIRMATION_HEADER": "{activityType} elhagyása",
       "LEAVE_CONFIRMATION_TEXT": "Biztos vagy benne, hogy a többiek meg tudják csinálni ezt nélküled?",
-      "DOWNLOAD_ICS": "Download ICS"
+      "DOWNLOAD_ICS": "ICS letöltése"
     },
     "JOINEDNOTICE": "Egy közelgő tevékenységed van | {count} közelgő tevékenységed van",
     "NONE": "Nincsenek közelgő tevékenységek",
@@ -116,9 +116,9 @@
     "SET_AMOUNT": "Mennyiség beállítása",
     "TITLE": "Visszajelzés",
     "TOGETHER_WITH": "Veled csinálta még:",
-    "DISMISS_LABEL": "Dismiss",
-    "DISMISS_TITLE": "Dismiss feedback",
-    "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
+    "DISMISS_LABEL": "Kihagyás",
+    "DISMISS_TITLE": "Visszajelzés kihagyása",
+    "DISMISS_MESSAGE": "Biztosan kihagyod a visszajelzést? Később már nem tudsz majd visszajelzést adni ezen a tevékenységen."
   },
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Gyűlés",
@@ -342,6 +342,7 @@
     "GENERIC_ERROR": "Bocsi, valami nem sikerült",
     "GITHUB_NOTE": "Fejlesztés",
     "INVALID_LINK": "Bocsi, a link amit megnyitottál nem érvényes.",
+    "LOGO_ALT": "karrot logó",
     "NOT_CONNECTED": "Nem kapcsolódsz a szerverhez",
     "OFFLINE_RECONNECT": "Nincs internetkapcsolat. Kattints ide az újrakapcsolódáshoz.",
     "RECONNECTING": "Újracsatlakozás...",
@@ -369,11 +370,11 @@
     "EDIT_DETAILS": "Csoport részletei",
     "EMAIL_NOTIFICATIONS": "Email értesítések",
     "HEADINGS": {
-      "GENERAL": "General",
-      "LOCATION": "Location",
-      "LOCATION_HINT": "If you want your group's location to be made visible on a public map, enter an adress or pick a location on the map below.",
-      "NEW_MEMBERS_SIGNUP": "New Members Signup",
-      "NEW_MEMBERS_SIGNUP_HINT": "New members will have to apply and get accepted to your group. You can always change the application and welcome message later in the group settings."
+      "GENERAL": "Általános",
+      "LOCATION": "Hely",
+      "LOCATION_HINT": "Ha szeretnéd, hogy a csoportod helye látható legyen egy nyilvános térképen, írj be egy címet vagy válassz egy helyet az alábbi térképen.",
+      "NEW_MEMBERS_SIGNUP": "Új Tagok Jelentkezései",
+      "NEW_MEMBERS_SIGNUP_HINT": "Az új tagoknak jelentkezniük kell és felvételt kell nyerniük a csoportodba. A jelentkezési és üdvözlő üzenetet később bármikor megváltoztathatod."
     },
     "HISTORY": "Tevékenységnapló",
     "HOME": "Kezdőlap",

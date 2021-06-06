@@ -342,6 +342,7 @@
     "GENERIC_ERROR": "Sorry, something went wrong",
     "GITHUB_NOTE": "Разработка",
     "INVALID_LINK": "Открытая ссылка недействительна ",
+    "LOGO_ALT": "karrot logo",
     "NOT_CONNECTED": "Не удается подключиться к сети",
     "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
     "RECONNECTING": "Reconnecting...",

@@ -13,7 +13,11 @@ jest.mock('@/router', () => {
   return new VueRouter({
     mode: 'hash',
     routes: [
-      // we always need this route as we often redirect to it immediately
+      // we always need these routes as we often redirect to them immediately
+      {
+        name: 'landing',
+        path: '/welcome',
+      },
       {
         name: 'groupsGallery',
         path: '/groupPreview',

@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Fixed
+- place-header: correctly display linear-gradient in Safari @larzon83 [#2372]
 
 ## [9.3.0] - 2021-06-03
 ### Added

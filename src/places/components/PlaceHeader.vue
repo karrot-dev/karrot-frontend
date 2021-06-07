@@ -333,5 +333,5 @@ export default {
     width 100%
     height 100%
     content ''
-    background linear-gradient(transparent 90%, white)
+    background linear-gradient(rgba(255, 255, 255, 0) 90%, white 100%)
 </style>

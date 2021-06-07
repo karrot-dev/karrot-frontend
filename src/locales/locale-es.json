@@ -342,6 +342,7 @@
     "GENERIC_ERROR": "Lo sentimos, algo ha ido mal",
     "GITHUB_NOTE": "Desarrollo",
     "INVALID_LINK": "Lo sentimos, el enlace que has abierto no es válido.",
+    "LOGO_ALT": "karrot logo",
     "NOT_CONNECTED": "No estás conenctado al servidor",
     "OFFLINE_RECONNECT": "Sin conectar. Por favor presiona aquí para reconectar.",
     "RECONNECTING": "Reconectando...",

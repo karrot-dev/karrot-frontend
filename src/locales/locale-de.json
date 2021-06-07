@@ -342,6 +342,7 @@
     "GENERIC_ERROR": "Entschuldige, ein Fehler ist aufgetreten",
     "GITHUB_NOTE": "Entwicklung",
     "INVALID_LINK": "Der Link ist ungültig.",
+    "LOGO_ALT": "karrot logo",
     "NOT_CONNECTED": "Du bist nicht mit dem Server verbunden",
     "OFFLINE_RECONNECT": "Offline. Drücke hier, um die Verbindung wiederherzustellen.",
     "RECONNECTING": "Verbindung wird wiederhergestellt...",

@@ -342,6 +342,7 @@
     "GENERIC_ERROR": "क्षमा करे, कुछ गलत हो गया",
     "GITHUB_NOTE": "विकास",
     "INVALID_LINK": "क्षमा करे, आपके द्वारा खोला गया लिंक गलत है",
+    "LOGO_ALT": "karrot logo",
     "NOT_CONNECTED": "आप सर्वर से जुड़े हुए नहीं है ",
     "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
     "RECONNECTING": "Reconnecting...",

@@ -342,6 +342,7 @@
     "GENERIC_ERROR": "Oj, något gick fel!",
     "GITHUB_NOTE": "Utveckling",
     "INVALID_LINK": "Oj, länken du försöker komma åt är ogiltig.",
+    "LOGO_ALT": "karrot logo",
     "NOT_CONNECTED": "Du är inte ansluten till servern",
     "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
     "RECONNECTING": "Reconnecting...",

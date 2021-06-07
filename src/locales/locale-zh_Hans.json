@@ -342,6 +342,7 @@
     "GENERIC_ERROR": "Sorry, something went wrong",
     "GITHUB_NOTE": "開發",
     "INVALID_LINK": "抱歉，你開啟的連結無效",
+    "LOGO_ALT": "karrot logo",
     "NOT_CONNECTED": "You aren't connected to the server",
     "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
     "RECONNECTING": "Reconnecting...",

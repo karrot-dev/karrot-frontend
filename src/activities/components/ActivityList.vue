@@ -81,7 +81,7 @@
               </QItem>
               <QItem
                 clickable
-                @click="openIcsDialog"
+                @click="icsDialog = true"
               >
                 <QItemSection side>
                   <QIcon
@@ -101,18 +101,40 @@
             {{ $t('ACTIVITYLIST.ICS_LIST.SUBSCRIPTION_DIALOG_TITLE') }}
           </template>
           <template #message>
-            {{ $t('ACTIVITYLIST.ICS_LIST.SUBSCRIBE_EXPLANATION') }}
-            <QInput
-              :value="icsUrl"
-              readonly
-            />
+            <p>
+              {{ $t('ACTIVITYLIST.ICS_LIST.SUBSCRIBE_EXPLANATION') }}
+            </p>
+
+            <QField filled>
+              <template #append>
+                <QBtn
+                  flat
+                  rounded
+                  icon="fas fa-copy"
+                  @click="copyLink"
+                >
+                  <q-tooltip
+                    anchor="top middle"
+                    self="bottom middle"
+                  >
+                    <!-- TODO: add translation -->
+                    Click to copy
+                  </q-tooltip>
+                </QBtn>
+              </template>
+              <template #control>
+                <div class="self-center full-width no-outline">
+                  {{ icsUrl }}
+                </div>
+              </template>
+            </QField>
           </template>
           <template #actions>
             <QBtn
               v-close-popup
               flat
               color="primary"
-              data-autofocus
+              autofocus
               :label="$t('BUTTON.CLOSE')"
             />
           </template>
@@ -190,13 +212,14 @@ import CustomDialog from '@/utils/components/CustomDialog'
 import bindRoute from '@/utils/mixins/bindRoute'
 
 import {
+  copyToClipboard,
+  QField,
   QSelect,
   QInfiniteScroll,
   QItem,
   QItemSection,
   QItemLabel,
   QIcon,
-  QInput,
   QMenu,
   QList,
   QBanner,
@@ -211,12 +234,12 @@ export default {
     QInfiniteScroll,
     ActivityItem,
     KSpinner,
+    QField,
     QSelect,
     QItem,
     QItemSection,
     QItemLabel,
     QIcon,
-    QInput,
     QMenu,
     QList,
     QBanner,
@@ -260,9 +283,9 @@ export default {
   },
   data () {
     return {
+      icsDialog: false,
       numDisplayed: NUM_ACTIVITIES_PER_LOAD,
       types: [],
-      icsDialog: false,
     }
   },
   computed: {
@@ -355,8 +378,8 @@ export default {
       this.slots = 'all'
       this.type = 'all'
     },
-    openIcsDialog () {
-      this.icsDialog = true
+    copyLink () {
+      return copyToClipboard(this.icsUrl)
     },
   },
 }

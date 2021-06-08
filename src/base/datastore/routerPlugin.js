@@ -32,6 +32,9 @@ export default datastore => {
       else if (isLoggedIn()) {
         next = { name: 'groupsGallery' }
       }
+      else {
+        next = { name: 'landing' }
+      }
     }
 
     // check meta.requireLoggedIn

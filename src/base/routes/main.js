@@ -53,7 +53,6 @@ export default [
   {
     name: 'home',
     path: '/',
-    redirect: { name: 'landing' }, // default redirect, there is more logic in routerPlugin.js
   },
   {
     name: 'landing',

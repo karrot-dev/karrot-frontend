@@ -130,6 +130,39 @@ module.exports = configure(function (ctx) {
       env: appEnv,
 
       // https://quasar.dev/quasar-cli/handling-webpack
+      chainWebpack (chain) {
+        const imagesRule = chain.module.rule('images')
+        // save loader options from quasar - returns an object like this:
+        /*
+        {
+          esModule: false,
+          limit: 10000,
+          name: 'img/[name].[ext]',
+        }
+        */
+        const imagesRuleOptions = imagesRule.uses.entries()['url-loader'].store.get('options')
+
+        // clear all existing loaders.
+        // if you don't do this, the loader below will be appended to
+        // existing loaders of the rule.
+        imagesRule.uses.clear()
+
+        /* eslint-disable indent */
+        imagesRule
+          .oneOf('disableinline')
+            .resourceQuery(/disableinline/)
+            .use('url-loader')
+              .loader('url-loader')
+              .options({ ...imagesRuleOptions, limit: -1 })
+              .end()
+            .end()
+          .oneOf('inline') // aka default from quasar
+            .use('url-loader')
+              .loader('url-loader')
+              .options(imagesRuleOptions)
+        /* eslint-enable indent */
+      },
+
       extendWebpack (cfg) {
         cfg.module.rules.push({
           enforce: 'pre',
@@ -138,27 +171,28 @@ module.exports = configure(function (ctx) {
           exclude: /node_modules/,
         })
 
+        // FIXME: delete, if not using the chainWebpack way
         // disable inlining of small images as base64 when required with "?disableinline"
-        const imageRule = cfg.module.rules.find(rule => rule.use.find(use => use.loader === 'url-loader' && use.options.name.startsWith('img/')))
-        if (imageRule) {
-          const urlLoader = imageRule.use.find(use => use.loader === 'url-loader')
-          const useOriginal = imageRule.use
-          delete imageRule.use
-          imageRule.oneOf = [
-            {
-              resourceQuery: /disableinline/,
-              use: [
-                {
-                  loader: 'file-loader',
-                  options: urlLoader.options,
-                },
-              ],
-            },
-            {
-              use: useOriginal,
-            },
-          ]
-        }
+        // const imageRule = cfg.module.rules.find(rule => rule.use.find(use => use.loader === 'url-loader' && use.options.name.startsWith('img/')))
+        // if (imageRule) {
+        //   const urlLoader = imageRule.use.find(use => use.loader === 'url-loader')
+        //   const useOriginal = imageRule.use
+        //   delete imageRule.use
+        //   imageRule.oneOf = [
+        //     {
+        //       resourceQuery: /disableinline/,
+        //       use: [
+        //         {
+        //           loader: 'file-loader',
+        //           options: urlLoader.options,
+        //         },
+        //       ],
+        //     },
+        //     {
+        //       use: useOriginal,
+        //     },
+        //   ]
+        // }
 
         cfg.resolve.alias = {
           ...cfg.resolve.alias, // This adds the existing alias

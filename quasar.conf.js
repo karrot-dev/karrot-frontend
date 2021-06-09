@@ -138,6 +138,28 @@ module.exports = configure(function (ctx) {
           exclude: /node_modules/,
         })
 
+        // disable inlining of small images as base64 when required with "?disableinline"
+        const imageRule = cfg.module.rules.find(rule => rule.use.find(use => use.loader === 'url-loader' && use.options.name.startsWith('img/')))
+        if (imageRule) {
+          const urlLoader = imageRule.use.find(use => use.loader === 'url-loader')
+          const useOriginal = imageRule.use
+          delete imageRule.use
+          imageRule.oneOf = [
+            {
+              resourceQuery: /disableinline/,
+              use: [
+                {
+                  loader: 'file-loader',
+                  options: urlLoader.options,
+                },
+              ],
+            },
+            {
+              use: useOriginal,
+            },
+          ]
+        }
+
         cfg.resolve.alias = {
           ...cfg.resolve.alias, // This adds the existing alias
 

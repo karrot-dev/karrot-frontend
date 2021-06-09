@@ -362,7 +362,7 @@ export default {
       return images
     },
     requireImage ({ fileName, ext, width, dirName } = {}) {
-      return require(`@/base/pages/images/${dirName}/${fileName}-${width}${ext}`)
+      return require(`@/base/pages/images/${dirName}/${fileName}-${width}${ext}?disableinline`)
     },
   },
 }

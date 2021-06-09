@@ -41,7 +41,7 @@
             self="top right"
           >
             <div class="text-subtitle1 q-ma-md">
-              Left activities
+              Withdrew options
             </div>
             <QList>
               <QItem tag="label">
@@ -51,7 +51,7 @@
                 <QItemSection>
                   <QItemLabel>Missed</QItemLabel>
                   <QItemLabel caption>
-                    Only count if the activity ended up being missed after they left
+                    Only count if the activity was missed after they withdrew
                   </QItemLabel>
                 </QItemSection>
               </QItem>
@@ -62,7 +62,7 @@
                 <QItemSection>
                   <QItemLabel>Late</QItemLabel>
                   <QItemLabel caption>
-                    Only count if they left less than 24 hours before the activity started
+                    Only count if they withdrew less than 24 hours before
                   </QItemLabel>
                 </QItemSection>
               </QItem>

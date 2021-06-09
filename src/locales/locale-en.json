@@ -696,7 +696,7 @@
     "COLUMN_PLACE": "Place",
     "COLUMN_ACTIVITY_DONE": "Done",
     "COLUMN_ACTIVITY_MISSED": "Missed",
-    "COLUMN_ACTIVITY_LEFT": "Left",
+    "COLUMN_ACTIVITY_LEFT": "Withdrew",
     "COLUMN_ACTIVITY_LATE": "Late",
     "COLUMN_FEEDBACK": "Feedback",
     "COLUMN_FEEDBACK_WEIGHT": "Weight",

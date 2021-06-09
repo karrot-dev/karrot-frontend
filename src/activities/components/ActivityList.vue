@@ -141,6 +141,20 @@
         </CustomDialog>
       </div>
     </div>
+    <div
+      class="row no-wrap items-center justify-between q-px-sm q-py-xs q-gutter-sm"
+    >
+      <QBtn
+        no-caps
+        padding="4px 12px 4px 10px"
+        rounded
+        unelevated
+        color="secondary"
+        icon="fas fa-calendar-plus"
+        size="sm"
+        label="Add to calendar"
+      />
+    </div>
     <KSpinner v-show="pending" />
     <div
       v-if="!pending && noActivitiesDueToFilters"

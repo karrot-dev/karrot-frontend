@@ -99,7 +99,7 @@
       "TITLE": "Add to calendar",
       "INTRO": "Add these activities to your calendar by using one of the following options:",
       "DOWNLOAD_TITLE": "Download",
-      "DOWNLOAD_TEXT": "Download the ICS-file to manually import into your calendar:",
+      "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
       "DOWNLOAD_BUTTON_LABEL": "Download ICS",
       "SUBSCRIBE_TITLE": "Subscribe",
       "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",

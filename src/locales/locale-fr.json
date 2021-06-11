@@ -485,7 +485,8 @@
     "SERIES_MODIFY": "changed the settings of a series",
     "STORE_CREATE": "Lieu de récolte créé {name}",
     "STORE_DELETE": "Lieu de récolte supprimé {name}",
-    "STORE_MODIFY": "les paramètres de lieu de récolte {name} ont été changé."
+    "STORE_MODIFY": "les paramètres de lieu de récolte {name} ont été changé.",
+    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
   },
   "INACTIVITY": {
     "HELP": "Toutes les personnes ne se connectant pas au groupe pendant {dayCount} jours ou plus seront considérés comme inactifs. Ces utilisateurs ne recevront plus de notifications par email.",

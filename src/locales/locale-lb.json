@@ -485,7 +485,8 @@
     "SERIES_MODIFY": "huet d'Astellungen vun enger Serie geännert",
     "STORE_CREATE": "huet d'Plaz {name} erstallt",
     "STORE_DELETE": "huet d'Plaz {name} geläscht",
-    "STORE_MODIFY": "huet d'Astellunge vun der Plaz {name} verännert"
+    "STORE_MODIFY": "huet d'Astellunge vun der Plaz {name} verännert",
+    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
   },
   "INACTIVITY": {
     "HELP": "All Persoun, déi sech wärend {dayCount} oder méi Deeg net an d'Grupp ageloggt huet, gëtt als inaktiv markéiert. Dës Notzer wäerte keng Benoriichtegunge via E-Mail méi kréien.",

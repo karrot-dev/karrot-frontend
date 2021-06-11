@@ -485,7 +485,8 @@
     "SERIES_MODIFY": "hat die Eigenschaften einer Serie geändert",
     "STORE_CREATE": "hat den Ort {name} erstellt",
     "STORE_DELETE": "hat den Ort {name} gelöscht",
-    "STORE_MODIFY": "hat die Einstellungen vom Ort {name} verändert"
+    "STORE_MODIFY": "hat die Einstellungen vom Ort {name} verändert",
+    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
   },
   "INACTIVITY": {
     "HELP": "Jede Person, die sich seit {dayCount} Tagen oder länger nicht in die Gruppe eingeloggt hat, zählt als inaktiv. Diese Nutzerinnen und Nutzer erhalten keine E-Mail-Benachrichtigungen mehr.",

@@ -485,7 +485,8 @@
     "SERIES_MODIFY": "zmienił/-a ustawienia serii",
     "STORE_CREATE": "utworzył/-a punkt {name}",
     "STORE_DELETE": "Usunięto punkt {name}",
-    "STORE_MODIFY": "zmienił/-a ustawienia punktu {name}"
+    "STORE_MODIFY": "zmienił/-a ustawienia punktu {name}",
+    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
   },
   "INACTIVITY": {
     "HELP": "Każdy, kto nie logował się przez co najmniej {dayCount} dni, zostanie oznaczony jako nieaktywny. Nieaktywni użytkownicy nie otrzymują powiadomień e-mail.",

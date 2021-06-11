@@ -485,7 +485,8 @@
     "SERIES_MODIFY": "cambió la configuración de una serie",
     "STORE_CREATE": "creó el lugar {name}",
     "STORE_DELETE": "eliminó el lugar{name}",
-    "STORE_MODIFY": "cambió los ajustes del lugar {name}"
+    "STORE_MODIFY": "cambió los ajustes del lugar {name}",
+    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
   },
   "INACTIVITY": {
     "HELP": "Toda persona que no se ha conectado a un grupo en {dayCount}días o más se considera como inactiva. Dichas cuentas pasa a no recibir notificaciones por correo electrónico.",

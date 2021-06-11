@@ -47,113 +47,145 @@
       <div class="text-caption q-ml-xs col text-right">
         {{ filteredActivities.length }} / {{ activities.length }}
       </div>
-      <div class="col text-right">
-        <QBtn
-          flat
-          dense
-        >
-          <QIcon
-            name="fas fa-calendar-plus"
-            size="xs"
-          />
-          <QMenu
-            anchor="bottom right"
-            self="top right"
-          >
-            <QList
-              v-close-popup
-              dense
-            >
-              <QItem
-                clickable
-                tag="a"
-                :href="icsUrl"
-              >
-                <QItemSection side>
-                  <QIcon
-                    size="1em"
-                    name="fas fa-download fa-fw"
-                  />
-                </QItemSection>
-                <QItemSection>
-                  {{ $t('ACTIVITYLIST.ICS_LIST.DOWNLOAD') }}
-                </QItemSection>
-              </QItem>
-              <QItem
-                clickable
-                @click="icsDialog = true"
-              >
-                <QItemSection side>
-                  <QIcon
-                    size="1em"
-                    name="fas fa-sync fa-fw"
-                  />
-                </QItemSection>
-                <QItemSection>
-                  {{ $t('ACTIVITYLIST.ICS_LIST.SUBSCRIBE') }}
-                </QItemSection>
-              </QItem>
-            </QList>
-          </QMenu>
-        </QBtn>
-        <CustomDialog v-model="icsDialog">
-          <template #title>
-            {{ $t('ACTIVITYLIST.ICS_LIST.SUBSCRIPTION_DIALOG_TITLE') }}
-          </template>
-          <template #message>
-            <p>
-              {{ $t('ACTIVITYLIST.ICS_LIST.SUBSCRIBE_EXPLANATION') }}
-            </p>
-
-            <QField filled>
-              <template #append>
-                <QBtn
-                  flat
-                  rounded
-                  icon="fas fa-copy"
-                  @click="copyLink"
-                >
-                  <q-tooltip
-                    anchor="top middle"
-                    self="bottom middle"
-                  >
-                    <!-- TODO: add translation -->
-                    Click to copy
-                  </q-tooltip>
-                </QBtn>
-              </template>
-              <template #control>
-                <div class="self-center full-width no-outline">
-                  {{ icsUrl }}
-                </div>
-              </template>
-            </QField>
-          </template>
-          <template #actions>
-            <QBtn
-              v-close-popup
-              flat
-              color="primary"
-              autofocus
-              :label="$t('BUTTON.CLOSE')"
-            />
-          </template>
-        </CustomDialog>
-      </div>
     </div>
     <div
-      class="row no-wrap items-center justify-between q-px-sm q-py-xs q-gutter-sm"
+      v-if="displayedActivitiesGroupedByDate.length"
+      class="row no-wrap items-center justify-end q-px-sm q-mt-sm"
     >
       <QBtn
-        no-caps
-        padding="4px 12px 4px 10px"
-        rounded
-        unelevated
         color="secondary"
-        icon="fas fa-calendar-plus"
+        icon="event"
+        padding="4px 13px"
+        rounded
         size="sm"
-        label="Add to calendar"
+        unelevated
+        :label="$t('ACTIVITYLIST.ICS_DIALOG.TITLE')"
+        @click="icsDialog = true"
       />
+      <CustomDialog
+        v-model="icsDialog"
+        width="500px"
+        actionsalign="between"
+      >
+        <template #title>
+          {{ $t('ACTIVITYLIST.ICS_DIALOG.TITLE') }}
+        </template>
+        <template #message>
+          <p>
+            {{ $t('ACTIVITYLIST.ICS_DIALOG.INTRO') }}
+          </p>
+
+          <QList>
+            <QItem class="q-pl-none">
+              <QItemSection
+                avatar
+                top
+              >
+                <q-avatar
+                  color="primary"
+                  text-color="white"
+                  icon="file_download"
+                />
+              </QItemSection>
+
+              <QItemSection>
+                <QItemLabel>{{ $t('ACTIVITYLIST.ICS_DIALOG.DOWNLOAD_TITLE') }}</QItemLabel>
+                <QItemLabel caption>
+                  {{ $t('ACTIVITYLIST.ICS_DIALOG.DOWNLOAD_TEXT') }}
+                </QItemLabel>
+                <QItemLabel>
+                  <QBtn
+                    color="primary"
+                    class="q-mt-xs"
+                    type="a"
+                    :href="icsUrl"
+                    :label="$t('ACTIVITYLIST.ICS_DIALOG.DOWNLOAD_BUTTON_LABEL')"
+                  />
+                </QItemLabel>
+              </QItemSection>
+            </QItem>
+
+            <q-separator
+              spaced
+              style="margin-left: 56px;"
+            />
+
+            <QItem class="q-pl-none">
+              <QItemSection
+                avatar
+                top
+              >
+                <q-avatar
+                  color="primary"
+                  text-color="white"
+                  icon="sync"
+                />
+              </QItemSection>
+
+              <QItemSection>
+                <QItemLabel>{{ $t('ACTIVITYLIST.ICS_DIALOG.SUBSCRIBE_TITLE') }}</QItemLabel>
+                <QItemLabel caption>
+                  {{ $t('ACTIVITYLIST.ICS_DIALOG.SUBSCRIBE_TEXT') }}
+                </QItemLabel>
+                <QItemLabel>
+                  <QField
+                    filled
+                    class="q-mt-xs"
+                  >
+                    <template #append>
+                      <QBtn
+                        flat
+                        rounded
+                        icon="fas fa-copy"
+                        @click="copyLink"
+                      >
+                        <q-tooltip
+                          anchor="top middle"
+                          self="bottom middle"
+                        >
+                          {{ $t('CLICK_TO_COPY') }}
+                        </q-tooltip>
+                      </QBtn>
+                    </template>
+                    <template #control>
+                      <!-- https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ -->
+                      <div
+                        class="self-center full-width no-outline"
+                        style="word-break: break-word; overflow-wrap: break-word;"
+                      >
+                        {{ icsUrl }}
+                      </div>
+                    </template>
+                  </QField>
+                </QItemLabel>
+              </QItemSection>
+            </QItem>
+          </QList>
+        </template>
+        <template #actions>
+          <!-- TODO: put usefull link about ICS -->
+          <a
+            rel="noopener noreferrer"
+            href="#"
+            target="_blank"
+            class="text-secondary q-pl-sm"
+          >
+            <QIcon
+              name="link"
+              size="xs"
+              class="q-mr-xs"
+            />
+            {{ $t('ACTIVITYLIST.ICS_DIALOG.MORE_INFOS') }}
+          </a>
+          <QBtn
+            v-close-popup
+            flat
+            color="primary"
+            autofocus
+            :label="$t('BUTTON.CLOSE')"
+          />
+        </template>
+      </CustomDialog>
     </div>
     <KSpinner v-show="pending" />
     <div
@@ -234,7 +266,6 @@ import {
   QItemSection,
   QItemLabel,
   QIcon,
-  QMenu,
   QList,
   QBanner,
   QBtn,
@@ -254,7 +285,6 @@ export default {
     QItemSection,
     QItemLabel,
     QIcon,
-    QMenu,
     QList,
     QBanner,
     QBtn,

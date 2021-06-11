@@ -95,11 +95,15 @@
     "NONE_DUE_TO_FILTER": "No activities match your filters",
     "NONE_HINT": "You can create a new activity on the place page.",
     "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page.",
-    "ICS_LIST": {
-      "DOWNLOAD": "Download ICS",
-      "SUBSCRIBE": "Subscribe",
-      "SUBSCRIPTION_DIALOG_TITLE": "Activities feed",
-      "SUBSCRIBE_EXPLANATION": "Use this URL to subscribe to these activities as an ICS calendar:"
+    "ICS_DIALOG": {
+      "TITLE": "Add to calendar",
+      "INTRO": "Add these activities to your calendar by using one of the following options:",
+      "DOWNLOAD_TITLE": "Download",
+      "DOWNLOAD_TEXT": "Download the ICS-file to manually import into your calendar:",
+      "DOWNLOAD_BUTTON_LABEL": "Download ICS",
+      "SUBSCRIBE_TITLE": "Subscribe",
+      "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
+      "MORE_INFOS": "More infos about ICS"
     }
   },
   "ACTIVITYMANAGE": {
@@ -245,6 +249,7 @@
     "YES": "Yes",
     "READ_MORE": "Read more"
   },
+  "CLICK_TO_COPY": "Click to copy",
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
     "HEADER_LINK": "foodsaving worldwide community",

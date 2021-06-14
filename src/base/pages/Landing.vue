@@ -243,7 +243,7 @@ export default {
         // take the best 6 entries
         .slice(0, 6)
         // sort those results by how many people they have
-        .sort((a, b) => b.members.length - a.members.length)
+        .sort((a, b) => b.memberCount - a.memberCount)
     },
   },
   created () {

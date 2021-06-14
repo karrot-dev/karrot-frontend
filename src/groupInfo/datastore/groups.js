@@ -20,15 +20,12 @@ export default {
     },
     enrich: (state, getters, rootState, rootGetters) => group => {
       if (!group) return
-      const userId = rootGetters['auth/userId']
-      const isMember = userId && group.members ? group.members.includes(userId) : false
       const isCurrentGroup = group.id === rootGetters['currentGroup/id']
       const isPlayground = group.status === 'playground'
       const isInactive = group.status === 'inactive'
       const myApplicationPending = rootGetters['applications/getMineInGroup'] && rootGetters['applications/getMineInGroup'](group.id)
       return {
         ...group,
-        isMember,
         isCurrentGroup,
         isPlayground,
         isInactive,
@@ -144,7 +141,7 @@ function applicationsFirstThenSortByName (a, b) {
 // ... then ones without distance below, ordered by member count
 function sortByDistanceOrMemberCount (a, b) {
   if (a.distance === null && b.distance === null) {
-    return b.members.length - a.members.length
+    return b.memberCount - a.memberCount
   }
   else if (a.distance === null) {
     return 1

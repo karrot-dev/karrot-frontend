@@ -701,11 +701,11 @@
     "COLUMN_FEEDBACK": "Feedback",
     "COLUMN_FEEDBACK_WEIGHT": "Weight",
     "TOTAL_LABEL": "Total",
-    "OPTIONS_LEFT": "Withdrew options",
+    "OPTIONS_ANY": "Any",
     "OPTIONS_MISSED_LABEL": "Missed",
-    "OPTIONS_MISSED_DESCRIPTION": "Only count if the activity was missed after they withdrew",
+    "OPTIONS_MISSED_DESCRIPTION": "Only if the activity was missed",
     "OPTIONS_LATE_LABEL": "Late",
-    "OPTIONS_LATE_DESCRIPTION": "Only count if they withdrew less than 24 hours before"
+    "OPTIONS_LATE_DESCRIPTION": "Only if less than 24 hours before"
   },
   "STOREDETAIL": {
     "ARCHIVED": "This place has been archived",

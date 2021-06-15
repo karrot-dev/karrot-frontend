@@ -30,52 +30,45 @@
           :options="periodFilterOptions"
           class="q-mr-sm"
         />
-        <QBtn
-          icon="fas fa-ellipsis-v"
-          flat
-          round
-          size="sm"
+        <QSelect
+          v-model="leftOptionsSelected"
+          :label="$t('STATISTICS.COLUMN_ACTIVITY_LEFT')"
+          filled
+          :options="leftOptions"
+          class="q-mr-sm"
+          multiple
+          style="min-width: 120px;"
+          :display-value="leftOptionsDisplayValue"
         >
-          <QMenu
-            anchor="bottom right"
-            self="top right"
-          >
-            <div class="text-subtitle1 q-ma-md">
-              {{ $t('STATISTICS.OPTIONS_LEFT') }}
-            </div>
-            <QList>
-              <QItem tag="label">
-                <QItemSection avatar>
-                  <QToggle v-model="leftFilter.missed" />
-                </QItemSection>
-                <QItemSection>
-                  <QItemLabel>{{ $t('STATISTICS.OPTIONS_MISSED_LABEL') }}</QItemLabel>
-                  <QItemLabel caption>
-                    {{ $t('STATISTICS.OPTIONS_MISSED_DESCRIPTION') }}
-                  </QItemLabel>
-                </QItemSection>
-              </QItem>
-              <QItem tag="label">
-                <QItemSection avatar>
-                  <QToggle v-model="leftFilter.late" />
-                </QItemSection>
-                <QItemSection>
-                  <QItemLabel>{{ $t('STATISTICS.OPTIONS_LATE_LABEL') }}</QItemLabel>
-                  <QItemLabel caption>
-                    {{ $t('STATISTICS.OPTIONS_LATE_DESCRIPTION') }}
-                  </QItemLabel>
-                </QItemSection>
-              </QItem>
-            </QList>
-          </QMenu>
-        </QBtn>
+          <template #option="{ itemProps, itemEvents, opt, selected, toggleOption }">
+            <QItem
+              v-bind="itemProps"
+              v-on="itemEvents"
+            >
+              <QItemSection>
+                <QItemLabel>
+                  {{ opt.label }}
+                </QItemLabel>
+                <QItemLabel caption>
+                  {{ opt.description }}
+                </QItemLabel>
+              </QItemSection>
+              <QItemSection side>
+                <QToggle
+                  :value="selected"
+                  @input="toggleOption(opt)"
+                />
+              </QItemSection>
+            </QItem>
+          </template>
+        </QSelect>
       </template>
     </QTable>
   </div>
 </template>
 
 <script>
-import { QSelect, QTable, QBtn, QToggle, QList, QItem, QItemSection, QItemLabel, QMenu } from 'quasar'
+import { QSelect, QTable, QToggle, QItem, QItemSection, QItemLabel } from 'quasar'
 import subDays from 'date-fns/subDays'
 import subMonths from 'date-fns/subMonths'
 
@@ -87,10 +80,7 @@ export default {
   components: {
     QSelect,
     QTable,
-    QBtn,
     QToggle,
-    QMenu,
-    QList,
     QItem,
     QItemSection,
     QItemLabel,
@@ -102,10 +92,19 @@ export default {
       userFilter: null,
       userFilterByName: null, // when the user types something in
       data: [],
-      leftFilter: {
-        missed: true,
-        late: false,
-      },
+      leftOptionsSelected: null,
+      leftOptions: [
+        {
+          label: this.$t('STATISTICS.OPTIONS_MISSED_LABEL'),
+          value: 'missed',
+          description: this.$t('STATISTICS.OPTIONS_MISSED_DESCRIPTION'),
+        },
+        {
+          label: this.$t('STATISTICS.OPTIONS_LATE_LABEL'),
+          value: 'late',
+          description: this.$t('STATISTICS.OPTIONS_LATE_DESCRIPTION'),
+        },
+      ],
     }
   },
   computed: {
@@ -145,7 +144,7 @@ export default {
         },
         {
           name: 'leaveCount',
-          label: this.leftLabel,
+          label: this.$t('STATISTICS.COLUMN_ACTIVITY_LEFT'),
           field: row => this.leaveCount(row),
           align: 'right',
         },
@@ -204,17 +203,6 @@ export default {
         },
       ]
     },
-    leftLabel () {
-      const label = this.$t('STATISTICS.COLUMN_ACTIVITY_LEFT')
-      const modifiers = []
-      if (this.leftFilter.missed) {
-        modifiers.push(this.$t('STATISTICS.COLUMN_ACTIVITY_MISSED'))
-      }
-      if (this.leftFilter.late) {
-        modifiers.push(this.$t('STATISTICS.COLUMN_ACTIVITY_LATE'))
-      }
-      return modifiers.length > 0 ? `${label} [${modifiers.join(' + ')}]` : label
-    },
     totals () {
       return [
         'doneCount',
@@ -222,7 +210,6 @@ export default {
         'missedCount',
         'leaveCount',
         'feedbackWeight',
-        // TODO: huh? how can it be reading these values? shouldn't it also read "leaveCount"? (which would then need correcting...) confused :s
         'leaveMissedLateCount',
         'leaveLateCount',
         'leaveMissedCount',
@@ -282,6 +269,17 @@ export default {
           throw new Error(`unknown date filter option: ${this.periodFilter.value}`)
       }
     },
+    leftOptionsValues () {
+      return this.leftOptionsSelected.map(option => option.value)
+    },
+    leftOptionsDisplayValue () {
+      if (this.leftOptionsSelected.length > 0) {
+        return this.leftOptionsSelected.map(option => option.label).join(', ')
+      }
+      else {
+        return this.$t('STATISTICS.OPTIONS_ANY')
+      }
+    },
   },
   watch: {
     'userFilter.value' (value) {
@@ -312,6 +310,7 @@ export default {
     // Initial values
     this.periodFilter = this.periodFilterOptions[0]
     this.userFilter = this.userFilterOptions[0]
+    this.leftOptionsSelected = this.leftOptions.filter(option => option.value === 'missed')
   },
   methods: {
     filterUser (val, update) {
@@ -319,7 +318,8 @@ export default {
       update()
     },
     leaveCount (row) {
-      const { late, missed } = this.leftFilter
+      const missed = this.leftOptionsValues.includes('missed')
+      const late = this.leftOptionsValues.includes('late')
       if (late) {
         return missed ? row.leaveMissedLateCount : row.leaveLateCount
       }

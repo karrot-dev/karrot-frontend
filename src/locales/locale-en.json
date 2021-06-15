@@ -382,7 +382,7 @@
     "INVITATIONS": "Invitations",
     "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
     "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
-    "INVITED_LIST": "Invitations have already been sent STATISTICSout to these e-mail addresses:",
+    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
     "INVITE_EMAIL": "Enter an e-mail address",
     "INVITE_SEND": "Send invitation",
     "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",

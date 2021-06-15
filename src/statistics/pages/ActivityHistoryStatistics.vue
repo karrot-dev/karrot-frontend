@@ -41,7 +41,7 @@
             self="top right"
           >
             <div class="text-subtitle1 q-ma-md">
-              Withdrew options
+              {{ $t('STATISTICS.OPTIONS_LEFT') }}
             </div>
             <QList>
               <QItem tag="label">
@@ -49,9 +49,9 @@
                   <QToggle v-model="leftFilter.missed" />
                 </QItemSection>
                 <QItemSection>
-                  <QItemLabel>Missed</QItemLabel>
+                  <QItemLabel>{{ $t('STATISTICS.OPTIONS_MISSED_LABEL') }}</QItemLabel>
                   <QItemLabel caption>
-                    Only count if the activity was missed after they withdrew
+                    {{ $t('STATISTICS.OPTIONS_MISSED_DESCRIPTION') }}
                   </QItemLabel>
                 </QItemSection>
               </QItem>
@@ -60,9 +60,9 @@
                   <QToggle v-model="leftFilter.late" />
                 </QItemSection>
                 <QItemSection>
-                  <QItemLabel>Late</QItemLabel>
+                  <QItemLabel>{{ $t('STATISTICS.OPTIONS_LATE_LABEL') }}</QItemLabel>
                   <QItemLabel caption>
-                    Only count if they withdrew less than 24 hours before
+                    {{ $t('STATISTICS.OPTIONS_LATE_DESCRIPTION') }}
                   </QItemLabel>
                 </QItemSection>
               </QItem>

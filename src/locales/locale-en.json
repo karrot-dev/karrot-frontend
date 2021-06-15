@@ -382,7 +382,7 @@
     "INVITATIONS": "Invitations",
     "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
     "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
-    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
+    "INVITED_LIST": "Invitations have already been sent STATISTICSout to these e-mail addresses:",
     "INVITE_EMAIL": "Enter an e-mail address",
     "INVITE_SEND": "Send invitation",
     "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
@@ -700,7 +700,12 @@
     "COLUMN_ACTIVITY_LATE": "Late",
     "COLUMN_FEEDBACK": "Feedback",
     "COLUMN_FEEDBACK_WEIGHT": "Weight",
-    "TOTAL_LABEL": "Total"
+    "TOTAL_LABEL": "Total",
+    "OPTIONS_LEFT": "Withdrew options",
+    "OPTIONS_MISSED_LABEL": "Missed",
+    "OPTIONS_MISSED_DESCRIPTION": "Only count if the activity was missed after they withdrew",
+    "OPTIONS_LATE_LABEL": "Late",
+    "OPTIONS_LATE_DESCRIPTION": "Only count if they withdrew less than 24 hours before"
   },
   "STOREDETAIL": {
     "ARCHIVED": "This place has been archived",

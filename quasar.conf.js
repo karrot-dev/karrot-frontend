@@ -71,7 +71,6 @@ module.exports = configure(function (ctx) {
       'pwa',
       'helloDeveloper',
       'addressbar-color',
-      'extensions',
       'socket',
       'sentry',
       'cordova',

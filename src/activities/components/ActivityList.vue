@@ -163,10 +163,9 @@
           </QList>
         </template>
         <template #actions>
-          <!-- TODO: put usefull link about ICS -->
           <a
             rel="noopener noreferrer"
-            href="#"
+            href="https://fileinfo.com/extension/ics"
             target="_blank"
             class="text-secondary q-pl-sm"
           >

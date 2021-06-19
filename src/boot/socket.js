@@ -171,6 +171,7 @@ export default async function ({ store: datastore }) {
         if (message.thread) {
           datastore.dispatch('latestMessages/updateThreadsAndRelated', { threads: [message] })
         }
+        datastore.dispatch('conversations/fetchRelatedUserInfo', [message])
       }
     }
     else if (topic === 'conversations:conversation') {

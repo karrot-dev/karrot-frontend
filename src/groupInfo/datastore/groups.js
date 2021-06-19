@@ -39,15 +39,6 @@ export default {
     },
     mineWithApplications: (state, getters) => getters.all.filter(myGroupsWithApplications).sort(applicationsFirstThenSortByName),
     mine: (state, getters) => getters.all.filter(myGroups).sort(applicationsFirstThenSortByName),
-    // A de-duplicated list of member ids of all groups the user is part of
-    myMemberIds: (state, getters) => {
-      return Object.keys(getters.mineWithApplications.reduce((obj, group) => {
-        for (const member of group.members) {
-          obj[member] = true
-        }
-        return obj
-      }, {})).map(parseInt).sort()
-    },
     other: (state, getters) => getters.all.filter(e => !myGroupsWithApplications(e)).sort(sortByDistanceOrMemberCount),
     activePreview: (state, getters) => getters.get(state.activePreviewId),
     saveStatus: (state, getters, rootState, rootGetters) => {

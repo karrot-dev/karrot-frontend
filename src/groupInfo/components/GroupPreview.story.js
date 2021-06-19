@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions'
 
 import GroupPreviewUI from './GroupPreviewUI'
 
-import { groupsMock } from '>/mockdata'
+import { makeGroupInfo } from '>/enrichedFactories'
 
 const on = {
   join: action('join group'),
@@ -19,10 +19,7 @@ storiesOf('GroupPreviewUI', module)
   .add('not logged in', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
-        group: {
-          ...groupsMock[0],
-          isOpen: true,
-        },
+        group: makeGroupInfo({ isOpen: true }),
         isLoggedIn: false,
       },
       on,
@@ -31,10 +28,7 @@ storiesOf('GroupPreviewUI', module)
   .add('not member, application needed, email verified', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
-        group: {
-          ...groupsMock[0],
-          isOpen: false,
-        },
+        group: makeGroupInfo(),
         user: {
           mailVerified: true,
         },
@@ -46,10 +40,7 @@ storiesOf('GroupPreviewUI', module)
   .add('not member, application needed, email not verified', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
-        group: {
-          ...groupsMock[0],
-          isOpen: false,
-        },
+        group: makeGroupInfo(),
         user: {
           mailVerified: false,
         },
@@ -61,10 +52,7 @@ storiesOf('GroupPreviewUI', module)
   .add('not member, pending application', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
-        group: {
-          ...groupsMock[0],
-          isOpen: false,
-        },
+        group: makeGroupInfo(),
         user: {
           mailVerified: true,
         },
@@ -77,10 +65,7 @@ storiesOf('GroupPreviewUI', module)
   .add('not member, open group', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
-        group: {
-          ...groupsMock[0],
-          isOpen: true,
-        },
+        group: makeGroupInfo({ isOpen: true }),
         isLoggedIn: true,
       },
       on,
@@ -89,11 +74,10 @@ storiesOf('GroupPreviewUI', module)
   .add('not member, playground', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
-        group: {
-          ...groupsMock[0],
+        group: makeGroupInfo({
           isOpen: true,
           isPlayground: true,
-        },
+        }),
         isLoggedIn: true,
       },
       on,
@@ -102,10 +86,7 @@ storiesOf('GroupPreviewUI', module)
   .add('member', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
-        group: {
-          ...groupsMock[0],
-          isMember: true,
-        },
+        group: makeGroupInfo({ isMember: true }),
         isLoggedIn: true,
       },
       on,
@@ -114,11 +95,10 @@ storiesOf('GroupPreviewUI', module)
   .add('without public description', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
-        group: {
-          ...groupsMock[0],
+        group: makeGroupInfo({
           publicDescription: '',
           isMember: true,
-        },
+        }),
         isLoggedIn: true,
       },
       on,
@@ -127,12 +107,10 @@ storiesOf('GroupPreviewUI', module)
   .add('pending join', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
-        group: {
-          ...groupsMock[4],
-          isMember: false,
-          isOpen: true,
+        group: makeGroupInfo({
           joinStatus: statusMocks.pending(),
-        },
+          isOpen: true,
+        }),
         isLoggedIn: true,
       },
       on,
@@ -141,11 +119,9 @@ storiesOf('GroupPreviewUI', module)
   .add('archived', () => defaults({
     render: h => h(GroupPreviewUI, {
       props: {
-        group: {
-          ...groupsMock[0],
-          members: [],
-          isOpen: false,
-        },
+        group: makeGroupInfo({
+          memberCount: 0,
+        }),
         isLoggedIn: false,
       },
       on,

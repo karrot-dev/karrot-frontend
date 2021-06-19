@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions'
 
 import GroupGalleryCard from './GroupGalleryCard'
 
-import { groupsMock } from '>/mockdata'
+import { makeGroupInfo } from '>/enrichedFactories'
 
 const methods = {
   preview: action('view group preview'),
@@ -15,10 +15,7 @@ storiesOf('GroupGalleryCard', module)
   .add('isMember = true', () => defaults({
     render: h => h(GroupGalleryCard, {
       props: {
-        group: {
-          ...groupsMock[0],
-          isMember: true,
-        },
+        group: makeGroupInfo({ isMember: true }),
       },
       on: methods,
     }),
@@ -26,10 +23,7 @@ storiesOf('GroupGalleryCard', module)
   .add('isMember = false', () => defaults({
     render: h => h(GroupGalleryCard, {
       props: {
-        group: {
-          ...groupsMock[0],
-          isMember: false,
-        },
+        group: makeGroupInfo(),
       },
       on: methods,
     }),
@@ -37,11 +31,7 @@ storiesOf('GroupGalleryCard', module)
   .add('isMember = false, application pending', () => defaults({
     render: h => h(GroupGalleryCard, {
       props: {
-        group: {
-          ...groupsMock[0],
-          isMember: false,
-          myApplicationPending: true,
-        },
+        group: makeGroupInfo({ myApplicationPending: true }),
       },
       on: methods,
     }),
@@ -49,11 +39,7 @@ storiesOf('GroupGalleryCard', module)
   .add('without public description', () => defaults({
     render: h => h(GroupGalleryCard, {
       props: {
-        group: {
-          ...groupsMock[0],
-          publicDescription: '',
-          isMember: false,
-        },
+        group: makeGroupInfo({ publicDescription: '' }),
       },
       on: methods,
     }),

@@ -122,13 +122,11 @@ describe('main routes', () => {
     let group
 
     beforeEach(() => {
-      router.addRoutes([
-        loadMainRoute('groupPreview'),
-        {
-          name: 'group',
-          path: '/group/:groupId',
-        },
-      ])
+      router.addRoute(loadMainRoute('groupPreview'))
+      router.addRoute({
+        name: 'group',
+        path: '/group/:groupId',
+      }),
       group = {
         id: getRandomId(),
         name: 'some group name',

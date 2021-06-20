@@ -102,7 +102,6 @@ export const makeGroup = data => {
   }
 }
 
-
 export const makeGroupInfo = data => {
   const id = groupIdCnt++
   return {

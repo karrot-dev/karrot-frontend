@@ -280,7 +280,7 @@ module.exports = configure(function (ctx) {
       manifest: {
         name: process.env.PWA_APP_NAME || 'Karrot local dev',
         short_name: process.env.PWA_APP_NAME || 'Karrot local dev',
-        description: 'Modern website for organization of independent groups worldwide',
+        description: 'Independent group organization',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',

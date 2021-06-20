@@ -342,6 +342,7 @@
     "GENERIC_ERROR": "Sorry, something went wrong",
     "GITHUB_NOTE": "Development",
     "INVALID_LINK": "Sorry, the link you've opened is invalid.",
+    "LOGO_ALT": "karrot logo",
     "NOT_CONNECTED": "You aren't connected to the server",
     "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
     "RECONNECTING": "Reconnecting...",
@@ -484,7 +485,8 @@
     "SERIES_MODIFY": "changed the settings of a series",
     "STORE_CREATE": "created place {name}",
     "STORE_DELETE": "deleted place {name}",
-    "STORE_MODIFY": "changed the settings of place {name}"
+    "STORE_MODIFY": "changed the settings of place {name}",
+    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
   },
   "INACTIVITY": {
     "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore.",

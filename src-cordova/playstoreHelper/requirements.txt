@@ -4,63 +4,73 @@
 #
 #    pip-compile
 #
-cachetools==3.1.1
+cachetools==4.2.2
     # via google-auth
-certifi==2020.4.5.1
+certifi==2021.5.30
     # via requests
-chardet==3.0.4
+chardet==4.0.0
     # via requests
-google-api-core==1.22.2
+google-api-core==1.30.0
     # via google-api-python-client
-google-api-python-client==1.12.8
+google-api-python-client==2.8.0
     # via -r requirements.in
-google-auth-httplib2==0.0.3
+google-auth-httplib2==0.1.0
     # via google-api-python-client
-google-auth==1.21.1
+google-auth==1.31.0
     # via
     #   google-api-core
     #   google-api-python-client
     #   google-auth-httplib2
-googleapis-common-protos==1.51.0
+googleapis-common-protos==1.53.0
     # via google-api-core
-httplib2==0.18.0
+httplib2==0.19.1
     # via
     #   google-api-python-client
     #   google-auth-httplib2
     #   oauth2client
-idna==2.9
+idna==2.10
     # via requests
 oauth2client==4.1.3
     # via -r requirements.in
-protobuf==3.13.0
+packaging==20.9
+    # via google-api-core
+protobuf==3.17.3
     # via
     #   google-api-core
     #   googleapis-common-protos
-pyasn1-modules==0.2.6
+pyasn1-modules==0.2.8
     # via
     #   google-auth
     #   oauth2client
-pyasn1==0.4.6
+pyasn1==0.4.8
     # via
     #   oauth2client
     #   pyasn1-modules
     #   rsa
-pytz==2019.3
+pyparsing==2.4.7
+    # via
+    #   httplib2
+    #   packaging
+pytz==2021.1
     # via google-api-core
-requests==2.23.0
+requests==2.25.1
     # via google-api-core
-rsa==4.1
+rsa==4.7.2
     # via
     #   google-auth
     #   oauth2client
-six==1.15.0
+six==1.16.0
     # via
     #   google-api-core
     #   google-api-python-client
     #   google-auth
+    #   google-auth-httplib2
     #   oauth2client
     #   protobuf
-uritemplate==3.0.0
+uritemplate==3.0.1
     # via google-api-python-client
-urllib3==1.25.9
+urllib3==1.26.5
     # via requests
+
+# The following packages are considered to be unsafe in a requirements file:
+# setuptools

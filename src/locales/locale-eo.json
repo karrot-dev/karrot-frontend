@@ -342,6 +342,7 @@
     "GENERIC_ERROR": "Pardonon sed io ne bone funkciis",
     "GITHUB_NOTE": "Ellaboro",
     "INVALID_LINK": "Pardonon, la ligilo ne validas.",
+    "LOGO_ALT": "karrot logo",
     "NOT_CONNECTED": "Vi ne estas konektita al la servilo",
     "OFFLINE_RECONNECT": "Malkonektita. Premu ĉi tiun por rekonektiĝi",
     "RECONNECTING": "Rekonektanta...",
@@ -484,7 +485,8 @@
     "SERIES_MODIFY": "ŝanĝitaj agordoj de la perioda aktivaĵo",
     "STORE_CREATE": "loko kreita{name}",
     "STORE_DELETE": "forigita loko {name}",
-    "STORE_MODIFY": "ŝanĝis la agordojn de la loko {name}"
+    "STORE_MODIFY": "ŝanĝis la agordojn de la loko {name}",
+    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
   },
   "INACTIVITY": {
     "HELP": "Ĉiuj kiuj ne ensalutis en la grupo dum {dayCount}aŭ pli da tagoj sinsekve malaktiviĝas. Tiuj uzantoj ne plu ricevos sciigojn retmesaĝe.",

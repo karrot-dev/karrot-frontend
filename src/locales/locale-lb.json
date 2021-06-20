@@ -342,6 +342,7 @@
     "GENERIC_ERROR": "Entschëlleg, iergendeppes ass falsch gaangen.",
     "GITHUB_NOTE": "Entwécklung",
     "INVALID_LINK": "Entschëlleg, de Link deen's de opmaache wëlls ass ongülteg.",
+    "LOGO_ALT": "Logo vu karrot",
     "NOT_CONNECTED": "Du bass net mam Server verbonn",
     "OFFLINE_RECONNECT": "Offline. Klick fir sech nees ze verbannen.",
     "RECONNECTING": "Nees verbannen...",
@@ -484,7 +485,8 @@
     "SERIES_MODIFY": "huet d'Astellungen vun enger Serie geännert",
     "STORE_CREATE": "huet d'Plaz {name} erstallt",
     "STORE_DELETE": "huet d'Plaz {name} geläscht",
-    "STORE_MODIFY": "huet d'Astellunge vun der Plaz {name} verännert"
+    "STORE_MODIFY": "huet d'Astellunge vun der Plaz {name} verännert",
+    "USER_LOST_EDITOR_ROLE": "duerf elo net méi beaarbechten"
   },
   "INACTIVITY": {
     "HELP": "All Persoun, déi sech wärend {dayCount} oder méi Deeg net an d'Grupp ageloggt huet, gëtt als inaktiv markéiert. Dës Notzer wäerte keng Benoriichtegunge via E-Mail méi kréien.",

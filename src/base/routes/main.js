@@ -51,8 +51,12 @@ const ActivityHistoryStatistics = () => import('@/statistics/pages/ActivityHisto
 
 export default [
   {
-    name: 'landing',
+    name: 'home',
     path: '/',
+  },
+  {
+    name: 'landing',
+    path: '/welcome',
     meta: {
       fullpage: true,
       breadcrumbs: [

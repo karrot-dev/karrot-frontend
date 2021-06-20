@@ -342,6 +342,7 @@
     "GENERIC_ERROR": "Oj, något gick fel!",
     "GITHUB_NOTE": "Utveckling",
     "INVALID_LINK": "Oj, länken du försöker komma åt är ogiltig.",
+    "LOGO_ALT": "karrot logo",
     "NOT_CONNECTED": "Du är inte ansluten till servern",
     "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
     "RECONNECTING": "Reconnecting...",
@@ -484,7 +485,8 @@
     "SERIES_MODIFY": "ändrade inställningar för en serie aktivitet",
     "STORE_CREATE": "skapade platsen {name}",
     "STORE_DELETE": "ta bort platsen {name}",
-    "STORE_MODIFY": "ändrade inställningar för platsen {name}"
+    "STORE_MODIFY": "ändrade inställningar för platsen {name}",
+    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
   },
   "INACTIVITY": {
     "HELP": "Alla som inte loggade in i gruppen i {dayCount} dagar eller mer räknas som inaktiv. Dessa användare kommer inte längre få e-postnotifieringar",

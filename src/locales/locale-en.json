@@ -239,6 +239,7 @@
     "YES": "Yes",
     "READ_MORE": "Read more"
   },
+  "CLICK_TO_COPY": "Click to copy",
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
     "HEADER_LINK": "foodsaving worldwide community",
@@ -382,6 +383,8 @@
     "INVITATIONS": "Invitations",
     "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
     "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
+    "INVITATION_COPY_LINK": "Copy the link and send it to the person you want to invite.",
+    "INVITATION_LINK": "Invitation link",
     "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
     "INVITE_EMAIL": "Enter an e-mail address",
     "INVITE_SEND": "Send invitation",

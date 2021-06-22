@@ -27,12 +27,12 @@
           <QCard>
             <QCardSection>
               <div class="text-h6">
-                Invitation link
+                {{ $t('GROUP.INVITATION_LINK') }}
               </div>
             </QCardSection>
             <QCardSection>
               <div>
-                Copy the link and send it to the person you want to invite.
+                {{ $t('GROUP.INVITATION_COPY_LINK') }}
               </div>
             </QCardSection>
             <QCardSection class="q-py-md">
@@ -48,7 +48,7 @@
                       anchor="top middle"
                       self="bottom middle"
                     >
-                      Click to copy
+                      {{ $t('CLICK_TO_COPY') }}
                     </q-tooltip>
                   </QBtn>
                 </template>

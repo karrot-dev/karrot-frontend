@@ -9,6 +9,7 @@ export default {
   state: initialState(),
   getters: {
     myCoordinates: state => {
+      if (!state.value) return null
       const { lat, lng } = state.value
       return { lat, lng }
     },

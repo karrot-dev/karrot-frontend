@@ -72,6 +72,7 @@
           :error="hasAddressError"
           :error-message="addressError"
           :label="$t('GROUP.ADDRESS')"
+          :default-map-center="defaultMapCenter"
           font-icon="fas fa-home"
           icon="fas fa-fw fa-map-marker"
           outlined
@@ -218,6 +219,10 @@ export default {
     allGroups: {
       type: Array,
       required: true,
+    },
+    defaultMapCenter: {
+      default: null,
+      type: Object,
     },
   },
   data () {

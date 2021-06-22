@@ -28,6 +28,7 @@ Please document your changes in this format:
 - place-header: correctly display linear-gradient in Safari @larzon83 [#2372]
 - Redirect again to last visited group @tiltec #2373
 - remove iconpicker-app-extension @larzon83 [#2387]
+- application chat: author name sometimes would display as '?' for the applicant @tiltec
 
 ## [9.3.0] - 2021-06-03
 ### Added

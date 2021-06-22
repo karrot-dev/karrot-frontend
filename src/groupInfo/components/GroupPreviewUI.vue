@@ -30,7 +30,7 @@
               />
             </span>
             <span class="text-subtitle2">
-              {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
+              {{ group.memberCount }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.memberCount) }}
             </span>
           </div>
         </div>
@@ -51,7 +51,7 @@
       <QSeparator />
       <QCardActions>
         <div style="width: 100%">
-          <template v-if="!group.isOpen && group.members.length === 0 && !application">
+          <template v-if="!group.isOpen && group.memberCount === 0 && !application">
             <QBanner class="bg-info">
               {{ $t('JOINGROUP.ARCHIVED_NOTE' ) }}
               <template #avatar>

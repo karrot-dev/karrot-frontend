@@ -171,6 +171,7 @@ export default async function ({ store: datastore }) {
         if (message.thread) {
           datastore.dispatch('latestMessages/updateThreadsAndRelated', { threads: [message] })
         }
+        datastore.dispatch('conversations/fetchRelatedUserInfo', [message])
       }
     }
     else if (topic === 'conversations:conversation') {
@@ -196,6 +197,12 @@ export default async function ({ store: datastore }) {
     }
     else if (topic === 'groups:group_preview') {
       datastore.commit('groups/update', [camelizeKeys(payload)])
+    }
+    else if (topic === 'groups:user_joined') {
+      datastore.dispatch('users/fetch', null, { root: true })
+    }
+    else if (topic === 'groups:user_left') {
+      datastore.dispatch('users/fetch', null, { root: true })
     }
     else if (topic === 'invitations:invitation') {
       datastore.commit('invitations/update', [convertInvitation(camelizeKeys(payload))])

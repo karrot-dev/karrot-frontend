@@ -23,10 +23,6 @@ jest.mock('@/router', () => ({
 import { createDatastore, createValidationError, throws, statusMocks } from '>/helpers'
 import { enrichGroup } from '>/datastoreHelpers'
 
-function enrichAsMember (group) {
-  return { ...enrichGroup(group), isMember: true }
-}
-
 describe('groups', () => {
   beforeEach(() => jest.resetModules())
 
@@ -38,9 +34,9 @@ describe('groups', () => {
   let group3
 
   beforeEach(() => {
-    group1 = { id: 1, name: 'group 1', members: [] }
-    group2 = { id: 2, name: 'group 2', members: [userId] }
-    group3 = { id: 3, name: 'group 3', members: [userId] }
+    group1 = { id: 1, name: 'group 1', memberCount: 0 }
+    group2 = { id: 2, name: 'group 2', memberCount: 1, isMember: true }
+    group3 = { id: 3, name: 'group 3', memberCount: 1, isMember: true }
   })
 
   // Reusable datastore mocks
@@ -160,7 +156,7 @@ describe('groups', () => {
       mockSave.mockImplementationOnce(throws(createValidationError(validationErrors)))
       await datastore.dispatch('groups/save', { id: group2.id, name: 'new name' })
       expect(datastore.getters['groups/get'](group2.id)).toEqual({
-        ...enrichAsMember(group2),
+        ...enrichGroup(group2),
         saveStatus: statusMocks.validationError('foo', 'bar'),
       })
     })
@@ -191,7 +187,7 @@ describe('groups', () => {
     })
 
     it('can get myGroups', () => {
-      expect(datastore.getters['groups/mineWithApplications']).toEqual([group2, group3].map(enrichAsMember))
+      expect(datastore.getters['groups/mineWithApplications']).toEqual([group2, group3].map(enrichGroup))
     })
 
     it('can get otherGroups', () => {

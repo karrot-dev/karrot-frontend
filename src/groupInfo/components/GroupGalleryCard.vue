@@ -52,7 +52,7 @@
               />
             </span>
             <span class="text-subtitle2">
-              {{ group.members.length }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.members.length) }}
+              {{ group.memberCount }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.memberCount) }}
             </span>
           </div>
         </div>

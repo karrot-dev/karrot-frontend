@@ -1,26 +1,18 @@
+
 <div align="center">
   <img width="200" src="https://karrot.world/statics/carrot_logo.png">
+<h2>karrot</h2>
+<p>Start a group, become a community</p>
 </div>
-<br>
-<br>
 
-> _A web platform to support foodsaving groups worldwide._ :computer: :apple: :earth_asia:
+Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.
 
-# karrot
-
-
-[![CodeCov](https://codecov.io/github/yunity/karrot-frontend/coverage.svg)](https://codecov.io/gh/yunity/karrot-frontend)
-[![CircleCI](https://circleci.com/gh/yunity/karrot-frontend.svg?style=shield)](https://circleci.com/gh/yunity/karrot-frontend)
-(Frontend)
-
-[![codecov](https://codecov.io/gh/yunity/karrot-backend/coverage.svg)](https://codecov.io/gh/yunity/karrot-backend)
-[![CircleCI](https://circleci.com/gh/yunity/karrot-backend.svg?style=shield)](https://circleci.com/gh/yunity/karrot-backend)
-(Backend)
+It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.
 
 <div align="center">
-  <img height="300" src="https://user-images.githubusercontent.com/4410802/42418936-4b29eb8c-82ab-11e8-9fd6-329952c73800.png">
+  <img height="300" src="https://github.com/yunity/karrot-frontend/raw/master/src/base/pages/images/app-screenshots-browser/karrot-screenshot-browser-800.png">
   <img width="20" src="https://user-images.githubusercontent.com/4410802/42418563-705d917c-82a3-11e8-91d8-8a234af008e4.png">
-  <img height="240" src="https://user-images.githubusercontent.com/4410802/42418974-ec3a8e6e-82ab-11e8-935c-83d158e5034d.png">
+  <img height="240" src="https://github.com/yunity/karrot-frontend/raw/master/src/base/pages/images/app-screenshots-phone/karrot-screenshot-phone-200.png">
 </div>
 <br>
 <br>
@@ -29,12 +21,12 @@ This is the frontend repository, i.e. the browser-side software that powers [kar
 
 ## Features
 
-- manage information about store cooperations :apple:
-- schedule both one-time and recurring food pickups :calendar:
-- gather feedback about pickups :mag:
+- manage information about places :apple:
+- schedule both one-time and recurring activities :calendar:
+- gather feedback about activities :mag:
 - talk with users before they become group members :heavy_plus_sign:
 - let newcomers show their trust and get involved :bulb:
-- communicate with your team via group, store, pickup, and private chats :speech_balloon:
+- communicate with your team via group, place, activity, and private chats :speech_balloon:
 - handle team member conflicts via score voting :star:
 - receive real-time notifications via our Android app, e-mail, and web broswer push notifications :loudspeaker:
 - use karrot in your preferred language :globe_with_meridians:

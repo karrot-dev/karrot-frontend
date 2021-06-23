@@ -8,7 +8,11 @@ export default {
   namespaced: true,
   state: initialState(),
   getters: {
-    myCoordinates: state => state.value,
+    myCoordinates: state => {
+      if (!state.value) return null
+      const { lat, lng } = state.value
+      return { lat, lng }
+    },
   },
   mutations: {
     set (state, value) {

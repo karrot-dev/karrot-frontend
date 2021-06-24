@@ -51,7 +51,7 @@ describe('refresh', () => {
     mockPlacesList.mockReturnValueOnce([])
     mockActivitiesList.mockReturnValue({ results: [] })
     mockListFeedbackPossible.mockReturnValue({ results: [] })
-    mockGroupsInfoList.mockReturnValueOnce([])
+    mockGroupsInfoList.mockReturnValue([])
     mockAuthUserGet.mockReturnValue({ id: 1, language: 'en' })
     mockMessagesGet.mockReturnValue({})
     mockMessagesListThread.mockReturnValue({ results: [] })

@@ -150,3 +150,9 @@ function myGroupsWithApplications (group) {
 function myGroups (group) {
   return group.isMember
 }
+
+export function plugin (datastore) {
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    datastore.dispatch('groups/fetch', null, { root: true })
+  })
+}

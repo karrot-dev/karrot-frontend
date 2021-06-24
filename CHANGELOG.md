@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [9.4.0] - 2021-06-24
 ### Changed
 - landingpage: reduce bundlesize for generated images @larzon83 [#2377]
 - use geo ip for edit/create group default map location @nicksellen [#2396]
@@ -696,7 +698,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2387]: https://github.com/yunity/karrot-frontend/issues/2387
 [#2396]: https://github.com/yunity/karrot-frontend/issues/2396
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v9.3.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v9.4.0...HEAD
+[9.4.0]: https://github.com/yunity/karrot-frontend/compare/v9.3.0...v9.4.0
 [9.3.0]: https://github.com/yunity/karrot-frontend/compare/v9.2.0...v9.3.0
 [9.2.0]: https://github.com/yunity/karrot-frontend/compare/v9.1.0...v9.2.0
 [9.1.0]: https://github.com/yunity/karrot-frontend/compare/v9.0.0...v9.1.0

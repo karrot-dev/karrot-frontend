@@ -2,6 +2,7 @@ import { isNetworkError } from '@/utils/datastore/helpers'
 import bootstrap from '@/base/api/bootstrap'
 
 export default async function ({ store: datastore }) {
+  datastore.dispatch('users/fetch', null, { root: true })
   const bootstrapData = await bootstrap.fetch()
   const { user, groups, geoip } = bootstrapData
   if (groups) {

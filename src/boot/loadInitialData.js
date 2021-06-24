@@ -2,13 +2,13 @@ import { isNetworkError } from '@/utils/datastore/helpers'
 import bootstrap from '@/base/api/bootstrap'
 
 export default async function ({ store: datastore }) {
-  datastore.dispatch('users/fetch', null, { root: true })
   const bootstrapData = await bootstrap.fetch()
   const { user, groups, geoip } = bootstrapData
   if (groups) {
     datastore.commit('groups/set', groups)
   }
   if (user) {
+    datastore.dispatch('users/fetch', null, { root: true })
     datastore.commit('auth/setUser', user)
     datastore.commit('auth/setMaybeLoggedOut', false)
   }

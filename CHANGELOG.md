@@ -27,9 +27,10 @@ Please document your changes in this format:
 
 ### Fixed
 - place-header: correctly display linear-gradient in Safari @larzon83 [#2372]
-- Redirect again to last visited group @tiltec #2373
+- Redirect again to last visited group @tiltec [#2373]
 - remove iconpicker-app-extension @larzon83 [#2387]
 - application chat: author name sometimes would display as '?' for the applicant @tiltec
+- improve group info API performance @tiltec [#2383]
 
 ## [9.3.0] - 2021-06-03
 ### Added
@@ -688,6 +689,12 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2340]: https://github.com/yunity/karrot-frontend/issues/2340
 [#2345]: https://github.com/yunity/karrot-frontend/issues/2345
 [#2371]: https://github.com/yunity/karrot-frontend/issues/2371
+[#2372]: https://github.com/yunity/karrot-frontend/issues/2372
+[#2373]: https://github.com/yunity/karrot-frontend/issues/2373
+[#2377]: https://github.com/yunity/karrot-frontend/issues/2377
+[#2383]: https://github.com/yunity/karrot-frontend/issues/2383
+[#2387]: https://github.com/yunity/karrot-frontend/issues/2387
+[#2396]: https://github.com/yunity/karrot-frontend/issues/2396
 
 [Unreleased]: https://github.com/yunity/karrot-frontend/compare/v9.3.0...HEAD
 [9.3.0]: https://github.com/yunity/karrot-frontend/compare/v9.2.0...v9.3.0

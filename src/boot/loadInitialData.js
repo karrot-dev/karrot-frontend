@@ -8,7 +8,6 @@ export default async function ({ store: datastore }) {
     datastore.commit('groups/set', groups)
   }
   if (user) {
-    datastore.dispatch('users/fetch', null, { root: true })
     datastore.commit('auth/setUser', user)
     datastore.commit('auth/setMaybeLoggedOut', false)
   }

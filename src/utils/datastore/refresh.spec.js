@@ -47,7 +47,7 @@ describe('refresh', () => {
   it('refreshes some data', async () => {
     configureQuasar(Vue)
 
-    mockUsersList.mockReturnValueOnce([])
+    mockUsersList.mockReturnValue([])
     mockPlacesList.mockReturnValueOnce([])
     mockActivitiesList.mockReturnValue({ results: [] })
     mockListFeedbackPossible.mockReturnValue({ results: [] })

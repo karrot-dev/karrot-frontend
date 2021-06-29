@@ -422,7 +422,11 @@ export default {
       this.type = 'all'
     },
     copyLink () {
-      return copyToClipboard(this.icsUrl)
+      return copyToClipboard(this.icsUrl).then(() => {
+        this.$store.dispatch('toasts/show', {
+          message: 'ACTIVITYLIST.ICS_DIALOG.SUBSCRIBE_URL_COPIED_TOAST',
+        }, { root: true })
+      })
     },
   },
 }

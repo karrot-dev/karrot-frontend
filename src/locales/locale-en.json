@@ -103,6 +103,7 @@
       "DOWNLOAD_BUTTON_LABEL": "Download ICS",
       "SUBSCRIBE_TITLE": "Subscribe",
       "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
+      "SUBSCRIBE_URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
       "MORE_INFOS": "More infos about ICS"
     }
   },

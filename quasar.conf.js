@@ -71,7 +71,6 @@ module.exports = configure(function (ctx) {
       'pwa',
       'helloDeveloper',
       'addressbar-color',
-      'extensions',
       'socket',
       'sentry',
       'cordova',
@@ -130,6 +129,39 @@ module.exports = configure(function (ctx) {
       env: appEnv,
 
       // https://quasar.dev/quasar-cli/handling-webpack
+      chainWebpack (chain) {
+        const imagesRule = chain.module.rule('images')
+        // save loader options from quasar - returns an object like this:
+        /*
+        {
+          esModule: false,
+          limit: 10000,
+          name: 'img/[name].[ext]',
+        }
+        */
+        const imagesRuleOptions = imagesRule.uses.entries()['url-loader'].store.get('options')
+
+        // clear all existing loaders.
+        // if you don't do this, the loader below will be appended to
+        // existing loaders of the rule.
+        imagesRule.uses.clear()
+
+        /* eslint-disable indent */
+        imagesRule
+          .oneOf('disableinline')
+            .resourceQuery(/disableinline/)
+            .use('url-loader')
+              .loader('url-loader')
+              .options({ ...imagesRuleOptions, limit: -1 })
+              .end()
+            .end()
+          .oneOf('inline') // aka default from quasar
+            .use('url-loader')
+              .loader('url-loader')
+              .options(imagesRuleOptions)
+        /* eslint-enable indent */
+      },
+
       extendWebpack (cfg) {
         cfg.module.rules.push({
           enforce: 'pre',

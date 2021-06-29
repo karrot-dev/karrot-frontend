@@ -485,7 +485,8 @@
     "SERIES_MODIFY": "megváltoztatta egy sorozat beállításait",
     "STORE_CREATE": "létrehozta a(z) {name} helyet",
     "STORE_DELETE": "{name} hely törlése",
-    "STORE_MODIFY": "megváltoztatta {name} hely beállításait"
+    "STORE_MODIFY": "megváltoztatta {name} hely beállításait",
+    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
   },
   "INACTIVITY": {
     "HELP": "Azok akik legalább {dayCount} napig nem léptek be a csoportba inaktívnak számítanak. Ezek a felhasználók nem fognak email értesítéseket kapni.",

@@ -485,7 +485,8 @@
     "SERIES_MODIFY": "ŝanĝitaj agordoj de la perioda aktivaĵo",
     "STORE_CREATE": "loko kreita{name}",
     "STORE_DELETE": "forigita loko {name}",
-    "STORE_MODIFY": "ŝanĝis la agordojn de la loko {name}"
+    "STORE_MODIFY": "ŝanĝis la agordojn de la loko {name}",
+    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
   },
   "INACTIVITY": {
     "HELP": "Ĉiuj kiuj ne ensalutis en la grupo dum {dayCount}aŭ pli da tagoj sinsekve malaktiviĝas. Tiuj uzantoj ne plu ricevos sciigojn retmesaĝe.",

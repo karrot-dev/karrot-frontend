@@ -170,7 +170,7 @@
               <a
                 slot="chat"
                 v-t="'ABOUT_KARROT.LINKS.CHAT'"
-                href="https://chat.foodsaving.world/channel/karrot-dev"
+                href="https://chat.karrot.world/channel/karrot-dev"
               />
               <a
                 slot="translations"
@@ -243,7 +243,7 @@ export default {
         // take the best 6 entries
         .slice(0, 6)
         // sort those results by how many people they have
-        .sort((a, b) => b.members.length - a.members.length)
+        .sort((a, b) => b.memberCount - a.memberCount)
     },
   },
   created () {
@@ -362,7 +362,9 @@ export default {
       return images
     },
     requireImage ({ fileName, ext, width, dirName } = {}) {
-      return require(`@/base/pages/images/${dirName}/${fileName}-${width}${ext}`)
+      // use "?disableinline" to disable inlining of small images as base64 which would result in a huge js-chunk
+      // see: https://github.com/yunity/karrot-frontend/issues/2370
+      return require(`@/base/pages/images/${dirName}/${fileName}-${width}${ext}?disableinline`)
     },
   },
 }

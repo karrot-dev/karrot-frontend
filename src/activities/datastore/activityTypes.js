@@ -95,7 +95,7 @@ export function plugin (datastore) {
       datastore.dispatch('activityTypes/fetch')
     }
     else {
-      datastore.dispatch('activityTypes/clear')
+      datastore.commit('activityTypes/clear')
     }
   })
 }

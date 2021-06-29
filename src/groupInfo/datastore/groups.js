@@ -20,15 +20,12 @@ export default {
     },
     enrich: (state, getters, rootState, rootGetters) => group => {
       if (!group) return
-      const userId = rootGetters['auth/userId']
-      const isMember = userId && group.members ? group.members.includes(userId) : false
       const isCurrentGroup = group.id === rootGetters['currentGroup/id']
       const isPlayground = group.status === 'playground'
       const isInactive = group.status === 'inactive'
       const myApplicationPending = rootGetters['applications/getMineInGroup'] && rootGetters['applications/getMineInGroup'](group.id)
       return {
         ...group,
-        isMember,
         isCurrentGroup,
         isPlayground,
         isInactive,
@@ -42,15 +39,6 @@ export default {
     },
     mineWithApplications: (state, getters) => getters.all.filter(myGroupsWithApplications).sort(applicationsFirstThenSortByName),
     mine: (state, getters) => getters.all.filter(myGroups).sort(applicationsFirstThenSortByName),
-    // A de-duplicated list of member ids of all groups the user is part of
-    myMemberIds: (state, getters) => {
-      return Object.keys(getters.mineWithApplications.reduce((obj, group) => {
-        for (const member of group.members) {
-          obj[member] = true
-        }
-        return obj
-      }, {})).map(parseInt).sort()
-    },
     other: (state, getters) => getters.all.filter(e => !myGroupsWithApplications(e)).sort(sortByDistanceOrMemberCount),
     activePreview: (state, getters) => getters.get(state.activePreviewId),
     saveStatus: (state, getters, rootState, rootGetters) => {
@@ -144,7 +132,7 @@ function applicationsFirstThenSortByName (a, b) {
 // ... then ones without distance below, ordered by member count
 function sortByDistanceOrMemberCount (a, b) {
   if (a.distance === null && b.distance === null) {
-    return b.members.length - a.members.length
+    return b.memberCount - a.memberCount
   }
   else if (a.distance === null) {
     return 1
@@ -161,4 +149,10 @@ function myGroupsWithApplications (group) {
 
 function myGroups (group) {
   return group.isMember
+}
+
+export function plugin (datastore) {
+  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+    datastore.dispatch('groups/fetch', null, { root: true })
+  })
 }

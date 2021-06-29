@@ -13,7 +13,11 @@ jest.mock('@/router', () => {
   return new VueRouter({
     mode: 'hash',
     routes: [
-      // we always need this route as we often redirect to it immediately
+      // we always need these routes as we often redirect to them immediately
+      {
+        name: 'landing',
+        path: '/welcome',
+      },
       {
         name: 'groupsGallery',
         path: '/groupPreview',
@@ -118,13 +122,11 @@ describe('main routes', () => {
     let group
 
     beforeEach(() => {
-      router.addRoutes([
-        loadMainRoute('groupPreview'),
-        {
-          name: 'group',
-          path: '/group/:groupId',
-        },
-      ])
+      router.addRoute(loadMainRoute('groupPreview'))
+      router.addRoute({
+        name: 'group',
+        path: '/group/:groupId',
+      })
       group = {
         id: getRandomId(),
         name: 'some group name',

@@ -3492,7 +3492,7 @@ exports[`Storyshots ChatConversation message groups 1`] = `
           <!---->
           <div title="Dec 24, 2017, 11:59 AM" class="content">
             <div class="markdown">
-              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/13.0.2/72x72/1f642.png" /></p>
+              <p>oh let me try something <img class="emoji" draggable="false" alt="🙂" src="https://twemoji.maxcdn.com/v/13.1.0/72x72/1f642.png" /></p>
             </div>
           </div>
           <!---->
@@ -4797,7 +4797,7 @@ exports[`Storyshots Detail application 1`] = `
           <transition-stub>
             <div class="q-expansion-item__content relative-position">
               <div class="q-pb-sm bg-grey-2">
-                <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary text-uppercase">Group 26</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 23, 2017, 12:00 PM">
+                <div class="q-ma-sm q-pa-sm bg-white"><span class="text-bold text-secondary text-uppercase">Group 29</span> <span class="message-date"><small class="text-weight-light"><div title="Dec 23, 2017, 12:00 PM">
   1 day ago
 </div></small></span>
                   <div class="markdown">
@@ -6162,143 +6162,71 @@ exports[`Storyshots GroupGallery signup view 1`] = `
             <!---->
             <!---->
             <div class="photo text-white relative-position row justify-center">
-              <div seed="1" type="circles" class="full-height"></div>
-              <div class="absolute-bottom k-media-overlay q-pa-md">
-                <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
-            <!----></span> <span class="text-subtitle2">
-            18 Members
-          </span></div>
-              </div>
-            </div>
-            <div class="fixed-height smaller-text q-card__section q-card__section--vert">
-              <div>
-                <div class="markdown">
-                  <p>This is the public description<br>
-                    It would make sense if it was markdown</p>
-                  <h1>then this would be a header</h1>
-                  <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
-                </div>
-              </div>
-              <div class="overlay"></div>
-            </div>
-            <!---->
-            <!---->
-          </div>
-        </div>
-        <div class="inline-block" style="width:100%;">
-          <div class="groupPreviewCard relative-position q-card">
-            <!---->
-            <!---->
-            <div class="photo text-white relative-position row justify-center">
-              <div seed="2" type="circles" class="full-height"></div>
-              <div class="absolute-bottom k-media-overlay q-pa-md">
-                <div class="ellipsis"><span class="row group items-start text-h6">
-            06_testgroup
-            <!----></span> <span class="text-subtitle2">
-            13 Members
-          </span></div>
-              </div>
-            </div>
-            <div class="fixed-height smaller-text q-card__section q-card__section--vert"><span class="text-italic">
-        (This group has no public description... yet)
-      </span>
-              <div class="overlay"></div>
-            </div>
-            <!---->
-            <!---->
-          </div>
-        </div>
-        <div class="inline-block" style="width:100%;">
-          <div class="groupPreviewCard relative-position q-card">
-            <!---->
-            <!---->
-            <div class="photo text-white relative-position row justify-center">
-              <div seed="3" type="circles" class="full-height"></div>
-              <div class="absolute-bottom k-media-overlay q-pa-md">
-                <div class="ellipsis"><span class="row group items-start text-h6">
-            02_testgroup
-            <!----></span> <span class="text-subtitle2">
-            33 Members
-          </span></div>
-              </div>
-            </div>
-            <div class="fixed-height smaller-text q-card__section q-card__section--vert"><span class="text-italic">
-        (This group has no public description... yet)
-      </span>
-              <div class="overlay"></div>
-            </div>
-            <!---->
-            <!---->
-          </div>
-        </div>
-        <div class="inline-block" style="width:100%;">
-          <div class="groupPreviewCard relative-position q-card">
-            <!---->
-            <!---->
-            <div class="photo text-white relative-position row justify-center">
-              <div seed="4" type="circles" class="full-height"></div>
-              <div class="absolute-bottom k-media-overlay q-pa-md">
-                <div class="ellipsis"><span class="row group items-start text-h6">
-            03_testgroup
-            <!----></span> <span class="text-subtitle2">
-            12 Members
-          </span></div>
-              </div>
-            </div>
-            <div class="fixed-height smaller-text q-card__section q-card__section--vert"><span class="text-italic">
-        (This group has no public description... yet)
-      </span>
-              <div class="overlay"></div>
-            </div>
-            <!---->
-            <!---->
-          </div>
-        </div>
-        <div class="inline-block" style="width:100%;">
-          <div class="groupPreviewCard relative-position q-card">
-            <!---->
-            <!---->
-            <div class="photo text-white relative-position row justify-center">
-              <div seed="6" type="circles" class="full-height"></div>
-              <div class="absolute-bottom k-media-overlay q-pa-md">
-                <div class="ellipsis"><span class="row group items-start text-h6">
-            01_testgroup_with_maps_and_password
-            <!----></span> <span class="text-subtitle2">
-            53 Members
-          </span></div>
-              </div>
-            </div>
-            <div class="fixed-height smaller-text q-card__section q-card__section--vert">
-              <div>
-                <div class="markdown">
-                  <p>To enter this group, type &quot;abc&quot; as password (if nobody changed it!)</p>
-                </div>
-              </div>
-              <div class="overlay"></div>
-            </div>
-            <!---->
-            <!---->
-          </div>
-        </div>
-        <div class="inline-block" style="width:100%;">
-          <div class="groupPreviewCard relative-position q-card">
-            <!---->
-            <!---->
-            <div class="photo text-white relative-position row justify-center">
               <div seed="13" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
-            04_testgroup
+            Group 13
             <!----></span> <span class="text-subtitle2">
-            18 Members
+            20 Members
           </span></div>
               </div>
             </div>
             <div class="fixed-height smaller-text q-card__section q-card__section--vert">
               <div>
                 <div class="markdown">
-                  <p>Hi there! This it the public description!</p>
+                  <p>our public description</p>
+                </div>
+              </div>
+              <div class="overlay"></div>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+        <div class="inline-block" style="width:100%;">
+          <div class="groupPreviewCard relative-position q-card">
+            <!---->
+            <!---->
+            <div class="photo text-white relative-position row justify-center">
+              <div seed="14" type="circles" class="full-height"></div>
+              <div class="absolute-bottom k-media-overlay q-pa-md">
+                <div class="ellipsis"><span class="row group items-start text-h6">
+            Group 14
+            <!----></span> <span class="text-subtitle2">
+            40 Members
+          </span></div>
+              </div>
+            </div>
+            <div class="fixed-height smaller-text q-card__section q-card__section--vert">
+              <div>
+                <div class="markdown">
+                  <p>our public description</p>
+                </div>
+              </div>
+              <div class="overlay"></div>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+        <div class="inline-block" style="width:100%;">
+          <div class="groupPreviewCard relative-position q-card">
+            <!---->
+            <!---->
+            <div class="photo text-white relative-position row justify-center">
+              <div seed="15" type="circles" class="full-height"></div>
+              <div class="absolute-bottom k-media-overlay q-pa-md">
+                <div class="ellipsis"><span class="row group items-start text-h6">
+            Group 15
+            <!----></span> <span class="text-subtitle2">
+            60 Members
+          </span></div>
+              </div>
+            </div>
+            <div class="fixed-height smaller-text q-card__section q-card__section--vert">
+              <div>
+                <div class="markdown">
+                  <p>our public description</p>
                 </div>
               </div>
               <div class="overlay"></div>
@@ -6366,22 +6294,19 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <!---->
             <!---->
             <div class="photo text-white relative-position row justify-center">
-              <div seed="10" type="circles" class="full-height"></div>
+              <div seed="54" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
+            Group 54
             <!----></span> <span class="text-subtitle2">
-            18 Members
+            1 Member
           </span></div>
               </div>
             </div>
             <div class="fixed-height smaller-text q-card__section q-card__section--vert">
               <div>
                 <div class="markdown">
-                  <p>This is the public description<br>
-                    It would make sense if it was markdown</p>
-                  <h1>then this would be a header</h1>
-                  <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
+                  <p>our public description</p>
                 </div>
               </div>
               <div class="overlay"></div>
@@ -6395,41 +6320,21 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <!---->
             <!---->
             <div class="photo text-white relative-position row justify-center">
-              <div seed="20" type="circles" class="full-height"></div>
+              <div seed="55" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
-            06_testgroup
+            Group 55
             <!----></span> <span class="text-subtitle2">
-            13 Members
+            1 Member
           </span></div>
               </div>
             </div>
-            <div class="fixed-height smaller-text q-card__section q-card__section--vert"><span class="text-italic">
-        (This group has no public description... yet)
-      </span>
-              <div class="overlay"></div>
-            </div>
-            <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
-            <div class="q-card__actions q-card__actions--horiz row justify-start"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-home q-icon notranslate"> </i><!----></span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-info-circle q-icon notranslate"> </i><!----></span></span></button></div>
-          </div>
-        </div>
-        <div class="inline-block" style="width:100%;">
-          <div class="groupPreviewCard relative-position q-card">
-            <!---->
-            <!---->
-            <div class="photo text-white relative-position row justify-center">
-              <div seed="30" type="circles" class="full-height"></div>
-              <div class="absolute-bottom k-media-overlay q-pa-md">
-                <div class="ellipsis"><span class="row group items-start text-h6">
-            02_testgroup
-            <!----></span> <span class="text-subtitle2">
-            33 Members
-          </span></div>
+            <div class="fixed-height smaller-text q-card__section q-card__section--vert">
+              <div>
+                <div class="markdown">
+                  <p>our public description</p>
+                </div>
               </div>
-            </div>
-            <div class="fixed-height smaller-text q-card__section q-card__section--vert"><span class="text-italic">
-        (This group has no public description... yet)
-      </span>
               <div class="overlay"></div>
             </div>
             <hr role="separator" aria-orientation="horizontal" class="q-separator q-separator q-separator--horizontal">
@@ -6450,143 +6355,71 @@ exports[`Storyshots GroupGallery switch and explore 1`] = `
             <!---->
             <!---->
             <div class="photo text-white relative-position row justify-center">
-              <div seed="1" type="circles" class="full-height"></div>
-              <div class="absolute-bottom k-media-overlay q-pa-md">
-                <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
-            <!----></span> <span class="text-subtitle2">
-            18 Members
-          </span></div>
-              </div>
-            </div>
-            <div class="fixed-height smaller-text q-card__section q-card__section--vert">
-              <div>
-                <div class="markdown">
-                  <p>This is the public description<br>
-                    It would make sense if it was markdown</p>
-                  <h1>then this would be a header</h1>
-                  <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
-                </div>
-              </div>
-              <div class="overlay"></div>
-            </div>
-            <!---->
-            <!---->
-          </div>
-        </div>
-        <div class="inline-block" style="width:100%;">
-          <div class="groupPreviewCard relative-position q-card">
-            <!---->
-            <!---->
-            <div class="photo text-white relative-position row justify-center">
-              <div seed="2" type="circles" class="full-height"></div>
-              <div class="absolute-bottom k-media-overlay q-pa-md">
-                <div class="ellipsis"><span class="row group items-start text-h6">
-            06_testgroup
-            <!----></span> <span class="text-subtitle2">
-            13 Members
-          </span></div>
-              </div>
-            </div>
-            <div class="fixed-height smaller-text q-card__section q-card__section--vert"><span class="text-italic">
-        (This group has no public description... yet)
-      </span>
-              <div class="overlay"></div>
-            </div>
-            <!---->
-            <!---->
-          </div>
-        </div>
-        <div class="inline-block" style="width:100%;">
-          <div class="groupPreviewCard relative-position q-card">
-            <!---->
-            <!---->
-            <div class="photo text-white relative-position row justify-center">
-              <div seed="3" type="circles" class="full-height"></div>
-              <div class="absolute-bottom k-media-overlay q-pa-md">
-                <div class="ellipsis"><span class="row group items-start text-h6">
-            02_testgroup
-            <!----></span> <span class="text-subtitle2">
-            33 Members
-          </span></div>
-              </div>
-            </div>
-            <div class="fixed-height smaller-text q-card__section q-card__section--vert"><span class="text-italic">
-        (This group has no public description... yet)
-      </span>
-              <div class="overlay"></div>
-            </div>
-            <!---->
-            <!---->
-          </div>
-        </div>
-        <div class="inline-block" style="width:100%;">
-          <div class="groupPreviewCard relative-position q-card">
-            <!---->
-            <!---->
-            <div class="photo text-white relative-position row justify-center">
-              <div seed="4" type="circles" class="full-height"></div>
-              <div class="absolute-bottom k-media-overlay q-pa-md">
-                <div class="ellipsis"><span class="row group items-start text-h6">
-            03_testgroup
-            <!----></span> <span class="text-subtitle2">
-            12 Members
-          </span></div>
-              </div>
-            </div>
-            <div class="fixed-height smaller-text q-card__section q-card__section--vert"><span class="text-italic">
-        (This group has no public description... yet)
-      </span>
-              <div class="overlay"></div>
-            </div>
-            <!---->
-            <!---->
-          </div>
-        </div>
-        <div class="inline-block" style="width:100%;">
-          <div class="groupPreviewCard relative-position q-card">
-            <!---->
-            <!---->
-            <div class="photo text-white relative-position row justify-center">
-              <div seed="6" type="circles" class="full-height"></div>
-              <div class="absolute-bottom k-media-overlay q-pa-md">
-                <div class="ellipsis"><span class="row group items-start text-h6">
-            01_testgroup_with_maps_and_password
-            <!----></span> <span class="text-subtitle2">
-            53 Members
-          </span></div>
-              </div>
-            </div>
-            <div class="fixed-height smaller-text q-card__section q-card__section--vert">
-              <div>
-                <div class="markdown">
-                  <p>To enter this group, type &quot;abc&quot; as password (if nobody changed it!)</p>
-                </div>
-              </div>
-              <div class="overlay"></div>
-            </div>
-            <!---->
-            <!---->
-          </div>
-        </div>
-        <div class="inline-block" style="width:100%;">
-          <div class="groupPreviewCard relative-position q-card">
-            <!---->
-            <!---->
-            <div class="photo text-white relative-position row justify-center">
               <div seed="13" type="circles" class="full-height"></div>
               <div class="absolute-bottom k-media-overlay q-pa-md">
                 <div class="ellipsis"><span class="row group items-start text-h6">
-            04_testgroup
+            Group 13
             <!----></span> <span class="text-subtitle2">
-            18 Members
+            20 Members
           </span></div>
               </div>
             </div>
             <div class="fixed-height smaller-text q-card__section q-card__section--vert">
               <div>
                 <div class="markdown">
-                  <p>Hi there! This it the public description!</p>
+                  <p>our public description</p>
+                </div>
+              </div>
+              <div class="overlay"></div>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+        <div class="inline-block" style="width:100%;">
+          <div class="groupPreviewCard relative-position q-card">
+            <!---->
+            <!---->
+            <div class="photo text-white relative-position row justify-center">
+              <div seed="14" type="circles" class="full-height"></div>
+              <div class="absolute-bottom k-media-overlay q-pa-md">
+                <div class="ellipsis"><span class="row group items-start text-h6">
+            Group 14
+            <!----></span> <span class="text-subtitle2">
+            40 Members
+          </span></div>
+              </div>
+            </div>
+            <div class="fixed-height smaller-text q-card__section q-card__section--vert">
+              <div>
+                <div class="markdown">
+                  <p>our public description</p>
+                </div>
+              </div>
+              <div class="overlay"></div>
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+        <div class="inline-block" style="width:100%;">
+          <div class="groupPreviewCard relative-position q-card">
+            <!---->
+            <!---->
+            <div class="photo text-white relative-position row justify-center">
+              <div seed="15" type="circles" class="full-height"></div>
+              <div class="absolute-bottom k-media-overlay q-pa-md">
+                <div class="ellipsis"><span class="row group items-start text-h6">
+            Group 15
+            <!----></span> <span class="text-subtitle2">
+            60 Members
+          </span></div>
+              </div>
+            </div>
+            <div class="fixed-height smaller-text q-card__section q-card__section--vert">
+              <div>
+                <div class="markdown">
+                  <p>our public description</p>
                 </div>
               </div>
               <div class="overlay"></div>
@@ -6607,22 +6440,19 @@ exports[`Storyshots GroupGalleryCard isMember = false 1`] = `
     <!---->
     <!---->
     <div class="photo text-white relative-position row justify-center">
-      <div seed="1" type="circles" class="full-height"></div>
+      <div seed="59" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
+            Group 59
             <!----></span> <span class="text-subtitle2">
-            18 Members
+            1 Member
           </span></div>
       </div>
     </div>
     <div class="fixed-height smaller-text q-card__section q-card__section--vert">
       <div>
         <div class="markdown">
-          <p>This is the public description<br>
-            It would make sense if it was markdown</p>
-          <h1>then this would be a header</h1>
-          <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
+          <p>our public description</p>
         </div>
       </div>
       <div class="overlay"></div>
@@ -6639,22 +6469,19 @@ exports[`Storyshots GroupGalleryCard isMember = false, application pending 1`] =
     <div role="alert" class="q-pl-sm q-pt-xs q-pb-xs z-top q-badge flex inline items-center no-wrap q-badge--single-line bg-blue q-badge--floating"><i aria-hidden="true" role="presentation" class="fas fa-hourglass-half q-icon notranslate"> </i></div>
     <!---->
     <div class="photo text-white relative-position row justify-center">
-      <div seed="1" type="circles" class="full-height"></div>
+      <div seed="61" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
+            Group 61
             <!----></span> <span class="text-subtitle2">
-            18 Members
+            1 Member
           </span></div>
       </div>
     </div>
     <div class="fixed-height smaller-text q-card__section q-card__section--vert">
       <div>
         <div class="markdown">
-          <p>This is the public description<br>
-            It would make sense if it was markdown</p>
-          <h1>then this would be a header</h1>
-          <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
+          <p>our public description</p>
         </div>
       </div>
       <div class="overlay"></div>
@@ -6671,22 +6498,19 @@ exports[`Storyshots GroupGalleryCard isMember = true 1`] = `
     <!---->
     <!---->
     <div class="photo text-white relative-position row justify-center">
-      <div seed="1" type="circles" class="full-height"></div>
+      <div seed="57" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
+            Group 57
             <!----></span> <span class="text-subtitle2">
-            18 Members
+            1 Member
           </span></div>
       </div>
     </div>
     <div class="fixed-height smaller-text q-card__section q-card__section--vert">
       <div>
         <div class="markdown">
-          <p>This is the public description<br>
-            It would make sense if it was markdown</p>
-          <h1>then this would be a header</h1>
-          <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
+          <p>our public description</p>
         </div>
       </div>
       <div class="overlay"></div>
@@ -6703,12 +6527,12 @@ exports[`Storyshots GroupGalleryCard without public description 1`] = `
     <!---->
     <!---->
     <div class="photo text-white relative-position row justify-center">
-      <div seed="1" type="circles" class="full-height"></div>
+      <div seed="63" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
+            Group 63
             <!----></span> <span class="text-subtitle2">
-            18 Members
+            1 Member
           </span></div>
       </div>
     </div>
@@ -6727,10 +6551,10 @@ exports[`Storyshots GroupPreviewUI archived 1`] = `
 <div>
   <div class="shadow-6 q-card">
     <div class="photo text-white relative-position row justify-center">
-      <div seed="1" type="circles" class="full-height"></div>
+      <div seed="83" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
+            Group 83
             <!----></span> <span class="text-subtitle2">
             0 Members
           </span></div>
@@ -6739,10 +6563,7 @@ exports[`Storyshots GroupPreviewUI archived 1`] = `
     <div class="q-card__section q-card__section--vert">
       <div>
         <div class="markdown">
-          <p>This is the public description<br>
-            It would make sense if it was markdown</p>
-          <h1>then this would be a header</h1>
-          <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
+          <p>our public description</p>
         </div>
       </div>
     </div>
@@ -6765,22 +6586,19 @@ exports[`Storyshots GroupPreviewUI member 1`] = `
 <div>
   <div class="shadow-6 q-card">
     <div class="photo text-white relative-position row justify-center">
-      <div seed="1" type="circles" class="full-height"></div>
+      <div seed="77" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
+            Group 77
             <!----></span> <span class="text-subtitle2">
-            18 Members
+            1 Member
           </span></div>
       </div>
     </div>
     <div class="q-card__section q-card__section--vert">
       <div>
         <div class="markdown">
-          <p>This is the public description<br>
-            It would make sense if it was markdown</p>
-          <h1>then this would be a header</h1>
-          <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
+          <p>our public description</p>
         </div>
       </div>
     </div>
@@ -6796,22 +6614,19 @@ exports[`Storyshots GroupPreviewUI not logged in 1`] = `
 <div>
   <div class="shadow-6 q-card">
     <div class="photo text-white relative-position row justify-center">
-      <div seed="1" type="circles" class="full-height"></div>
+      <div seed="65" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
+            Group 65
             <!----></span> <span class="text-subtitle2">
-            18 Members
+            1 Member
           </span></div>
       </div>
     </div>
     <div class="q-card__section q-card__section--vert">
       <div>
         <div class="markdown">
-          <p>This is the public description<br>
-            It would make sense if it was markdown</p>
-          <h1>then this would be a header</h1>
-          <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
+          <p>our public description</p>
         </div>
       </div>
     </div>
@@ -6831,22 +6646,19 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email not ver
 <div>
   <div class="shadow-6 q-card">
     <div class="photo text-white relative-position row justify-center">
-      <div seed="1" type="circles" class="full-height"></div>
+      <div seed="69" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
+            Group 69
             <!----></span> <span class="text-subtitle2">
-            18 Members
+            1 Member
           </span></div>
       </div>
     </div>
     <div class="q-card__section q-card__section--vert">
       <div>
         <div class="markdown">
-          <p>This is the public description<br>
-            It would make sense if it was markdown</p>
-          <h1>then this would be a header</h1>
-          <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
+          <p>our public description</p>
         </div>
       </div>
     </div>
@@ -6876,22 +6688,19 @@ exports[`Storyshots GroupPreviewUI not member, application needed, email verifie
 <div>
   <div class="shadow-6 q-card">
     <div class="photo text-white relative-position row justify-center">
-      <div seed="1" type="circles" class="full-height"></div>
+      <div seed="67" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
+            Group 67
             <!----></span> <span class="text-subtitle2">
-            18 Members
+            1 Member
           </span></div>
       </div>
     </div>
     <div class="q-card__section q-card__section--vert">
       <div>
         <div class="markdown">
-          <p>This is the public description<br>
-            It would make sense if it was markdown</p>
-          <h1>then this would be a header</h1>
-          <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
+          <p>our public description</p>
         </div>
       </div>
     </div>
@@ -6921,22 +6730,19 @@ exports[`Storyshots GroupPreviewUI not member, open group 1`] = `
 <div>
   <div class="shadow-6 q-card">
     <div class="photo text-white relative-position row justify-center">
-      <div seed="1" type="circles" class="full-height"></div>
+      <div seed="73" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
+            Group 73
             <!----></span> <span class="text-subtitle2">
-            18 Members
+            1 Member
           </span></div>
       </div>
     </div>
     <div class="q-card__section q-card__section--vert">
       <div>
         <div class="markdown">
-          <p>This is the public description<br>
-            It would make sense if it was markdown</p>
-          <h1>then this would be a header</h1>
-          <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
+          <p>our public description</p>
         </div>
       </div>
     </div>
@@ -6966,22 +6772,19 @@ exports[`Storyshots GroupPreviewUI not member, pending application 1`] = `
 <div>
   <div class="shadow-6 q-card">
     <div class="photo text-white relative-position row justify-center">
-      <div seed="1" type="circles" class="full-height"></div>
+      <div seed="71" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
+            Group 71
             <!----></span> <span class="text-subtitle2">
-            18 Members
+            1 Member
           </span></div>
       </div>
     </div>
     <div class="q-card__section q-card__section--vert">
       <div>
         <div class="markdown">
-          <p>This is the public description<br>
-            It would make sense if it was markdown</p>
-          <h1>then this would be a header</h1>
-          <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
+          <p>our public description</p>
         </div>
       </div>
     </div>
@@ -7009,22 +6812,19 @@ exports[`Storyshots GroupPreviewUI not member, playground 1`] = `
 <div>
   <div class="shadow-6 q-card">
     <div class="photo text-white relative-position row justify-center">
-      <div seed="1" type="circles" class="full-height"></div>
+      <div seed="75" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
+            Group 75
             <i aria-hidden="true" role="presentation" class="fas fa-child q-icon notranslate"> </i></span> <span class="text-subtitle2">
-            18 Members
+            1 Member
           </span></div>
       </div>
     </div>
     <div class="q-card__section q-card__section--vert">
       <div>
         <div class="markdown">
-          <p>This is the public description<br>
-            It would make sense if it was markdown</p>
-          <h1>then this would be a header</h1>
-          <p><a href="www.google.de" target="_blank" rel="noopener nofollow noreferrer" class="fas-after fa-after-external-link">and this a link</a></p>
+          <p>our public description</p>
         </div>
       </div>
     </div>
@@ -7054,19 +6854,19 @@ exports[`Storyshots GroupPreviewUI pending join 1`] = `
 <div>
   <div class="shadow-6 q-card">
     <div class="photo text-white relative-position row justify-center">
-      <div seed="6" type="circles" class="full-height"></div>
+      <div seed="81" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
-            01_testgroup_with_maps_and_password
+            Group 81
             <!----></span> <span class="text-subtitle2">
-            53 Members
+            1 Member
           </span></div>
       </div>
     </div>
     <div class="q-card__section q-card__section--vert">
       <div>
         <div class="markdown">
-          <p>To enter this group, type &quot;abc&quot; as password (if nobody changed it!)</p>
+          <p>our public description</p>
         </div>
       </div>
     </div>
@@ -7096,12 +6896,12 @@ exports[`Storyshots GroupPreviewUI without public description 1`] = `
 <div>
   <div class="shadow-6 q-card">
     <div class="photo text-white relative-position row justify-center">
-      <div seed="1" type="circles" class="full-height"></div>
+      <div seed="79" type="circles" class="full-height"></div>
       <div class="absolute-bottom k-media-overlay q-pa-md">
         <div class="ellipsis"><span class="row group items-start text-h6">
-            05_testgroup
+            Group 79
             <!----></span> <span class="text-subtitle2">
-            18 Members
+            1 Member
           </span></div>
       </div>
     </div>
@@ -7722,7 +7522,7 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
       <div>
         <div>
           <div class="q-my-md">
-            User 43 gets removed from Group 18
+            User 43 gets removed from Group 21
           </div>
           <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container q-slider__track-container--h absolute">
@@ -7762,7 +7562,7 @@ exports[`Storyshots Issues IssueVote - not voted yet 1`] = `
         </div>
         <div>
           <div class="q-my-md">
-            No change: User 43 stays in Group 18
+            No change: User 43 stays in Group 21
           </div>
           <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container q-slider__track-container--h absolute">
@@ -7839,7 +7639,7 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
         </div>
         <div>
           <div class="q-my-md">
-            User 41 gets removed from Group 17
+            User 41 gets removed from Group 20
           </div>
           <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container q-slider__track-container--h absolute">
@@ -7859,7 +7659,7 @@ exports[`Storyshots Issues IssueVote - vote 1`] = `
         </div>
         <div>
           <div class="q-my-md">
-            No change: User 41 stays in Group 17
+            No change: User 41 stays in Group 20
           </div>
           <div role="slider" aria-valuemin="-2" aria-valuemax="2" aria-orientation="horizontal" data-step="1" aria-valuenow="0" tabindex="0" class="k-vote-slider q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label q-slider--label-always">
             <div class="q-slider__track-container q-slider__track-container--h absolute">
@@ -8739,7 +8539,7 @@ exports[`Storyshots Notifications activity_disabled 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
 
       · Place 2
     </div>
@@ -8759,7 +8559,7 @@ exports[`Storyshots Notifications activity_enabled 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
 
       · Place 2
     </div>
@@ -8779,7 +8579,7 @@ exports[`Storyshots Notifications activity_moved 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
 
       · Place 2
     </div>
@@ -8799,7 +8599,7 @@ exports[`Storyshots Notifications activity_upcoming 1`] = `
       <div title="Dec 24, 2017, 2:00 PM" style="display:inline;">
         in about 2 hours
       </div>
-      · Group 27
+      · Group 30
 
       · Place 2
     </div>
@@ -8819,7 +8619,7 @@ exports[`Storyshots Notifications application_accepted 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -8838,7 +8638,7 @@ exports[`Storyshots Notifications application_declined 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -8861,7 +8661,7 @@ exports[`Storyshots Notifications conflict_resolution_continued 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -8880,7 +8680,7 @@ exports[`Storyshots Notifications conflict_resolution_continued_about_you 1`] = 
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -8903,7 +8703,7 @@ exports[`Storyshots Notifications conflict_resolution_created 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -8922,7 +8722,7 @@ exports[`Storyshots Notifications conflict_resolution_created_about_you 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -8945,7 +8745,7 @@ exports[`Storyshots Notifications conflict_resolution_decided 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -8964,7 +8764,7 @@ exports[`Storyshots Notifications conflict_resolution_decided_about_you 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -8983,7 +8783,7 @@ exports[`Storyshots Notifications conflict_resolution_you_were_removed 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -9002,7 +8802,7 @@ exports[`Storyshots Notifications feedback_possible 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
 
       · Place 2
     </div>
@@ -9026,7 +8826,7 @@ exports[`Storyshots Notifications invitation_accepted 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -9049,7 +8849,7 @@ exports[`Storyshots Notifications new_applicant 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -9072,7 +8872,7 @@ exports[`Storyshots Notifications new_member 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -9091,7 +8891,7 @@ exports[`Storyshots Notifications new_place 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -9114,7 +8914,7 @@ exports[`Storyshots Notifications user_became_editor 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -9133,7 +8933,7 @@ exports[`Storyshots Notifications voting_ends_soon 1`] = `
       <div title="Dec 24, 2017, 2:00 PM" style="display:inline;">
         in about 2 hours
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -9152,7 +8952,7 @@ exports[`Storyshots Notifications you_became_editor 1`] = `
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">
         less than a minute ago
       </div>
-      · Group 27
+      · Group 30
       <!---->
     </div>
   </div>
@@ -9667,7 +9467,7 @@ exports[`Storyshots Profile member 1`] = `
   <div class="k-profile">
     <!---->
     <div class="row justify-end" style="margin-bottom:-32px;"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="fas fa-hand-pointer on-left"></i>
-  Group 41
+  Group 44
   <!----></span></span></button></div>
     <div class="photoAndName row no-wrap ellipsis">
       <div class="photo q-pa-sm q-ma-md bg-white shadow-4">
@@ -9683,7 +9483,7 @@ exports[`Storyshots Profile member 1`] = `
     </div>
     <div class="profile-info relative-position q-pt-sm q-card">
       <div class="user-actions">
-        <!----> <button tabindex="0" type="button" role="button" small="" title="Send a private message to User 172" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-comments q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" small="" title="Is there a conflict with User 172?" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-grey-8 text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-frown-open q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" title="Newcomer - 2 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating">
+        <!----> <button tabindex="0" type="button" role="button" small="" title="Send a private message to User 172" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-comments q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" small="" title="Is there a conflict with User 172?" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-grey-5 text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-frown-open q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" title="Newcomer - 2 more trust needed" class="q-btn q-btn-item non-selectable no-outline karrot-button q-btn--standard q-btn--round bg-white text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap small"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><svg viewBox="0 0 106 106" class="circle-progress"><path d="M 53,53 m 0,-47 a 47,47 0 1 1 0,94 a 47,47 0 1 1 0,-94" fill-opacity="0" stroke="currentColor" stroke-width="12px" stroke-linecap="round" class="text-primary" style="stroke-dasharray:295.31px, 295.31px;stroke-dashoffset:295.31px;transition:stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease;"></path></svg> <div role="alert" class="q-badge flex inline items-center no-wrap q-badge--single-line bg-negative q-badge--floating">
     1
   </div> <!----></span></span></button>
       </div>
@@ -9789,7 +9589,7 @@ exports[`Storyshots Profile non-member 1`] = `
         <div class="q-pa-sm" style="background-color:rgba(0, 0, 0, .1);"><i aria-hidden="true" role="presentation" class="text-white material-icons q-icon notranslate" style="font-size:24px;">priority_high</i></div>
       </div>
       <div class="q-banner__content col text-body2">
-        User 171 is not member of Group 41.
+        User 171 is not member of Group 44.
       </div>
     </div>
     <div class="row justify-end" style="margin-bottom:-32px;">

@@ -53,7 +53,10 @@
                   </QBtn>
                 </template>
                 <template #control>
-                  <div class="self-center full-width no-outline">
+                  <div
+                    class="self-center full-width no-outline"
+                    style="word-break: break-word; overflow-wrap: break-word;"
+                  >
                     {{ linkToCopy }}
                   </div>
                 </template>

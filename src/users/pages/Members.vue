@@ -35,7 +35,7 @@
                 {{ $t('GROUP.INVITATION_COPY_LINK') }}
               </div>
             </QCardSection>
-            <QCardSection class="q-py-md">
+            <QCardSection class="q-pt-none q-pb-sm">
               <QField filled>
                 <template #append>
                   <QBtn

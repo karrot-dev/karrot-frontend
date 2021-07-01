@@ -143,7 +143,7 @@
                           anchor="top middle"
                           self="bottom middle"
                         >
-                          {{ $t('CLICK_TO_COPY') }}
+                          {{ $t('URL_CLICK_TO_COPY') }}
                         </q-tooltip>
                       </QBtn>
                     </template>
@@ -424,7 +424,7 @@ export default {
     copyLink () {
       return copyToClipboard(this.icsUrl).then(() => {
         this.$store.dispatch('toasts/show', {
-          message: 'ACTIVITYLIST.ICS_DIALOG.SUBSCRIBE_URL_COPIED_TOAST',
+          message: 'URL_COPIED_TOAST',
         }, { root: true })
       })
     },

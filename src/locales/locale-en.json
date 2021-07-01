@@ -239,7 +239,6 @@
     "YES": "Yes",
     "READ_MORE": "Read more"
   },
-  "CLICK_TO_COPY": "Click to copy",
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
     "HEADER_LINK": "foodsaving worldwide community",
@@ -764,6 +763,8 @@
     "DETAIL": "A new version of karrot is available.",
     "RELOAD": "Reload"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "Account",
     "CONFIRM_PASSWORD": "Confirm your password",

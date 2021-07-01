@@ -48,7 +48,7 @@
                       anchor="top middle"
                       self="bottom middle"
                     >
-                      {{ $t('CLICK_TO_COPY') }}
+                      {{ $t('URL_CLICK_TO_COPY') }}
                     </q-tooltip>
                   </QBtn>
                 </template>
@@ -144,7 +144,11 @@ export default {
       }
     },
     copyLink () {
-      return copyToClipboard(this.linkToCopy)
+      return copyToClipboard(this.linkToCopy).then(() => {
+        this.$store.dispatch('toasts/show', {
+          message: 'URL_COPIED_TOAST',
+        }, { root: true })
+      })
     },
   },
 }

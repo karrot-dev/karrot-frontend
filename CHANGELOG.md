@@ -22,6 +22,9 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+### Fixed
+- ics export for individual activities was fixed in the mobile app @amengsk [#2400]
+
 ## [9.4.0] - 2021-06-24
 ### Changed
 - landingpage: reduce bundlesize for generated images @larzon83 [#2377]

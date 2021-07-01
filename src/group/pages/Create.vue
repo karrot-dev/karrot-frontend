@@ -7,6 +7,7 @@ export default connect({
     timezones: 'timezones/autocompleteData',
     allGroups: 'groups/all',
     status: 'groups/createStatus',
+    defaultMapCenter: 'geo/myCoordinates',
   },
   actionsToEvents: {
     save: 'groups/create',

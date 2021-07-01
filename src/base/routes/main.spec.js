@@ -126,7 +126,7 @@ describe('main routes', () => {
       router.addRoute({
         name: 'group',
         path: '/group/:groupId',
-      }),
+      })
       group = {
         id: getRandomId(),
         name: 'some group name',

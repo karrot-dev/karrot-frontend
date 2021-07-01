@@ -3,7 +3,13 @@ import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
 import GroupGallery from './GroupGalleryUI'
-import { groupsMock } from '>/mockdata'
+import { makeGroupInfo } from '>/enrichedFactories'
+
+const groups = [
+  makeGroupInfo({ memberCount: 20 }),
+  makeGroupInfo({ memberCount: 40 }),
+  makeGroupInfo({ memberCount: 60 }),
+]
 
 const defaultOn = {
   preview: action('view group preview'),
@@ -14,7 +20,7 @@ storiesOf('GroupGallery', module)
   .add('signup view', () => defaults({
     render: h => h(GroupGallery, {
       props: {
-        otherGroups: groupsMock,
+        otherGroups: groups,
       },
       on: defaultOn,
     }),
@@ -22,8 +28,11 @@ storiesOf('GroupGallery', module)
   .add('switch and explore', () => defaults({
     render: h => h(GroupGallery, {
       props: {
-        myGroups: groupsMock.slice(0, 3).map(g => ({ ...g, id: g.id * 10, isMember: true })),
-        otherGroups: groupsMock,
+        myGroups: [
+          makeGroupInfo({ isMember: true }),
+          makeGroupInfo({ isMember: true }),
+        ],
+        otherGroups: groups,
         isLoggedIn: true,
       },
       on: defaultOn,

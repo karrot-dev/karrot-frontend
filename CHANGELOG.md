@@ -21,6 +21,7 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+- activity-list: enable ics subscriptions for activities @amengsk @larzon83 [#2368]
 
 ## [9.4.0] - 2021-06-24
 ### Changed
@@ -41,7 +42,7 @@ Please document your changes in this format:
 - Added country code and timezone to geo ip info @nicksellen [#1134](https://github.com/yunity/karrot-backend/pull/1134)
 - API for revoking trust @pogopaule [#1133](https://github.com/yunity/karrot-backend/pull/1133)
 - API for calendar subscriptions @amengsk [#1132](https://github.com/yunity/karrot-backend/pull/1132)
-- frontend for ics export for activities @amengsk @larzon83 [#2321], [#2368]
+- add ics export for activities @amengsk @larzon83 [#2321]
 
 ### Changed
 - group: improve create/edit group form @larzon83 @layla19 @dpaque @pogopaule @brnsolikyl [#2306]

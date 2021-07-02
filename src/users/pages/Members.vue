@@ -20,19 +20,19 @@
           color="secondary"
           icon="fas fa-user-plus"
           :title="$t('GROUP.INVITE_TITLE')"
-          @click="inviteLink = true"
+          @click="inviteDialog = true"
         />
 
-        <QDialog v-model="inviteLink">
+        <QDialog v-model="inviteDialog">
           <QCard>
             <QCardSection>
               <div class="text-h6">
-                {{ $t('GROUP.INVITATION_LINK') }}
+                {{ $t('GROUP.INVITATION_DIALOG.TITLE') }}
               </div>
             </QCardSection>
             <QCardSection>
               <div>
-                {{ $t('GROUP.INVITATION_COPY_LINK') }}
+                {{ $t('GROUP.INVITATION_DIALOG.MESSAGE') }}
               </div>
             </QCardSection>
             <QCardSection class="q-pt-none q-pb-sm">
@@ -117,7 +117,7 @@ export default {
   data () {
     return {
       sorting: 'joinDate',
-      inviteLink: false,
+      inviteDialog: false,
     }
   },
   computed: {

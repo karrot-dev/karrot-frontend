@@ -22,7 +22,7 @@ Please document your changes in this format:
 
 ## [Unreleased]
 ### Changed
-- remove invitation by e-mail at members page and substitute it for a group link to be copied @brnsolikyl [#2349]
+- Remove invitation by e-mail at members page @brnsolikyl [#2349]
 
 ## [9.4.0] - 2021-06-24
 ### Changed

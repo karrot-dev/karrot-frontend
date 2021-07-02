@@ -14,20 +14,61 @@
           :title="$t(sorting === 'joinDate' ? 'GROUP.SORT_NAME' : 'GROUP.SORT_JOINDATE')"
           @click="toggleSorting"
         />
-        <RouterLink
-          v-if="isEditor"
-          :to="{name: 'groupInvitations', params: { groupId }}"
-        >
-          <QBtn
-            small
-            round
-            color="secondary"
-            icon="fas fa-user-plus"
-            :title="$t('GROUP.INVITE_TITLE')"
-          />
-        </RouterLink>
+        <QBtn
+          small
+          round
+          color="secondary"
+          icon="fas fa-user-plus"
+          :title="$t('GROUP.INVITE_TITLE')"
+          @click="inviteDialog = true"
+        />
+
+        <CustomDialog v-model="inviteDialog">
+          <template #title>
+            {{ $t('GROUP.INVITATION_DIALOG.TITLE') }}
+          </template>
+          <template #message>
+            <p>{{ $t('GROUP.INVITATION_DIALOG.MESSAGE') }}</p>
+
+            <QField filled>
+              <template #append>
+                <QBtn
+                  flat
+                  rounded
+                  icon="fas fa-copy"
+                  @click="copyLink"
+                >
+                  <q-tooltip
+                    anchor="top middle"
+                    self="bottom middle"
+                  >
+                    {{ $t('URL_CLICK_TO_COPY') }}
+                  </q-tooltip>
+                </QBtn>
+              </template>
+              <template #control>
+                <div
+                  class="self-center full-width no-outline"
+                  style="word-break: break-word; overflow-wrap: break-word;"
+                >
+                  {{ linkToCopy }}
+                </div>
+              </template>
+            </QField>
+          </template>
+          <template #actions>
+            <QBtn
+              v-close-popup
+              flat
+              color="primary"
+              autofocus
+              :label="$t('BUTTON.CLOSE')"
+            />
+          </template>
+        </CustomDialog>
       </div>
     </div>
+
     <KSpinner v-show="fetchStatus.pending" />
     <UserList
       class="q-pt-md"
@@ -41,9 +82,12 @@
 
 <script>
 import {
+  copyToClipboard,
   QCard,
+  QField,
   QBtn,
 } from 'quasar'
+import CustomDialog from '@/utils/components/CustomDialog'
 import UserList from '@/users/components/UserList'
 import RandomArt from '@/utils/components/RandomArt'
 import KSpinner from '@/utils/components/KSpinner'
@@ -58,12 +102,15 @@ export default {
     RandomArt,
     UserList,
     KSpinner,
+    CustomDialog,
     QCard,
+    QField,
     QBtn,
   },
   data () {
     return {
       sorting: 'joinDate',
+      inviteDialog: false,
     }
   },
   computed: {
@@ -75,6 +122,9 @@ export default {
     }),
     groupId () {
       return this.group && this.group.id
+    },
+    linkToCopy () {
+      return window.location.protocol + '//' + window.location.host + '/#/groupPreview/' + this.group.id
     },
   },
   methods: {
@@ -88,6 +138,13 @@ export default {
       else {
         this.sorting = 'joinDate'
       }
+    },
+    copyLink () {
+      return copyToClipboard(this.linkToCopy).then(() => {
+        this.$store.dispatch('toasts/show', {
+          message: 'URL_COPIED_TOAST',
+        }, { root: true })
+      })
     },
   },
 }

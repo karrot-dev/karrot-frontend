@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- Remove invitation by e-mail at members page @brnsolikyl [#2349]
 
 ## [9.4.0] - 2021-06-24
 ### Changed

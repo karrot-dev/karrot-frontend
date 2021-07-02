@@ -342,7 +342,7 @@
     "GENERIC_ERROR": "Lo sentimos, algo ha ido mal",
     "GITHUB_NOTE": "Desarrollo",
     "INVALID_LINK": "Lo sentimos, el enlace que has abierto no es válido.",
-    "LOGO_ALT": "karrot logo",
+    "LOGO_ALT": "logo de karrot",
     "NOT_CONNECTED": "No estás conenctado al servidor",
     "OFFLINE_RECONNECT": "Sin conectar. Por favor presiona aquí para reconectar.",
     "RECONNECTING": "Reconectando...",
@@ -486,7 +486,7 @@
     "STORE_CREATE": "creó el lugar {name}",
     "STORE_DELETE": "eliminó el lugar{name}",
     "STORE_MODIFY": "cambió los ajustes del lugar {name}",
-    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
+    "USER_LOST_EDITOR_ROLE": "permisos de redacción perdidos"
   },
   "INACTIVITY": {
     "HELP": "Toda persona que no se ha conectado a un grupo en {dayCount}días o más se considera como inactiva. Dichas cuentas pasa a no recibir notificaciones por correo electrónico.",

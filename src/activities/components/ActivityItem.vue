@@ -210,7 +210,7 @@ export default {
     icsUrl () {
       // host added to the ICS url so that it still works in Cordova
       // see https://github.com/yunity/karrot-frontend/issues/2400
-      return `${window.location.origin}/api/activities/${this.activity.id}/ics/`;
+      return `${window.location.origin}/api/activities/${this.activity.id}/ics/`
     },
   },
   methods: {

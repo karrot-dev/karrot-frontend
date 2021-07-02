@@ -23,54 +23,56 @@
           @click="inviteDialog = true"
         />
 
-        <QDialog v-model="inviteDialog">
-          <QCard>
-            <QCardSection>
-              <div class="text-h6">
-                {{ $t('GROUP.INVITATION_DIALOG.TITLE') }}
-              </div>
-            </QCardSection>
-            <QCardSection>
-              <div>
-                {{ $t('GROUP.INVITATION_DIALOG.MESSAGE') }}
-              </div>
-            </QCardSection>
-            <QCardSection class="q-pt-none q-pb-sm">
-              <QField filled>
-                <template #append>
-                  <QBtn
-                    flat
-                    rounded
-                    icon="fas fa-copy"
-                    @click="copyLink"
+        <CustomDialog
+          v-model="inviteDialog"
+          width="500px"
+          actionsalign="between"
+        >
+          <template #title>
+            {{ $t('GROUP.INVITATION_DIALOG.TITLE') }}
+          </template>
+          <template #message>
+            {{ $t('GROUP.INVITATION_DIALOG.MESSAGE') }}
+
+            <QField
+              filled
+              class="q-mt-md"
+            >
+              <template #append>
+                <QBtn
+                  flat
+                  rounded
+                  icon="fas fa-copy"
+                  @click="copyLink"
+                >
+                  <q-tooltip
+                    anchor="top middle"
+                    self="bottom middle"
                   >
-                    <q-tooltip
-                      anchor="top middle"
-                      self="bottom middle"
-                    >
-                      {{ $t('URL_CLICK_TO_COPY') }}
-                    </q-tooltip>
-                  </QBtn>
-                </template>
-                <template #control>
-                  <div
-                    class="self-center full-width no-outline"
-                    style="word-break: break-word; overflow-wrap: break-word;"
-                  >
-                    {{ linkToCopy }}
-                  </div>
-                </template>
-              </QField>
-            </QCardSection>
-            <QCardSection align="right">
-              <QBtn
-                v-close-popup
-                flat
-                :label="$t('BUTTON.CLOSE')"
-              />
-            </QCardSection>
-          </QCard>
-        </QDialog>
+                    {{ $t('URL_CLICK_TO_COPY') }}
+                  </q-tooltip>
+                </QBtn>
+              </template>
+              <template #control>
+                <div
+                  class="self-center full-width no-outline"
+                  style="word-break: break-word; overflow-wrap: break-word;"
+                >
+                  {{ linkToCopy }}
+                </div>
+              </template>
+            </QField>
+          </template>
+          <template #actions>
+            <QBtn
+              v-close-popup
+              flat
+              color="primary"
+              autofocus
+              :label="$t('BUTTON.CLOSE')"
+            />
+          </template>
+        </CustomDialog>
       </div>
     </div>
 
@@ -89,11 +91,10 @@
 import {
   copyToClipboard,
   QCard,
-  QCardSection,
-  QDialog,
   QField,
   QBtn,
 } from 'quasar'
+import CustomDialog from '@/utils/components/CustomDialog'
 import UserList from '@/users/components/UserList'
 import RandomArt from '@/utils/components/RandomArt'
 import KSpinner from '@/utils/components/KSpinner'
@@ -108,9 +109,8 @@ export default {
     RandomArt,
     UserList,
     KSpinner,
+    CustomDialog,
     QCard,
-    QCardSection,
-    QDialog,
     QField,
     QBtn,
   },

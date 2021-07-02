@@ -23,21 +23,14 @@
           @click="inviteDialog = true"
         />
 
-        <CustomDialog
-          v-model="inviteDialog"
-          width="500px"
-          actionsalign="between"
-        >
+        <CustomDialog v-model="inviteDialog">
           <template #title>
             {{ $t('GROUP.INVITATION_DIALOG.TITLE') }}
           </template>
           <template #message>
-            {{ $t('GROUP.INVITATION_DIALOG.MESSAGE') }}
+            <p>{{ $t('GROUP.INVITATION_DIALOG.MESSAGE') }}</p>
 
-            <QField
-              filled
-              class="q-mt-md"
-            >
+            <QField filled>
               <template #append>
                 <QBtn
                   flat

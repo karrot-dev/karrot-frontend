@@ -382,6 +382,10 @@
     "INVITATIONS": "Invitoj",
     "INVITATION_ACCEPT_ERROR": "Ho ve, la invito ne estis akceptita!",
     "INVITATION_ACCEPT_SUCCESS": "Bonvenon! Vi sukcese akceptis la inviton.",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "Invitoj jam estis senditaj al tiuj ĉi retadresoj:",
     "INVITE_EMAIL": "Metu vian retadreson",
     "INVITE_SEND": "Sendi invitojn",
@@ -761,6 +765,8 @@
     "DETAIL": "Novan version de Karrot disponeblas.",
     "RELOAD": "Reŝarĝi"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "Konto",
     "CONFIRM_PASSWORD": "Konfirmi vian pasvorton",

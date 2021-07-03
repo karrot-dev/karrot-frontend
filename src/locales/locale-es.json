@@ -382,6 +382,10 @@
     "INVITATIONS": "Invitaciones",
     "INVITATION_ACCEPT_ERROR": "Ooops, no se ha podido aceptar la invitación!",
     "INVITATION_ACCEPT_SUCCESS": "Bienvenid@! Has acceptado la invitación. ",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "Ya se enviaron invitaciones a los siguientes correos electrónicos: ",
     "INVITE_EMAIL": "Introducir un correo electrónico",
     "INVITE_SEND": "Enviar invitación",
@@ -761,6 +765,8 @@
     "DETAIL": "Una nueva versión de Karrot está disponible",
     "RELOAD": "Recargar"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "Cuenta",
     "CONFIRM_PASSWORD": "Confirma tu contraseña",

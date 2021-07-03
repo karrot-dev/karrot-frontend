@@ -382,6 +382,10 @@
     "INVITATIONS": "Meghívók",
     "INVITATION_ACCEPT_ERROR": "Hoppá, nem sikerült elfogadni a meghívót!",
     "INVITATION_ACCEPT_SUCCESS": "Üdv! Sikeresen elfogadtad a meghívót",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "Meghívók már ki lettek küldve a következő email címekre:",
     "INVITE_EMAIL": "Írj be egy email címet",
     "INVITE_SEND": "Meghívó küldése",
@@ -761,6 +765,8 @@
     "DETAIL": "A Karrot új verziója elérhető.",
     "RELOAD": "Újratöltés"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "Fiók",
     "CONFIRM_PASSWORD": "Jelszó megerősítése",

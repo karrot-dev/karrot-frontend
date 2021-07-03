@@ -382,6 +382,10 @@
     "INVITATIONS": "Zaproszenia",
     "INVITATION_ACCEPT_ERROR": "Ups, nie możesz przyjąć tego zaproszenia!",
     "INVITATION_ACCEPT_SUCCESS": "Witamy! Przyjęłaś/-łeś zaproszenie.",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "Na te adresy e-mail już wcześniej wysłano zaproszenia:",
     "INVITE_EMAIL": "Wprowadź adres e-mail",
     "INVITE_SEND": "Wyślij zaproszenie",
@@ -761,6 +765,8 @@
     "DETAIL": "Nowa wersja karrota jest dostępna do pobrania.",
     "RELOAD": "Odśwież"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "Konto",
     "CONFIRM_PASSWORD": "Potwierdź hasło",

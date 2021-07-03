@@ -382,6 +382,10 @@
     "INVITATIONS": "આમંત્રણો",
     "INVITATION_ACCEPT_ERROR": "અરે, આમંત્રણ સ્વીકારી શક્યા નથી!",
     "INVITATION_ACCEPT_SUCCESS": "સ્વાગત છે! તમે સફળતાપૂર્વક આમંત્રણ સ્વીકાર્યું છે.",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "આમંત્રણો આ ઈ-મેલ સરનામાં પર પહેલાથી મોકલવામાં આવ્યા છે:",
     "INVITE_EMAIL": "ઈ-મેલ સરનામું દાખલ કરો",
     "INVITE_SEND": "આમંત્રણ મોકલો",
@@ -761,6 +765,8 @@
     "DETAIL": "A new version of karrot is available.",
     "RELOAD": "Reload"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "Account",
     "CONFIRM_PASSWORD": "Confirm your password",

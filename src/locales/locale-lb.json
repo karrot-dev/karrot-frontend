@@ -382,6 +382,10 @@
     "INVITATIONS": "Aluedungen",
     "INVITATION_ACCEPT_ERROR": "Ups, d'Aluedung konnt net ugeholl ginn!",
     "INVITATION_ACCEPT_SUCCESS": "Wëllkomm! Du hues d'Aluedung erfollegräich ugeholl.",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "Aluedungen si schonn u folgend E-Mail-Adresse verschéckt ginn:",
     "INVITE_EMAIL": "Gëff eng E-Mail-Adress an",
     "INVITE_SEND": "Aluedung schécken",
@@ -761,6 +765,8 @@
     "DETAIL": "Et gëtt eng nei Versioun vu karrot.",
     "RELOAD": "Nei lueden"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "Konto",
     "CONFIRM_PASSWORD": "Bestäteg däi Passwuert",

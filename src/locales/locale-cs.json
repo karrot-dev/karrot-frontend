@@ -382,6 +382,10 @@
     "INVITATIONS": "Pozvánky",
     "INVITATION_ACCEPT_ERROR": "Jejda, nemohl jsem přijmout pozvání!",
     "INVITATION_ACCEPT_SUCCESS": "Vítejte! Pozvánku jste úspěšně přijali.",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "Pozvánky již byly rozeslány na tyto e-mailové adresy:",
     "INVITE_EMAIL": "Zadejte e-mailovou adresu",
     "INVITE_SEND": "Poslat pozvánku",
@@ -761,6 +765,8 @@
     "DETAIL": "K dispozici je nová verze karot.",
     "RELOAD": "Obnovit"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "Účet",
     "CONFIRM_PASSWORD": "Potvrzení hesla",

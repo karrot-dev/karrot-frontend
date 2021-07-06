@@ -21,7 +21,14 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
 - activity-list: enable ics subscriptions for activities @amengsk @larzon83 [#2368]
+
+### Changed
+- Remove invitation by e-mail at members page @brnsolikyl [#2349]
+
+### Fixed
+- add explicit host in ics url @amengsk [#2406]
 
 ## [9.4.0] - 2021-06-24
 ### Changed

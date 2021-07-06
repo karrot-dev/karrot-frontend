@@ -392,6 +392,10 @@
     "INVITATIONS": "Invitations",
     "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
     "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
     "INVITE_EMAIL": "Enter an e-mail address",
     "INVITE_SEND": "Send invitation",

@@ -131,7 +131,7 @@
     >
       <QBtn
         v-if="activity.isUserMember"
-        :href="`/api/activities/${activity.id}/ics/`"
+        :href="icsUrl"
         flat
         no-caps
         type="a"
@@ -205,6 +205,13 @@ export default {
       joinDialog: false,
       leaveDialog: false,
     }
+  },
+  computed: {
+    icsUrl () {
+      // host added to the ICS url so that it still works in Cordova
+      // see https://github.com/yunity/karrot-frontend/issues/2400
+      return `${window.location.origin}/api/activities/${this.activity.id}/ics/`
+    },
   },
   methods: {
     join () {

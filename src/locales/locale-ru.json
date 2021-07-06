@@ -382,6 +382,10 @@
     "INVITATIONS": "Приглашения",
     "INVITATION_ACCEPT_ERROR": "Упс, не удалось принять приглашение!",
     "INVITATION_ACCEPT_SUCCESS": "Добро пожаловать! Вы приняли приглашение.",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
     "INVITE_EMAIL": "Enter an e-mail address",
     "INVITE_SEND": "Send invitation",
@@ -761,6 +765,8 @@
     "DETAIL": "A new version of karrot is available.",
     "RELOAD": "Reload"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "Аккаунт",
     "CONFIRM_PASSWORD": "Подтвердить пароль",

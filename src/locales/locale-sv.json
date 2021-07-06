@@ -382,6 +382,10 @@
     "INVITATIONS": "Inbjudningar",
     "INVITATION_ACCEPT_ERROR": "Oj, kunde inte acceptera inbjudan!",
     "INVITATION_ACCEPT_SUCCESS": "Välkommen! Du har accepterat inbjudan.",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "Inbjudningar har redan skickats till följande mejladresser:",
     "INVITE_EMAIL": "Ange mejladress",
     "INVITE_SEND": "Skicka inbjudan",
@@ -761,6 +765,8 @@
     "DETAIL": "En ny version av Karrot finns tillgänglig.",
     "RELOAD": "Ladda om"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "Konto",
     "CONFIRM_PASSWORD": "Bekräfta ditt lösenord",

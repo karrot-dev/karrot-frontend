@@ -342,7 +342,7 @@
     "GENERIC_ERROR": "Pardonon sed io ne bone funkciis",
     "GITHUB_NOTE": "Ellaboro",
     "INVALID_LINK": "Pardonon, la ligilo ne validas.",
-    "LOGO_ALT": "karrot logo",
+    "LOGO_ALT": "Logotipo de karrot",
     "NOT_CONNECTED": "Vi ne estas konektita al la servilo",
     "OFFLINE_RECONNECT": "Malkonektita. Premu ĉi tiun por rekonektiĝi",
     "RECONNECTING": "Rekonektanta...",
@@ -382,6 +382,10 @@
     "INVITATIONS": "Invitoj",
     "INVITATION_ACCEPT_ERROR": "Ho ve, la invito ne estis akceptita!",
     "INVITATION_ACCEPT_SUCCESS": "Bonvenon! Vi sukcese akceptis la inviton.",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "Invitoj jam estis senditaj al tiuj ĉi retadresoj:",
     "INVITE_EMAIL": "Metu vian retadreson",
     "INVITE_SEND": "Sendi invitojn",
@@ -486,7 +490,7 @@
     "STORE_CREATE": "loko kreita{name}",
     "STORE_DELETE": "forigita loko {name}",
     "STORE_MODIFY": "ŝanĝis la agordojn de la loko {name}",
-    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
+    "USER_LOST_EDITOR_ROLE": "Perditaj redaktpermesoj"
   },
   "INACTIVITY": {
     "HELP": "Ĉiuj kiuj ne ensalutis en la grupo dum {dayCount}aŭ pli da tagoj sinsekve malaktiviĝas. Tiuj uzantoj ne plu ricevos sciigojn retmesaĝe.",
@@ -761,6 +765,8 @@
     "DETAIL": "Novan version de Karrot disponeblas.",
     "RELOAD": "Reŝarĝi"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "Konto",
     "CONFIRM_PASSWORD": "Konfirmi vian pasvorton",

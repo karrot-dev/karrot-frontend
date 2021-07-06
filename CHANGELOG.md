@@ -24,6 +24,9 @@ Please document your changes in this format:
 ### Changed
 - Remove invitation by e-mail at members page @brnsolikyl [#2349]
 
+### Fixed
+- add explicit host in ics url @amengsk [#2406]
+
 ## [9.4.0] - 2021-06-24
 ### Changed
 - landingpage: reduce bundlesize for generated images @larzon83 [#2377]

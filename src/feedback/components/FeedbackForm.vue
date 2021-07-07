@@ -4,7 +4,8 @@
   >
     <MarkdownInput
       v-model="edit.comment"
-      class="q-mx-sm"
+      outlined
+      class="q-mx-md q-mt-md"
       :label="$t('ACTIVITY_FEEDBACK.COMMENT_PLACEHOLDER')"
       @keyup.ctrl.enter="maybeSave"
     />
@@ -12,13 +13,12 @@
     <AmountPicker
       v-if="hasWeight"
       v-model="edit.weight"
-      class="q-ml-sm"
-      style="margin-top: 40px"
+      class="q-mx-md q-mt-xl q-mb-lg"
     />
 
     <div
       v-if="hasWeight && hasMultipleParticipants"
-      class="row no-wrap items-center q-mx-sm text-caption"
+      class="row no-wrap items-center q-mx-sm q-mt-sm text-caption"
     >
       <QIcon
         name="info"
@@ -30,8 +30,8 @@
 
     <div
       v-if="hasAnyError"
-      class="text-negative"
-      style="margin-top: 3em"
+      class="text-negative q-mx-md"
+      style="margin-top: 1.5em"
     >
       <i class="fas fa-exclamation-triangle" />
       {{ anyFirstError }}

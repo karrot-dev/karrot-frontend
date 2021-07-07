@@ -52,6 +52,7 @@ Please document your changes in this format:
 - API for calendar subscriptions @amengsk [#1132](https://github.com/yunity/karrot-backend/pull/1132)
 
 ### Changed
+- amount-picker: improve UX of weight slider limits @larzon83 @layla19 @dpaque @pogopaule [#2348]
 - group: improve create/edit group form @larzon83 @layla19 @dpaque @pogopaule @brnsolikyl [#2306]
 - landingpage: improve design @larzon83 [#2340]
 - Landing page: change text and screenshots, add "about Karrot" component @brnsolikyl [#2317]

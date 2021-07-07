@@ -5457,40 +5457,21 @@ exports[`Storyshots Feedback AmountBox 1`] = `
 exports[`Storyshots Feedback AmountPicker 1`] = `
 <div class="wrapper">
   <!---->
-  <div class="content">
-    <div class="row no-wrap">
-      <div class="container amount" style="width:100px;height:100px;"><img width="100px" height="100px" src="test-file-stub"> <img width="12px" height="19.200000000000003px" src="test-file-stub" class="pointer" style="transform:rotate(-47deg);top:10px;">
-        <div class="text-bottom" style="bottom:5px;"><span style="font-size:23px;">
-        1.0
-      </span> <span style="font-size:14px;">kg</span></div>
-      </div>
-      <div class="col" style="margin-left:.6em;">
-        <div class="q-pb-sm"></div>
-        <div class="wrapper row no-wrap ellipsis"><img src="test-file-stub"></div>
-      </div> <button tabindex="0" type="button" role="button" title="Delete amount" class="q-btn q-btn-item non-selectable no-outline self-start q-btn--flat q-btn--round text-red q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-times q-icon notranslate"> </i></span></span></button>
+  <div class="content column no-wrap q-pl-lg q-pb-lg">
+    <div class="row no-wrap items-center justify-between q-pt-xs">
+      <div class="col-9 text-bold q-py-md"></div> <button tabindex="0" type="button" role="button" title="Delete amount" class="q-btn q-btn-item non-selectable no-outline self-center q-my-xs q-mr-sm q-btn--flat q-btn--round text-red q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-times q-icon notranslate"> </i></span></span></button>
     </div>
-    <div class="row no-wrap">
-      <div role="slider" aria-valuemin="0" aria-valuemax="70" aria-orientation="horizontal" data-step="0.5" aria-valuenow="1" tabindex="0" class="self-center q-mx-md q-slider q-slider--h q-slider--inactive q-slider--enabled q-slider--editable q-slider--label">
-        <div class="q-slider__track-container q-slider__track-container--h absolute">
-          <div class="q-slider__track q-slider__track--h absolute" style="left:0;width:1.4285714285714286%;"></div>
-        </div>
-        <div class="q-slider__thumb-container q-slider__thumb-container--h absolute non-selectable" style="left:1.4285714285714286%;"><svg focusable="false" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" class="q-slider__thumb absolute">
-            <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
-          </svg>
-          <div class="q-slider__focus-ring"></div>
-          <div class="q-slider__pin q-slider__pin--h absolute" style="transform-origin:calc(100% - 10px) 50%;">
-            <div class="q-slider__pin-text-container q-slider__pin-text-container--h" style="right:-98.57142857142858%;transform:translateX(-19px);"><span class="q-slider__pin-text q-slider__pin-value-marker-text">1</span></div>
-          </div>
-          <div class="q-slider__arrow q-slider__arrow--h"></div>
-        </div>
-      </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-mr-md q-input q-field--standard q-field--float q-validation-component">
+    <div class="content-body row no-wrap items-center"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-pr-lg q-input q-field--outlined q-field--float q-validation-component">
         <div class="q-field__inner relative-position col self-stretch">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" size="4" id="f_80808080-8080-4080-8080-808080808080" type="text" value="1" class="q-field__native q-placeholder"></div>
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" inputmode="decimal" min="0" step="0.1" size="8" id="f_80808080-8080-4080-8080-808080808080" type="number" value="1" class="q-field__native q-placeholder"></div>
             <div class="q-field__append q-field__marginal row no-wrap items-center"><span class="text-caption">kg</span></div>
           </div>
         </div>
       </label>
+      <div class="col q-ml-md">
+        <div class="wrapper row no-wrap ellipsis"><img src="test-file-stub"></div>
+      </div>
     </div>
   </div>
 </div>

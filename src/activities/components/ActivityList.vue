@@ -81,7 +81,7 @@
                 avatar
                 top
               >
-                <q-avatar
+                <QAvatar
                   color="primary"
                   text-color="white"
                   icon="file_download"
@@ -105,7 +105,7 @@
               </QItemSection>
             </QItem>
 
-            <q-separator
+            <QSeparator
               spaced
               style="margin-left: 56px;"
             />
@@ -115,7 +115,7 @@
                 avatar
                 top
               >
-                <q-avatar
+                <QAvatar
                   color="primary"
                   text-color="white"
                   icon="sync"

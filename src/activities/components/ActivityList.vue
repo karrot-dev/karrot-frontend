@@ -65,7 +65,7 @@
       <CustomDialog
         v-model="icsDialog"
         width="500px"
-        actionsalign="between"
+        actions-align="between"
       >
         <template #title>
           {{ $t('ACTIVITYLIST.ICS_DIALOG.TITLE') }}

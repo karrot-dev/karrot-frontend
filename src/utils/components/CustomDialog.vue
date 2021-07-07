@@ -13,7 +13,7 @@
       <QCardSection class="q-dialog__message">
         <slot name="message" />
       </QCardSection>
-      <QCardActions :align="$attrs.actionsalign ? $attrs.actionsalign : 'right'">
+      <QCardActions :align="$attrs['actions-align'] ? $attrs['actions-align'] : 'right'">
         <slot name="actions" />
       </QCardActions>
     </QCard>

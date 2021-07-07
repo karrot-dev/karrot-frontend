@@ -62,6 +62,18 @@
               width="20px"
             >
           </QBtn>
+          <QBtn
+            v-if="trusted && !user.isCurrentUser"
+            color="negative"
+            :loading="membership.revokeTrustStatus.pending"
+            @click="showRevokeTrustDialog"
+          >
+            <span class="q-mr-xs">-</span>
+            <img
+              :src="trustIcon"
+              width="20px"
+            >
+          </QBtn>
         </QCardActions>
       </QCard>
     </QDialog>
@@ -198,6 +210,14 @@ export default {
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.OF_COURSE'),
       }).onOk(() => this.$emit('create-trust', this.user.id))
+    },
+    showRevokeTrustDialog () {
+      Dialog.create({
+        title: this.$t('USERDATA.DIALOGS.REVOKE_TRUST.TITLE'),
+        message: this.$t('USERDATA.DIALOGS.REVOKE_TRUST.MESSAGE', { userName: this.user.displayName, groupName: this.group.name }),
+        cancel: this.$t('BUTTON.CANCEL'),
+        ok: this.$t('BUTTON.YES'),
+      }).onOk(() => this.$emit('revoke-trust', this.user.id))
     },
   },
 }

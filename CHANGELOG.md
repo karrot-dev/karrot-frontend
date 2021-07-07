@@ -23,6 +23,7 @@ Please document your changes in this format:
 ## [Unreleased]
 ### Added
 - activity-list: enable ics subscriptions for activities @amengsk @larzon83 [#2368]
+- Users can revoke trust @pogopaule [#2352]
 
 ### Changed
 - Remove invitation by e-mail at members page @brnsolikyl [#2349]
@@ -34,6 +35,7 @@ Please document your changes in this format:
 ### Changed
 - landingpage: reduce bundlesize for generated images @larzon83 [#2377]
 - use geo ip for edit/create group default map location @nicksellen [#2396]
+- implement more activity statistics @nicksellen [#2364]
 
 ### Fixed
 - place-header: correctly display linear-gradient in Safari @larzon83 [#2372]
@@ -52,6 +54,7 @@ Please document your changes in this format:
 - add ics export for activities @amengsk @larzon83 [#2321]
 
 ### Changed
+- amount-picker: improve UX of weight slider limits @larzon83 @layla19 @dpaque @pogopaule [#2348]
 - group: improve create/edit group form @larzon83 @layla19 @dpaque @pogopaule @brnsolikyl [#2306]
 - landingpage: improve design @larzon83 [#2340]
 - Landing page: change text and screenshots, add "about Karrot" component @brnsolikyl [#2317]

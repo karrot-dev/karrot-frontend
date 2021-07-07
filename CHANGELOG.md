@@ -21,6 +21,9 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Users can revoke trust @pogopaule [#2352]
+
 ### Changed
 - Remove invitation by e-mail at members page @brnsolikyl [#2349]
 

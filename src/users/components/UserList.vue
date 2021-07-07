@@ -25,6 +25,7 @@
         :user="user"
         :group="group"
         @create-trust="$emit('create-trust', arguments[0])"
+        @revoke-trust="$emit('revoke-trust', arguments[0])"
       />
       <QSeparator />
       <QExpansionItem
@@ -66,6 +67,7 @@
             :group="group"
             class="inactive"
             @create-trust="$emit('create-trust', arguments[0])"
+            @revoke-trust="$emit('revoke-trust', arguments[0])"
           />
         </template>
       </QExpansionItem>

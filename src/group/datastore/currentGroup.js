@@ -47,7 +47,7 @@ export default {
           trusted: membership.trustedBy.includes(authUserId),
           trustProgress: isEditor ? 1 : membership.trustedBy.length / trustThresholdForNewcomer,
           trustThresholdForNewcomer,
-          ...metaStatusesWithId(getters, ['trustUser'], parseInt(userId)),
+          ...metaStatusesWithId(getters, ['trustUser', 'revokeTrust'], parseInt(userId)),
         }
         return obj
       }, {})
@@ -94,8 +94,15 @@ export default {
       },
 
       async trustUser ({ getters }, userId) {
-        if (!getters.id) return
-        await groups.trustUser(getters.id, userId)
+        if (getters.id) {
+          await groups.trustUser(getters.id, userId)
+        }
+      },
+
+      async revokeTrust ({ getters }, userId) {
+        if (getters.id) {
+          await groups.revokeTrust(getters.id, userId)
+        }
       },
 
     }),

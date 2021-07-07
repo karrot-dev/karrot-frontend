@@ -781,6 +781,10 @@
         "MESSAGE": "Do you trust {userName} in {groupName}?",
         "TITLE": "Trust user"
       },
+      "REVOKE_TRUST": {
+        "MESSAGE": "Do you want to revoke the trust you have given to {userName} in {groupName}?",
+        "TITLE": "Revoke trust"
+      },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "Confirm",
         "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",

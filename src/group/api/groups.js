@@ -72,6 +72,10 @@ export default {
   trustUser (groupId, userId) {
     return axios.post(`/api/groups/${groupId}/users/${userId}/trust/`)
   },
+
+  revokeTrust (groupId, userId) {
+    return axios.delete(`/api/groups/${groupId}/users/${userId}/trust/`)
+  },
 }
 
 export function convert (val) {

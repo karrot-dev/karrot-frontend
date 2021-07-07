@@ -31,6 +31,7 @@ Please document your changes in this format:
 ### Changed
 - landingpage: reduce bundlesize for generated images @larzon83 [#2377]
 - use geo ip for edit/create group default map location @nicksellen [#2396]
+- implement more activity statistics @nicksellen [#2364]
 
 ### Fixed
 - place-header: correctly display linear-gradient in Safari @larzon83 [#2372]

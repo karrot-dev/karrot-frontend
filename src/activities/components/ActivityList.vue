@@ -258,6 +258,7 @@ import bindRoute from '@/utils/mixins/bindRoute'
 
 import {
   copyToClipboard,
+  QAvatar,
   QField,
   QSelect,
   QInfiniteScroll,
@@ -268,6 +269,7 @@ import {
   QList,
   QBanner,
   QBtn,
+  QSeparator,
 } from 'quasar'
 
 const NUM_ACTIVITIES_PER_LOAD = 25
@@ -275,6 +277,7 @@ const NUM_ACTIVITIES_PER_LOAD = 25
 export default {
   components: {
     CustomDialog,
+    QAvatar,
     QInfiniteScroll,
     ActivityItem,
     KSpinner,
@@ -287,6 +290,7 @@ export default {
     QList,
     QBanner,
     QBtn,
+    QSeparator,
   },
   mixins: [
     bindRoute({

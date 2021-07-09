@@ -106,7 +106,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Közelgő tevékenységek ebben az sorozatban"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "A megmentett étel mennyisége (kilóban)",
+    "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "A helystatisztikához összeadjuk az összes visszajelzést.",
     "COMMENT_PLACEHOLDER": "Minden rendben volt? Mindenki eljött? Ide írhatod az észrevételeidet...",
     "DELETE_AMOUNT": "Mennyiség törlése",
@@ -699,10 +699,16 @@
     "FILTER_TIME_FOREVER": "Mindenkori",
     "COLUMN_PLACE": "Hely",
     "COLUMN_ACTIVITY_DONE": "Teljesítette",
-    "COLUMN_ACTIVITY_LEFT": "Távozott",
-    "COLUMN_ACTIVITY_LEFT_LATE": "Későn távozott",
+    "COLUMN_ACTIVITY_MISSED": "Missed",
+    "COLUMN_ACTIVITY_LEFT": "Withdrew",
+    "COLUMN_FEEDBACK": "Feedback",
     "COLUMN_FEEDBACK_WEIGHT": "Súly",
-    "TOTAL_LABEL": "Összesen"
+    "TOTAL_LABEL": "Összesen",
+    "OPTIONS_ANY": "Any",
+    "OPTIONS_MISSED_LABEL": "Missed",
+    "OPTIONS_MISSED_DESCRIPTION": "Only if the activity was missed",
+    "OPTIONS_LATE_LABEL": "Late",
+    "OPTIONS_LATE_DESCRIPTION": "Only if less than 24 hours before"
   },
   "STOREDETAIL": {
     "ARCHIVED": "Ez a hely archiválva lett",
@@ -774,6 +780,10 @@
       "GIVE_TRUST": {
         "MESSAGE": "Megbízol {userName} felhasználóban a {groupName} csoportban?",
         "TITLE": "Felhasználó megbízása"
+      },
+      "REVOKE_TRUST": {
+        "MESSAGE": "Do you want to revoke the trust you have given to {userName} in {groupName}?",
+        "TITLE": "Revoke trust"
       },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "Megerősítés",

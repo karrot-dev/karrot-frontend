@@ -106,7 +106,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "भोजन की मात्रा जिसे आप बचाने में सक्षम थे (किलो में)",
+    "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "स्थान आंकड़ों के लिए, हम सभी प्रतिक्रियाँओ की राशि को एक साथ जोड़ देंगे।",
     "COMMENT_PLACEHOLDER": "क्या सब कुछ ठीक था? क्या सभी लोग आये थे? आपकी टिप्पणी यहां दे...",
     "DELETE_AMOUNT": "राशि हटाएं",
@@ -699,10 +699,16 @@
     "FILTER_TIME_FOREVER": "Forever",
     "COLUMN_PLACE": "Place",
     "COLUMN_ACTIVITY_DONE": "Done",
-    "COLUMN_ACTIVITY_LEFT": "Left",
-    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
+    "COLUMN_ACTIVITY_MISSED": "Missed",
+    "COLUMN_ACTIVITY_LEFT": "Withdrew",
+    "COLUMN_FEEDBACK": "Feedback",
     "COLUMN_FEEDBACK_WEIGHT": "Weight",
-    "TOTAL_LABEL": "Total"
+    "TOTAL_LABEL": "Total",
+    "OPTIONS_ANY": "Any",
+    "OPTIONS_MISSED_LABEL": "Missed",
+    "OPTIONS_MISSED_DESCRIPTION": "Only if the activity was missed",
+    "OPTIONS_LATE_LABEL": "Late",
+    "OPTIONS_LATE_DESCRIPTION": "Only if less than 24 hours before"
   },
   "STOREDETAIL": {
     "ARCHIVED": "इस स्थान को संग्रहीत किया गया है",
@@ -774,6 +780,10 @@
       "GIVE_TRUST": {
         "MESSAGE": "क्या आप {groupName} में {userName} पे भरोसा करते है ",
         "TITLE": "उपयोगकर्ता पर भरोसा रखें"
+      },
+      "REVOKE_TRUST": {
+        "MESSAGE": "Do you want to revoke the trust you have given to {userName} in {groupName}?",
+        "TITLE": "Revoke trust"
       },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "पुष्टि करें",

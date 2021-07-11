@@ -106,7 +106,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Připravované aktivity v této sérii"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "Amount of food you were able to save",
+    "AMOUNT": "Množství potravin, které se vám podařilo ušetřit",
     "AMOUNT_INFO": "Pro statistiku míst sečteme dohromady veškerou zpětnou vazbu.",
     "COMMENT_PLACEHOLDER": "Bylo všechno v pořádku? Žádné komplikace? Napište komentář zde ...",
     "DELETE_AMOUNT": "Smazat množství",
@@ -699,16 +699,16 @@
     "FILTER_TIME_FOREVER": "Navždy",
     "COLUMN_PLACE": "Místo",
     "COLUMN_ACTIVITY_DONE": "Hotovo",
-    "COLUMN_ACTIVITY_MISSED": "Missed",
-    "COLUMN_ACTIVITY_LEFT": "Withdrew",
-    "COLUMN_FEEDBACK": "Feedback",
+    "COLUMN_ACTIVITY_MISSED": "Zmeškáno",
+    "COLUMN_ACTIVITY_LEFT": "Staženo",
+    "COLUMN_FEEDBACK": "Zpětná vazba",
     "COLUMN_FEEDBACK_WEIGHT": "Váha",
     "TOTAL_LABEL": "Celkem",
-    "OPTIONS_ANY": "Any",
-    "OPTIONS_MISSED_LABEL": "Missed",
-    "OPTIONS_MISSED_DESCRIPTION": "Only if the activity was missed",
-    "OPTIONS_LATE_LABEL": "Late",
-    "OPTIONS_LATE_DESCRIPTION": "Only if less than 24 hours before"
+    "OPTIONS_ANY": "Jakékoliv",
+    "OPTIONS_MISSED_LABEL": "Zmeškané",
+    "OPTIONS_MISSED_DESCRIPTION": "Pouze pokud byla činnost zmeškána",
+    "OPTIONS_LATE_LABEL": "Pozdě",
+    "OPTIONS_LATE_DESCRIPTION": "Pouze pokud je méně než 24 hodin před"
   },
   "STOREDETAIL": {
     "ARCHIVED": "Toto místo bylo archivováno",
@@ -782,8 +782,8 @@
         "TITLE": "Důvěřovat uživateli"
       },
       "REVOKE_TRUST": {
-        "MESSAGE": "Do you want to revoke the trust you have given to {userName} in {groupName}?",
-        "TITLE": "Revoke trust"
+        "MESSAGE": "Chcete odvolat důvěru, kterou jste poskytli {userName}v {groupName}?",
+        "TITLE": "Odvolat důvěru"
       },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "Potvrdit",

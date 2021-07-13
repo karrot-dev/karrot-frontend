@@ -106,7 +106,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Zukünfteg Aktivitéiten an dëser Serie"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "Amount of food you were able to save",
+    "AMOUNT": "Quantitéit vu Liewensmëttel déi's du rette konnts",
     "AMOUNT_INFO": "Fir Statistiken zur Plaz gëtt d'Quantitéit vun all Feedback zesummegerechent.",
     "COMMENT_PLACEHOLDER": "War alles gutt? War jidderee komm? Däi Kommentar hei...",
     "DELETE_AMOUNT": "Quantitéit läschen",
@@ -383,8 +383,8 @@
     "INVITATION_ACCEPT_ERROR": "Ups, d'Aluedung konnt net ugeholl ginn!",
     "INVITATION_ACCEPT_SUCCESS": "Wëllkomm! Du hues d'Aluedung erfollegräich ugeholl.",
     "INVITATION_DIALOG": {
-      "MESSAGE": "Copy the link and send it to the person you want to invite.",
-      "TITLE": "Invitation link"
+      "MESSAGE": "Kopéier de Link a schéck en un d'Persoun, déi's du aluede wëlls",
+      "TITLE": "Aluedungs-Link"
     },
     "INVITED_LIST": "Aluedungen si schonn u folgend E-Mail-Adresse verschéckt ginn:",
     "INVITE_EMAIL": "Gëff eng E-Mail-Adress an",
@@ -699,16 +699,16 @@
     "FILTER_TIME_FOREVER": "Fir ëmmer",
     "COLUMN_PLACE": "Plaz",
     "COLUMN_ACTIVITY_DONE": "Gemaach",
-    "COLUMN_ACTIVITY_MISSED": "Missed",
-    "COLUMN_ACTIVITY_LEFT": "Withdrew",
+    "COLUMN_ACTIVITY_MISSED": "Verpasst",
+    "COLUMN_ACTIVITY_LEFT": "Zréckgetrueden",
     "COLUMN_FEEDBACK": "Feedback",
     "COLUMN_FEEDBACK_WEIGHT": "Gewiicht",
     "TOTAL_LABEL": "Total",
-    "OPTIONS_ANY": "Any",
-    "OPTIONS_MISSED_LABEL": "Missed",
-    "OPTIONS_MISSED_DESCRIPTION": "Only if the activity was missed",
-    "OPTIONS_LATE_LABEL": "Late",
-    "OPTIONS_LATE_DESCRIPTION": "Only if less than 24 hours before"
+    "OPTIONS_ANY": "Iergendeng",
+    "OPTIONS_MISSED_LABEL": "Verpasst",
+    "OPTIONS_MISSED_DESCRIPTION": "Nëmme wann d'Aktivitéit verpasst gouf",
+    "OPTIONS_LATE_LABEL": "Spéit",
+    "OPTIONS_LATE_DESCRIPTION": "Nëmme wa manner wéi 24 Stonne virdrunner"
   },
   "STOREDETAIL": {
     "ARCHIVED": "Dës Plaz gouf archivéiert",
@@ -771,8 +771,8 @@
     "DETAIL": "Et gëtt eng nei Versioun vu karrot.",
     "RELOAD": "Nei lueden"
   },
-  "URL_CLICK_TO_COPY": "Click to copy",
-  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
+  "URL_CLICK_TO_COPY": "Klick fir ze kopéieren",
+  "URL_COPIED_TOAST": "D'URL gouf erfollegräich an deng Tëschenoflag kopéiert",
   "USERDATA": {
     "ACCOUNT": "Konto",
     "CONFIRM_PASSWORD": "Bestäteg däi Passwuert",
@@ -782,8 +782,8 @@
         "TITLE": "Benotzer vertrauen"
       },
       "REVOKE_TRUST": {
-        "MESSAGE": "Do you want to revoke the trust you have given to {userName} in {groupName}?",
-        "TITLE": "Revoke trust"
+        "MESSAGE": "Wëlls du wierklech d'Vertrauen, wat's du {userName} an {groupName} ginn hues, zréckhuelen? ",
+        "TITLE": "Vertrauen zréckhuelen"
       },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "Bestätegen",

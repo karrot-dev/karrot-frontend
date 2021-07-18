@@ -79,6 +79,7 @@ export default {
     async highlighted (entry) {
       if (!entry) return
 
+      // wait until element is actually rendered
       await this.$nextTick()
       const ref = this.$refs[this.refFor(entry.id)][0]
       ref.$el.scrollIntoView()

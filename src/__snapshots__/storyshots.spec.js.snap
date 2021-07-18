@@ -5574,7 +5574,7 @@ exports[`Storyshots Feedback FeedbackList 1`] = `
         </div>
       </div>
     </div>
-    <div class="no-shadow grey-border q-card">
+    <div class="no-shadow grey-border q-card highlight">
       <div class="q-pa-md q-card__section q-card__section--vert">
         <div class="row no-wrap">
           <div class="content full-width">
@@ -5778,7 +5778,7 @@ exports[`Storyshots Feedback PlaceFeedback 1`] = `
           </div>
         </div>
       </div>
-      <div class="no-shadow grey-border q-card">
+      <div class="no-shadow grey-border q-card highlight">
         <div class="q-pa-md q-card__section q-card__section--vert">
           <div class="row no-wrap">
             <div class="content full-width">

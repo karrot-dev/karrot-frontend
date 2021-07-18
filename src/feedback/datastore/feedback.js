@@ -55,7 +55,7 @@ export default {
         dispatch('updateFeedbackAndRelated', data)
       },
 
-      async save ({ commit }, feedback) {
+      async save ({ commit, getters }, feedback) {
         let entry
         if (feedback.id) {
           entry = await feedbackAPI.save(feedback)
@@ -64,7 +64,10 @@ export default {
           entry = await feedbackAPI.create(feedback)
         }
         await commit('update', [entry])
-        router.push({ name: 'groupFeedback' }).catch(() => {})
+
+        const enrichedFeedback = getters.get(entry.id)
+        const placeId = enrichedFeedback.place.id
+        router.push({ name: 'placeFeedback', params: { placeId }, query: { highlight: entry.id } }).catch(() => {})
       },
 
       async updateOne ({ commit, dispatch }, feedback) {

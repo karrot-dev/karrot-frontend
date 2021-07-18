@@ -29,6 +29,11 @@ const datastore = createDatastore({
       fetchFeedbackPossibleStatus: () => statusMocks.default(),
     },
   },
+  route: {
+    getters: {
+      query: () => ({ highlight: feedbackMock[1].id })
+    },
+  },
 })
 
 storiesOf('Feedback', module)
@@ -89,6 +94,7 @@ storiesOf('Feedback', module)
         feedback: feedbackMock,
         place: placesMock[0],
         status: statusMocks.default(),
+        highlight: feedbackMock[1].id,
       },
     }),
   }))

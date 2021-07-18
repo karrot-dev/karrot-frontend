@@ -26,6 +26,7 @@ Please document your changes in this format:
 
 ### Changed
 - Remove invitation by e-mail at members page @brnsolikyl [#2349]
+- Redirect to place feedback page after saving, highlight entry @tiltec #2417
 
 ### Fixed
 - add explicit host in ics url @amengsk [#2406]

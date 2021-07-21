@@ -30,6 +30,11 @@ Please document your changes in this format:
 ### Fixed
 - add explicit host in ics url @amengsk [#2406]
 
+### Added
+- meta-tags: added title variable to quasar.conf.js and og_site_name for meta description [#2405]
+### Changed
+- meta-tags: site description update in composer.json update for og:title [#2405]
+
 ## [9.4.0] - 2021-06-24
 ### Changed
 - landingpage: reduce bundlesize for generated images @larzon83 [#2377]

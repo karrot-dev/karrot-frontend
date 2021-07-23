@@ -101,6 +101,7 @@ export default {
 
 .highlight
   border-color $secondary
+
   /* Override !important of no-shadow class */
   box-shadow alpha($secondary, 0.3) 0px 0px 0px 3px !important
 </style>

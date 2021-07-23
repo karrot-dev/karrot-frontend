@@ -31,7 +31,7 @@ const datastore = createDatastore({
   },
   route: {
     getters: {
-      query: () => ({ highlight: feedbackMock[1].id })
+      query: () => ({ highlight: feedbackMock[1].id }),
     },
   },
 })

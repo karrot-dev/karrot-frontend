@@ -131,7 +131,7 @@
     >
       <QBtn
         v-if="activity.isUserMember"
-        :href="`/api/activities/${activity.id}/ics/`"
+        :href="icsUrl"
         flat
         no-caps
         type="a"
@@ -176,6 +176,7 @@ import {
 } from 'quasar'
 import ActivityUsers from './ActivityUsers'
 import CustomDialog from '@/utils/components/CustomDialog'
+import { absoluteURL } from '@/utils/absoluteURL'
 
 export default {
   components: {
@@ -205,6 +206,13 @@ export default {
       joinDialog: false,
       leaveDialog: false,
     }
+  },
+  computed: {
+    icsUrl () {
+      // a relative URL would work fine in a browser but
+      // not in Cordova so we always make it absolute for simplicity
+      return absoluteURL(`/api/activities/${this.activity.id}/ics/`)
+    },
   },
   methods: {
     join () {

@@ -1,5 +1,6 @@
 import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertConversation } from '@/messages/api/conversations'
+import { absoluteURL } from '@/utils/absoluteURL'
 
 export default {
 
@@ -40,7 +41,7 @@ export default {
   icsUrl (filter) {
     return axios.getUri({
       params: filter,
-      url: window.location.origin + '/api/activities/ics/',
+      url: absoluteURL('/api/activities/ics/'),
     })
   },
 

@@ -65,7 +65,7 @@
       <CustomDialog
         v-model="icsDialog"
         width="500px"
-        actionsalign="between"
+        actions-align="between"
       >
         <template #title>
           {{ $t('ACTIVITYLIST.ICS_DIALOG.TITLE') }}
@@ -81,7 +81,7 @@
                 avatar
                 top
               >
-                <q-avatar
+                <QAvatar
                   color="primary"
                   text-color="white"
                   icon="file_download"
@@ -105,7 +105,7 @@
               </QItemSection>
             </QItem>
 
-            <q-separator
+            <QSeparator
               spaced
               style="margin-left: 56px;"
             />
@@ -115,7 +115,7 @@
                 avatar
                 top
               >
-                <q-avatar
+                <QAvatar
                   color="primary"
                   text-color="white"
                   icon="sync"
@@ -143,7 +143,7 @@
                           anchor="top middle"
                           self="bottom middle"
                         >
-                          {{ $t('CLICK_TO_COPY') }}
+                          {{ $t('URL_CLICK_TO_COPY') }}
                         </q-tooltip>
                       </QBtn>
                     </template>
@@ -258,6 +258,7 @@ import bindRoute from '@/utils/mixins/bindRoute'
 
 import {
   copyToClipboard,
+  QAvatar,
   QField,
   QSelect,
   QInfiniteScroll,
@@ -268,6 +269,7 @@ import {
   QList,
   QBanner,
   QBtn,
+  QSeparator,
 } from 'quasar'
 
 const NUM_ACTIVITIES_PER_LOAD = 25
@@ -275,6 +277,7 @@ const NUM_ACTIVITIES_PER_LOAD = 25
 export default {
   components: {
     CustomDialog,
+    QAvatar,
     QInfiniteScroll,
     ActivityItem,
     KSpinner,
@@ -287,6 +290,7 @@ export default {
     QList,
     QBanner,
     QBtn,
+    QSeparator,
   },
   mixins: [
     bindRoute({
@@ -424,7 +428,7 @@ export default {
     copyLink () {
       return copyToClipboard(this.icsUrl).then(() => {
         this.$store.dispatch('toasts/show', {
-          message: 'ACTIVITYLIST.ICS_DIALOG.SUBSCRIBE_URL_COPIED_TOAST',
+          message: 'URL_COPIED_TOAST',
         }, { root: true })
       })
     },

@@ -103,8 +103,7 @@
       "DOWNLOAD_BUTTON_LABEL": "Download ICS",
       "SUBSCRIBE_TITLE": "Subscribe",
       "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
-      "SUBSCRIBE_URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
-      "MORE_INFOS": "More infos about ICS"
+      "MORE_INFOS": "More info about ICS"
     }
   },
   "ACTIVITYMANAGE": {
@@ -250,7 +249,6 @@
     "YES": "Yes",
     "READ_MORE": "Read more"
   },
-  "CLICK_TO_COPY": "Click to copy",
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
     "HEADER_LINK": "foodsaving worldwide community",

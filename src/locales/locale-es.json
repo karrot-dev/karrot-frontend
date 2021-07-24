@@ -106,7 +106,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Próximas actividades en esta serie"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "La cantidad de comida que se salvó (en kg)",
+    "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "Para las estadísticas de la página, añadiremos la cantidad total de comentarios.",
     "COMMENT_PLACEHOLDER": "¿Fue todo correctamente? ¿Vino todo el mundo? Deja tu comentario aquí.",
     "DELETE_AMOUNT": "Eliminar cantidad",
@@ -342,7 +342,7 @@
     "GENERIC_ERROR": "Lo sentimos, algo ha ido mal",
     "GITHUB_NOTE": "Desarrollo",
     "INVALID_LINK": "Lo sentimos, el enlace que has abierto no es válido.",
-    "LOGO_ALT": "karrot logo",
+    "LOGO_ALT": "logo de karrot",
     "NOT_CONNECTED": "No estás conenctado al servidor",
     "OFFLINE_RECONNECT": "Sin conectar. Por favor presiona aquí para reconectar.",
     "RECONNECTING": "Reconectando...",
@@ -382,6 +382,10 @@
     "INVITATIONS": "Invitaciones",
     "INVITATION_ACCEPT_ERROR": "Ooops, no se ha podido aceptar la invitación!",
     "INVITATION_ACCEPT_SUCCESS": "Bienvenid@! Has acceptado la invitación. ",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "Ya se enviaron invitaciones a los siguientes correos electrónicos: ",
     "INVITE_EMAIL": "Introducir un correo electrónico",
     "INVITE_SEND": "Enviar invitación",
@@ -486,7 +490,7 @@
     "STORE_CREATE": "creó el lugar {name}",
     "STORE_DELETE": "eliminó el lugar{name}",
     "STORE_MODIFY": "cambió los ajustes del lugar {name}",
-    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
+    "USER_LOST_EDITOR_ROLE": "permisos de redacción perdidos"
   },
   "INACTIVITY": {
     "HELP": "Toda persona que no se ha conectado a un grupo en {dayCount}días o más se considera como inactiva. Dichas cuentas pasa a no recibir notificaciones por correo electrónico.",
@@ -695,10 +699,16 @@
     "FILTER_TIME_FOREVER": "Siempre",
     "COLUMN_PLACE": "Lugar",
     "COLUMN_ACTIVITY_DONE": "Realizado",
-    "COLUMN_ACTIVITY_LEFT": "Desapuntado",
-    "COLUMN_ACTIVITY_LEFT_LATE": "Desapuntado tarde",
+    "COLUMN_ACTIVITY_MISSED": "Missed",
+    "COLUMN_ACTIVITY_LEFT": "Withdrew",
+    "COLUMN_FEEDBACK": "Feedback",
     "COLUMN_FEEDBACK_WEIGHT": "Peso",
-    "TOTAL_LABEL": "Total"
+    "TOTAL_LABEL": "Total",
+    "OPTIONS_ANY": "Any",
+    "OPTIONS_MISSED_LABEL": "Missed",
+    "OPTIONS_MISSED_DESCRIPTION": "Only if the activity was missed",
+    "OPTIONS_LATE_LABEL": "Late",
+    "OPTIONS_LATE_DESCRIPTION": "Only if less than 24 hours before"
   },
   "STOREDETAIL": {
     "ARCHIVED": "Este lugar ha sido archivado",
@@ -761,6 +771,8 @@
     "DETAIL": "Una nueva versión de Karrot está disponible",
     "RELOAD": "Recargar"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "Cuenta",
     "CONFIRM_PASSWORD": "Confirma tu contraseña",
@@ -768,6 +780,10 @@
       "GIVE_TRUST": {
         "MESSAGE": "¿Confias en {userName}en {groupName}?",
         "TITLE": "Confiar en el usuario"
+      },
+      "REVOKE_TRUST": {
+        "MESSAGE": "Do you want to revoke the trust you have given to {userName} in {groupName}?",
+        "TITLE": "Revoke trust"
       },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "Confirmar",

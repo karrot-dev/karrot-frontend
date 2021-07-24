@@ -210,7 +210,8 @@ export default {
   computed: {
     icsUrl () {
       // a relative URL would work fine in a browser but
-      // not in Cordova so we always make it absolute for simplicity
+      // not in Cordova so we always make it absolute for simplicity.
+      // see https://github.com/yunity/karrot-frontend/issues/2400
       return absoluteURL(`/api/activities/${this.activity.id}/ics/`)
     },
   },

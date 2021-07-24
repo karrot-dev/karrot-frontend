@@ -21,11 +21,25 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- Users can revoke trust @pogopaule [#2352]
+
+### Changed
+- Remove invitation by e-mail at members page @brnsolikyl [#2349]
+
+### Fixed
+- add explicit host in ics url @amengsk [#2406]
+
+### Added
+- meta-tags: added title variable to quasar.conf.js and og_site_name for meta description [#2405]
+### Changed
+- meta-tags: site description update in composer.json update for og:title [#2405]
 
 ## [9.4.0] - 2021-06-24
 ### Changed
 - landingpage: reduce bundlesize for generated images @larzon83 [#2377]
 - use geo ip for edit/create group default map location @nicksellen [#2396]
+- implement more activity statistics @nicksellen [#2364]
 
 ### Fixed
 - place-header: correctly display linear-gradient in Safari @larzon83 [#2372]
@@ -44,6 +58,7 @@ Please document your changes in this format:
 - frontend for ics export for activities @amengsk @larzon83 [#2321], [#2368]
 
 ### Changed
+- amount-picker: improve UX of weight slider limits @larzon83 @layla19 @dpaque @pogopaule [#2348]
 - group: improve create/edit group form @larzon83 @layla19 @dpaque @pogopaule @brnsolikyl [#2306]
 - landingpage: improve design @larzon83 [#2340]
 - Landing page: change text and screenshots, add "about Karrot" component @brnsolikyl [#2317]

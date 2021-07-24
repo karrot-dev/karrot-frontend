@@ -106,7 +106,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "भोजन की मात्रा जिसे आप बचाने में सक्षम थे (किलो में)",
+    "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "स्थान आंकड़ों के लिए, हम सभी प्रतिक्रियाँओ की राशि को एक साथ जोड़ देंगे।",
     "COMMENT_PLACEHOLDER": "क्या सब कुछ ठीक था? क्या सभी लोग आये थे? आपकी टिप्पणी यहां दे...",
     "DELETE_AMOUNT": "राशि हटाएं",
@@ -382,6 +382,10 @@
     "INVITATIONS": "निमंत्रण",
     "INVITATION_ACCEPT_ERROR": "ओह, निमंत्रण स्वीकार नहीं कर सका!",
     "INVITATION_ACCEPT_SUCCESS": "स्वागत हे!आपने आमंत्रण सफलतापूर्वक स्वीकार कर लिया है",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "इन ई-मेल पते पर आमंत्रण पहले ही भेज दिए गए हैं:",
     "INVITE_EMAIL": "ईमेल पता डालें",
     "INVITE_SEND": "निमंत्रण भेजे",
@@ -695,10 +699,16 @@
     "FILTER_TIME_FOREVER": "Forever",
     "COLUMN_PLACE": "Place",
     "COLUMN_ACTIVITY_DONE": "Done",
-    "COLUMN_ACTIVITY_LEFT": "Left",
-    "COLUMN_ACTIVITY_LEFT_LATE": "Left late",
+    "COLUMN_ACTIVITY_MISSED": "Missed",
+    "COLUMN_ACTIVITY_LEFT": "Withdrew",
+    "COLUMN_FEEDBACK": "Feedback",
     "COLUMN_FEEDBACK_WEIGHT": "Weight",
-    "TOTAL_LABEL": "Total"
+    "TOTAL_LABEL": "Total",
+    "OPTIONS_ANY": "Any",
+    "OPTIONS_MISSED_LABEL": "Missed",
+    "OPTIONS_MISSED_DESCRIPTION": "Only if the activity was missed",
+    "OPTIONS_LATE_LABEL": "Late",
+    "OPTIONS_LATE_DESCRIPTION": "Only if less than 24 hours before"
   },
   "STOREDETAIL": {
     "ARCHIVED": "इस स्थान को संग्रहीत किया गया है",
@@ -761,6 +771,8 @@
     "DETAIL": "karrot का एक नया संस्करण उपलब्ध है।",
     "RELOAD": "पुनः लोड करें"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "अकाउंट",
     "CONFIRM_PASSWORD": "अपने पासवर्ड की पुष्टि करें",
@@ -768,6 +780,10 @@
       "GIVE_TRUST": {
         "MESSAGE": "क्या आप {groupName} में {userName} पे भरोसा करते है ",
         "TITLE": "उपयोगकर्ता पर भरोसा रखें"
+      },
+      "REVOKE_TRUST": {
+        "MESSAGE": "Do you want to revoke the trust you have given to {userName} in {groupName}?",
+        "TITLE": "Revoke trust"
       },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "पुष्टि करें",

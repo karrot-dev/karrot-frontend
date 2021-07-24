@@ -48,6 +48,7 @@ function membershipFactory ({
     isEditor,
     trustThresholdForNewcomer,
     trustUserStatus: statusMocks.default(),
+    revokeTrustStatus: statusMocks.default(),
   }
 }
 

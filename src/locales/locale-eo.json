@@ -106,7 +106,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Venontaj aktivaĵoj en tiu ĉi aktivaĵo perioda"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "Manĝkvanto kiun vi povis savi (en kg)",
+    "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "Por la statistikoj de la retpaĝo, ni aldonos la kvanton de ĉiu retrokuplo",
     "COMMENT_PLACEHOLDER": "Ĉu ĉio enordas? Ĉu ĉiuj iris savi? Vian komenton ĉi tie...",
     "DELETE_AMOUNT": "Forigi kvanton",
@@ -342,7 +342,7 @@
     "GENERIC_ERROR": "Pardonon sed io ne bone funkciis",
     "GITHUB_NOTE": "Ellaboro",
     "INVALID_LINK": "Pardonon, la ligilo ne validas.",
-    "LOGO_ALT": "karrot logo",
+    "LOGO_ALT": "Logotipo de karrot",
     "NOT_CONNECTED": "Vi ne estas konektita al la servilo",
     "OFFLINE_RECONNECT": "Malkonektita. Premu ĉi tiun por rekonektiĝi",
     "RECONNECTING": "Rekonektanta...",
@@ -382,6 +382,10 @@
     "INVITATIONS": "Invitoj",
     "INVITATION_ACCEPT_ERROR": "Ho ve, la invito ne estis akceptita!",
     "INVITATION_ACCEPT_SUCCESS": "Bonvenon! Vi sukcese akceptis la inviton.",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "Invitoj jam estis senditaj al tiuj ĉi retadresoj:",
     "INVITE_EMAIL": "Metu vian retadreson",
     "INVITE_SEND": "Sendi invitojn",
@@ -486,7 +490,7 @@
     "STORE_CREATE": "loko kreita{name}",
     "STORE_DELETE": "forigita loko {name}",
     "STORE_MODIFY": "ŝanĝis la agordojn de la loko {name}",
-    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
+    "USER_LOST_EDITOR_ROLE": "Perditaj redaktpermesoj"
   },
   "INACTIVITY": {
     "HELP": "Ĉiuj kiuj ne ensalutis en la grupo dum {dayCount}aŭ pli da tagoj sinsekve malaktiviĝas. Tiuj uzantoj ne plu ricevos sciigojn retmesaĝe.",
@@ -695,10 +699,16 @@
     "FILTER_TIME_FOREVER": "Ĉiam",
     "COLUMN_PLACE": "Loko",
     "COLUMN_ACTIVITY_DONE": "Faritaj",
-    "COLUMN_ACTIVITY_LEFT": "Malaliĝitaj",
-    "COLUMN_ACTIVITY_LEFT_LATE": "Malfrue malaliĝitaj",
+    "COLUMN_ACTIVITY_MISSED": "Missed",
+    "COLUMN_ACTIVITY_LEFT": "Withdrew",
+    "COLUMN_FEEDBACK": "Feedback",
     "COLUMN_FEEDBACK_WEIGHT": "Pezo",
-    "TOTAL_LABEL": "Entute"
+    "TOTAL_LABEL": "Entute",
+    "OPTIONS_ANY": "Any",
+    "OPTIONS_MISSED_LABEL": "Missed",
+    "OPTIONS_MISSED_DESCRIPTION": "Only if the activity was missed",
+    "OPTIONS_LATE_LABEL": "Late",
+    "OPTIONS_LATE_DESCRIPTION": "Only if less than 24 hours before"
   },
   "STOREDETAIL": {
     "ARCHIVED": "La loko arkiviĝis",
@@ -761,6 +771,8 @@
     "DETAIL": "Novan version de Karrot disponeblas.",
     "RELOAD": "Reŝarĝi"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "Konto",
     "CONFIRM_PASSWORD": "Konfirmi vian pasvorton",
@@ -768,6 +780,10 @@
       "GIVE_TRUST": {
         "MESSAGE": "Ĉu vi fidas {userName}en {groupName}?",
         "TITLE": "Fidita uzanto"
+      },
+      "REVOKE_TRUST": {
+        "MESSAGE": "Do you want to revoke the trust you have given to {userName} in {groupName}?",
+        "TITLE": "Revoke trust"
       },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "Konfirmi",

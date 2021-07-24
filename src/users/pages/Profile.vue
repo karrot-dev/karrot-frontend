@@ -100,6 +100,7 @@
             :group="currentGroup"
             :membership="currentGroupMembership"
             @create-trust="createTrust"
+            @revoke-trust="revokeTrust"
           />
         </div>
         <QList>
@@ -293,6 +294,7 @@ export default {
     ...mapActions({
       detail: 'detail/openForUser',
       createTrust: 'currentGroup/trustUser',
+      revokeTrust: 'currentGroup/revokeTrust',
       selectGroup: 'currentGroup/select',
       startConflictResolution: 'issues/create',
       clearIssueMeta: 'issues/meta/clear',

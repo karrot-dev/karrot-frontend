@@ -106,7 +106,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Kommende Aktivitäten in dieser Serie"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "Menge des geretteten Essens (in kg)",
+    "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "Für Ortsstatistiken fassen wir die Menge allen Feedbacks zusammen.",
     "COMMENT_PLACEHOLDER": "Lief alles gut? Sind alle aufgetaucht? Dein Kommentar bitte...",
     "DELETE_AMOUNT": "Gewicht löschen",
@@ -382,6 +382,10 @@
     "INVITATIONS": "Einladungen",
     "INVITATION_ACCEPT_ERROR": "Ups, die Einladung konnte nicht akzeptiert werden!",
     "INVITATION_ACCEPT_SUCCESS": "Willkommen! Du hast die Einladung erfolgreich angenommen.",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "Einladungen wurden bereits an diese E-Mail-Adressen versendet:",
     "INVITE_EMAIL": "Gib eine E-Mail-Adresse ein",
     "INVITE_SEND": "Send invitation",
@@ -695,10 +699,16 @@
     "FILTER_TIME_FOREVER": "Seit Beginn",
     "COLUMN_PLACE": "Ort",
     "COLUMN_ACTIVITY_DONE": "erledigt",
-    "COLUMN_ACTIVITY_LEFT": "Verbleibend",
-    "COLUMN_ACTIVITY_LEFT_LATE": "Spät verbleibend ",
+    "COLUMN_ACTIVITY_MISSED": "Missed",
+    "COLUMN_ACTIVITY_LEFT": "Withdrew",
+    "COLUMN_FEEDBACK": "Feedback",
     "COLUMN_FEEDBACK_WEIGHT": "Gewicht",
-    "TOTAL_LABEL": "Gesamt"
+    "TOTAL_LABEL": "Gesamt",
+    "OPTIONS_ANY": "Any",
+    "OPTIONS_MISSED_LABEL": "Missed",
+    "OPTIONS_MISSED_DESCRIPTION": "Only if the activity was missed",
+    "OPTIONS_LATE_LABEL": "Late",
+    "OPTIONS_LATE_DESCRIPTION": "Only if less than 24 hours before"
   },
   "STOREDETAIL": {
     "ARCHIVED": "Dieser Ort wurde archiviert",
@@ -761,6 +771,8 @@
     "DETAIL": "Eine neue Version von Karrot ist verfügbar.",
     "RELOAD": "Neu laden"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "Account",
     "CONFIRM_PASSWORD": "Bestätige dein Passwort",
@@ -768,6 +780,10 @@
       "GIVE_TRUST": {
         "MESSAGE": "Vertraust du {userName} in {groupName}?",
         "TITLE": "Benutzer*in vertrauen"
+      },
+      "REVOKE_TRUST": {
+        "MESSAGE": "Do you want to revoke the trust you have given to {userName} in {groupName}?",
+        "TITLE": "Revoke trust"
       },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "Ich stimme zu",

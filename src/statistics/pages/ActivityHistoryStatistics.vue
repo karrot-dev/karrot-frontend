@@ -28,14 +28,47 @@
           :label="$t('STATISTICS.FILTER_TIME_LABEL')"
           filled
           :options="periodFilterOptions"
+          class="q-mr-sm"
         />
+        <QSelect
+          v-model="leftOptionsSelected"
+          :label="$t('STATISTICS.COLUMN_ACTIVITY_LEFT')"
+          filled
+          :options="leftOptions"
+          class="q-mr-sm"
+          multiple
+          style="min-width: 120px;"
+          :display-value="leftOptionsDisplayValue"
+        >
+          <template #option="{ itemProps, itemEvents, opt, selected, toggleOption }">
+            <QItem
+              v-bind="itemProps"
+              v-on="itemEvents"
+            >
+              <QItemSection>
+                <QItemLabel>
+                  {{ opt.label }}
+                </QItemLabel>
+                <QItemLabel caption>
+                  {{ opt.description }}
+                </QItemLabel>
+              </QItemSection>
+              <QItemSection side>
+                <QToggle
+                  :value="selected"
+                  @input="toggleOption(opt)"
+                />
+              </QItemSection>
+            </QItem>
+          </template>
+        </QSelect>
       </template>
     </QTable>
   </div>
 </template>
 
 <script>
-import { QSelect, QTable } from 'quasar'
+import { QSelect, QTable, QToggle, QItem, QItemSection, QItemLabel } from 'quasar'
 import subDays from 'date-fns/subDays'
 import subMonths from 'date-fns/subMonths'
 
@@ -47,6 +80,10 @@ export default {
   components: {
     QSelect,
     QTable,
+    QToggle,
+    QItem,
+    QItemSection,
+    QItemLabel,
   },
   data () {
     return {
@@ -55,29 +92,17 @@ export default {
       userFilter: null,
       userFilterByName: null, // when the user types something in
       data: [],
-      columns: [
+      leftOptionsSelected: null,
+      leftOptions: [
         {
-          name: 'place',
-          label: this.$t('STATISTICS.COLUMN_PLACE'),
-          field: row => row.place && row.place.name,
-          align: 'left',
+          label: this.$t('STATISTICS.OPTIONS_MISSED_LABEL'),
+          value: 'missed',
+          description: this.$t('STATISTICS.OPTIONS_MISSED_DESCRIPTION'),
         },
-        ...[
-          ['doneCount', this.$t('STATISTICS.COLUMN_ACTIVITY_DONE')],
-          ['leaveCount', this.$t('STATISTICS.COLUMN_ACTIVITY_LEFT')],
-          ['leaveLateCount', this.$t('STATISTICS.COLUMN_ACTIVITY_LEFT_LATE')],
-        ].map(([field, label]) => ({
-          name: field,
-          label,
-          field: row => row[field],
-          align: 'right',
-        })),
         {
-          name: 'feedbackWeight',
-          label: this.$t('STATISTICS.COLUMN_FEEDBACK_WEIGHT'),
-          field: row => row.feedbackWeight.toFixed(1),
-          format: value => `${value} kg`,
-          align: 'right',
+          label: this.$t('STATISTICS.OPTIONS_LATE_LABEL'),
+          value: 'late',
+          description: this.$t('STATISTICS.OPTIONS_LATE_DESCRIPTION'),
         },
       ],
     }
@@ -88,6 +113,50 @@ export default {
       users: 'users/byCurrentGroup',
       getPlace: 'places/get',
     }),
+    hasUserFilter () {
+      return this.userFilter && this.userFilter.value !== null
+    },
+    columns () {
+      return [
+        {
+          name: 'place',
+          label: this.$t('STATISTICS.COLUMN_PLACE'),
+          field: row => row.place && row.place.name,
+          align: 'left',
+        },
+        {
+          name: 'doneCount',
+          label: this.$t('STATISTICS.COLUMN_ACTIVITY_DONE'),
+          field: row => row.doneCount,
+          align: 'right',
+        },
+        {
+          name: 'feedbackCount',
+          label: this.$t('STATISTICS.COLUMN_FEEDBACK'),
+          field: row => row.feedbackCount,
+          align: 'right',
+        },
+        !this.hasUserFilter && {
+          name: 'missedCount',
+          label: this.$t('STATISTICS.COLUMN_ACTIVITY_MISSED'),
+          field: row => row.missedCount,
+          align: 'right',
+        },
+        {
+          name: 'leaveCount',
+          label: this.$t('STATISTICS.COLUMN_ACTIVITY_LEFT'),
+          field: row => this.leaveCount(row),
+          align: 'right',
+        },
+        {
+          name: 'feedbackWeight',
+          label: this.$t('STATISTICS.COLUMN_FEEDBACK_WEIGHT'),
+          field: row => row.feedbackWeight.toFixed(1),
+          format: value => `${value} kg`,
+          align: 'right',
+        },
+      ].filter(Boolean)
+    },
     usersById () {
       return indexById(this.users)
     },
@@ -130,16 +199,20 @@ export default {
         {
           label: this.$t('STATISTICS.FILTER_TIME_FOREVER'),
           value: null,
-          disable: this.userFilter && this.userFilter.value !== null,
+          disable: this.hasUserFilter,
         },
       ]
     },
     totals () {
       return [
         'doneCount',
+        'feedbackCount',
+        'missedCount',
         'leaveCount',
-        'leaveLateCount',
         'feedbackWeight',
+        'leaveMissedLateCount',
+        'leaveLateCount',
+        'leaveMissedCount',
       ].reduce((acc, field) => {
         acc[field] = this.data.reduce((sum, entry) => sum + entry[field], 0)
         return acc
@@ -196,6 +269,17 @@ export default {
           throw new Error(`unknown date filter option: ${this.periodFilter.value}`)
       }
     },
+    leftOptionsValues () {
+      return this.leftOptionsSelected.map(option => option.value)
+    },
+    leftOptionsDisplayValue () {
+      if (this.leftOptionsSelected.length > 0) {
+        return this.leftOptionsSelected.map(option => option.label).join(', ')
+      }
+      else {
+        return this.$t('STATISTICS.OPTIONS_ANY')
+      }
+    },
   },
   watch: {
     'userFilter.value' (value) {
@@ -226,11 +310,22 @@ export default {
     // Initial values
     this.periodFilter = this.periodFilterOptions[0]
     this.userFilter = this.userFilterOptions[0]
+    this.leftOptionsSelected = this.leftOptions.filter(option => option.value === 'missed')
   },
   methods: {
     filterUser (val, update) {
       this.userFilterByName = val
       update()
+    },
+    leaveCount (row) {
+      const missed = this.leftOptionsValues.includes('missed')
+      const late = this.leftOptionsValues.includes('late')
+      if (late) {
+        return missed ? row.leaveMissedLateCount : row.leaveLateCount
+      }
+      else {
+        return missed ? row.leaveMissedCount : row.leaveCount
+      }
     },
   },
 }

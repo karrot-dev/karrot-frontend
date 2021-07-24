@@ -106,7 +106,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Nadchodzące aktywności z tej serii"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "Ilość jedzenia, które uratowałaś/-eś (w kg)",
+    "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "Statystyki danego punktu przedstawiają sumę ilości wprowadzonych w indywidualnych komentarzach.",
     "COMMENT_PLACEHOLDER": "Czy wszystko przebiegło w porządku? Czy jedzenie zostało odebrane zgodnie z planem? Skomentuj...",
     "DELETE_AMOUNT": "Usuń ilość",
@@ -382,6 +382,10 @@
     "INVITATIONS": "Zaproszenia",
     "INVITATION_ACCEPT_ERROR": "Ups, nie możesz przyjąć tego zaproszenia!",
     "INVITATION_ACCEPT_SUCCESS": "Witamy! Przyjęłaś/-łeś zaproszenie.",
+    "INVITATION_DIALOG": {
+      "MESSAGE": "Copy the link and send it to the person you want to invite.",
+      "TITLE": "Invitation link"
+    },
     "INVITED_LIST": "Na te adresy e-mail już wcześniej wysłano zaproszenia:",
     "INVITE_EMAIL": "Wprowadź adres e-mail",
     "INVITE_SEND": "Wyślij zaproszenie",
@@ -695,10 +699,16 @@
     "FILTER_TIME_FOREVER": "Wszystkie",
     "COLUMN_PLACE": "Miejsce",
     "COLUMN_ACTIVITY_DONE": "Zrobione",
-    "COLUMN_ACTIVITY_LEFT": "Opuszczone",
-    "COLUMN_ACTIVITY_LEFT_LATE": "Opuszczone zbyt późno",
+    "COLUMN_ACTIVITY_MISSED": "Missed",
+    "COLUMN_ACTIVITY_LEFT": "Withdrew",
+    "COLUMN_FEEDBACK": "Feedback",
     "COLUMN_FEEDBACK_WEIGHT": "Waga",
-    "TOTAL_LABEL": "Łącznie"
+    "TOTAL_LABEL": "Łącznie",
+    "OPTIONS_ANY": "Any",
+    "OPTIONS_MISSED_LABEL": "Missed",
+    "OPTIONS_MISSED_DESCRIPTION": "Only if the activity was missed",
+    "OPTIONS_LATE_LABEL": "Late",
+    "OPTIONS_LATE_DESCRIPTION": "Only if less than 24 hours before"
   },
   "STOREDETAIL": {
     "ARCHIVED": "Ten punkt został przeniesiony do archiwum",
@@ -761,6 +771,8 @@
     "DETAIL": "Nowa wersja karrota jest dostępna do pobrania.",
     "RELOAD": "Odśwież"
   },
+  "URL_CLICK_TO_COPY": "Click to copy",
+  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
   "USERDATA": {
     "ACCOUNT": "Konto",
     "CONFIRM_PASSWORD": "Potwierdź hasło",
@@ -768,6 +780,10 @@
       "GIVE_TRUST": {
         "MESSAGE": "Czy ufasz {userName} w {groupName}?",
         "TITLE": "Zaufaj użytkownikowi"
+      },
+      "REVOKE_TRUST": {
+        "MESSAGE": "Do you want to revoke the trust you have given to {userName} in {groupName}?",
+        "TITLE": "Revoke trust"
       },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "Potwierdzam",

@@ -17,7 +17,7 @@
         "TITLE": "Kommunikation im richtigen Kontext"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
+        "DESCRIPTION": "Karrot wird von seinen Usern gemacht: Eine freie und Open Source Software, die basierend auf Feedback und mit Teilnahme der Leute die sie benutzen entwickelt wird. Hauptsächlich wird Karrot von einem kleinen Team entwickelt, das konstant mit Leuten aus verschiedenen Gruppen im Austausch steht, um deren verschiedene Bedürfnisse unter einen Hut zu bringen und so die Richtung der Entwicklung zu bestimmen. Wir fühlen uns einer Ethik der Integrität und Nicht-Kommerzialisierung von Daten verpflichtet.",
         "DESCRIPTION2": "Softwareentwickler:innen und Designer:innen sind natürlich herzlich eingeladen, sich an der Entwicklung zu beteiligen.",
         "TITLE": "Demokratische und partizipative Entwicklung"
       },
@@ -60,10 +60,10 @@
         "TITLE": "Demokratische und vertrauensbasierte Gruppenverwaltung"
       }
     },
-    "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
-    "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
+    "SUBTITLE1": "Karrot ist ein freies und open Source Tool für basisdemokratische Initiativen und Gruppen von Menschen, die von Angesicht zu Angesicht Aktivitäten auf lokaler, autonomer und freiwilliger Basis koordinieren wollen.",
+    "SUBTITLE2": "Es ist so konzipiert, dass es die Bildung einer Gemeinschaft ermöglicht und eine transparentere, demokratischere und partizipativere Führung Ihrer Gruppe unterstützt.",
     "TITLE": "Starte eine Gruppe, werde zur Gemeinschaft",
-    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kitchen..."
+    "VISION_INTRO": "Ob man nun Lebensmittel rettet und teilt, einen Umsonstladen oder einen Makerspace betreibt, einen Gemeinschaftsgarten oder eine Fahrradküche unterhält..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Willst du wirklich diese Serie löschen? Das löscht alle Termine, die zu dieser regelmäßigen Aktivität gehören (außer wenn bereits Teilnehmer eingetragen sind).",
@@ -88,7 +88,7 @@
       "LEAVE": "Nicht mehr abholen",
       "LEAVE_CONFIRMATION_HEADER": "Verlasse {activityType}",
       "LEAVE_CONFIRMATION_TEXT": "Bist du dir sicher, dass die anderen das ohne dich schaffen?",
-      "DOWNLOAD_ICS": "Download ICS"
+      "DOWNLOAD_ICS": "ICS herunterladen"
     },
     "JOINEDNOTICE": "Du hast dich für eine Aktivität gemeldet | Du hast dich für {count} Aktivitäten gemeldet",
     "NONE": "Es stehen keine Aktivitäten an.",
@@ -106,7 +106,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Kommende Aktivitäten in dieser Serie"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "Amount of food you were able to save",
+    "AMOUNT": "Menge der Lebensmittel, die du einsparen konntest",
     "AMOUNT_INFO": "Für Ortsstatistiken fassen wir die Menge allen Feedbacks zusammen.",
     "COMMENT_PLACEHOLDER": "Lief alles gut? Sind alle aufgetaucht? Dein Kommentar bitte...",
     "DELETE_AMOUNT": "Gewicht löschen",
@@ -148,8 +148,8 @@
     "CUSTOM_NAME_PROMPT": "Gib einen eigene Bezeichnung ein oder wähle eine Standard Bezeichnung",
     "MANAGE_TYPES": "Aktivitätstypen bearbeiten...",
     "SHOW_ARCHIVED": "Archivierte anzeigen",
-    "STATUS_ACTIVE_HINT": "You will be able to create new activities and series of this type",
-    "STATUS_ARCHIVED_HINT": "It will not be possible to create new activities or series of this type, but existing ones will still be available"
+    "STATUS_ACTIVE_HINT": "Du wirst in der Lage sein, neue Aktivitäten und Serien dieses Typs zu erstellen",
+    "STATUS_ARCHIVED_HINT": "Es wird nicht möglich sein, neue Aktivitäten oder Serien dieses Typs zu erstellen, aber die bestehenden werden weiterhin verfügbar sein"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "wähle den Ort auf der Karte",
@@ -342,7 +342,7 @@
     "GENERIC_ERROR": "Entschuldige, ein Fehler ist aufgetreten",
     "GITHUB_NOTE": "Entwicklung",
     "INVALID_LINK": "Der Link ist ungültig.",
-    "LOGO_ALT": "karrot logo",
+    "LOGO_ALT": "Karrot-Logo",
     "NOT_CONNECTED": "Du bist nicht mit dem Server verbunden",
     "OFFLINE_RECONNECT": "Offline. Drücke hier, um die Verbindung wiederherzustellen.",
     "RECONNECTING": "Verbindung wird wiederhergestellt...",
@@ -370,11 +370,11 @@
     "EDIT_DETAILS": "Gruppen Details",
     "EMAIL_NOTIFICATIONS": "Email-Benachrichtigungen",
     "HEADINGS": {
-      "GENERAL": "General",
-      "LOCATION": "Location",
-      "LOCATION_HINT": "If you want your group's location to be made visible on a public map, enter an adress or pick a location on the map below.",
-      "NEW_MEMBERS_SIGNUP": "New Members Signup",
-      "NEW_MEMBERS_SIGNUP_HINT": "New members will have to apply and get accepted to your group. You can always change the application and welcome message later in the group settings."
+      "GENERAL": "Allgemein",
+      "LOCATION": "Ort",
+      "LOCATION_HINT": "Wenn du möchtest, dass der Standort deiner Gruppe auf einer öffentlichen Karte sichtbar gemacht wird, gib eine Adresse ein oder wähle einen Standort auf der Karte unten aus.",
+      "NEW_MEMBERS_SIGNUP": "Anmeldung für neue Mitglieder",
+      "NEW_MEMBERS_SIGNUP_HINT": "Neue Mitglieder müssen sich bewerben und in die Gruppe aufgenommen werden. Du kannst die Bewerbung und die Willkommensnachricht später in den Gruppeneinstellungen jederzeit ändern."
     },
     "HISTORY": "History",
     "HOME": "Start",
@@ -383,8 +383,8 @@
     "INVITATION_ACCEPT_ERROR": "Ups, die Einladung konnte nicht akzeptiert werden!",
     "INVITATION_ACCEPT_SUCCESS": "Willkommen! Du hast die Einladung erfolgreich angenommen.",
     "INVITATION_DIALOG": {
-      "MESSAGE": "Copy the link and send it to the person you want to invite.",
-      "TITLE": "Invitation link"
+      "MESSAGE": "Kopiere den Link und sende ihn an die Person, die du einladen möchtest.",
+      "TITLE": "Einladungslink"
     },
     "INVITED_LIST": "Einladungen wurden bereits an diese E-Mail-Adressen versendet:",
     "INVITE_EMAIL": "Gib eine E-Mail-Adresse ein",
@@ -472,7 +472,7 @@
     "ACTIVITY_TYPE_MODIFY": "{activityType} Aktivitätstyp geändert",
     "APPLICATION_DECLINED": "hat eine Bewerbung von {applicantName} abgelehnt",
     "CONFIRM_CHANGES": "Änderungen bestätigen?",
-    "CONFIRM_CHANGES_HINT": "You can write a message here to explain your changes that will be displayed in the history",
+    "CONFIRM_CHANGES_HINT": "Du kannst hier eine Nachricht schreiben, um deine Änderungen zu erklären, die in der Historie angezeigt wird",
     "DETAILS": "Mehr Infos",
     "GROUP_CHANGE_PHOTO": "hat das Gruppenlogo geändert",
     "GROUP_CREATE": "hat diese Gruppe erstellt",
@@ -490,7 +490,7 @@
     "STORE_CREATE": "hat den Ort {name} erstellt",
     "STORE_DELETE": "hat den Ort {name} gelöscht",
     "STORE_MODIFY": "hat die Einstellungen vom Ort {name} verändert",
-    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
+    "USER_LOST_EDITOR_ROLE": "Bearbeitungsrechte verloren"
   },
   "INACTIVITY": {
     "HELP": "Jede Person, die sich seit {dayCount} Tagen oder länger nicht in die Gruppe eingeloggt hat, zählt als inaktiv. Diese Nutzerinnen und Nutzer erhalten keine E-Mail-Benachrichtigungen mehr.",
@@ -699,16 +699,16 @@
     "FILTER_TIME_FOREVER": "Seit Beginn",
     "COLUMN_PLACE": "Ort",
     "COLUMN_ACTIVITY_DONE": "erledigt",
-    "COLUMN_ACTIVITY_MISSED": "Missed",
-    "COLUMN_ACTIVITY_LEFT": "Withdrew",
+    "COLUMN_ACTIVITY_MISSED": "Verpasst",
+    "COLUMN_ACTIVITY_LEFT": "Zurückgezogen",
     "COLUMN_FEEDBACK": "Feedback",
     "COLUMN_FEEDBACK_WEIGHT": "Gewicht",
     "TOTAL_LABEL": "Gesamt",
-    "OPTIONS_ANY": "Any",
-    "OPTIONS_MISSED_LABEL": "Missed",
-    "OPTIONS_MISSED_DESCRIPTION": "Only if the activity was missed",
-    "OPTIONS_LATE_LABEL": "Late",
-    "OPTIONS_LATE_DESCRIPTION": "Only if less than 24 hours before"
+    "OPTIONS_ANY": "Beliebig",
+    "OPTIONS_MISSED_LABEL": "Verpasst",
+    "OPTIONS_MISSED_DESCRIPTION": "Nur wenn die Aktivität versäumt wurde",
+    "OPTIONS_LATE_LABEL": "Verspätet",
+    "OPTIONS_LATE_DESCRIPTION": "Nur wenn weniger als 24 Stunden vorher"
   },
   "STOREDETAIL": {
     "ARCHIVED": "Dieser Ort wurde archiviert",
@@ -771,8 +771,8 @@
     "DETAIL": "Eine neue Version von Karrot ist verfügbar.",
     "RELOAD": "Neu laden"
   },
-  "URL_CLICK_TO_COPY": "Click to copy",
-  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
+  "URL_CLICK_TO_COPY": "Zum Kopieren klicken",
+  "URL_COPIED_TOAST": "Die URL wurde erfolgreich in die Zwischenablage kopiert",
   "USERDATA": {
     "ACCOUNT": "Account",
     "CONFIRM_PASSWORD": "Bestätige dein Passwort",
@@ -782,8 +782,8 @@
         "TITLE": "Benutzer*in vertrauen"
       },
       "REVOKE_TRUST": {
-        "MESSAGE": "Do you want to revoke the trust you have given to {userName} in {groupName}?",
-        "TITLE": "Revoke trust"
+        "MESSAGE": "Möchtest du das Vertrauen, das du {userName} in {groupName} gegeben hast, widerrufen?",
+        "TITLE": "Vertrauen widerrufen"
       },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "Ich stimme zu",

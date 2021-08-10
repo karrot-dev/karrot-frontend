@@ -50,6 +50,7 @@
       :fetch-past-status="fetchPastStatus"
       :feedback-possible="feedbackPossible"
       :feedback-possible-status="feedbackPossibleStatus"
+      :highlight="highlight"
     />
   </div>
 </template>
@@ -84,9 +85,13 @@ export default {
       fetchPastStatus: 'feedback/fetchPastStatus',
       feedbackPossible: 'activities/feedbackPossibleByActivePlace',
       feedbackPossibleStatus: 'activities/fetchFeedbackPossibleStatus',
+      routeQuery: 'route/query',
     }),
     statistics () {
       return this.place && this.place.statistics
+    },
+    highlight () {
+      return parseInt(this.routeQuery.highlight)
     },
   },
   methods: {

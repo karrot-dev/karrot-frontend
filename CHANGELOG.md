@@ -27,6 +27,7 @@ Please document your changes in this format:
 
 ### Changed
 - Remove invitation by e-mail at members page @brnsolikyl [#2349]
+- Redirect to place feedback page after saving, highlight entry @tiltec #2417
 - meta-tags: site description update in composer.json update for og:title [#2405]
 
 ### Fixed

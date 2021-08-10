@@ -140,7 +140,7 @@
       >
         <template #default>
           <QIcon
-            name="fas fa-calendar-plus"
+            name="event"
             size="xs"
             class="q-mr-xs"
           />
@@ -176,6 +176,7 @@ import {
 } from 'quasar'
 import ActivityUsers from './ActivityUsers'
 import CustomDialog from '@/utils/components/CustomDialog'
+import { absoluteURL } from '@/utils/absoluteURL'
 
 export default {
   components: {
@@ -208,9 +209,10 @@ export default {
   },
   computed: {
     icsUrl () {
-      // host added to the ICS url so that it still works in Cordova
+      // a relative URL would work fine in a browser but
+      // not in Cordova so we always make it absolute for simplicity.
       // see https://github.com/yunity/karrot-frontend/issues/2400
-      return `${window.location.origin}/api/activities/${this.activity.id}/ics/`
+      return absoluteURL(`/api/activities/${this.activity.id}/ics/`)
     },
   },
   methods: {

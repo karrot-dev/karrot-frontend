@@ -1,5 +1,6 @@
 import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertConversation } from '@/messages/api/conversations'
+import { absoluteURL } from '@/utils/absoluteURL'
 
 export default {
 
@@ -35,6 +36,13 @@ export default {
 
   async listFeedbackPossible (groupId) {
     return this.list({ feedback_possible: true, group: groupId })
+  },
+
+  icsUrl (filter) {
+    return axios.getUri({
+      params: filter,
+      url: absoluteURL('/api/activities/ics/'),
+    })
   },
 
   async save (activity) {

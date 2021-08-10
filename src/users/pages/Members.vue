@@ -92,6 +92,7 @@ import CustomDialog from '@/utils/components/CustomDialog'
 import UserList from '@/users/components/UserList'
 import RandomArt from '@/utils/components/RandomArt'
 import KSpinner from '@/utils/components/KSpinner'
+import { absoluteURL } from '@/utils/absoluteURL'
 
 import {
   mapGetters,
@@ -125,7 +126,7 @@ export default {
       return this.group && this.group.id
     },
     linkToCopy () {
-      return window.location.protocol + '//' + window.location.host + '/#/groupPreview/' + this.group.id
+      return absoluteURL('/#/groupPreview/' + this.group.id)
     },
   },
   methods: {

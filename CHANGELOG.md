@@ -23,10 +23,12 @@ Please document your changes in this format:
 ## [Unreleased]
 ### Added
 - Users can revoke trust @pogopaule [#2352]
+- meta-tags: added title variable to quasar.conf.js and og_site_name for meta description [#2405]
 
 ### Changed
 - Remove invitation by e-mail at members page @brnsolikyl [#2349]
 - Redirect to place feedback page after saving, highlight entry @tiltec #2417
+- meta-tags: site description update in composer.json update for og:title [#2405]
 
 ### Fixed
 - add explicit host in ics url @amengsk [#2406]

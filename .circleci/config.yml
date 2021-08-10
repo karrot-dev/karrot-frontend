@@ -403,8 +403,8 @@ jobs:
             git branch --delete --force $BRANCH || true
             git checkout -b $BRANCH
             yarn upgrade --latest --ignore-engines
-            # hold back from v4 until we have vue 3
-            (yarn list --pattern vue | grep vue@3) || yarn upgrade vuex-persistedstate@^3.1.0
+            # stay with quasar@1 and vue@2 until we found time to upgrade
+            yarn upgrade vue@^2.6.14 quasar@^1.15.23 @quasar/app@^2.2.10 vuex-persistedstate@^3.1.0 stylelint-webpack-plugin@^2.2.2
             tee pr.txt \<<EOL
             [CI] update dependencies
 

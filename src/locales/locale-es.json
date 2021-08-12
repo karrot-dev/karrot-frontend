@@ -94,7 +94,17 @@
     "NONE": "No hay actividades pendientes",
     "NONE_DUE_TO_FILTER": "Ninguna actividad coincide con tus filtros",
     "NONE_HINT": "Puedes crear una nueva actividad en la página del lugar.",
-    "STORE_NONE_HINT": "Puedes crear una nueva actividad en la página \"Gestionar actividades\"."
+    "STORE_NONE_HINT": "Puedes crear una nueva actividad en la página \"Gestionar actividades\".",
+    "ICS_DIALOG": {
+      "TITLE": "Add to calendar",
+      "INTRO": "Add these activities to your calendar by using one of the following options:",
+      "DOWNLOAD_TITLE": "Download",
+      "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
+      "DOWNLOAD_BUTTON_LABEL": "Download ICS",
+      "SUBSCRIBE_TITLE": "Subscribe",
+      "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
+      "MORE_INFOS": "More info about ICS"
+    }
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "\"Información adicional\" ha sido cambiada",

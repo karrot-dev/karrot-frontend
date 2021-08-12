@@ -94,7 +94,17 @@
     "NONE": "Ne estas venontaj aktivaĵoj",
     "NONE_DUE_TO_FILTER": "Ne estas aktivaĵo kun viaj kondiĉoj",
     "NONE_HINT": "Vi povas krei novan aktivaĵon en la loka paĝo.",
-    "STORE_NONE_HINT": "Vi povas krei novan aktivaĵon en la \"Agordu aktivaĵojn\"-a paĝo."
+    "STORE_NONE_HINT": "Vi povas krei novan aktivaĵon en la \"Agordu aktivaĵojn\"-a paĝo.",
+    "ICS_DIALOG": {
+      "TITLE": "Add to calendar",
+      "INTRO": "Add these activities to your calendar by using one of the following options:",
+      "DOWNLOAD_TITLE": "Download",
+      "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
+      "DOWNLOAD_BUTTON_LABEL": "Download ICS",
+      "SUBSCRIBE_TITLE": "Subscribe",
+      "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
+      "MORE_INFOS": "More info about ICS"
+    }
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "'Aldona informo' ŝanĝiĝis",

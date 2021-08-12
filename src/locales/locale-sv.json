@@ -94,7 +94,17 @@
     "NONE": "Inga bokade aktiviteter",
     "NONE_DUE_TO_FILTER": "Ingen aktivitet passar dina filter",
     "NONE_HINT": "Du kan skapa en ny aktivitet på platssidan.",
-    "STORE_NONE_HINT": "Du kan skapa en ny aktivitet på \"Redigera aktiviteter\"."
+    "STORE_NONE_HINT": "Du kan skapa en ny aktivitet på \"Redigera aktiviteter\".",
+    "ICS_DIALOG": {
+      "TITLE": "Add to calendar",
+      "INTRO": "Add these activities to your calendar by using one of the following options:",
+      "DOWNLOAD_TITLE": "Download",
+      "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
+      "DOWNLOAD_BUTTON_LABEL": "Download ICS",
+      "SUBSCRIBE_TITLE": "Subscribe",
+      "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
+      "MORE_INFOS": "More info about ICS"
+    }
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "'Mer information' har ändrats",

@@ -94,7 +94,17 @@
     "NONE": "Es stehen keine Aktivitäten an.",
     "NONE_DUE_TO_FILTER": "Keine Aktivitäten entsprechen deinen Kriterien",
     "NONE_HINT": "Du kannst eine neue Aktivität auf der Seite des Ortes erstellen.",
-    "STORE_NONE_HINT": "Du kannst eine neue Aktivität auf der Seite „Verwalte Aktivitäten“ erstellen."
+    "STORE_NONE_HINT": "Du kannst eine neue Aktivität auf der Seite „Verwalte Aktivitäten“ erstellen.",
+    "ICS_DIALOG": {
+      "TITLE": "Add to calendar",
+      "INTRO": "Add these activities to your calendar by using one of the following options:",
+      "DOWNLOAD_TITLE": "Download",
+      "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
+      "DOWNLOAD_BUTTON_LABEL": "Download ICS",
+      "SUBSCRIBE_TITLE": "Subscribe",
+      "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
+      "MORE_INFOS": "More info about ICS"
+    }
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "'Zusätzliche Information' wurde geändert",

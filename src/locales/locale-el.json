@@ -94,7 +94,17 @@
     "NONE": "Δεν υπάρχουν δραστηριότητες που συμβαίνουν σύντομα ",
     "NONE_DUE_TO_FILTER": "Δεν υπάρχουν δραστηριότητες που ταιρίαζουν στα φίλτρα που έβαλες ",
     "NONE_HINT": "Μπορείς να δημιουργήσεις μια νεα δραστηριότητα στη σελίδα μέρος-location. ",
-    "STORE_NONE_HINT": "Μπορείς να δημιουργήσεις μια νέα δραστηριότητα στην σελίδα 'Διαχείριση δράσεων/δραστηριοτήτων' "
+    "STORE_NONE_HINT": "Μπορείς να δημιουργήσεις μια νέα δραστηριότητα στην σελίδα 'Διαχείριση δράσεων/δραστηριοτήτων' ",
+    "ICS_DIALOG": {
+      "TITLE": "Add to calendar",
+      "INTRO": "Add these activities to your calendar by using one of the following options:",
+      "DOWNLOAD_TITLE": "Download",
+      "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
+      "DOWNLOAD_BUTTON_LABEL": "Download ICS",
+      "SUBSCRIBE_TITLE": "Subscribe",
+      "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
+      "MORE_INFOS": "More info about ICS"
+    }
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "Έπιπλέον πληροφορίες΄ άλλαξε ",

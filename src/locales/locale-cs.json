@@ -96,14 +96,14 @@
     "NONE_HINT": "Na stránce místa můžete vytvořit novou aktivitu.",
     "STORE_NONE_HINT": "Na stránce „Správa aktivit“ můžete vytvořit novou aktivitu.",
     "ICS_DIALOG": {
-      "TITLE": "Add to calendar",
-      "INTRO": "Add these activities to your calendar by using one of the following options:",
-      "DOWNLOAD_TITLE": "Download",
-      "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
-      "DOWNLOAD_BUTTON_LABEL": "Download ICS",
-      "SUBSCRIBE_TITLE": "Subscribe",
-      "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
-      "MORE_INFOS": "More info about ICS"
+      "TITLE": "Přidat do kalendáře",
+      "INTRO": "Přidejte tyto aktivity do kalendáře pomocí jedné z následujících možností:",
+      "DOWNLOAD_TITLE": "Stáhnout",
+      "DOWNLOAD_TEXT": "Stáhněte si soubor ICS a importujte jej do kalendáře ručně:",
+      "DOWNLOAD_BUTTON_LABEL": "Stáhnout ICS",
+      "SUBSCRIBE_TITLE": "Přihlaste se k odběru",
+      "SUBSCRIBE_TEXT": "Pomocí této adresy URL se můžete přihlásit k odběru jako kalendář ICS:",
+      "MORE_INFOS": "Více informací o ICS"
     }
   },
   "ACTIVITYMANAGE": {

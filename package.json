@@ -129,6 +129,8 @@
     "stylelint": "^13.13.1",
     "stylelint-config-recess-order": "^2.4.0",
     "stylelint-webpack-plugin": "^2.2.2",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^6.1.0",
     "vue-jest": "^3.0.7",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",

@@ -2,27 +2,26 @@
 import 'quasar/dist/quasar.sass'
 import '@/css/app.sass'
 
-import Vue from 'vue'
 import Vuex from 'vuex'
 import VueI18n from 'vue-i18n'
 import VueRouter from 'vue-router'
 import configureQuasar from '>/configureQuasar'
 import { RouterLinkStub, TransitionStub, TransitionGroupStub } from '@vue/test-utils'
-import { IconPlugin } from '@/base/icons'
+import icons from '@/base/icons'
+import { app } from '@storybook/vue3'
 
-Vue.config.productionTip = false
-Vue.config.devtools = true
-configureQuasar(Vue)
-Vue.use(Vuex) // Install Vuex
-Vue.use(IconPlugin)
-Vue.use(VueI18n)
-Vue.use(VueRouter)
+app.config.devtools = true
+configureQuasar(app)
+app.use(Vuex) // Install Vuex
+app.use(VueI18n)
+app.use(VueRouter)
+app.config.globalProperties.$icons = icons.get
 
-Vue.component('RouterLink', RouterLinkStub)
-Vue.component('Transition', TransitionStub)
-Vue.component('TransitionGroup', TransitionGroupStub)
-Vue.directive('measure', {})
-Vue.config.errorHandler = (err, vm, info) => {
+app.component('RouterLink', RouterLinkStub)
+app.component('Transition', TransitionStub)
+app.component('TransitionGroup', TransitionGroupStub)
+app.directive('measure', {})
+app.config.errorHandler = (err, vm, info) => {
   console.log(err, vm, info)
 }
 

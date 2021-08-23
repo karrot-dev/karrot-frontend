@@ -11,6 +11,6 @@ export const config = {
   },
 }
 
-export default (Vue) => {
-  Vue.use(Quasar, config)
+export default (app) => {
+  app.use(Quasar, config)
 }

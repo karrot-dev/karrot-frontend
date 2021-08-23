@@ -3,8 +3,6 @@
  * This file should not import the datastore itself, to avoid cyclic dependencies.
  */
 
-import Vue from 'vue'
-
 /**
  * Returns an object that maps entries of iterables by their `id` field
  *
@@ -96,24 +94,24 @@ export function createMetaModule () {
     mutations: {
       update (state, { actionName, id, value }) {
         if (id) {
-          if (!state.byId[id]) Vue.set(state.byId, id, {})
-          Vue.set(state.byId[id], actionName, value)
+          if (!state.byId[id]) state.byId[id] = {}
+          state.byId[id][actionName] = value
         }
         else {
-          Vue.set(state.byAction, actionName, value)
+          state.byAction[actionName] = value
         }
       },
       clear (state, { actionName, id } = {}) {
         if (id) {
           if (state.byId[id]) {
-            Vue.delete(state.byId[id], actionName)
+            delete state.byId[id][actionName]
             if (Object.keys(state.byId[id]).length === 0) {
-              Vue.delete(state.byId, id)
+              delete state.byId[id]
             }
           }
         }
         else if (actionName) {
-          Vue.delete(state.byAction, actionName)
+          delete state.byAction[actionName]
         }
         else {
           state.byAction = {}
@@ -331,7 +329,7 @@ export function toggles (config) {
     actions: {},
     mutations: {
       set (state, { key, value }) {
-        Vue.set(state, key, value)
+        state[key] = value
       },
     },
   }

@@ -24,7 +24,7 @@ export default createRouter({
       ],
     },
     // Always leave this last one
-    { path: '*', component: RouteError }, // Not found
+    { path: '/:catchAll(.*)*', component: RouteError }, // Not found
   ],
   scrollBehavior (to, from, savedPosition) {
     // keep scroll position if we stay on same page
@@ -46,5 +46,5 @@ export default createRouter({
   // Leave these as they are and change in quasar.conf.js instead!
   // quasar.conf.js -> build -> vueRouterMode
   // quasar.conf.js -> build -> publicPath
-  hash: createWebHashHistory(process.env.VUE_ROUTER_BASE),
+  history: createWebHashHistory(process.env.VUE_ROUTER_BASE),
 })

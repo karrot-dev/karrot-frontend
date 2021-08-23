@@ -80,7 +80,7 @@ const i18n = createI18n({
   numberFormats,
   fallbackLocale: 'en', // if you change this make sure to always load the locale too
 })
-export default i18n
+export default i18n.global
 
 const TEN_PM = new Date()
 TEN_PM.setHours(22, 0)

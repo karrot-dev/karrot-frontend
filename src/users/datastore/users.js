@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import users from '@/users/api/users'
 import authUser from '@/authuser/api/authUser'
 import auth from '@/authuser/api/auth'
@@ -189,7 +188,7 @@ export default {
       state.infoEntries = Object.freeze({ ...state.infoEntries, ...indexById(users) })
     },
     resendVerificationCodeSuccess (state, status) {
-      Vue.set(state, 'resendVerificationCodeSuccess', status)
+      state.resendVerificationCodeSuccess = status
     },
     clear (state) {
       Object.assign(state, initialState())

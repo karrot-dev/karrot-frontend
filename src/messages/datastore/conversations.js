@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import differenceInSeconds from 'date-fns/differenceInSeconds'
 import messageAPI from '@/messages/api/messages'
 import conversationsAPI from '@/messages/api/conversations'
@@ -464,28 +463,24 @@ export default {
       Object.assign(state, initialState())
     },
     clearMessages (state, conversationId) {
-      Vue.delete(state.messages, conversationId)
-      Vue.delete(state.cursors, conversationId)
+      delete state.messages[conversationId]
+      delete state.cursors[conversationId]
     },
     clearConversation (state, conversationId) {
-      Vue.delete(state.entries, conversationId)
-      Vue.delete(state.messages, conversationId)
-      Vue.delete(state.cursors, conversationId)
+      delete state.entries[conversationId]
+      delete state.messages[conversationId]
+      delete state.cursors[conversationId]
     },
     updateMessages (state, { conversationId, messages }) {
       if (!state.entries[conversationId]) return
       const stateMessages = state.messages[conversationId]
-      Vue.set(
-        state.messages,
-        conversationId,
-        Object.freeze(stateMessages ? insertSorted(stateMessages, messages) : messages),
-      )
+      state.messages[conversationId] = Object.freeze(stateMessages ? insertSorted(stateMessages, messages) : messages)
     },
     setCursor (state, { conversationId, cursor }) {
-      Vue.set(state.cursors, conversationId, cursor)
+      state.cursors[conversationId] = cursor
     },
     setConversation (state, conversation) {
-      Vue.set(state.entries, conversation.id, Object.freeze(conversation))
+      state.entries[conversation.id] = Object.freeze(conversation)
     },
   },
 }

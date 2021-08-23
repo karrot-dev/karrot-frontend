@@ -1,12 +1,12 @@
 <template>
-    <!-- class root-splash is defined in index.html -->
-    <img
-      v-if="!hasView"
-      class="root-splash root-splash-second"
-      src="statics/carrot_logo.png"
-    >
-    <LoadingProgress />
-    <RouterView />
+  <!-- class root-splash is defined in index.html -->
+  <img
+    v-if="!hasView"
+    class="root-splash root-splash-second"
+    src="statics/carrot_logo.png"
+  >
+  <LoadingProgress />
+  <RouterView />
 </template>
 
 <script>

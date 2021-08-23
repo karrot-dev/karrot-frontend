@@ -1,4 +1,5 @@
-import Vue from 'vue'
-import { DetectMobileKeyboardPlugin } from '@/utils/detectMobileKeyboard'
+import keyboard from '@/utils/detectMobileKeyboard'
 
-Vue.use(DetectMobileKeyboardPlugin)
+export default ({ app }) => {
+  app.config.globalProperties.$keyboard = keyboard
+}

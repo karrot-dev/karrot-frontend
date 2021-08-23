@@ -4,7 +4,7 @@ import { debounceAndFlushOnUnload, underscorizeKeys } from '@/utils/utils'
 
 const SAVE_INTERVAL_MS = 5000 // batch saves to the backend
 
-export default async ({ store: datastore, Vue, router }) => {
+export default async ({ store: datastore, app, router }) => {
   const performance = window.performance
   const fetch = window.fetch
 
@@ -17,7 +17,7 @@ export default async ({ store: datastore, Vue, router }) => {
     performance.clearMarks &&
     performance.measure &&
     performance.mark &&
-    !Vue.config.performance
+    !app.config.performance
 
   // For each load we measure up to the point where the first v-measure is measured
   // the set done to true so we don't record beyond that, until the next page load
@@ -121,8 +121,8 @@ export default async ({ store: datastore, Vue, router }) => {
       next()
     })
 
-    Vue.directive('measure', {
-      inserted (el) {
+    app.directive('measure', {
+      mounted (el) {
         if (done) return
         measure('MM') // MM = "Meaningful Mount" inspired by FMP (First Meaningful Paint)
         done = true
@@ -134,7 +134,7 @@ export default async ({ store: datastore, Vue, router }) => {
   else {
     // measurement is not enabled
     // we create an empty directive so we don't have invalid use of v-measure directives in the rest of the code
-    Vue.directive('measure', {})
+    app.directive('measure', {})
   }
 
   function readCookie (name) {

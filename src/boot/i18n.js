@@ -1,4 +1,4 @@
-import i18n from '@/base/i18n'
+import { i18nPlugin as i18n } from '@/base/i18n'
 
 export default ({ app }) => {
   // Set i18n instance on app

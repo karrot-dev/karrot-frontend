@@ -1,12 +1,9 @@
-import { createApp } from 'vue'
+import { reactive } from 'vue'
 
-export default createApp({
-  data () {
-    return {
-      value: new Date(),
-    }
-  },
-  created () {
-    setInterval(() => { this.value = new Date() }, 10 * 1000)
-  },
+const state = reactive({
+  value: new Date(),
 })
+
+setInterval(() => { state.value = new Date() }, 10 * 1000)
+
+export default state

@@ -82,6 +82,8 @@ const i18n = createI18n({
 })
 export default i18n.global
 
+export const i18nPlugin = i18n
+
 const TEN_PM = new Date()
 TEN_PM.setHours(22, 0)
 

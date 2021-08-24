@@ -1,13 +1,9 @@
-import Vue from 'vue'
+import { nextTick } from 'vue'
 import Vuex from 'vuex'
-import { createLocalVue, mount, TransitionStub, TransitionGroupStub, RouterLinkStub } from '@vue/test-utils'
+import { mount, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
 import i18n from '@/base/i18n'
-import { IconPlugin } from '@/base/icons'
 import routerMocks from '>/routerMocks'
-
-Vue.use(Vuex)
-Vue.use(IconPlugin)
 
 const desktopUserAgent = 'Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0'
 const mobileUserAgent = 'Mozilla/5.0 (Android 9; Mobile; rv:68.0) Gecko/68.0 Firefox/68.0'
@@ -22,7 +18,7 @@ export function useMobileUserAgent () {
 
 export async function nextTicks (n) {
   while (n--) {
-    await Vue.nextTick()
+    await nextTick()
   }
 }
 
@@ -75,35 +71,33 @@ export function makefindAllComponentsIterable (wrapper) {
   return wrapper
 }
 
-export function configureQuasar (Vue) {
+export function mountWithDefaults (Component, options = {}) {
+  i18n.locale = 'en'
+
   // jest.resetModules() can only provide isolation when we require() a module
   // We want a fresh Quasar for every test
-  const configure = require('>/configureQuasar').default
-  configure(Vue)
-}
+  const Quasar = require('quasar').default
+  const quasarConfig = require('>/quasarConfig').default
 
-export function mountWithDefaults (Component, options = {}) {
-  const localVue = createLocalVue()
-  return mountWithDefaultsAndLocalVue(Component, localVue, options)
-}
-
-export function mountWithDefaultsAndLocalVue (Component, localVue, options = {}) {
-  i18n.locale = 'en'
-  configureQuasar(localVue)
-
-  localVue.component('RouterLink', RouterLinkStub)
-  localVue.component('Transition', TransitionStub)
-  localVue.component('TransitionGroup', TransitionGroupStub)
-  localVue.directive('measure', {})
   const datastore = options.datastore
   delete options.datastore
   const wrapper = mount(Component, {
-    localVue,
-    sync: false,
-    i18n,
-    store: datastore,
-    mocks: {
-      ...routerMocks,
+    global: {
+      plugins: [
+        i18n,
+        datastore,
+        [Quasar, quasarConfig],
+      ],
+      stubs: {
+        RouterLink: RouterLinkStub,
+      },
+      directives: {
+        measure: {},
+      },
+      mocks: {
+        $icon: () => '',
+        ...routerMocks,
+      },
     },
     ...options,
   })
@@ -112,9 +106,7 @@ export function mountWithDefaultsAndLocalVue (Component, localVue, options = {})
 }
 
 export function storybookDefaults (options) {
-  i18n.locale = 'en'
   return {
-    i18n,
     ...options,
   }
 }

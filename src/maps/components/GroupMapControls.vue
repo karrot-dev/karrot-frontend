@@ -172,22 +172,20 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .k-groupmapcontrols
-  position absolute
-  top 5px
-  right 10px
-  z-index 1000
+  position: absolute
+  top: 5px
+  right: 10px
+  z-index: 1000
 
   .bottom-right
-    top 5px
-    left 5px
+    top: 5px
+    left: 5px
 
   .fa-check
-    color $positive
+    color: $positive
 
   .fa-times
-    color $negative
+    color: $negative
 </style>

@@ -72,12 +72,10 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-@import '~variables'
-
+<style lang="sass" scoped>
 .q-icon:not(.hasUnread)
-  opacity $topbar-opacity-low
+  opacity: $topbar-opacity-low
 
 .q-btn:hover .q-icon
-  opacity 1
+  opacity: 1
 </style>

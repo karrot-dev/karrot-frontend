@@ -244,83 +244,79 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .gallery-wrapper
   .overlay-toggle-button
     i
-      transition transform .5s
+      transition: transform .5s
 
       &.slightly-rotated
-        transform rotate(-180deg)
+        transform: rotate(-180deg)
 
   .sidebar
-    z-index 2
-    width 100%
-    padding 5px
-    background-color rgba(255, 255, 255, 0.8)
+    z-index: 2
+    width: 100%
+    padding: 5px
+    background-color: rgba(255, 255, 255, 0.8)
 
     .text-primary
-      margin-left .2em
+      margin-left: .2em
 
     .underline
-      text-decoration underline
+      text-decoration: underline
 
     .header
-      padding-top 14px
-      margin-left 10px
-      font-size 1.4em
+      padding-top: 14px
+      margin-left: 10px
+      font-size: 1.4em
 
 body.desktop .gallery-wrapper
   .map-fixed
-    position fixed
-    right 0
-    left 0
-    z-index 0
-    height 100vh
+    position: fixed
+    right: 0
+    left: 0
+    z-index: 0
+    height: 100vh
 
   .sidebar
     &.expanded
-      padding-bottom 3em
+      padding-bottom: 3em
     @media screen and (min-width: $breakpoint-sm)
-      max-width 42vw
-      padding 0 1em 1em 1em
-      box-shadow 6px 0px 5px 0px rgba(0, 0, 0, 0.3)
+      max-width: 42vw
+      padding: 0 1em 1em 1em
+      box-shadow: 6px 0px 5px 0px rgba(0, 0, 0, 0.3)
 
       &.expanded
-        min-height 100vh
+        min-height: 100vh
 
 body.mobile .gallery-wrapper
   .map-fixed
-    z-index 0
-    width 100%
-    height 60vh
+    z-index: 0
+    width: 100%
+    height: 60vh
 
   .sidebar
-    z-index 0
-    min-height 10vh
-    padding-bottom 3em
-    margin-top 0
-    margin-bottom 40px
-    transition all .7s
+    z-index: 0
+    min-height: 10vh
+    padding-bottom: 3em
+    margin-top: 0
+    margin-bottom: 40px
+    transition: all .7s
 
     &.expanded
-      min-height 60vh
-      margin-top -60vh
+      min-height: 60vh
+      margin-top: -60vh
 </style>
 
-<style lang="stylus">
-@import '~variables'
-
+<style lang="sass">
 body.mobile .gallery-wrapper.expanded .map-fixed .leaflet-control-container .leaflet-left
-  display none
+  display: none
 
 @media screen and (max-width: $breakpoint-sm)
   body.desktop .gallery-wrapper .map-fixed .leaflet-control-container .leaflet-left
-    display none
+    display: none
 
 @media screen and (min-width: $breakpoint-sm)
   body.desktop .gallery-wrapper .map-fixed .leaflet-control-container .leaflet-left
-    left 42vw
+    left: 42vw
 </style>

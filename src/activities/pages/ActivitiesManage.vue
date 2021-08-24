@@ -409,26 +409,24 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 button.selected
-  background-color $grey-4
+  background-color: $grey-4
 
 .secondCard
-  margin-top 24px !important
+  margin-top: 24px !important
 
   .randomBanner
-    display block
-    height 26px
-    overflow hidden
+    display: block
+    height: 26px
+    overflow: hidden
 
 // let the top fab (series) display over the top of the lower one (one-off activities)
 .fab-top-fix
-  z-index $z-fab + 1
+  z-index: $z-fab + 1
 
 // for some reason the font-awesome icons are displayed too big inside QFabAction
 .fab-action-fix
-  >>> .q-icon.fas
-    font-size 18px
+  :deep(.q-icon.fas)
+    font-size: 18px
 </style>

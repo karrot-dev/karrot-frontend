@@ -194,10 +194,10 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 @import '~editbox'
 
 .croppa-container.croppa--has-target
-  cursor move
+  cursor: move
 
 </style>

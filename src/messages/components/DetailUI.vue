@@ -193,8 +193,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-
 .Detail
   background-color white
 

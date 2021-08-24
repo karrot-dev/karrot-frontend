@@ -44,14 +44,12 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .browser-warning
-  width 100%
-  padding 10px 4px
-  text-align center
+  width: 100%
+  padding: 10px 4px
+  text-align: center
 
 .outdated-link
-  text-decoration underline
+  text-decoration: underline
 </style>

@@ -75,8 +75,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-
 .wrapper
   .amount
     margin-right .6em

@@ -162,7 +162,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
+// @import '~variables'
 
 .edit
   width 100%

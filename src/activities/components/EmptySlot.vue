@@ -17,21 +17,19 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .user-slot-wrapper
-  margin-right 3.8px
-  margin-bottom 3.8px
-  background-color rgba(255, 255, 255, 0.7)
-  border 2px dashed
-  border-radius 0
+  margin-right: 3.8px
+  margin-bottom: 3.8px
+  background-color: rgba(255, 255, 255, 0.7)
+  border: 2px dashed
+  border-radius: 0
 
   span
-    font-weight 600
-    vertical-align middle
+    font-weight: 600
+    vertical-align: middle
 
 .greyedOut
-  cursor default
-  border-color lightgrey
+  cursor: default
+  border-color: lightgrey
 </style>

@@ -104,8 +104,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-
 .container
   position relative
   display block

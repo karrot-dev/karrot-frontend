@@ -147,47 +147,46 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
+<style scoped lang="sass">
 $box-shadow-color = 0, 0, 0
 
 .groupPreviewCard
-  cursor pointer
-  box-shadow 0 2px 15px rgba($box-shadow-color, 0.07), 0 1px 3px rgba($box-shadow-color, 0.15)
+  cursor: pointer
+  box-shadow: 0 2px 15px rgba($box-shadow-color, 0.07), 0 1px 3px rgba($box-shadow-color, 0.15)
 
   &:hover
-    box-shadow rgba($box-shadow-color, 0.09) 0px 4px 16px, rgba($box-shadow-color, 0.09) 0px 8px 24px, rgba($box-shadow-color, 0.09) 0px 16px 56px
+    box-shadow: rgba($box-shadow-color, 0.09) 0px 4px 16px, rgba($box-shadow-color, 0.09) 0px 8px 24px, rgba($box-shadow-color, 0.09) 0px 16px 56px
 
   *
-    overflow hidden
+    overflow: hidden
 
   &.highlight
-    border 2px solid $secondary
+    border: 2px solid $secondary
 
   &.application
-    border 2px solid $blue
+    border: 2px solid $blue
 
   .fixed-height
-    position relative
-    min-height 80px
-    max-height 80px
+    position: relative
+    min-height: 80px
+    max-height: 80px
 
     &:before
-      position absolute
-      top 0
-      left 0
-      width 100%
-      height 100%
-      content ''
-      background linear-gradient(rgba(255, 255, 255, 0) 80%, white 100%)
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      content: ''
+      background: linear-gradient(rgba(255, 255, 255, 0) 80%, white 100%)
 
   .smaller-text >>> *
-    font-size 1em
+    font-size: 1em
 
   .photo,
   .q-img
-    height 160px
+    height: 160px
 
     .k-media-overlay
-      background-color rgba(0, 0, 0, 0.47)
+      background-color: rgba(0, 0, 0, 0.47)
 </style>

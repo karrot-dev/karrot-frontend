@@ -30,8 +30,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-
 .k-sidenav-box
   margin-bottom 20px
 

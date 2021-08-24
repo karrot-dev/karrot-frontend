@@ -105,9 +105,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .isNonPending
-  opacity 0.8
+  opacity: 0.8
 </style>

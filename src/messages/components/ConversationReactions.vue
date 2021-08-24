@@ -102,32 +102,31 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
+<style scoped lang="sass">
 @import './reactionBox'
 
 .add-button
-  transition none
+  transition: none
 
   >>> .q-btn__wrapper
-    min-height 0
-    padding 0
+    min-height: 0
+    padding: 0
 
 .desktop .conversation-reactions
   .add-button
-    visibility hidden
+    visibility: hidden
 
   &:hover .add-button
-    visibility visible
+    visibility: visible
 
 .user-reacted
-  border-color $secondary !important
+  border-color: $secondary !important
 
 .reactions-number
-  padding-left 3px
-  font-size .8em
-  opacity .7
+  padding-left: 3px
+  font-size: .8em
+  opacity: .7
 
 .big
-  font-size 1.6em
+  font-size: 1.6em
 </style>

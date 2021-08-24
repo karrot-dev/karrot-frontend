@@ -147,8 +147,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-@import '~variables'
-
 .comment
   padding-top 8px
   word-wrap break-word

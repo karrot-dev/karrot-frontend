@@ -96,30 +96,28 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .wrapper
-  position relative
+  position: relative
 
 .content
-  background $grey-2
-  border-radius 13px
+  background: $grey-2
+  border-radius: 13px
 
   .content-body
-    position relative
-    height 60px
+    position: relative
+    height: 60px
 
     &:after
-      position absolute
-      top 0
-      right 0
-      width 60px
-      height 100%
-      content ''
-      background linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, $grey-2 75%)
+      position: absolute
+      top: 0
+      right: 0
+      width: 60px
+      height: 100%
+      content: ''
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, $grey-2 75%)
 
 .showOverlay .content
-  filter blur(3px)
-  opacity 0.3
+  filter: blur(3px)
+  opacity: 0.3
 </style>

@@ -122,12 +122,12 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
+<style scoped lang="sass">
+@use "sass:color"
 
 .isUnread
-  background linear-gradient(to right, $lightGreen, $lighterGreen)
+  background: linear-gradient(to right, $lightGreen, $lighterGreen)
 
   &:hover
-    background alpha($grey, 0.5)
+    background: color.change($grey, $alpha: 0.5)
 </style>

@@ -93,15 +93,17 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
+@use 'sass:color'
+
 .k-feedback-list
-  max-width 600px
-  margin-right auto
-  margin-left auto
+  max-width: 600px
+  margin-right: auto
+  margin-left: auto
 
 .highlight
-  border-color $secondary
+  border-color: $secondary
 
   /* Override !important of no-shadow class */
-  box-shadow alpha($secondary, 0.3) 0px 0px 0px 3px !important
+  box-shadow: color.change($secondary, $alpha: 0.3) 0px 0px 0px 3px !important
 </style>

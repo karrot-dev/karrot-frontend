@@ -161,9 +161,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .isUnread
-  background linear-gradient(to right, $lightGreen, $lighterGreen)
+  background: linear-gradient(to right, $lightGreen, $lighterGreen)
 </style>

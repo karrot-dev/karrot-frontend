@@ -183,8 +183,7 @@ module.exports = configure(function (ctx) {
         }
 
         cfg.plugins.unshift(new StyleLintPlugin({
-          files: ['./src/**/*.{vue,styl}'],
-          customSyntax: resolve(__dirname, './build/stylelintCustomSyntax.js'),
+          files: ['./src/**/*.{vue,sass}'],
         }))
 
         cfg.plugins.push(

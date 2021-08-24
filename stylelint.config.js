@@ -1,6 +1,8 @@
 module.exports = {
   extends: 'stylelint-config-recess-order',
   rules: {
+    'at-rule-no-unknown': null,
+    'scss/at-rule-no-unknown': true,
     'block-no-empty': null,
     'color-no-invalid-hex': true,
     'comment-empty-line-before': ['always', {
@@ -14,7 +16,6 @@ module.exports = {
     'function-parentheses-newline-inside': 'always-multi-line',
     'function-parentheses-space-inside': 'never-single-line',
     'function-whitespace-after': 'always',
-    'karrot/no-colons': true,
     'karrot/no-semicolons': true,
     'declaration-colon-space-after': 'always',
     indentation: 2,
@@ -23,7 +24,7 @@ module.exports = {
       except: ['first-nested'],
       ignore: ['after-comment'],
     }],
-    'unit-whitelist': [
+    'unit-allowed-list': [
       'px',
       'em',
       'rem',
@@ -37,7 +38,7 @@ module.exports = {
     ],
   },
   plugins: [
-    './stylelint.no-colons.js',
+    'stylelint-scss',
     './stylelint.no-semicolons.js',
   ],
 }

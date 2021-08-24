@@ -8102,11 +8102,6 @@ fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
   integrity sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
 
-fast-diff@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.2.0.tgz#73ee11982d86caaf7959828d519cfe927fac5f03"
-  integrity sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
-
 fast-glob@3.2.7, fast-glob@^3.0.3, fast-glob@^3.1.1, fast-glob@^3.2.5:
   version "3.2.7"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.7.tgz#fd6cb7a2d7e9aa7a7846111e85a196d6b2f766a1"
@@ -11503,11 +11498,6 @@ lodash.sortby@^4.7.0:
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
-lodash.sortedlastindex@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/lodash.sortedlastindex/-/lodash.sortedlastindex-4.1.0.tgz#4569878196b450dac6aab4ceb0896ceed4a67255"
-  integrity sha1-RWmHgZa0UNrGqrTOsIls7tSmclU=
-
 lodash.template@4.5.0, lodash.template@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.template/-/lodash.template-4.5.0.tgz#f976195cf3f347d0d5f52483569fe8031ccce8ab"
@@ -13719,17 +13709,6 @@ postcss-sorting@^5.0.1:
     lodash "^4.17.14"
     postcss "^7.0.17"
 
-postcss-styl@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/postcss-styl/-/postcss-styl-0.8.0.tgz#55ab00b92bb2fdc41a6f996afc9c665aed19276b"
-  integrity sha512-W6LFRRkVPT4qEQsF320wXbV1uss8YJT5Y+wX6LZKziVFXkQ1rUK+hRl6Q9O4sgq7MwWQMq0VFcuPTLri9RHFqg==
-  dependencies:
-    debug "^4.1.1"
-    fast-diff "^1.2.0"
-    lodash.sortedlastindex "^4.1.0"
-    postcss "^7.0.27 || ^8.0.0"
-    stylus "^0.54.7"
-
 postcss-svgo@^5.0.2:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/postcss-svgo/-/postcss-svgo-5.0.2.tgz#bc73c4ea4c5a80fbd4b45e29042c34ceffb9257f"
@@ -13766,7 +13745,7 @@ postcss@7.x.x, postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.2, postcss@^7.0.21
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-"postcss@^7.0.27 || ^8.0.0", postcss@^8.1.10, postcss@^8.2.10, postcss@^8.2.15, postcss@^8.2.4, postcss@^8.3.5:
+postcss@^8.1.10, postcss@^8.2.10, postcss@^8.2.15, postcss@^8.2.4, postcss@^8.3.5:
   version "8.3.6"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.3.6.tgz#2730dd76a97969f37f53b9a6096197be311cc4ea"
   integrity sha512-wG1cc/JhRgdqB6WHEuyLTedf3KIRuD0hG6ldkFEZNCjRxiC+3i6kkWUUbiJQayP28iwG35cEmAbe98585BYV0A==
@@ -16085,6 +16064,17 @@ stylelint-order@4.1.x:
     postcss "^7.0.31"
     postcss-sorting "^5.0.1"
 
+stylelint-scss@^3.20.1:
+  version "3.20.1"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.20.1.tgz#88f175d9cfe1c81a72858bd0d3550cf61530e212"
+  integrity sha512-OTd55O1TTAC5nGKkVmUDLpz53LlK39R3MImv1CfuvsK7/qugktqiZAeQLuuC4UBhzxCnsc7fp9u/gfRZwFAIkA==
+  dependencies:
+    lodash "^4.17.15"
+    postcss-media-query-parser "^0.2.3"
+    postcss-resolve-nested-selector "^0.1.1"
+    postcss-selector-parser "^6.0.2"
+    postcss-value-parser "^4.1.0"
+
 stylelint-webpack-plugin@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/stylelint-webpack-plugin/-/stylelint-webpack-plugin-2.2.2.tgz#ecd241fb689346ee471c125fb0ef149488bd1980"
@@ -16161,7 +16151,7 @@ stylus-loader@3:
     lodash.clonedeep "^4.5.0"
     when "~3.6.x"
 
-stylus@^0.54.7, stylus@^0.54.8:
+stylus@^0.54.8:
   version "0.54.8"
   resolved "https://registry.yarnpkg.com/stylus/-/stylus-0.54.8.tgz#3da3e65966bc567a7b044bfe0eece653e099d147"
   integrity sha512-vr54Or4BZ7pJafo2mpf0ZcwA74rpuYCZbxrHBsH8kbcXOwSfvBFwsRfpGO5OD5fhG5HDCFW737PKaawI7OqEAg==

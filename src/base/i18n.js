@@ -63,10 +63,10 @@ const defaultNumberFormat = {
   },
 }
 
-const dateTimeFormats = {}
+const datetimeFormats = {}
 const numberFormats = {}
 for (const locale of Object.values(locales)) {
-  dateTimeFormats[locale.locale] = defaultDateTimeFormat
+  datetimeFormats[locale.locale] = defaultDateTimeFormat
   numberFormats[locale.locale] = defaultNumberFormat
 }
 
@@ -76,7 +76,7 @@ const i18n = createI18n({
   messages: {
     en: localeEn,
   },
-  dateTimeFormats,
+  datetimeFormats,
   numberFormats,
   fallbackLocale: 'en', // if you change this make sure to always load the locale too
 })

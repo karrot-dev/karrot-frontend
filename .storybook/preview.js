@@ -15,7 +15,7 @@ app.use(i18nPlugin)
 app.use(Quasar, quasarConfig)
 // app.use(Vuex)
 // app.use(VueRouter)
-app.config.globalProperties.$icons = icons.get
+app.config.globalProperties.$icon = icons.get
 
 app.component('RouterLink', RouterLinkStub)
 app.directive('measure', {})

@@ -9,7 +9,6 @@
       autogrow
       bottom-slots
       hide-hint
-      v-on="$listeners"
     >
       <template
         v-if="icon"

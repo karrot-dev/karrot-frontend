@@ -1,7 +1,6 @@
 <template>
   <QDialog
     v-bind="$attrs"
-    v-on="$listeners"
   >
     <QCard
       class="q-dialog-plugin"

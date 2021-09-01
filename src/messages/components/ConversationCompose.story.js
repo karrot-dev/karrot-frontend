@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 
 import ConversationCompose from './ConversationCompose'
@@ -8,7 +9,7 @@ const user = factories.makeCurrentUser()
 
 storiesOf('ConversationCompose', module)
   .add('default', () => defaults({
-    render: h => h(ConversationCompose, {
+    render: () => h(ConversationCompose, {
       props: {
         placeholder: 'Type here',
         user,
@@ -17,7 +18,7 @@ storiesOf('ConversationCompose', module)
     }),
   }))
   .add('edit', () => defaults({
-    render: h => h(ConversationCompose, {
+    render: () => h(ConversationCompose, {
       props: {
         placeholder: 'Type here',
         user,
@@ -27,7 +28,7 @@ storiesOf('ConversationCompose', module)
     }),
   }))
   .add('not participant', () => defaults({
-    render: h => h(ConversationCompose, {
+    render: () => h(ConversationCompose, {
       props: {
         placeholder: 'Type here',
         user,
@@ -37,7 +38,7 @@ storiesOf('ConversationCompose', module)
     }),
   }))
   .add('slim', () => defaults({
-    render: h => h(ConversationCompose, {
+    render: () => h(ConversationCompose, {
       props: {
         placeholder: 'Type here',
         user,
@@ -47,7 +48,7 @@ storiesOf('ConversationCompose', module)
     }),
   }))
   .add('pending', () => defaults({
-    render: h => h(ConversationCompose, {
+    render: () => h(ConversationCompose, {
       props: {
         placeholder: 'Type here',
         user,
@@ -56,7 +57,7 @@ storiesOf('ConversationCompose', module)
     }),
   }))
   .add('error', () => defaults({
-    render: h => h(ConversationCompose, {
+    render: () => h(ConversationCompose, {
       props: {
         placeholder: 'Type here',
         user,

@@ -11,7 +11,7 @@
     <CircleProgress
       v-if="!isEditor"
       class="circle-progress"
-      :value="trustProgress"
+      :model-value="trustProgress"
     />
     <QBadge
       floating
@@ -127,6 +127,10 @@ export default {
       type: Boolean,
     },
   },
+  emits: [
+    'create-trust',
+    'revoke-trust',
+  ],
   data () {
     return {
       showing: false,
@@ -223,20 +227,20 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .karrot-button >>> .q-btn__content
-  min-width 100%
-  min-height 100%
-  background-image url('./twemoji-carrot.png')
-  background-repeat no-repeat
-  background-position center
-  background-size 60%
+  min-width: 100%
+  min-height: 100%
+  background-image: url('./twemoji-carrot.png')
+  background-repeat: no-repeat
+  background-position: center
+  background-size: 60%
 
 .karrot-button.small >>> .q-btn-inner
-  background-size 50%
+  background-size: 50%
 
 .circle-progress
-  position absolute
-  top 0
-  left 0
+  position: absolute
+  top: 0
+  left: 0
 </style>

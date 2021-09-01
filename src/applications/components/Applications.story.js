@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { storybookDefaults as defaults, statusMocks, range } from '>/helpers'
 import * as factories from '>/enrichedFactories'
@@ -19,14 +20,14 @@ const otherApplications = range(9).map(i => factories.makeApplication({
 
 storiesOf('Applications', module)
   .add('ApplicationForm', () => defaults({
-    render: h => h(ApplicationFormUI, {
+    render: () => h(ApplicationFormUI, {
       props: {
         group,
       },
     }),
   }))
   .add('ApplicationList', () => defaults({
-    render: h => h(ApplicationList, {
+    render: () => h(ApplicationList, {
       props: {
         pending,
         otherApplications,

@@ -268,6 +268,12 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'hide-search',
+    'show-search',
+    'logout',
+    'reconnect',
+  ],
   computed: {
     hasPhoto () {
       return !!this.photo

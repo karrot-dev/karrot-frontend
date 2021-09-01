@@ -41,16 +41,17 @@
             </QItemSection>
             <QItemSection>
               <i18n-t keypath="COMMUNITY_FEED.HEADER">
-                <a
-                  slot="community"
-                  href="https://community.foodsaving.world"
-                  target="_blank"
-                  rel="noopener"
-                  style="text-decoration: underline"
-                >
-                  {{ $t('COMMUNITY_FEED.HEADER_LINK') }}
-                </a>
-              </i18n>
+                <template #community>
+                  <a
+                    href="https://community.foodsaving.world"
+                    target="_blank"
+                    rel="noopener"
+                    style="text-decoration: underline"
+                  >
+                    {{ $t('COMMUNITY_FEED.HEADER_LINK') }}
+                  </a>
+                </template>
+              </i18n-t>
             </QItemSection>
             <QItemSection side>
               <QBtn
@@ -94,12 +95,13 @@
                   keypath="COMMUNITY_FEED.LAST_UPDATED"
                   tag="div"
                 >
-                  <DateAsWords
-                    slot="relativeDate"
-                    style="display: inline"
-                    :date="topic.lastPostedAt"
-                  />
-                </i18n>
+                  <template #relativeDate>
+                    <DateAsWords
+                      style="display: inline"
+                      :date="topic.lastPostedAt"
+                    />
+                  </template>
+                </i18n-t>
               </QItemLabel>
             </QItemSection>
           </QItem>

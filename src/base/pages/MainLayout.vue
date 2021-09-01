@@ -82,10 +82,10 @@
           side="left"
           :width="sidenavWidth"
           :breakpoint="0"
-          :value="true"
+          :model-value="true"
           :overlay="false"
           elevated
-          @click.native="toggleSidenav"
+          @click="toggleSidenav"
         >
           <RouterView name="sidenav" />
           <QItem
@@ -132,7 +132,7 @@
           :overlay="false"
           :breakpoint="0"
           elevated
-          :value="isDetailActive || hasDetailComponent"
+          :model-value="isDetailActive || hasDetailComponent"
         >
           <DetailSidebar
             v-if="isDetailActive"

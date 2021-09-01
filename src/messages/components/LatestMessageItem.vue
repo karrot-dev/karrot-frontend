@@ -179,9 +179,6 @@ export default {
     DateAsWords,
     ProfilePicture,
   },
-  emits: [
-    'open'
-  ],
   props: {
     group: {
       type: Object,
@@ -236,6 +233,9 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'open',
+  ],
   computed: {
     isGroup () {
       return Boolean(this.group)

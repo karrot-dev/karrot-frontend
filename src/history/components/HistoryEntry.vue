@@ -83,45 +83,45 @@ export default {
   methods: {
     toggleDetail (event) {
       if (this.detailIsShown) {
-        window.history.replaceState({}, null, `#${this.$route.path}`)
+        window.history.replaceState(window.history.state, null, `#${this.$route.path}`)
       }
       else {
-        window.history.replaceState({}, null, this.$router.resolve({ name: 'historyDetail', params: { historyId: this.entry.id } }).href)
+        window.history.replaceState(window.history.state, null, this.$router.resolve({ name: 'historyDetail', params: { historyId: this.entry.id } }).href)
       }
       this.detailIsShown = !this.detailIsShown
     },
   },
 }
 </script>
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .slide-toggle-enter-active,
 .slide-toggle-leave-active
-  overflow hidden
-  transition max-height .2s
+  overflow: hidden
+  transition: max-height .2s
 
 .slide-toggle-enter-active
-  max-height 1000px
+  max-height: 1000px
 
 .slide-toggle-enter,
 .slide-toggle-leave-active
-  max-height 0
+  max-height: 0
 
 .slide-toggle-leave
-  max-height 1000px
+  max-height: 1000px
 
 .clickable
-  transition padding .5s ease
+  transition: padding .5s ease
 
   &:hover
-    background-color rgb(235, 235, 235)
+    background-color: rgb(235, 235, 235)
 
 .clickable.greyed
-  padding 1em 3em 10px 3em
+  padding: 1em 3em 10px 3em
 
 .greyed
-  background-color rgb(235, 235, 235)
+  background-color: rgb(235, 235, 235)
 
 .detail-wrapper
-  padding 0 2em
-  padding-bottom 2em
+  padding: 0 2em
+  padding-bottom: 2em
 </style>

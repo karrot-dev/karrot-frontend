@@ -10,7 +10,7 @@
 const { configure } = require('quasar/wrappers')
 const { resolve } = require('path')
 const fs = require('fs')
-const StyleLintPlugin = require('stylelint-webpack-plugin')
+// const StyleLintPlugin = require('stylelint-webpack-plugin')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
@@ -51,9 +51,6 @@ module.exports = configure(function (ctx) {
       SENTRY_CONFIG: process.env.SENTRY_CONFIG,
       GIT_SHA1: process.env.GIT_SHA1 || process.env.CIRCLE_SHA1,
     },
-    // vuelidate wants this
-    // see https://github.com/monterail/vuelidate/issues/365
-    BUILD: JSON.stringify('web'),
   }
 
   return {
@@ -71,6 +68,7 @@ module.exports = configure(function (ctx) {
     // app boot file (/src/boot)
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
+      'compat',
       'loglevel',
       'pwa',
       'helloDeveloper',
@@ -86,7 +84,6 @@ module.exports = configure(function (ctx) {
       'performance',
       'presenceReporter',
       'vuex-router-sync',
-      'vueRoot',
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -164,6 +161,15 @@ module.exports = configure(function (ctx) {
         /* eslint-enable indent */
       },
 
+      // TODO remove
+      vueLoaderOptions: {
+        compilerOptions: {
+          compatConfig: {
+            MODE: 3,
+          },
+        },
+      },
+
       extendWebpack (cfg) {
         cfg.module.rules.push({
           enforce: 'pre',
@@ -180,11 +186,8 @@ module.exports = configure(function (ctx) {
           '>': resolve(__dirname, './test'),
           variables: resolve(__dirname, './src/css/quasar.variables.sass'),
           editbox: resolve(__dirname, './src/css/karrot.editbox.sass'),
+          vue: '@vue/compat',
         }
-
-        cfg.plugins.unshift(new StyleLintPlugin({
-          files: ['./src/**/*.{vue,sass}'],
-        }))
 
         cfg.plugins.push(
           new PreloadWebpackPlugin({
@@ -223,18 +226,6 @@ module.exports = configure(function (ctx) {
       iconSet: 'material-icons', // Quasar icon set
       lang: 'en-US', // Quasar language pack
       config: {},
-
-      // Possible values for "importStrategy":
-      // * 'auto' - (DEFAULT) Auto-import needed Quasar components & directives
-      // * 'all'  - Manually specify what to import
-      importStrategy: 'auto',
-
-      // For special cases outside of where "auto" importStrategy can have an impact
-      // (like functional components as one of the examples),
-      // you can manually specify Quasar components/directives to be available everywhere:
-      //
-      // components: [],
-      // directives: [],
 
       // Quasar plugins
       plugins: [

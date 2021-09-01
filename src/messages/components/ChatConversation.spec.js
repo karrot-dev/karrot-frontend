@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { nextTick } from 'vue'
 
 import ConversationCompose from './ConversationCompose'
 import ChatConversation from './ChatConversation'
@@ -24,7 +24,7 @@ describe('ChatConversation', () => {
     })
     const wrapper = mountWithDefaults(ChatConversation, { propsData })
     // let the mounted() hook run
-    await Vue.nextTick()
+    await nextTick()
 
     expect(wrapper.findAllComponents(QInput).length).toBe(1)
     expect(wrapper.findAllComponents(ConversationCompose).length).toBe(1)
@@ -44,21 +44,21 @@ describe('ChatConversation', () => {
     const { conversation } = propsData
     conversation.unreadMessageCount = 0
     const wrapper = mountWithDefaults(ChatConversation, { propsData })
-    await Vue.nextTick()
+    await nextTick()
 
     const { id, messages } = conversation
     conversation.unreadMessageCount = 1
     messages.push({ id: 99, author: 1, content: 'first messsage', conversation: id, createdAt: new Date() })
 
     wrapper.setProps({ conversation: { ...conversation } })
-    await Vue.nextTick()
+    await nextTick()
     expect(wrapper.emitted().mark).toEqual([[{ id, seenUpTo: 99 }]])
   })
 
   it('does not mark new messages as read when away', async () => {
     const propsData = { ...defaultProps(), away: true }
     const wrapper = mountWithDefaults(ChatConversation, { propsData })
-    await Vue.nextTick()
+    await nextTick()
 
     const { id, messages } = propsData.conversation
     messages.splice(0, 0, { id: 99, author: 1, content: 'first messsage', conversation: id, createdAt: new Date() })
@@ -68,16 +68,16 @@ describe('ChatConversation', () => {
   it('marks messages as read when returning from away', async () => {
     const propsData = { ...defaultProps(), away: true }
     const wrapper = mountWithDefaults(ChatConversation, { propsData })
-    await Vue.nextTick()
+    await nextTick()
 
     const { id, messages } = propsData.conversation
     messages.push({ id: 99, author: 1, content: 'first messsage', conversation: id, createdAt: new Date() })
     wrapper.setProps({ conversation: { ...propsData.conversation } })
-    await Vue.nextTick()
+    await nextTick()
     expect(wrapper.emitted().mark).toBeUndefined()
 
     wrapper.setProps({ away: false })
-    await Vue.nextTick()
+    await nextTick()
     expect(wrapper.emitted().mark).toEqual([[{ id, seenUpTo: 99 }]])
   })
 })

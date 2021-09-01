@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 
 import KBreadcrumb from './KBreadcrumb'
@@ -15,7 +16,7 @@ const datastore = createDatastore({
 storiesOf('Topbar', module)
 
   .add('KBreadcrumb', () => defaults({
-    render: h => h(KBreadcrumb, {
+    render: () => h(KBreadcrumb, {
       props: {
         breadcrumbs: [{ name: 'Foodsharing Berlin' }, { name: 'SirPlus' }],
       },
@@ -23,6 +24,6 @@ storiesOf('Topbar', module)
   }))
 
   .add('Search', () => defaults({
-    render: h => h(Search),
+    render: () => h(Search),
     store: datastore,
   }))

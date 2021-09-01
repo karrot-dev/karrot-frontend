@@ -5,12 +5,14 @@
     </div>
     <div class="splashlayout">
       <div class="splashlayout-content rounded-borders">
-        <Transition
-          name="fade"
-          mode="out-in"
-        >
-          <RouterView />
-        </Transition>
+        <RouterView v-slot="{ Component }">
+          <Transition
+            name="fade"
+            mode="out-in"
+          >
+            <component :is="Component" />
+          </Transition>
+        </RouterView>
       </div>
     </div>
   </div>

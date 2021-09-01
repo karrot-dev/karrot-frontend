@@ -1,5 +1,8 @@
 <template>
-  <QBtnGroup class="k-groupmapcontrols">
+  <QBtnGroup
+    v-if="groupId"
+    class="k-groupmapcontrols"
+  >
     <QBtn
       v-if="options.showFullScreenButton"
       :size="options.buttonSize"
@@ -147,6 +150,12 @@ export default {
       type: Number,
     },
   },
+  emits: [
+    'toggle-places',
+    'toggle-users',
+    'toggle-groups',
+    'export',
+  ],
   computed: {
     options () {
       if (this.type === 'mini') {

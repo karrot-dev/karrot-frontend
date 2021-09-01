@@ -1,6 +1,5 @@
 <template>
   <LMap
-    ref="map"
     class="k-map"
     :bounds="bounds"
     :center="center"
@@ -8,9 +7,10 @@
     :padding-top-left="paddingTopLeft"
     :min-zoom="2"
     @click="mapClick"
-    @moveend="$emit('map-move-end', arguments[0].target)"
+    @moveend="event => $emit('map-move-end', event.target)"
     @update:zoom="updateZoom"
     @contextmenu="openContextMenu"
+    @ready="ready"
   >
     <LTileLayer
       :url="url"
@@ -24,7 +24,7 @@
       :color="marker.color"
       :draggable="marker.draggable"
       :opacity="opacityFor(marker)"
-      @dragend="$emit('marker-moved', $event.target._latlng, marker)"
+      @dragend="event => dragend(event, marker)"
     >
       <LPopup
         v-if="marker.popup"
@@ -51,7 +51,7 @@ import {
   LMap,
   LTileLayer,
   LPopup,
-} from 'vue2-leaflet'
+} from '@vue-leaflet/vue-leaflet'
 
 import ExtendedMarker from './ExtendedMarker'
 
@@ -167,12 +167,18 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'map-move-end',
+    'marker-moved',
+    'map-click',
+  ],
   data () {
     return {
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       lastZoom: 15,
       popoverOffset: [0, 0],
       popoverLatLng: null,
+      leafletObject: null,
     }
   },
   computed: {
@@ -245,12 +251,20 @@ export default {
       if (this.bounds) {
         // unfortunately it doesn't auto update when we change the padding, so we have to do it ourselves...
         // the $nextTick improved the behaviour when resizing in practise
-        this.$nextTick(() => this.$refs.map.fitBounds(this.bounds))
+        this.$nextTick(() => {
+          if (!this.leafletObject) return
+          this.leafletObject.fitBounds(this.bounds)
+        })
       }
     },
   },
   methods: {
+    dragend ({ target }, marker) {
+      this.$emit('marker-moved', target.getLatLng(), marker)
+    },
     mapClick ({ latlng }) {
+      // sometimes latlng is undefined, let's skip those pointless events...
+      if (!latlng) return
       this.$emit('map-click', latlng)
       this.closeContextMenu()
     },
@@ -271,49 +285,50 @@ export default {
       if (!this.hasSelectedMarkers) return SELECTED_OPACITY
       return this.selectedMarkers.find(m => m.id === marker.id) ? SELECTED_OPACITY : UNSELECTED_OPACITY
     },
+    ready (leafletObject) {
+      this.leafletObject = leafletObject
+    },
   },
 }
 </script>
 
-<style>
-@import "~leaflet/dist/leaflet.css";
-</style>
+<style src="leaflet/dist/leaflet.css"></style>
 
-<style lang="stylus">
+<style lang="sass">
 .k-map
   .vector-marker
-    position absolute
-    bottom 0
-    left -15px
-    width 30px
-    text-align center
+    position: absolute
+    bottom: 0
+    left: -15px
+    width: 30px
+    text-align: center
 
     svg
-      vertical-align bottom
+      vertical-align: bottom
 
       path
-        stroke black
-        stroke-opacity .1
-        stroke-width 1
+        stroke: black
+        stroke-opacity: .1
+        stroke-width: 1
 
     i
-      position absolute
-      top 9px
-      left 0
-      width 30px
-      font-size 14px
-      color white
+      position: absolute
+      top: 9px
+      left: 0
+      width: 30px
+      font-size: 14px
+      color: white
 
   .vector-marker-shadow
-    position absolute
-    bottom 0px
-    left -7px
-    width 12px
-    filter blur(2px)
-    opacity .3
-    transform rotate(20deg) skew(-30deg)
-    transform-origin 50% bottom
+    position: absolute
+    bottom: 0px
+    left: -7px
+    width: 12px
+    filter: blur(2px)
+    opacity: .3
+    transform: rotate(20deg) skew(-30deg)
+    transform-origin: 50% bottom
 
     svg
-      vertical-align bottom
+      vertical-align: bottom
 </style>

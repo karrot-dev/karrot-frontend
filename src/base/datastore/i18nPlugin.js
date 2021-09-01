@@ -15,7 +15,7 @@ export default datastore => {
 
     axios.defaults.headers.common['Accept-Language'] = locale
     document.documentElement.setAttribute('lang', locale)
-    dateFnsHelper.locale = locale
+    dateFnsHelper.setLocale(locale)
     polyfill.setLocale(locale)
 
     const [messages, { default: quasarMessages }] = await Promise.all([

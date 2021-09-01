@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
@@ -206,7 +207,7 @@ const story = storiesOf('Notifications', module)
 
 for (const notification of notifications) {
   story.add(notification.type, () => defaults({
-    render: h => h(NotificationItem, {
+    render: () => h(NotificationItem, {
       props: {
         notification,
       },

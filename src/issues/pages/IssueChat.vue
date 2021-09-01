@@ -39,9 +39,8 @@
       <div class="q-mx-sm q-mb-sm q-pa-sm bg-white">
         <span class="text-bold text-secondary text-uppercase">
           <RouterLink
-            slot="userName"
             :to="{name: 'user', params: { userId: issue.createdBy.id }}"
-            @click.native.stop
+            @click.stop
           >
             {{ issue.createdBy.displayName }}
           </RouterLink>

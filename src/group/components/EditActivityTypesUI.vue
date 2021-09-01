@@ -134,6 +134,10 @@ export default {
       required: true,
     },
   },
+  emits: [
+    'save',
+    'create',
+  ],
   data () {
     return {
       showArchived: false,

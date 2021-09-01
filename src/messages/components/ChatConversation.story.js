@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 
 import ChatConversation from './ChatConversation'
@@ -19,12 +20,12 @@ const defaultProps = data => ({
 
 storiesOf('ChatConversation', module)
   .add('default', () => defaults({
-    render: h => h(ChatConversation, {
+    render: () => h(ChatConversation, {
       props: defaultProps(),
     }),
   }))
   .add('fetching past', () => defaults({
-    render: h => h(ChatConversation, {
+    render: () => h(ChatConversation, {
       props: defaultProps({
         conversation: {
           ...conversation,
@@ -34,7 +35,7 @@ storiesOf('ChatConversation', module)
     }),
   }))
   .add('closed', () => defaults({
-    render: h => h(ChatConversation, {
+    render: () => h(ChatConversation, {
       props: defaultProps({
         conversation: {
           ...conversation,
@@ -44,7 +45,7 @@ storiesOf('ChatConversation', module)
     }),
   }))
   .add('not participant', () => defaults({
-    render: h => h(ChatConversation, {
+    render: () => h(ChatConversation, {
       props: defaultProps({
         conversation: {
           ...conversation,
@@ -54,7 +55,7 @@ storiesOf('ChatConversation', module)
     }),
   }))
   .add('thread', () => defaults({
-    render: h => h(ChatConversation, {
+    render: () => h(ChatConversation, {
       props: defaultProps({
         conversation: thread,
       }),

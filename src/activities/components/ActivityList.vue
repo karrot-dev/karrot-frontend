@@ -13,11 +13,10 @@
         hide-bottom-space
         dense
       >
-        <template #option="{ index, opt, itemProps, itemEvents }">
+        <template #option="{ index, opt, itemProps }">
           <QItem
             :key="index"
             v-bind="itemProps"
-            v-on="itemEvents"
           >
             <QItemSection avatar>
               <QIcon
@@ -238,9 +237,9 @@
           :dense="dense"
           :activity="activity"
           :place-link="placeLink"
-          @join="$emit('join', arguments[0])"
-          @leave="$emit('leave', arguments[0])"
-          @detail="$emit('detail', arguments[0])"
+          @join="(...args) => $emit('join', ...args)"
+          @leave="(...args) => $emit('leave', ...args)"
+          @detail="(...args) => $emit('detail', ...args)"
         />
       </template>
       <template #loading>
@@ -328,6 +327,11 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'join',
+    'leave',
+    'detail',
+  ],
   data () {
     return {
       icsDialog: false,

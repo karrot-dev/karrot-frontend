@@ -308,30 +308,30 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .q-btn-round
-  margin-bottom .5em
+  margin-bottom: .5em
 
 .toolbar
-  margin-top -24px
+  margin-top: -24px
 
 .toolbar .q-btn
-  margin 3px
+  margin: 3px
 
 .map
-  height 30vh
+  height: 30vh
 
 .limit-height
-  position relative
-  max-height 10rem
-  overflow-y hidden
+  position: relative
+  max-height: 10rem
+  overflow-y: hidden
 
   &:before
-    position absolute
-    top 0
-    left 0
-    width 100%
-    height 100%
-    content ''
-    background linear-gradient(rgba(255, 255, 255, 0) 90%, white 100%)
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    content: ''
+    background: linear-gradient(rgba(255, 255, 255, 0) 90%, white 100%)
 </style>

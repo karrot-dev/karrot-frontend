@@ -192,6 +192,11 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'open-thread',
+    'toggle-reaction',
+    'save',
+  ],
   data () {
     return {
       editMode: false,
@@ -228,9 +233,11 @@ export default {
     openImageGallery (imageId) {
       Dialog.create({
         component: ImageGalleryDialog,
+        componentProps: {
+          message: this.message,
+          selectedImageId: imageId,
+        },
         parent: this,
-        message: this.message,
-        selectedImageId: imageId,
       })
     },
     save ({ content, images }) {

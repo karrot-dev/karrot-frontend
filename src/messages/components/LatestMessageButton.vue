@@ -38,7 +38,9 @@ import {
   QBadge,
   QMenu,
 } from 'quasar'
-const LatestMessages = () => import('@/messages/components/LatestMessages')
+import { defineAsyncComponent } from 'vue'
+
+const LatestMessages = defineAsyncComponent(() => import('@/messages/components/LatestMessages'))
 
 import { mapGetters } from 'vuex'
 
@@ -50,6 +52,9 @@ export default {
     QMenu,
     LatestMessages,
   },
+  emits: [
+    'click',
+  ],
   data () {
     return {
       showing: false,

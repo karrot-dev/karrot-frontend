@@ -29,11 +29,11 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .k-sidenav-box
-  margin-bottom 20px
+  margin-bottom: 20px
 
 .toolbar
-  height 40px
-  min-height 40px
+  height: 40px
+  min-height: 40px
 </style>

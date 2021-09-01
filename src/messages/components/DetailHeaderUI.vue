@@ -179,6 +179,10 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'close',
+    'save-conversation',
+  ],
   computed: {
     isThread () {
       return Boolean(this.conversation.thread && this.conversation.id === this.conversation.thread)

@@ -169,4 +169,4 @@ e.g. the status about a `save` action would be available as `saveStatus` or the 
     - uses `hasNonFieldError` & `firstNonFieldError` to show errors unrelated to fields?
     - sets `::loading="isPending"` on submit button?
     - uses pending status for non-submit actions? (e.g. destroy)
-- Does the form use [vuelidate](https://monterail.github.io/vuelidate/) (`$v`) to check for validation errors client-side?
+- Does the form use [vuelidate](https://vuelidate-next.netlify.app) to check for validation errors client-side?

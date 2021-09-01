@@ -60,6 +60,9 @@ export default {
     QIcon,
   },
   mixins: [statusMixin],
+  emits: [
+    'save',
+  ],
   data () {
     return {
       oldPassword: '',

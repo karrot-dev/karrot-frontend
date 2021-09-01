@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
@@ -73,7 +74,7 @@ const defaultOn = {
 
 storiesOf('TrustButton', module)
   .add('Trust Button - is editor', () => defaults({
-    render: h => h(TrustButton, {
+    render: () => h(TrustButton, {
       props: {
         user: baseUser,
         group: groupFactory(),
@@ -84,7 +85,7 @@ storiesOf('TrustButton', module)
     store: datastore,
   }))
   .add('Trust Button - is newcomer', () => defaults({
-    render: h => h(TrustButton, {
+    render: () => h(TrustButton, {
       props: {
         user: baseUser,
         group: groupFactory(),
@@ -95,7 +96,7 @@ storiesOf('TrustButton', module)
     store: datastore,
   }))
   .add('Trust Button - is newcomer without trust', () => defaults({
-    render: h => h(TrustButton, {
+    render: () => h(TrustButton, {
       props: {
         user: baseUser,
         group: groupFactory(),
@@ -106,7 +107,7 @@ storiesOf('TrustButton', module)
     store: datastore,
   }))
   .add('Trust Button - one other trust', () => defaults({
-    render: h => h(TrustButton, {
+    render: () => h(TrustButton, {
       props: {
         user: baseUser,
         group: groupFactory(),
@@ -117,7 +118,7 @@ storiesOf('TrustButton', module)
     store: datastore,
   }))
   .add('Trust Button - multiple others trust', () => defaults({
-    render: h => h(TrustButton, {
+    render: () => h(TrustButton, {
       props: {
         user: baseUser,
         group: groupFactory(),
@@ -128,7 +129,7 @@ storiesOf('TrustButton', module)
     store: datastore,
   }))
   .add('Trust Button - I and others trust', () => defaults({
-    render: h => h(TrustButton, {
+    render: () => h(TrustButton, {
       props: {
         user: baseUser,
         group: groupFactory(),
@@ -139,7 +140,7 @@ storiesOf('TrustButton', module)
     store: datastore,
   }))
   .add('Trust Button - I trust', () => defaults({
-    render: h => h(TrustButton, {
+    render: () => h(TrustButton, {
       props: {
         user: baseUser,
         group: groupFactory(),
@@ -150,7 +151,7 @@ storiesOf('TrustButton', module)
     store: datastore,
   }))
   .add('My Trust Button', () => defaults({
-    render: h => h(TrustButton, {
+    render: () => h(TrustButton, {
       props: {
         user: {
           ...baseUser,
@@ -164,7 +165,7 @@ storiesOf('TrustButton', module)
     store: datastore,
   }))
   .add('small - My Trust Button', () => defaults({
-    render: h => h(TrustButton, {
+    render: () => h(TrustButton, {
       props: {
         user: {
           ...baseUser,

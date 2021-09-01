@@ -7,16 +7,17 @@
       tag="span"
       keypath="OUTDATED_BROWSER.MESSAGE"
     >
-      <a
-        slot="upgradeBrowser"
-        v-t="'OUTDATED_BROWSER.LINK'"
-        href="https://browser-update.org/update.html"
-        class="outdated-link"
-        rel="noopener nofollow noreferrer"
-        target="_blank"
-        translate="yes"
-      />
-    </i18n>
+      <template #upgradeBrowser>
+        <a
+          v-t="'OUTDATED_BROWSER.LINK'"
+          href="https://browser-update.org/update.html"
+          class="outdated-link"
+          rel="noopener nofollow noreferrer"
+          target="_blank"
+          translate="yes"
+        />
+      </template>
+    </i18n-t>
   </div>
 </template>
 

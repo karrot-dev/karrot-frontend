@@ -2,8 +2,10 @@ import { nextTick } from 'vue'
 import Vuex from 'vuex'
 import { mount, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
-import i18n from '@/base/i18n'
+import { extend } from 'quasar'
+import i18n, { i18nPlugin } from '@/base/i18n'
 import routerMocks from '>/routerMocks'
+import { createStore } from 'vuex'
 
 const desktopUserAgent = 'Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0'
 const mobileUserAgent = 'Mozilla/5.0 (Android 9; Mobile; rv:68.0) Gecko/68.0 Firefox/68.0'
@@ -28,7 +30,7 @@ export function createDatastore (mods, { debug = false, plugins = [] } = {}) {
     modules[key] = { ...mods[key], namespaced: true }
   }
 
-  const datastore = new Vuex.Store({
+  const datastore = createStore({
     modules, plugins, strict: false,
   })
 
@@ -58,7 +60,7 @@ export function makefindAllComponentsIterable (wrapper) {
       return {
         next () {
           if (nextIndex < wrapperArray.length) {
-            return { value: wrapperArray.at(nextIndex++), done: false }
+            return { value: wrapperArray[nextIndex++], done: false }
           }
           else {
             return { done: true }
@@ -76,18 +78,22 @@ export function mountWithDefaults (Component, options = {}) {
 
   // jest.resetModules() can only provide isolation when we require() a module
   // We want a fresh Quasar for every test
-  const Quasar = require('quasar').default
+  const Quasar = require('quasar').Quasar
   const quasarConfig = require('>/quasarConfig').default
 
-  const datastore = options.datastore
-  delete options.datastore
-  const wrapper = mount(Component, {
+  const ssrContextMock = {
+    req: {
+      headers: {},
+    },
+    res: {
+      setHeader: () => undefined,
+    },
+    url: '',
+  }
+
+  const mergedOptions = extend(true, {}, {
     global: {
-      plugins: [
-        i18n,
-        datastore,
-        [Quasar, quasarConfig],
-      ],
+      plugins: [],
       stubs: {
         RouterLink: RouterLinkStub,
       },
@@ -99,8 +105,18 @@ export function mountWithDefaults (Component, options = {}) {
         ...routerMocks,
       },
     },
-    ...options,
-  })
+  }, options)
+
+  // we get some warnings if we run this through extend(), so let's add it afterwards
+  mergedOptions.global.plugins = [
+    [Quasar, quasarConfig, ssrContextMock],
+    i18nPlugin,
+    ...mergedOptions.global.plugins,
+  ]
+
+  if (options.datastore) mergedOptions.global.plugins.unshift(options.datastore)
+
+  const wrapper = mount(Component, mergedOptions)
   makefindAllComponentsIterable(wrapper)
   return wrapper
 }

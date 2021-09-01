@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { storybookDefaults as defaults } from '>/helpers'
 
@@ -5,7 +6,7 @@ import Banners from './BannersUI'
 
 storiesOf('Banners', module)
   .add('Banners', () => defaults({
-    render: h => h(Banners, {
+    render: () => h(Banners, {
       props: {
         banners: [
           {

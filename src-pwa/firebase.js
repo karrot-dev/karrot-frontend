@@ -1,5 +1,5 @@
-import 'firebase/messaging'
-import firebase from 'firebase/app'
+import 'firebase/compat/messaging'
+import firebase from 'firebase/compat/app'
 import firebaseConfig from '@/subscriptions/firebase.config'
 
 const app = firebase.initializeApp(firebaseConfig)

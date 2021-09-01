@@ -95,7 +95,7 @@ export default {
     this.fetchInitial()
     setTimeout(() => this.markConversationsSeen(), 3 * 1000)
   },
-  destroyed () {
+  unmounted () {
     this.markConversationsSeen()
   },
   methods: {

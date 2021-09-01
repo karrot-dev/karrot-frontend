@@ -30,9 +30,9 @@
       :activities="activities"
       place-link
       dense
-      @join="$emit('join', arguments[0])"
-      @leave="$emit('leave', arguments[0])"
-      @detail="$emit('detail', arguments[0])"
+      @join="(...args) => $emit('join', ...args)"
+      @leave="(...args) => $emit('leave', ...args)"
+      @detail="(...args) => $emit('detail', ...args)"
     />
     <hr v-if="showActivities">
   </div>
@@ -52,6 +52,11 @@ export default {
   props: {
     activities: { required: true, type: Array },
   },
+  emits: [
+    'join',
+    'leave',
+    'detail',
+  ],
   data () {
     return {
       showActivities: false,

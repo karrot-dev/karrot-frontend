@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
@@ -12,7 +13,7 @@ const on = {
 
 storiesOf('ChangePhoto', module)
   .add('with photo', () => defaults({
-    render: h => h(ChangePhoto, {
+    render: () => h(ChangePhoto, {
       props: {
         value: {
           photoUrls: {
@@ -27,7 +28,7 @@ storiesOf('ChangePhoto', module)
     }),
   }))
   .add('empty', () => defaults({
-    render: h => h(ChangePhoto, {
+    render: () => h(ChangePhoto, {
       props: {
         status: statusMocks.default(),
       },
@@ -35,7 +36,7 @@ storiesOf('ChangePhoto', module)
     }),
   }))
   .add('pending', () => defaults({
-    render: h => h(ChangePhoto, {
+    render: () => h(ChangePhoto, {
       props: {
         status: statusMocks.pending(),
       },
@@ -43,7 +44,7 @@ storiesOf('ChangePhoto', module)
     }),
   }))
   .add('error', () => defaults({
-    render: h => h(ChangePhoto, {
+    render: () => h(ChangePhoto, {
       props: {
         status: statusMocks.validationError('photo', 'something is wrong'),
       },

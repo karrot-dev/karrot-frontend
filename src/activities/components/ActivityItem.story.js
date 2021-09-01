@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
@@ -51,7 +52,7 @@ const methods = {
 
 storiesOf('ActivityItem', module)
   .add('join', () => defaults({
-    render: h => h(ActivityItem, {
+    render: () => h(ActivityItem, {
       props: {
         activity: joinableActivity,
       },
@@ -60,7 +61,7 @@ storiesOf('ActivityItem', module)
     store: datastore,
   }))
   .add('joined', () => defaults({
-    render: h => h(ActivityItem, {
+    render: () => h(ActivityItem, {
       props: {
         activity: leavableActivity,
       },
@@ -69,7 +70,7 @@ storiesOf('ActivityItem', module)
     store: datastore,
   }))
   .add('pending', () => defaults({
-    render: h => h(ActivityItem, {
+    render: () => h(ActivityItem, {
       props: {
         activity: {
           ...joinableActivity,
@@ -81,7 +82,7 @@ storiesOf('ActivityItem', module)
     store: datastore,
   }))
   .add('full', () => defaults({
-    render: h => h(ActivityItem, {
+    render: () => h(ActivityItem, {
       props: {
         activity: fullActivity,
       },
@@ -90,7 +91,7 @@ storiesOf('ActivityItem', module)
     store: datastore,
   }))
   .add('disabled', () => defaults({
-    render: h => h(ActivityItem, {
+    render: () => h(ActivityItem, {
       props: {
         activity: {
           ...fullActivity,
@@ -102,7 +103,7 @@ storiesOf('ActivityItem', module)
     store: datastore,
   }))
   .add('started', () => defaults({
-    render: h => h(ActivityItem, {
+    render: () => h(ActivityItem, {
       props: {
         activity: {
           ...fullActivity,

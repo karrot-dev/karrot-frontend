@@ -78,6 +78,9 @@ export default {
       type: Number,
     },
   },
+  emits: [
+    'input',
+  ],
   computed: {
     showOverlay () {
       return this.value === null

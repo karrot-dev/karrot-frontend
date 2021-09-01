@@ -40,7 +40,9 @@ export default {
       type: Boolean,
     },
   },
-
+  emits: [
+    'join',
+  ],
 }
 </script>
 

@@ -76,6 +76,9 @@ export default {
       default: () => [],
     },
   },
+  emits: [
+    'toggle',
+  ],
   data () {
     return {
       search: '',
@@ -104,10 +107,10 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .k-add-reaction
-  margin 2px 4px
+  margin: 2px 4px
 
 .big
-  font-size 25.6px
+  font-size: 25.6px
 </style>

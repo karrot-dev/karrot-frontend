@@ -1,19 +1,19 @@
+<template>
+  <PlaceEdit
+    :all-places="$store.getters['places/byCurrentGroup']"
+    :current-group="$store.getters['currentGroup/value']"
+    :status="$store.getters['places/createStatus']"
+    @save="data => $store.dispatch('places/create', data)"
+    @cancel="$router.go(-1)"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
-import router from '@/router'
 import PlaceEdit from '@/places/components/PlaceEdit'
 
-export default connect({
-  gettersToProps: {
-    allPlaces: 'places/byCurrentGroup',
-    currentGroup: 'currentGroup/value',
-    status: 'places/createStatus',
+export default {
+  components: {
+    PlaceEdit,
   },
-  actionsToEvents: {
-    save: 'places/create',
-  },
-  methodsToEvents: {
-    cancel: () => router.go(-1),
-  },
-})('PlaceCreate', PlaceEdit)
+}
 </script>

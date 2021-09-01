@@ -38,7 +38,6 @@
       :show-users="showUsers"
       :show-places="showPlaces"
       :show-groups="showGroups"
-      :show-back="false"
       :group-id="currentGroupId"
       @toggle-users="$emit('toggle-users')"
       @toggle-places="$emit('toggle-places')"
@@ -118,6 +117,12 @@ export default {
     controls: { type: String, default: 'none' },
     height: { type: Number, default: null },
   },
+  emits: [
+    'toggle-users',
+    'toggle-places',
+    'toggle-groups',
+    'map-move-end',
+  ],
   computed: {
     showUserLocationPrompt () {
       return this.selectedUser && this.selectedUser.isCurrentUser && !hasLocation(this.selectedUser)
@@ -215,14 +220,14 @@ function hasLocation (item) {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .container
-  position relative
+  position: relative
 
 .overlay
-  position absolute
-  top 0
-  left 0
-  width 100%
-  height 100%
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
 </style>

@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 
 import SidenavMapUI from './SidenavMapUI'
@@ -54,7 +55,7 @@ storiesOf('Sidenav', module)
   }))
 
   .add('Group', () => defaults({
-    render: h => h(SidenavGroupUI, {
+    render: () => h(SidenavGroupUI, {
       props: {
         groupId: 1,
         wallUnreadCount: 4,
@@ -68,7 +69,7 @@ storiesOf('Sidenav', module)
   }))
 
   .add('GroupOptions', () => defaults({
-    render: h => h(GroupOptions, {
+    render: () => h(GroupOptions, {
       props: {
         currentGroupId: 1,
         roles: ['editor'],
@@ -77,7 +78,7 @@ storiesOf('Sidenav', module)
   }))
 
   .add('Places', () => defaults({
-    render: h => h(SidenavPlacesUI, {
+    render: () => h(SidenavPlacesUI, {
       props: {
         places,
         groupId: 1,
@@ -86,7 +87,7 @@ storiesOf('Sidenav', module)
   }))
 
   .add('Mobile', () => defaults({
-    render: h => h(MobileSidenavUI, {
+    render: () => h(MobileSidenavUI, {
       props: {
         currentUserId: user.id,
       },

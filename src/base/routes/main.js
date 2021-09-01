@@ -1,3 +1,5 @@
+import { h } from 'vue'
+import { RouterView } from 'vue-router'
 import { Platform } from 'quasar'
 const Landing = () => import('@/base/pages/Landing')
 const GroupWall = () => import('@/group/pages/Wall')
@@ -48,6 +50,18 @@ const IssueChat = () => import('@/issues/pages/IssueChat')
 const IssueCompose = () => import('@/issues/pages/IssueCompose')
 const IssueVoteAndHistory = () => import('@/issues/pages/IssueVoteAndHistory')
 const ActivityHistoryStatistics = () => import('@/statistics/pages/ActivityHistoryStatistics')
+
+const RouterViewSubheader = () => h(RouterView, { name: 'subheader' })
+RouterViewSubheader.displayName = 'RouterViewSubheader'
+
+const RouterViewDetail = () => h(RouterView, { name: 'detail' })
+RouterViewDetail.displayName = 'RouterViewDetail'
+
+const RouterViewFooter = () => h(RouterView, { name: 'footer' })
+RouterViewFooter.displayName = 'RouterViewFooter'
+
+const RouterViewIssueFooter = h(RouterView, { name: 'issueFooter' })
+RouterViewIssueFooter.displayName = 'RouterViewIssueFooter'
 
 export default [
   {
@@ -127,22 +141,10 @@ export default [
       beforeEnter: 'currentGroup/select',
     },
     components: {
-      default: { render: h => h('router-view') }, // passthrough
-      subheader: {
-        render: h => h('router-view', {
-          props: {
-            name: 'subheader',
-          },
-        }),
-      },
-      detail: {
-        render: h => h('router-view', {
-          props: {
-            name: 'detail',
-          },
-        }),
-      },
-      footer: { render: h => h('router-view', { props: { name: 'footer' } }) },
+      default: RouterView,
+      subheader: RouterViewSubheader,
+      detail: RouterViewDetail,
+      footer: RouterViewFooter,
       sidenav: Sidenav,
     },
     children: [
@@ -167,9 +169,9 @@ export default [
         },
         components: {
           default: IssueList,
-          detail: { render: h => h('router-view') },
-          subheader: { render: h => h('router-view', { props: { name: 'subheader' } }) },
-          footer: { render: h => h('router-view', { props: { name: 'footer' } }) },
+          subheader: RouterViewSubheader,
+          detail: RouterView,
+          footer: RouterViewFooter,
         },
         children: [
           {
@@ -179,7 +181,7 @@ export default [
             components: {
               default: IssueLayout,
               subheader: IssueTabsIfMobile,
-              footer: { render: h => Platform.is.mobile ? h('router-view', { props: { name: 'issueFooter' } }) : null },
+              footer: () => Platform.is.mobile ? RouterViewIssueFooter : null,
             },
             meta: {
               requireLoggedIn: true,
@@ -219,11 +221,6 @@ export default [
           ],
         },
         component: GroupMap,
-      },
-      {
-        // TODO: legacy redirect, can be removed in some months
-        path: 'pickups',
-        redirect: 'activities',
       },
       {
         name: 'groupActivities',
@@ -280,14 +277,8 @@ export default [
         },
         components: {
           default: GroupOffers,
-          detail: { render: h => h('router-view') },
-          subheader: {
-            render: h => h('router-view', {
-              props: {
-                name: 'subheader',
-              },
-            }),
-          },
+          detail: RouterView,
+          subheader: RouterViewSubheader,
         },
         children: [
           {
@@ -466,13 +457,7 @@ export default [
         },
         components: {
           default: PlaceLayout,
-          subheader: {
-            render: h => h('router-view', {
-              props: {
-                name: 'subheader',
-              },
-            }),
-          },
+          subheader: RouterViewSubheader,
         },
         children: [
           {
@@ -526,11 +511,6 @@ export default [
             component: PlaceEdit,
           },
         ],
-      },
-      {
-        // TODO: legacy redirect, can be removed in some months
-        path: 'place/:placeId/activities/:activityId/detail',
-        redirect: 'place/:placeId/activities/:activityId/detail',
       },
       {
         name: 'activityDetail',

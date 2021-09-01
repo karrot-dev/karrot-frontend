@@ -1,5 +1,5 @@
 <template>
-  <SidenavBox>
+  <SidenavBox v-if="groupId">
     <template #icon>
       <QIcon name="fas fa-fw fa-home" />
     </template>
@@ -13,7 +13,7 @@
           dense
           round
           size="sm"
-          :to="{ name: 'groupDescription' }"
+          :to="{ name: 'groupDescription', params: { groupId } }"
           :title="$t('GROUP.DESCRIPTION')"
         >
           <QIcon name="fas fa-info-circle fa-fw" />
@@ -219,10 +219,10 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .more-button:hover
-  opacity .6
+  opacity: .6
 
   >>> .q-focus-helper
-    background none !important
+    background: none !important
 </style>

@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { nextTick } from 'vue'
 
 import * as factories from '>/enrichedFactories'
 
@@ -43,7 +43,7 @@ describe('ActivitySeriesEdit', () => {
 
   it('does not let you remove all days', async () => {
     wrapper.vm.byDay = []
-    await Vue.nextTick()
+    await nextTick()
     expect(wrapper.vm.edit.rule.byDay).toEqual(series.rule.byDay)
   })
 
@@ -51,7 +51,7 @@ describe('ActivitySeriesEdit', () => {
     expect(wrapper.vm.hasChanged).toBe(false)
     wrapper.vm.edit.maxParticipants++
     expect(wrapper.vm.hasChanged).toBe(true)
-    await Vue.nextTick()
+    await nextTick()
     expect(wrapper.classes()).toContain('changed')
   })
 

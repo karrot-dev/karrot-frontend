@@ -29,10 +29,11 @@ import {
   QBtn,
   QDialog,
 } from 'quasar'
+import { defineAsyncComponent } from 'vue'
 import { mapGetters } from 'vuex'
 import locales from '@/locales/index'
 
-const LocaleSelectInner = () => import('./LocaleSelectInner')
+const LocaleSelectInner = defineAsyncComponent(() => import('./LocaleSelectInner'))
 
 export default {
   name: 'LocaleSelect',

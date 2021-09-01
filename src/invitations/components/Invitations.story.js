@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { storybookDefaults as defaults, statusMocks } from '>/helpers'
 import * as factories from '>/enrichedFactories'
@@ -11,7 +12,7 @@ const invitations = range(4).map(() => factories.makeInvitation())
 
 storiesOf('Invitations', module)
   .add('InvitationsList', () => defaults({
-    render: h => h(InvitationsList, {
+    render: () => h(InvitationsList, {
       props: {
         invitations,
         fetchStatus: statusMocks.default(),
@@ -20,7 +21,7 @@ storiesOf('Invitations', module)
     }),
   }))
   .add('InvitationsForm', () => defaults({
-    render: h => h(InvitationsForm, {
+    render: () => h(InvitationsForm, {
       props: {
         status: statusMocks.default(),
       },

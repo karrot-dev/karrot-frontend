@@ -153,17 +153,17 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .k-members
-  max-width 500px
-  margin-right auto
-  margin-left auto
+  max-width: 500px
+  margin-right: auto
+  margin-left: auto
 
 .actionButtons
-  position absolute
-  right 5px
-  bottom -20px
+  position: absolute
+  right: 5px
+  bottom: -20px
 
   .q-btn
-    margin-left 3px
+    margin-left: 3px
 </style>

@@ -45,6 +45,9 @@ export default {
       required: true,
     },
   },
+  emits: [
+    'leave',
+  ],
 }
 </script>
 

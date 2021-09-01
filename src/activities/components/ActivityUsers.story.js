@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
@@ -15,7 +16,7 @@ const datastore = createDatastore({
 
 storiesOf('ActivityUsers', module)
   .add('joinable', () => defaults({
-    render: h => h(ActivityUsers, {
+    render: () => h(ActivityUsers, {
       props: {
         activity: joinableActivity,
       },
@@ -26,7 +27,7 @@ storiesOf('ActivityUsers', module)
     store: datastore,
   }))
   .add('join pending', () => defaults({
-    render: h => h(ActivityUsers, {
+    render: () => h(ActivityUsers, {
       props: {
         activity: {
           ...joinableActivity,
@@ -40,7 +41,7 @@ storiesOf('ActivityUsers', module)
     store: datastore,
   }))
   .add('leavable (current last)', () => defaults({
-    render: h => h(ActivityUsers, {
+    render: () => h(ActivityUsers, {
       props: {
         activity: leavableActivity,
       },
@@ -51,7 +52,7 @@ storiesOf('ActivityUsers', module)
     store: datastore,
   }))
   .add('leavable (current first)', () => defaults({
-    render: h => h(ActivityUsers, {
+    render: () => h(ActivityUsers, {
       props: {
         activity: {
           ...leavableActivity,
@@ -68,7 +69,7 @@ storiesOf('ActivityUsers', module)
     store: datastore,
   }))
   .add('leavable (current middle)', () => defaults({
-    render: h => h(ActivityUsers, {
+    render: () => h(ActivityUsers, {
       props: {
         activity: {
           ...leavableActivity,
@@ -86,7 +87,7 @@ storiesOf('ActivityUsers', module)
     store: datastore,
   }))
   .add('leave pending (middle)', () => defaults({
-    render: h => h(ActivityUsers, {
+    render: () => h(ActivityUsers, {
       props: {
         activity: {
           ...leavableActivity,
@@ -105,7 +106,7 @@ storiesOf('ActivityUsers', module)
     store: datastore,
   }))
   .add('has started', () => defaults({
-    render: h => h(ActivityUsers, {
+    render: () => h(ActivityUsers, {
       props: {
         activity: {
           ...leavableActivity,
@@ -119,7 +120,7 @@ storiesOf('ActivityUsers', module)
     store: datastore,
   }))
   .add('full', () => defaults({
-    render: h => h(ActivityUsers, {
+    render: () => h(ActivityUsers, {
       props: {
         activity: fullActivity,
       },
@@ -127,7 +128,7 @@ storiesOf('ActivityUsers', module)
     store: datastore,
   }))
   .add('empty', () => defaults({
-    render: h => h(ActivityUsers, {
+    render: () => h(ActivityUsers, {
       props: {
         activity: emptyActivity,
       },

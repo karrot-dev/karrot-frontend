@@ -13,7 +13,7 @@ describe('Detail', () => {
   let mountWithDefaults
   beforeEach(() => {
     // require() improves isolation
-    // otherwise we get "$listeners is readonly" and "$attrs is readonly" warnings
+    // otherwise we get "$attrs is readonly" warnings
     mountWithDefaults = require('>/helpers').mountWithDefaults
   })
 
@@ -31,7 +31,7 @@ describe('Detail', () => {
     expect(closeButton).toBeUndefined()
   })
 
-  it('reverses messages if conversation is not a thread', () => {
+  it.only('reverses messages if conversation is not a thread', () => {
     const wrapper = mountWithDefaults(require('./DetailUI').default, { propsData })
     const reversedMessageIds = [...propsData.conversation.messages.map(({ id }) => id)].reverse()
     const renderedMessageIds = [...wrapper.vm.conversationWithMaybeReversedMessages.messages].map(({ id }) => id)

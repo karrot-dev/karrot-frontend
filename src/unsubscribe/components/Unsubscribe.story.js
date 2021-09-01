@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 
 import Unsubscribe from './Unsubscribe'
@@ -5,7 +6,7 @@ import { storybookDefaults as defaults } from '>/helpers'
 
 storiesOf('Unsubscribe', module)
   .add('conversation', () => defaults({
-    render: h => h(Unsubscribe, {
+    render: () => h(Unsubscribe, {
       props: {
         tokenData: {
           conversationId: 1,
@@ -17,7 +18,7 @@ storiesOf('Unsubscribe', module)
     }),
   }))
   .add('thread', () => defaults({
-    render: h => h(Unsubscribe, {
+    render: () => h(Unsubscribe, {
       props: {
         tokenData: {
           threadId: 1,
@@ -28,21 +29,21 @@ storiesOf('Unsubscribe', module)
     }),
   }))
   .add('error', () => defaults({
-    render: h => h(Unsubscribe, {
+    render: () => h(Unsubscribe, {
       props: {
         hasError: true,
       },
     }),
   }))
   .add('success', () => defaults({
-    render: h => h(Unsubscribe, {
+    render: () => h(Unsubscribe, {
       props: {
         hasSuccess: true,
       },
     }),
   }))
   .add('invalid token', () => defaults({
-    render: h => h(Unsubscribe, {
+    render: () => h(Unsubscribe, {
       props: {
         hasInvalidToken: true,
       },

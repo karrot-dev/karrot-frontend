@@ -8,7 +8,7 @@
         v-if="isLink"
         :to="{name:'user', params: {userId: user.id}}"
         :title="tooltip"
-        @click.native.stop=""
+        @click.stop=""
       >
         <img
           v-if="hasPhoto"
@@ -80,15 +80,15 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .wrapper
-  display inline-block
+  display: inline-block
 
 .randomArt
-  display block
-  overflow hidden
+  display: block
+  overflow: hidden
 
 .fill
-  width 100%
-  height 100%
+  width: 100%
+  height: 100%
 </style>

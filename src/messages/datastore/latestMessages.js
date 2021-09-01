@@ -214,7 +214,7 @@ export default {
       for (const message of messages) {
         const threadId = message.thread
         const stateMessages = state.threadMessages[threadId]
-        state.threadMessage[threadId] = Object.freeze(stateMessages ? insertSorted(stateMessages, [message]) : [message])
+        state.threadMessages[threadId] = Object.freeze(stateMessages ? insertSorted(stateMessages, [message]) : [message])
       }
     },
     updateRelated (state, { type, items }) {

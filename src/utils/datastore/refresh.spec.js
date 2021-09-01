@@ -38,15 +38,12 @@ jest.mock('@/communityFeed/api/communityFeed', () => ({
 jest.mock('@/invitations/api/invitations', () => ({ listByGroupId: jest.fn(_ => []) }))
 jest.mock('@/status/api/status', () => ({ fetch: mockStatusFetch }))
 
-import Vue from 'vue'
-import { configureQuasar, nextTicks } from '>/helpers'
+import { nextTicks } from '>/helpers'
 
 describe('refresh', () => {
   beforeEach(() => jest.resetModules())
 
   it('refreshes some data', async () => {
-    configureQuasar(Vue)
-
     mockUsersList.mockReturnValue([])
     mockPlacesList.mockReturnValueOnce([])
     mockActivitiesList.mockReturnValue({ results: [] })

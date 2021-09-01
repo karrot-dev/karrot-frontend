@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
@@ -25,7 +26,7 @@ const defaultOn = {
 
 storiesOf('UserList', module)
   .add('default', () => defaults({
-    render: h => h(UserList, {
+    render: () => h(UserList, {
       props: {
         users,
         group,

@@ -1,15 +1,18 @@
+<template>
+  <IssueListUI
+    :ongoing-issues="$store.getters['issues/ongoing']"
+    :past-issues="$store.getters['issues/past']"
+    :status="$store.getters['issues/fetchByGroupIdStatus']"
+    @clear-detail="data => $store.dispatch('detail/clear', data)"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import IssueListUI from '@/issues/components/IssueListUI'
 
-export default connect({
-  gettersToProps: {
-    ongoingIssues: 'issues/ongoing',
-    pastIssues: 'issues/past',
-    status: 'issues/fetchByGroupIdStatus',
+export default {
+  components: {
+    IssueListUI,
   },
-  actionsToEvents: {
-    'clear-detail': 'detail/clear',
-  },
-})('IssueList', IssueListUI)
+}
 </script>

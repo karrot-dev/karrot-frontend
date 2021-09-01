@@ -1,18 +1,17 @@
+<template>
+  <Signup
+    :status="$store.getters['auth/signupStatus']"
+    :prefill-email="$store.getters['route/query'].email"
+    @submit="data => $store.dispatch('users/signup')"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import Signup from '@/authuser/components/Signup'
 
-export default connect({
-  gettersToProps: {
-    status: 'users/signupStatus',
+export default {
+  components: {
+    Signup,
   },
-  methodsToProps: {
-    prefillEmail ({ getters }) {
-      return getters['route/query'].email
-    },
-  },
-  actionsToEvents: {
-    submit: 'users/signup',
-  },
-})('Signup', Signup)
+}
 </script>

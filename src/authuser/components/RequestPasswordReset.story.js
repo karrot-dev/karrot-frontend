@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
@@ -10,7 +11,7 @@ const methods = {
 
 storiesOf('Password Reset', module)
   .add('empty', () => defaults({
-    render: h => h(PasswordReset, {
+    render: () => h(PasswordReset, {
       props: {
         status: statusMocks.default(),
         success: false,
@@ -21,7 +22,7 @@ storiesOf('Password Reset', module)
     }),
   }))
   .add('pending', () => defaults({
-    render: h => h(PasswordReset, {
+    render: () => h(PasswordReset, {
       props: {
         status: statusMocks.pending(),
         success: false,
@@ -32,7 +33,7 @@ storiesOf('Password Reset', module)
     }),
   }))
   .add('success', () => defaults({
-    render: h => h(PasswordReset, {
+    render: () => h(PasswordReset, {
       props: {
         status: statusMocks.default(),
         success: true,
@@ -43,7 +44,7 @@ storiesOf('Password Reset', module)
     }),
   }))
   .add('error', () => defaults({
-    render: h => h(PasswordReset, {
+    render: () => h(PasswordReset, {
       props: {
         status: statusMocks.validationError('email', 'some error'),
         success: false,

@@ -1,25 +1,28 @@
+<template>
+  <DetailUI
+    :user="$store.getters['detail/user']"
+    :activity="$store.getters['detail/activity']"
+    :application="$store.getters['detail/application']"
+    :conversation="$store.getters['detail/conversation']"
+    :away="$store.getters['presence/toggle/away']"
+    :current-user="$store.getters['auth/user']"
+    @send="data => $store.dispatch('conversations/send', data)"
+    @mark="data => $store.dispatch('conversations/maybeMark', data)"
+    @toggle-reaction="data => $store.dispatch('conversations/toggleReaction', data)"
+    @save-message="data => $store.dispatch('conversations/saveMessage', data)"
+    @fetch-past="data => $store.dispatch('conversations/fetchPast', data)"
+    @fetch-future="data => $store.dispatch('currentThread/fetchFuture', data)"
+    @application-accept="data => $store.dispatch('applications/accept', data)"
+    @application-decline="data => $store.dispatch('applications/decline', data)"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import DetailUI from './DetailUI'
 
-export default connect({
-  gettersToProps: {
-    user: 'detail/user',
-    activity: 'detail/activity',
-    application: 'detail/application',
-    conversation: 'detail/conversation',
-    away: 'presence/toggle/away',
-    currentUser: 'auth/user',
+export default {
+  components: {
+    DetailUI,
   },
-  actionsToEvents: {
-    send: 'conversations/send',
-    mark: 'conversations/maybeMark',
-    'toggle-reaction': 'conversations/toggleReaction',
-    'save-message': 'conversations/saveMessage',
-    'fetch-past': 'conversations/fetchPast',
-    'fetch-future': 'currentThread/fetchFuture',
-    'application-accept': 'applications/accept',
-    'application-decline': 'applications/decline',
-  },
-})('Detail', DetailUI)
+}
 </script>

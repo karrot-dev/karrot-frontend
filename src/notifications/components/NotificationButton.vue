@@ -40,9 +40,10 @@ import {
   QBadge,
   QMenu,
 } from 'quasar'
-const Notifications = () => import('@/notifications/components/Notifications')
-
+import { defineAsyncComponent } from 'vue'
 import { mapGetters, mapActions } from 'vuex'
+
+const Notifications = defineAsyncComponent(() => import('@/notifications/components/Notifications'))
 
 export default {
   components: {
@@ -52,6 +53,9 @@ export default {
     QMenu,
     Notifications,
   },
+  emits: [
+    'click',
+  ],
   data () {
     return {
       showing: false,

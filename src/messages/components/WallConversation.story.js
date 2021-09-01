@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 
 import WallConversation from './WallConversation'
@@ -16,12 +17,12 @@ const defaultProps = (data) => ({
 
 storiesOf('WallConversation', module)
   .add('default', () => defaults({
-    render: h => h(WallConversation, {
+    render: () => h(WallConversation, {
       props: defaultProps(),
     }),
   }))
   .add('unread', () => defaults({
-    render: h => h(WallConversation, {
+    render: () => h(WallConversation, {
       props: defaultProps({
         data: {
           ...conversation,

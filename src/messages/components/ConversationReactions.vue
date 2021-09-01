@@ -19,7 +19,7 @@
       :reacted="currentUserReactions"
       :opacity="0.5"
       flat
-      @toggle="$emit('toggle', arguments[0])"
+      @toggle="(...args) => $emit('toggle', ...args)"
     />
     <QDialog
       v-if="$q.platform.has.touch"
@@ -89,6 +89,9 @@ export default {
       default: () => [],
     },
   },
+  emits: [
+    'toggle',
+  ],
   data () {
     return {
       showDetail: false,

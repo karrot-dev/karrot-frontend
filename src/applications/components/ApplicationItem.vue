@@ -25,25 +25,28 @@
         <i18n-t
           :keypath="decision"
         >
-          <DateAsWords
-            slot="relativeDate"
-            style="display: inline"
-            :date="application.decidedAt"
-          />
-        </i18n>
+          <template #relativeDate>
+            <DateAsWords
+              v-if="application.decidedAt"
+              style="display: inline"
+              :date="application.decidedAt"
+            />
+          </template>
+        </i18n-t>
         <template v-if="application.status !== 'withdrawn'">
           <br>
           <i18n-t
             :keypath="personDeciding"
           >
-            <RouterLink
-              slot="userName"
-              :to="{name: 'user', params: { userId: application.decidedBy.id }}"
-              @click.native.stop
-            >
-              {{ application.decidedBy.displayName }}
-            </RouterLink>
-          </i18n>
+            <template #userName>
+              <RouterLink
+                :to="{name: 'user', params: { userId: application.decidedBy.id }}"
+                @click.stop
+              >
+                {{ application.decidedBy.displayName }}
+              </RouterLink>
+            </template>
+          </i18n-t>
         </template>
       </QItemLabel>
     </QItemSection>
@@ -73,6 +76,9 @@ export default {
       type: Object,
     },
   },
+  emits: [
+    'open-chat',
+  ],
   computed: {
     userName () {
       return this.application.user.displayName

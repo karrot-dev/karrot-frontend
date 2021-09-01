@@ -1,13 +1,12 @@
-import Vue from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
+
 import splashRoutes from '@/base/routes/splash'
 import mainRoutes from '@/base/routes/main'
 
 const MainLayout = () => import('@/base/pages/MainLayout')
 const SplashLayout = () => import('@/base/pages/SplashLayout')
-const RouteError = () => import('@/base/components/RouteError')
 
-Vue.use(VueRouter)
+const RouteError = () => import('@/base/components/RouteError')
 
 export default createRouter({
   routes: [

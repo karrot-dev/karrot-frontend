@@ -69,6 +69,9 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'click',
+  ],
   computed: {
     context () {
       return this.notification && this.notification.context

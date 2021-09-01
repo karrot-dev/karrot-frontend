@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 
 import NotificationToggle from './NotificationToggle'
@@ -9,7 +10,7 @@ const unverifiedUser = factories.makeCurrentUser({ mailVerified: false })
 
 storiesOf('NotificationToggle', module)
   .add('subscribed', () => defaults({
-    render: h => h(NotificationToggle, {
+    render: () => h(NotificationToggle, {
       props: {
         muted: false,
         isParticipant: true,
@@ -20,7 +21,7 @@ storiesOf('NotificationToggle', module)
     }),
   }))
   .add('subscribed - cannot unsubscribe', () => defaults({
-    render: h => h(NotificationToggle, {
+    render: () => h(NotificationToggle, {
       props: {
         muted: false,
         isParticipant: true,
@@ -31,7 +32,7 @@ storiesOf('NotificationToggle', module)
     }),
   }))
   .add('subscribed - toolbar mode', () => defaults({
-    render: h => h(NotificationToggle, {
+    render: () => h(NotificationToggle, {
       props: {
         muted: false,
         isParticipant: true,
@@ -43,7 +44,7 @@ storiesOf('NotificationToggle', module)
     }),
   }))
   .add('subscribed - email not verified', () => defaults({
-    render: h => h(NotificationToggle, {
+    render: () => h(NotificationToggle, {
       props: {
         muted: false,
         isParticipant: true,
@@ -54,7 +55,7 @@ storiesOf('NotificationToggle', module)
     }),
   }))
   .add('muted', () => defaults({
-    render: h => h(NotificationToggle, {
+    render: () => h(NotificationToggle, {
       props: {
         muted: true,
         isParticipant: true,
@@ -65,7 +66,7 @@ storiesOf('NotificationToggle', module)
     }),
   }))
   .add('unsubscribed', () => defaults({
-    render: h => h(NotificationToggle, {
+    render: () => h(NotificationToggle, {
       props: {
         muted: false,
         isParticipant: false,

@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 import ActivitiesManage from '@/activities/pages/ActivitiesManage'
 
@@ -40,7 +41,7 @@ const datastore = options => createDatastore({
 
 storiesOf('ActivitiesManage', module)
   .add('default', () => defaults({
-    render: h => h(ActivitiesManage),
+    render: () => h(ActivitiesManage),
     store: datastore({
       activeUser: nonmember,
     }),

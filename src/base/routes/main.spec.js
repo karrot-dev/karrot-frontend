@@ -9,9 +9,9 @@ jest.mock('@/group/api/groups', () => ({
 }))
 
 jest.mock('@/router', () => {
-  const VueRouter = require('vue-router')
-  return new VueRouter({
-    mode: 'hash',
+  const { createRouter, createWebHashHistory } = require('vue-router')
+  return createRouter({
+    history: createWebHashHistory(),
     routes: [
       // we always need these routes as we often redirect to them immediately
       {
@@ -83,18 +83,10 @@ describe('main routes', () => {
   beforeEach(() => window.history.pushState({}, 'home', '#/')) // always reset location or tests will interfere
 
   beforeEach(() => {
-    localVue = createLocalVue()
-    const Vuex = require('vuex')
-    const VueRouter = require('vue-router')
-    localVue.use(Vuex)
-    localVue.use(VueRouter)
-  })
-
-  beforeEach(() => {
-    const Vuex = require('vuex')
+    const { createStore } = require('vuex')
     user = { id: getRandomId() }
     mockModules = createMockModules({ user })
-    datastore = new Vuex.Store({
+    datastore = createStore({
       modules: {
         ...mockModules,
         groups: require('@/groupInfo/datastore/groups').default,

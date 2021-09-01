@@ -16,7 +16,7 @@
             :error-message="nameError"
             :autofocus="!$q.platform.has.touch"
             autocomplete="off"
-            @blur="$v.edit.name.$touch"
+            @blur="v$.edit.name.$touch"
           >
             <template #before>
               <QIcon name="fas fa-star" />
@@ -40,7 +40,6 @@
                 :key="scope.index"
                 dense
                 v-bind="scope.itemProps"
-                v-on="scope.itemEvents"
               >
                 <QItemSection side>
                   <QIcon
@@ -187,10 +186,10 @@ import {
 } from 'quasar'
 import AddressPicker from '@/maps/components/AddressPicker'
 import MarkdownInput from '@/utils/components/MarkdownInput'
-import { validationMixin } from 'vuelidate'
+import useVuelidate from '@vuelidate/core'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
-import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+import { required, minLength, maxLength } from '@vuelidate/validators'
 import { statusList, optionsFor } from '@/places/placeStatus'
 
 export default {
@@ -209,7 +208,7 @@ export default {
     MarkdownInput,
     AddressPicker,
   },
-  mixins: [validationMixin, editMixin, statusMixin],
+  mixins: [editMixin, statusMixin],
   props: {
     value: {
       required: false,
@@ -231,9 +230,17 @@ export default {
     },
     allPlaces: { required: true, type: Array },
   },
+  emits: [
+    'cancel',
+  ],
+  setup () {
+    return {
+      v$: useVuelidate(),
+    }
+  },
   computed: {
     canSave () {
-      if (this.$v.edit.$error) {
+      if (this.v$.edit.$error) {
         return false
       }
       if (!this.isNew && !this.hasChanged) {
@@ -245,8 +252,8 @@ export default {
       return !!this.nameError
     },
     nameError () {
-      if (this.$v.edit.name.$error) {
-        const m = this.$v.edit.name
+      if (this.v$.edit.name.$error) {
+        const m = this.v$.edit.name
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
         if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', { min: 2 })
         if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
@@ -305,9 +312,9 @@ export default {
       }
     },
     maybeSave () {
-      this.$v.edit.$touch()
+      this.v$.edit.$touch()
       if (!this.canSave) return
-      this.$v.edit.$reset()
+      this.v$.edit.$reset()
       this.save()
     },
     archive (event) {

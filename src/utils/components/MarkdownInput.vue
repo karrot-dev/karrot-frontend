@@ -3,7 +3,7 @@
     <QInput
       ref="input"
       v-bind="$attrs"
-      :value="value"
+      :model-value="value"
       type="textarea"
       :input-style="$attrs['input-style'] || 'min-height: 100px'"
       autogrow
@@ -34,8 +34,9 @@
           </a>
         </div>
       </template>
+      <!-- TODO
       <template
-        v-for="(_, slot) of $scopedSlots"
+        v-for="(_, slot) of $slots"
         #[slot]="scope"
       >
         <slot
@@ -43,6 +44,7 @@
           v-bind="scope"
         />
       </template>
+      -->
     </QInput>
     <QBtn
       v-if="value"
@@ -131,15 +133,15 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .markdown-helper
-  padding-top 6px
-  font-size .65rem
+  padding-top: 6px
+  font-size: .65rem
 
   > *
-    padding-right 10px
+    padding-right: 10px
 
 .markdown-input-preview-card
-  min-width 60%
-  max-width 700px
+  min-width: 60%
+  max-width: 700px
 </style>

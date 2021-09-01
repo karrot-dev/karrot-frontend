@@ -1,17 +1,17 @@
 import GroupMap from './GroupMap'
 import { usersMock, placesMock } from '>/mockdata'
 
-import * as Vue2Leaflet from 'vue2-leaflet'
+import * as VueLeaflet from '@vue-leaflet/vue-leaflet'
 import ExtendedMarker from './ExtendedMarker'
 import { mountWithDefaults } from '>/helpers'
-import Vue from 'vue'
+import { nextTick } from 'vue'
 
-/* vue2-leaflet library does not name its components, which vue-test-utils needs to find them
+/* vue-leaflet library does not name its components, which vue-test-utils needs to find them
    so we give them names here... */
-Vue2Leaflet.LMap.name = 'Vue2LeafletMap'
-Vue2Leaflet.LTileLayer.name = 'Vue2LeafletTileLayer'
-Vue2Leaflet.LPopup.name = 'Vue2LeafletPopup'
-Vue2Leaflet.LMarker.name = 'Vue2LeafletMarker'
+VueLeaflet.LMap.name = 'VueLeafletMap'
+VueLeaflet.LTileLayer.name = 'VueLeafletTileLayer'
+VueLeaflet.LPopup.name = 'VueLeafletPopup'
+VueLeaflet.LMarker.name = 'VueLeafletMarker'
 
 const defaultProps = {
   users: usersMock,
@@ -31,13 +31,13 @@ describe('GroupMap', () => {
     const wrapper = mountWithDefaults(GroupMap, {
       propsData: defaultProps,
     })
-    await Vue.nextTick()
-    expect(wrapper.findAllComponents(Vue2Leaflet.LMap).length).toBe(1)
+    await nextTick()
+    expect(wrapper.findAllComponents(VueLeaflet.LMap).length).toBe(1)
     expect(wrapper.findAllComponents(ExtendedMarker).length).toBe(usersMock.length + placesMock.length)
     for (const marker of wrapper.findAllComponents(ExtendedMarker)) {
       expect(marker.props().opacity).toEqual(1)
     }
-    expect(wrapper.findAllComponents(Vue2Leaflet.LPopup).length).toBe(usersMock.length + placesMock.length)
+    expect(wrapper.findAllComponents(VueLeaflet.LPopup).length).toBe(usersMock.length + placesMock.length)
   })
 
   it('renders just users', async () => {
@@ -47,9 +47,9 @@ describe('GroupMap', () => {
         showPlaces: false,
       },
     })
-    await Vue.nextTick()
+    await nextTick()
     expect(wrapper.findAllComponents(ExtendedMarker).length).toBe(usersMock.length)
-    expect(wrapper.findAllComponents(Vue2Leaflet.LPopup).length).toBe(usersMock.length)
+    expect(wrapper.findAllComponents(VueLeaflet.LPopup).length).toBe(usersMock.length)
   })
 
   it('renders just places', async () => {
@@ -59,8 +59,8 @@ describe('GroupMap', () => {
         showUsers: false,
       },
     })
-    await Vue.nextTick()
+    await nextTick()
     expect(wrapper.findAllComponents(ExtendedMarker).length).toBe(placesMock.length)
-    expect(wrapper.findAllComponents(Vue2Leaflet.LPopup).length).toBe(placesMock.length)
+    expect(wrapper.findAllComponents(VueLeaflet.LPopup).length).toBe(placesMock.length)
   })
 })

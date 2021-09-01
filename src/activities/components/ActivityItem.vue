@@ -152,7 +152,7 @@
         no-caps
         color="secondary"
         class="action-button"
-        @click.native.stop="detail"
+        @click.stop="detail"
       >
         <template #default>
           <QIcon
@@ -201,6 +201,11 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'join',
+    'leave',
+    'detail',
+  ],
   data () {
     return {
       joinDialog: false,
@@ -234,7 +239,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .content
   width: 100%
   transition: background-color 2s ease

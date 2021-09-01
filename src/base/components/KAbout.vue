@@ -162,6 +162,9 @@ export default {
     QItemLabel,
     QIcon,
   },
+  emits: [
+    'close',
+  ],
   computed: {
     ...mapGetters({
       deployed: 'about/deployed',

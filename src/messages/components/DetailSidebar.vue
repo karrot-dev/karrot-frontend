@@ -20,5 +20,8 @@ export default {
     DetailHeader,
     Detail,
   },
+  emits: [
+    'close',
+  ],
 }
 </script>

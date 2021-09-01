@@ -67,7 +67,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 >>> .q-banner__avatar
-  align-self center
+  align-self: center
 </style>

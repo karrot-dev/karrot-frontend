@@ -112,6 +112,9 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'set',
+  ],
   computed: {
     options () {
       return [

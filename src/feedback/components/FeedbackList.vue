@@ -68,7 +68,7 @@ export default {
   },
   computed: {
     empty () {
-      return !this.isPending && !this.hasAnyErrors && this.feedback.length < 1
+      return !this.isPending && !this.hasAnyError && this.feedback.length < 1
     },
     highlighted () {
       if (!this.feedback || this.highlight < 0) return

@@ -321,7 +321,7 @@ export default {
     makeVisible (type, id) {
       // prevents rending QCollabsible children before they are displayed
       // if we don't do this, the textarea in activityEdit won't autogrow
-      this.$set(this.visible[type], id, true)
+      this.visible[type][id] = true
     },
     seriesLabel (series) {
       if (series.rule.isCustom) {

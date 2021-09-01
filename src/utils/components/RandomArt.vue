@@ -68,26 +68,26 @@ export default {
 }
 </script>
 
-<style scoped lang='stylus'>
+<style scoped lang='sass'>
 .art-wrapper
-  position relative
-  z-index 0
-  display block
-  width 100%
-  margin 0
-  user-select none
+  position: relative
+  z-index: 0
+  display: block
+  width: 100%
+  margin: 0
+  user-select: none
 
   > div
-    z-index 1
-    min-height calc(25px + 1vw)
+    z-index: 1
+    min-height: calc(25px + 1vw)
 
 body.mobile .art-wrapper
-  overflow hidden
-  border 0
+  overflow: hidden
+  border: 0
 </style>
 
-<style lang='stylus'>
+<style lang='sass'>
 .random-art-box-above
-  position absolute
-  bottom 0
+  position: absolute
+  bottom: 0
 </style>

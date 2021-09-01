@@ -1,7 +1,7 @@
 <template>
   <div>
     <QInput
-      :value="terms"
+      :model-value="terms"
       type="search"
       :placeholder="$q.lang.label.search"
       dense
@@ -9,7 +9,7 @@
       :debounce="300"
       standout
       dark
-      @input="setTerms"
+      @update:model-value="setTerms"
       @click="showResults"
       @focus="showResults"
       @blur="hide"
@@ -109,6 +109,9 @@ export default {
     QItemLabel,
     QInfiniteScroll,
   },
+  emits: [
+    'clear',
+  ],
   data () {
     return {
       limit: 10,

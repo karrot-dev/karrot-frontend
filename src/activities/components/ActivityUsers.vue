@@ -110,6 +110,10 @@ export default {
       default: 36,
     },
   },
+  emits: [
+    'leave',
+    'join',
+  ],
   data () {
     return {
       slotsPerRow: 6,

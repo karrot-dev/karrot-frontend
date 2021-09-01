@@ -1,21 +1,24 @@
+<template>
+  <SidenavMapUI
+    :places="$store.getters['places/byCurrentGroup']"
+    :users="$store.getters['users/byCurrentGroup']"
+    :show-places="$store.getters['sidenavBoxes/toggle/placesOnMap']"
+    :show-users="$store.getters['sidenavBoxes/toggle/usersOnMap']"
+    :selected-place="$store.getters['places/activePlace']"
+    :selected-user="$store.getters['users/activeUser']"
+    :current-group="$store.getters['currentGroup/value']"
+    :is-editor="$store.getters['currentGroup/isEditor']"
+    @toggle-places="$store.dispatch('sidenavBoxes/toggle/placesOnMap')"
+    @toggle-users="$store.dispatch('sidenavBoxes/toggle/usersOnMap')"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import SidenavMapUI from './SidenavMapUI'
 
-export default connect({
-  gettersToProps: {
-    places: 'places/byCurrentGroup',
-    users: 'users/byCurrentGroup',
-    showPlaces: 'sidenavBoxes/toggle/placesOnMap',
-    showUsers: 'sidenavBoxes/toggle/usersOnMap',
-    selectedPlace: 'places/activePlace',
-    selectedUser: 'users/activeUser',
-    currentGroup: 'currentGroup/value',
-    isEditor: 'currentGroup/isEditor',
+export default {
+  components: {
+    SidenavMapUI,
   },
-  actionsToEvents: {
-    'toggle-places': 'sidenavBoxes/toggle/placesOnMap',
-    'toggle-users': 'sidenavBoxes/toggle/usersOnMap',
-  },
-})('SidenavMap', SidenavMapUI)
+}
 </script>

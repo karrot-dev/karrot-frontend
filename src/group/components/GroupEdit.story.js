@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { statusMocks, storybookDefaults as defaults } from '>/helpers'
@@ -12,7 +13,7 @@ const methods = {
 
 storiesOf('GroupEdit', module)
   .add('create', () => defaults({
-    render: h => h(GroupEdit, {
+    render: () => h(GroupEdit, {
       props: {
         value: groupsMock[0],
         status: statusMocks.default(),

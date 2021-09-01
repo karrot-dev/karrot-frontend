@@ -17,6 +17,9 @@ watch(() => state.locale, async locale => {
 })
 
 export default {
+  setLocale (newLocale) {
+    state.locale = newLocale
+  },
   formatDistanceStrict (dateA, dateB) {
     return formatDistanceStrict(dateA, dateB, {
       locale: state.localeData,

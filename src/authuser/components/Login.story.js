@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
@@ -6,7 +7,7 @@ import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 storiesOf('Login', module)
   .add('empty', () => defaults({
-    render: h => h(Login, {
+    render: () => h(Login, {
       props: {
         status: statusMocks.default(),
       },
@@ -16,7 +17,7 @@ storiesOf('Login', module)
     }),
   }))
   .add('pending', () => defaults({
-    render: h => h(Login, {
+    render: () => h(Login, {
       props: {
         status: statusMocks.pending(),
       },
@@ -26,7 +27,7 @@ storiesOf('Login', module)
     }),
   }))
   .add('error', () => defaults({
-    render: h => h(Login, {
+    render: () => h(Login, {
       props: {
         status: statusMocks.validationError('email', 'is missing'),
       },

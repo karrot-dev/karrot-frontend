@@ -60,6 +60,9 @@ export default {
     LatestMessageButton,
     NotificationButton,
   },
+  emits: [
+    'click',
+  ],
   computed: {
     ...mapGetters({
       currentGroup: 'currentGroup/value',

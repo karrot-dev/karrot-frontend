@@ -1,8 +1,11 @@
 /** Storybook has some unwanted side effects and we actually don't need it to test the stories
  * Therefore, we mimick the Storybook API to get the components and then run the snapshot tests
 */
+
+import { h } from 'vue'
+
 const mockStories = []
-jest.mock('@storybook/vue', () => ({
+jest.mock('@storybook/vue3', () => ({
   storiesOf: (kind) => {
     const api = { kind }
     const kindStories = { kind, stories: [] }
@@ -22,13 +25,13 @@ import glob from 'glob'
 import lolex from 'lolex'
 import { createRenderer } from 'vue-server-renderer'
 import Vue from 'vue'
-import { configureQuasar } from '>/helpers'
+import { Quasar } from 'quasar'
+import quasarConfig from '>/quasarConfig'
 import { mount, RouterLinkStub } from '@vue/test-utils'
 import i18n from '@/base/i18n'
 import routerMocks from '>/routerMocks'
 
 i18n.locale = 'en'
-configureQuasar(Vue)
 Vue.component('RouterLink', RouterLinkStub)
 Vue.directive('measure', {})
 
@@ -71,7 +74,7 @@ jest.mock('@/locales/translationStatus.json', () => ({
 
 // Mock annoying components (e.g. too much vuex dependency)
 jest.mock('@/authuser/components/Settings/VerificationWarning', () => ({
-  render: h => h('div', 'VerificationWarning has been mocked'),
+  render: () => h('div', 'VerificationWarning has been mocked'),
 }))
 
 const files = glob.sync('**/*.story.js', { absolute: true })
@@ -91,7 +94,6 @@ for (const group of mockStories) {
           const component = story.render()
 
           const wrapper = mount(component, {
-            sync: false,
             mocks: {
               ...routerMocks,
             },

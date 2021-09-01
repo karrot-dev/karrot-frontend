@@ -1,6 +1,5 @@
 import { dom } from 'quasar'
-import Vue from 'vue'
-import { configureQuasar, useDesktopUserAgent, useMobileUserAgent } from '>/helpers'
+import { useDesktopUserAgent, useMobileUserAgent } from '>/helpers'
 
 const { height } = dom
 
@@ -13,7 +12,6 @@ describe('detectMobileKeyboard', () => {
     window.addEventListener = jest.fn().mockImplementation(function () {
       originalWindowAddEventListener.apply(window, arguments)
     })
-    configureQuasar(Vue)
     detectMobileKeyboard = require('./detectMobileKeyboard').default
   })
 

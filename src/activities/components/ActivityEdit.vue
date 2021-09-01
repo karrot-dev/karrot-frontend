@@ -78,7 +78,7 @@
                 v-model="startTime"
                 mask="HH:mm"
                 format24h
-                @input="() => smallScreen && $refs.qStartTimeProxy.hide()"
+                @update:model-value="() => smallScreen && $refs.qStartTimeProxy.hide()"
               />
             </Component>
             <template #after>
@@ -121,7 +121,7 @@
                   v-model="endTime"
                   mask="HH:mm"
                   format24h
-                  @input="() => smallScreen && $refs.qEndTimeProxy.hide()"
+                  @update:model-value="() => smallScreen && $refs.qEndTimeProxy.hide()"
                 />
               </Component>
               <template #after>
@@ -326,6 +326,10 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'cancel',
+    'save',
+  ],
   computed: {
     activityType () {
       return this.value.activityType

@@ -97,7 +97,7 @@ const SUNDAY_INDEX = DAY_KEYS.indexOf('SU')
 export function dayNameForKey (key) {
   const date = new Date()
   date.setDate(date.getDate() - date.getDay() - SUNDAY_INDEX + DAY_INDEX[key])
-  return i18n.d(date, 'dayName')
+  return i18n.global.d(date, 'dayName')
 }
 export function dayNames () {
   return DAY_KEYS.map(dayNameForKey)

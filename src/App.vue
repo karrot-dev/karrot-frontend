@@ -29,14 +29,14 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .root-splash-second
-  opacity 1
-  animation fadein 2s
+  opacity: 1
+  animation: fadein 2s
 @keyframes fadein
   from
-    opacity 0.3
+    opacity: 0.3
 
   to
-    opacity 1
+    opacity: 1
 </style>

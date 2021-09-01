@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { storybookDefaults as defaults } from '>/helpers'
@@ -14,7 +15,7 @@ storiesOf('GroupSettings', module)
     const group = new Vue({ data: { ...groupsMock[0] } })
 
     return defaults({
-      render: h => h(GroupSettings, {
+      render: () => h(GroupSettings, {
         props: {
           group,
           groups: groupsMock,

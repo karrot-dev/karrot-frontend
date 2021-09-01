@@ -64,6 +64,9 @@ export default {
     SplashInput,
   },
   mixins: [statusMixin],
+  emits: [
+    'submit',
+  ],
   data () {
     return {
       email: '',

@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 
@@ -26,7 +27,7 @@ const currentGroup = {
 
 storiesOf('Map', module)
   .add('StandardMap', () => defaults({
-    render: h => h(StandardMap, {
+    render: () => h(StandardMap, {
       props: {
         markers: [
           {
@@ -40,7 +41,7 @@ storiesOf('Map', module)
     }),
   }))
   .add('StandardMap (selected marker)', () => defaults({
-    render: h => h(StandardMap, {
+    render: () => h(StandardMap, {
       props: {
         markers: [
           {
@@ -66,7 +67,7 @@ storiesOf('Map', module)
     }),
   }))
   .add('GroupMap', () => defaults({
-    render: h => h(GroupMap, {
+    render: () => h(GroupMap, {
       props: {
         users: usersMock,
         places: placesMock,
@@ -79,7 +80,7 @@ storiesOf('Map', module)
     }),
   }))
   .add('GroupMap (selected place)', () => defaults({
-    render: h => h(GroupMap, {
+    render: () => h(GroupMap, {
       props: {
         users: usersMock,
         places: placesMock,
@@ -92,7 +93,7 @@ storiesOf('Map', module)
     }),
   }))
   .add('GroupMap (place has no location)', () => defaults({
-    render: h => h(GroupMap, {
+    render: () => h(GroupMap, {
       props: {
         users: usersMock,
         places: [...placesMock, placeWithoutLocation],
@@ -105,7 +106,7 @@ storiesOf('Map', module)
     }),
   }))
   .add('GroupMap (group has no location)', () => defaults({
-    render: h => h(GroupMap, {
+    render: () => h(GroupMap, {
       props: {
         users: [],
         places: [],
@@ -121,7 +122,7 @@ storiesOf('Map', module)
     }),
   }))
   .add('GroupMap (only group location)', () => defaults({
-    render: h => h(GroupMap, {
+    render: () => h(GroupMap, {
       props: {
         users: [],
         places: [],
@@ -133,7 +134,7 @@ storiesOf('Map', module)
     }),
   }))
   .add('UserMapPreview', () => defaults({
-    render: h => h(UserMapPreview, {
+    render: () => h(UserMapPreview, {
       props: {
         user: usersMock[0],
       },

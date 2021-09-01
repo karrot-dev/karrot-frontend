@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { storybookDefaults as defaults, statusMocks } from '>/helpers'
 import subHours from 'date-fns/subHours'
@@ -114,7 +115,7 @@ const pastIssues = range(4).map(() => factories.makeIssue({
 
 storiesOf('Issues', module)
   .add('history item', () => defaults({
-    render: h => h(IssueHistoryItem, {
+    render: () => h(IssueHistoryItem, {
       props: {
         voting: votingRemoveUser,
         affectedUser: user,
@@ -123,21 +124,21 @@ storiesOf('Issues', module)
     }),
   }))
   .add('IssueVote - vote', () => defaults({
-    render: h => h(IssueVote, {
+    render: () => h(IssueVote, {
       props: {
         issue: issueFurtherDiscussion,
       },
     }),
   }))
   .add('IssueVote - not voted yet', () => defaults({
-    render: h => h(IssueVote, {
+    render: () => h(IssueVote, {
       props: {
         issue: issueNoVote,
       },
     }),
   }))
   .add('results - expelled', () => defaults({
-    render: h => h(VotingResults, {
+    render: () => h(VotingResults, {
       props: {
         voting: votingRemoveUser,
         affectedUser: user,
@@ -147,7 +148,7 @@ storiesOf('Issues', module)
     }),
   }))
   .add('IssueList', () => defaults({
-    render: h => h(IssueList, {
+    render: () => h(IssueList, {
       props: {
         ongoingIssues,
         pastIssues,

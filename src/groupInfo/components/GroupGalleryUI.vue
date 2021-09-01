@@ -32,14 +32,15 @@
           />
         </template>
         <i18n-t keypath="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
-          <RouterLink
-            slot="login"
-            :to="{ name: 'login' }"
-            class="underline"
-          >
-            {{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}
-          </RouterLink>
-        </i18n>
+          <template #login>
+            <RouterLink
+              :to="{ name: 'login' }"
+              class="underline"
+            >
+              {{ $t('JOINGROUP.LOGOUT_MESSAGE.LOG_IN') }}
+            </RouterLink>
+          </template>
+        </i18n-t>
       </QBanner>
       <p
         v-if="!hasJoinedGroups"
@@ -57,7 +58,7 @@
               {{ $t('GROUP.CREATE_TITLE') }}
             </router-link>
           </template>
-        </i18n>
+        </i18n-t>
       </p>
       <div class="row items-start no-wrap q-mt-md">
         <div class="col">
@@ -105,8 +106,8 @@
         </p>
         <GroupGalleryCards
           :groups="filteredMyGroups"
-          @preview="$emit('preview', arguments[0])"
-          @visit="$emit('visit', arguments[0])"
+          @preview="(...args) => $emit('preview', ...args)"
+          @visit="(...args) => $emit('visit', ...args)"
         />
       </div>
       <p
@@ -125,12 +126,12 @@
               {{ $t('GROUP.CREATE_TITLE') }}
             </router-link>
           </template>
-        </i18n>
+        </i18n-t>
       </p>
       <div v-if="hasOtherGroupsToShow">
         <GroupGalleryCards
           :groups="filteredOtherGroups"
-          @preview="$emit('preview', arguments[0])"
+          @preview="(...args) => $emit('preview', ...args)"
         />
       </div>
     </div>
@@ -187,6 +188,10 @@ export default {
       type: Object,
     },
   },
+  emits: [
+    'visit',
+    'preview',
+  ],
   data () {
     return {
       width: -1, // will get set by our QResizeObserver later

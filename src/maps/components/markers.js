@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import GroupMarker from './GroupMarker'
 import UserMarker from './UserMarker'
 import PlaceMarker from './PlaceMarker'
@@ -10,7 +11,7 @@ export function groupMarker (group) {
     fontIcon: group.isMember ? 'fas fa-home' : 'fas fa-info-circle',
     color: group.isMember ? 'positive' : 'blue',
     popup: {
-      render: h => h(GroupMarker, { props: { group } }),
+      render: () => h(GroupMarker, { group }),
     },
     gpx: {
       name: group.name,
@@ -26,7 +27,7 @@ export function userMarker (user) {
     fontIcon: 'fas fa-user',
     color: 'positive',
     popup: {
-      render: h => h(UserMarker, { props: { user } }),
+      render: () => h(UserMarker, { user }),
     },
     gpx: {
       name: user.displayName,
@@ -42,7 +43,7 @@ export function placeMarker (place) {
     fontIcon: icons.get('place'),
     color: place.ui.color,
     popup: {
-      render: h => h(PlaceMarker, { props: { place } }),
+      render: () => h(PlaceMarker, { place }),
     },
     gpx: {
       name: place.name,

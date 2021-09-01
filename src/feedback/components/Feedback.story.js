@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storybookDefaults as defaults, statusMocks, createDatastore } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 
@@ -55,14 +56,14 @@ storiesOf('Feedback', module)
     },
   }))
   .add('AmountBox', () => defaults({
-    render: h => h(AmountBox, {
+    render: () => h(AmountBox, {
       props: {
         amount: 20,
       },
     }),
   }))
   .add('ActivityFeedback', () => defaults({
-    render: h => h(ActivityFeedback, {
+    render: () => h(ActivityFeedback, {
       props: {
         activities: activitiesMock.map(activity => ({
           ...activity,
@@ -82,14 +83,14 @@ storiesOf('Feedback', module)
     }),
   }))
   .add('FeedbackItem', () => defaults({
-    render: h => h(FeedbackItem, {
+    render: () => h(FeedbackItem, {
       props: {
         feedback: feedbackMock[0],
       },
     }),
   }))
   .add('FeedbackList', () => defaults({
-    render: h => h(FeedbackList, {
+    render: () => h(FeedbackList, {
       props: {
         feedback: feedbackMock,
         place: placesMock[0],
@@ -99,6 +100,6 @@ storiesOf('Feedback', module)
     }),
   }))
   .add('PlaceFeedback', () => defaults({
-    render: h => h(PlaceFeedback),
+    render: () => h(PlaceFeedback),
     store: datastore,
   }))

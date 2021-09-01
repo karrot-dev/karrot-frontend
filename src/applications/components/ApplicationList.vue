@@ -5,9 +5,9 @@
         v-for="a in pending"
         :key="a.id"
         :application="a"
-        @accept="$emit('accept', arguments[0])"
-        @decline="$emit('decline', arguments[0])"
-        @open-chat="$emit('open-chat', arguments[0])"
+        @accept="(...args) => $emit('accept', ...args)"
+        @decline="(...args) => $emit('decline', ...args)"
+        @open-chat="(...args) => $emit('open-chat', ...args)"
       />
       <QSeparator />
       <QExpansionItem
@@ -23,7 +23,7 @@
             v-for="a in otherApplications"
             :key="a.id"
             :application="a"
-            @open-chat="$emit('open-chat', arguments[0])"
+            @open-chat="(...args) => $emit('open-chat', ...args)"
           />
         </template>
       </QExpansionItem>
@@ -74,6 +74,11 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'accept',
+    'decline',
+    'open-chat',
+  ],
   data () {
     return {
       showOthers: false,

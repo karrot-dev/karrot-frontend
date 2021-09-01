@@ -29,7 +29,7 @@ describe('LocaleSelect', () => {
   it('can select a locale', () => {
     const wrapper = mountWithDefaults(LocaleSelectInner, { datastore })
     const idx = Math.floor(Math.random() * localeOptions.length) // pick a random locale
-    wrapper.findAll('.q-item').at(idx + 1).trigger('click')
+    wrapper.findAll('.q-item')[idx + 1].trigger('click')
     expect(i18n.actions.setLocale).toHaveBeenCalled()
     expect(i18n.actions.setLocale.mock.calls[0][1]).toBe(localeOptions[idx].value)
   })

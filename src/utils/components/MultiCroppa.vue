@@ -22,11 +22,12 @@
         :auto-sizing="true"
         @new-image-drawn="imageDrawn(item)"
       >
-        <img
-          slot="placeholder"
-          src="statics/add_a_photo.svg"
-          :width="60"
-        >
+        <template #placeholder>
+          <img
+            src="statics/add_a_photo.svg"
+            :width="60"
+          >
+        </template>
       </Croppa>
       <QBtnGroup
         rounded
@@ -81,6 +82,8 @@
 import { QBtn, QBtnGroup } from 'quasar'
 import CroppaPlugin from 'vue-croppa'
 const Croppa = CroppaPlugin.component
+// Upgrade Croppa once it's compatible with Vue3: https://github.com/zhanziyang/vue-croppa/issues/235
+Croppa.compatConfig = { MODE: 2 }
 
 function sortByPosition (a, b) {
   return a.position - b.position
@@ -119,6 +122,9 @@ export default {
       default: true,
     },
   },
+  emits: [
+    'input',
+  ],
   data () {
     return {
       sourceKey: new Map(), // source -> key
@@ -286,19 +292,19 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .croppa-container.croppa--has-target
-  cursor move
+  cursor: move
 
 .small
   .croppa-item
-    width 80px
+    width: 80px
 
   >>> .croppa-container
-    width 80px
-    height 80px
+    width: 80px
+    height: 80px
 
 .new-image >>> canvas
-  cursor pointer
-  border 1px solid #ddd
+  cursor: pointer
+  border: 1px solid #ddd
 </style>

@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 
 import ConversationMessage from './ConversationMessage'
@@ -14,14 +15,14 @@ const thread = factories.makeThread()
 
 storiesOf('ConversationMessage', module)
   .add('default', () => defaults({
-    render: h => h(ConversationMessage, {
+    render: () => h(ConversationMessage, {
       props: {
         message,
       },
     }),
   }))
   .add('edited', () => defaults({
-    render: h => h(ConversationMessage, {
+    render: () => h(ConversationMessage, {
       props: {
         message: {
           ...message,
@@ -31,7 +32,7 @@ storiesOf('ConversationMessage', module)
     }),
   }))
   .add('via email', () => defaults({
-    render: h => h(ConversationMessage, {
+    render: () => h(ConversationMessage, {
       props: {
         message: {
           ...message,
@@ -41,14 +42,14 @@ storiesOf('ConversationMessage', module)
     }),
   }))
   .add('with unread replies', () => defaults({
-    render: h => h(ConversationMessage, {
+    render: () => h(ConversationMessage, {
       props: {
         message: thread,
       },
     }),
   }))
   .add('with replies', () => defaults({
-    render: h => h(ConversationMessage, {
+    render: () => h(ConversationMessage, {
       props: {
         message: {
           ...thread,
@@ -61,7 +62,7 @@ storiesOf('ConversationMessage', module)
     }),
   }))
   .add('with one image', () => defaults({
-    render: h => h(ConversationMessage, {
+    render: () => h(ConversationMessage, {
       props: {
         message: {
           ...message,
@@ -73,7 +74,7 @@ storiesOf('ConversationMessage', module)
     }),
   }))
   .add('with multiple images', () => defaults({
-    render: h => h(ConversationMessage, {
+    render: () => h(ConversationMessage, {
       props: {
         message: {
           ...message,
@@ -83,7 +84,7 @@ storiesOf('ConversationMessage', module)
     }),
   }))
   .add('slim', () => defaults({
-    render: h => h(ConversationMessage, {
+    render: () => h(ConversationMessage, {
       props: {
         message,
         slim: true,

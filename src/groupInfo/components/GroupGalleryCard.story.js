@@ -1,3 +1,4 @@
+import { h } from 'vue'
 import { storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
@@ -13,7 +14,7 @@ const methods = {
 
 storiesOf('GroupGalleryCard', module)
   .add('isMember = true', () => defaults({
-    render: h => h(GroupGalleryCard, {
+    render: () => h(GroupGalleryCard, {
       props: {
         group: makeGroupInfo({ isMember: true }),
       },
@@ -21,7 +22,7 @@ storiesOf('GroupGalleryCard', module)
     }),
   }))
   .add('isMember = false', () => defaults({
-    render: h => h(GroupGalleryCard, {
+    render: () => h(GroupGalleryCard, {
       props: {
         group: makeGroupInfo(),
       },
@@ -29,7 +30,7 @@ storiesOf('GroupGalleryCard', module)
     }),
   }))
   .add('isMember = false, application pending', () => defaults({
-    render: h => h(GroupGalleryCard, {
+    render: () => h(GroupGalleryCard, {
       props: {
         group: makeGroupInfo({ myApplicationPending: true }),
       },
@@ -37,7 +38,7 @@ storiesOf('GroupGalleryCard', module)
     }),
   }))
   .add('without public description', () => defaults({
-    render: h => h(GroupGalleryCard, {
+    render: () => h(GroupGalleryCard, {
       props: {
         group: makeGroupInfo({ publicDescription: '' }),
       },

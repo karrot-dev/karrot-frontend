@@ -19,14 +19,15 @@
         keypath="NOTIFICATIONS.CHECK_YOUR_MAILS"
         tag="span"
       >
-        <a
-          slot="resend"
-          class="underline"
-          @click="resend"
-        >
-          {{ $t('NOTIFICATIONS.RESEND_VERIFICATION') }}
-        </a>
-      </i18n>
+        <template #resend>
+          <a
+            class="underline"
+            @click="resend"
+          >
+            {{ $t('NOTIFICATIONS.RESEND_VERIFICATION') }}
+          </a>
+        </template>
+      </i18n-t>
       <p v-else>
         {{ $t('NOTIFICATIONS.VERIFICATION_EMAIL_SENT') }}
       </p>
@@ -133,11 +134,11 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .underline
-  text-decoration underline
-  cursor pointer
+  text-decoration: underline
+  cursor: pointer
 
 >>> .q-banner__avatar
-  align-self center
+  align-self: center
 </style>

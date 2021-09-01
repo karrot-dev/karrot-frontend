@@ -65,6 +65,9 @@ export default {
   props: {
     user: { required: true, type: Object },
   },
+  emits: [
+    'save',
+  ],
   data () {
     return {
       newEmail: '',

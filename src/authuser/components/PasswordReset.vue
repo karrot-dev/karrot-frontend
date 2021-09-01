@@ -65,6 +65,9 @@ export default {
       type: String,
     },
   },
+  emits: [
+    'submit',
+  ],
   data () {
     return {
       newPassword: null,

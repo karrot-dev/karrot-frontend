@@ -1,5 +1,4 @@
 import { nextTick } from 'vue'
-import Vuex from 'vuex'
 import { mount, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
 import { extend } from 'quasar'

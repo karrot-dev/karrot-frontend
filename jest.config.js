@@ -1,4 +1,4 @@
-const esModules = ['quasar/lang', 'lodash-es', 'escape-string-regexp'].join('|');
+const esModules = ['quasar/lang', 'lodash-es', 'escape-string-regexp', 'leaflet'].join('|');
 
 module.exports = {
   roots: [

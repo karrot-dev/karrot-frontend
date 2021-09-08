@@ -11,11 +11,13 @@
         <form @submit.prevent="maybeSave">
           <QInput
             v-model="edit.name"
-            :label="$t('STOREEDIT.NAME')"
+            :autofocus="!$q.platform.has.touch"
             :error="hasNameError"
             :error-message="nameError"
-            :autofocus="!$q.platform.has.touch"
+            :label="$t('STOREEDIT.NAME')"
             autocomplete="off"
+            outlined
+            class="q-mb-lg"
             @blur="$v.edit.name.$touch"
           >
             <template #before>
@@ -31,6 +33,8 @@
             :label="$t('STOREEDIT.STATUS')"
             :error="hasError('status')"
             :error-message="firstError('status')"
+            outlined
+            class="q-mb-lg"
           >
             <template #before>
               <QIcon name="fas fa-handshake" />
@@ -75,6 +79,8 @@
             :label="$t('STOREEDIT.DESCRIPTION')"
             :error="hasError('description')"
             :error-message="firstError('description')"
+            outlined
+            class="q-mb-lg"
             @keyup.ctrl.enter="maybeSave"
           />
 
@@ -87,6 +93,8 @@
             :error="hasAddressError"
             :error-message="addressError"
             :default-map-center="defaultMapCenter"
+            outlined
+            class="q-mb-lg"
           />
 
           <div>

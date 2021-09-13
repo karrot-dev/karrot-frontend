@@ -30,6 +30,7 @@ Please document your changes in this format:
 - Remove invitation by e-mail at members page @brnsolikyl [#2349]
 - Redirect to place feedback page after saving, highlight entry @tiltec #2417
 - meta-tags: site description update in composer.json update for og:title [#2405]
+- activities: ics subscription only exposes joined events [#2428]
 
 ### Fixed
 - add explicit host in ics url @amengsk [#2406]

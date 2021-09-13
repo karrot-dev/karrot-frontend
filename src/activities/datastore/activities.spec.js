@@ -6,7 +6,7 @@ jest.mock('@/activities/api/activities', () => ({
   get: mockGet,
   join: mockJoin,
   leave: mockLeave,
-  icsUrl: mockIcsUrl
+  icsUrl: mockIcsUrl,
 }))
 
 import { createDatastore, defaultActionStatusesFor } from '>/helpers'
@@ -70,15 +70,15 @@ describe('activities', () => {
             get () {
               return id => ({ id, group, isSubscribed: true })
             },
-            activePlaceId: () => 1234
+            activePlaceId: () => 1234,
           },
         },
         currentGroup: {
           getters: {
             id () {
               return 666
-            }
-          }
+            },
+          },
         },
         users: {
           getters: {
@@ -194,7 +194,7 @@ describe('activities', () => {
     it('can get upcoming and started', () => {
       expect(vstore.getters['activities/upcomingAndStarted'].map(getId)).toEqual([startedActivity1, startedActivity2, activity1, activity2, activity3].map(getId))
     })
- 
+
     it('generates an ics url for the current group', () => {
       expect(vstore.getters['activities/icsUrlForCurrentGroup']).toEqual('/ics?group=666&joined=true')
     })
@@ -202,7 +202,6 @@ describe('activities', () => {
     it('generates an ics url for the current place', () => {
       expect(vstore.getters['activities/icsUrlForCurrentPlace']).toEqual('/ics?place=1234&joined=true')
     })
-
   })
 
   it('filters by active place', () => {

@@ -84,6 +84,23 @@
             @keyup.ctrl.enter="maybeSave"
           />
 
+          <div class="text-center q-mb-lg">
+            <span v-t="$t('STOREEDIT.CHOICE_WALL_ACTIVITIES')" />
+          </div>
+          <div class="text-center q-mb-lg">
+            <QBtnToggle
+              v-model="choiceDefault"
+              outline
+              stack
+              color="grey"
+              toggle-text-color="primary"
+              :options="[
+                {label: 'Activities', icon: 'fas fa-calendar-alt', value: 'activities'},
+                {label: 'Wall', icon: 'fas fa-comments', value: 'wall'}
+              ]"
+            />
+          </div>
+
           <AddressPicker
             v-model="edit"
             icon="fas fa-map-marker"
@@ -186,6 +203,7 @@ import {
   QSlider,
   QInput,
   QBtn,
+  QBtnToggle,
   QSelect,
   QIcon,
   QItem,
@@ -209,6 +227,7 @@ export default {
     QSlider,
     QInput,
     QBtn,
+    QBtnToggle,
     QSelect,
     QIcon,
     QItem,
@@ -238,6 +257,11 @@ export default {
       default: () => ({}),
     },
     allPlaces: { required: true, type: Array },
+  },
+  data () {
+    return {
+      choiceDefault: 'activities',
+    }
   },
   computed: {
     canSave () {

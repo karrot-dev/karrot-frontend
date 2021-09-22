@@ -101,7 +101,17 @@
             />
           </div>
 
+          <div class="q-mb-lg">
+            <QToggle
+              v-model="addLocation"
+              size="lg"
+              label="Add location"
+              left-label
+            />
+          </div>
+
           <AddressPicker
+            v-if="addLocation"
             v-model="edit"
             icon="fas fa-map-marker"
             :color="markerColor"
@@ -205,6 +215,7 @@ import {
   QBtn,
   QBtnToggle,
   QSelect,
+  QToggle,
   QIcon,
   QItem,
   QItemSection,
@@ -229,6 +240,7 @@ export default {
     QBtn,
     QBtnToggle,
     QSelect,
+    QToggle,
     QIcon,
     QItem,
     QItemSection,
@@ -261,6 +273,7 @@ export default {
   data () {
     return {
       choiceDefault: 'activities',
+      addLocation: false,
     }
   },
   computed: {

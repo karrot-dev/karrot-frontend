@@ -103,7 +103,7 @@
 
           <div class="q-mb-lg">
             <QToggle
-              v-model="addLocation"
+              v-model="hasLocation"
               size="lg"
               label="Add location"
               left-label
@@ -111,7 +111,7 @@
           </div>
 
           <AddressPicker
-            v-if="addLocation"
+            v-if="hasLocation"
             v-model="edit"
             icon="fas fa-map-marker"
             :color="markerColor"
@@ -273,7 +273,7 @@ export default {
   data () {
     return {
       choiceDefault: 'activities',
-      addLocation: false,
+      hasLocation: Boolean(this.value.latitude && this.value.longitude),
     }
   },
   computed: {

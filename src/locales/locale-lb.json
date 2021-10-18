@@ -97,7 +97,7 @@
     "STORE_NONE_HINT": "Du kanns eng nei Aktivitéit op der Säit \"Aktivitéite verwalten\" uleeën.",
     "ICS_DIALOG": {
       "TITLE": "An de Kalenner derbäi maachen",
-      "INTRO": "Maach dës Aktivitéiten an däi Kalenner derbäi mat enger vun de folgenden Optiounen:",
+      "INTRO": "Maach deng Aktivitéiten an däi Kalenner derbäi mat enger vun de folgenden Optiounen:",
       "DOWNLOAD_TITLE": "Eroflueden",
       "DOWNLOAD_TEXT": "Lued d'ICS-Datei erof fir se manuell an däi Kalenner ze importéieren",
       "DOWNLOAD_BUTTON_LABEL": "ICS eroflueden",

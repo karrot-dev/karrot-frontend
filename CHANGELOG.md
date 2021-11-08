@@ -20,7 +20,9 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
-## [9.5.1] - 2021-11-8
+## [Unreleased]
+
+## [9.5.1] - 2021-11-08
 ### Changed
 - increase android API level target from 29 to 30 @nicksellen
 
@@ -726,7 +728,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2417]: https://github.com/yunity/karrot-frontend/issues/2417
 [#2428]: https://github.com/yunity/karrot-frontend/issues/2428
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v9.5.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v9.5.1...HEAD
+[9.5.1]: https://github.com/yunity/karrot-frontend/compare/v9.5.0...v9.5.1
 [9.5.0]: https://github.com/yunity/karrot-frontend/compare/v9.4.0...v9.5.0
 [9.4.0]: https://github.com/yunity/karrot-frontend/compare/v9.3.0...v9.4.0
 [9.3.0]: https://github.com/yunity/karrot-frontend/compare/v9.2.0...v9.3.0

@@ -20,7 +20,9 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
-## [Unreleased]
+## [9.5.1] - 2021-11-8
+### Changed
+- increase android API level target from 29 to 30 @nicksellen
 
 ## [9.5.0] - 2021-11-08
 ### Added

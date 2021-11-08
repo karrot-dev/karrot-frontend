@@ -45,7 +45,7 @@
     "@quasar/extras": "^1.10.10",
     "@sentry/browser": "^6.11.0",
     "@sentry/integrations": "^6.11.0",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "clone-deep": "^4.0.1",
     "core-js": "^3.16.1",
     "date-fns": "^2.23.0",

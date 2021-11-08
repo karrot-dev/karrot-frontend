@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [9.5.0] - 2021-11-08
 ### Added
 - activity-list: enable ics subscriptions for activities @amengsk @larzon83 [#2368]
 - Users can revoke trust @pogopaule [#2352]
@@ -28,7 +30,7 @@ Please document your changes in this format:
 
 ### Changed
 - Remove invitation by e-mail at members page @brnsolikyl [#2349]
-- Redirect to place feedback page after saving, highlight entry @tiltec #2417
+- Redirect to place feedback page after saving, highlight entry @tiltec [#2417]
 - meta-tags: site description update in composer.json update for og:title [#2405]
 - activities: ics subscription only exposes joined events [#2428]
 
@@ -705,6 +707,11 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2333]: https://github.com/yunity/karrot-frontend/issues/2333
 [#2340]: https://github.com/yunity/karrot-frontend/issues/2340
 [#2345]: https://github.com/yunity/karrot-frontend/issues/2345
+[#2348]: https://github.com/yunity/karrot-frontend/issues/2348
+[#2349]: https://github.com/yunity/karrot-frontend/issues/2349
+[#2352]: https://github.com/yunity/karrot-frontend/issues/2352
+[#2364]: https://github.com/yunity/karrot-frontend/issues/2364
+[#2368]: https://github.com/yunity/karrot-frontend/issues/2368
 [#2371]: https://github.com/yunity/karrot-frontend/issues/2371
 [#2372]: https://github.com/yunity/karrot-frontend/issues/2372
 [#2373]: https://github.com/yunity/karrot-frontend/issues/2373
@@ -712,8 +719,13 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2383]: https://github.com/yunity/karrot-frontend/issues/2383
 [#2387]: https://github.com/yunity/karrot-frontend/issues/2387
 [#2396]: https://github.com/yunity/karrot-frontend/issues/2396
+[#2405]: https://github.com/yunity/karrot-frontend/issues/2405
+[#2406]: https://github.com/yunity/karrot-frontend/issues/2406
+[#2417]: https://github.com/yunity/karrot-frontend/issues/2417
+[#2428]: https://github.com/yunity/karrot-frontend/issues/2428
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v9.4.0...HEAD
+[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v9.5.0...HEAD
+[9.5.0]: https://github.com/yunity/karrot-frontend/compare/v9.4.0...v9.5.0
 [9.4.0]: https://github.com/yunity/karrot-frontend/compare/v9.3.0...v9.4.0
 [9.3.0]: https://github.com/yunity/karrot-frontend/compare/v9.2.0...v9.3.0
 [9.2.0]: https://github.com/yunity/karrot-frontend/compare/v9.1.0...v9.2.0

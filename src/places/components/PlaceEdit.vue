@@ -89,7 +89,7 @@
           </div>
           <div class="text-center q-mb-lg">
             <QBtnToggle
-              v-model="choiceDefault"
+              v-model="edit.defaultView"
               outline
               stack
               color="grey"
@@ -261,6 +261,7 @@ export default {
         longitude: undefined,
         address: undefined,
         status: 'created',
+        defaultView: 'activities',
       }),
     },
     currentGroup: {
@@ -272,7 +273,6 @@ export default {
   },
   data () {
     return {
-      choiceDefault: 'activities',
       hasLocation: Boolean(this.value.latitude && this.value.longitude),
     }
   },

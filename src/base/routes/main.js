@@ -455,13 +455,12 @@ export default [
       },
       {
         name: 'place',
-        redirect: { name: 'placeActivities' },
         path: 'place/:placeId',
         meta: {
           breadcrumbs: [
             { type: 'activePlace' },
           ],
-          beforeEnter: 'places/selectPlace',
+          beforeEnter: 'places/routeEnter',
           afterLeave: 'places/clearSelectedPlace',
         },
         components: {

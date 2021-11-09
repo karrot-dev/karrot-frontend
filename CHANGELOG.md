@@ -138,7 +138,7 @@ Please document your changes in this format:
 - Display number of total group members on top of member list [#2149] @djahnie
 
 ### Changed
-- Improve activity history display to show activity information more clearly [#2151] from [suggestion](https://community.foodsaving.world/t/how-do-you-handle-late-drop-outs-from-pickups/213/10) @nicksellen
+- Improve activity history display to show activity information more clearly [#2151] from [suggestion](https://community.karrot.world/t/how-do-you-handle-late-drop-outs-from-pickups/213/10) @nicksellen
 - Only show pull-to-refresh in app @tiltec
 - Sort feedback by activity date instead of feedback date [#2157] [#2161] [#1044](https://github.com/yunity/karrot-backend/pull/1044) @nicksellen
 

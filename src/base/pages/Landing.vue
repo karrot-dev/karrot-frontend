@@ -165,7 +165,7 @@
               <a
                 slot="forum"
                 v-t="'ABOUT_KARROT.LINKS.FORUM'"
-                href="https://community.foodsaving.world"
+                href="https://community.karrot.world"
               />
               <a
                 slot="chat"

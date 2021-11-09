@@ -1,6 +1,6 @@
 # Karrot Roadmap
 
-## General Direction as of [2021-04-05](https://community.foodsaving.world/t/roadmap-meeting/410/4)
+## General Direction as of [2021-04-05](https://community.karrot.world/t/roadmap-meeting/410/4)
 
 - Refining UX and some user testing
 - Finish testing prototype for community governance features. Begin implementation?
@@ -43,7 +43,7 @@ We want to work on this in mid-term future. We need to think about it more befor
 
 - [Choice between "wall" or "activities/pickups" as the default page for a place](https://github.com/yunity/karrot-frontend/issues/1703)
 - [Better handling for much wanted pickups](https://github.com/yunity/karrot-frontend/issues/1242)
-- [Applicant trial activity](https://community.foodsaving.world/t/applicant-trial-pickup-proposal/575/)
+- [Applicant trial activity](https://community.karrot.world/t/applicant-trial-pickup-proposal/575/)
 - [Improve notifications for place conversations](https://github.com/yunity/karrot-frontend/issues/2342)
 
 [View issues](https://github.com/yunity/karrot-frontend/milestone/9)

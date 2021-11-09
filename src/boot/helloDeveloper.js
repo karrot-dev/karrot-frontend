@@ -12,7 +12,7 @@ export default async () => {
         Do you want to come and help us build our distributed, global grassroots movement against food waste?
 
         %c
-        Community forum → https://community.foodsaving.world
+        Community forum → https://community.karrot.world
                 Project → https://foodsaving.world
                    Code → https://github.com/yunity/karrot-frontend
                    Chat → https://chat.karrot.world/channel/karrot-dev

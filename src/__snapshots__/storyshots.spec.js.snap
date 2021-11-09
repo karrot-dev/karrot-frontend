@@ -7795,7 +7795,7 @@ exports[`Storyshots KAbout KAbout 1`] = `
   <div class="k-logo-container row no-wrap items-center"><a class="logo self-start"><img src="test-file-stub" alt="karrot logo"></a>
     <h4 class="col q-ma-none q-pl-md"></h4>
   </div>
-  <div class="q-mt-md q-list"><a tabindex="0" rel="noopener noreferrer" href="https://community.foodsaving.world/t/how-to-get-involved-onboarding-into-the-karrot-team/661" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+  <div class="q-mt-md q-list"><a tabindex="0" rel="noopener noreferrer" href="https://community.karrot.world/t/how-to-get-involved-onboarding-into-the-karrot-team/661" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-users q-icon notranslate"> </i></div>
       <div class="q-item__section column q-item__section--main justify-center">
@@ -9816,7 +9816,7 @@ exports[`Storyshots Settings Page Default 1`] = `
       </div>
     </div>
     <div class="q-card__section q-card__section--vert">
-      <div class="edit-box row justify-end"><button tabindex="0" type="button" role="button" title="Switch language" class="q-btn q-btn-item non-selectable no-outline k-locale-select q-btn--standard q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-globe fa-fw q-icon notranslate"> </i> 
+      <div class="edit-box row justify-end"><button tabindex="0" type="button" role="button" title="Switch language" class="q-btn q-btn-item non-selectable no-outline k-locale-select q-btn--standard q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-globe fa-fw q-icon notranslate"> </i>
     English
    <!----></span></span></button></div>
     </div>

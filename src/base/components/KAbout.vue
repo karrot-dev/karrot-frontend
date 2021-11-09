@@ -19,7 +19,7 @@
       <QItem
         tag="a"
         rel="noopener noreferrer"
-        href="https://community.foodsaving.world/t/how-to-get-involved-onboarding-into-the-karrot-team/661"
+        href="https://community.karrot.world/t/how-to-get-involved-onboarding-into-the-karrot-team/661"
         target="_blank"
       >
         <QItemSection side>

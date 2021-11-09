@@ -91,7 +91,7 @@
       <QItem
         tag="a"
         rel="noopener noreferrer"
-        href="mailto:karrot@foodsaving.world"
+        href="mailto:info@karrot.world"
       >
         <QItemSection side>
           <QIcon name="fas fa-fw fa-envelope" />
@@ -99,7 +99,7 @@
 
         <QItemSection>
           <QItemLabel>
-            karrot@foodsaving.world
+            info@karrot.world
           </QItemLabel>
         </QItemSection>
       </QItem>

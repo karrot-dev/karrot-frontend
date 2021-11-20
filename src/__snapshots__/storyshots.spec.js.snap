@@ -1165,7 +1165,8 @@ exports[`Storyshots ActivityItem started 1`] = `
 exports[`Storyshots ActivityList Default 1`] = `
 <div>
   <!---->
-  <div class="row no-wrap items-center justify-end q-px-sm q-mt-sm"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--unelevated q-btn--rectangle q-btn--rounded bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip" style="padding:4px 13px;min-width:0;min-height:0;"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="material-icons q-icon notranslate on-left">event</i><span class="block">Add to calendar</span></span></span></button>
+  <div class="row no-wrap items-center justify-end q-px-sm q-mt-sm">
+    <!---->
     <!---->
   </div>
   <div class="full-width text-center generic-padding" style="display:none;"><svg focusable="false" fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">

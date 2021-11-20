@@ -11,6 +11,6 @@ Closes ___ (e.g. #230)
 - [ ] added a test, or explain why one is not needed/possible...
 - [ ] no unrelated changes
 - [ ] asked someone for a code review
-- [ ] joined [chat.foodsaving.world/channel/karrot-dev](https://chat.foodsaving.world/channel/karrot-dev)
+- [ ] joined [#karrot:matrix.org](https://matrix.to/#/#karrot:matrix.org)
 - [ ] added an entry to CHANGELOG.md (description, pull request link, username(s))
 - [ ] tried out on a mobile device (does everything work as expected on a smaller screen?)

@@ -22,6 +22,9 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+### Added
+- Choice of default view (wall or activities) on place page @brnsolikyl @nicksellen [#2444]
+
 ## [9.5.1] - 2021-11-08
 ### Changed
 - increase android API level target from 29 to 30 @nicksellen

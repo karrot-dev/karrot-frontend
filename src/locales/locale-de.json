@@ -97,7 +97,7 @@
     "STORE_NONE_HINT": "Du kannst eine neue Aktivität auf der Seite „Verwalte Aktivitäten“ erstellen.",
     "ICS_DIALOG": {
       "TITLE": "Zum Kalender hinzufügen",
-      "INTRO": "Diese Aktivitäten zum Kalender hinzufügen mit den folgenden Optionen: ",
+      "INTRO": "Add your activities to your calendar by using one of the following options:",
       "DOWNLOAD_TITLE": "Herunterladen",
       "DOWNLOAD_TEXT": "ICS-Datei herunterladen, um sie manuell in den Kalender zu importieren",
       "DOWNLOAD_BUTTON_LABEL": "ICS herunterladen",

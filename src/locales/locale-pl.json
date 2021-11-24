@@ -97,7 +97,7 @@
     "STORE_NONE_HINT": "Możesz dodać nową aktywność na stronie zarządzania aktywnościami.",
     "ICS_DIALOG": {
       "TITLE": "Dodaj do kalendarza",
-      "INTRO": "Dodaj te aktywności do swojego kalendarza za pomocą jednej z poniższych opcji:",
+      "INTRO": "Add your activities to your calendar by using one of the following options:",
       "DOWNLOAD_TITLE": "Pobierz",
       "DOWNLOAD_TEXT": "Pobierz plik ICS, który możesz zaimportować do swojego kalendarza:",
       "DOWNLOAD_BUTTON_LABEL": "Pobierz ICS",

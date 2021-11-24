@@ -97,7 +97,7 @@
     "STORE_NONE_HINT": "Na stránce „Správa aktivit“ můžete vytvořit novou aktivitu.",
     "ICS_DIALOG": {
       "TITLE": "Přidat do kalendáře",
-      "INTRO": "Přidejte tyto aktivity do kalendáře pomocí jedné z následujících možností:",
+      "INTRO": "Přidejte své aktivity do kalendáře pomocí jedné z následujících možností:",
       "DOWNLOAD_TITLE": "Stáhnout",
       "DOWNLOAD_TEXT": "Stáhněte si soubor ICS a importujte jej do kalendáře ručně:",
       "DOWNLOAD_BUTTON_LABEL": "Stáhnout ICS",

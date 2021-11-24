@@ -101,17 +101,7 @@
             />
           </div>
 
-          <div class="q-mb-lg">
-            <QToggle
-              v-model="hasLocation"
-              size="lg"
-              label="Add location"
-              left-label
-            />
-          </div>
-
           <AddressPicker
-            v-if="hasLocation"
             v-model="edit"
             icon="fas fa-map-marker"
             :color="markerColor"
@@ -215,7 +205,6 @@ import {
   QBtn,
   QBtnToggle,
   QSelect,
-  QToggle,
   QIcon,
   QItem,
   QItemSection,
@@ -240,7 +229,6 @@ export default {
     QBtn,
     QBtnToggle,
     QSelect,
-    QToggle,
     QIcon,
     QItem,
     QItemSection,
@@ -270,11 +258,6 @@ export default {
       default: () => ({}),
     },
     allPlaces: { required: true, type: Array },
-  },
-  data () {
-    return {
-      hasLocation: Boolean(this.value.latitude && this.value.longitude),
-    }
   },
   computed: {
     canSave () {

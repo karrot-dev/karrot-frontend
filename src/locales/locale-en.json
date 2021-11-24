@@ -730,7 +730,7 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Address",
-    "CHOICE_WALL_ACTIVITIES": "What is the main focus for this place? Choose what will be displayed by default:",
+    "CHOICE_WALL_ACTIVITIES": "What is the main focus for this place? Choose what will be displayed by default",
     "DESCRIPTION": "Description",
     "DIALOGS": {
       "ARCHIVE": {

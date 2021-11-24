@@ -9130,16 +9130,27 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
         <div class="text-center q-mb-lg">
           <div class="q-btn-group row no-wrap inline q-btn-toggle q-btn-group--outline"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-grey q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center column"><i aria-hidden="true" role="img" class="fas fa-calendar-alt q-icon notranslate"> </i><span class="block">Activities</span></span></span></button><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-grey q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center column"><i aria-hidden="true" role="img" class="fas fa-comments q-icon notranslate"> </i><span class="block">Wall</span></span></span></button></div>
         </div>
-        <div class="q-mb-lg">
-          <div tabindex="0" role="checkbox" aria-label="Add location" aria-checked="false" class="q-toggle cursor-pointer no-outline row inline no-wrap items-center reverse">
-            <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy" style="font-size:50px;"><input type="checkbox" class="hidden q-toggle__native absolute q-ma-none q-pa-none">
-              <div class="q-toggle__track"></div>
-              <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
-            </div><span tabindex="-1" class="no-outline"></span>
-            <div class="q-toggle__label q-anchor--skip">Add location</div>
+        <div class="q-mb-lg"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--outlined q-field--labeled q-field--with-bottom q-validation-component">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-map-marker q-icon notranslate"> </i></div>
+            <div class="q-field__inner relative-position col self-stretch">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+                  <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" id="f_80808080-8080-4080-8080-808080808080" tabindex="0" value="" class="q-field__input q-placeholder col q-field__input--padding"></div>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
+                </div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center"></div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
+              </div>
+            </div>
+          </label>
+          <div class="vue2leaflet-map k-map map">
+            <!---->
           </div>
         </div>
-        <!---->
         <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-field--borderless q-field--float q-field--auto-height q-validation-component">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-calendar-alt q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch">
@@ -9255,16 +9266,27 @@ exports[`Storyshots Places PlaceEdit 1`] = `
         <div class="text-center q-mb-lg">
           <div class="q-btn-group row no-wrap inline q-btn-toggle q-btn-group--outline"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-grey q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center column"><i aria-hidden="true" role="img" class="fas fa-calendar-alt q-icon notranslate"> </i><span class="block">Activities</span></span></span></button><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-grey q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center column"><i aria-hidden="true" role="img" class="fas fa-comments q-icon notranslate"> </i><span class="block">Wall</span></span></span></button></div>
         </div>
-        <div class="q-mb-lg">
-          <div tabindex="0" role="checkbox" aria-label="Add location" aria-checked="false" class="q-toggle cursor-pointer no-outline row inline no-wrap items-center reverse">
-            <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy" style="font-size:50px;"><input type="checkbox" class="hidden q-toggle__native absolute q-ma-none q-pa-none">
-              <div class="q-toggle__track"></div>
-              <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
-            </div><span tabindex="-1" class="no-outline"></span>
-            <div class="q-toggle__label q-anchor--skip">Add location</div>
+        <div class="q-mb-lg"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--outlined q-field--labeled q-field--with-bottom q-validation-component">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-map-marker q-icon notranslate"> </i></div>
+            <div class="q-field__inner relative-position col self-stretch">
+              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+                  <div placeholder="Search" class="q-field__native row items-center"><input type="search" placeholder="Search" id="f_80808080-8080-4080-8080-808080808080" tabindex="0" value="" class="q-field__input q-placeholder col q-field__input--padding"></div>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Address</div>
+                </div>
+                <div class="q-field__append q-field__marginal row no-wrap items-center"></div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <transition-stub name="q-transition--field-message">
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
+              </div>
+            </div>
+          </label>
+          <div class="vue2leaflet-map k-map map">
+            <!---->
           </div>
         </div>
-        <!---->
         <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-field--borderless q-field--float q-field--auto-height q-validation-component">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-calendar-alt q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch">

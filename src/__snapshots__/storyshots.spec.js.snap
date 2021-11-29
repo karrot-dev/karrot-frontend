@@ -7833,12 +7833,12 @@ exports[`Storyshots KAbout KAbout 1`] = `
           How to build your foodsaving group
         </div>
       </div>
-    </a> <a tabindex="0" rel="noopener noreferrer" href="mailto:karrot@foodsaving.world" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+    </a> <a tabindex="0" rel="noopener noreferrer" href="mailto:info@karrot.world" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate"> </i></div>
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label">
-          karrot@foodsaving.world
+          info@karrot.world
         </div>
       </div>
     </a></div>
@@ -9816,7 +9816,7 @@ exports[`Storyshots Settings Page Default 1`] = `
       </div>
     </div>
     <div class="q-card__section q-card__section--vert">
-      <div class="edit-box row justify-end"><button tabindex="0" type="button" role="button" title="Switch language" class="q-btn q-btn-item non-selectable no-outline k-locale-select q-btn--standard q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-globe fa-fw q-icon notranslate"> </i>
+      <div class="edit-box row justify-end"><button tabindex="0" type="button" role="button" title="Switch language" class="q-btn q-btn-item non-selectable no-outline k-locale-select q-btn--standard q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="presentation" class="fas fa-globe fa-fw q-icon notranslate"> </i> 
     English
    <!----></span></span></button></div>
     </div>

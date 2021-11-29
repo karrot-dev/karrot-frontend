@@ -7803,7 +7803,7 @@ exports[`Storyshots KAbout KAbout 1`] = `
           How to Get Involved
         </div>
       </div>
-    </a> <a tabindex="0" rel="noopener noreferrer" href="https://github.com/yunity/karrot-frontend" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+    </a> <a tabindex="0" rel="noopener noreferrer" href="https://github.com/karrot-dev/karrot-frontend" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fab fa-fw fa-github q-icon notranslate"> </i></div>
       <div class="q-item__section column q-item__section--main justify-center">

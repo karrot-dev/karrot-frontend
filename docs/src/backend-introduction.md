@@ -2,7 +2,7 @@
 
 - Website: https://karrot.world
 - Predecessor: https://foodsharing.de
-- Repository on GitHub: https://github.com/yunity/karrot-backend
+- Repository on GitHub: https://github.com/karrot-dev/karrot-backend
 
 This is a beginner guide to _karrot-backend_ by [@id-gue](https://github.com/id-gue) and [@mddemarie](https://github.com/mddemarie) written for people who want to contribute to karrot, but aren't (yet) experienced Python/Django devs. Welcome and have fun!
 
@@ -11,12 +11,12 @@ This is a beginner guide to _karrot-backend_ by [@id-gue](https://github.com/id-
 There are two separated Repos for Frontend and Backend.
 
 **Karrot-Frontend in JavaScript**
-https://github.com/yunity/karrot-frontend
+https://github.com/karrot-dev/karrot-frontend
 
 You don't need to do the setup for the frontend, but it might be useful to try out your backend through the frontend.
 
 **Karrot-Backend in Python Django REST**
-https://github.com/yunity/karrot-backend
+https://github.com/karrot-dev/karrot-backend
 
 - Python – object-oriented programming language
 - Django – Python framework for backend development
@@ -28,7 +28,7 @@ https://github.com/yunity/karrot-backend
 
 ## 01  Setup
 
-We use Docker for the setup. How to build a Docker container is described in the README.md in the [karrot-backend repository](https://github.com/yunity/karrot-backend).
+We use Docker for the setup. How to build a Docker container is described in the README.md in the [karrot-backend repository](https://github.com/karrot-dev/karrot-backend).
 
 We would suggest to use __3 tabs in the shell__:
 

@@ -160,7 +160,7 @@
             >
               <a
                 slot="code"
-                href="https://github.com/yunity/karrot-frontend"
+                href="https://github.com/karrot-dev/karrot-frontend"
               >GitHub</a>
               <a
                 slot="forum"
@@ -363,7 +363,7 @@ export default {
     },
     requireImage ({ fileName, ext, width, dirName } = {}) {
       // use "?disableinline" to disable inlining of small images as base64 which would result in a huge js-chunk
-      // see: https://github.com/yunity/karrot-frontend/issues/2370
+      // see: https://github.com/karrot-dev/karrot-frontend/issues/2370
       return require(`@/base/pages/images/${dirName}/${fileName}-${width}${ext}?disableinline`)
     },
   },

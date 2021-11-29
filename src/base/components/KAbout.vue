@@ -36,7 +36,7 @@
       <QItem
         tag="a"
         rel="noopener noreferrer"
-        href="https://github.com/yunity/karrot-frontend"
+        href="https://github.com/karrot-dev/karrot-frontend"
         target="_blank"
       >
         <QItemSection side>
@@ -176,13 +176,13 @@ export default {
       if (this.deployed) {
         if (this.deployed.env === 'production') {
           return {
-            link: 'https://github.com/yunity/karrot-frontend/blob/master/CHANGELOG.md',
+            link: 'https://github.com/karrot-dev/karrot-frontend/blob/master/CHANGELOG.md',
             name: this.deployed.date,
           }
         }
         if (this.deployed.env === 'development') {
           return {
-            link: `https://github.com/yunity/karrot-frontend/tree/${this.deployed.commitSHA}`,
+            link: `https://github.com/karrot-dev/karrot-frontend/tree/${this.deployed.commitSHA}`,
             name: this.deployed.date,
           }
         }

@@ -26,7 +26,7 @@ if (GITHUB_TOKEN) {
 }
 
 run({
-  owner: 'yunity',
+  owner: 'karrot-dev',
   repo: 'karrot-frontend',
 })
 

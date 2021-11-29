@@ -13,47 +13,47 @@
 
 We are working on this either right now or pretty soon in the future. Should be implemented in the next few months.
 
-- [Add place types](https://github.com/yunity/karrot-frontend/issues/2244)
-- [Update styling of all forms](https://github.com/yunity/karrot-frontend/issues/2335)
-- [Feedback to be given only after an activity ends](https://github.com/yunity/karrot-frontend/issues/2184)
-- [Streamline application flow & remove invitations](https://github.com/yunity/karrot-frontend/issues/2080)
-- [Revoke Trust](https://github.com/yunity/karrot-frontend/issues/2341)
-- [Feedback weight slider limits](https://github.com/yunity/karrot-frontend/issues/2338)
+- [Add place types](https://github.com/karrot-dev/karrot-frontend/issues/2244)
+- [Update styling of all forms](https://github.com/karrot-dev/karrot-frontend/issues/2335)
+- [Feedback to be given only after an activity ends](https://github.com/karrot-dev/karrot-frontend/issues/2184)
+- [Streamline application flow & remove invitations](https://github.com/karrot-dev/karrot-frontend/issues/2080)
+- [Revoke Trust](https://github.com/karrot-dev/karrot-frontend/issues/2341)
+- [Feedback weight slider limits](https://github.com/karrot-dev/karrot-frontend/issues/2338)
 
-[View issues](https://github.com/yunity/karrot-frontend/milestone/14)
+[View issues](https://github.com/karrot-dev/karrot-frontend/milestone/14)
 
 ## Ready for development (lower priority)
 
 Issue is understood well enough for development to start, but not currently assigned to a developer.
 
-- [Service worker caching / update / etc](https://github.com/yunity/karrot-frontend/issues/2209)
-- [[Meta] Performance improvements](https://github.com/yunity/karrot-frontend/issues/1914)
-- [Improve notifications when somebody left the group](https://github.com/yunity/karrot-frontend/issues/1619)
-- [Improve group statistics](https://github.com/yunity/karrot-frontend/issues/2336)
-- [Curious map zoom level when switching the toggle to filter location by status ](https://github.com/yunity/karrot-frontend/issues/2290)
-- [Redirect to review page of place](https://github.com/yunity/karrot-frontend/issues/2311)
-- [Filter activities by day of the week](https://github.com/yunity/karrot-frontend/issues/2310)
-- [Display all places by default if none of them is marked as cooperating](https://github.com/yunity/karrot-frontend/issues/2289)
+- [Service worker caching / update / etc](https://github.com/karrot-dev/karrot-frontend/issues/2209)
+- [[Meta] Performance improvements](https://github.com/karrot-dev/karrot-frontend/issues/1914)
+- [Improve notifications when somebody left the group](https://github.com/karrot-dev/karrot-frontend/issues/1619)
+- [Improve group statistics](https://github.com/karrot-dev/karrot-frontend/issues/2336)
+- [Curious map zoom level when switching the toggle to filter location by status ](https://github.com/karrot-dev/karrot-frontend/issues/2290)
+- [Redirect to review page of place](https://github.com/karrot-dev/karrot-frontend/issues/2311)
+- [Filter activities by day of the week](https://github.com/karrot-dev/karrot-frontend/issues/2310)
+- [Display all places by default if none of them is marked as cooperating](https://github.com/karrot-dev/karrot-frontend/issues/2289)
 
-[View issues](https://github.com/yunity/karrot-frontend/milestone/12)
+[View issues](https://github.com/karrot-dev/karrot-frontend/milestone/12)
 
 ## Current discussion (higher priority)
 
 We want to work on this in mid-term future. We need to think about it more before we can implement it, so active discussion is highly welcome. Feel free to join in!
 
-- [Choice between "wall" or "activities/pickups" as the default page for a place](https://github.com/yunity/karrot-frontend/issues/1703)
-- [Better handling for much wanted pickups](https://github.com/yunity/karrot-frontend/issues/1242)
+- [Choice between "wall" or "activities/pickups" as the default page for a place](https://github.com/karrot-dev/karrot-frontend/issues/1703)
+- [Better handling for much wanted pickups](https://github.com/karrot-dev/karrot-frontend/issues/1242)
 - [Applicant trial activity](https://community.karrot.world/t/applicant-trial-pickup-proposal/575/)
-- [Improve notifications for place conversations](https://github.com/yunity/karrot-frontend/issues/2342)
+- [Improve notifications for place conversations](https://github.com/karrot-dev/karrot-frontend/issues/2342)
 
-[View issues](https://github.com/yunity/karrot-frontend/milestone/9)
+[View issues](https://github.com/karrot-dev/karrot-frontend/milestone/9)
 
 ## Discussion (lower priority)
 
 Quite a bit in the future (~1 year), haven't been discussed very much. If one of those is more important to you than those in "Current discussion", please contact us!
 
-- [Handle late drop-outs from pickups](https://github.com/yunity/karrot-frontend/issues/1108)
-- [ics subscriptions](https://github.com/yunity/karrot-frontend/issues/2334)
+- [Handle late drop-outs from pickups](https://github.com/karrot-dev/karrot-frontend/issues/1108)
+- [ics subscriptions](https://github.com/karrot-dev/karrot-frontend/issues/2334)
 
-[View issues](https://github.com/yunity/karrot-frontend/milestone/10)
+[View issues](https://github.com/karrot-dev/karrot-frontend/milestone/10)
 

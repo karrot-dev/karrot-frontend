@@ -169,7 +169,7 @@ fi
 if [ ! -z "$ROCKETCHAT_WEBHOOK_URL" ]; then
 
   WEBPACK_URL="$URL/bundlesize.html"
-  CIRCLE_WORKFLOW_URL="https://circleci.com/gh/yunity/workflows/karrot-frontend/tree/$REF"
+  CIRCLE_WORKFLOW_URL="https://app.circleci.com/pipelines/github/karrot-dev/karrot-frontend?branch=$REF"
 
   COMMIT_MESSAGE=$(git log -1 --pretty="%s - %an")
 

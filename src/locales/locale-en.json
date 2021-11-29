@@ -88,6 +88,8 @@
       "LEAVE": "Leave",
       "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
       "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?",
+      "AFTER_START_WARNING": "This has already started!",
+      "AFTER_START_CONFIRMATION": "Yes, I understand",
       "DOWNLOAD_ICS": "Download ICS"
     },
     "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",

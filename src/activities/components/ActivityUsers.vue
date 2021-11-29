@@ -13,7 +13,7 @@
       class="relative-position pic-wrapper"
     >
       <template
-        v-if="user.isCurrentUser && !activity.hasStarted"
+        v-if="user.isCurrentUser && !activity.hasEnded"
       >
         <CurrentUser
           v-if="!isLeaving"

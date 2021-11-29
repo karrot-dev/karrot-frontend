@@ -65,7 +65,10 @@
             @leave="leave"
             @join="join"
           />
-          <CustomDialog v-model="joinDialog">
+          <CustomDialog
+            v-model="joinDialog"
+            @before-show="confirmAfterStart = false"
+          >
             <template #title>
               <QIcon
                 v-bind="activity.activityType.iconProps"
@@ -76,6 +79,21 @@
             </template>
             <template #message>
               {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_TEXT', { date: $d(activity.date, 'long') }) }}
+              <QBanner
+                v-if="activity.hasStarted"
+                class="bg-warning text-white q-mt-md rounded-borders"
+              >
+                <template #avatar>
+                  <QIcon name="fas fa-clock" />
+                </template>
+                <div
+                  v-t="'ACTIVITYLIST.ITEM.AFTER_START_WARNING'"
+                  class="text-h5"
+                />
+                <QCheckbox v-model="confirmAfterStart">
+                  {{ $t('ACTIVITYLIST.ITEM.AFTER_START_CONFIRMATION') }}
+                </QCheckbox>
+              </QBanner>
             </template>
             <template #actions>
               <QBtn
@@ -89,12 +107,16 @@
                 flat
                 color="primary"
                 data-autofocus
+                :disable="activity.hasStarted && !confirmAfterStart"
                 :label="$t('BUTTON.OF_COURSE')"
                 @click="$emit('join', activity.id)"
               />
             </template>
           </CustomDialog>
-          <CustomDialog v-model="leaveDialog">
+          <CustomDialog
+            v-model="leaveDialog"
+            @before-show="confirmAfterStart = false"
+          >
             <template #title>
               <QIcon
                 v-bind="activity.activityType.iconProps"
@@ -105,6 +127,21 @@
             </template>
             <template #message>
               {{ $t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_TEXT') }}
+              <QBanner
+                v-if="activity.hasStarted"
+                class="bg-warning text-white q-mt-md rounded-borders"
+              >
+                <template #avatar>
+                  <QIcon name="fas fa-clock" />
+                </template>
+                <div
+                  v-t="'ACTIVITYLIST.ITEM.AFTER_START_WARNING'"
+                  class="text-h5"
+                />
+                <QCheckbox v-model="confirmAfterStart">
+                  {{ $t('ACTIVITYLIST.ITEM.AFTER_START_CONFIRMATION') }}
+                </QCheckbox>
+              </QBanner>
             </template>
             <template #actions>
               <QBtn
@@ -118,6 +155,7 @@
                 flat
                 color="primary"
                 data-autofocus
+                :disable="activity.hasStarted && !confirmAfterStart"
                 :label="$t('BUTTON.YES')"
                 @click="$emit('leave', activity.id)"
               />
@@ -169,6 +207,8 @@
 
 <script>
 import {
+  QBanner,
+  QCheckbox,
   QCard,
   QCardSection,
   QIcon,
@@ -180,6 +220,8 @@ import { absoluteURL } from '@/utils/absoluteURL'
 
 export default {
   components: {
+    QBanner,
+    QCheckbox,
     CustomDialog,
     QCard,
     QCardSection,
@@ -205,6 +247,7 @@ export default {
     return {
       joinDialog: false,
       leaveDialog: false,
+      confirmAfterStart: false,
     }
   },
   computed: {
@@ -221,7 +264,7 @@ export default {
       this.joinDialog = true
     },
     leave () {
-      if (!this.activity.hasStarted) {
+      if (!this.activity.hasEnded) {
         this.joinDialog = false
         this.leaveDialog = true
       }

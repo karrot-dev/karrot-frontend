@@ -35,6 +35,7 @@ export default {
         feedbackGivenBy: activity.feedbackGivenBy ? activity.feedbackGivenBy.map(rootGetters['users/get']) : [],
         feedbackDismissedBy: activity.feedbackDismissedBy ? activity.feedbackDismissedBy.map(rootGetters['users/get']) : [],
         hasStarted: activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
+        hasEnded: activity.dateEnd < reactiveNow.value,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], activity.id),
       }
     },

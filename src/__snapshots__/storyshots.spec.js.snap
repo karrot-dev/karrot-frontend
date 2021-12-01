@@ -258,24 +258,25 @@ exports[`Storyshots ActivityEdit default 1`] = `
       </label>
       <!---->
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
-        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
-        <div class="q-field__inner relative-position col self-stretch">
-          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder"></textarea>
-              <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+    <div>
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
+          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
+          <div class="q-field__inner relative-position col self-stretch">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+                <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+              </div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
-          <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <transition-stub name="q-transition--field-message">
-              <div class="q-field__messages col">
-                <div>What should people know when signing up to this?</div>
-              </div>
-            </transition-stub>
-          </div>
-        </div>
-        <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
-      </label>
+          <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
+        </label>
+        <!---->
+      </div>
       <!---->
     </div>
     <!---->
@@ -363,24 +364,25 @@ exports[`Storyshots ActivityEdit disabled 1`] = `
       </label>
       <!---->
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
-        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
-        <div class="q-field__inner relative-position col self-stretch">
-          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder"></textarea>
-              <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+    <div>
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
+          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
+          <div class="q-field__inner relative-position col self-stretch">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+                <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+              </div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
-          <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <transition-stub name="q-transition--field-message">
-              <div class="q-field__messages col">
-                <div>What should people know when signing up to this?</div>
-              </div>
-            </transition-stub>
-          </div>
-        </div>
-        <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
-      </label>
+          <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
+        </label>
+        <!---->
+      </div>
       <!---->
     </div>
     <!---->
@@ -470,24 +472,25 @@ exports[`Storyshots ActivityEdit error 1`] = `
       </label>
       <!---->
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
-        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
-        <div class="q-field__inner relative-position col self-stretch">
-          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder"></textarea>
-              <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+    <div>
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
+          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
+          <div class="q-field__inner relative-position col self-stretch">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+                <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+              </div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
-          <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <transition-stub name="q-transition--field-message">
-              <div class="q-field__messages col">
-                <div>What should people know when signing up to this?</div>
-              </div>
-            </transition-stub>
-          </div>
-        </div>
-        <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
-      </label>
+          <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
+        </label>
+        <!---->
+      </div>
       <!---->
     </div>
     <!---->
@@ -575,24 +578,25 @@ exports[`Storyshots ActivityEdit pending 1`] = `
       </label>
       <!---->
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
-        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
-        <div class="q-field__inner relative-position col self-stretch">
-          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder"></textarea>
-              <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+    <div>
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
+          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
+          <div class="q-field__inner relative-position col self-stretch">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+                <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+              </div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
-          <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <transition-stub name="q-transition--field-message">
-              <div class="q-field__messages col">
-                <div>What should people know when signing up to this?</div>
-              </div>
-            </transition-stub>
-          </div>
-        </div>
-        <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
-      </label>
+          <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
+        </label>
+        <!---->
+      </div>
       <!---->
     </div>
     <!---->
@@ -682,24 +686,25 @@ exports[`Storyshots ActivityEdit series changed 1`] = `
         This value differs from the default. To undo this change, click on the arrow button and save the changes.
       </div>
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
-        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
-        <div class="q-field__inner relative-position col self-stretch">
-          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder"></textarea>
-              <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+    <div>
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
+          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
+          <div class="q-field__inner relative-position col self-stretch">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+                <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+              </div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
-          <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <transition-stub name="q-transition--field-message">
-              <div class="q-field__messages col">
-                <div>What should people know when signing up to this?</div>
-              </div>
-            </transition-stub>
-          </div>
-        </div>
-        <div class="q-field__after q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">undo</i></div>
-      </label>
+          <div class="q-field__after q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">undo</i></div>
+        </label>
+        <!---->
+      </div>
       <div class="q-ml-lg col-12 q-field__bottom text-warning"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">warning</i>
         This value differs from the default. To undo this change, click on the arrow button and save the changes.
       </div>
@@ -802,24 +807,25 @@ exports[`Storyshots ActivityEdit with duration 1`] = `
       </label>
       <!---->
     </div>
-    <div><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
-        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
-        <div class="q-field__inner relative-position col self-stretch">
-          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder"></textarea>
-              <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+    <div>
+      <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
+          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
+          <div class="q-field__inner relative-position col self-stretch">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+                <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+              </div>
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col"></div>
+              </transition-stub>
             </div>
           </div>
-          <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <transition-stub name="q-transition--field-message">
-              <div class="q-field__messages col">
-                <div>What should people know when signing up to this?</div>
-              </div>
-            </transition-stub>
-          </div>
-        </div>
-        <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
-      </label>
+          <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
+        </label>
+        <!---->
+      </div>
       <!---->
     </div>
     <!---->
@@ -852,7 +858,9 @@ exports[`Storyshots ActivityItem disabled 1`] = `
       </div>
       <div class="q-my-xs"><b class="text-negative">This is disabled.</b></div>
       <!---->
-      <div class="q-my-xs multiline">This activity is already full.</div>
+      <div class="markdown">
+        <p>This activity is already full.</p>
+      </div>
       <div class="q-mt-sm q-mb-none full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           <div class="relative-position pic-wrapper">
@@ -907,7 +915,9 @@ exports[`Storyshots ActivityItem full 1`] = `
       </div>
       <!---->
       <!---->
-      <div class="q-my-xs multiline">This activity is already full.</div>
+      <div class="markdown">
+        <p>This activity is already full.</p>
+      </div>
       <div class="q-mt-sm q-mb-none full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           <div class="relative-position pic-wrapper">
@@ -962,7 +972,9 @@ exports[`Storyshots ActivityItem join 1`] = `
       </div>
       <!---->
       <!---->
-      <div class="q-my-xs multiline">You can join this activity.</div>
+      <div class="markdown">
+        <p>You can join this activity.</p>
+      </div>
       <div class="q-mt-sm q-mb-none full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           <div class="relative-position pic-wrapper">
@@ -1017,7 +1029,9 @@ exports[`Storyshots ActivityItem joined 1`] = `
       </div>
       <!---->
       <!---->
-      <div class="q-my-xs multiline">You can leave this activity.</div>
+      <div class="markdown">
+        <p>You can leave this activity.</p>
+      </div>
       <div class="q-mt-sm q-mb-none full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           <div class="relative-position pic-wrapper">
@@ -1069,7 +1083,9 @@ exports[`Storyshots ActivityItem pending 1`] = `
       </div>
       <!---->
       <!---->
-      <div class="q-my-xs multiline">You can join this activity.</div>
+      <div class="markdown">
+        <p>You can join this activity.</p>
+      </div>
       <div class="q-mt-sm q-mb-none full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           <div class="relative-position pic-wrapper">
@@ -1120,7 +1136,9 @@ exports[`Storyshots ActivityItem started 1`] = `
       </div>
       <!---->
       <div class="q-my-xs"><b class="text-orange">This has already started.</b></div>
-      <div class="q-my-xs multiline">This activity is already full.</div>
+      <div class="markdown">
+        <p>This activity is already full.</p>
+      </div>
       <div class="q-mt-sm q-mb-none full-width">
         <div class="row justify-start"><object tabindex="-1" type="text/html" data="about:blank" aria-hidden="true" style="display:block;position:absolute;top:0;left:0;right:0;bottom:0;height:100%;width:100%;overflow:hidden;pointer-events:none;z-index:-1;"></object>
           <div class="relative-position pic-wrapper">
@@ -1513,23 +1531,24 @@ exports[`Storyshots ActivitySeriesEdit custom rule 1`] = `
           </transition-stub>
         </div>
       </div>
-    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
-      <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
-      <div class="q-field__inner relative-position col self-stretch">
-        <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder"></textarea>
-            <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+    </label>
+    <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
+        <div class="q-field__inner relative-position col self-stretch">
+          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+              <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+            </div>
+          </div>
+          <div class="q-field__bottom row items-start q-field__bottom--animated">
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col"></div>
+            </transition-stub>
           </div>
         </div>
-        <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <transition-stub name="q-transition--field-message">
-            <div class="q-field__messages col">
-              <div>What should people know when signing up to this?</div>
-            </div>
-          </transition-stub>
-        </div>
-      </div>
-    </label>
+      </label>
+      <!---->
+    </div>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -1665,23 +1684,24 @@ exports[`Storyshots ActivitySeriesEdit custom rule with duration 1`] = `
           </transition-stub>
         </div>
       </div>
-    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
-      <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
-      <div class="q-field__inner relative-position col self-stretch">
-        <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder"></textarea>
-            <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+    </label>
+    <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
+        <div class="q-field__inner relative-position col self-stretch">
+          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+              <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+            </div>
+          </div>
+          <div class="q-field__bottom row items-start q-field__bottom--animated">
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col"></div>
+            </transition-stub>
           </div>
         </div>
-        <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <transition-stub name="q-transition--field-message">
-            <div class="q-field__messages col">
-              <div>What should people know when signing up to this?</div>
-            </div>
-          </transition-stub>
-        </div>
-      </div>
-    </label>
+      </label>
+      <!---->
+    </div>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -1817,23 +1837,24 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
           </transition-stub>
         </div>
       </div>
-    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
-      <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
-      <div class="q-field__inner relative-position col self-stretch">
-        <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder"></textarea>
-            <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+    </label>
+    <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
+        <div class="q-field__inner relative-position col self-stretch">
+          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+              <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+            </div>
+          </div>
+          <div class="q-field__bottom row items-start q-field__bottom--animated">
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col"></div>
+            </transition-stub>
           </div>
         </div>
-        <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <transition-stub name="q-transition--field-message">
-            <div class="q-field__messages col">
-              <div>What should people know when signing up to this?</div>
-            </div>
-          </transition-stub>
-        </div>
-      </div>
-    </label>
+      </label>
+      <!---->
+    </div>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -1957,23 +1978,24 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
           </transition-stub>
         </div>
       </div>
-    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
-      <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
-      <div class="q-field__inner relative-position col self-stretch">
-        <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder"></textarea>
-            <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+    </label>
+    <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
+        <div class="q-field__inner relative-position col self-stretch">
+          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+              <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+            </div>
+          </div>
+          <div class="q-field__bottom row items-start q-field__bottom--animated">
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col"></div>
+            </transition-stub>
           </div>
         </div>
-        <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <transition-stub name="q-transition--field-message">
-            <div class="q-field__messages col">
-              <div>What should people know when signing up to this?</div>
-            </div>
-          </transition-stub>
-        </div>
-      </div>
-    </label>
+      </label>
+      <!---->
+    </div>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
@@ -2096,23 +2118,24 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
           </transition-stub>
         </div>
       </div>
-    </label> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
-      <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
-      <div class="q-field__inner relative-position col self-stretch">
-        <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder"></textarea>
-            <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+    </label>
+    <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom q-validation-component">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="material-icons q-icon notranslate">info</i></div>
+        <div class="q-field__inner relative-position col self-stretch">
+          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" type="textarea" maxlength="500" class="q-field__native q-placeholder" style="min-height:100px;"></textarea>
+              <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+            </div>
+          </div>
+          <div class="q-field__bottom row items-start q-field__bottom--animated">
+            <transition-stub name="q-transition--field-message">
+              <div class="q-field__messages col"></div>
+            </transition-stub>
           </div>
         </div>
-        <div class="q-field__bottom row items-start q-field__bottom--animated">
-          <transition-stub name="q-transition--field-message">
-            <div class="q-field__messages col">
-              <div>What should people know when signing up to this?</div>
-            </div>
-          </transition-stub>
-        </div>
-      </div>
-    </label>
+      </label>
+      <!---->
+    </div>
     <!---->
     <div class="row justify-end q-gutter-sm q-mt-lg">
       <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">

@@ -13,7 +13,7 @@ if [ -z "$REF" ] || [ -z "$APK" ] || [ -z "$DIR" ]; then
   exit 1
 fi
 
-REPO_URL="https://github.com/yunity/karrot-frontend"
+REPO_URL="https://github.com/karrot-dev/karrot-frontend"
 COMMIT_SHA=$(git rev-parse HEAD)
 COMMIT_SHA_SHORT=$(git rev-parse --short HEAD)
 

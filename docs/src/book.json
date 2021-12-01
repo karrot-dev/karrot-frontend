@@ -12,11 +12,11 @@
     ],
   "pluginsConfig": {
     "edit-link": {
-      "base": "https://github.com/yunity/karrot-frontend/tree/master/docs",
+      "base": "https://github.com/karrot-dev/karrot-frontend/tree/master/docs",
       "label": "Edit This Page"
     },
     "github": {
-      "url": "https://github.com/yunity/karrot-frontend/"
+      "url": "https://github.com/karrot-dev/karrot-frontend/"
     }
   }
 }

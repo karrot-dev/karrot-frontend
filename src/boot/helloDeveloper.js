@@ -9,13 +9,12 @@ export default async () => {
         Oh, hey there developer! 🙂
 
         %c
-        Do you want to come and help us build our distributed, global grassroots movement against food waste?
+        Do you want to come and help us build our tool for grassroots initiatives?
 
         %c
-        Community forum → https://community.foodsaving.world
-                Project → https://foodsaving.world
-                   Code → https://github.com/yunity/karrot-frontend
-                   Chat → https://chat.karrot.world/channel/karrot-dev
+            Forum → https://community.karrot.world
+             Code → https://github.com/karrot-dev/karrot-frontend
+             Chat → https://chat.karrot.world/channel/karrot-dev
       `.trim().replace(/^ {6}/gm, '').replace(/%c\n/g, '%c'),
       style({
         ...sansSerif,

@@ -278,7 +278,7 @@ module.exports = configure(function (ctx) {
         dontCacheBustURLsMatching: /^(css|js|img|fonts)\//,
         exclude: [
           // A partial solution to a more complex issue
-          // See https://github.com/yunity/karrot-frontend/issues/2209
+          // See https://github.com/karrot-dev/karrot-frontend/issues/2209
           'index.html',
         ],
       },

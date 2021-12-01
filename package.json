@@ -15,9 +15,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yunity/karrot-frontend"
+    "url": "https://github.com/karrot-dev/karrot-frontend"
   },
-  "bugs": "https://github.com/yunity/karrot-frontend/issues",
+  "bugs": "https://github.com/karrot-dev/karrot-frontend/issues",
   "scripts": {
     "dev": "quasar dev",
     "dev:backend:dev": "cross-env BACKEND=https://dev.karrot.world quasar dev",

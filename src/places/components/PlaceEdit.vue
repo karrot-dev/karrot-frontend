@@ -84,22 +84,23 @@
             @keyup.ctrl.enter="maybeSave"
           />
 
-          <div class="text-center q-mb-lg">
-            <span v-t="$t('STOREEDIT.CHOICE_WALL_ACTIVITIES')" />
-          </div>
-          <div class="text-center q-mb-lg">
-            <QBtnToggle
-              v-model="edit.defaultView"
-              outline
-              stack
-              color="grey"
-              toggle-text-color="primary"
-              :options="[
-                {label: 'Activities', icon: 'fas fa-calendar-alt', value: 'activities'},
-                {label: 'Wall', icon: 'fas fa-comments', value: 'wall'}
-              ]"
-            />
-          </div>
+          <QSelect
+            v-model="edit.defaultView"
+            :options="[
+              {label: $t('GROUP.ACTIVITIES'), value: 'activities'},
+              {label: $t('GROUP.WALL'), value: 'wall'}
+            ]"
+            map-options
+            emit-value
+            :label="$t('STOREEDIT.DEFAULT_VIEW')"
+            outlined
+            :hint="$t('STOREEDIT.DEFAULT_VIEW_HINT')"
+            class="q-mb-lg"
+          >
+            <template #before>
+              <QIcon name="fas fa-eye" />
+            </template>
+          </QSelect>
 
           <AddressPicker
             v-model="edit"
@@ -203,7 +204,6 @@ import {
   QSlider,
   QInput,
   QBtn,
-  QBtnToggle,
   QSelect,
   QIcon,
   QItem,
@@ -227,7 +227,6 @@ export default {
     QSlider,
     QInput,
     QBtn,
-    QBtnToggle,
     QSelect,
     QIcon,
     QItem,

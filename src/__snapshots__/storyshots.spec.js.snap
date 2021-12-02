@@ -9125,11 +9125,28 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
             </div>
           </label>
           <!---->
-        </div>
-        <div class="text-center q-mb-lg"><span></span></div>
-        <div class="text-center q-mb-lg">
-          <div class="q-btn-group row no-wrap inline q-btn-toggle q-btn-group--outline"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-grey q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center column"><i aria-hidden="true" role="img" class="fas fa-calendar-alt q-icon notranslate"> </i><span class="block">Activities</span></span></span></button><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-grey q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center column"><i aria-hidden="true" role="img" class="fas fa-comments q-icon notranslate"> </i><span class="block">Wall</span></span></span></button></div>
-        </div>
+        </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-mb-lg q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--single q-field--outlined q-field--labeled q-field--with-bottom q-validation-component">
+          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-eye q-icon notranslate"> </i></div>
+          <div class="q-field__inner relative-position col self-stretch">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+                <div class="q-field__native row items-center"><span></span>
+                  <div id="f_80808080-8080-4080-8080-808080808080" tabindex="0" role="combobox" aria-multiselectable="false" aria-expanded="false" aria-owns="f_80808080-8080-4080-8080-808080808080_lb" aria-activedescendant="f_80808080-8080-4080-8080-808080808080_-1" class="no-outline"></div>
+                </div>
+                <div class="q-field__label no-pointer-events absolute ellipsis">Default View</div>
+              </div>
+              <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="q-select__dropdown-icon material-icons q-icon notranslate">arrow_drop_down</i></div>
+              <!---->
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col">
+                  <div>What will be displayed by default when clicking onto this place?</div>
+                </div>
+              </transition-stub>
+            </div>
+          </div>
+        </label>
         <div class="q-mb-lg"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--outlined q-field--labeled q-field--with-bottom q-validation-component">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-map-marker q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch">
@@ -9187,12 +9204,12 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
         <!---->
         <div class="row justify-end q-gutter-sm q-mt-md">
           <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-            Reset
-          </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-            Archive
-          </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-            Save changes
-          </span></span>
+              Reset
+            </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+              Archive
+            </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+              Save changes
+            </span></span>
             <transition-stub name="q-transition--fade"></transition-stub>
           </button>
         </div>
@@ -9261,11 +9278,28 @@ exports[`Storyshots Places PlaceEdit 1`] = `
             </div>
           </label>
           <!---->
-        </div>
-        <div class="text-center q-mb-lg"><span></span></div>
-        <div class="text-center q-mb-lg">
-          <div class="q-btn-group row no-wrap inline q-btn-toggle q-btn-group--outline"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-grey q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center column"><i aria-hidden="true" role="img" class="fas fa-calendar-alt q-icon notranslate"> </i><span class="block">Activities</span></span></span></button><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-grey q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center column"><i aria-hidden="true" role="img" class="fas fa-comments q-icon notranslate"> </i><span class="block">Wall</span></span></span></button></div>
-        </div>
+        </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-mb-lg q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--single q-field--outlined q-field--labeled q-field--with-bottom q-validation-component">
+          <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-eye q-icon notranslate"> </i></div>
+          <div class="q-field__inner relative-position col self-stretch">
+            <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip">
+                <div class="q-field__native row items-center"><span></span>
+                  <div id="f_80808080-8080-4080-8080-808080808080" tabindex="0" role="combobox" aria-multiselectable="false" aria-expanded="false" aria-owns="f_80808080-8080-4080-8080-808080808080_lb" aria-activedescendant="f_80808080-8080-4080-8080-808080808080_-1" class="no-outline"></div>
+                </div>
+                <div class="q-field__label no-pointer-events absolute ellipsis">Default View</div>
+              </div>
+              <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="q-select__dropdown-icon material-icons q-icon notranslate">arrow_drop_down</i></div>
+              <!---->
+            </div>
+            <div class="q-field__bottom row items-start q-field__bottom--animated">
+              <transition-stub name="q-transition--field-message">
+                <div class="q-field__messages col">
+                  <div>What will be displayed by default when clicking onto this place?</div>
+                </div>
+              </transition-stub>
+            </div>
+          </div>
+        </label>
         <div class="q-mb-lg"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field row no-wrap items-start q-select q-field--auto-height q-select--with-input q-select--without-chips q-select--single q-field--outlined q-field--labeled q-field--with-bottom q-validation-component">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-map-marker q-icon notranslate"> </i></div>
             <div class="q-field__inner relative-position col self-stretch">
@@ -9323,12 +9357,12 @@ exports[`Storyshots Places PlaceEdit 1`] = `
         <!---->
         <div class="row justify-end q-gutter-sm q-mt-md">
           <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-            Reset
-          </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-            Archive
-          </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-            Save changes
-          </span></span>
+              Reset
+            </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+              Archive
+            </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+              Save changes
+            </span></span>
             <transition-stub name="q-transition--fade"></transition-stub>
           </button>
         </div>

@@ -9142,7 +9142,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
             <div class="q-field__bottom row items-start q-field__bottom--animated">
               <transition-stub name="q-transition--field-message">
                 <div class="q-field__messages col">
-                  <div>What will be displayed by default when clicking onto this place?</div>
+                  <div>What should be displayed by default when clicking onto this place?</div>
                 </div>
               </transition-stub>
             </div>
@@ -9205,12 +9205,12 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
         <!---->
         <div class="row justify-end q-gutter-sm q-mt-md">
           <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-              Reset
-            </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-              Archive
-            </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-              Save changes
-            </span></span>
+            Reset
+          </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+            Archive
+          </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+            Save changes
+          </span></span>
             <transition-stub name="q-transition--fade"></transition-stub>
           </button>
         </div>
@@ -9295,7 +9295,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
             <div class="q-field__bottom row items-start q-field__bottom--animated">
               <transition-stub name="q-transition--field-message">
                 <div class="q-field__messages col">
-                  <div>What will be displayed by default when clicking onto this place?</div>
+                  <div>What should be displayed by default when clicking onto this place?</div>
                 </div>
               </transition-stub>
             </div>
@@ -9358,12 +9358,12 @@ exports[`Storyshots Places PlaceEdit 1`] = `
         <!---->
         <div class="row justify-end q-gutter-sm q-mt-md">
           <!----> <button tabindex="-1" type="button" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-              Reset
-            </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-              Archive
-            </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
-              Save changes
-            </span></span>
+            Reset
+          </span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+            Archive
+          </span></span></button> <button tabindex="-1" type="submit" role="button" disabled="disabled" aria-disabled="true" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled q-btn--wrap"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">
+            Save changes
+          </span></span>
             <transition-stub name="q-transition--fade"></transition-stub>
           </button>
         </div>

@@ -23,7 +23,7 @@ Please document your changes in this format:
 ## [Unreleased]
 
 ### Added
-- Choice of default view (wall or activities) on place page @brnsolikyl @nicksellen [#2444]
+- Choice of default view (wall or activities) on place page @brnsolikyl @nicksellen @larzon83 [#2444]
 
 ## [9.5.1] - 2021-11-08
 ### Changed

@@ -1165,7 +1165,8 @@ exports[`Storyshots ActivityItem started 1`] = `
 exports[`Storyshots ActivityList Default 1`] = `
 <div>
   <!---->
-  <div class="row no-wrap items-center justify-end q-px-sm q-mt-sm"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--unelevated q-btn--rectangle q-btn--rounded bg-secondary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip" style="padding:4px 13px;min-width:0;min-height:0;"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="material-icons q-icon notranslate on-left">event</i><span class="block">Add to calendar</span></span></span></button>
+  <div class="row no-wrap items-center justify-end q-px-sm q-mt-sm">
+    <!---->
     <!---->
   </div>
   <div class="full-width text-center generic-padding" style="display:none;"><svg focusable="false" fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" class="q-spinner">
@@ -7795,7 +7796,7 @@ exports[`Storyshots KAbout KAbout 1`] = `
   <div class="k-logo-container row no-wrap items-center"><a class="logo self-start"><img src="test-file-stub" alt="karrot logo"></a>
     <h4 class="col q-ma-none q-pl-md"></h4>
   </div>
-  <div class="q-mt-md q-list"><a tabindex="0" rel="noopener noreferrer" href="https://community.foodsaving.world/t/how-to-get-involved-onboarding-into-the-karrot-team/661" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+  <div class="q-mt-md q-list"><a tabindex="0" rel="noopener noreferrer" href="https://community.karrot.world/t/how-to-get-involved-onboarding-into-the-karrot-team/661" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-users q-icon notranslate"> </i></div>
       <div class="q-item__section column q-item__section--main justify-center">
@@ -7803,7 +7804,7 @@ exports[`Storyshots KAbout KAbout 1`] = `
           How to Get Involved
         </div>
       </div>
-    </a> <a tabindex="0" rel="noopener noreferrer" href="https://github.com/yunity/karrot-frontend" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+    </a> <a tabindex="0" rel="noopener noreferrer" href="https://github.com/karrot-dev/karrot-frontend" target="_blank" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fab fa-fw fa-github q-icon notranslate"> </i></div>
       <div class="q-item__section column q-item__section--main justify-center">
@@ -7833,12 +7834,12 @@ exports[`Storyshots KAbout KAbout 1`] = `
           How to build your foodsaving group
         </div>
       </div>
-    </a> <a tabindex="0" rel="noopener noreferrer" href="mailto:karrot@foodsaving.world" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
+    </a> <a tabindex="0" rel="noopener noreferrer" href="mailto:info@karrot.world" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
       <div tabindex="-1" class="q-focus-helper"></div>
       <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon notranslate"> </i></div>
       <div class="q-item__section column q-item__section--main justify-center">
         <div class="q-item__label">
-          karrot@foodsaving.world
+          info@karrot.world
         </div>
       </div>
     </a></div>

@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: karrot/python:2.7
+    - image: karrot/python:2.8
 
 android-defaults: &android-defaults
   working_directory: ~/repo
@@ -360,7 +360,7 @@ jobs:
           key: v2-dependencies-localeshelper-{{ checksum "updateLocalesHelper/requirements.txt" }}
       - run:
           name: set git remote to include token
-          command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/yunity/karrot-frontend.git
+          command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/karrot-dev/karrot-frontend.git
       - run:
           name: update locales and make pull request
           # needs TX_TOKEN and GITHUB_TOKEN
@@ -391,7 +391,7 @@ jobs:
           at: ~/repo
       - run:
           name: set git remote to include token
-          command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/yunity/karrot-frontend.git
+          command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/karrot-dev/karrot-frontend.git
       - run:
           name: upgrade packages and create PR
           # needs TX_TOKEN and GITHUB_TOKEN

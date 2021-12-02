@@ -150,7 +150,7 @@ export default {
           description: this.$t('GROUP.PICKUPS_TO_ACTIVITIES_DESCRIPTION'),
           link: {
             text: this.$t('BUTTON.READ_MORE'),
-            href: 'https://community.foodsaving.world/t/what-are-activity-types-in-karrot/563',
+            href: 'https://community.karrot.world/t/what-are-activity-types-in-karrot/563',
           },
         },
         icon: this.$icon('activity'),

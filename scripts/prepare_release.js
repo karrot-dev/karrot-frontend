@@ -7,7 +7,7 @@
  * 1. Update changelog by changing "Unreleased" to a new version number and adding a date
  * 2. Run node ./scripts/prepare_release.js
  * 3. git push
- * 4. Click the "approve" button on https://circleci.com/gh/yunity/workflows/karrot-frontend/tree/master
+ * 4. Click the "approve" button on https://app.circleci.com/pipelines/github/karrot-dev/karrot-frontend?branch=master
  */
 
 const { parser, Release } = require('keep-a-changelog')

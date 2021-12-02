@@ -43,7 +43,7 @@
               <i18n path="COMMUNITY_FEED.HEADER">
                 <a
                   slot="community"
-                  href="https://community.foodsaving.world"
+                  href="https://community.karrot.world"
                   target="_blank"
                   rel="noopener"
                   style="text-decoration: underline"

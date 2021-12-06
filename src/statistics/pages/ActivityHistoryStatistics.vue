@@ -199,6 +199,7 @@ export default {
         {
           label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_MONTHS', { count: 12 }),
           value: '12months',
+          disable: this.hasUserFilter,
         },
         {
           label: this.$t('STATISTICS.FILTER_TIME_FOREVER'),

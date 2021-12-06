@@ -62,6 +62,7 @@ Please document your changes in this format:
 - API for revoking trust @pogopaule [#1133](https://github.com/karrot-dev/karrot-backend/pull/1133)
 - API for calendar subscriptions @amengsk [#1132](https://github.com/karrot-dev/karrot-backend/pull/1132)
 - add ics export for activities @amengsk @larzon83 [#2321]
+- Add "Previous 12 months" to statistics time period [#2445]
 
 ### Changed
 - amount-picker: improve UX of weight slider limits @larzon83 @layla19 @dpaque @pogopaule [#2348]

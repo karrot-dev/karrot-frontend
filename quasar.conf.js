@@ -10,6 +10,7 @@
 const { configure } = require('quasar/wrappers')
 const { resolve } = require('path')
 const fs = require('fs')
+const ESLintPlugin = require('eslint-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
@@ -168,12 +169,7 @@ module.exports = configure(function (ctx) {
       },
 
       extendWebpack (cfg) {
-        cfg.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /node_modules/,
-        })
+        cfg.plugins.push(new ESLintPlugin())
 
         cfg.resolve.alias = {
           ...cfg.resolve.alias, // This adds the existing alias

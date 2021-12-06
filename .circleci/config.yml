@@ -403,8 +403,8 @@ jobs:
             git branch --delete --force $BRANCH || true
             git checkout -b $BRANCH
             yarn upgrade --latest --ignore-engines
-            # stay with quasar@1 and vue@2 until we found time to upgrade
-            yarn upgrade vue@^2.6.14 quasar@^1.15.23 @quasar/app@^2.2.10 vuex-persistedstate@^3.1.0 stylelint-webpack-plugin@^2.2.2
+            # stay with quasar@1 and vue@2 and webpack@4 until we found time to upgrade
+            yarn upgrade vue@^2.6.14 quasar@^1.15.23 @quasar/app@^2.2.10 vuex-persistedstate@^3.1.0 stylelint-webpack-plugin@^2.2.2 eslint-webpack-plugin@2
             # downgrade stylelint due to https://github.com/karrot-dev/karrot-frontend/issues/2461
             yarn upgrade stylelint@^13.13.1
             tee pr.txt \<<EOL

@@ -1,4 +1,4 @@
-import { Quasar, AppVisibility, ClosePopup, Dialog, TouchHold } from 'quasar'
+import Quasar, { AppVisibility, ClosePopup, Dialog, TouchHold } from 'quasar'
 
 export const config = {
   plugins: {

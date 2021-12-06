@@ -83,7 +83,7 @@
     "@octokit/rest": "^18.12.0",
     "@quasar/app": "^2.2.10",
     "@quasar/quasar-app-extension-dotenv": "^1.1.0",
-    "@quasar/quasar-ui-qiconpicker": "^2.0.4",
+    "@quasar/quasar-ui-qiconpicker": "^1.4.3",
     "@sentry/cli": "^1.71.0",
     "@storybook/addon-actions": "^6.4.8",
     "@storybook/addon-links": "^6.4.8",

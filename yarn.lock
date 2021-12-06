@@ -2284,10 +2284,12 @@
     dotenv-parse-variables "^2.0.0"
     fs "^0.0.2"
 
-"@quasar/quasar-ui-qiconpicker@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@quasar/quasar-ui-qiconpicker/-/quasar-ui-qiconpicker-2.0.4.tgz#25456febebefe114beb5548124232c3a29e36b73"
-  integrity sha512-uTk/uPSzpGZaxxs8EgFjzXCFzSTJNjkhdS1l35gTOnakddknA/r58sa/FQ/guZ6bEt7gQG9Nh6q24JhxeQhXng==
+"@quasar/quasar-ui-qiconpicker@^1.4.3":
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@quasar/quasar-ui-qiconpicker/-/quasar-ui-qiconpicker-1.4.3.tgz#b3fd4981a0dd17c48f9e5c04feac3f0a3b0b6115"
+  integrity sha512-J4jF/y84b12feIfyWyz6Sf9ccfUBXKgmnLf7OpB6VYDeHeJ9I1ddulJzXrT6zHncNRs8U0/oioP5XUSXY/HAJw==
+  dependencies:
+    q-colorize-mixin "^1.0.10"
 
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.0"
@@ -14003,6 +14005,11 @@ puppeteer@^12.0.1:
     tar-fs "2.1.1"
     unbzip2-stream "1.4.3"
     ws "8.2.3"
+
+q-colorize-mixin@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/q-colorize-mixin/-/q-colorize-mixin-1.0.10.tgz#f0fbfa2826cbfdaffc5c6851e9949aff311da48a"
+  integrity sha512-pqMSb3mxTps0pfKh2zV/7ukgVvrzQT8+Ic2c3PaTkMI5yGPBbBK+t0SgF1ktBJ0PCYFE1bpK1unK20Z2OlTzlg==
 
 q@^1.1.2:
   version "1.5.1"

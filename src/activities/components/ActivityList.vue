@@ -44,6 +44,34 @@
         hide-bottom-space
         dense
       />
+      <q-checkbox
+        v-model="mon"
+        label="Mon"
+      />
+      <q-checkbox
+        v-model="tues"
+        label="Tues"
+      />
+      <q-checkbox
+        v-model="wed"
+        label="Wed"
+      />
+      <q-checkbox
+        v-model="thurs"
+        label="Thurs"
+      />
+      <q-checkbox
+        v-model="fri"
+        label="Fri"
+      />
+      <q-checkbox
+        v-model="sat"
+        label="Sat"
+      />
+      <q-checkbox
+        v-model="sun"
+        label="Sun"
+      />
       <div class="text-caption q-ml-xs col text-right">
         {{ filteredActivities.length }} / {{ activities.length }}
       </div>
@@ -374,6 +402,7 @@ export default {
       return this.activities
         .filter(this.slotFilter)
         .filter(this.typeFilter)
+        .filter(this.dayFilter)
     },
     displayedActivitiesGroupedByDate () {
       const result = []
@@ -421,6 +450,16 @@ export default {
     typeFilter (activity) {
       if (this.type === 'all') return true
       return activity.activityType && String(activity.activityType.id) === this.type
+    },
+    dayFilter (activity) {
+      if (this.mon && this.$d(activity.date, 'dayName') === 'Monday') return true
+      if (this.tues && this.$d(activity.date, 'dayName') === 'Tuesday') return true
+      if (this.wed && this.$d(activity.date, 'dayName') === 'Wednesday') return true
+      if (this.thurs && this.$d(activity.date, 'dayName') === 'Thursday') return true
+      if (this.fri && this.$d(activity.date, 'dayName') === 'Friday') return true
+      if (this.sat && this.$d(activity.date, 'dayName') === 'Saturday') return true
+      if (this.sun && this.$d(activity.date, 'dayName') === 'Sunday') return true
+      return false
     },
     clearFilters () {
       this.slots = 'all'

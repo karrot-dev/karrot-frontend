@@ -23,7 +23,7 @@ module.exports = {
       except: ['first-nested'],
       ignore: ['after-comment'],
     }],
-    'unit-whitelist': [
+    'unit-allowed-list': [
       'px',
       'em',
       'rem',

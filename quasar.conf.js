@@ -134,6 +134,8 @@ module.exports = configure(function (ctx) {
 
       env: appEnv,
 
+      sourceMap: true,
+
       // https://quasar.dev/quasar-cli/handling-webpack
       chainWebpack (chain) {
         const imagesRule = chain.module.rule('images')

@@ -5,7 +5,7 @@ module.exports = {
   root: true,
 
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
   },
@@ -72,5 +72,7 @@ module.exports = {
     }],
     // do not capitalize the "I" in "i18n" component name
     'vue/component-name-in-template-casing': ['error', 'PascalCase', { ignores: ['i18n'] }],
+    // allow single word component names, see https://github.com/karrot-dev/karrot-frontend/issues/2463
+    'vue/multi-word-component-names': 'off',
   },
 }

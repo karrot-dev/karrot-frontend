@@ -66,7 +66,7 @@ export const makeGroup = data => {
   return {
     id,
     name: `Group ${id}`,
-    description: '',
+    information: '',
     welcomeMessage: '',
     publicDescription: '',
     applicationQuestions: 'Why do **you** want to join our group?',

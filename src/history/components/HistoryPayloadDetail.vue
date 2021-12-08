@@ -85,7 +85,7 @@ export default {
       return Array.isArray(this.value) ? this.value[0] : this.value
     },
     convertedLabel () {
-      if (this.label === 'description') return this.$t('GROUP.DESCRIPTION')
+      if (this.label === 'information') return this.$t('GROUP.INFORMATION')
       return this.label
     },
   },

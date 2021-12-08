@@ -9,7 +9,7 @@
     >
       <div class="art-overlay q-px-md q-py-lg">
         <div
-          v-t="'GROUP.DESCRIPTION'"
+          v-t="'GROUP.INFORMATION'"
           class="header"
         />
       </div>
@@ -30,8 +30,8 @@
     </div>
     <div class="q-pa-md">
       <Markdown
-        v-if="group.description"
-        :source="group.description"
+        v-if="group.information"
+        :source="group.information"
       />
     </div>
   </QCard>

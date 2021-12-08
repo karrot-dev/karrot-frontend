@@ -13,8 +13,8 @@
           dense
           round
           size="sm"
-          :to="{ name: 'groupDescription' }"
-          :title="$t('GROUP.DESCRIPTION')"
+          :to="{ name: 'groupInformation' }"
+          :title="$t('GROUP.INFORMATION')"
         >
           <QIcon name="fas fa-info-circle fa-fw" />
         </QBtn>

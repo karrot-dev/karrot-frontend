@@ -48,9 +48,9 @@
         />
 
         <MarkdownInput
-          v-model="edit.description"
-          :error="hasError('description')"
-          :error-message="firstError('description')"
+          v-model="edit.information"
+          :error="hasError('information')"
+          :error-message="firstError('information')"
           :label="$t('GROUP.DESCRIPTION_VERBOSE')"
           icon="fas fa-fw fa-address-card"
           outlined
@@ -204,7 +204,7 @@ export default {
       default: () => ({
         name: undefined,
         publicDescription: undefined,
-        description: undefined,
+        information: undefined,
         timezone: jstz.determine().name(),
         latitude: undefined,
         longitude: undefined,

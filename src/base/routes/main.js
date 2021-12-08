@@ -32,7 +32,7 @@ const PlaceList = () => import('@/places/pages/Places')
 const HistoryDetail = () => import('@/history/pages/HistoryDetail')
 const GroupInvitations = () => import('@/invitations/pages/Invitations')
 const Applications = () => import('@/applications/pages/Applications')
-const GroupDescription = () => import('@/group/pages/Description')
+const GroupInformation = () => import('@/group/pages/Information')
 const GroupMembers = () => import('@/users/pages/Members')
 const GroupHistory = () => import('@/history/pages/GroupHistory')
 const Sidenav = () => import('@/sidenav/components/Sidenav')
@@ -322,14 +322,14 @@ export default [
         component: GroupFeedback,
       },
       {
-        name: 'groupDescription',
-        path: 'description',
+        name: 'groupInformation',
+        path: 'information',
         meta: {
           breadcrumbs: [
-            { translation: 'GROUP.DESCRIPTION', route: { name: 'groupDescription' } },
+            { translation: 'GROUP.INFORMATION', route: { name: 'groupInformation' } },
           ],
         },
-        component: GroupDescription,
+        component: GroupInformation,
       },
       {
         name: 'groupMembers',

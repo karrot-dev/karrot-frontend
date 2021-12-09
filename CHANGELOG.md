@@ -71,6 +71,7 @@ Please document your changes in this format:
 - Improve calculation of map bounds on group gallery @nicksellen [#2333]
 - main-layout: use scaled down background-image @larzon83 [#2371]
 - Use roboto font in latin-ext variant @nicksellen [#2345]
+- Add day of week filter for activities [#2310]
 
 ### Fixed
 - Place statistics feedback weight should be summed @nicksellen [#1137](https://github.com/karrot-dev/karrot-backend/pull/1137)

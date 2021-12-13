@@ -197,6 +197,11 @@ export default {
           value: '6months',
         },
         {
+          label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_MONTHS', { count: 12 }),
+          value: '12months',
+          disable: this.hasUserFilter,
+        },
+        {
           label: this.$t('STATISTICS.FILTER_TIME_FOREVER'),
           value: null,
           disable: this.hasUserFilter,
@@ -262,6 +267,10 @@ export default {
         case '6months':
           return {
             dateAfter: subMonths(now, 6),
+          }
+        case '12months':
+          return {
+            dateAfter: subMonths(now, 12),
           }
         case null:
           return {}

@@ -83,6 +83,8 @@ export function convert (val) {
     return val.map(convert)
   }
   else {
+    val.information = val.description
+    delete val.description
     Object.values(val.memberships).forEach(convertMembership)
     return {
       ...val,

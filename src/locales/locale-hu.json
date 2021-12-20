@@ -251,7 +251,7 @@
   },
   "COMMUNITY_FEED": {
     "HEADER": "Hírek a(z) {community} közösségből",
-    "HEADER_LINK": "ételmentő világközösség",
+    "HEADER_LINK": "Karrot community",
     "KARROT_DISCUSSION": "Beszélgetések a Karrotról",
     "LAST_UPDATED": "Legutóbb {relativeDate} frissítve"
   },

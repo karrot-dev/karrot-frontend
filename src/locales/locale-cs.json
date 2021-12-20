@@ -251,7 +251,7 @@
   },
   "COMMUNITY_FEED": {
     "HEADER": "Aktualizace z {community}",
-    "HEADER_LINK": "světová komunita pro záchranu jídla",
+    "HEADER_LINK": "Komunita Karrot",
     "KARROT_DISCUSSION": "Diskuze o Karrot",
     "LAST_UPDATED": "Naposledy aktualizováno {relativeDate}"
   },

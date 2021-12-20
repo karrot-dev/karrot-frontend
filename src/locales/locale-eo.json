@@ -251,7 +251,7 @@
   },
   "COMMUNITY_FEED": {
     "HEADER": "Ĝisdatigoj de {community}",
-    "HEADER_LINK": "Tutmonda manĝaĵsavema komunumo",
+    "HEADER_LINK": "Karrot community",
     "KARROT_DISCUSSION": "Diskutoj pri Karrot",
     "LAST_UPDATED": "Lasta ĝisdatigo{relativeDate}"
   },

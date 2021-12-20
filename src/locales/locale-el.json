@@ -251,7 +251,7 @@
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates απο {community}",
-    "HEADER_LINK": "foodsaving worldwide community",
+    "HEADER_LINK": "Karrot community",
     "KARROT_DISCUSSION": "Συζητήσει σχετικά με με την πλατφόρμα του Karrot ",
     "LAST_UPDATED": "Τελευταία ανανέωση {relativeDate}"
   },

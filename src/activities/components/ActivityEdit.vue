@@ -196,20 +196,16 @@
       </div>
 
       <div>
-        <QInput
+        <MarkdownInput
           v-model="edit.description"
           :error="hasError('description')"
           :error-message="firstError('description')"
           :label="$t('CREATEACTIVITY.COMMENT')"
           :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
-          type="textarea"
+          icon="info"
           maxlength="500"
-          autogrow
           @keyup.ctrl.enter="maybeSave"
         >
-          <template #before>
-            <QIcon name="info" />
-          </template>
           <template #after>
             <QIcon
               v-if="series ? series.description !== edit.description : false"
@@ -217,7 +213,8 @@
               @click="edit.description = series.description"
             />
           </template>
-        </QInput>
+        </MarkdownInput>
+
         <div
           v-if="seriesMeta.isDescriptionChanged"
           class="q-ml-lg col-12 q-field__bottom text-warning"
@@ -306,6 +303,7 @@ import addDays from 'date-fns/addDays'
 import { defaultDuration } from '@/activities/settings'
 import { formatSeconds } from '@/activities/utils'
 import { objectDiff } from '@/utils/utils'
+import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
   name: 'ActivityEdit',
@@ -318,6 +316,7 @@ export default {
     QIcon,
     QMenu,
     QDialog,
+    MarkdownInput,
   },
   mixins: [editMixin, statusMixin],
   props: {

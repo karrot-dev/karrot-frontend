@@ -251,7 +251,7 @@
   },
   "COMMUNITY_FEED": {
     "HEADER": "Actualizaciones de {community}",
-    "HEADER_LINK": "Comunidad de mundial de Foodsaving",
+    "HEADER_LINK": "Karrot community",
     "KARROT_DISCUSSION": "Discusiones sobre Karrot",
     "LAST_UPDATED": "Ultima actualización{relativeDate}"
   },

@@ -251,7 +251,7 @@
   },
   "COMMUNITY_FEED": {
     "HEADER": "來自{community}的更新",
-    "HEADER_LINK": "世界惜食社群",
+    "HEADER_LINK": "Karrot community",
     "KARROT_DISCUSSION": "Discussions about Karrot",
     "LAST_UPDATED": "最近一次更新{relativeDate}"
   },

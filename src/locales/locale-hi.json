@@ -251,7 +251,7 @@
   },
   "COMMUNITY_FEED": {
     "HEADER": "{community} से अपडेट",
-    "HEADER_LINK": "दुनिया भर में भोजन की बचत करने वाला समुदाय",
+    "HEADER_LINK": "Karrot community",
     "KARROT_DISCUSSION": "Karrot के बारे में चर्चा",
     "LAST_UPDATED": "अंतिम बार {relativeDate} को अपडेट किया गया"
   },

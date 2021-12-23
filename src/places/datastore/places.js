@@ -9,6 +9,7 @@ import {
   indexById,
   createRouteError,
   toggles,
+  createRouteRedirect,
 } from '@/utils/datastore/helpers'
 import router from '@/router'
 
@@ -18,6 +19,10 @@ function initialState () {
     statistics: {},
     activePlaceId: null,
   }
+}
+
+function placeRoute (place) {
+  return place.defaultView === 'wall' ? 'placeWall' : 'placeActivities'
 }
 
 export default {
@@ -69,10 +74,17 @@ export default {
     },
   },
   actions: {
+    async routeEnter ({ dispatch, getters }, { groupId, placeId, routeTo }) {
+      if (placeId) {
+        await dispatch('selectPlace', { placeId })
+        const place = getters.get(placeId)
+        throw createRouteRedirect({ name: placeRoute(place), params: { groupId, placeId }, query: routeTo.query })
+      }
+    },
     ...withMeta({
       async save ({ dispatch }, place) {
         dispatch('update', [await places.save(place)])
-        router.push({ name: 'place', params: { placeId: place.id } }).catch(() => {})
+        router.push({ name: placeRoute(place), params: { placeId: place.id } }).catch(() => {})
       },
       async create ({ dispatch, rootGetters }, place) {
         const createdPlace = await places.create({
@@ -80,7 +92,7 @@ export default {
           group: rootGetters['currentGroup/id'],
         })
         dispatch('update', [createdPlace])
-        router.push({ name: 'place', params: { placeId: createdPlace.id } }).catch(() => {})
+        router.push({ name: placeRoute(createdPlace), params: { placeId: createdPlace.id } }).catch(() => {})
       },
       async fetch ({ commit }) {
         commit('set', await places.list())

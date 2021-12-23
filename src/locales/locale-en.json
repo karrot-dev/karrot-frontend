@@ -731,6 +731,8 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Address",
+    "DEFAULT_VIEW": "Default View",
+    "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
     "DESCRIPTION": "Description",
     "DIALOGS": {
       "ARCHIVE": {

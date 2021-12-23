@@ -23,6 +23,7 @@ Please document your changes in this format:
 ## [Unreleased]
 ### Added
 - Add "Previous 12 months" to statistics time period @changjus [#2445]
+- Add recent years option to statistics time period @nicksellen [#2467]
 
 ## [9.5.1] - 2021-11-08
 ### Changed

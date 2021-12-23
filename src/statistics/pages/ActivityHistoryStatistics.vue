@@ -89,7 +89,7 @@
 </template>
 
 <script>
-import { QSelect, QTable, QToggle, QItem, QItemSection, QItemLabel, QSeparator} from 'quasar'
+import { QSelect, QTable, QToggle, QItem, QItemSection, QItemLabel, QSeparator } from 'quasar'
 import subDays from 'date-fns/subDays'
 import subMonths from 'date-fns/subMonths'
 

@@ -25,6 +25,15 @@ Please document your changes in this format:
 - Add "Previous 12 months" to statistics time period @changjus [#2445]
 - Add recent years option to statistics time period @nicksellen [#2467]
 
+### Changed
+- Use markdown for activity description @nicksellen [#2457]
+- Update URLs and de-foodify further @nicksellen [#2455]
+- Allow to join started activities @nicksellen [#1201](https://github.com/karrot-dev/karrot-backend/pull/1201)
+- Expose disabled activities as cancelled in ics export @amengsk [#1200](https://github.com/karrot-dev/karrot-backend/pull/1200)
+
+### Removed
+- Remove calendar subscribe button from group wall @amengsk [#2451]
+
 ## [9.5.1] - 2021-11-08
 ### Changed
 - increase android API level target from 29 to 30 @nicksellen

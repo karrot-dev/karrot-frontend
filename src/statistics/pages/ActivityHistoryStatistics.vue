@@ -179,34 +179,66 @@ export default {
     },
     periodFilterOptions () {
       return [
-        // If you add new options, be sure to handle them in dateQuery too
         {
           label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_DAYS', { count: 7 }),
           value: '7days',
+          dateQuery () {
+            return {
+              dateAfter: subDays(new Date(), 7),
+            }
+          },
         },
         {
           label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_DAYS', { count: 30 }),
           value: '30days',
+          dateQuery () {
+            return {
+              dateAfter: subDays(new Date(), 30),
+            }
+          },
         },
         {
           label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_MONTHS', { count: 3 }),
           value: '3months',
+          dateQuery () {
+            return {
+              dateAfter: subMonths(new Date(), 3),
+            }
+          },
         },
         {
           label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_MONTHS', { count: 6 }),
           value: '6months',
+          dateQuery () {
+            return {
+              dateAfter: subMonths(new Date(), 6),
+            }
+          },
         },
         {
           label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_MONTHS', { count: 12 }),
           value: '12months',
-          disable: this.hasUserFilter,
+          onlyAggregate: true,
+          dateQuery () {
+            return {
+              dateAfter: subMonths(new Date(), 12),
+            }
+          },
         },
         {
           label: this.$t('STATISTICS.FILTER_TIME_FOREVER'),
           value: null,
-          disable: this.hasUserFilter,
+          onlyAggregate: true,
+          dateQuery () {
+            return {}
+          },
         },
-      ]
+      ].map(option => {
+        return {
+          ...option,
+          disable: option.onlyAggregate ? this.hasUserFilter : false,
+        }
+      })
     },
     totals () {
       return [
@@ -250,33 +282,7 @@ export default {
     },
     dateQuery () {
       if (!this.periodFilter) return {}
-      const now = new Date()
-      switch (this.periodFilter.value) {
-        case '7days':
-          return {
-            dateAfter: subDays(now, 7),
-          }
-        case '30days':
-          return {
-            dateAfter: subDays(now, 30),
-          }
-        case '3months':
-          return {
-            dateAfter: subMonths(now, 3),
-          }
-        case '6months':
-          return {
-            dateAfter: subMonths(now, 6),
-          }
-        case '12months':
-          return {
-            dateAfter: subMonths(now, 12),
-          }
-        case null:
-          return {}
-        default:
-          throw new Error(`unknown date filter option: ${this.periodFilter.value}`)
-      }
+      return this.periodFilter.dateQuery()
     },
     leftOptionsValues () {
       return this.leftOptionsSelected.map(option => option.value)
@@ -292,9 +298,9 @@ export default {
   },
   watch: {
     'userFilter.value' (value) {
-      if (value !== null && this.periodFilter.value === null) {
-        // It's required to have a period if have a user...
-        this.periodFilter = this.periodFilterOptions.find(option => option.value === '6months')
+      if (value !== null && this.periodFilter.onlyAggregate) {
+        // Cannot have a user selected with an "onlyAggregate" filter, select the highest possible one
+        this.periodFilter = this.periodFilterOptions.filter(option => !option.onlyAggregate).reverse()[0]
       }
     },
     query: {

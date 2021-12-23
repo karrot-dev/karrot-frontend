@@ -29,7 +29,28 @@
           filled
           :options="periodFilterOptions"
           class="q-mr-sm"
-        />
+          style="min-width: 180px;"
+        >
+          <template #option="{ index, itemProps, itemEvents, opt: { label: itemLabel, sectionLabel } }">
+            <template v-if="sectionLabel">
+              <QSeparator />
+              <QItemLabel header>
+                {{ sectionLabel }}
+              </QItemLabel>
+            </template>
+            <QItem
+              :key="index"
+              v-bind="itemProps"
+              v-on="itemEvents"
+            >
+              <QItemSection>
+                <QItemLabel>
+                  {{ itemLabel }}
+                </QItemLabel>
+              </QItemSection>
+            </QItem>
+          </template>
+        </QSelect>
         <QSelect
           v-model="leftOptionsSelected"
           :label="$t('STATISTICS.COLUMN_ACTIVITY_LEFT')"
@@ -68,13 +89,14 @@
 </template>
 
 <script>
-import { QSelect, QTable, QToggle, QItem, QItemSection, QItemLabel } from 'quasar'
+import { QSelect, QTable, QToggle, QItem, QItemSection, QItemLabel, QSeparator} from 'quasar'
 import subDays from 'date-fns/subDays'
 import subMonths from 'date-fns/subMonths'
 
 import api from '@/statistics/api/statistics'
 import { mapGetters } from 'vuex'
 import { indexById } from '@/utils/datastore/helpers'
+import { endOfYear, getYear, startOfYear, subYears } from 'date-fns'
 
 export default {
   components: {
@@ -84,6 +106,7 @@ export default {
     QItem,
     QItemSection,
     QItemLabel,
+    QSeparator,
   },
   data () {
     return {
@@ -178,6 +201,7 @@ export default {
       })
     },
     periodFilterOptions () {
+      const now = new Date()
       return [
         {
           label: this.$t('STATISTICS.FILTER_TIME_PREVIOUS_DAYS', { count: 7 }),
@@ -231,6 +255,43 @@ export default {
           onlyAggregate: true,
           dateQuery () {
             return {}
+          },
+        },
+        {
+          label: getYear(now) - 2,
+          value: 'twoyearsago',
+          onlyAggregate: true,
+          sectionLabel: this.$t('STATISTICS.FILTER_TIME_YEARS_LABEL'),
+          dateQuery () {
+            const date = subYears(new Date(), 2)
+            return {
+              dateAfter: startOfYear(date),
+              dateBefore: endOfYear(date),
+            }
+          },
+        },
+        {
+          label: getYear(now) - 1,
+          value: 'lastyear',
+          onlyAggregate: true,
+          dateQuery () {
+            const date = subYears(new Date(), 1)
+            return {
+              dateAfter: startOfYear(date),
+              dateBefore: endOfYear(date),
+            }
+          },
+        },
+        {
+          label: getYear(now),
+          value: 'thisyear',
+          onlyAggregate: true,
+          dateQuery () {
+            const date = new Date()
+            return {
+              dateAfter: startOfYear(date),
+              dateBefore: endOfYear(date),
+            }
           },
         },
       ].map(option => {

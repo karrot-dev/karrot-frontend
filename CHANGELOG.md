@@ -22,6 +22,7 @@ Please document your changes in this format:
 
 ## [Unreleased]
 ### Added
+- Choice of default view (wall or activities) on place page @brnsolikyl @nicksellen @larzon83 [#2444]
 - Add "Previous 12 months" to statistics time period @changjus [#2445]
 - Add recent years option to statistics time period @nicksellen [#2467]
 
@@ -33,9 +34,6 @@ Please document your changes in this format:
 
 ### Removed
 - Remove calendar subscribe button from group wall @amengsk [#2451]
-
-### Added
-- Choice of default view (wall or activities) on place page @brnsolikyl @nicksellen @larzon83 [#2444]
 
 ## [9.5.1] - 2021-11-08
 ### Changed

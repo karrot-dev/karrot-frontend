@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [9.6.0] - 2021-12-24
 ### Added
 - Choice of default view (wall or activities) on place page @brnsolikyl @nicksellen @larzon83 [#2444]
 - Add "Previous 12 months" to statistics time period @changjus [#2445]
@@ -740,8 +742,15 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2406]: https://github.com/karrot-dev/karrot-frontend/issues/2406
 [#2417]: https://github.com/karrot-dev/karrot-frontend/issues/2417
 [#2428]: https://github.com/karrot-dev/karrot-frontend/issues/2428
+[#2444]: https://github.com/karrot-dev/karrot-frontend/issues/2444
+[#2445]: https://github.com/karrot-dev/karrot-frontend/issues/2445
+[#2451]: https://github.com/karrot-dev/karrot-frontend/issues/2451
+[#2455]: https://github.com/karrot-dev/karrot-frontend/issues/2455
+[#2457]: https://github.com/karrot-dev/karrot-frontend/issues/2457
+[#2467]: https://github.com/karrot-dev/karrot-frontend/issues/2467
 
-[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v9.5.1...HEAD
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v9.6.0...HEAD
+[9.6.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.5.1...v9.6.0
 [9.5.1]: https://github.com/karrot-dev/karrot-frontend/compare/v9.5.0...v9.5.1
 [9.5.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.4.0...v9.5.0
 [9.4.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.3.0...v9.4.0

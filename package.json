@@ -20,6 +20,7 @@
   "bugs": "https://github.com/karrot-dev/karrot-frontend/issues",
   "scripts": {
     "dev": "quasar dev",
+    "dev:pwa": "quasar dev -m pwa",
     "dev:backend:dev": "cross-env BACKEND=https://dev.karrot.world quasar dev",
     "dev:backend:local": "cross-env BACKEND=http://localhost:8000 quasar dev",
     "build": "quasar build -m pwa",

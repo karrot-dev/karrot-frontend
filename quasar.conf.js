@@ -49,7 +49,6 @@ module.exports = configure(function (ctx) {
     KARROT: {
       BACKEND: backend,
       THEME: process.env.KARROT_THEME,
-      FCM_CONFIG: process.env.FCM_CONFIG,
       GIT_SHA1: process.env.GIT_SHA1 || process.env.CIRCLE_SHA1,
     },
     // vuelidate wants this

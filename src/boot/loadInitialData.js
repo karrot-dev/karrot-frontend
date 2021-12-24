@@ -1,9 +1,15 @@
 import { isNetworkError } from '@/utils/datastore/helpers'
 import bootstrap from '@/base/api/bootstrap'
+import { configureSentry } from '@/utils/sentry'
 
 export default async function ({ store: datastore }) {
   const bootstrapData = await bootstrap.fetch()
-  const { user, groups, geoip } = bootstrapData
+  const { config, user, groups, geoip } = bootstrapData
+  if (config) {
+    if (config.sentry) {
+      configureSentry(config.sentry)
+    }
+  }
   if (groups) {
     datastore.commit('groups/set', groups)
   }

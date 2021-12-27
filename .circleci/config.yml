@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: karrot/python:2.8
+    - image: karrot/python:2.9
 
 android-defaults: &android-defaults
   working_directory: ~/repo
@@ -365,9 +365,9 @@ jobs:
             git checkout -b $BRANCH
             yarn upgrade --latest --ignore-engines
             # stay with quasar@1 and vue@2 and webpack@4 until we found time to upgrade
-            yarn upgrade vue@latest quasar@legacy @quasar/app@^2.2.10 vuex-persistedstate@^3.1.0 stylelint-webpack-plugin@^2.2.2 eslint-webpack-plugin@2 @quasar/quasar-ui-qiconpicker@qv1
+            yarn upgrade --ignore-engines vue@latest quasar@legacy @quasar/app@^2.2.10 vuex-persistedstate@^3.1.0 stylelint-webpack-plugin@^2.2.2 eslint-webpack-plugin@2 @quasar/quasar-ui-qiconpicker@qv1
             # downgrade stylelint due to https://github.com/karrot-dev/karrot-frontend/issues/2461
-            yarn upgrade stylelint@^13.13.1
+            yarn upgrade --ignore-engines stylelint@^13.13.1
             tee pr.txt \<<EOL
             [CI] update dependencies
 

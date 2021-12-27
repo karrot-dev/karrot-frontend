@@ -32,7 +32,7 @@ deploy-android: &deploy-android
     - run:
         name: upload sourcemaps to sentry and associate commits
         environment:
-          SENTRY_ORG: foodsaving-worldwide
+          SENTRY_ORG: karrot-dev
           SENTRY_PROJECT: karrot
         command: |
           VERSION=`./node_modules/.bin/sentry-cli releases propose-version`

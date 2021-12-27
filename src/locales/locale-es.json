@@ -704,6 +704,7 @@
     "FILTER_USER_LABEL": "Persona usuaria",
     "FILTER_ALL_USERS": "Todas las personas usuarias",
     "FILTER_TIME_LABEL": "Periodo de tiempo",
+    "FILTER_TIME_YEARS_LABEL": "Years",
     "FILTER_TIME_PREVIOUS_DAYS": "Último {count} días",
     "FILTER_TIME_PREVIOUS_MONTHS": "Últimos {count} meses",
     "FILTER_TIME_FOREVER": "Siempre",
@@ -730,6 +731,8 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Dirección",
+    "DEFAULT_VIEW": "Default View",
+    "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
     "DESCRIPTION": "Descripción",
     "DIALOGS": {
       "ARCHIVE": {

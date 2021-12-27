@@ -704,6 +704,7 @@
     "FILTER_USER_LABEL": "Felhasználó",
     "FILTER_ALL_USERS": "Minden felhasználó",
     "FILTER_TIME_LABEL": "Időszak",
+    "FILTER_TIME_YEARS_LABEL": "Years",
     "FILTER_TIME_PREVIOUS_DAYS": "Előző {count} nap",
     "FILTER_TIME_PREVIOUS_MONTHS": "Előző {count} hónap",
     "FILTER_TIME_FOREVER": "Mindenkori",
@@ -730,6 +731,8 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Cím",
+    "DEFAULT_VIEW": "Default View",
+    "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
     "DESCRIPTION": "Leírás",
     "DIALOGS": {
       "ARCHIVE": {

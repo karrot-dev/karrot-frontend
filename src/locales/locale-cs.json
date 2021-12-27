@@ -704,6 +704,7 @@
     "FILTER_USER_LABEL": "Uživatel",
     "FILTER_ALL_USERS": "Všichni uživatelé",
     "FILTER_TIME_LABEL": "Časový úsek",
+    "FILTER_TIME_YEARS_LABEL": "roků",
     "FILTER_TIME_PREVIOUS_DAYS": "Předchozích {count} dnů",
     "FILTER_TIME_PREVIOUS_MONTHS": "Předchozích {count} měsíců",
     "FILTER_TIME_FOREVER": "Navždy",
@@ -730,6 +731,8 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Adresa",
+    "DEFAULT_VIEW": "Výchozí zobrazení",
+    "DEFAULT_VIEW_HINT": "Co by se mělo ve výchozím nastavení zobrazit po kliknutí na toto místo?",
     "DESCRIPTION": "Popis",
     "DIALOGS": {
       "ARCHIVE": {

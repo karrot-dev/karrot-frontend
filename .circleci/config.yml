@@ -128,7 +128,6 @@ jobs:
           environment:
             KARROT_THEME: dev
             PWA_APP_NAME: Karrot Dev
-            FCM_CONFIG: dev
           command: yarn build
       - persist_to_workspace:
           root: ~/repo
@@ -146,7 +145,6 @@ jobs:
       - run:
           environment:
             PWA_APP_NAME: Karrot
-            FCM_CONFIG: prod
           command: yarn build
       - persist_to_workspace:
           root: ~/repo

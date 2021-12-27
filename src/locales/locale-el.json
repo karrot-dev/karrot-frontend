@@ -704,6 +704,7 @@
     "FILTER_USER_LABEL": "Χρήστης",
     "FILTER_ALL_USERS": "Όλοι οι χρήστες",
     "FILTER_TIME_LABEL": "Χρονική περίοδος ",
+    "FILTER_TIME_YEARS_LABEL": "Years",
     "FILTER_TIME_PREVIOUS_DAYS": "Προηγούμενες {count}ημέρες ",
     "FILTER_TIME_PREVIOUS_MONTHS": "Προηγούμενοι {count}μήνες",
     "FILTER_TIME_FOREVER": "Για πάντα ",
@@ -730,6 +731,8 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Διεύθυνση",
+    "DEFAULT_VIEW": "Default View",
+    "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
     "DESCRIPTION": "Περιγραφή ",
     "DIALOGS": {
       "ARCHIVE": {

@@ -704,6 +704,7 @@
     "FILTER_USER_LABEL": "Uzanto",
     "FILTER_ALL_USERS": "Ĉiuj uzantoj",
     "FILTER_TIME_LABEL": "Tempa periodo",
+    "FILTER_TIME_YEARS_LABEL": "Years",
     "FILTER_TIME_PREVIOUS_DAYS": "Antaŭ {count} tagoj",
     "FILTER_TIME_PREVIOUS_MONTHS": "Antaŭaj {count} monatoj",
     "FILTER_TIME_FOREVER": "Ĉiam",
@@ -730,6 +731,8 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Adreso",
+    "DEFAULT_VIEW": "Default View",
+    "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
     "DESCRIPTION": "Priskribo",
     "DIALOGS": {
       "ARCHIVE": {

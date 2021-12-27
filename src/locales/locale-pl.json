@@ -704,6 +704,7 @@
     "FILTER_USER_LABEL": "Użytkownik",
     "FILTER_ALL_USERS": "Wszyscy użytkownicy",
     "FILTER_TIME_LABEL": "Czas",
+    "FILTER_TIME_YEARS_LABEL": "Years",
     "FILTER_TIME_PREVIOUS_DAYS": "Ostatnie {count} dni",
     "FILTER_TIME_PREVIOUS_MONTHS": "Ostatnie {count} miesięcy",
     "FILTER_TIME_FOREVER": "Wszystkie",
@@ -730,6 +731,8 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Adres",
+    "DEFAULT_VIEW": "Default View",
+    "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
     "DESCRIPTION": "Opis",
     "DIALOGS": {
       "ARCHIVE": {

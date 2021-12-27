@@ -704,6 +704,7 @@
     "FILTER_USER_LABEL": "User",
     "FILTER_ALL_USERS": "All users",
     "FILTER_TIME_LABEL": "Time period",
+    "FILTER_TIME_YEARS_LABEL": "Years",
     "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
     "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
     "FILTER_TIME_FOREVER": "Forever",
@@ -730,6 +731,8 @@
   },
   "STOREEDIT": {
     "ADDRESS": "पता",
+    "DEFAULT_VIEW": "Default View",
+    "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
     "DESCRIPTION": "विवरण",
     "DIALOGS": {
       "ARCHIVE": {

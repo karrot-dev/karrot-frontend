@@ -2,9 +2,13 @@ import Vue from 'vue'
 import * as Sentry from '@sentry/browser'
 import * as Integrations from '@sentry/integrations'
 
-if (process.env.KARROT.SENTRY_CONFIG) {
+export function configureSentry ({ dsn, environment }) {
+  if (process.env.DEV) {
+    environment = 'dev'
+  }
   Sentry.init({
-    dsn: process.env.KARROT.SENTRY_CONFIG,
+    dsn,
+    environment,
     integrations: [
       new Integrations.Vue({ Vue, logErrors: true }),
       new Integrations.ExtraErrorData(),

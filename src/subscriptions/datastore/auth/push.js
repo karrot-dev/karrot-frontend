@@ -33,12 +33,12 @@ export default {
 
         commit('setIntention', true)
 
-        const messaging = await initializeMessaging()
+        const { getToken } = await initializeMessaging()
 
         const serviceWorkerRegistration = await getServiceWorkerRegistration()
         let token
         try {
-          token = await messaging.getToken({ serviceWorkerRegistration })
+          token = await getToken({ serviceWorkerRegistration })
         }
         catch (err) {
           if (err.code === 'messaging/notifications-blocked' || err.code === 'messaging/permission-blocked') {
@@ -81,7 +81,7 @@ export default {
       if (state.intention === true) {
         await dispatch('enable')
         const registration = await getServiceWorkerRegistration()
-        registration.update()
+        await registration.update()
       }
       else if (state.intention === false) {
         await dispatch('disable')

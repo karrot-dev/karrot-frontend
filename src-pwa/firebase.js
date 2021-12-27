@@ -1,15 +1,13 @@
-import 'firebase/messaging'
-// eslint-disable-next-line import/default
-import firebase from 'firebase/app'
-import firebaseConfig from '@/subscriptions/firebase.config'
-
-const app = firebase.initializeApp(firebaseConfig)
+import { initializeApp } from 'firebase/app'
+import { getMessaging, onBackgroundMessage } from 'firebase/messaging/sw'
+import { getFirebaseConfig } from '@/subscriptions/firebase.config'
 
 export async function init () {
-  // Actually start showing background notifications
-  const messaging = firebase.messaging(app)
+  const firebaseConfig = await getFirebaseConfig()
+  const app = initializeApp(firebaseConfig)
+  const messaging = getMessaging(app)
 
-  messaging.onBackgroundMessage(payload => {
+  onBackgroundMessage(messaging, payload => {
     // not actually used, but without it here firefox does not receive messages...
     console.log('onBackgroundMessage', payload)
   })

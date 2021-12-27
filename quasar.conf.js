@@ -49,8 +49,6 @@ module.exports = configure(function (ctx) {
     KARROT: {
       BACKEND: backend,
       THEME: process.env.KARROT_THEME,
-      FCM_CONFIG: process.env.FCM_CONFIG,
-      SENTRY_CONFIG: process.env.SENTRY_CONFIG,
       GIT_SHA1: process.env.GIT_SHA1 || process.env.CIRCLE_SHA1,
     },
     // vuelidate wants this
@@ -78,7 +76,6 @@ module.exports = configure(function (ctx) {
       'helloDeveloper',
       'addressbar-color',
       'socket',
-      'sentry',
       'cordova',
       'i18n',
       'loadInitialData',

@@ -46,6 +46,16 @@ deploy-android: &deploy-android
         paths:
           - ~/repo/src-cordova/playstoreHelper/env
 
+build-cordova: &build-cordova
+  name: build cordova
+  command: |
+    cd ~/repo/src-cordova
+    rm -f config/current
+    ln -s "$CORDOVA_ENV" config/current
+    cd ~/repo
+    yarn build:cordova:${CORDOVA_ENV}
+    mv src-cordova/www dist-app-${CORDOVA_ENV}
+
 build-android: &build-android
   name: build android
   command: |
@@ -170,10 +180,10 @@ jobs:
           name: pretend we have cordova installed (quasar build wants it)
           command: ln -s /bin/true /usr/local/bin/cordova
       - run:
+          <<: *build-cordova
           name: build cordova app
-          command: |
-            yarn build:cordova:dev
-            mv src-cordova/www dist-app-dev
+          environment:
+            CORDOVA_ENV: dev
       - persist_to_workspace:
           root: ~/repo
           paths:
@@ -188,10 +198,10 @@ jobs:
           name: pretend we have cordova installed (quasar build wants it)
           command: ln -s /bin/true /usr/local/bin/cordova
       - run:
+          <<: *build-cordova
           name: build cordova app
-          command: |
-            yarn build:cordova:prod
-            mv src-cordova/www dist-app-prod
+          environment:
+            CORDOVA_ENV: prod
       - persist_to_workspace:
           root: ~/repo
           paths:

@@ -22,6 +22,13 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+## [9.6.1] - 2021-12-29
+### Changed
+- use config API more @nicksellen [#2470]
+
+### Fixed
+- fix places navigation @nicksellen [#2473]
+
 ## [9.6.0] - 2021-12-24
 ### Added
 - Choice of default view (wall or activities) on place page @brnsolikyl @nicksellen @larzon83 [#2444]
@@ -655,7 +662,7 @@ Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://qu
 - Disabled auto-capitalization on login page
 - many small issues...
 
-## 1.0.0 - 2016-12-14
+## [1.0.0] - 2016-12-14
 After months of planning and programming, the first version of ~the foodsaving tool~ _karrot_ is ready!
 
 ### Added
@@ -748,8 +755,11 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2455]: https://github.com/karrot-dev/karrot-frontend/issues/2455
 [#2457]: https://github.com/karrot-dev/karrot-frontend/issues/2457
 [#2467]: https://github.com/karrot-dev/karrot-frontend/issues/2467
+[#2470]: https://github.com/karrot-dev/karrot-frontend/issues/2470
+[#2473]: https://github.com/karrot-dev/karrot-frontend/issues/2473
 
-[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v9.6.0...HEAD
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v9.6.1...HEAD
+[9.6.1]: https://github.com/karrot-dev/karrot-frontend/compare/v9.6.0...v9.6.1
 [9.6.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.5.1...v9.6.0
 [9.5.1]: https://github.com/karrot-dev/karrot-frontend/compare/v9.5.0...v9.5.1
 [9.5.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.4.0...v9.5.0
@@ -803,3 +813,4 @@ After months of planning and programming, the first version of ~the foodsaving t
 [4.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v3.0.0...v4.0.0
 [3.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v1.0.0...v2.0.0
+[1.0.0]: https://github.com/karrot-dev/karrot-frontend/releases/tag/v1.0.0

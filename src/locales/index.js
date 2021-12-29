@@ -162,8 +162,6 @@ const locales = {
     quasar: () => import('quasar/lang/sv'),
   },
 
-  /*
-  // Currently not used, please open issue if this should be enabled
   'zh-hans': {
     name: '中文 (Simplified)',
     locale: 'zh-hans',
@@ -172,7 +170,6 @@ const locales = {
     dateFnsLocale: () => import('date-fns/locale/zh-CN'),
     quasar: () => import('quasar/lang/zh-hans'),
   },
-  */
 
   'zh-hant': {
     name: '中文',

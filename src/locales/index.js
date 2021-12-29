@@ -33,7 +33,7 @@ const locales = {
     messages: () => import('@/locales/locale-eo.json'),
     intlLocale: () => import('intl/locale-data/jsonp/eo'),
     dateFnsLocale: () => import('date-fns/locale/eo'),
-    quasar: () => import('quasar/lang/en-us'), // TODO switch when translated
+    quasar: () => import('quasar/lang/eo'),
   },
 
   es: {
@@ -59,7 +59,7 @@ const locales = {
     locale: 'gu',
     messages: () => import('@/locales/locale-gu.json'),
     intlLocale: () => import('intl/locale-data/jsonp/gu'),
-    dateFnsLocale: () => import('date-fns/locale/en-US'), // TODO switch when translated
+    dateFnsLocale: () => import('date-fns/locale/gu'),
     quasar: () => import('quasar/lang/en-us'), // TODO switch when translated
   },
 
@@ -68,7 +68,7 @@ const locales = {
     locale: 'hi',
     messages: () => import('@/locales/locale-hi.json'),
     intlLocale: () => import('intl/locale-data/jsonp/hi'),
-    dateFnsLocale: () => import('date-fns/locale/en-US'), // TODO switch when translated
+    dateFnsLocale: () => import('date-fns/locale/hi'),
     quasar: () => import('quasar/lang/en-us'), // TODO switch when translated
   },
 
@@ -140,7 +140,7 @@ const locales = {
     locale: 'pt-br',
     messages: () => import('@/locales/locale-pt_BR.json'),
     intlLocale: () => import('intl/locale-data/jsonp/pt-BR'),
-    dateFnsLocale: () => import('date-fns/locale/pt-BR'), // TODO switch to pt-br when datefns supports it
+    dateFnsLocale: () => import('date-fns/locale/pt-BR'),
     quasar: () => import('quasar/lang/pt-br'),
   },
 

@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- enabled Japanese, and Chinese (simplified), and a few library locales @nicksellen [#2475]
 
 ## [9.6.0] - 2021-12-24
 ### Added

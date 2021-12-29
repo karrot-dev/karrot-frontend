@@ -1,10 +1,10 @@
 {
   "ABOUT_KARROT": {
-    "AND_MORE": "And more...",
-    "EXISTING_GROUPS": "A few groups already using Karrot",
+    "AND_MORE": "さらに...",
+    "EXISTING_GROUPS": "Karrotを利用している複数のグループ",
     "LINKS": {
-      "CHAT": "team chat",
-      "FORUM": "community forum"
+      "CHAT": "チームチャット",
+      "FORUM": "コミュニティのフォーラム"
     },
     "SECTIONS": {
       "ACTIVITIES": {
@@ -14,60 +14,60 @@
       },
       "COMMUNICATION": {
         "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats.",
-        "TITLE": "Communication in the right context"
+        "TITLE": "正しい文脈でのコミュニケーション"
       },
       "DEMOCRATIC": {
         "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development.",
-        "TITLE": "Democratic and participative development"
+        "DESCRIPTION2": "言うまでもなく、開発者やデザイナーたちは、あなたがKarrotの開発に参加することを歓迎しています。",
+        "TITLE": "民主的かつ参加型の開発"
       },
       "GROUPS": {
         "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally.",
-        "SUBTITLE": "Every group on Karrot is completely independent and can have their own logo, processes, rules and agreements.",
-        "TITLE": "Independent groups"
+        "SUBTITLE": "Karrot上のそれぞれのグループは完全に独立しており、それぞれのグループ独自のロゴ、プロセス、ルール、合意事項があります。",
+        "TITLE": "独立したグループ"
       },
       "MAPS": {
         "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online.",
-        "TITLE": "Maps and lists"
+        "TITLE": "マップとリスト"
       },
       "NOTIFICATIONS": {
         "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!",
-        "TITLE": "Notifications"
+        "TITLE": "通知"
       },
       "OFFERS": {
         "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat.",
         "SUBTITLE": "Create an offer of whatever you want to share or give away.",
-        "TITLE": "Share things"
+        "TITLE": "モノを共有する"
       },
       "OPENSOURCE": {
         "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world.",
-        "TITLE": "Open source"
+        "TITLE": "オープンソース"
       },
       "TEAM": {
-        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}.",
-        "TITLE": "Responsive team"
+        "DESCRIPTION": "簡単にKarrotの開発者たちと話すことができます。私たちの{forum}、{code}または{chat}でリアルタイムに。",
+        "TITLE": "まめに対応するチーム"
       },
       "TRANSLATIONS": {
         "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}.",
-        "TITLE": "Multi-language"
+        "TITLE": "多言語"
       },
       "TRANSPARENCY": {
         "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here.",
-        "TITLE": "Transparency"
+        "TITLE": "透明性"
       },
       "TRUST": {
         "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way.",
-        "TITLE": "Democratic and trust-based group management"
+        "TITLE": "民主主義的で、そして信頼をベースにしたグループマネージメント"
       }
     },
     "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
     "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
-    "TITLE": "Start a group, become a community",
+    "TITLE": "グループから始めて、コミュニティを作ろう",
     "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kitchen..."
   },
   "ACTIVITYDELETE": {
     "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
-    "DELETE_SERIES_TITLE": "Delete series"
+    "DELETE_SERIES_TITLE": "シリーズの削除"
   },
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "This is disabled.",
@@ -76,55 +76,55 @@
     "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
     "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
-      "ALL": "All",
-      "ALL_TYPES": "All types",
+      "ALL": "全て",
+      "ALL_TYPES": "全てのタイプ",
       "EMPTY": "Only empty",
       "FREE": "With free slots"
     },
     "ITEM": {
-      "JOIN": "Join",
-      "JOIN_CONFIRMATION_HEADER": "Join {activityType}",
+      "JOIN": "新規登録",
+      "JOIN_CONFIRMATION_HEADER": "{activityType}に参加",
       "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
-      "LEAVE": "Leave",
-      "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
+      "LEAVE": "離れる",
+      "LEAVE_CONFIRMATION_HEADER": "{activityType}から離れる",
       "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?",
-      "DOWNLOAD_ICS": "Download ICS"
+      "DOWNLOAD_ICS": "ICSファイルのダウンロード"
     },
     "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
-    "NONE": "No upcoming activities",
-    "NONE_DUE_TO_FILTER": "No activities match your filters",
+    "NONE": "次のアクティビティはありません",
+    "NONE_DUE_TO_FILTER": "フィルターにマッチしたアクティビティはありません",
     "NONE_HINT": "You can create a new activity on the place page.",
     "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page.",
     "ICS_DIALOG": {
-      "TITLE": "Add to calendar",
+      "TITLE": "カレンダーに追加",
       "INTRO": "Add your activities to your calendar by using one of the following options:",
-      "DOWNLOAD_TITLE": "Download",
-      "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
-      "DOWNLOAD_BUTTON_LABEL": "Download ICS",
-      "SUBSCRIBE_TITLE": "Subscribe",
-      "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
-      "MORE_INFOS": "More info about ICS"
+      "DOWNLOAD_TITLE": "ダウンロード",
+      "DOWNLOAD_TEXT": "ICSファイルを手動であなたのカレンダーにダウンロードする:",
+      "DOWNLOAD_BUTTON_LABEL": "ICSファイルをダウンロード",
+      "SUBSCRIBE_TITLE": "購読",
+      "SUBSCRIBE_TEXT": "URLを利用して、ICSカレンダーとして購読:",
+      "MORE_INFOS": "ICSファイルについての詳しい情報"
     }
   },
   "ACTIVITYMANAGE": {
-    "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
+    "ACTIVITY_DESCRIPTION_CHANGED": "「追加情報」が変更されました",
     "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed",
-    "SERIES": "Activity series",
-    "SINGLE": "One-time activities",
-    "TITLE": "Manage activities",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
+    "SERIES": "アクティビティのシリーズ",
+    "SINGLE": "一回だけのアクティビティ",
+    "TITLE": "アクティビティを管理",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "このシリーズでの次のアクティビティ"
   },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
     "DELETE_AMOUNT": "Delete amount",
-    "EDIT": "Edit feedback",
-    "HEADER": "Thank you for your participation!",
+    "EDIT": "フィードバックを編集",
+    "HEADER": "あなたのご参加、ありがとうございました！",
     "PREVIOUS": "Previous feedback for {store}",
     "SET_AMOUNT": "Set amount",
-    "TITLE": "Feedback",
+    "TITLE": "フィードバック",
     "TOGETHER_WITH": "You did this together with:",
     "DISMISS_LABEL": "Dismiss",
     "DISMISS_TITLE": "Dismiss feedback",
@@ -133,24 +133,24 @@
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Meeting",
     "Pickup": "Pickup",
-    "Distribution": "Distribution",
-    "Event": "Event",
-    "Activity": "Activity",
-    "Task": "Task"
+    "Distribution": "配布",
+    "Event": "イベント",
+    "Activity": "アクティビティ",
+    "Task": "タスク"
   },
   "ACTIVITY_TYPE_STATUS": {
-    "ACTIVE": "Active",
-    "ARCHIVED": "Archived"
+    "ACTIVE": "活発",
+    "ARCHIVED": "アーカイブされた"
   },
   "ACTIVITY_TYPES": {
-    "ADD": "Add new activity type",
+    "ADD": "アクティビティのタイプを新しく追加する",
     "FEEDBACK_YES_HINT": "The participants will be asked for feedback about the activity",
     "FEEDBACK_NO_HINT": "No feedback will be requested",
     "FEEDBACK_WEIGHT_LABEL": "Ask for weight?",
-    "NAME": "Name",
-    "FEEDBACK": "Feedback",
+    "NAME": "名前",
+    "FEEDBACK": "フィードバック",
     "FEEDBACK_WEIGHT": "Feedback weight",
-    "STATUS": "Status",
+    "STATUS": "状態",
     "STANDARD_NAME_HEADING": "Standard names",
     "STANDARD_NAME_HINT": "Name will be available in other languages",
     "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
@@ -167,10 +167,10 @@
     "SET_AS": "Set address as"
   },
   "AGREEMENT": {
-    "AGREE": "You must agree to {title}",
+    "AGREE": "あなたは{title}に同意しなければなりません",
     "BLURB1": "You don't have an agreement yet!",
     "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
-    "CONTENT": "Content",
+    "CONTENT": "コンテンツ",
     "CONTENT_HELPER": "The text of your agreement",
     "DIALOGS": {
       "REMOVE": {
@@ -187,72 +187,72 @@
     "MINOR_EDIT": "Minor edit?",
     "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
     "NEW": "New agreement",
-    "TITLE": "Title",
+    "TITLE": "タイトル",
     "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
     "VIEW": "View agreement"
   },
   "APPLICATION": {
-    "ACCEPTED": "You accepted {userName} into this group!",
-    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
-    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
-    "APPLICATION": "Application",
-    "DECLINED": "You declined the application of {userName}.",
-    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
-    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
-    "FORM_HEADER": "Apply",
-    "FORM_TITLE": "Apply to join {groupName}",
-    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
+    "ACCEPTED": "あなたは{userName}がこのグループにはいることを承認しました！",
+    "ACCEPT_CONFIRMATION_HEADER": "申し込み状の受理",
+    "ACCEPT_CONFIRMATION_TEXT": "あなたは本当に{userName}がこのグループに入ることを承認しますか？",
+    "APPLICATION": "申し込み状",
+    "DECLINED": "{userName}の申し込み状を却下しました。",
+    "DECLINE_CONFIRMATION_HEADER": "申し込み状を却下",
+    "DECLINE_CONFIRMATION_TEXT": "本当に{userName}の申し込み状を却下しますか？",
+    "FORM_HEADER": "申し込み",
+    "FORM_TITLE": "{groupName}の参加を申し込む",
+    "GALLERY_TOOLTIP": "あなたはこのグループへの参加を申し込みました。あなたの申し込み状は、まだ保留されています。",
     "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
-    "INITIAL": "Initial questions and answers",
+    "INITIAL": "最初の質問と回答",
     "PAST": "Past applications",
     "SUBMITTED_ON": "Submitted on {date}",
     "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
-    "WHAT": "What is this chat about?",
+    "WHAT": "チャットとは何ですか？",
     "WITHDRAWN": "withdrawn {relativeDate}"
   },
-  "ATTENTION": "Attention!",
+  "ATTENTION": "注意！",
   "BUTTON": {
-    "ACCEPT": "Accept",
-    "AGREE": "I agree",
+    "ACCEPT": "受理",
+    "AGREE": "賛成する",
     "APPLY": "Apply",
-    "ARCHIVE": "Archive",
-    "BACK": "Back",
-    "CANCEL": "Cancel",
-    "CHANGE_COLOUR": "Change colour",
-    "CHANGE_EMAIL": "Change e-mail address",
-    "CHANGE_ICON": "Change icon",
-    "CHANGE_PASSWORD": "Change password",
-    "CLOSE": "Close",
-    "CREATE": "Create",
-    "DECLINE": "Decline",
-    "DELETE": "Delete",
-    "DELETE_ACCOUNT": "Delete account",
-    "DISABLE": "Disable",
-    "EDIT": "Edit",
-    "ENABLE": "Enable",
-    "HIDE": "Hide",
-    "JOIN": "Join",
-    "NEXT": "Next",
-    "OF_COURSE": "Yes, of course!",
-    "OPEN": "Open",
-    "PREVIEW": "Preview",
-    "REMOVE": "Remove",
-    "RESET": "Reset",
-    "SAVE_CHANGES": "Save changes",
-    "SEARCH": "Search",
-    "SHOW": "Show",
-    "SHOW_LESS": "Show less",
-    "SHOW_MORE": "Show more",
+    "ARCHIVE": "アーカイブ",
+    "BACK": "戻る",
+    "CANCEL": "キャンセル",
+    "CHANGE_COLOUR": "色を変える",
+    "CHANGE_EMAIL": "メールアドレスを変更する",
+    "CHANGE_ICON": "アイコンを変える",
+    "CHANGE_PASSWORD": "パスワードを変更する",
+    "CLOSE": "閉じる",
+    "CREATE": "作成",
+    "DECLINE": "却下",
+    "DELETE": "削除",
+    "DELETE_ACCOUNT": "アカウントを削除",
+    "DISABLE": "無効",
+    "EDIT": "編集",
+    "ENABLE": "有効",
+    "HIDE": "隠す",
+    "JOIN": "参加",
+    "NEXT": "次へ",
+    "OF_COURSE": "はい、もちろん！",
+    "OPEN": "開く",
+    "PREVIEW": "プレビュー",
+    "REMOVE": "除名",
+    "RESET": "リセット",
+    "SAVE_CHANGES": "変更を保存",
+    "SEARCH": "検索",
+    "SHOW": "表示",
+    "SHOW_LESS": "折りたたむ",
+    "SHOW_MORE": "さらに表示",
     "SUBMIT": "Submit",
-    "UNSUBSCRIBE": "Unsubscribe",
+    "UNSUBSCRIBE": "購読の解除",
     "WITHDRAW": "Withdraw",
-    "YES": "Yes",
-    "READ_MORE": "Read more"
+    "YES": "はい",
+    "READ_MORE": "さらに詳しく"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
-    "HEADER_LINK": "Karrot community",
-    "KARROT_DISCUSSION": "Discussions about Karrot",
+    "HEADER_LINK": "Karrotコミュニティ",
+    "KARROT_DISCUSSION": "Karrotについての議論",
     "LAST_UPDATED": "Last updated {relativeDate}"
   },
   "CONFLICT": {
@@ -261,7 +261,7 @@
       "MESSAGE": "This is a score voting in which group members can participate to determine how to deal with a social conflict that affects the whole group.",
       "TITLE": "How does this process work?"
     },
-    "INITIAL": "Information",
+    "INITIAL": "情報",
     "REQUIREMENTS": {
       "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
     },
@@ -283,61 +283,61 @@
     "WITH": "This process is to resolve a conflict with {userName}"
   },
   "CONVERSATION": {
-    "CLOSED": "This conversation has been closed automatically.",
-    "CONVERSATIONS": "Conversations",
+    "CLOSED": "この会話は自動的に終了されました。",
+    "CONVERSATIONS": "会話",
     "EDITED": "edited",
-    "MARK_READ": "Mark all as read",
-    "MESSAGE_NOT_FOUND": "Message not found",
-    "MUTED": "Notifications are disabled",
+    "MARK_READ": "全てを既読にする",
+    "MESSAGE_NOT_FOUND": "メッセージは見つかりませんでした",
+    "MUTED": "通知は無効です",
     "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation.",
-    "NO_CONVERSATIONS": "No conversations yet.",
-    "OPEN": "Open Chat",
+    "NO_CONVERSATIONS": "まだ会話はありません。",
+    "OPEN": "オープンチャット",
     "REACTIONS": {
       "AND": "and",
-      "REACTED_WITH": "{users} reacted with {reaction}",
-      "YOU": "you"
+      "REACTED_WITH": "{users}が{reaction}と反応しました",
+      "YOU": "あなた"
     },
-    "REPLIES": "Replies",
-    "REPLIES_COUNT": "1 reply | {count} replies",
-    "REPLY_TO_MESSAGE": "Reply to message...",
-    "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages."
+    "REPLIES": "返信",
+    "REPLIES_COUNT": "1 返信 | {count} 返信",
+    "REPLY_TO_MESSAGE": "メッセージへの返信...",
+    "UNREAD_MESSAGES": "未読のメッセージがあります。 | {count}件の未読のメッセージがあります。"
   },
   "CREATEACTIVITY": {
-    "COMMENT": "Additional information",
+    "COMMENT": "追加情報",
     "COMMENT_HELPER": "What should people know when signing up to this?",
-    "CUSTOM": "Custom",
-    "DATE": "Date",
+    "CUSTOM": "カスタム",
+    "DATE": "日付",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
     "DISABLE_TITLE": "Disable?",
     "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
     "ENABLE_TITLE": "Enable?",
     "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
-    "EXCEPTIONS_TITLE": "Check your activities",
-    "FREQUENCY": "Frequency",
+    "EXCEPTIONS_TITLE": "あなたのアクティビティをチェック",
+    "FREQUENCY": "頻度",
     "MAX_PARTICIPANTS": "Max Slots",
-    "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
+    "MAX_PARTICIPANTS_HELPER": "何名が参加すべきですか？",
     "RRULE": "Recurrence rule",
     "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
-    "RRULE_EXAMPLE2": "every second Monday",
+    "RRULE_EXAMPLE2": "毎月第二月曜日",
     "RRULE_HELPER": "Type in a valid {ruleHelper}, e.g. {ruleExample} or {ruleExample2}",
     "RRULE_HELPER_URL": "iCalender rule",
     "STARTDATE_HELPER": "When should the series start?",
     "TIME_HELPER": "When should it take place?",
-    "UNLIMITED": "unlimited",
-    "WEEKDAYS": "Weekdays",
+    "UNLIMITED": "無制限",
+    "WEEKDAYS": "平日",
     "WEEKDAYS_HELPER": "On which days should it take place?",
-    "WEEKLY": "Weekly"
+    "WEEKLY": "ウィークリー"
   },
   "CREATESTORE": {
-    "TITLE": "Create a new place"
+    "TITLE": "新しい場所を作成する"
   },
   "DELETEACCOUNT": {
-    "SUCCESS": "Your account was successfully deleted!",
-    "TITLE": "Account deletion"
+    "SUCCESS": "あなたのアカウントの削除に成功しました！",
+    "TITLE": "アカウント削除"
   },
-  "ENTRY": "1 entry | {count} entries",
+  "ENTRY": "1エントリー | {count}エントリー",
   "FEEDBACKLIST": {
-    "NONE": "No feedback yet",
+    "NONE": "フィードバックはまだありません",
     "NONE_HINT": "This page will be filled once more feedback is available",
     "NO_DONE_ACTIVITIES": "All done!",
     "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
@@ -347,74 +347,74 @@
     "WEIGHT_SUM": "{sum} kg of food saved"
   },
   "GLOBAL": {
-    "ABOUT_KARROT": "About Karrot",
-    "APP_INSTALLED": "App successfully installed!",
-    "GENERIC_ERROR": "Sorry, something went wrong",
-    "GITHUB_NOTE": "Development",
-    "INVALID_LINK": "Sorry, the link you've opened is invalid.",
-    "LOGO_ALT": "karrot logo",
-    "NOT_CONNECTED": "You aren't connected to the server",
-    "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
-    "RECONNECTING": "Reconnecting...",
-    "SEARCH_NOT_FOUND": "Not Found",
-    "SEARCH_RESULTS": "Search results",
-    "SERVER_ERROR": "Server error",
-    "CLEAR_FILTERS": "Clear filters"
+    "ABOUT_KARROT": "Karrotについて",
+    "APP_INSTALLED": "アプリのインストールに成功しました！",
+    "GENERIC_ERROR": "申し訳ありません。何か不具合が起きました。",
+    "GITHUB_NOTE": "開発",
+    "INVALID_LINK": "申し訳ありません。あなたが開いたリンクは有効なものではありません。",
+    "LOGO_ALT": "karrotロゴ",
+    "NOT_CONNECTED": "サーバーと接続されていません。",
+    "OFFLINE_RECONNECT": "オフライン状態です。ここをクリックして、サーバーに再接続して下さい。",
+    "RECONNECTING": "再接続中...",
+    "SEARCH_NOT_FOUND": "検索しましたが、何も見つかりませんでした。",
+    "SEARCH_RESULTS": "検索結果",
+    "SERVER_ERROR": "サーバーエラー",
+    "CLEAR_FILTERS": "フィルターのクリア"
   },
   "GROUP": {
-    "ACTIVITIES": "Activities",
-    "ACTIVITY": "Activity",
+    "ACTIVITIES": "アクティビティ",
+    "ACTIVITY": "アクティビティ",
     "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
     "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
-    "ADDED_BY": "added by {userName}",
-    "ADDRESS": "Address",
+    "ADDED_BY": "{userName}によって追加されました",
+    "ADDRESS": "住所",
     "APPLICATIONS": "Applications",
-    "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
-    "CREATE_TITLE": "Create new group",
-    "DECLINED": "declined {relativeDate}",
-    "DECLINED_BY": "declined by {userName}",
-    "DESCRIPTION": "Description",
-    "DESCRIPTION_VERBOSE": "Group description, visible for members",
-    "EDIT": "Edit group",
-    "EDIT_ACTIVITY_TYPES": "Activity types",
-    "EDIT_DETAILS": "Group details",
-    "EMAIL_NOTIFICATIONS": "Email notifications",
+    "APPLICATION_QUESTIONS": "このグループに参加したいユーザーへの質問",
+    "CREATE_TITLE": "新しいグループを作成",
+    "DECLINED": "{relativeDate}に却下しました",
+    "DECLINED_BY": "{userName}から却下されました",
+    "DESCRIPTION": "説明",
+    "DESCRIPTION_VERBOSE": "メンバーから見える、グループの説明",
+    "EDIT": "グループを編集",
+    "EDIT_ACTIVITY_TYPES": "アクティビティのタイプ",
+    "EDIT_DETAILS": "グループの詳細",
+    "EMAIL_NOTIFICATIONS": "メールによる通知",
     "HEADINGS": {
-      "GENERAL": "General",
-      "LOCATION": "Location",
+      "GENERAL": "一般",
+      "LOCATION": "場所",
       "LOCATION_HINT": "If you want your group's location to be made visible on a public map, enter an adress or pick a location on the map below.",
       "NEW_MEMBERS_SIGNUP": "New Members Signup",
       "NEW_MEMBERS_SIGNUP_HINT": "New members will have to apply and get accepted to your group. You can always change the application and welcome message later in the group settings."
     },
-    "HISTORY": "History",
-    "HOME": "Home",
-    "INACTIVE": "Inactive",
-    "INVITATIONS": "Invitations",
-    "INVITATION_ACCEPT_ERROR": "Ooops, could not accept the invitation!",
+    "HISTORY": "活動履歴",
+    "HOME": "ホーム",
+    "INACTIVE": "活発ではない",
+    "INVITATIONS": "招待",
+    "INVITATION_ACCEPT_ERROR": "申し訳ありません。招待状を受理できませんでした！",
     "INVITATION_ACCEPT_SUCCESS": "Welcome! You successfully accepted the invitation.",
     "INVITATION_DIALOG": {
-      "MESSAGE": "Copy the link and send it to the person you want to invite.",
-      "TITLE": "Invitation link"
+      "MESSAGE": "リンクをコピーし、あなたが招待したい人に送信しましょう。",
+      "TITLE": "招待リンク"
     },
-    "INVITED_LIST": "Invitations have already been sent out to these e-mail addresses:",
-    "INVITE_EMAIL": "Enter an e-mail address",
-    "INVITE_SEND": "Send invitation",
-    "INVITE_SEND_ERROR": "Ooops, could not send the invitation!",
-    "INVITE_SEND_SUCCESS": "Invitation sent successfully!",
-    "INVITE_TITLE": "Invite users to your group",
-    "JOINED": "joined {relativeDate}",
-    "JOIN_ANOTHER_GROUP": "Join another group",
+    "INVITED_LIST": "招待状は既に、以下のメールアドレスに送信されました。",
+    "INVITE_EMAIL": "メールアドレスを入力",
+    "INVITE_SEND": "招待状を送る",
+    "INVITE_SEND_ERROR": "申し訳ありません。招待状を送信できませんでした！",
+    "INVITE_SEND_SUCCESS": "招待状の送信に成功しました！",
+    "INVITE_TITLE": "あなたのグループにユーザーを招待",
+    "JOINED": "{relativeDate}に参加",
+    "JOIN_ANOTHER_GROUP": "他のグループに参加",
     "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
-    "LEAVE": "Leave group...",
-    "LEAVE_CONFIRMATION": "You left {groupName}",
-    "LEAVE_TEXT": "Are you sure you want to leave this group?",
-    "LOGO": "Group logo",
+    "LEAVE": "グループを離れる...",
+    "LEAVE_CONFIRMATION": "{groupName}から離れました",
+    "LEAVE_TEXT": "本当にグループを離れますか？",
+    "LOGO": "グループのロゴ",
     "MANAGE_AGREEMENT": "Manage agreement",
-    "MEMBERLIST": "Your group has {total} members in total.",
-    "MEMBERS": "Members",
-    "MESSAGES": "Messages",
-    "NONMEMBER_REDIRECT": "You are not a member of this group.",
-    "NOTIFICATIONS_BY_GROUP": "Notifications by group",
+    "MEMBERLIST": "あなたのグループには、合計で{total}人のメンバーがいます。",
+    "MEMBERS": "メンバー",
+    "MESSAGES": "メッセージ",
+    "NONMEMBER_REDIRECT": "あなたはこのグループのメンバーではありません。",
+    "NOTIFICATIONS_BY_GROUP": "グループからの通知",
     "NOTIFICATION_TYPES": {
       "conflict_resolution": {
         "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group",
@@ -422,7 +422,7 @@
       },
       "daily_activity_notification": {
         "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
-        "NAME": "Activity notifications"
+        "NAME": "アクティビティの通知"
       },
       "new_application": {
         "DESCRIPTION": "Tells you when somebody wants to join your group",
@@ -438,90 +438,90 @@
       }
     },
     "OFFERS": "Offers",
-    "PLACES": "Places",
+    "PLACES": "場所",
     "PLAYGROUND_INFO": "This is a playground group, you can't break anything. Explore, click around and have fun!",
-    "SET_LOGO": "Click to upload your group logo!",
-    "SHOW_INACTIVE": "Show inactive groups",
-    "SORT_JOINDATE": "Sort by join date",
-    "SORT_NAME": "Sort by name",
-    "STATISTICS": "Statistics",
-    "TIMEZONE": "Time zone of group",
+    "SET_LOGO": "クリックして、グループのロゴをアップロードしよう！",
+    "SHOW_INACTIVE": "活発ではないグループを表示",
+    "SORT_JOINDATE": "参加日付で並び替え",
+    "SORT_NAME": "名前で並び替え",
+    "STATISTICS": "統計",
+    "TIMEZONE": "グループのタイムゾーン",
     "TITLE": "Title of this group",
     "WALL": "Wall",
-    "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members"
+    "WELCOMEMESSAGE_VERBOSE": "新しいメンバーへウェルカムメッセージを送信しました"
   },
   "GROUPINFO": {
     "MEMBER_VIEW": "You are member of this group. Click here to switch to full view.",
-    "META": "Show public group information",
-    "TITLE": "Public group information"
+    "META": "公開グループの情報を表示",
+    "TITLE": "公開グループの情報"
   },
   "GROUPMAP": {
-    "EXPORT": "Export",
-    "FULL_SCREEN": "Show full screen",
-    "HIDE_GROUPS": "Hide groups",
-    "HIDE_PLACES": "Hide places",
-    "HIDE_USERS": "Hide users",
+    "EXPORT": "エクスポート",
+    "FULL_SCREEN": "フルスクリーンで見る",
+    "HIDE_GROUPS": "グループを隠す",
+    "HIDE_PLACES": "場所を隠す",
+    "HIDE_USERS": "ユーザーを隠す",
     "SET_LOCATION": "Set location",
-    "SHOW_GROUPS": "Show groups",
-    "SHOW_PLACES": "Show places",
-    "SHOW_USERS": "Show users",
-    "TITLE": "Map"
+    "SHOW_GROUPS": "グループを表示",
+    "SHOW_PLACES": "場所を表示",
+    "SHOW_USERS": "ユーザーを表示",
+    "TITLE": "地図"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "{activityType} created",
-    "ACTIVITY_DELETE": "{activityType} deleted",
-    "ACTIVITY_DISABLE": "{activityType} disabled",
-    "ACTIVITY_DONE": "did {activityType} at {placeName}",
-    "ACTIVITY_ENABLE": "{activityType} enabled",
+    "ACTIVITY_CREATE": "{activityType}が作成されました",
+    "ACTIVITY_DELETE": "{activityType}が削除されました",
+    "ACTIVITY_DISABLE": "{activityType}を無効にしました",
+    "ACTIVITY_DONE": "が、{placeName}の場所で{activityType}をしました",
+    "ACTIVITY_ENABLE": "{activityType}を有効にしました",
     "ACTIVITY_JOIN": "signed up for {activityType} at {placeName}",
     "ACTIVITY_LEAVE": "stepped back from {activityType} at {placeName}",
     "ACTIVITY_LEAVE_DISTANCE": "{distance} before scheduled time",
     "ACTIVITY_MISSED": "{activityType} at {placeName} had no participants!",
-    "ACTIVITY_MODIFY": "changed the settings of an activity",
-    "ACTIVITY_TYPE_CREATE": "{activityType} type created",
-    "ACTIVITY_TYPE_MODIFY": "{activityType} type modified",
+    "ACTIVITY_MODIFY": "がアクティビティの設定を変更しました",
+    "ACTIVITY_TYPE_CREATE": "{activityType}のタイプが作成されました",
+    "ACTIVITY_TYPE_MODIFY": "{activityType}のタイプが修正されました",
     "APPLICATION_DECLINED": "declined an application from {applicantName}",
     "CONFIRM_CHANGES": "Confirm changes?",
     "CONFIRM_CHANGES_HINT": "You can write a message here to explain your changes that will be displayed in the history",
-    "DETAILS": "More information",
-    "GROUP_CHANGE_PHOTO": "changed the group logo",
-    "GROUP_CREATE": "created this group",
-    "GROUP_DELETE_PHOTO": "deleted the group logo",
-    "GROUP_JOIN": "joined this group",
-    "GROUP_LEAVE": "left this group",
-    "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
-    "GROUP_MODIFY": "changed the settings of this group",
-    "MEMBER_BECAME_EDITOR": "gained editing permissions",
-    "MEMBER_REMOVED": "was removed due to group decision",
+    "DETAILS": "さらなる情報",
+    "GROUP_CHANGE_PHOTO": "が、このグループのロゴを変更しました",
+    "GROUP_CREATE": "が、このグループを作成しました",
+    "GROUP_DELETE_PHOTO": "が、このグループのロゴを削除しました",
+    "GROUP_JOIN": "が、このグループに参加しました",
+    "GROUP_LEAVE": "このグループを出る",
+    "GROUP_LEAVE_INACTIVE": "が、活発では無いことから除名されました",
+    "GROUP_MODIFY": "が、このグループの設定を変更しました",
+    "MEMBER_BECAME_EDITOR": "が、編集権限を手に入れました",
+    "MEMBER_REMOVED": "が、グループの決定によって除名されました",
     "NOTHING_HAPPENEND": "Nothing happened so far...",
-    "SERIES_CREATE": "{activityType} series created",
-    "SERIES_DELETE": "{activityType} series deleted",
-    "SERIES_MODIFY": "changed the settings of a series",
-    "STORE_CREATE": "created place {name}",
-    "STORE_DELETE": "deleted place {name}",
-    "STORE_MODIFY": "changed the settings of place {name}",
-    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
+    "SERIES_CREATE": "{activityType}のシリーズが作成されました",
+    "SERIES_DELETE": "{activityType}のシリーズが削除されました",
+    "SERIES_MODIFY": "が、シリーズの設定を変更しました",
+    "STORE_CREATE": "が、{name}の場所を作成しました",
+    "STORE_DELETE": "が、{name}の場所を削除しました",
+    "STORE_MODIFY": "が、{name}の場所の設定変更をしました",
+    "USER_LOST_EDITOR_ROLE": "編集権限を失いました"
   },
   "INACTIVITY": {
     "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore.",
     "WHAT": "What does it mean to be inactive?"
   },
-  "INFO": "Info",
+  "INFO": "情報",
   "ISSUE": {
-    "CHAT": "Chat",
+    "CHAT": "チャット",
     "CREATION": {
       "TOAST": "You successfully started a conflict resolution process"
     },
-    "NO_ONGOING": "No ongoing issues.",
-    "PARTICIPANTS": "{count} members have been added to this discussion.",
-    "PAST": "Past issues",
-    "PREVIOUS_VOTINGS": "Previous votings in this issue",
-    "TITLE": "Issues",
-    "VOTE": "Vote",
+    "NO_ONGOING": "現在進行中の問題はありません。",
+    "PARTICIPANTS": "{count}人のメンバーが、この議論に参加しました。",
+    "PAST": "過去にあった問題",
+    "PREVIOUS_VOTINGS": "この問題についての、過去の投票",
+    "TITLE": "問題",
+    "VOTE": "投票",
     "VOTING": {
       "ANONYMOUS": "Your vote will be anonymous.",
-      "BTN_DELETE": "Delete vote",
-      "BTN_START": "Vote now",
+      "BTN_DELETE": "投票を削除",
+      "BTN_START": "投票する",
       "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
       "NO_CHANGE": "No change: {userName} stays in {groupName}",
       "REMOVE_USER": "{userName} gets removed from {groupName}",
@@ -529,14 +529,14 @@
         "ENDED_AT": "This voting round ended on {date}",
         "KEEP_DISCUSSING": "Your group voted to keep discussing",
         "PARTICIPANTS": "{number} members participated in the voting.",
-        "TIME_UP": "Time is up!",
-        "TOTAL_SCORE": "Total score",
+        "TIME_UP": "投票終了！",
+        "TOTAL_SCORE": "合計スコア",
         "UNDECIDED": "Unfortunately this conflict could not be decided.",
         "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
-        "UNDECIDED_REASON_2": "nobody voted on this issue",
+        "UNDECIDED_REASON_2": "誰もこの問題に投票していません",
         "UNDECIDED_WHY": "There are two possible reasons for that:"
       },
-      "SAVE": "Save",
+      "SAVE": "保存",
       "SCORE_LABELS": {
         "NEUTRAL": "neutral",
         "SLIGHT_RESISTANCE": "resistance",
@@ -544,57 +544,57 @@
         "STRONG_RESISTANCE": "strong resistance",
         "STRONG_SUPPORT": "strong support"
       },
-      "SEE_RESULTS": "See the results",
+      "SEE_RESULTS": "結果を見る",
       "TIME_LEFT": "Time left to vote",
       "TOAST": "Your vote was successfully submitted",
-      "TOAST_DELETE": "Your vote was deleted"
+      "TOAST_DELETE": "あなたの投票は削除されました"
     }
   },
   "JOINGROUP": {
-    "ALL_GROUPS": "All groups",
+    "ALL_GROUPS": "全てのグループ",
     "APPLICATION_PENDING": "Your application is pending!",
     "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
     "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!",
     "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!",
-    "BROWSE_GROUPS": "Browse existing groups",
+    "BROWSE_GROUPS": "活動中のグループを探す",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "You are currently logged out. {login}",
-      "LOG_IN": "Log in to see your groups!"
+      "LOGGED_OUT": "あなたは現在ログアウトしています。{login}",
+      "LOG_IN": "ログインして、あなたのグループを見ましょう！"
     },
-    "MY_GROUPS": "My groups",
-    "NO_PUBLIC_DESCRIPTION": "(This group has no public description... yet)",
-    "NUM_MEMBERS": "Member | Members",
-    "OR": "{joinGroup} or {createGroup}",
-    "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members.",
-    "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
+    "MY_GROUPS": "私のグループ",
+    "NO_PUBLIC_DESCRIPTION": "（まだこのグループには説明がありません）",
+    "NUM_MEMBERS": "メンバー | メンバー",
+    "OR": "{joinGroup}または{createGroup}",
+    "PROFILE_NOTE": "このグループに参加することによって、あなたのプロフィールは他のグループメンバーから見えるようになります。",
+    "SIGNUP_OR_LOGIN": "ログインまたは新規登録をして、グループに参加しよう！",
     "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
-    "WHICHGROUP": "Which group do you want to join?",
+    "WHICHGROUP": "あなたはどのグループに参加したいですか？",
     "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
     "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?"
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Help translating!",
-    "SWITCH": "Switch language"
+    "ADD_MORE": "Karrotの翻訳にご協力ください！",
+    "SWITCH": "言語を切り替える"
   },
   "LOGIN": {
-    "FORGOT_PASSWORD": "Forgot your password?",
-    "SIGNUP": "Sign up!",
-    "SUBMIT": "Login",
-    "TITLE": "Login"
+    "FORGOT_PASSWORD": "パスワードを忘れましたか？",
+    "SIGNUP": "新規登録！",
+    "SUBMIT": "ログイン",
+    "TITLE": "ログイン"
   },
   "MARKDOWN_INPUT": {
-    "BOLD": "bold",
-    "HELP": "What is Markdown?",
-    "ITALIC": "italic",
-    "QUOTE": "quote",
+    "BOLD": "ボールド",
+    "HELP": "マークダウンとは何ですか？",
+    "ITALIC": "イタリック",
+    "QUOTE": "引用",
     "STRIKE": "strike"
   },
   "NOTIFICATIONS": {
-    "CHANGES_SAVED": "Your changes have been saved.",
-    "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
+    "CHANGES_SAVED": "あなたの変更は保存されました。",
+    "CHECK_YOUR_MAILS": "Eメールまたは{resend}をチェックして下さい",
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you",
-    "NOT_VERIFIED": "{email} is not verified",
-    "RESEND_VERIFICATION": "resend verification email",
+    "NOT_VERIFIED": "{email}は認証されていません",
+    "RESEND_VERIFICATION": "認証メールの再送信",
     "VERIFICATION_EMAIL_SENT": "We sent you another verification mail. Please check your inbox."
   },
   "NOTIFICATION_BELLS": {
@@ -610,77 +610,77 @@
     "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
     "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
-    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "あなたはグループから除外されました。",
     "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
     "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
-    "INVITATION_ACCEPTED": "{userName} accepted your invitation",
+    "INVITATION_ACCEPTED": "{userName}があなたの招待を受けとりました",
     "NEW_APPLICANT": "{userName} applied to join your group",
-    "NEW_MEMBER": "{userName} joined your group",
-    "NEW_PLACE": "{placeName} has been created",
-    "USER_BECAME_EDITOR": "{userName} gained editing permissions",
-    "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!",
-    "YOU_BECAME_EDITOR": "You gained editing permissions"
+    "NEW_MEMBER": "{userName}があなたのグループに参加しました",
+    "NEW_PLACE": "{placeName}が作成されました",
+    "USER_BECAME_EDITOR": "{userName}が編集権限を得ました",
+    "VOTING_ENDS_SOON": "投票はまもなく週りょうします。忘れずに参加して下さい！",
+    "YOU_BECAME_EDITOR": "編集権限を得ました"
   },
   "NOTIFICATION_BELLS_LIST": {
-    "NO_ITEMS": "We currently don't have notifications for you.",
-    "TITLE": "Notifications"
+    "NO_ITEMS": "現在、あなたへの通知はありません。",
+    "TITLE": "通知"
   },
   "NOTIFICATION_TOGGLE": {
-    "ALL": "all",
+    "ALL": "全て",
     "ALL_TEXT": "Via app/website, email and push notifications.",
     "HEADER": "How do you want to receive notifications about new messages in this conversation/thread?",
-    "NONE": "none",
-    "NONE_TEXT": "No notifications.",
+    "NONE": "無し",
+    "NONE_TEXT": "通知はありません。",
     "SOME": "some",
     "SOME_TEXT": "Via app/website."
   },
   "NOT_FOUND": {
-    "EXPLANATION": "Sorry, we couldn't find this page anywhere.",
+    "EXPLANATION": "申し訳ありません。ページが見つかりませんでした。",
     "HOME": "Take me home"
   },
   "OFFER": {
     "CREATE_TITLE": "Create offer",
-    "DESCRIPTION": "Description",
+    "DESCRIPTION": "説明",
     "FILTER": {
       "STATUS": {
         "ACTIVE": "Available",
         "ARCHIVED": "My archived offers"
       }
     },
-    "MARK_AS_ARCHIVED": "Archive",
+    "MARK_AS_ARCHIVED": "アーカイブ",
     "MARK_AS_ARCHIVED_DESCRIPTION": "Mark this is offer as archived to remove it from the available listings.",
-    "NAME": "Name",
+    "NAME": "名前",
     "NAME_HELPER": "Short name for the item you are offering"
   },
   "OUTDATED_BROWSER": {
-    "LINK": "Please update or switch your browser",
-    "MESSAGE": "You are using an unsupported browser. {upgradeBrowser} to enjoy all features."
+    "LINK": "あなたが使用しているブラウザーをアップデートするか、違うブラウザーを使用して下さい。",
+    "MESSAGE": "あなたは現在、サポートされていないブラウザーを使用しています。{upgradeBrowser}を使用して、全ての機能を利用しましょう。"
   },
   "PASSWORD": {
     "CHANGE": {
-      "SUCCESS": "Your new password has been saved."
+      "SUCCESS": "新しいパスワードが保存されました。"
     },
     "RESET": {
-      "OK": "Save",
-      "SUCCESS": "Your new password has been saved.",
-      "TITLE": "Reset password"
+      "OK": "保存",
+      "SUCCESS": "あなたの新しいパスワードは保存されました。",
+      "TITLE": "パスワードのリセット"
     }
   },
   "PASSWORDRESET": {
-    "EMAIL": "Email address",
+    "EMAIL": "メールアドレス",
     "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
-    "LOGIN": "Back to login page",
-    "SUBMIT": "Get new password",
-    "SUCCESS": "The request was successfully sent. Have a look at your Emails!",
-    "TITLE": "Password reset"
+    "LOGIN": "ログインページに戻る",
+    "SUBMIT": "新しいパスワードを取得",
+    "SUCCESS": "リクエストの送信は成功しました。Eメールを確認して下さい！",
+    "TITLE": "パスワードのリセット"
   },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
     "SUBSCRIPTION": {
       "HEADER": "Do you want to mark this place as your favourite?",
-      "NO": "no",
+      "NO": "いいえ",
       "NO_TEXT": "None of the above. You can still sign up for activities though.",
-      "YES": "yes",
+      "YES": "はい",
       "YES_TEXT": "Shows available activities on the group wall and sends emails about upcoming activities."
     }
   },
@@ -688,33 +688,33 @@
     "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
   },
   "SETTINGS": {
-    "TITLE": "Settings"
+    "TITLE": "設定"
   },
   "SIDENAV": {
-    "GIT_SUB": "See our code!",
+    "GIT_SUB": "Karrotのコードを見る！",
     "INFO_SUB": "How to build your foodsaving group"
   },
   "SIGNUP": {
-    "BACK": "Back to Login",
-    "OK": "Join",
-    "TITLE": "Sign Up!"
+    "BACK": "ログインページに戻る",
+    "OK": "参加",
+    "TITLE": "アカウントの新規登録をする！"
   },
   "STATISTICS": {
-    "ACTIVITY_HISTORY": "Activity statistics",
-    "FILTER_USER_LABEL": "User",
-    "FILTER_ALL_USERS": "All users",
+    "ACTIVITY_HISTORY": "アクティビティの統計",
+    "FILTER_USER_LABEL": "ユーザー",
+    "FILTER_ALL_USERS": "全てのユーザー",
     "FILTER_TIME_LABEL": "Time period",
-    "FILTER_TIME_YEARS_LABEL": "Years",
-    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
-    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
-    "FILTER_TIME_FOREVER": "Forever",
-    "COLUMN_PLACE": "Place",
+    "FILTER_TIME_YEARS_LABEL": "年",
+    "FILTER_TIME_PREVIOUS_DAYS": "過去{count}日間",
+    "FILTER_TIME_PREVIOUS_MONTHS": "過去{count}ヶ月間",
+    "FILTER_TIME_FOREVER": "永遠",
+    "COLUMN_PLACE": "場所",
     "COLUMN_ACTIVITY_DONE": "Done",
     "COLUMN_ACTIVITY_MISSED": "Missed",
     "COLUMN_ACTIVITY_LEFT": "Withdrew",
-    "COLUMN_FEEDBACK": "Feedback",
+    "COLUMN_FEEDBACK": "フィードバック",
     "COLUMN_FEEDBACK_WEIGHT": "Weight",
-    "TOTAL_LABEL": "Total",
+    "TOTAL_LABEL": "合計",
     "OPTIONS_ANY": "Any",
     "OPTIONS_MISSED_LABEL": "Missed",
     "OPTIONS_MISSED_DESCRIPTION": "Only if the activity was missed",
@@ -722,18 +722,18 @@
     "OPTIONS_LATE_DESCRIPTION": "Only if less than 24 hours before"
   },
   "STOREDETAIL": {
-    "ARCHIVED": "This place has been archived",
+    "ARCHIVED": "この場所はアーカイブされています",
     "CHANGE_STATUS": "You can change the status on the settings page.",
     "DIRECTIONS": "Show directions",
-    "EDIT": "Edit place",
+    "EDIT": "場所の編集",
     "INACTIVE": "This place is currently not cooperating.",
     "NO_DESCRIPTION": "This place does not have a description yet"
   },
   "STOREEDIT": {
-    "ADDRESS": "Address",
-    "DEFAULT_VIEW": "Default View",
+    "ADDRESS": "住所",
+    "DEFAULT_VIEW": "デフォルトのビュー",
     "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
-    "DESCRIPTION": "Description",
+    "DESCRIPTION": "説明",
     "DIALOGS": {
       "ARCHIVE": {
         "CONFIRM": "Yes, archive place",
@@ -741,11 +741,11 @@
         "TITLE": "Archive place"
       }
     },
-    "NAME": "Name",
+    "NAME": "お店の名前",
     "RESTORE": "Restore",
-    "SHOW_ACTIVE_ONLY": "Only show active places",
-    "SHOW_ALL": "Show all places",
-    "STATUS": "Status",
+    "SHOW_ACTIVE_ONLY": "活発な場所のみ表示",
+    "SHOW_ALL": "全ての場所を表示",
+    "STATUS": "状態",
     "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
     "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
   },
@@ -757,42 +757,42 @@
     "NEGOTIATING": "Negotiating"
   },
   "SWITCHGROUP": {
-    "CHOOSE": "Choose a group:",
+    "CHOOSE": "グループを選ぶ:",
     "COMMON_GROUPS": "Groups you have in common",
-    "NOT_MEMBER": "{userName} is not member of {groupName}.",
-    "OTHER_GROUPS": "Other groups"
+    "NOT_MEMBER": "{userName}は{groupName}のメンバーではありません。",
+    "OTHER_GROUPS": "他のグループ"
   },
-  "THANKS": "Thank you!",
-  "TO": "to",
+  "THANKS": "ありがとうございます！",
+  "TO": "へ",
   "TOPBAR": {
-    "CHANGE_GROUP": "Change group",
-    "LOGOUT": "Logout",
-    "SHOW_ALL_GROUPS": "Show all groups",
-    "USERPROFILE": "Visit your profile"
+    "CHANGE_GROUP": "グループを変更",
+    "LOGOUT": "ログアウト",
+    "SHOW_ALL_GROUPS": "全てのグループを表示",
+    "USERPROFILE": "あなたのプロフィールを見る"
   },
   "UNSUBSCRIBE": {
-    "ALL": "Unsubscribe all",
+    "ALL": "全ての購読を解除",
     "COUNTS": "You unsubscribed from {formerConversations} conversations and {formerReplies} replies.",
     "FROM_CONVERSATION": "unsubscribe from just this conversation",
     "FROM_GROUP": "Unsubscribe from all email notifications in {groupName}",
     "FROM_NOTIFICATION_TYPE": "unsubscribe from {notificationType}",
     "FROM_THREAD": "unsubscribe from just this thread",
-    "HEADER": "Unsubscribe",
-    "SUCCESS": "You were successfully unsubscribed!"
+    "HEADER": "購読の解除",
+    "SUCCESS": "購読の解除に成功しました！"
   },
   "UPDATE_AVAILABLE": {
-    "DETAIL": "A new version of karrot is available.",
-    "RELOAD": "Reload"
+    "DETAIL": "Karrotの新しいバージョンが利用できます。",
+    "RELOAD": "再読み込み"
   },
-  "URL_CLICK_TO_COPY": "Click to copy",
-  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
+  "URL_CLICK_TO_COPY": "クリックしてコピー",
+  "URL_COPIED_TOAST": "URLがあなたのクリップボードにコピーされました。",
   "USERDATA": {
-    "ACCOUNT": "Account",
-    "CONFIRM_PASSWORD": "Confirm your password",
+    "ACCOUNT": "アカウント",
+    "CONFIRM_PASSWORD": "あなたのパスワードを確認",
     "DIALOGS": {
       "GIVE_TRUST": {
-        "MESSAGE": "Do you trust {userName} in {groupName}?",
-        "TITLE": "Trust user"
+        "MESSAGE": "あなたは{groupName}の{userName}を信頼していますか？",
+        "TITLE": "信頼しているユーザー"
       },
       "REVOKE_TRUST": {
         "MESSAGE": "Do you want to revoke the trust you have given to {userName} in {groupName}?",
@@ -801,67 +801,67 @@
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "Confirm",
         "MESSAGE": "Are you sure? Your account and your personal data will be permanently deleted. Anything you have done on this platform will be made anonymous. If you confirm, we send you an e-mail with a link to complete the deletion process.",
-        "TITLE": "Account deletion"
+        "TITLE": "アカウントの削除"
       }
     },
-    "EMAIL": "E-mail",
+    "EMAIL": "メールアドレス",
     "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
-    "LOGOUT_SUCCESS": "You have been logged out!",
-    "MOBILE_NUMBER": "Phone number",
-    "NEWCOMER": "Newcomer",
+    "LOGOUT_SUCCESS": "ログアウトしました！",
+    "MOBILE_NUMBER": "電話番号",
+    "NEWCOMER": "新しいユーザー",
     "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
     "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
-    "PASSWORD": "Password",
+    "PASSWORD": "パスワード",
     "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
-    "PHOTO": "Profile photo",
+    "PHOTO": "プロフィール写真",
     "PRIVATE_MESSAGE": "Send a private message to {userName}",
-    "PROFILE_TITLE": "Profile",
+    "PROFILE_TITLE": "プロフィール",
     "PUSH": "Push notifications",
-    "PUSH_CURRENT_BROWSER": "Current browser",
+    "PUSH_CURRENT_BROWSER": "現在使用しているブラウザー",
     "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
-    "APP": "App",
-    "INSTALL_APP": "Install Karrot app to your device",
+    "APP": "アプリ",
+    "INSTALL_APP": "あなたのデバイスにKarrotアプリをインストールする",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "We sent you an e-mail with a link to complete the deletion process."
     },
-    "SET_PHOTO": "Set your profile photo...",
+    "SET_PHOTO": "プロフィールの写真を設定する...",
     "TRUST_INFO": {
       "LINK": "Click here to find out more.",
       "MESSAGE": "It is part of the Karrot trust system. It shows if a group member is newcomer and how much trust is needed until they gain editing permissions.",
-      "TITLE": "What is this carrot button about?"
+      "TITLE": "このニンジンのボタンは何ですか？"
     },
     "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "USERNAME": "Name",
-    "WHERE_FROM": "Where you are from (not required)",
-    "YOU_TRUST_USER": "You trust {userName} in {groupName}."
+    "USERNAME": "名前",
+    "WHERE_FROM": "あなたの出身地（必須ではありません）",
+    "YOU_TRUST_USER": "あなたは{groupName}の{userName}を信頼しています。"
   },
   "USERDETAIL": {
-    "DESCRIPTION": "About you",
-    "DISPLAY_NAME": "Name",
-    "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "New password"
+    "DESCRIPTION": "あなたについて",
+    "DISPLAY_NAME": "名前",
+    "OLD_PASSWORD": "古いパスワードを確認",
+    "PASSWORD": "新しいパスワード"
   },
   "VALIDATION": {
-    "IMAGE_REQUIRED": "You must add an image",
-    "MAXLENGTH": "Too long, please use less than {max} characters.",
-    "MINLENGTH": "Please enter more than {min} characters.",
-    "REQUIRED": "This field is required.",
-    "UNIQUE": "Name already exists, please choose another.",
-    "VALID_EMAIL": "Enter a valid e-mail address.",
-    "VALID_TIMEZONE": "Enter a valid timezone."
+    "IMAGE_REQUIRED": "画像を入れなければなりません",
+    "MAXLENGTH": "長すぎます。{max}文字よりも短くして下さい。",
+    "MINLENGTH": "{min}文字以上、入力して下さい。",
+    "REQUIRED": "この欄は必ず入力してください。",
+    "UNIQUE": "その名前は既に存在します。他の名前を入力してください。",
+    "VALID_EMAIL": "有効なメールアドレスを入力して下さい。",
+    "VALID_TIMEZONE": "有効なタイムゾーンを入力して下さい。"
   },
   "VERIFYMAIL": {
-    "SUCCESS": "Your e-mail address was successfully verified!",
-    "TITLE": "E-Mail verification"
+    "SUCCESS": "あなたのメールアドレスの認証に成功しました！",
+    "TITLE": "メール認証"
   },
   "WALL": {
-    "RECEIVED_VIA_EMAIL": "This message was sent via e-mail",
-    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
-    "WRITE_FIRST_MESSAGE": "Write the first message...",
-    "WRITE_MESSAGE": "Write a message..."
+    "RECEIVED_VIA_EMAIL": "このメッセージは、メールを経由して送られました",
+    "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Eメールによる通知を受けとるために、あなたのメールアドレスを認証して下さい",
+    "WRITE_FIRST_MESSAGE": "最初のメッセージを書く...",
+    "WRITE_MESSAGE": "メッセージを書く..."
   },
-  "YOU": "You"
+  "YOU": "あなた"
 }

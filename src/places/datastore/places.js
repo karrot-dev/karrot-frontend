@@ -9,7 +9,6 @@ import {
   indexById,
   createRouteError,
   toggles,
-  createRouteRedirect,
 } from '@/utils/datastore/helpers'
 import router from '@/router'
 
@@ -74,13 +73,6 @@ export default {
     },
   },
   actions: {
-    async routeEnter ({ dispatch, getters }, { groupId, placeId, routeTo }) {
-      if (placeId) {
-        await dispatch('selectPlace', { placeId })
-        const place = getters.get(placeId)
-        throw createRouteRedirect({ name: placeRoute(place), params: { groupId, placeId }, query: routeTo.query })
-      }
-    },
     ...withMeta({
       async save ({ dispatch }, place) {
         dispatch('update', [await places.save(place)])

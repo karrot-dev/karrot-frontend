@@ -460,7 +460,7 @@ export default [
           breadcrumbs: [
             { type: 'activePlace' },
           ],
-          beforeEnter: 'places/routeEnter',
+          beforeEnter: 'places/selectPlace',
           afterLeave: 'places/clearSelectedPlace',
         },
         components: {

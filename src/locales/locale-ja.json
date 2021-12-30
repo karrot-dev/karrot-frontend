@@ -1,6 +1,6 @@
 {
   "ABOUT_KARROT": {
-    "AND_MORE": "さらに...",
+    "AND_MORE": "そして、さらに...",
     "EXISTING_GROUPS": "Karrotを利用している複数のグループ",
     "LINKS": {
       "CHAT": "チームチャット",
@@ -19,7 +19,7 @@
       "DEMOCRATIC": {
         "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
         "DESCRIPTION2": "言うまでもなく、開発者やデザイナーたちは、あなたがKarrotの開発に参加することを歓迎しています。",
-        "TITLE": "民主的かつ参加型の開発"
+        "TITLE": "民主主義的かつ参加型の開発"
       },
       "GROUPS": {
         "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally.",
@@ -44,12 +44,12 @@
         "TITLE": "オープンソース"
       },
       "TEAM": {
-        "DESCRIPTION": "簡単にKarrotの開発者たちと話すことができます。私たちの{forum}、{code}または{chat}でリアルタイムに。",
+        "DESCRIPTION": "気軽にKarrotの開発者たちと話すことができます。私たちの{forum}、{code}または{chat}でリアルタイムに。",
         "TITLE": "まめに対応するチーム"
       },
       "TRANSLATIONS": {
-        "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}.",
-        "TITLE": "多言語"
+        "DESCRIPTION": "Karrotは、その全てが有志のコミュニティによって翻訳可能であり、すでに多くの言語で翻訳されています。あなたが翻訳内容に貢献するために必要な事は、プロジェクトの{translations}にアクセスするだけです。",
+        "TITLE": "多言語対応"
       },
       "TRANSPARENCY": {
         "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here.",
@@ -57,7 +57,7 @@
       },
       "TRUST": {
         "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way.",
-        "TITLE": "民主主義的で、そして信頼をベースにしたグループマネージメント"
+        "TITLE": "民主主義的で、そして信頼をベースにしたグループ管理"
       }
     },
     "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
@@ -132,7 +132,7 @@
   },
   "ACTIVITY_TYPE_NAMES": {
     "Meeting": "Meeting",
-    "Pickup": "Pickup",
+    "Pickup": "ピックアップ",
     "Distribution": "配布",
     "Event": "イベント",
     "Activity": "アクティビティ",

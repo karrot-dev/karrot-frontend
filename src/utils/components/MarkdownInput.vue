@@ -92,7 +92,9 @@ import {
   QCardSection,
   QCardActions,
 } from 'quasar'
-import Markdown from '@/utils/components/Markdown'
+
+// TODO: not all uses of MarkdownInput should have the users
+import Markdown from '@/utils/components/MarkdownWithUsers'
 
 export default {
   components: {

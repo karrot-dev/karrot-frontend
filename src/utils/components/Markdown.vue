@@ -8,6 +8,11 @@ export default {
       required: true,
       type: String,
     },
+    users: {
+      required: false,
+      type: Array,
+      default: () => [],
+    },
   },
   render (h, { props, data }) {
     if (data.style || data.class || data.staticClass) {
@@ -20,7 +25,7 @@ export default {
       },
       domProps: {
         ...data.domProps,
-        innerHTML: markdown.render(props.source),
+        innerHTML: markdown.render(props.source, { users: props.users }),
       },
     })
   },
@@ -28,10 +33,20 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
+
 .markdown
   overflow-wrap break-word
 
 .markdown >>>
+  .mention
+    padding 2px 2px
+    margin 0 2px 0 2px
+    font-weight bold
+    text-decoration none
+    background-color $grey-3
+    border-radius 3px
+
   img.emoji
     width 1em
     height 1em

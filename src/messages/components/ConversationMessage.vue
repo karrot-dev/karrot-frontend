@@ -152,7 +152,7 @@ import ConversationAddReaction from './ConversationAddReaction'
 import ConversationCompose from '@/messages/components/ConversationCompose'
 import ImageGalleryDialog from '@/messages/components/ImageGalleryDialog'
 import ProfilePicture from '@/users/components/ProfilePicture'
-import Markdown from '@/utils/components/Markdown'
+import Markdown from '@/utils/components/MarkdownWithUsers'
 import DateAsWords from '@/utils/components/DateAsWords'
 
 import {

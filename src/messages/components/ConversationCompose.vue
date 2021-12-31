@@ -14,48 +14,79 @@
       </QItemSection>
       <QItemSection>
         <QItemLabel>
-          <MarkdownInput
-            ref="input"
-            v-model="message.content"
-            v-bind="$attrs"
-            dense
-            :placeholder="placeholder"
-            :loading="isPending"
-            :disable="isPending"
-            :error="hasAnyError"
-            :error-message="anyFirstError"
-            input-style="min-height: unset; max-height: 320px;"
-            @keyup.ctrl.enter="submit"
-            @keyup.esc="leaveEdit"
-            @focus="onFocus"
-            @blur="onBlur"
+          <Mentionable
+            :keys="['@']"
+            :items="mentionItems"
+            :insert-space="true"
+            placement="bottom-end"
+            offset="6"
+            @apply="focusInput"
           >
-            <template #append>
-              <QBtn
-                round
-                dense
-                flat
-                icon="fas fa-image"
-                @click="addImage"
-              />
-              <QBtn
-                v-if="hasContent && !isPending"
-                round
-                dense
-                flat
-                icon="fas fa-arrow-right"
-                @click="submit"
-              />
-              <QBtn
-                v-if="hasExistingContent && !isPending"
-                round
-                dense
-                flat
-                icon="fas fa-times"
-                @click="leaveEdit"
-              />
+            <!-- don't show anything when no result -->
+            <template #no-result>&nbsp;</template>
+            <template #item="{ item: { mentionUser } }">
+              <QItem>
+                <QItemSection avatar>
+                  <ProfilePicture
+                    :user="mentionUser"
+                    :size="30"
+                    :is-link="false"
+                    class="profilePic"
+                  />
+                </QItemSection>
+                <QItemSection>
+                  <QItemLabel>
+                    {{ mentionUser.displayName }}
+                  </QItemLabel>
+                  <QItemLabel caption>
+                    @{{ mentionUser.username }}
+                  </QItemLabel>
+                </QItemSection>
+              </QItem>
             </template>
-          </MarkdownInput>
+            <MarkdownInput
+              ref="input"
+              v-model="message.content"
+              v-bind="$attrs"
+              dense
+              :placeholder="placeholder"
+              :loading="isPending"
+              :disable="isPending"
+              :error="hasAnyError"
+              :error-message="anyFirstError"
+              input-style="min-height: unset; max-height: 320px;"
+              @keyup.ctrl.enter="submit"
+              @keyup.esc="leaveEdit"
+              @focus="onFocus"
+              @blur="onBlur"
+            >
+              <template #append>
+                <QBtn
+                  round
+                  dense
+                  flat
+                  icon="fas fa-image"
+                  @click="addImage"
+                />
+                <QBtn
+                  v-if="hasContent && !isPending"
+                  round
+                  dense
+                  flat
+                  icon="fas fa-arrow-right"
+                  @click="submit"
+                />
+                <QBtn
+                  v-if="hasExistingContent && !isPending"
+                  round
+                  dense
+                  flat
+                  icon="fas fa-times"
+                  @click="leaveEdit"
+                />
+              </template>
+            </MarkdownInput>
+          </Mentionable>
         </QItemLabel>
         <QItemLabel
           v-if="!isParticipant"
@@ -99,6 +130,8 @@ import MarkdownInput from '@/utils/components/MarkdownInput'
 import statusMixin from '@/utils/mixins/statusMixin'
 import MultiCroppa from '@/utils/components/MultiCroppa'
 import { deleteDraft, fetchDraft, saveDraft } from '@/messages/utils'
+import { Mentionable } from 'vue-mention'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'ConversationCompose',
@@ -110,6 +143,7 @@ export default {
     ProfilePicture,
     MarkdownInput,
     MultiCroppa,
+    Mentionable,
   },
   mixins: [statusMixin],
   props: {
@@ -152,6 +186,19 @@ export default {
     }
   },
   computed: {
+    mentionItems () {
+      return this.users.map(user => {
+        return {
+          mentionUser: user,
+          value: user.username,
+          searchText: [user.displayName, user.username].join(' '),
+        }
+      })
+    },
+    // TODO: consider if we keep this, or pass it down with props
+    ...mapGetters({
+      users: 'users/byCurrentGroup',
+    }),
     hasExistingContent () {
       if (!this.value) return false
       return this.value.content || (this.value.images && this.value.images.filter(image => !image._removed).length > 0)
@@ -196,6 +243,14 @@ export default {
     },
   },
   methods: {
+    focusInput () {
+      // It loses focus when you click the mention menu without this
+      const input = this.$refs.input
+      if (!input) return
+      setImmediate(() => {
+        input.focus()
+      })
+    },
     submit () {
       this.$emit('submit', this.message)
     },
@@ -217,3 +272,13 @@ export default {
   },
 }
 </script>
+<style lang="stylus">
+@import '~variables'
+
+.mention-item
+  background-color white
+
+.mention-selected
+  cursor pointer
+  background $grey-3
+</style>

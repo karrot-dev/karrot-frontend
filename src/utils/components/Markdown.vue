@@ -1,31 +1,36 @@
 <script>
 import markdown from './markdownRenderer'
+import { mapGetters } from 'vuex'
 
 export default {
-  functional: true,
   props: {
     source: {
       required: true,
       type: String,
     },
-    users: {
-      required: false,
-      type: Array,
-      default: () => [],
+    mentions: {
+      default: false,
+      type: Boolean,
     },
   },
-  render (h, { props, data }) {
-    if (data.style || data.class || data.staticClass) {
-      throw new Error('Markdown component does not support style or class attributes')
-    }
+  computed: {
+    ...mapGetters({
+      users: 'users/byCurrentGroup',
+    }),
+    markdownEnv () {
+      if (this.mentions) {
+        return {
+          users: this.users,
+        }
+      }
+      return {}
+    },
+  },
+  render (h) {
     return h('div', {
-      ...data,
-      class: {
-        markdown: true,
-      },
+      class: 'markdown',
       domProps: {
-        ...data.domProps,
-        innerHTML: markdown.render(props.source, { users: props.users }),
+        innerHTML: markdown.render(this.source, this.markdownEnv),
       },
     })
   },

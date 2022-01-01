@@ -14,79 +14,49 @@
       </QItemSection>
       <QItemSection>
         <QItemLabel>
-          <Mentionable
-            :keys="['@']"
-            :items="mentionItems"
-            :insert-space="true"
-            placement="bottom-end"
-            offset="6"
-            @apply="focusInput"
+          <MarkdownInput
+            ref="input"
+            v-model="message.content"
+            v-bind="$attrs"
+            dense
+            mentions
+            :placeholder="placeholder"
+            :loading="isPending"
+            :disable="isPending"
+            :error="hasAnyError"
+            :error-message="anyFirstError"
+            input-style="min-height: unset; max-height: 320px;"
+            @keyup.ctrl.enter="submit"
+            @keyup.esc="leaveEdit"
+            @focus="onFocus"
+            @blur="onBlur"
           >
-            <!-- don't show anything when no result -->
-            <template #no-result>&nbsp;</template>
-            <template #item="{ item: { mentionUser } }">
-              <QItem>
-                <QItemSection avatar>
-                  <ProfilePicture
-                    :user="mentionUser"
-                    :size="30"
-                    :is-link="false"
-                    class="profilePic"
-                  />
-                </QItemSection>
-                <QItemSection>
-                  <QItemLabel>
-                    {{ mentionUser.displayName }}
-                  </QItemLabel>
-                  <QItemLabel caption>
-                    @{{ mentionUser.username }}
-                  </QItemLabel>
-                </QItemSection>
-              </QItem>
+            <template #append>
+              <QBtn
+                round
+                dense
+                flat
+                icon="fas fa-image"
+                @click="addImage"
+              />
+              <QBtn
+                v-if="hasContent && !isPending"
+                round
+                dense
+                flat
+                icon="fas fa-arrow-right"
+                @click="submit"
+              />
+              <QBtn
+                v-if="hasExistingContent && !isPending"
+                round
+                dense
+                flat
+                icon="fas fa-times"
+                @click="leaveEdit"
+              />
             </template>
-            <MarkdownInput
-              ref="input"
-              v-model="message.content"
-              v-bind="$attrs"
-              dense
-              :placeholder="placeholder"
-              :loading="isPending"
-              :disable="isPending"
-              :error="hasAnyError"
-              :error-message="anyFirstError"
-              input-style="min-height: unset; max-height: 320px;"
-              @keyup.ctrl.enter="submit"
-              @keyup.esc="leaveEdit"
-              @focus="onFocus"
-              @blur="onBlur"
-            >
-              <template #append>
-                <QBtn
-                  round
-                  dense
-                  flat
-                  icon="fas fa-image"
-                  @click="addImage"
-                />
-                <QBtn
-                  v-if="hasContent && !isPending"
-                  round
-                  dense
-                  flat
-                  icon="fas fa-arrow-right"
-                  @click="submit"
-                />
-                <QBtn
-                  v-if="hasExistingContent && !isPending"
-                  round
-                  dense
-                  flat
-                  icon="fas fa-times"
-                  @click="leaveEdit"
-                />
-              </template>
-            </MarkdownInput>
-          </Mentionable>
+          </MarkdownInput>
         </QItemLabel>
         <QItemLabel
           v-if="!isParticipant"
@@ -143,7 +113,6 @@ export default {
     ProfilePicture,
     MarkdownInput,
     MultiCroppa,
-    Mentionable,
   },
   mixins: [statusMixin],
   props: {
@@ -243,14 +212,6 @@ export default {
     },
   },
   methods: {
-    focusInput () {
-      // It loses focus when you click the mention menu without this
-      const input = this.$refs.input
-      if (!input) return
-      setImmediate(() => {
-        input.focus()
-      })
-    },
     submit () {
       this.$emit('submit', this.message)
     },
@@ -272,13 +233,3 @@ export default {
   },
 }
 </script>
-<style lang="stylus">
-@import '~variables'
-
-.mention-item
-  background-color white
-
-.mention-selected
-  cursor pointer
-  background $grey-3
-</style>

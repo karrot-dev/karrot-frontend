@@ -73,6 +73,7 @@
         <Markdown
           v-measure
           :source="message.content"
+          mentions
         />
       </div>
       <QItemLabel
@@ -152,7 +153,7 @@ import ConversationAddReaction from './ConversationAddReaction'
 import ConversationCompose from '@/messages/components/ConversationCompose'
 import ImageGalleryDialog from '@/messages/components/ImageGalleryDialog'
 import ProfilePicture from '@/users/components/ProfilePicture'
-import Markdown from '@/utils/components/MarkdownWithUsers'
+import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
 
 import {

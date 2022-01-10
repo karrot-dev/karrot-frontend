@@ -23,6 +23,7 @@ Please document your changes in this format:
 ## [Unreleased]
 ### Added
 - enabled Japanese, and Chinese (simplified), and a few library locales @nicksellen [#2475]
+- scroll to wall messages when clicking message in menu @nicksellen [#2483]
 
 ## [9.6.1] - 2021-12-29
 ### Changed

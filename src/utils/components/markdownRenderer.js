@@ -3,7 +3,6 @@ import markdownLinkAttributes from 'markdown-it-link-attributes'
 import emoji from 'markdown-it-emoji'
 import defaultEmojiShortcuts from 'markdown-it-emoji/lib/data/shortcuts'
 import twemoji from 'twemoji'
-import escapeRegExp from 'escape-string-regexp'
 import RegexPlugin from 'markdown-it-regexp'
 
 import stuff from 'markdown-it-regexp/lib/utils'

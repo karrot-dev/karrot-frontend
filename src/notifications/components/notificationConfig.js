@@ -86,10 +86,12 @@ function getIcon (type, context) {
     case 'conflict_resolution_decided':
     case 'conflict_resolution_decided_about_you':
       return 'far fa-frown-open'
+    case 'mention':
+      return 'alternate_email'
   }
 }
 
-function getRouteTo (type, { group, user, place, activity, issue } = {}) {
+function getRouteTo (type, { group, user, place, activity, issue, url } = {}) {
   switch (type) {
     case 'user_became_editor':
     case 'invitation_accepted':
@@ -120,6 +122,9 @@ function getRouteTo (type, { group, user, place, activity, issue } = {}) {
     case 'conflict_resolution_decided_about_you':
     case 'voting_ends_soon':
       return group && issue && { name: 'issueDetail', params: { groupId: group.id, issueId: issue.id } }
+    case 'mention':
+      // Remove the host and the /#/ bit...
+      if (url) return url.replace(/https?:\/\/[^/]+\/#/, '')
   }
 }
 

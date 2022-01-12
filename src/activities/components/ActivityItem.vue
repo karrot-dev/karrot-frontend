@@ -56,6 +56,7 @@
         <Markdown
           v-if="activity.description"
           :source="activity.description"
+          mentions
         />
         <div class="q-mt-sm q-mb-none full-width">
           <ActivityUsers

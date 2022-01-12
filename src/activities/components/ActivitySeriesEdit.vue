@@ -282,6 +282,7 @@
         :label="$t('CREATEACTIVITY.COMMENT')"
         :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
         icon="info"
+        mentions
         maxlength="500"
         @keyup.ctrl.enter="maybeSave"
       />

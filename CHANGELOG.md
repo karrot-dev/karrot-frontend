@@ -25,6 +25,9 @@ Please document your changes in this format:
 - enabled Japanese, and Chinese (simplified), and a few library locales @nicksellen [#2475]
 - scroll to wall messages when clicking message in menu @nicksellen [#2483]
 
+### Fixed
+- show possible feedback list correctly @nicksellen [#2486]
+
 ## [9.6.1] - 2021-12-29
 ### Changed
 - use config API more @nicksellen [#2470]

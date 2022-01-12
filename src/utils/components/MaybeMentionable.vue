@@ -82,6 +82,11 @@ export default {
 <style lang="stylus">
 @import '~variables'
 
+.popover
+  // Ensure we appear over everything else
+  z-index 999999999 !important
+  border 1px solid $grey-3
+
 .mention-item
   background-color white
 

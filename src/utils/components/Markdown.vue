@@ -18,7 +18,7 @@ export default {
       users: 'users/byCurrentGroup',
     }),
     markdownEnv () {
-      if (this.mentions) {
+      if (this.mentions && this.users) {
         return {
           users: this.users,
         }

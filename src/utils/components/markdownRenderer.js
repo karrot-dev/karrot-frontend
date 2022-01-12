@@ -5,11 +5,11 @@ import defaultEmojiShortcuts from 'markdown-it-emoji/lib/data/shortcuts'
 import twemoji from 'twemoji'
 import RegexPlugin from 'markdown-it-regexp'
 
-import stuff from 'markdown-it-regexp/lib/utils'
+import utils from 'markdown-it-regexp/lib/utils'
 
 // Override to pass the env through...
 RegexPlugin.prototype.render = function (tokens, id, options, env) {
-  return this.replacer(tokens[id].meta.match, stuff, env)
+  return this.replacer(tokens[id].meta.match, utils, env)
 }
 
 // Use a more basic smile for the default normal simple smile

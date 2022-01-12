@@ -100,7 +100,6 @@ import MarkdownInput from '@/utils/components/MarkdownInput'
 import statusMixin from '@/utils/mixins/statusMixin'
 import MultiCroppa from '@/utils/components/MultiCroppa'
 import { deleteDraft, fetchDraft, saveDraft } from '@/messages/utils'
-import { Mentionable } from 'vue-mention'
 import { mapGetters } from 'vuex'
 
 export default {

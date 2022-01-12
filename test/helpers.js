@@ -26,7 +26,7 @@ export async function nextTicks (n) {
   }
 }
 
-export function createDatastore (mods, { debug = false, plugins = [] } = {}) {
+export function createDatastore (mods = {}, { debug = false, plugins = [] } = {}) {
   const modules = {}
   for (const key of Object.keys(mods)) {
     modules[key] = { ...mods[key], namespaced: true }

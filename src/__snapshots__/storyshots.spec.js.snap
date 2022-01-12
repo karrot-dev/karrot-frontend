@@ -263,7 +263,7 @@ exports[`Storyshots ActivityEdit default 1`] = `
       <!---->
     </div>
     <div>
-      <div>
+      <div class="mentionable" style="position:relative;">
         <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon">info</i></div>
             <div class="q-field__inner relative-position col self-stretch">
@@ -281,6 +281,24 @@ exports[`Storyshots ActivityEdit default 1`] = `
             <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
           </label>
           <!---->
+        </div>
+        <div class="v-popover popper" style="position:absolute;">
+          <div class="trigger" style="display:inline-block;">
+            <div></div>
+          </div>
+          <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+            <div class="wrapper">
+              <div class="tooltip-inner popover-inner" style="position:relative;">
+                <div>
+                  <div>
+                     
+                  </div>
+                </div>
+                <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+              </div>
+              <div class="tooltip-arrow popover-arrow"></div>
+            </div>
+          </div>
         </div>
       </div>
       <!---->
@@ -375,7 +393,7 @@ exports[`Storyshots ActivityEdit disabled 1`] = `
       <!---->
     </div>
     <div>
-      <div>
+      <div class="mentionable" style="position:relative;">
         <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon">info</i></div>
             <div class="q-field__inner relative-position col self-stretch">
@@ -393,6 +411,24 @@ exports[`Storyshots ActivityEdit disabled 1`] = `
             <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
           </label>
           <!---->
+        </div>
+        <div class="v-popover popper" style="position:absolute;">
+          <div class="trigger" style="display:inline-block;">
+            <div></div>
+          </div>
+          <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+            <div class="wrapper">
+              <div class="tooltip-inner popover-inner" style="position:relative;">
+                <div>
+                  <div>
+                     
+                  </div>
+                </div>
+                <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+              </div>
+              <div class="tooltip-arrow popover-arrow"></div>
+            </div>
+          </div>
         </div>
       </div>
       <!---->
@@ -489,7 +525,7 @@ exports[`Storyshots ActivityEdit error 1`] = `
       <!---->
     </div>
     <div>
-      <div>
+      <div class="mentionable" style="position:relative;">
         <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon">info</i></div>
             <div class="q-field__inner relative-position col self-stretch">
@@ -507,6 +543,24 @@ exports[`Storyshots ActivityEdit error 1`] = `
             <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
           </label>
           <!---->
+        </div>
+        <div class="v-popover popper" style="position:absolute;">
+          <div class="trigger" style="display:inline-block;">
+            <div></div>
+          </div>
+          <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+            <div class="wrapper">
+              <div class="tooltip-inner popover-inner" style="position:relative;">
+                <div>
+                  <div>
+                     
+                  </div>
+                </div>
+                <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+              </div>
+              <div class="tooltip-arrow popover-arrow"></div>
+            </div>
+          </div>
         </div>
       </div>
       <!---->
@@ -601,7 +655,7 @@ exports[`Storyshots ActivityEdit pending 1`] = `
       <!---->
     </div>
     <div>
-      <div>
+      <div class="mentionable" style="position:relative;">
         <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon">info</i></div>
             <div class="q-field__inner relative-position col self-stretch">
@@ -619,6 +673,24 @@ exports[`Storyshots ActivityEdit pending 1`] = `
             <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
           </label>
           <!---->
+        </div>
+        <div class="v-popover popper" style="position:absolute;">
+          <div class="trigger" style="display:inline-block;">
+            <div></div>
+          </div>
+          <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+            <div class="wrapper">
+              <div class="tooltip-inner popover-inner" style="position:relative;">
+                <div>
+                  <div>
+                     
+                  </div>
+                </div>
+                <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+              </div>
+              <div class="tooltip-arrow popover-arrow"></div>
+            </div>
+          </div>
         </div>
       </div>
       <!---->
@@ -715,7 +787,7 @@ exports[`Storyshots ActivityEdit series changed 1`] = `
       </div>
     </div>
     <div>
-      <div>
+      <div class="mentionable" style="position:relative;">
         <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon">info</i></div>
             <div class="q-field__inner relative-position col self-stretch">
@@ -733,6 +805,24 @@ exports[`Storyshots ActivityEdit series changed 1`] = `
             <div class="q-field__after q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon">undo</i></div>
           </label>
           <!---->
+        </div>
+        <div class="v-popover popper" style="position:absolute;">
+          <div class="trigger" style="display:inline-block;">
+            <div></div>
+          </div>
+          <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+            <div class="wrapper">
+              <div class="tooltip-inner popover-inner" style="position:relative;">
+                <div>
+                  <div>
+                     
+                  </div>
+                </div>
+                <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+              </div>
+              <div class="tooltip-arrow popover-arrow"></div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="q-ml-lg col-12 q-field__bottom text-warning"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon">warning</i>
@@ -842,7 +932,7 @@ exports[`Storyshots ActivityEdit with duration 1`] = `
       <!---->
     </div>
     <div>
-      <div>
+      <div class="mentionable" style="position:relative;">
         <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon">info</i></div>
             <div class="q-field__inner relative-position col self-stretch">
@@ -860,6 +950,24 @@ exports[`Storyshots ActivityEdit with duration 1`] = `
             <div class="q-field__after q-field__marginal row no-wrap items-center"></div>
           </label>
           <!---->
+        </div>
+        <div class="v-popover popper" style="position:absolute;">
+          <div class="trigger" style="display:inline-block;">
+            <div></div>
+          </div>
+          <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+            <div class="wrapper">
+              <div class="tooltip-inner popover-inner" style="position:relative;">
+                <div>
+                  <div>
+                     
+                  </div>
+                </div>
+                <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+              </div>
+              <div class="tooltip-arrow popover-arrow"></div>
+            </div>
+          </div>
         </div>
       </div>
       <!---->
@@ -1572,7 +1680,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule 1`] = `
         </div>
       </div>
     </label>
-    <div>
+    <div class="mentionable" style="position:relative;">
       <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon">info</i></div>
           <div class="q-field__inner relative-position col self-stretch">
@@ -1589,6 +1697,24 @@ exports[`Storyshots ActivitySeriesEdit custom rule 1`] = `
           </div>
         </label>
         <!---->
+      </div>
+      <div class="v-popover popper" style="position:absolute;">
+        <div class="trigger" style="display:inline-block;">
+          <div></div>
+        </div>
+        <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+          <div class="wrapper">
+            <div class="tooltip-inner popover-inner" style="position:relative;">
+              <div>
+                <div>
+                   
+                </div>
+              </div>
+              <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+            </div>
+            <div class="tooltip-arrow popover-arrow"></div>
+          </div>
+        </div>
       </div>
     </div>
     <!---->
@@ -1731,7 +1857,7 @@ exports[`Storyshots ActivitySeriesEdit custom rule with duration 1`] = `
         </div>
       </div>
     </label>
-    <div>
+    <div class="mentionable" style="position:relative;">
       <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon">info</i></div>
           <div class="q-field__inner relative-position col self-stretch">
@@ -1748,6 +1874,24 @@ exports[`Storyshots ActivitySeriesEdit custom rule with duration 1`] = `
           </div>
         </label>
         <!---->
+      </div>
+      <div class="v-popover popper" style="position:absolute;">
+        <div class="trigger" style="display:inline-block;">
+          <div></div>
+        </div>
+        <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+          <div class="wrapper">
+            <div class="tooltip-inner popover-inner" style="position:relative;">
+              <div>
+                <div>
+                   
+                </div>
+              </div>
+              <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+            </div>
+            <div class="tooltip-arrow popover-arrow"></div>
+          </div>
+        </div>
       </div>
     </div>
     <!---->
@@ -1890,7 +2034,7 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
         </div>
       </div>
     </label>
-    <div>
+    <div class="mentionable" style="position:relative;">
       <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon">info</i></div>
           <div class="q-field__inner relative-position col self-stretch">
@@ -1907,6 +2051,24 @@ exports[`Storyshots ActivitySeriesEdit duration 1`] = `
           </div>
         </label>
         <!---->
+      </div>
+      <div class="v-popover popper" style="position:absolute;">
+        <div class="trigger" style="display:inline-block;">
+          <div></div>
+        </div>
+        <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+          <div class="wrapper">
+            <div class="tooltip-inner popover-inner" style="position:relative;">
+              <div>
+                <div>
+                   
+                </div>
+              </div>
+              <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+            </div>
+            <div class="tooltip-arrow popover-arrow"></div>
+          </div>
+        </div>
       </div>
     </div>
     <!---->
@@ -2037,7 +2199,7 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
         </div>
       </div>
     </label>
-    <div>
+    <div class="mentionable" style="position:relative;">
       <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon">info</i></div>
           <div class="q-field__inner relative-position col self-stretch">
@@ -2054,6 +2216,24 @@ exports[`Storyshots ActivitySeriesEdit time error 1`] = `
           </div>
         </label>
         <!---->
+      </div>
+      <div class="v-popover popper" style="position:absolute;">
+        <div class="trigger" style="display:inline-block;">
+          <div></div>
+        </div>
+        <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+          <div class="wrapper">
+            <div class="tooltip-inner popover-inner" style="position:relative;">
+              <div>
+                <div>
+                   
+                </div>
+              </div>
+              <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+            </div>
+            <div class="tooltip-arrow popover-arrow"></div>
+          </div>
+        </div>
       </div>
     </div>
     <!---->
@@ -2183,7 +2363,7 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
         </div>
       </div>
     </label>
-    <div>
+    <div class="mentionable" style="position:relative;">
       <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon">info</i></div>
           <div class="q-field__inner relative-position col self-stretch">
@@ -2200,6 +2380,24 @@ exports[`Storyshots ActivitySeriesEdit weekly 1`] = `
           </div>
         </label>
         <!---->
+      </div>
+      <div class="v-popover popper" style="position:absolute;">
+        <div class="trigger" style="display:inline-block;">
+          <div></div>
+        </div>
+        <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+          <div class="wrapper">
+            <div class="tooltip-inner popover-inner" style="position:relative;">
+              <div>
+                <div>
+                   
+                </div>
+              </div>
+              <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+            </div>
+            <div class="tooltip-arrow popover-arrow"></div>
+          </div>
+        </div>
       </div>
     </div>
     <!---->
@@ -4030,23 +4228,43 @@ exports[`Storyshots ConversationCompose default 1`] = `
     </div>
     <div class="q-item__section column q-item__section--main justify-center">
       <div class="q-item__label">
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-            <div class="q-field__inner relative-position col self-stretch">
-              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-                <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
-                  <!---->
-                  <!---->
+        <div class="mentionable" style="position:relative;">
+          <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+              <div class="q-field__inner relative-position col self-stretch">
+                <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                  <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
+                    <!---->
+                    <!---->
+                  </div>
+                </div>
+                <div class="q-field__bottom row items-start q-field__bottom--animated">
+                  <transition-stub name="q-transition--field-message">
+                    <div class="q-field__messages col"></div>
+                  </transition-stub>
                 </div>
               </div>
-              <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <transition-stub name="q-transition--field-message">
-                  <div class="q-field__messages col"></div>
-                </transition-stub>
+            </label>
+            <!---->
+          </div>
+          <div class="v-popover popper" style="position:absolute;">
+            <div class="trigger" style="display:inline-block;">
+              <div></div>
+            </div>
+            <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+              <div class="wrapper">
+                <div class="tooltip-inner popover-inner" style="position:relative;">
+                  <div>
+                    <div>
+                       
+                    </div>
+                  </div>
+                  <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+                </div>
+                <div class="tooltip-arrow popover-arrow"></div>
               </div>
             </div>
-          </label>
-          <!---->
+          </div>
         </div>
       </div>
       <!---->
@@ -4066,21 +4284,41 @@ exports[`Storyshots ConversationCompose edit 1`] = `
     </div>
     <div class="q-item__section column q-item__section--main justify-center">
       <div class="q-item__label">
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--dense q-field--with-bottom">
-            <div class="q-field__inner relative-position col self-stretch">
-              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;">existing text</textarea></div>
-                <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button> <button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-arrow-right q-icon"> </i></span></span></button> <button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-times q-icon"> </i></span></span></button></div>
+        <div class="mentionable" style="position:relative;">
+          <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--float q-field--dense q-field--with-bottom">
+              <div class="q-field__inner relative-position col self-stretch">
+                <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;">existing text</textarea></div>
+                  <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button> <button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-arrow-right q-icon"> </i></span></span></button> <button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-times q-icon"> </i></span></span></button></div>
+                </div>
+                <div class="q-field__bottom row items-start q-field__bottom--animated">
+                  <transition-stub name="q-transition--field-message">
+                    <div class="q-field__messages col"></div>
+                  </transition-stub>
+                </div>
               </div>
-              <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <transition-stub name="q-transition--field-message">
-                  <div class="q-field__messages col"></div>
-                </transition-stub>
+            </label> <button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
+              <!----></span></span>
+            </button></div>
+          <div class="v-popover popper" style="position:absolute;">
+            <div class="trigger" style="display:inline-block;">
+              <div></div>
+            </div>
+            <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+              <div class="wrapper">
+                <div class="tooltip-inner popover-inner" style="position:relative;">
+                  <div>
+                    <div>
+                       
+                    </div>
+                  </div>
+                  <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+                </div>
+                <div class="tooltip-arrow popover-arrow"></div>
               </div>
             </div>
-          </label> <button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline absolute-bottom-right bg-white q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size:8px;bottom:-10px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
-            <!----></span></span>
-          </button></div>
+          </div>
+        </div>
       </div>
       <!---->
     </div>
@@ -4099,26 +4337,46 @@ exports[`Storyshots ConversationCompose error 1`] = `
     </div>
     <div class="q-item__section column q-item__section--main justify-center">
       <div class="q-item__label">
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--highlighted q-field--dense q-field--with-bottom q-field--error">
-            <div class="q-field__inner relative-position col self-stretch">
-              <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-                <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
-                  <!---->
-                  <!---->
-                </div>
-                <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon text-negative">error</i></div>
-              </div>
-              <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <transition-stub name="q-transition--field-message">
-                  <div class="q-field__messages col">
-                    <div role="alert">too late!</div>
+        <div class="mentionable" style="position:relative;">
+          <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--highlighted q-field--dense q-field--with-bottom q-field--error">
+              <div class="q-field__inner relative-position col self-stretch">
+                <div tabindex="-1" class="q-field__control relative-position row no-wrap text-negative">
+                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                  <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
+                    <!---->
+                    <!---->
                   </div>
-                </transition-stub>
+                  <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon text-negative">error</i></div>
+                </div>
+                <div class="q-field__bottom row items-start q-field__bottom--animated">
+                  <transition-stub name="q-transition--field-message">
+                    <div class="q-field__messages col">
+                      <div role="alert">too late!</div>
+                    </div>
+                  </transition-stub>
+                </div>
+              </div>
+            </label>
+            <!---->
+          </div>
+          <div class="v-popover popper" style="position:absolute;">
+            <div class="trigger" style="display:inline-block;">
+              <div></div>
+            </div>
+            <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+              <div class="wrapper">
+                <div class="tooltip-inner popover-inner" style="position:relative;">
+                  <div>
+                    <div>
+                       
+                    </div>
+                  </div>
+                  <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+                </div>
+                <div class="tooltip-arrow popover-arrow"></div>
               </div>
             </div>
-          </label>
-          <!---->
+          </div>
         </div>
       </div>
       <!---->
@@ -4138,23 +4396,43 @@ exports[`Storyshots ConversationCompose not participant 1`] = `
     </div>
     <div class="q-item__section column q-item__section--main justify-center">
       <div class="q-item__label">
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-            <div class="q-field__inner relative-position col self-stretch">
-              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-                <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
-                  <!---->
-                  <!---->
+        <div class="mentionable" style="position:relative;">
+          <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+              <div class="q-field__inner relative-position col self-stretch">
+                <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                  <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
+                    <!---->
+                    <!---->
+                  </div>
+                </div>
+                <div class="q-field__bottom row items-start q-field__bottom--animated">
+                  <transition-stub name="q-transition--field-message">
+                    <div class="q-field__messages col"></div>
+                  </transition-stub>
                 </div>
               </div>
-              <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <transition-stub name="q-transition--field-message">
-                  <div class="q-field__messages col"></div>
-                </transition-stub>
+            </label>
+            <!---->
+          </div>
+          <div class="v-popover popper" style="position:absolute;">
+            <div class="trigger" style="display:inline-block;">
+              <div></div>
+            </div>
+            <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+              <div class="wrapper">
+                <div class="tooltip-inner popover-inner" style="position:relative;">
+                  <div>
+                    <div>
+                       
+                    </div>
+                  </div>
+                  <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+                </div>
+                <div class="tooltip-arrow popover-arrow"></div>
               </div>
             </div>
-          </label>
-          <!---->
+          </div>
         </div>
       </div>
       <div class="q-item__label q-pt-md q-pl-xs q-item__label--caption text-caption"><span></span></div>
@@ -4174,26 +4452,46 @@ exports[`Storyshots ConversationCompose pending 1`] = `
     </div>
     <div class="q-item__section column q-item__section--main justify-center">
       <div class="q-item__label">
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" aria-disabled="true" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom q-field--disabled">
-            <div class="q-field__inner relative-position col self-stretch">
-              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" disabled="disabled" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-                <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
-                  <!---->
-                  <!---->
+        <div class="mentionable" style="position:relative;">
+          <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" aria-disabled="true" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom q-field--disabled">
+              <div class="q-field__inner relative-position col self-stretch">
+                <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" disabled="disabled" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                  <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
+                    <!---->
+                    <!---->
+                  </div>
+                  <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
+                      <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
+                    </svg></div>
                 </div>
-                <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><svg focusable="false" width="1em" height="1em" viewBox="25 25 50 50" class="q-spinner q-spinner-mat">
-                    <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10" class="path"></circle>
-                  </svg></div>
+                <div class="q-field__bottom row items-start q-field__bottom--animated">
+                  <transition-stub name="q-transition--field-message">
+                    <div class="q-field__messages col"></div>
+                  </transition-stub>
+                </div>
               </div>
-              <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <transition-stub name="q-transition--field-message">
-                  <div class="q-field__messages col"></div>
-                </transition-stub>
+            </label>
+            <!---->
+          </div>
+          <div class="v-popover popper" style="position:absolute;">
+            <div class="trigger" style="display:inline-block;">
+              <div></div>
+            </div>
+            <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+              <div class="wrapper">
+                <div class="tooltip-inner popover-inner" style="position:relative;">
+                  <div>
+                    <div>
+                       
+                    </div>
+                  </div>
+                  <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+                </div>
+                <div class="tooltip-arrow popover-arrow"></div>
               </div>
             </div>
-          </label>
-          <!---->
+          </div>
         </div>
       </div>
       <!---->
@@ -4209,23 +4507,43 @@ exports[`Storyshots ConversationCompose slim 1`] = `
     <!---->
     <div class="q-item__section column q-item__section--main justify-center">
       <div class="q-item__label">
-        <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-            <div class="q-field__inner relative-position col self-stretch">
-              <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-                <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
-                  <!---->
-                  <!---->
+        <div class="mentionable" style="position:relative;">
+          <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+              <div class="q-field__inner relative-position col self-stretch">
+                <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                  <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Type here" id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                  <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
+                    <!---->
+                    <!---->
+                  </div>
+                </div>
+                <div class="q-field__bottom row items-start q-field__bottom--animated">
+                  <transition-stub name="q-transition--field-message">
+                    <div class="q-field__messages col"></div>
+                  </transition-stub>
                 </div>
               </div>
-              <div class="q-field__bottom row items-start q-field__bottom--animated">
-                <transition-stub name="q-transition--field-message">
-                  <div class="q-field__messages col"></div>
-                </transition-stub>
+            </label>
+            <!---->
+          </div>
+          <div class="v-popover popper" style="position:absolute;">
+            <div class="trigger" style="display:inline-block;">
+              <div></div>
+            </div>
+            <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+              <div class="wrapper">
+                <div class="tooltip-inner popover-inner" style="position:relative;">
+                  <div>
+                    <div>
+                       
+                    </div>
+                  </div>
+                  <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+                </div>
+                <div class="tooltip-arrow popover-arrow"></div>
               </div>
             </div>
-          </label>
-          <!---->
+          </div>
         </div>
       </div>
       <!---->
@@ -4805,23 +5123,43 @@ exports[`Storyshots Detail activity 1`] = `
               <!---->
               <div class="q-item__section column q-item__section--main justify-center">
                 <div class="q-item__label">
-                  <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--filled q-field--square q-field--dense q-field--with-bottom">
-                      <div class="q-field__inner relative-position col self-stretch">
-                        <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-                          <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
-                            <!---->
-                            <!---->
+                  <div class="mentionable" style="position:relative;">
+                    <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--filled q-field--square q-field--dense q-field--with-bottom">
+                        <div class="q-field__inner relative-position col self-stretch">
+                          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                            <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
+                              <!---->
+                              <!---->
+                            </div>
+                          </div>
+                          <div class="q-field__bottom row items-start q-field__bottom--animated">
+                            <transition-stub name="q-transition--field-message">
+                              <div class="q-field__messages col"></div>
+                            </transition-stub>
                           </div>
                         </div>
-                        <div class="q-field__bottom row items-start q-field__bottom--animated">
-                          <transition-stub name="q-transition--field-message">
-                            <div class="q-field__messages col"></div>
-                          </transition-stub>
+                      </label>
+                      <!---->
+                    </div>
+                    <div class="v-popover popper" style="position:absolute;">
+                      <div class="trigger" style="display:inline-block;">
+                        <div></div>
+                      </div>
+                      <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+                        <div class="wrapper">
+                          <div class="tooltip-inner popover-inner" style="position:relative;">
+                            <div>
+                              <div>
+                                 
+                              </div>
+                            </div>
+                            <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+                          </div>
+                          <div class="tooltip-arrow popover-arrow"></div>
                         </div>
                       </div>
-                    </label>
-                    <!---->
+                    </div>
                   </div>
                 </div>
                 <!---->
@@ -5090,23 +5428,43 @@ exports[`Storyshots Detail application 1`] = `
               <!---->
               <div class="q-item__section column q-item__section--main justify-center">
                 <div class="q-item__label">
-                  <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--filled q-field--square q-field--dense q-field--with-bottom">
-                      <div class="q-field__inner relative-position col self-stretch">
-                        <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-                          <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
-                            <!---->
-                            <!---->
+                  <div class="mentionable" style="position:relative;">
+                    <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--filled q-field--square q-field--dense q-field--with-bottom">
+                        <div class="q-field__inner relative-position col self-stretch">
+                          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                            <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
+                              <!---->
+                              <!---->
+                            </div>
+                          </div>
+                          <div class="q-field__bottom row items-start q-field__bottom--animated">
+                            <transition-stub name="q-transition--field-message">
+                              <div class="q-field__messages col"></div>
+                            </transition-stub>
                           </div>
                         </div>
-                        <div class="q-field__bottom row items-start q-field__bottom--animated">
-                          <transition-stub name="q-transition--field-message">
-                            <div class="q-field__messages col"></div>
-                          </transition-stub>
+                      </label>
+                      <!---->
+                    </div>
+                    <div class="v-popover popper" style="position:absolute;">
+                      <div class="trigger" style="display:inline-block;">
+                        <div></div>
+                      </div>
+                      <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+                        <div class="wrapper">
+                          <div class="tooltip-inner popover-inner" style="position:relative;">
+                            <div>
+                              <div>
+                                 
+                              </div>
+                            </div>
+                            <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+                          </div>
+                          <div class="tooltip-arrow popover-arrow"></div>
                         </div>
                       </div>
-                    </label>
-                    <!---->
+                    </div>
                   </div>
                 </div>
                 <!---->
@@ -5329,23 +5687,43 @@ exports[`Storyshots Detail private 1`] = `
               <!---->
               <div class="q-item__section column q-item__section--main justify-center">
                 <div class="q-item__label">
-                  <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--filled q-field--square q-field--dense q-field--with-bottom">
-                      <div class="q-field__inner relative-position col self-stretch">
-                        <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                          <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-                          <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
-                            <!---->
-                            <!---->
+                  <div class="mentionable" style="position:relative;">
+                    <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--filled q-field--square q-field--dense q-field--with-bottom">
+                        <div class="q-field__inner relative-position col self-stretch">
+                          <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                            <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
+                              <!---->
+                              <!---->
+                            </div>
+                          </div>
+                          <div class="q-field__bottom row items-start q-field__bottom--animated">
+                            <transition-stub name="q-transition--field-message">
+                              <div class="q-field__messages col"></div>
+                            </transition-stub>
                           </div>
                         </div>
-                        <div class="q-field__bottom row items-start q-field__bottom--animated">
-                          <transition-stub name="q-transition--field-message">
-                            <div class="q-field__messages col"></div>
-                          </transition-stub>
+                      </label>
+                      <!---->
+                    </div>
+                    <div class="v-popover popper" style="position:absolute;">
+                      <div class="trigger" style="display:inline-block;">
+                        <div></div>
+                      </div>
+                      <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+                        <div class="wrapper">
+                          <div class="tooltip-inner popover-inner" style="position:relative;">
+                            <div>
+                              <div>
+                                 
+                              </div>
+                            </div>
+                            <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+                          </div>
+                          <div class="tooltip-arrow popover-arrow"></div>
                         </div>
                       </div>
-                    </label>
-                    <!---->
+                    </div>
                   </div>
                 </div>
                 <!---->
@@ -6066,7 +6444,7 @@ It would make sense if it was markdown
             <!----></span></span>
           </button></div>
       </div>
-      <div class="q-mb-lg">
+      <div class="mentionable q-mb-lg" style="position:relative;">
         <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--outlined q-field--labeled q-field--with-bottom">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-address-card q-icon"> </i></div>
             <div class="q-field__inner relative-position col self-stretch">
@@ -6083,6 +6461,24 @@ It would make sense if it was markdown
             </div>
           </label>
           <!---->
+        </div>
+        <div class="v-popover popper" style="position:absolute;">
+          <div class="trigger" style="display:inline-block;">
+            <div></div>
+          </div>
+          <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+            <div class="wrapper">
+              <div class="tooltip-inner popover-inner" style="position:relative;">
+                <div>
+                  <div>
+                     
+                  </div>
+                </div>
+                <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+              </div>
+              <div class="tooltip-arrow popover-arrow"></div>
+            </div>
+          </div>
         </div>
       </div>
       <h4 class="text-primary q-mt-xl q-mb-lg">
@@ -8252,7 +8648,7 @@ exports[`Storyshots Latest Messages type: issue chat 1`] = `
     <div class="q-item__label row no-wrap justify-between items-baseline">
       <div class="row no-wrap items-baseline ellipsis"><i aria-hidden="true" role="presentation" title="Issues" class="q-mr-sm fas fa-fw fa-vote-yea q-icon"> </i>
         <div class="ellipsis">
-          User 189
+          User 195
         </div>
         <!---->
         <!---->
@@ -9233,7 +9629,7 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
             </div>
           </div>
         </label>
-        <div class="q-mb-lg">
+        <div class="mentionable q-mb-lg" style="position:relative;">
           <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--outlined q-field--labeled q-field--with-bottom">
               <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-question q-icon"> </i></div>
               <div class="q-field__inner relative-position col self-stretch">
@@ -9250,6 +9646,24 @@ exports[`Storyshots Places PlaceEdit (with server error) 1`] = `
               </div>
             </label>
             <!---->
+          </div>
+          <div class="v-popover popper" style="position:absolute;">
+            <div class="trigger" style="display:inline-block;">
+              <div></div>
+            </div>
+            <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+              <div class="wrapper">
+                <div class="tooltip-inner popover-inner" style="position:relative;">
+                  <div>
+                    <div>
+                       
+                    </div>
+                  </div>
+                  <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+                </div>
+                <div class="tooltip-arrow popover-arrow"></div>
+              </div>
+            </div>
           </div>
         </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mb-lg q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--single q-field--outlined q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-eye q-icon"> </i></div>
@@ -9392,7 +9806,7 @@ exports[`Storyshots Places PlaceEdit 1`] = `
             </div>
           </div>
         </label>
-        <div class="q-mb-lg">
+        <div class="mentionable q-mb-lg" style="position:relative;">
           <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--outlined q-field--labeled q-field--with-bottom">
               <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-question q-icon"> </i></div>
               <div class="q-field__inner relative-position col self-stretch">
@@ -9409,6 +9823,24 @@ exports[`Storyshots Places PlaceEdit 1`] = `
               </div>
             </label>
             <!---->
+          </div>
+          <div class="v-popover popper" style="position:absolute;">
+            <div class="trigger" style="display:inline-block;">
+              <div></div>
+            </div>
+            <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+              <div class="wrapper">
+                <div class="tooltip-inner popover-inner" style="position:relative;">
+                  <div>
+                    <div>
+                       
+                    </div>
+                  </div>
+                  <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+                </div>
+                <div class="tooltip-arrow popover-arrow"></div>
+              </div>
+            </div>
           </div>
         </div> <label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-mb-lg q-select q-field--auto-height q-select--without-input q-select--without-chips q-select--single q-field--outlined q-field--labeled q-field--with-bottom">
           <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-eye q-icon"> </i></div>
@@ -11125,23 +11557,43 @@ exports[`Storyshots WallConversation default 1`] = `
           </div>
           <div class="q-item__section column q-item__section--main justify-center">
             <div class="q-item__label">
-              <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-                  <div class="q-field__inner relative-position col self-stretch">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-                      <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
-                        <!---->
-                        <!---->
+              <div class="mentionable" style="position:relative;">
+                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+                    <div class="q-field__inner relative-position col self-stretch">
+                      <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                        <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                        <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
+                          <!---->
+                          <!---->
+                        </div>
+                      </div>
+                      <div class="q-field__bottom row items-start q-field__bottom--animated">
+                        <transition-stub name="q-transition--field-message">
+                          <div class="q-field__messages col"></div>
+                        </transition-stub>
                       </div>
                     </div>
-                    <div class="q-field__bottom row items-start q-field__bottom--animated">
-                      <transition-stub name="q-transition--field-message">
-                        <div class="q-field__messages col"></div>
-                      </transition-stub>
+                  </label>
+                  <!---->
+                </div>
+                <div class="v-popover popper" style="position:absolute;">
+                  <div class="trigger" style="display:inline-block;">
+                    <div></div>
+                  </div>
+                  <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+                    <div class="wrapper">
+                      <div class="tooltip-inner popover-inner" style="position:relative;">
+                        <div>
+                          <div>
+                             
+                          </div>
+                        </div>
+                        <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+                      </div>
+                      <div class="tooltip-arrow popover-arrow"></div>
                     </div>
                   </div>
-                </label>
-                <!---->
+                </div>
               </div>
             </div>
             <!---->
@@ -11350,23 +11802,43 @@ exports[`Storyshots WallConversation unread 1`] = `
           </div>
           <div class="q-item__section column q-item__section--main justify-center">
             <div class="q-item__label">
-              <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
-                  <div class="q-field__inner relative-position col self-stretch">
-                    <div tabindex="-1" class="q-field__control relative-position row no-wrap">
-                      <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
-                      <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
-                        <!---->
-                        <!---->
+              <div class="mentionable" style="position:relative;">
+                <div class="relative-position q-mb-sm"><label for="f_80808080-8080-4080-8080-808080808080" class="q-field q-validation-component row no-wrap items-start q-textarea q-textarea--autogrow q-field--standard q-field--dense q-field--with-bottom">
+                    <div class="q-field__inner relative-position col self-stretch">
+                      <div tabindex="-1" class="q-field__control relative-position row no-wrap">
+                        <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea tabindex="0" rows="1" placeholder="Write a message..." id="f_80808080-8080-4080-8080-808080808080" type="textarea" class="q-field__native q-placeholder" style="min-height:unset;max-height:320px;"></textarea></div>
+                        <div class="q-field__append q-field__marginal row no-wrap items-center"><button tabindex="0" type="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fas fa-image q-icon"> </i></span></span></button>
+                          <!---->
+                          <!---->
+                        </div>
+                      </div>
+                      <div class="q-field__bottom row items-start q-field__bottom--animated">
+                        <transition-stub name="q-transition--field-message">
+                          <div class="q-field__messages col"></div>
+                        </transition-stub>
                       </div>
                     </div>
-                    <div class="q-field__bottom row items-start q-field__bottom--animated">
-                      <transition-stub name="q-transition--field-message">
-                        <div class="q-field__messages col"></div>
-                      </transition-stub>
+                  </label>
+                  <!---->
+                </div>
+                <div class="v-popover popper" style="position:absolute;">
+                  <div class="trigger" style="display:inline-block;">
+                    <div></div>
+                  </div>
+                  <div id="popover_i" aria-hidden="true" class="tooltip popover vue-popover-theme" style="visibility:hidden;">
+                    <div class="wrapper">
+                      <div class="tooltip-inner popover-inner" style="position:relative;">
+                        <div>
+                          <div>
+                             
+                          </div>
+                        </div>
+                        <div tabindex="-1" class="resize-observer" data-v-8859cc6c></div>
+                      </div>
+                      <div class="tooltip-arrow popover-arrow"></div>
                     </div>
                   </div>
-                </label>
-                <!---->
+                </div>
               </div>
             </div>
             <!---->

@@ -1,15 +1,24 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-import { statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 import * as factories from '>/enrichedFactories'
 
 const ActivitySeriesEdit = () => require('./ActivitySeriesEdit').default
 
 const series = factories.makeActivitySeries()
 
+const store = createDatastore({
+  users: {
+    getters: {
+      byCurrentGroup: () => [],
+    },
+  },
+})
+
 storiesOf('ActivitySeriesEdit', module)
   .add('weekly', () => defaults({
+    store,
     render (h) {
       return h(ActivitySeriesEdit(), {
         props: {
@@ -25,6 +34,7 @@ storiesOf('ActivitySeriesEdit', module)
     },
   }))
   .add('time error', () => defaults({
+    store,
     render (h) {
       return h(ActivitySeriesEdit(), {
         props: {
@@ -35,6 +45,7 @@ storiesOf('ActivitySeriesEdit', module)
     },
   }))
   .add('duration', () => defaults({
+    store,
     render (h) {
       return h(ActivitySeriesEdit(), {
         props: {
@@ -48,6 +59,7 @@ storiesOf('ActivitySeriesEdit', module)
     },
   }))
   .add('custom rule', () => defaults({
+    store,
     render (h) {
       return h(ActivitySeriesEdit(), {
         props: {
@@ -64,6 +76,7 @@ storiesOf('ActivitySeriesEdit', module)
     },
   }))
   .add('custom rule with duration', () => defaults({
+    store,
     render (h) {
       return h(ActivitySeriesEdit(), {
         props: {

@@ -9,13 +9,25 @@
           v-model="user.displayName"
           icon="fas fa-user"
           :autofocus="!$q.platform.has.touch"
-          :label="$t('USERDATA.USERNAME')"
+          :label="$t('USERDATA.DISPLAY_NAME')"
           :error="hasDisplayNameError"
           :error-message="displayNameError"
           autocorrect="off"
           autocapitalize="off"
           spellcheck="false"
           @blur="$v.user.displayName.$touch"
+        />
+        <SplashInput
+          v-model="user.username"
+          icon="alternate_email"
+          :autofocus="!$q.platform.has.touch"
+          :label="$t('USERDATA.USERNAME')"
+          :error="hasUsernameError"
+          :error-message="usernameError"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          @blur="$v.user.username.$touch"
         />
         <SplashInput
           v-model="user.email"
@@ -95,6 +107,7 @@ export default {
     return {
       user: {
         displayName: null,
+        username: null,
         email: this.prefillEmail(),
         password: null,
       },
@@ -112,6 +125,16 @@ export default {
         if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
       }
       return this.firstError('displayName')
+    },
+    hasUsernameError () {
+      return !!this.usernameError
+    },
+    usernameError () {
+      if (this.$v.user.username.$error) {
+        const m = this.$v.user.username
+        if (!m.required) return this.$t('VALIDATION.REQUIRED')
+      }
+      return this.firstError('username')
     },
     canSave () {
       if (this.$v.user.$error) {
@@ -136,6 +159,9 @@ export default {
         required,
         minLength: minLength(3),
         maxLength: maxLength(80),
+      },
+      username: {
+        required,
       },
     },
   },

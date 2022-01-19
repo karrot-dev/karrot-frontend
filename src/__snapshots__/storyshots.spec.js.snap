@@ -10080,6 +10080,12 @@ exports[`Storyshots Profile member 1`] = `
       </div>
       <div class="q-list">
         <div class="q-item q-item-type row no-wrap">
+          <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon">alternate_email</i></div>
+          <div class="q-item__section column ellipsis q-item__section--main justify-center">
+
+          </div>
+        </div>
+        <div class="q-item q-item-type row no-wrap">
           <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon"> </i></div>
           <div class="q-item__section column ellipsis q-item__section--main justify-center"><a href="mailto:foo@foo.com">foo@foo.com</a></div>
         </div>
@@ -10205,6 +10211,12 @@ exports[`Storyshots Profile non-member 1`] = `
         <!---->
       </div>
       <div class="q-list">
+        <div class="q-item q-item-type row no-wrap">
+          <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="notranslate material-icons q-icon">alternate_email</i></div>
+          <div class="q-item__section column ellipsis q-item__section--main justify-center">
+
+          </div>
+        </div>
         <div class="q-item q-item-type row no-wrap">
           <div class="q-item__section column q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-envelope q-icon"> </i></div>
           <div class="q-item__section column ellipsis q-item__section--main justify-center"><a href="mailto:foo@foo.com">foo@foo.com</a></div>
@@ -10916,8 +10928,8 @@ exports[`Storyshots Signup empty 1`] = `
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-user q-icon text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" data-autofocus="true" aria-label="Name" autocorrect="off" autocapitalize="off" spellcheck="false" id="f_80808080-8080-4080-8080-808080808080" type="text" class="q-field__native q-placeholder">
-              <div class="q-field__label no-pointer-events absolute ellipsis">Name</div>
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" data-autofocus="true" aria-label="Display Name" autocorrect="off" autocapitalize="off" spellcheck="false" id="f_80808080-8080-4080-8080-808080808080" type="text" class="q-field__native q-placeholder">
+              <div class="q-field__label no-pointer-events absolute ellipsis">Display Name</div>
             </div>
           </div>
         </div>
@@ -10969,8 +10981,8 @@ exports[`Storyshots Signup error 1`] = `
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-user q-icon text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" data-autofocus="true" aria-label="Name" autocorrect="off" autocapitalize="off" spellcheck="false" id="f_80808080-8080-4080-8080-808080808080" type="text" class="q-field__native q-placeholder">
-              <div class="q-field__label no-pointer-events absolute ellipsis">Name</div>
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" data-autofocus="true" aria-label="Display Name" autocorrect="off" autocapitalize="off" spellcheck="false" id="f_80808080-8080-4080-8080-808080808080" type="text" class="q-field__native q-placeholder">
+              <div class="q-field__label no-pointer-events absolute ellipsis">Display Name</div>
             </div>
           </div>
         </div>
@@ -11028,8 +11040,8 @@ exports[`Storyshots Signup pending 1`] = `
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i aria-hidden="true" role="presentation" class="fas fa-user q-icon text-grey-5"> </i></div>
         <div class="q-field__inner relative-position col self-stretch">
           <div tabindex="-1" class="q-field__control relative-position row no-wrap bg-white">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" data-autofocus="true" aria-label="Name" autocorrect="off" autocapitalize="off" spellcheck="false" id="f_80808080-8080-4080-8080-808080808080" type="text" class="q-field__native q-placeholder">
-              <div class="q-field__label no-pointer-events absolute ellipsis">Name</div>
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input tabindex="0" data-autofocus="true" aria-label="Display Name" autocorrect="off" autocapitalize="off" spellcheck="false" id="f_80808080-8080-4080-8080-808080808080" type="text" class="q-field__native q-placeholder">
+              <div class="q-field__label no-pointer-events absolute ellipsis">Display Name</div>
             </div>
           </div>
         </div>

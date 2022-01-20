@@ -88,8 +88,11 @@ import {
 } from 'quasar'
 import SplashInput from '@/utils/components/SplashInput'
 import statusMixin from '@/utils/mixins/statusMixin'
-import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import { validationMixin } from 'vuelidate'
+
+const validUsername = helpers.regex('whatistype', /^[a-zA-Z]*$/)
+// const mustBeCool = (value) => value.includes('cool')
 
 export default {
   components: {
@@ -133,8 +136,11 @@ export default {
       if (this.$v.user.username.$error) {
         const m = this.$v.user.username
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
+        if (!m.valid) return this.$t('VALIDATION.VALID_USERNAME')
       }
-      return this.firstError('username')
+      const error = this.firstError('username')
+      if (error === 'INVALID_USERNAME') return this.$t('VALIDATION.VALID_USERNAME')
+      return error
     },
     canSave () {
       if (this.$v.user.$error) {
@@ -162,6 +168,8 @@ export default {
       },
       username: {
         required,
+        // validUsername,
+        valid: helpers.regex('valid', /^[\w.+-]+$/), // should correspond to backend one
       },
     },
   },

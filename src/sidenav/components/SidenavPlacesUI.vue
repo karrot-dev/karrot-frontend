@@ -1,5 +1,5 @@
 <template>
-  <SidenavBox>
+  <SideNavBox>
     <template #icon>
       <QIcon :name="$icon('place_fw')" />
     </template>
@@ -36,7 +36,7 @@
       :places="places"
       :archived="showAllPlaces ? archived : []"
     />
-  </SidenavBox>
+  </SideNavBox>
 </template>
 
 <script>
@@ -46,13 +46,13 @@ import {
   QIcon,
   QToggle,
 } from 'quasar'
-import SidenavBox from './SidenavBox'
+import SideNavBox from './SideNavBox'
 import PlaceList from '@/places/components/PlaceList'
 import KSpinner from '@/utils/components/KSpinner'
 
 export default {
   components: {
-    SidenavBox,
+    SideNavBox,
     QBtn,
     QIcon,
     QToggle,

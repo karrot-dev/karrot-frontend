@@ -1,4 +1,4 @@
-import Signup from './Signup'
+import SignupUser from './SignupUser'
 import { QCheckbox } from 'quasar'
 import { mountWithDefaults, statusMocks } from '>/helpers'
 
@@ -11,7 +11,7 @@ const userData = {
 describe('Signup', () => {
   beforeEach(() => jest.resetModules())
   it('submits', () => {
-    const wrapper = mountWithDefaults(Signup, {
+    const wrapper = mountWithDefaults(SignupUser, {
       propsData: {
         status: statusMocks.default(),
         prefillEmail: () => '',

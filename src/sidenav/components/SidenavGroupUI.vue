@@ -1,5 +1,5 @@
 <template>
-  <SidenavBox>
+  <SideNavBox>
     <template #icon>
       <QIcon name="fas fa-fw fa-home" />
     </template>
@@ -35,8 +35,8 @@
         </QBtn>
       </div>
     </template>
-    <SidenavMenu :entries="entries" />
-    <SidenavMenu
+    <SideNavMenu :entries="entries" />
+    <SideNavMenu
       v-if="showMore"
       :entries="entriesMore"
     />
@@ -70,7 +70,7 @@
         />
       </QItemSection>
     </QItem>
-  </SidenavBox>
+  </SideNavBox>
 </template>
 
 <script>
@@ -82,14 +82,14 @@ import {
   QItemSection,
   QBadge,
 } from 'quasar'
-import SidenavBox from './SidenavBox'
-import SidenavMenu from './SidenavMenu'
+import SideNavBox from './SideNavBox'
+import SideNavMenu from './SideNavMenu'
 import GroupOptions from './GroupOptions'
 
 export default {
   components: {
-    SidenavBox,
-    SidenavMenu,
+    SideNavBox,
+    SideNavMenu,
     GroupOptions,
     QBtn,
     QIcon,

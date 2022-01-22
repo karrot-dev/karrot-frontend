@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import MobileSidenavUI from './MobileSidenavUI'
+import MobileSideNavUI from './MobileSideNavUI'
 
 export default connect({
   actionsToEvents: {
@@ -10,9 +10,9 @@ export default connect({
     currentUserId: 'auth/userId',
   },
   methodsToEvents: {
-    toggleSidenav ({ commit }) {
+    toggleSideNav ({ commit }) {
       this.$emit('toggle-sidenav')
     },
   },
-})('MobileSidenav', MobileSidenavUI)
+})('MobileSideNav', MobileSideNavUI)
 </script>

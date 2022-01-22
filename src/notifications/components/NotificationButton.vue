@@ -26,7 +26,7 @@
       anchor="bottom middle"
       self="top middle"
     >
-      <Notifications
+      <UserNotifications
         as-popover
       />
     </QMenu>
@@ -40,7 +40,7 @@ import {
   QBadge,
   QMenu,
 } from 'quasar'
-const Notifications = () => import('@/notifications/components/Notifications')
+const UserNotifications = () => import('@/notifications/components/UserNotifications')
 
 import { mapGetters, mapActions } from 'vuex'
 
@@ -50,7 +50,7 @@ export default {
     QIcon,
     QBadge,
     QMenu,
-    Notifications,
+    UserNotifications,
   },
   data () {
     return {

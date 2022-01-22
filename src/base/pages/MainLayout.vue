@@ -28,12 +28,12 @@
         <QHeader reveal>
           <KTopbar
             v-if="isLoggedIn"
-            @toggle-sidenav="toggleSidenav"
+            @toggle-sidenav="toggleSideNav"
           >
             <QBtn
               flat
               class="mobile-only"
-              @click="toggleSidenav"
+              @click="toggleSideNav"
             >
               <i class="fas fa-bars relative-position">
                 <div
@@ -50,15 +50,15 @@
         <!-- mobile sidenav -->
         <QDrawer
           v-if="$q.platform.is.mobile"
-          v-model="showSidenav"
+          v-model="showSideNav"
           side="left"
           :breakpoint="Number.MAX_SAFE_INTEGER"
           overlay
           elevated
         >
-          <SidenavTitle @click="toggleSidenav" />
+          <SideNavTitle @click="toggleSideNav" />
           <RouterView name="sidenav" />
-          <MobileSidenav />
+          <MobileSideNav />
           <QItem
             clickable
             @click="toggleAbout"
@@ -78,14 +78,14 @@
 
         <!-- desktop sidenav -->
         <QDrawer
-          v-else-if="isLoggedIn && currentGroupId && hasSidenavComponent && !disableDesktopSidenav"
+          v-else-if="isLoggedIn && currentGroupId && hasSideNavComponent && !disableDesktopSideNav"
           side="left"
           :width="sidenavWidth"
           :breakpoint="0"
           :value="true"
           :overlay="false"
           elevated
-          @click.native="toggleSidenav"
+          @click.native="toggleSideNav"
         >
           <RouterView name="sidenav" />
           <QItem
@@ -163,8 +163,8 @@
 import KTopbar from '@/topbar/components/KTopbar'
 import KTopbarLoggedOut from '@/topbar/components/LoggedOut/KTopbar'
 import KAbout from '@/base/components/KAbout'
-import SidenavTitle from '@/sidenav/components/SidenavTitle'
-import MobileSidenav from '@/sidenav/components/MobileSidenav'
+import SideNavTitle from '@/sidenav/components/SideNavTitle'
+import MobileSideNav from '@/sidenav/components/MobileSideNav'
 import Banners from '@/alerts/components/Banners'
 import RouteError from '@/base/components/RouteError'
 import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarning'
@@ -196,8 +196,8 @@ export default {
     KAbout,
     KTopbar,
     KTopbarLoggedOut,
-    SidenavTitle,
-    MobileSidenav,
+    SideNavTitle,
+    MobileSideNav,
     QLayout,
     QHeader,
     QDrawer,
@@ -216,7 +216,7 @@ export default {
   },
   data () {
     return {
-      showSidenav: false,
+      showSideNav: false,
       showAbout: false,
     }
   },
@@ -225,7 +225,7 @@ export default {
       isLoggedIn: 'auth/isLoggedIn',
       routeError: 'routeError/status',
       isDetailActive: 'detail/isActive',
-      disableDesktopSidenav: 'route/disableDesktopSidenav',
+      disableDesktopSideNav: 'route/disableDesktopSideNav',
       messagesUnseenCount: 'status/unseenCount',
       notificationsUnseenCount: 'status/unseenNotificationCount',
       currentGroupId: 'currentGroup/id',
@@ -261,7 +261,7 @@ export default {
     fullpage () {
       return this.$route.matched.some(m => m.meta.fullpage)
     },
-    hasSidenavComponent () {
+    hasSideNavComponent () {
       return Boolean(this.routerComponents.sidenav)
     },
     hasDetailComponent () {
@@ -286,8 +286,8 @@ export default {
       clearDetail: 'detail/clear',
       refresh: 'refresh/refresh',
     }),
-    toggleSidenav () {
-      this.showSidenav = !this.showSidenav
+    toggleSideNav () {
+      this.showSideNav = !this.showSideNav
     },
     toggleAbout () {
       this.showAbout = !this.showAbout

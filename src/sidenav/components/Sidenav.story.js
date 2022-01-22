@@ -1,10 +1,10 @@
 import { storiesOf } from '@storybook/vue'
 
-import SidenavMapUI from './SidenavMapUI'
-import SidenavGroupUI from './SidenavGroupUI'
+import SideNavMapUI from './SideNavMapUI'
+import SideNavGroupUI from './SideNavGroupUI'
 import GroupOptions from './GroupOptionsUI'
-import SidenavPlacesUI from './SidenavPlacesUI'
-import MobileSidenavUI from './MobileSidenavUI'
+import SideNavPlacesUI from './SideNavPlacesUI'
+import MobileSideNavUI from './MobileSideNavUI'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import * as factories from '>/enrichedFactories'
 
@@ -17,11 +17,11 @@ const places = range(5).map(() => factories.makePlace({
   group,
 }))
 
-storiesOf('Sidenav', module)
+storiesOf('SideNav', module)
   .add('Map', () => defaults({
     render (h) {
       const { showPlaces, showUsers, toggleUsers, togglePlaces } = this
-      return h(SidenavMapUI, {
+      return h(SideNavMapUI, {
         props: {
           places,
           users,
@@ -54,7 +54,7 @@ storiesOf('Sidenav', module)
   }))
 
   .add('Group', () => defaults({
-    render: h => h(SidenavGroupUI, {
+    render: h => h(SideNavGroupUI, {
       props: {
         groupId: 1,
         wallUnreadCount: 4,
@@ -77,7 +77,7 @@ storiesOf('Sidenav', module)
   }))
 
   .add('Places', () => defaults({
-    render: h => h(SidenavPlacesUI, {
+    render: h => h(SideNavPlacesUI, {
       props: {
         places,
         groupId: 1,
@@ -86,7 +86,7 @@ storiesOf('Sidenav', module)
   }))
 
   .add('Mobile', () => defaults({
-    render: h => h(MobileSidenavUI, {
+    render: h => h(MobileSideNavUI, {
       props: {
         currentUserId: user.id,
       },

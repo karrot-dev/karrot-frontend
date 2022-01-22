@@ -70,7 +70,7 @@
         </div>
       </QCardSection>
       <QCardSection>
-        <Push
+        <PushUserData
           :value="pushEnabled"
           :pending="pushPending"
           @enable="enablePush"
@@ -109,14 +109,14 @@ import ChangePassword from '@/authuser/components/Settings/ChangePassword'
 import ChangeEmail from '@/authuser/components/Settings/ChangeEmail'
 import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
 import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAccount'
-import Push from '@/authuser/components/Settings/Push'
+import PushUserData from '@/authuser/components/Settings/PushUserData'
 import InstallPwa from '@/authuser/components/Settings/InstallPwa'
 import LocaleSelect from '@/utils/components/LocaleSelect'
 import GroupSettings from '@/group/pages/Settings'
 import KFormContainer from '@/base/components/KFormContainer'
 
 export default {
-  name: 'Settings',
+  name: 'UserSettings',
   components: {
     QCardSection,
     QSeparator,
@@ -126,7 +126,7 @@ export default {
     ChangeEmail,
     ChangePhoto,
     RequestDeleteAccount,
-    Push,
+    PushUserData,
     InstallPwa,
     LocaleSelect,
     GroupSettings,

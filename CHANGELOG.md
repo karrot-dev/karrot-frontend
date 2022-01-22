@@ -435,8 +435,8 @@ Please document your changes in this format:
 
 ### Fixed
 - Notification items would sometimes cause errors when related pickups haven't been loaded @tiltec
-- Sidenav title on mobile shows notification and message icons when logged out @tiltec
-- Sidenav open/closed state was sometimes inconsistent @tiltec
+- SideNav title on mobile shows notification and message icons when logged out @tiltec
+- SideNav open/closed state was sometimes inconsistent @tiltec
 
 ## [6.2.3] - 2018-10-26
 ### Changed

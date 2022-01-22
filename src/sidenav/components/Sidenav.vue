@@ -1,21 +1,21 @@
 <template>
   <span>
-    <SidenavMap v-if="!$q.platform.is.mobile" />
-    <SidenavGroup />
-    <SidenavPlaces />
+    <SideNavMap v-if="!$q.platform.is.mobile" />
+    <SideNavGroup />
+    <SideNavPlaces />
   </span>
 </template>
 
 <script>
-import SidenavMap from './SidenavMap'
-import SidenavGroup from './SidenavGroup'
-import SidenavPlaces from './SidenavPlaces'
+import SideNavMap from './SideNavMap'
+import SideNavGroup from './SideNavGroup'
+import SideNavPlaces from './SideNavPlaces'
 
 export default {
   components: {
-    SidenavMap,
-    SidenavGroup,
-    SidenavPlaces,
+    SideNavMap,
+    SideNavGroup,
+    SideNavPlaces,
   },
 }
 </script>

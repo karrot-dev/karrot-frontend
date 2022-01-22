@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import SidenavGroupUI from './SidenavGroupUI'
+import SideNavGroupUI from './SideNavGroupUI'
 
 export default connect({
   gettersToProps: {
@@ -11,5 +11,5 @@ export default connect({
     feedbackPossibleCount: 'status/currentGroupFeedbackPossibleCount',
     pendingApplicationCount: 'status/currentGroupPendingApplicationCount',
   },
-})('SidenavGroup', SidenavGroupUI)
+})('SideNavGroup', SideNavGroupUI)
 </script>

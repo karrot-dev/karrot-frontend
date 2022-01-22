@@ -22,7 +22,7 @@ export default connect({
     'hide-search': 'search/hide',
   },
   methodsToEvents: {
-    toggleSidenav ({ commit }) {
+    toggleSideNav ({ commit }) {
       this.$emit('toggle-sidenav')
     },
   },

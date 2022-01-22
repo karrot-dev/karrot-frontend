@@ -32,10 +32,10 @@ mv src/places/datastore/stores.js src/places/datastore/places.js
 mv src/sidenav/components/StoreOptions.vue src/sidenav/components/PlaceOptions.vue
 mv src/sidenav/components/StoreOptionsUI.vue src/sidenav/components/PlaceOptionsUI.vue
 mv src/feedback/components/StoreFeedback.vue src/feedback/components/PlaceFeedback.vue
-mv src/sidenav/components/SidenavStore.vue src/sidenav/components/SidenavPlace.vue
-mv src/sidenav/components/SidenavStores.vue src/sidenav/components/SidenavPlaces.vue
-mv src/sidenav/components/SidenavStoreUI.vue src/sidenav/components/SidenavPlaceUI.vue
-mv src/sidenav/components/SidenavStoresUI.vue src/sidenav/components/SidenavPlacesUI.vue
+mv src/sidenav/components/SideNavStore.vue src/sidenav/components/SideNavPlace.vue
+mv src/sidenav/components/SideNavStores.vue src/sidenav/components/SideNavPlaces.vue
+mv src/sidenav/components/SideNavStoreUI.vue src/sidenav/components/SideNavPlaceUI.vue
+mv src/sidenav/components/SideNavStoresUI.vue src/sidenav/components/SideNavPlacesUI.vue
 
 mod '_store_' '_place_'
 mod '_stores_' '_places_'

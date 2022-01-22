@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import SidenavPlacesUI from './SidenavPlacesUI'
+import SideNavPlacesUI from './SideNavPlacesUI'
 
 export default connect({
   gettersToProps: {
@@ -14,5 +14,5 @@ export default connect({
   actionsToEvents: {
     'toggle-show-all-places': 'places/toggle/showAll',
   },
-})('SidenavPlaces', SidenavPlacesUI)
+})('SideNavPlaces', SideNavPlacesUI)
 </script>

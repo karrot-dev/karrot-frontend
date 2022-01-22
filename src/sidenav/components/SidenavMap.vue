@@ -1,6 +1,6 @@
 <script>
 import { connect } from 'vuex-connect'
-import SidenavMapUI from './SidenavMapUI'
+import SideNavMapUI from './SideNavMapUI'
 
 export default connect({
   gettersToProps: {
@@ -17,5 +17,5 @@ export default connect({
     'toggle-places': 'sidenavBoxes/toggle/placesOnMap',
     'toggle-users': 'sidenavBoxes/toggle/usersOnMap',
   },
-})('SidenavMap', SidenavMapUI)
+})('SideNavMap', SideNavMapUI)
 </script>

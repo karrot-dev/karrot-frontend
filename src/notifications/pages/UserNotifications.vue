@@ -1,5 +1,5 @@
 <template>
-  <Notifications
+  <UserNotifications
     class="k-notifications"
     :as-page="!$q.platform.is.mobile"
   />
@@ -7,11 +7,11 @@
 
 <script>
 import { mapActions } from 'vuex'
-import Notifications from '@/notifications/components/Notifications'
+import UserNotifications from '@/notifications/components/UserNotifications'
 
 export default {
   components: {
-    Notifications,
+    UserNotifications,
   },
   mounted () {
     this.markSeen()

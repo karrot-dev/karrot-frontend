@@ -1,6 +1,6 @@
 import { Platform } from 'quasar'
-const Landing = () => import('@/base/pages/Landing')
-const GroupWall = () => import('@/group/pages/Wall')
+const LandingPage = () => import('@/base/pages/LandingPage')
+const GroupWall = () => import('@/group/pages/GroupWall')
 const GroupActivities = () => import('@/activities/pages/GroupActivities')
 const GroupOffers = () => import('@/offers/pages/GroupOffers')
 const OfferCreate = () => import('@/offers/pages/OfferCreate')
@@ -11,7 +11,7 @@ const GroupFeedback = () => import('@/feedback/pages/GroupFeedback')
 const Messages = () => import('@/messages/pages/Messages')
 const LatestConversations = () => import('@/messages/components/LatestConversations')
 const LatestThreads = () => import('@/messages/components/LatestThreads')
-const Notifications = () => import('@/notifications/pages/Notifications')
+const UserNotifications = () => import('@/notifications/pages/UserNotifications')
 const GroupMap = () => import('@/maps/pages/Map')
 const GroupEditLayout = () => import('@/group/pages/EditLayout')
 const GroupEdit = () => import('@/group/pages/Edit')
@@ -20,8 +20,8 @@ const GroupManageAgreement = () => import('@/agreements/pages/ManageAgreement')
 const GroupCreate = () => import('@/group/pages/Create')
 const GroupPreview = () => import('@/groupInfo/pages/GroupPreview')
 const GroupGallery = () => import('@/groupInfo/pages/GroupGallery')
-const PlaceWall = () => import('@/places/pages/Wall')
-const PlaceLayout = () => import('@/places/pages/Layout')
+const PlaceWall = () => import('@/places/pages/PlaceWall')
+const PlaceLayout = () => import('@/places/pages/PlaceLayout')
 const PlaceActivities = () => import('@/activities/components/PlaceActivities')
 const PlaceFeedback = () => import('@/feedback/components/PlaceFeedback')
 const PlaceHistory = () => import('@/history/pages/PlaceHistory')
@@ -32,12 +32,12 @@ const PlaceList = () => import('@/places/pages/Places')
 const HistoryDetail = () => import('@/history/pages/HistoryDetail')
 const GroupInvitations = () => import('@/invitations/pages/Invitations')
 const Applications = () => import('@/applications/pages/Applications')
-const GroupInformation = () => import('@/group/pages/Information')
-const GroupMembers = () => import('@/users/pages/Members')
+const GroupInformation = () => import('@/group/pages/GroupInformation')
+const GroupMembers = () => import('@/users/pages/GroupMembers')
 const GroupHistory = () => import('@/history/pages/GroupHistory')
-const Sidenav = () => import('@/sidenav/components/Sidenav')
+const SideNav = () => import('@/sidenav/components/SideNav')
 const Settings = () => import('@/authuser/pages/Settings')
-const User = () => import('@/users/pages/Profile')
+const User = () => import('@/users/pages/UserProfile')
 const ActivityFeedback = () => import('@/feedback/pages/GiveFeedback')
 const Detail = () => import('@/messages/components/Detail')
 const DetailHeader = () => import('@/messages/components/DetailHeader')
@@ -63,7 +63,7 @@ export default [
         { translation: 'KARROT' },
       ],
     },
-    component: Landing,
+    component: LandingPage,
   },
   {
     name: 'groupsGallery',
@@ -143,7 +143,7 @@ export default [
         }),
       },
       footer: { render: h => h('router-view', { props: { name: 'footer' } }) },
-      sidenav: Sidenav,
+      sidenav: SideNav,
     },
     children: [
       {
@@ -211,7 +211,7 @@ export default [
         name: 'map',
         path: 'map',
         meta: {
-          disableDesktopSidenav: true,
+          disableDesktopSideNav: true,
           disablePullToRefresh: true,
           fullpage: true,
           breadcrumbs: [
@@ -589,7 +589,7 @@ export default [
         },
         components: {
           default: ActivityHistoryStatistics,
-          sidenav: Sidenav,
+          sidenav: SideNav,
         },
       },
     ],
@@ -609,7 +609,7 @@ export default [
     components: {
       default: Detail,
       subheader: DetailHeader,
-      sidenav: Sidenav,
+      sidenav: SideNav,
     },
   },
   {
@@ -625,7 +625,7 @@ export default [
     },
     components: {
       default: Settings,
-      sidenav: Sidenav,
+      sidenav: SideNav,
     },
   },
   {
@@ -641,7 +641,7 @@ export default [
     },
     components: {
       default: User,
-      sidenav: Sidenav,
+      sidenav: SideNav,
     },
   },
   {
@@ -657,7 +657,7 @@ export default [
     },
     components: {
       default: User,
-      sidenav: Sidenav,
+      sidenav: SideNav,
     },
   },
   {
@@ -676,7 +676,7 @@ export default [
     components: {
       default: Detail,
       subheader: DetailHeader,
-      sidenav: Sidenav,
+      sidenav: SideNav,
     },
   },
   {
@@ -692,7 +692,7 @@ export default [
     },
     components: {
       default: Messages,
-      sidenav: Sidenav,
+      sidenav: SideNav,
     },
     children: [
       {
@@ -718,8 +718,8 @@ export default [
       beforeEnter: 'currentGroup/selectFromCurrentUser',
     },
     components: {
-      default: Notifications,
-      sidenav: Sidenav,
+      default: UserNotifications,
+      sidenav: SideNav,
     },
   },
 ]

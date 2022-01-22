@@ -10074,7 +10074,7 @@ exports[`Storyshots Settings Page verification warning 1`] = `<div>VerificationW
 
 exports[`Storyshots Settings Page verification warning and failed email deliveries 1`] = `<div>VerificationWarning has been mocked</div>`;
 
-exports[`Storyshots Sidenav Group 1`] = `
+exports[`Storyshots SideNav Group 1`] = `
 <div class="k-sidenav-box">
   <div inverted="" class="q-toolbar row no-wrap items-center toolbar"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-home q-icon notranslate"> </i>
     <div class="q-toolbar__title ellipsis">
@@ -10139,7 +10139,7 @@ exports[`Storyshots Sidenav Group 1`] = `
 </div>
 `;
 
-exports[`Storyshots Sidenav GroupOptions 1`] = `
+exports[`Storyshots SideNav GroupOptions 1`] = `
 <div class="q-list q-list--dense"><a tabindex="0" class="q-item q-item-type row no-wrap q-item--clickable q-link cursor-pointer q-focusable q-hoverable">
     <div tabindex="-1" class="q-focus-helper"></div>
     <div class="q-item__section column text-center q-item__section--side justify-center"><i aria-hidden="true" role="presentation" class="fas fa-pencil-alt fa-fw q-icon notranslate" style="font-size:1.1em;"> </i></div>
@@ -10157,7 +10157,7 @@ exports[`Storyshots Sidenav GroupOptions 1`] = `
 </div>
 `;
 
-exports[`Storyshots Sidenav Map 1`] = `
+exports[`Storyshots SideNav Map 1`] = `
 <div class="container map" style="height:260px;">
   <div class="vue2leaflet-map k-map" style="opacity:0.5;">
     <!---->
@@ -10177,7 +10177,7 @@ exports[`Storyshots Sidenav Map 1`] = `
 </div>
 `;
 
-exports[`Storyshots Sidenav Mobile 1`] = `
+exports[`Storyshots SideNav Mobile 1`] = `
 <div>
   <div class="k-sidenav-box">
     <div inverted="" class="q-toolbar row no-wrap items-center toolbar"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-user-circle q-icon notranslate"> </i>
@@ -10224,7 +10224,7 @@ exports[`Storyshots Sidenav Mobile 1`] = `
 </div>
 `;
 
-exports[`Storyshots Sidenav Places 1`] = `
+exports[`Storyshots SideNav Places 1`] = `
 <div class="k-sidenav-box">
   <div inverted="" class="q-toolbar row no-wrap items-center toolbar"><i aria-hidden="true" role="presentation" class="fas fa-fw fa-circle q-icon notranslate"> </i>
     <div class="q-toolbar__title ellipsis">

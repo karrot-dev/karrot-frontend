@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue'
-import Profile from '@/users/pages/Profile'
+import UserProfile from '@/users/pages/UserProfile'
 import TrustInfo from '@/users/components/TrustInfo'
 
 import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
@@ -65,13 +65,13 @@ const datastore = options => createDatastore({
 
 storiesOf('Profile', module)
   .add('non-member', () => defaults({
-    render: h => h(Profile),
+    render: h => h(UserProfile),
     store: datastore({
       activeUser: nonmember,
     }),
   }))
   .add('member', () => defaults({
-    render: h => h(Profile),
+    render: h => h(UserProfile),
     store: datastore({
       activeUser: member,
     }),

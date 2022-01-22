@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 
-import Settings from '@/authuser/pages/Settings'
+import UserSettings from '@/authuser/pages/UserSettings'
 import VerificationWarning from '@/authuser/components/Settings/VerificationWarning'
 import { currentUserMock, groupsMock } from '>/mockdata'
 
@@ -135,7 +135,7 @@ const unverifiedAndfailedEmailDeliveriesDatastore = createDatastore({
 storiesOf('Settings Page', module)
   .add('Default', () => defaults({
     render (h) {
-      return h(Settings)
+      return h(UserSettings)
     },
     store: datastore,
   }))

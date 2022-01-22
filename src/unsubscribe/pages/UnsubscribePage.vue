@@ -1,5 +1,5 @@
 <template>
-  <Unsubscribe
+  <UnsubscribeFromItem
     :token-data="tokenData"
     :has-invalid-token="hasInvalidToken"
     :has-error="hasError"
@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import Unsubscribe from '@/unsubscribe/components/Unsubscribe'
+import UnsubscribeFromItem from '@/unsubscribe/components/UnsubscribeFromItem'
 
 import api from '@/unsubscribe/api/unsubscribe'
 import { parseToken } from '@/unsubscribe/utils'
 
 export default {
   components: {
-    Unsubscribe,
+    UnsubscribeFromItem,
   },
   data () {
     return {

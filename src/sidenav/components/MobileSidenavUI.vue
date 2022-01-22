@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SidenavBox
+    <SideNavBox
       v-if="currentUserId"
     >
       <template #icon>
@@ -11,8 +11,8 @@
         {{ $t('USERDATA.ACCOUNT') }}
       </template>
 
-      <SidenavMenu :entries="entries" />
-    </SidenavBox>
+      <SideNavMenu :entries="entries" />
+    </SideNavBox>
   </div>
 </template>
 <script>
@@ -20,14 +20,14 @@
 import {
   QIcon,
 } from 'quasar'
-import SidenavBox from '@/sidenav/components/SidenavBox'
-import SidenavMenu from '@/sidenav/components/SidenavMenu'
+import SideNavBox from '@/sidenav/components/SideNavBox'
+import SideNavMenu from '@/sidenav/components/SideNavMenu'
 
 export default {
   components: {
     QIcon,
-    SidenavBox,
-    SidenavMenu,
+    SideNavBox,
+    SideNavMenu,
   },
   props: {
     currentUserId: {

@@ -72,7 +72,5 @@ module.exports = {
     }],
     // do not capitalize the "I" in "i18n" component name
     'vue/component-name-in-template-casing': ['error', 'PascalCase', { ignores: ['i18n'] }],
-    // allow single word component names, see https://github.com/karrot-dev/karrot-frontend/issues/2463
-    // 'vue/multi-word-component-names': 'off',
   },
 }

@@ -91,9 +91,6 @@ import statusMixin from '@/utils/mixins/statusMixin'
 import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import { validationMixin } from 'vuelidate'
 
-const validUsername = helpers.regex('whatistype', /^[a-zA-Z]*$/)
-// const mustBeCool = (value) => value.includes('cool')
-
 export default {
   components: {
     QBtn,
@@ -168,7 +165,6 @@ export default {
       },
       username: {
         required,
-        // validUsername,
         valid: helpers.regex('valid', /^[\w.+-]+$/), // should correspond to backend one
       },
     },

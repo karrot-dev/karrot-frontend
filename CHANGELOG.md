@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- rename Vue components to be multi-word @kkreine [#]
 
 ## [9.5.1] - 2021-11-08
 ### Changed
@@ -435,8 +437,8 @@ Please document your changes in this format:
 
 ### Fixed
 - Notification items would sometimes cause errors when related pickups haven't been loaded @tiltec
-- SideNav title on mobile shows notification and message icons when logged out @tiltec
-- SideNav open/closed state was sometimes inconsistent @tiltec
+- Sidenav title on mobile shows notification and message icons when logged out @tiltec
+- Sidenav open/closed state was sometimes inconsistent @tiltec
 
 ## [6.2.3] - 2018-10-26
 ### Changed

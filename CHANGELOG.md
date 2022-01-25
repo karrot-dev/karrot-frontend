@@ -22,7 +22,7 @@ Please document your changes in this format:
 
 ## [Unreleased]
 ### Changed
-- rename Vue components to be multi-word @kkreine [#]
+- rename Vue components to be multi-word @kkreine [#2493]
 
 ## [9.5.1] - 2021-11-08
 ### Changed

@@ -32,7 +32,7 @@
                   <DateAsWords :date="application.createdAt" />
                 </small>
               </span>
-              <Markdown :source="application.questions" />
+              <MarkdownRender :source="application.questions" />
             </div>
             <div class="q-ma-sm q-pa-sm bg-white">
               <span class="text-bold text-secondary text-uppercase">{{ application.user.displayName }}</span>
@@ -41,7 +41,7 @@
                   <DateAsWords :date="application.createdAt" />
                 </small>
               </span>
-              <Markdown :source="application.answers" />
+              <MarkdownRender :source="application.answers" />
             </div>
           </div>
         </QExpansionItem>
@@ -95,7 +95,7 @@
 
 <script>
 import ChatConversation from '@/messages/components/ChatConversation'
-import Markdown from '@/utils/components/Markdown'
+import MarkdownRender from '@/utils/components/MarkdownRender'
 import DateAsWords from '@/utils/components/DateAsWords'
 import KSpinner from '@/utils/components/KSpinner'
 
@@ -113,7 +113,7 @@ import {
 export default {
   components: {
     ChatConversation,
-    Markdown,
+    MarkdownRender,
     DateAsWords,
     KSpinner,
     QExpansionItem,

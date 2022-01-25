@@ -39,7 +39,7 @@
         <div
           v-if="group.publicDescription"
         >
-          <Markdown :source="group.publicDescription" />
+          <MarkdownRender :source="group.publicDescription" />
         </div>
         <span
           v-else
@@ -174,7 +174,7 @@ import {
   QIcon,
   QBanner,
 } from 'quasar'
-import Markdown from '@/utils/components/Markdown'
+import MarkdownRender from '@/utils/components/MarkdownRender'
 import statusMixin from '@/utils/mixins/statusMixin'
 import RandomArt from '@/utils/components/RandomArt'
 
@@ -188,7 +188,7 @@ export default {
     QIcon,
     QTooltip,
     QBanner,
-    Markdown,
+    MarkdownRender,
     RandomArt,
   },
   props: {

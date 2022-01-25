@@ -51,7 +51,7 @@
             <DateAsWords :date="issue.createdAt" />
           </small>
         </span>
-        <Markdown :source="issue.topic" />
+        <MarkdownRender :source="issue.topic" />
       </div>
       <div
         v-if="conversation"
@@ -101,7 +101,7 @@
 
 <script>
 import ChatConversation from '@/messages/components/ChatConversation'
-import Markdown from '@/utils/components/Markdown'
+import MarkdownRender from '@/utils/components/MarkdownRender'
 import DateAsWords from '@/utils/components/DateAsWords'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import NotificationToggle from '@/messages/components/NotificationToggle'
@@ -117,7 +117,7 @@ import {
 export default {
   components: {
     ChatConversation,
-    Markdown,
+    MarkdownRender,
     DateAsWords,
     ProfilePicture,
     NotificationToggle,

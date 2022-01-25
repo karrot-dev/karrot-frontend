@@ -56,7 +56,7 @@
               v-if="comment"
               class="comment"
             >
-              <Markdown :source="comment" />
+              <MarkdownRender :source="comment" />
             </div>
             <div class="q-mt-sm">
               <ProfilePicture
@@ -88,7 +88,7 @@ import {
 import AmountBox from './AmountBox'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
-import Markdown from '@/utils/components/Markdown'
+import MarkdownRender from '@/utils/components/MarkdownRender'
 
 export default {
   components: {
@@ -98,7 +98,7 @@ export default {
     AmountBox,
     ProfilePicture,
     DateAsWords,
-    Markdown,
+    MarkdownRender,
   },
   props: {
     feedback: { required: true, type: Object },

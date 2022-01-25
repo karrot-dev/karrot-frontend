@@ -63,7 +63,7 @@
             </div>
           </QCardSection>
           <QCardSection>
-            <Markdown
+            <MarkdownRender
               v-if="value"
               :source="value"
             />
@@ -92,7 +92,7 @@ import {
   QCardSection,
   QCardActions,
 } from 'quasar'
-import Markdown from '@/utils/components/Markdown'
+import MarkdownRender from '@/utils/components/MarkdownRender'
 
 export default {
   components: {
@@ -103,7 +103,7 @@ export default {
     QCard,
     QCardSection,
     QCardActions,
-    Markdown,
+    MarkdownRender,
   },
   inheritAttrs: false,
   props: {

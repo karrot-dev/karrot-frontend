@@ -29,7 +29,7 @@
       </RouterLink>
     </div>
     <div class="q-pa-md">
-      <Markdown
+      <MarkdownRender
         v-if="group.information"
         :source="group.information"
       />
@@ -42,7 +42,7 @@ import {
   QCard,
   QBtn,
 } from 'quasar'
-import Markdown from '@/utils/components/Markdown'
+import MarkdownRender from '@/utils/components/MarkdownRender'
 import RandomArt from '@/utils/components/RandomArt'
 
 import {
@@ -54,7 +54,7 @@ export default {
     QCard,
     QBtn,
     RandomArt,
-    Markdown,
+    MarkdownRender,
   },
   computed: {
     ...mapGetters({

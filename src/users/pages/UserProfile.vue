@@ -138,7 +138,7 @@
           />
         </QCardSection>
         <QCardSection>
-          <Markdown
+          <MarkdownRender
             v-if="user.description"
             :source="user.description"
           />
@@ -198,7 +198,7 @@ import { mapGetters, mapActions } from 'vuex'
 
 import HistoryContainer from '@/history/pages/HistoryContainer'
 import KSpinner from '@/utils/components/KSpinner'
-import Markdown from '@/utils/components/Markdown'
+import MarkdownRender from '@/utils/components/MarkdownRender'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import UserMapPreview from '@/maps/components/UserMapPreview'
 import TrustButton from '@/users/components/TrustButton'
@@ -222,7 +222,7 @@ export default {
   components: {
     HistoryContainer,
     KSpinner,
-    Markdown,
+    MarkdownRender,
     UserMapPreview,
     ProfilePicture,
     TrustButton,

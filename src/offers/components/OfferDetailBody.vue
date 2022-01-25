@@ -63,7 +63,7 @@
         </QBtnDropdown>
       </div>
       <div class="q-ma-md q-pa-md bg-white grey-border">
-        <Markdown :source="offer.description" />
+        <MarkdownRender :source="offer.description" />
       </div>
     </template>
   </ChatConversation>
@@ -73,7 +73,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ChatConversation from '@/messages/components/ChatConversation'
-import Markdown from '@/utils/components/Markdown'
+import MarkdownRender from '@/utils/components/MarkdownRender'
 import KSpinner from '@/utils/components/KSpinner'
 import { QBtn, QBtnDropdown, QCarousel, QCarouselSlide } from 'quasar'
 import { DEFAULT_STATUS } from '@/offers/datastore/offers'
@@ -85,7 +85,7 @@ export default {
     QCarousel,
     QCarouselSlide,
     ChatConversation,
-    Markdown,
+    MarkdownRender,
     KSpinner,
   },
   props: {

@@ -61,7 +61,7 @@
         <div
           v-if="group.publicDescription"
         >
-          <Markdown :source="group.publicDescription.slice(0, 300)" />
+          <MarkdownRender :source="group.publicDescription.slice(0, 300)" />
         </div>
         <span
           v-else
@@ -110,12 +110,12 @@ import {
   QImg,
   QBadge,
 } from 'quasar'
-import Markdown from '@/utils/components/Markdown'
+import MarkdownRender from '@/utils/components/MarkdownRender'
 import RandomArt from '@/utils/components/RandomArt'
 
 export default {
   components: {
-    Markdown,
+    MarkdownRender,
     RandomArt,
     QCard,
     QCardSection,

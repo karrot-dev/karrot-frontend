@@ -16,7 +16,7 @@
             <QIcon name="fas fa-fw fa-question" />
           </QItemSection>
           <QItemSection>
-            <Markdown
+            <MarkdownRender
               :source="group.applicationQuestions"
             />
           </QItemSection>
@@ -63,7 +63,7 @@ import {
   QIcon,
 } from 'quasar'
 import MarkdownInput from '@/utils/components/MarkdownInput'
-import Markdown from '@/utils/components/Markdown'
+import MarkdownRender from '@/utils/components/MarkdownRender'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
@@ -73,7 +73,7 @@ export default {
     QBtn,
     QIcon,
     MarkdownInput,
-    Markdown,
+    MarkdownRender,
   },
   mixins: [statusMixin],
   props: {

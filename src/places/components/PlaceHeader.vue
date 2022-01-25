@@ -122,7 +122,7 @@
         icon="fas fa-map-marker"
         class="float-right"
       />
-      <Markdown
+      <MarkdownRender
         v-if="place.description"
         :source="place.description"
       />
@@ -154,7 +154,7 @@
         <QCardSection
           v-if="place"
         >
-          <Markdown
+          <MarkdownRender
             v-if="place.description"
             :source="place.description"
           />
@@ -177,7 +177,7 @@
 </template>
 
 <script>
-import Markdown from '@/utils/components/Markdown'
+import MarkdownRender from '@/utils/components/MarkdownRender'
 import StandardMap from '@/maps/components/StandardMap'
 import RandomArt from '@/utils/components/RandomArt'
 import KSpinner from '@/utils/components/KSpinner'
@@ -211,7 +211,7 @@ import {
 
 export default {
   components: {
-    Markdown,
+    MarkdownRender,
     StandardMap,
     RandomArt,
     KSpinner,

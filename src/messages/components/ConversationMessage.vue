@@ -70,7 +70,7 @@
         class="content"
         :title="slim && tooltipDate"
       >
-        <Markdown
+        <MarkdownRender
           v-measure
           :source="message.content"
         />
@@ -152,7 +152,7 @@ import ConversationAddReaction from './ConversationAddReaction'
 import ConversationCompose from '@/messages/components/ConversationCompose'
 import ImageGalleryDialog from '@/messages/components/ImageGalleryDialog'
 import ProfilePicture from '@/users/components/ProfilePicture'
-import Markdown from '@/utils/components/Markdown'
+import MarkdownRender from '@/utils/components/MarkdownRender'
 import DateAsWords from '@/utils/components/DateAsWords'
 
 import {
@@ -172,7 +172,7 @@ export default {
     ConversationAddReaction,
     ConversationCompose,
     ProfilePicture,
-    Markdown,
+    MarkdownRender,
     DateAsWords,
     QBtn,
     QBtnGroup,

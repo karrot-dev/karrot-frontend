@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue'
 
 import KBreadcrumb from './KBreadcrumb'
-import Search from './Search'
+import SearchBar from './SearchBar'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import { groupsMock, placesMock, usersMock } from '>/mockdata'
 
@@ -23,6 +23,6 @@ storiesOf('Topbar', module)
   }))
 
   .add('Search', () => defaults({
-    render: h => h(Search),
+    render: h => h(SearchBar),
     store: datastore,
   }))

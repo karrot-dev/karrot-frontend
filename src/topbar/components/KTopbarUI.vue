@@ -94,7 +94,7 @@
         v-if="searchOpen"
         class="k-searchbar row no-wrap"
       >
-        <Search @clear="$emit('hide-search')" />
+        <SearchBar @clear="$emit('hide-search')" />
       </div>
       <QBtn
         v-show="!searchOpen"
@@ -211,7 +211,7 @@ import {
 } from 'quasar'
 import KarrotLogo from '@/logo/components/KarrotLogo'
 import KBreadcrumb from '@/topbar/components/KBreadcrumb'
-import Search from '@/topbar/components/Search'
+import SearchBar from '@/topbar/components/SearchBar'
 import LatestMessageButton from '@/messages/components/LatestMessageButton'
 import NotificationButton from '@/notifications/components/NotificationButton'
 
@@ -228,7 +228,7 @@ export default {
     QItemSection,
     KarrotLogo,
     KBreadcrumb,
-    Search,
+    SearchBar,
     LatestMessageButton,
     NotificationButton,
   },

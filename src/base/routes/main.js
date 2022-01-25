@@ -8,7 +8,7 @@ const OfferEdit = () => import('@/offers/pages/OfferEdit')
 const OfferDetailHeaderIfMobile = () => Platform.is.mobile ? import('@/offers/components/OfferDetailHeader') : Promise.resolve({ render: () => null })
 const OfferDetailOrBodyIfMobile = () => Platform.is.mobile ? import('@/offers/components/OfferDetailBody') : import('@/offers/components/OfferDetail')
 const GroupFeedback = () => import('@/feedback/pages/GroupFeedback')
-const Messages = () => import('@/messages/pages/Messages')
+const UserMessages = () => import('@/messages/pages/UserMessages')
 const LatestConversations = () => import('@/messages/components/LatestConversations')
 const LatestThreads = () => import('@/messages/components/LatestThreads')
 const UserNotifications = () => import('@/notifications/pages/UserNotifications')
@@ -691,7 +691,7 @@ export default [
       beforeEnter: 'currentGroup/selectFromCurrentUser',
     },
     components: {
-      default: Messages,
+      default: UserMessages,
       sidenav: SideNav,
     },
     children: [

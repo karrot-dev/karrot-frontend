@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Fixed
+- fix infinite redirect for some discussions @amengsk [#2501](https://github.com/karrot-dev/karrot-frontend/pull/2501)
 
 ## [9.7.0] - 2022-02-15
 ### Added

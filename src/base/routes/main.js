@@ -528,7 +528,7 @@ export default [
       },
       {
         // TODO: legacy redirect, can be removed in some months
-        path: 'place/:placeId/activities/:activityId/detail',
+        path: 'place/:placeId/pickups/:activityId/detail',
         redirect: 'place/:placeId/activities/:activityId/detail',
       },
       {

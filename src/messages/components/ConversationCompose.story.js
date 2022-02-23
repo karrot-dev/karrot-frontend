@@ -1,13 +1,24 @@
 import { storiesOf } from '@storybook/vue'
 
 import ConversationCompose from './ConversationCompose'
-import { storybookDefaults as defaults, statusMocks } from '>/helpers'
+import { createDatastore, storybookDefaults as defaults, statusMocks } from '>/helpers'
 import * as factories from '>/enrichedFactories'
 
 const user = factories.makeCurrentUser()
 
+function createStore () {
+  return createDatastore({
+    users: {
+      getters: {
+        byCurrentGroup: () => [],
+      },
+    },
+  })
+}
+
 storiesOf('ConversationCompose', module)
   .add('default', () => defaults({
+    store: createStore(),
     render: h => h(ConversationCompose, {
       props: {
         placeholder: 'Type here',
@@ -17,6 +28,7 @@ storiesOf('ConversationCompose', module)
     }),
   }))
   .add('edit', () => defaults({
+    store: createStore(),
     render: h => h(ConversationCompose, {
       props: {
         placeholder: 'Type here',
@@ -27,6 +39,7 @@ storiesOf('ConversationCompose', module)
     }),
   }))
   .add('not participant', () => defaults({
+    store: createStore(),
     render: h => h(ConversationCompose, {
       props: {
         placeholder: 'Type here',
@@ -37,6 +50,7 @@ storiesOf('ConversationCompose', module)
     }),
   }))
   .add('slim', () => defaults({
+    store: createStore(),
     render: h => h(ConversationCompose, {
       props: {
         placeholder: 'Type here',
@@ -47,6 +61,7 @@ storiesOf('ConversationCompose', module)
     }),
   }))
   .add('pending', () => defaults({
+    store: createStore(),
     render: h => h(ConversationCompose, {
       props: {
         placeholder: 'Type here',
@@ -56,6 +71,7 @@ storiesOf('ConversationCompose', module)
     }),
   }))
   .add('error', () => defaults({
+    store: createStore(),
     render: h => h(ConversationCompose, {
       props: {
         placeholder: 'Type here',

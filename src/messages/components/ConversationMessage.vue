@@ -73,6 +73,7 @@
         <Markdown
           v-measure
           :source="message.content"
+          mentions
         />
       </div>
       <QItemLabel

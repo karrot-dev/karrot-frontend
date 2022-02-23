@@ -32,6 +32,7 @@
       <Markdown
         v-if="group.description"
         :source="group.description"
+        mentions
       />
     </div>
   </QCard>

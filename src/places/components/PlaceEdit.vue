@@ -80,6 +80,7 @@
             :error="hasError('description')"
             :error-message="firstError('description')"
             outlined
+            mentions
             class="q-mb-lg"
             @keyup.ctrl.enter="maybeSave"
           />

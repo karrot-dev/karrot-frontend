@@ -47,7 +47,7 @@
       <QItemSection>
         <QItemLabel>
           {{ locale.label }}
-          <small>({{ locale.percentage * 100 }}%)</small>
+          <small>({{ (locale.percentage * 100).toFixed() }}%)</small>
         </QItemLabel>
         <QItemLabel caption>
           <QLinearProgress

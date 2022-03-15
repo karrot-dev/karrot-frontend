@@ -171,12 +171,14 @@ module.exports = configure(function (ctx) {
       },
 
       extendWebpack (cfg) {
+        /* TODO
         cfg.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /node_modules/,
         })
+        */
 
         cfg.resolve.alias = {
           ...cfg.resolve.alias, // This adds the existing alias

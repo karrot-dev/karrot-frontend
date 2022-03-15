@@ -132,7 +132,7 @@ const locales = {
     messages: () => import('@/locales/locale-pt_BR.json'),
     intlLocale: () => import('intl/locale-data/jsonp/pt-BR'),
     dateFnsLocale: () => import('date-fns/locale/pt-BR'), // TODO switch to pt-br when datefns supports it
-    quasar: () => import('quasar/lang/pt-br'),
+    quasar: () => import('quasar/lang/pt-BR'),
   },
 
   ru: {

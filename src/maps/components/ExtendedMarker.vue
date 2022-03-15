@@ -11,6 +11,7 @@
 import { LMarker } from '@vue-leaflet/vue-leaflet'
 
 export default {
+  name: 'ExtendedMarker',
   components: {
     LMarker,
   },

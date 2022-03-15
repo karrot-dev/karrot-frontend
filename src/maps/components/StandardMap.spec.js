@@ -23,7 +23,7 @@ describe('StandardMap', () => {
 
     // add and remove some markers
     for (let i = 0; i < 3; i++) {
-      wrapper.setProps({ markers: markers.filter((e, idx) => idx !== i) })
+      await wrapper.setProps({ markers: markers.filter((e, idx) => idx !== i) })
       await nextTicks(1)
       expect(wrapper.findAllComponents(ExtendedMarker).length).toBe(markers.length - 1)
       expect(wrapper.findAllComponents(VueLeaflet.LPopup).length).toBe(markers.length - 1)

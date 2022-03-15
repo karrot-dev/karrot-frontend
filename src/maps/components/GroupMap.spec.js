@@ -6,12 +6,10 @@ import ExtendedMarker from './ExtendedMarker'
 import { mountWithDefaults } from '>/helpers'
 import { nextTick } from 'vue'
 
-/* vue-leaflet library does not name its components, which vue-test-utils needs to find them
+/* vue-leaflet library does not name some of its components, which vue-test-utils needs to find them
    so we give them names here... */
 VueLeaflet.LMap.name = 'VueLeafletMap'
 VueLeaflet.LTileLayer.name = 'VueLeafletTileLayer'
-VueLeaflet.LPopup.name = 'VueLeafletPopup'
-VueLeaflet.LMarker.name = 'VueLeafletMarker'
 
 const defaultProps = {
   users: usersMock,

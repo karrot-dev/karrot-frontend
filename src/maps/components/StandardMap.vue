@@ -29,7 +29,10 @@
       <LPopup
         v-if="marker.popup"
       >
-        <Component :is="marker.popup" />
+        <Component
+          :is="marker.popup.component"
+          v-bind="marker.popup.props"
+        />
       </LPopup>
     </ExtendedMarker>
     <QMenu

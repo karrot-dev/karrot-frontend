@@ -241,7 +241,7 @@ import {
   QSeparator,
   colors,
 } from 'quasar'
-import { Component as QIconPicker } from '@quasar/quasar-ui-qiconpicker'
+import { QIconPicker } from '@quasar/quasar-ui-qiconpicker/src/index'
 import useVuelidate from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
 

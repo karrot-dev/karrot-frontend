@@ -43,7 +43,7 @@
     "generate-landing-images": "node src/base/generate-images.mjs"
   },
   "dependencies": {
-    "@quasar/extras": "^1.13.0",
+    "@quasar/extras": "^1.13.1",
     "@sentry/browser": "^6.18.2",
     "@sentry/integrations": "^6.18.2",
     "@vue-leaflet/vue-leaflet": "^0.6.1",
@@ -69,7 +69,7 @@
     "markdown-it-regexp": "^0.4.0",
     "quasar": "^2.6.0",
     "reconnecting-websocket": "^4.4.0",
-    "twemoji": "^14.0.0",
+    "twemoji": "^14.0.1",
     "v-tooltip": "^2.1.3",
     "vue": "^3.2.31",
     "vue-croppa": "^1.3.8",
@@ -81,9 +81,9 @@
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.5",
+    "@babel/core": "^7.17.7",
     "@babel/eslint-parser": "^7.17.0",
-    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
+    "@babel/plugin-transform-modules-commonjs": "^7.17.7",
     "@mapbox/appropriate-images": "^5.0.0",
     "@octokit/rest": "^18.12.0",
     "@quasar/app-webpack": "^3.4.0",
@@ -133,7 +133,7 @@
     "keep-a-changelog": "^2.0.1",
     "lodash": "^4.17.21",
     "lolex": "^6.0.0",
-    "postcss": "^8.4.8",
+    "postcss": "^8.4.11",
     "postcss-html": "^1.3.0",
     "postcss-syntax": "^0.36.2",
     "preload-webpack-plugin": "^3.0.0-beta.3",
@@ -145,7 +145,7 @@
     "stylelint-config-recommended-scss": "^5.0.2",
     "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard": "^25.0.0",
-    "stylelint-scss": "^4.1.0",
+    "stylelint-scss": "^4.2.0",
     "stylelint-webpack-plugin": "^3.1.1",
     "vue-loader": "^17.0.0",
     "vue-server-renderer": "^2.6.14",

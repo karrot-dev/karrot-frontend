@@ -1,12 +1,19 @@
 import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
-import { storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import * as factories from '>/enrichedFactories'
 
 import DetailHeader from './DetailHeaderUI'
 import DetailUI from './DetailUI'
 
 const detailStory = props => defaults({
+  store: createDatastore({
+    users: {
+      getters: {
+        byCurrentGroup: () => [],
+      },
+    },
+  }),
   render: () => h('div', [
     h(DetailHeader, { props }),
     h(DetailUI, { props }),

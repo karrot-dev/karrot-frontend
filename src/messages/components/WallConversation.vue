@@ -5,6 +5,7 @@
       @load="maybeFetchPast"
     >
       <QList
+        ref="messagesList"
         class="bg-white desktop-margin relative-position q-pb-md"
         bordered
       >
@@ -129,6 +130,17 @@ export default {
       }
       else {
         return this.$t('WALL.WRITE_FIRST_MESSAGE')
+      }
+    },
+  },
+  watch: {
+    hasLoaded (val) {
+      if (val) {
+        const hash = this.$route.hash
+        if (hash === '#messages') {
+          const ref = this.$refs.messagesList
+          if (ref) ref.$el.scrollIntoView()
+        }
       }
     },
   },

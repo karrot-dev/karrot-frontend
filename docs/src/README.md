@@ -16,11 +16,11 @@ Purposes would/could be to document:
 ## Useful links
 
 - Code
-  - **frontend** [yunity/karrot-frontend](https://github.com/yunity/karrot-frontend)
-  - **backend** [yunity/karrot-backend](https://github.com/yunity/karrot-backend)
+  - **frontend** [karrot-dev/karrot-frontend](https://github.com/karrot-dev/karrot-frontend)
+  - **backend** [karrot-dev/karrot-backend](https://github.com/karrot-dev/karrot-backend)
 - Issues
-  - **product and frontend** - [yunity/karrot-frontend/issues](https://github.com/yunity/karrot-frontend/issues)
-  - **backend** - [yunity/karrot-frontend/issues](https://github.com/yunity/karrot-frontend/issues)
+  - **product and frontend** - [karrot-dev/karrot-frontend/issues](https://github.com/karrot-dev/karrot-frontend/issues)
+  - **backend** - [karrot-dev/karrot-frontend/issues](https://github.com/karrot-dev/karrot-frontend/issues)
 - Other documentation
   - **user docs** (_coming soon_)
   - **API docs** [dev.karrot.world/docs/](https://dev.karrot.world/docs/) (create account and login to see more

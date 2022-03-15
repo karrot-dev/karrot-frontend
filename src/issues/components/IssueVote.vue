@@ -22,7 +22,7 @@
               <p v-t="'CONFLICT.INFO.MESSAGE'" />
               <a
                 v-t="'CONFLICT.FIND_OUT_MORE'"
-                href="https://community.foodsaving.world/t/how-does-the-conflict-resolution-feature-work/254/3"
+                href="https://community.karrot.world/t/how-does-the-conflict-resolution-feature-work/254/3"
                 target="_blank"
                 rel="noopener"
                 style="text-decoration: underline"

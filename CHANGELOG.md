@@ -21,6 +21,50 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Fixed
+- fix infinite redirect for some discussions @amengsk [#2501](https://github.com/karrot-dev/karrot-frontend/pull/2501)
+- fix round translation percentages @Chinchuluun1029 @nicksellen [#2514](https://github.com/karrot-dev/karrot-frontend/pull/2514)
+
+## [9.7.0] - 2022-02-15
+### Added
+- enabled Japanese, and Chinese (simplified), and a few library locales @nicksellen [#2475]
+- scroll to wall messages when clicking message in menu @nicksellen [#2483]
+
+### Changed
+- increase activity page size to 1200 @nicksellen [#1214](https://github.com/karrot-dev/karrot-backend/pull/1214)
+
+### Fixed
+- show possible feedback list correctly @nicksellen [#2486]
+- fix markdown link attributes @nicksellen [#2482]
+- don't send activity reminders for disabled activities @nicksellen [#1209](https://github.com/karrot-dev/karrot-backend/pull/1209)
+
+## [9.6.1] - 2021-12-29
+### Changed
+- use config API more @nicksellen [#2470]
+
+### Fixed
+- fix places navigation @nicksellen [#2473]
+
+## [9.6.0] - 2021-12-24
+### Added
+- Choice of default view (wall or activities) on place page @brnsolikyl @nicksellen @larzon83 [#2444]
+- Add "Previous 12 months" to statistics time period @changjus [#2445]
+- Add recent years option to statistics time period @nicksellen [#2467]
+
+### Changed
+- Use markdown for activity description @nicksellen [#2457]
+- Update URLs and de-foodify further @nicksellen [#2455]
+- Allow to join started activities @nicksellen [#1201](https://github.com/karrot-dev/karrot-backend/pull/1201)
+- Expose disabled activities as cancelled in ics export @amengsk [#1200](https://github.com/karrot-dev/karrot-backend/pull/1200)
+
+### Removed
+- Remove calendar subscribe button from group wall @amengsk [#2451]
+
+## [9.5.1] - 2021-11-08
+### Changed
+- increase android API level target from 29 to 30 @nicksellen
+
+## [9.5.0] - 2021-11-08
 ### Added
 - activity-list: enable ics subscriptions for activities @amengsk @larzon83 [#2368]
 - Users can revoke trust @pogopaule [#2352]
@@ -28,8 +72,9 @@ Please document your changes in this format:
 
 ### Changed
 - Remove invitation by e-mail at members page @brnsolikyl [#2349]
-- Redirect to place feedback page after saving, highlight entry @tiltec #2417
+- Redirect to place feedback page after saving, highlight entry @tiltec [#2417]
 - meta-tags: site description update in composer.json update for og:title [#2405]
+- activities: ics subscription only exposes joined events [#2428]
 
 ### Fixed
 - add explicit host in ics url @amengsk [#2406]
@@ -50,10 +95,10 @@ Please document your changes in this format:
 ## [9.3.0] - 2021-06-03
 ### Added
 - allow to dismiss feedback @dpaque @layla19 @larzon83 @pogopaule [#2319]
-- Add request/db timeout options @nicksellen [#1143](https://github.com/yunity/karrot-backend/pull/1143)
-- Added country code and timezone to geo ip info @nicksellen [#1134](https://github.com/yunity/karrot-backend/pull/1134)
-- API for revoking trust @pogopaule [#1133](https://github.com/yunity/karrot-backend/pull/1133)
-- API for calendar subscriptions @amengsk [#1132](https://github.com/yunity/karrot-backend/pull/1132)
+- Add request/db timeout options @nicksellen [#1143](https://github.com/karrot-dev/karrot-backend/pull/1143)
+- Added country code and timezone to geo ip info @nicksellen [#1134](https://github.com/karrot-dev/karrot-backend/pull/1134)
+- API for revoking trust @pogopaule [#1133](https://github.com/karrot-dev/karrot-backend/pull/1133)
+- API for calendar subscriptions @amengsk [#1132](https://github.com/karrot-dev/karrot-backend/pull/1132)
 - add ics export for activities @amengsk @larzon83 [#2321]
 
 ### Changed
@@ -66,9 +111,9 @@ Please document your changes in this format:
 - Use roboto font in latin-ext variant @nicksellen [#2345]
 
 ### Fixed
-- Place statistics feedback weight should be summed @nicksellen [#1137](https://github.com/yunity/karrot-backend/pull/1137)
-- Fixed slow messages query @tiltec [#1141](https://github.com/yunity/karrot-backend/pull/1141)
-- Fixed slow place statistics query @tiltec [#1144](https://github.com/yunity/karrot-backend/pull/1144)
+- Place statistics feedback weight should be summed @nicksellen [#1137](https://github.com/karrot-dev/karrot-backend/pull/1137)
+- Fixed slow messages query @tiltec [#1141](https://github.com/karrot-dev/karrot-backend/pull/1141)
+- Fixed slow place statistics query @tiltec [#1144](https://github.com/karrot-dev/karrot-backend/pull/1144)
 
 ## [9.2.0] - 2021-03-23
 ### Added
@@ -127,13 +172,13 @@ Please document your changes in this format:
 
 ## [8.7.1] - 2020-08-27
 ### Added
-- Allow images to be attached to messages [#2128] [#1028](https://github.com/yunity/karrot-backend/pull/1028) @nicksellen
+- Allow images to be attached to messages [#2128] [#1028](https://github.com/karrot-dev/karrot-backend/pull/1028) @nicksellen
 - Display number of total group members on top of member list [#2149] @djahnie
 
 ### Changed
-- Improve activity history display to show activity information more clearly [#2151] from [suggestion](https://community.foodsaving.world/t/how-do-you-handle-late-drop-outs-from-pickups/213/10) @nicksellen
+- Improve activity history display to show activity information more clearly [#2151] from [suggestion](https://community.karrot.world/t/how-do-you-handle-late-drop-outs-from-pickups/213/10) @nicksellen
 - Only show pull-to-refresh in app @tiltec
-- Sort feedback by activity date instead of feedback date [#2157] [#2161] [#1044](https://github.com/yunity/karrot-backend/pull/1044) @nicksellen
+- Sort feedback by activity date instead of feedback date [#2157] [#2161] [#1044](https://github.com/karrot-dev/karrot-backend/pull/1044) @nicksellen
 
 ## [8.6.0] - 2020-07-17
 ### Changed
@@ -633,7 +678,7 @@ Complete frontend rewrite with [VueJS](http://vuejs.org/) and [Quasar](http://qu
 - Disabled auto-capitalization on login page
 - many small issues...
 
-## 1.0.0 - 2016-12-14
+## [1.0.0] - 2016-12-14
 After months of planning and programming, the first version of ~the foodsaving tool~ _karrot_ is ready!
 
 ### Added
@@ -642,124 +687,151 @@ After months of planning and programming, the first version of ~the foodsaving t
 - **store**: create a store which belongs to a group, set up name, description, address and position of a store
 - **pick-up dates**: create a pick-up date which belongs to a store, set time and max. amount of people who can collect food, user can join/leave a pick-up date
 
-[#709]: https://github.com/yunity/karrot-frontend/issues/709
-[#837]: https://github.com/yunity/karrot-frontend/issues/837
-[#891]: https://github.com/yunity/karrot-frontend/issues/891
-[#986]: https://github.com/yunity/karrot-frontend/issues/986
-[#1020]: https://github.com/yunity/karrot-frontend/issues/1020
-[#1038]: https://github.com/yunity/karrot-frontend/issues/1038
-[#1063]: https://github.com/yunity/karrot-frontend/issues/1063
-[#1065]: https://github.com/yunity/karrot-frontend/issues/1065
-[#1070]: https://github.com/yunity/karrot-frontend/issues/1070
-[#1071]: https://github.com/yunity/karrot-frontend/issues/1071
-[#1077]: https://github.com/yunity/karrot-frontend/issues/1077
-[#1079]: https://github.com/yunity/karrot-frontend/issues/1079
-[#1082]: https://github.com/yunity/karrot-frontend/issues/1082
-[#1088]: https://github.com/yunity/karrot-frontend/issues/1088
-[#1097]: https://github.com/yunity/karrot-frontend/issues/1097
-[#1099]: https://github.com/yunity/karrot-frontend/issues/1099
-[#1112]: https://github.com/yunity/karrot-frontend/issues/1112
-[#1138]: https://github.com/yunity/karrot-frontend/issues/1138
-[#1139]: https://github.com/yunity/karrot-frontend/issues/1139
-[#1140]: https://github.com/yunity/karrot-frontend/issues/1140
-[#1147]: https://github.com/yunity/karrot-frontend/issues/1147
-[#1157]: https://github.com/yunity/karrot-frontend/issues/1157
-[#1174]: https://github.com/yunity/karrot-frontend/issues/1174
-[#1178]: https://github.com/yunity/karrot-frontend/issues/1178
-[#1398]: https://github.com/yunity/karrot-frontend/issues/1398
-[#1421]: https://github.com/yunity/karrot-frontend/issues/1421
-[#1509]: https://github.com/yunity/karrot-frontend/issues/1509
-[#1690]: https://github.com/yunity/karrot-frontend/issues/1690
-[#1691]: https://github.com/yunity/karrot-frontend/issues/1691
-[#1789]: https://github.com/yunity/karrot-frontend/issues/1789
-[#1799]: https://github.com/yunity/karrot-frontend/issues/1799
-[#1982]: https://github.com/yunity/karrot-frontend/issues/1982
-[#1987]: https://github.com/yunity/karrot-frontend/issues/1987
-[#2062]: https://github.com/yunity/karrot-frontend/issues/2062
-[#2128]: https://github.com/yunity/karrot-frontend/issues/2128
-[#2149]: https://github.com/yunity/karrot-frontend/issues/2149
-[#2151]: https://github.com/yunity/karrot-frontend/issues/2151
-[#2157]: https://github.com/yunity/karrot-frontend/issues/2157
-[#2161]: https://github.com/yunity/karrot-frontend/issues/2161
-[#2207]: https://github.com/yunity/karrot-frontend/issues/2207
-[#2210]: https://github.com/yunity/karrot-frontend/issues/2210
-[#2211]: https://github.com/yunity/karrot-frontend/issues/2211
-[#2212]: https://github.com/yunity/karrot-frontend/issues/2212
-[#2230]: https://github.com/yunity/karrot-frontend/issues/2230
-[#2231]: https://github.com/yunity/karrot-frontend/issues/2231
-[#2232]: https://github.com/yunity/karrot-frontend/issues/2232
-[#2234]: https://github.com/yunity/karrot-frontend/issues/2234
-[#2245]: https://github.com/yunity/karrot-frontend/issues/2245
-[#2266]: https://github.com/yunity/karrot-frontend/issues/2266
-[#2271]: https://github.com/yunity/karrot-frontend/issues/2271
-[#2283]: https://github.com/yunity/karrot-frontend/issues/2283
-[#2293]: https://github.com/yunity/karrot-frontend/issues/2293
-[#2297]: https://github.com/yunity/karrot-frontend/issues/2297
-[#2303]: https://github.com/yunity/karrot-frontend/issues/2303
-[#2306]: https://github.com/yunity/karrot-frontend/issues/2306
-[#2313]: https://github.com/yunity/karrot-frontend/issues/2313
-[#2317]: https://github.com/yunity/karrot-frontend/issues/2317
-[#2319]: https://github.com/yunity/karrot-frontend/issues/2319
-[#2321]: https://github.com/yunity/karrot-frontend/issues/2321
-[#2333]: https://github.com/yunity/karrot-frontend/issues/2333
-[#2340]: https://github.com/yunity/karrot-frontend/issues/2340
-[#2345]: https://github.com/yunity/karrot-frontend/issues/2345
-[#2371]: https://github.com/yunity/karrot-frontend/issues/2371
-[#2372]: https://github.com/yunity/karrot-frontend/issues/2372
-[#2373]: https://github.com/yunity/karrot-frontend/issues/2373
-[#2377]: https://github.com/yunity/karrot-frontend/issues/2377
-[#2383]: https://github.com/yunity/karrot-frontend/issues/2383
-[#2387]: https://github.com/yunity/karrot-frontend/issues/2387
-[#2396]: https://github.com/yunity/karrot-frontend/issues/2396
+[#709]: https://github.com/karrot-dev/karrot-frontend/issues/709
+[#837]: https://github.com/karrot-dev/karrot-frontend/issues/837
+[#891]: https://github.com/karrot-dev/karrot-frontend/issues/891
+[#986]: https://github.com/karrot-dev/karrot-frontend/issues/986
+[#1020]: https://github.com/karrot-dev/karrot-frontend/issues/1020
+[#1038]: https://github.com/karrot-dev/karrot-frontend/issues/1038
+[#1063]: https://github.com/karrot-dev/karrot-frontend/issues/1063
+[#1065]: https://github.com/karrot-dev/karrot-frontend/issues/1065
+[#1070]: https://github.com/karrot-dev/karrot-frontend/issues/1070
+[#1071]: https://github.com/karrot-dev/karrot-frontend/issues/1071
+[#1077]: https://github.com/karrot-dev/karrot-frontend/issues/1077
+[#1079]: https://github.com/karrot-dev/karrot-frontend/issues/1079
+[#1082]: https://github.com/karrot-dev/karrot-frontend/issues/1082
+[#1088]: https://github.com/karrot-dev/karrot-frontend/issues/1088
+[#1097]: https://github.com/karrot-dev/karrot-frontend/issues/1097
+[#1099]: https://github.com/karrot-dev/karrot-frontend/issues/1099
+[#1112]: https://github.com/karrot-dev/karrot-frontend/issues/1112
+[#1138]: https://github.com/karrot-dev/karrot-frontend/issues/1138
+[#1139]: https://github.com/karrot-dev/karrot-frontend/issues/1139
+[#1140]: https://github.com/karrot-dev/karrot-frontend/issues/1140
+[#1147]: https://github.com/karrot-dev/karrot-frontend/issues/1147
+[#1157]: https://github.com/karrot-dev/karrot-frontend/issues/1157
+[#1174]: https://github.com/karrot-dev/karrot-frontend/issues/1174
+[#1178]: https://github.com/karrot-dev/karrot-frontend/issues/1178
+[#1398]: https://github.com/karrot-dev/karrot-frontend/issues/1398
+[#1421]: https://github.com/karrot-dev/karrot-frontend/issues/1421
+[#1509]: https://github.com/karrot-dev/karrot-frontend/issues/1509
+[#1690]: https://github.com/karrot-dev/karrot-frontend/issues/1690
+[#1691]: https://github.com/karrot-dev/karrot-frontend/issues/1691
+[#1789]: https://github.com/karrot-dev/karrot-frontend/issues/1789
+[#1799]: https://github.com/karrot-dev/karrot-frontend/issues/1799
+[#1982]: https://github.com/karrot-dev/karrot-frontend/issues/1982
+[#1987]: https://github.com/karrot-dev/karrot-frontend/issues/1987
+[#2062]: https://github.com/karrot-dev/karrot-frontend/issues/2062
+[#2128]: https://github.com/karrot-dev/karrot-frontend/issues/2128
+[#2149]: https://github.com/karrot-dev/karrot-frontend/issues/2149
+[#2151]: https://github.com/karrot-dev/karrot-frontend/issues/2151
+[#2157]: https://github.com/karrot-dev/karrot-frontend/issues/2157
+[#2161]: https://github.com/karrot-dev/karrot-frontend/issues/2161
+[#2207]: https://github.com/karrot-dev/karrot-frontend/issues/2207
+[#2210]: https://github.com/karrot-dev/karrot-frontend/issues/2210
+[#2211]: https://github.com/karrot-dev/karrot-frontend/issues/2211
+[#2212]: https://github.com/karrot-dev/karrot-frontend/issues/2212
+[#2230]: https://github.com/karrot-dev/karrot-frontend/issues/2230
+[#2231]: https://github.com/karrot-dev/karrot-frontend/issues/2231
+[#2232]: https://github.com/karrot-dev/karrot-frontend/issues/2232
+[#2234]: https://github.com/karrot-dev/karrot-frontend/issues/2234
+[#2245]: https://github.com/karrot-dev/karrot-frontend/issues/2245
+[#2266]: https://github.com/karrot-dev/karrot-frontend/issues/2266
+[#2271]: https://github.com/karrot-dev/karrot-frontend/issues/2271
+[#2283]: https://github.com/karrot-dev/karrot-frontend/issues/2283
+[#2293]: https://github.com/karrot-dev/karrot-frontend/issues/2293
+[#2297]: https://github.com/karrot-dev/karrot-frontend/issues/2297
+[#2303]: https://github.com/karrot-dev/karrot-frontend/issues/2303
+[#2306]: https://github.com/karrot-dev/karrot-frontend/issues/2306
+[#2313]: https://github.com/karrot-dev/karrot-frontend/issues/2313
+[#2317]: https://github.com/karrot-dev/karrot-frontend/issues/2317
+[#2319]: https://github.com/karrot-dev/karrot-frontend/issues/2319
+[#2321]: https://github.com/karrot-dev/karrot-frontend/issues/2321
+[#2333]: https://github.com/karrot-dev/karrot-frontend/issues/2333
+[#2340]: https://github.com/karrot-dev/karrot-frontend/issues/2340
+[#2345]: https://github.com/karrot-dev/karrot-frontend/issues/2345
+[#2348]: https://github.com/karrot-dev/karrot-frontend/issues/2348
+[#2349]: https://github.com/karrot-dev/karrot-frontend/issues/2349
+[#2352]: https://github.com/karrot-dev/karrot-frontend/issues/2352
+[#2364]: https://github.com/karrot-dev/karrot-frontend/issues/2364
+[#2368]: https://github.com/karrot-dev/karrot-frontend/issues/2368
+[#2371]: https://github.com/karrot-dev/karrot-frontend/issues/2371
+[#2372]: https://github.com/karrot-dev/karrot-frontend/issues/2372
+[#2373]: https://github.com/karrot-dev/karrot-frontend/issues/2373
+[#2377]: https://github.com/karrot-dev/karrot-frontend/issues/2377
+[#2383]: https://github.com/karrot-dev/karrot-frontend/issues/2383
+[#2387]: https://github.com/karrot-dev/karrot-frontend/issues/2387
+[#2396]: https://github.com/karrot-dev/karrot-frontend/issues/2396
+[#2405]: https://github.com/karrot-dev/karrot-frontend/issues/2405
+[#2406]: https://github.com/karrot-dev/karrot-frontend/issues/2406
+[#2417]: https://github.com/karrot-dev/karrot-frontend/issues/2417
+[#2428]: https://github.com/karrot-dev/karrot-frontend/issues/2428
+[#2444]: https://github.com/karrot-dev/karrot-frontend/issues/2444
+[#2445]: https://github.com/karrot-dev/karrot-frontend/issues/2445
+[#2451]: https://github.com/karrot-dev/karrot-frontend/issues/2451
+[#2455]: https://github.com/karrot-dev/karrot-frontend/issues/2455
+[#2457]: https://github.com/karrot-dev/karrot-frontend/issues/2457
+[#2467]: https://github.com/karrot-dev/karrot-frontend/issues/2467
+[#2470]: https://github.com/karrot-dev/karrot-frontend/issues/2470
+[#2473]: https://github.com/karrot-dev/karrot-frontend/issues/2473
+[#2475]: https://github.com/karrot-dev/karrot-frontend/issues/2475
+[#2482]: https://github.com/karrot-dev/karrot-frontend/issues/2482
+[#2483]: https://github.com/karrot-dev/karrot-frontend/issues/2483
+[#2486]: https://github.com/karrot-dev/karrot-frontend/issues/2486
 
-[Unreleased]: https://github.com/yunity/karrot-frontend/compare/v9.4.0...HEAD
-[9.4.0]: https://github.com/yunity/karrot-frontend/compare/v9.3.0...v9.4.0
-[9.3.0]: https://github.com/yunity/karrot-frontend/compare/v9.2.0...v9.3.0
-[9.2.0]: https://github.com/yunity/karrot-frontend/compare/v9.1.0...v9.2.0
-[9.1.0]: https://github.com/yunity/karrot-frontend/compare/v9.0.0...v9.1.0
-[9.0.0]: https://github.com/yunity/karrot-frontend/compare/v8.8.1...v9.0.0
-[8.8.1]: https://github.com/yunity/karrot-frontend/compare/v8.8.0...v8.8.1
-[8.8.0]: https://github.com/yunity/karrot-frontend/compare/v8.7.2...v8.8.0
-[8.7.2]: https://github.com/yunity/karrot-frontend/compare/v8.7.1...v8.7.2
-[8.7.1]: https://github.com/yunity/karrot-frontend/compare/v8.6.0...v8.7.1
-[8.6.0]: https://github.com/yunity/karrot-frontend/compare/v8.5.2...v8.6.0
-[8.5.2]: https://github.com/yunity/karrot-frontend/compare/v8.5.1...v8.5.2
-[8.5.1]: https://github.com/yunity/karrot-frontend/compare/v8.5.0...v8.5.1
-[8.5.0]: https://github.com/yunity/karrot-frontend/compare/v8.4.0...v8.5.0
-[8.4.0]: https://github.com/yunity/karrot-frontend/compare/v8.3.0...v8.4.0
-[8.3.0]: https://github.com/yunity/karrot-frontend/compare/v8.2.0...v8.3.0
-[8.2.0]: https://github.com/yunity/karrot-frontend/compare/v8.1.2...v8.2.0
-[8.1.2]: https://github.com/yunity/karrot-frontend/compare/v8.1.1...v8.1.2
-[8.1.1]: https://github.com/yunity/karrot-frontend/compare/v8.1.0...v8.1.1
-[8.1.0]: https://github.com/yunity/karrot-frontend/compare/v8.0.0...v8.1.0
-[8.0.0]: https://github.com/yunity/karrot-frontend/compare/v7.4.2...v8.0.0
-[7.4.2]: https://github.com/yunity/karrot-frontend/compare/v7.4.1...v7.4.2
-[7.4.1]: https://github.com/yunity/karrot-frontend/compare/v7.4.0...v7.4.1
-[7.4.0]: https://github.com/yunity/karrot-frontend/compare/v7.3.0...v7.4.0
-[7.3.0]: https://github.com/yunity/karrot-frontend/compare/v7.2.4...v7.3.0
-[7.2.4]: https://github.com/yunity/karrot-frontend/compare/v7.2.3...v7.2.4
-[7.2.3]: https://github.com/yunity/karrot-frontend/compare/v7.2.2...v7.2.3
-[7.2.2]: https://github.com/yunity/karrot-frontend/compare/v7.2.1...v7.2.2
-[7.2.1]: https://github.com/yunity/karrot-frontend/compare/v7.2.0...v7.2.1
-[7.2.0]: https://github.com/yunity/karrot-frontend/compare/v7.1.0...v7.2.0
-[7.1.0]: https://github.com/yunity/karrot-frontend/compare/v7.0.0...v7.1.0
-[7.0.0]: https://github.com/yunity/karrot-frontend/compare/v6.5.0...v7.0.0
-[6.5.0]: https://github.com/yunity/karrot-frontend/compare/v6.4.0...v6.5.0
-[6.4.0]: https://github.com/yunity/karrot-frontend/compare/v6.3.0...v6.4.0
-[6.3.0]: https://github.com/yunity/karrot-frontend/compare/v6.2.9...v6.3.0
-[6.2.9]: https://github.com/yunity/karrot-frontend/compare/v6.2.8...v6.2.9
-[6.2.8]: https://github.com/yunity/karrot-frontend/compare/v6.2.7...v6.2.8
-[6.2.7]: https://github.com/yunity/karrot-frontend/compare/v6.2.6...v6.2.7
-[6.2.6]: https://github.com/yunity/karrot-frontend/compare/v6.2.5...v6.2.6
-[6.2.5]: https://github.com/yunity/karrot-frontend/compare/v6.2.4...v6.2.5
-[6.2.4]: https://github.com/yunity/karrot-frontend/compare/v6.2.3...v6.2.4
-[6.2.3]: https://github.com/yunity/karrot-frontend/compare/v6.2.2...v6.2.3
-[6.2.2]: https://github.com/yunity/karrot-frontend/compare/v6.2.1...v6.2.2
-[6.2.1]: https://github.com/yunity/karrot-frontend/compare/v6.2.0...v6.2.1
-[6.2.0]: https://github.com/yunity/karrot-frontend/compare/v6.1.0...v6.2.0
-[6.1.0]: https://github.com/yunity/karrot-frontend/compare/v6.0.0...v6.1.0
-[6.0.0]: https://github.com/yunity/karrot-frontend/compare/v5.0.0...v6.0.0
-[5.0.0]: https://github.com/yunity/karrot-frontend/compare/v4.0.0...v5.0.0
-[4.0.0]: https://github.com/yunity/karrot-frontend/compare/v3.0.0...v4.0.0
-[3.0.0]: https://github.com/yunity/karrot-frontend/compare/v2.0.0...v3.0.0
-[2.0.0]: https://github.com/yunity/karrot-frontend/compare/v1.0.0...v2.0.0
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v9.7.0...HEAD
+[9.7.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.6.1...v9.7.0
+[9.6.1]: https://github.com/karrot-dev/karrot-frontend/compare/v9.6.0...v9.6.1
+[9.6.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.5.1...v9.6.0
+[9.5.1]: https://github.com/karrot-dev/karrot-frontend/compare/v9.5.0...v9.5.1
+[9.5.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.4.0...v9.5.0
+[9.4.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.3.0...v9.4.0
+[9.3.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.2.0...v9.3.0
+[9.2.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.1.0...v9.2.0
+[9.1.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.0.0...v9.1.0
+[9.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v8.8.1...v9.0.0
+[8.8.1]: https://github.com/karrot-dev/karrot-frontend/compare/v8.8.0...v8.8.1
+[8.8.0]: https://github.com/karrot-dev/karrot-frontend/compare/v8.7.2...v8.8.0
+[8.7.2]: https://github.com/karrot-dev/karrot-frontend/compare/v8.7.1...v8.7.2
+[8.7.1]: https://github.com/karrot-dev/karrot-frontend/compare/v8.6.0...v8.7.1
+[8.6.0]: https://github.com/karrot-dev/karrot-frontend/compare/v8.5.2...v8.6.0
+[8.5.2]: https://github.com/karrot-dev/karrot-frontend/compare/v8.5.1...v8.5.2
+[8.5.1]: https://github.com/karrot-dev/karrot-frontend/compare/v8.5.0...v8.5.1
+[8.5.0]: https://github.com/karrot-dev/karrot-frontend/compare/v8.4.0...v8.5.0
+[8.4.0]: https://github.com/karrot-dev/karrot-frontend/compare/v8.3.0...v8.4.0
+[8.3.0]: https://github.com/karrot-dev/karrot-frontend/compare/v8.2.0...v8.3.0
+[8.2.0]: https://github.com/karrot-dev/karrot-frontend/compare/v8.1.2...v8.2.0
+[8.1.2]: https://github.com/karrot-dev/karrot-frontend/compare/v8.1.1...v8.1.2
+[8.1.1]: https://github.com/karrot-dev/karrot-frontend/compare/v8.1.0...v8.1.1
+[8.1.0]: https://github.com/karrot-dev/karrot-frontend/compare/v8.0.0...v8.1.0
+[8.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v7.4.2...v8.0.0
+[7.4.2]: https://github.com/karrot-dev/karrot-frontend/compare/v7.4.1...v7.4.2
+[7.4.1]: https://github.com/karrot-dev/karrot-frontend/compare/v7.4.0...v7.4.1
+[7.4.0]: https://github.com/karrot-dev/karrot-frontend/compare/v7.3.0...v7.4.0
+[7.3.0]: https://github.com/karrot-dev/karrot-frontend/compare/v7.2.4...v7.3.0
+[7.2.4]: https://github.com/karrot-dev/karrot-frontend/compare/v7.2.3...v7.2.4
+[7.2.3]: https://github.com/karrot-dev/karrot-frontend/compare/v7.2.2...v7.2.3
+[7.2.2]: https://github.com/karrot-dev/karrot-frontend/compare/v7.2.1...v7.2.2
+[7.2.1]: https://github.com/karrot-dev/karrot-frontend/compare/v7.2.0...v7.2.1
+[7.2.0]: https://github.com/karrot-dev/karrot-frontend/compare/v7.1.0...v7.2.0
+[7.1.0]: https://github.com/karrot-dev/karrot-frontend/compare/v7.0.0...v7.1.0
+[7.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v6.5.0...v7.0.0
+[6.5.0]: https://github.com/karrot-dev/karrot-frontend/compare/v6.4.0...v6.5.0
+[6.4.0]: https://github.com/karrot-dev/karrot-frontend/compare/v6.3.0...v6.4.0
+[6.3.0]: https://github.com/karrot-dev/karrot-frontend/compare/v6.2.9...v6.3.0
+[6.2.9]: https://github.com/karrot-dev/karrot-frontend/compare/v6.2.8...v6.2.9
+[6.2.8]: https://github.com/karrot-dev/karrot-frontend/compare/v6.2.7...v6.2.8
+[6.2.7]: https://github.com/karrot-dev/karrot-frontend/compare/v6.2.6...v6.2.7
+[6.2.6]: https://github.com/karrot-dev/karrot-frontend/compare/v6.2.5...v6.2.6
+[6.2.5]: https://github.com/karrot-dev/karrot-frontend/compare/v6.2.4...v6.2.5
+[6.2.4]: https://github.com/karrot-dev/karrot-frontend/compare/v6.2.3...v6.2.4
+[6.2.3]: https://github.com/karrot-dev/karrot-frontend/compare/v6.2.2...v6.2.3
+[6.2.2]: https://github.com/karrot-dev/karrot-frontend/compare/v6.2.1...v6.2.2
+[6.2.1]: https://github.com/karrot-dev/karrot-frontend/compare/v6.2.0...v6.2.1
+[6.2.0]: https://github.com/karrot-dev/karrot-frontend/compare/v6.1.0...v6.2.0
+[6.1.0]: https://github.com/karrot-dev/karrot-frontend/compare/v6.0.0...v6.1.0
+[6.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v5.0.0...v6.0.0
+[5.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v4.0.0...v5.0.0
+[4.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v3.0.0...v4.0.0
+[3.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v2.0.0...v3.0.0
+[2.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v1.0.0...v2.0.0
+[1.0.0]: https://github.com/karrot-dev/karrot-frontend/releases/tag/v1.0.0

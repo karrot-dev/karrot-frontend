@@ -106,6 +106,15 @@
         <QList>
           <QItem>
             <QItemSection side>
+              <QIcon name="alternate_email" />
+            </QItemSection>
+            <QItemSection class="ellipsis">
+              {{ user.username }}
+            </QItemSection>
+          </QItem>
+
+          <QItem>
+            <QItemSection side>
               <QIcon name="fas fa-fw fa-envelope" />
             </QItemSection>
             <QItemSection class="ellipsis">
@@ -163,7 +172,7 @@
           <p>
             <a
               v-t="'CONFLICT.FIND_OUT_MORE'"
-              href="https://community.foodsaving.world/t/how-does-the-conflict-resolution-feature-work/254"
+              href="https://community.karrot.world/t/how-does-the-conflict-resolution-feature-work/254"
               target="_blank"
               rel="noopener"
               style="text-decoration: underline"

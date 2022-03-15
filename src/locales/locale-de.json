@@ -96,14 +96,14 @@
     "NONE_HINT": "Du kannst eine neue Aktivität auf der Seite des Ortes erstellen.",
     "STORE_NONE_HINT": "Du kannst eine neue Aktivität auf der Seite „Verwalte Aktivitäten“ erstellen.",
     "ICS_DIALOG": {
-      "TITLE": "Add to calendar",
-      "INTRO": "Add these activities to your calendar by using one of the following options:",
-      "DOWNLOAD_TITLE": "Download",
-      "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
-      "DOWNLOAD_BUTTON_LABEL": "Download ICS",
-      "SUBSCRIBE_TITLE": "Subscribe",
-      "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
-      "MORE_INFOS": "More info about ICS"
+      "TITLE": "Zum Kalender hinzufügen",
+      "INTRO": "Add your activities to your calendar by using one of the following options:",
+      "DOWNLOAD_TITLE": "Herunterladen",
+      "DOWNLOAD_TEXT": "ICS-Datei herunterladen, um sie manuell in den Kalender zu importieren",
+      "DOWNLOAD_BUTTON_LABEL": "ICS herunterladen",
+      "SUBSCRIBE_TITLE": "Abonnieren",
+      "SUBSCRIBE_TEXT": "Über diese URL ICS-Kalender importieren:",
+      "MORE_INFOS": "Mehr Infos zu ICS"
     }
   },
   "ACTIVITYMANAGE": {
@@ -251,7 +251,7 @@
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates der {community}",
-    "HEADER_LINK": "foodsaving worldwide community",
+    "HEADER_LINK": "Karrot community",
     "KARROT_DISCUSSION": "Diskussionen über Karrot",
     "LAST_UPDATED": "Letztes Update {relativeDate}"
   },
@@ -704,6 +704,7 @@
     "FILTER_USER_LABEL": "Benutzer",
     "FILTER_ALL_USERS": "alle Benutzer",
     "FILTER_TIME_LABEL": "Zeitraum",
+    "FILTER_TIME_YEARS_LABEL": "Years",
     "FILTER_TIME_PREVIOUS_DAYS": "Letzte {count} Tage",
     "FILTER_TIME_PREVIOUS_MONTHS": "Letzte {count} Monate",
     "FILTER_TIME_FOREVER": "Seit Beginn",
@@ -730,6 +731,8 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Adresse",
+    "DEFAULT_VIEW": "Default View",
+    "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
     "DESCRIPTION": "Beschreibung",
     "DIALOGS": {
       "ARCHIVE": {

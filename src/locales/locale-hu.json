@@ -97,7 +97,7 @@
     "STORE_NONE_HINT": "Új tevékenységet a 'Tevékenységek kezelése' oldalon tudsz létrehozni.",
     "ICS_DIALOG": {
       "TITLE": "Add to calendar",
-      "INTRO": "Add these activities to your calendar by using one of the following options:",
+      "INTRO": "Add your activities to your calendar by using one of the following options:",
       "DOWNLOAD_TITLE": "Download",
       "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
       "DOWNLOAD_BUTTON_LABEL": "Download ICS",
@@ -251,7 +251,7 @@
   },
   "COMMUNITY_FEED": {
     "HEADER": "Hírek a(z) {community} közösségből",
-    "HEADER_LINK": "ételmentő világközösség",
+    "HEADER_LINK": "Karrot community",
     "KARROT_DISCUSSION": "Beszélgetések a Karrotról",
     "LAST_UPDATED": "Legutóbb {relativeDate} frissítve"
   },
@@ -704,6 +704,7 @@
     "FILTER_USER_LABEL": "Felhasználó",
     "FILTER_ALL_USERS": "Minden felhasználó",
     "FILTER_TIME_LABEL": "Időszak",
+    "FILTER_TIME_YEARS_LABEL": "Years",
     "FILTER_TIME_PREVIOUS_DAYS": "Előző {count} nap",
     "FILTER_TIME_PREVIOUS_MONTHS": "Előző {count} hónap",
     "FILTER_TIME_FOREVER": "Mindenkori",
@@ -730,6 +731,8 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Cím",
+    "DEFAULT_VIEW": "Default View",
+    "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
     "DESCRIPTION": "Leírás",
     "DIALOGS": {
       "ARCHIVE": {

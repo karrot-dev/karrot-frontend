@@ -4,7 +4,7 @@ import { create } from '@storybook/theming/create'
 const theme = create({
   base: 'light',
   brandTitle: 'Karrot Storybook',
-  brandUrl: 'https://github.com/yunity/karrot-frontend',
+  brandUrl: 'https://github.com/karrot-dev/karrot-frontend',
 })
 
 addons.setConfig({

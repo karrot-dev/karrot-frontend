@@ -94,7 +94,7 @@ else
 fi
 
 ISO_DATE=$(date -Idate)
-REPO_URL="https://github.com/yunity/karrot-frontend"
+REPO_URL="https://github.com/karrot-dev/karrot-frontend"
 COMMIT_SHA=$(git rev-parse HEAD)
 COMMIT_SHA_SHORT=$(git rev-parse --short HEAD)
 REF_URL="$REPO_URL/tree/$REF"
@@ -149,7 +149,7 @@ DEPLOY_USER="$DEPLOY_SITE-deploy"
 # the first part is the same as the default part, then we at @<short-ref>
 DEPLOY_VERSION="$(date -u +%Y%m%d%H%M%SZ)@$(git rev-parse --short HEAD)"
 
-git clone https://github.com/yunity/yuca yuca
+git clone https://github.com/karrot-dev/yuca yuca
 export ANSIBLE_HOST_KEY_CHECKING=False
 (
   cd yuca && \
@@ -169,7 +169,7 @@ fi
 if [ ! -z "$ROCKETCHAT_WEBHOOK_URL" ]; then
 
   WEBPACK_URL="$URL/bundlesize.html"
-  CIRCLE_WORKFLOW_URL="https://circleci.com/gh/yunity/workflows/karrot-frontend/tree/$REF"
+  CIRCLE_WORKFLOW_URL="https://app.circleci.com/pipelines/github/karrot-dev/karrot-frontend?branch=$REF"
 
   COMMIT_MESSAGE=$(git log -1 --pretty="%s - %an")
 

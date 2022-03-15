@@ -277,21 +277,17 @@
         />
       </QInput>
 
-      <QInput
+      <MarkdownInput
         v-model="edit.description"
         :error="hasError('description')"
         :error-message="firstError('description')"
         :label="$t('CREATEACTIVITY.COMMENT')"
         :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
-        type="textarea"
+        icon="info"
+        mentions
         maxlength="500"
-        autogrow
         @keyup.ctrl.enter="maybeSave"
-      >
-        <template #before>
-          <QIcon name="info" />
-        </template>
-      </QInput>
+      />
 
       <div
         v-if="hasNonFieldError"
@@ -368,6 +364,7 @@ import { formatSeconds } from '@/activities/utils'
 import addSeconds from 'date-fns/addSeconds'
 import addDays from 'date-fns/addDays'
 import differenceInSeconds from 'date-fns/differenceInSeconds'
+import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
   components: {
@@ -387,6 +384,7 @@ export default {
     QMenu,
     QToggle,
     QDate,
+    MarkdownInput,
   },
   mixins: [editMixin, statusMixin],
   emits: [

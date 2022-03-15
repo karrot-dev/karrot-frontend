@@ -3,8 +3,6 @@
  * is picked up by the build system ONLY if
  * quasar.conf > pwa > workboxPluginMode is set to "InjectManifest"
  *
- * If you want to actually use it you must have the FCM_CONFIG environment variable set to either 'dev' or 'prod'.
- *
  * See https://docs.karrot.world/mobile.html for a hint ... you'll need to dig around a bit more on
  * https://console.firebase.google.com/ though to find the sender id.
  *

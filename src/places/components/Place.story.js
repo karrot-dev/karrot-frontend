@@ -20,7 +20,12 @@ const otherPlaces = [...Array(5).keys()].map(() => makePlace({
 }))
 const places = [place, ...otherPlaces]
 
-const headerDatastore = createDatastore({
+const store = createDatastore({
+  users: {
+    getters: {
+      byCurrentGroup: () => [],
+    },
+  },
   currentGroup: {
     getters: {
       isEditor: () => false,
@@ -37,11 +42,13 @@ const headerDatastore = createDatastore({
 
 storiesOf('Places', module)
   .add('PlaceList', () => defaults({
+    store,
     render: () => h(PlaceList, {
       props: { places },
     }),
   }))
   .add('PlaceEdit', () => defaults({
+    store,
     render: () => h(PlaceEdit, {
       props: {
         value: place,
@@ -51,6 +58,7 @@ storiesOf('Places', module)
     }),
   }))
   .add('PlaceEdit (with server error)', () => defaults({
+    store,
     render: () => h(PlaceEdit, {
       props: {
         value: place,
@@ -60,6 +68,6 @@ storiesOf('Places', module)
     }),
   }))
   .add('PlaceHeader', () => defaults({
+    store,
     render: () => h(PlaceHeader, { props: { places } }),
-    store: headerDatastore,
   }))

@@ -97,7 +97,7 @@
     "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page.",
     "ICS_DIALOG": {
       "TITLE": "Add to calendar",
-      "INTRO": "Add these activities to your calendar by using one of the following options:",
+      "INTRO": "Add your activities to your calendar by using one of the following options:",
       "DOWNLOAD_TITLE": "Download",
       "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
       "DOWNLOAD_BUTTON_LABEL": "Download ICS",
@@ -251,7 +251,7 @@
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
-    "HEADER_LINK": "foodsaving worldwide community",
+    "HEADER_LINK": "Karrot community",
     "KARROT_DISCUSSION": "Discussions about Karrot",
     "LAST_UPDATED": "Last updated {relativeDate}"
   },
@@ -704,6 +704,7 @@
     "FILTER_USER_LABEL": "User",
     "FILTER_ALL_USERS": "All users",
     "FILTER_TIME_LABEL": "Time period",
+    "FILTER_TIME_YEARS_LABEL": "Years",
     "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
     "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
     "FILTER_TIME_FOREVER": "Forever",
@@ -730,6 +731,8 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Endereço",
+    "DEFAULT_VIEW": "Default View",
+    "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
     "DESCRIPTION": "Descricão",
     "DIALOGS": {
       "ARCHIVE": {

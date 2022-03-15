@@ -44,12 +44,12 @@ git commit
 git push
 ```
 
-If you now visit github.com/yunity/karrot-frontend, there should be a message that you can open a Pull Request for your recently pushed branch.
+If you now visit github.com/karrot-dev/karrot-frontend, there should be a message that you can open a Pull Request for your recently pushed branch.
 
 ### Backend connection
 
 Per default, all requests to `/api` are forwarded to the online backend `dev.karrot.world/api`.
-To use a [local backend](https://github.com/yunity/karrot-backend/), create a file `.env` with content like
+To use a [local backend](https://github.com/karrot-dev/karrot-backend/), create a file `.env` with content like
 
 ```
 BACKEND=http://localhost:8000

@@ -96,14 +96,14 @@
     "NONE_HINT": "Możesz dodać nową aktywność na stronie miejsca.",
     "STORE_NONE_HINT": "Możesz dodać nową aktywność na stronie zarządzania aktywnościami.",
     "ICS_DIALOG": {
-      "TITLE": "Add to calendar",
-      "INTRO": "Add these activities to your calendar by using one of the following options:",
-      "DOWNLOAD_TITLE": "Download",
-      "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
-      "DOWNLOAD_BUTTON_LABEL": "Download ICS",
-      "SUBSCRIBE_TITLE": "Subscribe",
-      "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
-      "MORE_INFOS": "More info about ICS"
+      "TITLE": "Dodaj do kalendarza",
+      "INTRO": "Add your activities to your calendar by using one of the following options:",
+      "DOWNLOAD_TITLE": "Pobierz",
+      "DOWNLOAD_TEXT": "Pobierz plik ICS, który możesz zaimportować do swojego kalendarza:",
+      "DOWNLOAD_BUTTON_LABEL": "Pobierz ICS",
+      "SUBSCRIBE_TITLE": "Subskrybuj",
+      "SUBSCRIBE_TEXT": "Użyj tego adresu URL, aby subskrybować kalendarz ICS:",
+      "MORE_INFOS": "Więcej informacji o ICS"
     }
   },
   "ACTIVITYMANAGE": {
@@ -116,7 +116,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Nadchodzące aktywności z tej serii"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "Amount of food you were able to save",
+    "AMOUNT": "Ilość jedzenia, które uratowałaś/-eś",
     "AMOUNT_INFO": "Statystyki danego punktu przedstawiają sumę ilości wprowadzonych w indywidualnych komentarzach.",
     "COMMENT_PLACEHOLDER": "Czy wszystko przebiegło w porządku? Czy jedzenie zostało odebrane zgodnie z planem? Skomentuj...",
     "DELETE_AMOUNT": "Usuń ilość",
@@ -251,7 +251,7 @@
   },
   "COMMUNITY_FEED": {
     "HEADER": "Aktualności z {community}",
-    "HEADER_LINK": "społeczność foodsaving worldwide",
+    "HEADER_LINK": "Karrot community",
     "KARROT_DISCUSSION": "Dyskusje na temat Karrota",
     "LAST_UPDATED": "Ostatnia aktualizacja {relativeDate}"
   },
@@ -393,8 +393,8 @@
     "INVITATION_ACCEPT_ERROR": "Ups, nie możesz przyjąć tego zaproszenia!",
     "INVITATION_ACCEPT_SUCCESS": "Witamy! Przyjęłaś/-łeś zaproszenie.",
     "INVITATION_DIALOG": {
-      "MESSAGE": "Copy the link and send it to the person you want to invite.",
-      "TITLE": "Invitation link"
+      "MESSAGE": "Skopiuj link i wyślij osobie, którą chcesz zaprosić.",
+      "TITLE": "Link z zaproszeniem"
     },
     "INVITED_LIST": "Na te adresy e-mail już wcześniej wysłano zaproszenia:",
     "INVITE_EMAIL": "Wprowadź adres e-mail",
@@ -500,7 +500,7 @@
     "STORE_CREATE": "utworzył/-a punkt {name}",
     "STORE_DELETE": "Usunięto punkt {name}",
     "STORE_MODIFY": "zmienił/-a ustawienia punktu {name}",
-    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
+    "USER_LOST_EDITOR_ROLE": "stracił/-a uprawnienia do edycji"
   },
   "INACTIVITY": {
     "HELP": "Każdy, kto nie logował się przez co najmniej {dayCount} dni, zostanie oznaczony jako nieaktywny. Nieaktywni użytkownicy nie otrzymują powiadomień e-mail.",
@@ -704,21 +704,22 @@
     "FILTER_USER_LABEL": "Użytkownik",
     "FILTER_ALL_USERS": "Wszyscy użytkownicy",
     "FILTER_TIME_LABEL": "Czas",
+    "FILTER_TIME_YEARS_LABEL": "Years",
     "FILTER_TIME_PREVIOUS_DAYS": "Ostatnie {count} dni",
     "FILTER_TIME_PREVIOUS_MONTHS": "Ostatnie {count} miesięcy",
     "FILTER_TIME_FOREVER": "Wszystkie",
     "COLUMN_PLACE": "Miejsce",
     "COLUMN_ACTIVITY_DONE": "Zrobione",
-    "COLUMN_ACTIVITY_MISSED": "Missed",
-    "COLUMN_ACTIVITY_LEFT": "Withdrew",
-    "COLUMN_FEEDBACK": "Feedback",
+    "COLUMN_ACTIVITY_MISSED": "Opuszczone",
+    "COLUMN_ACTIVITY_LEFT": "Odwołane",
+    "COLUMN_FEEDBACK": "Komentarz",
     "COLUMN_FEEDBACK_WEIGHT": "Waga",
     "TOTAL_LABEL": "Łącznie",
-    "OPTIONS_ANY": "Any",
-    "OPTIONS_MISSED_LABEL": "Missed",
-    "OPTIONS_MISSED_DESCRIPTION": "Only if the activity was missed",
-    "OPTIONS_LATE_LABEL": "Late",
-    "OPTIONS_LATE_DESCRIPTION": "Only if less than 24 hours before"
+    "OPTIONS_ANY": "Wszystkie",
+    "OPTIONS_MISSED_LABEL": "Opuszczone",
+    "OPTIONS_MISSED_DESCRIPTION": "Gdy przegapiono daną aktywność",
+    "OPTIONS_LATE_LABEL": "Późno",
+    "OPTIONS_LATE_DESCRIPTION": "Gdy krócej niż 24 godziny przed"
   },
   "STOREDETAIL": {
     "ARCHIVED": "Ten punkt został przeniesiony do archiwum",
@@ -730,6 +731,8 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Adres",
+    "DEFAULT_VIEW": "Default View",
+    "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
     "DESCRIPTION": "Opis",
     "DIALOGS": {
       "ARCHIVE": {
@@ -781,8 +784,8 @@
     "DETAIL": "Nowa wersja karrota jest dostępna do pobrania.",
     "RELOAD": "Odśwież"
   },
-  "URL_CLICK_TO_COPY": "Click to copy",
-  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
+  "URL_CLICK_TO_COPY": "Kliknij, by skopiować",
+  "URL_COPIED_TOAST": "Adres URL został skopiowany do schowka",
   "USERDATA": {
     "ACCOUNT": "Konto",
     "CONFIRM_PASSWORD": "Potwierdź hasło",
@@ -792,8 +795,8 @@
         "TITLE": "Zaufaj użytkownikowi"
       },
       "REVOKE_TRUST": {
-        "MESSAGE": "Do you want to revoke the trust you have given to {userName} in {groupName}?",
-        "TITLE": "Revoke trust"
+        "MESSAGE": "Czy chcesz wycofać zaufanie dane {userName} w grupie {groupName}?",
+        "TITLE": "Wycofaj zaufanie"
       },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "Potwierdzam",

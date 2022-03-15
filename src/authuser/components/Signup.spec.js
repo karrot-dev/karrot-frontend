@@ -4,6 +4,7 @@ import { mountWithDefaults, statusMocks } from '>/helpers'
 
 const userData = {
   displayName: 'my name',
+  username: 'myusername',
   email: 'hello@hello.com',
   password: 'secret',
 }

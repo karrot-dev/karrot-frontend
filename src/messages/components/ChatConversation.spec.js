@@ -2,7 +2,7 @@ import { nextTick } from 'vue'
 
 import ConversationCompose from './ConversationCompose'
 import ChatConversation from './ChatConversation'
-import { mountWithDefaults } from '>/helpers'
+import { createDatastore, mountWithDefaults } from '>/helpers'
 import * as factories from '>/enrichedFactories'
 
 import { QInput } from 'quasar'
@@ -16,13 +16,21 @@ const defaultProps = data => ({
   ...data,
 })
 
+const store = createDatastore({
+  users: {
+    getters: {
+      byCurrentGroup: () => [],
+    },
+  },
+})
+
 describe('ChatConversation', () => {
   beforeEach(() => jest.resetModules())
   it('can send a message', async () => {
     const propsData = defaultProps({
       compose: true,
     })
-    const wrapper = mountWithDefaults(ChatConversation, { propsData })
+    const wrapper = mountWithDefaults(ChatConversation, { store, propsData })
     // let the mounted() hook run
     await nextTick()
 
@@ -43,7 +51,7 @@ describe('ChatConversation', () => {
     const propsData = defaultProps()
     const { conversation } = propsData
     conversation.unreadMessageCount = 0
-    const wrapper = mountWithDefaults(ChatConversation, { propsData })
+    const wrapper = mountWithDefaults(ChatConversation, { store, propsData })
     await nextTick()
 
     const { id, messages } = conversation
@@ -57,7 +65,7 @@ describe('ChatConversation', () => {
 
   it('does not mark new messages as read when away', async () => {
     const propsData = { ...defaultProps(), away: true }
-    const wrapper = mountWithDefaults(ChatConversation, { propsData })
+    const wrapper = mountWithDefaults(ChatConversation, { store, propsData })
     await nextTick()
 
     const { id, messages } = propsData.conversation
@@ -67,7 +75,7 @@ describe('ChatConversation', () => {
 
   it('marks messages as read when returning from away', async () => {
     const propsData = { ...defaultProps(), away: true }
-    const wrapper = mountWithDefaults(ChatConversation, { propsData })
+    const wrapper = mountWithDefaults(ChatConversation, { store, propsData })
     await nextTick()
 
     const { id, messages } = propsData.conversation

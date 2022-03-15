@@ -11,11 +11,13 @@
         <form @submit.prevent="maybeSave">
           <QInput
             v-model="edit.name"
-            :label="$t('STOREEDIT.NAME')"
+            :autofocus="!$q.platform.has.touch"
             :error="hasNameError"
             :error-message="nameError"
-            :autofocus="!$q.platform.has.touch"
+            :label="$t('STOREEDIT.NAME')"
             autocomplete="off"
+            outlined
+            class="q-mb-lg"
             @blur="v$.edit.name.$touch"
           >
             <template #before>
@@ -31,6 +33,8 @@
             :label="$t('STOREEDIT.STATUS')"
             :error="hasError('status')"
             :error-message="firstError('status')"
+            outlined
+            class="q-mb-lg"
           >
             <template #before>
               <QIcon name="fas fa-handshake" />
@@ -74,8 +78,29 @@
             :label="$t('STOREEDIT.DESCRIPTION')"
             :error="hasError('description')"
             :error-message="firstError('description')"
+            outlined
+            mentions
+            class="q-mb-lg"
             @keyup.ctrl.enter="maybeSave"
           />
+
+          <QSelect
+            v-model="edit.defaultView"
+            :options="[
+              {label: $t('GROUP.ACTIVITIES'), value: 'activities'},
+              {label: $t('GROUP.WALL'), value: 'wall'}
+            ]"
+            map-options
+            emit-value
+            :label="$t('STOREEDIT.DEFAULT_VIEW')"
+            outlined
+            :hint="$t('STOREEDIT.DEFAULT_VIEW_HINT')"
+            class="q-mb-lg"
+          >
+            <template #before>
+              <QIcon name="fas fa-eye" />
+            </template>
+          </QSelect>
 
           <AddressPicker
             v-model="edit"
@@ -86,6 +111,8 @@
             :error="hasAddressError"
             :error-message="addressError"
             :default-map-center="defaultMapCenter"
+            outlined
+            class="q-mb-lg"
           />
 
           <div>
@@ -221,6 +248,7 @@ export default {
         longitude: undefined,
         address: undefined,
         status: 'created',
+        defaultView: 'activities',
       }),
     },
     currentGroup: {

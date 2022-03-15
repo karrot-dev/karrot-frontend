@@ -1,8 +1,17 @@
 import { nextTick } from 'vue'
 
 import * as factories from '>/enrichedFactories'
+import { createDatastore } from '>/helpers'
 
 import { QSelect } from 'quasar'
+
+const store = createDatastore({
+  users: {
+    getters: {
+      byCurrentGroup: () => [],
+    },
+  },
+})
 
 describe('ActivitySeriesEdit', () => {
   beforeEach(() => jest.resetModules())
@@ -13,6 +22,7 @@ describe('ActivitySeriesEdit', () => {
     series = factories.makeActivitySeries()
     const { mountWithDefaults } = require('>/helpers')
     wrapper = mountWithDefaults(require('./ActivitySeriesEdit').default, {
+      store,
       propsData: {
         value: series,
         status: { pending: false, validationErrors: {} },

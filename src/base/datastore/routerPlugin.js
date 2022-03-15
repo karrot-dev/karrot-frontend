@@ -77,6 +77,15 @@ export default datastore => {
       Sentry.captureException(err)
     }
 
+    // Would have preferred to do this in a beforeEnter action but it wasn't possible...
+    // ... the limiting factor was when you click back on the place list in the sidebar it
+    // doesn't trigger the beforeEnter action (because of our design), and so gets stuck
+    if (to.name === 'place') {
+      const place = datastore.getters['places/get'](to.params.placeId)
+      const name = place.defaultView === 'wall' ? 'placeWall' : 'placeActivities'
+      await router.push({ name, params: to.params })
+    }
+
     // Check if our route requires any features we don't have
     // It would be nice to do this _before_ we visit the route, but we don't have the features
     // available at that point

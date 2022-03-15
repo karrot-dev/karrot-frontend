@@ -52,6 +52,7 @@
       class="row no-wrap items-center justify-end q-px-sm q-mt-sm"
     >
       <QBtn
+        v-if="icsUrl"
         color="secondary"
         icon="event"
         padding="4px 13px"

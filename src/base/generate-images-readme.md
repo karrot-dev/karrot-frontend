@@ -1,5 +1,5 @@
 <!-- View this file with embedded videos on GitHub: -->
-<!-- https://github.com/yunity/karrot-frontend/blob/master/src/base/generate-images-readme.md -->
+<!-- https://github.com/karrot-dev/karrot-frontend/blob/master/src/base/generate-images-readme.md -->
 
 # Generate Landingpage Images
 

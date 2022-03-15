@@ -4,7 +4,15 @@ import ActivityEdit from './ActivityEdit'
 import { activitiesMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'
 
-import { mountWithDefaults, statusMocks } from '>/helpers'
+import { createDatastore, mountWithDefaults, statusMocks } from '>/helpers'
+
+const store = createDatastore({
+  users: {
+    getters: {
+      byCurrentGroup: () => [],
+    },
+  },
+})
 
 describe('ActivityEdit', () => {
   beforeEach(() => jest.resetModules())
@@ -13,7 +21,10 @@ describe('ActivityEdit', () => {
   beforeEach(() => {
     activity = cloneDeep(activitiesMock[0])
     unenriched = cloneDeep(activitiesMock[0])
-    wrapper = mountWithDefaults(ActivityEdit, { propsData: { value: activity, status: statusMocks.default() } })
+    wrapper = mountWithDefaults(ActivityEdit, {
+      store,
+      propsData: { value: activity, status: statusMocks.default() },
+    })
   })
 
   it('renders', () => {

@@ -10,6 +10,7 @@
 
 <script>
 import markdown from './markdownRenderer'
+import { mapGetters } from 'vuex'
 
 export default {
   props: {
@@ -17,10 +18,25 @@ export default {
       required: true,
       type: String,
     },
+    mentions: {
+      default: false,
+      type: Boolean,
+    },
   },
   computed: {
+    ...mapGetters({
+      users: 'users/byCurrentGroup',
+    }),
+    markdownEnv () {
+      if (this.mentions && this.users) {
+        return {
+          users: this.users,
+        }
+      }
+      return {}
+    },
     rendered () {
-      return markdown.render(this.source)
+      return markdown.render(this.source, this.markdownEnv)
     },
   },
 }
@@ -31,6 +47,14 @@ export default {
   overflow-wrap: break-word
 
 .markdown >>>
+  .mention
+    padding: 2px 2px
+    margin: 0 2px 0 2px
+    font-weight: bold
+    text-decoration: none
+    background-color: $grey-3
+    border-radius: 3px
+
   img.emoji
     width: 1em
     height: 1em

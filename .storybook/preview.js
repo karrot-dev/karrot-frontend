@@ -35,7 +35,7 @@ export const parameters = {
     theme: create({
       base: 'light',
       brandTitle: 'Karrot Storybook',
-      brandUrl: 'https://github.com/yunity/karrot-frontend',
+      brandUrl: 'https://github.com/karrot-dev/karrot-frontend',
     }),
     storySort: (a, b) => a[1].kind.localeCompare(b[1].kind),
   }

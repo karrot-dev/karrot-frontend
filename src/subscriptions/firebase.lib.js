@@ -1,5 +1,4 @@
-import 'firebase/compat/messaging'
-import firebase from 'firebase/compat/app'
+import { getMessaging, onMessage, getToken, deleteToken } from 'firebase/messaging'
+import { initializeApp } from 'firebase/app'
 
-const { initializeApp, messaging } = firebase
-export { initializeApp, messaging }
+export { initializeApp, getMessaging, onMessage, getToken, deleteToken }

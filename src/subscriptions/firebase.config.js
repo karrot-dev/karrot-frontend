@@ -1,8 +1,12 @@
-let config = {}
-if (process.env.KARROT.FCM_CONFIG === 'dev') {
-  config = require('./firebase.config.dev').default
+import { camelizeKeys } from '@/utils/utils'
+
+let config
+export async function getFirebaseConfig () {
+  if (config) return config
+  const data = await fetch('/api/config/').then(res => res.json())
+  if (data.fcm) {
+    config = camelizeKeys(data.fcm)
+    return config
+  }
+  return null
 }
-else if (process.env.KARROT.FCM_CONFIG === 'prod') {
-  config = require('./firebase.config.prod').default
-}
-export default config

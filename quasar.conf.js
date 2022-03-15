@@ -10,7 +10,8 @@
 const { configure } = require('quasar/wrappers')
 const { resolve } = require('path')
 const fs = require('fs')
-// const StyleLintPlugin = require('stylelint-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
+// const StyleLintPlugin = require('stylelint-webpack-plugin') TODO?
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
@@ -47,8 +48,6 @@ module.exports = configure(function (ctx) {
     KARROT: {
       BACKEND: backend,
       THEME: process.env.KARROT_THEME,
-      FCM_CONFIG: process.env.FCM_CONFIG,
-      SENTRY_CONFIG: process.env.SENTRY_CONFIG,
       GIT_SHA1: process.env.GIT_SHA1 || process.env.CIRCLE_SHA1,
     },
   }
@@ -74,7 +73,6 @@ module.exports = configure(function (ctx) {
       'helloDeveloper',
       'addressbar-color',
       'socket',
-      'sentry',
       'cordova',
       'i18n',
       'loadInitialData',
@@ -127,6 +125,8 @@ module.exports = configure(function (ctx) {
 
       env: appEnv,
 
+      sourceMap: true,
+
       // https://quasar.dev/quasar-cli/handling-webpack
       chainWebpack (chain) {
         const imagesRule = chain.module.rule('images')
@@ -171,14 +171,7 @@ module.exports = configure(function (ctx) {
       },
 
       extendWebpack (cfg) {
-        /* TODO
-        cfg.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /node_modules/,
-        })
-        */
+        cfg.plugins.push(new ESLintPlugin())
 
         cfg.resolve.alias = {
           ...cfg.resolve.alias, // This adds the existing alias
@@ -256,7 +249,7 @@ module.exports = configure(function (ctx) {
         dontCacheBustURLsMatching: /^(css|js|img|fonts)\//,
         exclude: [
           // A partial solution to a more complex issue
-          // See https://github.com/yunity/karrot-frontend/issues/2209
+          // See https://github.com/karrot-dev/karrot-frontend/issues/2209
           'index.html',
         ],
       },

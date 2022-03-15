@@ -265,7 +265,7 @@ export default {
     wasSuccessful (status, prevStatus) {
       // Means we just saved! I hate this convoluted way to find out the simplest of things...
       // I'm hoping the composable data layer concept will address this
-      // See https://github.com/yunity/karrot-frontend/pull/2252
+      // See https://github.com/karrot-dev/karrot-frontend/pull/2252
       if (!status || !prevStatus) return
       return prevStatus.pending && !status.pending && !status.hasValidationErrors
     },

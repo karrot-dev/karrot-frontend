@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: karrot/python:2.7
+    - image: karrot/python:2.9
 
 android-defaults: &android-defaults
   working_directory: ~/repo
@@ -32,7 +32,7 @@ deploy-android: &deploy-android
     - run:
         name: upload sourcemaps to sentry and associate commits
         environment:
-          SENTRY_ORG: foodsaving-worldwide
+          SENTRY_ORG: karrot-dev
           SENTRY_PROJECT: karrot
         command: |
           VERSION=`./node_modules/.bin/sentry-cli releases propose-version`
@@ -40,14 +40,21 @@ deploy-android: &deploy-android
           ./node_modules/.bin/sentry-cli releases set-commits --auto ${VERSION}
           ./node_modules/.bin/sentry-cli releases files "${VERSION}" upload-sourcemaps "${DIST_DIR}/js" --rewrite --url-prefix "~/android_asset/www/js"
           ./node_modules/.bin/sentry-cli releases finalize "${VERSION}"
-          ./node_modules/.bin/sentry-cli releases set-commits --auto "${VERSION}"
 
     - save_cache:
         key: v2-dependencies-playstorehelper-{{ checksum "src-cordova/playstoreHelper/requirements.txt" }}
         paths:
           - ~/repo/src-cordova/playstoreHelper/env
-    - slack/status:
-        fail_only: true
+
+build-cordova: &build-cordova
+  name: build cordova
+  command: |
+    cd ~/repo/src-cordova
+    rm -f config/current
+    ln -s "$CORDOVA_ENV" config/current
+    cd ~/repo
+    yarn build:cordova:${CORDOVA_ENV}
+    mv src-cordova/www dist-app-${CORDOVA_ENV}
 
 build-android: &build-android
   name: build android
@@ -62,8 +69,6 @@ build-android: &build-android
     mv platforms/android/app/build/outputs/apk/release/app-release.apk ~/repo/android-${CORDOVA_ENV}.apk
 
 version: 2.1
-orbs:
-  slack: circleci/slack@3.4.2
 jobs:
   install-dependencies:
     <<: *defaults
@@ -82,9 +87,6 @@ jobs:
           root: ~/repo
           paths:
             - .
-      - slack/status:
-          fail_only: true
-          only_for_branches: master
 
   test:
     <<: *defaults
@@ -106,9 +108,6 @@ jobs:
           path: test-reports
       - store_artifacts:
           path: test-reports
-      - slack/status:
-          fail_only: true
-          only_for_branches: master
 
   lint:
     <<: *defaults
@@ -116,9 +115,6 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run: yarn lint
-      - slack/status:
-          fail_only: true
-          only_for_branches: master
 
   build-dev:
     <<: *defaults
@@ -129,15 +125,11 @@ jobs:
           environment:
             KARROT_THEME: dev
             PWA_APP_NAME: Karrot Dev
-            FCM_CONFIG: dev
           command: yarn build
       - persist_to_workspace:
           root: ~/repo
           paths:
             - dist
-      - slack/status:
-          fail_only: true
-          only_for_branches: master
 
   build-prod:
     <<: *defaults
@@ -147,14 +139,11 @@ jobs:
       - run:
           environment:
             PWA_APP_NAME: Karrot
-            FCM_CONFIG: prod
           command: yarn build
       - persist_to_workspace:
           root: ~/repo
           paths:
             - dist
-      - slack/status:
-          fail_only: true
 
   build-storybook:
     <<: *defaults
@@ -166,8 +155,6 @@ jobs:
           root: ~/repo
           paths:
             - storybook-static
-      - slack/status:
-          fail_only: true
 
   build-docs:
     <<: *defaults
@@ -183,8 +170,6 @@ jobs:
           root: ~/repo
           paths:
             - docs-dist
-      - slack/status:
-          fail_only: true
 
   build-cordova-dev:
     <<: *defaults
@@ -195,16 +180,14 @@ jobs:
           name: pretend we have cordova installed (quasar build wants it)
           command: ln -s /bin/true /usr/local/bin/cordova
       - run:
+          <<: *build-cordova
           name: build cordova app
-          command: |
-            yarn build:cordova:dev
-            mv src-cordova/www dist-app-dev
+          environment:
+            CORDOVA_ENV: dev
       - persist_to_workspace:
           root: ~/repo
           paths:
             - dist-app-dev
-      - slack/status:
-          fail_only: true
 
   build-cordova-prod:
     <<: *defaults
@@ -215,16 +198,14 @@ jobs:
           name: pretend we have cordova installed (quasar build wants it)
           command: ln -s /bin/true /usr/local/bin/cordova
       - run:
+          <<: *build-cordova
           name: build cordova app
-          command: |
-            yarn build:cordova:prod
-            mv src-cordova/www dist-app-prod
+          environment:
+            CORDOVA_ENV: prod
       - persist_to_workspace:
           root: ~/repo
           paths:
             - dist-app-prod
-      - slack/status:
-          fail_only: true
 
   build-android-dev:
     <<: *android-defaults
@@ -251,8 +232,6 @@ jobs:
           root: ~/repo
           paths:
             - android-dev.apk
-      - slack/status:
-          fail_only: true
 
   deploy-android-dev:
     <<: *deploy-android
@@ -293,8 +272,6 @@ jobs:
           root: ~/repo
           paths:
             - android-prod.apk
-      - slack/status:
-          fail_only: true
 
   deploy-branch:
     <<: *defaults
@@ -317,8 +294,6 @@ jobs:
           name: Dev Deploy
           command: |
             ./deploy.sh dev "${CIRCLE_BRANCH}"
-      - slack/status:
-          fail_only: true
 
   deploy-release:
     <<: *defaults
@@ -330,8 +305,6 @@ jobs:
           name: Release Deploy
           command: |
             ./deploy.sh release "${CIRCLE_BRANCH}"
-      - slack/status:
-          fail_only: true
 
   sync-locale-messages:
     <<: *defaults
@@ -360,7 +333,7 @@ jobs:
           key: v2-dependencies-localeshelper-{{ checksum "updateLocalesHelper/requirements.txt" }}
       - run:
           name: set git remote to include token
-          command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/yunity/karrot-frontend.git
+          command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/karrot-dev/karrot-frontend.git
       - run:
           name: update locales and make pull request
           # needs TX_TOKEN and GITHUB_TOKEN
@@ -379,8 +352,6 @@ jobs:
             git commit -m "[CI] update locales" || exit 0
             git push --force origin $BRANCH
             hub pull-request -m "[CI] Update locales" || true
-      - slack/status:
-          fail_only: true
 
   update-dependencies:
     <<: *defaults
@@ -391,7 +362,7 @@ jobs:
           at: ~/repo
       - run:
           name: set git remote to include token
-          command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/yunity/karrot-frontend.git
+          command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/karrot-dev/karrot-frontend.git
       - run:
           name: upgrade packages and create PR
           # needs TX_TOKEN and GITHUB_TOKEN
@@ -417,8 +388,6 @@ jobs:
             git commit -a -m "[CI] Update snapshots" || true
             git push --force origin $BRANCH
             hub pull-request -F pr.txt || hub issue update $(hub pr list -h $BRANCH -f %I) -F pr.txt
-      - slack/status:
-          fail_only: true
 
 workflows:
   all-the-things:

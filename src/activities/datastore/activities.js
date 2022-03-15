@@ -51,10 +51,10 @@ export default {
       return getters.byCurrentGroup.filter(({ place }) => place && place.isActivePlace)
     },
     icsUrlForCurrentGroup: (state, getters, rootState, rootGetters) => {
-      return activities.icsUrl({ group: rootGetters['currentGroup/id'] })
+      return activities.icsUrl({ group: rootGetters['currentGroup/id'], joined: true })
     },
     icsUrlForCurrentPlace: (state, getters, rootState, rootGetters) => {
-      return activities.icsUrl({ place: rootGetters['places/activePlaceId'] })
+      return activities.icsUrl({ place: rootGetters['places/activePlaceId'], joined: true })
     },
     joined: (state, getters) => getters.byCurrentGroup.filter(e => e.isUserMember),
     available: (state, getters) =>
@@ -64,7 +64,7 @@ export default {
         .filter(e => e.place.isSubscribed),
     feedbackPossibleByCurrentGroup: (state, getters) => {
       return Object.values(state.entries)
-        .filter(p => p.dateEnd < reactiveNow.value && p.feedbackDue > reactiveNow.value)
+        .filter(p => p.date < reactiveNow.value && p.feedbackDue > reactiveNow.value)
         .map(getters.enrich)
         .filter(p => p.isUserMember)
         .filter(p => p.group && p.group.isCurrentGroup)

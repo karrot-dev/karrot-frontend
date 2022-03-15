@@ -43,7 +43,7 @@
               <i18n-t keypath="COMMUNITY_FEED.HEADER">
                 <template #community>
                   <a
-                    href="https://community.foodsaving.world"
+                    href="https://community.karrot.world"
                     target="_blank"
                     rel="noopener"
                     style="text-decoration: underline"

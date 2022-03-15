@@ -97,7 +97,7 @@
     "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page.",
     "ICS_DIALOG": {
       "TITLE": "Add to calendar",
-      "INTRO": "Add these activities to your calendar by using one of the following options:",
+      "INTRO": "Add your activities to your calendar by using one of the following options:",
       "DOWNLOAD_TITLE": "Download",
       "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
       "DOWNLOAD_BUTTON_LABEL": "Download ICS",
@@ -251,7 +251,7 @@
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
-    "HEADER_LINK": "foodsaving worldwide community",
+    "HEADER_LINK": "Karrot community",
     "KARROT_DISCUSSION": "Discussions about Karrot",
     "LAST_UPDATED": "Last updated {relativeDate}"
   },
@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
-    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
     "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName} accepted your invitation",
     "NEW_APPLICANT": "{userName} applied to join your group",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "{placeName} has been created",
     "USER_BECAME_EDITOR": "{userName} gained editing permissions",
     "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!",
-    "YOU_BECAME_EDITOR": "You gained editing permissions"
+    "YOU_BECAME_EDITOR": "You gained editing permissions",
+    "MENTION": "{userName} mentioned you!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "We currently don't have notifications for you.",
@@ -704,6 +704,7 @@
     "FILTER_USER_LABEL": "User",
     "FILTER_ALL_USERS": "All users",
     "FILTER_TIME_LABEL": "Time period",
+    "FILTER_TIME_YEARS_LABEL": "Years",
     "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
     "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
     "FILTER_TIME_FOREVER": "Forever",
@@ -730,6 +731,8 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Address",
+    "DEFAULT_VIEW": "Default View",
+    "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
     "DESCRIPTION": "Description",
     "DIALOGS": {
       "ARCHIVE": {
@@ -831,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "USERNAME": "Name",
+    "DISPLAY_NAME": "Display Name",
+    "USERNAME": "Username",
     "WHERE_FROM": "Where you are from (not required)",
     "YOU_TRUST_USER": "You trust {userName} in {groupName}."
   },
@@ -848,7 +852,8 @@
     "REQUIRED": "This field is required.",
     "UNIQUE": "Name already exists, please choose another.",
     "VALID_EMAIL": "Enter a valid e-mail address.",
-    "VALID_TIMEZONE": "Enter a valid timezone."
+    "VALID_TIMEZONE": "Enter a valid timezone.",
+    "VALID_USERNAME": "Enter a valid username."
   },
   "VERIFYMAIL": {
     "SUCCESS": "Your e-mail address was successfully verified!",

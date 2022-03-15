@@ -2,7 +2,7 @@ import { h } from 'vue'
 import { storiesOf } from '@storybook/vue'
 
 import ConversationMessage from './ConversationMessage'
-import { storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import * as factories from '>/enrichedFactories'
 
 const range = n => [...Array(n).keys()]
@@ -13,8 +13,17 @@ const message = factories.makeMessage({
 })
 const thread = factories.makeThread()
 
+const store = createDatastore({
+  users: {
+    getters: {
+      byCurrentGroup: () => [],
+    },
+  },
+})
+
 storiesOf('ConversationMessage', module)
   .add('default', () => defaults({
+    store,
     render: () => h(ConversationMessage, {
       props: {
         message,
@@ -22,6 +31,7 @@ storiesOf('ConversationMessage', module)
     }),
   }))
   .add('edited', () => defaults({
+    store,
     render: () => h(ConversationMessage, {
       props: {
         message: {
@@ -32,6 +42,7 @@ storiesOf('ConversationMessage', module)
     }),
   }))
   .add('via email', () => defaults({
+    store,
     render: () => h(ConversationMessage, {
       props: {
         message: {
@@ -42,6 +53,7 @@ storiesOf('ConversationMessage', module)
     }),
   }))
   .add('with unread replies', () => defaults({
+    store,
     render: () => h(ConversationMessage, {
       props: {
         message: thread,
@@ -49,6 +61,7 @@ storiesOf('ConversationMessage', module)
     }),
   }))
   .add('with replies', () => defaults({
+    store,
     render: () => h(ConversationMessage, {
       props: {
         message: {
@@ -62,6 +75,7 @@ storiesOf('ConversationMessage', module)
     }),
   }))
   .add('with one image', () => defaults({
+    store,
     render: () => h(ConversationMessage, {
       props: {
         message: {
@@ -74,6 +88,7 @@ storiesOf('ConversationMessage', module)
     }),
   }))
   .add('with multiple images', () => defaults({
+    store,
     render: () => h(ConversationMessage, {
       props: {
         message: {
@@ -84,6 +99,7 @@ storiesOf('ConversationMessage', module)
     }),
   }))
   .add('slim', () => defaults({
+    store,
     render: () => h(ConversationMessage, {
       props: {
         message,

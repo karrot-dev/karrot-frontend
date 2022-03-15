@@ -97,7 +97,7 @@
     "STORE_NONE_HINT": "Μπορείς να δημιουργήσεις μια νέα δραστηριότητα στην σελίδα 'Διαχείριση δράσεων/δραστηριοτήτων' ",
     "ICS_DIALOG": {
       "TITLE": "Add to calendar",
-      "INTRO": "Add these activities to your calendar by using one of the following options:",
+      "INTRO": "Add your activities to your calendar by using one of the following options:",
       "DOWNLOAD_TITLE": "Download",
       "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
       "DOWNLOAD_BUTTON_LABEL": "Download ICS",
@@ -251,7 +251,7 @@
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates απο {community}",
-    "HEADER_LINK": "foodsaving worldwide community",
+    "HEADER_LINK": "Karrot community",
     "KARROT_DISCUSSION": "Συζητήσει σχετικά με με την πλατφόρμα του Karrot ",
     "LAST_UPDATED": "Τελευταία ανανέωση {relativeDate}"
   },
@@ -704,6 +704,7 @@
     "FILTER_USER_LABEL": "Χρήστης",
     "FILTER_ALL_USERS": "Όλοι οι χρήστες",
     "FILTER_TIME_LABEL": "Χρονική περίοδος ",
+    "FILTER_TIME_YEARS_LABEL": "Years",
     "FILTER_TIME_PREVIOUS_DAYS": "Προηγούμενες {count}ημέρες ",
     "FILTER_TIME_PREVIOUS_MONTHS": "Προηγούμενοι {count}μήνες",
     "FILTER_TIME_FOREVER": "Για πάντα ",
@@ -730,6 +731,8 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Διεύθυνση",
+    "DEFAULT_VIEW": "Default View",
+    "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
     "DESCRIPTION": "Περιγραφή ",
     "DIALOGS": {
       "ARCHIVE": {

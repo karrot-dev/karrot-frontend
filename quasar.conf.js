@@ -253,6 +253,12 @@ module.exports = configure(function (ctx) {
           'index.html',
         ],
       },
+      extendWebpackCustomSW (cfg) {
+        cfg.resolve.alias = {
+          ...cfg.resolve.alias,
+          '@': resolve(__dirname, './src'),
+        }
+      },
       manifest: {
         name: process.env.PWA_APP_NAME || 'Karrot local dev',
         short_name: process.env.PWA_APP_NAME || 'Karrot local dev',

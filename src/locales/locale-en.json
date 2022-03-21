@@ -853,7 +853,8 @@
     "UNIQUE": "Name already exists, please choose another.",
     "VALID_EMAIL": "Enter a valid e-mail address.",
     "VALID_TIMEZONE": "Enter a valid timezone.",
-    "VALID_USERNAME": "Enter a valid username."
+    "VALID_USERNAME": "Enter a valid username.",
+    "TAKEN": "Already taken."
   },
   "VERIFYMAIL": {
     "SUCCESS": "Your e-mail address was successfully verified!",

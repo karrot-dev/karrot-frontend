@@ -20,7 +20,6 @@
         <SplashInput
           v-model="user.username"
           icon="alternate_email"
-          :autofocus="!$q.platform.has.touch"
           :label="$t('USERDATA.USERNAME')"
           :error="hasUsernameError"
           :error-message="usernameError"

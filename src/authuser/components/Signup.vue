@@ -20,7 +20,6 @@
         <SplashInput
           v-model="user.username"
           icon="alternate_email"
-          :autofocus="!$q.platform.has.touch"
           :label="$t('USERDATA.USERNAME')"
           :error="hasUsernameError"
           :error-message="usernameError"
@@ -136,7 +135,8 @@ export default {
         if (!m.valid) return this.$t('VALIDATION.VALID_USERNAME')
       }
       const error = this.firstError('username')
-      if (error === 'INVALID_USERNAME') return this.$t('VALIDATION.VALID_USERNAME')
+      if (error === 'username_invalid') return this.$t('VALIDATION.VALID_USERNAME')
+      if (error === 'username_taken') return this.$t('VALIDATION.TAKEN')
       return error
     },
     canSave () {

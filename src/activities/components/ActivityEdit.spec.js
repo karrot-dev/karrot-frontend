@@ -6,7 +6,7 @@ import cloneDeep from 'clone-deep'
 
 import { createDatastore, mountWithDefaults, statusMocks } from '>/helpers'
 
-const store = createDatastore({
+const datastore = createDatastore({
   users: {
     getters: {
       byCurrentGroup: () => [],
@@ -22,7 +22,7 @@ describe('ActivityEdit', () => {
     activity = cloneDeep(activitiesMock[0])
     unenriched = cloneDeep(activitiesMock[0])
     wrapper = mountWithDefaults(ActivityEdit, {
-      store,
+      datastore,
       propsData: { value: activity, status: statusMocks.default() },
     })
   })

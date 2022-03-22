@@ -7,7 +7,7 @@ const propsData = {
   conversation: factories.makeConversation(),
 }
 
-const store = createDatastore({
+const datastore = createDatastore({
   users: {
     getters: {
       byCurrentGroup: () => [],
@@ -26,7 +26,7 @@ describe('Detail', () => {
   })
 
   it('can be closed', () => {
-    const wrapper = mountWithDefaults(require('./DetailHeaderUI').default, { store, propsData })
+    const wrapper = mountWithDefaults(require('./DetailHeaderUI').default, { datastore, propsData })
     const closeButton = [...wrapper.findAllComponents(QBtn)].find(btn => btn.vm.$props.icon === 'close')
     closeButton.trigger('click')
     expect(wrapper.emitted().close).toEqual([[]])
@@ -34,13 +34,13 @@ describe('Detail', () => {
 
   it('cannot be closed on mobile', () => {
     useMobileUserAgent()
-    const wrapper = mountWithDefaults(require('./DetailHeaderUI').default, { store, propsData })
+    const wrapper = mountWithDefaults(require('./DetailHeaderUI').default, { datastore, propsData })
     const closeButton = [...wrapper.findAllComponents(QBtn)].find(btn => btn.vm.$props.icon === 'close')
     expect(closeButton).toBeUndefined()
   })
 
   it('reverses messages if conversation is not a thread', () => {
-    const wrapper = mountWithDefaults(require('./DetailUI').default, { store, propsData })
+    const wrapper = mountWithDefaults(require('./DetailUI').default, { datastore, propsData })
     const reversedMessageIds = [...propsData.conversation.messages.map(({ id }) => id)].reverse()
     const renderedMessageIds = [...wrapper.vm.conversationWithMaybeReversedMessages.messages].map(({ id }) => id)
     expect(renderedMessageIds).toEqual(reversedMessageIds)
@@ -48,7 +48,7 @@ describe('Detail', () => {
 
   it('keeps message order if conversation is a thread', () => {
     const wrapper = mountWithDefaults(require('./DetailUI').default, {
-      store,
+      datastore,
       propsData: {
         ...propsData,
         conversation: {

@@ -9,7 +9,7 @@
     :insert-space="true"
     placement="bottom-end"
     offset="6"
-    v-on="$listeners"
+    v-bind="$attrs"
   >
     <slot />
     <!-- don't show anything when no result -->
@@ -43,6 +43,9 @@
 import { mapGetters } from 'vuex'
 import { Mentionable } from 'vue-mention'
 import { QItem, QItemLabel, QItemSection } from 'quasar'
+
+// for vue-mention
+import 'floating-vue/dist/style.css'
 
 import ProfilePicture from '@/users/components/ProfilePicture'
 

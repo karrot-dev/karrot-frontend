@@ -1680,6 +1680,18 @@
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.6.1.tgz#0c74724ba6e9ea6ad25a391eab60a79eaba4c556"
   integrity sha512-9FqhNjKQWpQ3fGnSOCovHOm+yhhiorKEqYLAfd525jWavunDJcx8rOW6i6ozAh+FbwcYMkL7b+3j4UR/30MpoQ==
 
+"@floating-ui/core@^0.3.0":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@floating-ui/core/-/core-0.3.1.tgz#3dde0ad0724d4b730567c92f49f0950910e18871"
+  integrity sha512-ensKY7Ub59u16qsVIFEo2hwTCqZ/r9oZZFh51ivcLGHfUwTn8l1Xzng8RJUe91H/UP8PeqeBronAGx0qmzwk2g==
+
+"@floating-ui/dom@^0.1.10":
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-0.1.10.tgz#ce304136a52c71ef157826d2ebf52d68fa2deed5"
+  integrity sha512-4kAVoogvQm2N0XE0G6APQJuCNuErjOfPW8Ux7DFxh8+AfugWflwVJ5LDlHOwrwut7z/30NUvdtHzQ3zSip4EzQ==
+  dependencies:
+    "@floating-ui/core" "^0.3.0"
+
 "@gar/promisify@^1.0.1":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
@@ -2432,10 +2444,10 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
-"@quasar/app-webpack@^3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@quasar/app-webpack/-/app-webpack-3.4.0.tgz#8d3449919c39ac03f7e1716d137feaeed604b981"
-  integrity sha512-BH0sgn+P+91IoLpA1/uqjuQlHq1lgJ5lMdpwIteEOkJVAjdzo7kEpmwdlmePbXioFFASHUf9NkupFXeHbUd43Q==
+"@quasar/app-webpack@^3.4.2":
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/@quasar/app-webpack/-/app-webpack-3.4.2.tgz#757b526b1047b70b0a664857350fc074a193bc55"
+  integrity sha512-QWC0Fs5H1gvmwn0eYpdK4fQAe0LXahU0kAbxxJdu8xdU5F6z1u89A3jpzSggZbgORN+O+N/ePZMVOQV2FR9agw==
   dependencies:
     "@quasar/babel-preset-app" "2.0.1"
     "@quasar/fastclick" "1.1.5"
@@ -2528,10 +2540,10 @@
     core-js "^3.6.5"
     core-js-compat "^3.6.5"
 
-"@quasar/extras@^1.13.1":
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/@quasar/extras/-/extras-1.13.1.tgz#1b8898bb927383cb6378939c33b356b1636e1e58"
-  integrity sha512-swP4jvtluy/bUmzm9dVNVbSr96v/Q026ov6BVOGsE+5NPve0YOX4+IG0oSkSi1rXuWgqqyclPfT3Rb8rmLbHeg==
+"@quasar/extras@^1.13.2":
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/@quasar/extras/-/extras-1.13.2.tgz#f9b6eb6199e6a71a93fc79f4ec2ebc3bdc15aa6a"
+  integrity sha512-ZMEN3B07O0JKaii1JAfFHBb0qU9WgYZ6rZ5hcJSpwGichnTrRwRBDBfCrxVVCUoBJLzXV8tLJzhtCgZxeXzz0A==
 
 "@quasar/fastclick@1.1.5":
   version "1.1.5"
@@ -2548,10 +2560,10 @@
     dotenv-parse-variables "^2.0.0"
     fs "^0.0.2"
 
-"@quasar/quasar-app-extension-testing-unit-jest@^3.0.0-alpha.8":
-  version "3.0.0-alpha.8"
-  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-testing-unit-jest/-/quasar-app-extension-testing-unit-jest-3.0.0-alpha.8.tgz#5af149ddf92538de9cb5c85d23e48641a118d8ea"
-  integrity sha512-DULOJ0RPScX2hM6njTS1TzrZDhsR9xbYBbiW3BKpS0b5bpzlKiKBGVphxpMq0Tvt9riIo1c2IZ1uyYeRnEm+RA==
+"@quasar/quasar-app-extension-testing-unit-jest@^3.0.0-alpha.9":
+  version "3.0.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/@quasar/quasar-app-extension-testing-unit-jest/-/quasar-app-extension-testing-unit-jest-3.0.0-alpha.9.tgz#232351e13e977401e9ea010437b6681567869b68"
+  integrity sha512-tlkTihpJVOwK/kgK8dvdbFiZvV4mTYt7JhUTgX71Do3LkIXxt6YSoHrtM12ueR02QSP7w/rPQhpPxM1NMgnYDQ==
   dependencies:
     "@babel/plugin-syntax-dynamic-import" "^7.8.3"
     "@vue/test-utils" "^2.0.0-rc.10"
@@ -4285,6 +4297,18 @@
   version "2.0.0-rc.17"
   resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-2.0.0-rc.17.tgz#e6dcf5b5bd3ae23595bdb154b9b578ebcdffd698"
   integrity sha512-7LHZKsFRV/HqDoMVY+cJamFzgHgsrmQFalROHC5FMWrzPzd+utG5e11krj1tVsnxYufGA2ABShX4nlcHXED+zQ==
+
+"@vue/vue3-jest@^27.0.0-alpha.4":
+  version "27.0.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/@vue/vue3-jest/-/vue3-jest-27.0.0-alpha.4.tgz#eb2e5eba1c7a0ae39e457ba2df7ac891a79a2402"
+  integrity sha512-RgEwjNvwdWmRngHqgt957fLT6riOkv/Kyl0ra8jo0Z8Dgosmu17dNqgBzLn9fTgNlTbHv4TQQdLRjczr+z2mlA==
+  dependencies:
+    "@babel/plugin-transform-modules-commonjs" "^7.2.0"
+    chalk "^2.1.0"
+    convert-source-map "^1.6.0"
+    extract-from-css "^0.4.4"
+    source-map "0.5.6"
+    tsconfig "^7.0.0"
 
 "@vuelidate/core@^2.0.0-alpha.35":
   version "2.0.0-alpha.35"
@@ -8769,6 +8793,14 @@ flatted@^3.1.0:
   version "3.2.5"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.5.tgz#76c8584f4fc843db64702a6bd04ab7a8bd666da3"
   integrity sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==
+
+floating-vue@^2.0.0-beta.8:
+  version "2.0.0-beta.8"
+  resolved "https://registry.yarnpkg.com/floating-vue/-/floating-vue-2.0.0-beta.8.tgz#881cf287f703785848531cc8aea2dcb8072c55d1"
+  integrity sha512-xyMcqMo5xBZPp3AF9lg0B70/XnFvGUxl6HFP1BKHnbJO4NX2xl6r54Gq7ZQCOOxHl70Olzji3oxiXZRoJwMPsg==
+  dependencies:
+    "@floating-ui/dom" "^0.1.10"
+    vue-resize "^2.0.0-alpha.1"
 
 flow-parser@0.*:
   version "0.173.0"
@@ -14600,10 +14632,10 @@ qs@^6.10.0:
   dependencies:
     side-channel "^1.0.4"
 
-quasar@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/quasar/-/quasar-2.6.0.tgz#341165b7505386ccc32db3a2b3d8f99d349c578e"
-  integrity sha512-y1OfubP5Ch7F03/TaL2yvCN+qX3UOASmzRuUoc5x7wIPETX2q4XuT6YNTgQrtJXtMkiW2gDV4ycc98BOtP2kmA==
+quasar@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/quasar/-/quasar-2.6.1.tgz#5d7a976ed0372ad9863883891bf16a73aee1eb4d"
+  integrity sha512-fMjWXaqqgVGFknsXeNblAmOWkV+GH3qZw0jGnI1f1EW4PRq+cz1YVkGvPc4wVc6Phy5kxE3icRhAkNpRloeP0A==
 
 query-string@^5.0.1:
   version "5.1.1"
@@ -17695,10 +17727,10 @@ vue-loader@^16.0.0:
     hash-sum "^2.0.0"
     loader-utils "^2.0.0"
 
-vue-mention@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/vue-mention/-/vue-mention-1.1.0.tgz#5f3871fb133e5c881a2f4af71cbfe74d23cf45ab"
-  integrity sha512-yuFewv8i70qIL5HWdi9UHdwXAxeis1RR/FN00GQ0P7LJeqkh8YD9CWIjnD2owO1yLjgFol7t9uvax3rsl+oigg==
+vue-mention@^2.0.0-alpha.3:
+  version "2.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/vue-mention/-/vue-mention-2.0.0-alpha.3.tgz#8b82df71ec8daf47d5d3dc31be3b377275f5bb73"
+  integrity sha512-NtM6Z6UpqHByKJPyiy2SrBy3K7wyi/6bvXltaRfWcSQdNwW3YrWzrr1M7lYB4NoWRhDFuk+4X1GpY8HH06g+XQ==
   dependencies:
     textarea-caret "^3.1.0"
 
@@ -17708,6 +17740,11 @@ vue-resize@^1.0.1:
   integrity sha512-z5M7lJs0QluJnaoMFTIeGx6dIkYxOwHThlZDeQnWZBizKblb99GSejPnK37ZbNE/rVwDcYcHY+Io+AxdpY952w==
   dependencies:
     "@babel/runtime" "^7.13.10"
+
+vue-resize@^2.0.0-alpha.1:
+  version "2.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/vue-resize/-/vue-resize-2.0.0-alpha.1.tgz#43eeb79e74febe932b9b20c5c57e0ebc14e2df3a"
+  integrity sha512-7+iqOueLU7uc9NrMfrzbG8hwMqchfVfSzpVlCMeJQe4pyibqyoifDNbKTZvwxZKDvGkB+PdFeKvnGZMoEb8esg==
 
 vue-router@4.0.14:
   version "4.0.14"
@@ -17737,18 +17774,6 @@ vue-style-loader@4.1.3:
   dependencies:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
-
-vue3-jest@27.0.0-alpha.2:
-  version "27.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/vue3-jest/-/vue3-jest-27.0.0-alpha.2.tgz#c9935bcf8146443265d16e71b8ee8d3d313e1478"
-  integrity sha512-1UkRp+DLFWZQ6fFRQe4T3jpY/Rd+6zjwuLlnMNTbP8PgDrcykSS8aZaYZqFhNG6ECZ6qmV1F2jXcg9lMGRzLuw==
-  dependencies:
-    "@babel/plugin-transform-modules-commonjs" "^7.2.0"
-    chalk "^2.1.0"
-    convert-source-map "^1.6.0"
-    extract-from-css "^0.4.4"
-    source-map "0.5.6"
-    tsconfig "^7.0.0"
 
 vue@^3.2.31:
   version "3.2.31"

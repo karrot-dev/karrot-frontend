@@ -38,17 +38,15 @@
             </a>
           </div>
         </template>
-        <!-- TODO
         <template
-          v-for="(_, slot) of $slots"
-          #[slot]="scope"
+          v-for="(_, slotName) in $slots"
+          v-slot:[slotName]="slotData"
         >
           <slot
-            :name="slot"
-            v-bind="scope"
+            :name="slotName"
+            v-bind="slotData || {}"
           />
         </template>
-        -->
       </QInput>
       <QBtn
         v-if="value"

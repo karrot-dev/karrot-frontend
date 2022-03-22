@@ -16,7 +16,7 @@ const defaultProps = data => ({
   ...data,
 })
 
-const store = createDatastore({
+const datastore = createDatastore({
   users: {
     getters: {
       byCurrentGroup: () => [],
@@ -30,7 +30,7 @@ describe('ChatConversation', () => {
     const propsData = defaultProps({
       compose: true,
     })
-    const wrapper = mountWithDefaults(ChatConversation, { store, propsData })
+    const wrapper = mountWithDefaults(ChatConversation, { datastore, propsData })
     // let the mounted() hook run
     await nextTick()
 
@@ -51,7 +51,7 @@ describe('ChatConversation', () => {
     const propsData = defaultProps()
     const { conversation } = propsData
     conversation.unreadMessageCount = 0
-    const wrapper = mountWithDefaults(ChatConversation, { store, propsData })
+    const wrapper = mountWithDefaults(ChatConversation, { datastore, propsData })
     await nextTick()
 
     const { id, messages } = conversation
@@ -65,7 +65,7 @@ describe('ChatConversation', () => {
 
   it('does not mark new messages as read when away', async () => {
     const propsData = { ...defaultProps(), away: true }
-    const wrapper = mountWithDefaults(ChatConversation, { store, propsData })
+    const wrapper = mountWithDefaults(ChatConversation, { datastore, propsData })
     await nextTick()
 
     const { id, messages } = propsData.conversation
@@ -75,7 +75,7 @@ describe('ChatConversation', () => {
 
   it('marks messages as read when returning from away', async () => {
     const propsData = { ...defaultProps(), away: true }
-    const wrapper = mountWithDefaults(ChatConversation, { store, propsData })
+    const wrapper = mountWithDefaults(ChatConversation, { datastore, propsData })
     await nextTick()
 
     const { id, messages } = propsData.conversation

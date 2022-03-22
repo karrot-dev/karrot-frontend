@@ -5,7 +5,7 @@ import { createDatastore } from '>/helpers'
 
 import { QSelect } from 'quasar'
 
-const store = createDatastore({
+const datastore = createDatastore({
   users: {
     getters: {
       byCurrentGroup: () => [],
@@ -22,7 +22,7 @@ describe('ActivitySeriesEdit', () => {
     series = factories.makeActivitySeries()
     const { mountWithDefaults } = require('>/helpers')
     wrapper = mountWithDefaults(require('./ActivitySeriesEdit').default, {
-      store,
+      datastore,
       propsData: {
         value: series,
         status: { pending: false, validationErrors: {} },

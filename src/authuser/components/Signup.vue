@@ -27,7 +27,7 @@
           autocorrect="off"
           autocapitalize="off"
           spellcheck="false"
-          @blur="$v.user.username.$touch"
+          @blur="v$.user.username.$touch"
         />
         <SplashInput
           v-model="user.email"
@@ -138,8 +138,8 @@ export default {
       return !!this.usernameError
     },
     usernameError () {
-      if (this.$v.user.username.$error) {
-        const m = this.$v.user.username
+      if (this.v$.user.username.$error) {
+        const m = this.v$.user.username
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
         if (!m.valid) return this.$t('VALIDATION.VALID_USERNAME')
       }

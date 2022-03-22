@@ -1,7 +1,6 @@
 import { nextTick } from 'vue'
 import { mount, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
-import { extend } from 'quasar'
 import i18n, { i18nPlugin } from '@/base/i18n'
 import routerMocks from '>/routerMocks'
 import { createStore } from 'vuex'
@@ -80,6 +79,7 @@ export function mountWithDefaults (Component, options = {}) {
   const Quasar = require('quasar').Quasar
   const quasarConfig = require('>/quasarConfig').default
 
+  // TODO remove?
   const ssrContextMock = {
     req: {
       headers: {},
@@ -90,28 +90,32 @@ export function mountWithDefaults (Component, options = {}) {
     url: '',
   }
 
-  const mergedOptions = extend(true, {}, {
+  const globalOptions = options.global || {}
+
+  const mergedOptions = {
+    ...options,
     global: {
-      plugins: [],
+      plugins: [
+        [Quasar, quasarConfig, ssrContextMock],
+        i18nPlugin,
+        ...(globalOptions.plugins || []),
+      ],
       stubs: {
         RouterLink: RouterLinkStub,
+        ...(globalOptions.stubs || {}),
       },
       directives: {
         measure: {},
+        ...(globalOptions.directives || {}),
       },
       mocks: {
         $icon: () => '',
         ...routerMocks,
+        ...(globalOptions.mocks || {}),
       },
+      ...globalOptions,
     },
-  }, options)
-
-  // we get some warnings if we run this through extend(), so let's add it afterwards
-  mergedOptions.global.plugins = [
-    [Quasar, quasarConfig, ssrContextMock],
-    i18nPlugin,
-    ...mergedOptions.global.plugins,
-  ]
+  }
 
   if (options.datastore) mergedOptions.global.plugins.unshift(options.datastore)
 

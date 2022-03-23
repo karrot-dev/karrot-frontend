@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Fixed
+- fix username pattern matching @nicksellen #2520
 
 ## [9.8.0] - 2022-03-23
 ### Added

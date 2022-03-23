@@ -21,6 +21,11 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [9.8.0] - 2022-03-23
+### Added
+- add @-mentions @nicksellen [#2407] [#2479] [#2516]
+
 ### Fixed
 - fix infinite redirect for some discussions @amengsk [#2501](https://github.com/karrot-dev/karrot-frontend/pull/2501)
 - fix round translation percentages @Chinchuluun1029 @nicksellen [#2514](https://github.com/karrot-dev/karrot-frontend/pull/2514)
@@ -763,6 +768,7 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2396]: https://github.com/karrot-dev/karrot-frontend/issues/2396
 [#2405]: https://github.com/karrot-dev/karrot-frontend/issues/2405
 [#2406]: https://github.com/karrot-dev/karrot-frontend/issues/2406
+[#2407]: https://github.com/karrot-dev/karrot-frontend/issues/2407
 [#2417]: https://github.com/karrot-dev/karrot-frontend/issues/2417
 [#2428]: https://github.com/karrot-dev/karrot-frontend/issues/2428
 [#2444]: https://github.com/karrot-dev/karrot-frontend/issues/2444
@@ -774,11 +780,14 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2470]: https://github.com/karrot-dev/karrot-frontend/issues/2470
 [#2473]: https://github.com/karrot-dev/karrot-frontend/issues/2473
 [#2475]: https://github.com/karrot-dev/karrot-frontend/issues/2475
+[#2479]: https://github.com/karrot-dev/karrot-frontend/issues/2479
 [#2482]: https://github.com/karrot-dev/karrot-frontend/issues/2482
 [#2483]: https://github.com/karrot-dev/karrot-frontend/issues/2483
 [#2486]: https://github.com/karrot-dev/karrot-frontend/issues/2486
+[#2516]: https://github.com/karrot-dev/karrot-frontend/issues/2516
 
-[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v9.7.0...HEAD
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v9.8.0...HEAD
+[9.8.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.7.0...v9.8.0
 [9.7.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.6.1...v9.7.0
 [9.6.1]: https://github.com/karrot-dev/karrot-frontend/compare/v9.6.0...v9.6.1
 [9.6.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.5.1...v9.6.0

@@ -46,7 +46,7 @@ export default {
 .markdown
   overflow-wrap: break-word
 
-.markdown >>>
+.markdown ::v-deep()
   .mention
     padding: 2px 2px
     margin: 0 2px 0 2px

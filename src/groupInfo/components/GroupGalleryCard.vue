@@ -182,7 +182,7 @@ export default {
       content: ''
       background: linear-gradient(rgba(255, 255, 255, 0) 80%, white 100%)
 
-  .smaller-text >>> *
+  .smaller-text ::v-deep(*)
     font-size: 1em
 
   .photo,

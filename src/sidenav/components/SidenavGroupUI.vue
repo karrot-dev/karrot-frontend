@@ -223,6 +223,6 @@ export default {
 .more-button:hover
   opacity: .6
 
-  >>> .q-focus-helper
+  ::v-deep(.q-focus-helper)
     background: none !important
 </style>

@@ -408,6 +408,6 @@ export default {
 
 <style scoped lang="sass">
 // the last row is our special totals row, so make it stand out
->>> tr:last-child td
+::v-deep(tr:last-child td)
   font-weight: 500
 </style>

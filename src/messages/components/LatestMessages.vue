@@ -100,6 +100,6 @@ export default {
 <style lang="sass" scoped>
 @use "sass:color"
 
-.k-message-tabs:deep(.q-tab) .q-chip
+.k-message-tabs ::v-deep(.q-tab .q-chip)
   background: color.change($secondary, $alpha: 0.85)
 </style>

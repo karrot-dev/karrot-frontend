@@ -68,6 +68,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
->>> .q-banner__avatar
+::v-deep(.q-banner__avatar)
   align-self: center
 </style>

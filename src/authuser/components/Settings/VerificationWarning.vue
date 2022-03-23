@@ -139,6 +139,6 @@ export default {
   text-decoration: underline
   cursor: pointer
 
->>> .q-banner__avatar
+::v-deep(.q-banner__avatar)
   align-self: center
 </style>

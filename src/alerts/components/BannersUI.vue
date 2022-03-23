@@ -133,6 +133,6 @@ export default {
 body.desktop .k-banner
   min-width: 500px
 
-.k-banner >>> .q-banner__avatar
+.k-banner ::v-deep(.q-banner__avatar)
   align-self: center
 </style>

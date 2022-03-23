@@ -377,11 +377,11 @@ export default {
 <style scoped lang="sass">
 $box-shadow-color: rgb(84, 84, 84)
 
->>>
-  --h1-fontsize: 1.75rem // 28px
+.landing
+  --h1-fontsize: 1.75rem
   --h1-letterspacing: -0.005em
-  --h2-fontsize: 1.375rem // 22px
-  --paragraph-fontsize: 1.0625rem // 17px
+  --h2-fontsize: 1.375rem
+  --paragraph-fontsize: 1.0625rem
   --landing-padding-top: 30px
   --landing-padding-x: 20px
   --img-border-radius: 4px
@@ -404,7 +404,7 @@ $box-shadow-color: rgb(84, 84, 84)
   --app-screenshots-phone-bottom: unset
 
   @media (min-width: 410px)
-    --h1-fontsize: 2.375rem // 38px
+    --h1-fontsize: 2.375rem
 
   @media (min-width: 500px)
     --landing-padding-top: 45px
@@ -416,10 +416,10 @@ $box-shadow-color: rgb(84, 84, 84)
     --app-screenshots-browser-img-offset: 34px
 
   @media (min-width: 600px)
-    --h1-fontsize: 2.75rem // 44px
+    --h1-fontsize: 2.75rem
     --h1-letterspacing: -0.025em
-    --h2-fontsize: 1.875rem // 30px
-    --paragraph-fontsize: 1.25rem // 20px
+    --h2-fontsize: 1.875rem
+    --paragraph-fontsize: 1.25rem
 
   @media (min-width: 700px)
     --app-screenshots-padding: 55px 120px 65px var(--landing-padding-x)
@@ -439,7 +439,7 @@ $box-shadow-color: rgb(84, 84, 84)
     --app-screenshots-phone-bottom: -27px
 
   @media (min-width: 850px)
-    --h1-fontsize: 3.125rem // 50px
+    --h1-fontsize: 3.125rem
     --app-screenshots-phone-width: 31.023%
 
   @media (min-width: 1050px)
@@ -448,7 +448,7 @@ $box-shadow-color: rgb(84, 84, 84)
     --app-screenshots-padding: 55px 120px 65px 50px
 
 .sdw,
->>> .groupPreviewCard
+::v-deep(.groupPreviewCard)
   box-shadow: 0 2px 15px rgba($box-shadow-color, 0.07), 0 1px 3px rgba($box-shadow-color, 0.15)
 
 .landing
@@ -590,7 +590,7 @@ $box-shadow-color: rgb(84, 84, 84)
       text-decoration: underline
       text-underline-offset: 2px
 
-  >>> p
+  p
     margin: 8px 0
     font-size: var(--paragraph-fontsize)
     color: rgba(0, 0, 0, 0.74)

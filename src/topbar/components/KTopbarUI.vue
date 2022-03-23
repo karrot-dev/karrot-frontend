@@ -325,7 +325,7 @@ export default {
   &:hover
     opacity: 1
 
-.q-btn >>> .q-icon
+.q-btn ::v-deep(.q-icon)
   font-size: 20px
 
 .presence-indicator

@@ -300,11 +300,11 @@ export default {
   .croppa-item
     width: 80px
 
-  >>> .croppa-container
+  ::v-deep(.croppa-container)
     width: 80px
     height: 80px
 
-.new-image >>> canvas
+.new-image ::v-deep(canvas)
   cursor: pointer
   border: 1px solid #ddd
 </style>

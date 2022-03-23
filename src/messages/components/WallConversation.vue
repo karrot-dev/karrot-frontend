@@ -171,6 +171,6 @@ export default {
   right: 6px
   z-index: 1
 
->>> .q-banner__avatar
+::v-deep(.q-banner__avatar)
   align-self: center
 </style>

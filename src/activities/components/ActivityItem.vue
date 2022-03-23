@@ -266,7 +266,7 @@ export default {
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.06)
 
 .q-btn.action-button
-  :deep(.q-btn__wrapper)
+  ::v-deep(.q-btn__wrapper)
     padding: 10px 16px !important
 
     .icon-chat

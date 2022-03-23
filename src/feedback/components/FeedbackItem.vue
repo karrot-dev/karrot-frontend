@@ -151,7 +151,7 @@ export default {
   padding-top: 8px
   word-wrap: break-word
 
-  >>> p:last-child
+  ::v-deep(p:last-child)
     margin-bottom: 5px
 
 .message-date

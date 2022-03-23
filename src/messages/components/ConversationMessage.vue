@@ -306,7 +306,7 @@ body.mobile .conversation-message
     max-height: 30px
     box-shadow: none
 
-    >>> .q-btn__wrapper
+    ::v-deep(.q-btn__wrapper)
       min-height: 0
       padding: 0
 

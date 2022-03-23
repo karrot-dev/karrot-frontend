@@ -427,6 +427,6 @@ button.selected
 
 // for some reason the font-awesome icons are displayed too big inside QFabAction
 .fab-action-fix
-  :deep(.q-icon.fas)
+  ::v-deep(.q-icon.fas)
     font-size: 18px
 </style>

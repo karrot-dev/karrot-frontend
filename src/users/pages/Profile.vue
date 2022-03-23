@@ -320,7 +320,7 @@ export default {
 </script>
 
 <style scoped lang="sass">
->>> .q-banner__avatar
+::v-deep(.q-banner__avatar)
   align-self: center
 
 body.desktop .k-profile

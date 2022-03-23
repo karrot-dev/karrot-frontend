@@ -191,7 +191,7 @@ export default {
   left: 0
   width: 100%
   height: 8px
-  background: linear-gradient(to bottom, $secondary, color.adjust($secondary, $lightness: 50))
+  background: linear-gradient(to bottom, $secondary, color.adjust($secondary, $lightness: 50%))
 
 .emptySlots
   display: inline-block

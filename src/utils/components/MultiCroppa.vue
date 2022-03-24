@@ -109,7 +109,7 @@ export default {
      * - when adding a new image an entry will be added with _new: true, and `toBlob: Function<Promise>`
      * - when changing position, the `position` field will be updated (but the position in array left the same)
      */
-    value: {
+    modelValue: {
       type: Array,
       required: true,
     },
@@ -123,7 +123,7 @@ export default {
     },
   },
   emits: [
-    'input',
+    'update:modelValue',
   ],
   data () {
     return {
@@ -136,7 +136,7 @@ export default {
   computed: {
     items () {
       return [
-        ...this.value
+        ...this.modelValue
           .filter(item => !item._removed)
           .map(source => {
             let key = this.sourceKey.get(source)
@@ -223,8 +223,8 @@ export default {
         position,
       })
 
-      this.$emit('input', [
-        ...this.value,
+      this.$emit('update:modelValue', [
+        ...this.modelValue,
         source,
       ])
       this.newItem = {
@@ -268,7 +268,7 @@ export default {
     removeImage (item) {
       if (this.isExisting(item)) {
         // this item needs to be removed from the server after we save
-        this.$emit('input', this.value.map(i => {
+        this.$emit('update:modelValue', this.modelValue.map(i => {
           if (i.id !== item.source.id) return i
           return {
             ...item.source,
@@ -278,7 +278,7 @@ export default {
       }
       else {
         // this image was never on the server, so we can just delete it
-        this.$emit('input', this.value.filter(i => i.id !== item.source.id))
+        this.$emit('update:modelValue', this.modelValue.filter(i => i.id !== item.source.id))
       }
       // in both cases, this source item will never come back
       // so we can forget the source -> key mapping

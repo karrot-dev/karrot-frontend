@@ -7,7 +7,7 @@
       <QInput
         ref="input"
         v-bind="$attrs"
-        :model-value="value"
+        :model-value="modelValue"
         type="textarea"
         :input-style="$attrs['input-style'] || 'min-height: 100px'"
         autogrow
@@ -49,7 +49,7 @@
         </template>
       </QInput>
       <QBtn
-        v-if="value"
+        v-if="modelValue"
         :label="$t('BUTTON.PREVIEW')"
         size="xs"
         color="primary"
@@ -67,8 +67,8 @@
             </QCardSection>
             <QCardSection>
               <Markdown
-                v-if="value"
-                :source="value"
+                v-if="modelValue"
+                :source="modelValue"
                 :mentions="mentions"
               />
             </QCardSection>
@@ -115,7 +115,7 @@ export default {
   },
   inheritAttrs: false,
   props: {
-    value: {
+    modelValue: {
       default: '',
       type: String,
     },

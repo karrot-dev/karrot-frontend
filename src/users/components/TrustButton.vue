@@ -11,7 +11,7 @@
     <CircleProgress
       v-if="!isEditor"
       class="circle-progress"
-      :model-value="trustProgress"
+      :value="trustProgress"
     />
     <QBadge
       floating

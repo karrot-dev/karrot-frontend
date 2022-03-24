@@ -83,6 +83,7 @@ export default {
 </script>
 
 <style lang="sass">
+// TODO: why not scoped?
 .popover
   // Ensure we appear over everything else
   z-index: 999999999 !important

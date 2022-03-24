@@ -40,7 +40,7 @@
               {{ userName }}
             </RouterLink>
             <span
-              class="message-date"
+              class="message-date q-ml-xs"
             >
               <DateAsWords :date="createdAt" />
             </span>

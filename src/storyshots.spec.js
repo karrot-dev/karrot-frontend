@@ -24,7 +24,6 @@ jest.mock('@storybook/vue3', () => ({
 import glob from 'glob'
 import lolex from 'lolex'
 import { createRenderer } from 'vue-server-renderer'
-import Vue from 'vue'
 import { Quasar } from 'quasar'
 import quasarConfig from '>/quasarConfig'
 import { mount, RouterLinkStub } from '@vue/test-utils'
@@ -32,8 +31,6 @@ import i18n from '@/base/i18n'
 import routerMocks from '>/routerMocks'
 
 i18n.locale = 'en'
-Vue.component('RouterLink', RouterLinkStub)
-Vue.directive('measure', {})
 
 // To get properly faked dates, install fake Date object before importing stories
 const now = new Date('2017-12-24T12:00:00Z')
@@ -94,8 +91,19 @@ for (const group of mockStories) {
           const component = story.render()
 
           const wrapper = mount(component, {
-            mocks: {
-              ...routerMocks,
+            global: {
+              plugins: [
+                [Quasar, quasarConfig],
+              ],
+              stubs: {
+                RouterLink: RouterLinkStub,
+              },
+              directives: {
+                measure: {},
+              },
+              mocks: {
+                ...routerMocks,
+              },
             },
           })
           const html = await renderer.renderToString(wrapper.vm)

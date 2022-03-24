@@ -15,6 +15,7 @@
     "dist",
     ".quasar",
     "node_modules",
-    "storybook-static"
+    "storybook-static",
+    "docs/_book"
   ]
 }

@@ -12,7 +12,7 @@
     @reconnect="$store.dispatch('connectivity/reconnect')"
     @show-search="$store.commit('search/show')"
     @hide-search="$store.commit('search/hide')"
-    @toggleSidenav="$emit('toggle-sidenav')"
+    @toggle-sidenav="$emit('toggle-sidenav')"
   />
 </template>
 

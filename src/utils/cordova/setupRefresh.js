@@ -27,7 +27,6 @@ document.addEventListener('deviceready', () => {
 // wait 5 seconds before triggering refresh
 const refresh = () => setTimeout(() => datastore.commit('refresh/requestRefresh', true), 5000)
 
-
 watch(() => status.online, val => {
   if (val) refresh()
 })

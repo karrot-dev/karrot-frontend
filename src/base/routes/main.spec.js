@@ -18,20 +18,20 @@ jest.mock('@/router', () => {
         name: 'landing',
         path: '/welcome',
         component: {
-          template: '<div>landing</div>'
+          template: '<div>landing</div>',
         },
       },
       {
         name: 'groupsGallery',
         path: '/groupPreview',
         component: {
-          template: '<div>gallery</div>'
+          template: '<div>gallery</div>',
         },
       },
       {
         path: '/',
         component: {
-          template: '<div>root</div>'
+          template: '<div>root</div>',
         },
       },
     ],
@@ -66,7 +66,7 @@ function mountRouterViewWith ({ datastore, router }) {
         router,
         datastore,
         i18nPlugin,
-      ]
+      ],
     },
   })
 }
@@ -120,7 +120,7 @@ describe('main routes', () => {
         name: 'group',
         path: '/group/:groupId',
         component: {
-          template: '<div>group</div>'
+          template: '<div>group</div>',
         },
       })
       group = {

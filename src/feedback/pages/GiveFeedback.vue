@@ -9,7 +9,7 @@
     :fetch-feedback-possible-status="$store.getters['activities/fetchFeedbackPossibleStatus']"
     :seed-id="$store.getters['currentGroup/id']"
     @save="data => $store.dispatch('feedback/save', data)"
-    @dismissFeedback="data => $store.dispatch('activities/dismissFeedback', data)"
+    @dismiss-feedback="data => $store.dispatch('activities/dismissFeedback', data)"
   />
 </template>
 

@@ -28,7 +28,7 @@ describe('detectMobileKeyboard', () => {
   })
 
   describe('desktop', () => {
-    beforeEach(() => mockPlatform.is.mobile = false)
+    beforeEach(() => { mockPlatform.is.mobile = false })
     it('defaults to closed', () => {
       expect(detectMobileKeyboard.is.open).toBe(false)
     })
@@ -44,7 +44,7 @@ describe('detectMobileKeyboard', () => {
   })
 
   describe('mobile', () => {
-    beforeEach(() => mockPlatform.is.mobile = true)
+    beforeEach(() => { mockPlatform.is.mobile = true })
     it('defaults to closed', () => {
       expect(detectMobileKeyboard.is.open).toBe(false)
     })

@@ -40,7 +40,7 @@
         </template>
         <template
           v-for="(_, slotName) in $slots"
-          v-slot:[slotName]="slotData"
+          #[slotName]="slotData"
         >
           <slot
             :name="slotName"

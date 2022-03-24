@@ -35,22 +35,22 @@ const thread = {
 }
 
 storiesOf('Latest Messages', module)
-.add('flag: muted', () => defaults({
-  render: () => h(LatestMessageItem, {
-    user,
-    message,
-    muted: true,
-    ...on,
-  }),
-}))
-.add('flag: closed', () => defaults({
-  render: () => h(LatestMessageItem, {
-    application,
-    message,
-    closed: true,
-    ...on,
-  }),
-}))
+  .add('flag: muted', () => defaults({
+    render: () => h(LatestMessageItem, {
+      user,
+      message,
+      muted: true,
+      ...on,
+    }),
+  }))
+  .add('flag: closed', () => defaults({
+    render: () => h(LatestMessageItem, {
+      application,
+      message,
+      closed: true,
+      ...on,
+    }),
+  }))
   .add('flag: closed+muted', () => defaults({
     render: () => h(LatestMessageItem, {
       application,

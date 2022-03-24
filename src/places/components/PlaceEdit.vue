@@ -260,6 +260,7 @@ export default {
   },
   emits: [
     'cancel',
+    'save',
   ],
   setup () {
     return {

@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import { h } from 'vue'
+import { h, reactive } from 'vue'
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
 import { storybookDefaults as defaults } from '>/helpers'
@@ -12,7 +11,7 @@ const changeNotificationType = action('changeNotificationType')
 storiesOf('GroupSettings', module)
   .add('show', () => {
     // Create a reactive copy of the group
-    const group = new Vue({ data: { ...groupsMock[0] } })
+    const group = reactive({ ...groupsMock[0] })
 
     return defaults({
       render: () => h(GroupSettings, {

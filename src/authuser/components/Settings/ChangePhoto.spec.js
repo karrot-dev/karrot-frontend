@@ -3,7 +3,7 @@ import { usersMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'
 
 import { mountWithDefaults, statusMocks, nextTicks } from '>/helpers'
-import { configureCompat } from 'vue'
+import { configureCompat } from '@vue/compat'
 jest.mock('vue', () => jest.requireActual('@vue/compat'))
 configureCompat({ MODE: 3 })
 

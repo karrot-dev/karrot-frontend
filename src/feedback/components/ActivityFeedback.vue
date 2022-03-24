@@ -77,7 +77,7 @@
           :has-multiple-participants="fellowParticipants.length > 0"
           :has-weight="select.activityType.hasFeedbackWeight"
           @save="(...args) => $emit('save', ...args)"
-          @dismissFeedback="(...args) => $emit('dismissFeedback', ...args)"
+          @dismiss-feedback="(...args) => $emit('dismissFeedback', ...args)"
         />
       </div>
     </QCard>

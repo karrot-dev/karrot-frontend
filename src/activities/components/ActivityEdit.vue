@@ -35,7 +35,6 @@
             hide-bottom-space
             class="q-mr-sm"
             @focus="$refs.qStartDateProxy.show()"
-            @blur="$refs.qStartDateProxy.hide()"
           >
             <template #before>
               <QIcon name="access_time" />
@@ -52,6 +51,7 @@
                 v-model="startDate"
                 :options="futureDates"
                 mask="YYYY-MM-DD"
+                @update:model-value="() => smallScreen && $refs.qStartDateProxy.hide()"
               />
             </Component>
           </QInput>
@@ -63,7 +63,6 @@
             size="3"
             :error="hasError('date')"
             hide-bottom-space
-            @blur="$refs.qStartTimeProxy.hide()"
             @focus="$refs.qStartTimeProxy.show()"
           >
             <Component
@@ -106,7 +105,6 @@
               size="3"
               :error="hasError('date')"
               hide-bottom-space
-              @blur="$refs.qEndTimeProxy.hide()"
               @focus="$refs.qEndTimeProxy.show()"
             >
               <Component

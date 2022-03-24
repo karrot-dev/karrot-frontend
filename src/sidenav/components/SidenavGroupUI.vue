@@ -198,7 +198,7 @@ export default {
       }, {
         label: this.$t('GROUP.STATISTICS'),
         icon: 'fas fa-chart-bar',
-        to: { name: 'statistics', params: { groupId: this.groupId } },
+        to: { name: 'activityHistoryStatistics', params: { groupId: this.groupId } },
       }, {
         label: this.$t('GROUPINFO.META'),
         icon: 'fas fa-info-circle',

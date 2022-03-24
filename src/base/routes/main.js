@@ -555,7 +555,7 @@ export default [
       {
         name: 'statistics',
         path: 'statistics',
-        redirect: 'statistics/activity-history',
+        redirect: { name: 'activityHistoryStatistics' },
       },
       {
         name: 'activityHistoryStatistics',

@@ -12,7 +12,6 @@
       @update:model-value="setTerms"
       @click="showResults"
       @focus="showResults"
-      @blur="hide"
       @keyup.esc="hide"
     >
       <template #prepend>
@@ -30,6 +29,7 @@
         no-parent-event
         no-focus
         fit
+        @hide="hide"
       >
         <QList>
           <QInfiniteScroll @load="onLoad">
@@ -39,7 +39,6 @@
               v-close-popup
               :to="result.value"
               clickable
-              @click="hide"
             >
               <QItemSection
                 v-if="result.icon"

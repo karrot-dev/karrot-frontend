@@ -132,7 +132,7 @@ export default [
   },
   {
     path: '/group/:groupId',
-    redirect: '/group/:groupId/wall',
+    redirect: { name: 'group' },
     meta: {
       requireLoggedIn: true,
       breadcrumbs: [
@@ -368,7 +368,7 @@ export default [
       {
         name: 'groupEdit',
         path: 'edit',
-        redirect: 'edit/details',
+        redirect: { name: 'groupEditDetails' },
         meta: {
           breadcrumbs: [
             { translation: 'GROUP.EDIT', route: { name: 'groupEdit' } },
@@ -467,11 +467,6 @@ export default [
               beforeEnter: 'conversations/fetchForPlace',
               afterLeave: 'conversations/clearForPlace',
             },
-          },
-          {
-            // TODO: legacy redirect, can be removed in some months
-            path: 'pickups',
-            redirect: 'activities',
           },
           {
             name: 'placeActivities',

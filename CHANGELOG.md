@@ -21,8 +21,10 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [9.8.1] - 2022-03-25
 ### Fixed
-- fix username pattern matching @nicksellen #2520
+- fix username pattern matching @nicksellen [#2520]
 
 ## [9.8.0] - 2022-03-23
 ### Added
@@ -787,8 +789,10 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2483]: https://github.com/karrot-dev/karrot-frontend/issues/2483
 [#2486]: https://github.com/karrot-dev/karrot-frontend/issues/2486
 [#2516]: https://github.com/karrot-dev/karrot-frontend/issues/2516
+[#2520]: https://github.com/karrot-dev/karrot-frontend/issues/2520
 
-[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v9.8.0...HEAD
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v9.8.1...HEAD
+[9.8.1]: https://github.com/karrot-dev/karrot-frontend/compare/v9.8.0...v9.8.1
 [9.8.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.7.0...v9.8.0
 [9.7.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.6.1...v9.7.0
 [9.6.1]: https://github.com/karrot-dev/karrot-frontend/compare/v9.6.0...v9.6.1

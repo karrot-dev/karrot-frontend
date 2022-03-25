@@ -3,7 +3,9 @@
     :breadcrumbs="$store.getters['breadcrumbs/all']"
     :current-user-id="$store.getters['auth/userId']"
     @logout="$store.dispatch('auth/logout')"
-  />
+  >
+    <slot />
+  </KTopbarUI>
 </template>
 
 <script>

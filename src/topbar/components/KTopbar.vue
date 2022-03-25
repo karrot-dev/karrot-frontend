@@ -13,7 +13,9 @@
     @show-search="$store.commit('search/show')"
     @hide-search="$store.commit('search/hide')"
     @toggle-sidenav="$emit('toggle-sidenav')"
-  />
+  >
+    <slot />
+  </KTopbarUI>
 </template>
 
 <script>

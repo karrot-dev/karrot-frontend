@@ -9,13 +9,24 @@
           v-model="user.displayName"
           icon="fas fa-user"
           :autofocus="!$q.platform.has.touch"
-          :label="$t('USERDATA.USERNAME')"
+          :label="$t('USERDATA.DISPLAY_NAME')"
           :error="hasDisplayNameError"
           :error-message="displayNameError"
           autocorrect="off"
           autocapitalize="off"
           spellcheck="false"
           @blur="$v.user.displayName.$touch"
+        />
+        <SplashInput
+          v-model="user.username"
+          icon="alternate_email"
+          :label="$t('USERDATA.USERNAME')"
+          :error="hasUsernameError"
+          :error-message="usernameError"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          @blur="$v.user.username.$touch"
         />
         <SplashInput
           v-model="user.email"
@@ -76,7 +87,7 @@ import {
 } from 'quasar'
 import SplashInput from '@/utils/components/SplashInput'
 import statusMixin from '@/utils/mixins/statusMixin'
-import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 import { validationMixin } from 'vuelidate'
 
 export default {
@@ -95,6 +106,7 @@ export default {
     return {
       user: {
         displayName: null,
+        username: null,
         email: this.prefillEmail(),
         password: null,
       },
@@ -112,6 +124,20 @@ export default {
         if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
       }
       return this.firstError('displayName')
+    },
+    hasUsernameError () {
+      return !!this.usernameError
+    },
+    usernameError () {
+      if (this.$v.user.username.$error) {
+        const m = this.$v.user.username
+        if (!m.required) return this.$t('VALIDATION.REQUIRED')
+        if (!m.valid) return this.$t('VALIDATION.VALID_USERNAME')
+      }
+      const error = this.firstError('username')
+      if (error === 'username_invalid') return this.$t('VALIDATION.VALID_USERNAME')
+      if (error === 'username_taken') return this.$t('VALIDATION.TAKEN')
+      return error
     },
     canSave () {
       if (this.$v.user.$error) {
@@ -136,6 +162,10 @@ export default {
         required,
         minLength: minLength(3),
         maxLength: maxLength(80),
+      },
+      username: {
+        required,
+        valid: helpers.regex('valid', /^[\w.+-]+$/), // should correspond to backend one
       },
     },
   },

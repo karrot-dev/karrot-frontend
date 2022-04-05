@@ -42,6 +42,11 @@ const datastore = createDatastore({
       user: () => user,
     },
   },
+  users: {
+    getters: {
+      byCurrentGroup: () => [],
+    },
+  },
 })
 
 const methods = {

@@ -1,6 +1,4 @@
-import 'firebase/messaging'
-// eslint-disable-next-line import/default
-import firebase from 'firebase/app'
+import { getMessaging, onMessage, getToken, deleteToken } from 'firebase/messaging'
+import { initializeApp } from 'firebase/app'
 
-const { initializeApp, messaging } = firebase
-export { initializeApp, messaging }
+export { initializeApp, getMessaging, onMessage, getToken, deleteToken }

@@ -251,7 +251,7 @@
   },
   "COMMUNITY_FEED": {
     "HEADER": "Neiegkeete vun der {community}",
-    "HEADER_LINK": "Weltwäit Liewensmëttelretter-Gemeinschaft",
+    "HEADER_LINK": "Karrot-Gemeinschaft",
     "KARROT_DISCUSSION": "Diskussiounen iwwert Karrot",
     "LAST_UPDATED": "Fir d'läscht aktualiséiert virun {relativeDate}"
   },
@@ -704,6 +704,7 @@
     "FILTER_USER_LABEL": "Benotzer",
     "FILTER_ALL_USERS": "All d'Benotzer",
     "FILTER_TIME_LABEL": "Zäitperiod",
+    "FILTER_TIME_YEARS_LABEL": "Joer",
     "FILTER_TIME_PREVIOUS_DAYS": "Läscht {count} Deeg",
     "FILTER_TIME_PREVIOUS_MONTHS": "Läscht {count} Méint",
     "FILTER_TIME_FOREVER": "Fir ëmmer",
@@ -730,6 +731,8 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Adress",
+    "DEFAULT_VIEW": "Standard-Usicht",
+    "DEFAULT_VIEW_HINT": "Wat soll standardweis ugewise gi wann een op dës Plaz klickt?",
     "DESCRIPTION": "Beschreiwung",
     "DIALOGS": {
       "ARCHIVE": {

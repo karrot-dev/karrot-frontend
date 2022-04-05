@@ -106,6 +106,15 @@
         <QList>
           <QItem>
             <QItemSection side>
+              <QIcon name="alternate_email" />
+            </QItemSection>
+            <QItemSection class="ellipsis">
+              {{ user.username }}
+            </QItemSection>
+          </QItem>
+
+          <QItem>
+            <QItemSection side>
               <QIcon name="fas fa-fw fa-envelope" />
             </QItemSection>
             <QItemSection class="ellipsis">

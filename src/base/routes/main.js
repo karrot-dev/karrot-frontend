@@ -455,7 +455,6 @@ export default [
       },
       {
         name: 'place',
-        redirect: { name: 'placeActivities' },
         path: 'place/:placeId',
         meta: {
           breadcrumbs: [
@@ -526,11 +525,6 @@ export default [
             component: PlaceEdit,
           },
         ],
-      },
-      {
-        // TODO: legacy redirect, can be removed in some months
-        path: 'place/:placeId/activities/:activityId/detail',
-        redirect: 'place/:placeId/activities/:activityId/detail',
       },
       {
         name: 'activityDetail',

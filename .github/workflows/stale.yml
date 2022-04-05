@@ -14,25 +14,25 @@ jobs:
         # See https://github.com/actions/stale/blob/master/action.yml for description of the options
 
         stale-issue-message: |
-          This issue is marked as stale because it has not had any activity for 90 days.
+          This issue is marked as stale because it has not had any activity for 180 days.
 
-          It doesn't mean it's not important, so please remove the stale label if you like it, or add a comment saying what it means to you :)
+          If it's still important for you add a comment saying what it means to you, remove the stale label, and/or add the "important" label :)
 
-          However, if you just leave it like this, I'll close it in 7 days to help keep your issues tidy!
+          However, if you just leave it like this, I'll close it in 30 days to help keep your issues relevant!
 
           Thanks!
 
         stale-pr-message: |
-          This pull request is marked as stale because it has not had any activity for 90 days.
+          This pull request is marked as stale because it has not had any activity for 180 days.
 
-          It doesn't mean it's not important, so please remove the stale label if you like it, or add a comment saying what it means to you :)
+          If it's still important for you add a comment saying what it means to you, remove the stale label, and/or add the "important" label :)
 
-          However, if you just leave it like this, I'll close it in 7 days to help keep your pull requests tidy!
+          However, if you just leave it like this, I'll close it in 30 days to help keep your pull requests relevant!
 
           Thanks!
 
-        days-before-stale: 90
-        days-before-close: 7
+        days-before-stale: 180
+        days-before-close: 30
         
         # make it so we can exclude certain issues/PRs from the closing monster
         exempt-issue-labels: important

@@ -20,6 +20,10 @@ function initialState () {
   }
 }
 
+function placeRoute (place) {
+  return place.defaultView === 'wall' ? 'placeWall' : 'placeActivities'
+}
+
 export default {
   namespaced: true,
   modules: {
@@ -72,7 +76,7 @@ export default {
     ...withMeta({
       async save ({ dispatch }, place) {
         dispatch('update', [await places.save(place)])
-        router.push({ name: 'place', params: { placeId: place.id } }).catch(() => {})
+        router.push({ name: placeRoute(place), params: { placeId: place.id } }).catch(() => {})
       },
       async create ({ dispatch, rootGetters }, place) {
         const createdPlace = await places.create({
@@ -80,7 +84,7 @@ export default {
           group: rootGetters['currentGroup/id'],
         })
         dispatch('update', [createdPlace])
-        router.push({ name: 'place', params: { placeId: createdPlace.id } }).catch(() => {})
+        router.push({ name: placeRoute(createdPlace), params: { placeId: createdPlace.id } }).catch(() => {})
       },
       async fetch ({ commit }) {
         commit('set', await places.list())

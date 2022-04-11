@@ -373,7 +373,6 @@ jobs:
             git config user.name "CircleCI"
             git branch --delete --force $BRANCH || true
             git checkout -b $BRANCH
-            yarn upgrade vue@next @vue/test-utils@next vue-jest@next
             yarn upgrade --latest --ignore-engines
             tee pr.txt \<<EOL
             [CI] update dependencies

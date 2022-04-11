@@ -26,7 +26,7 @@ if (process.env.KARROT.BACKEND) {
 }
 
 const mentions = RegexPlugin(
-  /@(\w+)/,
+  /@([a-zA-Z0-9_\-.]+)/, // needs to match backend
   (match, utils, env) => {
     if (!env.users) return match[0]
     const username = match[1]

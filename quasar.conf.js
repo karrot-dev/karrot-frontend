@@ -184,10 +184,6 @@ module.exports = configure(function (ctx) {
           vue: '@vue/compat',
         }
 
-        if (!dev) {
-          cfg.resolve.alias['vue-i18n$'] = resolve(__dirname, './node_modules/vue-i18n/dist/vue-i18n.runtime.esm-bundler.js')
-        }
-
         cfg.plugins.push(
           new PreloadWebpackPlugin({
             fileWhitelist: [/\.woff?$/],

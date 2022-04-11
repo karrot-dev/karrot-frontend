@@ -161,7 +161,10 @@ module.exports = configure(function (ctx) {
         /* eslint-enable indent */
       },
 
-      // TODO remove
+      // for compatibility with vue-croppa
+      // can be deleted once vue-croppa supports vue 3 or we don't use it anymore
+      // see https://github.com/zhanziyang/vue-croppa/issues/235
+      // also check src/boot/compat.js
       vueLoaderOptions: {
         compilerOptions: {
           compatConfig: {

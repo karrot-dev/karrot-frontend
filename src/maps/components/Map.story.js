@@ -6,14 +6,14 @@ import GroupMap from './GroupMap'
 import UserMapPreview from './UserMapPreview'
 import StandardMap from './StandardMap'
 import { usersMock, placesMock, placeWithoutLocation } from '>/mockdata'
-import L from 'leaflet'
+import { latLng as LlatLng } from 'leaflet/dist/leaflet-src.esm'
 
 const style = {
   height: '200px',
 }
 
 function latLng (place) {
-  return L.latLng(place.latitude, place.longitude)
+  return LlatLng(place.latitude, place.longitude)
 }
 
 const currentGroup = {

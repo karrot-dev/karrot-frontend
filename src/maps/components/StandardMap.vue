@@ -58,7 +58,7 @@ import {
 
 import ExtendedMarker from './ExtendedMarker'
 
-import L from 'leaflet'
+import { Icon as LIcon, latLngBounds } from 'leaflet/dist/leaflet-src.esm'
 
 import {
   QMenu,
@@ -70,8 +70,8 @@ import shadowUrl from 'leaflet/dist/images/marker-shadow.png'
 
 // fix default marker icon
 // https://github.com/Leaflet/Leaflet/issues/4968
-delete L.Icon.Default.prototype._getIconUrl
-L.Icon.Default.mergeOptions({ iconRetinaUrl, iconUrl, shadowUrl })
+delete LIcon.Default.prototype._getIconUrl
+LIcon.Default.mergeOptions({ iconRetinaUrl, iconUrl, shadowUrl })
 
 const SELECTED_OPACITY = 1
 const UNSELECTED_OPACITY = 0.5
@@ -213,7 +213,7 @@ export default {
       if (this.forceBounds) return this.forceBounds
       if (this.forceCenter && !Number.isNaN(this.forceCenter.lat)) return null
       if (!this.preventZoom && this.hasMarkers && !this.hasOneMarker) {
-        return L.latLngBounds(this.markersForBound.map(m => m.latLng)).pad(0.2)
+        return latLngBounds(this.markersForBound.map(m => m.latLng)).pad(0.2)
       }
       return undefined
     },
@@ -245,6 +245,9 @@ export default {
       }
       return undefined
     },
+    centerAndZoom () {
+      return [this.center, this.zoom]
+    },
   },
   watch: {
     zoom (val) {
@@ -260,6 +263,24 @@ export default {
         })
       }
     },
+    /* TODO use or drop
+    bounds (bounds) {
+      this.$nextTick(() => {
+        if (!this.leafletObject) return
+        if (!bounds) return
+        if (!bounds.isValid()) return
+        this.leafletObject.flyToBounds(bounds)
+      })
+    },
+    centerAndZoom ([center, zoom]) {
+      this.$nextTick(() => {
+        if (!this.leafletObject) return
+        if (!center) return
+        if (!zoom) return
+        this.leafletObject.flyTo(center, zoom)
+      })
+    },
+    */
   },
   methods: {
     dragend ({ target }, marker) {

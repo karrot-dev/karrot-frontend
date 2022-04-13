@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "Αποφασίστηκε η εκκινηση της διαδικασία 'αντιμετώπισης συγκρούσεων' με επίκεντρο το μέλος {userName}",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Αποφασίστηκε η εκκίνηση της διαδικασίας ΄αντιμετώπισης συγκρούσεων΄ με επικεντρό εσας ",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Ως αποτέσμα της διαδικασίας 'διαχείρισης συγκρούσεων' αφαιρεθήκατε απο το group ",
-    "OFFFEEDBACK_POSSIBLE": "Μπορείτε να δώσετε feedback και να σχολίασετε σχετικά με την δράση/δραστηριότητα που συνέβη στις {date}",
     "FEEDBACK_POSSIBLE": "Μπορείτε να δώστε feedback και να γράψετε σχόλια για την δραστηριότητα {activityType} που έλαβε χώρα στις {date} ",
     "INVITATION_ACCEPTED": "Ο/η/το {userName}αποδέχτηκε την πρόσκληση σας ",
     "NEW_APPLICANT": "Ο/η/το {userName} έκανε αίτηση συμμετοχής στο group σας",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "Η τοποθεσία {placeName} δημιουργήθηκε ",
     "USER_BECAME_EDITOR": "Ο/η/το {userName} απέκτησε δικαιώματα επιμέλειας και επεξεργασίας του group ",
     "VOTING_ENDS_SOON": "Η ψοφοφορία ολοκληρώνεται σύντομα, μην ξεχάσετε να συμμετέχετε",
-    "YOU_BECAME_EDITOR": "Αποκτήσατε δικαιώματα επιμέλειας και επεξεργασίας του group "
+    "YOU_BECAME_EDITOR": "Αποκτήσατε δικαιώματα επιμέλειας και επεξεργασίας του group ",
+    "MENTION": "{userName} mentioned you!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "Δεν υπάρχουν ειδοποιήσεις για εσάς προς το παρόν",
@@ -834,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded}περισσότερα άτομα θα πρέπει να δείξουν την εμπιστοσύνη τους προς το μέλος {userName}ώστε να αποκτήσει δικαιώματα επιμέλειας του group. ",
-    "USERNAME": "Όνομα ",
+    "DISPLAY_NAME": "Display Name",
+    "USERNAME": "Username",
     "WHERE_FROM": "Απο που είστε (το πεδίο αυτό είναι προαιρετικό) ",
     "YOU_TRUST_USER": "Εμπιστεύεστε το μέλος {userName}στο group {groupName}."
   },
@@ -851,7 +852,9 @@
     "REQUIRED": "Το πεδίο αυτό είναι απαραίτητο.",
     "UNIQUE": "Το όνομα αυτό χρησιμοποιείται, παρακαλώ διαλέξτε ένα άλλο όνομα.",
     "VALID_EMAIL": "Προσθέστε ένα έγκυρο e-mail. ",
-    "VALID_TIMEZONE": "Προσθέστε ζώνη ώρας "
+    "VALID_TIMEZONE": "Προσθέστε ζώνη ώρας ",
+    "VALID_USERNAME": "Enter a valid username.",
+    "TAKEN": "Already taken."
   },
   "VERIFYMAIL": {
     "SUCCESS": "Το e-mail σας επιβεβαιώθηκε. ",

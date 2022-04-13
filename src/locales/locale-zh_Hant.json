@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
-    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
     "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName}接受了你的邀請",
     "NEW_APPLICANT": "{userName}申請加入社團",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "{placeName} has been created",
     "USER_BECAME_EDITOR": "{userName}取得編輯權",
     "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!",
-    "YOU_BECAME_EDITOR": "你已取得編輯權"
+    "YOU_BECAME_EDITOR": "你已取得編輯權",
+    "MENTION": "{userName} mentioned you!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "現在你沒有通知",
@@ -834,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "{trustNeeded}需要更多信任",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded}需要更多人表示他們對{userName}的信任以批准編輯許可",
-    "USERNAME": "名稱",
+    "DISPLAY_NAME": "Display Name",
+    "USERNAME": "Username",
     "WHERE_FROM": "請問你來自哪裡(選填)",
     "YOU_TRUST_USER": "你信任{groupName}裡的{userName}"
   },
@@ -851,7 +852,9 @@
     "REQUIRED": "此欄必須填寫。",
     "UNIQUE": "此名稱已經存在，請選擇另一個。",
     "VALID_EMAIL": "請輸入一個有效的Email電子信箱。",
-    "VALID_TIMEZONE": "請輸入一個有效的時區。"
+    "VALID_TIMEZONE": "請輸入一個有效的時區。",
+    "VALID_USERNAME": "Enter a valid username.",
+    "TAKEN": "Already taken."
   },
   "VERIFYMAIL": {
     "SUCCESS": "你的電郵地址已成功驗證!",

@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "Proces řešení konfliktu s {userName} byl rozhodnut",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Bylo rozhodnuto v procesu řešení konfliktů s vámi",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Byl jste odstraněn ze skupiny",
-    "OFFFEEDBACK_POSSIBLE": "Můžete poskytnout zpětnou vazbu k aktivitě, na které jste se věnovali {date}",
     "FEEDBACK_POSSIBLE": "Můžete poskytnout zpětnou vazbu -{activityType} na {date}",
     "INVITATION_ACCEPTED": "{userName} přijal vaše pozvání",
     "NEW_APPLICANT": "{userName} přihlášen do vaší skupiny",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "Místo {placeName} bylo vytvořeno",
     "USER_BECAME_EDITOR": "{userName} získal oprávnění k úpravám",
     "VOTING_ENDS_SOON": "Hlasování brzy skončí, nezapomeňte se zúčastnit!",
-    "YOU_BECAME_EDITOR": "Získali jste oprávnění k úpravám"
+    "YOU_BECAME_EDITOR": "Získali jste oprávnění k úpravám",
+    "MENTION": "{userName} vás zmínil!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "Momentálně pro vás nemáme oznámení.",
@@ -834,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "{trustNeeded} vyžaduje více důvěry",
     "TRUST_PROGRESS_TEXT_LONG": "Ještě {trustNeeded} lidí musí vyjádřit svou důvěru v {userName} k udělení oprávnění k úpravám.",
-    "USERNAME": "Jméno",
+    "DISPLAY_NAME": "Zobrazení názvu",
+    "USERNAME": "Uživatelské jméno",
     "WHERE_FROM": "Odkud jste (není požadováno)",
     "YOU_TRUST_USER": "Důvěřujete {userName} ve skupině {groupName}."
   },
@@ -851,7 +852,9 @@
     "REQUIRED": "Toto pole je povinné.",
     "UNIQUE": "Jméno již existuje, vyberte jiné.",
     "VALID_EMAIL": "Zadejte platnou e-mailovou adresu.",
-    "VALID_TIMEZONE": "Zadejte platné časové pásmo."
+    "VALID_TIMEZONE": "Zadejte platné časové pásmo.",
+    "VALID_USERNAME": "Zadejte platné uživatelské jméno.",
+    "TAKEN": "Již zabráno."
   },
   "VERIFYMAIL": {
     "SUCCESS": "Vaše e-mailová adresa byla úspěšně ověřena!",

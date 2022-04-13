@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
-    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
     "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName} accepted your invitation",
     "NEW_APPLICANT": "{userName} applied to join your group",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "{placeName} has been created",
     "USER_BECAME_EDITOR": "{userName} gained editing permissions",
     "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!",
-    "YOU_BECAME_EDITOR": "You gained editing permissions"
+    "YOU_BECAME_EDITOR": "You gained editing permissions",
+    "MENTION": "{userName} mentioned you!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "We currently don't have notifications for you.",
@@ -834,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "{trustNeeded} अधिक विश्वास आवश्यक ",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "USERNAME": "नाव",
+    "DISPLAY_NAME": "Display Name",
+    "USERNAME": "Username",
     "WHERE_FROM": "आपण कुठून आहात (आवश्यक नाही)",
     "YOU_TRUST_USER": "आपण {groupName} मधील  {userName}  वर  विश्वास ठेवता."
   },
@@ -851,7 +852,9 @@
     "REQUIRED": "हे क्षेत्र आवश्यक आहे.",
     "UNIQUE": "नाव आधीपासूनच विद्यमान आहे, कृपया दुसरे निवडा.",
     "VALID_EMAIL": "एक वैध ई-मेल प्रविष्ट करा.",
-    "VALID_TIMEZONE": "एक वैध टाइमझोन प्रविष्ट करा."
+    "VALID_TIMEZONE": "एक वैध टाइमझोन प्रविष्ट करा.",
+    "VALID_USERNAME": "Enter a valid username.",
+    "TAKEN": "Already taken."
   },
   "VERIFYMAIL": {
     "SUCCESS": "आपला ई-मेल यशस्वीरित्या सत्यापित झाला!",

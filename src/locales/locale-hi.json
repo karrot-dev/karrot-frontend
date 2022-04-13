@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "{userName} के साथ संघर्ष समाधान प्रक्रिया का निर्णय लिया गया",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "आपके साथ संघर्ष समाधान प्रक्रिया का निर्णय लिया गया",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "आपको समूह से निकाल दिया गया था",
-    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
     "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName} ने आपका निमंत्रण स्वीकार कर लिया",
     "NEW_APPLICANT": "{userName} ने आपके समूह में शामिल होने के लिए आवेदन किया",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "{placeName} बनाया गया है",
     "USER_BECAME_EDITOR": "{userName} ने संपादन अनुमति प्राप्त की",
     "VOTING_ENDS_SOON": "मतदान जल्द ही समाप्त हो जाएगा, भाग लेना ना भूले!",
-    "YOU_BECAME_EDITOR": "आपने संपादन अनुमति प्राप्त की"
+    "YOU_BECAME_EDITOR": "आपने संपादन अनुमति प्राप्त की",
+    "MENTION": "{userName} mentioned you!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "वर्तमान में हमारे पास आपके लिए सूचनाएं नहीं हैं।",
@@ -834,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "{trustNeeded} और भरोसे की जरूरत है ",
     "TRUST_PROGRESS_TEXT_LONG": "संपादन अनुमतियाँ देने के लिए, {trustNeeded} और लोगों को {userName} पर अपना विश्वास व्यक्त करने की आवश्यकता है।",
-    "USERNAME": "नाम",
+    "DISPLAY_NAME": "Display Name",
+    "USERNAME": "Username",
     "WHERE_FROM": "आप कहां से हैं (आवश्यक नहीं)",
     "YOU_TRUST_USER": "आप {groupName} में {userName} पे भरोसा करते है "
   },
@@ -851,7 +852,9 @@
     "REQUIRED": "यह स्थान आवश्यक है",
     "UNIQUE": "नाम पहले से मौजूद है, कृपया दूसरा चुनें",
     "VALID_EMAIL": "एक वैध ईमेल प्रविष्ट करें",
-    "VALID_TIMEZONE": "एक मान्य समय क्षेत्र दर्ज करें"
+    "VALID_TIMEZONE": "एक मान्य समय क्षेत्र दर्ज करें",
+    "VALID_USERNAME": "Enter a valid username.",
+    "TAKEN": "Already taken."
   },
   "VERIFYMAIL": {
     "SUCCESS": "आपका ई-मेल पता सफलतापूर्वक सत्यापित किया गया!",

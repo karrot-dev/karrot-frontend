@@ -1170,17 +1170,11 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@deno/shim-deno-test@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@deno/shim-deno-test/-/shim-deno-test-0.3.2.tgz#03f258363ba0f57310188e888f8f17629fcdc59d"
-  integrity sha512-STxWMnLuA0/bT0F41yKx6AbyzVVSjXYvgleFE4xit/m4aooMG/0Bs0MiQUe95EVS8DrzYmWbuCtdIlWymAdlsw==
-
-"@deno/shim-deno@~0.4.3":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@deno/shim-deno/-/shim-deno-0.4.3.tgz#3bb6a4e3749133f98e8373ea2e79efaa43fb182a"
-  integrity sha512-m5iXsq3Nvv1aJ1xwUQGnXXOztZ5UUF9dZje3l6EbX41zE5+MioK1NN+2+C3nlWWs9PvSFam4EbZVG3JUbLCeDg==
+"@deno/shim-deno@~0.1.1":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@deno/shim-deno/-/shim-deno-0.1.2.tgz#6195fedcd6d0f029a32fad63b5b68cdd000c7e09"
+  integrity sha512-qoNVXCK5ATX6k6Oq0qWVTQpSwT2XE+KPymNTV1CTQhL3KRqR4KGlCWM2M/xW8U+KwGv8KjWR4S2lOKcspRUg9A==
   dependencies:
-    "@deno/shim-deno-test" "^0.3.2"
     which "^2.0.2"
 
 "@discoveryjs/json-ext@^0.5.3":
@@ -10959,10 +10953,10 @@ jstimezonedetect@^1.0.7:
   resolved "https://registry.yarnpkg.com/jstimezonedetect/-/jstimezonedetect-1.0.7.tgz#54bc13ff9960a6510288665cc9596244e21bd29d"
   integrity sha512-ARADHortktl9IZ1tr4GHwGPIAzgz3mLNCbR/YjWtRtc/O0o634O3NeFlpLjv95EvuDA5dc8z6yfgbS8nUc4zcQ==
 
-jstoxml@^3.2.3:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/jstoxml/-/jstoxml-3.2.3.tgz#2627c193f61b413bb54991130f07e0c7c25ed558"
-  integrity sha512-IxoZkdFcKm1dO4g+JcZBB7z1p/vPXEZPV3APRDd3/zcVtthg2kfTmpzKNZMl37/MrE/Uoc2p6ZnLnv3P5HVMTw==
+jstoxml@^2.2.7:
+  version "2.2.9"
+  resolved "https://registry.yarnpkg.com/jstoxml/-/jstoxml-2.2.9.tgz#2eebd5e55383fe66a375022ca0aa88f77bc4fb84"
+  integrity sha512-OYWlK0j+roh+eyaMROlNbS5cd5R25Y+IUpdl7cNdB8HNrkgwQzIS7L9MegxOiWNBj9dQhA/yAxiMwCC5mwNoBw==
 
 jstransformer@1.0.0:
   version "1.0.0"
@@ -10987,12 +10981,12 @@ junk@^3.1.0:
   resolved "https://registry.yarnpkg.com/junk/-/junk-3.1.0.tgz#31499098d902b7e98c5d9b9c80f43457a88abfa1"
   integrity sha512-pBxcB3LFc8QVgdggvZWyeys+hnrNWg4OcZIU/1X59k5jQdLBlCsYGRQaz234SqoRLTCgMH00fY0xRJH+F9METQ==
 
-keep-a-changelog@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/keep-a-changelog/-/keep-a-changelog-2.1.0.tgz#abedb23407eb6cee3f586e705de457a2b73f3b46"
-  integrity sha512-Svnmt3UTW0U8RdAi24jy2OuU03wEYZkD7vrJuK9u5gIYk6as/BvbSDK0oFtnZLC8xDludDYDsomq7tetEUR0Ow==
+keep-a-changelog@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/keep-a-changelog/-/keep-a-changelog-2.0.1.tgz#3a718a8082572a8cbc99616579fb59666635218c"
+  integrity sha512-X/K2iWItXdWp9B3geg3MvBg00Dghb3OriubXAyiYKHfKBywnoLwV+rcvdzgIEuQkdVubssJXpQTDfFPi54MXbw==
   dependencies:
-    "@deno/shim-deno" "~0.4.3"
+    "@deno/shim-deno" "~0.1.1"
 
 keyv@3.0.0:
   version "3.0.0"

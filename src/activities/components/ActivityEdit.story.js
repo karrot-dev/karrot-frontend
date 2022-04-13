@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 
-import { statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 import * as factories from '>/enrichedFactories'
 
 const ActivityEdit = () => require('./ActivityEdit').default
@@ -8,8 +8,17 @@ const ActivityEdit = () => require('./ActivityEdit').default
 const activity = factories.makeActivity()
 const series = factories.makeActivitySeries()
 
+const store = createDatastore({
+  users: {
+    getters: {
+      byCurrentGroup: () => [],
+    },
+  },
+})
+
 storiesOf('ActivityEdit', module)
   .add('default', () => defaults({
+    store,
     render (h) {
       return h(ActivityEdit(), {
         props: {
@@ -21,6 +30,7 @@ storiesOf('ActivityEdit', module)
     },
   }))
   .add('disabled', () => defaults({
+    store,
     render (h) {
       return h(ActivityEdit(), {
         props: {
@@ -35,6 +45,7 @@ storiesOf('ActivityEdit', module)
     },
   }))
   .add('with duration', () => defaults({
+    store,
     render (h) {
       return h(ActivityEdit(), {
         props: {
@@ -49,6 +60,7 @@ storiesOf('ActivityEdit', module)
     },
   }))
   .add('series changed', () => defaults({
+    store,
     render (h) {
       return h(ActivityEdit(), {
         props: {
@@ -70,6 +82,7 @@ storiesOf('ActivityEdit', module)
     },
   }))
   .add('pending', () => defaults({
+    store,
     render (h) {
       return h(ActivityEdit(), {
         props: {
@@ -81,6 +94,7 @@ storiesOf('ActivityEdit', module)
     },
   }))
   .add('error', () => defaults({
+    store,
     render (h) {
       return h(ActivityEdit(), {
         props: {

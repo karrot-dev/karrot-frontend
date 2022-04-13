@@ -1,8 +1,0 @@
-{
-  "STORESTATUS": {
-    "ACTIVE": "Active",
-    "CREATED": "Just created",
-    "NEGOTIATING": "Idle",
-    "DECLINED": "Inactive"
-  }
-}

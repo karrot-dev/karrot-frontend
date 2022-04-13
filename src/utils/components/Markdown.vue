@@ -1,26 +1,36 @@
 <script>
 import markdown from './markdownRenderer'
+import { mapGetters } from 'vuex'
 
 export default {
-  functional: true,
   props: {
     source: {
       required: true,
       type: String,
     },
+    mentions: {
+      default: false,
+      type: Boolean,
+    },
   },
-  render (h, { props, data }) {
-    if (data.style || data.class || data.staticClass) {
-      throw new Error('Markdown component does not support style or class attributes')
-    }
+  computed: {
+    ...mapGetters({
+      users: 'users/byCurrentGroup',
+    }),
+    markdownEnv () {
+      if (this.mentions && this.users) {
+        return {
+          users: this.users,
+        }
+      }
+      return {}
+    },
+  },
+  render (h) {
     return h('div', {
-      ...data,
-      class: {
-        markdown: true,
-      },
+      class: 'markdown',
       domProps: {
-        ...data.domProps,
-        innerHTML: markdown.render(props.source),
+        innerHTML: markdown.render(this.source, this.markdownEnv),
       },
     })
   },
@@ -28,10 +38,20 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+@import '~variables'
+
 .markdown
   overflow-wrap break-word
 
 .markdown >>>
+  .mention
+    padding 2px 2px
+    margin 0 2px 0 2px
+    font-weight bold
+    text-decoration none
+    background-color $grey-3
+    border-radius 3px
+
   img.emoji
     width 1em
     height 1em

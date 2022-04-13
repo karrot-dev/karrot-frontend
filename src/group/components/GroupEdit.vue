@@ -54,6 +54,7 @@
           :label="$t('GROUP.DESCRIPTION_VERBOSE')"
           icon="fas fa-fw fa-address-card"
           outlined
+          mentions
           class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
         />

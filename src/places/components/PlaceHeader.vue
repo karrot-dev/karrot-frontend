@@ -125,6 +125,7 @@
       <Markdown
         v-if="place.description"
         :source="place.description"
+        mentions
       />
       <div v-else>
         <span class="text-italic">
@@ -157,6 +158,7 @@
           <Markdown
             v-if="place.description"
             :source="place.description"
+            mentions
           />
           <div v-else>
             <span class="text-italic">

@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { action } from '@storybook/addon-actions'
-import { statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 import GroupEdit from './GroupEdit'
 
@@ -10,8 +10,17 @@ const methods = {
   save: action('save group'),
 }
 
+const store = createDatastore({
+  users: {
+    getters: {
+      byCurrentGroup: () => [],
+    },
+  },
+})
+
 storiesOf('GroupEdit', module)
   .add('create', () => defaults({
+    store,
     render: h => h(GroupEdit, {
       props: {
         value: groupsMock[0],

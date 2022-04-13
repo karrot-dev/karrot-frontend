@@ -24,7 +24,7 @@
             :slim="$q.platform.is.mobile"
             :is-participant="data.isParticipant"
             :draft-key="data.id"
-            @submit="data => $emit('send', { id: data.id, ...data })"
+            @submit="message => $emit('send', { id: data.id, ...message })"
           />
           <QBanner
             v-if="data.isParticipant && data.unreadMessageCount > 0"

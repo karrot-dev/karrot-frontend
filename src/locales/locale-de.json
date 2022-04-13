@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "Der Konfliktlösungsprozess mit {userName} wurde entschieden",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Der Konfliktlösungsprozess mit dir wurde entschieden",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du wurdest von der Gruppe ausgeschlossen",
-    "OFFFEEDBACK_POSSIBLE": "Du kannst eine Rückmeldung für die Aktivität am {date} geben",
     "FEEDBACK_POSSIBLE": "Du kannst eine Rückmeldung zu {activityType} am {date} geben",
     "INVITATION_ACCEPTED": "{userName} hat deine Einladung angenommen",
     "NEW_APPLICANT": "{userName} bewarb sich, um deiner Gruppe beizutreten",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "{placeName} wurde erstellt",
     "USER_BECAME_EDITOR": "{userName} erhielt Bearbeitungsrechte",
     "VOTING_ENDS_SOON": "Abstimmung endet bald, vergiss nicht mitzumachen!",
-    "YOU_BECAME_EDITOR": "Du hast Bearbeitungsrechte erhalten."
+    "YOU_BECAME_EDITOR": "Du hast Bearbeitungsrechte erhalten.",
+    "MENTION": "{userName} mentioned you!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "Gerade haben wir keine Benachrichtigungen für dich.",
@@ -834,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "{trustNeeded} mehr Vertrauen benötigt",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} mehr Menschen müssen ihr Vertrauen in {userName} ausdrücken, um dieser Person Bearbeitungsrechte zu gewähren.",
-    "USERNAME": "Name",
+    "DISPLAY_NAME": "Display Name",
+    "USERNAME": "Username",
     "WHERE_FROM": "Wo kommst du her? (Angabe nicht erforderlich)",
     "YOU_TRUST_USER": "Du vertraust {userName} in {groupName}."
   },
@@ -851,7 +852,9 @@
     "REQUIRED": "Dieses Feld ist erforderlich.",
     "UNIQUE": "Name wird bereits verwendet, bitte wähle einen anderen.",
     "VALID_EMAIL": "Gib eine gültige E-Mail-Adresse ein.",
-    "VALID_TIMEZONE": "Gib eine gültige Zeitzone ein."
+    "VALID_TIMEZONE": "Gib eine gültige Zeitzone ein.",
+    "VALID_USERNAME": "Enter a valid username.",
+    "TAKEN": "Already taken."
   },
   "VERIFYMAIL": {
     "SUCCESS": "Deine E-Mail-Adresse wurde verifiziert!",

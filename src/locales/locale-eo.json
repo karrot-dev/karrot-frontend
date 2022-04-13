@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "La problemsolvada proceso kun {userName}finiĝis.",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "La problemsolvada proceso kun vi finiĝis",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Vi estis forigita de la grupo",
-    "OFFFEEDBACK_POSSIBLE": "Vi povas komenti la aktivaĵon vi faris je la {date}",
     "FEEDBACK_POSSIBLE": "Vi povas komenti la aktivaĵon - {activityType} je {date}",
     "INVITATION_ACCEPTED": "{userName}akceptis vian inviton",
     "NEW_APPLICANT": "{userName}kandidatiĝis al la grupo",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "{placeName}kreiĝis",
     "USER_BECAME_EDITOR": "{userName}ricevis redaktpermesojn",
     "VOTING_ENDS_SOON": "Voĉdonadon baldaŭ finiĝos. Ne forgesu partopreni!",
-    "YOU_BECAME_EDITOR": "Vi ricevis redaktpermesojn"
+    "YOU_BECAME_EDITOR": "Vi ricevis redaktpermesojn",
+    "MENTION": "{userName} mentioned you!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "Ni ne havas sciigojn por vi nun.",
@@ -834,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "{trustNeeded}plia fido bezonata",
     "TRUST_PROGRESS_TEXT_LONG": "Nepre{trustNeeded}pli da homoj fidu {userName}por permesi redaktpermesojn.",
-    "USERNAME": "Nomo",
+    "DISPLAY_NAME": "Display Name",
+    "USERNAME": "Username",
     "WHERE_FROM": "De kie vi venas? (ne nepra)",
     "YOU_TRUST_USER": "Vi fidas {userName}en {groupName}."
   },
@@ -851,7 +852,9 @@
     "REQUIRED": "Nepre plenigu la kampon",
     "UNIQUE": "Nomo jam ekzistas, bonvolu elekti alian.",
     "VALID_EMAIL": "Metu validan retadreson",
-    "VALID_TIMEZONE": "Entajpu validan horzonon."
+    "VALID_TIMEZONE": "Entajpu validan horzonon.",
+    "VALID_USERNAME": "Enter a valid username.",
+    "TAKEN": "Already taken."
   },
   "VERIFYMAIL": {
     "SUCCESS": "Via retadreso sukcese kontroliĝis!",

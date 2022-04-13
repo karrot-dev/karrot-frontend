@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
-    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
     "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName} accepted your invitation",
     "NEW_APPLICANT": "{userName} applied to join your group",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "{placeName} has been created",
     "USER_BECAME_EDITOR": "{userName} gained editing permissions",
     "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!",
-    "YOU_BECAME_EDITOR": "You gained editing permissions"
+    "YOU_BECAME_EDITOR": "You gained editing permissions",
+    "MENTION": "{userName} mentioned you!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "We currently don't have notifications for you.",
@@ -834,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "Необходимо больше доверия{trustNeeded}",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded}Необходимо большее количество доверия пользователей в {userName} , чтобы изменить права редактирования.",
-    "USERNAME": "Имя",
+    "DISPLAY_NAME": "Display Name",
+    "USERNAME": "Username",
     "WHERE_FROM": "Местоположение (необязательно)",
     "YOU_TRUST_USER": "Вы доверяете {userName} в группе {groupName}."
   },
@@ -851,7 +852,9 @@
     "REQUIRED": "Это поле обязательно для заполнения.",
     "UNIQUE": "Данное имя пользователя уже используется, выберите другое.",
     "VALID_EMAIL": "Введите действительный адрес электронной почты.",
-    "VALID_TIMEZONE": "Введите дейтсвительный часовой пояс."
+    "VALID_TIMEZONE": "Введите дейтсвительный часовой пояс.",
+    "VALID_USERNAME": "Enter a valid username.",
+    "TAKEN": "Already taken."
   },
   "VERIFYMAIL": {
     "SUCCESS": "Your e-mail address was successfully verified!",

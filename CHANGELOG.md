@@ -22,7 +22,7 @@ Please document your changes in this format:
 
 ## [Unreleased]
 ### Fixed
-- show archived types in filter if activities of that type exist [#2506](https://github.com/karrot-dev/karrot-frontend/issues/2506)
+- show archived types in filter if activities of that type exist @nitishvijai @yatharthchhabra [#2506](https://github.com/karrot-dev/karrot-frontend/issues/2506)
 
 ## [9.8.1] - 2022-03-25
 ### Fixed

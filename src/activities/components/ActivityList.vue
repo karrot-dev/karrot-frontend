@@ -334,6 +334,7 @@ export default {
       icsDialog: false,
       numDisplayed: NUM_ACTIVITIES_PER_LOAD,
       types: [],
+      activityListTypeFilter: this.filterActivityTypes.slice(),
     }
   },
   computed: {
@@ -355,12 +356,15 @@ export default {
     },
     typeOptions () {
       if (!this.filter) return []
+
+      this.checkArchivedTypes()
+
       return [
         {
           label: this.$t('ACTIVITYLIST.FILTER.ALL_TYPES'),
           value: 'all',
         },
-        ...this.filterActivityTypes.map(activityType => {
+        ...this.activityListTypeFilter.map(activityType => {
           return {
             label: activityType.translatedName,
             value: String(activityType.id),
@@ -425,6 +429,40 @@ export default {
     clearFilters () {
       this.slots = 'all'
       this.type = 'all'
+    },
+    checkArchivedTypes () {
+      const archivedTypes = {}
+
+      for (const activityType in this.activityListTypeFilter) {
+        // count the number of archived types and store in a hashmap, defaulting to zero
+        if (this.activityListTypeFilter[activityType].status === 'archived') {
+          archivedTypes[this.activityListTypeFilter[activityType].id] = 0
+        }
+      }
+
+      console.log(this.activities)
+
+      for (const num in this.activities) {
+        // count the number of activities for each archived type and update the hashmap
+        const activity = this.activities[num]
+        if (activity.activityType.id in archivedTypes) {
+          const id = activity.activityType.id
+          archivedTypes[id] += 1
+        }
+      }
+
+      for (const archivedTypeId in archivedTypes) {
+        if (archivedTypes[archivedTypeId] === 0) {
+          // For any archived types with zero activities in view, remove the type from the filter
+          for (const [index, activityType] of this.activityListTypeFilter.entries()) {
+            if (parseInt(activityType.id) === parseInt(archivedTypeId)) {
+              // delete archived type from the filter
+              this.activityListTypeFilter.splice(index, 1)
+              break
+            }
+          }
+        }
+      }
     },
     copyLink () {
       return copyToClipboard(this.icsUrl).then(() => {

@@ -334,28 +334,20 @@ export default {
       icsDialog: false,
       numDisplayed: NUM_ACTIVITIES_PER_LOAD,
       types: [],
-      activityListTypeFilter: this.filterActivityTypes.slice(),
     }
   },
   computed: {
     activityTypes () {
-      const archivedTypeList = []
+      const activityTypes = this.filterActivityTypes.slice()
       const archivedTypes = {}
 
-      for (const type of this.activityListTypeFilter) {
-        // populate a list of all activity types locally to avoid side effects
-        archivedTypeList.push(type)
-      }
-
-      for (const activityType of archivedTypeList) {
-        // count the number of archived types and store in a hashmap, defaulting to zero
+      for (const activityType of activityTypes) {
         if (activityType.status === 'archived') {
           archivedTypes[activityType.id] = false
         }
       }
 
       for (const activity of this.activities) {
-        // check to see if each archived type has any activities and update the hashmap
         if (activity.activityType.id in archivedTypes) {
           const id = activity.activityType.id
           archivedTypes[id] = true
@@ -363,20 +355,19 @@ export default {
       }
 
       for (const archivedTypeId in archivedTypes) {
-        console.log(archivedTypeId)
         if (archivedTypes[archivedTypeId] === false) {
           // For any archived types with zero activities in view, remove the type from the filter
-          for (const [index, activityType] of archivedTypeList.entries()) {
+          for (const [index, activityType] of activityTypes.entries()) {
             if (parseInt(activityType.id) === parseInt(archivedTypeId)) {
               // delete archived type from the filter
-              archivedTypeList.splice(index, 1)
+              activityTypes.splice(index, 1)
               break
             }
           }
         }
       }
 
-      return archivedTypeList
+      return activityTypes
     },
     slotsOptions () {
       return [

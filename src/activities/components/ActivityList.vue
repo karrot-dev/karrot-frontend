@@ -338,6 +338,46 @@ export default {
     }
   },
   computed: {
+    activityTypes () {
+      const archivedTypeList = []
+      const archivedTypes = {}
+
+      for (const type of this.activityListTypeFilter) {
+        // populate a list of all activity types locally to avoid side effects
+        archivedTypeList.push(type)
+      }
+
+      for (const activityType of archivedTypeList) {
+        // count the number of archived types and store in a hashmap, defaulting to zero
+        if (activityType.status === 'archived') {
+          archivedTypes[activityType.id] = false
+        }
+      }
+
+      for (const activity of this.activities) {
+        // check to see if each archived type has any activities and update the hashmap
+        if (activity.activityType.id in archivedTypes) {
+          const id = activity.activityType.id
+          archivedTypes[id] = true
+        }
+      }
+
+      for (const archivedTypeId in archivedTypes) {
+        console.log(archivedTypeId)
+        if (archivedTypes[archivedTypeId] === false) {
+          // For any archived types with zero activities in view, remove the type from the filter
+          for (const [index, activityType] of archivedTypeList.entries()) {
+            if (parseInt(activityType.id) === parseInt(archivedTypeId)) {
+              // delete archived type from the filter
+              archivedTypeList.splice(index, 1)
+              break
+            }
+          }
+        }
+      }
+
+      return archivedTypeList
+    },
     slotsOptions () {
       return [
         {
@@ -356,15 +396,12 @@ export default {
     },
     typeOptions () {
       if (!this.filter) return []
-
-      this.checkArchivedTypes()
-
       return [
         {
           label: this.$t('ACTIVITYLIST.FILTER.ALL_TYPES'),
           value: 'all',
         },
-        ...this.activityListTypeFilter.map(activityType => {
+        ...this.activityTypes.map(activityType => {
           return {
             label: activityType.translatedName,
             value: String(activityType.id),
@@ -429,37 +466,6 @@ export default {
     clearFilters () {
       this.slots = 'all'
       this.type = 'all'
-    },
-    checkArchivedTypes () {
-      const archivedTypes = {}
-
-      for (const activityType in this.activityListTypeFilter) {
-        // count the number of archived types and store in a hashmap, defaulting to zero
-        if (this.activityListTypeFilter[activityType].status === 'archived') {
-          archivedTypes[this.activityListTypeFilter[activityType].id] = false
-        }
-      }
-
-      for (const activity of this.activities) {
-        // check to see if each archived type has any activities and update the hashmap
-        if (activity.activityType.id in archivedTypes) {
-          const id = activity.activityType.id
-          archivedTypes[id] = true
-        }
-      }
-
-      for (const archivedTypeId in archivedTypes) {
-        if (archivedTypes[archivedTypeId] === false) {
-          // For any archived types with zero activities in view, remove the type from the filter
-          for (const [index, activityType] of this.activityListTypeFilter.entries()) {
-            if (parseInt(activityType.id) === parseInt(archivedTypeId)) {
-              // delete archived type from the filter
-              this.activityListTypeFilter.splice(index, 1)
-              break
-            }
-          }
-        }
-      }
     },
     copyLink () {
       return copyToClipboard(this.icsUrl).then(() => {

@@ -436,23 +436,20 @@ export default {
       for (const activityType in this.activityListTypeFilter) {
         // count the number of archived types and store in a hashmap, defaulting to zero
         if (this.activityListTypeFilter[activityType].status === 'archived') {
-          archivedTypes[this.activityListTypeFilter[activityType].id] = 0
+          archivedTypes[this.activityListTypeFilter[activityType].id] = false
         }
       }
 
-      console.log(this.activities)
-
-      for (const num in this.activities) {
-        // count the number of activities for each archived type and update the hashmap
-        const activity = this.activities[num]
+      for (const activity of this.activities) {
+        // check to see if each archived type has any activities and update the hashmap
         if (activity.activityType.id in archivedTypes) {
           const id = activity.activityType.id
-          archivedTypes[id] += 1
+          archivedTypes[id] = true
         }
       }
 
       for (const archivedTypeId in archivedTypes) {
-        if (archivedTypes[archivedTypeId] === 0) {
+        if (archivedTypes[archivedTypeId] === false) {
           // For any archived types with zero activities in view, remove the type from the filter
           for (const [index, activityType] of this.activityListTypeFilter.entries()) {
             if (parseInt(activityType.id) === parseInt(archivedTypeId)) {

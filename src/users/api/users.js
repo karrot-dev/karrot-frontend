@@ -29,7 +29,7 @@ export default {
 
   deleteAccount (code) {
     // TODO: move to authuser API file
-    return axios.delete('/api/auth/user/', { params: { code: code } })
+    return axios.delete('/api/auth/user/', { params: { code } })
   },
 
   async conversation (userId) {

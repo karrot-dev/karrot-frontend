@@ -23,7 +23,7 @@ storiesOf('ActivityList', module)
   .add('Default', () => defaults({
     render: () => h(ActivityList, {
       props: {
-        activities: activities,
+        activities,
         filterActivityTypes: Object.values(factories.activityTypes),
       },
       on: {

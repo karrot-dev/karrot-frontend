@@ -43,7 +43,7 @@
     >
       <slot
         name="contextmenu"
-        :latLng="popoverLatLng"
+        :lat-lng="popoverLatLng"
       />
     </QMenu>
   </LMap>

@@ -22,7 +22,7 @@ const datastore = createDatastore({
 storiesOf('ActivityList', module)
   .add('Default', () => defaults({
     render: () => h(ActivityList, {
-      activities: activities,
+      activities,
       filterActivityTypes: Object.values(factories.activityTypes),
       onJoin: action('join'),
       onLeave: action('leave'),

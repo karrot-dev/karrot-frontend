@@ -85,7 +85,7 @@ export default {
     },
     submittedOn () {
       const date = this.$d(this.application.createdAt, 'long')
-      return this.$t('APPLICATION.SUBMITTED_ON', { date: date })
+      return this.$t('APPLICATION.SUBMITTED_ON', { date })
     },
     decision () {
       switch (this.application.status) {

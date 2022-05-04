@@ -9461,7 +9461,7 @@ exports[`Storyshots Notifications activity_disabled 1`] = `
 <div class="q-item q-item-type row no-wrap isUnread" style="">
   <!--v-if-->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;" class="q-item__label"><i class="q-icon fas fa-times q-mx-xs vertical-baseline" style="" aria-hidden="true" role="presentation"> </i> Pickup on Sunday, December 24 at 12:00 PM was disabled</div>
+    <div style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;" class="q-item__label"><i class="q-icon fas fa-times q-mx-xs vertical-baseline" style="" aria-hidden="true" role="presentation"> </i> Pickup on Sunday, December 24, 12:00 PM was disabled</div>
     <div style="" class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">less than a minute ago</div> · Group 30
       <!--[--> · Place 2
@@ -9475,7 +9475,7 @@ exports[`Storyshots Notifications activity_enabled 1`] = `
 <div class="q-item q-item-type row no-wrap isUnread" style="">
   <!--v-if-->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;" class="q-item__label"><i class="q-icon fas fa-check q-mx-xs vertical-baseline" style="" aria-hidden="true" role="presentation"> </i> Pickup on Sunday, December 24 at 12:00 PM was enabled again</div>
+    <div style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;" class="q-item__label"><i class="q-icon fas fa-check q-mx-xs vertical-baseline" style="" aria-hidden="true" role="presentation"> </i> Pickup on Sunday, December 24, 12:00 PM was enabled again</div>
     <div style="" class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">less than a minute ago</div> · Group 30
       <!--[--> · Place 2
@@ -9489,7 +9489,7 @@ exports[`Storyshots Notifications activity_moved 1`] = `
 <div class="q-item q-item-type row no-wrap isUnread" style="">
   <!--v-if-->
   <div class="q-item__section column q-item__section--main justify-center">
-    <div style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;" class="q-item__label"><i class="q-icon far fa-clock q-mx-xs vertical-baseline" style="" aria-hidden="true" role="presentation"> </i> Pickup was moved to Sunday, December 24 at 12:00 PM</div>
+    <div style="overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;" class="q-item__label"><i class="q-icon far fa-clock q-mx-xs vertical-baseline" style="" aria-hidden="true" role="presentation"> </i> Pickup was moved to Sunday, December 24, 12:00 PM</div>
     <div style="" class="q-item__label q-item__label--caption text-caption">
       <div title="Dec 24, 2017, 12:00 PM" style="display:inline;">less than a minute ago</div> · Group 30
       <!--[--> · Place 2

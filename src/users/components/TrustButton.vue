@@ -81,6 +81,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import CircleProgress from '@/utils/components/CircleProgress'
 import TrustInfo from '@/users/components/TrustInfo'
@@ -136,9 +137,9 @@ export default {
     }
   },
   computed: {
-    // ...mapGetters({
-    //   getUser: 'users/get',
-    // }),
+    ...mapGetters({
+      getUser: 'users/get',
+    }),
     trustedBy () {
       return this.membership.trustedBy.map(this.getUser)
     },
@@ -204,16 +205,8 @@ export default {
   },
   created () {
     this.trustIcon = twemojiCarrot
-    console.log('NSDEBUG created;, store', this.$store, this)
-    console.log('NSDEBUG getters', this.$store.getters)
   },
   methods: {
-    getUser (...args) {
-      // throw new Error('NSDEBUG getUser')
-      console.log('NSDEBUG getUser getters', this.$store.getters)
-      const getter = this.$store.getters['users/get']
-      return getter(...args)
-    },
     showCreateTrustDialog () {
       Dialog.create({
         title: this.$t('USERDATA.DIALOGS.GIVE_TRUST.TITLE'),

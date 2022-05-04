@@ -1,8 +1,9 @@
-import { nextTick } from 'vue'
+import { h, nextTick } from 'vue'
 import { nextTicks, createDatastore, throws } from '>/helpers'
 import { createRouteError } from '@/utils/datastore/helpers'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { maybeDispatchActions } from './routerPlugin'
+import { flushPromises } from '@vue/test-utils'
 
 jest.mock('@/router')
 
@@ -24,6 +25,8 @@ function makeRouteErrorModule () {
     },
   }
 }
+
+const component = {} // doesn't actually need a real component
 
 describe('router plugin / beforeEnter & afterLeave meta options', () => {
   beforeEach(() => jest.resetModules())
@@ -48,6 +51,7 @@ describe('router plugin / beforeEnter & afterLeave meta options', () => {
           beforeEnter: 'test/beforeEnter',
           afterLeave: 'test/afterLeave',
         },
+        component,
         children: [
           {
             name: 'child',
@@ -56,12 +60,14 @@ describe('router plugin / beforeEnter & afterLeave meta options', () => {
               beforeEnter: 'test/beforeEnterChild',
               afterLeave: 'test/afterLeaveChild',
             },
+            component,
           },
         ],
       },
       {
         name: 'route2',
         path: '/route2',
+        component,
       },
     ]
 
@@ -73,7 +79,7 @@ describe('router plugin / beforeEnter & afterLeave meta options', () => {
 
   it('triggers beforeEnter action on route enter', async () => {
     router.push({ name: 'route1', params: { testId: '42' } })
-    await nextTick()
+    await flushPromises()
     expect(test.actions.beforeEnter.mock.calls.length).toBe(1)
     expect(test.actions.beforeEnter.mock.calls[0][1]).toHaveProperty('testId', 42)
     expect(test.actions.beforeEnter.mock.calls[0][1]).toHaveProperty('routeFrom')
@@ -84,16 +90,16 @@ describe('router plugin / beforeEnter & afterLeave meta options', () => {
 
   it('triggers afterLeave action on route leave', async () => {
     router.push({ name: 'route1', params: { testId: '42' } })
-    await nextTick()
+    await flushPromises()
     router.push({ name: 'route2' })
-    await nextTick()
+    await flushPromises()
     expect(test.actions.afterLeave).toBeCalled()
   })
 
   it('returns routeError if beforeEnter throws', async () => {
     test.actions.beforeEnter.mockImplementation(throws(createRouteError('message')))
     router.push({ name: 'route1', params: { testId: '42' } })
-    await nextTicks(2)
+    await flushPromises()
     expect(test.actions.beforeEnter).toBeCalled()
     expect(returnValue.routeErrors).toEqual(['message'])
   })
@@ -105,9 +111,9 @@ describe('router plugin / beforeEnter & afterLeave meta options', () => {
     test.actions.afterLeave.mockImplementationOnce(() => callOrder.push('parentLeave'))
     test.actions.afterLeaveChild.mockImplementationOnce(() => callOrder.push('childLeave'))
     router.push({ name: 'child', params: { testId: '42', childId: '44' } })
-    await nextTick(); await nextTick()
+    await flushPromises()
     router.push({ name: 'route2' })
-    await nextTick()
+    await flushPromises()
     expect(test.actions.beforeEnter.mock.calls[0][1]).toHaveProperty('testId', 42)
     expect(test.actions.beforeEnter.mock.calls[0][1]).toHaveProperty('childId', 44)
     expect(test.actions.beforeEnterChild.mock.calls[0][1]).toHaveProperty('testId', 42)

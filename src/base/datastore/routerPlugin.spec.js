@@ -1,5 +1,4 @@
-import { h, nextTick } from 'vue'
-import { nextTicks, createDatastore, throws } from '>/helpers'
+import { createDatastore, throws } from '>/helpers'
 import { createRouteError } from '@/utils/datastore/helpers'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { maybeDispatchActions } from './routerPlugin'

@@ -4,7 +4,7 @@ import { makeGroup } from '>/enrichedFactories'
 
 import * as VueLeaflet from '@vue-leaflet/vue-leaflet'
 import ExtendedMarker from './ExtendedMarker'
-import { mountWithDefaults, nextTicks } from '>/helpers'
+import { mountWithDefaults } from '>/helpers'
 import { flushPromises } from '@vue/test-utils'
 
 const markers = [...Array(20).keys()].map(e => groupMarker(makeGroup()))

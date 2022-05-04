@@ -4,7 +4,6 @@ import { usersMock, placesMock } from '>/mockdata'
 import * as VueLeaflet from '@vue-leaflet/vue-leaflet'
 import ExtendedMarker from './ExtendedMarker'
 import { mountWithDefaults } from '>/helpers'
-import { nextTick } from 'vue'
 import { flushPromises } from '@vue/test-utils'
 
 /* vue-leaflet library does not name some of its components, which vue-test-utils needs to find them

@@ -1,5 +1,5 @@
 import { h } from 'vue'
-import { createDatastore, statusMocks} from '>/helpers'
+import { createDatastore, statusMocks } from '>/helpers'
 import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
 

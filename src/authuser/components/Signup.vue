@@ -173,7 +173,7 @@ export default {
       },
       username: {
         required,
-        valid: helpers.regex('valid', /^[\w.+-]+$/), // should correspond to backend one
+        valid: helpers.regex(/^[\w.+-]+$/), // should correspond to backend one
       },
     },
   },

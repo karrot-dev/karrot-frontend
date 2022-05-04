@@ -6,6 +6,8 @@ import { createDatastore, mountWithDefaults } from '>/helpers'
 import * as factories from '>/enrichedFactories'
 
 import { QInput } from 'quasar'
+import { flushPromises } from '@vue/test-utils'
+import cloneDeep from 'clone-deep'
 
 const defaultProps = data => ({
   currentUser: factories.makeCurrentUser(),
@@ -52,14 +54,14 @@ describe('ChatConversation', () => {
     const { conversation } = propsData
     conversation.unreadMessageCount = 0
     const wrapper = mountWithDefaults(ChatConversation, { datastore, propsData })
-    await nextTick()
+    await flushPromises()
 
-    const { id, messages } = conversation
-    conversation.unreadMessageCount = 1
-    messages.push({ id: 99, author: 1, content: 'first messsage', conversation: id, createdAt: new Date() })
+    const { id } = conversation
+    const updatedConversation = cloneDeep(conversation)
+    updatedConversation.unreadMessageCount = 1
+    updatedConversation.messages.push({ id: 99, author: 1, content: 'first messsage', conversation: id, createdAt: new Date() })
+    await wrapper.setProps({ conversation: updatedConversation })
 
-    wrapper.setProps({ conversation: { ...conversation } })
-    await nextTick()
     expect(wrapper.emitted().mark).toEqual([[{ id, seenUpTo: 99 }]])
   })
 
@@ -76,16 +78,16 @@ describe('ChatConversation', () => {
   it('marks messages as read when returning from away', async () => {
     const propsData = { ...defaultProps(), away: true }
     const wrapper = mountWithDefaults(ChatConversation, { datastore, propsData })
-    await nextTick()
+    await flushPromises()
 
-    const { id, messages } = propsData.conversation
-    messages.push({ id: 99, author: 1, content: 'first messsage', conversation: id, createdAt: new Date() })
-    wrapper.setProps({ conversation: { ...propsData.conversation } })
-    await nextTick()
+    const { conversation } = propsData
+    const { id } = conversation
+    const updatedConversation = cloneDeep(conversation)
+    updatedConversation.messages.push({ id: 99, author: 1, content: 'first messsage', conversation: id, createdAt: new Date() })
+    await wrapper.setProps({ conversation: updatedConversation })
     expect(wrapper.emitted().mark).toBeUndefined()
 
-    wrapper.setProps({ away: false })
-    await nextTick()
+    await wrapper.setProps({ away: false })
     expect(wrapper.emitted().mark).toEqual([[{ id, seenUpTo: 99 }]])
   })
 })

@@ -5,6 +5,7 @@ import * as VueLeaflet from '@vue-leaflet/vue-leaflet'
 import ExtendedMarker from './ExtendedMarker'
 import { mountWithDefaults } from '>/helpers'
 import { nextTick } from 'vue'
+import { flushPromises } from '@vue/test-utils'
 
 /* vue-leaflet library does not name some of its components, which vue-test-utils needs to find them
    so we give them names here... */
@@ -29,7 +30,7 @@ describe('GroupMap', () => {
     const wrapper = mountWithDefaults(GroupMap, {
       propsData: defaultProps,
     })
-    await nextTick()
+    await flushPromises()
     expect(wrapper.findAllComponents(VueLeaflet.LMap).length).toBe(1)
     expect(wrapper.findAllComponents(ExtendedMarker).length).toBe(usersMock.length + placesMock.length)
     for (const marker of wrapper.findAllComponents(ExtendedMarker)) {
@@ -45,7 +46,7 @@ describe('GroupMap', () => {
         showPlaces: false,
       },
     })
-    await nextTick()
+    await flushPromises()
     expect(wrapper.findAllComponents(ExtendedMarker).length).toBe(usersMock.length)
     expect(wrapper.findAllComponents(VueLeaflet.LPopup).length).toBe(usersMock.length)
   })
@@ -57,7 +58,7 @@ describe('GroupMap', () => {
         showUsers: false,
       },
     })
-    await nextTick()
+    await flushPromises()
     expect(wrapper.findAllComponents(ExtendedMarker).length).toBe(placesMock.length)
     expect(wrapper.findAllComponents(VueLeaflet.LPopup).length).toBe(placesMock.length)
   })

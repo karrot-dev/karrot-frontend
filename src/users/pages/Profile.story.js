@@ -1,5 +1,5 @@
 import { h } from 'vue'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import Profile from '@/users/pages/Profile'
 import TrustInfo from '@/users/components/TrustInfo'
 

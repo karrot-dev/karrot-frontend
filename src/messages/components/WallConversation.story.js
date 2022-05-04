@@ -1,5 +1,5 @@
 import { h } from 'vue'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 
 import WallConversation from './WallConversation'
 import { currentUserMock } from '>/mockdata'
@@ -26,19 +26,15 @@ const defaultProps = (data) => ({
 storiesOf('WallConversation', module)
   .add('default', () => defaults({
     store,
-    render: () => h(WallConversation, {
-      props: defaultProps(),
-    }),
+    render: () => h(WallConversation, defaultProps()),
   }))
   .add('unread', () => defaults({
     store,
-    render: () => h(WallConversation, {
-      props: defaultProps({
-        data: {
-          ...conversation,
-          unreadMessageCount: 1,
-          isParticipant: true,
-        },
-      }),
-    }),
+    render: () => h(WallConversation, defaultProps({
+      data: {
+        ...conversation,
+        unreadMessageCount: 1,
+        isParticipant: true,
+      },
+    })),
   }))

@@ -1,6 +1,6 @@
 import { h } from 'vue'
 import { storybookDefaults as defaults } from '>/helpers'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 
 import ProfilePicture from './ProfilePicture'
 import { usersMock } from '>/mockdata'
@@ -8,21 +8,17 @@ import { usersMock } from '>/mockdata'
 storiesOf('ProfilePicture', module)
   .add('with user', () => defaults({
     render: () => h(ProfilePicture, {
-      props: {
-        user: usersMock[0],
-        isLink: false,
-        size: 100,
-      },
+      user: usersMock[0],
+      isLink: false,
+      size: 100,
     }),
   }))
   .add('without user', () => defaults({
     render: () => h(ProfilePicture, {
-      props: {
-        user: {
-          id: 1,
-          displayName: '?',
-        },
-        size: 100,
+      user: {
+        id: 1,
+        displayName: '?',
       },
-    }),
+      size: 100,
+    }, h('div', { class: 'foo' }, 'hello')),
   }))

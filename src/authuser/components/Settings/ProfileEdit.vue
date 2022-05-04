@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="v$.edit"
     class="edit-box"
     :class="{ changed: hasChanged }"
   >

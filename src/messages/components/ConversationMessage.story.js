@@ -1,5 +1,5 @@
 import { h } from 'vue'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 
 import ConversationMessage from './ConversationMessage'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
@@ -25,51 +25,41 @@ storiesOf('ConversationMessage', module)
   .add('default', () => defaults({
     store,
     render: () => h(ConversationMessage, {
-      props: {
-        message,
-      },
+      message,
     }),
   }))
   .add('edited', () => defaults({
     store,
     render: () => h(ConversationMessage, {
-      props: {
-        message: {
-          ...message,
-          isEdited: true,
-        },
+      message: {
+        ...message,
+        isEdited: true,
       },
     }),
   }))
   .add('via email', () => defaults({
     store,
     render: () => h(ConversationMessage, {
-      props: {
-        message: {
-          ...message,
-          receivedVia: 'email',
-        },
+      message: {
+        ...message,
+        receivedVia: 'email',
       },
     }),
   }))
   .add('with unread replies', () => defaults({
     store,
     render: () => h(ConversationMessage, {
-      props: {
-        message: thread,
-      },
+      message: thread,
     }),
   }))
   .add('with replies', () => defaults({
     store,
     render: () => h(ConversationMessage, {
-      props: {
-        message: {
-          ...thread,
-          threadMeta: {
-            ...thread.threadMeta,
-            unreadReplyCount: 0,
-          },
+      message: {
+        ...thread,
+        threadMeta: {
+          ...thread.threadMeta,
+          unreadReplyCount: 0,
         },
       },
     }),
@@ -77,33 +67,27 @@ storiesOf('ConversationMessage', module)
   .add('with one image', () => defaults({
     store,
     render: () => h(ConversationMessage, {
-      props: {
-        message: {
-          ...message,
-          images: [
-            factories.makeImage(),
-          ],
-        },
+      message: {
+        ...message,
+        images: [
+          factories.makeImage(),
+        ],
       },
     }),
   }))
   .add('with multiple images', () => defaults({
     store,
     render: () => h(ConversationMessage, {
-      props: {
-        message: {
-          ...message,
-          images: factories.makeImages(2, 10),
-        },
+      message: {
+        ...message,
+        images: factories.makeImages(2, 10),
       },
     }),
   }))
   .add('slim', () => defaults({
     store,
     render: () => h(ConversationMessage, {
-      props: {
-        message,
-        slim: true,
-      },
+      message,
+      slim: true,
     }),
   }))

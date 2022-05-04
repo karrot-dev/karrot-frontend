@@ -50,4 +50,7 @@ module.exports = {
     '<rootDir>/test/setup/mockLocation.js',
     'jest-canvas-mock',
   ],
+  setupFilesAfterEnv: [
+    '<rootDir>/test/setup/afterEnv.js',
+  ],
 }

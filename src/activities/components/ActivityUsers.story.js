@@ -1,5 +1,5 @@
 import { h } from 'vue'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
 
 const ActivityUsers = () => import('./ActivityUsers')
@@ -17,124 +17,90 @@ const datastore = createDatastore({
 storiesOf('ActivityUsers', module)
   .add('joinable', () => defaults({
     render: () => h(ActivityUsers, {
-      props: {
-        activity: joinableActivity,
-      },
-      on: {
-        join: action('join'),
-      },
+      activity: joinableActivity,
+      onJoin: action('join'),
     }),
     store: datastore,
   }))
   .add('join pending', () => defaults({
     render: () => h(ActivityUsers, {
-      props: {
-        activity: {
-          ...joinableActivity,
-          joinStatus: statusMocks.pending(),
-        },
+      activity: {
+        ...joinableActivity,
+        joinStatus: statusMocks.pending(),
       },
-      on: {
-        join: action('join'),
-      },
+      onJoin: action('join'),
     }),
     store: datastore,
   }))
   .add('leavable (current last)', () => defaults({
     render: () => h(ActivityUsers, {
-      props: {
-        activity: leavableActivity,
-      },
-      on: {
-        leave: action('leave'),
-      },
+      activity: leavableActivity,
+      onLeave: action('leave'),
     }),
     store: datastore,
   }))
   .add('leavable (current first)', () => defaults({
     render: () => h(ActivityUsers, {
-      props: {
-        activity: {
-          ...leavableActivity,
-          participants: [
-            leavableActivity.participants.find(c => c.isCurrentUser),
-            ...leavableActivity.participants.filter(c => !c.isCurrentUser),
-          ],
-        },
+      activity: {
+        ...leavableActivity,
+        participants: [
+          leavableActivity.participants.find(c => c.isCurrentUser),
+          ...leavableActivity.participants.filter(c => !c.isCurrentUser),
+        ],
       },
-      on: {
-        leave: action('leave'),
-      },
+      onLeave: action('leave'),
     }),
     store: datastore,
   }))
   .add('leavable (current middle)', () => defaults({
     render: () => h(ActivityUsers, {
-      props: {
-        activity: {
-          ...leavableActivity,
-          participants: [
-            leavableActivity.participants[0],
-            leavableActivity.participants.find(c => c.isCurrentUser),
-            leavableActivity.participants[1],
-          ],
-        },
+      activity: {
+        ...leavableActivity,
+        participants: [
+          leavableActivity.participants[0],
+          leavableActivity.participants.find(c => c.isCurrentUser),
+          leavableActivity.participants[1],
+        ],
       },
-      on: {
-        leave: action('leave'),
-      },
+      onLeave: action('leave'),
     }),
     store: datastore,
   }))
   .add('leave pending (middle)', () => defaults({
     render: () => h(ActivityUsers, {
-      props: {
-        activity: {
-          ...leavableActivity,
-          participants: [
-            leavableActivity.participants[0],
-            leavableActivity.participants.find(c => c.isCurrentUser),
-            leavableActivity.participants[1],
-          ],
-          leaveStatus: statusMocks.pending(),
-        },
+      activity: {
+        ...leavableActivity,
+        participants: [
+          leavableActivity.participants[0],
+          leavableActivity.participants.find(c => c.isCurrentUser),
+          leavableActivity.participants[1],
+        ],
+        leaveStatus: statusMocks.pending(),
       },
-      on: {
-        leave: action('leave'),
-      },
+      onLeave: action('leave'),
     }),
     store: datastore,
   }))
   .add('has started', () => defaults({
     render: () => h(ActivityUsers, {
-      props: {
-        activity: {
-          ...leavableActivity,
-          hasStarted: true,
-        },
+      activity: {
+        ...leavableActivity,
+        hasStarted: true,
       },
-      on: {
-        leave: action('leave'),
-      },
+      onLeave: action('leave'),
     }),
     store: datastore,
   }))
   .add('full', () => defaults({
     render: () => h(ActivityUsers, {
-      props: {
-        activity: fullActivity,
-      },
+      activity: fullActivity,
     }),
     store: datastore,
   }))
   .add('empty', () => defaults({
     render: () => h(ActivityUsers, {
-      props: {
-        activity: emptyActivity,
-      },
-      on: {
-        join: action('join'),
-      },
+      activity: emptyActivity,
+      onJoin: action('join'),
     }),
     store: datastore,
   }))

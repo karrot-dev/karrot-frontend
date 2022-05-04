@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="v$.form">
     <form @submit.prevent="maybeSave">
       <QInput
         v-model="form.email"

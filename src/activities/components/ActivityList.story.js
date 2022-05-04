@@ -1,5 +1,5 @@
 import { h } from 'vue'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
 
 import ActivityList from './ActivityList'
@@ -22,14 +22,10 @@ const datastore = createDatastore({
 storiesOf('ActivityList', module)
   .add('Default', () => defaults({
     render: () => h(ActivityList, {
-      props: {
-        activities: activities,
-        filterActivityTypes: Object.values(factories.activityTypes),
-      },
-      on: {
-        join: action('join'),
-        leave: action('leave'),
-      },
+      activities: activities,
+      filterActivityTypes: Object.values(factories.activityTypes),
+      onJoin: action('join'),
+      onLeave: action('leave'),
     }),
     store: datastore,
   }))

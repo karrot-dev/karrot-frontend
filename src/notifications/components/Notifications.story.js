@@ -1,6 +1,6 @@
 import { h } from 'vue'
 import { storybookDefaults as defaults } from '>/helpers'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
 import addHours from 'date-fns/addHours'
 import * as factories from '>/enrichedFactories'
@@ -200,7 +200,7 @@ const notifications = [
 ].map(factories.makeNotification)
 
 const on = {
-  open: action('open'),
+  onOpen: action('open'),
 }
 
 const story = storiesOf('Notifications', module)
@@ -208,10 +208,8 @@ const story = storiesOf('Notifications', module)
 for (const notification of notifications) {
   story.add(notification.type, () => defaults({
     render: () => h(NotificationItem, {
-      props: {
-        notification,
-      },
-      on,
+      notification,
+      ...on,
     }),
   }))
 }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="v$.edit">
     <QCard
       class="no-shadow grey-border"
       style="max-width: 700px"

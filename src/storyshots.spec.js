@@ -2,8 +2,6 @@
  * Therefore, we mimick the Storybook API to get the components and then run the snapshot tests
 */
 
-import { h } from 'vue'
-
 const mockStories = []
 jest.mock('@storybook/vue3', () => ({
   storiesOf: (kind) => {
@@ -23,12 +21,13 @@ jest.mock('@storybook/vue3', () => ({
 
 import glob from 'glob'
 import lolex from 'lolex'
-import { createRenderer } from 'vue-server-renderer'
+import { renderToString } from 'vue/server-renderer'
 import { Quasar } from 'quasar'
+import i18n, { i18nPlugin } from '@/base/i18n'
 import quasarConfig from '>/quasarConfig'
 import { mount, RouterLinkStub } from '@vue/test-utils'
-import i18n from '@/base/i18n'
 import routerMocks from '>/routerMocks'
+import icons from '@/base/icons'
 
 i18n.locale = 'en'
 
@@ -42,8 +41,7 @@ afterAll(() => {
 
 // Mock RandomArt because it doesn't play nicely with JSDOM
 jest.mock('@/utils/components/RandomArt', () => ({
-  functional: true,
-  render: (h, context) => h('div', context.data, context.children),
+  template: `<div><slot /></div>`,
 }))
 
 // Mock locales
@@ -71,7 +69,7 @@ jest.mock('@/locales/translationStatus.json', () => ({
 
 // Mock annoying components (e.g. too much vuex dependency)
 jest.mock('@/authuser/components/Settings/VerificationWarning', () => ({
-  render: () => h('div', 'VerificationWarning has been mocked'),
+  template: '<div>VerificationWarning has been mocked</div>',
 }))
 
 const files = glob.sync('**/*.story.js', { absolute: true })
@@ -79,34 +77,44 @@ for (const f of files) {
   require(f)
 }
 
-// use server side renderer to get renderered html string
-const renderer = createRenderer()
 
 for (const group of mockStories) {
   describe('Storyshots', () => {
     describe(group.kind, () => {
       for (const story of group.stories) {
         it(story.name, async () => {
+
           // get the component from storybook
           const component = story.render()
+
+          const { store } = component
+
+          delete component.store
 
           const wrapper = mount(component, {
             global: {
               plugins: [
+                store,
+                i18nPlugin,
                 [Quasar, quasarConfig],
               ],
               stubs: {
                 RouterLink: RouterLinkStub,
+                // Stub Croppa as it doesn't seem to work otherwise...
+                Croppa: true,
               },
               directives: {
                 measure: {},
               },
               mocks: {
+                $icon: icons.get,
                 ...routerMocks,
               },
             },
           })
-          const html = await renderer.renderToString(wrapper.vm)
+
+          // use server side renderer to get renderered html string
+          const html = await renderToString(wrapper.__app)
           expect(html).toMatchSnapshot()
         })
       }

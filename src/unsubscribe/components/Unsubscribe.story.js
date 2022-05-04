@@ -1,5 +1,5 @@
 import { h } from 'vue'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 
 import Unsubscribe from './Unsubscribe'
 import { storybookDefaults as defaults } from '>/helpers'
@@ -7,45 +7,35 @@ import { storybookDefaults as defaults } from '>/helpers'
 storiesOf('Unsubscribe', module)
   .add('conversation', () => defaults({
     render: () => h(Unsubscribe, {
-      props: {
-        tokenData: {
-          conversationId: 1,
-          notificationType: 'weekly_summary',
-          groupId: 1,
-          groupName: 'testgroup',
-        },
+      tokenData: {
+        conversationId: 1,
+        notificationType: 'weekly_summary',
+        groupId: 1,
+        groupName: 'testgroup',
       },
     }),
   }))
   .add('thread', () => defaults({
     render: () => h(Unsubscribe, {
-      props: {
-        tokenData: {
-          threadId: 1,
-          groupId: 1,
-          groupName: 'testgroup',
-        },
+      tokenData: {
+        threadId: 1,
+        groupId: 1,
+        groupName: 'testgroup',
       },
     }),
   }))
   .add('error', () => defaults({
     render: () => h(Unsubscribe, {
-      props: {
-        hasError: true,
-      },
+      hasError: true,
     }),
   }))
   .add('success', () => defaults({
     render: () => h(Unsubscribe, {
-      props: {
-        hasSuccess: true,
-      },
+      hasSuccess: true,
     }),
   }))
   .add('invalid token', () => defaults({
     render: () => h(Unsubscribe, {
-      props: {
-        hasInvalidToken: true,
-      },
+      hasInvalidToken: true,
     }),
   }))

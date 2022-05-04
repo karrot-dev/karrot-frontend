@@ -1,5 +1,5 @@
 import { h } from 'vue'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 
 import KBreadcrumb from './KBreadcrumb'
 import Search from './Search'
@@ -17,9 +17,7 @@ storiesOf('Topbar', module)
 
   .add('KBreadcrumb', () => defaults({
     render: () => h(KBreadcrumb, {
-      props: {
-        breadcrumbs: [{ name: 'Foodsharing Berlin' }, { name: 'SirPlus' }],
-      },
+      breadcrumbs: [{ name: 'Foodsharing Berlin' }, { name: 'SirPlus' }],
     }),
   }))
 

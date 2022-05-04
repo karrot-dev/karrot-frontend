@@ -391,7 +391,7 @@ export default {
   ],
   computed: {
     activityType () {
-      return this.value.activityType
+      return this.value && this.value.activityType
     },
     dayOptions,
     canSave () {

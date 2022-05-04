@@ -1,5 +1,8 @@
 <template>
-  <component :is="$q.platform.is.mobile ? 'div' : 'QCard'">
+  <component
+    v-if="v$.edit"
+    :is="$q.platform.is.mobile ? 'div' : 'QCard'"
+  >
     <ChangePhoto
       v-if="!isNew"
       :hint="$t('GROUP.SET_LOGO')"

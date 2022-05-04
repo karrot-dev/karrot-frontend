@@ -1,6 +1,6 @@
 import { h } from 'vue'
 import { storybookDefaults as defaults } from '>/helpers'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
 
 import GroupGallery from './GroupGalleryUI'
@@ -13,29 +13,25 @@ const groups = [
 ]
 
 const defaultOn = {
-  preview: action('view group preview'),
-  visit: action('visit group'),
+  onPreview: action('view group preview'),
+  onVisit: action('visit group'),
 }
 
 storiesOf('GroupGallery', module)
   .add('signup view', () => defaults({
     render: () => h(GroupGallery, {
-      props: {
-        otherGroups: groups,
-      },
-      on: defaultOn,
+      otherGroups: groups,
+      ...defaultOn,
     }),
   }))
   .add('switch and explore', () => defaults({
     render: () => h(GroupGallery, {
-      props: {
-        myGroups: [
-          makeGroupInfo({ isMember: true }),
-          makeGroupInfo({ isMember: true }),
-        ],
-        otherGroups: groups,
-        isLoggedIn: true,
-      },
-      on: defaultOn,
+      myGroups: [
+        makeGroupInfo({ isMember: true }),
+        makeGroupInfo({ isMember: true }),
+      ],
+      otherGroups: groups,
+      isLoggedIn: true,
+      ...defaultOn,
     }),
   }))

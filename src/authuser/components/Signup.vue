@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="v$.user">
     <form
       name="signup"
       @submit.prevent="submit"

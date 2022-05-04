@@ -1,4 +1,5 @@
-import { storiesOf } from '@storybook/vue'
+import { h } from 'vue'
+import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
 
 import Settings from '@/authuser/pages/Settings'
@@ -134,25 +135,25 @@ const unverifiedAndfailedEmailDeliveriesDatastore = createDatastore({
 
 storiesOf('Settings Page', module)
   .add('Default', () => defaults({
-    render (h) {
+    render () {
       return h(Settings)
     },
     store: datastore,
   }))
   .add('verification warning', () => defaults({
-    render (h) {
+    render () {
       return h(VerificationWarning)
     },
     store: verificationWarningDatastore,
   }))
   .add('failed email deliveries', () => defaults({
-    render (h) {
+    render () {
       return h(VerificationWarning)
     },
     store: failedEmailDeliveriesDatastore,
   }))
   .add('verification warning and failed email deliveries', () => defaults({
-    render (h) {
+    render () {
       return h(VerificationWarning)
     },
     store: unverifiedAndfailedEmailDeliveriesDatastore,

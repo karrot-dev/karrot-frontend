@@ -1,4 +1,5 @@
-import { storiesOf } from '@storybook/vue'
+import { h } from 'vue'
+import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
 
 import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
@@ -19,77 +20,65 @@ const store = createDatastore({
 storiesOf('ActivitySeriesEdit', module)
   .add('weekly', () => defaults({
     store,
-    render (h) {
+    render () {
       return h(ActivitySeriesEdit(), {
-        props: {
-          value: series,
-          status: statusMocks.default(),
-        },
-        on: {
-          save (diff) {
-            action('save', diff)
-          },
+        value: series,
+        status: statusMocks.default(),
+        onSave (diff) {
+          action('save', diff)
         },
       })
     },
   }))
   .add('time error', () => defaults({
     store,
-    render (h) {
+    render () {
       return h(ActivitySeriesEdit(), {
-        props: {
-          value: series,
-          status: statusMocks.validationError('startDate', 'time is in past'),
-        },
+        value: series,
+        status: statusMocks.validationError('startDate', 'time is in past'),
       })
     },
   }))
   .add('duration', () => defaults({
     store,
-    render (h) {
+    render () {
       return h(ActivitySeriesEdit(), {
-        props: {
-          value: {
-            ...series,
-            duration: 45 * 60,
-          },
-          status: statusMocks.default(),
+        value: {
+          ...series,
+          duration: 45 * 60,
         },
+        status: statusMocks.default(),
       })
     },
   }))
   .add('custom rule', () => defaults({
     store,
-    render (h) {
+    render () {
       return h(ActivitySeriesEdit(), {
-        props: {
-          value: {
-            ...series,
-            rule: {
-              ...series.rule,
-              isCustom: true,
-            },
+        value: {
+          ...series,
+          rule: {
+            ...series.rule,
+            isCustom: true,
           },
-          status: statusMocks.default(),
         },
+        status: statusMocks.default(),
       })
     },
   }))
   .add('custom rule with duration', () => defaults({
     store,
-    render (h) {
+    render () {
       return h(ActivitySeriesEdit(), {
-        props: {
-          value: {
-            ...series,
-            duration: 45 * 60,
-            rule: {
-              ...series.rule,
-              isCustom: true,
-            },
+        value: {
+          ...series,
+          duration: 45 * 60,
+          rule: {
+            ...series.rule,
+            isCustom: true,
           },
-          status: statusMocks.default(),
         },
+        status: statusMocks.default(),
       })
     },
   }))

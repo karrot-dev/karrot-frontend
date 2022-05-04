@@ -1,5 +1,5 @@
 import { h } from 'vue'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
 
 import ActivityItem from './ActivityItem'
@@ -50,72 +50,60 @@ const datastore = createDatastore({
   },
 })
 
-const methods = {
-  join: action('join'),
-  leave: action('leave'),
+const on = {
+  onJoin: action('join'),
+  onLeave: action('leave'),
 }
 
 storiesOf('ActivityItem', module)
   .add('join', () => defaults({
     render: () => h(ActivityItem, {
-      props: {
-        activity: joinableActivity,
-      },
-      on: methods,
+      activity: joinableActivity,
+      ...on,
     }),
     store: datastore,
   }))
   .add('joined', () => defaults({
     render: () => h(ActivityItem, {
-      props: {
-        activity: leavableActivity,
-      },
-      on: methods,
+      activity: leavableActivity,
+      ...on,
     }),
     store: datastore,
   }))
   .add('pending', () => defaults({
     render: () => h(ActivityItem, {
-      props: {
-        activity: {
-          ...joinableActivity,
-          joinStatus: statusMocks.pending(),
-        },
+      activity: {
+        ...joinableActivity,
+        joinStatus: statusMocks.pending(),
       },
-      on: methods,
+      ...on,
     }),
     store: datastore,
   }))
   .add('full', () => defaults({
     render: () => h(ActivityItem, {
-      props: {
-        activity: fullActivity,
-      },
-      on: methods,
+      activity: fullActivity,
+      ...on,
     }),
     store: datastore,
   }))
   .add('disabled', () => defaults({
     render: () => h(ActivityItem, {
-      props: {
-        activity: {
-          ...fullActivity,
-          isDisabled: true,
-        },
+      activity: {
+        ...fullActivity,
+        isDisabled: true,
       },
-      on: methods,
+      ...on,
     }),
     store: datastore,
   }))
   .add('started', () => defaults({
     render: () => h(ActivityItem, {
-      props: {
-        activity: {
-          ...fullActivity,
-          hasStarted: true,
-        },
+      activity: {
+        ...fullActivity,
+        hasStarted: true,
       },
-      on: methods,
+      ...on,
     }),
     store: datastore,
   }))

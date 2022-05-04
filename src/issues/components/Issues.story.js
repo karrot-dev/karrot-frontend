@@ -1,5 +1,5 @@
 import { h } from 'vue'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { storybookDefaults as defaults, statusMocks } from '>/helpers'
 import subHours from 'date-fns/subHours'
 import addHours from 'date-fns/addHours'
@@ -116,43 +116,33 @@ const pastIssues = range(4).map(() => factories.makeIssue({
 storiesOf('Issues', module)
   .add('history item', () => defaults({
     render: () => h(IssueHistoryItem, {
-      props: {
-        voting: votingRemoveUser,
-        affectedUser: user,
-        groupName: 'asdf',
-      },
+      voting: votingRemoveUser,
+      affectedUser: user,
+      groupName: 'asdf',
     }),
   }))
   .add('IssueVote - vote', () => defaults({
     render: () => h(IssueVote, {
-      props: {
-        issue: issueFurtherDiscussion,
-      },
+      issue: issueFurtherDiscussion,
     }),
   }))
   .add('IssueVote - not voted yet', () => defaults({
     render: () => h(IssueVote, {
-      props: {
-        issue: issueNoVote,
-      },
+      issue: issueNoVote,
     }),
   }))
   .add('results - expelled', () => defaults({
     render: () => h(VotingResults, {
-      props: {
-        voting: votingRemoveUser,
-        affectedUser: user,
-        isCancelled: false,
-        groupName: 'asdf',
-      },
+      voting: votingRemoveUser,
+      affectedUser: user,
+      isCancelled: false,
+      groupName: 'asdf',
     }),
   }))
   .add('IssueList', () => defaults({
     render: () => h(IssueList, {
-      props: {
-        ongoingIssues,
-        pastIssues,
-        status: statusMocks.default(),
-      },
+      ongoingIssues,
+      pastIssues,
+      status: statusMocks.default(),
     }),
   }))

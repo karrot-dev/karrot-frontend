@@ -1,5 +1,5 @@
 import { h } from 'vue'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
 
 import ChangePhoto from './ChangePhoto'
@@ -8,46 +8,38 @@ import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 import logo from '@/../public/statics/carrot_logo.png'
 
 const on = {
-  save: action('save'),
+  onSave: action('save'),
 }
 
 storiesOf('ChangePhoto', module)
   .add('with photo', () => defaults({
     render: () => h(ChangePhoto, {
-      props: {
-        value: {
-          photoUrls: {
-            fullSize: logo,
-          },
+      value: {
+        photoUrls: {
+          fullSize: logo,
         },
-        helper: 'Helper',
-        label: 'Label',
-        status: statusMocks.default(),
       },
-      on,
+      helper: 'Helper',
+      label: 'Label',
+      status: statusMocks.default(),
+      ...on,
     }),
   }))
   .add('empty', () => defaults({
     render: () => h(ChangePhoto, {
-      props: {
-        status: statusMocks.default(),
-      },
-      on,
+      status: statusMocks.default(),
+      ...on,
     }),
   }))
   .add('pending', () => defaults({
     render: () => h(ChangePhoto, {
-      props: {
-        status: statusMocks.pending(),
-      },
-      on,
+      status: statusMocks.pending(),
+      ...on,
     }),
   }))
   .add('error', () => defaults({
     render: () => h(ChangePhoto, {
-      props: {
-        status: statusMocks.validationError('photo', 'something is wrong'),
-      },
-      on,
+      status: statusMocks.validationError('photo', 'something is wrong'),
+      ...on,
     }),
   }))

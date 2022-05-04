@@ -1,5 +1,5 @@
 import { h } from 'vue'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { storybookDefaults as defaults, statusMocks, range } from '>/helpers'
 import * as factories from '>/enrichedFactories'
 import subDays from 'date-fns/subDays'
@@ -21,19 +21,15 @@ const otherApplications = range(9).map(i => factories.makeApplication({
 storiesOf('Applications', module)
   .add('ApplicationForm', () => defaults({
     render: () => h(ApplicationFormUI, {
-      props: {
-        group,
-      },
+      group,
     }),
   }))
   .add('ApplicationList', () => defaults({
     render: () => h(ApplicationList, {
-      props: {
-        pending,
-        otherApplications,
-        canFetchPast: false,
-        fetchPastStatus: statusMocks.default(),
-        fetchPast: () => {},
-      },
+      pending,
+      otherApplications,
+      canFetchPast: false,
+      fetchPastStatus: statusMocks.default(),
+      fetchPast: () => {},
     }),
   }))

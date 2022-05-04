@@ -1,6 +1,6 @@
 <template>
   <QItem
-    :class="{ isUnread: !notification.clicked }"
+    :class="{ isUnread }"
     active-class="unset-active-class"
     :to="routeTo"
     @click="$emit('click', notification)"
@@ -73,6 +73,9 @@ export default {
     'click',
   ],
   computed: {
+    isUnread () {
+      return this.notification && !this.notification.clicked
+    },
     context () {
       return this.notification && this.notification.context
     },

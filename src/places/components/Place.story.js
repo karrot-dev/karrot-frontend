@@ -44,7 +44,7 @@ storiesOf('Places', module)
   .add('PlaceList', () => defaults({
     store,
     render: () => h(PlaceList, {
-      places
+      places,
     }),
   }))
   .add('PlaceEdit', () => defaults({

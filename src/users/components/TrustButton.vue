@@ -81,7 +81,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import CircleProgress from '@/utils/components/CircleProgress'
 import TrustInfo from '@/users/components/TrustInfo'

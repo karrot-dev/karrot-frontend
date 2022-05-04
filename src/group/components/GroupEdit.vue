@@ -1,7 +1,7 @@
 <template>
   <component
-    v-if="v$.edit"
     :is="$q.platform.is.mobile ? 'div' : 'QCard'"
+    v-if="v$.edit"
   >
     <ChangePhoto
       v-if="!isNew"

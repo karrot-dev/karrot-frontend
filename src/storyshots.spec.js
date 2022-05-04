@@ -41,7 +41,7 @@ afterAll(() => {
 
 // Mock RandomArt because it doesn't play nicely with JSDOM
 jest.mock('@/utils/components/RandomArt', () => ({
-  template: `<div><slot /></div>`,
+  template: '<div><slot /></div>',
 }))
 
 // Mock locales
@@ -77,13 +77,11 @@ for (const f of files) {
   require(f)
 }
 
-
 for (const group of mockStories) {
   describe('Storyshots', () => {
     describe(group.kind, () => {
       for (const story of group.stories) {
         it(story.name, async () => {
-
           // get the component from storybook
           const component = story.render()
 

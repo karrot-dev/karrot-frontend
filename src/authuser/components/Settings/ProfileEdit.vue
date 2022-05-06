@@ -16,6 +16,18 @@
         </template>
       </QInput>
 
+      <QInput
+        v-model="edit.username"
+        :label="$t('USERDETAIL.USERNAME')"
+        :error="hasUsernameError"
+        :error-message="usernameError"
+        @blur="$v.edit.username.$touch"
+      >
+        <template #before>
+          <QIcon name="fas fa-at" />
+        </template>
+      </QInput>
+
       <MarkdownInput
         v-model="edit.description"
         icon="info"
@@ -86,7 +98,7 @@ import MarkdownInput from '@/utils/components/MarkdownInput'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 import { validationMixin } from 'vuelidate'
-import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
 
 export default {
   components: {
@@ -128,6 +140,20 @@ export default {
       }
       return this.firstError('displayName')
     },
+    hasUsernameError () {
+      return !!this.usernameError
+    },
+    usernameError () {
+      if (this.$v.edit.username.$error) {
+        const m = this.$v.edit.username
+        if (!m.required) return this.$t('VALIDATION.REQUIRED')
+        if (!m.valid) return this.$t('VALIDATION.VALID_USERNAME')
+      }
+      const error = this.firstError('username')
+      if (error === 'username_invalid') return this.$t('VALIDATION.VALID_USERNAME')
+      if (error === 'username_taken') return this.$t('VALIDATION.TAKEN')
+      return error
+    },
   },
   methods: {
     maybeSave () {
@@ -143,6 +169,10 @@ export default {
         required,
         minLength: minLength(3),
         maxLength: maxLength(80),
+      },
+      username: {
+        required,
+        valid: helpers.regex('valid', /^[\w.+-]+$/), // should correspond to backend one
       },
     },
   },

@@ -842,6 +842,7 @@
   "USERDETAIL": {
     "DESCRIPTION": "About you",
     "DISPLAY_NAME": "Name",
+    "USERNAME": "Username",
     "OLD_PASSWORD": "Confirm your old password",
     "PASSWORD": "New password"
   },

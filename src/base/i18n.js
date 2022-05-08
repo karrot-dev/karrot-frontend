@@ -1,10 +1,7 @@
-import Vue from 'vue'
-import VueI18n from 'vue-i18n'
+import { createI18n } from 'vue-i18n'
 import status from '@/locales/translationStatus.json'
 import locales from '@/locales/index'
 import localeEn from '@/locales/locale-en.json'
-
-Vue.use(VueI18n)
 
 const defaultDateTimeFormat = {
   hourMinute: {
@@ -66,24 +63,26 @@ const defaultNumberFormat = {
   },
 }
 
-const dateTimeFormats = {}
+const datetimeFormats = {}
 const numberFormats = {}
 for (const locale of Object.values(locales)) {
-  dateTimeFormats[locale.locale] = defaultDateTimeFormat
+  datetimeFormats[locale.locale] = defaultDateTimeFormat
   numberFormats[locale.locale] = defaultNumberFormat
 }
 
-const i18n = new VueI18n({
+const i18n = createI18n({
   // Just need to include 'en' here as it is the fallback locale
   // All other locales are loaded on demand in base/datastore/i18nPlugin
   messages: {
     en: localeEn,
   },
-  dateTimeFormats,
+  datetimeFormats,
   numberFormats,
   fallbackLocale: 'en', // if you change this make sure to always load the locale too
 })
-export default i18n
+export default i18n.global
+
+export const i18nPlugin = i18n
 
 const TEN_PM = new Date()
 TEN_PM.setHours(22, 0)
@@ -98,7 +97,7 @@ const SUNDAY_INDEX = DAY_KEYS.indexOf('SU')
 export function dayNameForKey (key) {
   const date = new Date()
   date.setDate(date.getDate() - date.getDay() - SUNDAY_INDEX + DAY_INDEX[key])
-  return i18n.d(date, 'dayName')
+  return i18n.global.d(date, 'dayName')
 }
 export function dayNames () {
   return DAY_KEYS.map(dayNameForKey)

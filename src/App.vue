@@ -1,16 +1,12 @@
 <template>
-  <!-- Don't drop "q-app" id -->
-
-  <div id="q-app">
-    <!-- class root-splash is defined in index.html -->
-    <img
-      v-if="!hasView"
-      class="root-splash root-splash-second"
-      src="statics/carrot_logo.png"
-    >
-    <LoadingProgress />
-    <RouterView />
-  </div>
+  <!-- class root-splash is defined in index.html -->
+  <img
+    v-if="!hasView"
+    class="root-splash root-splash-second"
+    src="statics/carrot_logo.png"
+  >
+  <LoadingProgress />
+  <RouterView />
 </template>
 
 <script>
@@ -33,14 +29,14 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .root-splash-second
-  opacity 1
-  animation fadein 2s
+  opacity: 1
+  animation: fadein 2s
 @keyframes fadein
   from
-    opacity 0.3
+    opacity: 0.3
 
   to
-    opacity 1
+    opacity: 1
 </style>

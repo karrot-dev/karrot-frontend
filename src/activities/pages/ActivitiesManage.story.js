@@ -1,4 +1,5 @@
-import { storiesOf } from '@storybook/vue'
+import { h } from 'vue'
+import { storiesOf } from '@storybook/vue3'
 import ActivitiesManage from '@/activities/pages/ActivitiesManage'
 
 import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
@@ -40,7 +41,7 @@ const datastore = options => createDatastore({
 
 storiesOf('ActivitiesManage', module)
   .add('default', () => defaults({
-    render: h => h(ActivitiesManage),
+    render: () => h(ActivitiesManage),
     store: datastore({
       activeUser: nonmember,
     }),

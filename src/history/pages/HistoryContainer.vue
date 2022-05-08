@@ -1,16 +1,19 @@
+<template>
+  <!-- we do not pass in the 'history' prop to keep this component versatile -->
+  <HistoryList
+    :status="$store.getters['history/fetchStatus']"
+    :can-fetch-past="$store.getters['history/canFetchPast']"
+    :fetch-past-status="$store.getters['history/fetchPastStatus']"
+    :fetch-past="() => $store.dispatch('history/fetchPast')"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import HistoryList from '@/history/components/HistoryList'
 
-export default connect({
-  gettersToProps: {
-    // we do not pass in the 'history' prop to keep this component versatile
-    status: 'history/fetchStatus',
-    canFetchPast: 'history/canFetchPast',
-    fetchPastStatus: 'history/fetchPastStatus',
+export default {
+  components: {
+    HistoryList,
   },
-  actionsToProps: {
-    'fetch-past': 'history/fetchPast',
-  },
-})('History', HistoryList)
+}
 </script>

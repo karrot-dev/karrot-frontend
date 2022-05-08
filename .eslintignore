@@ -4,3 +4,7 @@
 /src-cordova
 /.quasar
 /node_modules
+/storybook-static
+/docs/_book
+/docs/node_modules
+/docs/book

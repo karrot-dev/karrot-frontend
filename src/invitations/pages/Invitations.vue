@@ -1,15 +1,18 @@
+<template>
+  <InvitationsUI
+    :invitations="$store.getters['invitations/byCurrentGroup']"
+    :fetch-status="$store.getters['invitations/fetchStatus']"
+    :send-status="$store.getters['invitations/sendStatus']"
+    @submit="data => $store.dispatch('invitations/send', data)"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import InvitationsUI from '@/invitations/components/InvitationsUI'
 
-export default connect({
-  gettersToProps: {
-    invitations: 'invitations/byCurrentGroup',
-    fetchStatus: 'invitations/fetchStatus',
-    sendStatus: 'invitations/sendStatus',
+export default {
+  components: {
+    InvitationsUI,
   },
-  actionsToEvents: {
-    submit: 'invitations/send',
-  },
-})('GroupInvitations', InvitationsUI)
+}
 </script>

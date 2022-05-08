@@ -1,13 +1,9 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import { createLocalVue, mount, TransitionStub, TransitionGroupStub, RouterLinkStub } from '@vue/test-utils'
+import { nextTick } from 'vue'
+import { mount, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
-import i18n from '@/base/i18n'
-import { IconPlugin } from '@/base/icons'
+import i18n, { i18nPlugin } from '@/base/i18n'
 import routerMocks from '>/routerMocks'
-
-Vue.use(Vuex)
-Vue.use(IconPlugin)
+import { createStore } from 'vuex'
 
 const desktopUserAgent = 'Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0'
 const mobileUserAgent = 'Mozilla/5.0 (Android 9; Mobile; rv:68.0) Gecko/68.0 Firefox/68.0'
@@ -22,7 +18,7 @@ export function useMobileUserAgent () {
 
 export async function nextTicks (n) {
   while (n--) {
-    await Vue.nextTick()
+    await nextTick()
   }
 }
 
@@ -32,7 +28,7 @@ export function createDatastore (mods = {}, { debug = false, plugins = [] } = {}
     modules[key] = { ...mods[key], namespaced: true }
   }
 
-  const datastore = new Vuex.Store({
+  const datastore = createStore({
     modules, plugins, strict: false,
   })
 
@@ -62,7 +58,7 @@ export function makefindAllComponentsIterable (wrapper) {
       return {
         next () {
           if (nextIndex < wrapperArray.length) {
-            return { value: wrapperArray.at(nextIndex++), done: false }
+            return { value: wrapperArray[nextIndex++], done: false }
           }
           else {
             return { done: true }
@@ -75,46 +71,61 @@ export function makefindAllComponentsIterable (wrapper) {
   return wrapper
 }
 
-export function configureQuasar (Vue) {
+export function mountWithDefaults (Component, options = {}) {
+  i18n.locale = 'en'
+
   // jest.resetModules() can only provide isolation when we require() a module
   // We want a fresh Quasar for every test
-  const configure = require('>/configureQuasar').default
-  configure(Vue)
-}
+  const Quasar = require('quasar').Quasar
+  const quasarConfig = require('>/quasarConfig').default
 
-export function mountWithDefaults (Component, options = {}) {
-  const localVue = createLocalVue()
-  return mountWithDefaultsAndLocalVue(Component, localVue, options)
-}
-
-export function mountWithDefaultsAndLocalVue (Component, localVue, options = {}) {
-  i18n.locale = 'en'
-  configureQuasar(localVue)
-
-  localVue.component('RouterLink', RouterLinkStub)
-  localVue.component('Transition', TransitionStub)
-  localVue.component('TransitionGroup', TransitionGroupStub)
-  localVue.directive('measure', {})
-  const datastore = options.datastore
-  delete options.datastore
-  const wrapper = mount(Component, {
-    localVue,
-    sync: false,
-    i18n,
-    store: datastore,
-    mocks: {
-      ...routerMocks,
+  // TODO remove?
+  const ssrContextMock = {
+    req: {
+      headers: {},
     },
+    res: {
+      setHeader: () => undefined,
+    },
+    url: '',
+  }
+
+  const globalOptions = options.global || {}
+
+  const mergedOptions = {
     ...options,
-  })
+    global: {
+      plugins: [
+        [Quasar, quasarConfig, ssrContextMock],
+        i18nPlugin,
+        ...(globalOptions.plugins || []),
+      ],
+      stubs: {
+        RouterLink: RouterLinkStub,
+        ...(globalOptions.stubs || {}),
+      },
+      directives: {
+        measure: {},
+        ...(globalOptions.directives || {}),
+      },
+      mocks: {
+        $icon: () => '',
+        ...routerMocks,
+        ...(globalOptions.mocks || {}),
+      },
+      ...globalOptions,
+    },
+  }
+
+  if (options.datastore) mergedOptions.global.plugins.unshift(options.datastore)
+
+  const wrapper = mount(Component, mergedOptions)
   makefindAllComponentsIterable(wrapper)
   return wrapper
 }
 
 export function storybookDefaults (options) {
-  i18n.locale = 'en'
   return {
-    i18n,
     ...options,
   }
 }

@@ -35,7 +35,6 @@
             hide-bottom-space
             class="q-mr-sm"
             @focus="$refs.qStartDateProxy.show()"
-            @blur="$refs.qStartDateProxy.hide()"
           >
             <template #before>
               <QIcon name="access_time" />
@@ -52,6 +51,7 @@
                 v-model="startDate"
                 :options="futureDates"
                 mask="YYYY-MM-DD"
+                @update:model-value="() => smallScreen && $refs.qStartDateProxy.hide()"
               />
             </Component>
           </QInput>
@@ -63,7 +63,6 @@
             size="3"
             :error="hasError('date')"
             hide-bottom-space
-            @blur="$refs.qStartTimeProxy.hide()"
             @focus="$refs.qStartTimeProxy.show()"
           >
             <Component
@@ -78,7 +77,7 @@
                 v-model="startTime"
                 mask="HH:mm"
                 format24h
-                @input="() => smallScreen && $refs.qStartTimeProxy.hide()"
+                @update:model-value="() => smallScreen && $refs.qStartTimeProxy.hide()"
               />
             </Component>
             <template #after>
@@ -106,7 +105,6 @@
               size="3"
               :error="hasError('date')"
               hide-bottom-space
-              @blur="$refs.qEndTimeProxy.hide()"
               @focus="$refs.qEndTimeProxy.show()"
             >
               <Component
@@ -121,7 +119,7 @@
                   v-model="endTime"
                   mask="HH:mm"
                   format24h
-                  @input="() => smallScreen && $refs.qEndTimeProxy.hide()"
+                  @update:model-value="() => smallScreen && $refs.qEndTimeProxy.hide()"
                 />
               </Component>
               <template #after>
@@ -326,6 +324,10 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'cancel',
+    'save',
+  ],
   computed: {
     activityType () {
       return this.value.activityType
@@ -490,6 +492,6 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 @import '~editbox'
 </style>

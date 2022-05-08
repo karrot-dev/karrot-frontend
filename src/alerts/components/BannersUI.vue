@@ -49,6 +49,10 @@ export default {
       required: true,
     },
   },
+  emits: [
+    'agree',
+    'reconnect',
+  ],
   computed: {
     formattedBanners () {
       return this.banners.map(banner => {
@@ -125,10 +129,10 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 body.desktop .k-banner
-  min-width 500px
+  min-width: 500px
 
-.k-banner >>> .q-banner__avatar
-  align-self center
+.k-banner ::v-deep(.q-banner__avatar)
+  align-self: center
 </style>

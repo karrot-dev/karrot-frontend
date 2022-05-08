@@ -7,13 +7,12 @@
       <QInput
         ref="input"
         v-bind="$attrs"
-        :value="value"
+        :model-value="modelValue"
         type="textarea"
         :input-style="$attrs['input-style'] || 'min-height: 100px'"
         autogrow
         bottom-slots
         hide-hint
-        v-on="$listeners"
       >
         <template
           v-if="icon"
@@ -40,17 +39,17 @@
           </div>
         </template>
         <template
-          v-for="(_, slot) of $scopedSlots"
-          #[slot]="scope"
+          v-for="(_, slotName) in $slots"
+          #[slotName]="slotData"
         >
           <slot
-            :name="slot"
-            v-bind="scope"
+            :name="slotName"
+            v-bind="slotData || {}"
           />
         </template>
       </QInput>
       <QBtn
-        v-if="value"
+        v-if="modelValue"
         :label="$t('BUTTON.PREVIEW')"
         size="xs"
         color="primary"
@@ -68,8 +67,8 @@
             </QCardSection>
             <QCardSection>
               <Markdown
-                v-if="value"
-                :source="value"
+                v-if="modelValue"
+                :source="modelValue"
                 :mentions="mentions"
               />
             </QCardSection>
@@ -116,7 +115,7 @@ export default {
   },
   inheritAttrs: false,
   props: {
-    value: {
+    modelValue: {
       default: '',
       type: String,
     },
@@ -153,15 +152,15 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .markdown-helper
-  padding-top 6px
-  font-size .65rem
+  padding-top: 6px
+  font-size: .65rem
 
   > *
-    padding-right 10px
+    padding-right: 10px
 
 .markdown-input-preview-card
-  min-width 60%
-  max-width 700px
+  min-width: 60%
+  max-width: 700px
 </style>

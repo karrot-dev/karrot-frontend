@@ -1,14 +1,19 @@
+<template>
+  <KTopbarUI
+    :breadcrumbs="$store.getters['breadcrumbs/all']"
+    :current-user-id="$store.getters['auth/userId']"
+    @logout="$store.dispatch('auth/logout')"
+  >
+    <slot />
+  </KTopbarUI>
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import KTopbarUI from './KTopbarUI'
 
-export default connect({
-  actionsToEvents: {
-    logout: 'auth/logout',
+export default {
+  components: {
+    KTopbarUI,
   },
-  gettersToProps: {
-    breadcrumbs: 'breadcrumbs/all',
-    currentUserId: 'auth/userId',
-  },
-})('KTopbar', KTopbarUI)
+}
 </script>

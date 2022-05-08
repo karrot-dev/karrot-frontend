@@ -102,11 +102,11 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .infoChips
-  padding-bottom 15px
+  padding-bottom: 15px
 
   .q-chip
-    padding 2px 16px
-    margin-right 8px
+    padding: 2px 16px
+    margin-right: 8px
 </style>

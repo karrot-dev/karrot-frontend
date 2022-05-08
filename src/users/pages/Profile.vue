@@ -204,6 +204,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import { defineAsyncComponent } from 'vue'
 
 import HistoryContainer from '@/history/pages/HistoryContainer'
 import KSpinner from '@/utils/components/KSpinner'
@@ -213,7 +214,7 @@ import UserMapPreview from '@/maps/components/UserMapPreview'
 import TrustButton from '@/users/components/TrustButton'
 import SwitchGroupButton from '@/users/components/SwitchGroupButton'
 
-const ConflictSetup = () => import('@/issues/components/ConflictSetup')
+const ConflictSetup = defineAsyncComponent(() => import('@/issues/components/ConflictSetup'))
 
 import {
   QCard,
@@ -318,41 +319,41 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
->>> .q-banner__avatar
-  align-self center
+<style scoped lang="sass">
+::v-deep(.q-banner__avatar)
+  align-self: center
 
 body.desktop .k-profile
   .photoAndName
-    margin-bottom 20px
-    margin-left 26px
+    margin-bottom: 20px
+    margin-left: 26px
 
   .name
-    padding-left 18px
+    padding-left: 18px
 
 .k-profile
   .photoAndName
-    margin-top 22px
-    margin-bottom 14px
-    margin-left 10px
+    margin-top: 22px
+    margin-bottom: 14px
+    margin-left: 10px
 
   .name
-    padding-left 6px
+    padding-left: 6px
 
   .photo
-    transform rotate(-3deg)
+    transform: rotate(-3deg)
 
   .user-actions
-    position absolute
-    top -24px
-    right 10px
+    position: absolute
+    top: -24px
+    right: 10px
 
 .turn-in-enter
-  transform rotate(-15deg)
+  transform: rotate(-15deg)
 
 .turn-in-leave-active, .turn-in-enter-active
-  transition all .5s ease
+  transition: all .5s ease
 
 .turn-in-enter-to
-  transform rotate(-3deg)
+  transform: rotate(-3deg)
 </style>

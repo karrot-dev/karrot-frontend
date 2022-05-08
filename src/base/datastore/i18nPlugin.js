@@ -3,7 +3,7 @@ import axios from 'axios'
 import dateFnsHelper from '@/utils/dateFnsHelper'
 import polyfill from '@/utils/polyfill'
 import locales, { messages as loadMessages, quasarMessages as loadQuasarMessages } from '@/locales/index'
-import Quasar, { debounce } from 'quasar'
+import { Quasar, debounce } from 'quasar'
 
 export default datastore => {
   const loadLocale = debounce(async locale => {
@@ -15,8 +15,8 @@ export default datastore => {
 
     axios.defaults.headers.common['Accept-Language'] = locale
     document.documentElement.setAttribute('lang', locale)
-    dateFnsHelper.locale = locale
-    polyfill.locale = locale
+    dateFnsHelper.setLocale(locale)
+    polyfill.setLocale(locale)
 
     const [messages, { default: quasarMessages }] = await Promise.all([
       loadMessages(locale),

@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import messageAPI from '@/messages/api/messages'
 import conversationsAPI from '@/messages/api/conversations'
 import { insertSorted } from './conversations'
@@ -202,11 +201,7 @@ export default {
       for (const message of messages) {
         const conversationId = message.conversation
         const stateMessages = state.conversationMessages[conversationId]
-        Vue.set(
-          state.conversationMessages,
-          conversationId,
-          Object.freeze(stateMessages ? insertSorted(stateMessages, [message]) : [message]),
-        )
+        state.conversationMessages[conversationId] = Object.freeze(stateMessages ? insertSorted(stateMessages, [message]) : [message])
       }
     },
     setConversationsCursor (state, cursor) {
@@ -219,24 +214,20 @@ export default {
       for (const message of messages) {
         const threadId = message.thread
         const stateMessages = state.threadMessages[threadId]
-        Vue.set(
-          state.threadMessages,
-          threadId,
-          Object.freeze(stateMessages ? insertSorted(stateMessages, [message]) : [message]),
-        )
+        state.threadMessages[threadId] = Object.freeze(stateMessages ? insertSorted(stateMessages, [message]) : [message])
       }
     },
     updateRelated (state, { type, items }) {
-      Vue.set(state.related, type, Object.freeze({ ...state.related[type], ...indexById(items) }))
+      state.related[type] = Object.freeze({ ...state.related[type], ...indexById(items) })
     },
     deleteRelated (state, { type, ids }) {
       if (!state.related[type]) return
       const rest = Object.fromEntries(Object.entries(state.related[type]).filter(([k, _]) => !ids.include(k)))
       if (rest.length === 0) {
-        Vue.delete(state.related, type)
+        delete state.related[type]
       }
       else {
-        Vue.set(state.related, type, rest)
+        state.related[type] = rest
       }
     },
     setThreadsCursor (state, cursor) {

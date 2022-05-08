@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { reactive } from 'vue'
 import { Platform, throttle, dom } from 'quasar'
 const { height, width } = dom
 import { ready } from '@/utils/utils'
@@ -12,29 +12,19 @@ const size = {
 
 ready(() => { size.original = getSize() })
 
-const keyboard = new Vue({
-  data () {
-    return {
-      is: {
-        open: false,
-      },
-    }
-  },
-  created () {
-    if (!Platform.is.mobile) return
-    ready(() => {
-      window.addEventListener('resize', throttle(() => {
-        // if the window is >150px smaller than original, we guess it's the keyboard...
-        this.is.open = (size.original - getSize()) > 150
-      }, 100))
-    })
+const state = reactive({
+  is: {
+    open: false,
   },
 })
 
-export default keyboard
-
-export const DetectMobileKeyboardPlugin = {
-  install (Vue, options) {
-    Vue.prototype.$keyboard = keyboard
-  },
+if (Platform.is.mobile) {
+  ready(() => {
+    window.addEventListener('resize', throttle(() => {
+      // if the window is >150px smaller than original, we guess it's the keyboard...
+      state.is.open = (size.original - getSize()) > 150
+    }, 100))
+  })
 }
+
+export default state

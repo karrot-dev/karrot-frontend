@@ -1,4 +1,5 @@
 <script>
+/*
 import { connect } from 'vuex-connect'
 import GroupManageAgreement from '@/agreements/components/GroupManageAgreement'
 
@@ -12,4 +13,6 @@ export default connect({
     remove: 'currentGroup/agreementRemove',
   },
 })('GroupManageAgreement', GroupManageAgreement)
+*/
+export default {}
 </script>

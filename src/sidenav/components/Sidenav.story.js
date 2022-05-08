@@ -1,4 +1,5 @@
-import { storiesOf } from '@storybook/vue'
+import { h } from 'vue'
+import { storiesOf } from '@storybook/vue3'
 
 import SidenavMapUI from './SidenavMapUI'
 import SidenavGroupUI from './SidenavGroupUI'
@@ -19,22 +20,21 @@ const places = range(5).map(() => factories.makePlace({
 
 storiesOf('Sidenav', module)
   .add('Map', () => defaults({
-    render (h) {
-      const { showPlaces, showUsers, toggleUsers, togglePlaces } = this
+    render () {
+      const { showPlaces, showUsers, onToggleUsers, onTogglePlaces } = this
       return h(SidenavMapUI, {
-        props: {
-          places,
-          users,
-          showPlaces,
-          showUsers,
-          currentGroup: {
-            ...group,
-            membership: {
-              isEditor: true,
-            },
+        places,
+        users,
+        showPlaces,
+        showUsers,
+        currentGroup: {
+          ...group,
+          membership: {
+            isEditor: true,
           },
         },
-        on: { togglePlaces, toggleUsers },
+        onTogglePlaces,
+        onToggleUsers,
       })
     },
     data () {
@@ -44,22 +44,20 @@ storiesOf('Sidenav', module)
       }
     },
     methods: {
-      togglePlaces () {
+      onTogglePlaces () {
         this.showPlaces = !this.showPlaces
       },
-      toggleUsers () {
+      onToggleUsers () {
         this.showUsers = !this.showUsers
       },
     },
   }))
 
   .add('Group', () => defaults({
-    render: h => h(SidenavGroupUI, {
-      props: {
-        groupId: 1,
-        wallUnreadCount: 4,
-        pendingApplications: Array(3),
-      },
+    render: () => h(SidenavGroupUI, {
+      groupId: 1,
+      wallUnreadCount: 4,
+      pendingApplications: Array(3),
     }),
     store: createDatastore({
       currentGroup: { getters: { id: () => 1, roles: () => ['editor'] } },
@@ -68,27 +66,21 @@ storiesOf('Sidenav', module)
   }))
 
   .add('GroupOptions', () => defaults({
-    render: h => h(GroupOptions, {
-      props: {
-        currentGroupId: 1,
-        roles: ['editor'],
-      },
+    render: () => h(GroupOptions, {
+      currentGroupId: 1,
+      roles: ['editor'],
     }),
   }))
 
   .add('Places', () => defaults({
-    render: h => h(SidenavPlacesUI, {
-      props: {
-        places,
-        groupId: 1,
-      },
+    render: () => h(SidenavPlacesUI, {
+      places,
+      groupId: 1,
     }),
   }))
 
   .add('Mobile', () => defaults({
-    render: h => h(MobileSidenavUI, {
-      props: {
-        currentUserId: user.id,
-      },
+    render: () => h(MobileSidenavUI, {
+      currentUserId: user.id,
     }),
   }))

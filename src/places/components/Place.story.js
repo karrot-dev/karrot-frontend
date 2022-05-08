@@ -1,4 +1,5 @@
-import { storiesOf } from '@storybook/vue'
+import { h } from 'vue'
+import { storiesOf } from '@storybook/vue3'
 import { statusMocks, storybookDefaults as defaults, createDatastore } from '>/helpers'
 
 import PlaceList from './PlaceList'
@@ -42,31 +43,27 @@ const store = createDatastore({
 storiesOf('Places', module)
   .add('PlaceList', () => defaults({
     store,
-    render: h => h(PlaceList, {
-      props: { places },
+    render: () => h(PlaceList, {
+      places,
     }),
   }))
   .add('PlaceEdit', () => defaults({
     store,
-    render: h => h(PlaceEdit, {
-      props: {
-        value: place,
-        allPlaces: otherPlaces,
-        status: statusMocks.default(),
-      },
+    render: () => h(PlaceEdit, {
+      value: place,
+      allPlaces: otherPlaces,
+      status: statusMocks.default(),
     }),
   }))
   .add('PlaceEdit (with server error)', () => defaults({
     store,
-    render: h => h(PlaceEdit, {
-      props: {
-        value: place,
-        allPlaces: otherPlaces,
-        status: statusMocks.validationError('name', 'a nice server error'),
-      },
+    render: () => h(PlaceEdit, {
+      value: place,
+      allPlaces: otherPlaces,
+      status: statusMocks.validationError('name', 'a nice server error'),
     }),
   }))
   .add('PlaceHeader', () => defaults({
     store,
-    render: h => h(PlaceHeader, { props: { places } }),
+    render: () => h(PlaceHeader, { places }),
   }))

@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import auth from '@/authuser/api/auth'
 import { createMetaModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
 
@@ -34,7 +33,7 @@ export default {
   },
   mutations: {
     setSuccess (state, status) {
-      Vue.set(state, 'success', status)
+      state.sucess = status
     },
   },
 }

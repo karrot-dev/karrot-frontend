@@ -1,3 +1,5 @@
+import { h } from 'vue'
+import { RouterView } from 'vue-router'
 import { Platform } from 'quasar'
 const Landing = () => import('@/base/pages/Landing')
 const GroupWall = () => import('@/group/pages/Wall')
@@ -48,6 +50,18 @@ const IssueChat = () => import('@/issues/pages/IssueChat')
 const IssueCompose = () => import('@/issues/pages/IssueCompose')
 const IssueVoteAndHistory = () => import('@/issues/pages/IssueVoteAndHistory')
 const ActivityHistoryStatistics = () => import('@/statistics/pages/ActivityHistoryStatistics')
+
+const RouterViewSubheader = () => h(RouterView, { name: 'subheader' })
+RouterViewSubheader.displayName = 'RouterViewSubheader'
+
+const RouterViewDetail = () => h(RouterView, { name: 'detail' })
+RouterViewDetail.displayName = 'RouterViewDetail'
+
+const RouterViewFooter = () => h(RouterView, { name: 'footer' })
+RouterViewFooter.displayName = 'RouterViewFooter'
+
+const RouterViewIssueFooter = h(RouterView, { name: 'issueFooter' })
+RouterViewIssueFooter.displayName = 'RouterViewIssueFooter'
 
 export default [
   {
@@ -118,7 +132,7 @@ export default [
   },
   {
     path: '/group/:groupId',
-    redirect: '/group/:groupId/wall',
+    redirect: { name: 'group' },
     meta: {
       requireLoggedIn: true,
       breadcrumbs: [
@@ -127,22 +141,10 @@ export default [
       beforeEnter: 'currentGroup/select',
     },
     components: {
-      default: { render: h => h('router-view') }, // passthrough
-      subheader: {
-        render: h => h('router-view', {
-          props: {
-            name: 'subheader',
-          },
-        }),
-      },
-      detail: {
-        render: h => h('router-view', {
-          props: {
-            name: 'detail',
-          },
-        }),
-      },
-      footer: { render: h => h('router-view', { props: { name: 'footer' } }) },
+      default: RouterView,
+      subheader: RouterViewSubheader,
+      detail: RouterViewDetail,
+      footer: RouterViewFooter,
       sidenav: Sidenav,
     },
     children: [
@@ -167,9 +169,9 @@ export default [
         },
         components: {
           default: IssueList,
-          detail: { render: h => h('router-view') },
-          subheader: { render: h => h('router-view', { props: { name: 'subheader' } }) },
-          footer: { render: h => h('router-view', { props: { name: 'footer' } }) },
+          subheader: RouterViewSubheader,
+          detail: RouterView,
+          footer: RouterViewFooter,
         },
         children: [
           {
@@ -179,7 +181,7 @@ export default [
             components: {
               default: IssueLayout,
               subheader: IssueTabsIfMobile,
-              footer: { render: h => Platform.is.mobile ? h('router-view', { props: { name: 'issueFooter' } }) : null },
+              footer: () => Platform.is.mobile ? RouterViewIssueFooter : null,
             },
             meta: {
               requireLoggedIn: true,
@@ -219,11 +221,6 @@ export default [
           ],
         },
         component: GroupMap,
-      },
-      {
-        // TODO: legacy redirect, can be removed in some months
-        path: 'pickups',
-        redirect: 'activities',
       },
       {
         name: 'groupActivities',
@@ -280,14 +277,8 @@ export default [
         },
         components: {
           default: GroupOffers,
-          detail: { render: h => h('router-view') },
-          subheader: {
-            render: h => h('router-view', {
-              props: {
-                name: 'subheader',
-              },
-            }),
-          },
+          detail: RouterView,
+          subheader: RouterViewSubheader,
         },
         children: [
           {
@@ -377,7 +368,7 @@ export default [
       {
         name: 'groupEdit',
         path: 'edit',
-        redirect: 'edit/details',
+        redirect: { name: 'groupEditDetails' },
         meta: {
           breadcrumbs: [
             { translation: 'GROUP.EDIT', route: { name: 'groupEdit' } },
@@ -465,13 +456,7 @@ export default [
         },
         components: {
           default: PlaceLayout,
-          subheader: {
-            render: h => h('router-view', {
-              props: {
-                name: 'subheader',
-              },
-            }),
-          },
+          subheader: RouterViewSubheader,
         },
         children: [
           {
@@ -482,11 +467,6 @@ export default [
               beforeEnter: 'conversations/fetchForPlace',
               afterLeave: 'conversations/clearForPlace',
             },
-          },
-          {
-            // TODO: legacy redirect, can be removed in some months
-            path: 'pickups',
-            redirect: 'activities',
           },
           {
             name: 'placeActivities',
@@ -570,7 +550,7 @@ export default [
       {
         name: 'statistics',
         path: 'statistics',
-        redirect: 'statistics/activity-history',
+        redirect: { name: 'activityHistoryStatistics' },
       },
       {
         name: 'activityHistoryStatistics',

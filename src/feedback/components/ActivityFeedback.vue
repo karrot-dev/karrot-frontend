@@ -35,11 +35,10 @@
                     :title="select.activityType.translatedName"
                   />
                 </template>
-                <template #option="{ index, opt: { value: activity }, itemProps, itemEvents }">
+                <template #option="{ index, opt: { value: activity }, itemProps }">
                   <QItem
                     :key="index"
                     v-bind="itemProps"
-                    v-on="itemEvents"
                   >
                     <QItemSection avatar>
                       <QIcon v-bind="activity.activityType.iconProps" />
@@ -77,8 +76,8 @@
           :status="saveStatus"
           :has-multiple-participants="fellowParticipants.length > 0"
           :has-weight="select.activityType.hasFeedbackWeight"
-          @save="$emit('save', arguments[0])"
-          @dismissFeedback="$emit('dismissFeedback', arguments[0])"
+          @save="(...args) => $emit('save', ...args)"
+          @dismiss-feedback="(...args) => $emit('dismissFeedback', ...args)"
         />
       </div>
     </QCard>
@@ -174,6 +173,10 @@ export default {
       type: Number,
     },
   },
+  emits: [
+    'save',
+    'dismissFeedback',
+  ],
   computed: {
     feedbackDefault () {
       if (this.editFeedback) return this.editFeedback
@@ -237,37 +240,37 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .image-and-text
-  padding-top 1.5em
-  padding-bottom 1.5em
+  padding-top: 1.5em
+  padding-bottom: 1.5em
 
   .image-and-text-left
-    width 30%
-    max-width 10em
-    padding 1em
-    margin auto
+    width: 30%
+    max-width: 10em
+    padding: 1em
+    margin: auto
 
   .image-and-text-right
-    width 100%
-    padding 0 1em
-    margin 0 auto
+    width: 100%
+    padding: 0 1em
+    margin: 0 auto
 
 .place-feedback
-  margin-top 2.5em !important
+  margin-top: 2.5em !important
 
   .randomBanner
-    display block
-    height 26px
-    overflow hidden
+    display: block
+    height: 26px
+    overflow: hidden
 </style>
 
-<style lang="stylus">
+<style lang="sass">
 .activity-feedback-wrapper .q-field-dark.grey-font
-  padding 4px 7px
-  background-color white
-  border-radius 4px
+  padding: 4px 7px
+  background-color: white
+  border-radius: 4px
 
   .q-input-target, .q-input-shadow, .q-if-control
-    color rgb(40, 40, 40)
+    color: rgb(40, 40, 40)
 </style>

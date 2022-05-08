@@ -1,4 +1,5 @@
-import Vue from 'vue'
-import { IconPlugin } from '@/base/icons'
+import icons from '@/base/icons'
 
-Vue.use(IconPlugin)
+export default ({ app }) => {
+  app.config.globalProperties.$icon = icons.get
+}

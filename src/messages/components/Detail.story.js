@@ -1,4 +1,5 @@
-import { storiesOf } from '@storybook/vue'
+import { h } from 'vue'
+import { storiesOf } from '@storybook/vue3'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import * as factories from '>/enrichedFactories'
 
@@ -13,9 +14,9 @@ const detailStory = props => defaults({
       },
     },
   }),
-  render: h => h('div', [
-    h(DetailHeader, { props }),
-    h(DetailUI, { props }),
+  render: () => h('div', [
+    h(DetailHeader, props),
+    h(DetailUI, props),
   ]),
 })
 

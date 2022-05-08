@@ -65,6 +65,9 @@ export default {
   props: {
     user: { required: true, type: Object },
   },
+  emits: [
+    'save',
+  ],
   data () {
     return {
       newEmail: '',
@@ -106,6 +109,6 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 @import '~editbox'
 </style>

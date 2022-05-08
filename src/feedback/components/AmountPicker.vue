@@ -8,7 +8,7 @@
       class="absolute-center"
       style="z-index: 1"
       color="primary"
-      @click="$emit('input', 0)"
+      @click="$emit('update:modelValue', 0)"
     >
       {{ $t('ACTIVITY_FEEDBACK.SET_AMOUNT') }}
     </QBtn>
@@ -25,7 +25,7 @@
           color="red"
           class="self-center q-my-xs q-mr-sm"
           :title="$t('ACTIVITY_FEEDBACK.DELETE_AMOUNT')"
-          @click="$emit('input', null)"
+          @click="$emit('update:modelValue', null)"
         >
           <QIcon name="fas fa-times" />
         </QBtn>
@@ -49,7 +49,7 @@
           v-if="!$q.platform.is.mobile"
           class="col q-ml-md"
         >
-          <AmountViewer :amount="value" />
+          <AmountViewer :amount="modelValue" />
         </div>
       </div>
     </div>
@@ -73,53 +73,54 @@ export default {
     AmountViewer,
   },
   props: {
-    value: {
+    modelValue: {
       default: null,
       type: Number,
     },
   },
+  emits: [
+    'update:modelValue',
+  ],
   computed: {
     showOverlay () {
-      return this.value === null
+      return this.modelValue === null
     },
     valueToNumber: {
       get () {
-        return this.value
+        return this.modelValue
       },
       set (v) {
         let value = parseFloat(v, 10)
         value = isNaN(value) ? 0 : Math.max(0, value)
-        this.$emit('input', value)
+        this.$emit('update:modelValue', value)
       },
     },
   },
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .wrapper
-  position relative
+  position: relative
 
 .content
-  background $grey-2
-  border-radius 13px
+  background: $grey-2
+  border-radius: 13px
 
   .content-body
-    position relative
-    height 60px
+    position: relative
+    height: 60px
 
     &:after
-      position absolute
-      top 0
-      right 0
-      width 60px
-      height 100%
-      content ''
-      background linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, $grey-2 75%)
+      position: absolute
+      top: 0
+      right: 0
+      width: 60px
+      height: 100%
+      content: ''
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, $grey-2 75%)
 
 .showOverlay .content
-  filter blur(3px)
-  opacity 0.3
+  filter: blur(3px)
+  opacity: 0.3
 </style>

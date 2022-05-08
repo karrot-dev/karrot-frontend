@@ -14,19 +14,19 @@ export default {
       return state.breadcrumbs.map(item => {
         if (item.type === 'currentGroup') {
           const group = rootGetters['currentGroup/value']
-          if (group) {
+          if (group && group.id) {
             return {
               name: group.name,
-              route: { name: 'group', groupId: group.id },
+              route: { name: 'group', params: { groupId: group.id } },
             }
           }
         }
         else if (item.type === 'activePlace') {
           const place = rootGetters['places/activePlace']
-          if (place) {
+          if (place && place.group && place.group.id) {
             return {
               name: place.name,
-              route: { name: 'place', placeId: place.id },
+              route: { name: 'place', params: { placeId: place.id, groupId: place.group.id } },
             }
           }
         }
@@ -35,16 +35,16 @@ export default {
           if (user) {
             return {
               name: user.displayName,
-              route: { name: 'user', userId: user.id },
+              route: { name: 'user', params: { userId: user.id } },
             }
           }
         }
         else if (item.type === 'activeGroupPreview') {
           const group = rootGetters['groups/activePreview']
-          if (group) {
+          if (group && group.id) {
             return {
               name: group.name,
-              route: { name: 'groupPreview', groupPreviewId: group.id },
+              route: { name: 'groupPreview', params: { groupPreviewId: group.id } },
             }
           }
         }

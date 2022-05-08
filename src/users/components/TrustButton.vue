@@ -59,7 +59,7 @@
             <span class="q-mr-xs">+</span>
             <img
               :src="trustIcon"
-              width="20px"
+              class="trust-icon"
             >
           </QBtn>
           <QBtn
@@ -71,7 +71,7 @@
             <span class="q-mr-xs">-</span>
             <img
               :src="trustIcon"
-              width="20px"
+              class="trust-icon"
             >
           </QBtn>
         </QCardActions>
@@ -127,6 +127,10 @@ export default {
       type: Boolean,
     },
   },
+  emits: [
+    'create-trust',
+    'revoke-trust',
+  ],
   data () {
     return {
       showing: false,
@@ -223,20 +227,23 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.karrot-button >>> .q-btn__content
-  min-width 100%
-  min-height 100%
-  background-image url('./twemoji-carrot.png')
-  background-repeat no-repeat
-  background-position center
-  background-size 60%
+<style lang="sass" scoped>
+.karrot-button ::v-deep(.q-btn__content)
+  min-width: 100%
+  min-height: 100%
+  background-image: url('./twemoji-carrot.png')
+  background-repeat: no-repeat
+  background-position: center
+  background-size: 60%
 
-.karrot-button.small >>> .q-btn-inner
-  background-size 50%
+.karrot-button.small ::v-deep(.q-btn-inner)
+  background-size: 50%
 
 .circle-progress
-  position absolute
-  top 0
-  left 0
+  position: absolute
+  top: 0
+  left: 0
+
+.trust-icon
+  width: 20px
 </style>

@@ -3,6 +3,9 @@ import { usersMock } from '>/mockdata'
 import cloneDeep from 'clone-deep'
 
 import { mountWithDefaults, statusMocks, nextTicks } from '>/helpers'
+import { configureCompat } from '@vue/compat'
+jest.mock('vue', () => jest.requireActual('@vue/compat'))
+configureCompat({ MODE: 3 })
 
 describe('ChangePhoto', () => {
   beforeEach(() => jest.resetModules())
@@ -26,7 +29,7 @@ describe('ChangePhoto', () => {
   })
 
   it('renders image from localhost in development/test', async () => {
-    wrapper.setProps({
+    await wrapper.setProps({
       value: {
         ...user,
         photoUrls: { fullSize: '/media/foo.jpg' },

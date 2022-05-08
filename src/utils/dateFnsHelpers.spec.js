@@ -19,7 +19,7 @@ describe('dateFnsHelper', () => {
   })
 
   it('handles other locales', async () => {
-    dateFnsHelper.locale = 'de'
+    dateFnsHelper.setLocale('de')
     await sleep(50) // needs a bit of time to load it
     expect(dateFnsHelper.formatDistanceToNow(date, { addSuffix: true })).toEqual('vor 1 Tag')
   })

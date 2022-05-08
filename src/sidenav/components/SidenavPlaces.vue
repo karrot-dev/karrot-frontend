@@ -1,18 +1,21 @@
+<template>
+  <SidenavPlacesUI
+    :group-id="$store.getters['currentGroup/id']"
+    :places="$store.getters['places/byCurrentGroup']"
+    :show-all-places="$store.getters['places/toggle/showAll']"
+    :archived="$store.getters['places/byCurrentGroupArchived']"
+    :is-editor="$store.getters['currentGroup/isEditor']"
+    :fetch-status="$store.getters['places/fetchStatus']"
+    @toggle-show-all-places="$store.dispatch('places/toggle/showAll')"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import SidenavPlacesUI from './SidenavPlacesUI'
 
-export default connect({
-  gettersToProps: {
-    groupId: 'currentGroup/id',
-    places: 'places/byCurrentGroup',
-    showAllPlaces: 'places/toggle/showAll',
-    archived: 'places/byCurrentGroupArchived',
-    isEditor: 'currentGroup/isEditor',
-    fetchStatus: 'places/fetchStatus',
+export default {
+  components: {
+    SidenavPlacesUI,
   },
-  actionsToEvents: {
-    'toggle-show-all-places': 'places/toggle/showAll',
-  },
-})('SidenavPlaces', SidenavPlacesUI)
+}
 </script>

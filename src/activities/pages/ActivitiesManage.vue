@@ -321,7 +321,7 @@ export default {
     makeVisible (type, id) {
       // prevents rending QCollabsible children before they are displayed
       // if we don't do this, the textarea in activityEdit won't autogrow
-      this.$set(this.visible[type], id, true)
+      this.visible[type][id] = true
     },
     seriesLabel (series) {
       if (series.rule.isCustom) {
@@ -409,26 +409,24 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 button.selected
-  background-color $grey-4
+  background-color: $grey-4
 
 .secondCard
-  margin-top 24px !important
+  margin-top: 24px !important
 
   .randomBanner
-    display block
-    height 26px
-    overflow hidden
+    display: block
+    height: 26px
+    overflow: hidden
 
 // let the top fab (series) display over the top of the lower one (one-off activities)
 .fab-top-fix
-  z-index $z-fab + 1
+  z-index: $z-fab + 1
 
 // for some reason the font-awesome icons are displayed too big inside QFabAction
 .fab-action-fix
-  >>> .q-icon.fas
-    font-size 18px
+  ::v-deep(.q-icon.fas)
+    font-size: 18px
 </style>

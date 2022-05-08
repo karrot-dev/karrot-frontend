@@ -24,10 +24,10 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .k-notifications
-  width 100%
-  max-width 600px
-  margin-right auto
-  margin-left auto
+  width: 100%
+  max-width: 600px
+  margin-right: auto
+  margin-left: auto
 </style>

@@ -1,11 +1,17 @@
+// require('@storybook/addon-postcss')
+
 const QuasarConfFile = require('@quasar/app/lib/quasar-conf-file')
 const getQuasarCtx = require('@quasar/app/lib/helpers/get-quasar-ctx')
 
 module.exports = {
-  stories: ['../src/**/*.story.js'],
+  core: {
+    builder: 'webpack5',
+  },
+  stories: ['../src/**/LatestMessages.story.js'],
   addons: [
     '@storybook/addon-actions',
     '@storybook/addon-links',
+    '@storybook/addon-essentials',
   ],
   webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
@@ -19,7 +25,7 @@ module.exports = {
     const quasarConfig = new QuasarConfFile(ctx)
     await quasarConfig.prepare()
     await quasarConfig.compile()
-    const webpackConfig = quasarConfig.webpackConf
+    const webpackConfig = quasarConfig.webpackConf.renderer
 
     // Manual merge with our webpack config
     config.module.rules = webpackConfig.module.rules

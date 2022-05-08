@@ -1,5 +1,7 @@
 module.exports = {
-  extends: 'stylelint-config-recess-order',
+  extends: [
+    'stylelint-config-recess-order',
+  ],
   rules: {
     'block-no-empty': null,
     'color-no-invalid-hex': true,
@@ -14,8 +16,6 @@ module.exports = {
     'function-parentheses-newline-inside': 'always-multi-line',
     'function-parentheses-space-inside': 'never-single-line',
     'function-whitespace-after': 'always',
-    'karrot/no-colons': true,
-    'karrot/no-semicolons': true,
     'declaration-colon-space-after': 'always',
     indentation: 2,
     'max-empty-lines': 2,
@@ -36,8 +36,4 @@ module.exports = {
       'fr',
     ],
   },
-  plugins: [
-    './stylelint.no-colons.js',
-    './stylelint.no-semicolons.js',
-  ],
 }

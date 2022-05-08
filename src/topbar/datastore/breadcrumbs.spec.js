@@ -22,7 +22,7 @@ describe('breadcrumbs', () => {
       },
       places: {
         getters: {
-          activePlace: () => ({ id: 2, name: 'my active place' }),
+          activePlace: () => ({ id: 2, name: 'my active place', group: { id: 3 } }),
         },
       },
       users: {
@@ -39,22 +39,22 @@ describe('breadcrumbs', () => {
 
   it('can create an currentGroup item', async () => {
     await datastore.commit('breadcrumbs/set', [{ type: 'currentGroup' }])
-    expect(datastore.getters['breadcrumbs/all']).toEqual([{ name: 'my current group', route: { name: 'group', groupId: 1 } }])
+    expect(datastore.getters['breadcrumbs/all']).toEqual([{ name: 'my current group', route: { name: 'group', params: { groupId: 1 } } }])
   })
 
   it('can create an activeGroupPreview item', async () => {
     await datastore.commit('breadcrumbs/set', [{ type: 'activeGroupPreview' }])
-    expect(datastore.getters['breadcrumbs/all']).toEqual([{ name: 'my current group info', route: { name: 'groupPreview', groupPreviewId: 4 } }])
+    expect(datastore.getters['breadcrumbs/all']).toEqual([{ name: 'my current group info', route: { name: 'groupPreview', params: { groupPreviewId: 4 } } }])
   })
 
   it('can create an activePlace item', async () => {
     await datastore.commit('breadcrumbs/set', [{ type: 'activePlace' }])
-    expect(datastore.getters['breadcrumbs/all']).toEqual([{ name: 'my active place', route: { name: 'place', placeId: 2 } }])
+    expect(datastore.getters['breadcrumbs/all']).toEqual([{ name: 'my active place', route: { name: 'place', params: { placeId: 2, groupId: 3 } } }])
   })
 
   it('can create an activeUser item', async () => {
     await datastore.commit('breadcrumbs/set', [{ type: 'activeUser' }])
-    expect(datastore.getters['breadcrumbs/all']).toEqual([{ name: 'my active user', route: { name: 'user', userId: 3 } }])
+    expect(datastore.getters['breadcrumbs/all']).toEqual([{ name: 'my active user', route: { name: 'user', params: { userId: 3 } } }])
   })
 
   it('can do translation stuff', async () => {

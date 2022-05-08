@@ -209,6 +209,15 @@ export default {
       type: Object,
     },
   },
+  emits: [
+    'open-chat',
+    'join',
+    'go-settings',
+    'go-apply',
+    'go-visit',
+    'go-signup',
+    'withdraw',
+  ],
   computed: {
     status () {
       return this.group && this.group.joinStatus
@@ -229,26 +238,26 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
->>> .q-banner__avatar
-  align-self center
+<style scoped lang="sass">
+::v-deep(.q-banner__avatar)
+  align-self: center
 
 .q-card *
-  overflow hidden
+  overflow: hidden
 
 .photo
   &.hasPhoto
-    height 350px
+    height: 350px
 
   &:not(.hasPhoto)
-    height 140px
+    height: 140px
 
   img
-    width auto
-    max-width 100%
-    max-height 100%
-    margin 0 auto
+    width: auto
+    max-width: 100%
+    max-height: 100%
+    margin: 0 auto
 
   .k-media-overlay
-    background-color rgba(0, 0, 0, 0.47)
+    background-color: rgba(0, 0, 0, 0.47)
 </style>

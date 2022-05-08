@@ -1,4 +1,5 @@
-import { storiesOf } from '@storybook/vue'
+import { h } from 'vue'
+import { storiesOf } from '@storybook/vue3'
 
 import CommunityFeed from './CommunityFeed'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
@@ -20,7 +21,7 @@ const topics = range(5).map(makeTopic)
 
 storiesOf('CommunityFeed', module)
   .add('CommunityFeed', () => defaults({
-    render: h => h(CommunityFeed),
+    render: () => h(CommunityFeed),
     store: createDatastore({
       communityFeed: {
         getters: {

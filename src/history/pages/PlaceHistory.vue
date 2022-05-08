@@ -31,7 +31,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .padding-top
-  padding-top 15px
+  padding-top: 15px
 </style>

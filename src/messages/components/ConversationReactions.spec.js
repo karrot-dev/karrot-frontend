@@ -33,7 +33,7 @@ describe('Conversation message reactions', () => {
   })
 
   it('show whether user reacted (highlighting)', () => {
-    const [reactedButton, notReactedButton] = wrapper.findAllComponents(EmojiButton).wrappers
+    const [reactedButton, notReactedButton] = wrapper.findAllComponents(EmojiButton)
     expect(reactedButton.classes()).toContain('user-reacted')
     expect(notReactedButton.classes()).not.toContain('user-reacted')
   })

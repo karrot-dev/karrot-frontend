@@ -1,14 +1,17 @@
+<template>
+  <GroupOptionsUI
+    :current-group-id="$store.getters['currentGroup/id']"
+    :roles="$store.getters['currentGroup/roles']"
+    @leave="data => $store.dispatch('groups/leave', data)"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import GroupOptionsUI from './GroupOptionsUI'
 
-export default connect({
-  gettersToProps: {
-    currentGroupId: 'currentGroup/id',
-    roles: 'currentGroup/roles',
+export default {
+  components: {
+    GroupOptionsUI,
   },
-  actionsToEvents: {
-    leave: 'groups/leave',
-  },
-})('GroupOptions', GroupOptionsUI)
+}
 </script>

@@ -1,14 +1,16 @@
+<template>
+  <BannersUI
+    :banners="$store.getters['banners/all']"
+    @reconnect="$store.dispatch('connectivity/reconnect')"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import BannersUI from './BannersUI'
 
-export default connect({
-  actionsToEvents: {
-    agree: 'agreements/agree',
-    reconnect: 'connectivity/reconnect',
+export default {
+  components: {
+    BannersUI,
   },
-  gettersToProps: {
-    banners: 'banners/all',
-  },
-})('Banners', BannersUI)
+}
 </script>

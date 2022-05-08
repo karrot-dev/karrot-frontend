@@ -126,6 +126,9 @@ export default {
       default: true,
     },
   },
+  emits: [
+    'dismissFeedback',
+  ],
   data () {
     return {
       isDismissFeedbackDialogVisible: false,

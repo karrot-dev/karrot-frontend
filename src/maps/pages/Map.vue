@@ -71,15 +71,15 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .map
-  width 100%
-  height 100%
+  width: 100%
+  height: 100%
 
 .placeholder
-  position absolute
-  top 0
-  left 0
-  width 100%
-  height 100%
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
 </style>

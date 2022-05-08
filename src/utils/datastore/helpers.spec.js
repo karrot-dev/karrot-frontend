@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from 'vuex'
 
 const mockStatus = jest.fn()
 const mockLogin = jest.fn()
@@ -10,8 +9,6 @@ jest.mock('@/authuser/api/authUser', () => ({ get: mockStatus }))
 
 import { createValidationError, statusMocks } from '>/helpers'
 import { withMeta, createMetaModule, defaultFindId, toggles } from '@/utils/datastore/helpers'
-
-Vue.use(Vuex)
 
 describe('helpers', () => {
   beforeEach(() => jest.resetModules())
@@ -24,7 +21,7 @@ describe('helpers', () => {
     beforeEach(() => {
       run = jest.fn()
       meta = createMetaModule()
-      datastore = new Vuex.Store({
+      datastore = createStore({
         modules: { meta },
         actions: withMeta({
           run,
@@ -99,7 +96,7 @@ describe('helpers', () => {
   describe('toggles', () => {
     let datastore
     beforeEach(() => {
-      datastore = new Vuex.Store({
+      datastore = createStore({
         modules: {
           toggle: toggles({
             something: true,

@@ -1,8 +1,9 @@
 /** Storybook has some unwanted side effects and we actually don't need it to test the stories
  * Therefore, we mimick the Storybook API to get the components and then run the snapshot tests
 */
+
 const mockStories = []
-jest.mock('@storybook/vue', () => ({
+jest.mock('@storybook/vue3', () => ({
   storiesOf: (kind) => {
     const api = { kind }
     const kindStories = { kind, stories: [] }
@@ -20,17 +21,15 @@ jest.mock('@storybook/vue', () => ({
 
 import glob from 'glob'
 import lolex from 'lolex'
-import { createRenderer } from 'vue-server-renderer'
-import Vue from 'vue'
-import { configureQuasar } from '>/helpers'
+import { renderToString } from 'vue/server-renderer'
+import { Quasar } from 'quasar'
+import i18n, { i18nPlugin } from '@/base/i18n'
+import quasarConfig from '>/quasarConfig'
 import { mount, RouterLinkStub } from '@vue/test-utils'
-import i18n from '@/base/i18n'
 import routerMocks from '>/routerMocks'
+import icons from '@/base/icons'
 
 i18n.locale = 'en'
-configureQuasar(Vue)
-Vue.component('RouterLink', RouterLinkStub)
-Vue.directive('measure', {})
 
 // To get properly faked dates, install fake Date object before importing stories
 const now = new Date('2017-12-24T12:00:00Z')
@@ -42,8 +41,7 @@ afterAll(() => {
 
 // Mock RandomArt because it doesn't play nicely with JSDOM
 jest.mock('@/utils/components/RandomArt', () => ({
-  functional: true,
-  render: (h, context) => h('div', context.data, context.children),
+  template: '<div><slot /></div>',
 }))
 
 // Mock locales
@@ -71,16 +69,13 @@ jest.mock('@/locales/translationStatus.json', () => ({
 
 // Mock annoying components (e.g. too much vuex dependency)
 jest.mock('@/authuser/components/Settings/VerificationWarning', () => ({
-  render: h => h('div', 'VerificationWarning has been mocked'),
+  template: '<div>VerificationWarning has been mocked</div>',
 }))
 
 const files = glob.sync('**/*.story.js', { absolute: true })
 for (const f of files) {
   require(f)
 }
-
-// use server side renderer to get renderered html string
-const renderer = createRenderer()
 
 for (const group of mockStories) {
   describe('Storyshots', () => {
@@ -90,13 +85,34 @@ for (const group of mockStories) {
           // get the component from storybook
           const component = story.render()
 
+          const { store } = component
+
+          delete component.store
+
           const wrapper = mount(component, {
-            sync: false,
-            mocks: {
-              ...routerMocks,
+            global: {
+              plugins: [
+                store,
+                i18nPlugin,
+                [Quasar, quasarConfig],
+              ],
+              stubs: {
+                RouterLink: RouterLinkStub,
+                // Stub Croppa as it doesn't seem to work otherwise...
+                Croppa: true,
+              },
+              directives: {
+                measure: {},
+              },
+              mocks: {
+                $icon: icons.get,
+                ...routerMocks,
+              },
             },
           })
-          const html = await renderer.renderToString(wrapper.vm)
+
+          // use server side renderer to get renderered html string
+          const html = await renderToString(wrapper.__app)
           expect(html).toMatchSnapshot()
         })
       }

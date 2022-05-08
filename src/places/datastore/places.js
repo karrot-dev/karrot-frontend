@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import places from '@/places/api/places'
 import { optionsFor } from '@/places/placeStatus'
 import {
@@ -161,7 +160,7 @@ export default {
       state.entries = Object.freeze({ ...state.entries, ...indexById(places) })
     },
     setStatistics (state, { id, data }) {
-      Vue.set(state.statistics, id, Object.freeze(data))
+      state.statistics[id] = Object.freeze(data)
     },
   },
 }

@@ -6,7 +6,7 @@
       square
       :loading="loading"
       :columns="columns"
-      :data="enrichedDataWithTotals"
+      :rows="enrichedDataWithTotals"
       row-key="id"
       hide-pagination
       :rows-per-page-options="[0]"
@@ -61,10 +61,9 @@
           style="min-width: 120px;"
           :display-value="leftOptionsDisplayValue"
         >
-          <template #option="{ itemProps, itemEvents, opt, selected, toggleOption }">
+          <template #option="{ itemProps, opt, selected, toggleOption }">
             <QItem
               v-bind="itemProps"
-              v-on="itemEvents"
             >
               <QItemSection>
                 <QItemLabel>
@@ -76,8 +75,8 @@
               </QItemSection>
               <QItemSection side>
                 <QToggle
-                  :value="selected"
-                  @input="toggleOption(opt)"
+                  :model-value="selected"
+                  @update:model-value="toggleOption(opt)"
                 />
               </QItemSection>
             </QItem>
@@ -407,8 +406,8 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 // the last row is our special totals row, so make it stand out
->>> tr:last-child td
-  font-weight 500
+::v-deep(tr:last-child td)
+  font-weight: 500
 </style>

@@ -26,7 +26,8 @@
         >
           <QCard>
             <QImg
-              basic
+              no-spinner
+              no-transition
               :ratio="4/3"
             />
             <QItem style="min-height: 57px;" />
@@ -56,13 +57,15 @@
             >
               <QImg
                 v-if="offer.images[0]"
-                basic
+                no-spinner
+                no-transition
                 :src="offer.images[0].imageUrls['600']"
                 :ratio="4/3"
               />
               <QImg
                 v-else
-                basic
+                no-spinner
+                no-transition
                 :ratio="4/3"
               >
                 <QIcon

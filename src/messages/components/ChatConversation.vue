@@ -18,8 +18,8 @@
           :key="message.id"
           :message="message"
           slim
-          @toggle-reaction="$emit('toggle-reaction', arguments[0])"
-          @save="$emit('save-message', arguments[0])"
+          @toggle-reaction="(...args) => $emit('toggle-reaction', ...args)"
+          @save="(...args) => $emit('save-message', ...args)"
         />
         <slot name="before-chat-compose" />
         <ConversationCompose
@@ -78,7 +78,7 @@ import {
   QScrollObserver,
   QInfiniteScroll,
 } from 'quasar'
-const { getScrollHeight, getScrollPosition, setScrollPosition, getScrollTarget } = scroll
+const { getScrollHeight, getVerticalScrollPosition, setVerticalScrollPosition, getScrollTarget } = scroll
 const { height } = dom
 
 function getElementHeight (el) {
@@ -115,6 +115,14 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'toggle-reaction',
+    'save-message',
+    'mark',
+    'send',
+    'fetch-future',
+    'fetch-past',
+  ],
   data () {
     return {
       scrollContainer: null,
@@ -234,7 +242,7 @@ export default {
       if (!this.scrollContainer) return
       const height = getElementHeight(this.scrollContainer)
       const scrollHeight = getScrollHeight(this.scrollContainer)
-      const scrollPosition = getScrollPosition(this.scrollContainer)
+      const scrollPosition = getVerticalScrollPosition(this.scrollContainer)
       return scrollHeight - scrollPosition - height
     },
     saveScrollPosition () {
@@ -248,12 +256,12 @@ export default {
       const height = getElementHeight(this.scrollContainer)
       const scrollHeight = getScrollHeight(this.scrollContainer)
       const scrollPosition = scrollHeight - height - this.scrollPositionFromBottom
-      setScrollPosition(this.scrollContainer, scrollPosition)
+      setVerticalScrollPosition(this.scrollContainer, scrollPosition)
     },
     scrollToBottom () {
       this.$nextTick(() => {
         if (this.scrollContainer) {
-          setScrollPosition(this.scrollContainer, getScrollHeight(this.scrollContainer))
+          setVerticalScrollPosition(this.scrollContainer, getScrollHeight(this.scrollContainer))
         }
       })
     },
@@ -267,7 +275,7 @@ export default {
       this.hideBottomSpinner = done
     },
     onScroll ({ position }) {
-      if (position < 50 && !this.fetchingPast && this.conversation.canFetchPast) {
+      if (position.top < 50 && !this.fetchingPast && this.conversation.canFetchPast) {
         this.$emit('fetch-past', this.conversation.id)
       }
       // if user scrolls to bottom and no more messages can be loaded, mark messages as read

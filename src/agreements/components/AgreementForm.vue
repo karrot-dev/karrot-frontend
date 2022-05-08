@@ -86,8 +86,8 @@ import {
   QTooltip,
   Dialog,
 } from 'quasar'
-import { validationMixin } from 'vuelidate'
-import { required } from 'vuelidate/lib/validators'
+// import { validationMixin } from 'vuelidate'
+// import { required } from 'vuelidate/lib/validators'
 import editMixin from '@/utils/mixins/editMixin'
 
 export default {
@@ -99,7 +99,11 @@ export default {
     QCheckbox,
     QTooltip,
   },
-  mixins: [validationMixin, editMixin],
+  mixins: [editMixin],
+  emits: [
+    'cancel',
+    'replace',
+  ],
   data () {
     return {
       minor: false,
@@ -148,6 +152,7 @@ export default {
         .onOk(() => this.destroy(event))
     },
   },
+  /*
   validations: {
     edit: {
       title: {
@@ -158,20 +163,19 @@ export default {
       },
     },
   },
+  */
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .edit
-  width 100%
-  padding 20px
+  width: 100%
+  padding: 20px
 
   &.changed
-    background-color $yellow-1
+    background-color: $yellow-1
 
 .minor
-  margin-right 10px
-  margin-left 10px
+  margin-right: 10px
+  margin-left: 10px
 </style>

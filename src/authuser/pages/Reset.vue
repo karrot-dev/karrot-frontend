@@ -1,14 +1,17 @@
+<template>
+  <PasswordReset
+    :status="$store.getters['users/resetPasswordStatus']"
+    :code="$store.getters['route/code']"
+    @submit="data => $store.dispatch('users/resetPassword', data)"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import PasswordReset from '@/authuser/components/PasswordReset'
 
-export default connect({
-  gettersToProps: {
-    status: 'users/resetPasswordStatus',
-    code: 'route/code',
+export default {
+  components: {
+    PasswordReset,
   },
-  actionsToEvents: {
-    submit: 'users/resetPassword',
-  },
-})('PasswordReset', PasswordReset)
+}
 </script>

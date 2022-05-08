@@ -3,8 +3,8 @@
     <QToggle
       :label="$t('USERDATA.PUSH_CURRENT_BROWSER')"
       :disable="pending"
-      :value="value"
-      @input="onChange"
+      :model-value="value"
+      @update:model-value="onChange"
     />
   </div>
 </template>
@@ -28,6 +28,10 @@ export default {
       type: Boolean,
     },
   },
+  emits: [
+    'enable',
+    'disable',
+  ],
   methods: {
     onChange (value) {
       this.$emit(value ? 'enable' : 'disable')
@@ -36,6 +40,6 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 @import '~editbox'
 </style>

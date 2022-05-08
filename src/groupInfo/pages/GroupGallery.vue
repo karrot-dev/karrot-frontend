@@ -1,19 +1,21 @@
+<template>
+  <GroupGalleryUI
+    :my-groups="$store.getters['groups/mineWithApplications']"
+    :other-groups="$store.getters['groups/other']"
+    :fetch-status="$store.getters['groups/fetchStatus']"
+    :is-logged-in="$store.getters['auth/isLoggedIn']"
+    :my-coordinates="$store.getters['geo/myCoordinates']"
+    @preview="groupId => $router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }).catch(() => {})"
+    @visit="groupId => $router.push({ name: 'group', params: { groupId } }).catch(() => {})"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
-import router from '@/router'
 import GroupGalleryUI from '@/groupInfo/components/GroupGalleryUI'
 
-export default connect({
-  gettersToProps: {
-    myGroups: 'groups/mineWithApplications',
-    otherGroups: 'groups/other',
-    fetchStatus: 'groups/fetchStatus',
-    isLoggedIn: 'auth/isLoggedIn',
-    myCoordinates: 'geo/myCoordinates',
+export default {
+  components: {
+    GroupGalleryUI,
   },
-  methodsToEvents: {
-    preview: (_, groupId) => router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }).catch(() => {}),
-    visit: (_, groupId) => router.push({ name: 'group', params: { groupId } }).catch(() => {}),
-  },
-})('GroupGallery', GroupGalleryUI)
+}
 </script>

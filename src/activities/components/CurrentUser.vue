@@ -45,27 +45,28 @@ export default {
       required: true,
     },
   },
+  emits: [
+    'leave',
+  ],
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .user-slot-wrapper
-  cursor pointer
+  cursor: pointer
 
   .leave-icon
-    color $negative
-    text-align center
-    visibility hidden
-    border 2px dashed
-    border-radius 0
+    color: $negative
+    text-align: center
+    visibility: hidden
+    border: 2px dashed
+    border-radius: 0
 
 @media (hover)
   .user-slot-wrapper:hover
     .leave-icon
-      visibility visible
+      visibility: visible
 
     .profile-picture
-      visibility hidden
+      visibility: hidden
 </style>

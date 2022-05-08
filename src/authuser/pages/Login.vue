@@ -1,13 +1,16 @@
+<template>
+  <Login
+    :status="$store.getters['auth/loginStatus']"
+    @submit="data => $store.dispatch('auth/login', data)"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import Login from '@/authuser/components/Login'
 
-export default connect({
-  gettersToProps: {
-    status: 'auth/loginStatus',
+export default {
+  components: {
+    Login,
   },
-  actionsToEvents: {
-    submit: 'auth/login',
-  },
-})('Login', Login)
+}
 </script>

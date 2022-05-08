@@ -14,6 +14,8 @@
   "exclude": [
     "dist",
     ".quasar",
-    "node_modules"
+    "node_modules",
+    "storybook-static",
+    "docs/_book"
   ]
 }

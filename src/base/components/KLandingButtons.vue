@@ -49,24 +49,24 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .landing-buttons
-  justify-content center
+  justify-content: center
   // q-gutter-md defines a 16px gutter which isn't optimal
   // -> override x-axis gutter to be 10px instead
-  margin-left -10px
+  margin-left: -10px
 
   > *
-    margin-left 10px
+    margin-left: 10px
 
   &.align-left-on-bigger-screens
     @media (min-width: 600px)
-      justify-content flex-start
+      justify-content: flex-start
 
   a
-    flex-shrink 0
+    flex-shrink: 0
 
     .button
       @media (min-width: 410px)
-        font-size 1rem // 16px
+        font-size: 1rem // 16px
 </style>

@@ -1,4 +1,5 @@
-import { storiesOf } from '@storybook/vue'
+import { h } from 'vue'
+import { storiesOf } from '@storybook/vue3'
 
 import KTopbar from './KTopbar'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
@@ -46,6 +47,6 @@ const datastore = createDatastore({
 
 storiesOf('Layout', module)
   .add('KTopbar', () => defaults({
-    render: h => h(KTopbar),
+    render: () => h(KTopbar),
     store: datastore,
   }))

@@ -83,23 +83,23 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .padding
-  padding 1em
+  padding: 1em
 
 .notice
   .icon
-    margin .1em 0 0 0
-  padding 2em 3em
-  transform translateZ(1px) rotate(-3deg)
+    margin: .1em 0 0 0
+  padding: 2em 3em
+  transform: translateZ(1px) rotate(-3deg)
 
   h5
-    padding 0
+    padding: 0
 
 .manage
-  padding 8px
+  padding: 8px
 
   q-btn
-    display inline-block
-    padding .3em
+    display: inline-block
+    padding: .3em
 </style>

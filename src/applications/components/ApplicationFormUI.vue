@@ -82,6 +82,10 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'cancel',
+    'apply',
+  ],
   data () {
     return {
       applicationAnswers: '',
@@ -95,8 +99,8 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 // can be removed once splash layout has scoped css
 .splash-md
-  color black
+  color: black
 </style>

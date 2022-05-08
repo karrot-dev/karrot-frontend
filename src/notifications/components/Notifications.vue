@@ -84,6 +84,9 @@ export default {
   mounted () {
     this.setPageVisible(true)
   },
+  beforeUnmount () {
+    this.setPageVisible(false)
+  },
   methods: {
     ...mapActions({
       fetchPast: 'notifications/fetchPast',
@@ -92,9 +95,6 @@ export default {
     ...mapMutations({
       setPageVisible: 'notifications/setPageVisible',
     }),
-  },
-  beforeDestory () {
-    this.setPageVisible(false)
   },
 }
 </script>

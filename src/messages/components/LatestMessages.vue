@@ -97,9 +97,9 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-@import '~variables'
+<style lang="sass" scoped>
+@use "sass:color"
 
-.k-message-tabs >>> .q-tab .q-chip
-  background alpha($secondary, 0.85)
+.k-message-tabs ::v-deep(.q-tab .q-chip)
+  background: color.change($secondary, $alpha: 0.85)
 </style>

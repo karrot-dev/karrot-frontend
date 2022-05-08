@@ -3,20 +3,21 @@
     v-if="unsupportedBrowser"
     class="browser-warning bg-warning text-white"
   >
-    <i18n
+    <i18n-t
       tag="span"
-      path="OUTDATED_BROWSER.MESSAGE"
+      keypath="OUTDATED_BROWSER.MESSAGE"
     >
-      <a
-        slot="upgradeBrowser"
-        v-t="'OUTDATED_BROWSER.LINK'"
-        href="https://browser-update.org/update.html"
-        class="outdated-link"
-        rel="noopener nofollow noreferrer"
-        target="_blank"
-        translate="yes"
-      />
-    </i18n>
+      <template #upgradeBrowser>
+        <a
+          v-t="'OUTDATED_BROWSER.LINK'"
+          href="https://browser-update.org/update.html"
+          class="outdated-link"
+          rel="noopener nofollow noreferrer"
+          target="_blank"
+          translate="yes"
+        />
+      </template>
+    </i18n-t>
   </div>
 </template>
 
@@ -44,14 +45,12 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .browser-warning
-  width 100%
-  padding 10px 4px
-  text-align center
+  width: 100%
+  padding: 10px 4px
+  text-align: center
 
 .outdated-link
-  text-decoration underline
+  text-decoration: underline
 </style>

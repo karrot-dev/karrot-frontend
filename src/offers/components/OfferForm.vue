@@ -14,7 +14,7 @@
           v-bind="nameError"
           :autofocus="!$q.platform.has.touch"
           autocomplete="off"
-          @blur="$v.edit.name.$touch"
+          @blur="v$.edit.name.$touch"
         >
           <template #before>
             <QIcon name="fas fa-fw fa-star" />
@@ -63,8 +63,8 @@
 </template>
 
 <script>
-import { validationMixin } from 'vuelidate'
-import { maxLength, minLength, required } from 'vuelidate/lib/validators'
+import useVuelidate from '@vuelidate/core'
+import { maxLength, minLength, required } from '@vuelidate/validators'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
 import { QBtn, QField, QIcon, QInput } from 'quasar'
@@ -87,7 +87,7 @@ export default {
     QIcon,
     KSpinner,
   },
-  mixins: [validationMixin, editMixin, statusMixin],
+  mixins: [editMixin, statusMixin],
   props: {
     value: {
       type: Object,
@@ -104,9 +104,14 @@ export default {
       default: false,
     },
   },
+  setup () {
+    return {
+      v$: useVuelidate(),
+    }
+  },
   computed: {
     canSave () {
-      if (this.$v.edit.$error) {
+      if (this.v$.edit.$error) {
         return false
       }
       return this.isNew || this.hasChanged
@@ -127,9 +132,9 @@ export default {
   },
   methods: {
     maybeSave () {
-      this.$v.edit.$touch()
+      this.v$.edit.$touch()
       if (!this.canSave) return
-      this.$v.edit.$reset()
+      this.v$.edit.$reset()
       this.save()
     },
   },
@@ -148,6 +153,6 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 @import '~editbox'
 </style>

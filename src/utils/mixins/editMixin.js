@@ -6,6 +6,11 @@ export default {
   props: {
     value: { required: true, type: Object },
   },
+  emits: [
+    'save',
+    'destroy',
+    'reset',
+  ],
   data () {
     return {
       edit: cloneDeep(this.value),

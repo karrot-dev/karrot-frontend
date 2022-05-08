@@ -15,7 +15,7 @@ describe('Signup', () => {
     const wrapper = mountWithDefaults(Signup, {
       propsData: {
         status: statusMocks.default(),
-        prefillEmail: () => '',
+        prefillEmail: '',
         hasGroupToJoin: false,
       },
     })

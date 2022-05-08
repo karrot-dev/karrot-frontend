@@ -11,9 +11,8 @@ const { configure } = require('quasar/wrappers')
 const { resolve } = require('path')
 const fs = require('fs')
 const ESLintPlugin = require('eslint-webpack-plugin')
-const StyleLintPlugin = require('stylelint-webpack-plugin')
+// const StyleLintPlugin = require('stylelint-webpack-plugin') TODO?
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 function getHttpsOptions () {
@@ -51,9 +50,6 @@ module.exports = configure(function (ctx) {
       THEME: process.env.KARROT_THEME,
       GIT_SHA1: process.env.GIT_SHA1 || process.env.CIRCLE_SHA1,
     },
-    // vuelidate wants this
-    // see https://github.com/monterail/vuelidate/issues/365
-    BUILD: JSON.stringify('web'),
   }
 
   return {
@@ -71,6 +67,7 @@ module.exports = configure(function (ctx) {
     // app boot file (/src/boot)
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
+      'compat',
       'loglevel',
       'pwa',
       'helloDeveloper',
@@ -85,12 +82,11 @@ module.exports = configure(function (ctx) {
       'performance',
       'presenceReporter',
       'vuex-router-sync',
-      'vueRoot',
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
     css: [
-      'app.styl',
+      'app.sass',
     ],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
@@ -114,8 +110,6 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
-
       // transpile: false,
 
       // Add dependencies for transpiling with Babel (Array of string/regex)
@@ -167,6 +161,18 @@ module.exports = configure(function (ctx) {
         /* eslint-enable indent */
       },
 
+      // for compatibility with vue-croppa
+      // can be deleted once vue-croppa supports vue 3 or we don't use it anymore
+      // see https://github.com/zhanziyang/vue-croppa/issues/235
+      // also check src/boot/compat.js
+      vueLoaderOptions: {
+        compilerOptions: {
+          compatConfig: {
+            MODE: 3,
+          },
+        },
+      },
+
       extendWebpack (cfg) {
         cfg.plugins.push(new ESLintPlugin())
 
@@ -176,14 +182,10 @@ module.exports = configure(function (ctx) {
           // Add your own alias like this
           '@': resolve(__dirname, './src'),
           '>': resolve(__dirname, './test'),
-          variables: resolve(__dirname, './src/css/quasar.variables.styl'),
-          editbox: resolve(__dirname, './src/css/karrot.editbox.styl'),
+          variables: resolve(__dirname, './src/css/quasar.variables.sass'),
+          editbox: resolve(__dirname, './src/css/karrot.editbox.sass'),
+          vue: '@vue/compat',
         }
-
-        cfg.plugins.unshift(new StyleLintPlugin({
-          files: ['./src/**/*.{vue,styl}'],
-          customSyntax: resolve(__dirname, './build/stylelintCustomSyntax.js'),
-        }))
 
         cfg.plugins.push(
           new PreloadWebpackPlugin({
@@ -192,17 +194,6 @@ module.exports = configure(function (ctx) {
             rel: 'prefetch',
           }),
         )
-
-        if (dev) {
-          cfg.plugins.push(new HardSourceWebpackPlugin({
-            configHash: function (webpackConfig) {
-              return require('node-object-hash')({ sort: false }).hash([
-                webpackConfig,
-                appEnv,
-              ])
-            },
-          }))
-        }
 
         if (!dev) {
           cfg.plugins.push(new BundleAnalyzerPlugin({
@@ -231,20 +222,8 @@ module.exports = configure(function (ctx) {
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
     framework: {
       iconSet: 'material-icons', // Quasar icon set
-      lang: 'en-us', // Quasar language pack
+      lang: 'en-US', // Quasar language pack
       config: {},
-
-      // Possible values for "importStrategy":
-      // * 'auto' - (DEFAULT) Auto-import needed Quasar components & directives
-      // * 'all'  - Manually specify what to import
-      importStrategy: 'auto',
-
-      // For special cases outside of where "auto" importStrategy can have an impact
-      // (like functional components as one of the examples),
-      // you can manually specify Quasar components/directives to be available everywhere:
-      //
-      // components: [],
-      // directives: [],
 
       // Quasar plugins
       plugins: [
@@ -276,6 +255,12 @@ module.exports = configure(function (ctx) {
           // See https://github.com/karrot-dev/karrot-frontend/issues/2209
           'index.html',
         ],
+      },
+      extendWebpackCustomSW (cfg) {
+        cfg.resolve.alias = {
+          ...cfg.resolve.alias,
+          '@': resolve(__dirname, './src'),
+        }
       },
       manifest: {
         name: process.env.PWA_APP_NAME || 'Karrot local dev',

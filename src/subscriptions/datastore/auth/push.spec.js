@@ -90,7 +90,7 @@ describe('auth/push', () => {
       expect(datastore.state.auth.push.token).toBe(token)
       await nextTicks(2)
       expect(mockCreateSubscription).toBeCalled()
-      expect(mockCreateSubscription.mock.calls[0][0]).toEqual({ platform: 'web', token: token })
+      expect(mockCreateSubscription.mock.calls[0][0]).toEqual({ platform: 'web', token })
     })
 
     it('deletes old tokens', async () => {

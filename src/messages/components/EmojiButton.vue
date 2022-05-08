@@ -37,6 +37,9 @@ export default {
       required: true,
     },
   },
+  emits: [
+    'click',
+  ],
   computed: {
     emojiElement () {
       return getEmojiElement(this.name)
@@ -53,20 +56,20 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .q-btn
-  min-height 23px
-  padding 0px 3px
-  line-height 31px
+  min-height: 23px
+  padding: 0px 3px
+  line-height: 31px
 
-  >>> .q-btn__wrapper
-    min-height 0
-    padding 0
+  ::v-deep(.q-btn__wrapper)
+    min-height: 0
+    padding: 0
 
 .emoji
-  >>> img.emoji
-    width 1em
-    height 1em
-    margin .1em .1em
-    vertical-align middle
+  ::v-deep(img.emoji)
+    width: 1em
+    height: 1em
+    margin: .1em .1em
+    vertical-align: middle
 </style>

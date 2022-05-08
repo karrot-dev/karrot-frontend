@@ -1,9 +1,15 @@
+<template>
+  <HistoryDetail
+    :entry="$store.getters['history/active']"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import HistoryDetail from '@/history/components/HistoryDetail'
-export default connect({
-  gettersToProps: {
-    entry: 'history/active',
+
+export default {
+  components: {
+    HistoryDetail,
   },
-})('HistoryDetail', HistoryDetail)
+}
 </script>

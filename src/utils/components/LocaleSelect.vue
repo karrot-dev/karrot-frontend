@@ -29,10 +29,11 @@ import {
   QBtn,
   QDialog,
 } from 'quasar'
+import { defineAsyncComponent } from 'vue'
 import { mapGetters } from 'vuex'
 import locales from '@/locales/index'
 
-const LocaleSelectInner = () => import('./LocaleSelectInner')
+const LocaleSelectInner = defineAsyncComponent(() => import('./LocaleSelectInner'))
 
 export default {
   name: 'LocaleSelect',
@@ -65,13 +66,11 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-@import '~variables'
-
+<style lang="sass" scoped>
 .k-locale-select
   .q-icon
-    opacity $topbar-opacity-low
+    opacity: $topbar-opacity-low
 
   &:hover .q-icon
-    opacity 1
+    opacity: 1
 </style>

@@ -22,11 +22,12 @@
         :auto-sizing="true"
         @new-image-drawn="imageDrawn(item)"
       >
-        <img
-          slot="placeholder"
-          src="statics/add_a_photo.svg"
-          :width="60"
-        >
+        <template #placeholder>
+          <img
+            src="statics/add_a_photo.svg"
+            :width="60"
+          >
+        </template>
       </Croppa>
       <QBtnGroup
         rounded
@@ -81,6 +82,8 @@
 import { QBtn, QBtnGroup } from 'quasar'
 import CroppaPlugin from 'vue-croppa'
 const Croppa = CroppaPlugin.component
+// Upgrade Croppa once it's compatible with Vue3: https://github.com/zhanziyang/vue-croppa/issues/235
+Croppa.compatConfig = { MODE: 2 }
 
 function sortByPosition (a, b) {
   return a.position - b.position
@@ -106,7 +109,7 @@ export default {
      * - when adding a new image an entry will be added with _new: true, and `toBlob: Function<Promise>`
      * - when changing position, the `position` field will be updated (but the position in array left the same)
      */
-    value: {
+    modelValue: {
       type: Array,
       required: true,
     },
@@ -119,6 +122,9 @@ export default {
       default: true,
     },
   },
+  emits: [
+    'update:modelValue',
+  ],
   data () {
     return {
       sourceKey: new Map(), // source -> key
@@ -130,7 +136,7 @@ export default {
   computed: {
     items () {
       return [
-        ...this.value
+        ...this.modelValue
           .filter(item => !item._removed)
           .map(source => {
             let key = this.sourceKey.get(source)
@@ -217,8 +223,8 @@ export default {
         position,
       })
 
-      this.$emit('input', [
-        ...this.value,
+      this.$emit('update:modelValue', [
+        ...this.modelValue,
         source,
       ])
       this.newItem = {
@@ -262,7 +268,7 @@ export default {
     removeImage (item) {
       if (this.isExisting(item)) {
         // this item needs to be removed from the server after we save
-        this.$emit('input', this.value.map(i => {
+        this.$emit('update:modelValue', this.modelValue.map(i => {
           if (i.id !== item.source.id) return i
           return {
             ...item.source,
@@ -272,7 +278,7 @@ export default {
       }
       else {
         // this image was never on the server, so we can just delete it
-        this.$emit('input', this.value.filter(i => i.id !== item.source.id))
+        this.$emit('update:modelValue', this.modelValue.filter(i => i.id !== item.source.id))
       }
       // in both cases, this source item will never come back
       // so we can forget the source -> key mapping
@@ -286,19 +292,19 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .croppa-container.croppa--has-target
-  cursor move
+  cursor: move
 
 .small
   .croppa-item
-    width 80px
+    width: 80px
 
-  >>> .croppa-container
-    width 80px
-    height 80px
+  ::v-deep(.croppa-container)
+    width: 80px
+    height: 80px
 
-.new-image >>> canvas
-  cursor pointer
-  border 1px solid #ddd
+.new-image ::v-deep(canvas)
+  cursor: pointer
+  border: 1px solid #ddd
 </style>

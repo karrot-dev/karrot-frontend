@@ -1,18 +1,19 @@
+<template>
+  <OfferForm
+    :fetching="$store.getters['currentOffer/fetching']"
+    :value="$store.getters['currentOffer/value']"
+    :status="$store.getters['currentOffer/saveStatus']"
+    @save="data => $store.dispatch('offers/save', data)"
+    @reset="$store.dispatch('offers/meta/clear', ['save'])"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import OfferForm from '@/offers/components/OfferForm'
 
-export default connect({
-  gettersToProps: {
-    fetching: 'currentOffer/fetching',
-    value: 'currentOffer/value',
-    status: 'currentOffer/saveStatus',
+export default {
+  components: {
+    OfferForm,
   },
-  actionsToEvents: {
-    save: 'offers/save',
-  },
-  methodsToEvents: {
-    reset: ({ dispatch }) => dispatch('offers/meta/clear', ['save']),
-  },
-})('OfferEdit', OfferForm)
+}
 </script>

@@ -86,21 +86,21 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .wrapper
   .prevBread, .q-btn, div
-    display inline-block
+    display: inline-block
 
   .label
-    justify-content center
-    padding 0 16px
-    font-weight 500
-    text-overflow ellipsis
-    text-transform uppercase
-    vertical-align middle
-    cursor auto
-    outline 0
+    justify-content: center
+    padding: 0 16px
+    font-weight: 500
+    text-overflow: ellipsis
+    text-transform: uppercase
+    vertical-align: middle
+    cursor: auto
+    outline: 0
 
 body.desktop .lastElement
-  font-size 1.5rem
+  font-size: 1.5rem
 </style>

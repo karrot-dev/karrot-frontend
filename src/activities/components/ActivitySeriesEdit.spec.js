@@ -1,11 +1,11 @@
-import Vue from 'vue'
+import { nextTick } from 'vue'
 
 import * as factories from '>/enrichedFactories'
 import { createDatastore } from '>/helpers'
 
 import { QSelect } from 'quasar'
 
-const store = createDatastore({
+const datastore = createDatastore({
   users: {
     getters: {
       byCurrentGroup: () => [],
@@ -22,7 +22,7 @@ describe('ActivitySeriesEdit', () => {
     series = factories.makeActivitySeries()
     const { mountWithDefaults } = require('>/helpers')
     wrapper = mountWithDefaults(require('./ActivitySeriesEdit').default, {
-      store,
+      datastore,
       propsData: {
         value: series,
         status: { pending: false, validationErrors: {} },
@@ -53,7 +53,7 @@ describe('ActivitySeriesEdit', () => {
 
   it('does not let you remove all days', async () => {
     wrapper.vm.byDay = []
-    await Vue.nextTick()
+    await nextTick()
     expect(wrapper.vm.edit.rule.byDay).toEqual(series.rule.byDay)
   })
 
@@ -61,7 +61,7 @@ describe('ActivitySeriesEdit', () => {
     expect(wrapper.vm.hasChanged).toBe(false)
     wrapper.vm.edit.maxParticipants++
     expect(wrapper.vm.hasChanged).toBe(true)
-    await Vue.nextTick()
+    await nextTick()
     expect(wrapper.classes()).toContain('changed')
   })
 

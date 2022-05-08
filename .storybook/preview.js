@@ -1,28 +1,25 @@
 // Vue config
-import 'quasar/dist/quasar.styl'
-import '../src/css/app.styl'
+import 'quasar/dist/quasar.css'
+import '@/css/app.sass'
 
-import Vue from 'vue'
-import Vuex from 'vuex'
-import VueI18n from 'vue-i18n'
-import VueRouter from 'vue-router'
-import configureQuasar from '>/configureQuasar'
-import { RouterLinkStub, TransitionStub, TransitionGroupStub } from '@vue/test-utils'
-import { IconPlugin } from '@/base/icons'
+// import Vuex from 'vuex'
+// import VueRouter from 'vue-router'
+import { i18nPlugin } from '@/base/i18n'
+import { Quasar } from 'quasar'
+import quasarConfig from '>/quasarConfig'
+import { RouterLinkStub } from '@vue/test-utils'
+import icons from '@/base/icons'
+import { app } from '@storybook/vue3'
 
-Vue.config.productionTip = false
-Vue.config.devtools = true
-configureQuasar(Vue)
-Vue.use(Vuex) // Install Vuex
-Vue.use(IconPlugin)
-Vue.use(VueI18n)
-Vue.use(VueRouter)
+app.use(i18nPlugin)
+app.use(Quasar, quasarConfig)
+// app.use(Vuex)
+// app.use(VueRouter)
+app.config.globalProperties.$icon = icons.get
 
-Vue.component('RouterLink', RouterLinkStub)
-Vue.component('Transition', TransitionStub)
-Vue.component('TransitionGroup', TransitionGroupStub)
-Vue.directive('measure', {})
-Vue.config.errorHandler = (err, vm, info) => {
+app.component('RouterLink', RouterLinkStub)
+app.directive('measure', {})
+app.config.errorHandler = (err, vm, info) => {
   console.log(err, vm, info)
 }
 

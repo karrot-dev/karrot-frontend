@@ -1,21 +1,42 @@
+<template>
+  <LMarker
+    v-bind="$attrs"
+    @ready="ready"
+  >
+    <slot />
+  </LMarker>
+</template>
+
 <script>
-import { LMarker } from 'vue2-leaflet'
+import { LMarker } from '@vue-leaflet/vue-leaflet'
+
 export default {
   name: 'ExtendedMarker',
-  extends: LMarker,
+  components: {
+    LMarker,
+  },
   props: {
     opacity: {
       type: Number,
       default: 1,
     },
   },
+  data () {
+    return {
+      leafletObject: null,
+    }
+  },
   watch: {
     opacity (val) {
-      this.mapObject.setOpacity(val)
+      if (!this.leafletObject) return
+      this.leafletObject.setOpacity(val)
     },
   },
-  mounted () {
-    this.mapObject.setOpacity(this.opacity)
+  methods: {
+    ready (leafletObject) {
+      this.leafletObject = leafletObject
+      this.leafletObject.setOpacity(this.opacity)
+    },
   },
 }
 </script>

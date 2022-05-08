@@ -74,13 +74,11 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .wrapper
   .amount
-    margin-right .6em
+    margin-right: .6em
 
   img
-    height 60px
+    height: 60px
 </style>

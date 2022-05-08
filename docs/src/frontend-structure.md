@@ -17,7 +17,7 @@ src/
       - ...
     - datastore/                # vuex namespaced modules and plugins
       - activity.js
-      - activity.spec.js          # unit test 
+      - activity.spec.js          # unit test
       - ...
     - components/               # reusable components (atoms, molecules, organism)
       - ActivityUser.vue
@@ -26,7 +26,7 @@ src/
       - ...
     - pages/                    # page templates and instances
       - ActivitiesManage.vue       # page connected with mapGetters and mapActions
-      - ActivitiesManageUI.vue     # or with vuex-connect
+      - ActivitiesManageUI.vue
       - ...
 ```
 

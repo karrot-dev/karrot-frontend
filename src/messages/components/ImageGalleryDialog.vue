@@ -74,6 +74,10 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'hide',
+    'ok',
+  ],
   data () {
     return {
       current: this.selectedImageId !== null ? this.selectedImageId : this.message.images[0].id,
@@ -111,23 +115,23 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 // making the fullsize image 600 (or full width) sized
 .q-card
-  width 600px
-  max-width 100vw
+  width: 600px
+  max-width: 100vw
 
 .q-carousel
-  height 600px
-  max-height 100vw
+  height: 600px
+  max-height: 100vw
 </style>
 
-<style lang="stylus">
+<style lang="sass">
 // make it full width when on mobile
 body.mobile .ImageGalleryDialog
   .q-card
-    margin 0
+    margin: 0
 
   .q-dialog__inner--minimized
-    padding 0
+    padding: 0
 </style>

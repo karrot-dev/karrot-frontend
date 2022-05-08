@@ -138,6 +138,10 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'close',
+    'start-conflict-resolution',
+  ],
   data () {
     return {
       setup: 'attention',
@@ -156,10 +160,10 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .q-step
-  min-height 200px
+  min-height: 200px
 
 .q-stepper
-  max-width 700px
+  max-width: 700px
 </style>

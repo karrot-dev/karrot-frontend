@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { nextTick } from 'vue'
 
 import ProfileEdit from './ProfileEdit'
 import { usersMock } from '>/mockdata'
@@ -30,7 +30,7 @@ describe('ProfileEdit', () => {
     expect(wrapper.vm.hasChanged).toBe(false)
     wrapper.vm.edit.displayName = 'a new name'
     expect(wrapper.vm.hasChanged).toBe(true)
-    return Vue.nextTick().then(() => {
+    return nextTick().then(() => {
       expect(wrapper.classes()).toContain('changed')
     })
   })

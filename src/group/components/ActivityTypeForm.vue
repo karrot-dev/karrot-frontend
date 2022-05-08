@@ -56,12 +56,12 @@
               />
               <QIconPicker
                 v-model="edit.icon"
+                v-model:pagination="iconPagination"
                 icon-set="fontawesome-v5"
                 :filter="iconFilter"
                 :color="colour"
                 selected-color="white"
                 :selected-background-color="colour"
-                :pagination.sync="iconPagination"
                 style="height: 220px;"
               />
             </QMenu>
@@ -108,26 +108,25 @@
         autocomplete="off"
         type="input"
         :hint="edit.nameIsTranslatable ? $t('ACTIVITY_TYPES.STANDARD_NAME_HINT') : $t('ACTIVITY_TYPES.CUSTOM_NAME_HINT')"
-        @blur="$v.edit.name.$touch"
+        @blur="v$.edit.name.$touch"
         @input-value="onNameInput"
         @keyup.enter="() => $refs.nameInput.hidePopup()"
       >
-        <template #option="{ index, itemProps, itemEvents, opt: { label: itemLabel, useCustomName } }">
+        <template #option="{ index, itemProps, opt: { label: itemLabel, useCustomName } }">
           <QItem
             :key="index"
             v-bind="itemProps"
-            v-on="itemEvents"
           >
             <QItemSection>
               <QItemLabel v-if="useCustomName">
-                <i18n
+                <i18n-t
                   v-if="itemLabel && !edit.nameIsTranslatable"
-                  path="ACTIVITY_TYPES.CUSTOM_NAME_USE"
+                  keypath="ACTIVITY_TYPES.CUSTOM_NAME_USE"
                 >
                   <template #name>
                     <strong>{{ itemLabel }}</strong>
                   </template>
-                </i18n>
+                </i18n-t>
                 <span v-else>
                   {{ $t('ACTIVITY_TYPES.CUSTOM_NAME_PROMPT') }}
                 </span>
@@ -191,12 +190,12 @@
                 />
                 <QIconPicker
                   v-model="edit.feedbackIcon"
+                  v-model:pagination="feedbackIconPagination"
                   icon-set="fontawesome-v5"
                   :filter="feedbackIconFilter"
                   :color="colour"
                   selected-color="white"
                   :selected-background-color="colour"
-                  :pagination.sync="feedbackIconPagination"
                   style="height: 220px;"
                 />
               </QMenu>
@@ -242,9 +241,9 @@ import {
   QSeparator,
   colors,
 } from 'quasar'
-import { Component as QIconPicker } from '@quasar/quasar-ui-qiconpicker'
-import { validationMixin } from 'vuelidate'
-import { required } from 'vuelidate/lib/validators'
+import { QIconPicker } from '@quasar/quasar-ui-qiconpicker/src/index'
+import useVuelidate from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
 
 import { createActivityTypeStylesheet } from '@/activities/datastore/activityTypeStylesheetPlugin'
 
@@ -295,12 +294,20 @@ export default {
     QItemLabel,
     QSeparator,
   },
-  mixins: [validationMixin, editMixin, statusMixin],
+  mixins: [editMixin, statusMixin],
   props: {
     activityTypes: {
       type: Array,
       required: true,
     },
+  },
+  emits: [
+    'cancel',
+  ],
+  setup () {
+    return {
+      v$: useVuelidate(),
+    }
   },
   data () {
     return {
@@ -362,8 +369,8 @@ export default {
       return !!this.nameError
     },
     nameError () {
-      if (this.$v.edit.name.$error) {
-        const m = this.$v.edit.name
+      if (this.v$.edit.name.$error) {
+        const m = this.v$.edit.name
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
         if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
       }
@@ -403,7 +410,7 @@ export default {
       removeStylesheet,
     })
   },
-  beforeDestroy () {
+  beforeUnmount () {
     this.removeStylesheet()
   },
   methods: {
@@ -447,7 +454,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 @import '~editbox'
 </style>
 

@@ -1,18 +1,20 @@
+<template>
+  <MobileSidenavUI
+    :current-user-id="$store.getters['auth/userId']"
+    @logout="data => $store.dispatch('auth/logout', data)"
+    @toggle-sidenav="$emit('toggle-sidenav')"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import MobileSidenavUI from './MobileSidenavUI'
 
-export default connect({
-  actionsToEvents: {
-    logout: 'auth/logout',
+export default {
+  components: {
+    MobileSidenavUI,
   },
-  gettersToProps: {
-    currentUserId: 'auth/userId',
-  },
-  methodsToEvents: {
-    toggleSidenav ({ commit }) {
-      this.$emit('toggle-sidenav')
-    },
-  },
-})('MobileSidenav', MobileSidenavUI)
+  emits: [
+    'toggle-sidenav',
+  ],
+}
 </script>

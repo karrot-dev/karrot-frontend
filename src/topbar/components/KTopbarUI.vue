@@ -268,6 +268,12 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'hide-search',
+    'show-search',
+    'logout',
+    'reconnect',
+  ],
   computed: {
     hasPhoto () {
       return !!this.photo
@@ -300,31 +306,29 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .logo
-  width 32px
-  height 32px
+  width: 32px
+  height: 32px
 
 .groups
-  width 36px
-  height 36px
+  width: 36px
+  height: 36px
 
 .profilePicture
-  height 36px
-  margin-left 1em
+  height: 36px
+  margin-left: 1em
 
 .k-search-button, .k-more-options
-  opacity $topbar-opacity-low
+  opacity: $topbar-opacity-low
 
   &:hover
-    opacity 1
+    opacity: 1
 
-.q-btn >>> .q-icon
-  font-size 20px
+.q-btn ::v-deep(.q-icon)
+  font-size: 20px
 
 .presence-indicator
-  margin-right .3em
-  font-size 12px !important
+  margin-right: .3em
+  font-size: 12px !important
 </style>

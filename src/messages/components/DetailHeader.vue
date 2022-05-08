@@ -1,17 +1,20 @@
+<template>
+  <DetailHeaderUI
+    :user="$store.getters['detail/user']"
+    :activity="$store.getters['detail/activity']"
+    :application="$store.getters['detail/application']"
+    :conversation="$store.getters['detail/conversation']"
+    :current-user="$store.getters['auth/user']"
+    @save-conversation="data => $store.dispatch('conversations/maybeSave', data)"
+  />
+</template>
+
 <script>
-import { connect } from 'vuex-connect'
 import DetailHeaderUI from './DetailHeaderUI'
 
-export default connect({
-  gettersToProps: {
-    user: 'detail/user',
-    activity: 'detail/activity',
-    application: 'detail/application',
-    conversation: 'detail/conversation',
-    currentUser: 'auth/user',
+export default {
+  components: {
+    DetailHeaderUI,
   },
-  actionsToEvents: {
-    'save-conversation': 'conversations/maybeSave',
-  },
-})('DetailHeader', DetailHeaderUI)
+}
 </script>

@@ -1,41 +1,36 @@
-import Vue from 'vue'
+import { reactive, watch } from 'vue'
 import datastore from '@/store'
 
-const status = new Vue({
-  data () {
-    return {
-      foreground: true,
-      online: null,
-    }
-  },
-  created () {
-    this.online = navigator.connection.type !== 'none'
-    document.addEventListener('deviceready', () => {
-      document.addEventListener('online', () => {
-        this.online = true
-      }, false)
-      document.addEventListener('offline', () => {
-        this.online = false
-      }, false)
-
-      document.addEventListener('resume', () => {
-        this.foreground = true
-      }, false)
-
-      document.addEventListener('pause', () => {
-        this.foreground = false
-      }, false)
-    }, false)
-  },
+const state = reactive({
+  foreground: true,
+  online: null,
 })
+
+state.online = navigator.connection.type !== 'none'
+document.addEventListener('deviceready', () => {
+  document.addEventListener('online', () => {
+    state.online = true
+  }, false)
+  document.addEventListener('offline', () => {
+    state.online = false
+  }, false)
+
+  document.addEventListener('resume', () => {
+    state.foreground = true
+  }, false)
+
+  document.addEventListener('pause', () => {
+    state.foreground = false
+  }, false)
+}, false)
 
 // wait 5 seconds before triggering refresh
 const refresh = () => setTimeout(() => datastore.commit('refresh/requestRefresh', true), 5000)
 
-status.$watch('online', val => {
+watch(() => status.online, val => {
   if (val) refresh()
 })
 
-status.$watch('foreground', val => {
+watch(() => status.foreground, val => {
   if (val) refresh()
 })

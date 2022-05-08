@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="v$.user">
     <form
       name="signup"
       @submit.prevent="submit"
@@ -15,7 +15,7 @@
           autocorrect="off"
           autocapitalize="off"
           spellcheck="false"
-          @blur="$v.user.displayName.$touch"
+          @blur="v$.user.displayName.$touch"
         />
         <SplashInput
           v-model="user.username"
@@ -26,7 +26,7 @@
           autocorrect="off"
           autocapitalize="off"
           spellcheck="false"
-          @blur="$v.user.username.$touch"
+          @blur="v$.user.username.$touch"
         />
         <SplashInput
           v-model="user.email"
@@ -87,27 +87,35 @@ import {
 } from 'quasar'
 import SplashInput from '@/utils/components/SplashInput'
 import statusMixin from '@/utils/mixins/statusMixin'
-import { required, minLength, maxLength, helpers } from 'vuelidate/lib/validators'
-import { validationMixin } from 'vuelidate'
+import useVuelidate from '@vuelidate/core'
+import { required, minLength, maxLength, helpers } from '@vuelidate/validators'
 
 export default {
   components: {
     QBtn,
     SplashInput,
   },
-  mixins: [validationMixin, statusMixin],
+  mixins: [statusMixin],
   props: {
     prefillEmail: {
-      required: true,
-      type: Function,
+      default: () => '',
+      type: String,
     },
+  },
+  emits: [
+    'submit',
+  ],
+  setup () {
+    return {
+      v$: useVuelidate(),
+    }
   },
   data () {
     return {
       user: {
         displayName: null,
         username: null,
-        email: this.prefillEmail(),
+        email: this.prefillEmail,
         password: null,
       },
     }
@@ -117,8 +125,8 @@ export default {
       return !!this.displayNameError
     },
     displayNameError () {
-      if (this.$v.user.displayName.$error) {
-        const m = this.$v.user.displayName
+      if (this.v$.user.displayName.$error) {
+        const m = this.v$.user.displayName
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
         if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', { min: 2 })
         if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
@@ -129,8 +137,8 @@ export default {
       return !!this.usernameError
     },
     usernameError () {
-      if (this.$v.user.username.$error) {
-        const m = this.$v.user.username
+      if (this.v$.user.username.$error) {
+        const m = this.v$.user.username
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
         if (!m.valid) return this.$t('VALIDATION.VALID_USERNAME')
       }
@@ -140,7 +148,7 @@ export default {
       return error
     },
     canSave () {
-      if (this.$v.user.$error) {
+      if (this.v$.user.$error) {
         return false
       }
       return true
@@ -148,12 +156,12 @@ export default {
   },
   methods: {
     submit () {
-      this.$v.user.$touch()
+      this.v$.user.$touch()
       if (!this.canSave || this.isPending) return
       this.$emit('submit', {
         userData: this.user,
       })
-      this.$v.user.$reset()
+      this.v$.user.$reset()
     },
   },
   validations: {
@@ -165,7 +173,7 @@ export default {
       },
       username: {
         required,
-        valid: helpers.regex('valid', /^[\w.+-]+$/), // should correspond to backend one
+        valid: helpers.regex(/^[\w.+-]+$/), // should correspond to backend one
       },
     },
   },

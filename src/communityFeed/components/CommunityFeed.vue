@@ -40,17 +40,18 @@
               />
             </QItemSection>
             <QItemSection>
-              <i18n path="COMMUNITY_FEED.HEADER">
-                <a
-                  slot="community"
-                  href="https://community.karrot.world"
-                  target="_blank"
-                  rel="noopener"
-                  style="text-decoration: underline"
-                >
-                  {{ $t('COMMUNITY_FEED.HEADER_LINK') }}
-                </a>
-              </i18n>
+              <i18n-t keypath="COMMUNITY_FEED.HEADER">
+                <template #community>
+                  <a
+                    href="https://community.karrot.world"
+                    target="_blank"
+                    rel="noopener"
+                    style="text-decoration: underline"
+                  >
+                    {{ $t('COMMUNITY_FEED.HEADER_LINK') }}
+                  </a>
+                </template>
+              </i18n-t>
             </QItemSection>
             <QItemSection side>
               <QBtn
@@ -90,16 +91,17 @@
                 caption
                 lines="1"
               >
-                <i18n
-                  path="COMMUNITY_FEED.LAST_UPDATED"
+                <i18n-t
+                  keypath="COMMUNITY_FEED.LAST_UPDATED"
                   tag="div"
                 >
-                  <DateAsWords
-                    slot="relativeDate"
-                    style="display: inline"
-                    :date="topic.lastPostedAt"
-                  />
-                </i18n>
+                  <template #relativeDate>
+                    <DateAsWords
+                      style="display: inline"
+                      :date="topic.lastPostedAt"
+                    />
+                  </template>
+                </i18n-t>
               </QItemLabel>
             </QItemSection>
           </QItem>
@@ -161,9 +163,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .isUnread
-  background linear-gradient(to right, $lightGreen, $lighterGreen)
+  background: linear-gradient(to right, $lightGreen, $lighterGreen)
 </style>

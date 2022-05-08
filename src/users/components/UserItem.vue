@@ -18,27 +18,27 @@
         </RouterLink>
       </QItemLabel>
       <QItemLabel caption>
-        <i18n
-          path="GROUP.JOINED"
+        <i18n-t
+          keypath="GROUP.JOINED"
         >
-          <DateAsWords
-            slot="relativeDate"
-            style="display: inline"
-            :date="user.membership.createdAt"
-          />
-        </i18n>
+          <template #relativeDate>
+            <DateAsWords
+              style="display: inline"
+              :date="user.membership.createdAt"
+            />
+          </template>
+        </i18n-t>
         <template v-if="addedBy">
           ·
-          <i18n
-            path="GROUP.ADDED_BY"
+          <i18n-t
+            keypath="GROUP.ADDED_BY"
           >
-            <RouterLink
-              slot="userName"
-              :to="{name: 'user', params: { userId: addedBy.id }}"
-            >
-              {{ addedBy.displayName }}
-            </RouterLink>
-          </i18n>
+            <template #userName>
+              <RouterLink :to="{name: 'user', params: { userId: addedBy.id }}">
+                {{ addedBy.displayName }}
+              </RouterLink>
+            </template>
+          </i18n-t>
         </template>
         <br>
       </QItemLabel>
@@ -50,8 +50,8 @@
         :group="group"
         :membership="user.membership"
         small
-        @create-trust="$emit('create-trust', arguments[0])"
-        @revoke-trust="$emit('revoke-trust', arguments[0])"
+        @create-trust="(...args) => $emit('create-trust', ...args)"
+        @revoke-trust="(...args) => $emit('revoke-trust', ...args)"
       />
     </QItemSection>
   </QItem>
@@ -88,6 +88,10 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'create-trust',
+    'revoke-trust',
+  ],
   computed: {
     ...mapGetters({
       getUser: 'users/get',
@@ -101,7 +105,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .q-item-sublabel > span
-  font-weight initial
+  font-weight: initial
 </style>

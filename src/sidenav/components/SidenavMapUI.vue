@@ -55,5 +55,9 @@ export default {
       type: Boolean,
     },
   },
+  emits: [
+    'toggle-users',
+    'toggle-places',
+  ],
 }
 </script>

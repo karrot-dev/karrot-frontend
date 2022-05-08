@@ -13,7 +13,7 @@
           :label="$t('USERDATA.PHOTO')"
           :hint="$t('USERDATA.SET_PHOTO')"
           mime-type="image/jpeg"
-          @save="saveUser({ photo: arguments[0] })"
+          @save="photo => saveUser({ photo })"
         />
         <QSeparator />
         <ProfileEdit
@@ -157,7 +157,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 @import '~editbox'
 
 </style>

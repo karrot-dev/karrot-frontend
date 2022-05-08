@@ -162,6 +162,9 @@ export default {
     QItemLabel,
     QIcon,
   },
+  emits: [
+    'close',
+  ],
   computed: {
     ...mapGetters({
       deployed: 'about/deployed',
@@ -196,20 +199,18 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .k-logo-container
-  height 75px
+  height: 75px
 
   .logo
-    width 62px
-    height 62px
+    width: 62px
+    height: 62px
 
   > div
-    height 80px
-    filter drop-shadow(0px 1px 1px rgba(0, 0, 0, .7))
+    height: 80px
+    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, .7))
 
 .k-about-footer
-  margin-top 50px
+  margin-top: 50px
 </style>

@@ -11,7 +11,7 @@ export function groupMarker (group) {
     fontIcon: group.isMember ? 'fas fa-home' : 'fas fa-info-circle',
     color: group.isMember ? 'positive' : 'blue',
     popup: {
-      component: markRaw(GroupMarker),  // markers are part of reactive data, but don't want the component itself to become reactive (otherwise some error happens)
+      component: markRaw(GroupMarker), // markers are part of reactive data, but don't want the component itself to become reactive (otherwise some error happens)
       props: { group },
     },
     gpx: {

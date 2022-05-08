@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "Se ha tomado una decisión sobre el proceso de resolver problemas con {userName}",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Se ha tomado una decisión sobre el proceso de resolver problemas contigo",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Has sido eliminada del grupo",
-    "OFFFEEDBACK_POSSIBLE": "Puedes dejar un comentario sobre la actividad que hiciste el {date}",
     "FEEDBACK_POSSIBLE": "Puedes dejar un comentario - {activityType} el {date}",
     "INVITATION_ACCEPTED": "{userName}ha aceptado tu solicitud",
     "NEW_APPLICANT": "{userName}ha solicitado unirse a este grupo",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "{placeName}ha sido creado",
     "USER_BECAME_EDITOR": "{userName}obtuvo permisos de edición",
     "VOTING_ENDS_SOON": "La votación terminará pronto, ¡no te olvides de participar!",
-    "YOU_BECAME_EDITOR": "Conseguiste permiso de edición"
+    "YOU_BECAME_EDITOR": "Conseguiste permiso de edición",
+    "MENTION": "{userName} mentioned you!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "No tenemos notificaciones para ti ahora.",
@@ -834,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "{trustNeeded}",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded}más personas necesitan expresar su confianza en {userName}para otorgarle permiso de edición.",
-    "USERNAME": "Nombre",
+    "DISPLAY_NAME": "Display Name",
+    "USERNAME": "Username",
     "WHERE_FROM": "De dónde eres (opcional)",
     "YOU_TRUST_USER": "Confias en {userName} en {groupName}"
   },
@@ -851,7 +852,9 @@
     "REQUIRED": "Este campo es obligatorio. ",
     "UNIQUE": "Este nombre ya existe, por favor elige otro. ",
     "VALID_EMAIL": "Introduce un correo electrónico válido.",
-    "VALID_TIMEZONE": "Introduce una zona horaria válida."
+    "VALID_TIMEZONE": "Introduce una zona horaria válida.",
+    "VALID_USERNAME": "Enter a valid username.",
+    "TAKEN": "Already taken."
   },
   "VERIFYMAIL": {
     "SUCCESS": "¡Su dirección de correo electrónico fue verificada con éxito!",

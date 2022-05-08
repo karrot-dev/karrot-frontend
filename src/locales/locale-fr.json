@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "Le processus de résolution des conflits avec {userName} a été décidé",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Le processus de résolution des conflits avec vous a été décidé",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Vous avez été retiré du groupe",
-    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
     "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName}a accepté votre invitation",
     "NEW_APPLICANT": "{userName}a demandé à rejoindre votre groupe",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "{placeName} a été créé",
     "USER_BECAME_EDITOR": "{userName}a obtenu les permissions pour éditer.",
     "VOTING_ENDS_SOON": "Le vote se termine bientôt, n'oubliez pas de participer !\n ",
-    "YOU_BECAME_EDITOR": "Tu as obtenus les permissions pour éditer."
+    "YOU_BECAME_EDITOR": "Tu as obtenus les permissions pour éditer.",
+    "MENTION": "{userName} mentioned you!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "Nous n'avons actuellement pas de notifications à té transmettre.",
@@ -834,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "Besoin de {trustNeeded} points de confiance",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} autres personnes doivent faire confiance à {userName} pour lui donner ses droits d'admin.",
-    "USERNAME": "Nom",
+    "DISPLAY_NAME": "Display Name",
+    "USERNAME": "Username",
     "WHERE_FROM": "D'où tu viens (optionnel)",
     "YOU_TRUST_USER": "Tu fais confiance à {userName} dans {groupName}."
   },
@@ -851,7 +852,9 @@
     "REQUIRED": "Ce champ est requis.",
     "UNIQUE": "Ce nom existe déjà, choisis-en un autre.",
     "VALID_EMAIL": "Entre une adresse e-mail valide.",
-    "VALID_TIMEZONE": "Entre un fuseau horaire valide."
+    "VALID_TIMEZONE": "Entre un fuseau horaire valide.",
+    "VALID_USERNAME": "Enter a valid username.",
+    "TAKEN": "Already taken."
   },
   "VERIFYMAIL": {
     "SUCCESS": "Ton adresse e-mail a été correctement vérifiée !",

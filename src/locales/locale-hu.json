@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "A konfliktusmegoldási folyamat {userName} felhasználóval eldőlt",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "A veled való konfliktusmegoldási folyamat el lett döntve",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "El lettél távolítva a csoportból",
-    "OFFFEEDBACK_POSSIBLE": "Visszajelzést küldhetsz egy tevékenységről amit ekkor csináltál: {date}",
     "FEEDBACK_POSSIBLE": "Visszajelzést küldhetsz - {activityType} ekkor: {date}",
     "INVITATION_ACCEPTED": "{userName} elfogadta a meghívásod",
     "NEW_APPLICANT": "{userName} jelentkezett a csoportodba",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "a(z) {placeName} hely létre lett hozva",
     "USER_BECAME_EDITOR": "{userName} szerkesztői jogosultságot kapott",
     "VOTING_ENDS_SOON": "A szavazásnak hamarosan vége, ne felejts el részt venni!",
-    "YOU_BECAME_EDITOR": "Szerkesztői jogosultságot kaptál"
+    "YOU_BECAME_EDITOR": "Szerkesztői jogosultságot kaptál",
+    "MENTION": "{userName} mentioned you!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "Jelenleg nincsenek értesítéseid.",
@@ -834,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "Még {trustNeeded} bizalom szükséges",
     "TRUST_PROGRESS_TEXT_LONG": "Még {trustNeeded} embernek ki kell fejeznie a bizalmát {userName} felhasználóban, hogy szerkesztői engedélyt kapjon.",
-    "USERNAME": "Név",
+    "DISPLAY_NAME": "Display Name",
+    "USERNAME": "Username",
     "WHERE_FROM": "Lakhely (nem kötelező)",
     "YOU_TRUST_USER": "Megbízol {userName} felhasználóban a {groupName} csoportban."
   },
@@ -851,7 +852,9 @@
     "REQUIRED": "Ezt a mezőt kötelező kitölteni.",
     "UNIQUE": "Ez a név már foglalt, válassz másikat.",
     "VALID_EMAIL": "Írj be egy érvényes email címet!",
-    "VALID_TIMEZONE": "Írj be egy érvényes időzónát."
+    "VALID_TIMEZONE": "Írj be egy érvényes időzónát.",
+    "VALID_USERNAME": "Enter a valid username.",
+    "TAKEN": "Already taken."
   },
   "VERIFYMAIL": {
     "SUCCESS": "Az email címed sikeresen meg lett erősítve!",

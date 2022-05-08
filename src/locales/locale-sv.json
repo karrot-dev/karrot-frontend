@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "Processen för konfliktlösning med {userName} beslutades",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Konfliktlösningsprocessen med dig beslutades",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du togs bort från gruppen",
-    "OFFFEEDBACK_POSSIBLE": "Du kan ge feedback till en aktivitet du gjorde den {date}",
     "FEEDBACK_POSSIBLE": "Du kan ge feedback - {activityType} den {date}",
     "INVITATION_ACCEPTED": "{userName} beviljade din ansökan",
     "NEW_APPLICANT": "{userName} ansökte om att gå med i din grupp",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "{placeName} har skapats",
     "USER_BECAME_EDITOR": "{userName} har fått behörighet att redigera",
     "VOTING_ENDS_SOON": "Röstningen slutar snart, glöm inte att delta!",
-    "YOU_BECAME_EDITOR": "Du fick behörighet att redigera"
+    "YOU_BECAME_EDITOR": "Du fick behörighet att redigera",
+    "MENTION": "{userName} mentioned you!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "Vi har för tillfälle ingen notis för dig",
@@ -834,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "{trustNeeded} mer tillit behövs",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} till måste lita på {userName} för att bevilja personen behörighet att redigera.",
-    "USERNAME": "Namn",
+    "DISPLAY_NAME": "Display Name",
+    "USERNAME": "Username",
     "WHERE_FROM": "Varifrån kommer du? (krävs inte)",
     "YOU_TRUST_USER": "Du litar på {userName} i {groupName}."
   },
@@ -851,7 +852,9 @@
     "REQUIRED": "Fältet är obligatoriskt",
     "UNIQUE": "Namn finns redan. Välj ett annat",
     "VALID_EMAIL": "Ange giltig mejladress.",
-    "VALID_TIMEZONE": "Ange giltig tidszon"
+    "VALID_TIMEZONE": "Ange giltig tidszon",
+    "VALID_USERNAME": "Enter a valid username.",
+    "TAKEN": "Already taken."
   },
   "VERIFYMAIL": {
     "SUCCESS": "Din mejladress har verifierats!",

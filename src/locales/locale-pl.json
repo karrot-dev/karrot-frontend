@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "Rozstrzygnięto konflikt z {userName}",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Rozstrzygnięto konflikt z Tobą",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Usunięto Cię z grupy",
-    "OFFFEEDBACK_POSSIBLE": "Możesz dodać komentarz do aktywności z {date}",
     "FEEDBACK_POSSIBLE": "Możesz dodać komentarz - {activityType} w dniu {date}",
     "INVITATION_ACCEPTED": "{userName} zaakceptował/-a twoje zaproszenie",
     "NEW_APPLICANT": "{userName} zgłosił/-a się do Twojej grupy",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "{placeName}został dodany",
     "USER_BECAME_EDITOR": "{userName} otrzymał/-a uprawnienia do edycji",
     "VOTING_ENDS_SOON": "Głosowanie niedługo się kończy, nie zapomnij wziąć udziału!",
-    "YOU_BECAME_EDITOR": "Otrzymałaś/-eś uprawnienia do edycji"
+    "YOU_BECAME_EDITOR": "Otrzymałaś/-eś uprawnienia do edycji",
+    "MENTION": "{userName} mentioned you!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "Nie masz obecnie żadnych powiadomień",
@@ -834,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "Brakuje zaufania od {trustNeeded} użytkowników",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} użytkowników musi jeszcze zaufać {userName}, aby przyznać uprawnienia do edycji",
-    "USERNAME": "Imię",
+    "DISPLAY_NAME": "Display Name",
+    "USERNAME": "Username",
     "WHERE_FROM": "Skąd jesteś (nie wymagane)",
     "YOU_TRUST_USER": "Zaufałaś/-eś {userName} w {groupName}."
   },
@@ -851,7 +852,9 @@
     "REQUIRED": "To pole jest wymagane.",
     "UNIQUE": "Ten nick już istnieje, wybierz inny.",
     "VALID_EMAIL": "Wprowadź aktualny adres e-mail.",
-    "VALID_TIMEZONE": "Wprowadź aktualną strefę czasową."
+    "VALID_TIMEZONE": "Wprowadź aktualną strefę czasową.",
+    "VALID_USERNAME": "Enter a valid username.",
+    "TAKEN": "Already taken."
   },
   "VERIFYMAIL": {
     "SUCCESS": "Twój adres e-mail został pomyślnie zweryfikowany!",

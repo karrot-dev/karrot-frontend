@@ -341,6 +341,38 @@ export default {
     }
   },
   computed: {
+    activityTypes () {
+      const activityTypes = this.filterActivityTypes.slice()
+      const archivedTypes = {}
+
+      for (const activityType of activityTypes) {
+        if (activityType.status === 'archived') {
+          archivedTypes[activityType.id] = false
+        }
+      }
+
+      for (const activity of this.activities) {
+        if (activity.activityType.id in archivedTypes) {
+          const id = activity.activityType.id
+          archivedTypes[id] = true
+        }
+      }
+
+      for (const archivedTypeId in archivedTypes) {
+        if (archivedTypes[archivedTypeId] === false) {
+          // For any archived types with zero activities in view, remove the type from the filter
+          for (const [index, activityType] of activityTypes.entries()) {
+            if (parseInt(activityType.id) === parseInt(archivedTypeId)) {
+              // delete archived type from the filter
+              activityTypes.splice(index, 1)
+              break
+            }
+          }
+        }
+      }
+
+      return activityTypes
+    },
     slotsOptions () {
       return [
         {
@@ -364,7 +396,7 @@ export default {
           label: this.$t('ACTIVITYLIST.FILTER.ALL_TYPES'),
           value: 'all',
         },
-        ...this.filterActivityTypes.map(activityType => {
+        ...this.activityTypes.map(activityType => {
           return {
             label: activityType.translatedName,
             value: String(activityType.id),

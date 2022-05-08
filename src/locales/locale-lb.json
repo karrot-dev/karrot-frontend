@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "De Konflikt-Léisungsprozess mat {userName} gouf entscheet",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "De Konflikt-Léisungsprozess mat dir gouf entscheet",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du goufs aus der Grupp geheit",
-    "OFFFEEDBACK_POSSIBLE": "Du kanns Feedback zu der Aktivitéit, déi's du den {date} gemaach hues, ofginn",
     "FEEDBACK_POSSIBLE": "Du kanns Feedback ofginn - {activityType} den {date}",
     "INVITATION_ACCEPTED": "{userName} huet deng Aluedung ugeholl",
     "NEW_APPLICANT": "{userName} huet seng Bewerbung agereecht fir denger Grupp bäizetrieden",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "{placeName} ass erstallt ginn",
     "USER_BECAME_EDITOR": "{userName} duerf elo beaarbechten",
     "VOTING_ENDS_SOON": "D'Ofstëmmung ass geschwë eriwwer, vergiess net matzemaachen!",
-    "YOU_BECAME_EDITOR": "Du duerfs elo beaarbechten"
+    "YOU_BECAME_EDITOR": "Du duerfs elo beaarbechten",
+    "MENTION": "{userName} huet dech erwäänt!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "Mir hu grad keng Benoriichtegungen fir dech.",
@@ -834,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "{trustNeeded} méi Vertraue gebraucht",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} Leit méi mussen dem {userName} hiert Vertrauen ausdrécke fir dass hat*hien beaarbechten duerf",
-    "USERNAME": "Numm",
+    "DISPLAY_NAME": "Numm fir ze weisen",
+    "USERNAME": "Benotzernumm",
     "WHERE_FROM": "Vu wou bass du (net erfuerderlech)",
     "YOU_TRUST_USER": "Du vertraus dem {userName} bei {groupName}."
   },
@@ -851,7 +852,9 @@
     "REQUIRED": "Dëst Feld ass erfuerderlech.",
     "UNIQUE": "Dësen Numm gëtt et schonn. Wiel w.e.g. een aneren.",
     "VALID_EMAIL": "Gëff eng gülteg E-Mail-Adress an.",
-    "VALID_TIMEZONE": "Gëff eng gülteg Zäitzone an."
+    "VALID_TIMEZONE": "Gëff eng gülteg Zäitzone an.",
+    "VALID_USERNAME": "Gëff ee gültege Benotzernumm an.",
+    "TAKEN": "Scho fort."
   },
   "VERIFYMAIL": {
     "SUCCESS": "Deng E-Mail-Adress gouf erfollegräich verifizéiert!",

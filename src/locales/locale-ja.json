@@ -611,7 +611,6 @@
     "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "あなたはグループから除外されました。",
-    "OFFFEEDBACK_POSSIBLE": "You can give feedback for the activity you did on {date}",
     "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName}があなたの招待を受けとりました",
     "NEW_APPLICANT": "{userName} applied to join your group",
@@ -619,7 +618,8 @@
     "NEW_PLACE": "{placeName}が作成されました",
     "USER_BECAME_EDITOR": "{userName}が編集権限を得ました",
     "VOTING_ENDS_SOON": "投票はまもなく週りょうします。忘れずに参加して下さい！",
-    "YOU_BECAME_EDITOR": "編集権限を得ました"
+    "YOU_BECAME_EDITOR": "編集権限を得ました",
+    "MENTION": "{userName} mentioned you!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "現在、あなたへの通知はありません。",
@@ -834,7 +834,8 @@
     },
     "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
-    "USERNAME": "名前",
+    "DISPLAY_NAME": "Display Name",
+    "USERNAME": "Username",
     "WHERE_FROM": "あなたの出身地（必須ではありません）",
     "YOU_TRUST_USER": "あなたは{groupName}の{userName}を信頼しています。"
   },
@@ -851,7 +852,9 @@
     "REQUIRED": "この欄は必ず入力してください。",
     "UNIQUE": "その名前は既に存在します。他の名前を入力してください。",
     "VALID_EMAIL": "有効なメールアドレスを入力して下さい。",
-    "VALID_TIMEZONE": "有効なタイムゾーンを入力して下さい。"
+    "VALID_TIMEZONE": "有効なタイムゾーンを入力して下さい。",
+    "VALID_USERNAME": "Enter a valid username.",
+    "TAKEN": "Already taken."
   },
   "VERIFYMAIL": {
     "SUCCESS": "あなたのメールアドレスの認証に成功しました！",

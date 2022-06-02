@@ -1,43 +1,43 @@
 {
   "ABOUT_KARROT": {
-    "AND_MORE": "And more...",
-    "EXISTING_GROUPS": "A few groups already using Karrot",
+    "AND_MORE": "그리고 추가로...",
+    "EXISTING_GROUPS": "여러 그룹이 이미 Karrot을 사용하고 있습니다",
     "LINKS": {
-      "CHAT": "team chat",
-      "FORUM": "community forum"
+      "CHAT": "팀 채팅",
+      "FORUM": "커뮤니티 포럼"
     },
     "SECTIONS": {
       "ACTIVITIES": {
-        "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later.",
-        "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
-        "TITLE": "Distribution of tasks and activities"
+        "DESCRIPTION": "각 활동에는 그룹 구성원이 등록할 수 있는 여러 개의 슬롯이 있습니다 – 이를 활용하면 모든 사람이 언제 어디로 가는지 알고 이후에 피드백을 제공할 수 있습니다.",
+        "SUBTITLE": "모임과 음식 픽업, 커뮤니티 행사, 그리고 그룹에 필요한 모든 활동과 같이 특정 시간과 공간이 필요한 활동들을 소프트웨어에 입력할 수 있습니다.",
+        "TITLE": "업무 분배와 활동"
       },
       "COMMUNICATION": {
-        "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats.",
-        "TITLE": "Communication in the right context"
+        "DESCRIPTION": "그룹의 모든 사용자가 볼 수 있는 메시지나 개인 메시지를 다른 사용자에게 작성하세요. 활동이나 장소와 관련된 모든 내용은 각 채팅에서 토론할 수 있습니다.",
+        "TITLE": "대화하기"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development.",
-        "TITLE": "Democratic and participative development"
+        "DESCRIPTION": "Karrot은 사용자에 의해 만들어집니다: 사용자들의 피드백과 참여로 개발되는 무료 오픈-소스 소프트웨어입니다. 주로 서로 다른 그룹의 사람들과 지속적으로 만나는 소규모 핵심 팀에 의해 개발되며, 이들의 분산되고 수렴되는 니즈를 이해하여 개발을 안내합니다. 저희는 데이터의 무결성과 비상업화의 윤리를 준수합니다. ",
+        "DESCRIPTION2": "개발자와 디자이너의 개발 참여는 환영합니다.",
+        "TITLE": "민주적이고 참여적인 개발"
       },
       "GROUPS": {
-        "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally.",
-        "SUBTITLE": "Every group on Karrot is completely independent and can have their own logo, processes, rules and agreements.",
-        "TITLE": "Independent groups"
+        "DESCRIPTION": "하지만 이들은 모두 지도에 표시되므로 사람들은 그들의 위치나 전세계에서 다른 그룹을 찾고 연결할 수 있습니다.",
+        "SUBTITLE": "Karrot의 모든 그룹은 완전히 독립적이며 이들만의 로고와 프로세스, 규칙, 합의를 가질 수 있습니다.",
+        "TITLE": "독립된 그룹들."
       },
       "MAPS": {
-        "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online.",
-        "TITLE": "Maps and lists"
+        "DESCRIPTION": "여러분은 활동중인 장소와 사람들이 표시된 지도를 가지고 있습니다. 또 다가올 활동들의 멋진 목록을 가지고 그것들을 온라인으로 등록할 수 있습니다.",
+        "TITLE": "지도와 목록들"
       },
       "NOTIFICATIONS": {
-        "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!",
-        "TITLE": "Notifications"
+        "DESCRIPTION": "빈 활동과 새 메시지, 그룹에 가입하려는 새 사용자에 대한 알림을 받습니다. 하지만 더 많은 평화를 원한다면 모든 알림을 끌 수도 있습니다!",
+        "TITLE": "알림"
       },
       "OFFERS": {
         "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat.",
         "SUBTITLE": "Create an offer of whatever you want to share or give away.",
-        "TITLE": "Share things"
+        "TITLE": "공유하기"
       },
       "OPENSOURCE": {
         "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world.",

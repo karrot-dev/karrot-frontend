@@ -373,6 +373,7 @@ jobs:
             git config user.name "CircleCI"
             git branch --delete --force $BRANCH || true
             git checkout -b $BRANCH
+            yarn upgrade --latest --ignore-engines
             # holding back jest to 27 due to https://github.com/vuejs/vue-jest/issues/467
             yarn upgrade --latest --ignore-engines jest@^27 babel-jest@^27 jest-environment-jsdom@^27
             tee pr.txt \<<EOL

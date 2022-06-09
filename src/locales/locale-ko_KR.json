@@ -24,10 +24,10 @@
       "GROUPS": {
         "DESCRIPTION": "하지만 이들은 모두 지도에 표시되므로 사람들은 그들의 위치나 전세계에서 다른 그룹을 찾고 연결할 수 있습니다.",
         "SUBTITLE": "Karrot의 모든 그룹은 완전히 독립적이며 이들만의 로고와 프로세스, 규칙, 합의를 가질 수 있습니다.",
-        "TITLE": "독립된 그룹들."
+        "TITLE": "독립된 그룹들"
       },
       "MAPS": {
-        "DESCRIPTION": "여러분은 활동중인 장소와 사람들이 표시된 지도를 가지고 있습니다. 또 다가올 활동들의 멋진 목록을 가지고 그것들을 온라인으로 등록할 수 있습니다.",
+        "DESCRIPTION": "여러분은 활동중인 장소와 사람들이 표시된 지도를 가지고 있습니다. 또 다가올 활동들의 목록을 가지고 그것들을 온라인으로 등록할 수 있습니다.",
         "TITLE": "지도와 목록들"
       },
       "NOTIFICATIONS": {
@@ -35,72 +35,72 @@
         "TITLE": "알림"
       },
       "OFFERS": {
-        "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat.",
-        "SUBTITLE": "Create an offer of whatever you want to share or give away.",
+        "DESCRIPTION": "그룹의 모든 사람이 판매를 볼 수 있으며 판매 채팅에서 관심을 나타낼 수 있습니다.",
+        "SUBTITLE": "공유하거나 나누어 줄 모든 것의 판매 신청을 생성해보세요.",
         "TITLE": "공유하기"
       },
       "OPENSOURCE": {
-        "DESCRIPTION": "Everything is transparent and possibly changeable. We encourage groups to host their own instances of the platform, if they have the ability to do so. Still, we also provide access to a hosted version on karrot.world.",
-        "TITLE": "Open source"
+        "DESCRIPTION": "모든 건 투명하며 변경할 수 있습니다. 각 그룹이 플랫폼의 인스턴스를 호스팅할 수 있는 능력이 있다면 그러시기를 권장합니다. 물론 karot.com의 호스트 버전에 대한 액세스도 여전히 제공할 것입니다.",
+        "TITLE": "오픈 소스"
       },
       "TEAM": {
-        "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}.",
-        "TITLE": "Responsive team"
+        "DESCRIPTION": "여러분은 Karrot의 개발진들과 {forum}이나 {code}, 실시간으로는 {chat}을 통해 쉽게 대화하실 수 있습니다.",
+        "TITLE": "대응 팀"
       },
       "TRANSLATIONS": {
-        "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}.",
-        "TITLE": "Multi-language"
+        "DESCRIPTION": "Karrot은 커뮤니티에서 완전히 번역이 가능하며 이미 많은 언어가 추가되어 있습니다. 더 많은 번역에 기여하려면 {translations}의 프로젝트를 방문해주세요.",
+        "TITLE": "다양한 언어"
       },
       "TRANSPARENCY": {
-        "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here.",
-        "TITLE": "Transparency"
+        "DESCRIPTION": "역사 항목은 누가 언제 무엇을 했는지 보여줍니다. 활동 참여부터 장소의 작성 및 편집까지 모든 항목이 여기에 기록됩니다.",
+        "TITLE": "투명성"
       },
       "TRUST": {
-        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way.",
-        "TITLE": "Democratic and trust-based group management"
+        "DESCRIPTION": "Karrot 그룹에는 관리자의 강력한 권한이 따로 없습니다. 동료로부터 충분한 신뢰의 당근을 받은 사람은 누구나 그룹 설정을 편집하고 변경할 수 있습니다. 만약에 새로운 사람이 그룹에 참여하고 싶다면 그룹이 정한 질문을 신청하고 답변해야 하며, 편집 권한을 가진 사람이라면 누구나 이를 거부하거나 승인할 수 있습니다. 마찬가지로 갈등이 발생했을 땐 투표 시스템에 들어가 공용의 방법으로 해결할 수도 있습니다.",
+        "TITLE": "민주적이고 신뢰기반인 그룹 관리"
       }
     },
-    "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
-    "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
-    "TITLE": "Start a group, become a community",
-    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kitchen..."
+    "SUBTITLE1": "Karrot는 서민 주도권과 지역, 자율 및 자발적 기반에서 대면 활동을 조정하고자 하는 사람들의 그룹을 위한 무료 오픈 소스 도구입니다.",
+    "SUBTITLE2": "그래서 커뮤니티를 구축하고 그룹의 투명하고 민주적이며 참여적인 거버넌스를 지원하는 방식으로 설계되었습니다.",
+    "TITLE": "그룹을 시작하고, 공동체가 되어보세요",
+    "VISION_INTRO": "음식을 절약하고 나누기부터, 무료 가게나 공작소를 운영하기, 지역 정원을 가꾸기, 바이크-키친을 운영하기 등..."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
-    "DELETE_SERIES_TITLE": "Delete series"
+    "DELETE_SERIES_TEXT": "정말 이 시리즈를 삭제하시겠습니까? 이 시리즈에 속하는 모든 활동도 함께 삭제됩니다. (사용자가 이미 가입한 곳은 포함되지 않습니다)",
+    "DELETE_SERIES_TITLE": "시리즈 삭제하기"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "This is disabled.",
-    "ACTIVITY_STARTED": "This has already started.",
-    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
-    "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
-    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
+    "ACTIVITY_DISABLED": "불가능한 작업입니다.",
+    "ACTIVITY_STARTED": "이미 시작되었습니다.",
+    "AVAILABLE": "당신이 선호하는 장소에 하나의 활동이 당신을 기다리고 있습니다! | 당신이 선호하는 장소에 {count}개의 활동이 당신을 기다리고 있습니다!",
+    "AVAILABLE_FEEDBACK": "피드백을 줄 수 있습니다 | {count}개의 활동이 피드백을 기다리고 있습니다",
+    "AVAILABLE_FROM_STORES": "다음날 당신이 좋아하는 장소의 활동을 보여줍니다. 사이드바에서 다른 장소에 접근할 수 있습니다.",
     "FILTER": {
-      "ALL": "All",
-      "ALL_TYPES": "All types",
-      "EMPTY": "Only empty",
-      "FREE": "With free slots"
+      "ALL": "모두",
+      "ALL_TYPES": "모든 종류",
+      "EMPTY": "빈 것만",
+      "FREE": "무료 슬롯이 포함됨"
     },
     "ITEM": {
-      "JOIN": "Join",
-      "JOIN_CONFIRMATION_HEADER": "Join {activityType}",
-      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
-      "LEAVE": "Leave",
-      "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?",
-      "DOWNLOAD_ICS": "Download ICS"
+      "JOIN": "합류하기",
+      "JOIN_CONFIRMATION_HEADER": "{activityType}에 합류하기",
+      "JOIN_CONFIRMATION_TEXT": "날짜를 {date}로 정하시겠습니까?",
+      "LEAVE": "떠나기",
+      "LEAVE_CONFIRMATION_HEADER": "{activityType}에서 떠나기",
+      "LEAVE_CONFIRMATION_TEXT": "정말 다른 사람들이 당신 없이 수행할 수 있다고 확신하시나요?",
+      "DOWNLOAD_ICS": "ICS 다운로드"
     },
-    "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
-    "NONE": "No upcoming activities",
-    "NONE_DUE_TO_FILTER": "No activities match your filters",
-    "NONE_HINT": "You can create a new activity on the place page.",
-    "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page.",
+    "JOINEDNOTICE": "다가오는 하나의 활동이 존재합니다 | 다가오는 {count}개의 활동이 존재합니다.",
+    "NONE": "다가올 활동이 없습니다.",
+    "NONE_DUE_TO_FILTER": "필터와 일치하는 활동이 없습니다",
+    "NONE_HINT": "장소 페이지에서 새 활동을 생성할 수 있습니다.",
+    "STORE_NONE_HINT": "‘관리 활동’ 페이지에서 새 활동을 생성할 수 있습니다.",
     "ICS_DIALOG": {
-      "TITLE": "Add to calendar",
+      "TITLE": "캘린더에 추가하기",
       "INTRO": "Add your activities to your calendar by using one of the following options:",
-      "DOWNLOAD_TITLE": "Download",
+      "DOWNLOAD_TITLE": "다운로드",
       "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
-      "DOWNLOAD_BUTTON_LABEL": "Download ICS",
+      "DOWNLOAD_BUTTON_LABEL": "ICS 다운로드",
       "SUBSCRIBE_TITLE": "Subscribe",
       "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
       "MORE_INFOS": "More info about ICS"

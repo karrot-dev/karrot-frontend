@@ -44,8 +44,7 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.14.0",
-    "@sentry/browser": "^7.1.0",
-    "@sentry/integrations": "^7.1.0",
+    "@sentry/vue": "^7.1.1",
     "@vue-leaflet/vue-leaflet": "^0.6.1",
     "@vue/compat": "^3.2.37",
     "@vuelidate/core": "^2.0.0-alpha.41",

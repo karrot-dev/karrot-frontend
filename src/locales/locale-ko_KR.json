@@ -31,7 +31,7 @@
         "TITLE": "지도와 목록들"
       },
       "NOTIFICATIONS": {
-        "DESCRIPTION": "빈 활동과 새 메시지, 그룹에 가입하려는 새 사용자에 대한 알림을 받습니다. 하지만 더 많은 평화를 원한다면 모든 알림을 끌 수도 있습니다!",
+        "DESCRIPTION": "빈 활동과 새 메시지, 그룹에 가입하려는 새 사용자에 대한 알림을 받습니다. 하지만 더 평화로워지길 원한다면 모든 알림을 끄실 수 있습니다!",
         "TITLE": "알림"
       },
       "OFFERS": {
@@ -40,11 +40,11 @@
         "TITLE": "공유하기"
       },
       "OPENSOURCE": {
-        "DESCRIPTION": "모든 건 투명하며 변경할 수 있습니다. 각 그룹이 플랫폼의 인스턴스를 호스팅할 수 있는 능력이 있다면 그러시기를 권장합니다. 물론 karot.com의 호스트 버전에 대한 액세스도 여전히 제공할 것입니다.",
+        "DESCRIPTION": "모든 건 투명하며 수정할 수 있습니다. 저희는 각 그룹이 플랫폼의 인스턴스를 호스팅할 수 있는 능력이 있다면 그러시기를 권장합니다. 물론 karrot.com의 호스트 버전에 대한 액세스도 여전히 제공할 것입니다.",
         "TITLE": "오픈 소스"
       },
       "TEAM": {
-        "DESCRIPTION": "여러분은 Karrot의 개발진들과 {forum}이나 {code}, 실시간으로는 {chat}을 통해 쉽게 대화하실 수 있습니다.",
+        "DESCRIPTION": "여러분은 Karrot의 개발진들과 {forum}, {code}를 이용하거나 실시간 채팅인 {chat}을 통해 쉽게 대화하실 수 있습니다.",
         "TITLE": "대응 팀"
       },
       "TRANSLATIONS": {
@@ -56,7 +56,7 @@
         "TITLE": "투명성"
       },
       "TRUST": {
-        "DESCRIPTION": "Karrot 그룹에는 관리자의 강력한 권한이 따로 없습니다. 동료로부터 충분한 신뢰의 당근을 받은 사람은 누구나 그룹 설정을 편집하고 변경할 수 있습니다. 만약에 새로운 사람이 그룹에 참여하고 싶다면 그룹이 정한 질문을 신청하고 답변해야 하며, 편집 권한을 가진 사람이라면 누구나 이를 거부하거나 승인할 수 있습니다. 마찬가지로 갈등이 발생했을 땐 투표 시스템에 들어가 공용의 방법으로 해결할 수도 있습니다.",
+        "DESCRIPTION": "Karrot 그룹에는 관리자의 강력한 권한이 따로 없습니다. 동료로부터 충분한 신뢰의 당근을 받은 사람이라면 누구나 그룹 설정을 편집하고 변경할 수 있습니다. 만약에 새로운 사람이 그룹에 참여하고 싶다면 그룹에 지원하고 정해진 질문에 답변해야 하며, 편집 권한을 가진 사람이라면 누구나 이를 거부하거나 승인할 수 있습니다. 마찬가지로 갈등이 발생했을 땐 투표 시스템에 들어가 공용의 방법으로 해결할 수도 있습니다.",
         "TITLE": "민주적이고 신뢰기반인 그룹 관리"
       }
     },
@@ -97,166 +97,166 @@
     "STORE_NONE_HINT": "‘관리 활동’ 페이지에서 새 활동을 생성할 수 있습니다.",
     "ICS_DIALOG": {
       "TITLE": "캘린더에 추가하기",
-      "INTRO": "Add your activities to your calendar by using one of the following options:",
+      "INTRO": "다음 옵션 중 하나를 사용해서 당신의 활동을 캘린더에 추가하세요:",
       "DOWNLOAD_TITLE": "다운로드",
-      "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
+      "DOWNLOAD_TEXT": "ICS 파일을 다운로드하여 캘린더로 수동으로 가져오세요:",
       "DOWNLOAD_BUTTON_LABEL": "ICS 다운로드",
-      "SUBSCRIBE_TITLE": "Subscribe",
-      "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
-      "MORE_INFOS": "More info about ICS"
+      "SUBSCRIBE_TITLE": "구독",
+      "SUBSCRIBE_TEXT": "다음 URL을 사용하여 ICS 캘린더로 구독하세요:",
+      "MORE_INFOS": "ICS에 대한 더 많은 정보"
     }
   },
   "ACTIVITYMANAGE": {
-    "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
-    "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
-    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed",
-    "SERIES": "Activity series",
-    "SINGLE": "One-time activities",
-    "TITLE": "Manage activities",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
+    "ACTIVITY_DESCRIPTION_CHANGED": "'추가 정보'가 변경되었습니다",
+    "ACTIVITY_DOES_NOT_MATCH": "이 날짜는 반복 패턴과 일치하지 않습니다",
+    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'최대 슬롯'이 변경되었습니다",
+    "SERIES": "활동 시리즈",
+    "SINGLE": "일회성 활동",
+    "TITLE": "활동 관리",
+    "UPCOMING_ACTIVITIES_IN_SERIES": " 시리즈 속 다가올 활동"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "Amount of food you were able to save",
-    "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
-    "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
-    "DELETE_AMOUNT": "Delete amount",
-    "EDIT": "Edit feedback",
-    "HEADER": "Thank you for your participation!",
-    "PREVIOUS": "Previous feedback for {store}",
-    "SET_AMOUNT": "Set amount",
-    "TITLE": "Feedback",
-    "TOGETHER_WITH": "You did this together with:",
-    "DISMISS_LABEL": "Dismiss",
-    "DISMISS_TITLE": "Dismiss feedback",
-    "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
+    "AMOUNT": "저장할 수 있는 음식량",
+    "AMOUNT_INFO": "장소 통계의 경우, 모든 피드백을 한꺼번에 추가할 예정입니다.",
+    "COMMENT_PLACEHOLDER": "괜찮으셨나요? 모두 모였나요? 여기 댓글이 있습니다…",
+    "DELETE_AMOUNT": "음식량 삭제",
+    "EDIT": "피드백 수정",
+    "HEADER": "참여해주셔서 감사합니다!",
+    "PREVIOUS": "{store}을(를) 위한 이전 피드백",
+    "SET_AMOUNT": "음식량 설정",
+    "TITLE": "피드백",
+    "TOGETHER_WITH": "이런 사람들과 함께 했습니다:",
+    "DISMISS_LABEL": "무시",
+    "DISMISS_TITLE": "피드백 무시하기",
+    "DISMISS_MESSAGE": "정말 이 피드백을 무시하실건가요? 이후 이 활동에 피드백을 줄 수 없게됩니다."
   },
   "ACTIVITY_TYPE_NAMES": {
-    "Meeting": "Meeting",
-    "Pickup": "Pickup",
-    "Distribution": "Distribution",
-    "Event": "Event",
-    "Activity": "Activity",
-    "Task": "Task"
+    "Meeting": "모임",
+    "Pickup": "픽업",
+    "Distribution": "분배",
+    "Event": "행사",
+    "Activity": "활동",
+    "Task": "업무"
   },
   "ACTIVITY_TYPE_STATUS": {
-    "ACTIVE": "Active",
-    "ARCHIVED": "Archived"
+    "ACTIVE": "활성화",
+    "ARCHIVED": "보관물"
   },
   "ACTIVITY_TYPES": {
-    "ADD": "Add new activity type",
-    "FEEDBACK_YES_HINT": "The participants will be asked for feedback about the activity",
-    "FEEDBACK_NO_HINT": "No feedback will be requested",
-    "FEEDBACK_WEIGHT_LABEL": "Ask for weight?",
-    "NAME": "Name",
-    "FEEDBACK": "Feedback",
-    "FEEDBACK_WEIGHT": "Feedback weight",
-    "STATUS": "Status",
-    "STANDARD_NAME_HEADING": "Standard names",
-    "STANDARD_NAME_HINT": "Name will be available in other languages",
-    "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
-    "CUSTOM_NAME_USE": "Use custom name {name}",
-    "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
-    "MANAGE_TYPES": "Manage types...",
-    "SHOW_ARCHIVED": "Show archived",
-    "STATUS_ACTIVE_HINT": "You will be able to create new activities and series of this type",
-    "STATUS_ARCHIVED_HINT": "It will not be possible to create new activities or series of this type, but existing ones will still be available"
+    "ADD": "새로운 활동 타입 추가하기",
+    "FEEDBACK_YES_HINT": "참여자는 활동에 대한 피드백을 요청받게됩니다.",
+    "FEEDBACK_NO_HINT": "피드백이 요청되지 않습니다.",
+    "FEEDBACK_WEIGHT_LABEL": "무게에 대해 요청하시겠습니까?",
+    "NAME": "이름",
+    "FEEDBACK": "피드백",
+    "FEEDBACK_WEIGHT": "무게에 피드백하기",
+    "STATUS": "상태",
+    "STANDARD_NAME_HEADING": "기본 이름",
+    "STANDARD_NAME_HINT": "이름이 다른 언어로 이용될 수 있습니다",
+    "CUSTOM_NAME_HINT": "이름이 번역되지 않으며 당신이 작성한 그대로 사용됩니다",
+    "CUSTOM_NAME_USE": "사용자 지정 이름인 {name} 사용하기",
+    "CUSTOM_NAME_PROMPT": "사용자 지정 이름을 입력하거나, 기본 이름을 선택하세요",
+    "MANAGE_TYPES": "타입 관리",
+    "SHOW_ARCHIVED": "보관물 보기",
+    "STATUS_ACTIVE_HINT": "이 타입의 활동이나 시리즈를 새로 만들 수 있습니다",
+    "STATUS_ARCHIVED_HINT": "이 타입의 활동이나 시리즈를 새로 만들 순 없지만, 이미 존재한 것은 그대로 유지됩니다."
   },
   "ADDRESS_PICKER": {
-    "CHOOSE_LOCATION": "choose location on map",
-    "KEEP_EXISTING_LOCATION": "keep existing location on map",
-    "SET_AS": "Set address as"
+    "CHOOSE_LOCATION": "지도에서 위치를 선택",
+    "KEEP_EXISTING_LOCATION": "지도에 있는 위치를 유지",
+    "SET_AS": "여기로 주소를 설정합니다"
   },
   "AGREEMENT": {
-    "AGREE": "You must agree to {title}",
-    "BLURB1": "You don't have an agreement yet!",
-    "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
-    "CONTENT": "Content",
-    "CONTENT_HELPER": "The text of your agreement",
+    "AGREE": "{title}에 동의해야 합니다",
+    "BLURB1": "아직 합의되지 않았습니다!",
+    "BLURB2": "사람들은 픽업하기 전에 추가된 사항에 동의를 해야 합니다.",
+    "CONTENT": "콘텐츠",
+    "CONTENT_HELPER": "합의에 대한 내용",
     "DIALOGS": {
       "REMOVE": {
-        "CONFIRM": "Yes, remove agreement",
-        "MESSAGE": "This means anyone will be able to do a pickup",
-        "TITLE": "Remove agreement?"
+        "CONFIRM": "네, 합의를 삭제하겠습니다",
+        "MESSAGE": "누구나 픽업할 수 있게 될 것입니다",
+        "TITLE": "합의를 삭제하시겠습니까?"
       },
       "REPLACE": {
-        "CONFIRM": "Yes, change agreement",
-        "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
-        "TITLE": "Change agreement?"
+        "CONFIRM": "네, 합의를 수정하겠습니다",
+        "MESSAGE": "모든 사람이 픽업에 참여하기 전에 다시 한번 동의해야 하게 됩니다",
+        "TITLE": "합의를 수정하시겠습니까?"
       }
     },
-    "MINOR_EDIT": "Minor edit?",
-    "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
-    "NEW": "New agreement",
-    "TITLE": "Title",
-    "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
-    "VIEW": "View agreement"
+    "MINOR_EDIT": "일부 수정하시겠습니까?",
+    "MINOR_EDIT_HELPER": "사람들은 오타나 형식 지정 등에서 동의를 다시 요청받지 않을 것입니다",
+    "NEW": "새 합의",
+    "TITLE": "제목",
+    "TITLE_HELPER": "당신의 합의의 제목을 정합니다(예: 커뮤니티 규칙)",
+    "VIEW": "합의 보기"
   },
   "APPLICATION": {
-    "ACCEPTED": "You accepted {userName} into this group!",
-    "ACCEPT_CONFIRMATION_HEADER": "Accept Application",
-    "ACCEPT_CONFIRMATION_TEXT": "Are you sure you want to accept {userName} into this group?",
-    "APPLICATION": "Application",
-    "DECLINED": "You declined the application of {userName}.",
-    "DECLINE_CONFIRMATION_HEADER": "Decline Application",
-    "DECLINE_CONFIRMATION_TEXT": "Are you sure you want to decline the application of {userName}?",
-    "FORM_HEADER": "Apply",
-    "FORM_TITLE": "Apply to join {groupName}",
-    "GALLERY_TOOLTIP": "You applied to join this group. Your application is still pending.",
-    "HELP": "This is a chat between all existing members of {groupName} and the new applicant {userName}. It is meant to give you all a chance to get to know you before deciding whether to accept, decline or withdraw the application.",
-    "INITIAL": "Initial questions and answers",
-    "PAST": "Past applications",
-    "SUBMITTED_ON": "Submitted on {date}",
-    "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
-    "WHAT": "What is this chat about?",
-    "WITHDRAWN": "withdrawn {relativeDate}"
+    "ACCEPTED": "{userName}을(를) 이 그룹에 승인했습니다!",
+    "ACCEPT_CONFIRMATION_HEADER": "지원서 승인",
+    "ACCEPT_CONFIRMATION_TEXT": "정말로 {userName}을(를) 이 그룹에 승인하시겠습니까?",
+    "APPLICATION": "지원서",
+    "DECLINED": "{userName}의 지원서을 거부했습니다.",
+    "DECLINE_CONFIRMATION_HEADER": "지원서 거부",
+    "DECLINE_CONFIRMATION_TEXT": "정말로 {userName}의 지원서을 거부하시겠습니까?",
+    "FORM_HEADER": "지원",
+    "FORM_TITLE": "{groupName}에 지원하기",
+    "GALLERY_TOOLTIP": "이 그룹에 지원했습니다. 지원서는 아직 보류 중입니다.",
+    "HELP": "이것은 {groupName}의 모든 기존 멤버와 새 신청자 {userName} 간의 채팅입니다. 여기서 여러분 모두가 지원서를 받아들일지, 거절할지, 철회할지 결정하기 전에 여러분에 대해 알 수 있는 기회를 줄 수 있습니다.",
+    "INITIAL": "초기의 질문과 답변",
+    "PAST": "과거의 지원서",
+    "SUBMITTED_ON": "{date}에 제출되었습니다",
+    "WALL_NOTICE": "보류 중인 지원서가 있습니다! | {count}개의 보류 중인 지원서가 있습니다!",
+    "WHAT": "이 채팅은 무엇에 관한 것입니까?",
+    "WITHDRAWN": "{relativeDate}에 철회되었습니다"
   },
-  "ATTENTION": "Attention!",
+  "ATTENTION": "주목하세요!",
   "BUTTON": {
-    "ACCEPT": "Accept",
-    "AGREE": "I agree",
-    "APPLY": "Apply",
-    "ARCHIVE": "Archive",
-    "BACK": "Back",
-    "CANCEL": "Cancel",
-    "CHANGE_COLOUR": "Change colour",
-    "CHANGE_EMAIL": "Change e-mail address",
-    "CHANGE_ICON": "Change icon",
-    "CHANGE_PASSWORD": "Change password",
-    "CLOSE": "Close",
-    "CREATE": "Create",
-    "DECLINE": "Decline",
-    "DELETE": "Delete",
-    "DELETE_ACCOUNT": "Delete account",
-    "DISABLE": "Disable",
-    "EDIT": "Edit",
-    "ENABLE": "Enable",
-    "HIDE": "Hide",
-    "JOIN": "Join",
-    "NEXT": "Next",
-    "OF_COURSE": "Yes, of course!",
-    "OPEN": "Open",
-    "PREVIEW": "Preview",
-    "REMOVE": "Remove",
-    "RESET": "Reset",
-    "SAVE_CHANGES": "Save changes",
-    "SEARCH": "Search",
-    "SHOW": "Show",
-    "SHOW_LESS": "Show less",
-    "SHOW_MORE": "Show more",
-    "SUBMIT": "Submit",
-    "UNSUBSCRIBE": "Unsubscribe",
-    "WITHDRAW": "Withdraw",
-    "YES": "Yes",
-    "READ_MORE": "Read more"
+    "ACCEPT": "승인",
+    "AGREE": "동의합니다",
+    "APPLY": "지원",
+    "ARCHIVE": "보관소",
+    "BACK": "이전",
+    "CANCEL": "취소",
+    "CHANGE_COLOUR": "색 변경",
+    "CHANGE_EMAIL": "이메일 주소 수정",
+    "CHANGE_ICON": "아이콘 수정",
+    "CHANGE_PASSWORD": "비밀번호 수정",
+    "CLOSE": "닫기",
+    "CREATE": "생성",
+    "DECLINE": "거부",
+    "DELETE": "삭제",
+    "DELETE_ACCOUNT": "계정 삭제",
+    "DISABLE": "불가능",
+    "EDIT": "편집",
+    "ENABLE": "가능",
+    "HIDE": "숨기기",
+    "JOIN": "합류",
+    "NEXT": "다음",
+    "OF_COURSE": "네, 물론입니다!",
+    "OPEN": "개방",
+    "PREVIEW": "미리보기",
+    "REMOVE": "제거",
+    "RESET": "초기화",
+    "SAVE_CHANGES": "수정사항 저장",
+    "SEARCH": "검색",
+    "SHOW": "보기",
+    "SHOW_LESS": "접기",
+    "SHOW_MORE": "더 보기",
+    "SUBMIT": "제출",
+    "UNSUBSCRIBE": "구독취소",
+    "WITHDRAW": "철회",
+    "YES": "네",
+    "READ_MORE": "더 보기"
   },
   "COMMUNITY_FEED": {
-    "HEADER": "Updates from the {community}",
-    "HEADER_LINK": "Karrot community",
-    "KARROT_DISCUSSION": "Discussions about Karrot",
-    "LAST_UPDATED": "Last updated {relativeDate}"
+    "HEADER": "{community}을(를) 업데이트",
+    "HEADER_LINK": "Karrot 커뮤니티",
+    "KARROT_DISCUSSION": "Karrot에 대한 의논",
+    "LAST_UPDATED": "{relativeDate}에 마지막으로 업데이트됨"
   },
   "CONFLICT": {
-    "FIND_OUT_MORE": "Find out more!",
+    "FIND_OUT_MORE": "더 자세히 알아보세요!",
     "INFO": {
       "MESSAGE": "This is a score voting in which group members can participate to determine how to deal with a social conflict that affects the whole group.",
       "TITLE": "How does this process work?"
@@ -554,7 +554,7 @@
     "ALL_GROUPS": "All groups",
     "APPLICATION_PENDING": "Your application is pending!",
     "APPLICATION_SUBMITTED": "Your application was successfully submitted!",
-    "APPLICATION_WITHDRAWN": "Your application was successfully withdrawn!",
+    "APPLICATION_WITHDRAWN": "당신의 합류신청이 성공적으로 철회되었습니다!",
     "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!",
     "BROWSE_GROUPS": "Browse existing groups",
     "LOGOUT_MESSAGE": {
@@ -569,7 +569,7 @@
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
     "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
     "WHICHGROUP": "Which group do you want to join?",
-    "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
+    "WITHDRAW_CONFIRMATION_HEADER": "합류신청 철회",
     "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?"
   },
   "LANGUAGECHOOSER": {
@@ -579,8 +579,8 @@
   "LOGIN": {
     "FORGOT_PASSWORD": "Forgot your password?",
     "SIGNUP": "Sign up!",
-    "SUBMIT": "Login",
-    "TITLE": "Login"
+    "SUBMIT": "로그인",
+    "TITLE": "로그인"
   },
   "MARKDOWN_INPUT": {
     "BOLD": "bold",
@@ -696,7 +696,7 @@
   },
   "SIGNUP": {
     "BACK": "Back to Login",
-    "OK": "Join",
+    "OK": "참가",
     "TITLE": "Sign Up!"
   },
   "STATISTICS": {

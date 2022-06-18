@@ -1,11 +1,12 @@
 <template>
   <KMap
-    v-bind="mapOptions"
+    v-bind="mapProps"
     :show-attribution="showAttribution"
     :padding-top-left="paddingTopLeft"
     @moveend="event => $emit('map-move-end', event.target)"
     @update:zoom="updateZoom"
-    @map-click="event => $emit('map-click', event)"
+    @map-click="event => closeContextMenu() && $emit('map-click', event)"
+    @contextmenu="openContextMenu"
   >
     <KMarker
       v-for="marker in markers"
@@ -18,10 +19,22 @@
       :opacity="opacityFor(marker)"
       @dragend="event => dragend(event, marker)"
     />
+    <QMenu
+      ref="popover"
+      anchor="top left"
+      :offset="popoverOffset"
+      no-parent-event
+    >
+      <slot
+        name="contextmenu"
+        :lat-lng="popoverLatLng"
+      />
+    </QMenu>
   </KMap>
 </template>
 
 <script>
+import { QMenu } from 'quasar'
 import KMap from './KMap'
 import KMarker from './KMarker'
 import { latLngBounds } from 'leaflet/dist/leaflet-src.esm'
@@ -33,6 +46,7 @@ export default {
   components: {
     KMap,
     KMarker,
+    QMenu,
   },
   props: {
     markers: {
@@ -80,10 +94,12 @@ export default {
   data () {
     return {
       lastZoom: 15,
+      popoverOffset: [0, 0],
+      popoverLatLng: null,
     }
   },
   computed: {
-    mapOptions () {
+    mapProps () {
       if (this.forceZoom && this.forceCenter) {
         // This is used on the full page map view, where the params come from the URL, so we need to ignore all the markers
         return {
@@ -92,31 +108,36 @@ export default {
         }
       }
       if (this.forceBounds) {
-        // This is used when we emphasis nearby groups
+        // This is used when we emphasize nearby groups
         return {
           bounds: this.forceBounds,
         }
       }
-      if (!this.preventZoom && this.markersForBounds.length > 1 /* TODO: check about the case where we have 1 point */) {
+      if (!this.preventZoom && this.markersForBounds.length > 1) {
+        // Normal use case to show a bunch of markers in view
         return {
           bounds: latLngBounds(this.markersForBounds.map(m => m.latLng)).pad(0.2),
         }
       }
       else if (this.markersForBounds.length === 1) {
+        // With a single marker it looks better with center and zoom
+        // as if using bounds it zooms is reeeeallly close
         return {
           center: this.markersForBounds[0].latLng,
           zoom: this.preventZoom ? this.lastZoom : 15,
         }
       }
       else if (this.defaultCenter) {
+        // Nothing much to show, but we've been provided with a hopefully sensible default center
         return {
           center: this.defaultCenter,
           zoom: this.preventZoom ? this.lastZoom : 10,
         }
       }
-      console.warn('NO OPTIONS TO GIVE MAP!!! using a default default center')
+      // Ok, really ran out of options here, just show somewhere ...
       return {
         center: ['49.8990022441358', '8.66415739059448'],
+        zoom: this.preventZoom ? this.lastZoom : 10,
       }
     },
     markersForBounds () {
@@ -132,6 +153,17 @@ export default {
     },
   },
   methods: {
+    openContextMenu (event) {
+      console.log('StandardMap opening context menu!')
+      this.closeContextMenu()
+      const { x, y } = event.containerPoint
+      this.popoverOffset = [-x, -y]
+      this.popoverLatLng = event.latlng
+      this.$refs.popover.show()
+    },
+    closeContextMenu () {
+      this.$refs.popover.hide()
+    },
     dragend ({ target }, marker) {
       this.$emit('marker-moved', target.getLatLng(), marker)
     },

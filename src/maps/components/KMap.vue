@@ -5,31 +5,17 @@
   >
     <template v-if="leafletMap">
       <slot />
-      <QMenu
-        ref="popover"
-        anchor="top left"
-        :offset="popoverOffset"
-        no-parent-event
-      >
-        <slot
-          name="contextmenu"
-          :lat-lng="popoverLatLng"
-        />
-      </QMenu>
     </template>
   </div>
 </template>
 
 <script>
 import { QMenu, debounce } from 'quasar'
-import { computed } from 'vue'
+import { computed, markRaw } from 'vue'
 
-import {latLngBounds, map, tileLayer} from 'leaflet/dist/leaflet-src.esm'
+import { map, tileLayer } from 'leaflet/dist/leaflet-src.esm'
 
 export default {
-  components: {
-    QMenu,
-  },
   provide () {
     return {
       leafletMap: computed(() => this.leafletMap),
@@ -58,6 +44,7 @@ export default {
     },
   },
   emits: [
+    'contextmenu',
     'moveend',
     'update:zoom',
     'map-click',
@@ -66,9 +53,6 @@ export default {
     return {
       leafletMap: null,
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-      lastZoom: 15,
-      popoverOffset: [0, 0],
-      popoverLatLng: null,
     }
   },
   computed: {
@@ -92,16 +76,9 @@ export default {
     paddingTopLeft () {
       this.setMapOptions(this.leafletMap)
     },
-    markers: {
-      immediate: true,
-      handler (markers, oldMarkers) {
-        console.log('markers!', markers)
-      },
-    },
   },
   mounted () {
     const leafletMap = map(this.$refs.map)
-    // this.leafletMap.setView([51.39804931640047, -2.3471018671989445], 13)
 
     tileLayer(this.url, {
       maxZoom: 19,
@@ -114,37 +91,31 @@ export default {
     }), 100)
 
     leafletMap.on('click', ({ latlng }) => {
-      console.log('mapclick!', latlng)
       // sometimes latlng is undefined, let's skip those pointless events...
       if (!latlng) return
       this.$emit('map-click', latlng)
-      this.closeContextMenu()
     })
 
     leafletMap.on('contextmenu', event => {
-      this.openContextMenu(event)
+      console.log('KMap contextmenu!')
+      this.$emit('contextmenu', event)
+    })
+
+    leafletMap.on('zoom', () => {
+      leafletMap.closePopup()
     })
 
     this.setMapOptions(leafletMap)
 
     leafletMap.whenReady(() => {
-      this.leafletMap = leafletMap
+      this.leafletMap = markRaw(leafletMap)
     })
   },
   methods: {
-
-    openContextMenu (event) {
-      this.closeContextMenu()
-      const { x, y } = event.containerPoint
-      this.popoverOffset = [-x, -y]
-      this.popoverLatLng = event.latlng
-      this.$refs.popover.show()
-    },
-    closeContextMenu () {
-      this.$refs.popover.hide()
-    },
     setMapOptions (leafletMap) {
       if (!leafletMap) return
+
+      leafletMap.closePopup()
       if (this.bounds) {
         leafletMap.fitBounds(this.bounds, { paddingTopLeft: this.paddingTopLeft })
       }

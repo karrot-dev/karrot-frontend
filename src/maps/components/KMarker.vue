@@ -18,6 +18,7 @@ import { marker, Icon, popup } from 'leaflet/dist/leaflet-src.esm'
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png'
 import iconUrl from 'leaflet/dist/images/marker-icon.png'
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png'
+import { markRaw } from 'vue'
 
 // fix default marker icon
 // https://github.com/Leaflet/Leaflet/issues/4968
@@ -117,11 +118,11 @@ export default {
     },
   },
   mounted () {
-    console.log('adding marker to map!', this.icon, this.popup)
-    this.leafletMarker = marker(this.latLng, {
+    this.leafletMarker = markRaw(marker(this.latLng, {
       icon: this.icon,
       draggable: this.draggable,
-    }).addTo(this.leafletMap)
+    }).addTo(this.leafletMap))
+
     if (this.opacity) {
       this.leafletMarker.setOpacity(this.opacity)
     }
@@ -129,10 +130,10 @@ export default {
       this.$emit('dragend', event)
     })
     if (this.popup) {
-      const p = popup({ closeButton: false, ...this.popup })
-      p.setContent(this.$refs.popup)
-      console.log('created popup', p)
-      this.leafletMarker.bindPopup(p)
+      this.leafletMarker.bindPopup(popup({
+        closeButton: false,
+        ...this.popup,
+      }).setContent(this.$refs.popup))
     }
   },
   unmounted () {

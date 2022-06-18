@@ -76,8 +76,7 @@ export default {
     },
     forceCenter () {
       if (this.singleGroup) {
-        const gp = this.singleGroup
-        return { lat: gp.latitude + this.offset.lat, lng: gp.longitude + this.offset.lng }
+        return this.toLatLng(this.singleGroup)
       }
       return null
     },

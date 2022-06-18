@@ -19,6 +19,7 @@
         <ProfileEdit
           :value="user"
           :status="profileEditStatus"
+          :default-map-center="defaultMapCenter"
           @save="saveUser"
         />
       </QCardSection>
@@ -142,6 +143,7 @@ export default {
       pushEnabled: 'auth/push/enabled',
       pushPending: 'auth/push/pending',
       pwaPrompt: 'pwa/installPrompt',
+      defaultMapCenter: 'geo/defaultCenter',
     }),
   },
   methods: {

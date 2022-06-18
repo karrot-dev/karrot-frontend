@@ -11,6 +11,6 @@ configureCompat({
 })
 
 export default ({ app }) => {
-  // TODO: remove this in next minor release of vue, as it will be default in the future...
+  // TODO: should be able to remove this with vue v3.3.x
   app.config.unwrapInjectedRef = true
 }

@@ -56,7 +56,10 @@
         </RouterLink>
         <span class="message-date">
           <small class="text-weight-light">
-            <DateAsWords :date="message.createdAt" />
+            <DateAsWords
+              :title="tooltipDate"
+              :date="message.createdAt"
+            />
           </small>
         </span>
         <QIcon
@@ -66,10 +69,7 @@
           :title="$t('WALL.RECEIVED_VIA_EMAIL')"
         />
       </QItemLabel>
-      <div
-        class="content"
-        :title="slim && tooltipDate"
-      >
+      <div class="content">
         <Markdown
           v-measure
           :source="message.content"

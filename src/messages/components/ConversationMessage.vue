@@ -11,7 +11,6 @@
       <QBtn
         v-if="message.isEditable"
         outline
-        dense
         color="secondary"
         :title="$t('BUTTON.EDIT')"
         @click="toggleEdit"
@@ -21,7 +20,6 @@
       <QBtn
         v-if="!slim"
         outline
-        dense
         color="secondary"
         :title="$t('CONVERSATION.REPLIES')"
         @click="$emit('open-thread')"
@@ -325,7 +323,8 @@ body.mobile .conversation-message
     right: 0px
 
     .q-btn
-      padding: 2px 9px
+      padding-left: 12px
+      padding-right: 12px
       font-size: 13px
       color: white
       transition: none
@@ -336,7 +335,7 @@ body.desktop
 
     .q-btn
       min-height: 24px
-      font-size: 12px
+      font-size: 13px
 
   .k-message-meta
     padding-top: 4px

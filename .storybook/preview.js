@@ -7,15 +7,24 @@ import '@/css/app.sass'
 import { i18nPlugin } from '@/base/i18n'
 import { Quasar } from 'quasar'
 import quasarConfig from '>/quasarConfig'
-import { RouterLinkStub } from '@vue/test-utils'
 import icons from '@/base/icons'
 import { app } from '@storybook/vue3'
+import { h } from 'vue'
 
 app.use(i18nPlugin)
 app.use(Quasar, quasarConfig)
 // app.use(Vuex)
 // app.use(VueRouter)
 app.config.globalProperties.$icon = icons.get
+
+// In theory the RouterLinkStub in @vue/test-utils would work, but I get
+// call is not a function errors when using that...
+const RouterLinkStub = {
+  compatConfig: { MODE: 3 },
+  render() {
+    return h('a', undefined, this.$slots.default && this.$slots.default())
+  }
+}
 
 app.component('RouterLink', RouterLinkStub)
 app.directive('measure', {})

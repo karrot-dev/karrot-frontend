@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { QMenu, debounce } from 'quasar'
+import { debounce } from 'quasar'
 import { computed, markRaw } from 'vue'
 
 import { map, tileLayer } from 'leaflet/dist/leaflet-src.esm'

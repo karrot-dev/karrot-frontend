@@ -5,7 +5,7 @@
     :padding-top-left="paddingTopLeft"
     @moveend="event => $emit('map-move-end', event.target)"
     @update:zoom="updateZoom"
-    @map-click="event => closeContextMenu() && $emit('map-click', event)"
+    @map-click="mapClick"
     @contextmenu="openContextMenu"
   >
     <KMarker
@@ -154,7 +154,6 @@ export default {
   },
   methods: {
     openContextMenu (event) {
-      console.log('StandardMap opening context menu!')
       this.closeContextMenu()
       const { x, y } = event.containerPoint
       this.popoverOffset = [-x, -y]
@@ -169,6 +168,10 @@ export default {
     },
     updateZoom (val) {
       if (Number.isInteger(val)) this.lastZoom = val
+    },
+    mapClick (event) {
+      this.closeContextMenu()
+      this.$emit('map-click', event)
     },
     opacityFor (marker) {
       if (!this.hasSelectedMarkers) return SELECTED_OPACITY

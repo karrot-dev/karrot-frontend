@@ -42,6 +42,18 @@ export default {
         })
       }
 
+      banners.push({
+        type: 'communityBanner',
+        context: {
+          // TODO: not sure where we'd really store this number
+          // TODO: would be nicer if we can fetch all globally pinned topics, but can't find that in discourse API
+          // TODO: ... another option would be an instance configuration to specify them in .env, or in db?
+          // TODO: would also need to save when they close it somewhere...
+          topicId: 922,
+          html: '',
+        },
+      })
+
       return banners
     },
   },

@@ -3,6 +3,9 @@ import axios from '@/base/api/axios'
 const backend = process.env.MODE === 'cordova' ? process.env.KARROT.BACKEND : ''
 
 export default {
+  async getTopic (postId) {
+    return (await axios.get(`/community_proxy/t/${postId}.json`)).data
+  },
   async getMeta () {
     return convert((await axios.get('/api/community-feed/')).data)
   },

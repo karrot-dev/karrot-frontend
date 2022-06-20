@@ -91,6 +91,10 @@ for (const group of mockStories) {
 
           const wrapper = mount(component, {
             global: {
+              config: {
+                // TODO: should be able to remove this with vue v3.3.x
+                unwrapInjectedRef: true,
+              },
               plugins: [
                 store,
                 i18nPlugin,

@@ -25,7 +25,7 @@
         <template #placeholder>
           <img
             src="statics/add_a_photo.svg"
-            :width="60"
+            :width="small ? 80 : 200"
           >
         </template>
       </Croppa>
@@ -304,7 +304,11 @@ export default {
     width: 80px
     height: 80px
 
-.new-image ::v-deep(canvas)
-  cursor: pointer
-  border: 1px solid #ddd
+.new-image
+  ::v-deep(canvas)
+    cursor: pointer
+    border: 1px solid #ddd
+  ::v-deep(.slots)
+    // I'm not sure why I'm having to set this? But I think we need to move away from vue-croppa anyway...
+    visibility: visible !important
 </style>

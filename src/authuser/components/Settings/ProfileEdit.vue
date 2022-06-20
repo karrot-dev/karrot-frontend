@@ -42,6 +42,7 @@
         v-model="edit"
         color="positive"
         font-icon="fas fa-user"
+        :default-map-center="defaultMapCenter"
         :label="$t('USERDATA.WHERE_FROM')"
         :error="hasAddressError"
         :error-message="addressError"
@@ -98,6 +99,12 @@ export default {
     MarkdownInput,
   },
   mixins: [statusMixin, editMixin],
+  props: {
+    defaultMapCenter: {
+      default: null,
+      type: Object,
+    },
+  },
   setup () {
     return {
       v$: useVuelidate(),

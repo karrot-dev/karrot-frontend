@@ -31,7 +31,7 @@ export default createRouter({
 
     if (to.hash) {
       return {
-        selector: to.hash,
+        el: to.hash,
       }
     }
     if (savedPosition) {

@@ -69,6 +69,11 @@ const datastore = createDatastore({
       installPrompt: () => ({}),
     },
   },
+  geo: {
+    getters: {
+      defaultCenter: () => null,
+    },
+  },
 })
 
 const user = factories.makeCurrentUser({ mailVerified: false })

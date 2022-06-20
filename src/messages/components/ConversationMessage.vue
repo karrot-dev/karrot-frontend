@@ -11,7 +11,6 @@
       <QBtn
         v-if="message.isEditable"
         outline
-        dense
         color="secondary"
         :title="$t('BUTTON.EDIT')"
         @click="toggleEdit"
@@ -21,7 +20,6 @@
       <QBtn
         v-if="!slim"
         outline
-        dense
         color="secondary"
         :title="$t('CONVERSATION.REPLIES')"
         @click="$emit('open-thread')"
@@ -56,7 +54,10 @@
         </RouterLink>
         <span class="message-date">
           <small class="text-weight-light">
-            <DateAsWords :date="message.createdAt" />
+            <DateAsWords
+              :title="tooltipDate"
+              :date="message.createdAt"
+            />
           </small>
         </span>
         <QIcon
@@ -66,10 +67,7 @@
           :title="$t('WALL.RECEIVED_VIA_EMAIL')"
         />
       </QItemLabel>
-      <div
-        class="content"
-        :title="slim && tooltipDate"
-      >
+      <div class="content">
         <Markdown
           v-measure
           :source="message.content"
@@ -325,7 +323,8 @@ body.mobile .conversation-message
     right: 0px
 
     .q-btn
-      padding: 2px 9px
+      padding-left: 12px
+      padding-right: 12px
       font-size: 13px
       color: white
       transition: none
@@ -336,7 +335,7 @@ body.desktop
 
     .q-btn
       min-height: 24px
-      font-size: 12px
+      font-size: 13px
 
   .k-message-meta
     padding-top: 4px

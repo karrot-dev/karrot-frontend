@@ -1,13 +1,14 @@
 import { h } from 'vue'
 import { RouterView } from 'vue-router'
 import { Platform } from 'quasar'
+const Empty = Promise.resolve({ render: () => null })
 const Landing = () => import('@/base/pages/Landing')
 const GroupWall = () => import('@/group/pages/Wall')
 const GroupActivities = () => import('@/activities/pages/GroupActivities')
 const GroupOffers = () => import('@/offers/pages/GroupOffers')
 const OfferCreate = () => import('@/offers/pages/OfferCreate')
 const OfferEdit = () => import('@/offers/pages/OfferEdit')
-const OfferDetailHeaderIfMobile = () => Platform.is.mobile ? import('@/offers/components/OfferDetailHeader') : Promise.resolve({ render: () => null })
+const OfferDetailHeaderIfMobile = () => Platform.is.mobile ? import('@/offers/components/OfferDetailHeader') : Empty
 const OfferDetailOrBodyIfMobile = () => Platform.is.mobile ? import('@/offers/components/OfferDetailBody') : import('@/offers/components/OfferDetail')
 const GroupFeedback = () => import('@/feedback/pages/GroupFeedback')
 const Messages = () => import('@/messages/pages/Messages')
@@ -181,7 +182,7 @@ export default [
             components: {
               default: IssueLayout,
               subheader: IssueTabsIfMobile,
-              footer: () => Platform.is.mobile ? RouterViewIssueFooter : null,
+              footer: () => Platform.is.mobile ? RouterViewIssueFooter : Empty,
             },
             meta: {
               requireLoggedIn: true,

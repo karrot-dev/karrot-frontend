@@ -87,7 +87,7 @@
       "JOIN_CONFIRMATION_TEXT": "날짜를 {date}로 정하시겠습니까?",
       "LEAVE": "떠나기",
       "LEAVE_CONFIRMATION_HEADER": "{activityType}에서 떠나기",
-      "LEAVE_CONFIRMATION_TEXT": "정말 다른 사람들이 당신 없이 수행할 수 있다고 확신하시나요?",
+      "LEAVE_CONFIRMATION_TEXT": "정말 다른 사람들이 당신 없이 수행할 수 있다고 확신하십니까?",
       "DOWNLOAD_ICS": "ICS 다운로드"
     },
     "JOINEDNOTICE": "다가오는 하나의 활동이 존재합니다 | 다가오는 {count}개의 활동이 존재합니다.",
@@ -180,7 +180,7 @@
       },
       "REPLACE": {
         "CONFIRM": "네, 합의를 수정하겠습니다",
-        "MESSAGE": "모든 사람이 픽업에 참여하기 전에 다시 한번 동의해야 하게 됩니다",
+        "MESSAGE": "모든 사람이 픽업에 참여하기 전에 다시 한번 동의가 필요하게 됩니다",
         "TITLE": "합의를 수정하시겠습니까?"
       }
     },
@@ -258,40 +258,40 @@
   "CONFLICT": {
     "FIND_OUT_MORE": "더 자세히 알아보세요!",
     "INFO": {
-      "MESSAGE": "This is a score voting in which group members can participate to determine how to deal with a social conflict that affects the whole group.",
-      "TITLE": "How does this process work?"
+      "MESSAGE": "그룹 구성원이 참여하여 그룹 전체에 영향을 미치는 사회적 갈등에 어떻게 대처할지 결정하는 점수 투표입니다.",
+      "TITLE": "이 프로세스는 어떻게 이루어지나요?"
     },
-    "INITIAL": "Information",
+    "INITIAL": "정보",
     "REQUIREMENTS": {
-      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+      "NEWCOMER": "갈등 해결 프로세스를 시작하려면 더 많은 신뢰를 받고 편집 권한을 먼저 얻어야 합니다. 그 동안 다른 그룹 구성원에게 프로세스를 시작하도록 요청하세요."
     },
-    "SETUP_HEADER": "Is there a conflict with {user}?",
-    "STATEMENT": "Statement",
-    "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
-    "STEPPER1b": "This will involve all members to find the best way to proceed.",
-    "STEPPER2a": "Thank you for caring for your community!",
-    "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
-    "STEPPER3a": "Here's what will happen:",
-    "STEPPER3b": "This process will start a chat and a vote.",
-    "STEPPER3c": "The chat will be visible for members and includes {userName}.",
-    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
-    "STEPPER4a": "Please explain why you are starting this conflict resolution process!",
-    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members.",
+    "SETUP_HEADER": "{user}과(와) 갈등이 있으신가요?",
+    "STATEMENT": "진술",
+    "STEPPER1a": "그룹 공동의 갈등 해결 프로세스를 시작하셨습니다!",
+    "STEPPER1b": "최선의 방향으로 나아가기 위해 모든 구성원이 참여할 것입니다.",
+    "STEPPER2a": "커뮤니티를 돌보아 주셔서 감사합니다!",
+    "STEPPER2b": "때때로 불쾌할 수 있지만, 사회적 문제를 해결하는 것은 중요합니다. 당신의 용기에 감사드립니다!",
+    "STEPPER3a": "발생할 수 있는 일들:",
+    "STEPPER3b": "프로세스가 채팅과 투표를 시작할 것입니다.",
+    "STEPPER3c": "채팅은 {userName}을(를) 포함한 구성원이 볼 수 있습니다.",
+    "STEPPER3d": "이 투표는 익명으로 진행됩니다. {votingDuration}일 동안 투표가 진행되며 이 기간동안 모든 투표자는 언제든 생각을 바꾸고 표를 옮길 수 있습니다.",
+    "STEPPER4a": "당신이 왜 이 갈등 해결 프로세스를 시작했는지 설명하세요!",
+    "STEPPER4b": "이 프로세스가 정당하고 필요하다고 생각하게 만든 이유를 그룹에게 설명하세요. 이 진술은 {userName} 및 그룹 구성원에게 표시됩니다.",
     "VOTING": {
-      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
+      "HEADLINE": "현재 진행중인 {userName}과(와)의 갈등에 어떻게 하시길 원하시나요?"
     },
-    "WITH": "This process is to resolve a conflict with {userName}"
+    "WITH": "이 프로세스는 {userName}과(와)의 갈등을 해결하기 위한 것입니다."
   },
   "CONVERSATION": {
-    "CLOSED": "This conversation has been closed automatically.",
-    "CONVERSATIONS": "Conversations",
-    "EDITED": "edited",
-    "MARK_READ": "Mark all as read",
-    "MESSAGE_NOT_FOUND": "Message not found",
-    "MUTED": "Notifications are disabled",
+    "CLOSED": "이 대화는 자동으로 닫힙니다.",
+    "CONVERSATIONS": "대화",
+    "EDITED": "편집됨",
+    "MARK_READ": "모두 읽음으로 표시",
+    "MESSAGE_NOT_FOUND": "메시지가 없습니다",
+    "MUTED": "알림이 오지 않습니다",
     "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation.",
-    "NO_CONVERSATIONS": "No conversations yet.",
-    "OPEN": "Open Chat",
+    "NO_CONVERSATIONS": "아직 대화가 없습니다",
+    "OPEN": "공개 채팅",
     "REACTIONS": {
       "AND": "and",
       "REACTED_WITH": "{users} reacted with {reaction}",

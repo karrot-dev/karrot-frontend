@@ -9,3 +9,8 @@ import { configureCompat } from 'vue'
 configureCompat({
   MODE: 3,
 })
+
+export default ({ app }) => {
+  // TODO: should be able to remove this with vue v3.3.x
+  app.config.unwrapInjectedRef = true
+}

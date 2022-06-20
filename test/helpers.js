@@ -95,6 +95,10 @@ export function mountWithDefaults (Component, options = {}) {
   const mergedOptions = {
     ...options,
     global: {
+      config: {
+        // TODO: should be able to remove this with vue v3.3.x
+        unwrapInjectedRef: true,
+      },
       plugins: [
         [Quasar, quasarConfig, ssrContextMock],
         i18nPlugin,

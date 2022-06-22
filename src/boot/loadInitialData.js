@@ -23,7 +23,10 @@ export default async function ({ app, store: datastore }) {
 
   async function fetchCommunityFeed () {
     try {
-      await datastore.dispatch('communityFeed/fetchTopics')
+      await Promise.all([
+        datastore.dispatch('communityFeed/fetchTopics'),
+        datastore.dispatch('communityFeed/fetchBanner'),
+      ])
     }
     catch (error) {
       console.warn('Could not fetch community feed topics.')

@@ -11,6 +11,7 @@ export default {
       const connected = rootGetters['connectivity/connected']
       const reconnecting = rootGetters['connectivity/reconnecting']
       const updateAvailable = rootGetters['about/updateAvailable']
+      const communityBanner = rootGetters['communityFeed/banner']
 
       if (updateAvailable && !Platform.is.cordova) {
         banners.push({
@@ -42,17 +43,12 @@ export default {
         })
       }
 
-      banners.push({
-        type: 'communityBanner',
-        context: {
-          // TODO: not sure where we'd really store this number
-          // TODO: would be nicer if we can fetch all globally pinned topics, but can't find that in discourse API
-          // TODO: ... another option would be an instance configuration to specify them in .env, or in db?
-          // TODO: would also need to save when they close it somewhere...
-          topicId: 922,
-          html: '',
-        },
-      })
+      if (communityBanner) {
+        banners.push({
+          type: 'communityBanner',
+          context: communityBanner,
+        })
+      }
 
       return banners
     },

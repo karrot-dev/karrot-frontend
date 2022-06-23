@@ -138,7 +138,7 @@ export default {
         icon: 'fas fa-bullhorn',
         html,
         action: {
-          label: 'Close',
+          label: this.$t('BUTTON.CLOSE'),
           handler: () => this.$emit('dismiss-banner', id),
         },
       }

@@ -27,7 +27,7 @@
         "TITLE": "독립된 그룹들"
       },
       "MAPS": {
-        "DESCRIPTION": "여러분은 활동중인 장소와 사람들이 표시된 지도를 가지고 있습니다. 또 다가올 활동들의 목록을 가지고 그것들을 온라인으로 등록할 수 있습니다.",
+        "DESCRIPTION": "여러분은 활동중인 장소와 사람들이 표시된 지도를 가지고 있습니다. 또 예정된 활동들의 목록을 가지고 그것들을 온라인으로 등록할 수 있습니다.",
         "TITLE": "지도와 목록들"
       },
       "NOTIFICATIONS": {
@@ -90,8 +90,8 @@
       "LEAVE_CONFIRMATION_TEXT": "정말 다른 사람들이 당신 없이 수행할 수 있다고 확신하십니까?",
       "DOWNLOAD_ICS": "ICS 다운로드"
     },
-    "JOINEDNOTICE": "다가오는 하나의 활동이 존재합니다 | 다가오는 {count}개의 활동이 존재합니다.",
-    "NONE": "다가올 활동이 없습니다.",
+    "JOINEDNOTICE": "예정된 하나의 활동이 존재합니다 | 다가오는 {count}개의 활동이 존재합니다.",
+    "NONE": "예정된 활동이 없습니다.",
     "NONE_DUE_TO_FILTER": "필터와 일치하는 활동이 없습니다",
     "NONE_HINT": "장소 페이지에서 새 활동을 생성할 수 있습니다.",
     "STORE_NONE_HINT": "‘관리 활동’ 페이지에서 새 활동을 생성할 수 있습니다.",
@@ -113,17 +113,17 @@
     "SERIES": "활동 시리즈",
     "SINGLE": "일회성 활동",
     "TITLE": "활동 관리",
-    "UPCOMING_ACTIVITIES_IN_SERIES": " 시리즈 속 다가올 활동"
+    "UPCOMING_ACTIVITIES_IN_SERIES": "시리즈에 포함된 예정된 활동"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "저장할 수 있는 음식량",
-    "AMOUNT_INFO": "장소 통계의 경우, 모든 피드백을 한꺼번에 추가할 예정입니다.",
-    "COMMENT_PLACEHOLDER": "괜찮으셨나요? 모두 모였나요? 여기 댓글이 있습니다…",
-    "DELETE_AMOUNT": "음식량 삭제",
+    "AMOUNT": "절약할 수 있었던 식량의 무게",
+    "AMOUNT_INFO": "장소 통계의 경우, 모든 피드백의 무게를 한꺼번에 추가할 예정입니다.",
+    "COMMENT_PLACEHOLDER": "괜찮으셨나요? 모두 모였었나요? 여기 코멘트를 적어주세요",
+    "DELETE_AMOUNT": "무게 삭제",
     "EDIT": "피드백 수정",
     "HEADER": "참여해주셔서 감사합니다!",
     "PREVIOUS": "{store}을(를) 위한 이전 피드백",
-    "SET_AMOUNT": "음식량 설정",
+    "SET_AMOUNT": "무게 설정",
     "TITLE": "피드백",
     "TOGETHER_WITH": "이런 사람들과 함께 했습니다:",
     "DISMISS_LABEL": "무시",
@@ -188,7 +188,7 @@
     "MINOR_EDIT_HELPER": "사람들은 오타나 형식 지정 등에서 동의를 다시 요청받지 않을 것입니다",
     "NEW": "새 합의",
     "TITLE": "제목",
-    "TITLE_HELPER": "당신의 합의의 제목을 정합니다(예: 커뮤니티 규칙)",
+    "TITLE_HELPER": "내 합의의 제목을 정합니다(예: 커뮤니티 규칙)",
     "VIEW": "합의 보기"
   },
   "APPLICATION": {
@@ -289,33 +289,33 @@
     "MARK_READ": "모두 읽음으로 표시",
     "MESSAGE_NOT_FOUND": "메시지가 없습니다",
     "MUTED": "알림이 오지 않습니다",
-    "NOT_PARTICIPATED": "By sending a message, you will be subscribed to notifications about this conversation.",
+    "NOT_PARTICIPATED": "메세지를 보내면 이 대화의 알림을 구독할 수 있습니다.",
     "NO_CONVERSATIONS": "아직 대화가 없습니다",
     "OPEN": "공개 채팅",
     "REACTIONS": {
-      "AND": "and",
-      "REACTED_WITH": "{users} reacted with {reaction}",
-      "YOU": "you"
+      "AND": "그리고",
+      "REACTED_WITH": "{users}가 {reaction}에 반응했습니다",
+      "YOU": "나"
     },
-    "REPLIES": "Replies",
-    "REPLIES_COUNT": "1 reply | {count} replies",
-    "REPLY_TO_MESSAGE": "Reply to message...",
-    "UNREAD_MESSAGES": "You have one unread message. | You have {count} unread messages."
+    "REPLIES": "답글",
+    "REPLIES_COUNT": "1개의 답글 | {count}개의 답글",
+    "REPLY_TO_MESSAGE": "메시지에 답하기",
+    "UNREAD_MESSAGES": "1개의 읽지 않은 메시지가 있습니다 | {count}개의 읽지 않은 메시지가 있습니다."
   },
   "CREATEACTIVITY": {
-    "COMMENT": "Additional information",
-    "COMMENT_HELPER": "What should people know when signing up to this?",
-    "CUSTOM": "Custom",
-    "DATE": "Date",
-    "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
-    "DISABLE_TITLE": "Disable?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
-    "ENABLE_TITLE": "Enable?",
-    "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
-    "EXCEPTIONS_TITLE": "Check your activities",
-    "FREQUENCY": "Frequency",
-    "MAX_PARTICIPANTS": "Max Slots",
-    "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
+    "COMMENT": "추가 정보",
+    "COMMENT_HELPER": "여기에 가입하려는 사람들이 무엇을 알아야 할까요?",
+    "CUSTOM": "커스텀",
+    "DATE": "날짜",
+    "DIFFERS_WARNING": "이 값은 기본 설정에서 변경됩니다. 변경사항을 되돌리고 싶다면 화살표 버튼을 클릭하고 변경사항을 저장하세요.",
+    "DISABLE_TITLE": "불가능한가요?",
+    "ENABLE_DISABLE_MESSAGE": "가입된 사용자들은 알림을 받게 됩니다. 당신은 그 이유를 제공하기 위해 글을 수정할 수 있습니다.",
+    "ENABLE_TITLE": "가능한가요?",
+    "EXCEPTIONS_MESSAGE": "몇가지 예정된 활동들이 이 시리즈의 설정과 맞지 않습니다. 필요하시다면 아래의 {upcomingLabel}에서 수정하시거나 불가능으로 만드세요.",
+    "EXCEPTIONS_TITLE": "당신의 활동을 확인하세요",
+    "FREQUENCY": "빈도",
+    "MAX_PARTICIPANTS": "최대 슬롯",
+    "MAX_PARTICIPANTS_HELPER": "몇 명이 참가해야 하나요?",
     "RRULE": "Recurrence rule",
     "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
     "RRULE_EXAMPLE2": "every second Monday",
@@ -329,7 +329,7 @@
     "WEEKLY": "Weekly"
   },
   "CREATESTORE": {
-    "TITLE": "Create a new place"
+    "TITLE": "새로운 장소 생성하기"
   },
   "DELETEACCOUNT": {
     "SUCCESS": "Your account was successfully deleted!",
@@ -350,7 +350,7 @@
     "ABOUT_KARROT": "About Karrot",
     "APP_INSTALLED": "App successfully installed!",
     "GENERIC_ERROR": "Sorry, something went wrong",
-    "GITHUB_NOTE": "Development",
+    "GITHUB_NOTE": "개발",
     "INVALID_LINK": "Sorry, the link you've opened is invalid.",
     "LOGO_ALT": "karrot logo",
     "NOT_CONNECTED": "You aren't connected to the server",
@@ -358,7 +358,7 @@
     "RECONNECTING": "Reconnecting...",
     "SEARCH_NOT_FOUND": "Not Found",
     "SEARCH_RESULTS": "Search results",
-    "SERVER_ERROR": "Server error",
+    "SERVER_ERROR": "서버 오류",
     "CLEAR_FILTERS": "Clear filters"
   },
   "GROUP": {
@@ -367,15 +367,15 @@
     "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
     "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
     "ADDED_BY": "added by {userName}",
-    "ADDRESS": "Address",
+    "ADDRESS": "주소",
     "APPLICATIONS": "Applications",
     "APPLICATION_QUESTIONS": "Questions for people who want to join this group",
-    "CREATE_TITLE": "Create new group",
+    "CREATE_TITLE": "새 그룹 생성하기",
     "DECLINED": "declined {relativeDate}",
     "DECLINED_BY": "declined by {userName}",
-    "DESCRIPTION": "Description",
-    "DESCRIPTION_VERBOSE": "Group description, visible for members",
-    "EDIT": "Edit group",
+    "DESCRIPTION": "설명",
+    "DESCRIPTION_VERBOSE": "모든 구성원이 볼 수 있는 그룹의 설명",
+    "EDIT": "그룹 편집하기",
     "EDIT_ACTIVITY_TYPES": "Activity types",
     "EDIT_DETAILS": "Group details",
     "EMAIL_NOTIFICATIONS": "Email notifications",
@@ -386,7 +386,7 @@
       "NEW_MEMBERS_SIGNUP": "New Members Signup",
       "NEW_MEMBERS_SIGNUP_HINT": "New members will have to apply and get accepted to your group. You can always change the application and welcome message later in the group settings."
     },
-    "HISTORY": "History",
+    "HISTORY": "역사",
     "HOME": "Home",
     "INACTIVE": "Inactive",
     "INVITATIONS": "Invitations",
@@ -405,13 +405,13 @@
     "JOINED": "joined {relativeDate}",
     "JOIN_ANOTHER_GROUP": "Join another group",
     "JOIN_PLAYGROUND": "Join the playground group to explore karrot",
-    "LEAVE": "Leave group...",
+    "LEAVE": "그룹 떠나기...",
     "LEAVE_CONFIRMATION": "You left {groupName}",
-    "LEAVE_TEXT": "Are you sure you want to leave this group?",
+    "LEAVE_TEXT": "정말 이 그룹을 떠나길 원하시나요?",
     "LOGO": "Group logo",
     "MANAGE_AGREEMENT": "Manage agreement",
     "MEMBERLIST": "Your group has {total} members in total.",
-    "MEMBERS": "Members",
+    "MEMBERS": "구성원",
     "MESSAGES": "Messages",
     "NONMEMBER_REDIRECT": "You are not a member of this group.",
     "NOTIFICATIONS_BY_GROUP": "Notifications by group",
@@ -445,8 +445,8 @@
     "SORT_JOINDATE": "Sort by join date",
     "SORT_NAME": "Sort by name",
     "STATISTICS": "Statistics",
-    "TIMEZONE": "Time zone of group",
-    "TITLE": "Title of this group",
+    "TIMEZONE": "그룹의 시간대",
+    "TITLE": "그룹의 이름",
     "WALL": "Wall",
     "WELCOMEMESSAGE_VERBOSE": "Welcome message sent to new members"
   },
@@ -485,21 +485,21 @@
     "CONFIRM_CHANGES_HINT": "You can write a message here to explain your changes that will be displayed in the history",
     "DETAILS": "More information",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
-    "GROUP_CREATE": "created this group",
+    "GROUP_CREATE": "이 그룹을 생성함",
     "GROUP_DELETE_PHOTO": "deleted the group logo",
-    "GROUP_JOIN": "joined this group",
-    "GROUP_LEAVE": "left this group",
+    "GROUP_JOIN": "이 그룹에 가입함",
+    "GROUP_LEAVE": "이 그룹을 떠남",
     "GROUP_LEAVE_INACTIVE": "was removed due to inactivity",
-    "GROUP_MODIFY": "changed the settings of this group",
+    "GROUP_MODIFY": "이 그룹의 설정을 수정함",
     "MEMBER_BECAME_EDITOR": "gained editing permissions",
     "MEMBER_REMOVED": "was removed due to group decision",
     "NOTHING_HAPPENEND": "Nothing happened so far...",
-    "SERIES_CREATE": "{activityType} series created",
-    "SERIES_DELETE": "{activityType} series deleted",
-    "SERIES_MODIFY": "changed the settings of a series",
-    "STORE_CREATE": "created place {name}",
-    "STORE_DELETE": "deleted place {name}",
-    "STORE_MODIFY": "changed the settings of place {name}",
+    "SERIES_CREATE": "{activityType} 시리즈 생성함",
+    "SERIES_DELETE": "{activityType} 시리즈 삭제함",
+    "SERIES_MODIFY": "시리즈의 설정이 수정됨",
+    "STORE_CREATE": "{name}란 이름의 장소 생성함",
+    "STORE_DELETE": "장소 {name}이(가) 삭제됨",
+    "STORE_MODIFY": "장소 {name}의 설정을 수정함",
     "USER_LOST_EDITOR_ROLE": "lost editing permissions"
   },
   "INACTIVITY": {
@@ -546,7 +546,7 @@
       },
       "SEE_RESULTS": "See the results",
       "TIME_LEFT": "Time left to vote",
-      "TOAST": "Your vote was successfully submitted",
+      "TOAST": "당신의 투표가 성공적으로 제출되었습니다",
       "TOAST_DELETE": "Your vote was deleted"
     }
   },
@@ -562,32 +562,32 @@
       "LOG_IN": "Log in to see your groups!"
     },
     "MY_GROUPS": "My groups",
-    "NO_PUBLIC_DESCRIPTION": "(This group has no public description... yet)",
-    "NUM_MEMBERS": "Member | Members",
+    "NO_PUBLIC_DESCRIPTION": "(이 그룹엔 아직 공식적인 설명이 없습니다)",
+    "NUM_MEMBERS": "구성원 | 구성원",
     "OR": "{joinGroup} or {createGroup}",
     "PROFILE_NOTE": "By joining this group, your profile data will become visible to other group members.",
     "SIGNUP_OR_LOGIN": "Log in or sign up to join this group!",
     "VERIFY_EMAIL_ADDRESS": "Verify your email address to apply",
-    "WHICHGROUP": "Which group do you want to join?",
+    "WHICHGROUP": "어느 그룹에 가입하길 원하시나요?",
     "WITHDRAW_CONFIRMATION_HEADER": "합류신청 철회",
     "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?"
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Help translating!",
+    "ADD_MORE": "번역 돕기!",
     "SWITCH": "Switch language"
   },
   "LOGIN": {
-    "FORGOT_PASSWORD": "Forgot your password?",
-    "SIGNUP": "Sign up!",
+    "FORGOT_PASSWORD": "비밀번호를 잊으셨나요?",
+    "SIGNUP": "가입하기!",
     "SUBMIT": "로그인",
     "TITLE": "로그인"
   },
   "MARKDOWN_INPUT": {
-    "BOLD": "bold",
-    "HELP": "What is Markdown?",
-    "ITALIC": "italic",
-    "QUOTE": "quote",
-    "STRIKE": "strike"
+    "BOLD": "굵음",
+    "HELP": "Markdown이란 무엇인가요?",
+    "ITALIC": "기울임",
+    "QUOTE": "인용",
+    "STRIKE": "취소선"
   },
   "NOTIFICATIONS": {
     "CHANGES_SAVED": "Your changes have been saved.",
@@ -669,8 +669,8 @@
   "PASSWORDRESET": {
     "EMAIL": "Email address",
     "INTRO": "Enter your Email address and we will send you a link to set a new password (if you have an account registered).",
-    "LOGIN": "Back to login page",
-    "SUBMIT": "Get new password",
+    "LOGIN": "로그인으로 돌아가기",
+    "SUBMIT": "새 비밀번호 할당받기",
     "SUCCESS": "The request was successfully sent. Have a look at your Emails!",
     "TITLE": "Password reset"
   },
@@ -685,7 +685,7 @@
     }
   },
   "PROFILE": {
-    "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
+    "INACCESSIBLE_OR_DELETED": "(사용자에 액세스할 수 없거나 삭제됨)"
   },
   "SETTINGS": {
     "TITLE": "Settings"
@@ -695,9 +695,9 @@
     "INFO_SUB": "How to build your foodsaving group"
   },
   "SIGNUP": {
-    "BACK": "Back to Login",
+    "BACK": "로그인으로 돌아가기",
     "OK": "참가",
-    "TITLE": "Sign Up!"
+    "TITLE": "가입하기!"
   },
   "STATISTICS": {
     "ACTIVITY_HISTORY": "Activity statistics",
@@ -725,15 +725,15 @@
     "ARCHIVED": "This place has been archived",
     "CHANGE_STATUS": "You can change the status on the settings page.",
     "DIRECTIONS": "Show directions",
-    "EDIT": "Edit place",
+    "EDIT": "장소 편집하기",
     "INACTIVE": "This place is currently not cooperating.",
     "NO_DESCRIPTION": "This place does not have a description yet"
   },
   "STOREEDIT": {
-    "ADDRESS": "Address",
+    "ADDRESS": "주소",
     "DEFAULT_VIEW": "Default View",
     "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
-    "DESCRIPTION": "Description",
+    "DESCRIPTION": "설명",
     "DIALOGS": {
       "ARCHIVE": {
         "CONFIRM": "Yes, archive place",
@@ -741,12 +741,12 @@
         "TITLE": "Archive place"
       }
     },
-    "NAME": "Name",
+    "NAME": "이름",
     "RESTORE": "Restore",
     "SHOW_ACTIVE_ONLY": "Only show active places",
     "SHOW_ALL": "Show all places",
     "STATUS": "Status",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
+    "WEEKS_IN_ADVANCE": "시리즈 활동은 몇 주 전에 만들어야 하나요?",
     "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
   },
   "STORESTATUS": {
@@ -766,9 +766,9 @@
   "TO": "to",
   "TOPBAR": {
     "CHANGE_GROUP": "Change group",
-    "LOGOUT": "Logout",
+    "LOGOUT": "로그아웃",
     "SHOW_ALL_GROUPS": "Show all groups",
-    "USERPROFILE": "Visit your profile"
+    "USERPROFILE": "나의 프로필 방문"
   },
   "UNSUBSCRIBE": {
     "ALL": "Unsubscribe all",
@@ -804,7 +804,7 @@
         "TITLE": "Account deletion"
       }
     },
-    "EMAIL": "E-mail",
+    "EMAIL": "이메일",
     "FIRST_TRUST": "Be the first one to trust {userName} in {groupName}!",
     "LOGOUT_SUCCESS": "You have been logged out!",
     "MOBILE_NUMBER": "Phone number",
@@ -813,7 +813,7 @@
     "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
-    "PASSWORD": "Password",
+    "PASSWORD": "비밀번호",
     "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
     "PHOTO": "Profile photo",
     "PRIVATE_MESSAGE": "Send a private message to {userName}",
@@ -835,15 +835,15 @@
     "TRUST_PROGRESS_TEXT": "{trustNeeded} more trust needed",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} more people need to express their trust in {userName} to grant editing permissions.",
     "DISPLAY_NAME": "Display Name",
-    "USERNAME": "Username",
+    "USERNAME": "사용자 이름",
     "WHERE_FROM": "Where you are from (not required)",
     "YOU_TRUST_USER": "You trust {userName} in {groupName}."
   },
   "USERDETAIL": {
-    "DESCRIPTION": "About you",
-    "DISPLAY_NAME": "Name",
+    "DESCRIPTION": "나에 대해",
+    "DISPLAY_NAME": "이름",
     "OLD_PASSWORD": "Confirm your old password",
-    "PASSWORD": "New password"
+    "PASSWORD": "새 비밀번호"
   },
   "VALIDATION": {
     "IMAGE_REQUIRED": "You must add an image",
@@ -857,8 +857,8 @@
     "TAKEN": "Already taken."
   },
   "VERIFYMAIL": {
-    "SUCCESS": "Your e-mail address was successfully verified!",
-    "TITLE": "E-Mail verification"
+    "SUCCESS": "당신의 이메일 주소가 성공적으로 인증되었습니다!",
+    "TITLE": "이메일 인증"
   },
   "WALL": {
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail",

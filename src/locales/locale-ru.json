@@ -1,20 +1,20 @@
 {
   "ABOUT_KARROT": {
-    "AND_MORE": "And more...",
+    "AND_MORE": "А ещё…",
     "EXISTING_GROUPS": "A few groups already using Karrot",
     "LINKS": {
-      "CHAT": "team chat",
-      "FORUM": "community forum"
+      "CHAT": "чат команды",
+      "FORUM": "форум сообщества"
     },
     "SECTIONS": {
       "ACTIVITIES": {
         "DESCRIPTION": "Each activity has a number of slots which members of the group can sign up for – this way everyone knows who goes where and when, and feedback can be given later.",
         "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
-        "TITLE": "Distribution of tasks and activities"
+        "TITLE": "Распределение задач и действий"
       },
       "COMMUNICATION": {
         "DESCRIPTION": "Write a message that everyone in the group will see or a private message to someone. Everything related to a single activity or place can be discussed in their respective chats.",
-        "TITLE": "Communication in the right context"
+        "TITLE": "Общение в верном контексте"
       },
       "DEMOCRATIC": {
         "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
@@ -24,15 +24,15 @@
       "GROUPS": {
         "DESCRIPTION": "Yet they are all displayed on the map so that people can find and connect to other groups in their location and even globally.",
         "SUBTITLE": "Every group on Karrot is completely independent and can have their own logo, processes, rules and agreements.",
-        "TITLE": "Independent groups"
+        "TITLE": "Независимые группы"
       },
       "MAPS": {
         "DESCRIPTION": "You have a map of where the places and the people doing the activities are located. You have a nice list of upcoming activities and can sign up for them online.",
-        "TITLE": "Maps and lists"
+        "TITLE": "Карты и списки"
       },
       "NOTIFICATIONS": {
         "DESCRIPTION": "You get notified about empty activities, new messages and new people wanting to join your group. But you can also turn it all off if you wish more peace!",
-        "TITLE": "Notifications"
+        "TITLE": "Уведомления"
       },
       "OFFERS": {
         "DESCRIPTION": "Offers are visible to everyone in the group and people can show their interest on the offer's chat.",
@@ -45,11 +45,11 @@
       },
       "TEAM": {
         "DESCRIPTION": "You can easily talk to the people developing Karrot, either on our {forum}, on {code} or in real-time on our {chat}.",
-        "TITLE": "Responsive team"
+        "TITLE": "Ответственная команда"
       },
       "TRANSLATIONS": {
         "DESCRIPTION": "Karrot is fully translatable by the community and many languages are already added. To contribute more translations just visit the project on {translations}.",
-        "TITLE": "Multi-language"
+        "TITLE": "Многоязыковой"
       },
       "TRANSPARENCY": {
         "DESCRIPTION": "The history shows who did what and when. Everything from participating in an activity to creating and editing places is logged here.",
@@ -62,7 +62,7 @@
     },
     "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
     "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
-    "TITLE": "Start a group, become a community",
+    "TITLE": "Начать группу, основать сообщество",
     "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kitchen..."
   },
   "ACTIVITYDELETE": {
@@ -70,15 +70,15 @@
     "DELETE_SERIES_TITLE": "Delete series"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "This is disabled.",
-    "ACTIVITY_STARTED": "This has already started.",
+    "ACTIVITY_DISABLED": "Это отключено.",
+    "ACTIVITY_STARTED": "Это уже запущено.",
     "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
     "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
-      "ALL": "All",
-      "ALL_TYPES": "All types",
-      "EMPTY": "Only empty",
+      "ALL": "Все",
+      "ALL_TYPES": "Все типы",
+      "EMPTY": "Только пустые",
       "FREE": "With free slots"
     },
     "ITEM": {
@@ -88,7 +88,7 @@
       "LEAVE": "Выйти",
       "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
       "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?",
-      "DOWNLOAD_ICS": "Download ICS"
+      "DOWNLOAD_ICS": "Скачать ICS"
     },
     "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
     "NONE": "No upcoming activities",
@@ -96,18 +96,18 @@
     "NONE_HINT": "You can create a new activity on the place page.",
     "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page.",
     "ICS_DIALOG": {
-      "TITLE": "Add to calendar",
+      "TITLE": "Добавить в календарь",
       "INTRO": "Add your activities to your calendar by using one of the following options:",
-      "DOWNLOAD_TITLE": "Download",
+      "DOWNLOAD_TITLE": "Скачать",
       "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
-      "DOWNLOAD_BUTTON_LABEL": "Download ICS",
-      "SUBSCRIBE_TITLE": "Subscribe",
+      "DOWNLOAD_BUTTON_LABEL": "Скачать ICS",
+      "SUBSCRIBE_TITLE": "Подписаться",
       "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
-      "MORE_INFOS": "More info about ICS"
+      "MORE_INFOS": "Информация о ICS"
     }
   },
   "ACTIVITYMANAGE": {
-    "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
+    "ACTIVITY_DESCRIPTION_CHANGED": "'Дополнительная информация' изменена",
     "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed",
     "SERIES": "Activity series",
@@ -119,11 +119,11 @@
     "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
     "COMMENT_PLACEHOLDER": "Was everything fine? Did everyone show up? Your comment here...",
-    "DELETE_AMOUNT": "Delete amount",
+    "DELETE_AMOUNT": "Удалить количество",
     "EDIT": "Редактировать отзыв",
-    "HEADER": "Thank you for your participation!",
+    "HEADER": "Благодарим за ваше участие!",
     "PREVIOUS": "Previous feedback for {store}",
-    "SET_AMOUNT": "Set amount",
+    "SET_AMOUNT": "Установить количество",
     "TITLE": "Отзывы",
     "TOGETHER_WITH": "You did this together with:",
     "DISMISS_LABEL": "Dismiss",
@@ -136,7 +136,7 @@
     "Distribution": "Distribution",
     "Event": "Event",
     "Activity": "Activity",
-    "Task": "Task"
+    "Task": "Задача"
   },
   "ACTIVITY_TYPE_STATUS": {
     "ACTIVE": "Active",
@@ -147,22 +147,22 @@
     "FEEDBACK_YES_HINT": "The participants will be asked for feedback about the activity",
     "FEEDBACK_NO_HINT": "No feedback will be requested",
     "FEEDBACK_WEIGHT_LABEL": "Ask for weight?",
-    "NAME": "Name",
-    "FEEDBACK": "Feedback",
+    "NAME": "Имя",
+    "FEEDBACK": "Отзыв",
     "FEEDBACK_WEIGHT": "Feedback weight",
-    "STATUS": "Status",
-    "STANDARD_NAME_HEADING": "Standard names",
+    "STATUS": "Статус",
+    "STANDARD_NAME_HEADING": "Стандартные имена",
     "STANDARD_NAME_HINT": "Name will be available in other languages",
     "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
     "CUSTOM_NAME_USE": "Use custom name {name}",
     "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
-    "MANAGE_TYPES": "Manage types...",
+    "MANAGE_TYPES": "Управлять типами…",
     "SHOW_ARCHIVED": "Show archived",
     "STATUS_ACTIVE_HINT": "You will be able to create new activities and series of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new activities or series of this type, but existing ones will still be available"
   },
   "ADDRESS_PICKER": {
-    "CHOOSE_LOCATION": "choose location on map",
+    "CHOOSE_LOCATION": "выбрать место на карте",
     "KEEP_EXISTING_LOCATION": "keep existing location on map",
     "SET_AS": "Set address as"
   },
@@ -171,25 +171,25 @@
     "BLURB1": "You don't have an agreement yet!",
     "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
     "CONTENT": "Content",
-    "CONTENT_HELPER": "The text of your agreement",
+    "CONTENT_HELPER": "Текст вашего договора",
     "DIALOGS": {
       "REMOVE": {
-        "CONFIRM": "Yes, remove agreement",
+        "CONFIRM": "Да, удалить договор",
         "MESSAGE": "This means anyone will be able to do a pickup",
-        "TITLE": "Remove agreement?"
+        "TITLE": "Удалить договор?"
       },
       "REPLACE": {
-        "CONFIRM": "Yes, change agreement",
+        "CONFIRM": "Да, изменить договор",
         "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
-        "TITLE": "Change agreement?"
+        "TITLE": "Изменить договор?"
       }
     },
     "MINOR_EDIT": "Minor edit?",
     "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
-    "NEW": "New agreement",
-    "TITLE": "Title",
+    "NEW": "Новый договор",
+    "TITLE": "Заголовок",
     "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
-    "VIEW": "View agreement"
+    "VIEW": "Посмотреть договор"
   },
   "APPLICATION": {
     "ACCEPTED": "You accepted {userName} into this group!",
@@ -207,7 +207,7 @@
     "PAST": "Past applications",
     "SUBMITTED_ON": "Submitted on {date}",
     "WALL_NOTICE": "There is an application pending! | There are {count} applications pending!",
-    "WHAT": "What is this chat about?",
+    "WHAT": "О чём этот чат?",
     "WITHDRAWN": "withdrawn {relativeDate}"
   },
   "ATTENTION": "Внимание!",
@@ -216,11 +216,11 @@
     "AGREE": "Я согласен",
     "APPLY": "Подать",
     "ARCHIVE": "Архивировать",
-    "BACK": "Back",
+    "BACK": "Назад",
     "CANCEL": "Отмена",
-    "CHANGE_COLOUR": "Change colour",
+    "CHANGE_COLOUR": "Изменить цвет",
     "CHANGE_EMAIL": "Изменить электронную почту",
-    "CHANGE_ICON": "Change icon",
+    "CHANGE_ICON": "Изменить иконку",
     "CHANGE_PASSWORD": "Изменить пароль",
     "CLOSE": "Закрыть",
     "CREATE": "Создать",
@@ -241,18 +241,18 @@
     "SAVE_CHANGES": "Сохранить изменения",
     "SEARCH": "Искать",
     "SHOW": "Показать",
-    "SHOW_LESS": "Show less",
+    "SHOW_LESS": "Скрыть подробности",
     "SHOW_MORE": "Показать больше",
     "SUBMIT": "Отправить",
     "UNSUBSCRIBE": "Отписаться",
-    "WITHDRAW": "Withdraw",
+    "WITHDRAW": "Вывод",
     "YES": "Да",
     "READ_MORE": "Read more"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
-    "HEADER_LINK": "Karrot community",
-    "KARROT_DISCUSSION": "Discussions about Karrot",
+    "HEADER_LINK": "Сообщество Karrot",
+    "KARROT_DISCUSSION": "Обсуждения о Karrot",
     "LAST_UPDATED": "Last updated {relativeDate}"
   },
   "CONFLICT": {
@@ -863,8 +863,8 @@
   "WALL": {
     "RECEIVED_VIA_EMAIL": "This message was sent via e-mail",
     "VERIFY_EMAIL_FOR_NOTIFICATIONS": "Please verify your e-mail address to receive notification e-mails",
-    "WRITE_FIRST_MESSAGE": "Write the first message...",
-    "WRITE_MESSAGE": "Write a message..."
+    "WRITE_FIRST_MESSAGE": "Написать первое сообщение…",
+    "WRITE_MESSAGE": "Напишите сообщение…"
   },
   "YOU": "Вы"
 }

@@ -9,7 +9,12 @@
       :class="className"
     >
       <template v-if="html">
-        <div class="html" v-html="html" />
+        <!-- eslint-disable vue/no-v-html -->
+        <div
+          class="html"
+          v-html="html"
+        />
+        <!-- eslint-enable vue/no-v-html -->
       </template>
       <template v-else-if="message">
         {{ $t(message, context) }}

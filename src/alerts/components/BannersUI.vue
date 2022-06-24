@@ -1,14 +1,19 @@
 <template>
   <div>
     <QBanner
-      v-for="{ type, icon, className, action, message, context } in formattedBanners"
+      v-for="{ type, icon, className, action, message, html, context } in formattedBanners"
       :key="type"
       class="k-banner"
       style="min-height: unset"
       inline-actions
       :class="className"
     >
-      {{ $t(message, context) }}
+      <template v-if="html">
+        <div class="html" v-html="html" />
+      </template>
+      <template v-else-if="message">
+        {{ $t(message, context) }}
+      </template>
       <template #avatar>
         <QIcon
           :name="icon"
@@ -52,6 +57,7 @@ export default {
   emits: [
     'agree',
     'reconnect',
+    'dismiss-banner',
   ],
   computed: {
     formattedBanners () {
@@ -61,7 +67,7 @@ export default {
           ...banner,
         }
       }).filter(banner => {
-        return !banner.desktopOnly || !this.$q.platform.is.mobile
+        return banner && (!banner.desktopOnly || !this.$q.platform.is.mobile)
       })
     },
   },
@@ -125,6 +131,18 @@ export default {
         },
       }
     },
+
+    communityBanner ({ id, html }) {
+      return {
+        className: 'bg-blue text-white',
+        icon: 'fas fa-bullhorn',
+        html,
+        action: {
+          label: this.$t('BUTTON.CLOSE'),
+          handler: () => this.$emit('dismiss-banner', id),
+        },
+      }
+    },
   },
 }
 </script>
@@ -135,4 +153,16 @@ body.desktop .k-banner
 
 .k-banner ::v-deep(.q-banner__avatar)
   align-self: center
+
+.html
+  ::v-deep(p:last-child)
+    margin-bottom: 0
+
+  ::v-deep(a)
+    text-decoration: underline
+
+  ::v-deep(img.emoji)
+    width: 20px
+    height: 20px
+    vertical-align: middle
 </style>

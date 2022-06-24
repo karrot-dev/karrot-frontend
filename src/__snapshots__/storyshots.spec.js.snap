@@ -3021,12 +3021,18 @@ exports[`Storyshots Banners Banners 1`] = `
   <!--[-->
   <div class="q-banner row items-center k-banner bg-secondary text-white" role="alert" style="min-height:unset;">
     <div class="q-banner__avatar col-auto row items-center self-start"><i class="q-icon fas fa-child" style="font-size:1.4em;" aria-hidden="true" role="presentation"> </i></div>
-    <div class="q-banner__content col text-body2">This is a playground group, you can&#39;t break anything. Explore, click around and have fun! </div>
+    <div class="q-banner__content col text-body2">
+      <!--[-->This is a playground group, you can&#39;t break anything. Explore, click around and have fun!
+      <!--]-->
+    </div>
     <div class="q-banner__actions row items-center justify-end col-auto"><button class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--dense" style="" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Join another group</span></span></button></div>
   </div>
   <div class="q-banner row items-center k-banner bg-warning text-white" role="alert" style="min-height:unset;">
     <div class="q-banner__avatar col-auto row items-center self-start"><i class="q-icon notranslate material-icons" style="font-size:1.4em;" aria-hidden="true" role="presentation">report_problem</i></div>
-    <div class="q-banner__content col text-body2">Offline. Press here to reconnect. </div>
+    <div class="q-banner__content col text-body2">
+      <!--[-->Offline. Press here to reconnect.
+      <!--]-->
+    </div>
     <div class="q-banner__actions row items-center justify-end col-auto"><button class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle q-btn--actionable q-focusable q-hoverable q-btn--dense" style="" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="q-icon notranslate material-icons" style="" aria-hidden="true" role="img">refresh</i></span></button></div>
   </div>
   <!--]-->

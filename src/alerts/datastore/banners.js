@@ -11,6 +11,7 @@ export default {
       const connected = rootGetters['connectivity/connected']
       const reconnecting = rootGetters['connectivity/reconnecting']
       const updateAvailable = rootGetters['about/updateAvailable']
+      const communityBanner = rootGetters['communityFeed/banner']
 
       if (updateAvailable && !Platform.is.cordova) {
         banners.push({
@@ -39,6 +40,13 @@ export default {
         banners.push({
           type: 'playgroundGroupInfo',
           desktopOnly: true,
+        })
+      }
+
+      if (communityBanner) {
+        banners.push({
+          type: 'communityBanner',
+          context: communityBanner,
         })
       }
 

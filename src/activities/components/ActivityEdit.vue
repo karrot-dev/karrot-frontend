@@ -422,6 +422,14 @@ export default {
       return this.$q.screen.width < 450 || this.$q.screen.height < 450
     },
   },
+  watch: {
+    'edit.maxParticipants' (val) {
+      if (val === '') {
+        // if we have 'unlimited' participants, val gets parsed to empty string, but the server expects null
+        this.edit.maxParticipants = null
+      }
+    },
+  },
   methods: {
     futureDates (dateString) {
       return date.extractDate(`${dateString} 23:59`, 'YYYY/MM/DD HH:mm') > this.now

@@ -66,6 +66,7 @@
         v-model="icsDialog"
         width="500px"
         actions-align="between"
+        @show="$store.dispatch('activities/fetchICSAuthToken')"
       >
         <template #title>
           {{ $t('ACTIVITYLIST.ICS_DIALOG.TITLE') }}
@@ -161,6 +162,18 @@
               </QItemSection>
             </QItem>
           </QList>
+
+          <p class="q-mt-lg">
+            {{ $t('ACTIVITYLIST.ICS_DIALOG.REFRESH_TOKEN') }}
+            <QBtn
+              round
+              size="sm"
+              icon="sync"
+              color="primary"
+              class="q-ml-sm"
+              @click="$store.dispatch('activities/refreshICSAuthToken')"
+            />
+          </p>
         </template>
         <template #actions>
           <a

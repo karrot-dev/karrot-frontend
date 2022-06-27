@@ -113,7 +113,7 @@
             </QItemSection>
           </QItem>
 
-          <QItem>
+          <QItem v-if="user.email">
             <QItemSection side>
               <QIcon name="fas fa-fw fa-envelope" />
             </QItemSection>
@@ -275,7 +275,7 @@ export default {
       return this.user.membership
     },
     isInfoOnly () {
-      return !this.user.email
+      return !('email' in this.user)
     },
     conflictResolutionPossible () {
       // is it possible at all to start a conflict resolution process?

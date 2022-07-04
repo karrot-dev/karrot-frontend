@@ -6,8 +6,8 @@ export default {
     return (await axios.get(`/api/users/${id}/`)).data
   },
 
-  async getProfile (id) {
-    return (await axios.get(`/api/users/${id}/profile/`)).data
+  async getProfile (groupId, userId) {
+    return (await axios.get(`/api/groups/${groupId}/users/${userId}/profile/`)).data
   },
 
   async getInfo (id) {

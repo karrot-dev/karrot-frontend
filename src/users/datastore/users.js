@@ -53,7 +53,7 @@ export default {
     activeUser: (state, getters, rootState, rootGetters) => {
       if (!state.activeUserProfile) return
 
-      const user = state.activeUserProfile
+      const { user } = state.activeUserProfile
       const groups = user.groups && user.groups
         .map(rootGetters['groups/get'])
         .filter(v => !!v)
@@ -119,13 +119,15 @@ export default {
     }),
 
     ...withMeta({
-      async selectUser ({ commit }, { userId }) {
+      async selectUser ({ commit, rootGetters }, { userId }) {
+        // TODO: we don't always have the group available here, e.g. if we're loading the page fresh...
+        const groupId = rootGetters['currentGroup/id']
         try {
-          commit('setProfile', await users.getProfile(userId))
+          commit('setProfile', await users.getProfile(groupId, userId))
         }
         catch (error) {
           try {
-            commit('setProfile', await users.getInfo(userId))
+            commit('setProfile', { user: await users.getInfo(userId) })
           }
           catch (error) {
             const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
@@ -167,11 +169,12 @@ export default {
         dispatch('refreshProfile', state.activeUserProfile)
       }
     },
-    async refreshProfile ({ getters, commit }, user) {
+    async refreshProfile ({ getters, commit, rootGetters }, user) {
       if (!user || !getters.activeUserId || user.id !== getters.activeUserId) return
 
+      const groupId = rootGetters['currentGroup/id']
       // TODO catch error if profile is info-only
-      commit('setProfile', await users.getProfile(getters.activeUserId))
+      commit('setProfile', await users.getProfile(groupId, getters.activeUserId))
     },
   },
   mutations: {

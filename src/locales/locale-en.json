@@ -104,7 +104,8 @@
       "SUBSCRIBE_TITLE": "Subscribe",
       "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
       "MORE_INFOS": "More info about ICS",
-      "REFRESH_TOKEN": "Everyone who knows your secret URL can read your activities. To avoid this, please don't share the URL with other people. If this happenend to you, click here to create a fresh secret URL and invalidate previous URLs:"
+      "TOKEN_NOTICE": "Anyone who has the secret link can access. No sign-in required.",
+      "RESET_TOKEN": "Reset secret link"
     }
   },
   "ACTIVITYMANAGE": {

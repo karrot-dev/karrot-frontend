@@ -83,6 +83,9 @@ export default {
       const status = getters['meta/status']('fetchListByGroupId', `group/${currentGroupId}`)
       return status.pending
     },
+    tokenPending: (state, getters) => {
+      return getters['meta/status']('fetchICSAuthToken').pending || getters['meta/status']('refreshICSAuthToken').pending
+    },
   },
   actions: {
     ...withMeta({

@@ -159,21 +159,20 @@
                     </template>
                   </QField>
                 </QItemLabel>
+                <QItemLabel caption>
+                  {{ $t('ACTIVITYLIST.ICS_DIALOG.TOKEN_NOTICE') }}
+                </QItemLabel>
+                <QBtn
+                  icon="sync"
+                  class="q-mt-sm"
+                  :label="$t('ACTIVITYLIST.ICS_DIALOG.RESET_TOKEN')"
+                  @click="$store.dispatch('activities/refreshICSAuthToken')"
+                />
               </QItemSection>
             </QItem>
           </QList>
 
-          <p class="q-mt-lg">
-            {{ $t('ACTIVITYLIST.ICS_DIALOG.REFRESH_TOKEN') }}
-            <QBtn
-              round
-              size="sm"
-              icon="sync"
-              color="primary"
-              class="q-ml-sm"
-              @click="$store.dispatch('activities/refreshICSAuthToken')"
-            />
-          </p>
+          <QInnerLoading :showing="tokenPending" />
         </template>
         <template #actions>
           <a
@@ -283,6 +282,7 @@ import {
   QBanner,
   QBtn,
   QSeparator,
+  QInnerLoading,
 } from 'quasar'
 
 const NUM_ACTIVITIES_PER_LOAD = 25
@@ -304,6 +304,7 @@ export default {
     QBanner,
     QBtn,
     QSeparator,
+    QInnerLoading,
   },
   mixins: [
     bindRoute({
@@ -339,6 +340,10 @@ export default {
     icsUrl: {
       type: String,
       default: null,
+    },
+    tokenPending: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: [

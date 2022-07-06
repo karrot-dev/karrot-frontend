@@ -4,6 +4,7 @@
       <ApplicationItem
         v-for="a in pending"
         :key="a.id"
+        v-measure
         :application="a"
         @accept="(...args) => $emit('accept', ...args)"
         @decline="(...args) => $emit('decline', ...args)"

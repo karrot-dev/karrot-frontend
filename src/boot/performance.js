@@ -3,6 +3,7 @@ import axios from '@/base/api/axios'
 import { debounceAndFlushOnUnload, underscorizeKeys } from '@/utils/utils'
 
 const SAVE_INTERVAL_MS = 5000 // batch saves to the backend
+const SHOW_PERFORMANCE_INFO = localStorage.getItem('SHOW_PERFORMANCE_INFO') !== null
 
 export default async ({ store: datastore, app, router }) => {
   const performance = window.performance
@@ -11,13 +12,14 @@ export default async ({ store: datastore, app, router }) => {
   // Make sure we have all the required performance methods
   // and fetch to avoid needing the polyfill (we don't need all browser support)
   // and that vue's performance mode is not enabled (don't want to fight it)
+  // unless we are actively wanting to show the performance info
   const ENABLED = fetch &&
     performance &&
     performance.clearMeasures &&
     performance.clearMarks &&
     performance.measure &&
     performance.mark &&
-    !app.config.performance
+    (!app.config.performance || SHOW_PERFORMANCE_INFO)
 
   // For each load we measure up to the point where the first v-measure is measured
   // the set done to true so we don't record beyond that, until the next page load
@@ -110,6 +112,7 @@ export default async ({ store: datastore, app, router }) => {
 
   if (ENABLED) {
     router.beforeEach((to, from, next) => {
+      clearPerformanceInfo()
       if (firstLoad) {
         firstLoad = false
         currentStat.firstLoad = true
@@ -127,6 +130,7 @@ export default async ({ store: datastore, app, router }) => {
         measure('MM') // MM = "Meaningful Mount" inspired by FMP (First Meaningful Paint)
         done = true
         const stat = finish()
+        if (SHOW_PERFORMANCE_INFO) updatePerformanceInfo(stat)
         el.dispatchEvent(new CustomEvent('measured', { bubbles: true, detail: stat }))
       },
     })
@@ -142,5 +146,38 @@ export default async ({ store: datastore, app, router }) => {
     // See https://github.com/axios/axios/blob/a17c70cb5ae4acd7aa307b7f7dc869953dea22c4/lib/helpers/cookies.js#L35-L36
     const match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'))
     return (match ? decodeURIComponent(match[3]) : null)
+  }
+
+  let performanceInfoElement
+  /**
+   * Shows performance info in a little element in the top left of the screen
+   * @param stat
+   */
+  function updatePerformanceInfo (stat) {
+    if (!performanceInfoElement) {
+      performanceInfoElement = document.createElement('div')
+      document.body.appendChild(performanceInfoElement)
+      Object.assign(performanceInfoElement.style, {
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        zIndex: '100000',
+        background: 'rgba(255, 255, 255, 0.5)',
+        color: 'black',
+        fontSize: '10px',
+        fontFamily: 'monospace',
+        padding: '2px 4px',
+        opacity: '0.5',
+        display: 'none',
+      })
+    }
+    performanceInfoElement.innerHTML = `${stat.ms} ms`
+    performanceInfoElement.style.display = 'block'
+  }
+
+  function clearPerformanceInfo () {
+    if (performanceInfoElement) {
+      performanceInfoElement.style.display = 'none'
+    }
   }
 }

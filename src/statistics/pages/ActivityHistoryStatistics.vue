@@ -8,6 +8,7 @@
       :columns="columns"
       :rows="enrichedDataWithTotals"
       row-key="id"
+      v-measure
       hide-pagination
       :rows-per-page-options="[0]"
     >

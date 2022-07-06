@@ -14,6 +14,7 @@
       <IssueItem
         v-for="issue in ongoingIssues"
         :key="issue.id"
+        v-measure
         :issue="issue"
         @click="$emit('clear-detail')"
       />

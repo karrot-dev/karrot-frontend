@@ -15,9 +15,22 @@
  */
 import LoadingProgress from '@/topbar/components/LoadingProgress'
 
+import { useQueryClient } from 'vue-query'
+import { useStore } from 'vuex'
+
 export default {
   components: {
     LoadingProgress,
+  },
+  setup () {
+    const store = useStore()
+    const queryClient = useQueryClient()
+    store.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
+      if (!isLoggedIn) {
+        // TODO: can I do this in a better place?
+        queryClient.clear()
+      }
+    })
   },
   computed: {
     hasView () {

@@ -51,7 +51,6 @@
           <QBtn
             type="submit"
             color="primary"
-            :disable="!canSave"
             :loading="isPending"
           >
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
@@ -133,7 +132,7 @@ export default {
   methods: {
     maybeSave () {
       this.v$.edit.$touch()
-      if (!this.canSave) return
+      // if (!this.canSave) return
       this.v$.edit.$reset()
       this.save()
     },

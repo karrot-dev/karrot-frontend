@@ -60,6 +60,7 @@
 
 <script>
 import { QBtn } from 'quasar'
+import { useCurrentOffer } from '@/offers/queries'
 
 export default {
   components: { QBtn },
@@ -69,18 +70,37 @@ export default {
       required: true,
     },
   },
+  setup () {
+    return {
+      offer: useCurrentOffer(),
+    }
+  },
   computed: {
+    elements () {
+      return this.breadcrumbs.map(breadcrumb => {
+        if (breadcrumb.type === 'activeOffer') {
+          if (this.offer) {
+            if (this.offer) {
+              return {
+                name: this.offer.name,
+              }
+            }
+          }
+        }
+        return breadcrumb
+      })
+    },
     hasBreadcrumbs () {
-      return this.breadcrumbs && this.breadcrumbs.length > 0
+      return this.elements && this.elements.length > 0
     },
     prevElements () {
-      return this.breadcrumbs.slice(0, this.breadcrumbs.length - 1)
+      return this.elements.slice(0, this.elements.length - 1)
     },
     secondlastElement () {
-      return this.breadcrumbs[this.breadcrumbs.length - 2]
+      return this.elements[this.elements.length - 2]
     },
     lastElement () {
-      return this.breadcrumbs[this.breadcrumbs.length - 1]
+      return this.elements[this.elements.length - 1]
     },
   },
 }

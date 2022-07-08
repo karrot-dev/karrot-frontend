@@ -35,7 +35,7 @@
         {{ offer.status }}
       </div>
       <div
-        v-if="offer.canEdit && offer.status === 'active'"
+        v-if="canEdit && offer.status === 'active'"
         class="row justify-end"
       >
         <QBtnDropdown
@@ -76,7 +76,8 @@ import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import KSpinner from '@/utils/components/KSpinner'
 import { QBtn, QBtnDropdown, QCarousel, QCarouselSlide } from 'quasar'
-import { DEFAULT_STATUS } from '@/offers/datastore/offers'
+import { DEFAULT_STATUS, useArchiveOfferMutation, useCurrentOffer } from '@/offers/queries'
+import { useCurrentUserId } from '@/users/queries'
 
 export default {
   components: {
@@ -94,6 +95,14 @@ export default {
       default: false,
     },
   },
+  setup () {
+    const { mutate: archive } = useArchiveOfferMutation()
+    return {
+      archive,
+      offer: useCurrentOffer(),
+      currentUserId: useCurrentUserId(),
+    }
+  },
   data () {
     return {
       selectedImageIndex: 0,
@@ -101,11 +110,13 @@ export default {
   },
   computed: {
     ...mapGetters({
-      offer: 'currentOffer/value',
       conversation: 'currentOffer/conversation',
       away: 'presence/toggle/away',
       currentUser: 'auth/user',
     }),
+    canEdit () {
+      return this.offer.user === this.currentUserId
+    },
     conversationWithReversedMessages () {
       return {
         ...this.conversation,
@@ -140,7 +151,6 @@ export default {
       toggleReaction: 'conversations/toggleReaction',
       fetchPast: 'conversations/fetchPast',
       saveConversation: 'conversations/maybeSave',
-      archive: 'offers/archive',
     }),
   },
 }

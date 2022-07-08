@@ -1,19 +1,22 @@
 <template>
   <OfferForm
-    :fetching="$store.getters['currentOffer/fetching']"
-    :value="$store.getters['currentOffer/value']"
-    :status="$store.getters['currentOffer/saveStatus']"
-    @save="data => $store.dispatch('offers/save', data)"
-    @reset="$store.dispatch('offers/meta/clear', ['save'])"
+    :fetching="!offer || !offer.id"
+    :value="offer"
+    :status="{ validationErrors }"
+    @save="data => mutate(data)"
+    @reset="() => reset()"
   />
 </template>
 
-<script>
+<script setup>
 import OfferForm from '@/offers/components/OfferForm'
+import { useCurrentOffer, useSaveOfferMutation } from '@/offers/queries'
 
-export default {
-  components: {
-    OfferForm,
-  },
-}
+const offer = useCurrentOffer()
+
+const {
+  mutate,
+  reset,
+  validationErrors,
+} = useSaveOfferMutation()
 </script>

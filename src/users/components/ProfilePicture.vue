@@ -3,10 +3,10 @@
     class="wrapper"
     :style="pictureStyle"
   >
-    <template v-if="user && user.id">
+    <template v-if="user$ && user$.id">
       <RouterLink
         v-if="isLink"
-        :to="{name:'user', params: {userId: user.id}}"
+        :to="{name:'user', params: {userId: user$.id}}"
         :title="tooltip"
         @click.stop=""
       >
@@ -17,8 +17,8 @@
         >
         <RandomArt
           v-else
-          :text="user.displayName"
-          :seed="user.id"
+          :text="user$.displayName"
+          :seed="user$.id"
           class="randomArt fill"
         />
       </RouterLink>
@@ -29,8 +29,8 @@
       >
       <RandomArt
         v-else
-        :text="user.displayName"
-        :seed="user.id"
+        :text="user$.displayName"
+        :seed="user$.id"
         class="randomArt fill"
       />
     </template>
@@ -45,20 +45,27 @@ export default {
     RandomArt,
   },
   props: {
-    user: { default: null, type: Object },
+    user: { default: null, type: [Object, Number] },
     size: { default: 20, type: Number },
     isLink: { default: true, type: Boolean },
   },
   computed: {
+    user$ () {
+      switch (typeof this.user) {
+        case 'object': return this.user
+        case 'number': return this.$store.getters['users/get'](this.user)
+        default: return null
+      }
+    },
     tooltip () {
-      if (this.user.displayName === '?') {
+      if (this.user$.displayName === '?') {
         return this.$t('PROFILE.INACCESSIBLE_OR_DELETED')
       }
-      if (!this.user.membership || this.user.membership.isEditor) {
-        return this.user.displayName
+      if (!this.user$.membership || this.user$.membership.isEditor) {
+        return this.user$.displayName
       }
       const role = this.$t('USERDATA.NEWCOMER')
-      return `${this.user.displayName} (${role})`
+      return `${this.user$.displayName} (${role})`
     },
     pictureStyle () {
       return {
@@ -70,8 +77,8 @@ export default {
       return !!this.photo
     },
     photo () {
-      if (this.user && this.user.photoUrls) {
-        const p = this.user.photoUrls
+      if (this.user$ && this.user$.photoUrls) {
+        const p = this.user$.photoUrls
         return this.size > 120 ? p['600'] : p.thumbnail
       }
       return null

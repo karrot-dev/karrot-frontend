@@ -1,3 +1,13 @@
+<!-- 
+SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
+SPDX-FileCopyrightText: 2016 Karrot
+
+SPDX-License-Identifier: MIT
+
+Karrot
+-->
+
+
 <template>
   <QTabs
     class="shadow-3 bg-white k-place-tabs"

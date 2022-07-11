@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
+//
+// SPDX-License-Identifier: MIT
+
+
 /**
  * These factories are supposed to mimick enriched objects, similar to those that can be retrieved from vuex
  * This is useful for:

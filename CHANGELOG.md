@@ -1,3 +1,13 @@
+<!-- 
+SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
+SPDX-FileCopyrightText: 2016 Karrot
+
+SPDX-License-Identifier: MIT
+
+Karrot
+-->
+
+
 # Change Log
 
 All notable changes to _Karrot_ will be documented in this file.

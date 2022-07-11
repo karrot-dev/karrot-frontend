@@ -1,3 +1,13 @@
+<!-- 
+SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
+SPDX-FileCopyrightText: 2016 Karrot
+
+SPDX-License-Identifier: MIT
+
+Karrot
+-->
+
+
 # Karrot Documentation
 
 This is the very early stage of some product/developer documentation for Karrot.

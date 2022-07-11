@@ -1,3 +1,13 @@
+<!-- 
+SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
+SPDX-FileCopyrightText: 2016 Karrot
+
+SPDX-License-Identifier: MIT
+
+Karrot
+-->
+
+
 <template>
   <div>
     <h3><i class="fas fa-pencil-alt" /> {{ $t('GROUP.MANAGE_AGREEMENT') }}</h3>

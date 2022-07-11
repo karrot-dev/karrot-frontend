@@ -1,3 +1,13 @@
+<!-- 
+SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
+SPDX-FileCopyrightText: 2016 Karrot
+
+SPDX-License-Identifier: MIT
+
+Karrot
+-->
+
+
 # Groups
 
 Groups are at the heart of Karrot. Each group is independent from the rest and will usually represent an in-person community of people. They normally have their own organisational name and structure.

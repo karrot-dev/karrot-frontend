@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
+//
+// SPDX-License-Identifier: MIT
+
 import Vue from 'vue'
 import auth from '@/authuser/api/auth'
 import { createMetaModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'

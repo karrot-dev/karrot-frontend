@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+
+// SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
+//
+// SPDX-License-Identifier: MIT
+
 /**
  * Hacky script to compare the messages in locale-en.json with client-side usage
  * Run: scripts/find_unused_locales.js

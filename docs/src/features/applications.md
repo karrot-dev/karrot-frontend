@@ -1,3 +1,13 @@
+<!-- 
+SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
+SPDX-FileCopyrightText: 2016 Karrot
+
+SPDX-License-Identifier: MIT
+
+Karrot
+-->
+
+
 # Group Applications
 
 Karrot groups are closed (with the exception of the "Playground" group which is open to everyone), so you need to apply to join. Group Applications manage this process.

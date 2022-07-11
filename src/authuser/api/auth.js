@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
+//
+// SPDX-License-Identifier: MIT
+
 import axios from '@/base/api/axios'
 import authUser from '@/authuser/api/authUser'
 import * as Sentry from '@sentry/browser'

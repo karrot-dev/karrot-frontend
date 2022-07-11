@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
+
+SPDX-License-Identifier: MIT
+-->
+
 <!-- View this file with embedded videos on GitHub: -->
 <!-- https://github.com/karrot-dev/karrot-frontend/blob/master/src/base/generate-images-readme.md -->
 

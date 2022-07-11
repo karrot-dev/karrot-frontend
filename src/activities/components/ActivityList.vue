@@ -1,3 +1,13 @@
+<!-- 
+SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
+SPDX-FileCopyrightText: 2016 Karrot
+
+SPDX-License-Identifier: MIT
+
+Karrot
+-->
+
+
 <template>
   <div>
     <div
@@ -313,158 +323,5 @@ export default {
       default: false,
     },
     dense: {
-      type: Boolean,
-      default: false,
-    },
-    filter: {
-      type: Boolean,
-      default: false,
-    },
-    filterActivityTypes: {
-      type: Array,
-      default: () => [],
-    },
-    icsUrl: {
-      type: String,
-      default: null,
-    },
-  },
-  data () {
-    return {
-      icsDialog: false,
-      numDisplayed: NUM_ACTIVITIES_PER_LOAD,
-      types: [],
-    }
-  },
-  computed: {
-    activityTypes () {
-      const activityTypes = this.filterActivityTypes.slice()
-      const archivedTypes = {}
-
-      for (const activityType of activityTypes) {
-        if (activityType.status === 'archived') {
-          archivedTypes[activityType.id] = false
-        }
-      }
-
-      for (const activity of this.activities) {
-        if (activity.activityType.id in archivedTypes) {
-          const id = activity.activityType.id
-          archivedTypes[id] = true
-        }
-      }
-
-      for (const archivedTypeId in archivedTypes) {
-        if (archivedTypes[archivedTypeId] === false) {
-          // For any archived types with zero activities in view, remove the type from the filter
-          for (const [index, activityType] of activityTypes.entries()) {
-            if (parseInt(activityType.id) === parseInt(archivedTypeId)) {
-              // delete archived type from the filter
-              activityTypes.splice(index, 1)
-              break
-            }
-          }
-        }
-      }
-
-      return activityTypes
-    },
-    slotsOptions () {
-      return [
-        {
-          label: this.$t('ACTIVITYLIST.FILTER.ALL'),
-          value: 'all',
-        },
-        {
-          label: this.$t('ACTIVITYLIST.FILTER.FREE'),
-          value: 'free',
-        },
-        {
-          label: this.$t('ACTIVITYLIST.FILTER.EMPTY'),
-          value: 'empty',
-        },
-      ]
-    },
-    typeOptions () {
-      if (!this.filter) return []
-      return [
-        {
-          label: this.$t('ACTIVITYLIST.FILTER.ALL_TYPES'),
-          value: 'all',
-        },
-        ...this.activityTypes.map(activityType => {
-          return {
-            label: activityType.translatedName,
-            value: String(activityType.id),
-            activityType,
-          }
-        }),
-      ]
-    },
-    filteredActivities () {
-      if (!this.activities) return []
-      return this.activities
-        .filter(this.slotFilter)
-        .filter(this.typeFilter)
-    },
-    displayedActivitiesGroupedByDate () {
-      const result = []
-      let dateIterated = ''
-      for (const [index, activity] of this.filteredActivities.entries()) {
-        if (index === this.numDisplayed) break
-        const dateWithDayName = this.$d(activity.date, 'dateWithDayName')
-        if (dateWithDayName !== dateIterated) {
-          result.push({ date: dateWithDayName, activities: [] })
-        }
-        result[result.length - 1].activities.push(activity)
-        dateIterated = dateWithDayName
-      }
-      return result
-    },
-    noActivitiesDueToFilters () {
-      return this.activities.length > 0 && this.filteredActivities.length === 0
-    },
-  },
-  watch: {
-    slots (val, old) {
-      // keep selection valid, revert to old value or default
-      const options = this.slotsOptions.map(o => o.value)
-      if (!options.includes(val)) {
-        if (options.includes(old)) {
-          this.slots = old
-        }
-        else {
-          this.slots = options[0]
-        }
-      }
-    },
-  },
-  methods: {
-    async displayMoreActivities (index, done) {
-      this.numDisplayed += NUM_ACTIVITIES_PER_LOAD
-      await this.$nextTick()
-      done()
-    },
-    slotFilter (activity) {
-      if (this.slots === 'free') return !activity.isFull && !activity.isDisabled
-      if (this.slots === 'empty') return activity.isEmpty && !activity.isDisabled
-      return true
-    },
-    typeFilter (activity) {
-      if (this.type === 'all') return true
-      return activity.activityType && String(activity.activityType.id) === this.type
-    },
-    clearFilters () {
-      this.slots = 'all'
-      this.type = 'all'
-    },
-    copyLink () {
-      return copyToClipboard(this.icsUrl).then(() => {
-        this.$store.dispatch('toasts/show', {
-          message: 'URL_COPIED_TOAST',
-        }, { root: true })
-      })
-    },
-  },
-}
-</script>
+      t
+      

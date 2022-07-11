@@ -1,3 +1,14 @@
+<!-- 
+SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
+SPDX-FileCopyrightText: 2016 Karrot
+
+SPDX-License-Identifier: MIT
+
+Karrot
+-->
+
+
+
 # Contribution
 If you want to contribute code to the frontend repository, you should first read through these guidelines.
 

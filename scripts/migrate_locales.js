@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+// SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
+//
+// SPDX-License-Identifier: MIT
+
 // configuration: a function for how you want the keys to be renamed
 function renameKey (key) {
   if (/COLLECTOR/.test(key)) {

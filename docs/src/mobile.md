@@ -1,3 +1,12 @@
+<!-- 
+SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
+SPDX-FileCopyrightText: 2016 Karrot
+
+SPDX-License-Identifier: MIT
+
+Karrot
+-->
+
 # Mobile
 
 We use cordova to package the app as an android app. This gives us access to push notifications (doesn't yet have decent [mobile browser support](https://caniuse.com/#feat=push-api)), and offers the installable app experience that some people expect.

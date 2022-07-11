@@ -1,3 +1,13 @@
+<!-- 
+SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
+SPDX-FileCopyrightText: 2016 Karrot
+
+SPDX-License-Identifier: MIT
+
+Karrot
+-->
+
+
 # On-site ("bell") notifications
 
 *This page is about notifications displayed within the app. If you are interested in push notifications, you may want to read [this](https://docs.karrot.world/mobile.html) instead.*

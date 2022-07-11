@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
+//
+// SPDX-License-Identifier: MIT
+
 /**
  * This plugin is responsible for defining some custom colors for activity types that can be
  * used in quasar components that accept a quasar palette color name.

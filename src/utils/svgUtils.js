@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
+//
+// SPDX-License-Identifier: MIT
+
+
 const DEFINITIONS = {}
 
 export const SVGNS = 'http://www.w3.org/2000/svg'

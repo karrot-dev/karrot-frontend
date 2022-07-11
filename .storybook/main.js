@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
+//
+// SPDX-License-Identifier: MIT
+
 const QuasarConfFile = require('@quasar/app/lib/quasar-conf-file')
 const getQuasarCtx = require('@quasar/app/lib/helpers/get-quasar-ctx')
 

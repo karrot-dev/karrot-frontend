@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
+//
+// SPDX-License-Identifier: MIT
+
 import { generate } from '@mapbox/appropriate-images'
 import sharp from 'sharp'
 import { unlink, rename, readdirSync, readFileSync, writeFileSync } from 'fs'

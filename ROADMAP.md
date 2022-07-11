@@ -1,3 +1,13 @@
+<!-- 
+SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
+SPDX-FileCopyrightText: 2016 Karrot
+
+SPDX-License-Identifier: MIT
+
+Karrot
+-->
+
+
 # Karrot Roadmap
 
 ## General Direction as of [2021-04-05](https://community.karrot.world/t/roadmap-meeting/410/4)

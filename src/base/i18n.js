@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
+//
+// SPDX-License-Identifier: MIT
+
+
+
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import status from '@/locales/translationStatus.json'

@@ -1,3 +1,13 @@
+<!-- 
+SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
+SPDX-FileCopyrightText: 2016 Karrot
+
+SPDX-License-Identifier: MIT
+
+Karrot
+-->
+
+
 <template>
   <div class="error-page window-height window-width bg-primary column items-center no-wrap">
     <div class="error-code bg-grey-2 flex items-center justify-center">

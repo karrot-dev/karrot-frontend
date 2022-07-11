@@ -1,3 +1,13 @@
+<!-- 
+SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
+SPDX-FileCopyrightText: 2016 Karrot
+
+SPDX-License-Identifier: MIT
+
+Karrot
+-->
+
+
 # Android Setup
 
 Android dev stuff is a bit annoying, you need to get an android sdk from somewhere. The easiest approach is to install [Android Studio](https://developer.android.com/studio/index.html).

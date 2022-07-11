@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
+//
+// SPDX-License-Identifier: MIT
+
+
 /*
  * This file (which will be your service worker)
  * is picked up by the build system ONLY if

@@ -99,8 +99,6 @@
         </div>
       </div>
     </QInfiniteScroll>
-    <pre>pageParams: {{ data.pageParams }}</pre>
-    <pre>pages: {{ data.pages }}</pre>
   </div>
 </template>
 
@@ -154,7 +152,6 @@ const {
   hasNextPage,
   fetchNextPage,
   offers,
-  data,
 } = useOffersQuery({ group, status })
 
 async function maybeFetchMore (index, done) {

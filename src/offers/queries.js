@@ -83,23 +83,19 @@ export function useOffersQuery ({
 }) {
   const query = useInfiniteQuery(
     queryKeyOfferList(group, status),
-    ({ pageParam }) => {
-      return api.list({ group: unref(group), status: unref(status), cursor: pageParam })
-    },
+    ({ pageParam }) => api.list({
+      group: unref(group),
+      status: unref(status),
+      cursor: pageParam,
+    }),
     {
       enabled: computed(() => !!unref(group)),
       staleTime: Infinity,
-      getNextPageParam (page) {
-        const nextPageParam = extractCursor(page.next)
-        console.log('nextPageParam is', nextPageParam)
-        return nextPageParam
-      },
-      select ({ pages, pageParams }) {
-        return {
-          pages: pages.map(page => page.results),
-          pageParams,
-        }
-      },
+      getNextPageParam: page => extractCursor(page.next),
+      select: ({ pages, pageParams }) => ({
+        pages: pages.map(page => page.results),
+        pageParams,
+      }),
     },
   )
 

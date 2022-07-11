@@ -1,21 +1,18 @@
-import { useQuery, useInfiniteQuery, useMutation, useQueryClient } from 'vue-query'
-import { unref, computed } from 'vue'
+import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
+import { computed, unref } from 'vue'
 
 import api from './api/offers'
 
-import { useRoute, useRouter } from 'vue-router'
-import { isNetworkError, isServerError, isValidationError } from '@/utils/datastore/helpers'
-import { useCurrentGroupId } from '@/group/datastore/currentGroup'
+import { useRoute } from 'vue-router'
 import { useSocketEvents } from '@/utils/composables'
+import { extractCursor } from '@/utils/queryHelpers'
+import { isMutating } from '@/offers/mutations'
 
 export const QUERY_KEY_BASE = 'offers'
 export const queryKeyOfferList = (group, status) => [QUERY_KEY_BASE, 'list', group, status].filter(Boolean)
 export const queryKeyOfferDetail = id => [QUERY_KEY_BASE, 'detail', id].filter(Boolean)
 
 export const DEFAULT_STATUS = 'active'
-
-// Store the ids we are currently mutating, so we can better decide when to refresh from websocket
-const mutatingOfferIds = new Set()
 
 /**
  * Handler for socket updates
@@ -34,21 +31,11 @@ export function useOffersUpdater () {
       await queryClient.invalidateQueries(queryKeyOfferList())
 
       // Only invalidate the detail if we are not currently mutating it
-      if (!mutatingOfferIds.has(offer.id)) {
+      if (!isMutating(offer.id)) {
         await queryClient.invalidateQueries(queryKeyOfferDetail())
       }
     },
   )
-}
-
-/**
- * Get current offer based on route
- *
- * Gives you a ref to the offer
- */
-export function useCurrentOfferRef () {
-  const { offer } = useCurrentOfferQuery()
-  return offer
 }
 
 /**
@@ -103,7 +90,9 @@ export function useOffersQuery ({
       enabled: computed(() => !!unref(group)),
       staleTime: Infinity,
       getNextPageParam (page) {
-        return extractCursor(page.next)
+        const nextPageParam = extractCursor(page.next)
+        console.log('nextPageParam is', nextPageParam)
+        return nextPageParam
       },
       select ({ pages, pageParams }) {
         return {
@@ -124,127 +113,5 @@ export function useOffersQuery ({
   return {
     ...query,
     offers,
-  }
-}
-
-/**
- * Save an existing offer
- *
- * Returns a mutation object with validationErrors
- */
-export function useSaveOfferMutation () {
-  const queryClient = useQueryClient()
-  const { goToOffer } = useOfferUtils()
-  const mutation = useMutation(
-    offer => api.save(offer),
-    {
-      async onSuccess (offer) {
-        await queryClient.setQueryData(queryKeyOfferDetail(offer.id), offer)
-        goToOffer(offer)
-      },
-      onMutate (variables) {
-        mutatingOfferIds.add(variables.id)
-      },
-      async onSettled (data, error, variables) {
-        mutatingOfferIds.delete(variables.id)
-        await queryClient.invalidateQueries(queryKeyOfferList())
-      },
-    },
-  )
-  return withStatus(mutation)
-}
-
-/**
- * Create a new offer
- *
- * Returns a mutation object with validationErrors
- */
-export function useCreateOfferMutation () {
-  const queryClient = useQueryClient()
-  const { goToOffer } = useOfferUtils()
-  const groupId = useCurrentGroupId()
-  const mutation = useMutation(
-    offer => api.create({ ...offer, group: unref(groupId) }),
-    {
-      async onSuccess (offer) {
-        await queryClient.setQueryData(queryKeyOfferDetail(offer.id), offer)
-        goToOffer(offer)
-      },
-      onMutate (variables) {
-        mutatingOfferIds.add(variables.id)
-      },
-      async onSettled (data, error, variables) {
-        mutatingOfferIds.delete(variables.id)
-        await queryClient.invalidateQueries(queryKeyOfferList())
-      },
-    },
-  )
-  return withStatus(mutation)
-}
-
-/**
- * Archive an offer
- *
- * Returns a mutation object with validationErrors
- */
-export function useArchiveOfferMutation () {
-  const queryClient = useQueryClient()
-  const mutation = useMutation(
-    ({ offerId }) => api.archive(offerId),
-    {
-      async onSuccess (offer) {
-        await queryClient.setQueryData(queryKeyOfferDetail(offer.id), offer)
-      },
-    },
-  )
-  return withStatus(mutation)
-}
-
-// Utilities
-
-function useOfferUtils () {
-  const router = useRouter()
-  const route = useRoute()
-  return {
-    goToOffer (offer) {
-      router.push({
-        name: 'offerDetail',
-        params: {
-          groupId: offer.group,
-          offerId: offer.id,
-        },
-        query: route.query,
-      }).catch(() => {})
-    },
-  }
-}
-
-// TODO: move to api utility function place
-function extractCursor (url) {
-  if (!url) return null
-  return new URL(url, url.startsWith('http') ? null : 'https://karrot.world').searchParams.get('cursor')
-}
-
-// TODO: move to queries utility function place
-function withStatus (mutation) {
-  return {
-    ...mutation,
-    status: computed(() => mutationToStatus(mutation)),
-  }
-}
-
-// TODO: move to queries utility function place
-/**
- * Converts a vue-query mutation object to our existing "status" object type
- */
-function mutationToStatus (mutation) {
-  const error = unref(mutation.error)
-  const validationErrors = isValidationError(error) ? error.response.data : []
-  return {
-    validationErrors,
-    hasValidationErrors: validationErrors.length > 0,
-    pending: mutation.isLoading.value,
-    serverError: isServerError(error),
-    networkError: isNetworkError(error),
   }
 }

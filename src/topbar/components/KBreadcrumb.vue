@@ -60,7 +60,7 @@
 
 <script>
 import { QBtn } from 'quasar'
-import { useCurrentOfferRef } from '@/offers/queries'
+import { useCurrentOfferQuery } from '@/offers/queries'
 
 export default {
   components: { QBtn },
@@ -71,8 +71,9 @@ export default {
     },
   },
   setup () {
+    const { offer } = useCurrentOfferQuery()
     return {
-      offer: useCurrentOfferRef(),
+      offer,
     }
   },
   computed: {

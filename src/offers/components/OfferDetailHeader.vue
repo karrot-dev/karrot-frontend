@@ -29,7 +29,7 @@
 
 <script>
 import { QBtn, QToolbar, QToolbarTitle } from 'quasar'
-import { useCurrentOfferRef } from '@/offers/queries'
+import { useCurrentOfferQuery } from '@/offers/queries'
 import { useCurrentUserId } from '@/users/queries'
 
 export default {
@@ -39,9 +39,10 @@ export default {
     QToolbarTitle,
   },
   setup () {
+    const { offer } = useCurrentOfferQuery()
     return {
+      offer,
       currentUserId: useCurrentUserId(),
-      offer: useCurrentOfferRef(),
     }
   },
   computed: {

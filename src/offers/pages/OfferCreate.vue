@@ -8,7 +8,7 @@
 
 <script setup>
 import OfferForm from '@/offers/components/OfferForm'
-import { useCreateOfferMutation } from '@/offers/queries'
+import { useCreateOfferMutation } from '@/offers/mutations'
 
 const {
   mutate,

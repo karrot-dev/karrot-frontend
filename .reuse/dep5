@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Karrot
+Upstream-Contact: Nick Sellen <hello@nicksellen.co.uk>
+Source: https://github.com/karrot-dev/karrot-frontend.git
+
+Files: src-cordova/playstoreAssets/en-US/images/* src/base/pages/images/random-imgs/* src/base/pages/images/feature-screenshots/* src/base/pages/images/app-screenshots-phone/* src/base/pages/images/app-screenshots-browser/* src/base/pages/images/_raws/random-imgs/* src/base/pages/images/_raws/feature-screenshots/* public/icons/* src/feedback/assets/* public/statics/* src/base/pages/images/_raws/app-screenshots-browser/* src/base/assets/* src/logo/assets/* src/authuser/assets/cherry.png* src/base/pages/images/_raws/app-screenshots-phone/karrot-screenshot-phone.png*
+Copyright: 2016 Karrot
+License: MIT

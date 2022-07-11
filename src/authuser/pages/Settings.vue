@@ -23,12 +23,13 @@ Karrot
           :label="$t('USERDATA.PHOTO')"
           :hint="$t('USERDATA.SET_PHOTO')"
           mime-type="image/jpeg"
-          @save="saveUser({ photo: arguments[0] })"
+          @save="photo => saveUser({ photo })"
         />
         <QSeparator />
         <ProfileEdit
           :value="user"
           :status="profileEditStatus"
+          :default-map-center="defaultMapCenter"
           @save="saveUser"
         />
       </QCardSection>
@@ -152,6 +153,7 @@ export default {
       pushEnabled: 'auth/push/enabled',
       pushPending: 'auth/push/pending',
       pwaPrompt: 'pwa/installPrompt',
+      defaultMapCenter: 'geo/defaultCenter',
     }),
   },
   methods: {
@@ -167,7 +169,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 @import '~editbox'
 
 </style>

@@ -34,8 +34,8 @@ Karrot
         :key="user.id"
         :user="user"
         :group="group"
-        @create-trust="$emit('create-trust', arguments[0])"
-        @revoke-trust="$emit('revoke-trust', arguments[0])"
+        @create-trust="(...args) => $emit('create-trust', ...args)"
+        @revoke-trust="(...args) => $emit('revoke-trust', ...args)"
       />
       <QSeparator />
       <QExpansionItem
@@ -76,8 +76,8 @@ Karrot
             :user="user"
             :group="group"
             class="inactive"
-            @create-trust="$emit('create-trust', arguments[0])"
-            @revoke-trust="$emit('revoke-trust', arguments[0])"
+            @create-trust="(...args) => $emit('create-trust', ...args)"
+            @revoke-trust="(...args) => $emit('revoke-trust', ...args)"
           />
         </template>
       </QExpansionItem>
@@ -128,6 +128,10 @@ export default {
       default: 'joinDate',
     },
   },
+  emits: [
+    'create-trust',
+    'revoke-trust',
+  ],
   data () {
     return {
       showInactive: false,
@@ -167,11 +171,11 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .list-wrapper
   .profilePic
-    margin-right .5em
+    margin-right: .5em
 
 .inactive
-  opacity 0.5
+  opacity: 0.5
 </style>

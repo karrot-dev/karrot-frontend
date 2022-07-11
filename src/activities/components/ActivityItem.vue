@@ -162,7 +162,7 @@ Karrot
         no-caps
         color="secondary"
         class="action-button"
-        @click.native.stop="detail"
+        @click.stop="detail"
       >
         <template #default>
           <QIcon
@@ -213,6 +213,11 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'join',
+    'leave',
+    'detail',
+  ],
   data () {
     return {
       joinDialog: false,
@@ -246,37 +251,35 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .content
-  width 100%
-  transition background-color 2s ease
+  width: 100%
+  transition: background-color 2s ease
 
   &.isUserMember
     &:not(.isDisabled)
-      background linear-gradient(to right, $lightGreen, $lighterGreen)
+      background: linear-gradient(to right, $lightGreen, $lighterGreen)
 
   &.isDisabled
-    background $lightRed
+    background: $lightRed
 
   .content-inner
-    width 100%
-    padding 12px
+    width: 100%
+    padding: 12px
 
     .featured-text
-      display inline
-      margin-right .3em
+      display: inline
+      margin-right: .3em
 
 .bottom-actions
-  font-weight 500
-  color $secondary
-  box-shadow 0 -1px 0 rgba(0, 0, 0, 0.06)
+  font-weight: 500
+  color: $secondary
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.06)
 
 .q-btn.action-button
-  >>> .q-btn__wrapper
-    padding 10px 16px !important
+  ::v-deep(.q-btn__wrapper)
+    padding: 10px 16px !important
 
     .icon-chat
-      transform rotateY(180deg)
+      transform: rotateY(180deg)
 </style>

@@ -32,7 +32,7 @@ Karrot
       v-if="!$q.platform.is.mobile"
       v-model="showing"
       no-parent-event
-      content-style="width: 500px"
+      style="width: 500px"
       anchor="bottom middle"
       self="top middle"
     >
@@ -50,9 +50,10 @@ import {
   QBadge,
   QMenu,
 } from 'quasar'
-const Notifications = () => import('@/notifications/components/Notifications')
-
+import { defineAsyncComponent } from 'vue'
 import { mapGetters, mapActions } from 'vuex'
+
+const Notifications = defineAsyncComponent(() => import('@/notifications/components/Notifications'))
 
 export default {
   components: {
@@ -62,6 +63,9 @@ export default {
     QMenu,
     Notifications,
   },
+  emits: [
+    'click',
+  ],
   data () {
     return {
       showing: false,
@@ -89,12 +93,10 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-@import '~variables'
-
+<style lang="sass" scoped>
 .q-icon:not(.hasUnseen)
-  opacity $topbar-opacity-low
+  opacity: $topbar-opacity-low
 
 .q-btn:hover .q-icon
-  opacity 1
+  opacity: 1
 </style>

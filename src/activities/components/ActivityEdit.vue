@@ -45,7 +45,6 @@ Karrot
             hide-bottom-space
             class="q-mr-sm"
             @focus="$refs.qStartDateProxy.show()"
-            @blur="$refs.qStartDateProxy.hide()"
           >
             <template #before>
               <QIcon name="access_time" />
@@ -62,6 +61,7 @@ Karrot
                 v-model="startDate"
                 :options="futureDates"
                 mask="YYYY-MM-DD"
+                @update:model-value="() => smallScreen && $refs.qStartDateProxy.hide()"
               />
             </Component>
           </QInput>
@@ -73,7 +73,6 @@ Karrot
             size="3"
             :error="hasError('date')"
             hide-bottom-space
-            @blur="$refs.qStartTimeProxy.hide()"
             @focus="$refs.qStartTimeProxy.show()"
           >
             <Component
@@ -88,7 +87,7 @@ Karrot
                 v-model="startTime"
                 mask="HH:mm"
                 format24h
-                @input="() => smallScreen && $refs.qStartTimeProxy.hide()"
+                @update:model-value="() => smallScreen && $refs.qStartTimeProxy.hide()"
               />
             </Component>
             <template #after>
@@ -116,7 +115,6 @@ Karrot
               size="3"
               :error="hasError('date')"
               hide-bottom-space
-              @blur="$refs.qEndTimeProxy.hide()"
               @focus="$refs.qEndTimeProxy.show()"
             >
               <Component
@@ -131,7 +129,7 @@ Karrot
                   v-model="endTime"
                   mask="HH:mm"
                   format24h
-                  @input="() => smallScreen && $refs.qEndTimeProxy.hide()"
+                  @update:model-value="() => smallScreen && $refs.qEndTimeProxy.hide()"
                 />
               </Component>
               <template #after>
@@ -336,6 +334,10 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'cancel',
+    'save',
+  ],
   computed: {
     activityType () {
       return this.value.activityType
@@ -430,6 +432,14 @@ export default {
       return this.$q.screen.width < 450 || this.$q.screen.height < 450
     },
   },
+  watch: {
+    'edit.maxParticipants' (val) {
+      if (val === '') {
+        // if we have 'unlimited' participants, val gets parsed to empty string, but the server expects null
+        this.edit.maxParticipants = null
+      }
+    },
+  },
   methods: {
     futureDates (dateString) {
       return date.extractDate(`${dateString} 23:59`, 'YYYY/MM/DD HH:mm') > this.now
@@ -500,6 +510,6 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 @import '~editbox'
 </style>

@@ -10,7 +10,7 @@ Karrot
 
 <template>
   <QItem
-    :class="{ isUnread: !notification.clicked }"
+    :class="{ isUnread }"
     active-class="unset-active-class"
     :to="routeTo"
     @click="$emit('click', notification)"
@@ -79,7 +79,13 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'click',
+  ],
   computed: {
+    isUnread () {
+      return this.notification && !this.notification.clicked
+    },
     context () {
       return this.notification && this.notification.context
     },
@@ -132,12 +138,12 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
+<style scoped lang="sass">
+@use "sass:color"
 
 .isUnread
-  background linear-gradient(to right, $lightGreen, $lighterGreen)
+  background: linear-gradient(to right, $lightGreen, $lighterGreen)
 
   &:hover
-    background alpha($grey, 0.5)
+    background: color.change($grey, $alpha: 0.5)
 </style>

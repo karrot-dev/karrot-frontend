@@ -23,7 +23,7 @@ Karrot
 <script>
 import StandardMap from '@/maps/components/StandardMap'
 import { groupMarker } from '@/maps/components/markers'
-import L from 'leaflet'
+import { latLngBounds } from 'leaflet/dist/leaflet-src.esm'
 
 export default {
   components: { StandardMap },
@@ -76,7 +76,7 @@ export default {
       if (this.myCoordinates) {
         coordsForBounds.push(this.myCoordinates)
       }
-      return L.latLngBounds(coordsForBounds).pad(0.2)
+      return latLngBounds(coordsForBounds).pad(0.2)
     },
     singleGroup () {
       if (this.groupsWithCoordinates.length === 1) {
@@ -86,8 +86,7 @@ export default {
     },
     forceCenter () {
       if (this.singleGroup) {
-        const gp = this.singleGroup
-        return { lat: gp.latitude + this.offset.lat, lng: gp.longitude + this.offset.lng }
+        return this.toLatLng(this.singleGroup)
       }
       return null
     },

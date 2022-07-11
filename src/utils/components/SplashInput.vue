@@ -13,7 +13,6 @@ Karrot
     outlined
     hide-bottom-space
     bg-color="white"
-    v-on="$listeners"
   >
     <template #before>
       <QIcon

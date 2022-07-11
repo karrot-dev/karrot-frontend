@@ -21,7 +21,6 @@ Karrot
       <QBtn
         v-if="message.isEditable"
         outline
-        dense
         color="secondary"
         :title="$t('BUTTON.EDIT')"
         @click="toggleEdit"
@@ -31,7 +30,6 @@ Karrot
       <QBtn
         v-if="!slim"
         outline
-        dense
         color="secondary"
         :title="$t('CONVERSATION.REPLIES')"
         @click="$emit('open-thread')"
@@ -66,7 +64,10 @@ Karrot
         </RouterLink>
         <span class="message-date">
           <small class="text-weight-light">
-            <DateAsWords :date="message.createdAt" />
+            <DateAsWords
+              :title="tooltipDate"
+              :date="message.createdAt"
+            />
           </small>
         </span>
         <QIcon
@@ -76,10 +77,7 @@ Karrot
           :title="$t('WALL.RECEIVED_VIA_EMAIL')"
         />
       </QItemLabel>
-      <div
-        class="content"
-        :title="slim && tooltipDate"
-      >
+      <div class="content">
         <Markdown
           v-measure
           :source="message.content"
@@ -203,6 +201,11 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'open-thread',
+    'toggle-reaction',
+    'save',
+  ],
   data () {
     return {
       editMode: false,
@@ -239,9 +242,11 @@ export default {
     openImageGallery (imageId) {
       Dialog.create({
         component: ImageGalleryDialog,
+        componentProps: {
+          message: this.message,
+          selectedImageId: imageId,
+        },
         parent: this,
-        message: this.message,
-        selectedImageId: imageId,
       })
     },
     save ({ content, images }) {
@@ -258,89 +263,90 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
+<style scoped lang="sass">
+@use 'sass:color'
 @import './reactionBox'
 
 .isUnread
-  background linear-gradient(to right, $lightGreen, $lighterGreen)
+  background: linear-gradient(to right, $lightGreen, $lighterGreen)
 
 .continuation
-  min-height auto
-  padding-top 0
+  min-height: auto
+  padding-top: 0
 
 .images
   .q-img
-    width 80px
-    height 80px
-    cursor pointer
+    width: 80px
+    height: 80px
+    cursor: pointer
 
 body.mobile .conversation-message
   .k-message-meta
-    padding-top 3px
-    font-size 80%
+    padding-top: 3px
+    font-size: 80%
 
 .conversation-message
-  padding-bottom 0
+  padding-bottom: 0
 
   .hover-button
-    visibility hidden
+    visibility: hidden
 
   &:hover .hover-button
-    visibility visible
+    visibility: visible
 
   &.q-item-highlight:hover
-    background-color alpha($secondary, .07)
+    background-color: color.change($secondary, $alpha: .07)
 
   .email-icon
-    position relative
-    top -1.5px
-    margin-left 2px
+    position: relative
+    top: -1.5px
+    margin-left: 2px
 
   .content
-    word-wrap break-word
+    word-wrap: break-word
 
   .message-date
-    display inline-block
-    margin-left 2px
+    display: inline-block
+    margin-left: 2px
 
   .k-thread-box
-    min-height 30px
-    max-height 30px
-    box-shadow none
+    min-height: 30px
+    max-height: 30px
+    box-shadow: none
 
-    >>> .q-btn__wrapper
-      min-height 0
-      padding 0
+    ::v-deep(.q-btn__wrapper)
+      min-height: 0
+      padding: 0
 
     .k-profile-picture
-      margin-right 2px
-      vertical-align middle
+      margin-right: 2px
+      vertical-align: middle
 
     .k-replies-count
-      padding-right 3px
-      margin-left 4px
-      font-size 13px
+      padding-right: 3px
+      margin-left: 4px
+      font-size: 13px
 
   .k-message-controls
-    position absolute
-    top -6px
-    right 0px
+    position: absolute
+    top: -6px
+    right: 0px
 
     .q-btn
-      padding 2px 9px
-      font-size 13px
-      color white
-      transition none
+      padding-left: 12px
+      padding-right: 12px
+      font-size: 13px
+      color: white
+      transition: none
 
 body.desktop
   .conversation-message.slim .k-message-controls
-    top -8px
+    top: -8px
 
     .q-btn
-      min-height 24px
-      font-size 12px
+      min-height: 24px
+      font-size: 13px
 
   .k-message-meta
-    padding-top 4px
+    padding-top: 4px
 </style>

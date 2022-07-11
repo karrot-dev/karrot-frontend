@@ -92,10 +92,10 @@ Karrot
           side="left"
           :width="sidenavWidth"
           :breakpoint="0"
-          :value="true"
+          :model-value="true"
           :overlay="false"
           elevated
-          @click.native="toggleSidenav"
+          @click="toggleSidenav"
         >
           <RouterView name="sidenav" />
           <QItem
@@ -142,7 +142,7 @@ Karrot
           :overlay="false"
           :breakpoint="0"
           elevated
-          :value="isDetailActive || hasDetailComponent"
+          :model-value="isDetailActive || hasDetailComponent"
         >
           <DetailSidebar
             v-if="isDetailActive"
@@ -306,54 +306,50 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .mainContent-page
-  width 100%
+  width: 100%
 
 .sidenav-desktop
-  width 30%
-  min-width 250px
-  max-width 30em
-  margin-right .4em
-  margin-left auto
+  width: 30%
+  min-width: 250px
+  max-width: 30em
+  margin-right: .4em
+  margin-left: auto
 
 body.desktop .mainContent-page:not(.fullpage)
-  min-width 350px
-  max-width 57em
-  margin-top 8px
-  margin-right auto
-  margin-bottom 4.5em
-  margin-left auto
+  min-width: 350px
+  max-width: 57em
+  margin-top: 8px
+  margin-right: auto
+  margin-bottom: 4.5em
+  margin-left: auto
 
 .background
-  background-image url('../assets/repeating_grey-600.png')
-  background-attachment fixed
+  background-image: url('../assets/repeating_grey-600.png')
+  background-attachment: fixed
 
   &.bikekitchen
-    background-image url('../assets/bikekitchen_background.jpg')
+    background-image: url('../assets/bikekitchen_background.jpg')
 
   &.general
-    background-image url('../assets/general_background.jpg')
+    background-image: url('../assets/general_background.jpg')
 
 .k-highlight-dot
-  position absolute
-  right -4px
-  bottom -4px
-  width .5rem
-  height .5rem
-  border-radius 50%
+  position: absolute
+  right: -4px
+  bottom: -4px
+  width: .5rem
+  height: .5rem
+  border-radius: 50%
 
 .logo
-  width auto
-  height 19px
+  width: auto
+  height: 19px
 </style>
 
-<style lang="stylus">
-@import '~variables'
-
+<style lang="sass">
 @media screen and (max-width: $breakpoint-lg)
   .sidenav-desktop > .q-card
-    margin 5px 0
+    margin: 5px 0
 </style>

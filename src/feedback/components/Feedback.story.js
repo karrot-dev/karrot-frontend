@@ -1,11 +1,15 @@
+<<<<<<< HEAD
 // SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
 //
 // SPDX-License-Identifier: MIT
 
 
 
+=======
+import { h } from 'vue'
+>>>>>>> 1e9d7f5c902ea21eeabe5c51701cb81047cd4681
 import { storybookDefaults as defaults, statusMocks, createDatastore } from '>/helpers'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 
 import AmountPicker from './AmountPicker'
 import AmountBox from './AmountBox'
@@ -49,62 +53,50 @@ storiesOf('Feedback', module)
         value: 1,
       }
     },
-    render (h) {
+    render () {
       return h(AmountPicker, {
-        props: {
-          value: this.value,
-        },
-        on: {
-          input: v => { this.value = v },
-        },
+        value: this.value,
+        onInput: v => { this.value = v },
       })
     },
   }))
   .add('AmountBox', () => defaults({
-    render: h => h(AmountBox, {
-      props: {
-        amount: 20,
-      },
+    render: () => h(AmountBox, {
+      amount: 20,
     }),
   }))
   .add('ActivityFeedback', () => defaults({
-    render: h => h(ActivityFeedback, {
-      props: {
-        activities: activitiesMock.map(activity => ({
-          ...activity,
-          participants: activity.participants.map(user => ({
-            ...user,
-            membership: {
-              isEditor: true,
-              trusted: true,
-            },
-          })),
+    render: () => h(ActivityFeedback, {
+      activities: activitiesMock.map(activity => ({
+        ...activity,
+        participants: activity.participants.map(user => ({
+          ...user,
+          membership: {
+            isEditor: true,
+            trusted: true,
+          },
         })),
-        existingFeedback: feedbackMock,
-        saveStatus: statusMocks.default(),
-        fetchStatus: statusMocks.default(),
-        seedId: 1,
-      },
+      })),
+      existingFeedback: feedbackMock,
+      saveStatus: statusMocks.default(),
+      fetchStatus: statusMocks.default(),
+      seedId: 1,
     }),
   }))
   .add('FeedbackItem', () => defaults({
-    render: h => h(FeedbackItem, {
-      props: {
-        feedback: feedbackMock[0],
-      },
+    render: () => h(FeedbackItem, {
+      feedback: feedbackMock[0],
     }),
   }))
   .add('FeedbackList', () => defaults({
-    render: h => h(FeedbackList, {
-      props: {
-        feedback: feedbackMock,
-        place: placesMock[0],
-        status: statusMocks.default(),
-        highlight: feedbackMock[1].id,
-      },
+    render: () => h(FeedbackList, {
+      feedback: feedbackMock,
+      place: placesMock[0],
+      status: statusMocks.default(),
+      highlight: feedbackMock[1].id,
     }),
   }))
   .add('PlaceFeedback', () => defaults({
-    render: h => h(PlaceFeedback),
+    render: () => h(PlaceFeedback),
     store: datastore,
   }))

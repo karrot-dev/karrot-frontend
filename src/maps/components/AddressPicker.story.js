@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MIT
 
 import { storybookDefaults as defaults } from '>/helpers'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 
 import AddressPicker from './AddressPicker'
 

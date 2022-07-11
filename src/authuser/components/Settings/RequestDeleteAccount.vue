@@ -37,6 +37,9 @@ import statusMixin from '@/utils/mixins/statusMixin'
 export default {
   components: { QBtn },
   mixins: [statusMixin],
+  emits: [
+    'request-delete-account',
+  ],
   data () {
     return {
       dialogShown: false,
@@ -62,4 +65,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus"></style>
+<style scoped lang="sass"></style>

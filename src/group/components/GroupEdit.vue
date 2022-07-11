@@ -9,14 +9,17 @@ Karrot
 
 
 <template>
-  <component :is="$q.platform.is.mobile ? 'div' : 'QCard'">
+  <component
+    :is="$q.platform.is.mobile ? 'div' : 'QCard'"
+    v-if="v$.edit"
+  >
     <ChangePhoto
       v-if="!isNew"
       :hint="$t('GROUP.SET_LOGO')"
       :label="$t('GROUP.LOGO')"
       :status="status"
       :value="value"
-      @save="$emit('save', { id: value.id, photo: arguments[0] })"
+      @save="photo => $emit('save', { id: value.id, photo })"
     />
     <div
       class="edit-box"
@@ -38,7 +41,7 @@ Karrot
           autocomplete="off"
           outlined
           class="q-mb-lg"
-          @blur="$v.edit.name.$touch"
+          @blur="v$.edit.name.$touch"
         >
           <template #before>
             <QIcon name="fas fa-fw fa-star" />
@@ -103,7 +106,7 @@ Karrot
           use-input
           class="q-mb-lg"
           @filter="timezoneFilter"
-          @blur="$v.edit.timezone.$touch"
+          @blur="v$.edit.timezone.$touch"
         >
           <template #before>
             <QIcon name="fas fa-fw fa-globe" />
@@ -123,11 +126,11 @@ Karrot
           :error="hasError('applicationQuestions')"
           :error-message="firstError('applicationQuestions')"
           :label="$t('GROUP.APPLICATION_QUESTIONS')"
-          :value="applicationQuestionsOrDefault"
+          :model-value="applicationQuestionsOrDefault"
           icon="fas fa-fw fa-question"
           outlined
           class="q-mb-lg"
-          @input="applicationQuestionsInput"
+          @update:model-value="applicationQuestionsInput"
           @keyup.ctrl.enter="maybeSave"
         />
 
@@ -186,8 +189,8 @@ import {
 } from 'quasar'
 import AddressPicker from '@/maps/components/AddressPicker'
 import MarkdownInput from '@/utils/components/MarkdownInput'
-import { validationMixin } from 'vuelidate'
-import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+import useVuelidate from '@vuelidate/core'
+import { required, minLength, maxLength } from '@vuelidate/validators'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
@@ -207,7 +210,7 @@ export default {
     ChangePhoto,
     InfoPopup,
   },
-  mixins: [validationMixin, editMixin, statusMixin],
+  mixins: [editMixin, statusMixin],
   props: {
     value: {
       type: Object,
@@ -236,6 +239,14 @@ export default {
       type: Object,
     },
   },
+  emits: [
+    'save',
+  ],
+  setup () {
+    return {
+      v$: useVuelidate(),
+    }
+  },
   data () {
     return {
       filteredTimezones: this.timezones,
@@ -244,7 +255,7 @@ export default {
   },
   computed: {
     canSave () {
-      if (this.$v.edit.$error) {
+      if (this.v$.edit.$error) {
         return false
       }
       if (!this.isNew && !this.hasChanged) {
@@ -256,8 +267,8 @@ export default {
       return !!this.nameError
     },
     nameError () {
-      if (this.$v.edit.name.$error) {
-        const m = this.$v.edit.name
+      if (this.v$.edit.name.$error) {
+        const m = this.v$.edit.name
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
         if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', { min: 4 })
         if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
@@ -269,8 +280,8 @@ export default {
       return !!this.timezoneError
     },
     timezoneError () {
-      if (this.$v.edit.timezone.$error) {
-        const m = this.$v.edit.timezone
+      if (this.v$.edit.timezone.$error) {
+        const m = this.v$.edit.timezone
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
         if (!m.inList) return this.$t('VALIDATION.VALID_TIMEZONE')
       }
@@ -296,9 +307,9 @@ export default {
   },
   methods: {
     maybeSave (event) {
-      this.$v.edit.$touch()
+      this.v$.edit.$touch()
       if (!this.canSave) return
-      this.$v.edit.$reset()
+      this.v$.edit.$reset()
       this.save()
     },
     timezoneFilter (terms, update, abort) {
@@ -339,6 +350,6 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 @import '~editbox'
 </style>

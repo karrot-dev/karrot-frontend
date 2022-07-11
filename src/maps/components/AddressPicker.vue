@@ -19,9 +19,9 @@ Karrot
       :options="options"
       :outlined="outlined"
       :placeholder="$t('BUTTON.SEARCH')"
-      :value="value.address"
+      :model-value="modelValue.address"
       :input-debounce="1000"
-      @input="input"
+      @update:model-value="input"
       @filter="search"
     >
       <template #before>
@@ -30,17 +30,16 @@ Karrot
       <template #selected-item />
       <template #append>
         <QIcon
-          v-if="hasLocation || value.address"
+          v-if="hasLocation || modelValue.address"
           name="cancel"
           class="cursor-pointer"
           @click="reset"
         />
       </template>
-      <template #option="{ index, itemProps, itemEvents, opt: { label: itemLabel, useSearchTerm } }">
+      <template #option="{ index, itemProps, opt: { label: itemLabel, useSearchTerm } }">
         <QItem
           :key="index"
           v-bind="itemProps"
-          v-on="itemEvents"
         >
           <QItemSection>
             <QItemLabel v-if="useSearchTerm">
@@ -71,14 +70,15 @@ Karrot
         </template>
       </template>
     </QSelect>
-    <StandardMap
-      class="map"
-      :markers="marker ? [marker] : []"
-      :prevent-zoom="preventZoom"
-      :default-center="defaultMapCenter"
-      @marker-moved="mapMarkerMoved"
-      @map-click="mapMarkerMoved"
-    />
+    <div class="map">
+      <StandardMap
+        :markers="marker ? [marker] : []"
+        :prevent-zoom="preventZoom"
+        :default-center="defaultMapCenter"
+        @marker-moved="mapMarkerMoved"
+        @map-click="mapMarkerMoved"
+      />
+    </div>
   </div>
 </template>
 
@@ -92,7 +92,6 @@ import {
   QSeparator,
 } from 'quasar'
 import StandardMap from '@/maps/components/StandardMap'
-import L from 'leaflet'
 
 import geocoding from '@/maps/api/geocoding'
 import { filterTruthy } from '@/utils/utils'
@@ -108,7 +107,7 @@ export default {
     StandardMap,
   },
   props: {
-    value: {
+    modelValue: {
       type: Object,
       required: true,
     },
@@ -145,6 +144,9 @@ export default {
       type: Object,
     },
   },
+  emits: [
+    'update:model-value',
+  ],
   data () {
     return {
       preventZoom: false,
@@ -153,10 +155,10 @@ export default {
   },
   computed: {
     marker () {
-      const { latitude, longitude } = this.value
+      const { latitude, longitude } = this.modelValue
       if (latitude && longitude) {
         return {
-          latLng: L.latLng(latitude, longitude),
+          latLng: [latitude, longitude],
           fontIcon: this.fontIcon,
           color: this.color,
           draggable: true,
@@ -165,7 +167,7 @@ export default {
       return null
     },
     hasLocation () {
-      const { latitude, longitude } = this.value
+      const { latitude, longitude } = this.modelValue
       return Boolean(latitude && longitude)
     },
   },
@@ -200,23 +202,23 @@ export default {
       }
       const { result: { address, latitude, longitude } } = value
       this.preventZoom = false
-      this.$emit('input', { ...this.value, ...filterTruthy({ latitude, longitude, address }) })
+      this.$emit('update:model-value', { ...this.modelValue, ...filterTruthy({ latitude, longitude, address }) })
     },
     mapMarkerMoved ({ lat: latitude, lng: longitude }) {
       this.preventZoom = true
-      this.$emit('input', { ...this.value, latitude, longitude })
+      this.$emit('update:model-value', { ...this.modelValue, latitude, longitude })
     },
     reset () {
-      this.$emit('input', { ...this.value, latitude: null, longitude: null, address: null })
+      this.$emit('update:model-value', { ...this.modelValue, latitude: null, longitude: null, address: null })
     },
   },
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .map
-  width calc(100% - 42px)
-  height 260px
-  margin-top -10px
-  margin-left 37px
+  width: calc(100% - 42px)
+  height: 260px
+  margin-top: -10px
+  margin-left: 37px
 </style>

@@ -43,10 +43,9 @@ Karrot
           @loading-end="loading = false"
           @image-remove="canChoose = true"
         >
-          <img
-            slot="placeholder"
-            src="statics/add_a_photo.svg"
-          >
+          <template #placeholder>
+            <img src="statics/add_a_photo.svg">
+          </template>
         </Croppa>
         <QResizeObserver @resize="onResize" />
       </template>
@@ -94,8 +93,12 @@ import {
   QIcon,
   QResizeObserver,
 } from 'quasar'
+
 import CroppaPlugin from 'vue-croppa'
 const Croppa = CroppaPlugin.component
+// Upgrade Croppa once it's compatible with Vue3: https://github.com/zhanziyang/vue-croppa/issues/235
+Croppa.compatConfig = { MODE: 2 }
+
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
@@ -125,6 +128,9 @@ export default {
       default: '',
     },
   },
+  emits: [
+    'save',
+  ],
   data () {
     return {
       canSave: false,
@@ -204,10 +210,10 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 @import '~editbox'
 
 .croppa-container.croppa--has-target
-  cursor move
+  cursor: move
 
 </style>

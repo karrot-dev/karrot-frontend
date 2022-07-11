@@ -10,6 +10,7 @@ Karrot
 
 <template>
   <div
+    v-if="v$.edit"
     class="edit-box"
     :class="{ changed: hasChanged }"
   >
@@ -19,7 +20,7 @@ Karrot
         :label="$t('USERDETAIL.DISPLAY_NAME')"
         :error="hasDisplayNameError"
         :error-message="displayNameError"
-        @blur="$v.edit.displayName.$touch"
+        @blur="v$.edit.displayName.$touch"
       >
         <template #before>
           <QIcon name="fas fa-star" />
@@ -51,6 +52,7 @@ Karrot
         v-model="edit"
         color="positive"
         font-icon="fas fa-user"
+        :default-map-center="defaultMapCenter"
         :label="$t('USERDATA.WHERE_FROM')"
         :error="hasAddressError"
         :error-message="addressError"
@@ -95,8 +97,8 @@ import AddressPicker from '@/maps/components/AddressPicker'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
-import { validationMixin } from 'vuelidate'
-import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+import useVuelidate from '@vuelidate/core'
+import { required, minLength, maxLength } from '@vuelidate/validators'
 
 export default {
   components: {
@@ -106,10 +108,21 @@ export default {
     AddressPicker,
     MarkdownInput,
   },
-  mixins: [statusMixin, editMixin, validationMixin],
+  mixins: [statusMixin, editMixin],
+  props: {
+    defaultMapCenter: {
+      default: null,
+      type: Object,
+    },
+  },
+  setup () {
+    return {
+      v$: useVuelidate(),
+    }
+  },
   computed: {
     canSave () {
-      if (this.$v.edit.$error) {
+      if (this.v$.edit.$error) {
         return false
       }
       if (!this.isNew && !this.hasChanged) {
@@ -130,8 +143,8 @@ export default {
       return !!this.displayNameError
     },
     displayNameError () {
-      if (this.$v.edit.displayName.$error) {
-        const m = this.$v.edit.displayName
+      if (this.v$.edit.displayName.$error) {
+        const m = this.v$.edit.displayName
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
         if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', { min: 2 })
         if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
@@ -141,9 +154,9 @@ export default {
   },
   methods: {
     maybeSave () {
-      this.$v.edit.$touch()
+      this.v$.edit.$touch()
       if (!this.canSave) return
-      this.$v.edit.$reset()
+      this.v$.edit.$reset()
       this.save()
     },
   },
@@ -159,9 +172,9 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 @import '~editbox'
 
 .q-field
-  margin 3em 0
+  margin: 3em 0
 </style>

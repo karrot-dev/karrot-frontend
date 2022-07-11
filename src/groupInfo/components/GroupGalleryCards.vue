@@ -40,6 +40,10 @@ export default {
       type: Array,
     },
   },
+  emits: [
+    'visit',
+    'preview',
+  ],
   data () {
     return {
       width: 230,

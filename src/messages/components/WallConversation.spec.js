@@ -18,7 +18,7 @@ const defaultProps = {
   fetchPast: jest.fn(),
 }
 
-const store = createDatastore({
+const datastore = createDatastore({
   users: {
     getters: {
       byCurrentGroup: () => [],
@@ -30,7 +30,7 @@ describe('WallConversation', () => {
   beforeEach(() => jest.resetModules())
   it('renders messages', () => {
     const wrapper = mountWithDefaults(WallConversation, {
-      store,
+      datastore,
       propsData: defaultProps,
     })
     expect(wrapper.findAllComponents(ConversationMessage).length).toBe(defaultProps.data.messages.length)
@@ -38,7 +38,7 @@ describe('WallConversation', () => {
 
   it('can send a message', () => {
     const wrapper = mountWithDefaults(WallConversation, {
-      store,
+      datastore,
       propsData: defaultProps,
     })
     expect(wrapper.findAllComponents(QInput).length).toBe(1)

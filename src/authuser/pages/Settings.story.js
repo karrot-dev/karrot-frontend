@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 // SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
 //
 // SPDX-License-Identifier: MIT
 
 
 import { storiesOf } from '@storybook/vue'
+=======
+import { h } from 'vue'
+import { storiesOf } from '@storybook/vue3'
+>>>>>>> 1e9d7f5c902ea21eeabe5c51701cb81047cd4681
 import { action } from '@storybook/addon-actions'
 
 import Settings from '@/authuser/pages/Settings'
@@ -73,6 +78,11 @@ const datastore = createDatastore({
       installPrompt: () => ({}),
     },
   },
+  geo: {
+    getters: {
+      defaultCenter: () => null,
+    },
+  },
 })
 
 const user = factories.makeCurrentUser({ mailVerified: false })
@@ -139,25 +149,25 @@ const unverifiedAndfailedEmailDeliveriesDatastore = createDatastore({
 
 storiesOf('Settings Page', module)
   .add('Default', () => defaults({
-    render (h) {
+    render () {
       return h(Settings)
     },
     store: datastore,
   }))
   .add('verification warning', () => defaults({
-    render (h) {
+    render () {
       return h(VerificationWarning)
     },
     store: verificationWarningDatastore,
   }))
   .add('failed email deliveries', () => defaults({
-    render (h) {
+    render () {
       return h(VerificationWarning)
     },
     store: failedEmailDeliveriesDatastore,
   }))
   .add('verification warning and failed email deliveries', () => defaults({
-    render (h) {
+    render () {
       return h(VerificationWarning)
     },
     store: unverifiedAndfailedEmailDeliveriesDatastore,

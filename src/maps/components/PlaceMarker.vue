@@ -21,7 +21,7 @@ export default {
   props: {
     place: {
       type: Object,
-      required: true,
+      default: () => null,
     },
   },
 }

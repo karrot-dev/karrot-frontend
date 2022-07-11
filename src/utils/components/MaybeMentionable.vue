@@ -19,7 +19,7 @@ Karrot
     :insert-space="true"
     placement="bottom-end"
     offset="6"
-    v-on="$listeners"
+    v-bind="$attrs"
   >
     <slot />
     <!-- don't show anything when no result -->
@@ -53,6 +53,9 @@ Karrot
 import { mapGetters } from 'vuex'
 import { Mentionable } from 'vue-mention'
 import { QItem, QItemLabel, QItemSection } from 'quasar'
+
+// for vue-mention
+import 'floating-vue/dist/style.css'
 
 import ProfilePicture from '@/users/components/ProfilePicture'
 
@@ -89,18 +92,17 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-@import '~variables'
-
+<style lang="sass">
+// TODO: why not scoped?
 .popover
   // Ensure we appear over everything else
-  z-index 999999999 !important
-  border 1px solid $grey-3
+  z-index: 999999999 !important
+  border: 1px solid $grey-3
 
 .mention-item
-  background-color white
+  background-color: white
 
 .mention-selected
-  cursor pointer
-  background $grey-3
+  cursor: pointer
+  background: $grey-3
 </style>

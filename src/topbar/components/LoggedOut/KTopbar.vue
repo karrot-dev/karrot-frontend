@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- 
 SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
 SPDX-FileCopyrightText: 2016 Karrot
@@ -7,18 +8,24 @@ SPDX-License-Identifier: MIT
 Karrot
 -->
 
+=======
+<template>
+  <KTopbarUI
+    :breadcrumbs="$store.getters['breadcrumbs/all']"
+    :current-user-id="$store.getters['auth/userId']"
+    @logout="$store.dispatch('auth/logout')"
+  >
+    <slot />
+  </KTopbarUI>
+</template>
+>>>>>>> 1e9d7f5c902ea21eeabe5c51701cb81047cd4681
 
 <script>
-import { connect } from 'vuex-connect'
 import KTopbarUI from './KTopbarUI'
 
-export default connect({
-  actionsToEvents: {
-    logout: 'auth/logout',
+export default {
+  components: {
+    KTopbarUI,
   },
-  gettersToProps: {
-    breadcrumbs: 'breadcrumbs/all',
-    currentUserId: 'auth/userId',
-  },
-})('KTopbar', KTopbarUI)
+}
 </script>

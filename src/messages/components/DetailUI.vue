@@ -19,11 +19,11 @@ Karrot
       :start-at-bottom="Boolean(user) || Boolean(activity)"
       :inline="inline"
       compose
-      @send="$emit('send', arguments[0])"
-      @mark="$emit('mark', arguments[0])"
-      @toggle-reaction="$emit('toggle-reaction', arguments[0])"
-      @save-message="$emit('save-message', arguments[0])"
-      @fetch-past="$emit('fetch-past', arguments[0])"
+      @send="(...args) => $emit('send', ...args)"
+      @mark="(...args) => $emit('mark', ...args)"
+      @toggle-reaction="(...args) => $emit('toggle-reaction', ...args)"
+      @save-message="(...args) => $emit('save-message', ...args)"
+      @fetch-past="(...args) => $emit('fetch-past', ...args)"
       @fetch-future="$emit('fetch-future')"
     >
       <template #before-chat-messages>
@@ -164,6 +164,16 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'send',
+    'mark',
+    'toggle-reaction',
+    'save-message',
+    'fetch-past',
+    'fetch-future',
+    'application-accept',
+    'application-decline',
+  ],
   computed: {
     isPending () {
       if (!this.conversation) return false
@@ -202,13 +212,11 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .Detail
-  background-color white
+  background-color: white
 
 .message-date
-  display inline-block
-  margin-left 2px
+  display: inline-block
+  margin-left: 2px
 </style>

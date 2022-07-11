@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
 //
 // SPDX-License-Identifier: MIT
@@ -6,6 +7,10 @@
 
 
 import { storiesOf } from '@storybook/vue'
+=======
+import { h } from 'vue'
+import { storiesOf } from '@storybook/vue3'
+>>>>>>> 1e9d7f5c902ea21eeabe5c51701cb81047cd4681
 import { storybookDefaults as defaults, statusMocks } from '>/helpers'
 import subHours from 'date-fns/subHours'
 import addHours from 'date-fns/addHours'
@@ -121,44 +126,34 @@ const pastIssues = range(4).map(() => factories.makeIssue({
 
 storiesOf('Issues', module)
   .add('history item', () => defaults({
-    render: h => h(IssueHistoryItem, {
-      props: {
-        voting: votingRemoveUser,
-        affectedUser: user,
-        groupName: 'asdf',
-      },
+    render: () => h(IssueHistoryItem, {
+      voting: votingRemoveUser,
+      affectedUser: user,
+      groupName: 'asdf',
     }),
   }))
   .add('IssueVote - vote', () => defaults({
-    render: h => h(IssueVote, {
-      props: {
-        issue: issueFurtherDiscussion,
-      },
+    render: () => h(IssueVote, {
+      issue: issueFurtherDiscussion,
     }),
   }))
   .add('IssueVote - not voted yet', () => defaults({
-    render: h => h(IssueVote, {
-      props: {
-        issue: issueNoVote,
-      },
+    render: () => h(IssueVote, {
+      issue: issueNoVote,
     }),
   }))
   .add('results - expelled', () => defaults({
-    render: h => h(VotingResults, {
-      props: {
-        voting: votingRemoveUser,
-        affectedUser: user,
-        isCancelled: false,
-        groupName: 'asdf',
-      },
+    render: () => h(VotingResults, {
+      voting: votingRemoveUser,
+      affectedUser: user,
+      isCancelled: false,
+      groupName: 'asdf',
     }),
   }))
   .add('IssueList', () => defaults({
-    render: h => h(IssueList, {
-      props: {
-        ongoingIssues,
-        pastIssues,
-        status: statusMocks.default(),
-      },
+    render: () => h(IssueList, {
+      ongoingIssues,
+      pastIssues,
+      status: statusMocks.default(),
     }),
   }))

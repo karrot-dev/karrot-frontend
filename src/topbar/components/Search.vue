@@ -11,7 +11,7 @@ Karrot
 <template>
   <div>
     <QInput
-      :value="terms"
+      :model-value="terms"
       type="search"
       :placeholder="$q.lang.label.search"
       dense
@@ -19,10 +19,9 @@ Karrot
       :debounce="300"
       standout
       dark
-      @input="setTerms"
+      @update:model-value="setTerms"
       @click="showResults"
       @focus="showResults"
-      @blur="hide"
       @keyup.esc="hide"
     >
       <template #prepend>
@@ -40,6 +39,7 @@ Karrot
         no-parent-event
         no-focus
         fit
+        @hide="hide"
       >
         <QList>
           <QInfiniteScroll @load="onLoad">
@@ -49,7 +49,6 @@ Karrot
               v-close-popup
               :to="result.value"
               clickable
-              @click="hide"
             >
               <QItemSection
                 v-if="result.icon"
@@ -119,6 +118,9 @@ export default {
     QItemLabel,
     QInfiniteScroll,
   },
+  emits: [
+    'clear',
+  ],
   data () {
     return {
       limit: 10,

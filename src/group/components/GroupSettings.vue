@@ -29,7 +29,7 @@ Karrot
           class="q-ml-md"
           :user="{ isCurrentUser: true }"
           :groups="groups"
-          @select-group="$emit('select-group', arguments[0])"
+          @select-group="(...args) => $emit('select-group', ...args)"
         />
       </div>
     </template>
@@ -47,9 +47,9 @@ Karrot
         >
           <QItemSection side>
             <QCheckbox
-              :value="notificationIsEnabled(type)"
+              :model-value="notificationIsEnabled(type)"
               :disable="notificationIsPending(type)"
-              @input="change(type, arguments[0])"
+              @update:model-value="value => change(type, value)"
             />
           </QItemSection>
           <QItemSection>
@@ -138,6 +138,12 @@ export default {
       default: () => () => ({}),
     },
   },
+  emits: [
+    'select-group',
+    'unsubscribe-all-emails',
+    'clear-unsubscribe-all-status',
+    'change-notification-type',
+  ],
   computed: {
     availableNotificationTypes () {
       if (!this.group) return []

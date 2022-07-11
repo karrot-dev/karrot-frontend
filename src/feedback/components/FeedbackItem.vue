@@ -50,7 +50,7 @@ Karrot
               {{ userName }}
             </RouterLink>
             <span
-              class="message-date"
+              class="message-date q-ml-xs"
             >
               <DateAsWords :date="createdAt" />
             </span>
@@ -156,22 +156,20 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .comment
-  padding-top 8px
-  word-wrap break-word
+  padding-top: 8px
+  word-wrap: break-word
 
-  >>> p:last-child
-    margin-bottom 5px
+  ::v-deep(p:last-child)
+    margin-bottom: 5px
 
 .message-date
-  display inline-block
+  display: inline-block
 
 .edit-button
-  opacity .7
+  opacity: .7
 
 .q-card:hover .edit-button
-  opacity 1
+  opacity: 1
 </style>

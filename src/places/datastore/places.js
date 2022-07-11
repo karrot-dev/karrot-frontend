@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 // SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
 //
 // SPDX-License-Identifier: MIT
 
 import Vue from 'vue'
+=======
+>>>>>>> 1e9d7f5c902ea21eeabe5c51701cb81047cd4681
 import places from '@/places/api/places'
 import { optionsFor } from '@/places/placeStatus'
 import {
@@ -165,7 +168,7 @@ export default {
       state.entries = Object.freeze({ ...state.entries, ...indexById(places) })
     },
     setStatistics (state, { id, data }) {
-      Vue.set(state.statistics, id, Object.freeze(data))
+      state.statistics[id] = Object.freeze(data)
     },
   },
 }

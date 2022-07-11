@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 // SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
 //
 // SPDX-License-Identifier: MIT
 
 import Vue from 'vue'
+=======
+import { nextTick } from 'vue'
+>>>>>>> 1e9d7f5c902ea21eeabe5c51701cb81047cd4681
 
 import ProfileEdit from './ProfileEdit'
 import { usersMock } from '>/mockdata'
@@ -34,7 +38,7 @@ describe('ProfileEdit', () => {
     expect(wrapper.vm.hasChanged).toBe(false)
     wrapper.vm.edit.displayName = 'a new name'
     expect(wrapper.vm.hasChanged).toBe(true)
-    return Vue.nextTick().then(() => {
+    return nextTick().then(() => {
       expect(wrapper.classes()).toContain('changed')
     })
   })

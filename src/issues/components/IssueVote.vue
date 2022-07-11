@@ -83,7 +83,7 @@ Karrot
               {{ getTitle(o.type) }}
             </div>
             <QSlider
-              :value="o.yourScore || 0"
+              :model-value="o.yourScore || 0"
               class="k-vote-slider"
               :label-value="getLabel(o.yourScore)"
               :min="-2"
@@ -92,7 +92,7 @@ Karrot
               label-always
               snap
               markers
-              @input="val => o.yourScore = val"
+              @update:model-value="val => o.yourScore = val"
             />
           </div>
         </div>
@@ -172,6 +172,10 @@ export default {
       required: true,
     },
   },
+  emits: [
+    'save',
+    'delete',
+  ],
   data () {
     return {
       edit: null,
@@ -256,12 +260,12 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .showOverlay.content
-  filter blur(3px)
-  opacity 0.3
+  filter: blur(3px)
+  opacity: 0.3
 
 .k-vote-slider
-  width 85%
-  margin 0 auto
+  width: 85%
+  margin: 0 auto
 </style>

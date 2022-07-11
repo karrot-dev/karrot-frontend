@@ -27,7 +27,7 @@ Karrot
     <InvitationsForm
       :status="sendStatus"
       class="q-ma-md"
-      @submit="$emit('submit', arguments[0])"
+      @submit="(...args) => $emit('submit', ...args)"
     />
     <InvitationsList
       :invitations="invitations"
@@ -68,6 +68,9 @@ export default {
       required: true,
     },
   },
+  emits: [
+    'submit',
+  ],
   computed: {
     ...mapGetters({
       groupid: 'currentGroup/id',

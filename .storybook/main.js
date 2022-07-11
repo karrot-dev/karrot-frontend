@@ -1,15 +1,26 @@
+<<<<<<< HEAD
 // SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
 //
 // SPDX-License-Identifier: MIT
 
 const QuasarConfFile = require('@quasar/app/lib/quasar-conf-file')
 const getQuasarCtx = require('@quasar/app/lib/helpers/get-quasar-ctx')
+=======
+// require('@storybook/addon-postcss')
+
+const QuasarConfFile = require('@quasar/app-webpack/lib/quasar-conf-file')
+const getQuasarCtx = require('@quasar/app-webpack/lib/helpers/get-quasar-ctx')
+>>>>>>> 1e9d7f5c902ea21eeabe5c51701cb81047cd4681
 
 module.exports = {
+  core: {
+    builder: 'webpack5',
+  },
   stories: ['../src/**/*.story.js'],
   addons: [
     '@storybook/addon-actions',
     '@storybook/addon-links',
+    '@storybook/addon-essentials',
   ],
   webpackFinal: async (config, { configType }) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
@@ -23,7 +34,7 @@ module.exports = {
     const quasarConfig = new QuasarConfFile(ctx)
     await quasarConfig.prepare()
     await quasarConfig.compile()
-    const webpackConfig = quasarConfig.webpackConf
+    const webpackConfig = quasarConfig.webpackConf.renderer
 
     // Manual merge with our webpack config
     config.module.rules = webpackConfig.module.rules

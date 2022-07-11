@@ -45,6 +45,10 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'logout',
+    'toggle-sidenav',
+  ],
   computed: {
     entries () {
       return [{

@@ -40,10 +40,8 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-@import '~variables'
-
+<style lang="sass">
 .usersCount
-  text-align center
-  user-select none
+  text-align: center
+  user-select: none
 </style>

@@ -39,9 +39,9 @@ Karrot
       :activities="activities"
       place-link
       dense
-      @join="$emit('join', arguments[0])"
-      @leave="$emit('leave', arguments[0])"
-      @detail="$emit('detail', arguments[0])"
+      @join="(...args) => $emit('join', ...args)"
+      @leave="(...args) => $emit('leave', ...args)"
+      @detail="(...args) => $emit('detail', ...args)"
     />
     <hr v-if="showActivities">
   </div>
@@ -61,6 +61,11 @@ export default {
   props: {
     activities: { required: true, type: Array },
   },
+  emits: [
+    'join',
+    'leave',
+    'detail',
+  ],
   data () {
     return {
       showActivities: false,
@@ -69,27 +74,25 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .notice
-  color $primary !important
-  transition all .2s ease
+  color: $primary !important
+  transition: all .2s ease
 
   .toggle-button
-    cursor pointer
+    cursor: pointer
 
   .card-arrow
-    float right
-    transition all .3s ease
+    float: right
+    transition: all .3s ease
 
   .upsideDown
-    transform rotate(180deg)
+    transform: rotate(180deg)
 
 .notice:hover
-  box-shadow 1px 2px 2px 1px rgba(0, 0, 0, 0.4)
+  box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.4)
 
 hr
-  margin 1em 2em
-  border solid lightgrey 1px
+  margin: 1em 2em
+  border: solid lightgrey 1px
 </style>

@@ -97,6 +97,9 @@ export default {
       default: false,
     },
   },
+  emits: [
+    'save',
+  ],
   data () {
     return {
       choice: null,
@@ -149,7 +152,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
   .edit-box
-    color #0c0c0c
+    color: #0c0c0c
 </style>

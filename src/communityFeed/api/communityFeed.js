@@ -9,6 +9,9 @@ import axios from '@/base/api/axios'
 const backend = process.env.MODE === 'cordova' ? process.env.KARROT.BACKEND : ''
 
 export default {
+  async getTopic (id) {
+    return (await axios.get(`/community_proxy/t/${id}.json`)).data
+  },
   async getMeta () {
     return convert((await axios.get('/api/community-feed/')).data)
   },
@@ -16,7 +19,7 @@ export default {
     return (await axios.post('/api/community-feed/mark_seen/')).data
   },
   async latestTopics () {
-    const data = (await axios.get('/community_proxy/c/karrot.json')).data
+    const data = (await axios.get('/community_proxy/c/karrot/7.json')).data
     const users = data.users
     const topics = data.topicList.topics
     return topics.map(topic => {

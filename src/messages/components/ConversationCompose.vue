@@ -151,6 +151,10 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'submit',
+    'leave-edit',
+  ],
   data () {
     return {
       message: this.value

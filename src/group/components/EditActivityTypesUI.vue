@@ -13,7 +13,7 @@ Karrot
     <component :is="$q.platform.is.mobile ? 'div' : 'QCard'">
       <QTable
         :columns="columns"
-        :data="filteredActivityTypes"
+        :rows="filteredActivityTypes"
         hide-pagination
         :pagination="{ rowsPerPage: 0 }"
         flat
@@ -144,6 +144,10 @@ export default {
       required: true,
     },
   },
+  emits: [
+    'save',
+    'create',
+  ],
   data () {
     return {
       showArchived: false,

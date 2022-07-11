@@ -98,7 +98,7 @@ export default {
     this.fetchInitial()
     setTimeout(() => this.markThreadsSeen(), 3 * 1000)
   },
-  destroyed () {
+  unmounted () {
     this.markThreadsSeen()
   },
   methods: {

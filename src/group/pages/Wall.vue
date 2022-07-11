@@ -93,8 +93,8 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .notices
-  margin-top .5em
-  margin-bottom 3em
+  margin-top: .5em
+  margin-bottom: 3em
 </style>

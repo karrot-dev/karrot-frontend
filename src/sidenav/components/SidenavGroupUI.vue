@@ -9,7 +9,7 @@ Karrot
 
 
 <template>
-  <SidenavBox>
+  <SidenavBox v-if="groupId">
     <template #icon>
       <QIcon name="fas fa-fw fa-home" />
     </template>
@@ -23,7 +23,7 @@ Karrot
           dense
           round
           size="sm"
-          :to="{ name: 'groupDescription' }"
+          :to="{ name: 'groupDescription', params: { groupId } }"
           :title="$t('GROUP.DESCRIPTION')"
         >
           <QIcon name="fas fa-info-circle fa-fw" />
@@ -208,7 +208,7 @@ export default {
       }, {
         label: this.$t('GROUP.STATISTICS'),
         icon: 'fas fa-chart-bar',
-        to: { name: 'statistics', params: { groupId: this.groupId } },
+        to: { name: 'activityHistoryStatistics', params: { groupId: this.groupId } },
       }, {
         label: this.$t('GROUPINFO.META'),
         icon: 'fas fa-info-circle',
@@ -229,10 +229,10 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .more-button:hover
-  opacity .6
+  opacity: .6
 
-  >>> .q-focus-helper
-    background none !important
+  ::v-deep(.q-focus-helper)
+    background: none !important
 </style>

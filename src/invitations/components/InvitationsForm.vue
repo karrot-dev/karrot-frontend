@@ -9,7 +9,7 @@ Karrot
 
 
 <template>
-  <div>
+  <div v-if="v$.form">
     <form @submit.prevent="maybeSave">
       <QInput
         v-model="form.email"
@@ -20,7 +20,7 @@ Karrot
         autocorrect="off"
         autocapitalize="off"
         spellcheck="false"
-        @blur="$v.form.email.$touch"
+        @blur="v$.form.email.$touch"
       >
         <template #before>
           <QIcon name="fas fa-envelope" />
@@ -52,8 +52,8 @@ import {
   QBtn,
   QTooltip,
 } from 'quasar'
-import { validationMixin } from 'vuelidate'
-import { required, email } from 'vuelidate/lib/validators'
+import useVuelidate from '@vuelidate/core'
+import { required, email } from '@vuelidate/validators'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
@@ -63,7 +63,15 @@ export default {
     QBtn,
     QTooltip,
   },
-  mixins: [statusMixin, validationMixin],
+  mixins: [statusMixin],
+  emits: [
+    'submit',
+  ],
+  setup () {
+    return {
+      v$: useVuelidate(),
+    }
+  },
   data () {
     return {
       form: {
@@ -84,8 +92,8 @@ export default {
       return Boolean(this.errorMessage)
     },
     errorMessage () {
-      if (this.$v.form.email.$error) {
-        const m = this.$v.form.email
+      if (this.v$.form.email.$error) {
+        const m = this.v$.form.email
         if (!m.required) return this.$t('VALIDATION.REQUIRED')
         if (!m.email) return this.$t('VALIDATION.VALID_EMAIL')
       }
@@ -93,7 +101,7 @@ export default {
       return undefined
     },
     canSave () {
-      return !this.$v.form.$error
+      return !this.v$.form.$error
     },
   },
   watch: {
@@ -103,10 +111,10 @@ export default {
   },
   methods: {
     maybeSave () {
-      this.$v.form.$touch()
+      this.v$.form.$touch()
       if (!this.canSave) return
       this.$emit('submit', this.form.email)
-      this.$v.form.$reset()
+      this.v$.form.$reset()
     },
   },
 }

@@ -6,7 +6,6 @@
 
 /* This is about FCM support for Cordova */
 
-import Vue from 'vue'
 import subscriptionsAPI from '@/subscriptions/api/subscriptions'
 
 export default {
@@ -39,7 +38,7 @@ export default {
     receiveTokens (state, tokens) {
       state.tokens = {}
       for (const token of tokens) {
-        Vue.set(state.tokens, token, true)
+        state.tokens[token] = true
       }
     },
   },

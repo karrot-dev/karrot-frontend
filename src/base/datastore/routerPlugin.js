@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MIT
 
 import router from '@/router'
-import * as Sentry from '@sentry/browser'
+import * as Sentry from '@sentry/vue'
 
 export default datastore => {
   const isLoggedIn = () => datastore.getters['auth/isLoggedIn']

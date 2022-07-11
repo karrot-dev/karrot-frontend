@@ -120,6 +120,10 @@ export default {
       default: 36,
     },
   },
+  emits: [
+    'leave',
+    'join',
+  ],
   data () {
     return {
       slotsPerRow: 6,
@@ -185,31 +189,31 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
+<style scoped lang="sass">
+@use 'sass:color'
 
 .pic-wrapper
-  margin-right 3px
+  margin-right: 3px
 
 .newcomer-box
-  position absolute
-  bottom -4px
-  left 0
-  width 100%
-  height 8px
-  background linear-gradient(to bottom, $secondary, lighten($secondary, 50))
+  position: absolute
+  bottom: -4px
+  left: 0
+  width: 100%
+  height: 8px
+  background: linear-gradient(to bottom, $secondary, color.adjust($secondary, $lightness: 50%))
 
 .emptySlots
-  display inline-block
-  margin-bottom 3.8px
-  color grey
-  text-align center
-  background-color rgba(255, 255, 255, 0.7)
-  border 2px dashed lightgrey
-  border-radius 0
+  display: inline-block
+  margin-bottom: 3.8px
+  color: grey
+  text-align: center
+  background-color: rgba(255, 255, 255, 0.7)
+  border: 2px dashed lightgrey
+  border-radius: 0
 
   div
-    display inline-block
-    height 100%
-    vertical-align middle
+    display: inline-block
+    height: 100%
+    vertical-align: middle
 </style>

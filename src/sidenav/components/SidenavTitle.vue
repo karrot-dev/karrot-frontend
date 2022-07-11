@@ -12,7 +12,7 @@ Karrot
   <QToolbar
     v-if="$q.platform.is.mobile"
     class="bg-primary text-white"
-    @click="$router.push('/').catch(() => {}) && $emit('click')"
+    @click="$emit('click')"
   >
     <img
       v-if="currentGroup && currentGroup.hasPhoto"
@@ -70,6 +70,9 @@ export default {
     LatestMessageButton,
     NotificationButton,
   },
+  emits: [
+    'click',
+  ],
   computed: {
     ...mapGetters({
       currentGroup: 'currentGroup/value',

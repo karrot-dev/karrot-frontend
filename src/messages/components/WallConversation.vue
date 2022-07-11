@@ -33,7 +33,7 @@ Karrot
             :slim="$q.platform.is.mobile"
             :is-participant="data.isParticipant"
             :draft-key="data.id"
-            @submit="$emit('send', { id: data.id, ...arguments[0] })"
+            @submit="message => $emit('send', { id: data.id, ...message })"
           />
           <QBanner
             v-if="data.isParticipant && data.unreadMessageCount > 0"
@@ -67,8 +67,8 @@ Karrot
             v-for="message in data.messages"
             :key="message.id"
             :message="message"
-            @toggle-reaction="$emit('toggle-reaction', arguments[0])"
-            @save="$emit('save-message', arguments[0])"
+            @toggle-reaction="(...args) => $emit('toggle-reaction', ...args)"
+            @save="(...args) => $emit('save-message', ...args)"
             @open-thread="$emit('open-thread', message)"
           />
         </template>
@@ -118,6 +118,14 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'send',
+    'mark-all-read',
+    'toggle-reaction',
+    'save-message',
+    'open-thread',
+    'save-conversation',
+  ],
   computed: {
     hasLoaded () {
       if (!this.data) return false
@@ -165,13 +173,13 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .actionButton
-  position absolute
-  top -32px
-  right 6px
-  z-index 1
+  position: absolute
+  top: -32px
+  right: 6px
+  z-index: 1
 
->>> .q-banner__avatar
-  align-self center
+::v-deep(.q-banner__avatar)
+  align-self: center
 </style>

@@ -32,7 +32,7 @@ Karrot
       v-if="!$q.platform.is.mobile"
       v-model="showing"
       no-parent-event
-      content-style="width: 500px"
+      style="width: 500px"
       anchor="bottom middle"
       self="top middle"
     >
@@ -48,7 +48,9 @@ import {
   QBadge,
   QMenu,
 } from 'quasar'
-const LatestMessages = () => import('@/messages/components/LatestMessages')
+import { defineAsyncComponent } from 'vue'
+
+const LatestMessages = defineAsyncComponent(() => import('@/messages/components/LatestMessages'))
 
 import { mapGetters } from 'vuex'
 
@@ -60,6 +62,9 @@ export default {
     QMenu,
     LatestMessages,
   },
+  emits: [
+    'click',
+  ],
   data () {
     return {
       showing: false,
@@ -82,12 +87,10 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-@import '~variables'
-
+<style lang="sass" scoped>
 .q-icon:not(.hasUnread)
-  opacity $topbar-opacity-low
+  opacity: $topbar-opacity-low
 
 .q-btn:hover .q-icon
-  opacity 1
+  opacity: 1
 </style>

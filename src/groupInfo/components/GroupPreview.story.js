@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 // SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
 //
 // SPDX-License-Identifier: MIT
 
+=======
+import { h } from 'vue'
+>>>>>>> 1e9d7f5c902ea21eeabe5c51701cb81047cd4681
 import { statusMocks, storybookDefaults as defaults } from '>/helpers'
-import { storiesOf } from '@storybook/vue'
+import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
 
 import GroupPreviewUI from './GroupPreviewUI'
@@ -11,123 +15,103 @@ import GroupPreviewUI from './GroupPreviewUI'
 import { makeGroupInfo } from '>/enrichedFactories'
 
 const on = {
-  join: action('join group'),
-  withdraw: action('withdraw application'),
-  'go-visit': action('visit group'),
-  'go-settings': action('visit settings page'),
-  'go-signup': action('visit signup page'),
-  'go-apply': action('visit apply page'),
+  onJoin: action('join group'),
+  onWithdraw: action('withdraw application'),
+  onGoVisit: action('visit group'),
+  onGoSettings: action('visit settings page'),
+  onGoSignup: action('visit signup page'),
+  onGoApply: action('visit apply page'),
 }
 
 storiesOf('GroupPreviewUI', module)
   .add('not logged in', () => defaults({
-    render: h => h(GroupPreviewUI, {
-      props: {
-        group: makeGroupInfo({ isOpen: true }),
-        isLoggedIn: false,
-      },
-      on,
+    render: () => h(GroupPreviewUI, {
+      group: makeGroupInfo({ isOpen: true }),
+      isLoggedIn: false,
+      ...on,
     }),
   }))
   .add('not member, application needed, email verified', () => defaults({
-    render: h => h(GroupPreviewUI, {
-      props: {
-        group: makeGroupInfo(),
-        user: {
-          mailVerified: true,
-        },
-        isLoggedIn: true,
+    render: () => h(GroupPreviewUI, {
+      group: makeGroupInfo(),
+      user: {
+        mailVerified: true,
       },
-      on,
+      isLoggedIn: true,
+      ...on,
     }),
   }))
   .add('not member, application needed, email not verified', () => defaults({
-    render: h => h(GroupPreviewUI, {
-      props: {
-        group: makeGroupInfo(),
-        user: {
-          mailVerified: false,
-        },
-        isLoggedIn: true,
+    render: () => h(GroupPreviewUI, {
+      group: makeGroupInfo(),
+      user: {
+        mailVerified: false,
       },
-      on,
+      isLoggedIn: true,
+      ...on,
     }),
   }))
   .add('not member, pending application', () => defaults({
-    render: h => h(GroupPreviewUI, {
-      props: {
-        group: makeGroupInfo(),
-        user: {
-          mailVerified: true,
-        },
-        isLoggedIn: true,
-        application: { id: 1 },
+    render: () => h(GroupPreviewUI, {
+      group: makeGroupInfo(),
+      user: {
+        mailVerified: true,
       },
-      on,
+      isLoggedIn: true,
+      application: { id: 1 },
+      ...on,
     }),
   }))
   .add('not member, open group', () => defaults({
-    render: h => h(GroupPreviewUI, {
-      props: {
-        group: makeGroupInfo({ isOpen: true }),
-        isLoggedIn: true,
-      },
-      on,
+    render: () => h(GroupPreviewUI, {
+      group: makeGroupInfo({ isOpen: true }),
+      isLoggedIn: true,
+      ...on,
     }),
   }))
   .add('not member, playground', () => defaults({
-    render: h => h(GroupPreviewUI, {
-      props: {
-        group: makeGroupInfo({
-          isOpen: true,
-          isPlayground: true,
-        }),
-        isLoggedIn: true,
-      },
-      on,
+    render: () => h(GroupPreviewUI, {
+      group: makeGroupInfo({
+        isOpen: true,
+        isPlayground: true,
+      }),
+      isLoggedIn: true,
+      ...on,
     }),
   }))
   .add('member', () => defaults({
-    render: h => h(GroupPreviewUI, {
-      props: {
-        group: makeGroupInfo({ isMember: true }),
-        isLoggedIn: true,
-      },
-      on,
+    render: () => h(GroupPreviewUI, {
+      group: makeGroupInfo({ isMember: true }),
+      isLoggedIn: true,
+      ...on,
     }),
   }))
   .add('without public description', () => defaults({
-    render: h => h(GroupPreviewUI, {
-      props: {
-        group: makeGroupInfo({
-          publicDescription: '',
-          isMember: true,
-        }),
-        isLoggedIn: true,
-      },
-      on,
+    render: () => h(GroupPreviewUI, {
+      group: makeGroupInfo({
+        publicDescription: '',
+        isMember: true,
+      }),
+      isLoggedIn: true,
+      ...on,
     }),
   }))
   .add('pending join', () => defaults({
-    render: h => h(GroupPreviewUI, {
-      props: {
-        group: makeGroupInfo({
-          joinStatus: statusMocks.pending(),
-          isOpen: true,
-        }),
-        isLoggedIn: true,
-      },
-      on,
+    render: () => h(GroupPreviewUI, {
+      group: makeGroupInfo({
+        joinStatus: statusMocks.pending(),
+        isOpen: true,
+      }),
+      isLoggedIn: true,
+      ...on,
     }),
   }))
   .add('archived', () => defaults({
-    render: h => h(GroupPreviewUI, {
-      props: {
-        group: makeGroupInfo({
-          memberCount: 0,
-        }),
-        isLoggedIn: false,
-      },
-      on,
+    render: () => h(GroupPreviewUI, {
+      group: makeGroupInfo({
+        memberCount: 0,
+      }),
+      isLoggedIn: false,
+      ...on,
     }),
   }))

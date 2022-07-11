@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- 
 SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
 SPDX-FileCopyrightText: 2016 Karrot
@@ -6,17 +7,24 @@ SPDX-License-Identifier: MIT
 
 Karrot
 -->
+=======
+<template>
+  <Component
+    :is="$q.platform.is.mobile ? 'div' : 'QCard'"
+    class="bg-white q-mb-lg no-shadow grey-border"
+    v-bind="$attrs"
+  >
+    <slot />
+  </Component>
+</template>
+>>>>>>> 1e9d7f5c902ea21eeabe5c51701cb81047cd4681
 
 <script>
-import { Platform, QCard } from 'quasar'
-const Component = Platform.is.mobile ? 'div' : QCard
+import { QCard } from 'quasar'
+
 export default {
-  functional: true,
-  render (h, { data, children }) {
-    if (data.class) {
-      throw new Error('KFormContainer component does not support class attribute')
-    }
-    return h(Component, { ...data, class: ['bg-white', 'q-mb-lg', 'no-shadow', 'grey-border'] }, children)
+  components: {
+    QCard,
   },
 }
 </script>

@@ -18,7 +18,6 @@ Karrot
         v-for="(tab, idx) in tabs"
         :key="idx"
         :to="tab.to"
-        :default="idx === 0"
         :label="tab.label"
         exact
       >

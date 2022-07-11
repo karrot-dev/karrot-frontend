@@ -4,10 +4,17 @@
 
 
 import { dom } from 'quasar'
-import Vue from 'vue'
-import { configureQuasar, useDesktopUserAgent, useMobileUserAgent } from '>/helpers'
-
 const { height } = dom
+const mockPlatform = { is: { } }
+
+jest.mock('quasar', () => {
+  const original = jest.requireActual('quasar')
+
+  return {
+    ...original,
+    Platform: mockPlatform,
+  }
+})
 
 describe('detectMobileKeyboard', () => {
   let originalWindowAddEventListener, detectMobileKeyboard
@@ -18,7 +25,6 @@ describe('detectMobileKeyboard', () => {
     window.addEventListener = jest.fn().mockImplementation(function () {
       originalWindowAddEventListener.apply(window, arguments)
     })
-    configureQuasar(Vue)
     detectMobileKeyboard = require('./detectMobileKeyboard').default
   })
 
@@ -27,7 +33,7 @@ describe('detectMobileKeyboard', () => {
   })
 
   describe('desktop', () => {
-    beforeEach(() => useDesktopUserAgent())
+    beforeEach(() => { mockPlatform.is.mobile = false })
     it('defaults to closed', () => {
       expect(detectMobileKeyboard.is.open).toBe(false)
     })
@@ -43,7 +49,7 @@ describe('detectMobileKeyboard', () => {
   })
 
   describe('mobile', () => {
-    beforeEach(() => useMobileUserAgent())
+    beforeEach(() => { mockPlatform.is.mobile = true })
     it('defaults to closed', () => {
       expect(detectMobileKeyboard.is.open).toBe(false)
     })

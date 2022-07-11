@@ -104,6 +104,9 @@ export default {
       type: Object,
     },
   },
+  emits: [
+    'select-group',
+  ],
   data () {
     return {
       showModal: false,

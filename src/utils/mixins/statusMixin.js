@@ -59,7 +59,7 @@ export function mapErrors (config) {
           errorMessage: firstServerError,
         }
       }
-      const vuelidate = this.$v.edit[property]
+      const vuelidate = this.v$.edit[property]
       if (vuelidate === undefined || !vuelidate.$error) return checkServerErrors()
       const ruleWithError = rules.find(([ruleName]) => !vuelidate[ruleName])
       if (!ruleWithError) return checkServerErrors()

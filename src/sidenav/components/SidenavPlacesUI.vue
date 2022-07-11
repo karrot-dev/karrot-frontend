@@ -22,9 +22,9 @@ Karrot
         class="tools"
       >
         <QToggle
-          :value="showAllPlaces"
+          :model-value="showAllPlaces"
           :title="$t(showAllPlaces ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL')"
-          @input="$emit('toggle-show-all-places')"
+          @update:model-value="$emit('toggle-show-all-places')"
         />
         <QBtn
           v-if="hasPlaces && isEditor"
@@ -78,6 +78,9 @@ export default {
     isEditor: { default: false, type: Boolean },
     fetchStatus: { default: null, type: Object },
   },
+  emits: [
+    'toggle-show-all-places',
+  ],
   data () {
     return {
       showArchived: false,
@@ -96,9 +99,9 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 .tools
   .bottom-right
-    top 5px
-    left 5px
+    top: 5px
+    left: 5px
 </style>

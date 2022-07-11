@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 // SPDX-FileCopyrightText: 2016-2022 2016 Nick Sellen, <hello@nicksellen.co.uk> et al.
 //
 // SPDX-License-Identifier: MIT
 
 import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue'
+=======
+import { h } from 'vue'
+import { createDatastore, statusMocks } from '>/helpers'
+import { storiesOf } from '@storybook/vue3'
+>>>>>>> 1e9d7f5c902ea21eeabe5c51701cb81047cd4681
 import { action } from '@storybook/addon-actions'
 
 const datastore = createDatastore({
@@ -70,115 +76,100 @@ const baseUser = {
 }
 
 const defaultOn = {
-  createTrust: action('create trust'),
-  detail: action('open detail sidebar'),
-  selectGroup: action('select group'),
+  onCreateTrust: action('create trust'),
+  onDetail: action('open detail sidebar'),
+  onSelectGroup: action('select group'),
 }
 
 storiesOf('TrustButton', module)
-  .add('Trust Button - is editor', () => defaults({
-    render: h => h(TrustButton, {
-      props: {
-        user: baseUser,
-        group: groupFactory(),
-        membership: membershipFactory({ trustedByCount: 2 }),
-      },
-      on: defaultOn,
+  .add('Trust Button - is editor', () => ({
+    render: () => h(TrustButton, {
+      user: baseUser,
+      group: groupFactory(),
+      membership: membershipFactory({ trustedByCount: 2 }),
+      ...defaultOn,
     }),
+    randomothething: 'is here',
+    $$store: 'notastore',
+    $store: 'alsonotastore',
     store: datastore,
   }))
-  .add('Trust Button - is newcomer', () => defaults({
-    render: h => h(TrustButton, {
-      props: {
-        user: baseUser,
-        group: groupFactory(),
-        membership: membershipFactory({ isEditor: false, trustedByCount: 2 }),
-      },
-      on: defaultOn,
-    }),
-    store: datastore,
-  }))
-  .add('Trust Button - is newcomer without trust', () => defaults({
-    render: h => h(TrustButton, {
-      props: {
-        user: baseUser,
-        group: groupFactory(),
-        membership: membershipFactory({ isEditor: false, trustedByCount: 0 }),
-      },
-      on: defaultOn,
-    }),
-    store: datastore,
-  }))
-  .add('Trust Button - one other trust', () => defaults({
-    render: h => h(TrustButton, {
-      props: {
-        user: baseUser,
-        group: groupFactory(),
-        membership: membershipFactory({ trustedByCount: 1 }),
-      },
-      on: defaultOn,
-    }),
-    store: datastore,
-  }))
-  .add('Trust Button - multiple others trust', () => defaults({
-    render: h => h(TrustButton, {
-      props: {
-        user: baseUser,
-        group: groupFactory(),
-        membership: membershipFactory({ trustedByCount: 5 }),
-      },
-      on: defaultOn,
-    }),
-    store: datastore,
-  }))
-  .add('Trust Button - I and others trust', () => defaults({
-    render: h => h(TrustButton, {
-      props: {
-        user: baseUser,
-        group: groupFactory(),
-        membership: membershipFactory({ trusted: true, trustedByCount: 5 }),
-      },
-      on: defaultOn,
-    }),
-    store: datastore,
-  }))
-  .add('Trust Button - I trust', () => defaults({
-    render: h => h(TrustButton, {
-      props: {
-        user: baseUser,
-        group: groupFactory(),
-        membership: membershipFactory({ trusted: true, trustedByCount: 1 }),
-      },
-      on: defaultOn,
-    }),
-    store: datastore,
-  }))
-  .add('My Trust Button', () => defaults({
-    render: h => h(TrustButton, {
-      props: {
-        user: {
-          ...baseUser,
-          isCurrentUser: true,
-        },
-        group: groupFactory(),
-        membership: membershipFactory({ trustedByCount: 2 }),
-      },
-      on: defaultOn,
-    }),
-    store: datastore,
-  }))
-  .add('small - My Trust Button', () => defaults({
-    render: h => h(TrustButton, {
-      props: {
-        user: {
-          ...baseUser,
-          isCurrentUser: true,
-        },
-        group: groupFactory(),
-        membership: membershipFactory({ trustedByCount: 2 }),
-        small: true,
-      },
-      on: defaultOn,
-    }),
-    store: datastore,
-  }))
+  // .add('Trust Button - is newcomer', () => defaults({
+  //   render: () => h(TrustButton, {
+  //     user: baseUser,
+  //     group: groupFactory(),
+  //     membership: membershipFactory({ isEditor: false, trustedByCount: 2 }),
+  //     ...defaultOn,
+  //   }),
+  //   store: datastore,
+  // }))
+  // .add('Trust Button - is newcomer without trust', () => defaults({
+  //   render: () => h(TrustButton, {
+  //     user: baseUser,
+  //     group: groupFactory(),
+  //     membership: membershipFactory({ isEditor: false, trustedByCount: 0 }),
+  //     ...defaultOn,
+  //   }),
+  //   store: datastore,
+  // }))
+  // .add('Trust Button - one other trust', () => defaults({
+  //   render: () => h(TrustButton, {
+  //     user: baseUser,
+  //     group: groupFactory(),
+  //     membership: membershipFactory({ trustedByCount: 1 }),
+  //     ...defaultOn,
+  //   }),
+  //   store: datastore,
+  // }))
+  // .add('Trust Button - multiple others trust', () => defaults({
+  //   render: () => h(TrustButton, {
+  //     user: baseUser,
+  //     group: groupFactory(),
+  //     membership: membershipFactory({ trustedByCount: 5 }),
+  //     ...defaultOn,
+  //   }),
+  //   store: datastore,
+  // }))
+  // .add('Trust Button - I and others trust', () => defaults({
+  //   render: () => h(TrustButton, {
+  //     user: baseUser,
+  //     group: groupFactory(),
+  //     membership: membershipFactory({ trusted: true, trustedByCount: 5 }),
+  //     ...defaultOn,
+  //   }),
+  //   store: datastore,
+  // }))
+  // .add('Trust Button - I trust', () => defaults({
+  //   render: () => h(TrustButton, {
+  //     user: baseUser,
+  //     group: groupFactory(),
+  //     membership: membershipFactory({ trusted: true, trustedByCount: 1 }),
+  //     ...defaultOn,
+  //   }),
+  //   store: datastore,
+  // }))
+  // .add('My Trust Button', () => defaults({
+  //   render: () => h(TrustButton, {
+  //     user: {
+  //       ...baseUser,
+  //       isCurrentUser: true,
+  //     },
+  //     group: groupFactory(),
+  //     membership: membershipFactory({ trustedByCount: 2 }),
+  //     ...defaultOn,
+  //   }),
+  //   store: datastore,
+  // }))
+  // .add('small - My Trust Button', () => defaults({
+  //   render: () => h(TrustButton, {
+  //     user: {
+  //       ...baseUser,
+  //       isCurrentUser: true,
+  //     },
+  //     group: groupFactory(),
+  //     membership: membershipFactory({ trustedByCount: 2 }),
+  //     small: true,
+  //     ...defaultOn,
+  //   }),
+  //   store: datastore,
+  // }))

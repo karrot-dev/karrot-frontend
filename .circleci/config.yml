@@ -378,9 +378,8 @@ jobs:
             git branch --delete --force $BRANCH || true
             git checkout -b $BRANCH
             yarn upgrade --latest --ignore-engines
-            # stay with quasar@1 and vue@2 and webpack@4 until we found time to upgrade
-            # downgrade stylelint due to https://github.com/karrot-dev/karrot-frontend/issues/2461
-            yarn upgrade --ignore-engines vue@legacy quasar@legacy @quasar/app@legacy vuex-persistedstate@^3.1.0 stylelint-webpack-plugin@^2.2.2 eslint-webpack-plugin@2 @quasar/quasar-ui-qiconpicker@qv1 @vue/test-utils@^1.3.0 stylelint@^13.13.1 vue-router@^3 vue-i18n@^8
+            # holding back jest to 27 due to https://github.com/vuejs/vue-jest/issues/467
+            yarn upgrade --latest --ignore-engines jest@^27 babel-jest@^27 jest-environment-jsdom@^27
             tee pr.txt \<<EOL
             [CI] update dependencies
 

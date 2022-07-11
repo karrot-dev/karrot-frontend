@@ -14,10 +14,10 @@ Karrot
     <QCard v-if="showForm">
       <AgreementForm
         :value="agreement"
-        @save="$emit('save', arguments[0])"
-        @replace="$emit('replace', arguments[0])"
+        @save="(...args) => $emit('save', ...args)"
+        @replace="(...args) => $emit('replace', ...args)"
         @cancel="cancel()"
-        @destroy="$emit('remove', arguments[0])"
+        @destroy="(...args) => $emit('remove', ...args)"
       />
     </QCard>
 
@@ -66,6 +66,11 @@ export default {
       }),
     },
   },
+  emits: [
+    'save',
+    'replace',
+    'remove',
+  ],
   data () {
     return {
       create: false,

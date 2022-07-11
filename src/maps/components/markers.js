@@ -6,6 +6,7 @@ import GroupMarker from './GroupMarker'
 import UserMarker from './UserMarker'
 import PlaceMarker from './PlaceMarker'
 import icons from '@/base/icons'
+import { markRaw } from 'vue'
 
 export function groupMarker (group) {
   return {
@@ -14,7 +15,8 @@ export function groupMarker (group) {
     fontIcon: group.isMember ? 'fas fa-home' : 'fas fa-info-circle',
     color: group.isMember ? 'positive' : 'blue',
     popup: {
-      render: h => h(GroupMarker, { props: { group } }),
+      component: markRaw(GroupMarker), // markers are part of reactive data, but don't want the component itself to become reactive (otherwise some error happens)
+      props: { group },
     },
     gpx: {
       name: group.name,
@@ -30,7 +32,8 @@ export function userMarker (user) {
     fontIcon: 'fas fa-user',
     color: 'positive',
     popup: {
-      render: h => h(UserMarker, { props: { user } }),
+      component: markRaw(UserMarker),
+      props: { user },
     },
     gpx: {
       name: user.displayName,
@@ -46,7 +49,8 @@ export function placeMarker (place) {
     fontIcon: icons.get('place'),
     color: place.ui.color,
     popup: {
-      render: h => h(PlaceMarker, { props: { place } }),
+      component: markRaw(PlaceMarker),
+      props: { place },
     },
     gpx: {
       name: place.name,

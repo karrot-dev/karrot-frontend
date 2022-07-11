@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- 
 SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
 SPDX-FileCopyrightText: 2016 Karrot
@@ -6,19 +7,25 @@ SPDX-License-Identifier: MIT
 
 Karrot
 -->
+=======
+<template>
+  <DeleteAccount
+    :status="$store.getters['deleteAccount/deleteAccountStatus']"
+    :success="$store.getters['deleteAccount/success']"
+  />
+</template>
+>>>>>>> 1e9d7f5c902ea21eeabe5c51701cb81047cd4681
 
 <script>
-import { connect } from 'vuex-connect'
 import DeleteAccount from '@/authuser/components/Settings/DeleteAccount'
 
-export default connect({
-  gettersToProps: {
-    status: 'deleteAccount/deleteAccountStatus',
-    success: 'deleteAccount/success',
+export default {
+  components: {
+    DeleteAccount,
   },
-  lifecycle: {
+  mounted () {
     // when page is loaded, use the `?code` route parameter to trigger deletion
-    mounted: ({ getters, dispatch }) => dispatch('deleteAccount/deleteAccount', getters['route/query'].code),
+    this.$store.dispatch('deleteAccount/deleteAccount', this.$store.getters['route/query'].code)
   },
-})('DeleteAccount', DeleteAccount)
+}
 </script>

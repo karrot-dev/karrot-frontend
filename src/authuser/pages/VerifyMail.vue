@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- 
 SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
 SPDX-FileCopyrightText: 2016 Karrot
@@ -6,19 +7,24 @@ SPDX-License-Identifier: MIT
 
 Karrot
 -->
+=======
+<template>
+  <VerifyMail
+    :status="$store.getters['verifymail/verifyStatus']"
+    :success="$store.getters['verifymail/success']"
+  />
+</template>
+>>>>>>> 1e9d7f5c902ea21eeabe5c51701cb81047cd4681
 
 <script>
-import { connect } from 'vuex-connect'
 import VerifyMail from '@/authuser/components/VerifyMail'
 
-export default connect({
-  gettersToProps: {
-    status: 'verifymail/verifyStatus',
-    success: 'verifymail/success',
+export default {
+  components: {
+    VerifyMail,
   },
-  lifecycle: {
-    // when page is loaded, use the `?code` route parameter to trigger verification
-    mounted: ({ getters, dispatch }) => dispatch('verifymail/verify', getters['route/query'].code),
+  mounted () {
+    this.$store.dispatch('verifymail/verify', this.$store.getters['route/query'].code)
   },
-})('VerifyMail', VerifyMail)
+}
 </script>

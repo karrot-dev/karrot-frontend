@@ -12,7 +12,6 @@ Karrot
   <QBtn
     :outline="$attrs.outline"
     :flat="$attrs.flat"
-    dense
     :color="color"
   >
     <span :style="{opacity}">
@@ -25,7 +24,7 @@ Karrot
       <div style="width: 195px">
         <ConversationAddReactionInner
           :reacted="reacted"
-          @toggle="$emit('toggle', arguments[0])"
+          @toggle="(...args) => $emit('toggle', ...args)"
         />
       </div>
     </QMenu>
@@ -37,8 +36,9 @@ import {
   QBtn,
   QMenu,
 } from 'quasar'
+import { defineAsyncComponent } from 'vue'
 
-const ConversationAddReactionInner = () => import('./ConversationAddReactionInner')
+const ConversationAddReactionInner = defineAsyncComponent(() => import('./ConversationAddReactionInner'))
 
 export default {
   components: {
@@ -60,5 +60,8 @@ export default {
       default: 'black',
     },
   },
+  emits: [
+    'toggle',
+  ],
 }
 </script>

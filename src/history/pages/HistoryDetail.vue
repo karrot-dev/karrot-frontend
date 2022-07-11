@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- 
 SPDX-FileCopyrightText: 2016 Nick Sellen <hello@nicksellen.co.uk> 
 SPDX-FileCopyrightText: 2016 Karrot
@@ -7,13 +8,20 @@ SPDX-License-Identifier: MIT
 Karrot
 -->
 
+=======
+<template>
+  <HistoryDetail
+    :entry="$store.getters['history/active']"
+  />
+</template>
+>>>>>>> 1e9d7f5c902ea21eeabe5c51701cb81047cd4681
 
 <script>
-import { connect } from 'vuex-connect'
 import HistoryDetail from '@/history/components/HistoryDetail'
-export default connect({
-  gettersToProps: {
-    entry: 'history/active',
+
+export default {
+  components: {
+    HistoryDetail,
   },
-})('HistoryDetail', HistoryDetail)
+}
 </script>

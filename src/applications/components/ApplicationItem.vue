@@ -32,28 +32,31 @@ Karrot
         v-if="application.status !== 'pending'"
         caption
       >
-        <i18n
-          :path="decision"
+        <i18n-t
+          :keypath="decision"
         >
-          <DateAsWords
-            slot="relativeDate"
-            style="display: inline"
-            :date="application.decidedAt"
-          />
-        </i18n>
+          <template #relativeDate>
+            <DateAsWords
+              v-if="application.decidedAt"
+              style="display: inline"
+              :date="application.decidedAt"
+            />
+          </template>
+        </i18n-t>
         <template v-if="application.status !== 'withdrawn'">
           <br>
-          <i18n
-            :path="personDeciding"
+          <i18n-t
+            :keypath="personDeciding"
           >
-            <RouterLink
-              slot="userName"
-              :to="{name: 'user', params: { userId: application.decidedBy.id }}"
-              @click.native.stop
-            >
-              {{ application.decidedBy.displayName }}
-            </RouterLink>
-          </i18n>
+            <template #userName>
+              <RouterLink
+                :to="{name: 'user', params: { userId: application.decidedBy.id }}"
+                @click.stop
+              >
+                {{ application.decidedBy.displayName }}
+              </RouterLink>
+            </template>
+          </i18n-t>
         </template>
       </QItemLabel>
     </QItemSection>
@@ -83,13 +86,16 @@ export default {
       type: Object,
     },
   },
+  emits: [
+    'open-chat',
+  ],
   computed: {
     userName () {
       return this.application.user.displayName
     },
     submittedOn () {
       const date = this.$d(this.application.createdAt, 'long')
-      return this.$t('APPLICATION.SUBMITTED_ON', { date: date })
+      return this.$t('APPLICATION.SUBMITTED_ON', { date })
     },
     decision () {
       switch (this.application.status) {
@@ -115,9 +121,7 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
-
+<style scoped lang="sass">
 .isNonPending
-  opacity 0.8
+  opacity: 0.8
 </style>

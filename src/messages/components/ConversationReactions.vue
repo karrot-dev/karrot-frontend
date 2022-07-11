@@ -29,12 +29,12 @@ Karrot
       :reacted="currentUserReactions"
       :opacity="0.5"
       flat
-      @toggle="$emit('toggle', arguments[0])"
+      @toggle="(...args) => $emit('toggle', ...args)"
     />
     <QDialog
       v-if="$q.platform.has.touch"
       v-model="showDetail"
-      content-class="bg-grey-10 text-grey-1 q-pa-md"
+      class="bg-grey-10 text-grey-1 q-pa-md"
     >
       <QItem
         v-for="reaction in reactions"
@@ -99,6 +99,9 @@ export default {
       default: () => [],
     },
   },
+  emits: [
+    'toggle',
+  ],
   data () {
     return {
       showDetail: false,
@@ -112,32 +115,31 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-@import '~variables'
+<style scoped lang="sass">
 @import './reactionBox'
 
 .add-button
-  transition none
+  transition: none
 
-  >>> .q-btn__wrapper
-    min-height 0
-    padding 0
+  ::v-deep(.q-btn__wrapper)
+    min-height: 0
+    padding: 0
 
 .desktop .conversation-reactions
   .add-button
-    visibility hidden
+    visibility: hidden
 
   &:hover .add-button
-    visibility visible
+    visibility: visible
 
 .user-reacted
-  border-color $secondary !important
+  border-color: $secondary !important
 
 .reactions-number
-  padding-left 3px
-  font-size .8em
-  opacity .7
+  padding-left: 3px
+  font-size: .8em
+  opacity: .7
 
 .big
-  font-size 1.6em
+  font-size: 1.6em
 </style>

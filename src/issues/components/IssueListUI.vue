@@ -24,8 +24,9 @@ Karrot
       <IssueItem
         v-for="issue in ongoingIssues"
         :key="issue.id"
+        v-measure
         :issue="issue"
-        @click.native="$emit('clear-detail')"
+        @click="$emit('clear-detail')"
       />
       <QSeparator />
       <QExpansionItem
@@ -41,7 +42,7 @@ Karrot
             v-for="issue in pastIssues"
             :key="issue.id"
             :issue="issue"
-            @click.native="$emit('clear-detail')"
+            @click="$emit('clear-detail')"
           />
         </template>
       </QExpansionItem>
@@ -84,6 +85,9 @@ export default {
       default: null,
     },
   },
+  emits: [
+    'clear-detail',
+  ],
   data () {
     return {
       showOthers: false,

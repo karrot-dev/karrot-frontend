@@ -59,7 +59,6 @@ Karrot
           hide-bottom-space
           class="q-mr-sm"
           @focus="$refs.qStartDateProxy.show()"
-          @blur="$refs.qStartDateProxy.hide()"
         >
           <template #before>
             <QIcon name="access_time" />
@@ -75,6 +74,7 @@ Karrot
             <QDate
               v-model="startDate"
               mask="YYYY-MM-DD"
+              @update:model-value="() => smallScreen && $refs.qStartDateProxy.hide()"
             />
           </Component>
         </QInput>
@@ -86,7 +86,6 @@ Karrot
           size="3"
           :error="hasError('startDate')"
           hide-bottom-space
-          @blur="$refs.qStartTimeProxy.hide()"
           @focus="$refs.qStartTimeProxy.show()"
         >
           <Component
@@ -101,7 +100,7 @@ Karrot
               v-model="startTime"
               mask="HH:mm"
               format24h
-              @input="() => smallScreen && $refs.qStartTimeProxy.hide()"
+              @update:model-value="() => smallScreen && $refs.qStartTimeProxy.hide()"
             />
           </Component>
           <template
@@ -135,7 +134,6 @@ Karrot
             size="3"
             :error="hasError('startDate')"
             hide-bottom-space
-            @blur="$refs.qEndTimeProxy.hide()"
             @focus="$refs.qEndTimeProxy.show()"
           >
             <Component
@@ -150,7 +148,7 @@ Karrot
                 v-model="endTime"
                 mask="HH:mm"
                 format24h
-                @input="() => smallScreen && $refs.qEndTimeProxy.hide()"
+                @update:model-value="() => smallScreen && $refs.qEndTimeProxy.hide()"
               />
             </Component>
             <template #after>
@@ -201,15 +199,14 @@ Karrot
             :key="scope.index"
             dense
             v-bind="scope.itemProps"
-            v-on="scope.itemEvents"
           >
             <QItemSection>
               <QItemLabel>{{ scope.opt.label }}</QItemLabel>
             </QItemSection>
             <QItemSection side>
               <QToggle
-                :value="scope.selected"
-                @input="scope.toggleOption(scope.opt)"
+                :model-value="scope.selected"
+                @update:model-value="scope.toggleOption(scope.opt)"
               />
             </QItemSection>
           </QItem>
@@ -230,32 +227,35 @@ Karrot
           <QIcon name="code" />
         </template>
         <template #hint>
-          <i18n path="CREATEACTIVITY.RRULE_HELPER">
-            <a
-              slot="ruleHelper"
-              v-t="'CREATEACTIVITY.RRULE_HELPER_URL'"
-              href="https://www.kanzaki.com/docs/ical/rrule.html"
-              target="_blank"
-              rel="noopener nofollow noreferrer"
-              style="text-decoration: underline"
-            />
-            <a
-              slot="ruleExample"
-              v-t="'CREATEACTIVITY.RRULE_EXAMPLE'"
-              href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1"
-              target="_blank"
-              rel="noopener nofollow noreferrer"
-              style="text-decoration: underline"
-            />
-            <a
-              slot="ruleExample2"
-              v-t="'CREATEACTIVITY.RRULE_EXAMPLE2'"
-              href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO"
-              target="_blank"
-              rel="noopener nofollow noreferrer"
-              style="text-decoration: underline"
-            />
-          </i18n>
+          <i18n-t keypath="CREATEACTIVITY.RRULE_HELPER">
+            <template #ruleHelper>
+              <a
+                v-t="'CREATEACTIVITY.RRULE_HELPER_URL'"
+                href="https://www.kanzaki.com/docs/ical/rrule.html"
+                target="_blank"
+                rel="noopener nofollow noreferrer"
+                style="text-decoration: underline"
+              />
+            </template>
+            <template #ruleExample>
+              <a
+                v-t="'CREATEACTIVITY.RRULE_EXAMPLE'"
+                href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1"
+                target="_blank"
+                rel="noopener nofollow noreferrer"
+                style="text-decoration: underline"
+              />
+            </template>
+            <template #ruleExample2>
+              <a
+                v-t="'CREATEACTIVITY.RRULE_EXAMPLE2'"
+                href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO"
+                target="_blank"
+                rel="noopener nofollow noreferrer"
+                style="text-decoration: underline"
+              />
+            </template>
+          </i18n-t>
         </template>
       </QInput>
 
@@ -395,9 +395,13 @@ export default {
     MarkdownInput,
   },
   mixins: [editMixin, statusMixin],
+  emits: [
+    'cancel',
+    'destroy',
+  ],
   computed: {
     activityType () {
-      return this.value.activityType
+      return this.value && this.value.activityType
     },
     dayOptions,
     canSave () {
@@ -520,6 +524,6 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="sass">
 @import '~editbox'
 </style>

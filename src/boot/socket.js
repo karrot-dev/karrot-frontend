@@ -237,9 +237,9 @@ export default async function ({ store: datastore }) {
     }
     else if (topic === 'offers:offer') {
       const offer = convertOffer(camelizeKeys(payload))
-      datastore.commit('offers/update', [offer])
       datastore.commit('latestMessages/updateRelated', { type: 'offer', items: [offer] })
       // TODO: update offers queries
+      // datastore.commit('offers/update', [offer])
       // datastore.commit('currentOffer/update', offer)
     }
     else if (topic === 'offers:offer_deleted') {

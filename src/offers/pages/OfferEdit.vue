@@ -1,6 +1,6 @@
 <template>
   <OfferForm
-    :fetching="isFetching"
+    :fetching="isLoading"
     :value="offer"
     :status="status"
     @save="data => mutate(data)"
@@ -12,7 +12,7 @@
 import OfferForm from '@/offers/components/OfferForm'
 import { useCurrentOfferQuery, useSaveOfferMutation } from '@/offers/queries'
 
-const { offer, isFetching } = useCurrentOfferQuery()
+const { offer, isLoading } = useCurrentOfferQuery()
 
 const {
   mutate,

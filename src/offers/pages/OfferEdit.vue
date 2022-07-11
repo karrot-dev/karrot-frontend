@@ -1,8 +1,8 @@
 <template>
   <OfferForm
-    :fetching="!offer || !offer.id"
+    :fetching="isFetching"
     :value="offer"
-    :status="{ validationErrors }"
+    :status="status"
     @save="data => mutate(data)"
     @reset="() => reset()"
   />
@@ -10,13 +10,13 @@
 
 <script setup>
 import OfferForm from '@/offers/components/OfferForm'
-import { useCurrentOffer, useSaveOfferMutation } from '@/offers/queries'
+import { useCurrentOfferQuery, useSaveOfferMutation } from '@/offers/queries'
 
-const offer = useCurrentOffer()
+const { offer, isFetching } = useCurrentOfferQuery()
 
 const {
   mutate,
   reset,
-  validationErrors,
+  status,
 } = useSaveOfferMutation()
 </script>

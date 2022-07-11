@@ -4,7 +4,7 @@ import { unref, computed } from 'vue'
 import api from './api/offers'
 
 import { useRoute, useRouter } from 'vue-router'
-import { isValidationError } from '@/utils/datastore/helpers'
+import { isNetworkError, isServerError, isValidationError } from '@/utils/datastore/helpers'
 import { useCurrentGroupId } from '@/group/datastore/currentGroup'
 
 export const DEFAULT_STATUS = 'active'
@@ -13,10 +13,14 @@ export const DEFAULT_STATUS = 'active'
  * Gives you a reference to the current offer, based on the route
  */
 export function useCurrentOffer () {
+  const { offer } = useCurrentOfferQuery()
+  return offer
+}
+
+export function useCurrentOfferQuery () {
   const route = useRoute()
   const id = computed(() => route.params.offerId && Number(route.params.offerId))
-  const { offer } = useOfferQuery({ id })
-  return offer
+  return useOfferQuery({ id })
 }
 
 /**
@@ -98,7 +102,7 @@ export function useSaveOfferMutation () {
       },
     },
   )
-  return withValidationErrors(mutation)
+  return withStatus(mutation)
 }
 
 /**
@@ -118,7 +122,7 @@ export function useCreateOfferMutation () {
       },
     },
   )
-  return withValidationErrors(mutation)
+  return withStatus(mutation)
 }
 
 /**
@@ -138,7 +142,7 @@ export function useArchiveOfferMutation () {
       },
     },
   )
-  return withValidationErrors(mutation)
+  return withStatus(mutation)
 }
 
 // Utilities
@@ -174,16 +178,24 @@ function extractCursor (url) {
 }
 
 // TODO: move to queries utility function place
-function extractValidationErrors (error) {
-  error = unref(error)
-  if (!error || !isValidationError(error)) return {}
-  return error.response.data
-}
-
-// TODO: move to queries utility function place
-function withValidationErrors (mutation) {
+function withStatus (mutation) {
   return {
     ...mutation,
-    validationErrors: computed(() => extractValidationErrors(mutation.error)),
+    status: computed(() => mutationToStatus(mutation)),
+  }
+}
+
+/**
+ * Converts a vue-query mutation object to our existing "status" object type
+ */
+function mutationToStatus (mutation) {
+  const error = unref(mutation.error)
+  const validationErrors = isValidationError(error) ? error.response.data : []
+  return {
+    validationErrors,
+    hasValidationErrors: validationErrors.length > 0,
+    pending: mutation.isLoading.value,
+    serverError: isServerError(error),
+    networkError: isNetworkError(error),
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <OfferForm
-    :status="{ validationErrors }"
+    :status="status"
     @save="data => mutate(data)"
     @reset="() => reset()"
   />
@@ -13,6 +13,6 @@ import { useCreateOfferMutation } from '@/offers/queries'
 const {
   mutate,
   reset,
-  validationErrors,
+  status,
 } = useCreateOfferMutation()
 </script>

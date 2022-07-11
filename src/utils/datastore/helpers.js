@@ -17,6 +17,7 @@ export function indexById (iterable) {
 }
 
 export function isValidationError (error) {
+  if (!error) return false
   const { response: { status = -1 } = {} } = error
   if (status >= 400 && status < 500) {
     return true
@@ -25,6 +26,7 @@ export function isValidationError (error) {
 }
 
 export function isServerError (error) {
+  if (!error) return false
   const { response: { status = -1 } = {} } = error
   if (status >= 500) {
     return true

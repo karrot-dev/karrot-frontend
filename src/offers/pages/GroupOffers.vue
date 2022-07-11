@@ -78,7 +78,7 @@
               <QItem clickable>
                 <QItemSection avatar>
                   <ProfilePicture
-                    :user="offer.user"
+                    :user="getUserRef(offer.user).value"
                     :size="36"
                   />
                 </QItemSection>
@@ -126,6 +126,7 @@ import { useCurrentGroupId } from '@/group/datastore/currentGroup'
 import { useRouteParam } from '@/utils/mixins/bindRoute'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { useUsers } from '@/users/queries'
 
 const { t } = useI18n()
 
@@ -142,6 +143,8 @@ const statusOptions = [
 
 const group = useCurrentGroupId()
 const status = useRouteParam('status', DEFAULT_STATUS)
+
+const { getUserRef } = useUsers()
 
 const {
   isLoading,

@@ -1,5 +1,6 @@
 import ReconnectingWebsocket from 'reconnecting-websocket'
 import { debounce, AppVisibility } from 'quasar'
+import mitt from 'mitt'
 
 import log from '@/utils/log'
 import auth from '@/authuser/api/auth'
@@ -18,6 +19,9 @@ import { convert as convertIssue } from '@/issues/api/issues'
 import { convert as convertOffer } from '@/offers/api/offers'
 import { convert as convertGroup } from '@/group/api/groups'
 import { convert as convertNotification, convertMeta as convertNotificationMeta } from '@/notifications/api/notifications'
+
+// Global event bus for websocket events
+export const socketEvents = mitt()
 
 export default async function ({ store: datastore }) {
   let WEBSOCKET_ENDPOINT
@@ -114,7 +118,9 @@ export default async function ({ store: datastore }) {
           clearTimeout(pingTimeout)
         }
 
-        receiveMessage(data)
+        if (data.topic) {
+          receiveMessage(data)
+        }
       })
 
       // reconnect when browser tells us the connection is back
@@ -155,12 +161,40 @@ export default async function ({ store: datastore }) {
     },
   }
 
+  function convertPayload (topic, payload) {
+    switch (topic) {
+      case 'applications:update': return convertApplication(payload)
+      case 'conversations:message': return convertMessage(payload)
+      case 'conversations:conversation': return convertConversation(payload)
+      case 'conversations:meta': return convertConversationMeta(payload)
+      case 'community_feed:meta': return convertCommunityFeedMeta(payload)
+      case 'groups:group_detail': return convertGroup(payload)
+      case 'invitations:invitation': return convertInvitation(payload)
+      case 'issues:issue': return convertIssue(payload)
+      case 'activities:activity': return convertActivity(payload)
+      case 'activities:activity_deleted': return convertActivity(payload)
+      case 'activities:series': return convertSeries(payload)
+      case 'activities:series_deleted': return convertSeries(payload)
+      case 'offers:offer': return convertOffer(payload)
+      case 'offers:offer_deleted': return convertOffer(payload)
+      case 'feedback:feedback': return convertFeedback(payload)
+      case 'history:history': return convertHistory(payload)
+      case 'notifications:notification': return convertNotification(payload)
+      case 'notifications:meta': return convertNotificationMeta(payload)
+      default: return payload
+    }
+  }
+
   function receiveMessage ({ topic, payload }) {
+    payload = convertPayload(topic, camelizeKeys(payload))
+
+    socketEvents.emit(topic, payload)
+
     if (topic === 'applications:update') {
-      datastore.commit('applications/update', [convertApplication(camelizeKeys(payload))])
+      datastore.commit('applications/update', [payload])
     }
     else if (topic === 'conversations:message') {
-      const message = convertMessage(camelizeKeys(payload))
+      const message = payload
       if (message.thread) {
         datastore.dispatch('currentThread/receiveMessage', message)
         datastore.dispatch('latestMessages/updateThreadsAndRelated', { messages: [message] })
@@ -175,15 +209,15 @@ export default async function ({ store: datastore }) {
       }
     }
     else if (topic === 'conversations:conversation') {
-      const conversation = convertConversation(camelizeKeys(payload))
+      const conversation = payload
       datastore.dispatch('conversations/updateConversation', conversation)
       datastore.dispatch('latestMessages/updateConversationsAndRelated', { conversations: [conversation] })
     }
     else if (topic === 'conversations:meta') {
-      datastore.commit('latestMessages/setEntryMeta', convertConversationMeta(camelizeKeys(payload)))
+      datastore.commit('latestMessages/setEntryMeta', payload)
     }
     else if (topic === 'community_feed:meta') {
-      datastore.commit('communityFeed/setMeta', convertCommunityFeedMeta(camelizeKeys(payload)))
+      datastore.commit('communityFeed/setMeta', payload)
     }
     else if (topic === 'conversations:leave') {
       // refresh latest messages
@@ -193,10 +227,10 @@ export default async function ({ store: datastore }) {
       }
     }
     else if (topic === 'groups:group_detail') {
-      datastore.dispatch('currentGroup/maybeUpdate', convertGroup(camelizeKeys(payload)))
+      datastore.dispatch('currentGroup/maybeUpdate', payload)
     }
     else if (topic === 'groups:group_preview') {
-      datastore.commit('groups/update', [camelizeKeys(payload)])
+      datastore.commit('groups/update', [payload])
     }
     else if (topic === 'groups:user_joined') {
       datastore.dispatch('users/fetch', null, { root: true })
@@ -205,39 +239,38 @@ export default async function ({ store: datastore }) {
       datastore.dispatch('users/fetch', null, { root: true })
     }
     else if (topic === 'invitations:invitation') {
-      datastore.commit('invitations/update', [convertInvitation(camelizeKeys(payload))])
+      datastore.commit('invitations/update', [payload])
     }
     else if (topic === 'invitations:invitation_accept') {
       // delete invitation from list until there is a better way to display it
       datastore.commit('invitations/delete', payload.id)
     }
     else if (topic === 'issues:issue') {
-      datastore.commit('issues/update', [convertIssue(camelizeKeys(payload))])
+      datastore.commit('issues/update', [payload])
     }
     else if (topic === 'places:place') {
-      datastore.dispatch('places/update', [camelizeKeys(payload)])
+      datastore.dispatch('places/update', [payload])
     }
     else if (topic === 'activities:activity') {
-      datastore.commit('activities/update', [convertActivity(camelizeKeys(payload))])
+      datastore.commit('activities/update', [payload])
     }
     else if (topic === 'activities:activity_deleted') {
-      datastore.commit('activities/delete', convertActivity(camelizeKeys(payload)).id)
+      datastore.commit('activities/delete', payload.id)
     }
     else if (topic === 'activities:series') {
-      datastore.commit('activitySeries/update', [convertSeries(camelizeKeys(payload))])
+      datastore.commit('activitySeries/update', [payload])
     }
     else if (topic === 'activities:series_deleted') {
-      datastore.commit('activitySeries/delete', convertSeries(camelizeKeys(payload)).id)
+      datastore.commit('activitySeries/delete', payload.id)
     }
     else if (topic === 'activities:type') {
-      datastore.commit('activityTypes/update', [camelizeKeys(payload)])
+      datastore.commit('activityTypes/update', [payload])
     }
     else if (topic === 'activities:type_deleted') {
       datastore.commit('activityTypes/delete', payload.id)
     }
     else if (topic === 'offers:offer') {
-      const offer = convertOffer(camelizeKeys(payload))
-      datastore.commit('latestMessages/updateRelated', { type: 'offer', items: [offer] })
+      datastore.commit('latestMessages/updateRelated', { type: 'offer', items: [payload] })
       // TODO: update offers queries
       // datastore.commit('offers/update', [offer])
       // datastore.commit('currentOffer/update', offer)
@@ -249,10 +282,10 @@ export default async function ({ store: datastore }) {
       // datastore.commit('currentOffer/delete', payload.id)
     }
     else if (topic === 'feedback:feedback') {
-      datastore.dispatch('feedback/updateOne', convertFeedback(camelizeKeys(payload)))
+      datastore.dispatch('feedback/updateOne', payload)
     }
     else if (topic === 'auth:user') {
-      const user = camelizeKeys(payload)
+      const user = payload
       datastore.commit('auth/setUser', user)
       datastore.commit('users/update', [user])
       datastore.dispatch('users/refreshProfile', user)
@@ -261,24 +294,24 @@ export default async function ({ store: datastore }) {
       datastore.dispatch('auth/refresh')
     }
     else if (topic === 'users:user') {
-      const user = camelizeKeys(payload)
+      const user = payload
       datastore.commit('users/update', [user])
       datastore.dispatch('users/refreshProfile', user)
     }
     else if (topic === 'history:history') {
-      datastore.commit('history/update', [convertHistory(camelizeKeys(payload))])
+      datastore.commit('history/update', [payload])
     }
     else if (topic === 'notifications:notification') {
-      datastore.commit('notifications/update', [convertNotification(camelizeKeys(payload))])
+      datastore.commit('notifications/update', [payload])
     }
     else if (topic === 'notifications:notification_deleted') {
       datastore.commit('notifications/delete', payload.id)
     }
     else if (topic === 'notifications:meta') {
-      datastore.commit('notifications/setEntryMeta', convertNotificationMeta(camelizeKeys(payload)))
+      datastore.commit('notifications/setEntryMeta', payload)
     }
     else if (topic === 'status') {
-      datastore.commit('status/update', camelizeKeys(payload))
+      datastore.commit('status/update', payload)
     }
   }
 

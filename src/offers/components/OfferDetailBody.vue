@@ -76,7 +76,7 @@ import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import KSpinner from '@/utils/components/KSpinner'
 import { QBtn, QBtnDropdown, QCarousel, QCarouselSlide } from 'quasar'
-import { DEFAULT_STATUS, useArchiveOfferMutation, useCurrentOffer } from '@/offers/queries'
+import { DEFAULT_STATUS, useArchiveOfferMutation, useCurrentOfferRef } from '@/offers/queries'
 import { useCurrentUserId } from '@/users/queries'
 
 export default {
@@ -99,7 +99,7 @@ export default {
     const { mutate: archive } = useArchiveOfferMutation()
     return {
       archive,
-      offer: useCurrentOffer(),
+      offer: useCurrentOfferRef(),
       currentUserId: useCurrentUserId(),
     }
   },

@@ -15,22 +15,17 @@
  */
 import LoadingProgress from '@/topbar/components/LoadingProgress'
 
-import { useQueryClient } from 'vue-query'
-import { useStore } from 'vuex'
+import { useClearDataOnLogout } from '@/utils/composables'
+import { useOffersUpdater } from '@/offers/queries'
 
 export default {
   components: {
     LoadingProgress,
   },
   setup () {
-    const store = useStore()
-    const queryClient = useQueryClient()
-    store.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
-      if (!isLoggedIn) {
-        // TODO: can I do this in a better place?
-        queryClient.clear()
-      }
-    })
+    // TODO: can I register these in a better place?
+    useOffersUpdater()
+    useClearDataOnLogout()
   },
   computed: {
     hasView () {

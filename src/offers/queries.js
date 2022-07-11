@@ -6,17 +6,56 @@ import api from './api/offers'
 import { useRoute, useRouter } from 'vue-router'
 import { isNetworkError, isServerError, isValidationError } from '@/utils/datastore/helpers'
 import { useCurrentGroupId } from '@/group/datastore/currentGroup'
+import { useSocketEvents } from '@/utils/composables'
+
+export const QUERY_KEY_BASE = 'offers'
+export const queryKeyOfferList = (group, status) => [QUERY_KEY_BASE, 'list', group, status].filter(Boolean)
+export const queryKeyOfferDetail = id => [QUERY_KEY_BASE, 'detail', id].filter(Boolean)
 
 export const DEFAULT_STATUS = 'active'
 
+// Store the ids we are currently mutating, so we can better decide when to refresh from websocket
+const mutatingOfferIds = new Set()
+
 /**
- * Gives you a reference to the current offer, based on the route
+ * Handler for socket updates
  */
-export function useCurrentOffer () {
+export function useOffersUpdater () {
+  const queryClient = useQueryClient()
+  const { on } = useSocketEvents()
+  on(
+    [
+      'offers:offer',
+      'offers:offer_deleted',
+    ],
+    // We could do fiddly updates to the data, but simpler to just invalidate the lot
+    async offer => {
+      // Invalidate the list
+      await queryClient.invalidateQueries(queryKeyOfferList())
+
+      // Only invalidate the detail if we are not currently mutating it
+      if (!mutatingOfferIds.has(offer.id)) {
+        await queryClient.invalidateQueries(queryKeyOfferDetail())
+      }
+    },
+  )
+}
+
+/**
+ * Get current offer based on route
+ *
+ * Gives you a ref to the offer
+ */
+export function useCurrentOfferRef () {
   const { offer } = useCurrentOfferQuery()
   return offer
 }
 
+/**
+ * Get current offer, based on route
+ *
+ * Gives a full query object
+ */
 export function useCurrentOfferQuery () {
   const route = useRoute()
   const id = computed(() => route.params.offerId && Number(route.params.offerId))
@@ -32,11 +71,12 @@ export function useOfferQuery ({
   id,
 }) {
   const query = useQuery(
-    ['offer', id],
+    queryKeyOfferDetail(id),
     () => api.get(unref(id)),
     {
       // TODO: does this handle our currentOffer/clear case?
       enabled: computed(() => !!unref(id)),
+      staleTime: Infinity,
     },
   )
   return {
@@ -48,19 +88,20 @@ export function useOfferQuery ({
 /**
  * Query offers by group and status
  *
- * Returns a pagination query object with additional "offers" item with flattened list of all offers
+ * Returns a paginated query object with additional "offers" item with flattened list of all offers
  */
 export function useOffersQuery ({
   group,
   status = 'active',
 }) {
   const query = useInfiniteQuery(
-    ['offers', group, status],
+    queryKeyOfferList(group, status),
     ({ pageParam }) => {
       return api.list({ group: unref(group), status: unref(status), cursor: pageParam })
     },
     {
       enabled: computed(() => !!unref(group)),
+      staleTime: Infinity,
       getNextPageParam (page) {
         return extractCursor(page.next)
       },
@@ -87,18 +128,26 @@ export function useOffersQuery ({
 }
 
 /**
- * Use for saving an existing offer
+ * Save an existing offer
  *
  * Returns a mutation object with validationErrors
  */
 export function useSaveOfferMutation () {
-  const { routeToOffer, updateQueryData } = useOfferUtils()
+  const queryClient = useQueryClient()
+  const { goToOffer } = useOfferUtils()
   const mutation = useMutation(
     offer => api.save(offer),
     {
-      onSuccess (updatedOffer) {
-        updateQueryData(updatedOffer)
-        routeToOffer(updatedOffer)
+      async onSuccess (offer) {
+        await queryClient.setQueryData(queryKeyOfferDetail(offer.id), offer)
+        goToOffer(offer)
+      },
+      onMutate (variables) {
+        mutatingOfferIds.add(variables.id)
+      },
+      async onSettled (data, error, variables) {
+        mutatingOfferIds.delete(variables.id)
+        await queryClient.invalidateQueries(queryKeyOfferList())
       },
     },
   )
@@ -106,19 +155,27 @@ export function useSaveOfferMutation () {
 }
 
 /**
- * Use for creating a new offer
+ * Create a new offer
  *
  * Returns a mutation object with validationErrors
  */
 export function useCreateOfferMutation () {
-  const { routeToOffer, updateQueryData } = useOfferUtils()
+  const queryClient = useQueryClient()
+  const { goToOffer } = useOfferUtils()
   const groupId = useCurrentGroupId()
   const mutation = useMutation(
     offer => api.create({ ...offer, group: unref(groupId) }),
     {
-      onSuccess (updatedOffer) {
-        updateQueryData(updatedOffer)
-        routeToOffer(updatedOffer)
+      async onSuccess (offer) {
+        await queryClient.setQueryData(queryKeyOfferDetail(offer.id), offer)
+        goToOffer(offer)
+      },
+      onMutate (variables) {
+        mutatingOfferIds.add(variables.id)
+      },
+      async onSettled (data, error, variables) {
+        mutatingOfferIds.delete(variables.id)
+        await queryClient.invalidateQueries(queryKeyOfferList())
       },
     },
   )
@@ -132,13 +189,11 @@ export function useCreateOfferMutation () {
  */
 export function useArchiveOfferMutation () {
   const queryClient = useQueryClient()
-  const { updateQueryData } = useOfferUtils()
   const mutation = useMutation(
     ({ offerId }) => api.archive(offerId),
     {
-      onSuccess (updatedOffer) {
-        updateQueryData(updatedOffer)
-        queryClient.refetchQueries(['offers'])
+      async onSuccess (offer) {
+        await queryClient.setQueryData(queryKeyOfferDetail(offer.id), offer)
       },
     },
   )
@@ -148,24 +203,17 @@ export function useArchiveOfferMutation () {
 // Utilities
 
 function useOfferUtils () {
-  const queryClient = useQueryClient()
   const router = useRouter()
+  const route = useRoute()
   return {
-    updateQueryData (offer) {
-      // TODO: could update/invalidate the offers queries... but just rely on those being reloaded anyway
-      queryClient.setQueryData(
-        ['offer', offer.id],
-        () => offer,
-      )
-    },
-    routeToOffer (offer) {
+    goToOffer (offer) {
       router.push({
         name: 'offerDetail',
         params: {
           groupId: offer.group,
           offerId: offer.id,
         },
-        query: router.currentRoute.query,
+        query: route.query,
       }).catch(() => {})
     },
   }
@@ -185,6 +233,7 @@ function withStatus (mutation) {
   }
 }
 
+// TODO: move to queries utility function place
 /**
  * Converts a vue-query mutation object to our existing "status" object type
  */

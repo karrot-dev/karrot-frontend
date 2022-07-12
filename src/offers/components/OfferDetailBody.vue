@@ -63,7 +63,10 @@
         </QBtnDropdown>
       </div>
       <div class="q-ma-md q-pa-md bg-white grey-border">
-        <Markdown :source="offer.description" />
+        <Markdown
+          v-measure
+          :source="offer.description"
+        />
       </div>
     </template>
   </ChatConversation>

@@ -91,7 +91,7 @@ export function useOffersQuery ({
     {
       enabled: computed(() => !!unref(group)),
       staleTime: Infinity,
-      getNextPageParam: page => extractCursor(page.next),
+      getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => page.results),
         pageParams,

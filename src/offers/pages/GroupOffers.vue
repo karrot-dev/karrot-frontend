@@ -148,7 +148,7 @@ const { getUserRef } = useUsers()
 
 const {
   isLoading,
-  isFetching, // TODO: is this also true when isFetchingNextPage is true?
+  isFetching,
   hasNextPage,
   fetchNextPage,
   offers,
@@ -156,8 +156,8 @@ const {
 
 async function maybeFetchMore (index, done) {
   // TODO: these unref calls are annoying... is kind of nice with the options API as they are unwrapped
-  if (!unref(isFetching) && unref(hasNextPage)) return await unref(fetchNextPage)()
-  done()
+  if (!unref(isFetching) && unref(hasNextPage)) await unref(fetchNextPage)()
+  done(!unref(hasNextPage))
 }
 
 const route = useRoute()

@@ -10,7 +10,7 @@
 
 <script setup>
 import OfferForm from '@/offers/components/OfferForm'
-import { useCurrentOfferQuery} from '@/offers/queries'
+import { useCurrentOfferQuery } from '@/offers/queries'
 import { useSaveOfferMutation } from '@/offers/mutations'
 
 const { offer, isLoading } = useCurrentOfferQuery()

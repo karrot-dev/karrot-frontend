@@ -21,6 +21,9 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Added
+- switch to vue-query for offers @nicksellen #2560
+
 ### Fixed
 - show archived types in filter if activities of that type exist @nitishvijai @yatharthchhabra [#2506](https://github.com/karrot-dev/karrot-frontend/issues/2506)
 

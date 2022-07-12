@@ -86,6 +86,7 @@
     "@babel/core": "^7.18.5",
     "@babel/eslint-parser": "^7.18.2",
     "@babel/plugin-transform-modules-commonjs": "^7.18.2",
+    "@faker-js/faker": "^7.3.0",
     "@mapbox/appropriate-images": "^5.0.0",
     "@octokit/rest": "^18.12.0",
     "@quasar/app-webpack": "^3.5.4",

@@ -1,3 +1,5 @@
+import { VueQueryPlugin } from 'vue-query'
+
 /** Storybook has some unwanted side effects and we actually don't need it to test the stories
  * Therefore, we mimick the Storybook API to get the components and then run the snapshot tests
 */
@@ -96,6 +98,7 @@ for (const group of mockStories) {
                 unwrapInjectedRef: true,
               },
               plugins: [
+                VueQueryPlugin,
                 store,
                 i18nPlugin,
                 [Quasar, quasarConfig],

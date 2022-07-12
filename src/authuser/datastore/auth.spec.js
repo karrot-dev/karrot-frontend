@@ -1,10 +1,9 @@
-const routerMocks = require('>/routerMocks').default
 const mockStatus = jest.fn()
 const mockLogin = jest.fn()
-const mockRouterPush = jest.fn(routerMocks.$router.push)
-jest.mock('@/router', () => ({ push: mockRouterPush }))
 jest.mock('@/authuser/api/auth', () => ({ login: mockLogin }))
 jest.mock('@/authuser/api/authUser', () => ({ get: mockStatus }))
+
+import { router } from '>/routerMocks'
 
 import { createDatastore, createValidationError, throws } from '>/helpers'
 
@@ -43,7 +42,7 @@ describe('auth', () => {
     expect(datastore.getters['auth/loginStatus'].validationErrors).toEqual({})
     expect(datastore.getters['auth/isLoggedIn']).toBe(true)
     expect(datastore.getters['auth/user']).toBeDefined()
-    expect(mockRouterPush).toBeCalledWith('/')
+    expect(router.push).toBeCalledWith('/')
   })
 
   it('can update user', () => {

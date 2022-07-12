@@ -1,8 +1,8 @@
 import { nextTick } from 'vue'
 import { mount, RouterLinkStub } from '@vue/test-utils'
+import { VueQueryPlugin } from 'vue-query'
 import deepmerge from 'deepmerge'
 import i18n, { i18nPlugin } from '@/base/i18n'
-import routerMocks from '>/routerMocks'
 import { createStore } from 'vuex'
 
 const desktopUserAgent = 'Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0'
@@ -101,6 +101,7 @@ export function mountWithDefaults (Component, options = {}) {
       },
       plugins: [
         [Quasar, quasarConfig, ssrContextMock],
+        VueQueryPlugin,
         i18nPlugin,
         ...(globalOptions.plugins || []),
       ],
@@ -114,7 +115,7 @@ export function mountWithDefaults (Component, options = {}) {
       },
       mocks: {
         $icon: () => '',
-        ...routerMocks,
+        // ...routerMocks,
         ...(globalOptions.mocks || {}),
       },
       ...globalOptions,

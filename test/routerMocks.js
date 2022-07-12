@@ -1,12 +1,27 @@
-export default {
-  $route: {
-    query: {},
-    params: {},
-  },
-  $router: {
-    resolve: () => ({ href: '#/' }),
-    // Mimic both callback and Promise API
-    push: (_, onComplete) => onComplete ? {} : Promise.resolve({}),
-    replace: (_, onComplete) => onComplete ? {} : Promise.resolve({}),
-  },
-}
+// Setup a mock router
+// See https://github.com/posva/vue-router-mock
+
+const { config } = require('@vue/test-utils')
+
+const {
+  VueRouterMock,
+  createRouterMock,
+  injectRouterMock,
+} = require('vue-router-mock')
+
+export const router = createRouterMock()
+beforeEach(() => {
+  injectRouterMock(router)
+})
+
+// Add properties to the wrapper
+config.plugins.VueWrapper.install(VueRouterMock)
+
+// Expose some parts to the @/router import
+const mockRouterPush = router.push
+const mockRouterReplace = router.replace
+
+jest.mock('@/router', () => ({
+  push: mockRouterPush,
+  replace: mockRouterReplace,
+}))

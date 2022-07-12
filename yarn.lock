@@ -17047,6 +17047,11 @@ vue-resize@^2.0.0-alpha.1:
   resolved "https://registry.yarnpkg.com/vue-resize/-/vue-resize-2.0.0-alpha.1.tgz#43eeb79e74febe932b9b20c5c57e0ebc14e2df3a"
   integrity sha512-7+iqOueLU7uc9NrMfrzbG8hwMqchfVfSzpVlCMeJQe4pyibqyoifDNbKTZvwxZKDvGkB+PdFeKvnGZMoEb8esg==
 
+vue-router-mock@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/vue-router-mock/-/vue-router-mock-0.1.8.tgz#fdc2175a0fc0c0a2dccbbe64e8a291ada9e5a037"
+  integrity sha512-3pcC3WwGFTHLkC78D5IZTxMXNaSXDJdCmed51hWVIwB4dsZyC2HEtiBuE/6BzviqDUh1LMX+tCu3zhH8ZcATZw==
+
 vue-router@4.0.16:
   version "4.0.16"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.16.tgz#9477beeeef36e80e04d041a1738801a55e6e862e"

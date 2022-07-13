@@ -14,6 +14,7 @@ export function createOffer (params) {
     status: sample(['active', 'archived']),
     created_at: faker.date.past(),
     group: 1,
+    images: [],
     ...params,
   }
 }

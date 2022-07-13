@@ -5,7 +5,7 @@ import '>/routerMocks' // sets up the mock router
 
 describe('KBreadcrumb', () => {
   beforeEach(() => jest.resetModules())
-  it.only('renders', () => {
+  it('renders', () => {
     const wrapper = mountWithDefaults(KBreadcrumb, {
       propsData: {
         breadcrumbs: [],

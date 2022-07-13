@@ -80,7 +80,7 @@ import Markdown from '@/utils/components/Markdown'
 import KSpinner from '@/utils/components/KSpinner'
 import { QBtn, QBtnDropdown, QCarousel, QCarouselSlide } from 'quasar'
 import { DEFAULT_STATUS, useCurrentOfferQuery } from '@/offers/queries'
-import { useCurrentUserId } from '@/users/queries'
+import { useCurrentUserIdRef } from '@/users/queries'
 import { useArchiveOfferMutation } from '@/offers/mutations'
 
 export default {
@@ -105,7 +105,7 @@ export default {
     return {
       archive,
       offer,
-      currentUserId: useCurrentUserId(),
+      currentUserId: useCurrentUserIdRef(),
     }
   },
   data () {

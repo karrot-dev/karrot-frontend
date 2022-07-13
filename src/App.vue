@@ -23,7 +23,7 @@ export default {
     LoadingProgress,
   },
   setup () {
-    // TODO: can I register these in a better place?
+    // Global kind of things can be registered here
     useOffersUpdater()
     useClearDataOnLogout()
   },

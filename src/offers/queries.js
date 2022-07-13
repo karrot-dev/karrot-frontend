@@ -61,7 +61,6 @@ export function useOfferQuery ({
     queryKeyOfferDetail(id),
     () => api.get(unref(id)),
     {
-      // TODO: does this handle our currentOffer/clear case?
       enabled: computed(() => !!unref(id)),
       staleTime: Infinity,
     },

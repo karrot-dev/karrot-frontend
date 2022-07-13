@@ -103,7 +103,10 @@
 </template>
 
 <script setup>
-import { unref } from 'vue'
+// For some reason need *some* vue import or get this error:
+//   ReferenceError: _vue is not defined
+// eslint-disable-next-line no-unused-vars
+import { ref } from 'vue'
 
 import {
   QIcon,
@@ -122,11 +125,11 @@ import DateAsWords from '@/utils/components/DateAsWords'
 
 import { DEFAULT_STATUS, useOffersQuery } from '@/offers/queries'
 
-import { useCurrentGroupId } from '@/group/datastore/currentGroup'
 import { useRouteParam } from '@/utils/mixins/bindRoute'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useUsers } from '@/users/queries'
+import { useCurrentGroupIdRef } from '@/group/queries'
 
 const { t } = useI18n()
 
@@ -141,7 +144,7 @@ const statusOptions = [
   },
 ]
 
-const group = useCurrentGroupId()
+const group = useCurrentGroupIdRef()
 const status = useRouteParam('status', DEFAULT_STATUS)
 
 const { getUserRef } = useUsers()
@@ -155,9 +158,8 @@ const {
 } = useOffersQuery({ group, status })
 
 async function maybeFetchMore (index, done) {
-  // TODO: these unref calls are annoying... is kind of nice with the options API as they are unwrapped
-  if (!unref(isFetching) && unref(hasNextPage)) await unref(fetchNextPage)()
-  done(!unref(hasNextPage))
+  if (!isFetching.value && hasNextPage.value) await fetchNextPage()
+  done(!hasNextPage.value)
 }
 
 const route = useRoute()

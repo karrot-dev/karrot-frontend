@@ -1,12 +1,9 @@
 import { flushPromises, mount } from '@vue/test-utils'
 import GroupOffers from './GroupOffers'
-import { VueQueryPlugin } from 'vue-query'
-import { Quasar } from 'quasar'
-import { i18nPlugin } from '@/base/i18n'
 import '>/routerMocks'
 import { createMockOffersBackend, createOffer } from '@/offers/api/offers.mock'
-import quasarConfig from '>/quasarConfig'
 import { createStore } from 'vuex'
+import { withDefaults } from '>/helpers'
 
 describe('GroupOffers', () => {
   it('works', async () => {
@@ -14,15 +11,17 @@ describe('GroupOffers', () => {
       { length: 8 },
       () => createOffer({ status: 'active' }),
     ))
-    // TODO: see how this compares with mountWithDefaults...
-    const wrapper = mount(GroupOffers, {
+    const wrapper = mount(GroupOffers, withDefaults({
       global: {
         plugins: [
-          [Quasar, quasarConfig],
-          i18nPlugin,
-          VueQueryPlugin,
           createStore({
             modules: {
+              users: {
+                namespaced: true,
+                getters: {
+                  get: () => () => null,
+                },
+              },
               currentGroup: {
                 namespaced: true,
                 getters: {
@@ -32,11 +31,8 @@ describe('GroupOffers', () => {
             },
           }),
         ],
-        directives: {
-          measure: {},
-        },
       },
-    })
+    }))
     await flushPromises()
     expect(wrapper.vm.offers).toHaveLength(8)
   })

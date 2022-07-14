@@ -1,5 +1,6 @@
 import MockAdapter from 'axios-mock-adapter'
 import axios from '@/base/api/axios'
+import { pathToRegexp } from 'path-to-regexp'
 
 export const mockAxios = new MockAdapter(axios, { onNoMatch: 'throwException' })
 
@@ -32,4 +33,32 @@ export function createCursorPaginatedBackend (path, entries, getMatchFn, options
       prev: hasPrevPage ? cursorURL(cursor - pageSize) : null,
     }]
   })
+}
+
+export function createGetByIdBackend (path, entries) {
+  if (!path.includes(':id')) throw new Error('path must contain :id')
+  const matcher = createPathMatcher(path)
+  mockAxios.onGet(matcher).reply((config) => {
+    const id = parseInt(matcher.getParams(config.url).id)
+    const offer = entries.find(entry => entry.id === id)
+    if (!offer) return [404]
+    return [200, offer]
+  })
+}
+
+/**
+ * Use for doing path param matching for axios-mock-adapter
+ */
+function createPathMatcher (path) {
+  const keys = []
+  const re = pathToRegexp(path, keys)
+  re.getParams = url => {
+    const m = re.exec(url)
+    const params = {}
+    m.slice(1).forEach((val, idx) => {
+      params[keys[idx].name] = val
+    })
+    return params
+  }
+  return re
 }

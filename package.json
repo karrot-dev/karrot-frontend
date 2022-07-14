@@ -137,6 +137,7 @@
     "keep-a-changelog": "^2.1.0",
     "lodash": "^4.17.21",
     "lolex": "^6.0.0",
+    "path-to-regexp": "^6.2.1",
     "postcss": "^8.4.14",
     "postcss-html": "^1.5.0",
     "postcss-syntax": "^0.36.2",

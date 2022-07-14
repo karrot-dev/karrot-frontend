@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-import { createCursorPaginatedBackend } from '>/mockAxios'
+import { createCursorPaginatedBackend, createGetByIdBackend } from '>/mockAxios'
 
 function sample (items) {
   return items[Math.floor(Math.realRandom() * items.length)]
@@ -25,4 +25,6 @@ export function createMockOffersBackend (offers, options = {}) {
     const group = parseInt(params.group || '1')
     return offer => offer.status === status && offer.group === group
   }, options)
+
+  createGetByIdBackend('/api/offers/:id/', offers)
 }

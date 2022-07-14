@@ -18,6 +18,15 @@ const locales = {
     quasar: () => import('quasar/lang/de'),
   },
 
+  el: {
+    name: 'ελληνικά',
+    locale: 'el',
+    messages: () => import('@/locales/locale-el.json'),
+    intlLocale: () => import('intl/locale-data/jsonp/el'),
+    dateFnsLocale: () => import('date-fns/locale/el'),
+    quasar: () => import('quasar/lang/el'),
+  },
+
   en: {
     name: 'English',
     locale: 'en',
@@ -97,6 +106,15 @@ const locales = {
     intlLocale: () => import('intl/locale-data/jsonp/ja'),
     dateFnsLocale: () => import('date-fns/locale/ja'),
     quasar: () => import('quasar/lang/ja'),
+  },
+
+  'ko-kr': {
+    name: '한국어',
+    locale: 'ko-kr',
+    messages: () => import('@/locales/locale-ko_KR.json'),
+    intlLocale: () => import('intl/locale-data/jsonp/ko-KR'),
+    dateFnsLocale: () => import('date-fns/locale/ko'),
+    quasar: () => import('quasar/lang/ko-KR'),
   },
 
   lb: {

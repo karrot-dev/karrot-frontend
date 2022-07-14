@@ -162,12 +162,15 @@
                 <QItemLabel caption>
                   {{ $t('ACTIVITYLIST.ICS_DIALOG.TOKEN_NOTICE') }}
                 </QItemLabel>
-                <QBtn
-                  icon="sync"
-                  class="q-mt-sm"
-                  :label="$t('ACTIVITYLIST.ICS_DIALOG.RESET_TOKEN')"
-                  @click="$store.dispatch('activities/refreshICSAuthToken')"
-                />
+                <QItemLabel>
+                  <QBtn
+                    icon="sync"
+                    size="sm"
+                    class="q-mt-sm"
+                    :label="$t('ACTIVITYLIST.ICS_DIALOG.RESET_TOKEN')"
+                    @click="$store.dispatch('activities/refreshICSAuthToken')"
+                  />
+                </QItemLabel>
               </QItemSection>
             </QItem>
           </QList>

@@ -66,6 +66,7 @@
         v-model="icsDialog"
         width="500px"
         actions-align="between"
+        @show="$store.dispatch('activities/fetchICSAuthToken')"
       >
         <template #title>
           {{ $t('ACTIVITYLIST.ICS_DIALOG.TITLE') }}
@@ -158,9 +159,23 @@
                     </template>
                   </QField>
                 </QItemLabel>
+                <QItemLabel caption>
+                  {{ $t('ACTIVITYLIST.ICS_DIALOG.TOKEN_NOTICE') }}
+                </QItemLabel>
+                <QItemLabel>
+                  <QBtn
+                    icon="sync"
+                    size="sm"
+                    class="q-mt-sm"
+                    :label="$t('ACTIVITYLIST.ICS_DIALOG.RESET_TOKEN')"
+                    @click="$store.dispatch('activities/refreshICSAuthToken')"
+                  />
+                </QItemLabel>
               </QItemSection>
             </QItem>
           </QList>
+
+          <QInnerLoading :showing="tokenPending" />
         </template>
         <template #actions>
           <a
@@ -270,6 +285,7 @@ import {
   QBanner,
   QBtn,
   QSeparator,
+  QInnerLoading,
 } from 'quasar'
 
 const NUM_ACTIVITIES_PER_LOAD = 25
@@ -291,6 +307,7 @@ export default {
     QBanner,
     QBtn,
     QSeparator,
+    QInnerLoading,
   },
   mixins: [
     bindRoute({
@@ -326,6 +343,10 @@ export default {
     icsUrl: {
       type: String,
       default: null,
+    },
+    tokenPending: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: [

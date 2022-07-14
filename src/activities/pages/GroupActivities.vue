@@ -7,6 +7,7 @@
       filter
       :filter-activity-types="activityTypes"
       :ics-url="activitiesIcsUrl"
+      :token-pending="tokenPending"
       @join="join"
       @leave="leave"
       @detail="detail"
@@ -66,6 +67,7 @@ export default {
       activitiesIcsUrl: 'activities/icsUrlForCurrentGroup',
       activityTypes: 'activityTypes/byCurrentGroup',
       pending: 'activities/fetchingForCurrentGroup',
+      tokenPending: 'activities/tokenPending',
       places: 'places/byCurrentGroup',
     }),
     hasNoActivities () {

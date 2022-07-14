@@ -45,6 +45,14 @@ export default {
     })
   },
 
+  async getICSAuthToken () {
+    return (await axios.get('/api/activities/ics_token/')).data
+  },
+
+  async refreshICSAuthToken () {
+    return (await axios.post('/api/activities/ics_token_refresh/')).data
+  },
+
   async save (activity) {
     return convert((await axios.patch(`/api/activities/${activity.id}/`, convertDateToRange(activity))).data)
   },

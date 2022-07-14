@@ -31,7 +31,10 @@
     >
       <QItemSection>
         <QItemLabel caption>
-          <QIcon name="fas fa-external-link-alt" />
+          <QIcon
+            name="fas fa-external-link-alt"
+            class="q-mr-xs"
+          />
           <small>{{ $t('LANGUAGECHOOSER.ADD_MORE') }}</small>
         </QItemLabel>
       </QItemSection>

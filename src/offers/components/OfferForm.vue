@@ -51,6 +51,7 @@
           <QBtn
             type="submit"
             color="primary"
+            :disable="!canSave"
             :loading="isPending"
           >
             {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}

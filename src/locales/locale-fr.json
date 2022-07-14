@@ -8,7 +8,7 @@
     },
     "SECTIONS": {
       "ACTIVITIES": {
-        "DESCRIPTION": "Chaque activité a un nombre déterminé de places où les membres du groupes peuvent s'inscrire – comme ça, tout le monde sait qui fait quoi et à quel moment. Après, les membres participants peuvent remplir un compte-rendu d'activité.",
+        "DESCRIPTION": "Chaque activité a un nombre déterminé de places où les membres du groupes peuvent s'inscrire – comme ça, tout le monde sait qui fait quoi et à quel moment. Ensuite, les membres participants peuvent remplir un compte-rendu d'activité.",
         "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
         "TITLE": "Distribution d'activités"
       },

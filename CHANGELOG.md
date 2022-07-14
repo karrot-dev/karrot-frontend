@@ -23,6 +23,7 @@ Please document your changes in this format:
 ## [Unreleased]
 ### Added
 - password-less ICS subscription links, to support Google Calender #2555 @tiltec
+- Korean and Greek translations
 
 ### Fixed
 - show archived types in filter if activities of that type exist @nitishvijai @yatharthchhabra [#2506](https://github.com/karrot-dev/karrot-frontend/issues/2506)

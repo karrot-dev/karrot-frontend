@@ -2,8 +2,8 @@ import { computed, unref } from 'vue'
 import { isNetworkError, isServerError, isValidationError } from '@/utils/datastore/helpers'
 
 export function extractCursor (url) {
-  if (!url) return null
-  return new URL(url, url.startsWith('http') ? null : 'https://karrot.world').searchParams.get('cursor')
+  if (!url || !url.includes('?')) return null
+  return new URLSearchParams(url.substring(url.indexOf('?'))).get('cursor')
 }
 
 export function withStatus (mutation) {

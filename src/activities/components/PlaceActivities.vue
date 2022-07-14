@@ -32,6 +32,7 @@
       :pending="fetchPending"
       :activities="activities"
       :ics-url="activitiesIcsUrl"
+      :token-pending="tokenPending"
       @join="join"
       @leave="leave"
       @detail="detail"
@@ -63,6 +64,7 @@ export default {
       activities: 'activities/byActivePlace',
       activitiesIcsUrl: 'activities/icsUrlForCurrentPlace',
       fetchPending: 'activities/fetchingForCurrentGroup',
+      tokenPending: 'activities/tokenPending',
       isEditor: 'currentGroup/isEditor',
     }),
     hasNoActivities () {

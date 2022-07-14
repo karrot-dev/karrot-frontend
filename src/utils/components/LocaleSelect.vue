@@ -9,6 +9,7 @@
   >
     <QIcon
       name="fas fa-globe fa-fw"
+      class="q-mr-sm"
     />
     <template
       v-if="!inToolbar"

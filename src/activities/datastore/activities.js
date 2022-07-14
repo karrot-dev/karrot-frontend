@@ -6,6 +6,7 @@ import reactiveNow from '@/utils/reactiveNow'
 function initialState () {
   return {
     entries: {},
+    ICSAuthToken: null,
   }
 }
 
@@ -51,10 +52,10 @@ export default {
       return getters.byCurrentGroup.filter(({ place }) => place && place.isActivePlace)
     },
     icsUrlForCurrentGroup: (state, getters, rootState, rootGetters) => {
-      return activities.icsUrl({ group: rootGetters['currentGroup/id'], joined: true })
+      return activities.icsUrl({ group: rootGetters['currentGroup/id'], joined: true, token: state.ICSAuthToken })
     },
     icsUrlForCurrentPlace: (state, getters, rootState, rootGetters) => {
-      return activities.icsUrl({ place: rootGetters['places/activePlaceId'], joined: true })
+      return activities.icsUrl({ place: rootGetters['places/activePlaceId'], joined: true, token: state.ICSAuthToken })
     },
     joined: (state, getters) => getters.byCurrentGroup.filter(e => e.isUserMember),
     available: (state, getters) =>
@@ -81,6 +82,9 @@ export default {
       if (!currentGroupId) return false
       const status = getters['meta/status']('fetchListByGroupId', `group/${currentGroupId}`)
       return status.pending
+    },
+    tokenPending: (state, getters) => {
+      return getters['meta/status']('fetchICSAuthToken').pending || getters['meta/status']('refreshICSAuthToken').pending
     },
   },
   actions: {
@@ -116,6 +120,12 @@ export default {
       async destroy ({ commit, dispatch }, id) {
         await activities.delete(id)
         dispatch('refresh')
+      },
+      async fetchICSAuthToken ({ commit }) {
+        commit('setICSAuthToken', await activities.getICSAuthToken())
+      },
+      async refreshICSAuthToken ({ commit }) {
+        commit('setICSAuthToken', await activities.refreshICSAuthToken())
       },
     }),
     ...withMeta({
@@ -168,6 +178,9 @@ export default {
         Object.freeze(rest)
         state.entries = rest
       }
+    },
+    setICSAuthToken (state, token) {
+      state.ICSAuthToken = token
     },
   },
 }

@@ -100,6 +100,7 @@ describe('activities', () => {
     beforeEach(() => {
       vstore.commit('activities/update', [activity1, activity2, activity3, pastActivity1, pastActivity2, startedActivity1, startedActivity2])
       vstore.commit('activityTypes/update', Object.values(activityTypes))
+      vstore.commit('activities/setICSAuthToken', 'yourSecretToken')
     })
 
     it('can enrich', async () => {
@@ -196,11 +197,11 @@ describe('activities', () => {
     })
 
     it('generates an ics url for the current group', () => {
-      expect(vstore.getters['activities/icsUrlForCurrentGroup']).toEqual('/ics?group=666&joined=true')
+      expect(vstore.getters['activities/icsUrlForCurrentGroup']).toEqual('/ics?group=666&joined=true&token=yourSecretToken')
     })
 
     it('generates an ics url for the current place', () => {
-      expect(vstore.getters['activities/icsUrlForCurrentPlace']).toEqual('/ics?place=1234&joined=true')
+      expect(vstore.getters['activities/icsUrlForCurrentPlace']).toEqual('/ics?place=1234&joined=true&token=yourSecretToken')
     })
   })
 

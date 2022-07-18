@@ -123,7 +123,7 @@ import ProfilePicture from '@/users/components/ProfilePicture'
 import KSpinner from '@/utils/components/KSpinner'
 import DateAsWords from '@/utils/components/DateAsWords'
 
-import { DEFAULT_STATUS, useOffersQuery } from '@/offers/queries'
+import { DEFAULT_STATUS, useOfferListQuery } from '@/offers/queries'
 
 import { useRouteParam } from '@/utils/mixins/bindRoute'
 import { useRoute } from 'vue-router'
@@ -155,7 +155,7 @@ const {
   hasNextPage,
   fetchNextPage,
   offers,
-} = useOffersQuery({ group, status })
+} = useOfferListQuery({ group, status })
 
 async function maybeFetchMore (index, done) {
   if (!isFetching.value && hasNextPage.value) await fetchNextPage()

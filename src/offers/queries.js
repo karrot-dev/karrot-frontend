@@ -46,7 +46,7 @@ export function useOffersUpdater () {
 export function useCurrentOfferQuery () {
   const route = useRoute()
   const id = computed(() => route.params.offerId && Number(route.params.offerId))
-  return useOfferQuery({ id })
+  return useOfferDetailQuery({ id })
 }
 
 /**
@@ -54,7 +54,7 @@ export function useCurrentOfferQuery () {
  *
  * Returns a query object with data also available "offer" key
  */
-export function useOfferQuery ({
+export function useOfferDetailQuery ({
   id,
 }) {
   const query = useQuery(
@@ -76,7 +76,7 @@ export function useOfferQuery ({
  *
  * Returns a paginated query object with additional "offers" item with flattened list of all offers
  */
-export function useOffersQuery ({
+export function useOfferListQuery ({
   group,
   status = 'active',
 }) {

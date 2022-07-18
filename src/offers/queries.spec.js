@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { useOfferQuery, useOffersQuery } from '@/offers/queries'
+import { useOfferDetailQuery, useOfferListQuery } from '@/offers/queries'
 import { flushPromises, mount } from '@vue/test-utils'
 import { VueQueryPlugin } from 'vue-query'
 import { createOffer, createMockOffersBackend } from '@/offers/api/offers.mock'
@@ -18,7 +18,7 @@ describe('offer queries', () => {
 
       const id = ref(null)
       const wrapper = mount({
-        setup: () => useOfferQuery({ id }),
+        setup: () => useOfferDetailQuery({ id }),
       }, {
         global: { plugins: [VueQueryPlugin] },
       })
@@ -61,7 +61,7 @@ describe('offer queries', () => {
       const group = ref(null)
       const status = ref('active')
       const wrapper = mount({
-        setup: () => useOffersQuery({ group, status }),
+        setup: () => useOfferListQuery({ group, status }),
       }, {
         global: { plugins: [VueQueryPlugin] },
       })

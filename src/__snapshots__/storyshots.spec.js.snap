@@ -10095,7 +10095,8 @@ exports[`Storyshots Profile member 1`] = `
         </div>
         <div class="q-item q-item-type row no-wrap" style="">
           <div class="q-item__section column q-item__section--side justify-center"><i class="q-icon fas fa-fw fa-envelope" style="" aria-hidden="true" role="presentation"> </i></div>
-          <div class="q-item__section column q-item__section--main justify-center ellipsis"><a href="mailto:foo@foo.com">foo@foo.com</a></div>
+          <div class="q-item__section column q-item__section--main justify-center ellipsis col-shrink"><a href="mailto:foo@foo.com">foo@foo.com</a></div>
+          <!--v-if-->
         </div>
         <div class="q-item q-item-type row no-wrap" style="">
           <div class="q-item__section column q-item__section--side justify-center"><i class="q-icon fas fa-fw fa-phone" style="" aria-hidden="true" role="presentation"> </i></div>
@@ -10232,7 +10233,8 @@ exports[`Storyshots Profile non-member 1`] = `
         </div>
         <div class="q-item q-item-type row no-wrap" style="">
           <div class="q-item__section column q-item__section--side justify-center"><i class="q-icon fas fa-fw fa-envelope" style="" aria-hidden="true" role="presentation"> </i></div>
-          <div class="q-item__section column q-item__section--main justify-center ellipsis"><a href="mailto:foo@foo.com">foo@foo.com</a></div>
+          <div class="q-item__section column q-item__section--main justify-center ellipsis col-shrink"><a href="mailto:foo@foo.com">foo@foo.com</a></div>
+          <!--v-if-->
         </div>
         <!--v-if-->
         <!--v-if-->

@@ -10,7 +10,7 @@
     @go-visit="groupId => $router.push({ name: 'group', params: { groupId } }).catch(() => {})"
     @go-settings="$router.push({ name: 'settings', hash: '#change-email' }).catch(() => {})"
     @go-signup="goSignup"
-    @go-apply="groupId => router.push({ name: 'applicationForm', params: { groupPreviewId: groupId } }).catch(() => {})"
+    @go-apply="groupId => $router.push({ name: 'applicationForm', params: { groupPreviewId: groupId } }).catch(() => {})"
   />
 </template>
 

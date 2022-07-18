@@ -120,12 +120,18 @@ export default {
 
     ...withMeta({
       async selectUser ({ commit, rootGetters }, { userId }) {
-        // TODO: we don't always have the group available here, e.g. if we're loading the page fresh...
-        const groupId = rootGetters['currentGroup/id']
+        // currentGroup/id might not be set (e.g. on fresh page load), auth/user has current group info we can use
+        const groupId = rootGetters['currentGroup/id'] || rootGetters['auth/user']?.currentGroup
+        if (!groupId) return await fetchUserInfo()
+
         try {
           commit('setProfile', await users.getProfile(groupId, userId))
         }
         catch (error) {
+          await fetchUserInfo()
+        }
+
+        async function fetchUserInfo () {
           try {
             commit('setProfile', { user: await users.getInfo(userId) })
           }

@@ -117,8 +117,14 @@
             <QItemSection side>
               <QIcon name="fas fa-fw fa-envelope" />
             </QItemSection>
-            <QItemSection class="ellipsis">
+            <QItemSection class="ellipsis col-shrink">
               <a :href="mailto(user.email)">{{ user.email }}</a>
+            </QItemSection>
+            <QItemSection v-if="user.isCurrentUser">
+              <QToggle
+                v-model="isEmailVisible"
+                label="visible to other group members"
+              />
             </QItemSection>
           </QItem>
 
@@ -226,6 +232,7 @@ import {
   QItemSection,
   QDialog,
   QIcon,
+  QToggle,
 } from 'quasar'
 
 export default {
@@ -247,6 +254,7 @@ export default {
     QItemSection,
     QDialog,
     QIcon,
+    QToggle,
   },
   data () {
     return {
@@ -256,6 +264,7 @@ export default {
   computed: {
     ...mapGetters({
       user: 'users/activeUser',
+      profile: 'users/activeProfile',
       currentGroup: 'currentGroup/value',
       history: 'history/byCurrentGroupAndUser',
       historyStatus: 'history/fetchStatus',
@@ -293,6 +302,14 @@ export default {
       }
       return []
     },
+    isEmailVisible: {
+      get () {
+        return this.profile.isEmailVisible
+      },
+      async set (val) {
+        await this.updateMembership({ isEmailVisible: val })
+      },
+    },
   },
   watch: {
     showConflictSetup (val) {
@@ -308,6 +325,7 @@ export default {
       selectGroup: 'currentGroup/select',
       startConflictResolution: 'issues/create',
       clearIssueMeta: 'issues/meta/clear',
+      updateMembership: 'currentGroup/updateMembership',
     }),
     mailto (email) {
       return `mailto:${email}`

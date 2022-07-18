@@ -64,7 +64,10 @@ export default {
         groups,
       }
     },
-    activeUserId: state => state.activeUserProfile && state.activeUserProfile.id,
+    activeProfile: (state) => {
+      return state.activeUserProfile
+    },
+    activeUserId: state => state.activeUserProfile?.user?.id,
     ...metaStatuses(['signup', 'requestResetPassword', 'resetPassword', 'resendVerificationCode', 'requestDeleteAccount', 'fetch']),
     resendVerificationCodeSuccess: state => state.resendVerificationCodeSuccess,
   },
@@ -172,11 +175,11 @@ export default {
         dispatch('fetch')
       }
       if (state.activeUserProfile) {
-        dispatch('refreshProfile', state.activeUserProfile)
+        dispatch('refreshProfile', state.activeUserProfile.user.id)
       }
     },
-    async refreshProfile ({ getters, commit, rootGetters }, user) {
-      if (!user || !getters.activeUserId || user.id !== getters.activeUserId) return
+    async refreshProfile ({ getters, commit, rootGetters }, userId) {
+      if (!userId || !getters.activeUserId || userId !== getters.activeUserId) return
 
       const groupId = rootGetters['currentGroup/id']
       // TODO catch error if profile is info-only

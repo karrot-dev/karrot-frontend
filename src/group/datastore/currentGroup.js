@@ -105,6 +105,13 @@ export default {
         }
       },
 
+      async updateMembership ({ commit, dispatch, state, rootGetters }, { isEmailVisible }) {
+        const groupId = state.id
+        const userId = rootGetters['auth/userId']
+        await groups.updateMembership(groupId, { isEmailVisible })
+        dispatch('users/refreshProfile', userId, { root: true })
+      },
+
     }),
 
     ...withMeta({

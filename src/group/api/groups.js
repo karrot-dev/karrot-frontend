@@ -59,6 +59,10 @@ export default {
     return convertConversation((await axios.get(`/api/groups/${groupId}/conversation/`)).data)
   },
 
+  async updateMembership (groupId, { isEmailVisible }) {
+    return (await axios.put(`/api/groups/${groupId}/membership/`, { isEmailVisible })).data
+  },
+
   throttledMarkUserActive,
 
   addNotificationType (groupId, notificationType) {

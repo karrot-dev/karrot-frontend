@@ -253,7 +253,7 @@ export default async function ({ store: datastore }) {
       const user = camelizeKeys(payload)
       datastore.commit('auth/setUser', user)
       datastore.commit('users/update', [user])
-      datastore.dispatch('users/refreshProfile', user)
+      datastore.dispatch('users/refreshProfile', user.id)
     }
     else if (topic === 'auth:logout') {
       datastore.dispatch('auth/refresh')
@@ -261,7 +261,7 @@ export default async function ({ store: datastore }) {
     else if (topic === 'users:user') {
       const user = camelizeKeys(payload)
       datastore.commit('users/update', [user])
-      datastore.dispatch('users/refreshProfile', user)
+      datastore.dispatch('users/refreshProfile', user.id)
     }
     else if (topic === 'history:history') {
       datastore.commit('history/update', [convertHistory(camelizeKeys(payload))])

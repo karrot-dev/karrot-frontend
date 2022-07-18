@@ -110,13 +110,15 @@ describe('users', () => {
 
   it('can select user profile', async () => {
     const user1Profile = {
-      ...user1,
-      groups: [1],
+      user: {
+        ...user1,
+        groups: [1],
+      },
     }
     mockGetProfile.mockReturnValueOnce(user1Profile)
     await datastore.dispatch('users/selectUser', { userId: user1.id })
     datastore.commit('users/update', [{ ...user1, displayName: 'asdf' }])
-    expect(datastore.getters['users/activeUser']).toEqual(enrich(user1Profile, groups, userId))
+    expect(datastore.getters['users/activeUser']).toEqual(enrich(user1Profile.user, groups, userId))
     expect(history.actions.fetch.mock.calls[0][1]).toEqual({ userId: 1, groupId: 1 })
   })
 

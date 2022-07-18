@@ -57,12 +57,8 @@ export default {
           }
         }
         else if (item.type === 'activeOffer') {
-          const offer = rootGetters['currentOffer/value']
-          if (offer) {
-            return {
-              name: offer.name,
-            }
-          }
+          // This is now handled in the breadcrumbs component as we need to use setup() function
+          return item
         }
         else if (item.translation) {
           return { ...item, name: i18n.t(item.translation) }

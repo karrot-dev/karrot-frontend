@@ -1,6 +1,7 @@
 <template>
   <div>
     <QTable
+      v-measure
       :title="$t('STATISTICS.ACTIVITY_HISTORY')"
       flat
       square
@@ -8,7 +9,6 @@
       :columns="columns"
       :rows="enrichedDataWithTotals"
       row-key="id"
-      v-measure
       hide-pagination
       :rows-per-page-options="[0]"
     >

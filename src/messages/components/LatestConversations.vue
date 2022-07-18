@@ -118,7 +118,7 @@ export default {
         case 'issue': return this.$router.push({ name: 'issueChat', params: { groupId: target.group.id, issueId: target.id } }).catch(() => {})
         case 'offer': return this.$router.push({
           name: 'offerDetail',
-          params: { groupId: target.group.id, offerId: target.id },
+          params: { groupId: target.group, offerId: target.id },
           query: this.$route.query,
         }).catch(() => {})
       }

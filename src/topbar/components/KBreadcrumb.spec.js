@@ -1,6 +1,7 @@
 import KBreadcrumb from './KBreadcrumb'
 import { RouterLinkStub } from '@vue/test-utils'
 import { mountWithDefaults } from '>/helpers'
+import '>/routerMocks' // sets up the mock router
 
 describe('KBreadcrumb', () => {
   beforeEach(() => jest.resetModules())

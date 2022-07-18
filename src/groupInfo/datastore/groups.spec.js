@@ -12,13 +12,7 @@ jest.mock('@/groupInfo/api/groupsInfo', () => ({
   list: mockFetchGroupsPreview,
 }))
 
-const routerMocks = require('>/routerMocks').default
-const mockRouterPush = jest.fn(routerMocks.$router.push)
-const mockRouterReplace = jest.fn(routerMocks.$router.replace)
-jest.mock('@/router', () => ({
-  push: mockRouterPush,
-  replace: mockRouterReplace,
-}))
+import { router } from '>/routerMocks'
 
 import { createDatastore, createValidationError, throws, statusMocks } from '>/helpers'
 import { enrichGroup } from '>/datastoreHelpers'
@@ -131,7 +125,7 @@ describe('groups', () => {
       mockJoin.mockReturnValueOnce({})
       expect(datastore.getters['groups/mineWithApplications'].map(e => e.id)).toEqual([group2.id, group3.id])
       await datastore.dispatch('groups/join', group1.id)
-      expect(mockRouterPush).toBeCalledWith({ name: 'group', params: { groupId: group1.id } })
+      expect(router.push).toBeCalledWith({ name: 'group', params: { groupId: group1.id } })
       expect(mockJoin).toBeCalledWith(group1.id)
     })
 

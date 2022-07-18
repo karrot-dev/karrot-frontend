@@ -57,7 +57,7 @@ export function mapErrors (config) {
       }
       const vuelidate = this.v$.edit[property]
       if (vuelidate === undefined || !vuelidate.$error) return checkServerErrors()
-      const ruleWithError = rules.find(([ruleName]) => !vuelidate[ruleName])
+      const ruleWithError = rules.find(([ruleName]) => vuelidate[ruleName].$invalid)
       if (!ruleWithError) return checkServerErrors()
       const [, i18nKey, i18nParams] = ruleWithError
       return {

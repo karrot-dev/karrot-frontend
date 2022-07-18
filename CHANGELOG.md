@@ -22,6 +22,7 @@ Please document your changes in this format:
 
 ## [Unreleased]
 ### Added
+- switch to vue-query for offers @nicksellen #2560
 - password-less ICS subscription links, to support Google Calender #2555 @tiltec
 - Korean and Greek translations
 

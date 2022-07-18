@@ -274,7 +274,6 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
           ],
-          afterLeave: 'offers/clear',
         },
         components: {
           default: GroupOffers,

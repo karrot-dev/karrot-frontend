@@ -13,15 +13,15 @@
         dense
       />
     </div>
-    <KSpinner v-show="fetching" />
+    <KSpinner v-show="isLoading" />
     <QInfiniteScroll
       ref="infiniteScroll"
-      :disable="!canFetchMore"
+      :disable="!hasNextPage"
       @load="maybeFetchMore"
     >
       <div class="row">
         <div
-          v-if="status === 'active' && !fetching"
+          v-if="status === 'active' && !isLoading"
           class="col-md-4 col-6 new-offer"
         >
           <QCard>
@@ -78,7 +78,7 @@
               <QItem clickable>
                 <QItemSection avatar>
                   <ProfilePicture
-                    :user="offer.user"
+                    :user="getUserRef(offer.user).value"
                     :size="36"
                   />
                 </QItemSection>
@@ -102,86 +102,74 @@
   </div>
 </template>
 
-<script>
-import { mapActions, mapGetters } from 'vuex'
-import { QIcon, QSelect, QCard, QItem, QItemSection, QItemLabel, QImg, QInfiniteScroll } from 'quasar'
+<script setup>
+// For some reason need *some* vue import or get this error:
+//   ReferenceError: _vue is not defined
+// eslint-disable-next-line no-unused-vars
+import { ref } from 'vue'
+
+import {
+  QIcon,
+  QSelect,
+  QCard,
+  QItem,
+  QItemSection,
+  QItemLabel,
+  QImg,
+  QInfiniteScroll,
+} from 'quasar'
+
 import ProfilePicture from '@/users/components/ProfilePicture'
 import KSpinner from '@/utils/components/KSpinner'
-import bindRoute from '@/utils/mixins/bindRoute'
-import { DEFAULT_STATUS } from '@/offers/datastore/offers'
 import DateAsWords from '@/utils/components/DateAsWords'
 
-export default {
-  components: {
-    DateAsWords,
-    ProfilePicture,
-    KSpinner,
-    QIcon,
-    QSelect,
-    QCard,
-    QItem,
-    QItemSection,
-    QItemLabel,
-    QImg,
-    QInfiniteScroll,
+import { DEFAULT_STATUS, useOffersQuery } from '@/offers/queries'
+
+import { useRouteParam } from '@/utils/mixins/bindRoute'
+import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+import { useUsers } from '@/users/queries'
+import { useCurrentGroupIdRef } from '@/group/queries'
+
+const { t } = useI18n()
+
+const statusOptions = [
+  {
+    label: t('OFFER.FILTER.STATUS.ACTIVE'),
+    value: 'active',
   },
-  mixins: [
-    bindRoute({
-      status: DEFAULT_STATUS,
-    }),
-  ],
-  data () {
-    return {
-      statusOptions: [
-        {
-          label: this.$t('OFFER.FILTER.STATUS.ACTIVE'),
-          value: 'active',
-        },
-        {
-          label: this.$t('OFFER.FILTER.STATUS.ARCHIVED'),
-          value: 'archived',
-        },
-      ],
-    }
+  {
+    label: t('OFFER.FILTER.STATUS.ARCHIVED'),
+    value: 'archived',
   },
-  computed: {
-    ...mapGetters({
-      offers: 'offers/all',
-      fetching: 'offers/fetching',
-      fetchingMore: 'offers/fetchingMore',
-      canFetchMore: 'offers/canFetchMore',
-    }),
-  },
-  watch: {
-    status: {
-      immediate: true,
-      handler (status) {
-        this.fetchList({ status })
-      },
-    },
-  },
-  methods: {
-    ...mapActions({
-      fetchList: 'offers/fetchList',
-      fetchMore: 'offers/fetchMore',
-    }),
-    async maybeFetchMore (index, done) {
-      if (
-        !this.fetching &&
-        !this.fetchingMore &&
-        this.canFetchMore
-      ) {
-        await this.fetchMore()
-      }
-      done()
-    },
-    detailRouteFor (offerId) {
-      return {
-        name: 'offerDetail',
-        params: { offerId },
-        query: this.$route.query,
-      }
-    },
-  },
+]
+
+const group = useCurrentGroupIdRef()
+const status = useRouteParam('status', DEFAULT_STATUS)
+
+const { getUserRef } = useUsers()
+
+const {
+  isLoading,
+  isFetching,
+  hasNextPage,
+  fetchNextPage,
+  offers,
+} = useOffersQuery({ group, status })
+
+async function maybeFetchMore (index, done) {
+  if (!isFetching.value && hasNextPage.value) await fetchNextPage()
+  done(!hasNextPage.value)
 }
+
+const route = useRoute()
+
+function detailRouteFor (offerId) {
+  return {
+    name: 'offerDetail',
+    params: { offerId },
+    query: route.query,
+  }
+}
+
 </script>

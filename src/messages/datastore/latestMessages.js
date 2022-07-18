@@ -77,13 +77,7 @@ export default {
     fetchingPastThreads: (state, getters) => getters['meta/status']('fetchPastThreads').pending,
     fetchInitialPending: (state, getters) => getters['meta/status']('fetchInitial').pending,
     getRelated: (state, getters, rootState, rootGetters) => (type, id) => {
-      const related = state.related[type] && state.related[type][id]
-      if (!related) return
-      switch (type) {
-        case 'offer': return rootGetters['offers/enrich'](related)
-        default:
-          return related
-      }
+      return state.related[type] && state.related[type][id]
     },
   },
   actions: {

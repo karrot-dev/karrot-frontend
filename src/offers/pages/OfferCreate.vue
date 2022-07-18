@@ -1,17 +1,18 @@
 <template>
   <OfferForm
-    :status="$store.getters['offers/createStatus']"
-    @save="data => $store.dispatch('offers/create', data)"
-    @reset="$store.dispatch('offers/meta/clear', ['create'])"
+    :status="status"
+    @save="data => mutate(data)"
+    @reset="() => reset()"
   />
 </template>
 
-<script>
+<script setup>
 import OfferForm from '@/offers/components/OfferForm'
+import { useCreateOfferMutation } from '@/offers/mutations'
 
-export default {
-  components: {
-    OfferForm,
-  },
-}
+const {
+  mutate,
+  reset,
+  status,
+} = useCreateOfferMutation()
 </script>

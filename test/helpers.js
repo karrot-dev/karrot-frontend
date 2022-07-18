@@ -1,9 +1,10 @@
 import { nextTick } from 'vue'
 import { mount, RouterLinkStub } from '@vue/test-utils'
+import { VueQueryPlugin } from 'vue-query'
 import deepmerge from 'deepmerge'
 import i18n, { i18nPlugin } from '@/base/i18n'
-import routerMocks from '>/routerMocks'
 import { createStore } from 'vuex'
+import { isArray, mergeWith } from 'lodash'
 
 const desktopUserAgent = 'Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0'
 const mobileUserAgent = 'Mozilla/5.0 (Android 9; Mobile; rv:68.0) Gecko/68.0 Firefox/68.0'
@@ -71,55 +72,53 @@ export function makefindAllComponentsIterable (wrapper) {
   return wrapper
 }
 
-export function mountWithDefaults (Component, options = {}) {
-  i18n.locale = 'en'
-
+export function withDefaults (options = {}) {
   // jest.resetModules() can only provide isolation when we require() a module
   // We want a fresh Quasar for every test
   const Quasar = require('quasar').Quasar
   const quasarConfig = require('>/quasarConfig').default
-
-  // TODO remove?
-  const ssrContextMock = {
-    req: {
-      headers: {},
-    },
-    res: {
-      setHeader: () => undefined,
-    },
-    url: '',
-  }
-
-  const globalOptions = options.global || {}
-
-  const mergedOptions = {
-    ...options,
+  // For some reason StandardMap.spec.js fails if propsData comes after global
+  const { propsData } = options
+  delete options.propsData
+  const defaults = {
+    propsData,
     global: {
       config: {
         // TODO: should be able to remove this with vue v3.3.x
         unwrapInjectedRef: true,
       },
       plugins: [
-        [Quasar, quasarConfig, ssrContextMock],
+        [Quasar, quasarConfig],
+        VueQueryPlugin,
         i18nPlugin,
-        ...(globalOptions.plugins || []),
       ],
       stubs: {
         RouterLink: RouterLinkStub,
-        ...(globalOptions.stubs || {}),
       },
       directives: {
         measure: {},
-        ...(globalOptions.directives || {}),
       },
       mocks: {
         $icon: () => '',
-        ...routerMocks,
-        ...(globalOptions.mocks || {}),
       },
-      ...globalOptions,
     },
   }
+  // Performs a deep merge
+  return mergeWith(
+    defaults,
+    options,
+    (objValue, srcValue) => {
+      if (isArray(objValue)) {
+        return objValue.concat(srcValue)
+      }
+    },
+  )
+}
+
+export function mountWithDefaults (Component, options = {}) {
+  i18n.locale = 'en'
+
+  const mergedOptions = withDefaults(options)
 
   if (options.datastore) mergedOptions.global.plugins.unshift(options.datastore)
 

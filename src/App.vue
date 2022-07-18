@@ -15,9 +15,17 @@
  */
 import LoadingProgress from '@/topbar/components/LoadingProgress'
 
+import { useClearDataOnLogout } from '@/utils/composables'
+import { useOffersUpdater } from '@/offers/queries'
+
 export default {
   components: {
     LoadingProgress,
+  },
+  setup () {
+    // Global kind of things can be registered here
+    useOffersUpdater()
+    useClearDataOnLogout()
   },
   computed: {
     hasView () {

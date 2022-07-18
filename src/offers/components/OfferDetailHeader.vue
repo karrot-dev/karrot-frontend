@@ -7,7 +7,7 @@
       <div>{{ offer.name }}</div>
     </QToolbarTitle>
     <QBtn
-      v-if="offer.canEdit"
+      v-if="canEdit"
       :to="{ name: 'offerEdit', params: { offerId: offer.id } }"
       flat
       round
@@ -28,8 +28,9 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import { QBtn, QToolbar, QToolbarTitle } from 'quasar'
+import { useCurrentOfferQuery } from '@/offers/queries'
+import { useCurrentUserIdRef } from '@/users/queries'
 
 export default {
   components: {
@@ -37,10 +38,17 @@ export default {
     QToolbar,
     QToolbarTitle,
   },
+  setup () {
+    const { offer } = useCurrentOfferQuery()
+    return {
+      offer,
+      currentUserId: useCurrentUserIdRef(),
+    }
+  },
   computed: {
-    ...mapGetters({
-      offer: 'currentOffer/value',
-    }),
+    canEdit () {
+      return this.offer.user === this.currentUserId
+    },
   },
   methods: {
     close () {

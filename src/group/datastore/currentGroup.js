@@ -1,5 +1,11 @@
 import groups from '@/group/api/groups'
-import { withMeta, createMetaModule, withPrefixedIdMeta, metaStatusesWithId, createRouteRedirect } from '@/utils/datastore/helpers'
+import {
+  createMetaModule,
+  createRouteRedirect,
+  metaStatusesWithId,
+  withMeta,
+  withPrefixedIdMeta,
+} from '@/utils/datastore/helpers'
 import { extend } from 'quasar'
 import i18n from '@/base/i18n'
 import { messages as loadMessages } from '@/locales/index'

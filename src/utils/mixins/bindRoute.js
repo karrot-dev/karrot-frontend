@@ -1,3 +1,6 @@
+import { computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+
 export default function bindRoute (params) {
   // from https://jsfiddle.net/Herteby/1z4qsjds/
   const mixin = {
@@ -28,4 +31,31 @@ export default function bindRoute (params) {
     }
   }
   return mixin
+}
+
+export function useRouteParam (name, defaultValue) {
+  const router = useRouter()
+  const route = useRoute()
+
+  return computed({
+    get () {
+      if (Object.prototype.hasOwnProperty.call(route.query, name)) {
+        return route.query[name]
+      }
+      else {
+        return defaultValue
+      }
+    },
+    set (val) {
+      if (val === defaultValue) {
+        // if value is same as the default, remove it from the query to keep the URL neat
+        const query = { ...route.query }
+        delete query[name]
+        router.replace({ query }).catch(() => {})
+      }
+      else {
+        router.replace({ query: { ...route.query, ...{ [name]: val } } }).catch(() => {})
+      }
+    },
+  })
 }

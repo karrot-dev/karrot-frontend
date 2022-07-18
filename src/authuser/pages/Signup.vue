@@ -2,7 +2,7 @@
   <Signup
     :status="$store.getters['auth/signupStatus']"
     :prefill-email="$store.getters['route/query'].email"
-    @submit="data => $store.dispatch('users/signup')"
+    @submit="data => $store.dispatch('users/signup', data)"
   />
 </template>
 

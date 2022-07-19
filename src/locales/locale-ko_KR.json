@@ -103,7 +103,9 @@
       "DOWNLOAD_BUTTON_LABEL": "ICS 다운로드",
       "SUBSCRIBE_TITLE": "구독",
       "SUBSCRIBE_TEXT": "다음 URL을 사용하여 ICS 캘린더로 구독하세요:",
-      "MORE_INFOS": "ICS에 대한 더 많은 정보"
+      "MORE_INFOS": "ICS에 대한 더 많은 정보",
+      "TOKEN_NOTICE": "Anyone who has the secret link can access. No sign-in required.",
+      "RESET_TOKEN": "Reset secret link"
     }
   },
   "ACTIVITYMANAGE": {

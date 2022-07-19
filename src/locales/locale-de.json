@@ -103,7 +103,9 @@
       "DOWNLOAD_BUTTON_LABEL": "ICS herunterladen",
       "SUBSCRIBE_TITLE": "Abonnieren",
       "SUBSCRIBE_TEXT": "Über diese URL ICS-Kalender importieren:",
-      "MORE_INFOS": "Mehr Infos zu ICS"
+      "MORE_INFOS": "Mehr Infos zu ICS",
+      "TOKEN_NOTICE": "Anyone who has the secret link can access. No sign-in required.",
+      "RESET_TOKEN": "Reset secret link"
     }
   },
   "ACTIVITYMANAGE": {

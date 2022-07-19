@@ -103,7 +103,9 @@
       "DOWNLOAD_BUTTON_LABEL": "Stáhnout ICS",
       "SUBSCRIBE_TITLE": "Přihlaste se k odběru",
       "SUBSCRIBE_TEXT": "Pomocí této adresy URL se můžete přihlásit k odběru jako kalendář ICS:",
-      "MORE_INFOS": "Více informací o ICS"
+      "MORE_INFOS": "Více informací o ICS",
+      "TOKEN_NOTICE": "Přístup má každý, kdo má tajný odkaz. Přihlášení není nutné.",
+      "RESET_TOKEN": "Obnovení tajného odkazu"
     }
   },
   "ACTIVITYMANAGE": {

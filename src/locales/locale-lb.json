@@ -103,7 +103,9 @@
       "DOWNLOAD_BUTTON_LABEL": "ICS eroflueden",
       "SUBSCRIBE_TITLE": "Abonéieren",
       "SUBSCRIBE_TEXT": "Benotz dës URL fir als ICS-Kalenner ze abonéieren",
-      "MORE_INFOS": "Méi Informatiounen iwwert ICS"
+      "MORE_INFOS": "Méi Informatiounen iwwert ICS",
+      "TOKEN_NOTICE": "Jidderee mam geheime Link huet Zougrëff. Keng Umeldung ass néideg.",
+      "RESET_TOKEN": "Zrécksetze vum geheime Link"
     }
   },
   "ACTIVITYMANAGE": {

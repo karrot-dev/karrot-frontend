@@ -5,7 +5,7 @@ import api from './api/offers'
 
 import { useRoute } from 'vue-router'
 import { useSocketEvents } from '@/utils/composables'
-import { extractCursor } from '@/utils/queryHelpers'
+import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
 import { isMutating } from '@/offers/mutations'
 
 export const QUERY_KEY_BASE = 'offers'
@@ -98,15 +98,8 @@ export function useOfferListQuery ({
     },
   )
 
-  // Flatten the pages, so we have a single offers array with all the results in
-  const offers = computed(() => {
-    const data = unref(query.data)
-    if (!data) return []
-    return data.pages.flat()
-  })
-
   return {
     ...query,
-    offers,
+    offers: flattenPaginatedData(query),
   }
 }

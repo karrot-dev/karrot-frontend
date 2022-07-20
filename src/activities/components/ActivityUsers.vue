@@ -109,6 +109,14 @@ export default {
       type: Number,
       default: 36,
     },
+    isJoining: {
+      type: Boolean,
+      default: false,
+    },
+    isLeaving: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: [
     'leave',
@@ -123,14 +131,6 @@ export default {
     ...mapGetters({
       currentUser: 'auth/user',
     }),
-    isJoining () {
-      // if request is in progress and user is not member yet (watches out for websocket updates!)
-      return this.activity.joinStatus.pending && !this.activity.isUserMember
-    },
-    isLeaving () {
-      // if request is in progress and user has not left yet
-      return this.activity.leaveStatus.pending && this.activity.isUserMember
-    },
     hasUnlimitedPlaces () {
       return this.activity.maxParticipants === null
     },

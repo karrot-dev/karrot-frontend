@@ -27,3 +27,12 @@ export function mutationToStatus (mutation) {
     networkError: isNetworkError(error),
   }
 }
+
+export function flattenPaginatedData (query) {
+  // Flatten the pages, so we have a single offers array with all the results in
+  return computed(() => {
+    const data = unref(query.data)
+    if (!data) return []
+    return data.pages.flat()
+  })
+}

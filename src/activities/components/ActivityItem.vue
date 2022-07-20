@@ -61,6 +61,8 @@
         <div class="q-mt-sm q-mb-none full-width">
           <ActivityUsers
             :activity="activity"
+            :is-joining="isJoining"
+            :is-leaving="isLeaving"
             @leave="leave"
             @join="join"
           />
@@ -89,7 +91,7 @@
                 color="primary"
                 data-autofocus
                 :label="$t('BUTTON.OF_COURSE')"
-                @click="$emit('join', activity.id)"
+                @click="joinActivity(activity.id)"
               />
             </template>
           </CustomDialog>
@@ -118,7 +120,7 @@
                 color="primary"
                 data-autofocus
                 :label="$t('BUTTON.YES')"
-                @click="$emit('leave', activity.id)"
+                @click="leaveActivity(activity.id)"
               />
             </template>
           </CustomDialog>
@@ -177,6 +179,7 @@ import ActivityUsers from './ActivityUsers'
 import CustomDialog from '@/utils/components/CustomDialog'
 import { absoluteURL } from '@/utils/absoluteURL'
 import Markdown from '@/utils/components/Markdown'
+import { useJoinActivityMutation, useLeaveActivityMutation } from '@/activities/mutations'
 
 export default {
   components: {
@@ -203,10 +206,24 @@ export default {
     },
   },
   emits: [
-    'join',
-    'leave',
     'detail',
   ],
+  setup () {
+    const {
+      mutate: joinActivity,
+      isLoading: isJoining,
+    } = useJoinActivityMutation()
+    const {
+      mutate: leaveActivity,
+      isLoading: isLeaving,
+    } = useLeaveActivityMutation()
+    return {
+      joinActivity,
+      isJoining,
+      leaveActivity,
+      isLeaving,
+    }
+  },
   data () {
     return {
       joinDialog: false,

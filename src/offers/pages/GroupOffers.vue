@@ -128,7 +128,7 @@ import { DEFAULT_STATUS, useOfferListQuery } from '@/offers/queries'
 import { useRouteParam } from '@/utils/mixins/bindRoute'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { useUsers } from '@/users/queries'
+import { useStoreUsers } from '@/users/queries'
 import { useCurrentGroupIdRef } from '@/group/queries'
 
 const { t } = useI18n()
@@ -147,7 +147,7 @@ const statusOptions = [
 const group = useCurrentGroupIdRef()
 const status = useRouteParam('status', DEFAULT_STATUS)
 
-const { getUserRef } = useUsers()
+const { getUserRef } = useStoreUsers()
 
 const {
   isLoading,

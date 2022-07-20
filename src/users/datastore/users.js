@@ -3,6 +3,7 @@ import authUser from '@/authuser/api/authUser'
 import auth from '@/authuser/api/auth'
 import { createRouteError, createMetaModule, withMeta, metaStatuses, indexById } from '@/utils/datastore/helpers'
 import router from '@/router'
+import { createInstrument } from '@/boot/performance'
 
 function initialState () {
   return {
@@ -13,6 +14,8 @@ function initialState () {
     resendVerificationCodeSuccess: false,
   }
 }
+
+const instrumentEnrich = createInstrument('enrich user')
 
 export default {
   namespaced: true,

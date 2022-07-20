@@ -2,6 +2,9 @@ import groups from '@/group/api/groups'
 import groupsInfo from '@/groupInfo/api/groupsInfo'
 import router from '@/router'
 import { indexById, withMeta, createMetaModule, metaStatusesWithId, metaStatuses, createRouteError } from '@/utils/datastore/helpers'
+import { createInstrument } from '@/boot/performance'
+
+const instrumentEnrich = createInstrument('enrich group')
 
 function initialState () {
   return {
@@ -18,7 +21,7 @@ export default {
     get: (state, getters, rootState, rootGetters) => groupId => {
       return getters.enrich(state.entries[groupId])
     },
-    enrich: (state, getters, rootState, rootGetters) => group => {
+    enrich: (state, getters, rootState, rootGetters) => instrumentEnrich(group => {
       if (!group) return
       const isCurrentGroup = group.id === rootGetters['currentGroup/id']
       const isPlayground = group.status === 'playground'
@@ -33,7 +36,7 @@ export default {
         hasPhoto: group.photoUrls && group.photoUrls.fullSize,
         ...metaStatusesWithId(getters, ['save', 'join', 'leave'], group.id),
       }
-    },
+    }),
     all: (state, getters, rootState, rootGetters) => {
       return Object.values(state.entries).map(getters.enrich)
     },

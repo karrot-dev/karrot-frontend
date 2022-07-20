@@ -10,6 +10,9 @@ import {
   toggles,
 } from '@/utils/datastore/helpers'
 import router from '@/router'
+import { createInstrument } from '@/boot/performance'
+
+const instrumentEnrich = createInstrument('enrich place')
 
 function initialState () {
   return {
@@ -48,7 +51,7 @@ export default {
     byCurrentGroup: (state, getters, rootState, rootGetters) => getters.filtered.filter(({ group }) => group && group.isCurrentGroup),
     byCurrentGroupArchived: (state, getters, rootState, rootGetters) => getters.archived.filter(({ group }) => group && group.isCurrentGroup),
     get: (state, getters) => id => getters.enrich(state.entries[id]),
-    enrich: (state, getters, rootState, rootGetters) => place => {
+    enrich: (state, getters, rootState, rootGetters) => instrumentEnrich(place => {
       return place && {
         ...place,
         ...metaStatusesWithId(getters, ['save'], place.id),
@@ -57,7 +60,7 @@ export default {
         statistics: state.statistics[place.id],
         isActivePlace: place.id === state.activePlaceId,
       }
-    },
+    }),
     activePlace: (state, getters) => getters.get(state.activePlaceId),
     activePlaceId: state => state.activePlaceId,
     activePlaceSubscribers: (state, getters, rootState, rootGetters) => {

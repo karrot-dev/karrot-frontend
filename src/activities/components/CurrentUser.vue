@@ -11,6 +11,16 @@
       :is-link="false"
     />
     <div
+      v-if="isLeaving"
+      class="absolute-full vertical-top"
+    >
+      <QSpinner
+        :size="size - 4"
+        color="white"
+      />
+    </div>
+    <div
+      v-else
       class="absolute-full leave-icon vertical-top"
       :style="{ 'font-size': size*0.8 + 'px' }"
       :title="$t('ACTIVITYLIST.ITEM.LEAVE')"
@@ -25,10 +35,12 @@
 </template>
 
 <script>
+import { QSpinner } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
 
 export default {
   components: {
+    QSpinner,
     ProfilePicture,
   },
   props: {
@@ -40,9 +52,9 @@ export default {
       type: Object,
       required: true,
     },
-    activity: {
-      type: Object,
-      required: true,
+    isLeaving: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: [

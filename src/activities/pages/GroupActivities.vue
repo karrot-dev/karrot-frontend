@@ -82,8 +82,7 @@ export default {
     })
 
     const { getEnrichedPlace } = useStorePlaces()
-    // eslint-disable-next-line no-unused-vars
-    const { getUser, getEnrichedUser } = useStoreUsers()
+    const { getEnrichedUser } = useStoreUsers()
     const userId = useCurrentUserIdRef()
 
     const store = useStore()
@@ -114,9 +113,9 @@ export default {
           activityType: getEnrichedActivityType(activity.activityType),
           place: getEnrichedPlace(activity.place),
           // TODO: do we need enriched users here or not?
-          feedbackGivenBy: activity.feedbackGivenBy.map(getUser),
-          feedbackDismissedBy: activity.feedbackDismissedBy.map(getUser),
-          participants: activity.participants.map(getUser),
+          feedbackGivenBy: activity.feedbackGivenBy.map(getEnrichedUser),
+          feedbackDismissedBy: activity.feedbackDismissedBy.map(getEnrichedUser),
+          participants: activity.participants.map(getEnrichedUser),
         }
       })
     })

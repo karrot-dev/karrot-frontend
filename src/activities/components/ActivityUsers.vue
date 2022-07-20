@@ -16,20 +16,11 @@
         v-if="user.isCurrentUser && !activity.hasStarted"
       >
         <CurrentUser
-          v-if="!isLeaving"
           :size="size"
           :user="currentUser"
-          :activity="activity"
+          :is-leaving="isLeaving"
           @leave="$emit('leave')"
         />
-        <div
-          v-else
-          class="emptySlots"
-          style="border-color: black"
-          :style="{ width: size + 'px', height: size + 'px' }"
-        >
-          <QSpinner :size="size - 4" />
-        </div>
       </template>
       <template v-else>
         <div
@@ -44,14 +35,12 @@
       </template>
     </div>
 
-    <div
+    <EmptySlot
       v-if="isJoining && !activity.isUserMember"
-      class="emptySlots"
       style="border-color: black"
-      :style="{ width: size + 'px', height: size + 'px' }"
-    >
-      <QSpinner :size="size - 4" />
-    </div>
+      :is-loading="true"
+      :size="size"
+    />
 
     <UserSlot
       v-if="canJoin"
@@ -87,7 +76,6 @@ import EmptySlot from './EmptySlot'
 import CurrentUser from './CurrentUser'
 import { mapGetters } from 'vuex'
 import {
-  QSpinner,
   QResizeObserver,
 } from 'quasar'
 
@@ -97,7 +85,6 @@ export default {
     UserSlot,
     EmptySlot,
     CurrentUser,
-    QSpinner,
     QResizeObserver,
   },
   props: {
@@ -125,6 +112,7 @@ export default {
   data () {
     return {
       slotsPerRow: 6,
+      // isJoining: true,
     }
   },
   computed: {
@@ -183,7 +171,7 @@ export default {
 @use 'sass:color'
 
 .pic-wrapper
-  margin-right: 3px
+  margin-right: 3.8px
 
 .newcomer-box
   position: absolute

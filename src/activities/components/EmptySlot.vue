@@ -3,15 +3,29 @@
     class="user-slot-wrapper greyedOut"
     :style="{ width: size + 'px', height: size + 'px' }"
     @click.stop
-  />
+  >
+    <QSpinner
+      v-if="isLoading"
+      :size="size - 4"
+    />
+  </div>
 </template>
 
 <script>
+import { QSpinner } from 'quasar'
+
 export default {
+  components: {
+    QSpinner,
+  },
   props: {
     size: {
       type: Number,
       default: 20,
+    },
+    isLoading: {
+      type: Boolean,
+      default: false,
     },
   },
 }

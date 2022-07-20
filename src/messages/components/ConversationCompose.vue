@@ -169,7 +169,7 @@ export default {
     },
     // TODO: consider if we keep this, or pass it down with props
     ...mapGetters({
-      users: 'users/byCurrentGroup',
+      users: 'users/byCurrentGroupConversationCompose',
     }),
     hasExistingContent () {
       if (!this.value) return false

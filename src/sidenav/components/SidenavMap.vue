@@ -1,7 +1,7 @@
 <template>
   <SidenavMapUI
     :places="$store.getters['places/byCurrentGroup']"
-    :users="$store.getters['users/byCurrentGroup']"
+    :users="$store.getters['users/byCurrentGroupSidenavMap']"
     :show-places="$store.getters['sidenavBoxes/toggle/placesOnMap']"
     :show-users="$store.getters['sidenavBoxes/toggle/usersOnMap']"
     :selected-place="$store.getters['places/activePlace']"

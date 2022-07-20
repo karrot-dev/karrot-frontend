@@ -15,7 +15,11 @@ export default {
   },
 
   async list () {
-    return (await axios.get('/api/users/')).data
+    const users = (await axios.get('/api/users/')).data
+    return users
+    // const fewerUsers = users.slice(0, 30)
+    // console.log('returning fewer users', fewerUsers)
+    // return fewerUsers
   },
 
   async search (query) {

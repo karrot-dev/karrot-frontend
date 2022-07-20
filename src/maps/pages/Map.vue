@@ -34,7 +34,7 @@ export default {
   computed: {
     ...mapGetters({
       places: 'places/byCurrentGroup',
-      users: 'users/byCurrentGroup',
+      users: 'users/byCurrentGroupMap',
       groups: 'groups/all',
       currentGroup: 'currentGroup/value',
       isEditor: 'currentGroup/isEditor',

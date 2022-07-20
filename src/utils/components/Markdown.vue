@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      users: 'users/byCurrentGroup',
+      users: 'users/byCurrentGroupMarkdown',
     }),
     markdownEnv () {
       if (this.mentions && this.users) {

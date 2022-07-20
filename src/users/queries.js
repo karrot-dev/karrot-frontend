@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+import { computed, unref } from 'vue'
 import { useStore } from 'vuex'
 
 export function useCurrentUserIdRef () {
@@ -6,9 +6,12 @@ export function useCurrentUserIdRef () {
   return computed(() => store.getters['auth/userId'])
 }
 
-export function useUsers () {
+export function useStoreUsers () {
   const store = useStore()
   return {
-    getUserRef: id => computed(() => store.getters['users/get'](id)),
+    getUser: id => store.state.users.entries[unref(id)],
+    getEnrichedUser: id => store.getters['users/get'](unref(id)),
+    getUserRef: id => computed(() => store.getters['users/get'](unref(id))),
+    // getUserRef: id => computed(() => store.state.users.entries[unref(id)]),
   }
 }

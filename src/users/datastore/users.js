@@ -22,18 +22,25 @@ export default {
   modules: { meta: createMetaModule() },
   state: initialState(),
   getters: {
-    get: (state, getters, rootState, rootGetters) => userId => {
+    getPlain: (state, getters, rootState, rootGetters) => userId => {
       const user = state.entries[userId] || state.infoEntries[userId]
       if (!user) {
         return {
           id: userId,
           isCurrentUser: false,
           displayName: '?',
+          _unknown: true,
         }
       }
-      return getters.enrich(user)
+      return user
     },
-    enrich: (state, getters, rootState, rootGetters) => user => {
+    get: (state, getters, rootState, rootGetters) => userId => {
+      const user = getters.getPlain(userId)
+      return user._unknown ? user : getters.enrich(user)
+    },
+    enrich: (state, getters, rootState, rootGetters) => instrumentEnrich(user => {
+      if (user._unknown) return user
+      // console.log('enriching user', user.id)
       const authUserId = rootGetters['auth/userId']
       const membership = rootGetters['currentGroup/memberships'][user.id]
 
@@ -43,15 +50,42 @@ export default {
         displayName: user.displayName === '' ? '?' : user.displayName,
         membership,
       }
-    },
+    }),
     all: (state, getters, rootState, rootGetters) => {
       return [
         ...Object.values(state.entries),
         ...Object.values(state.infoEntries).filter(u => !state.entries[u.id]),
       ].map(getters.enrich)
     },
-    byCurrentGroup: (state, getters, rootState, rootGetters) => {
-      return getters.all.filter(u => u.membership)
+    byCurrentGroupSidenavMap: (state, getters) => {
+      console.log('byCurrentGroupSidenavMap')
+      return getters.byCurrentGroupPlain
+    },
+    byCurrentGroupConversationCompose: () => {
+      console.log('byCurrentGroupConversationCompose')
+      return []
+    },
+    byCurrentGroupMarkdown: (state, getters) => {
+      console.log('byCurrentGroupMarkdown')
+      return getters.byCurrentGroupPlain
+    },
+    byCurrentGroupMap: () => {
+      console.log('byCurrentGroupMap')
+      return []
+    },
+    byCurrentGroupREF: () => {
+      console.log('byCurrentGroupREF')
+      return []
+    },
+    byCurrentGroupPlain: (state, getters, rootState, rootGetters) => {
+      const userIds = Object.keys(rootState.currentGroup.current.memberships)
+      console.log('by current group plain')
+      return userIds.map(id => getters.getPlain(id))
+      // console.log('byCurrentGroup')
+      // return getters.all.filter(u => u.membership)
+    },
+    byCurrentGroup: (state, getters) => {
+      return getters.byCurrentGroup.map(getters.enrich)
     },
     activeUser: (state, getters, rootState, rootGetters) => {
       if (!state.activeUserProfile) return

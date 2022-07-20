@@ -14,6 +14,7 @@ export default {
     open: state => state.open,
     terms: state => state.terms || '',
     results: (state, getters, rootState, rootGetters) => {
+      console.log('search results getter')
       const places = rootGetters['places/all'],
         groups = rootGetters['groups/all'],
         users = rootGetters['users/all']

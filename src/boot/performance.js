@@ -201,6 +201,7 @@ setInterval(() => {
 }, 1000)
 
 export function createInstrument (name) {
+  if (!SHOW_PERFORMANCE_INFO) return fn => fn
   let ms = 0
   let prevMs = 0
 

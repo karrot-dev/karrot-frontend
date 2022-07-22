@@ -1,5 +1,3 @@
-import { VueQueryPlugin } from 'vue-query'
-
 export default ({ app, store }) => {
-  app.use(VueQueryPlugin)
+  // TODO: I guess can remove this file, or do something anyway... have to load it initial data boot file to customize stuff...
 }

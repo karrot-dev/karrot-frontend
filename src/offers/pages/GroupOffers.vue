@@ -129,7 +129,7 @@ import { useRouteParam } from '@/utils/mixins/bindRoute'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useStoreUsers } from '@/users/queries'
-import { useCurrentGroupIdRef } from '@/group/queries'
+import { useCurrentGroupService } from '@/group/services'
 
 const { t } = useI18n()
 
@@ -144,7 +144,8 @@ const statusOptions = [
   },
 ]
 
-const group = useCurrentGroupIdRef()
+const { groupId } = useCurrentGroupService()
+
 const status = useRouteParam('status', DEFAULT_STATUS)
 
 const { getUserRef } = useStoreUsers()
@@ -155,7 +156,7 @@ const {
   hasNextPage,
   fetchNextPage,
   offers,
-} = useOfferListQuery({ group, status })
+} = useOfferListQuery({ groupId, status })
 
 async function maybeFetchMore (index, done) {
   if (!isFetching.value && hasNextPage.value) await fetchNextPage()

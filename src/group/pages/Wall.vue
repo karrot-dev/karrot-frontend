@@ -45,6 +45,8 @@ import WallConversation from '@/messages/components/WallConversation'
 import KSpinner from '@/utils/components/KSpinner'
 
 import { mapGetters, mapActions } from 'vuex'
+import { useI18nService } from '@/base/services'
+import { useAuthService } from '@/authuser/services'
 
 export default {
   components: {
@@ -54,6 +56,10 @@ export default {
     FeedbackNotice,
     KSpinner,
   },
+  setup () {
+    const { user } = useAuthService()
+    return { user }
+  },
   computed: {
     ...mapGetters({
       joinedActivities: 'activities/joined',
@@ -62,7 +68,6 @@ export default {
       feedbackPossible: 'activities/feedbackPossibleByCurrentGroup',
       feedbackPossibleStatus: 'activities/fetchFeedbackPossibleStatus',
       conversation: 'currentGroup/conversation',
-      user: 'auth/user',
     }),
   },
   methods: {

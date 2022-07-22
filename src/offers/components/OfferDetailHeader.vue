@@ -30,7 +30,7 @@
 <script>
 import { QBtn, QToolbar, QToolbarTitle } from 'quasar'
 import { useCurrentOfferQuery } from '@/offers/queries'
-import { useCurrentUserIdRef } from '@/users/queries'
+import { useAuthService } from '@/authuser/services'
 
 export default {
   components: {
@@ -40,9 +40,10 @@ export default {
   },
   setup () {
     const { offer } = useCurrentOfferQuery()
+    const { id: currentUserId } = useAuthService()
     return {
       offer,
-      currentUserId: useCurrentUserIdRef(),
+      currentUserId,
     }
   },
   computed: {

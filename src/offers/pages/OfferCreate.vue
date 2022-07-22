@@ -9,10 +9,12 @@
 <script setup>
 import OfferForm from '@/offers/components/OfferForm'
 import { useCreateOfferMutation } from '@/offers/mutations'
+import { useCurrentGroupService } from '@/group/services'
 
+const { groupId } = useCurrentGroupService()
 const {
   mutate,
   reset,
   status,
-} = useCreateOfferMutation()
+} = useCreateOfferMutation({ groupId })
 </script>

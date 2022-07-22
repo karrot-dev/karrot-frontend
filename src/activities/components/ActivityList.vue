@@ -229,39 +229,29 @@
         </template>
       </QBanner>
     </div>
-    <QInfiniteScroll
-      v-if="!pending"
-      :disable="numDisplayed > filteredActivities.length"
-      :offset="100"
-      @load="displayMoreActivities"
+    <template
+      v-for="(day, index) in displayedActivitiesGroupedByDate"
     >
-      <template
-        v-for="(day, index) in displayedActivitiesGroupedByDate"
+      <div
+        v-if="!dense"
+        :key="`day-${index}`"
+        class="q-px-sm q-pt-lg full-width text-center text-bold"
+        style="color: rgba(0, 0, 0, 0.7);"
       >
-        <div
-          v-if="!dense"
-          :key="`day-${index}`"
-          class="q-px-sm q-pt-lg full-width text-center text-bold"
-          style="color: rgba(0, 0, 0, 0.7);"
-        >
-          {{ day.date }}
-        </div>
-        <ActivityItem
-          v-for="activity in day.activities"
-          :key="activity.id"
-          v-measure
-          :dense="dense"
-          :activity="activity"
-          :place-link="placeLink"
-          @join="(...args) => $emit('join', ...args)"
-          @leave="(...args) => $emit('leave', ...args)"
-          @detail="(...args) => $emit('detail', ...args)"
-        />
-      </template>
-      <template #loading>
-        <KSpinner />
-      </template>
-    </QInfiniteScroll>
+        {{ day.date }}
+      </div>
+      <ActivityItem
+        v-for="activity in day.activities"
+        :key="activity.id"
+        v-measure
+        :dense="dense"
+        :activity="activity"
+        :place-link="placeLink"
+        @join="(...args) => $emit('join', ...args)"
+        @leave="(...args) => $emit('leave', ...args)"
+        @detail="(...args) => $emit('detail', ...args)"
+      />
+    </template>
   </div>
 </template>
 
@@ -276,7 +266,6 @@ import {
   QAvatar,
   QField,
   QSelect,
-  QInfiniteScroll,
   QItem,
   QItemSection,
   QItemLabel,
@@ -288,13 +277,10 @@ import {
   QInnerLoading,
 } from 'quasar'
 
-const NUM_ACTIVITIES_PER_LOAD = 25
-
 export default {
   components: {
     CustomDialog,
     QAvatar,
-    QInfiniteScroll,
     ActivityItem,
     KSpinner,
     QField,
@@ -357,7 +343,6 @@ export default {
   data () {
     return {
       icsDialog: false,
-      numDisplayed: NUM_ACTIVITIES_PER_LOAD,
       types: [],
     }
   },
@@ -435,8 +420,7 @@ export default {
     displayedActivitiesGroupedByDate () {
       const result = []
       let dateIterated = ''
-      for (const [index, activity] of this.filteredActivities.entries()) {
-        if (index === this.numDisplayed) break
+      for (const activity of this.filteredActivities) {
         const dateWithDayName = this.$d(activity.date, 'dateWithDayName')
         if (dateWithDayName !== dateIterated) {
           result.push({ date: dateWithDayName, activities: [] })
@@ -465,11 +449,6 @@ export default {
     },
   },
   methods: {
-    async displayMoreActivities (index, done) {
-      this.numDisplayed += NUM_ACTIVITIES_PER_LOAD
-      await this.$nextTick()
-      done()
-    },
     slotFilter (activity) {
       if (this.slots === 'free') return !activity.isFull && !activity.isDisabled
       if (this.slots === 'empty') return activity.isEmpty && !activity.isDisabled

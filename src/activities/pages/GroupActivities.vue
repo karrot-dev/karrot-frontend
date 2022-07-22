@@ -1,15 +1,21 @@
 <template>
   <div>
-    <ActivityList
-      :activities="activities"
-      :pending="isLoading"
-      place-link
-      filter
-      :filter-activity-types="activityTypes"
-      :ics-url="''"
-      :token-pending="false"
-      @detail="detail"
-    />
+    <QInfiniteScroll
+      :disable="!hasNextPage"
+      :offset="100"
+      @load="maybeFetchMore"
+    >
+      <ActivityList
+        :activities="activities"
+        :pending="isLoading"
+        place-link
+        filter
+        :filter-activity-types="activityTypes"
+        :ics-url="''"
+        :token-pending="false"
+        @detail="detail"
+      />
+    </QInfiniteScroll>
     <template v-if="hasNoActivities">
       <KNotice>
         <template #icon>
@@ -37,35 +43,44 @@
 </template>
 
 <script>
-import { computed, unref } from 'vue'
+import { computed, onUnmounted } from 'vue'
 import {
   QCard,
   QIcon,
   QCardSection,
+  QInfiniteScroll,
 } from 'quasar'
 
-import { useStore, mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 import ActivityList from '@/activities/components/ActivityList'
 import KNotice from '@/utils/components/KNotice'
 import PlaceList from '@/places/components/PlaceList'
 import { useActivityListQuery } from '@/activities/queries'
-import { useCurrentGroupIdRef } from '@/group/queries'
-import { useStorePlaces } from '@/places/queries'
-import { useCurrentUserIdRef, useStoreUsers } from '@/users/queries'
 import reactiveNow from '@/utils/reactiveNow'
+import { useActivityEnricher, useActivityTypeEnricher } from '@/activities/enrichers'
+import { useActivityService } from '@/activities/services'
+import { useCurrentGroupService } from '@/group/services'
+import { usePlaceEnricher } from '@/places/enrichers'
+import { usePlaceService } from '@/places/services'
 
 export default {
   components: {
     QCard,
     QIcon,
     QCardSection,
+    QInfiniteScroll,
     ActivityList,
     KNotice,
     PlaceList,
   },
   setup () {
-    const group = useCurrentGroupIdRef()
+    const { groupId } = useCurrentGroupService()
+    const { getActivityTypesByGroup } = useActivityService()
+    const { getPlacesByGroup } = usePlaceService()
+    const enrichActivity = useActivityEnricher()
+    const enrichActivityType = useActivityTypeEnricher()
+    const enrichPlace = usePlaceEnricher()
 
     function newDateRoundedTo5Minutes () {
       const roundTo = 1000 * 60 * 5 // 5 minutes
@@ -74,64 +89,48 @@ export default {
 
     const {
       isLoading,
-      activities: activitiesRaw,
+      isFetching,
+      activities,
+      hasNextPage,
+      fetchNextPage,
     } = useActivityListQuery({
-      group,
+      groupId,
       // so we can use cached query results for a while, otherwise it'll always be a fresh query
       dateMin: newDateRoundedTo5Minutes(),
+      // TODO: add activity type filter for query to backend...
+    }, {
+      // TODO: consider this a bit more... ideally can speed up the activity rendering so we can keep more results, or just clear extra pages?
+      cacheTime: 0,
     })
 
-    const { getEnrichedPlace } = useStorePlaces()
-    const { getEnrichedUser } = useStoreUsers()
-    const userId = useCurrentUserIdRef()
-
-    const store = useStore()
-
-    // TODO: move to activity type queries file
-    function getEnrichedActivityType (id) {
-      return store.getters['activityTypes/get'](unref(id))
-    }
+    // onUnmounted(() => {
+    //   console.log('clearing activities?')
+    //   remove()
+    // })
 
     function isStartedOrUpcoming (activity) {
       return activity.dateEnd > reactiveNow.value
     }
 
-    const activities = computed(() => {
-      return activitiesRaw.value.filter(isStartedOrUpcoming).map(activity => {
-        return {
-          ...activity,
-          _source: activity,
-
-          // calculated values
-          isUserMember: activity.participants.includes(userId.value),
-          isEmpty: activity.participants.length === 0,
-          isFull: activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants,
-          hasStarted: activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
-
-          // related objects
-          // group
-          activityType: getEnrichedActivityType(activity.activityType),
-          place: getEnrichedPlace(activity.place),
-          // TODO: do we need enriched users here or not?
-          feedbackGivenBy: activity.feedbackGivenBy.map(getEnrichedUser),
-          feedbackDismissedBy: activity.feedbackDismissedBy.map(getEnrichedUser),
-          participants: activity.participants.map(getEnrichedUser),
-        }
-      })
-    })
+    async function maybeFetchMore (index, done) {
+      if (!isFetching.value && hasNextPage.value) await fetchNextPage()
+      done(!hasNextPage.value)
+    }
 
     return {
+      maybeFetchMore,
+      hasNextPage,
+      groupId,
       isLoading,
-      activities,
+      activities: computed(() => activities.value.filter(isStartedOrUpcoming).map(enrichActivity)),
+      activityTypes: computed(() => getActivityTypesByGroup(groupId).map(enrichActivityType)),
+      places: computed(() => getPlacesByGroup(groupId).map(enrichPlace)),
     }
   },
   computed: {
     ...mapGetters({
-      groupId: 'currentGroup/id',
       activitiesIcsUrl: 'activities/icsUrlForCurrentGroup',
-      activityTypes: 'activityTypes/byCurrentGroup',
       tokenPending: 'activities/tokenPending',
-      places: 'places/byCurrentGroup',
     }),
     hasNoActivities () {
       if (this.isLoading) return false

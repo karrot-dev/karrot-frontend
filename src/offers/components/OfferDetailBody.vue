@@ -80,8 +80,8 @@ import Markdown from '@/utils/components/Markdown'
 import KSpinner from '@/utils/components/KSpinner'
 import { QBtn, QBtnDropdown, QCarousel, QCarouselSlide } from 'quasar'
 import { DEFAULT_STATUS, useCurrentOfferQuery } from '@/offers/queries'
-import { useCurrentUserIdRef } from '@/users/queries'
 import { useArchiveOfferMutation } from '@/offers/mutations'
+import { useAuthService } from '@/authuser/services'
 
 export default {
   components: {
@@ -102,10 +102,11 @@ export default {
   setup () {
     const { mutate: archive } = useArchiveOfferMutation()
     const { offer } = useCurrentOfferQuery()
+    const { user: currentUser } = useAuthService()
     return {
       archive,
       offer,
-      currentUserId: useCurrentUserIdRef(),
+      currentUser,
     }
   },
   data () {
@@ -117,10 +118,9 @@ export default {
     ...mapGetters({
       conversation: 'currentOffer/conversation',
       away: 'presence/toggle/away',
-      currentUser: 'auth/user',
     }),
     canEdit () {
-      return this.offer.user === this.currentUserId
+      return this.offer.user === this.currentUser?.id
     },
     conversationWithReversedMessages () {
       return {

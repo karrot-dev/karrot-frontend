@@ -1,8 +1,13 @@
 import { isNetworkError } from '@/utils/datastore/helpers'
 import bootstrap from '@/base/api/bootstrap'
 import { configureSentry } from '@/utils/sentry'
+import { QueryClient, VueQueryPlugin } from 'vue-query'
+import { queryKeys } from '@/authuser/queries'
 
 export default async function ({ app, store: datastore }) {
+  const queryClient = new QueryClient()
+  app.use(VueQueryPlugin, { queryClient })
+
   const bootstrapData = await bootstrap.fetch()
   const { config, user, groups, geoip } = bootstrapData
   if (config) {
@@ -14,6 +19,7 @@ export default async function ({ app, store: datastore }) {
     datastore.commit('groups/set', groups)
   }
   if (user) {
+    queryClient.setQueryData(queryKeys.authUser(), () => user)
     datastore.commit('auth/setUser', user)
     datastore.commit('auth/setMaybeLoggedOut', false)
   }

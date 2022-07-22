@@ -77,18 +77,18 @@ export function useOfferDetailQuery ({
  * Returns a paginated query object with additional "offers" item with flattened list of all offers
  */
 export function useOfferListQuery ({
-  group,
+  groupId,
   status = 'active',
 }) {
   const query = useInfiniteQuery(
-    queryKeyOfferList(group, status),
+    queryKeyOfferList(groupId, status),
     ({ pageParam }) => api.list({
-      group: unref(group),
+      group: unref(groupId),
       status: unref(status),
       cursor: pageParam,
     }),
     {
-      enabled: computed(() => !!unref(group)),
+      enabled: computed(() => !!unref(groupId)),
       staleTime: Infinity,
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({

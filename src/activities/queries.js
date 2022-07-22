@@ -1,13 +1,15 @@
 import { unref, computed } from 'vue'
-import { useInfiniteQuery, useQueryClient } from 'vue-query'
+import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
 import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
 import { useSocketEvents } from '@/utils/composables'
 import api from './api/activities'
+import activityTypeAPI from './api/activityTypes'
 
 export const QUERY_KEY_BASE = 'activities'
 export const queryKeyActivityList = params => [QUERY_KEY_BASE, 'list', params].filter(Boolean)
 export const queryKeyActivityDetail = id => [QUERY_KEY_BASE, 'detail', id].filter(Boolean)
+export const queryKeyActivityTypeList = () => [QUERY_KEY_BASE, 'types']
 
 export function useActivitiesUpdater () {
   const queryClient = useQueryClient()
@@ -25,26 +27,27 @@ export function useActivitiesUpdater () {
 }
 
 export function useActivityListQuery ({
-  group,
+  groupId,
   dateMin,
-  place,
-  series,
+  placeId,
+  seriesId,
   feedbackPossible,
-}) {
+}, queryOptions = {}) {
   const query = useInfiniteQuery(
-    queryKeyActivityList({ group, place, series, feedbackPossible, dateMin }),
+    queryKeyActivityList({ groupId, placeId, seriesId, feedbackPossible, dateMin }),
     ({ pageParam }) => api.list({
-      group: unref(group),
-      place: unref(place),
-      series: unref(series),
+      group: unref(groupId),
+      place: unref(placeId),
+      series: unref(seriesId),
       date_min: unref(dateMin),
       feedback_possible: unref(feedbackPossible),
       cursor: pageParam,
       page_size: 10,
     }),
     {
-      enabled: computed(() => !!unref(group)),
       staleTime: Infinity,
+      ...queryOptions,
+      enabled: computed(() => !!unref(groupId)),
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => page.results),
@@ -56,5 +59,19 @@ export function useActivityListQuery ({
   return {
     ...query,
     activities: flattenPaginatedData(query),
+  }
+}
+
+export function useActivityTypeListQuery () {
+  const query = useQuery(
+    queryKeyActivityTypeList(),
+    () => activityTypeAPI.list(),
+    {
+      // staleTime: Infinity, // TODO: implement ws updates, then can add this
+    },
+  )
+  return {
+    ...query,
+    activityTypes: query.data,
   }
 }

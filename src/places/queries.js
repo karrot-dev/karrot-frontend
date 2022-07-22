@@ -14,11 +14,13 @@ export function useStorePlaces () {
   }
 }
 
-// TODO: remove or use
 export function usePlaceListQuery () {
   const query = useQuery(
     ['places', 'list'],
     () => api.list(),
+    {
+      placeholderData: () => [],
+    },
   )
   return {
     ...query,

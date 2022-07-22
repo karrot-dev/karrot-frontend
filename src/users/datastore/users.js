@@ -51,12 +51,15 @@ export default {
         membership,
       }
     }),
+    /*
     all: (state, getters, rootState, rootGetters) => {
+      console.log('getting and enriching ALL users')
       return [
         ...Object.values(state.entries),
         ...Object.values(state.infoEntries).filter(u => !state.entries[u.id]),
       ].map(getters.enrich)
     },
+     */
     byCurrentGroupSidenavMap: (state, getters) => {
       console.log('byCurrentGroupSidenavMap')
       return getters.byCurrentGroupPlain
@@ -85,7 +88,8 @@ export default {
       // return getters.all.filter(u => u.membership)
     },
     byCurrentGroup: (state, getters) => {
-      return getters.byCurrentGroup.map(getters.enrich)
+      console.log('enriching users in current group', getters.byCurrentGroupPlain.length)
+      return getters.byCurrentGroupPlain.map(getters.enrich)
     },
     activeUser: (state, getters, rootState, rootGetters) => {
       if (!state.activeUserProfile) return

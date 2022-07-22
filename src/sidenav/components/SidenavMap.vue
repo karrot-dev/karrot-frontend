@@ -1,7 +1,7 @@
 <template>
   <SidenavMapUI
     :places="$store.getters['places/byCurrentGroup']"
-    :users="$store.getters['users/byCurrentGroupSidenavMap']"
+    :users="users"
     :show-places="$store.getters['sidenavBoxes/toggle/placesOnMap']"
     :show-users="$store.getters['sidenavBoxes/toggle/usersOnMap']"
     :selected-place="$store.getters['places/activePlace']"
@@ -13,12 +13,9 @@
   />
 </template>
 
-<script>
+<script setup>
 import SidenavMapUI from './SidenavMapUI'
+import { useCurrentGroupService } from '@/group/services'
 
-export default {
-  components: {
-    SidenavMapUI,
-  },
-}
+const { users } = useCurrentGroupService()
 </script>

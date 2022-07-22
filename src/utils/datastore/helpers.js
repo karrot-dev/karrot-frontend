@@ -1,3 +1,5 @@
+import { effectScope } from 'vue'
+
 /**
  * Datastore related helpers
  * This file should not import the datastore itself, to avoid cyclic dependencies.
@@ -10,8 +12,12 @@
  * @returns {object}
  */
 export function indexById (iterable) {
+  return indexBy(iterable, 'id')
+}
+
+export function indexBy (iterable, key) {
   return iterable.reduce((acc, cur, i) => {
-    acc[cur.id] = cur
+    acc[cur[key]] = cur
     return acc
   }, {})
 }
@@ -350,4 +356,19 @@ export function toggles (config) {
     }
   }
   return result
+}
+
+const stores = []
+export function defineService (id, storeSetup) {
+  return () => {
+    if (stores[id]) return stores[id]
+    let store
+    // We use a custom detached scope, otherwise it'll be cleared away, but we want this to stay around for reuse
+    const scope = effectScope(true)
+    scope.run(() => {
+      store = storeSetup()
+    })
+    stores[id] = store
+    return store
+  }
 }

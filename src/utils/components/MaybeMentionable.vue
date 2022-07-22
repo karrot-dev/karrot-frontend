@@ -48,6 +48,7 @@ import { QItem, QItemLabel, QItemSection } from 'quasar'
 import 'floating-vue/dist/style.css'
 
 import ProfilePicture from '@/users/components/ProfilePicture'
+import { useUserService } from '@/users/services'
 
 export default {
   name: 'MaybeMentionable',
@@ -64,6 +65,10 @@ export default {
       type: Boolean,
     },
   },
+  setup () {
+    const { users } = useUserService()
+    return { users }
+  },
   computed: {
     mentionItems () {
       return this.users.map(user => {
@@ -74,10 +79,13 @@ export default {
         }
       })
     },
-    // TODO: consider if we keep this, or pass it down with props
-    ...mapGetters({
-      users: 'users/byCurrentGroup',
-    }),
+    // users () {
+    //   return []
+    // },
+    // // TODO: consider if we keep this, or pass it down with props
+    // ...mapGetters({
+    //   users: 'users/byCurrentGroup',
+    // }),
   },
 }
 </script>

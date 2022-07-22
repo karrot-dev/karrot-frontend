@@ -69,7 +69,7 @@
       </div>
     </div>
 
-    <KSpinner v-show="fetchStatus.pending" />
+    <KSpinner v-show="isLoadingUsers" />
     <UserList
       class="q-pt-md"
       :users="users"
@@ -82,6 +82,7 @@
 </template>
 
 <script>
+import { computed } from 'vue'
 import {
   copyToClipboard,
   QCard,
@@ -98,6 +99,8 @@ import {
   mapGetters,
   mapActions,
 } from 'vuex'
+import { useCurrentGroupService } from '@/group/services'
+import { useUserEnricher } from '@/users/enrichers'
 
 export default {
   components: {
@@ -109,6 +112,22 @@ export default {
     QField,
     QBtn,
   },
+  setup () {
+    const enrichUser = useUserEnricher()
+    const {
+      groupId,
+      group,
+      users,
+      isLoadingUsers,
+    } = useCurrentGroupService()
+    return {
+      isLoadingUsers,
+      groupId,
+      // TODO: does it need enriched group here?
+      group,
+      users: computed(() => users.value.map(enrichUser)),
+    }
+  },
   data () {
     return {
       sorting: 'joinDate',
@@ -117,14 +136,11 @@ export default {
   },
   computed: {
     ...mapGetters({
-      users: 'users/byCurrentGroup',
-      group: 'currentGroup/value',
+      // users: 'users/byCurrentGroup',
+      // group: 'currentGroup/value',
       isEditor: 'currentGroup/isEditor',
       fetchStatus: 'users/fetchStatus',
     }),
-    groupId () {
-      return this.group && this.group.id
-    },
     linkToCopy () {
       return absoluteURL('/#/groupPreview/' + this.group.id)
     },

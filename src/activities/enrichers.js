@@ -19,7 +19,7 @@ export function useActivityEnricher () {
   function enrichActivity (activity) {
     return {
       ...activity,
-      _enricherSource: activity,
+      _enrichSource: activity,
 
       // calculated values
       isUserMember: activity.participants.includes(userId.value),
@@ -49,7 +49,7 @@ export function useActivityTypeEnricher () {
     const translatedName = nameIsTranslatable ? i18n.t(`ACTIVITY_TYPE_NAMES.${name}`) : name
     return {
       ...activityType,
-      _enricherSource: activityType,
+      _enrichSource: activityType,
 
       translatedName,
       colorName,

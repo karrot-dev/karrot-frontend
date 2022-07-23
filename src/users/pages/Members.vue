@@ -119,13 +119,23 @@ export default {
       group,
       users,
       isLoadingUsers,
+      getMembership,
     } = useCurrentGroupService()
+
+    function withMembership (user) {
+      // TODO: this used to be done in the user enricher, here is not the best place, but yeah...
+      return {
+        ...user,
+        membership: getMembership(user.id),
+      }
+    }
+
     return {
       isLoadingUsers,
       groupId,
       // TODO: does it need enriched group here?
       group,
-      users: computed(() => users.value.map(enrichUser)),
+      users: computed(() => users.value.map(enrichUser).map(withMembership)),
     }
   },
   data () {

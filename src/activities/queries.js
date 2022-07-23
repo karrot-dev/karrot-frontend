@@ -10,6 +10,7 @@ export const QUERY_KEY_BASE = 'activities'
 export const queryKeyActivityList = params => [QUERY_KEY_BASE, 'list', params].filter(Boolean)
 export const queryKeyActivityDetail = id => [QUERY_KEY_BASE, 'detail', id].filter(Boolean)
 export const queryKeyActivityTypeList = () => [QUERY_KEY_BASE, 'types']
+export const queryKeyActivityIcsToken = () => [QUERY_KEY_BASE, 'ics-token']
 
 export function useActivitiesUpdater () {
   const queryClient = useQueryClient()
@@ -31,14 +32,18 @@ export function useActivityListQuery ({
   dateMin,
   placeId,
   seriesId,
+  activityTypeId,
+  slots,
   feedbackPossible,
 }, queryOptions = {}) {
   const query = useInfiniteQuery(
-    queryKeyActivityList({ groupId, placeId, seriesId, feedbackPossible, dateMin }),
+    queryKeyActivityList({ groupId, placeId, seriesId, activityTypeId, slots, feedbackPossible, dateMin }),
     ({ pageParam }) => api.list({
       group: unref(groupId),
       place: unref(placeId),
       series: unref(seriesId),
+      activity_type: unref(activityTypeId),
+      slots: unref(slots),
       date_min: unref(dateMin),
       feedback_possible: unref(feedbackPossible),
       cursor: pageParam,
@@ -73,5 +78,17 @@ export function useActivityTypeListQuery () {
   return {
     ...query,
     activityTypes: query.data,
+  }
+}
+
+export function useICSTokenQuery (queryOptions) {
+  const query = useQuery(
+    queryKeyActivityIcsToken(),
+    () => api.getICSAuthToken(),
+    queryOptions,
+  )
+  return {
+    ...query,
+    token: query.data,
   }
 }

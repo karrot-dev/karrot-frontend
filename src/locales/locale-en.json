@@ -78,8 +78,10 @@
     "FILTER": {
       "ALL": "All",
       "ALL_TYPES": "All types",
+      "ALL_PLACES": "All places",
       "EMPTY": "Only empty",
-      "FREE": "With free slots"
+      "FREE": "With free slots",
+      "JOINED": "Joined"
     },
     "ITEM": {
       "JOIN": "Join",

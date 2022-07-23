@@ -17,15 +17,25 @@ export const useCurrentGroupService = defineService('group', () => {
   const group = computed(() => store.state.currentGroup.current)
   const groupId = computed(() => group.value?.id)
   const users = computed(() => Object.keys(group.value.memberships).map(getUserById))
-  const places = computed(() => {
-    try {
-      return getPlacesByGroup(groupId)
-    }
-    catch (error) {
-      console.error(error)
-      return []
-    }
-  })
+  const places = computed(() => getPlacesByGroup(groupId))
+
+  // methods
+
+  function getMembership (userId) {
+    return group.value?.memberships[userId]
+  }
+
+  function getUserRoles (userId) {
+    return getMembership?.roles || []
+  }
+
+  function isEditor (userId) {
+    return getUserRoles(userId).includes('editor')
+  }
+
+  function isNewcomer (userId) {
+    return !isEditor(userId)
+  }
 
   return {
     group,
@@ -33,5 +43,8 @@ export const useCurrentGroupService = defineService('group', () => {
     isLoadingUsers,
     users,
     places,
+    getMembership,
+    isEditor,
+    isNewcomer,
   }
 })

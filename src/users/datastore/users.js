@@ -40,7 +40,6 @@ export default {
     },
     enrich: (state, getters, rootState, rootGetters) => instrumentEnrich(user => {
       if (user._unknown) return user
-      // console.log('enriching user', user.id)
       const authUserId = rootGetters['auth/userId']
       const membership = rootGetters['currentGroup/memberships'][user.id]
 
@@ -52,6 +51,7 @@ export default {
       }
     }),
     /*
+    TODO: this one is used in search...
     all: (state, getters, rootState, rootGetters) => {
       console.log('getting and enriching ALL users')
       return [

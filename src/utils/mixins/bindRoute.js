@@ -33,7 +33,7 @@ export default function bindRoute (params) {
   return mixin
 }
 
-export function useRouteParam (name, defaultValue) {
+export function useRouteParam (name, defaultValue = null) {
   const router = useRouter()
   const route = useRoute()
 
@@ -48,12 +48,14 @@ export function useRouteParam (name, defaultValue) {
     },
     set (val) {
       if (val === defaultValue) {
+        if (!route.query[name]) return // not even in the query
         // if value is same as the default, remove it from the query to keep the URL neat
         const query = { ...route.query }
         delete query[name]
         router.replace({ query }).catch(() => {})
       }
       else {
+        if (route.query[name] === val) return // hasn't changed
         router.replace({ query: { ...route.query, ...{ [name]: val } } }).catch(() => {})
       }
     },

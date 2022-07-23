@@ -360,6 +360,11 @@ export function toggles (config) {
 
 const stores = []
 export function defineService (id, storeSetup) {
+  if (process.env.DEV) {
+    if (typeof id !== 'string' || typeof storeSetup !== 'function') {
+      throw new Error('must be string|function args to defineService')
+    }
+  }
   return () => {
     if (stores[id]) return stores[id]
     let store

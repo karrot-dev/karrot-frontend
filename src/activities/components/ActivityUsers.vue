@@ -24,7 +24,7 @@
       </template>
       <template v-else>
         <div
-          v-if="isNewcomer(user) && !user.isCurrentUser"
+          v-if="isNewcomer(user.id) && !user.isCurrentUser"
           class="newcomer-box"
           :title="$t('USERDATA.NEWCOMER_GUIDANCE', { userName: user.displayName })"
         />
@@ -78,6 +78,7 @@ import { mapGetters } from 'vuex'
 import {
   QResizeObserver,
 } from 'quasar'
+import { useCurrentGroupService } from '@/group/services'
 
 export default {
   components: {
@@ -114,6 +115,10 @@ export default {
       slotsPerRow: 6,
       // isJoining: true,
     }
+  },
+  setup () {
+    const { isNewcomer } = useCurrentGroupService()
+    return { isNewcomer }
   },
   computed: {
     ...mapGetters({
@@ -159,9 +164,6 @@ export default {
       if (this.$refs.wrapperDiv) {
         this.slotsPerRow = Math.floor(this.$refs.wrapperDiv.clientWidth / (this.size + 3.8))
       }
-    },
-    isNewcomer (user) {
-      return user.membership && !user.membership.isEditor
     },
   },
 }

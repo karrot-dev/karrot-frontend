@@ -12,7 +12,12 @@ export const useUserService = defineService('users', () => {
 
   // methods
   function getUserById (id) {
-    return usersById.value[id]
+    return usersById.value[id] || {
+      id,
+      isCurrentUser: false,
+      displayName: '?',
+      _unknown: true,
+    }
   }
 
   return {

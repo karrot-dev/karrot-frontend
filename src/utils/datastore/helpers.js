@@ -358,22 +358,28 @@ export function toggles (config) {
   return result
 }
 
-const stores = []
-export function defineService (id, storeSetup) {
+export function defineService (serviceSetup) {
   if (process.env.DEV) {
-    if (typeof id !== 'string' || typeof storeSetup !== 'function') {
-      throw new Error('must be string|function args to defineService')
+    if (typeof serviceSetup !== 'function') {
+      throw new Error('must pass a serviceSetup function to defineService')
     }
   }
+
+  // hold a reference to our service instance in this outer scope so we always return the same one
+  let service
+
   return () => {
-    if (stores[id]) return stores[id]
-    let store
-    // We use a custom detached scope, otherwise it'll be cleared away, but we want this to stay around for reuse
+    // it's already setup, can just return our service instance
+    if (service) return service
+
+    // Create a detached scope so it will stay around beyond the lifecycle of the initial setup
     const scope = effectScope(true)
+
     scope.run(() => {
-      store = storeSetup()
+      // initialize our service in this scope, we get back a value, nothing fancy!
+      service = serviceSetup()
     })
-    stores[id] = store
-    return store
+
+    return service
   }
 }

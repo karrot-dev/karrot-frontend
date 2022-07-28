@@ -2,7 +2,7 @@ import { computed, unref } from 'vue'
 import { useActivityTypeListQuery } from '@/activities/queries'
 import { defineService, indexById } from '@/utils/datastore/helpers'
 
-export const useActivityService = defineService('activity', () => {
+export const useActivityService = defineService(() => {
   // queries
   const { activityTypes } = useActivityTypeListQuery()
 

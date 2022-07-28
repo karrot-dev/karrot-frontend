@@ -2,7 +2,7 @@ import { computed, unref } from 'vue'
 import { defineService, indexById } from '@/utils/datastore/helpers'
 import { usePlaceListQuery } from '@/places/queries'
 
-export const usePlaceService = defineService('place', () => {
+export const usePlaceService = defineService(() => {
   // queries
   const { places } = usePlaceListQuery()
 

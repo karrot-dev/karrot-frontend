@@ -4,7 +4,7 @@ import { useStore } from 'vuex'
 import { useUserService } from '@/users/services'
 import { usePlaceService } from '@/places/services'
 
-export const useCurrentGroupService = defineService('group', () => {
+export const useCurrentGroupService = defineService(() => {
   // services
   const store = useStore()
   const {

@@ -2,7 +2,7 @@ import { computed } from 'vue'
 import { useUserListAllQuery } from '@/users/queries'
 import { indexBy, indexById, defineService } from '@/utils/datastore/helpers'
 
-export const useUserService = defineService('users', () => {
+export const useUserService = defineService(() => {
   // queries
   const { isLoading, users } = useUserListAllQuery()
 

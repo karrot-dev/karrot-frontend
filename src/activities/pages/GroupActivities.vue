@@ -148,7 +148,7 @@ import KSpinner from '@/utils/components/KSpinner'
 import ActivityList from '@/activities/components/ActivityList'
 import KNotice from '@/utils/components/KNotice'
 import PlaceList from '@/places/components/PlaceList'
-import { useActivityListQuery } from '@/activities/queries'
+import { queryKeyActivityList, useActivityListQuery } from '@/activities/queries'
 import reactiveNow from '@/utils/reactiveNow'
 import { useActivityEnricher, useActivityTypeEnricher } from '@/activities/enrichers'
 import { useActivityService } from '@/activities/services'
@@ -157,6 +157,7 @@ import { usePlaceEnricher } from '@/places/enrichers'
 import { usePlaceService } from '@/places/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 import ICSBtn from '@/activities/components/ICSBtn'
+import { useQueryClient } from 'vue-query'
 
 export default {
   components: {
@@ -207,6 +208,22 @@ export default {
       return new Date(Math.floor(new Date().getTime() / roundTo) * roundTo)
     }
 
+    const queryClient = useQueryClient()
+
+    /*
+      TODO: something funny happening where it sort of freezes when there is query cache...
+        steps:
+          - visit http://localhost:8080/#/group/6/activities?type=15 (i.e. with filter selected)
+          - then select "All types" in the filter
+          - notice no freeze (even though it pauses to load, browser stays responsive)
+          - select some other type, then select "All types" again
+          - now there is some weird kind of lag...
+
+       The difference is that the second time the queryClient already has data...
+
+       cacheTime: 0 makes it go away, maybe that's fine...
+
+     */
     const {
       isLoading,
       isFetching,
@@ -214,7 +231,7 @@ export default {
       activities,
       hasNextPage,
       fetchNextPage,
-      remove,
+      // remove,
     } = useActivityListQuery({
       groupId,
       placeId: place,
@@ -222,15 +239,14 @@ export default {
       slots,
       // so we can use cached query results for a while, otherwise it'll always be a fresh query
       dateMin: newDateRoundedTo5Minutes(),
-      // TODO: add activity type filter for query to backend...
     }, {
       // TODO: consider this a bit more... ideally can speed up the activity rendering so we can keep more results, or just clear extra pages?
-      // cacheTime: 0,
+      cacheTime: 0,
     })
 
     onUnmounted(() => {
       // really just putting this here as don't want to keep more than first page in cache and haven't worked out how to do it better yet...
-      remove()
+      // remove()
     })
 
     function isStartedOrUpcoming (activity) {

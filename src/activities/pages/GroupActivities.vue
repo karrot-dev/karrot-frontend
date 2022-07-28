@@ -155,7 +155,7 @@ import { useActivityService } from '@/activities/services'
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceEnricher } from '@/places/enrichers'
 import { usePlaceService } from '@/places/services'
-import { useRouteParam } from '@/utils/mixins/bindRoute'
+import { useQueryParams } from '@/utils/mixins/bindRoute'
 import ICSBtn from '@/activities/components/ICSBtn'
 
 export default {
@@ -184,12 +184,19 @@ export default {
     const enrichActivityType = useActivityTypeEnricher()
     const enrichPlace = usePlaceEnricher()
 
-    const type = useRouteParam('type')
-    const slots = useRouteParam('slots')
-    const place = useRouteParam('place')
+    const defaultQueryParams = {
+      type: null,
+      slots: null,
+      place: null,
+    }
+
+    const {
+      type,
+      slots,
+      place,
+    } = useQueryParams(defaultQueryParams)
 
     function clearFilters () {
-      // TODO: if they are all set, clearing them like this doesn't actually work... like non-atomic updates to route.query...
       type.value = null
       slots.value = null
       place.value = null
@@ -211,10 +218,10 @@ export default {
     } = useActivityListQuery({
       groupId,
       placeId: place,
-      // so we can use cached query results for a while, otherwise it'll always be a fresh query
-      dateMin: newDateRoundedTo5Minutes(),
       activityTypeId: type,
       slots,
+      // so we can use cached query results for a while, otherwise it'll always be a fresh query
+      dateMin: newDateRoundedTo5Minutes(),
       // TODO: add activity type filter for query to backend...
     }, {
       // TODO: consider this a bit more... ideally can speed up the activity rendering so we can keep more results, or just clear extra pages?

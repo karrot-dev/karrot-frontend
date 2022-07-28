@@ -125,7 +125,7 @@ import DateAsWords from '@/utils/components/DateAsWords'
 
 import { DEFAULT_STATUS, useOfferListQuery } from '@/offers/queries'
 
-import { useRouteParam } from '@/utils/mixins/bindRoute'
+import { useQueryParams } from '@/utils/mixins/bindRoute'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useStoreUsers } from '@/users/queries'
@@ -146,7 +146,9 @@ const statusOptions = [
 
 const { groupId } = useCurrentGroupService()
 
-const status = useRouteParam('status', DEFAULT_STATUS)
+const { status } = useQueryParams({
+  status: DEFAULT_STATUS,
+})
 
 const { getUserRef } = useStoreUsers()
 

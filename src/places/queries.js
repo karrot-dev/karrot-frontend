@@ -27,6 +27,8 @@ export function usePlacesUpdater () {
       // Delete old entry, and replace with updated one
       updatedEntries.splice(idx, 1, updatedEntry)
 
+      console.log('updated place!', updatedEntry, idx)
+
       return updatedEntries
     })
   }
@@ -40,6 +42,7 @@ export function usePlaceListQuery () {
     () => api.list(),
     {
       placeholderData: () => [],
+      staleTime: Infinity, // rely on socket updates
     },
   )
   return {

@@ -1,39 +1,23 @@
 import { computed, unref } from 'vue'
-import { useQuery, useQueryClient } from 'vue-query'
+import { useQuery } from 'vue-query'
 
 export const QUERY_KEY_BASE = 'places'
 export const queryKeyPlaceListAll = () => [QUERY_KEY_BASE, 'list', 'all'].filter(Boolean)
 
 import api from './api/places'
 import { useSocketEvents } from '@/utils/composables'
+import { useQueryHelpers } from '@/utils/queryHelpers'
 
 /**
  * Handler for socket updates
  */
 export function usePlacesUpdater () {
-  const queryClient = useQueryClient()
   const { on } = useSocketEvents()
+  const { updateOrInvalidateListEntry } = useQueryHelpers()
 
-  function updateEntry (updatedEntry) {
-    queryClient.setQueryData(queryKeyPlaceListAll(), entries => {
-      const idx = entries.findIndex(entry => entry.id === updatedEntry.id)
-
-      // Entry not present, nothing to do
-      if (idx === -1) return entries
-
-      // Clone our existing list
-      const updatedEntries = [...entries]
-
-      // Delete old entry, and replace with updated one
-      updatedEntries.splice(idx, 1, updatedEntry)
-
-      console.log('updated place!', updatedEntry, idx)
-
-      return updatedEntries
-    })
-  }
-
-  on('places:place', updateEntry)
+  on('places:place', updatedEntry => {
+    updateOrInvalidateListEntry(queryKeyPlaceListAll(), updatedEntry)
+  })
 }
 
 export function usePlaceListQuery () {

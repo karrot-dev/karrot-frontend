@@ -243,11 +243,6 @@ export default {
       places: placesFilter,
       // so we can use cached query results for a while, otherwise it'll always be a fresh query
       dateMin: newDateRoundedTo5Minutes(),
-    }, {
-      // setting cache to 0, as otherwise it seems to lag when switching filters to one with a cached result
-      // also, if there are LOADS of results cached, can be slow to re-render them all...
-      // TODO: maybe explore some other solutions...
-      cacheTime: 0,
     })
 
     async function maybeFetchMore (index, done) {

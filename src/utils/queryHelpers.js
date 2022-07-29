@@ -1,5 +1,42 @@
 import { computed, unref } from 'vue'
 import { isNetworkError, isServerError, isValidationError } from '@/utils/datastore/helpers'
+import { useQueryClient } from 'vue-query'
+
+export function useQueryHelpers () {
+  const queryClient = useQueryClient()
+
+  /**
+   * For updating non-paginated list data, if it exists, it'll be replaced, otherwise the query invalidated
+   */
+  function updateOrInvalidateListEntry (queryKey, updatedEntry) {
+    const hasEntry = queryClient.getQueryData(queryKey).some(entry => entry.id === updatedEntry)
+    if (hasEntry) {
+      // Update existing value
+      queryClient.setQueryData(queryKey, entries => {
+        const idx = entries.findIndex(entry => entry.id === updatedEntry.id)
+
+        // Entry not present after all :/ nothing to do
+        if (idx === -1) return entries
+
+        // Clone our existing list
+        const updatedEntries = [...entries]
+
+        // Delete old entry, and replace with updated one
+        updatedEntries.splice(idx, 1, updatedEntry)
+
+        return updatedEntries
+      })
+    }
+    else {
+      // Not present, probably new, let's invalidate...
+      queryClient.invalidateQueries(queryKey)
+    }
+  }
+
+  return {
+    updateOrInvalidateListEntry,
+  }
+}
 
 export function extractCursor (url) {
   if (!url || !url.includes('?')) return null

@@ -52,7 +52,11 @@ export function useActivityListQuery ({
       page_size: 10,
     }),
     {
-      staleTime: Infinity,
+      // setting cache to 0, as otherwise it seems to lag when switching filters to one with a cached result
+      // also, if there are LOADS of results cached, can be slow to re-render them all...
+      // TODO: maybe explore some other solutions...
+      cacheTime: 0,
+      staleTime: 0,
       ...queryOptions,
       enabled: computed(() => !!unref(groupId)),
       getNextPageParam: page => extractCursor(page.next) || undefined,

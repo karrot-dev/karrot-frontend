@@ -78,7 +78,8 @@
               <QItem clickable>
                 <QItemSection avatar>
                   <ProfilePicture
-                    :user="getUserRef(offer.user).value"
+                    :user="getUserById(offer.user)"
+                    :membership="getMembership(offer.user)"
                     :size="36"
                   />
                 </QItemSection>
@@ -103,11 +104,6 @@
 </template>
 
 <script setup>
-// For some reason need *some* vue import or get this error:
-//   ReferenceError: _vue is not defined
-// eslint-disable-next-line no-unused-vars
-import { ref } from 'vue'
-
 import {
   QIcon,
   QSelect,
@@ -128,8 +124,8 @@ import { DEFAULT_STATUS, useOfferListQuery } from '@/offers/queries'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { useStoreUsers } from '@/users/queries'
 import { useCurrentGroupService } from '@/group/services'
+import { useUserService } from '@/users/services'
 
 const { t } = useI18n()
 
@@ -144,13 +140,13 @@ const statusOptions = [
   },
 ]
 
-const { groupId } = useCurrentGroupService()
+const { groupId, getMembership } = useCurrentGroupService()
+
+const { getUserById } = useUserService()
 
 const { status } = useQueryParams({
   status: DEFAULT_STATUS,
 })
-
-const { getUserRef } = useStoreUsers()
 
 const {
   isLoading,

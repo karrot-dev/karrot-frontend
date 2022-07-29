@@ -29,6 +29,7 @@
       </template>
     </KNotice>
     <ActivityList
+      v-else
       :pending="isLoading"
       :activities="activities"
       @detail="detail"

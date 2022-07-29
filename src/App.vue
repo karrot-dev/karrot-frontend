@@ -20,6 +20,7 @@ import { useOffersUpdater } from '@/offers/queries'
 import { useActivitiesUpdater } from '@/activities/queries'
 import { useUsersUpdater } from '@/users/queries'
 import { usePlacesUpdater } from '@/places/queries'
+import { useStatusUpdater } from '@/status/queries'
 
 export default {
   components: {
@@ -30,6 +31,7 @@ export default {
     useUsersUpdater()
     usePlacesUpdater()
     useOffersUpdater()
+    useStatusUpdater()
     useActivitiesUpdater()
     useClearDataOnLogout()
   },

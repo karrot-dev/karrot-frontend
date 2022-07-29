@@ -126,6 +126,7 @@ import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useCurrentGroupService } from '@/group/services'
 import { useUserService } from '@/users/services'
+import { useStatusService } from '@/status/services'
 
 const { t } = useI18n()
 

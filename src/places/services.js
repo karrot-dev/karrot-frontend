@@ -5,7 +5,7 @@ import { useStore } from 'vuex'
 
 export const usePlaceService = defineService(() => {
   // queries
-  const { places } = usePlaceListQuery()
+  const { places, isLoading } = usePlaceListQuery()
 
   // computed
   const placesById = computed(() => indexById(places.value))
@@ -21,6 +21,7 @@ export const usePlaceService = defineService(() => {
   }
 
   return {
+    isLoading,
     places,
     getPlaceById,
     getPlacesByGroup,

@@ -61,7 +61,7 @@ export default {
   },
   setup () {
     const { id: userId } = useAuthService()
-    const { groupId, getIsEditor } = useCurrentGroupService()
+    const { groupId, isEditor } = useCurrentGroupService()
     const { place, placeId } = useActivePlaceService()
     const { isStartedOrUpcoming } = useActivityService()
     const enrichActivity = useActivityEnricher()
@@ -81,7 +81,7 @@ export default {
       isLoading,
       placeId,
       place,
-      isEditor: computed(() => getIsEditor(userId.value)),
+      isEditor,
       activities: enrichedUpcomingActivities,
     }
   },

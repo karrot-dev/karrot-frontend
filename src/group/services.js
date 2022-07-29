@@ -3,6 +3,7 @@ import { defineService } from '@/utils/datastore/helpers'
 import { useStore } from 'vuex'
 import { useUserService } from '@/users/services'
 import { usePlaceService } from '@/places/services'
+import { useAuthService } from '@/authuser/services'
 
 export const useCurrentGroupService = defineService(() => {
   // services
@@ -11,7 +12,13 @@ export const useCurrentGroupService = defineService(() => {
     isLoading: isLoadingUsers,
     getUserById,
   } = useUserService()
-  const { getPlacesByGroup } = usePlaceService()
+
+  const {
+    getPlacesByGroup,
+    isLoading: isLoadingPlaces,
+  } = usePlaceService()
+
+  const { id: userId } = useAuthService()
 
   // computed
   // TODO: decouple from store
@@ -19,6 +26,9 @@ export const useCurrentGroupService = defineService(() => {
   const groupId = computed(() => group.value?.id)
   const users = computed(() => Object.keys(group.value.memberships).map(getUserById))
   const places = computed(() => getPlacesByGroup(groupId))
+  const features = computed(() => group.value?.features || [])
+  const theme = computed(() => group.value?.theme)
+  const isEditor = computed(() => getIsEditor(userId.value))
 
   // methods
 
@@ -42,8 +52,12 @@ export const useCurrentGroupService = defineService(() => {
     group,
     groupId,
     isLoadingUsers,
+    isLoadingPlaces,
     users,
     places,
+    theme,
+    features,
+    isEditor,
     getMembership,
     getUserRoles,
     getIsEditor,

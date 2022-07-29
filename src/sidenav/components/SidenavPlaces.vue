@@ -1,21 +1,37 @@
 <template>
   <SidenavPlacesUI
-    :group-id="$store.getters['currentGroup/id']"
-    :places="$store.getters['places/byCurrentGroup']"
-    :show-all-places="$store.getters['places/toggle/showAll']"
-    :archived="$store.getters['places/byCurrentGroupArchived']"
-    :is-editor="$store.getters['currentGroup/isEditor']"
-    :fetch-status="$store.getters['places/fetchStatus']"
-    @toggle-show-all-places="$store.dispatch('places/toggle/showAll')"
+    :group-id="groupId"
+    :places="enrichedAndFilteredPlaces"
+    :show-all-places="showAllPlaces"
+    :archived="enrichedArchivedPlaces"
+    :is-editor="isEditor"
+    :fetch-status="isLoadingPlaces"
+    @toggle-show-all-places="showAllPlaces = !showAllPlaces"
   />
 </template>
 
-<script>
-import SidenavPlacesUI from './SidenavPlacesUI'
+<script setup>
+import { ref, computed } from 'vue'
 
-export default {
-  components: {
-    SidenavPlacesUI,
-  },
-}
+import SidenavPlacesUI from './SidenavPlacesUI'
+import { usePlaceEnricher } from '@/places/enrichers'
+import { useCurrentGroupService } from '@/group/services'
+import { sortByName, sortByStatus } from '@/places/datastore/places'
+
+const { groupId, isEditor, places, isLoadingPlaces } = useCurrentGroupService()
+
+const enrichPlace = usePlaceEnricher()
+
+const showAllPlaces = ref(false)
+
+const enrichedArchivedPlaces = computed(() => places.value.filter(place => place.status === 'archived').map(enrichPlace))
+
+const enrichedAndFilteredPlaces = computed(() => places.value
+  // Never show these
+  .filter(place => place.status !== 'archived')
+  // Always show subscribed and active, show rest only with showAllPlaces enabled
+  .filter(place => showAllPlaces.value || place.status === 'active' || place.isSubscribed)
+  .map(enrichPlace)
+  .sort(sortByName)
+  .sort(sortByStatus))
 </script>

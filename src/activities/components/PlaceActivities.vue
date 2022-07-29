@@ -29,12 +29,8 @@
       </template>
     </KNotice>
     <ActivityList
-      :pending="fetchPending"
+      :pending="isLoading"
       :activities="activities"
-      :ics-url="activitiesIcsUrl"
-      :token-pending="tokenPending"
-      @join="join"
-      @leave="leave"
       @detail="detail"
     />
   </div>
@@ -42,14 +38,19 @@
 
 <script>
 import { QIcon } from 'quasar'
+import { mapActions } from 'vuex'
+import { computed } from 'vue'
 
 import ActivityList from '@/activities/components/ActivityList'
 import KNotice from '@/utils/components/KNotice'
 
-import {
-  mapGetters,
-  mapActions,
-} from 'vuex'
+import { useCurrentGroupService } from '@/group/services'
+import { useActivityListQuery } from '@/activities/queries'
+import { useActivePlaceService } from '@/places/services'
+import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
+import { useActivityService } from '@/activities/services'
+import { useActivityEnricher } from '@/activities/enrichers'
+import { useAuthService } from '@/authuser/services'
 
 export default {
   components: {
@@ -57,28 +58,43 @@ export default {
     KNotice,
     QIcon,
   },
+  setup () {
+    const { id: userId } = useAuthService()
+    const { groupId, getIsEditor } = useCurrentGroupService()
+    const { place, placeId } = useActivePlaceService()
+    const { isStartedOrUpcoming } = useActivityService()
+    const enrichActivity = useActivityEnricher()
+    const {
+      activities,
+      isLoading,
+    } = useActivityListQuery({
+      groupId,
+      placeId,
+      dateMin: newDateRoundedTo5Minutes(),
+    })
+
+    const enrichedUpcomingActivities = computed(() => activities.value.filter(isStartedOrUpcoming).map(enrichActivity))
+
+    return {
+      userId,
+      isLoading,
+      placeId,
+      place,
+      isEditor: computed(() => getIsEditor(userId.value)),
+      activities: enrichedUpcomingActivities,
+    }
+  },
   computed: {
-    ...mapGetters({
-      placeId: 'places/activePlaceId',
-      place: 'places/activePlace',
-      activities: 'activities/byActivePlace',
-      activitiesIcsUrl: 'activities/icsUrlForCurrentPlace',
-      fetchPending: 'activities/fetchingForCurrentGroup',
-      tokenPending: 'activities/tokenPending',
-      isEditor: 'currentGroup/isEditor',
-    }),
     hasNoActivities () {
-      if (this.fetchPending) return false
+      if (this.isLoading) return false
       return this.activities && this.activities.length === 0
     },
     isInactive () {
-      return this.place && this.place.status !== 'active'
+      return this.place?.status !== 'active'
     },
   },
   methods: {
     ...mapActions({
-      join: 'activities/join',
-      leave: 'activities/leave',
       detail: 'detail/openForActivity',
     }),
   },

@@ -1,6 +1,7 @@
 import { computed, unref } from 'vue'
 import { defineService, indexById } from '@/utils/datastore/helpers'
 import { usePlaceListQuery } from '@/places/queries'
+import { useStore } from 'vuex'
 
 export const usePlaceService = defineService(() => {
   // queries
@@ -23,5 +24,21 @@ export const usePlaceService = defineService(() => {
     places,
     getPlaceById,
     getPlacesByGroup,
+  }
+})
+
+export const useActivePlaceService = defineService(() => {
+  // services
+  const store = useStore()
+  const { getPlaceById } = usePlaceService()
+
+  // computed
+  // TODO: decouple from store
+  const placeId = computed(() => store.state.places.activePlaceId)
+  const place = computed(() => getPlaceById(placeId.value))
+
+  return {
+    place,
+    placeId,
   }
 })

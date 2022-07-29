@@ -1,6 +1,7 @@
 import { computed, unref } from 'vue'
 import { useActivityTypeListQuery } from '@/activities/queries'
 import { defineService, indexById } from '@/utils/datastore/helpers'
+import reactiveNow from '@/utils/reactiveNow'
 
 export const useActivityService = defineService(() => {
   // queries
@@ -19,9 +20,14 @@ export const useActivityService = defineService(() => {
     return filters.status ? entries.filter(entry => entry.status === unref(filters.status)) : entries
   }
 
+  function isStartedOrUpcoming (activity) {
+    return activity.dateEnd > reactiveNow.value
+  }
+
   return {
     activityTypes,
     getActivityTypeById,
     getActivityTypesByGroup,
+    isStartedOrUpcoming,
   }
 })

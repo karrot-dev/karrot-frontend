@@ -177,6 +177,7 @@ import { usePlaceEnricher } from '@/places/enrichers'
 import { usePlaceService } from '@/places/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 import ICSBtn from '@/activities/components/ICSBtn'
+import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 
 export default {
   components: {
@@ -198,7 +199,7 @@ export default {
   },
   setup () {
     const { groupId } = useCurrentGroupService()
-    const { getActivityTypesByGroup } = useActivityService()
+    const { getActivityTypesByGroup, isStartedOrUpcoming } = useActivityService()
     const { getPlacesByGroup } = usePlaceService()
     const enrichActivity = useActivityEnricher()
     const enrichActivityType = useActivityTypeEnricher()
@@ -220,11 +221,6 @@ export default {
       type.value = null
       slots.value = null
       place.value = null
-    }
-
-    function newDateRoundedTo5Minutes () {
-      const roundTo = 1000 * 60 * 5 // 5 minutes
-      return new Date(Math.floor(new Date().getTime() / roundTo) * roundTo)
     }
 
     // "place" can be a place id, or the string "subscribed", but for the query they need to be separate params
@@ -253,10 +249,6 @@ export default {
       // TODO: maybe explore some other solutions...
       cacheTime: 0,
     })
-
-    function isStartedOrUpcoming (activity) {
-      return activity.dateEnd > reactiveNow.value
-    }
 
     async function maybeFetchMore (index, done) {
       if (!isFetching.value && hasNextPage.value) await fetchNextPage()

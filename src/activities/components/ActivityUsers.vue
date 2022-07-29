@@ -24,7 +24,7 @@
       </template>
       <template v-else>
         <div
-          v-if="isNewcomer(user.id) && !user.isCurrentUser"
+          v-if="getIsNewcomer(user.id) && !user.isCurrentUser"
           class="newcomer-box"
           :title="$t('USERDATA.NEWCOMER_GUIDANCE', { userName: user.displayName })"
         />
@@ -110,15 +110,15 @@ export default {
     'leave',
     'join',
   ],
+  setup () {
+    const { getIsNewcomer } = useCurrentGroupService()
+    return { getIsNewcomer }
+  },
   data () {
     return {
       slotsPerRow: 6,
       // isJoining: true,
     }
-  },
-  setup () {
-    const { isNewcomer } = useCurrentGroupService()
-    return { isNewcomer }
   },
   computed: {
     ...mapGetters({

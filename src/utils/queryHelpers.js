@@ -36,3 +36,14 @@ export function flattenPaginatedData (query) {
     return data.pages.flat()
   })
 }
+
+/**
+ * Useful for dateMin param for activity queries, so we can keep a cache.
+ * If we used new Date() then the cache params would keep changing...
+ *
+ * @returns {Date}
+ */
+export function newDateRoundedTo5Minutes () {
+  const roundTo = 1000 * 60 * 5 // 5 minutes
+  return new Date(Math.floor(new Date().getTime() / roundTo) * roundTo)
+}

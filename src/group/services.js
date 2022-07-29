@@ -14,6 +14,7 @@ export const useCurrentGroupService = defineService(() => {
   const { getPlacesByGroup } = usePlaceService()
 
   // computed
+  // TODO: decouple from store
   const group = computed(() => store.state.currentGroup.current)
   const groupId = computed(() => group.value?.id)
   const users = computed(() => Object.keys(group.value.memberships).map(getUserById))
@@ -26,15 +27,15 @@ export const useCurrentGroupService = defineService(() => {
   }
 
   function getUserRoles (userId) {
-    return getMembership?.roles || []
+    return getMembership(userId)?.roles || []
   }
 
-  function isEditor (userId) {
+  function getIsEditor (userId) {
     return getUserRoles(userId).includes('editor')
   }
 
-  function isNewcomer (userId) {
-    return !isEditor(userId)
+  function getIsNewcomer (userId) {
+    return !getIsEditor(userId)
   }
 
   return {
@@ -44,7 +45,8 @@ export const useCurrentGroupService = defineService(() => {
     users,
     places,
     getMembership,
-    isEditor,
-    isNewcomer,
+    getUserRoles,
+    getIsEditor,
+    getIsNewcomer,
   }
 })

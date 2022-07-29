@@ -14,8 +14,9 @@ export const useActivityService = defineService(() => {
     return activityTypesById.value[id]
   }
 
-  function getActivityTypesByGroup (groupId) {
-    return activityTypes.value.filter(entry => entry.group === unref(groupId))
+  function getActivityTypesByGroup (groupId, filters = {}) {
+    const entries = activityTypes.value.filter(entry => entry.group === unref(groupId))
+    return filters.status ? entries.filter(entry => entry.status === unref(filters.status)) : entries
   }
 
   return {

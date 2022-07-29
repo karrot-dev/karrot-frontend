@@ -14,9 +14,9 @@ export const usePlaceService = defineService(() => {
     return placesById.value[id]
   }
 
-  function getPlacesByGroup (groupId) {
-    console.log('getting places!', places.value)
-    return places.value.filter(place => place.group === unref(groupId))
+  function getPlacesByGroup (groupId, filters = {}) {
+    const entries = places.value.filter(place => place.group === unref(groupId))
+    return filters.status ? entries.filter(entry => entry.status === unref(filters.status)) : entries
   }
 
   return {

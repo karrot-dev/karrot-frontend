@@ -53,7 +53,27 @@
         fill-input
         hide-selected
         @filter="filterPlaceOptions"
-      />
+      >
+        <template #option="{ index, itemProps, opt }">
+          <QItem
+            :key="index"
+            dense
+            v-bind="itemProps"
+          >
+            <QItemSection>
+              <QItemLabel>{{ opt.label }}</QItemLabel>
+            </QItemSection>
+            <QItemSection side>
+              <QIcon
+                v-if="opt.place?.isSubscribed || opt.value === 'subscribed'"
+                name="fas fa-fw fa-star"
+                color="green"
+                size="1.1em"
+              />
+            </QItemSection>
+          </QItem>
+        </template>
+      </QSelect>
       <QSpace />
       <ICSBtn
         :group="groupId"
@@ -128,7 +148,7 @@
 </template>
 
 <script>
-import { computed, onUnmounted } from 'vue'
+import { computed } from 'vue'
 import {
   QCard,
   QIcon,
@@ -142,13 +162,13 @@ import {
   QSpace,
 } from 'quasar'
 
-import { mapGetters, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 
 import KSpinner from '@/utils/components/KSpinner'
 import ActivityList from '@/activities/components/ActivityList'
 import KNotice from '@/utils/components/KNotice'
 import PlaceList from '@/places/components/PlaceList'
-import { queryKeyActivityList, useActivityListQuery } from '@/activities/queries'
+import { useActivityListQuery } from '@/activities/queries'
 import reactiveNow from '@/utils/reactiveNow'
 import { useActivityEnricher, useActivityTypeEnricher } from '@/activities/enrichers'
 import { useActivityService } from '@/activities/services'
@@ -157,7 +177,6 @@ import { usePlaceEnricher } from '@/places/enrichers'
 import { usePlaceService } from '@/places/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 import ICSBtn from '@/activities/components/ICSBtn'
-import { useQueryClient } from 'vue-query'
 
 export default {
   components: {
@@ -208,22 +227,10 @@ export default {
       return new Date(Math.floor(new Date().getTime() / roundTo) * roundTo)
     }
 
-    const queryClient = useQueryClient()
+    // "place" can be a place id, or the string "subscribed", but for the query they need to be separate params
+    const placeIdFilter = computed(() => place.value !== 'subscribed' ? place.value : null)
+    const placesFilter = computed(() => place.value === 'subscribed' ? place.value : null)
 
-    /*
-      TODO: something funny happening where it sort of freezes when there is query cache...
-        steps:
-          - visit http://localhost:8080/#/group/6/activities?type=15 (i.e. with filter selected)
-          - then select "All types" in the filter
-          - notice no freeze (even though it pauses to load, browser stays responsive)
-          - select some other type, then select "All types" again
-          - now there is some weird kind of lag...
-
-       The difference is that the second time the queryClient already has data...
-
-       cacheTime: 0 makes it go away, maybe that's fine...
-
-     */
     const {
       isLoading,
       isFetching,
@@ -234,19 +241,17 @@ export default {
       // remove,
     } = useActivityListQuery({
       groupId,
-      placeId: place,
-      activityTypeId: type,
       slots,
+      activityTypeId: type,
+      placeId: placeIdFilter,
+      places: placesFilter,
       // so we can use cached query results for a while, otherwise it'll always be a fresh query
       dateMin: newDateRoundedTo5Minutes(),
     }, {
-      // TODO: consider this a bit more... ideally can speed up the activity rendering so we can keep more results, or just clear extra pages?
+      // setting cache to 0, as otherwise it seems to lag when switching filters to one with a cached result
+      // also, if there are LOADS of results cached, can be slow to re-render them all...
+      // TODO: maybe explore some other solutions...
       cacheTime: 0,
-    })
-
-    onUnmounted(() => {
-      // really just putting this here as don't want to keep more than first page in cache and haven't worked out how to do it better yet...
-      // remove()
     })
 
     function isStartedOrUpcoming (activity) {
@@ -258,21 +263,32 @@ export default {
       done(!hasNextPage.value)
     }
 
+    function sortByFavouritesThenName (a, b) {
+      if (a.isSubscribed === b.isSubscribed) {
+        return a.name.localeCompare(b.name)
+      }
+      return a.isSubscribed ? -1 : 1
+    }
+
+    const enrichedUpcomingActivities = computed(() => activities.value.filter(isStartedOrUpcoming).map(enrichActivity))
+    const enrichedActivityTypes = computed(() => getActivityTypesByGroup(groupId, { status: 'active' }).map(enrichActivityType))
+    const enrichedPlaces = computed(() => getPlacesByGroup(groupId, { status: 'active' }).sort(sortByFavouritesThenName).map(enrichPlace))
+
     return {
+      placesFilter,
+      groupId,
       slots,
       type,
       place,
       maybeFetchMore,
       clearFilters,
       hasNextPage,
-      groupId,
       isLoading,
       isFetchingNextPage,
-      activities: computed(() => activities.value.filter(isStartedOrUpcoming).map(enrichActivity)),
+      activities: enrichedUpcomingActivities,
       // TODO: how to do that filtering to hide archived types unless we have results for them? (we can't tell if we have results for them now we don't fetch them all)
-      activityTypes: computed(() => getActivityTypesByGroup(groupId).map(enrichActivityType)),
-      // TODO: filter for place status?
-      places: computed(() => getPlacesByGroup(groupId).map(enrichPlace)),
+      activityTypes: enrichedActivityTypes,
+      places: enrichedPlaces,
     }
   },
   data () {
@@ -281,15 +297,14 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      activitiesIcsUrl: 'activities/icsUrlForCurrentGroup',
-      tokenPending: 'activities/tokenPending',
-    }),
     hasNoActivities () {
       return !this.isLoading && !this.type && !this.slots && this.activities.length === 0
     },
     hasNoActivitiesDueToFilters () {
       return !this.isLoading && (this.type || this.slots) && this.activities.length === 0
+    },
+    hasMultipleFavouritePlaces () {
+      return this.places.filter(place => place.isSubscribed).length > 1
     },
     slotsOptions () {
       return [
@@ -332,6 +347,11 @@ export default {
           label: this.$t('ACTIVITYLIST.FILTER.ALL_PLACES'),
           value: null,
         },
+        // "All favourite places" option is only useful if we have more than 1
+        this.hasMultipleFavouritePlaces && {
+          label: this.$t('ACTIVITYLIST.FILTER.ALL_FAVOURITE_PLACES'),
+          value: 'subscribed',
+        },
         ...this.places.map(place => {
           return {
             label: place.name,
@@ -340,6 +360,7 @@ export default {
           }
         }),
       ].filter(option => {
+        if (!option) return false
         return !this.placeOptionsFilter || option.label.toLowerCase().includes(this.placeOptionsFilter)
       })
     },

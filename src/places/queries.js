@@ -1,22 +1,42 @@
 import { computed, unref } from 'vue'
-import { useStore } from 'vuex'
-import { useQueries, useQuery, useQueryClient } from 'vue-query'
+import { useQuery, useQueryClient } from 'vue-query'
+
+export const QUERY_KEY_BASE = 'places'
+export const queryKeyPlaceListAll = () => [QUERY_KEY_BASE, 'list', 'all'].filter(Boolean)
 
 import api from './api/places'
+import { useSocketEvents } from '@/utils/composables'
 
-export function useStorePlaces () {
-  const store = useStore()
-  return {
-    getPlace: id => store.state.places.entries[unref(id)],
-    getEnrichedPlace: id => store.getters['places/get'](unref(id)),
-    // TODO: remove or use
-    getPlaceRef: id => computed(() => store.state.places.entries[unref(id)]),
+/**
+ * Handler for socket updates
+ */
+export function usePlacesUpdater () {
+  const queryClient = useQueryClient()
+  const { on } = useSocketEvents()
+
+  function updateEntry (updatedEntry) {
+    queryClient.setQueryData(queryKeyPlaceListAll(), entries => {
+      const idx = entries.findIndex(entry => entry.id === updatedEntry.id)
+
+      // Entry not present, nothing to do
+      if (idx === -1) return entries
+
+      // Clone our existing list
+      const updatedEntries = [...entries]
+
+      // Delete old entry, and replace with updated one
+      updatedEntries.splice(idx, 1, updatedEntry)
+
+      return updatedEntries
+    })
   }
+
+  on('places:place', updateEntry)
 }
 
 export function usePlaceListQuery () {
   const query = useQuery(
-    ['places', 'list'],
+    queryKeyPlaceListAll(),
     () => api.list(),
     {
       placeholderData: () => [],
@@ -26,32 +46,6 @@ export function usePlaceListQuery () {
     ...query,
     places: query.data,
   }
-}
-
-// TODO: remove or use
-export function usePlaceQueries ({ placeIds }) {
-  const queryClient = useQueryClient()
-  return useQueries({
-    queries: computed(() => {
-      return placeIds.value.map(id => {
-        return {
-          queryKey: ['places', 'detail', id],
-          queryFn: () => {
-            const existingList = queryClient.getQueryData(['places', 'list'])
-            console.log('existing', existingList)
-            if (existingList) {
-              const item = existingList.find(item => item.id === unref(id))
-              if (item) {
-                console.log('found item!', item)
-                return item
-              }
-            }
-            return api.get(unref(id))
-          },
-        }
-      })
-    }),
-  })
 }
 
 // TODO: remove or use

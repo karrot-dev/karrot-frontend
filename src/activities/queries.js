@@ -34,16 +34,18 @@ export function useActivityListQuery ({
   seriesId,
   activityTypeId,
   slots,
+  places,
   feedbackPossible,
 }, queryOptions = {}) {
   const query = useInfiniteQuery(
-    queryKeyActivityList({ groupId, placeId, seriesId, activityTypeId, slots, feedbackPossible, dateMin }),
+    queryKeyActivityList({ groupId, placeId, seriesId, activityTypeId, slots, feedbackPossible, places, dateMin }),
     ({ pageParam }) => api.list({
       group: unref(groupId),
       place: unref(placeId),
       series: unref(seriesId),
       activity_type: unref(activityTypeId),
       slots: unref(slots),
+      places: unref(places),
       date_min: unref(dateMin),
       feedback_possible: unref(feedbackPossible),
       cursor: pageParam,

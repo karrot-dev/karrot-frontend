@@ -19,6 +19,7 @@ import { useClearDataOnLogout } from '@/utils/composables'
 import { useOffersUpdater } from '@/offers/queries'
 import { useActivitiesUpdater } from '@/activities/queries'
 import { useUsersUpdater } from '@/users/queries'
+import { usePlacesUpdater } from '@/places/queries'
 
 export default {
   components: {
@@ -27,6 +28,7 @@ export default {
   setup () {
     // Global kind of things can be registered here
     useUsersUpdater()
+    usePlacesUpdater()
     useOffersUpdater()
     useActivitiesUpdater()
     useClearDataOnLogout()

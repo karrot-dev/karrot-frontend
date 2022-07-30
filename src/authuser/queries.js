@@ -1,9 +1,18 @@
 import authUserAPI from './api/authUser'
-import { useQuery } from 'vue-query'
+import { useQuery, useQueryClient } from 'vue-query'
+import { useSocketEvents } from '@/utils/composables'
 
 export const QUERY_KEY_BASE = 'authuser'
 export const queryKeys = {
   authUser: () => [QUERY_KEY_BASE, 'user'],
+}
+
+export function useAuthUserUpdater () {
+  const queryClient = useQueryClient()
+  const { on } = useSocketEvents()
+  on('auth:user', user => {
+    queryClient.setQueryData(queryKeys.authUser(), user)
+  })
 }
 
 export function useAuthUserQuery () {
@@ -12,6 +21,7 @@ export function useAuthUserQuery () {
     () => authUserAPI.get(),
     {
       staleTime: Infinity,
+      retry: false,
     },
   )
   return {

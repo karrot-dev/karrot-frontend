@@ -15,7 +15,7 @@
  */
 import LoadingProgress from '@/topbar/components/LoadingProgress'
 
-import { useClearDataOnLogout } from '@/utils/composables'
+import { useClearDataOnLogout, useTitleStatus } from '@/utils/composables'
 import { useOffersUpdater } from '@/offers/queries'
 import { useActivitiesUpdater } from '@/activities/queries'
 import { useUsersUpdater } from '@/users/queries'
@@ -27,12 +27,15 @@ export default {
     LoadingProgress,
   },
   setup () {
-    // Global kind of things can be registered here
+    // Websocket updaters
     useUsersUpdater()
     usePlacesUpdater()
     useOffersUpdater()
     useStatusUpdater()
     useActivitiesUpdater()
+
+    // Utilities
+    useTitleStatus()
     useClearDataOnLogout()
   },
   computed: {

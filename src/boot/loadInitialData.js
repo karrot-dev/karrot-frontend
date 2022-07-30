@@ -5,7 +5,15 @@ import { QueryClient, VueQueryPlugin } from 'vue-query'
 import { queryKeys } from '@/authuser/queries'
 
 export default async function ({ app, store: datastore }) {
-  const queryClient = new QueryClient()
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        // I mainly put this here because on logout it tries to refetch a load of stuff multiple times (places, users)
+        // (even though I have the "enabled" option to only do that if it's logged in
+        retry: false,
+      },
+    },
+  })
   app.use(VueQueryPlugin, { queryClient })
 
   const bootstrapData = await bootstrap.fetch()

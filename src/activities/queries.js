@@ -36,6 +36,7 @@ export function useActivityListQuery ({
   slots,
   places,
   feedbackPossible,
+  pageSize = 10,
 }, queryOptions = {}) {
   const query = useInfiniteQuery(
     queryKeyActivityList({ groupId, placeId, seriesId, activityTypeId, slots, feedbackPossible, places, dateMin }),
@@ -43,13 +44,13 @@ export function useActivityListQuery ({
       group: unref(groupId),
       place: unref(placeId),
       series: unref(seriesId),
-      activity_type: unref(activityTypeId),
+      activityType: unref(activityTypeId),
       slots: unref(slots),
       places: unref(places),
-      date_min: unref(dateMin),
-      feedback_possible: unref(feedbackPossible),
+      dateMin: unref(dateMin),
+      feedbackPossible: unref(feedbackPossible),
       cursor: pageParam,
-      page_size: 10,
+      pageSize,
     }),
     {
       // setting cache to 0, as otherwise it seems to lag when switching filters to one with a cached result

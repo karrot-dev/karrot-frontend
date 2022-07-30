@@ -45,13 +45,14 @@ export function useUsersUpdater () {
 /**
  * Holds all users across all groups
  */
-export function useUserListAllQuery () {
+export function useUserListAllQuery (queryOptions = {}) {
   const query = useQuery(
     queryKeyUserListAll(),
     () => api.list(),
     {
       // TODO: could set 10 minutes or something, just to periodically check, or on background refresh? as might not have got websockets?
       staleTime: Infinity, // rely on websockets to keep updated
+      ...queryOptions,
     },
   )
   return {

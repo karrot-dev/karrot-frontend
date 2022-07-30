@@ -28,22 +28,30 @@
         </RouterLink>
       </template>
     </KNotice>
-    <ActivityList
+    <QInfiniteScroll
       v-else
-      :pending="isLoading"
-      :activities="activities"
-      @detail="detail"
-    />
+      :disable="!hasNextPage"
+      :offset="100"
+      @load="maybeFetchMore"
+    >
+      <ActivityList
+        :pending="isLoading"
+        :activities="activities"
+        @detail="detail"
+      />
+      <KSpinner v-show="isLoading || isFetchingNextPage" />
+    </QInfiniteScroll>
   </div>
 </template>
 
 <script>
-import { QIcon } from 'quasar'
+import { QIcon, QInfiniteScroll } from 'quasar'
 import { mapActions } from 'vuex'
 import { computed } from 'vue'
 
 import ActivityList from '@/activities/components/ActivityList'
 import KNotice from '@/utils/components/KNotice'
+import KSpinner from '@/utils/components/KSpinner'
 
 import { useCurrentGroupService } from '@/group/services'
 import { useActivityListQuery } from '@/activities/queries'
@@ -58,6 +66,7 @@ export default {
     ActivityList,
     KNotice,
     QIcon,
+    QInfiniteScroll,
   },
   setup () {
     const { id: userId } = useAuthService()
@@ -68,17 +77,29 @@ export default {
     const {
       activities,
       isLoading,
+      isFetching,
+      isFetchingNextPage,
+      hasNextPage,
+      fetchNextPage,
     } = useActivityListQuery({
       groupId,
       placeId,
       dateMin: newDateRoundedTo5Minutes(),
     })
 
+    async function maybeFetchMore (index, done) {
+      if (!isFetching.value && hasNextPage.value) await fetchNextPage()
+      done(!hasNextPage.value)
+    }
+
     const enrichedUpcomingActivities = computed(() => activities.value.filter(isStartedOrUpcoming).map(enrichActivity))
 
     return {
       userId,
       isLoading,
+      isFetchingNextPage,
+      hasNextPage,
+      maybeFetchMore,
       placeId,
       place,
       isEditor,

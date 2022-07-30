@@ -14,7 +14,7 @@ export function useStatusUpdater () {
   })
 }
 
-export function useStatusQuery () {
+export function useStatusQuery (queryOptions = {}) {
   const query = useQuery(
     queryKeyStatus(),
     () => api.fetch(),
@@ -44,6 +44,7 @@ export function useStatusQuery () {
         */
         places: {},
       }),
+      ...queryOptions,
     },
   )
   return {

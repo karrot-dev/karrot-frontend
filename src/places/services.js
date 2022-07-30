@@ -2,10 +2,16 @@ import { computed, unref } from 'vue'
 import { defineService, indexById } from '@/utils/datastore/helpers'
 import { usePlaceListQuery } from '@/places/queries'
 import { useStore } from 'vuex'
+import { useAuthService } from '@/authuser/services'
 
 export const usePlaceService = defineService(() => {
+  // Services
+  const { isLoggedIn } = useAuthService()
+
   // queries
-  const { places, isLoading } = usePlaceListQuery()
+  const { places, isLoading } = usePlaceListQuery({
+    enabled: isLoggedIn,
+  })
 
   // computed
   const placesById = computed(() => indexById(places.value))

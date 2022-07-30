@@ -100,21 +100,6 @@ export default datastore => {
       }
     }
   })
-
-  datastore.watch((state, getters) => [
-    getters['breadcrumbs/allNames'],
-    getters['status/unseenCount'],
-  ], ([breadcrumbNames, unseenCount]) => {
-    const names = breadcrumbNames.slice().reverse()
-    names.push('Karrot')
-    let title = names.join(' · ')
-
-    if (unseenCount > 0) {
-      title = `(${unseenCount}) ${title}`
-    }
-
-    document.title = title
-  })
 }
 
 export function findBreadcrumbs (matched) {

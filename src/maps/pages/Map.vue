@@ -1,7 +1,5 @@
 <template>
   <div class="placeholder">
-    <pre>currentGroup: {{ currentGroup }}</pre>
-    <pre>currentGroup2: {{ currentGroup2 }}</pre>
     <GroupMap
       class="map"
       controls="full"

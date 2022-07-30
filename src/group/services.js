@@ -28,6 +28,8 @@ export const useCurrentGroupService = defineService(() => {
   const places = computed(() => getPlacesByGroup(groupId))
   const features = computed(() => group.value?.features || [])
   const theme = computed(() => group.value?.theme)
+  const isGeneralPurpose = computed(() => theme.value === 'general')
+  const isBikeKitchen = computed(() => theme.value === 'bikekitchen')
   const isEditor = computed(() => getIsEditor(userId.value))
 
   // methods
@@ -56,6 +58,8 @@ export const useCurrentGroupService = defineService(() => {
     users,
     places,
     theme,
+    isGeneralPurpose,
+    isBikeKitchen,
     features,
     isEditor,
     getMembership,

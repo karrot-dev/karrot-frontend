@@ -169,7 +169,6 @@ import ActivityList from '@/activities/components/ActivityList'
 import KNotice from '@/utils/components/KNotice'
 import PlaceList from '@/places/components/PlaceList'
 import { useActivityListQuery } from '@/activities/queries'
-import reactiveNow from '@/utils/reactiveNow'
 import { useActivityEnricher, useActivityTypeEnricher } from '@/activities/enrichers'
 import { useActivityService } from '@/activities/services'
 import { useCurrentGroupService } from '@/group/services'
@@ -234,7 +233,6 @@ export default {
       activities,
       hasNextPage,
       fetchNextPage,
-      // remove,
     } = useActivityListQuery({
       groupId,
       slots,
@@ -334,8 +332,8 @@ export default {
           label: this.$t('ACTIVITYLIST.FILTER.ALL_PLACES'),
           value: null,
         },
-        // "All favourite places" option is only useful if we have more than 1
-        this.hasMultipleFavouritePlaces && {
+        // "All favourite places" option is only useful if we have more than 1 (or have the option selected)
+        (this.hasMultipleFavouritePlaces || this.place === 'subscribed') && {
           label: this.$t('ACTIVITYLIST.FILTER.ALL_FAVOURITE_PLACES'),
           value: 'subscribed',
         },

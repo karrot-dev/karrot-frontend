@@ -2,17 +2,23 @@ import { computed } from 'vue'
 
 import { defineService } from '@/utils/datastore/helpers'
 import { useStatusQuery } from '@/status/queries'
+import { useAuthService } from '@/authuser/services'
 
 export const useStatusService = defineService(() => {
+  // Services
+  const { isLoggedIn } = useAuthService()
+
   // queries
-  const { status } = useStatusQuery()
+  const { status } = useStatusQuery({
+    enabled: isLoggedIn,
+  })
 
   // computed
   const unseenConversationCount = computed(() => status.value.unseenConversationCount)
   const unseenThreadCount = computed(() => status.value.unseenThreadCount)
   const hasUnreadConversationsOrThreads = computed(() => status.value.hasUnreadConversationsOrThreads)
-  const unseenCount = computed(() => status.value.unseenCount)
   const unseenNotificationCount = computed(() => status.value.unseenNotificationCount)
+  const unseenCount = computed(() => unseenConversationCount.value + unseenThreadCount.value)
 
   // methods
 
@@ -25,6 +31,8 @@ export const useStatusService = defineService(() => {
   }
 
   return {
+    status,
+
     unseenConversationCount,
     unseenThreadCount,
     hasUnreadConversationsOrThreads,

@@ -37,7 +37,7 @@
             >
               <i class="fas fa-bars relative-position">
                 <div
-                  v-if="hasNotification"
+                  v-if="hasUnseen"
                   class="k-highlight-dot bg-secondary"
                 />
               </i>
@@ -160,6 +160,8 @@
 </template>
 
 <script>
+import { computed, watchEffect } from 'vue'
+
 import KTopbar from '@/topbar/components/KTopbar'
 import KTopbarLoggedOut from '@/topbar/components/LoggedOut/KTopbar'
 import KAbout from '@/base/components/KAbout'
@@ -187,6 +189,10 @@ import {
   QBtn,
   QPullToRefresh,
 } from 'quasar'
+import { useStatusService } from '@/status/services'
+import { useCurrentGroupService } from '@/group/services'
+import { useAuthService } from '@/authuser/services'
+import { useRoute } from 'vue-router'
 
 export default {
   components: {
@@ -214,6 +220,35 @@ export default {
     UnsupportedBrowserWarning,
     CommunityFeed,
   },
+  setup () {
+    const { isLoggedIn } = useAuthService()
+
+    const {
+      groupId: currentGroupId,
+      isBikeKitchen,
+      isGeneralPurpose,
+    } = useCurrentGroupService()
+
+    const {
+      unseenCount,
+      unseenNotificationCount,
+    } = useStatusService()
+
+    const hasUnseen = computed(() => unseenCount.value > 0 || unseenNotificationCount.value > 0)
+
+    const route = useRoute()
+
+    const disableDesktopSidenav = computed(() => route.meta.disableDesktopSidenav)
+
+    return {
+      isLoggedIn,
+      currentGroupId,
+      isBikeKitchen,
+      isGeneralPurpose,
+      hasUnseen,
+      disableDesktopSidenav,
+    }
+  },
   data () {
     return {
       showSidenav: false,
@@ -222,15 +257,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isLoggedIn: 'auth/isLoggedIn',
       routeError: 'routeError/status',
       isDetailActive: 'detail/isActive',
-      disableDesktopSidenav: 'route/disableDesktopSidenav',
-      messagesUnseenCount: 'status/unseenCount',
-      notificationsUnseenCount: 'status/unseenNotificationCount',
-      currentGroupId: 'currentGroup/id',
-      isBikeKitchen: 'currentGroup/isBikeKitchen',
-      isGeneralPurpose: 'currentGroup/isGeneralPurpose',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
@@ -266,9 +294,6 @@ export default {
     },
     hasDetailComponent () {
       return this.$route.matched.some(({ meta }) => meta && meta.isDetail === true)
-    },
-    hasNotification () {
-      return this.messagesUnseenCount > 0 || this.notificationsUnseenCount > 0
     },
     disablePullToRefresh () {
       if (!this.$q.platform.is.cordova) return true

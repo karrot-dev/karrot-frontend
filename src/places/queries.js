@@ -20,15 +20,17 @@ export function usePlacesUpdater () {
   })
 }
 
-export function usePlaceListQuery () {
+export function usePlaceListQuery (queryOptions = {}) {
   const query = useQuery(
     queryKeyPlaceListAll(),
     () => api.list(),
     {
       placeholderData: () => [],
       staleTime: Infinity, // rely on socket updates
+      ...queryOptions,
     },
   )
+  window.__e = queryOptions.enabled
   return {
     ...query,
     places: query.data,

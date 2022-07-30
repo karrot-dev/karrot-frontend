@@ -1,6 +1,6 @@
 <template>
   <QBtn
-    :to="$q.platform.is.mobile && ({ name: 'messages' })"
+    :to="Platform.is.mobile && ({ name: 'messages' })"
     flat
     dense
     round
@@ -9,7 +9,7 @@
   >
     <QIcon
       name="fas fa-comments"
-      :class="{ hasUnread }"
+      :class="{ hasUnread: hasUnreadConversationsOrThreads }"
     />
     <QBadge
       v-if="unseenCount > 0"
@@ -19,7 +19,7 @@
       {{ unseenCount > 9 ? '9+' : unseenCount }}
     </QBadge>
     <QMenu
-      v-if="!$q.platform.is.mobile"
+      v-if="!Platform.is.mobile"
       v-model="showing"
       no-parent-event
       style="width: 500px"
@@ -31,49 +31,34 @@
   </QBtn>
 </template>
 
-<script>
+<script setup>
 import {
   QBtn,
   QIcon,
   QBadge,
   QMenu,
+  Platform,
 } from 'quasar'
-import { defineAsyncComponent } from 'vue'
+
+import { defineAsyncComponent, ref } from 'vue'
+import { useStatusService } from '@/status/services'
 
 const LatestMessages = defineAsyncComponent(() => import('@/messages/components/LatestMessages'))
 
-import { mapGetters } from 'vuex'
+const emit = defineEmits(['click'])
 
-export default {
-  components: {
-    QBtn,
-    QIcon,
-    QBadge,
-    QMenu,
-    LatestMessages,
-  },
-  emits: [
-    'click',
-  ],
-  data () {
-    return {
-      showing: false,
-    }
-  },
-  computed: {
-    ...mapGetters({
-      unseenCount: 'status/unseenCount',
-      hasUnread: 'status/hasUnreadConversationsOrThreads',
-    }),
-  },
-  methods: {
-    maybeOpen () {
-      if (!this.$q.platform.is.mobile) {
-        this.showing = !this.showing
-      }
-      this.$emit('click')
-    },
-  },
+const {
+  hasUnreadConversationsOrThreads,
+  unseenCount,
+} = useStatusService()
+
+const showing = ref(false)
+
+function maybeOpen () {
+  if (!Platform.is.mobile) {
+    showing.value = !showing.value
+  }
+  emit('click')
 }
 </script>
 

@@ -23,13 +23,16 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { computed } from 'vue'
 
 import {
   QTabs,
   QRouteTab,
   QBadge,
 } from 'quasar'
+import { useStatusService } from '@/status/services'
+import { useActivePlaceService } from '@/places/services'
+import { useCurrentGroupService } from '@/group/services'
 
 export default {
   components: {
@@ -37,15 +40,21 @@ export default {
     QRouteTab,
     QBadge,
   },
+  setup () {
+    const { groupId, isEditor } = useCurrentGroupService()
+    const { placeId } = useActivePlaceService()
+    const { getPlaceStatus } = useStatusService()
+    const unreadWallMessageCount = computed(() => getPlaceStatus(placeId.value).unreadWallMessageCount)
+    return {
+      groupId,
+      placeId,
+      isEditor,
+      unreadWallMessageCount,
+    }
+  },
   computed: {
-    ...mapGetters({
-      groupId: 'currentGroup/id',
-      placeId: 'places/activePlaceId',
-      wallUnreadCount: 'status/activePlaceWallUnreadCount',
-      isEditor: 'currentGroup/isEditor',
-    }),
-    cappedWallUnreadCount () {
-      return this.wallUnreadCount > 99 ? '99+' : this.wallUnreadCount
+    cappedUnreadWallMessageCount () {
+      return this.unreadWallMessageCount > 99 ? '99+' : this.unreadWallMessageCount
     },
     tabs () {
       const params = { groupId: this.groupId, placeId: this.placeId }
@@ -57,7 +66,7 @@ export default {
         {
           to: { name: 'placeWall', params },
           label: this.$t('GROUP.WALL'),
-          count: this.cappedWallUnreadCount,
+          count: this.cappedUnreadWallMessageCount,
         },
         {
           to: { name: 'placeFeedback', params },

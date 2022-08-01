@@ -29,13 +29,13 @@
         </QItemLabel>
       </QItemSection>
       <QItemSection
-        v-if="place.conversationUnreadCount > 0"
+        v-if="place.unreadWallMessageCount > 0"
         side
       >
         <QBadge
           color="secondary"
         >
-          {{ place.conversationUnreadCount > 99 ? '99+' : place.conversationUnreadCount }}
+          {{ place.unreadWallMessageCount > 99 ? '99+' : place.unreadWallMessageCount }}
         </QBadge>
       </QItemSection>
     </QItem>

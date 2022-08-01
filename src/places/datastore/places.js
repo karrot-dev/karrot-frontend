@@ -40,14 +40,7 @@ export default {
     notArchived: (state, getters) => getters.all.filter(s => s.status !== 'archived'),
     archived: (state, getters) => getters.all.filter(s => s.status === 'archived'),
     filtered: (state, getters, rootState, rootGetters) => getters.notArchived
-      .filter(place => getters['toggle/showAll'] || place.status === 'active' || place.isSubscribed)
-      .map(place => {
-        const conversationUnreadCount = rootGetters['status/getPlaceWallUnreadCount'](place.id)
-        return {
-          ...place,
-          conversationUnreadCount,
-        }
-      }),
+      .filter(place => getters['toggle/showAll'] || place.status === 'active' || place.isSubscribed),
     byCurrentGroup: (state, getters, rootState, rootGetters) => getters.filtered.filter(({ group }) => group && group.isCurrentGroup),
     byCurrentGroupArchived: (state, getters, rootState, rootGetters) => getters.archived.filter(({ group }) => group && group.isCurrentGroup),
     get: (state, getters) => id => getters.enrich(state.entries[id]),

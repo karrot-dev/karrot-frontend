@@ -1,9 +1,15 @@
 import { useStore } from 'vuex'
+import { useStatusService } from '@/status/services'
 
 export function usePlaceEnricher () {
+  const { getPlaceStatus } = useStatusService()
+
   const store = useStore()
   return place => {
-    return store.getters['places/enrich'](place)
+    return {
+      ...store.getters['places/enrich'](place),
+      unreadWallMessageCount: getPlaceStatus(place.id).unreadWallMessageCount,
+    }
     // TODO: implement enricher here...
     // return {
     //   ...place,

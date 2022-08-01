@@ -18,7 +18,6 @@ import notifications from '@/notifications/datastore'
 import activities from '@/activities/datastore'
 import sidenav from '@/sidenav/datastore'
 import places from '@/places/datastore'
-import status from '@/status/datastore'
 import subscriptions from '@/subscriptions/datastore'
 import offers from '@/offers/datastore'
 import topbar from '@/topbar/datastore'
@@ -45,7 +44,6 @@ const appModules = [
   activities,
   sidenav,
   places,
-  status,
   subscriptions,
   offers,
   topbar,

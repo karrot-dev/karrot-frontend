@@ -1,10 +1,10 @@
 <template>
   <div class="k-feedback-list">
     <FeedbackNotice
-      v-if="feedbackPossible.length > 0"
-      :feedback-possible="feedbackPossible"
+      v-if="feedbackPossibleCount > 0"
+      :feedback-possible-count="feedbackPossibleCount"
     />
-    <KSpinner v-show="isPending || (feedbackPossibleStatus && feedbackPossibleStatus.pending)" />
+    <KSpinner v-show="isPending" />
     <KNotice v-if="empty">
       <template #icon>
         <QIcon :class="$icon('feedback')" />
@@ -56,11 +56,7 @@ export default {
   mixins: [statusMixin, paginationMixin],
   props: {
     feedback: { required: true, type: Array },
-    feedbackPossible: { default: () => [], type: Array },
-    feedbackPossibleStatus: {
-      default: null,
-      type: Object,
-    },
+    feedbackPossibleCount: { default: 0, type: Number },
     highlight: {
       default: null,
       type: Number,

@@ -10,7 +10,7 @@ import i18n from '@/base/i18n'
 export function useActivityEnricher () {
   const { getUserById } = useUserService()
   const { getPlaceById } = usePlaceService()
-  const { id: userId } = useAuthService()
+  const { userId } = useAuthService()
   const { getActivityTypeById } = useActivityService()
   const enrichUser = useUserEnricher()
   const enrichPlace = usePlaceEnricher()

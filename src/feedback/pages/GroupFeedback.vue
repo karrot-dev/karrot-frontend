@@ -4,17 +4,19 @@
     :status="$store.getters['feedback/fetchStatus']"
     :can-fetch-past="$store.getters['feedback/canFetchPast']"
     :fetch-past-status="$store.getters['feedback/fetchPastStatus']"
-    :feedback-possible="$store.getters['activities/feedbackPossibleByCurrentGroup']"
+    :feedback-possible-count="feedbackPossibleCount"
     :fetch-past="() => $store.dispatch('feedback/fetchPast')"
   />
 </template>
 
-<script>
-import FeedbackList from '@/feedback/components/FeedbackList'
+<script setup>
+import { computed } from 'vue'
 
-export default {
-  components: {
-    FeedbackList,
-  },
-}
+import FeedbackList from '@/feedback/components/FeedbackList'
+import { useCurrentGroupService } from '@/group/services'
+import { useStatusService } from '@/status/services'
+
+const { groupId } = useCurrentGroupService()
+const { getGroupStatus } = useStatusService()
+const feedbackPossibleCount = computed(() => getGroupStatus(groupId.value).feedbackPossibleCount)
 </script>

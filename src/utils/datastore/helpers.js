@@ -368,17 +368,20 @@ export function defineService (serviceSetup) {
   // hold a reference to our service instance in this outer scope so we always return the same one
   let service
 
-  return () => {
+  return (...args) => {
+    if (process.env.DEV) {
+      if (args.length > 0) {
+        throw new Error('you cannot pass args to a service as if it already existed they would be silently ignored...')
+      }
+    }
     // it's already setup, can just return our service instance
     if (service) return service
 
     // Create a detached scope so it will stay around beyond the lifecycle of the initial setup
     const scope = effectScope(true)
 
-    scope.run(() => {
-      // initialize our service in this scope, we get back a value, nothing fancy!
-      service = serviceSetup()
-    })
+    // initialize our service in this scope, we get back a value, nothing fancy!
+    service = scope.run(() => serviceSetup())
 
     return service
   }

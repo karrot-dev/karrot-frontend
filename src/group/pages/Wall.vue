@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="notices">
-      <KSpinner v-show="fetchingActivities || feedbackPossibleStatus.pending" />
+      <KSpinner v-show="fetchingActivities" />
       <div v-if="joinedActivities.length > 0">
         <JoinedActivities
           :activities="joinedActivities"
@@ -14,8 +14,8 @@
         <AvailableActivities />
       </div>
       <FeedbackNotice
-        v-if="feedbackPossible.length > 0"
-        :feedback-possible="feedbackPossible"
+        v-if="feedbackPossibleCount > 0"
+        :feedback-possible-count="feedbackPossibleCount"
       />
     </div>
     <WallConversation
@@ -47,6 +47,7 @@ import { useCurrentGroupService } from '@/group/services'
 import { useActivityListQuery } from '@/activities/queries'
 import { useActivityEnricher } from '@/activities/enrichers'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
+import { useStatusService } from '@/status/services'
 
 export default {
   components: {
@@ -60,6 +61,7 @@ export default {
     const { groupId } = useCurrentGroupService()
     const { user } = useAuthService()
     const enrichActivity = useActivityEnricher()
+    const { getGroupStatus } = useStatusService()
 
     const {
       activities: joinedActivities,
@@ -82,10 +84,13 @@ export default {
 
     const hasAvailableActivities = computed(() => availableActivities.value.length > 0)
 
+    const feedbackPossibleCount = computed(() => getGroupStatus(groupId.value).feedbackPossibleCount)
+
     return {
       user,
       joinedActivities: computed(() => joinedActivities.value.map(enrichActivity)),
       hasAvailableActivities,
+      feedbackPossibleCount,
     }
   },
   computed: {
@@ -93,8 +98,6 @@ export default {
       // joinedActivities: 'activities/joined',
       // availableActivities: 'activities/available',
       fetchingActivities: 'activities/fetchingForCurrentGroup',
-      feedbackPossible: 'activities/feedbackPossibleByCurrentGroup',
-      feedbackPossibleStatus: 'activities/fetchFeedbackPossibleStatus',
       conversation: 'currentGroup/conversation',
     }),
   },

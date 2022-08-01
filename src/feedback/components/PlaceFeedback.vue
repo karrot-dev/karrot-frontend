@@ -42,20 +42,21 @@
         </span>
       </div>
     </QCard>
+    <!-- TODO: I removed feedbackPossibleCount as we only have it in the status object per group, not per place -->
     <FeedbackList
       :feedback="feedback"
       :status="fetchStatus"
       :can-fetch-past="canFetchPast"
       :fetch-past="fetchPast"
       :fetch-past-status="fetchPastStatus"
-      :feedback-possible="feedbackPossible"
-      :feedback-possible-status="feedbackPossibleStatus"
       :highlight="highlight"
     />
   </div>
 </template>
 
 <script>
+import { computed } from 'vue'
+
 import FeedbackList from '@/feedback/components/FeedbackList'
 import KSpinner from '@/utils/components/KSpinner'
 
@@ -68,6 +69,10 @@ import {
   mapGetters,
   mapActions,
 } from 'vuex'
+import { useActivePlaceService } from '@/places/services'
+import { usePlaceStatisticsQuery } from '@/places/queries'
+import { useCurrentGroupService } from '@/group/services'
+import { useStatusService } from '@/status/services'
 
 export default {
   components: {
@@ -76,20 +81,31 @@ export default {
     QCard,
     QChip,
   },
+  setup () {
+    const { groupId } = useCurrentGroupService()
+    const {
+      placeId,
+      place,
+    } = useActivePlaceService()
+    const { statistics } = usePlaceStatisticsQuery({ placeId })
+    const { getGroupStatus } = useStatusService()
+    const feedbackPossibleCount = computed(() => getGroupStatus(groupId.value).feedbackPossibleCount)
+    return {
+      place,
+      statistics,
+      feedbackPossibleCount,
+    }
+  },
   computed: {
     ...mapGetters({
-      place: 'places/activePlace',
       feedback: 'feedback/byActivePlace',
       fetchStatus: 'feedback/fetchStatus',
       canFetchPast: 'feedback/canFetchPast',
       fetchPastStatus: 'feedback/fetchPastStatus',
-      feedbackPossible: 'activities/feedbackPossibleByActivePlace',
-      feedbackPossibleStatus: 'activities/fetchFeedbackPossibleStatus',
+      // feedbackPossible: 'activities/feedbackPossibleByActivePlace',
+      // feedbackPossibleStatus: 'activities/fetchFeedbackPossibleStatus',
       routeQuery: 'route/query',
     }),
-    statistics () {
-      return this.place && this.place.statistics
-    },
     highlight () {
       return parseInt(this.routeQuery.highlight)
     },

@@ -1,6 +1,6 @@
 <template>
   <ActivityFeedback
-    :activities="$store.getters['activities/feedbackPossibleByCurrentGroup']"
+    :activities="enrichedActivities"
     :edit-feedback-id="$store.getters['feedback/selectedId']"
     :edit-feedback="$store.getters['feedback/selected']"
     :existing-feedback="$store.getters['feedback/byCurrentGroup']"
@@ -13,12 +13,29 @@
   />
 </template>
 
-<script>
-import ActivityFeedback from '@/feedback/components/ActivityFeedback'
+<script setup>
+import { computed } from 'vue'
 
-export default {
-  components: {
-    ActivityFeedback,
-  },
-}
+import ActivityFeedback from '@/feedback/components/ActivityFeedback'
+import { useActivityListQuery } from '@/activities/queries'
+import { useCurrentGroupService } from '@/group/services'
+import { useActivityEnricher } from '@/activities/enrichers'
+import { useIntegerRouteParam } from '@/utils/composables'
+import { useFeedbackListQuery } from '@/feedback/queries'
+
+const { groupId } = useCurrentGroupService()
+
+const activityId = useIntegerRouteParam('activityId')
+
+const { activities } = useActivityListQuery({
+  groupId,
+  feedbackPossible: true,
+})
+
+const enrichActivity = useActivityEnricher()
+const enrichedActivities = computed(() => activities.value.map(enrichActivity))
+
+const placeId = computed(() => activities.value.find(activity => activity.id === activityId.value)?.place)
+
+const { feedback } = useFeedbackListQuery({ placeId })
 </script>

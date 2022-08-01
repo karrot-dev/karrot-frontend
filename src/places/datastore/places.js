@@ -84,13 +84,6 @@ export default {
       async fetch ({ commit }) {
         commit('set', await places.list())
       },
-      async subscribe (_, id) {
-        await places.subscribe(id)
-      },
-      async unsubscribe (_, id) {
-        await places.unsubscribe(id)
-      },
-
     }),
     ...withMeta({
       async selectPlace ({ commit, dispatch, getters }, { placeId }) {
@@ -121,7 +114,7 @@ export default {
 
     async beforeEnterFeedback ({ commit, dispatch }, { placeId }) {
       dispatch('feedback/fetch', { placeId }, { root: true })
-      commit('setStatistics', { data: await places.statistics(placeId), id: placeId })
+      // commit('setStatistics', { data: await places.statistics(placeId), id: placeId })
     },
 
     update ({ commit, dispatch, getters }, places) {

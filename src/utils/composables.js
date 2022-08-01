@@ -1,9 +1,10 @@
 import { useStore } from 'vuex'
 import { useQueryClient } from 'vue-query'
 import { socketEvents } from '@/boot/socket'
-import { watch, onScopeDispose } from 'vue'
+import { computed, watch, onScopeDispose } from 'vue'
 import { isArray } from 'lodash'
 import { useStatusService } from '@/status/services'
+import { useRoute } from 'vue-router/dist/vue-router'
 
 export function useClearDataOnLogout () {
   const store = useStore()
@@ -56,4 +57,9 @@ export function useTitleStatus () {
 
     document.title = title
   })
+}
+
+export function useIntegerRouteParam (name) {
+  const route = useRoute()
+  return computed(() => route.params[name] && parseInt(route.params[name], 10))
 }

@@ -179,6 +179,8 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+
 import Markdown from '@/utils/components/Markdown'
 import StandardMap from '@/maps/components/StandardMap'
 import RandomArt from '@/utils/components/RandomArt'
@@ -187,11 +189,6 @@ import ProfilePicture from '@/users/components/ProfilePicture'
 
 import { placeMarker } from '@/maps/components/markers'
 import directions from '@/maps/directions'
-
-import {
-  mapGetters,
-  mapActions,
-} from 'vuex'
 
 import {
   QSeparator,
@@ -210,6 +207,11 @@ import {
   QToolbarTitle,
   QIcon,
 } from 'quasar'
+import { useActivePlaceService } from '@/places/services'
+import { useCurrentGroupService } from '@/group/services'
+import { useAuthService } from '@/authuser/services'
+import { useUserService } from '@/users/services'
+import { usePlaceSubscribeMutation, usePlaceUnsubscribeMutation } from '@/places/mutations'
 
 export default {
   components: {
@@ -234,6 +236,26 @@ export default {
     QToolbarTitle,
     QIcon,
   },
+  setup () {
+    const { user: currentUser } = useAuthService()
+    const { isEditor } = useCurrentGroupService()
+    const { placeId, place } = useActivePlaceService()
+    const { getUserById } = useUserService()
+    const subscribers = computed(() => place.value.subscribers.map(getUserById))
+
+    const { mutate: subscribe } = usePlaceSubscribeMutation()
+    const { mutate: unsubscribe } = usePlaceUnsubscribeMutation()
+
+    return {
+      placeId,
+      place,
+      isEditor,
+      currentUser,
+      subscribers,
+      subscribe,
+      unsubscribe,
+    }
+  },
   data () {
     return {
       showDetail: false,
@@ -243,13 +265,6 @@ export default {
     markers () {
       return this.place ? [placeMarker(this.place)] : []
     },
-    ...mapGetters({
-      placeId: 'places/activePlaceId',
-      place: 'places/activePlace',
-      subscribers: 'places/activePlaceSubscribers',
-      currentUser: 'auth/user',
-      isEditor: 'currentGroup/isEditor',
-    }),
     directionsURL () {
       if (!this.place || !this.place.latitude || !this.place.longitude) return
       if (this.$q.platform.is.ios) {
@@ -291,10 +306,6 @@ export default {
     },
   },
   methods: {
-    ...mapActions({
-      subscribe: 'places/subscribe',
-      unsubscribe: 'places/unsubscribe',
-    }),
     select (option) {
       if (option.id === 'subscribe') {
         this.subscribe(this.placeId)

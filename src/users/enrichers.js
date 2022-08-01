@@ -1,7 +1,7 @@
 import { useAuthService } from '@/authuser/services'
 
 export function useUserEnricher () {
-  const { id: userId } = useAuthService()
+  const { userId } = useAuthService()
 
   // TODO: this doesn't include the "membership", and probably shouldn't, so have to fix up the places that use it...
   function enrichUser (user) {

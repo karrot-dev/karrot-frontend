@@ -8,7 +8,7 @@
           class="on-left"
           :name="$icon('feedback')"
         />
-        {{ $tc('ACTIVITYLIST.AVAILABLE_FEEDBACK', feedbackPossible.length, { count: feedbackPossible.length }) }}
+        {{ $tc('ACTIVITYLIST.AVAILABLE_FEEDBACK', feedbackPossibleCount, { count: feedbackPossibleCount }) }}
       </QCard>
     </RouterLink>
   </div>
@@ -26,7 +26,7 @@ export default {
     QIcon,
   },
   props: {
-    feedbackPossible: { required: true, type: Array },
+    feedbackPossibleCount: { required: true, type: Number },
   },
 }
 </script>

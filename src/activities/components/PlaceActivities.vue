@@ -69,7 +69,7 @@ export default {
     QInfiniteScroll,
   },
   setup () {
-    const { id: userId } = useAuthService()
+    const { userId } = useAuthService()
     const { groupId, isEditor } = useCurrentGroupService()
     const { place, placeId } = useActivePlaceService()
     const { isStartedOrUpcoming } = useActivityService()

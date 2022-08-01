@@ -1,8 +1,8 @@
 import { computed, unref } from 'vue'
 import { defineService, indexById } from '@/utils/datastore/helpers'
 import { usePlaceListQuery } from '@/places/queries'
-import { useStore } from 'vuex'
 import { useAuthService } from '@/authuser/services'
+import { useIntegerRouteParam } from '@/utils/composables'
 
 export const usePlaceService = defineService(() => {
   // Services
@@ -36,12 +36,10 @@ export const usePlaceService = defineService(() => {
 
 export const useActivePlaceService = defineService(() => {
   // services
-  const store = useStore()
   const { getPlaceById } = usePlaceService()
+  const placeId = useIntegerRouteParam('placeId')
 
   // computed
-  // TODO: decouple from store
-  const placeId = computed(() => store.state.places.activePlaceId)
   const place = computed(() => getPlaceById(placeId.value))
 
   return {

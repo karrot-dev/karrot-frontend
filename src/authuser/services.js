@@ -23,7 +23,7 @@ export const useAuthService = defineService(() => {
   // as we can return the mutation immediate, so the calling thing has status about it...
 
   // computed
-  const id = computed(() => user.value?.id)
+  const userId = computed(() => user.value?.id)
   const isLoggedIn = computed(() => !!user.value)
 
   // This is only temporary to cause us to reload our user here when the main store one is logged in/out
@@ -41,7 +41,7 @@ export const useAuthService = defineService(() => {
   }
 
   return {
-    id,
+    userId,
     isLoggedIn,
     user,
     refresh,

@@ -9,7 +9,7 @@ export function useQueryHelpers () {
    * For updating non-paginated list data, if it exists, it'll be replaced, otherwise the query invalidated
    */
   function updateOrInvalidateListEntry (queryKey, updatedEntry) {
-    const hasEntry = queryClient.getQueryData(queryKey).some(entry => entry.id === updatedEntry)
+    const hasEntry = queryClient.getQueryData(queryKey).some(entry => entry.id === updatedEntry.id)
     if (hasEntry) {
       // Update existing value
       queryClient.setQueryData(queryKey, entries => {

@@ -18,7 +18,7 @@ export const useCurrentGroupService = defineService(() => {
     isLoading: isLoadingPlaces,
   } = usePlaceService()
 
-  const { id: userId } = useAuthService()
+  const { userId } = useAuthService()
 
   // computed
   // TODO: decouple from store

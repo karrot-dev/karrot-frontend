@@ -40,7 +40,7 @@ export default {
   },
   setup () {
     const { offer } = useCurrentOfferQuery()
-    const { id: currentUserId } = useAuthService()
+    const { userId: currentUserId } = useAuthService()
     return {
       offer,
       currentUserId,

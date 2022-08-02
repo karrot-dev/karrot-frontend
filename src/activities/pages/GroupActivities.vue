@@ -170,7 +170,7 @@ import KNotice from '@/utils/components/KNotice'
 import PlaceList from '@/places/components/PlaceList'
 import { useActivityListQuery } from '@/activities/queries'
 import { useActivityEnricher, useActivityTypeEnricher } from '@/activities/enrichers'
-import { useActivityService } from '@/activities/services'
+import { useActivityTypeService } from '@/activities/services'
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceEnricher } from '@/places/enrichers'
 import { usePlaceService } from '@/places/services'
@@ -198,7 +198,7 @@ export default {
   },
   setup () {
     const { groupId } = useCurrentGroupService()
-    const { getActivityTypesByGroup, isStartedOrUpcoming } = useActivityService()
+    const { getActivityTypesByGroup, isStartedOrUpcoming } = useActivityTypeService()
     const { getPlacesByGroup } = usePlaceService()
     const enrichActivity = useActivityEnricher()
     const enrichActivityType = useActivityTypeEnricher()

@@ -15,7 +15,7 @@ import invitations from '@/invitations/datastore'
 import issues from '@/issues/datastore'
 import messages from '@/messages/datastore'
 import notifications from '@/notifications/datastore'
-import activities from '@/activities/datastore'
+// import activities from '@/activities/datastore'
 import sidenav from '@/sidenav/datastore'
 import places from '@/places/datastore'
 import subscriptions from '@/subscriptions/datastore'
@@ -41,7 +41,7 @@ const appModules = [
   issues,
   messages,
   notifications,
-  activities,
+  // activities,
   sidenav,
   places,
   subscriptions,

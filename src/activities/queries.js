@@ -5,11 +5,13 @@ import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
 import { useSocketEvents } from '@/utils/composables'
 import api from './api/activities'
 import activityTypeAPI from './api/activityTypes'
+import activitySeriesAPI from './api/activitySeries'
 
 export const QUERY_KEY_BASE = 'activities'
 export const queryKeyActivityList = params => [QUERY_KEY_BASE, 'list', params].filter(Boolean)
 export const queryKeyActivityItem = activityId => [QUERY_KEY_BASE, 'item', activityId].filter(Boolean)
 export const queryKeyActivityTypeList = () => [QUERY_KEY_BASE, 'types']
+export const queryKeyActivitySeriesList = placeId => [QUERY_KEY_BASE, 'series', 'list', placeId].filter(Boolean)
 export const queryKeyActivityIcsToken = () => [QUERY_KEY_BASE, 'ics-token']
 
 export function useActivitiesUpdater () {
@@ -17,12 +19,43 @@ export function useActivitiesUpdater () {
   const { on } = useSocketEvents()
   on(
     [
+      // TODO: when we save an activity series, we get a storm of these back... and it's then refetching a lot of things!
       'activities:activity',
       'activities:activity_deleted',
     ],
     // We could do fiddly updates to the data, but simpler to just invalidate the lot
     async () => {
       await queryClient.invalidateQueries(queryKeyActivityList())
+    },
+  )
+}
+
+export function useActivitySeriesUpdater () {
+  const queryClient = useQueryClient()
+  const { on } = useSocketEvents()
+  on(
+    [
+      'activities:series',
+      'activities:series_deleted',
+    ],
+    async () => {
+      // TODO: consider doing more refined updates
+      await queryClient.invalidateQueries(queryKeyActivitySeriesList())
+    },
+  )
+}
+
+export function useActivityTypeUpdater () {
+  const queryClient = useQueryClient()
+  const { on } = useSocketEvents()
+  on(
+    [
+      'activities:type',
+      'activities:type_deleted',
+    ],
+    () => {
+      // TODO: could do more refined updates... but yeah...
+      queryClient.invalidateQueries(queryKeyActivityTypeList())
     },
   )
 }
@@ -58,13 +91,13 @@ export function useActivityListQuery ({
       // TODO: maybe explore some other solutions...
       cacheTime: 0,
       staleTime: 0,
-      ...queryOptions,
-      enabled: computed(() => !!unref(groupId)),
+      enabled: computed(() => Boolean(unref(groupId)) || Boolean(unref(placeId))),
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => page.results),
         pageParams,
       }),
+      ...queryOptions,
     },
   )
 
@@ -88,12 +121,23 @@ export function useActivityItemQuery ({ activityId }) {
   }
 }
 
+export function useActivitySeriesListQuery ({ placeId }) {
+  const query = useQuery(
+    queryKeyActivitySeriesList(placeId),
+    () => activitySeriesAPI.listByPlaceId(unref(placeId)),
+  )
+  return {
+    ...query,
+    activitySeries: query.data,
+  }
+}
+
 export function useActivityTypeListQuery () {
   const query = useQuery(
     queryKeyActivityTypeList(),
     () => activityTypeAPI.list(),
     {
-      // staleTime: Infinity, // TODO: implement ws updates, then can add this
+      staleTime: Infinity,
     },
   )
   return {

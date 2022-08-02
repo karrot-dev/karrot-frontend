@@ -17,7 +17,7 @@ import LoadingProgress from '@/topbar/components/LoadingProgress'
 
 import { useClearDataOnLogout, useTitleStatus } from '@/utils/composables'
 import { useOffersUpdater } from '@/offers/queries'
-import { useActivitiesUpdater } from '@/activities/queries'
+import { useActivitiesUpdater, useActivitySeriesUpdater, useActivityTypeUpdater } from '@/activities/queries'
 import { useUsersUpdater } from '@/users/queries'
 import { usePlacesUpdater } from '@/places/queries'
 import { useStatusUpdater } from '@/status/queries'
@@ -35,6 +35,8 @@ export default {
     useOffersUpdater()
     useStatusUpdater()
     useActivitiesUpdater()
+    useActivitySeriesUpdater()
+    useActivityTypeUpdater()
 
     // Utilities
     useTitleStatus()

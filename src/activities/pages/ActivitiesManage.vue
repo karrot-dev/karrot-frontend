@@ -38,20 +38,22 @@
       <QItem v-if="newSeries">
         <ActivitySeriesEdit
           :value="newSeries"
-          :status="seriesCreateStatus"
+          :status="createSeriesStatus"
           @save="saveNewSeries"
           @cancel="cancelNewSeries"
           @reset="resetNewSeries"
         />
       </QItem>
-      <KSpinner v-show="fetchActivitySeriesStatus.pending" />
+      <KSpinner v-show="isLoadingActivitySeries" />
       <QList
         separator
       >
         <QExpansionItem
           v-for="series in activitySeries"
           :key="series.id"
-          @show="makeVisible('series', series.id)"
+          group="series"
+          @show="showSeries(series.id)"
+          @hide="hideSeries(series.id)"
         >
           <template #header>
             <QItemSection side>
@@ -72,83 +74,89 @@
           <QItem v-if="visible.series[series.id]">
             <ActivitySeriesEdit
               :value="series"
-              :status="series.saveStatus"
+              :status="saveSeriesStatus"
               @save="saveSeries"
               @destroy="destroySeries"
               @reset="resetActivity"
             />
           </QItem>
           <QList
+            v-if="visibleSeriesId === series.id"
             seperator
           >
             <QItemLabel
               header
             >
-              <span v-t="'ACTIVITYMANAGE.UPCOMING_ACTIVITIES_IN_SERIES'" />
+              <QToggle v-model="showSeriesActivities">
+                <span v-t="'ACTIVITYMANAGE.UPCOMING_ACTIVITIES_IN_SERIES'" />
+              </QToggle>
             </QItemLabel>
-            <QExpansionItem
-              v-for="activity in series.activities"
-              :key="activity.id"
-              dense
-              @show="makeVisible('activity', activity.id)"
-            >
-              <template #header>
-                <QItemSection side>
-                  <QIcon
-                    v-if="activity.activityType"
-                    v-bind="activity.activityType.iconProps"
-                  />
-                </QItemSection>
-                <QItemSection>
-                  <QItemLabel
-                    :tag="activity.isDisabled ? 's' : 'div'"
-                    :title="activity.isDisabled ? $t('ACTIVITYLIST.ACTIVITY_DISABLED') : null"
+            <template v-if="showSeriesActivities">
+              <QExpansionItem
+                v-for="activity in activitySeriesActivities"
+                :key="activity.id"
+                dense
+                group="series-activity"
+                @show="makeVisible('activity', activity.id)"
+              >
+                <template #header>
+                  <QItemSection side>
+                    <QIcon
+                      v-if="activity.activityType"
+                      v-bind="activity.activityType.iconProps"
+                    />
+                  </QItemSection>
+                  <QItemSection>
+                    <QItemLabel
+                      :tag="activity.isDisabled ? 's' : 'div'"
+                      :title="activity.isDisabled ? $t('ACTIVITYLIST.ACTIVITY_DISABLED') : null"
+                    >
+                      {{ $d(activity.date, 'yearMonthDay') }}
+                      <template v-if="!similarities.isSameWeekday">
+                        ({{ $d(activity.date, 'dayName') }})
+                      </template>
+                      <template v-if="!similarities.isSameHour || !similarities.isSameMinute">
+                        ({{ $d(activity.date, 'hourMinute') }})
+                      </template>
+                    </QItemLabel>
+                  </QItemSection>
+                  <QItemSection
+                    side
+                    class="text-bold"
                   >
-                    {{ $d(activity.date, 'yearMonthDay') }}
-                    <template v-if="!series.isSameWeekday">
-                      ({{ $d(activity.date, 'dayName') }})
-                    </template>
-                    <template v-if="!series.isSameHour || !series.isSameMinute">
-                      ({{ $d(activity.date, 'hourMinute') }})
-                    </template>
-                  </QItemLabel>
-                </QItemSection>
-                <QItemSection
-                  side
-                  class="text-bold"
-                >
-                  <QIcon
-                    v-if="!activity.seriesMeta.matchesRule"
-                    class="text-warning"
-                    name="access_time"
-                    size="150%"
-                    :title="$t('ACTIVITYMANAGE.ACTIVITY_DOES_NOT_MATCH')"
-                  />
-                  <QIcon
-                    v-if="activity.seriesMeta.isDescriptionChanged"
-                    class="text-warning"
-                    name="info"
-                    size="150%"
-                    :title="$t('ACTIVITYMANAGE.ACTIVITY_DESCRIPTION_CHANGED')"
-                  />
-                  <QIcon
-                    v-if="activity.seriesMeta.isMaxParticipantsChanged"
-                    class="text-warning"
-                    name="group"
-                    size="150%"
-                    :title="$t('ACTIVITYMANAGE.ACTIVITY_MAX_PARTICIPANTS_CHANGED')"
-                  />
-                </QItemSection>
-              </template>
-              <ActivityEdit
-                v-if="visible.activity[activity.id]"
-                :value="activity"
-                :status="activity.saveStatus"
-                :series="series"
-                @save="saveActivity"
-                @reset="resetActivity"
-              />
-            </QExpansionItem>
+                    <QIcon
+                      v-if="!matchesRule(series, activity)"
+                      class="text-warning"
+                      name="access_time"
+                      size="150%"
+                      :title="$t('ACTIVITYMANAGE.ACTIVITY_DOES_NOT_MATCH')"
+                    />
+                    <QIcon
+                      v-if="isDescriptionChanged(series, activity)"
+                      class="text-warning"
+                      name="info"
+                      size="150%"
+                      :title="$t('ACTIVITYMANAGE.ACTIVITY_DESCRIPTION_CHANGED')"
+                    />
+                    <QIcon
+                      v-if="isMaxParticipantsChanged(series, activity)"
+                      class="text-warning"
+                      name="group"
+                      size="150%"
+                      :title="$t('ACTIVITYMANAGE.ACTIVITY_MAX_PARTICIPANTS_CHANGED')"
+                    />
+                  </QItemSection>
+                </template>
+                <ActivityEdit
+                  v-if="visible.activity[activity.id]"
+                  :value="activity"
+                  :status="saveActivityStatus"
+                  :series="series"
+                  @save="saveActivity"
+                  @reset="resetActivity"
+                />
+              </QExpansionItem>
+            </template>
           </QList>
         </QExpansionItem>
       </QList>
@@ -197,20 +205,21 @@
       <QItem v-if="newActivity">
         <ActivityEdit
           :value="newActivity"
-          :status="activityCreateStatus"
+          :status="createActivityStatus"
           @save="saveNewActivity"
           @cancel="cancelNewActivity"
           @reset="resetNewActivity"
         />
       </QItem>
-      <KSpinner v-show="fetchActivityPending" />
+      <KSpinner v-show="isLoadingActivities" />
       <QList
         class="activities"
         separator
       >
         <QExpansionItem
-          v-for="activity in oneTimeActivities"
+          v-for="activity in activities"
           :key="activity.id"
+          group="activity"
           @show="makeVisible('activity', activity.id)"
         >
           <template #header>
@@ -238,7 +247,7 @@
           <ActivityEdit
             v-if="visible.activity[activity.id]"
             :value="activity"
-            :status="activity.saveStatus"
+            :status="saveActivityStatus"
             @save="saveActivity"
             @reset="resetActivity"
           />
@@ -249,7 +258,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { ref, computed } from 'vue'
 import {
   QCard,
   QCardSection,
@@ -261,6 +270,7 @@ import {
   QIcon,
   QFab,
   QFabAction,
+  QToggle,
 } from 'quasar'
 import ActivitySeriesEdit from '@/activities/components/ActivitySeriesEdit'
 import ActivityEdit from '@/activities/components/ActivityEdit'
@@ -273,6 +283,20 @@ import addSeconds from 'date-fns/addSeconds'
 import addHours from 'date-fns/addHours'
 import startOfTomorrow from 'date-fns/startOfTomorrow'
 import { defaultDuration } from '@/activities/settings'
+
+import {
+  useCreateActivityMutation,
+  useCreateActivitySeriesMutation,
+  useDestroyActivitySeriesMutation,
+  useSaveActivityMutation,
+  useSaveActivitySeriesMutation,
+} from '@/activities/mutations'
+
+import { useActivityTypeService } from '@/activities/services'
+import { useCurrentGroupService } from '@/group/services'
+import { useActivityEnricher, useActivitySeriesEnricher, useActivityTypeEnricher } from '@/activities/enrichers'
+import { useActivityListQuery, useActivitySeriesListQuery } from '@/activities/queries'
+import { useActivePlaceService } from '@/places/services'
 
 export default {
   components: {
@@ -290,6 +314,180 @@ export default {
     QIcon,
     QFab,
     QFabAction,
+    QToggle,
+  },
+  setup () {
+    // TODO: this component is doing way too much stuff... split it up! But I think could do with some UI changes too...
+
+    const { groupId } = useCurrentGroupService()
+    const { placeId } = useActivePlaceService()
+
+    const enrichActivity = useActivityEnricher()
+    const enrichActivitySeries = useActivitySeriesEnricher()
+    const enrichActivityType = useActivityTypeEnricher()
+
+    // Activity Types
+
+    const {
+      getActivityTypesByGroup,
+    } = useActivityTypeService()
+
+    const enrichedActivityTypes = computed(() => getActivityTypesByGroup(groupId, { status: 'active' }).map(enrichActivityType))
+
+    // Activities
+
+    const {
+      mutateAsync: createActivity, // using the async version as we await the result later
+      status: createActivityStatus,
+      reset: resetNewActivity,
+    } = useCreateActivityMutation()
+
+    const {
+      mutate: saveActivity,
+      status: saveActivityStatus,
+      reset: resetActivity,
+    } = useSaveActivityMutation()
+
+    const {
+      isLoading: isLoadingActivities,
+      activities: activitiesRaw,
+    } = useActivityListQuery({
+      placeId,
+      pageSize: 1000,
+    })
+
+    // TODO: can I filter out series ones on the server?
+    const activities = computed(() => activitiesRaw.value.map(enrichActivity).filter(activity => !activity.series && !activity.hasStarted))
+
+    // Activity Series
+
+    const {
+      mutate: createSeries,
+      reset: resetNewSeries,
+      status: createSeriesStatus,
+    } = useCreateActivitySeriesMutation()
+
+    const {
+      mutate: saveSeriesMutate,
+      reset: resetSeries,
+      status: saveSeriesStatus,
+    } = useSaveActivitySeriesMutation()
+
+    const {
+      mutate: destroySeries,
+    } = useDestroyActivitySeriesMutation()
+
+    const {
+      isLoading: isLoadingActivitySeries,
+      activitySeries: activitySeriesRaw,
+    } = useActivitySeriesListQuery({
+      placeId,
+    })
+
+    const activitySeries = computed(() => activitySeriesRaw.value.map(enrichActivitySeries))
+
+    // Series currently visible in the accordian
+    const visibleSeriesId = ref(null)
+
+    // Whether to show the activities for the series
+    const showSeriesActivities = ref(false)
+
+    // Activities for visible series
+    const {
+      activities: activitySeriesActivitiesRaw,
+      isLoading: isLoadingActivitySeriesActivities,
+    } = useActivityListQuery({
+      seriesId: visibleSeriesId,
+      pageSize: 100,
+    }, {
+      enabled: computed(() => Boolean(visibleSeriesId) && showSeriesActivities.value),
+    })
+
+    // This is to avoid showing repetitive information about series activities, e.g. if they are all Saturday, don't need to show "Saturday"
+    // We calculate which aspects of the activities are all the same, and only display relevant values where they are not uniform
+    const similarities = computed(() => {
+      const firstDate = activitySeriesActivitiesRaw.value?.length > 0 && activitySeriesActivitiesRaw.value[0].date
+      if (!firstDate) return {}
+      const isSame = lookup => activitySeriesActivitiesRaw.value.every(p => p.date[lookup]() === firstDate[lookup]())
+      return {
+        isSameWeekday: isSame('getDay'),
+        isSameHour: isSame('getHours'),
+        isSameMinute: isSame('getMinutes'),
+      }
+    })
+
+    const activitySeriesActivities = computed(() => activitySeriesActivitiesRaw.value.map(enrichActivity))
+
+    function saveSeries (series) {
+      // Hiding these, as when we update a series it causes a volley of websocket updates for each activity, which then causes a load of reloads
+      // TODO: consider doing something better about that problem
+      showSeriesActivities.value = false
+      saveSeriesMutate(series)
+    }
+
+    /*
+    TODO: reimplement this somewhere, I think better on the server side...? esp. the matchesRule one... my upcoming work for participant types also impacted this area
+    isPending (val) {
+      const hasExceptions = () => {
+        const { activities } = this.edit
+        return activities.some(({ seriesMeta }) => seriesMeta.isDescriptionChanged || seriesMeta.isMaxParticipantsChanged || !seriesMeta.matchesRule)
+      }
+      if (!val && !this.hasAnyError && hasExceptions()) {
+        Dialog.create({
+          title: this.$t('CREATEACTIVITY.EXCEPTIONS_TITLE'),
+          message: this.$t('CREATEACTIVITY.EXCEPTIONS_MESSAGE', { upcomingLabel: this.$t('ACTIVITYMANAGE.UPCOMING_ACTIVITIES_IN_SERIES') }),
+          ok: this.$t('BUTTON.YES'),
+        })
+      }
+    },
+     */
+
+
+
+    // Utils
+    const isDescriptionChanged = (series, activity) => series.description !== activity.description
+    const isMaxParticipantsChanged = (series, activity) => series.maxParticipants !== activity.maxParticipants
+    const matchesRule = (series, activity) => series.datesPreview && series.datesPreview.some(d => Math.abs(d - activity.date) < 1000)
+
+    return {
+      placeId,
+
+      activityTypes: enrichedActivityTypes,
+
+      isLoadingActivities,
+      activities,
+
+      createActivity,
+      createActivityStatus,
+      resetNewActivity,
+
+      saveActivity,
+      saveActivityStatus,
+      resetActivity,
+
+      isLoadingActivitySeries,
+      activitySeries,
+
+      createSeries,
+      createSeriesStatus,
+      resetNewSeries,
+
+      saveSeries,
+      saveSeriesStatus,
+      resetSeries,
+
+      visibleSeriesId,
+      showSeriesActivities,
+      activitySeriesActivities,
+      similarities,
+      isLoadingActivitySeriesActivities,
+
+      destroySeries,
+
+      isDescriptionChanged,
+      isMaxParticipantsChanged,
+      matchesRule,
+    }
   },
   data () {
     return {
@@ -301,23 +499,16 @@ export default {
       },
     }
   },
-  computed: {
-    ...mapGetters({
-      placeId: 'places/activePlaceId',
-      activitySeries: 'activitySeries/byActivePlace',
-      fetchActivitySeriesStatus: 'activitySeries/fetchListForActivePlaceStatus',
-      activities: 'activities/byActivePlace',
-      activityTypes: 'activityTypes/activeByCurrentGroup',
-      fetchActivityPending: 'activities/fetchingForCurrentGroup',
-      activityCreateStatus: 'activities/createStatus',
-      seriesCreateStatus: 'activitySeries/createStatus',
-    }),
-    oneTimeActivities () {
-      // filter out already started activities
-      return this.activities.filter(p => !p.series && !p.hasStarted)
-    },
-  },
   methods: {
+    showSeries (id) {
+      this.makeVisible('series', id)
+      this.visibleSeriesId = id
+    },
+    hideSeries (id) {
+      if (this.visibleSeriesId === id) {
+        this.visibleSeriesId = null
+      }
+    },
     makeVisible (type, id) {
       // prevents rending QCollabsible children before they are displayed
       // if we don't do this, the textarea in activityEdit won't autogrow
@@ -340,13 +531,6 @@ export default {
       }
       return formatDate(series.startDate)
     },
-    ...mapActions({
-      createSeries: 'activitySeries/create',
-      saveSeries: 'activitySeries/save',
-      destroySeries: 'activitySeries/destroy',
-      createActivity: 'activities/create',
-      saveActivity: 'activities/save',
-    }),
     createNewSeries (activityType) {
       this.newSeries = {
         activityType,
@@ -364,7 +548,7 @@ export default {
     },
     async saveNewSeries (series) {
       await this.createSeries(series)
-      if (!this.seriesCreateStatus.hasValidationErrors) {
+      if (!this.createSeriesStatus.hasValidationErrors) {
         this.newSeries = null
       }
     },
@@ -385,7 +569,7 @@ export default {
     },
     async saveNewActivity (activity) {
       await this.createActivity(activity)
-      if (!this.activityCreateStatus.hasValidationErrors) {
+      if (!this.createActivityStatus.hasValidationErrors) {
         this.newActivity = null
       }
     },
@@ -393,18 +577,18 @@ export default {
       this.newActivity = null
       this.resetNewActivity()
     },
-    resetNewSeries () {
-      this.$store.dispatch('activitySeries/meta/clear', ['create'])
-    },
-    resetSeries (seriesId) {
-      this.$store.dispatch('activitySeries/meta/clear', ['save', seriesId])
-    },
-    resetNewActivity () {
-      this.$store.dispatch('activities/meta/clear', ['create'])
-    },
-    resetActivity (activityId) {
-      this.$store.dispatch('activities/meta/clear', ['save', activityId])
-    },
+    // resetNewSeries () {
+    //   this.$store.dispatch('activitySeries/meta/clear', ['create'])
+    // },
+    // resetSeries (seriesId) {
+    //   this.$store.dispatch('activitySeries/meta/clear', ['save', seriesId])
+    // },
+    // resetNewActivity () {
+    //   this.$store.dispatch('activities/meta/clear', ['create'])
+    // },
+    // resetActivity (activityId) {
+    //   this.$store.dispatch('activities/meta/clear', ['save', activityId])
+    // },
   },
 }
 </script>

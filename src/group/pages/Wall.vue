@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="notices">
-      <KSpinner v-show="fetchingActivities" />
+      <KSpinner v-show="isLoadingJoinedActivities" />
       <div v-if="joinedActivities.length > 0">
         <JoinedActivities
           :activities="joinedActivities"
@@ -65,6 +65,7 @@ export default {
 
     const {
       activities: joinedActivities,
+      isLoading: isLoadingJoinedActivities,
     } = useActivityListQuery({
       groupId,
       dateMin: newDateRoundedTo5Minutes(),
@@ -89,6 +90,7 @@ export default {
     return {
       user,
       joinedActivities: computed(() => joinedActivities.value.map(enrichActivity)),
+      isLoadingJoinedActivities,
       hasAvailableActivities,
       feedbackPossibleCount,
     }
@@ -97,7 +99,7 @@ export default {
     ...mapGetters({
       // joinedActivities: 'activities/joined',
       // availableActivities: 'activities/available',
-      fetchingActivities: 'activities/fetchingForCurrentGroup',
+      // fetchingActivities: 'activities/fetchingForCurrentGroup',
       conversation: 'currentGroup/conversation',
     }),
   },

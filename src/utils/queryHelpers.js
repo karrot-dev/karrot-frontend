@@ -46,6 +46,7 @@ export function extractCursor (url) {
 export function withStatus (mutation) {
   return {
     ...mutation,
+    // TODO: mutation.status is a thing too... maybe return as mutationStatus ?
     status: computed(() => mutationToStatus(mutation)),
   }
 }

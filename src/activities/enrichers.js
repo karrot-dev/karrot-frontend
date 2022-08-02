@@ -4,14 +4,14 @@ import { useAuthService } from '@/authuser/services'
 import { useUserService } from '@/users/services'
 import { usePlaceEnricher } from '@/places/enrichers'
 import { usePlaceService } from '@/places/services'
-import { useActivityService } from '@/activities/services'
+import { useActivityTypeService } from '@/activities/services'
 import i18n from '@/base/i18n'
 
 export function useActivityEnricher () {
   const { getUserById } = useUserService()
   const { getPlaceById } = usePlaceService()
   const { userId } = useAuthService()
-  const { getActivityTypeById } = useActivityService()
+  const { getActivityTypeById } = useActivityTypeService()
   const enrichUser = useUserEnricher()
   const enrichPlace = usePlaceEnricher()
   const enrichActivityType = useActivityTypeEnricher()
@@ -39,6 +39,24 @@ export function useActivityEnricher () {
   }
 
   return enrichActivity
+}
+
+export function useActivitySeriesEnricher () {
+  const { getActivityTypeById } = useActivityTypeService()
+  const { getPlaceById } = usePlaceService()
+  const enrichActivityType = useActivityTypeEnricher()
+  const enrichPlace = usePlaceEnricher()
+
+  function enrichActivitySeries (activitySeries) {
+    return {
+      ...activitySeries,
+      _enrichSource: activitySeries,
+
+      activityType: enrichActivityType(getActivityTypeById(activitySeries.activityType)),
+      place: enrichPlace(getPlaceById(activitySeries.place)),
+    }
+  }
+  return enrichActivitySeries
 }
 
 export function useActivityTypeEnricher () {

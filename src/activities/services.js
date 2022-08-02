@@ -4,7 +4,7 @@ import { defineService, indexById } from '@/utils/datastore/helpers'
 import reactiveNow from '@/utils/reactiveNow'
 import { createActivityTypeStylesheet } from '@/activities/datastore/activityTypeStylesheetPlugin'
 
-export const useActivityService = defineService(() => {
+export const useActivityTypeService = defineService(() => {
   // queries
   const { activityTypes } = useActivityTypeListQuery()
 
@@ -25,6 +25,7 @@ export const useActivityService = defineService(() => {
     return filters.status ? entries.filter(entry => entry.status === unref(filters.status)) : entries
   }
 
+  // TODO: move elsewhere, this is about activities, not activityTypes
   function isStartedOrUpcoming (activity) {
     return activity.dateEnd > reactiveNow.value
   }

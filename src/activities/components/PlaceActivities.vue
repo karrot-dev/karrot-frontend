@@ -57,7 +57,7 @@ import { useCurrentGroupService } from '@/group/services'
 import { useActivityListQuery } from '@/activities/queries'
 import { useActivePlaceService } from '@/places/services'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
-import { useActivityService } from '@/activities/services'
+import { useActivityTypeService } from '@/activities/services'
 import { useActivityEnricher } from '@/activities/enrichers'
 import { useAuthService } from '@/authuser/services'
 
@@ -72,7 +72,7 @@ export default {
     const { userId } = useAuthService()
     const { groupId, isEditor } = useCurrentGroupService()
     const { place, placeId } = useActivePlaceService()
-    const { isStartedOrUpcoming } = useActivityService()
+    const { isStartedOrUpcoming } = useActivityTypeService()
     const enrichActivity = useActivityEnricher()
     const {
       activities,

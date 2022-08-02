@@ -252,10 +252,10 @@ export default async function ({ store: datastore }) {
       datastore.dispatch('places/update', [payload])
     }
     else if (topic === 'activities:activity') {
-      datastore.commit('activities/update', [payload])
+      // datastore.commit('activities/update', [payload])
     }
     else if (topic === 'activities:activity_deleted') {
-      datastore.commit('activities/delete', payload.id)
+      // datastore.commit('activities/delete', payload.id)
     }
     else if (topic === 'activities:series') {
       datastore.commit('activitySeries/update', [payload])

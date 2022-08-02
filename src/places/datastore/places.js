@@ -113,7 +113,7 @@ export default {
     },
 
     async beforeEnterFeedback ({ commit, dispatch }, { placeId }) {
-      dispatch('feedback/fetch', { placeId }, { root: true })
+      // dispatch('feedback/fetch', { placeId }, { root: true })
       // commit('setStatistics', { data: await places.statistics(placeId), id: placeId })
     },
 

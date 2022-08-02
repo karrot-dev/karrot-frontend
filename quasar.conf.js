@@ -82,7 +82,6 @@ module.exports = configure(function (ctx) {
       'detectMobileKeyboard',
       'performance',
       'presenceReporter',
-      'vuex-router-sync',
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css

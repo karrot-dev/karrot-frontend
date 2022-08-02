@@ -69,7 +69,7 @@ export default {
         // It's not part of plain saved feedback, so we need to get it from _enriched_ feedback
         const enrichedFeedback = getters.get(entry.id)
         const placeId = enrichedFeedback.place.id
-        router.push({ name: 'placeFeedback', params: { placeId }, query: { highlight: entry.id } }).catch(() => {})
+        // router.push({ name: 'placeFeedback', params: { placeId }, query: { highlight: entry.id } }).catch(() => {})
       },
 
       async updateOne ({ commit, dispatch }, feedback) {

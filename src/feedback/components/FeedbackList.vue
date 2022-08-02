@@ -4,7 +4,7 @@
       v-if="feedbackPossibleCount > 0"
       :feedback-possible-count="feedbackPossibleCount"
     />
-    <KSpinner v-show="isPending" />
+    <KSpinner v-show="pending" />
     <KNotice v-if="empty">
       <template #icon>
         <QIcon :class="$icon('feedback')" />
@@ -20,13 +20,13 @@
       @load="maybeFetchPast"
     >
       <FeedbackItem
-        v-for="feedbackitem in feedback"
-        :key="feedbackitem.id"
-        :ref="refFor(feedbackitem.id)"
-        :feedback="feedbackitem"
-        :class="{ highlight: highlight === feedbackitem.id }"
+        v-for="feedbackItem in feedback"
+        :key="feedbackItem.id"
+        :ref="refFor(feedbackItem.id)"
+        :feedback="feedbackItem"
+        :class="{ highlight: highlight === feedbackItem.id }"
       >
-        {{ $d(feedbackitem.createdAt, 'dateLongWithDayName') }}
+        {{ $d(feedbackItem.createdAt, 'dateLongWithDayName') }}
       </FeedbackItem>
       <template #loading>
         <KSpinner />
@@ -37,7 +37,6 @@
 
 <script>
 import FeedbackItem from './FeedbackItem'
-import statusMixin from '@/utils/mixins/statusMixin'
 import paginationMixin from '@/utils/mixins/paginationMixin'
 import { QInfiniteScroll, QIcon } from 'quasar'
 import KNotice from '@/utils/components/KNotice'
@@ -53,10 +52,11 @@ export default {
     FeedbackNotice,
     KSpinner,
   },
-  mixins: [statusMixin, paginationMixin],
+  mixins: [paginationMixin],
   props: {
     feedback: { required: true, type: Array },
     feedbackPossibleCount: { default: 0, type: Number },
+    pending: { default: false, type: Boolean },
     highlight: {
       default: null,
       type: Number,
@@ -64,11 +64,13 @@ export default {
   },
   computed: {
     empty () {
-      return !this.isPending && !this.hasAnyError && this.feedback.length < 1
+      return !this.pending && this.feedback.length < 1
     },
     highlighted () {
       if (!this.feedback || this.highlight < 0) return
-      return this.feedback.find(i => i.id === this.highlight)
+      const val = this.feedback.find(i => i.id === this.highlight)
+      console.log('highlighted ->', this.highlight, val, this.$.uid)
+      return val
     },
   },
   watch: {

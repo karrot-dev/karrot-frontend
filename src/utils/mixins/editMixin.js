@@ -18,6 +18,7 @@ export default {
   },
   watch: {
     value (current, previous) {
+      console.log('value changed', previous, '->', current)
       const changes = current && previous ? objectDiff(previous, current) : {}
       Object.assign(this.edit, cloneDeep(changes))
     },

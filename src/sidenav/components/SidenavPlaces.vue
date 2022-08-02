@@ -5,7 +5,7 @@
     :show-all-places="showAllPlaces"
     :archived="enrichedArchivedPlaces"
     :is-editor="isEditor"
-    :fetch-status="isLoadingPlaces"
+    :pending="isLoadingPlaces"
     @toggle-show-all-places="showAllPlaces = !showAllPlaces"
   />
 </template>
@@ -18,7 +18,12 @@ import { usePlaceEnricher } from '@/places/enrichers'
 import { useCurrentGroupService } from '@/group/services'
 import { sortByName, sortByStatus } from '@/places/datastore/places'
 
-const { groupId, isEditor, places, isLoadingPlaces } = useCurrentGroupService()
+const {
+  groupId,
+  isEditor,
+  places,
+  isLoadingPlaces,
+} = useCurrentGroupService()
 
 const enrichPlace = usePlaceEnricher()
 

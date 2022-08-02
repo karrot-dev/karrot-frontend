@@ -276,7 +276,7 @@ export default async function ({ store: datastore }) {
       datastore.commit('latestMessages/deleteRelated', { type: 'offer', ids: [payload.id] })
     }
     else if (topic === 'feedback:feedback') {
-      datastore.dispatch('feedback/updateOne', payload)
+      // datastore.dispatch('feedback/updateOne', payload)
     }
     else if (topic === 'auth:user') {
       const user = payload

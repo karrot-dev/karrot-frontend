@@ -1,20 +1,18 @@
 <template>
   <MobileSidenavUI
-    :current-user-id="$store.getters['auth/userId']"
-    @logout="data => $store.dispatch('auth/logout', data)"
+    :current-user-id="userId"
+    @logout="() => logout()"
     @toggle-sidenav="$emit('toggle-sidenav')"
   />
 </template>
 
-<script>
+<script setup>
 import MobileSidenavUI from './MobileSidenavUI'
+import { useLogoutMutation } from '@/authuser/mutations'
+import { useAuthService } from '@/authuser/services'
 
-export default {
-  components: {
-    MobileSidenavUI,
-  },
-  emits: [
-    'toggle-sidenav',
-  ],
-}
+defineEmits(['toggle-sidenav'])
+
+const { userId } = useAuthService()
+const { mutate: logout } = useLogoutMutation()
 </script>

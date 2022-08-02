@@ -23,7 +23,6 @@ export default {
   },
   methods: {
     goSignup (group) {
-      if (group.isOpen) this.$store.dispatch('auth/setJoinGroupAfterLogin', group.id)
       this.$router.push({ name: 'signup' }).catch(() => {})
     },
   },

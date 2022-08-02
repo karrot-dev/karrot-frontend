@@ -8,7 +8,7 @@
     :away="$store.getters['presence/toggle/away']"
     :connected="$store.getters['connectivity/connected']"
     :reconnecting="$store.getters['connectivity/reconnecting']"
-    @logout="$store.dispatch('auth/logout')"
+    @logout="() => logout()"
     @reconnect="$store.dispatch('connectivity/reconnect')"
     @show-search="$store.commit('search/show')"
     @hide-search="$store.commit('search/hide')"
@@ -18,15 +18,11 @@
   </KTopbarUI>
 </template>
 
-<script>
+<script setup>
 import KTopbarUI from './KTopbarUI'
+import { useLogoutMutation } from '@/authuser/mutations'
 
-export default {
-  components: {
-    KTopbarUI,
-  },
-  emits: [
-    'toggle-sidenav',
-  ],
-}
+defineEmits(['toggle-sidenav'])
+
+const { mutate: logout } = useLogoutMutation()
 </script>

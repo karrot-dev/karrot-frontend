@@ -1,11 +1,11 @@
 <template>
   <FeedbackList
-    :feedback="$store.getters['feedback/byCurrentGroup']"
-    :status="$store.getters['feedback/fetchStatus']"
-    :can-fetch-past="$store.getters['feedback/canFetchPast']"
+    :feedback="feedbackList"
+    :pending="isLoading"
+    :can-fetch-past="hasNextPage"
     :fetch-past-status="$store.getters['feedback/fetchPastStatus']"
+    :fetch-past="() => fetchNextPage()"
     :feedback-possible-count="feedbackPossibleCount"
-    :fetch-past="() => $store.dispatch('feedback/fetchPast')"
   />
 </template>
 
@@ -15,8 +15,20 @@ import { computed } from 'vue'
 import FeedbackList from '@/feedback/components/FeedbackList'
 import { useCurrentGroupService } from '@/group/services'
 import { useStatusService } from '@/status/services'
+import { useFeedbackListQuery } from '@/feedback/queries'
+import { useFeedbackEnricher } from '@/feedback/enrichers'
 
+const enrichFeedback = useFeedbackEnricher()
 const { groupId } = useCurrentGroupService()
 const { getGroupStatus } = useStatusService()
 const feedbackPossibleCount = computed(() => getGroupStatus(groupId.value).feedbackPossibleCount)
+
+const {
+  feedbackList: feedbackListRaw,
+  isLoading,
+  hasNextPage,
+  fetchNextPage,
+} = useFeedbackListQuery({ groupId })
+
+const feedbackList = computed(() => feedbackListRaw.value.map(enrichFeedback))
 </script>

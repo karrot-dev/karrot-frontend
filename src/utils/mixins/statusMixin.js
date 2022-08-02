@@ -19,6 +19,7 @@ export default {
     },
     anyFirstError () {
       const { status } = this
+      console.log('status', status)
       if (!status) return
       const errorLabel = status.firstValidationError ||
         (status.serverError && i18n.t('GLOBAL.SERVER_ERROR')) ||

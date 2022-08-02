@@ -90,8 +90,10 @@ import {
   QExpansionItem,
   QIcon,
 } from 'quasar'
-import { mapActions, mapGetters } from 'vuex'
 import statusMixin from '@/utils/mixins/statusMixin'
+import { useFailedEmailDeliveriesQuery } from '@/authuser/queries'
+import { useAuthService } from '@/authuser/services'
+import { useResendVerificationCode } from '@/authuser/mutations'
 
 export default {
   components: {
@@ -103,13 +105,23 @@ export default {
     QExpansionItem,
     QIcon,
   },
+  setup () {
+    const { user } = useAuthService()
+    const { failedEmailDeliveries } = useFailedEmailDeliveriesQuery()
+    const {
+      mutate: resend,
+      status,
+      isSuccess: success,
+    } = useResendVerificationCode()
+    return {
+      user,
+      failedEmailDeliveries,
+      resend,
+      status,
+      success,
+    }
+  },
   computed: {
-    ...mapGetters({
-      user: 'auth/user',
-      failedEmailDeliveries: 'auth/failedEmailDeliveries',
-      status: 'users/resendVerificationCodeStatus',
-      success: 'users/resendVerificationCodeSuccess',
-    }),
     ...statusMixin.computed,
     hasEmailVerified () {
       return this.user && this.user.mailVerified
@@ -125,11 +137,6 @@ export default {
       }
       return null
     },
-  },
-  methods: {
-    ...mapActions({
-      resend: 'users/resendVerificationCode',
-    }),
   },
 }
 </script>

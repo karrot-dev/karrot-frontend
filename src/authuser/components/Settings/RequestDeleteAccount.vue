@@ -6,7 +6,7 @@
       flat
       color="negative"
       :loading="isPending || dialogShown"
-      @click="requestDeleteAccount"
+      @click="() => requestDeleteAccount()"
     />
     <div
       v-if="hasNonFieldError"

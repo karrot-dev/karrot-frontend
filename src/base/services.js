@@ -1,7 +1,47 @@
-import { readonly, ref } from 'vue'
+import { readonly, ref, computed } from 'vue'
 
 import { DEFAULT_LOCALE, detectLocale } from '@/base/datastore/i18n'
 import { defineService } from '@/utils/datastore/helpers'
+import { useCurrentGroupService } from '@/group/services'
+
+// TODO: this isn't a reactive ref or anything, does it work?
+let pwaInstallPrompt = null
+export function setPwaInstallPrompt (value) {
+  pwaInstallPrompt = value
+}
+export function getPwaInstallPrompt () {
+  return pwaInstallPrompt
+}
+
+const DEFAULT_LOCATION = { lat: '49.8990022441358', lng: '8.66415739059448' }
+
+// TODO: this isn't a reactive ref or anything, does it work?
+let geoipCoordinates = null
+export function setGeoipCoordinates (value) {
+  geoipCoordinates = value
+}
+
+export const useGeoService = defineService(() => {
+  // services
+  const { group } = useCurrentGroupService()
+
+  // computed
+  const myCoordinates = computed(() => geoipCoordinates)
+  const defaultCenter = computed(() => {
+    if (group.value?.latitude && group.value?.longitude) {
+      return {
+        lat: group.value?.latitude,
+        lng: group.value?.longitude,
+      }
+    }
+    return myCoordinates.value || DEFAULT_LOCATION
+  })
+
+  return {
+    myCoordinates,
+    defaultCenter,
+  }
+})
 
 export const useI18nService = defineService(() => {
   const locale = ref(detectLocale() || DEFAULT_LOCALE)

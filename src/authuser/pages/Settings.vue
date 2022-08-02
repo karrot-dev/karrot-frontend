@@ -96,14 +96,12 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   QCardSection,
   QSeparator,
   QCardActions,
 } from 'quasar'
-
-import { mapGetters, mapActions } from 'vuex'
 
 import ProfileEdit from '@/authuser/components/Settings/ProfileEdit'
 import ChangePassword from '@/authuser/components/Settings/ChangePassword'
@@ -115,23 +113,55 @@ import InstallPwa from '@/authuser/components/Settings/InstallPwa'
 import LocaleSelect from '@/utils/components/LocaleSelect'
 import GroupSettings from '@/group/pages/Settings'
 import KFormContainer from '@/base/components/KFormContainer'
+import {
+  useChangeEmailMutation,
+  useChangePasswordMutation,
+  useRequestDeleteAccountMutation, useSaveUserMutation,
+} from '@/authuser/mutations'
 
-export default {
-  name: 'Settings',
-  components: {
-    QCardSection,
-    QSeparator,
-    QCardActions,
-    ProfileEdit,
-    ChangePassword,
-    ChangeEmail,
-    ChangePhoto,
-    RequestDeleteAccount,
-    Push,
-    InstallPwa,
-    LocaleSelect,
-    GroupSettings,
-    KFormContainer,
+import { useAuthService } from '@/authuser/services'
+import { usePushService } from '@/subscriptions/services'
+import { getPwaInstallPrompt, useGeoService } from '@/base/services'
+
+const { user } = useAuthService()
+
+const {
+  mutate: saveUser,
+  status: profileEditStatus,
+} = useSaveUserMutation()
+
+const {
+  mutate: requestDeleteAccount,
+  status: requestDeleteAccountStatus,
+} = useRequestDeleteAccountMutation()
+
+const {
+  mutate: changeEmail,
+  status: changeEmailStatus,
+} = useChangeEmailMutation()
+
+const {
+  mutate: changePassword,
+  status: changePasswordStatus,
+} = useChangePasswordMutation()
+
+const {
+  enable: enablePush,
+  disable: disablePush,
+  enabled: pushEnabled,
+  pending: pushPending,
+} = usePushService()
+
+const {
+  defaultMapCenter,
+} = useGeoService()
+
+// TODO: not sure if this works regarding reactivity...
+const pwaPrompt = getPwaInstallPrompt()
+
+// const pwaPrompt = computed(() => store.getters['pwa/installPrompt'])
+
+/*
   },
   computed: {
     ...mapGetters({
@@ -139,7 +169,7 @@ export default {
       profileEditStatus: 'auth/saveStatus',
       changePasswordStatus: 'auth/changePasswordStatus',
       changeEmailStatus: 'auth/changeEmailStatus',
-      requestDeleteAccountStatus: 'users/requestDeleteAccountStatus',
+      // requestDeleteAccountStatus: 'users/requestDeleteAccountStatus',
       pushEnabled: 'auth/push/enabled',
       pushPending: 'auth/push/pending',
       pwaPrompt: 'pwa/installPrompt',
@@ -151,12 +181,14 @@ export default {
       saveUser: 'auth/save',
       changeEmail: 'auth/changeEmail',
       changePassword: 'auth/changePassword',
-      requestDeleteAccount: 'users/requestDeleteAccount',
+      // requestDeleteAccount: 'users/requestDeleteAccount',
       enablePush: 'auth/push/enable',
       disablePush: 'auth/push/disable',
     }),
   },
 }
+
+ */
 </script>
 
 <style scoped lang="sass">

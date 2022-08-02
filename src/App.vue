@@ -21,6 +21,7 @@ import { useActivitiesUpdater } from '@/activities/queries'
 import { useUsersUpdater } from '@/users/queries'
 import { usePlacesUpdater } from '@/places/queries'
 import { useStatusUpdater } from '@/status/queries'
+import { useAuthUserUpdater } from '@/authuser/queries'
 
 export default {
   components: {
@@ -28,6 +29,7 @@ export default {
   },
   setup () {
     // Websocket updaters
+    useAuthUserUpdater()
     useUsersUpdater()
     usePlacesUpdater()
     useOffersUpdater()

@@ -1,10 +1,10 @@
-import feedback, { plugin } from './feedback'
+// import feedback, { plugin } from './feedback'
 
 export default {
   modules: {
-    feedback,
+    // feedback,
   },
   plugins: [
-    plugin,
+    // plugin,
   ],
 }

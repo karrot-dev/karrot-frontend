@@ -39,9 +39,7 @@ export default datastore => {
 
     // check meta.requireLoggedIn
     else if (to.matched.some(m => m.meta.requireLoggedIn) && !isLoggedIn()) {
-      const { name, params, query } = to
-      datastore.dispatch('auth/setRedirectTo', { name, params, query })
-      next = { name: 'login' }
+      next = { name: 'login', query: { to: to.fullPath } }
     }
 
     // check meta.requireLoggedOut

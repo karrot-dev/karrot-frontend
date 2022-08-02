@@ -41,7 +41,7 @@ const GroupHistory = () => import('@/history/pages/GroupHistory')
 const Sidenav = () => import('@/sidenav/components/Sidenav')
 const Settings = () => import('@/authuser/pages/Settings')
 const User = () => import('@/users/pages/Profile')
-const ActivityFeedback = () => import('@/feedback/pages/GiveFeedback')
+const ActivityFeedback = () => import('@/feedback/pages/ActivityFeedback')
 const Detail = () => import('@/messages/components/Detail')
 const DetailHeader = () => import('@/messages/components/DetailHeader')
 const IssueLayout = () => import('@/issues/pages/IssueLayout')
@@ -307,8 +307,8 @@ export default [
           breadcrumbs: [
             { translation: 'ACTIVITY_FEEDBACK.TITLE', route: { name: 'groupFeedback' } },
           ],
-          beforeEnter: 'feedback/fetch',
-          afterLeave: 'feedback/clear',
+          // beforeEnter: 'feedback/fetch',
+          // afterLeave: 'feedback/clear',
         },
         component: GroupFeedback,
       },
@@ -486,8 +486,8 @@ export default [
             name: 'placeFeedback',
             path: 'feedback',
             meta: {
-              beforeEnter: 'places/beforeEnterFeedback',
-              afterLeave: 'feedback/clear',
+              // beforeEnter: 'places/beforeEnterFeedback',
+              // afterLeave: 'feedback/clear',
             },
             component: PlaceFeedback,
           },
@@ -530,8 +530,8 @@ export default [
           breadcrumbs: [
             { translation: 'ACTIVITY_FEEDBACK.TITLE', route: { name: 'giveFeedback' } },
           ],
-          beforeEnter: 'feedback/fetch',
-          afterLeave: 'feedback/clear',
+          // beforeEnter: 'feedback/fetch',
+          // afterLeave: 'feedback/clear',
         },
         component: ActivityFeedback,
       },
@@ -542,8 +542,8 @@ export default [
           breadcrumbs: [
             { translation: 'ACTIVITY_FEEDBACK.TITLE', route: { name: 'editFeedback' } },
           ],
-          beforeEnter: 'feedback/select',
-          afterLeave: 'feedback/clear',
+          // beforeEnter: 'feedback/select',
+          // afterLeave: 'feedback/clear',
         },
         component: ActivityFeedback,
       },
@@ -594,7 +594,7 @@ export default [
       breadcrumbs: [
         { translation: 'SETTINGS.TITLE', route: { name: 'settings' } },
       ],
-      beforeEnter: ['auth/getFailedEmailDeliveries', 'currentGroup/selectFromCurrentUser'],
+      beforeEnter: ['currentGroup/selectFromCurrentUser'],
       afterLeave: ['auth/clearSettingsStatus', 'unsubscribe/clear'],
     },
     components: {

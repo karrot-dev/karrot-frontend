@@ -1,16 +1,16 @@
 <template>
   <Login
-    :status="$store.getters['auth/loginStatus']"
-    @submit="data => $store.dispatch('auth/login', data)"
+    :status="status"
+    @submit="data => login(data)"
   />
 </template>
 
-<script>
+<script setup>
 import Login from '@/authuser/components/Login'
+import { useLoginMutation } from '@/authuser/mutations'
 
-export default {
-  components: {
-    Login,
-  },
-}
+const {
+  mutate: login,
+  status,
+} = useLoginMutation()
 </script>

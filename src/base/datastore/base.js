@@ -5,7 +5,7 @@ import dependentState from '@/base/datastore/dependentState'
 
 import geo from '@/base/datastore/geo'
 import i18n from '@/base/datastore/i18n'
-import route from '@/base/datastore/route'
+// import route from '@/base/datastore/route'
 import routeError from '@/base/datastore/routeError'
 import routeMeta from '@/base/datastore/routeMeta'
 
@@ -13,7 +13,7 @@ export default {
   modules: {
     geo,
     i18n,
-    route,
+    // route,
     routeMeta,
     routeError,
   },

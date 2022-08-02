@@ -50,18 +50,38 @@ export function withStatus (mutation) {
   }
 }
 
+// enrich with a shortcut to first error message, if any
+function firstError (errList) {
+  if (!errList || !Array.isArray(errList) || errList.length < 1) return
+  const value = errList[0]
+
+  if (typeof value === 'string') {
+    return value
+  }
+  return value[0]
+}
+
 /**
  * Converts a vue-query mutation object to our existing "status" object type
  */
 export function mutationToStatus (mutation) {
   const error = unref(mutation.error)
   const validationErrors = isValidationError(error) ? error.response.data : []
+
+  const firstValidationError = firstError(Object.values(validationErrors))
+  const firstNonFieldError = firstError([
+    validationErrors.nonFieldErrors,
+    validationErrors.detail,
+  ].filter(Boolean))
+
   return {
     validationErrors,
     hasValidationErrors: validationErrors.length > 0,
     pending: mutation.isLoading.value,
     serverError: isServerError(error),
     networkError: isNetworkError(error),
+    firstValidationError,
+    firstNonFieldError,
   }
 }
 

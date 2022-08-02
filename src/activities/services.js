@@ -1,7 +1,8 @@
-import { computed, unref } from 'vue'
+import { computed, unref, watch } from 'vue'
 import { useActivityTypeListQuery } from '@/activities/queries'
 import { defineService, indexById } from '@/utils/datastore/helpers'
 import reactiveNow from '@/utils/reactiveNow'
+import { createActivityTypeStylesheet } from '@/activities/datastore/activityTypeStylesheetPlugin'
 
 export const useActivityService = defineService(() => {
   // queries
@@ -9,6 +10,10 @@ export const useActivityService = defineService(() => {
 
   // computed
   const activityTypesById = computed(() => indexById(activityTypes.value))
+
+  // utils
+  const { updateActivityTypes } = createActivityTypeStylesheet()
+  watch(activityTypes, updateActivityTypes)
 
   // methods
   function getActivityTypeById (id) {

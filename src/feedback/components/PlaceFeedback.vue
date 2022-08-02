@@ -44,17 +44,16 @@
     </QCard>
     <!-- TODO: I removed feedbackPossibleCount as we only have it in the status object per group, not per place -->
     <FeedbackList
-      :feedback="feedback"
-      :status="fetchStatus"
-      :can-fetch-past="canFetchPast"
-      :fetch-past="fetchPast"
-      :fetch-past-status="fetchPastStatus"
+      :feedback="feedbackList"
+      :pending="isLoading"
+      :can-fetch-past="hasNextPage"
+      :fetch-past="() => fetchNextPage()"
       :highlight="highlight"
     />
   </div>
 </template>
 
-<script>
+<script setup>
 import { computed } from 'vue'
 
 import FeedbackList from '@/feedback/components/FeedbackList'
@@ -65,57 +64,29 @@ import {
   QChip,
 } from 'quasar'
 
-import {
-  mapGetters,
-  mapActions,
-} from 'vuex'
 import { useActivePlaceService } from '@/places/services'
 import { usePlaceStatisticsQuery } from '@/places/queries'
-import { useCurrentGroupService } from '@/group/services'
-import { useStatusService } from '@/status/services'
+import { useFeedbackListQuery } from '@/feedback/queries'
+import { useRoute } from 'vue-router'
+import { useFeedbackEnricher } from '@/feedback/enrichers'
 
-export default {
-  components: {
-    FeedbackList,
-    KSpinner,
-    QCard,
-    QChip,
-  },
-  setup () {
-    const { groupId } = useCurrentGroupService()
-    const {
-      placeId,
-      place,
-    } = useActivePlaceService()
-    const { statistics } = usePlaceStatisticsQuery({ placeId })
-    const { getGroupStatus } = useStatusService()
-    const feedbackPossibleCount = computed(() => getGroupStatus(groupId.value).feedbackPossibleCount)
-    return {
-      place,
-      statistics,
-      feedbackPossibleCount,
-    }
-  },
-  computed: {
-    ...mapGetters({
-      feedback: 'feedback/byActivePlace',
-      fetchStatus: 'feedback/fetchStatus',
-      canFetchPast: 'feedback/canFetchPast',
-      fetchPastStatus: 'feedback/fetchPastStatus',
-      // feedbackPossible: 'activities/feedbackPossibleByActivePlace',
-      // feedbackPossibleStatus: 'activities/fetchFeedbackPossibleStatus',
-      routeQuery: 'route/query',
-    }),
-    highlight () {
-      return parseInt(this.routeQuery.highlight)
-    },
-  },
-  methods: {
-    ...mapActions({
-      fetchPast: 'feedback/fetchPast',
-    }),
-  },
-}
+const route = useRoute()
+const enrichFeedback = useFeedbackEnricher()
+const {
+  placeId,
+} = useActivePlaceService()
+const { statistics } = usePlaceStatisticsQuery({ placeId })
+
+const {
+  feedbackList: feedbackListRaw,
+  isLoading,
+  hasNextPage,
+  fetchNextPage,
+} = useFeedbackListQuery({ placeId })
+
+const feedbackList = computed(() => feedbackListRaw.value.map(enrichFeedback))
+
+const highlight = computed(() => route.query.highlight && parseInt(route.query.highlight, 10))
 </script>
 
 <style scoped lang="sass">

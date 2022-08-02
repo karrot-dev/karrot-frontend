@@ -1,20 +1,25 @@
 <template>
   <DeleteAccount
-    :status="$store.getters['deleteAccount/deleteAccountStatus']"
-    :success="$store.getters['deleteAccount/success']"
+    :status="status"
+    :success="isSuccess"
   />
 </template>
 
-<script>
-import DeleteAccount from '@/authuser/components/Settings/DeleteAccount'
+<script setup>
+import { useRoute } from 'vue-router'
 
-export default {
-  components: {
-    DeleteAccount,
-  },
-  mounted () {
-    // when page is loaded, use the `?code` route parameter to trigger deletion
-    this.$store.dispatch('deleteAccount/deleteAccount', this.$store.getters['route/query'].code)
-  },
+import DeleteAccount from '@/authuser/components/Settings/DeleteAccount'
+import { useDeleteAccountMutation } from '@/authuser/mutations'
+
+const route = useRoute()
+
+const {
+  mutate: deleteAccount,
+  status,
+  isSuccess,
+} = useDeleteAccountMutation()
+
+if (route.query.code) {
+  deleteAccount(route.query.code)
 }
 </script>

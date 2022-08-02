@@ -8,7 +8,7 @@ import activityTypeAPI from './api/activityTypes'
 
 export const QUERY_KEY_BASE = 'activities'
 export const queryKeyActivityList = params => [QUERY_KEY_BASE, 'list', params].filter(Boolean)
-export const queryKeyActivityDetail = id => [QUERY_KEY_BASE, 'detail', id].filter(Boolean)
+export const queryKeyActivityItem = activityId => [QUERY_KEY_BASE, 'item', activityId].filter(Boolean)
 export const queryKeyActivityTypeList = () => [QUERY_KEY_BASE, 'types']
 export const queryKeyActivityIcsToken = () => [QUERY_KEY_BASE, 'ics-token']
 
@@ -71,6 +71,20 @@ export function useActivityListQuery ({
   return {
     ...query,
     activities: flattenPaginatedData(query),
+  }
+}
+
+export function useActivityItemQuery ({ activityId }) {
+  const query = useQuery(
+    queryKeyActivityItem(activityId),
+    () => api.get(unref(activityId)),
+    {
+      enabled: computed(() => !!activityId.value),
+    },
+  )
+  return {
+    ...query,
+    activity: query.data,
   }
 }
 

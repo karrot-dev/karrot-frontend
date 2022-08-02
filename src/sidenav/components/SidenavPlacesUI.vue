@@ -29,7 +29,7 @@
       </div>
     </template>
 
-    <KSpinner v-if="!hasPlaces && fetchStatus.pending" />
+    <KSpinner v-if="!hasPlaces && pending" />
     <PlaceList
       v-else
       :group-id="groupId"
@@ -65,7 +65,7 @@ export default {
     showAllPlaces: { default: false, type: Boolean },
     archived: { default: () => [], type: Array },
     isEditor: { default: false, type: Boolean },
-    fetchStatus: { default: null, type: Object },
+    pending: { default: false, type: Boolean },
   },
   emits: [
     'toggle-show-all-places',

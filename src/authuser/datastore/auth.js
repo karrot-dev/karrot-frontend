@@ -1,30 +1,14 @@
-import auth from '@/authuser/api/auth'
 import authUser from '@/authuser/api/authUser'
-import router from '@/router'
 import { createMetaModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
 import { objectDiff } from '@/utils/utils'
 import push from '@/subscriptions/datastore/auth/push'
-import { throttle } from 'quasar'
 
 function initialState () {
   return {
     user: null,
-    redirectTo: null,
-    joinGroupAfterLogin: null,
-    acceptInviteAfterLogin: null,
-    failedEmailDeliveries: [],
     maybeLoggedOut: false,
   }
 }
-
-const showLogoutToast = throttle((dispatch) => {
-  dispatch('toasts/show', {
-    message: 'USERDATA.LOGOUT_SUCCESS',
-    config: {
-      timeout: 5000,
-    },
-  }, { root: true })
-}, 5000)
 
 export default {
   namespaced: true,
@@ -35,50 +19,9 @@ export default {
     user: state => state.user,
     userId: state => state.user && state.user.id,
     currentGroupId: state => state.user && state.user.currentGroup,
-    failedEmailDeliveries: state => state.failedEmailDeliveries,
-    redirectTo: state => state.redirectTo,
-    ...metaStatuses(['login', 'logout', 'save', 'changePassword', 'changeEmail']),
+    ...metaStatuses(['save']),
   },
   actions: {
-    clearLoginStatus: ({ dispatch }) => dispatch('meta/clear', ['login']),
-    ...withMeta({
-      async login ({ commit, dispatch }, data) {
-        const user = await auth.login(data)
-        commit('setUser', user)
-        await dispatch('afterLoggedIn')
-      },
-
-      async logout ({ commit, dispatch }) {
-        await dispatch('push/disable')
-        await dispatch('fcm/disable', null, { root: true })
-        await auth.logout()
-
-        commit('setUser', null)
-        showLogoutToast(dispatch)
-
-        router.push({ name: 'groupsGallery' }).catch(() => {})
-      },
-
-      async changePassword ({ dispatch }, { oldPassword, newPassword, done }) {
-        await auth.changePassword({ oldPassword, newPassword })
-        done()
-        dispatch('toasts/show', {
-          message: 'PASSWORD.CHANGE.SUCCESS',
-        }, { root: true })
-      },
-
-      async changeEmail ({ dispatch, getters }, { newEmail, password, done }) {
-        await auth.changeEmail({ newEmail, password })
-        done()
-        dispatch('users/refresh', { userId: getters.userId }, { root: true })
-        dispatch('refresh')
-      },
-    }),
-
-    async getFailedEmailDeliveries ({ commit }) {
-      commit('setFailedEmailDeliveries', await authUser.getFailedEmailDeliveries())
-    },
-
     ...withMeta({
       async save ({ dispatch }, data) {
         await dispatch('backgroundSave', data)
@@ -108,53 +51,8 @@ export default {
       return savedUser
     },
 
-    setRedirectTo ({ commit }, redirectTo) {
-      commit('setRedirectTo', { redirectTo })
-    },
-
-    setJoinGroupAfterLogin ({ commit }, groupId) {
-      commit('setJoinGroupAfterLogin', groupId)
-    },
-
-    setAcceptInviteAfterLogin ({ commit }, token) {
-      commit('setAcceptInviteAfterLogin', { token })
-    },
-
-    async afterLoggedIn ({ state, getters, commit, dispatch, rootGetters }) {
-      const { user } = state
-      dispatch('i18n/setLocale', user.language || 'en', { root: true })
-
-      if (state.acceptInviteAfterLogin) {
-        await dispatch('invitations/accept', state.acceptInviteAfterLogin, { root: true })
-      }
-      else if (state.joinGroupAfterLogin) {
-        const groupId = state.joinGroupAfterLogin
-        const group = () => rootGetters['groups/get'](groupId)
-        if (group().isMember) {
-          // go to group if already a member
-          router.push({ name: 'group', params: { groupId } }).catch(() => {})
-        }
-        else {
-          await dispatch('groups/join', groupId, { root: true })
-          if (group().joinStatus.hasValidationErrors) {
-            // go back to goup preview if error occured
-            // it should show the error status on group preview, thanks to persistent state!
-            router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }).catch(() => {})
-          }
-        }
-      }
-      else if (getters.redirectTo) {
-        router.push(getters.redirectTo).catch(() => {})
-      }
-      else {
-        router.push('/').catch(() => {})
-      }
-      commit('clearAcceptInviteAfterLogin')
-      commit('clearJoinGroupAfterLogin')
-      commit('clearRedirectTo')
-    },
-
     async refresh ({ commit, dispatch, getters }) {
+      // TODO: how to deal with this bit?
       const wasLoggedIn = getters.isLoggedIn
       let user = null
       try {
@@ -170,43 +68,12 @@ export default {
     },
 
     clearSettingsStatus ({ commit, dispatch }) {
-      dispatch('meta/clear', ['changeEmail'])
-      dispatch('meta/clear', ['changePassword'])
       dispatch('meta/clear', ['save'])
-      dispatch('users/clearResendVerificationCode', null, { root: true })
     },
   },
   mutations: {
     setUser (state, user) {
       state.user = Object.freeze(user)
-    },
-
-    // Redirect
-    setRedirectTo (state, { redirectTo }) {
-      state.redirectTo = redirectTo
-    },
-    clearRedirectTo (state) {
-      state.redirectTo = null
-    },
-
-    // Group to join after login
-    setJoinGroupAfterLogin (state, groupId) {
-      state.joinGroupAfterLogin = groupId
-    },
-    clearJoinGroupAfterLogin (state) {
-      state.joinGroupAfterLogin = null
-    },
-
-    // Invite token to accept after login
-    setAcceptInviteAfterLogin (state, { token }) {
-      state.acceptInviteAfterLogin = token
-    },
-    clearAcceptInviteAfterLogin (state) {
-      state.acceptInviteAfterLogin = null
-    },
-
-    setFailedEmailDeliveries (state, events) {
-      state.failedEmailDeliveries = Object.freeze(events)
     },
 
     setMaybeLoggedOut (state, value) {

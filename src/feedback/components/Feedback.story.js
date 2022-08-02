@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/vue3'
 
 import AmountPicker from './AmountPicker'
 import AmountBox from './AmountBox'
-import ActivityFeedback from './ActivityFeedback'
+import ActivityFeedback from '../pages/ActivityFeedback'
 import FeedbackItem from './FeedbackItem'
 import FeedbackList from './FeedbackList'
 import PlaceFeedback from './PlaceFeedback'

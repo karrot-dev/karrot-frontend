@@ -3,6 +3,7 @@ import bootstrap from '@/base/api/bootstrap'
 import { configureSentry } from '@/utils/sentry'
 import { QueryClient, VueQueryPlugin } from 'vue-query'
 import { queryKeys } from '@/authuser/queries'
+import { setGeoipCoordinates } from '@/base/services'
 
 export default async function ({ app, store: datastore }) {
   const queryClient = new QueryClient({
@@ -33,6 +34,7 @@ export default async function ({ app, store: datastore }) {
   }
   if (geoip) {
     datastore.commit('geo/set', geoip)
+    setGeoipCoordinates(geoip)
   }
 
   async function fetchCommunityFeed () {

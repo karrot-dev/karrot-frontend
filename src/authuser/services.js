@@ -38,6 +38,19 @@ export const useAuthService = defineService(() => {
   // actions
   async function refresh () {
     await refetch()
+    // TODO: how to deal with this bit? (used to be done in the vuex store module)
+    // const wasLoggedIn = getters.isLoggedIn
+    // let user = null
+    // try {
+    //   user = await authUser.get()
+    // }
+    // catch (error) {}
+    // commit('setUser', user)
+    // commit('setMaybeLoggedOut', false)
+    //
+    // if (!user && wasLoggedIn && !getters.logoutStatus.pending) {
+    //   dispatch('logout')
+    // }
   }
 
   return {

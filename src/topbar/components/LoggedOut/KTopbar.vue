@@ -2,18 +2,15 @@
   <KTopbarUI
     :breadcrumbs="$store.getters['breadcrumbs/all']"
     :current-user-id="$store.getters['auth/userId']"
-    @logout="$store.dispatch('auth/logout')"
+    @logout="() => logout()"
   >
     <slot />
   </KTopbarUI>
 </template>
 
-<script>
+<script setup>
 import KTopbarUI from './KTopbarUI'
+import { useLogoutMutation } from '@/authuser/mutations'
 
-export default {
-  components: {
-    KTopbarUI,
-  },
-}
+const { mutate: logout } = useLogoutMutation()
 </script>

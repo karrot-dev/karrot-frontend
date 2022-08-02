@@ -59,7 +59,7 @@ export default {
   },
   computed: {
     imgSize () {
-      return this.size + 'px'
+      return this.size
     },
     hasAmount () {
       return !(typeof this.amount === 'undefined' || this.amount === null)
@@ -79,7 +79,7 @@ export default {
       return 'rotate(' + rotation + 'deg)'
     },
     bottomOffset () {
-      return Math.floor(this.size / 20) + 'px'
+      return Math.floor(this.size / 10) + 'px'
     },
     fontSize () {
       return Math.floor(this.size / 4.2) + 'px'

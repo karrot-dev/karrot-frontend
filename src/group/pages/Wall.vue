@@ -5,8 +5,6 @@
       <div v-if="joinedActivities.length > 0">
         <JoinedActivities
           :activities="joinedActivities"
-          @join="join"
-          @leave="leave"
           @detail="detail"
         />
       </div>
@@ -97,16 +95,11 @@ export default {
   },
   computed: {
     ...mapGetters({
-      // joinedActivities: 'activities/joined',
-      // availableActivities: 'activities/available',
-      // fetchingActivities: 'activities/fetchingForCurrentGroup',
       conversation: 'currentGroup/conversation',
     }),
   },
   methods: {
     ...mapActions({
-      join: 'activities/join',
-      leave: 'activities/leave',
       detail: 'detail/openForActivity',
       openThread: 'detail/openForThread',
       send: 'conversations/send',

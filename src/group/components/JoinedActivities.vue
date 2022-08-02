@@ -21,8 +21,6 @@
       :activities="activities"
       place-link
       dense
-      @join="(...args) => $emit('join', ...args)"
-      @leave="(...args) => $emit('leave', ...args)"
       @detail="(...args) => $emit('detail', ...args)"
     />
     <hr v-if="showActivities">
@@ -45,8 +43,6 @@ export default {
     },
   },
   emits: [
-    'join',
-    'leave',
     'detail',
   ],
   data () {

@@ -96,7 +96,7 @@ export default {
           dispatch('applications/maybeFetchOne', application, { root: true })
         }
         if (activity) {
-          dispatch('activities/maybeFetch', activity, { root: true })
+          // dispatch('activities/maybeFetch', activity, { root: true })
         }
         if (issue) {
           dispatch('issues/maybeFetchOne', issue, { root: true })

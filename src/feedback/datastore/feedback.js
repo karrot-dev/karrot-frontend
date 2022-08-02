@@ -89,9 +89,9 @@ export default {
     },
 
     async fetchRelatedActivities ({ dispatch }, feedbackList) {
-      for (const f of feedbackList) {
-        dispatch('activities/maybeFetch', f.about, { root: true })
-      }
+      // for (const f of feedbackList) {
+      //   dispatch('activities/maybeFetch', f.about, { root: true })
+      // }
     },
 
     ...withMeta({

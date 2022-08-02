@@ -241,6 +241,8 @@ export default {
       places: placesFilter,
       // so we can use cached query results for a while, otherwise it'll always be a fresh query
       dateMin: newDateRoundedTo5Minutes(),
+    }, {
+      keepPreviousData: true, // means it doesn't flicker when changing filter params
     })
 
     async function maybeFetchMore (index, done) {
@@ -269,6 +271,7 @@ export default {
       clearFilters,
       hasNextPage,
       isLoading,
+      isFetching,
       isFetchingNextPage,
       activities: enrichedUpcomingActivities,
       // TODO: how to do that filtering to hide archived types unless we have results for them? (we can't tell if we have results for them now we don't fetch them all)
@@ -283,10 +286,10 @@ export default {
   },
   computed: {
     hasNoActivities () {
-      return !this.isLoading && !this.type && !this.slots && this.activities.length === 0
+      return !this.isFetching && !this.type && !this.slots && this.activities.length === 0
     },
     hasNoActivitiesDueToFilters () {
-      return !this.isLoading && (this.type || this.slots) && this.activities.length === 0
+      return !this.isFetching && (this.type || this.slots) && this.activities.length === 0
     },
     hasMultipleFavouritePlaces () {
       return this.places.filter(place => place.isSubscribed).length > 1

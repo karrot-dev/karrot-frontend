@@ -166,7 +166,7 @@ export default {
       if (!conversations) return
       for (const conversation of conversations) {
         if (conversation.type === 'activity') {
-          dispatch('activities/maybeFetch', conversation.targetId, { root: true })
+          // dispatch('activities/maybeFetch', conversation.targetId, { root: true })
         }
         else if (conversation.type === 'application') {
           dispatch('applications/maybeFetchOne', conversation.targetId, { root: true })

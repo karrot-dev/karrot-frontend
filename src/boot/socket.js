@@ -305,7 +305,7 @@ export default async function ({ store: datastore }) {
       datastore.commit('notifications/setEntryMeta', payload)
     }
     else if (topic === 'status') {
-      datastore.commit('status/update', payload)
+      // datastore.commit('status/update', payload)
     }
   }
 

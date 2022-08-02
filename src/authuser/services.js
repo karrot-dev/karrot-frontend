@@ -1,13 +1,8 @@
-// import { useLoginMutation } from '@/authuser/mutations'
 import { defineService } from '@/utils/datastore/helpers'
 import { useAuthUserQuery } from '@/authuser/queries'
-import { computed, watch } from 'vue'
-import { useStore } from 'vuex'
+import { computed } from 'vue'
 
 export const useAuthService = defineService(() => {
-  // services
-  const store = useStore()
-
   // queries
   const { user, refetch } = useAuthUserQuery()
 
@@ -25,15 +20,6 @@ export const useAuthService = defineService(() => {
   // computed
   const userId = computed(() => user.value?.id)
   const isLoggedIn = computed(() => !!user.value)
-
-  // This is only temporary to cause us to reload our user here when the main store one is logged in/out
-  // This can go away when we login using this service...
-  // TODO: implement ability to log in using auth service/mutation/whatever so we don't need this
-  watch(() => store.getters['auth/isLoggedIn'], () => refresh())
-
-  watch(isLoggedIn, val => {
-    console.log('user service islogged in?', val)
-  })
 
   // actions
   async function refresh () {

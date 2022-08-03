@@ -177,6 +177,7 @@ import { usePlaceService } from '@/places/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 import ICSBtn from '@/activities/components/ICSBtn'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
+import { isStartedOrUpcoming } from '@/activities/filters'
 
 export default {
   components: {
@@ -198,7 +199,7 @@ export default {
   },
   setup () {
     const { groupId } = useCurrentGroupService()
-    const { getActivityTypesByGroup, isStartedOrUpcoming } = useActivityTypeService()
+    const { getActivityTypesByGroup } = useActivityTypeService()
     const { getPlacesByGroup } = usePlaceService()
     const enrichActivity = useActivityEnricher()
     const enrichActivityType = useActivityTypeEnricher()
@@ -230,7 +231,7 @@ export default {
       isLoading,
       isFetching,
       isFetchingNextPage,
-      activities,
+      activities: activitiesRaw,
       hasNextPage,
       fetchNextPage,
     } = useActivityListQuery({
@@ -257,9 +258,9 @@ export default {
       return a.isSubscribed ? -1 : 1
     }
 
-    const enrichedUpcomingActivities = computed(() => activities.value.filter(isStartedOrUpcoming).map(enrichActivity))
-    const enrichedActivityTypes = computed(() => getActivityTypesByGroup(groupId, { status: 'active' }).map(enrichActivityType))
-    const enrichedPlaces = computed(() => getPlacesByGroup(groupId, { status: 'active' }).sort(sortByFavouritesThenName).map(enrichPlace))
+    const activities = computed(() => activitiesRaw.value.filter(isStartedOrUpcoming).map(enrichActivity))
+    const activityTypes = computed(() => getActivityTypesByGroup(groupId, { status: 'active' }).map(enrichActivityType))
+    const places = computed(() => getPlacesByGroup(groupId, { status: 'active' }).sort(sortByFavouritesThenName).map(enrichPlace))
 
     return {
       placesFilter,
@@ -273,10 +274,10 @@ export default {
       isLoading,
       isFetching,
       isFetchingNextPage,
-      activities: enrichedUpcomingActivities,
+      activities,
       // TODO: how to do that filtering to hide archived types unless we have results for them? (we can't tell if we have results for them now we don't fetch them all)
-      activityTypes: enrichedActivityTypes,
-      places: enrichedPlaces,
+      activityTypes,
+      places,
     }
   },
   data () {

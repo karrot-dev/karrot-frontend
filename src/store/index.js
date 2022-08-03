@@ -10,12 +10,10 @@ import communityFeed from '@/communityFeed/datastore'
 import feedback from '@/feedback/datastore'
 import group from '@/group/datastore'
 import groupInfo from '@/groupInfo/datastore'
-import history from '@/history/datastore'
 import invitations from '@/invitations/datastore'
 import issues from '@/issues/datastore'
 import messages from '@/messages/datastore'
 import notifications from '@/notifications/datastore'
-// import activities from '@/activities/datastore'
 import sidenav from '@/sidenav/datastore'
 import places from '@/places/datastore'
 import subscriptions from '@/subscriptions/datastore'
@@ -36,12 +34,10 @@ const appModules = [
   feedback,
   group,
   groupInfo,
-  history,
   invitations,
   issues,
   messages,
   notifications,
-  // activities,
   sidenav,
   places,
   subscriptions,

@@ -96,10 +96,6 @@ export default {
     QIcon,
   },
   props: {
-    // data: {
-    //   type: Object,
-    //   default: null,
-    // },
     conversation: {
       type: Object,
       default: null,
@@ -169,7 +165,6 @@ export default {
   },
   methods: {
     async maybeFetchPast (index, done) {
-      console.log('maybe fetch?')
       if (!this.conversation || !this.fetchPast || !this.canFetchPast) {
         await this.$nextTick()
         done(!this.canFetchPast)

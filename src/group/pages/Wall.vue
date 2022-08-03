@@ -113,11 +113,6 @@ export default {
       status: sendStatus,
     } = useSendMessageMutation()
 
-    // const data = computed(() => ({
-    //   ...enrichConversation(conversation.value),
-    //   messages: messages.value.map(enrichMessage),
-    // }))
-
     return {
       user,
       joinedActivities: computed(() => joinedActivities.value.map(enrichActivity)),

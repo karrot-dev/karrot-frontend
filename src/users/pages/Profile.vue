@@ -26,7 +26,7 @@
       >
         <SwitchGroupButton
           :user="user"
-          :groups="user.groups"
+          :groups="groups"
           @select-group="selectGroup"
         />
       </div>
@@ -190,13 +190,19 @@
         />
       </QDialog>
     </div>
-    <KSpinner v-show="historyStatus.pending" />
+    <KSpinner v-show="isLoadingHistory" />
     <QCard v-if="history.length > 0">
       <QCardSection>
         {{ $t('GROUP.HISTORY') }}
       </QCardSection>
       <QCardSection>
-        <HistoryContainer :history="history" />
+        <HistoryList
+          class="padding-top"
+          :history="history"
+          :pending="isLoadingHistory"
+          :can-fetch-past="historyHasNextPage"
+          :fetch-past="() => historyFetchNextPage()"
+        />
       </QCardSection>
     </QCard>
   </div>
@@ -204,9 +210,9 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, computed } from 'vue'
 
-import HistoryContainer from '@/history/pages/HistoryContainer'
+import HistoryList from '@/history/components/HistoryList'
 import KSpinner from '@/utils/components/KSpinner'
 import Markdown from '@/utils/components/Markdown'
 import ProfilePicture from '@/users/components/ProfilePicture'
@@ -215,6 +221,11 @@ import TrustButton from '@/users/components/TrustButton'
 import SwitchGroupButton from '@/users/components/SwitchGroupButton'
 
 const ConflictSetup = defineAsyncComponent(() => import('@/issues/components/ConflictSetup'))
+
+import { useCurrentGroupService } from '@/group/services'
+import { useHistoryListQuery } from '@/history/queries'
+import { useHistoryEnricher } from '@/history/enrichers'
+import { useUserEnricher } from '@/users/enrichers'
 
 import {
   QCard,
@@ -227,10 +238,14 @@ import {
   QDialog,
   QIcon,
 } from 'quasar'
+import { useIntegerRouteParam } from '@/utils/composables'
+import { useUserProfileQuery } from '@/users/queries'
+import { useGroupEnricher } from '@/group/enrichers'
+import { useGroupInfoService } from '@/groupInfo/services'
 
 export default {
   components: {
-    HistoryContainer,
+    HistoryList,
     KSpinner,
     Markdown,
     UserMapPreview,
@@ -248,6 +263,58 @@ export default {
     QDialog,
     QIcon,
   },
+  setup () {
+    const enrichHistory = useHistoryEnricher()
+    const enrichUser = useUserEnricher()
+    const enrichGroup = useGroupEnricher()
+    const {
+      groupId,
+      group,
+      getMembership,
+      isEditor,
+      selectGroup,
+    } = useCurrentGroupService()
+    const { getGroupById } = useGroupInfoService()
+
+    const userId = useIntegerRouteParam('userId')
+
+    const {
+      user,
+    } = useUserProfileQuery({ userId })
+
+    const currentGroupMembership = computed(() => getMembership(userId.value))
+
+    const groups = computed(() => user.value?.groups
+      .map(getGroupById)
+      .filter(Boolean)
+      .map(enrichGroup)
+      .sort((a, b) => a.name.localeCompare(b.name)))
+
+    const {
+      history: historyRaw,
+      isLoading: isLoadingHistory,
+      hasNextPage: historyHasNextPage,
+      fetchNextPage: historyFetchNextPage,
+    } = useHistoryListQuery({
+      groupId,
+      userId,
+    })
+
+    const history = computed(() => historyRaw.value.map(enrichHistory))
+
+    return {
+      selectGroup,
+      currentGroup: group,
+      user: computed(() => enrichUser(user.value)),
+      groups,
+      history,
+      isLoadingHistory,
+      historyHasNextPage,
+      historyFetchNextPage,
+      currentGroupMembership,
+      isEditor,
+    }
+  },
   data () {
     return {
       showConflictSetup: false,
@@ -255,10 +322,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-      user: 'users/activeUser',
-      currentGroup: 'currentGroup/value',
-      history: 'history/byCurrentGroupAndUser',
-      historyStatus: 'history/fetchStatus',
       ongoingIssues: 'issues/ongoing',
       issueCreateStatus: 'issues/createStatus',
     }),
@@ -270,9 +333,6 @@ export default {
     },
     profilePictureSize () {
       return this.$q.platform.is.mobile ? 80 : 180
-    },
-    currentGroupMembership () {
-      return this.user.membership
     },
     isInfoOnly () {
       return !this.user.email
@@ -288,7 +348,7 @@ export default {
       if (!this.currentGroup) {
         return []
       }
-      if (this.currentGroup && this.currentGroup.membership && !this.currentGroup.membership.isEditor) {
+      if (this.currentGroup && this.currentGroup.membership && !this.isEditor) {
         return [this.$t('CONFLICT.REQUIREMENTS.NEWCOMER')]
       }
       return []
@@ -305,7 +365,7 @@ export default {
       detail: 'detail/openForUser',
       createTrust: 'currentGroup/trustUser',
       revokeTrust: 'currentGroup/revokeTrust',
-      selectGroup: 'currentGroup/select',
+      // selectGroup: 'currentGroup/select',
       startConflictResolution: 'issues/create',
       clearIssueMeta: 'issues/meta/clear',
     }),

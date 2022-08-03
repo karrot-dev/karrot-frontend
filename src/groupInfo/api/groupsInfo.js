@@ -6,6 +6,6 @@ export default {
   },
 
   async list () {
-    return (await axios.get('/api/groups-info/')).data.filter(group => group.status === 'active')
+    return (await axios.get('/api/groups-info/')).data
   },
 }

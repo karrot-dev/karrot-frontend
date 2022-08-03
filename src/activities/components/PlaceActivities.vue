@@ -57,14 +57,15 @@ import { useCurrentGroupService } from '@/group/services'
 import { useActivityListQuery } from '@/activities/queries'
 import { useActivePlaceService } from '@/places/services'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
-import { useActivityTypeService } from '@/activities/services'
 import { useActivityEnricher } from '@/activities/enrichers'
 import { useAuthService } from '@/authuser/services'
+import { isStartedOrUpcoming } from '@/activities/filters'
 
 export default {
   components: {
     ActivityList,
     KNotice,
+    KSpinner,
     QIcon,
     QInfiniteScroll,
   },
@@ -72,10 +73,9 @@ export default {
     const { userId } = useAuthService()
     const { groupId, isEditor } = useCurrentGroupService()
     const { place, placeId } = useActivePlaceService()
-    const { isStartedOrUpcoming } = useActivityTypeService()
     const enrichActivity = useActivityEnricher()
     const {
-      activities,
+      activities: activitiesRaw,
       isLoading,
       isFetching,
       isFetchingNextPage,
@@ -92,7 +92,9 @@ export default {
       done(!hasNextPage.value)
     }
 
-    const enrichedUpcomingActivities = computed(() => activities.value.filter(isStartedOrUpcoming).map(enrichActivity))
+    const activities = computed(() => activitiesRaw.value
+      .filter(isStartedOrUpcoming)
+      .map(enrichActivity))
 
     return {
       userId,
@@ -103,7 +105,7 @@ export default {
       placeId,
       place,
       isEditor,
-      activities: enrichedUpcomingActivities,
+      activities,
     }
   },
   computed: {

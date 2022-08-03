@@ -297,6 +297,7 @@ import { useCurrentGroupService } from '@/group/services'
 import { useActivityEnricher, useActivitySeriesEnricher, useActivityTypeEnricher } from '@/activities/enrichers'
 import { useActivityListQuery, useActivitySeriesListQuery } from '@/activities/queries'
 import { useActivePlaceService } from '@/places/services'
+import { isUpcoming } from '@/activities/filters'
 
 export default {
   components: {
@@ -357,7 +358,10 @@ export default {
     })
 
     // TODO: can I filter out series ones on the server?
-    const activities = computed(() => activitiesRaw.value.map(enrichActivity).filter(activity => !activity.series && !activity.hasStarted))
+    const activities = computed(() => activitiesRaw.value
+      .map(enrichActivity)
+      .filter(activity => !activity.series)
+      .filter(isUpcoming))
 
     // Activity Series
 
@@ -441,8 +445,6 @@ export default {
       }
     },
      */
-
-
 
     // Utils
     const isDescriptionChanged = (series, activity) => series.description !== activity.description

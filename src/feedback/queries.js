@@ -11,9 +11,10 @@ export const queryKeyFeedbackItem = (feedbackId) => [QUERY_KEY_BASE, feedbackId]
 export function useFeedbackListQuery ({ groupId, placeId }) {
   const query = useInfiniteQuery(
     queryKeyFeedbackList({ groupId, placeId }),
-    () => api.list({
+    ({ pageParam }) => api.list({
       group: unref(groupId),
       place: unref(placeId),
+      cursor: pageParam,
     }),
     {
       enabled: computed(() => Boolean(unref(groupId) || unref(placeId))),

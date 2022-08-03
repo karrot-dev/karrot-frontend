@@ -32,13 +32,13 @@ import { throttle } from 'quasar'
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceEnricher } from '@/places/enrichers'
 import { useGroupInfoService } from '@/groupInfo/services'
-import { useGroupEnricher } from '@/group/enrichers'
+import { useCurrentGroupEnricher } from '@/group/enrichers'
 
 export default {
   components: { GroupMap },
   setup () {
     const enrichPlace = usePlaceEnricher()
-    const enrichGroup = useGroupEnricher()
+    const enrichGroup = useCurrentGroupEnricher()
     const {
       group,
       users,

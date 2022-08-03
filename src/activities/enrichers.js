@@ -1,4 +1,3 @@
-import reactiveNow from '@/utils/reactiveNow'
 import { useUserEnricher } from '@/users/enrichers'
 import { useAuthService } from '@/authuser/services'
 import { useUserService } from '@/users/services'
@@ -6,6 +5,7 @@ import { usePlaceEnricher } from '@/places/enrichers'
 import { usePlaceService } from '@/places/services'
 import { useActivityTypeService } from '@/activities/services'
 import i18n from '@/base/i18n'
+import { hasStarted, isStartedOrUpcoming, isUpcoming } from '@/activities/filters'
 
 export function useActivityEnricher () {
   const { getUserById } = useUserService()
@@ -25,7 +25,9 @@ export function useActivityEnricher () {
       isUserMember: activity.participants.includes(userId.value),
       isEmpty: activity.participants.length === 0,
       isFull: activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants,
-      hasStarted: activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value,
+      hasStarted: hasStarted(activity),
+      isUpcoming: isUpcoming(activity),
+      isStartedOrUpcoming: isStartedOrUpcoming(activity),
 
       // related objects
       // group

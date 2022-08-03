@@ -1,3 +1,4 @@
+import { computed, unref } from 'vue'
 import { useQuery, useQueryClient } from 'vue-query'
 
 import api from './api/users'
@@ -6,6 +7,7 @@ import { useQueryHelpers } from '@/utils/queryHelpers'
 
 export const QUERY_KEY_BASE = 'users'
 export const queryKeyUserListAll = () => [QUERY_KEY_BASE, 'list', 'all'].filter(Boolean)
+export const queryKeyUserProfile = userId => [QUERY_KEY_BASE, 'profile', userId].filter(Boolean)
 
 /**
  * Handler for socket updates
@@ -59,4 +61,40 @@ export function useUserListAllQuery (queryOptions = {}) {
     ...query,
     users: query.data,
   }
+}
+
+export function useUserProfileQuery ({ userId }) {
+  const query = useQuery(
+    queryKeyUserProfile(userId),
+    () => {
+      try {
+        return api.getProfile(unref(userId))
+      }
+      catch (error) {
+        return api.getInfo(unref(userId))
+        // TODO: implement this bit? if the profile isn't there? or is that for somewhere else? where?
+        //     const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
+        //     throw createRouteError(data)
+      }
+    },
+    {
+      enabled: computed(() => Boolean(userId.value)),
+    },
+  )
+  return {
+    ...query,
+    user: query.data,
+  }
+  // try {
+  //   commit('setProfile', await users.getProfile(userId))
+  // }
+  // catch (error) {
+  //   try {
+  //     commit('setProfile', await users.getInfo(userId))
+  //   }
+  //   catch (error) {
+  //     const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
+  //     throw createRouteError(data)
+  //   }
+  // }
 }

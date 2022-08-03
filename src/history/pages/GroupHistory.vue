@@ -5,39 +5,44 @@
     >
       <RandomArt
         v-if="$q.platform.is.desktop"
-        :seed="group.id"
+        :seed="groupId"
         type="circles"
       />
-      <HistoryContainer
+      <HistoryList
         class="padding-top"
         :history="history"
+        :pending="isLoading"
+        :can-fetch-past="hasNextPage"
+        :fetch-past="() => fetchNextPage()"
       />
+      <!-- TODO: what to do with fetch-past-status ? -->
     </QCard>
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue'
 import { QCard } from 'quasar'
-import HistoryContainer from '@/history/pages/HistoryContainer'
+
+import HistoryList from '@/history/components/HistoryList'
 import RandomArt from '@/utils/components/RandomArt'
 
-import {
-  mapGetters,
-} from 'vuex'
+import { useCurrentGroupService } from '@/group/services'
+import { useHistoryListQuery } from '@/history/queries'
+import { useHistoryEnricher } from '@/history/enrichers'
 
-export default {
-  components: {
-    RandomArt,
-    HistoryContainer,
-    QCard,
-  },
-  computed: {
-    ...mapGetters({
-      group: 'currentGroup/value',
-      history: 'history/byCurrentGroup',
-    }),
-  },
-}
+const enrichHistory = useHistoryEnricher()
+const { groupId } = useCurrentGroupService()
+const {
+  history: historyRaw,
+  isLoading,
+  hasNextPage,
+  fetchNextPage,
+} = useHistoryListQuery({
+  groupId,
+})
+
+const history = computed(() => historyRaw.value.map(enrichHistory))
 </script>
 
 <style scoped lang="sass">

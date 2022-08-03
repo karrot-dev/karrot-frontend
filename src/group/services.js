@@ -22,6 +22,7 @@ export const useCurrentGroupService = defineService(() => {
 
   // computed
   // TODO: decouple from store
+  // could come from route param, or auth user currentGroup field... also need to be able to set it...
   const group = computed(() => store.state.currentGroup.current)
   const groupId = computed(() => group.value?.id)
   const users = computed(() => Object.keys(group.value.memberships).map(getUserById))
@@ -33,6 +34,11 @@ export const useCurrentGroupService = defineService(() => {
   const isEditor = computed(() => getIsEditor(userId.value))
 
   // methods
+
+  function selectGroup ({ groupId }) {
+    // TODO: decouple from store
+    store.dispatch('currentGroup/select', { groupId })
+  }
 
   function getMembership (userId) {
     return group.value?.memberships[userId]
@@ -51,6 +57,7 @@ export const useCurrentGroupService = defineService(() => {
   }
 
   return {
+    selectGroup,
     group,
     groupId,
     isLoadingUsers,

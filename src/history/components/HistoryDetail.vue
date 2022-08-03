@@ -174,7 +174,8 @@ import DateAsWords from '@/utils/components/DateAsWords'
 import HistoryPayloadDetail from '@/history/components/HistoryPayloadDetail'
 import dateFnsHelper from '@/utils/dateFnsHelper'
 import { convert as convertActivity } from '@/activities/api/activities'
-import { mapGetters } from 'vuex'
+import { useActivityTypeService } from '@/activities/services'
+import { useActivityTypeEnricher } from '@/activities/enrichers'
 
 export default {
   components: {
@@ -195,24 +196,26 @@ export default {
       default: null,
     },
   },
+  setup () {
+    const { getActivityTypeById } = useActivityTypeService()
+    const enrichActivityType = useActivityTypeEnricher()
+    return { getActivityTypeById, enrichActivityType }
+  },
   data () {
     return {
       raw: false,
     }
   },
   computed: {
-    ...mapGetters({
-      getActivityType: 'activityTypes/get',
-    }),
     activityType () {
       if (this.entry.payload && this.entry.payload.activityType) {
-        return this.getActivityType(this.entry.payload.activityType)
+        return this.enrichActivityType(this.getActivityTypeById(this.entry.payload.activityType))
       }
       else if (this.entry.after && [
         'ACTIVITY_TYPE_CREATE',
         'ACTIVITY_TYPE_MODIFY',
       ].includes(this.entry.typus)) {
-        return this.getActivityType(this.entry.after.id)
+        return this.enrichActivityType(this.getActivityTypeById(this.entry.after.id))
       }
       return null
     },

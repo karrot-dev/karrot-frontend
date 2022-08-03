@@ -3,6 +3,7 @@ import { useInfiniteQuery, useQuery } from 'vue-query'
 
 import api from './api/feedback'
 import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
+import { indexById } from '@/utils/datastore/helpers'
 
 export const QUERY_KEY_BASE = 'feedback'
 export const queryKeyFeedbackList = ({ groupId, placeId }) => [QUERY_KEY_BASE, { groupId, placeId }]
@@ -22,12 +23,12 @@ export function useFeedbackListQuery ({ groupId, placeId }) {
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => {
           const { feedback, activities } = page.results
+          const activitiesById = indexById(activities)
           return feedback.map(feedbackItem => {
             return {
               ...feedbackItem,
-              aboutId: feedbackItem.about,
               // TODO: could implement an updater service that can update the activities via websocket... but prob not needed as they don't change much at this point
-              about: activities.find(activity => activity.id === feedbackItem.about),
+              about: activitiesById[feedbackItem.about],
             }
           })
         }),

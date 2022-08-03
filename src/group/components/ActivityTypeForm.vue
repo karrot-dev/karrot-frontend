@@ -245,7 +245,7 @@ import { QIconPicker } from '@quasar/quasar-ui-qiconpicker/src/index'
 import useVuelidate from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
 
-import { createActivityTypeStylesheet } from '@/activities/datastore/activityTypeStylesheetPlugin'
+import { createActivityTypeStylesheet } from '@/activities/stylesheet'
 
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'

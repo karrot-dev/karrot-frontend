@@ -3,7 +3,6 @@ import { computed, unref } from 'vue'
 
 import api from './api/offers'
 
-import { useRoute } from 'vue-router'
 import { useSocketEvents } from '@/utils/composables'
 import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
 import { isMutating } from '@/offers/mutations'
@@ -39,30 +38,19 @@ export function useOffersUpdater () {
 }
 
 /**
- * Get current offer, based on route
- *
- * Gives a full query object
- */
-export function useCurrentOfferQuery () {
-  const route = useRoute()
-  const id = computed(() => route.params.offerId && Number(route.params.offerId))
-  return useOfferDetailQuery({ id })
-}
-
-/**
  * Fetch an offer by id
  *
  * Returns a query object with data also available "offer" key
  */
 export function useOfferDetailQuery ({
-  id,
+  offerId,
 }) {
   const query = useQuery(
-    queryKeyOfferDetail(id),
-    () => api.get(unref(id)),
+    queryKeyOfferDetail(offerId),
+    () => api.get(unref(offerId)),
     {
-      enabled: computed(() => !!unref(id)),
-      staleTime: Infinity,
+      enabled: computed(() => Boolean(unref(offerId))),
+      staleTime: Infinity, // rely on websockets
     },
   )
   return {

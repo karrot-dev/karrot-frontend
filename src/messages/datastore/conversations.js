@@ -182,18 +182,21 @@ export default {
         muted: conversation.notifications === 'muted',
         unreadMessageCount: isParticipant ? conversation.unreadMessageCount : 0,
       }
-      enriched.target = getters.getTarget(enriched)
+      // TODO: reimplement elsewhere...
+      // enriched.target = getters.getTarget(enriched)
       return enriched
     },
     getTarget: (state, getters, rootState, rootGetters) => conversation => {
       const { type, targetId, participants } = conversation
       switch (type) {
         case 'group': return rootGetters['groups/get'](targetId)
-        case 'place': return rootGetters['places/get'](targetId)
-        case 'activity': return rootGetters['activities/get'](targetId)
+        // TODO: what to do with this?
+        // case 'place': return rootGetters['places/get'](targetId)
+        // case 'activity': return rootGetters['activities/get'](targetId)
         case 'application': return rootGetters['applications/get'](targetId)
         case 'issue': return rootGetters['issues/get'](targetId)
-        case 'offer': return rootGetters['latestMessages/getRelated']('offer', targetId)
+        // TODO: what to do with this?
+        // case 'offer': return rootGetters['latestMessages/getRelated']('offer', targetId)
         case 'private': return participants.find(u => !u.isCurrentUser)
       }
     },

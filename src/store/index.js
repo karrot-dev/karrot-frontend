@@ -7,7 +7,7 @@ import applications from '@/applications/datastore'
 import authuser from '@/authuser/datastore'
 import base from '@/base/datastore/base'
 import communityFeed from '@/communityFeed/datastore'
-import feedback from '@/feedback/datastore'
+// import feedback from '@/feedback/datastore'
 import group from '@/group/datastore'
 import groupInfo from '@/groupInfo/datastore'
 import invitations from '@/invitations/datastore'
@@ -15,9 +15,9 @@ import issues from '@/issues/datastore'
 import messages from '@/messages/datastore'
 import notifications from '@/notifications/datastore'
 import sidenav from '@/sidenav/datastore'
-import places from '@/places/datastore'
+// import places from '@/places/datastore'
 import subscriptions from '@/subscriptions/datastore'
-import offers from '@/offers/datastore'
+// import offers from '@/offers/datastore'
 import topbar from '@/topbar/datastore'
 import unsubscribe from '@/unsubscribe/datastore'
 import users from '@/users/datastore'
@@ -31,7 +31,7 @@ const appModules = [
   authuser,
   base,
   communityFeed,
-  feedback,
+  // feedback,
   group,
   groupInfo,
   invitations,
@@ -39,9 +39,9 @@ const appModules = [
   messages,
   notifications,
   sidenav,
-  places,
+  // places,
   subscriptions,
-  offers,
+  // offers,
   topbar,
   unsubscribe,
   users,

@@ -21,15 +21,6 @@ export default {
             }
           }
         }
-        else if (item.type === 'activePlace') {
-          const place = rootGetters['places/activePlace']
-          if (place && place.group && place.group.id) {
-            return {
-              name: place.name,
-              route: { name: 'place', params: { placeId: place.id, groupId: place.group.id } },
-            }
-          }
-        }
         else if (item.type === 'activeUser') {
           const user = rootGetters['users/activeUser']
           if (user) {
@@ -56,8 +47,11 @@ export default {
             }
           }
         }
-        else if (item.type === 'activeOffer') {
-          // This is now handled in the breadcrumbs component as we need to use setup() function
+        else if (
+          item.type === 'activeOffer' ||
+          item.type === 'activePlace'
+        ) {
+          // These are now handled in the breadcrumbs component as we need to use setup() function
           return item
         }
         else if (item.translation) {

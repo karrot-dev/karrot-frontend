@@ -31,40 +31,41 @@
   </div>
 </template>
 
-<script>
-
-import { mapGetters } from 'vuex'
-
+<script setup>
+import { watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import {
   QCard,
   QBanner,
   QIcon,
   QBtn,
 } from 'quasar'
+
 import PlaceTabs from '@/places/components/PlaceTabs'
 import PlaceHeader from '@/places/components/PlaceHeader'
 
-export default {
-  components: {
-    QCard,
-    QBanner,
-    QIcon,
-    QBtn,
-    PlaceTabs,
-    PlaceHeader,
-  },
-  computed: {
-    ...mapGetters({
-      place: 'places/activePlace',
-      isEditor: 'currentGroup/isEditor',
-    }),
-  },
-  methods: {
-    restore () {
-      this.$store.dispatch('places/save', { id: this.place.id, status: 'created' })
-    },
-  },
+import { useActivePlaceService } from '@/places/services'
+import { useCurrentGroupService } from '@/group/services'
+import { useSavePlaceMutation } from '@/places/mutations'
+import { placeRoute } from '@/places/utils'
+
+const route = useRoute()
+const router = useRouter()
+
+const { isEditor } = useCurrentGroupService()
+const { place } = useActivePlaceService()
+const { mutate: save } = useSavePlaceMutation()
+
+function restore () {
+  save({ id: place.value.id, status: 'created' })
 }
+
+// if we are at the base place route redirect to the default view for this place
+watch(() => [place.value, route.name], ([place, routeName]) => {
+  if (place && routeName === 'place') {
+    router.push({ name: placeRoute(place), params: route.params })
+  }
+}, { immediate: true })
 </script>
 
 <style lang="sass" scoped>

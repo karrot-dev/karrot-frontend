@@ -1,4 +1,6 @@
 <template>
+  <pre>offerId: {{ offerId }}</pre>
+  <pre>conversation: {{ conversation }}</pre>
   <ChatConversation
     v-if="conversation"
     :conversation="conversationWithReversedMessages"
@@ -74,14 +76,16 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { computed } from 'vue'
+import { mapActions, mapGetters, useStore } from 'vuex'
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import KSpinner from '@/utils/components/KSpinner'
 import { QBtn, QBtnDropdown, QCarousel, QCarouselSlide } from 'quasar'
-import { DEFAULT_STATUS, useCurrentOfferQuery } from '@/offers/queries'
+import { DEFAULT_STATUS } from '@/offers/queries'
 import { useArchiveOfferMutation } from '@/offers/mutations'
 import { useAuthService } from '@/authuser/services'
+import { useActiveOfferService } from '@/offers/services'
 
 export default {
   components: {
@@ -101,12 +105,14 @@ export default {
   },
   setup () {
     const { mutate: archive } = useArchiveOfferMutation()
-    const { offer } = useCurrentOfferQuery()
+    const { offerId, offer, conversation } = useActiveOfferService()
     const { user: currentUser } = useAuthService()
     return {
-      archive,
-      offer,
       currentUser,
+      archive,
+      offerId,
+      offer,
+      conversation,
     }
   },
   data () {
@@ -116,7 +122,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-      conversation: 'currentOffer/conversation',
       away: 'presence/toggle/away',
     }),
     canEdit () {

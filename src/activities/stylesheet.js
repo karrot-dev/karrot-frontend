@@ -13,10 +13,6 @@
  * The number is the database id of the activity type.
  *
  */
-export default datastore => {
-  const { updateActivityTypes } = createActivityTypeStylesheet()
-  datastore.watch((state, getters) => getters['activityTypes/all'], updateActivityTypes, { immediate: true })
-}
 
 let nextId = 0
 

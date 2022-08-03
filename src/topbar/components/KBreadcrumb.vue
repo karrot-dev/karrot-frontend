@@ -60,7 +60,8 @@
 
 <script>
 import { QBtn } from 'quasar'
-import { useCurrentOfferQuery } from '@/offers/queries'
+import { useActivePlaceService } from '@/places/services'
+import { useActiveOfferService } from '@/offers/services'
 
 export default {
   components: { QBtn },
@@ -71,9 +72,11 @@ export default {
     },
   },
   setup () {
-    const { offer } = useCurrentOfferQuery()
+    const { offer } = useActiveOfferService()
+    const { place } = useActivePlaceService()
     return {
       offer,
+      place,
     }
   },
   computed: {
@@ -85,6 +88,14 @@ export default {
               return {
                 name: this.offer.name,
               }
+            }
+          }
+        }
+        else if (breadcrumb.type === 'activePlace') {
+          if (this.place) {
+            return {
+              name: this.place.name,
+              route: { name: 'place', params: { placeId: this.place.id, groupId: this.place.group } },
             }
           }
         }

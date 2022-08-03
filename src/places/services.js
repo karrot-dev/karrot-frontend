@@ -1,11 +1,13 @@
-import { computed, unref } from 'vue'
+import { computed, unref, watch } from 'vue'
+import { useStore } from 'vuex'
+
 import { defineService, indexById } from '@/utils/datastore/helpers'
 import { usePlaceListQuery } from '@/places/queries'
 import { useAuthService } from '@/authuser/services'
 import { useIntegerRouteParam } from '@/utils/composables'
 
 export const usePlaceService = defineService(() => {
-  // Services
+  // services
   const { isLoggedIn } = useAuthService()
 
   // queries
@@ -36,14 +38,24 @@ export const usePlaceService = defineService(() => {
 
 export const useActivePlaceService = defineService(() => {
   // services
+  const store = useStore()
   const { getPlaceById } = usePlaceService()
   const placeId = useIntegerRouteParam('placeId')
 
+  // effects
+  watch(placeId, () => {
+    if (placeId.value) {
+      store.dispatch('conversations/fetchForPlace', { placeId: placeId.value })
+    }
+  }, { immediate: true })
+
   // computed
   const place = computed(() => getPlaceById(placeId.value))
+  const conversation = computed(() => store.getters['conversations/getForPlace'](placeId.value))
 
   return {
     place,
+    conversation,
     placeId,
   }
 })

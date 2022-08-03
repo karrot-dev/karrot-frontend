@@ -258,8 +258,8 @@ export default [
             { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
             { type: 'activeOffer' },
           ],
-          beforeEnter: 'currentOffer/select',
-          afterLeave: 'currentOffer/clear',
+          // beforeEnter: 'currentOffer/select',
+          // afterLeave: 'currentOffer/clear',
         },
         components: {
           default: OfferEdit,
@@ -289,8 +289,8 @@ export default [
               breadcrumbs: [
                 { type: 'activeOffer' },
               ],
-              beforeEnter: 'currentOffer/select',
-              afterLeave: 'currentOffer/clear',
+              // beforeEnter: 'currentOffer/select',
+              // afterLeave: 'currentOffer/clear',
               isDetail: true,
             },
             components: {
@@ -451,8 +451,8 @@ export default [
           breadcrumbs: [
             { type: 'activePlace' },
           ],
-          beforeEnter: 'places/selectPlace',
-          afterLeave: 'places/clearSelectedPlace',
+          // beforeEnter: 'places/selectPlace',
+          // afterLeave: 'places/clearSelectedPlace',
         },
         components: {
           default: PlaceLayout,
@@ -464,8 +464,8 @@ export default [
             path: 'wall',
             component: PlaceWall,
             meta: {
-              beforeEnter: 'conversations/fetchForPlace',
-              afterLeave: 'conversations/clearForPlace',
+              // beforeEnter: 'conversations/fetchForPlace',
+              // afterLeave: 'conversations/clearForPlace',
             },
           },
           {

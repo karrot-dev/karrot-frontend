@@ -18,15 +18,30 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import WallConversation from '@/messages/components/WallConversation'
+import { useActivePlaceService } from '@/places/services'
+import { useAuthService } from '@/authuser/services'
 
 export default {
   components: {
     WallConversation,
   },
+  setup () {
+    try {
+      const { user: currentUser } = useAuthService()
+      const { conversation } = useActivePlaceService()
+      return {
+        currentUser,
+        conversation,
+      }
+    }
+    catch (error) {
+      console.error(error)
+    }
+  },
   computed: {
     ...mapGetters({
-      conversation: 'places/conversation',
-      currentUser: 'auth/user',
+      // conversation: 'places/conversation',
+      // currentUser: 'auth/user',
     }),
   },
   methods: {

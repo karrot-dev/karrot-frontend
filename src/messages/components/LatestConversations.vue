@@ -108,9 +108,11 @@ export default {
       markConversationsSeen: 'latestMessages/markConversationsSeen',
     }),
     open (conv) {
-      const { type, target } = conv
+      const { type, target, targetId } = conv
+      console.log('opening latest conversations', { type, target, targetId })
       switch (type) {
         case 'group': return this.$router.push({ name: 'group', params: { groupId: target.id }, hash: '#messages' }).catch(() => {})
+        // TODO: I think target.group.id won't exist...
         case 'place': return this.$router.push({ name: 'placeWall', params: { groupId: target.group.id, placeId: target.id } }).catch(() => {})
         case 'activity': return this.openForActivity(target)
         case 'private': return this.openForUser(target)

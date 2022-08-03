@@ -249,7 +249,7 @@ export default async function ({ store: datastore }) {
       datastore.commit('issues/update', [payload])
     }
     else if (topic === 'places:place') {
-      datastore.dispatch('places/update', [payload])
+      // datastore.dispatch('places/update', [payload])
     }
     else if (topic === 'activities:activity') {
       // datastore.commit('activities/update', [payload])

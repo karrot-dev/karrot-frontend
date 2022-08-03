@@ -1,7 +1,7 @@
 <template>
   <OfferForm
     :status="status"
-    @save="data => mutate(data)"
+    @save="offer => create(offer)"
     @reset="() => reset()"
   />
 </template>
@@ -13,7 +13,7 @@ import { useCurrentGroupService } from '@/group/services'
 
 const { groupId } = useCurrentGroupService()
 const {
-  mutate,
+  mutate: create,
   reset,
   status,
 } = useCreateOfferMutation({ groupId })

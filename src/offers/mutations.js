@@ -52,6 +52,7 @@ export function useCreateOfferMutation ({ groupId }) {
     {
       async onSuccess (offer) {
         await queryClient.setQueryData(queryKeyOfferDetail(offer.id), offer)
+        // TODO: maybe move routing stuff to where it's called from?
         goToOffer(offer)
       },
       onMutate (variables) {

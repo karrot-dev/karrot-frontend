@@ -74,10 +74,11 @@
               colspan="100%"
               style="padding: 0;"
             >
+              <!-- TODO: maybe need to reset save status as we reuse this for different types? -->
               <ActivityTypeForm
                 :value="editActivityType"
                 :activity-types="activityTypes"
-                :status="editActivityType.saveStatus"
+                :status="activityTypeSaveStatus"
                 @save="save"
                 @cancel="cancelActivityType"
               />
@@ -130,6 +131,10 @@ export default {
       required: true,
     },
     activityTypeCreateStatus: {
+      type: Object,
+      required: true,
+    },
+    activityTypeSaveStatus: {
       type: Object,
       required: true,
     },
@@ -193,7 +198,7 @@ export default {
     },
   },
   watch: {
-    'editActivityType.saveStatus' (status, prevStatus) {
+    activityTypeSaveStatus (status, prevStatus) {
       if (this.wasSuccessful(status, prevStatus)) {
         this.editActivityTypeId = null // hide the edit form
       }

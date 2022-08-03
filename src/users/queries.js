@@ -38,7 +38,7 @@ export function useUsersUpdater () {
       }
       else {
         // User removed I guess... TODO: make sure this makes sense!
-        queryClient.invalidateQueries(queryKeyUserListAll)
+        queryClient.invalidateQueries(queryKeyUserListAll())
       }
     },
   )

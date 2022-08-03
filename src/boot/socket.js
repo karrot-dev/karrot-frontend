@@ -264,10 +264,10 @@ export default async function ({ store: datastore }) {
       datastore.commit('activitySeries/delete', payload.id)
     }
     else if (topic === 'activities:type') {
-      datastore.commit('activityTypes/update', [payload])
+      // datastore.commit('activityTypes/update', [payload])
     }
     else if (topic === 'activities:type_deleted') {
-      datastore.commit('activityTypes/delete', payload.id)
+      // datastore.commit('activityTypes/delete', payload.id)
     }
     else if (topic === 'offers:offer') {
       datastore.commit('latestMessages/updateRelated', { type: 'offer', items: [payload] })
@@ -293,7 +293,7 @@ export default async function ({ store: datastore }) {
       datastore.dispatch('users/refreshProfile', user)
     }
     else if (topic === 'history:history') {
-      datastore.commit('history/update', [payload])
+      // datastore.commit('history/update', [payload])
     }
     else if (topic === 'notifications:notification') {
       datastore.commit('notifications/update', [payload])

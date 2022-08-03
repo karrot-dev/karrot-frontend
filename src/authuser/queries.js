@@ -33,7 +33,6 @@ export function useAuthUserQuery () {
     () => authUserAPI.get(),
     {
       staleTime: Infinity,
-      retry: false,
     },
   )
   return {
@@ -42,7 +41,6 @@ export function useAuthUserQuery () {
   }
 }
 
-// TODO: try it out!
 export function useFailedEmailDeliveriesQuery () {
   const query = useQuery(
     queryKeys.failedEmailDeliveries(),

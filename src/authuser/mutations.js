@@ -1,4 +1,4 @@
-import { useMutation } from 'vue-query'
+import { useMutation, useQueryClient } from 'vue-query'
 import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -11,6 +11,7 @@ import { throttle } from 'quasar'
 import { showToast } from '@/utils/toasts'
 
 export function useLoginMutation () {
+  const queryClient = useQueryClient()
   const router = useRouter()
   const route = useRoute()
   const setUser = useSetUser()
@@ -18,6 +19,9 @@ export function useLoginMutation () {
     ({ email, password }) => api.login({ email, password }),
     {
       onSuccess (user) {
+        // We might have some logged out data, let's start fresh :)
+        queryClient.resetQueries([])
+
         setUser(user)
 
         // then do stuff

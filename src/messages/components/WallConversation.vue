@@ -1,7 +1,7 @@
 <template>
   <div>
     <QInfiniteScroll
-      :disable="data && !data.canFetchPast"
+      :disable="conversation && !canFetchPast"
       @load="maybeFetchPast"
     >
       <QList
@@ -12,22 +12,22 @@
         <template v-if="hasLoaded">
           <NotificationToggle
             class="actionButton"
-            :muted="data.muted"
-            :is-participant="data.isParticipant"
+            :muted="conversation.muted"
+            :is-participant="conversation.isParticipant"
             :user="user"
             @set="setNotifications"
           />
           <ConversationCompose
-            :status="data.sendStatus"
+            :status="sendStatus"
             :placeholder="messagePrompt"
             :user="user"
             :slim="$q.platform.is.mobile"
-            :is-participant="data.isParticipant"
-            :draft-key="data.id"
-            @submit="message => $emit('send', { id: data.id, ...message })"
+            :is-participant="conversation.isParticipant"
+            :draft-key="conversation.id"
+            @submit="message => $emit('send', { id: conversation.id, ...message })"
           />
           <QBanner
-            v-if="data.isParticipant && data.unreadMessageCount > 0"
+            v-if="conversation.isParticipant && conversation.unreadMessageCount > 0"
             class="bg-secondary text-white q-mt-sm"
             style="min-height: unset"
           >
@@ -40,22 +40,22 @@
             </template>
             <div class="row justify-between items-center">
               <small>
-                {{ $tc('CONVERSATION.UNREAD_MESSAGES', data.unreadMessageCount, {
-                  count: data.unreadMessageCount > 99 ? '99+' : data.unreadMessageCount,
+                {{ $tc('CONVERSATION.UNREAD_MESSAGES', conversation.unreadMessageCount, {
+                  count: conversation.unreadMessageCount > 99 ? '99+' : conversation.unreadMessageCount,
                 }) }}
               </small>
               <QBtn
                 no-caps
                 outline
                 size="sm"
-                @click="$emit('mark-all-read', data.id)"
+                @click="$emit('mark-all-read', conversation.id)"
               >
                 <span v-t="'CONVERSATION.MARK_READ'" />
               </QBtn>
             </div>
           </QBanner>
           <ConversationMessage
-            v-for="message in data.messages"
+            v-for="message in messages"
             :key="message.id"
             :message="message"
             @toggle-reaction="(...args) => $emit('toggle-reaction', ...args)"
@@ -63,7 +63,7 @@
             @open-thread="$emit('open-thread', message)"
           />
         </template>
-        <KSpinner v-show="!data || data.fetchStatus.pending || data.fetchPastStatus.pending" />
+        <KSpinner v-show="pending || pastPending" />
       </QList>
     </QInfiniteScroll>
   </div>
@@ -96,15 +96,39 @@ export default {
     QIcon,
   },
   props: {
-    data: {
+    // data: {
+    //   type: Object,
+    //   default: null,
+    // },
+    conversation: {
       type: Object,
       default: null,
+    },
+    messages: {
+      type: Array,
+      default: () => [],
+    },
+    pending: {
+      type: Boolean,
+      default: false,
+    },
+    canFetchPast: {
+      type: Boolean,
+      default: false,
     },
     fetchPast: {
       type: Function,
       default: null,
     },
+    pastPending: {
+      type: Boolean,
+      default: null,
+    },
     user: {
+      type: Object,
+      default: null,
+    },
+    sendStatus: {
       type: Object,
       default: null,
     },
@@ -119,13 +143,12 @@ export default {
   ],
   computed: {
     hasLoaded () {
-      if (!this.data) return false
-      const s = this.data.fetchStatus
-      return !s.pending && !s.hasValidationErrors
+      if (!this.conversation) return false
+      return !this.pending
     },
     messagePrompt () {
-      if (!this.data) return ''
-      if (this.data.messages.length > 0) {
+      if (!this.conversation) return ''
+      if (this.messages.length > 0) {
         return this.$t('WALL.WRITE_MESSAGE')
       }
       else {
@@ -146,17 +169,18 @@ export default {
   },
   methods: {
     async maybeFetchPast (index, done) {
-      if (!this.data || !this.fetchPast || !this.data.canFetchPast) {
+      console.log('maybe fetch?')
+      if (!this.conversation || !this.fetchPast || !this.canFetchPast) {
         await this.$nextTick()
-        done()
+        done(!this.canFetchPast)
         return
       }
-      await this.fetchPast(this.data.id)
-      done()
+      await this.fetchPast()
+      done(!this.canFetchPast)
     },
     setNotifications (value) {
       this.$emit('save-conversation', {
-        conversationId: this.data.id,
+        conversationId: this.conversation.id,
         value,
       })
     },

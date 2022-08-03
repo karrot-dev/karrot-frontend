@@ -27,8 +27,8 @@ export default {
     return convert((await axios.get(`/api/messages/${id}/`)).data)
   },
 
-  async list (conversationId) {
-    const response = (await axios.get('/api/messages/', { params: { conversation: conversationId } })).data
+  async list (conversationId, cursor = null) {
+    const response = (await axios.get('/api/messages/', { params: { conversation: conversationId, cursor } })).data
     return {
       ...response,
       next: parseCursor(response.next),

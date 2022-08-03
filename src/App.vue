@@ -22,6 +22,7 @@ import { useUsersUpdater } from '@/users/queries'
 import { usePlacesUpdater } from '@/places/queries'
 import { useStatusUpdater } from '@/status/queries'
 import { useAuthUserUpdater } from '@/authuser/queries'
+import { useConversationUpdater, useMessageUpdater } from '@/messages/queries'
 
 export default {
   components: {
@@ -37,6 +38,8 @@ export default {
     useActivitiesUpdater()
     useActivitySeriesUpdater()
     useActivityTypeUpdater()
+    useConversationUpdater()
+    useMessageUpdater()
 
     // Utilities
     useTitleStatus()

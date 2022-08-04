@@ -14,9 +14,10 @@
         class="bg-white"
       >
         <ConversationMessage
-          v-for="message in groupedMessages"
+          v-for="message in messages"
           :key="message.id"
           :message="message"
+          :continuation="Boolean(continuationsById[message.id])"
           slim
           @toggle-reaction="(...args) => $emit('toggle-reaction', ...args)"
           @save="(...args) => $emit('save-message', ...args)"
@@ -99,9 +100,10 @@ export default {
     QScrollObserver,
     QInfiniteScroll,
   },
-  mixins: [groupedMessagesMixin(['conversation', 'messages'])],
+  mixins: [groupedMessagesMixin(['messages'])],
   props: {
     conversation: { type: Object, default: null },
+    messages: { type: Array, default: null },
     away: { type: Boolean, required: true },
     currentUser: { type: Object, default: null },
     startAtBottom: { type: Boolean, default: false },
@@ -141,7 +143,7 @@ export default {
       if (this.conversation.thread) {
         return this.$t('CONVERSATION.REPLY_TO_MESSAGE')
       }
-      if (this.conversation.messages.length > 0) {
+      if (this.messages.length > 0) {
         return this.$t('WALL.WRITE_MESSAGE')
       }
       return this.$t('WALL.WRITE_FIRST_MESSAGE')
@@ -172,7 +174,7 @@ export default {
         scrollPositionFromBottom: 0,
       })
     },
-    'conversation.messages' (messages) {
+    messages (messages) {
       if (!messages || messages.length === 0) return
       // Jump to bottom when new messages added
       const newNewestMessage = messages[messages.length - 1]
@@ -280,9 +282,9 @@ export default {
       }
       // if user scrolls to bottom and no more messages can be loaded, mark messages as read
       const isAtBottom = () => this.getScrollPositionFromBottom() < 100
-      const hasMessages = () => this.conversation && this.conversation.messages && this.conversation.messages.length > 0
+      const hasMessages = () => this.conversation && this.messages && this.messages.length > 0
       if (!this.away && !this.conversation.canFetchFuture && hasMessages() && isAtBottom()) {
-        const messages = this.conversation.messages
+        const messages = this.messages
         const newestMessageId = messages[messages.length - 1].id
         this.markRead(newestMessageId)
       }

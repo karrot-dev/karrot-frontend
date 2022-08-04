@@ -193,6 +193,7 @@ import { useStatusService } from '@/status/services'
 import { useCurrentGroupService } from '@/group/services'
 import { useAuthService } from '@/authuser/services'
 import { useRoute } from 'vue-router'
+import { useDetailService } from '@/messages/services'
 
 export default {
   components: {
@@ -222,6 +223,7 @@ export default {
   },
   setup () {
     const { isLoggedIn } = useAuthService()
+    const { isDetailActive } = useDetailService()
 
     const {
       groupId: currentGroupId,
@@ -241,6 +243,7 @@ export default {
     const disableDesktopSidenav = computed(() => route.meta.disableDesktopSidenav)
 
     return {
+      isDetailActive,
       isLoggedIn,
       currentGroupId,
       isBikeKitchen,
@@ -258,7 +261,7 @@ export default {
   computed: {
     ...mapGetters({
       routeError: 'routeError/status',
-      isDetailActive: 'detail/isActive',
+      // isDetailActive: 'detail/isActive',
     }),
     layoutView () {
       if (this.$q.platform.is.mobile) {

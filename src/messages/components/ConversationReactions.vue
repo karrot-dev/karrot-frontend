@@ -2,7 +2,7 @@
   <div class="conversation-reactions row">
     <div class="reactions row">
       <EmojiButton
-        v-for="reaction in reactions"
+        v-for="reaction in groupReactions(reactions)"
         :key="reaction.name"
         v-touch-hold="toggleDetail"
         :name="reaction.name"
@@ -67,6 +67,7 @@ import {
   QItemLabel,
   QBtn,
 } from 'quasar'
+import { useMessageHelpers } from '@/messages/helpers'
 
 export default {
   name: 'ConversationReactions',
@@ -92,6 +93,10 @@ export default {
   emits: [
     'toggle',
   ],
+  setup () {
+    const { groupReactions } = useMessageHelpers()
+    return { groupReactions }
+  },
   data () {
     return {
       showDetail: false,

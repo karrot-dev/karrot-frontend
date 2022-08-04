@@ -1,8 +1,8 @@
 <template>
   <div>
     <QInfiniteScroll
-      :disable="conversation && !canFetchPast"
-      @load="maybeFetchPast"
+      :disable="conversation && !hasNextPage"
+      @load="infiniteScrollLoad"
     >
       <QList
         ref="messagesList"
@@ -12,8 +12,8 @@
         <template v-if="hasLoaded">
           <NotificationToggle
             class="actionButton"
-            :muted="conversation.muted"
-            :is-participant="conversation.isParticipant"
+            :muted="isMuted"
+            :is-participant="isParticipant"
             :user="user"
             @set="setNotifications"
           />
@@ -22,12 +22,12 @@
             :placeholder="messagePrompt"
             :user="user"
             :slim="$q.platform.is.mobile"
-            :is-participant="conversation.isParticipant"
+            :is-participant="isParticipant"
             :draft-key="conversation.id"
-            @submit="message => $emit('send', { id: conversation.id, ...message })"
+            @submit="message => send({ id: conversation.id, ...message })"
           />
           <QBanner
-            v-if="conversation.isParticipant && conversation.unreadMessageCount > 0"
+            v-if="isParticipant && unreadMessageCount > 0"
             class="bg-secondary text-white q-mt-sm"
             style="min-height: unset"
           >
@@ -40,15 +40,15 @@
             </template>
             <div class="row justify-between items-center">
               <small>
-                {{ $tc('CONVERSATION.UNREAD_MESSAGES', conversation.unreadMessageCount, {
-                  count: conversation.unreadMessageCount > 99 ? '99+' : conversation.unreadMessageCount,
+                {{ $tc('CONVERSATION.UNREAD_MESSAGES', unreadMessageCount, {
+                  count: unreadMessageCount > 99 ? '99+' : unreadMessageCount,
                 }) }}
               </small>
               <QBtn
                 no-caps
                 outline
                 size="sm"
-                @click="$emit('mark-all-read', conversation.id)"
+                @click="() => markAllRead()"
               >
                 <span v-t="'CONVERSATION.MARK_READ'" />
               </QBtn>
@@ -58,22 +58,18 @@
             v-for="message in messages"
             :key="message.id"
             :message="message"
-            @toggle-reaction="(...args) => $emit('toggle-reaction', ...args)"
-            @save="(...args) => $emit('save-message', ...args)"
-            @open-thread="$emit('open-thread', message)"
+            :seen-up-to="conversation.seenUpTo"
           />
         </template>
-        <KSpinner v-show="pending || pastPending" />
+        <KSpinner v-show="isLoadingMessages || isFetchingNextPage" />
       </QList>
     </QInfiniteScroll>
   </div>
 </template>
 
 <script>
-import ConversationMessage from './ConversationMessage'
-import ConversationCompose from './ConversationCompose'
-import NotificationToggle from './NotificationToggle'
-import KSpinner from '@/utils/components/KSpinner'
+import { computed, toRefs } from 'vue'
+
 import {
   QBtn,
   QInfiniteScroll,
@@ -81,6 +77,19 @@ import {
   QBanner,
   QIcon,
 } from 'quasar'
+
+import ConversationMessage from './ConversationMessage'
+import ConversationCompose from './ConversationCompose'
+import NotificationToggle from './NotificationToggle'
+import KSpinner from '@/utils/components/KSpinner'
+
+import {
+  useConversationSeenUpToMutation,
+  useSaveConversationMutation,
+  useSendMessageMutation,
+} from '@/messages/mutations'
+import { useConversationQuery, useMessageListQuery } from '@/messages/queries'
+import { useConversationHelpers } from '@/messages/helpers'
 
 export default {
   name: 'WallConversation',
@@ -96,47 +105,96 @@ export default {
     QIcon,
   },
   props: {
-    conversation: {
-      type: Object,
+    groupId: {
+      type: Number,
       default: null,
     },
-    messages: {
-      type: Array,
-      default: () => [],
-    },
-    pending: {
-      type: Boolean,
-      default: false,
-    },
-    canFetchPast: {
-      type: Boolean,
-      default: false,
-    },
-    fetchPast: {
-      type: Function,
-      default: null,
-    },
-    pastPending: {
-      type: Boolean,
+    placeId: {
+      type: Number,
       default: null,
     },
     user: {
       type: Object,
       default: null,
     },
-    sendStatus: {
-      type: Object,
-      default: null,
-    },
   },
-  emits: [
-    'send',
-    'mark-all-read',
-    'toggle-reaction',
-    'save-message',
-    'open-thread',
-    'save-conversation',
-  ],
+  setup (props) {
+    const {
+      groupId,
+      placeId,
+    } = toRefs(props)
+
+    const {
+      getUnreadMessageCount,
+      getIsParticipant,
+      getIsMuted,
+    } = useConversationHelpers()
+
+    const {
+      conversation,
+      isLoading: isLoadingConversation,
+    } = useConversationQuery({ groupId, placeId })
+
+    const conversationId = computed(() => conversation.value?.id)
+    const {
+      messages,
+      isLoading: isLoadingMessages,
+      isFetching,
+      hasNextPage,
+      fetchNextPage,
+      isFetchingNextPage, // TODO: this is not being passed into component yet...
+      infiniteScrollLoad,
+    } = useMessageListQuery({ conversationId })
+
+    const {
+      mutate: send,
+      status: sendStatus,
+    } = useSendMessageMutation()
+    const { mutate: saveConversation } = useSaveConversationMutation()
+    const { mutate: markSeenUpTo } = useConversationSeenUpToMutation()
+
+    // const unreadMessageCount = computed(() => unreadMessageCount(conversation.value))
+    // const isParticipant = computed(() => isParticipant(conversation.value))
+    // const isMuted = computed(() => isMuted(conversation.value))
+
+    function markAllRead () {
+      const messageId = messages.value?.[0]?.id
+      if (conversationId.value && messageId) {
+        markSeenUpTo({ conversationId: conversationId.value, messageId })
+      }
+    }
+
+    function setNotifications (value) {
+      saveConversation({
+        id: conversationId.value,
+        value,
+      })
+    }
+
+    return {
+      conversation,
+      isLoadingConversation,
+
+      unreadMessageCount: computed(() => getUnreadMessageCount(conversation.value)),
+      isParticipant: computed(() => getIsParticipant(conversation.value)),
+      isMuted: computed(() => getIsMuted(conversation.value)),
+
+      messages,
+      // messages: computed(() => messages.value.map(enrichMessage)),
+      infiniteScrollLoad,
+      isLoadingMessages,
+      hasNextPage,
+      fetchNextPage,
+      isFetching,
+      isFetchingNextPage,
+
+      send,
+      sendStatus,
+
+      markAllRead,
+      setNotifications,
+    }
+  },
   computed: {
     hasLoaded () {
       if (!this.conversation) return false
@@ -161,23 +219,6 @@ export default {
           if (ref) ref.$el.scrollIntoView()
         }
       }
-    },
-  },
-  methods: {
-    async maybeFetchPast (index, done) {
-      if (!this.conversation || !this.fetchPast || !this.canFetchPast) {
-        await this.$nextTick()
-        done(!this.canFetchPast)
-        return
-      }
-      await this.fetchPast()
-      done(!this.canFetchPast)
-    },
-    setNotifications (value) {
-      this.$emit('save-conversation', {
-        conversationId: this.conversation.id,
-        value,
-      })
     },
   },
 }

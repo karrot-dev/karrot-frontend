@@ -1,6 +1,7 @@
 import { computed, unref } from 'vue'
 import { isNetworkError, isServerError, isValidationError } from '@/utils/datastore/helpers'
 import { useQueryClient } from 'vue-query'
+import { isObject } from '@/utils/utils'
 
 export function useQueryHelpers () {
   const queryClient = useQueryClient()
@@ -104,4 +105,20 @@ export function flattenPaginatedData (query) {
 export function newDateRoundedTo5Minutes () {
   const roundTo = 1000 * 60 * 5 // 5 minutes
   return new Date(Math.floor(new Date().getTime() / roundTo) * roundTo)
+}
+
+export function isEnriched (object) {
+  return object && isObject(object) && Object.hasOwn(object, '_enrichSource')
+}
+
+export function requireEnriched (object, message) {
+  if (!isEnriched(object)) {
+    message = message || 'Expected enriched object'
+    console.error(message, object)
+    throw new Error(message)
+  }
+}
+
+export function unenriched (object) {
+  return isEnriched(object) ? object._enrichSource : object
 }

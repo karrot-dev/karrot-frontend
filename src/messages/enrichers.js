@@ -6,6 +6,9 @@ import differenceInSeconds from 'date-fns/differenceInSeconds'
 import { isUnread, readableReactionMessage, sortByName } from '@/messages/datastore/conversations'
 import { useQueryClient } from 'vue-query'
 import { queryKeyConversation, queryKeyMessageList } from '@/messages/queries'
+import { createInstrument } from '@/boot/performance'
+
+const instrumentEnrichMessage = createInstrument('new: enrich message')
 
 export function useConversationEnricher () {
   const { getUserById } = useUserService()
@@ -23,6 +26,22 @@ export function useConversationEnricher () {
   }
   return enrichConversation
 }
+
+/*
+reactions: enrichReactions(message.reactions),
+      author: getUserById(message.author), // TODO: enrich author too?
+      isEdited: differenceInSeconds(message.editedAt, message.createdAt) > 30,
+      isUnread: isThreadReply
+        ? isUnreadIfThreadParticipant(message)
+        : isUnread(message, conversation),
+      groupId: conversation?.group,
+      ...(message.threadMeta ? {
+        threadMeta: {
+          ...message.threadMeta,
+          participants: message.threadMeta.participants.map(getUserById), // TODO: enrich these users?
+        }
+      } : {}),
+ */
 
 export function useMessageEnricher () {
   const queryClient = useQueryClient()
@@ -46,7 +65,7 @@ export function useMessageEnricher () {
     // Look through the messages to find a message with this id...
     // TODO: not sure if this is right...
     try {
-      const messages = queryClient.getQueryData(queryKeyMessageList({conversationId: message.conversation}))
+      const messages = queryClient.getQueryData(queryKeyMessageList(message.conversation))
       console.log('looking for thread meta for', message, 'in', messages)
     }
     catch (error) {
@@ -104,6 +123,8 @@ export function useMessageEnricher () {
 
     return {
       ...message,
+      _enrichSource: message,
+
       reactions: enrichReactions(message.reactions),
       author: getUserById(message.author), // TODO: enrich author too?
       isEdited: differenceInSeconds(message.editedAt, message.createdAt) > 30,
@@ -142,5 +163,5 @@ export function useMessageEnricher () {
      */
   }
 
-  return enrichMessage
+  return instrumentEnrichMessage(enrichMessage)
 }

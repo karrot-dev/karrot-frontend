@@ -1,9 +1,10 @@
 <template>
   <div class="Detail">
-    <KSpinner v-show="isPending" />
+    <KSpinner v-show="pending" />
     <ChatConversation
       v-if="conversation"
-      :conversation="conversationWithMaybeReversedMessages"
+      :conversation="conversation"
+      :messages="maybeReversedMessages"
       :away="away"
       :current-user="currentUser"
       :start-at-bottom="Boolean(user) || Boolean(activity)"
@@ -145,6 +146,14 @@ export default {
       type: Object,
       default: null,
     },
+    messages: {
+      type: Array,
+      default: null,
+    },
+    pending: {
+      type: Boolean,
+      default: false,
+    },
     away: {
       type: Boolean,
       default: false,
@@ -165,18 +174,10 @@ export default {
     'application-decline',
   ],
   computed: {
-    isPending () {
-      if (!this.conversation) return false
-      return this.conversation.fetchStatus.pending
-    },
-    conversationWithMaybeReversedMessages () {
-      if (!this.conversation) return
+    maybeReversedMessages () {
+      if (!this.conversation || !this.messages) return
       // TODO reverse message on server
-      const messages = this.conversation.thread ? this.conversation.messages : this.conversation.messages.slice().reverse()
-      return {
-        ...this.conversation,
-        messages,
-      }
+      return this.conversation.thread ? this.messages : this.messages.slice().reverse()
     },
   },
   methods: {

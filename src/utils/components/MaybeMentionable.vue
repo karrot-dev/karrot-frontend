@@ -48,7 +48,7 @@ import { QItem, QItemLabel, QItemSection } from 'quasar'
 import 'floating-vue/dist/style.css'
 
 import ProfilePicture from '@/users/components/ProfilePicture'
-import { useUserService } from '@/users/services'
+import { useCurrentGroupService } from '@/group/services'
 
 defineProps({
   disable: {
@@ -56,7 +56,7 @@ defineProps({
     default: false,
   },
 })
-const { users } = useUserService()
+const { users } = useCurrentGroupService()
 
 const mentionItems = computed(() => {
   return users.value.map(user => {

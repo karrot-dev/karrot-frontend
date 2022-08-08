@@ -176,6 +176,7 @@ export function useMessageListQuery ({ conversationId }) {
         pages: pages.map(page => page.results),
         pageParams,
       }),
+      refetchOnWindowFocus: false, // causes a storm with a lot of pages loaded TODO: think about it more...
     },
   )
   return {

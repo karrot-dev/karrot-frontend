@@ -1,6 +1,6 @@
 <template>
   <QItem
-    :class="{ isNonPending: !application.isPending }"
+    :class="{ isNonPending: !application.status !== 'pending' }"
     clickable
     @click="$emit('open-chat', application)"
   >

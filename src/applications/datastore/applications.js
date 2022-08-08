@@ -41,14 +41,7 @@ export default {
       if (!activePreview) return
       return getters.enrich(getters.getMineInGroup(activePreview.id))
     },
-    forCurrentGroup: (state, getters) => Object.keys(state.entries)
-      .map(getters.get)
-      .filter(a => a.group && a.group.isCurrentGroup)
-      .sort(sortByCreatedAt),
-    forCurrentGroupPending: (state, getters) => getters.forCurrentGroup.filter(a => a.isPending),
-    forCurrentGroupNonPending: (state, getters) => getters.forCurrentGroup.filter(a => !a.isPending),
-    canFetchPast: (state, getters) => getters['pagination/canFetchNext'],
-    ...metaStatuses(['apply', 'fetchPast']),
+    ...metaStatuses(['apply']),
   },
   actions: {
     async fetch ({ commit, dispatch }, filters) {
@@ -65,20 +58,8 @@ export default {
         await dispatch('fetch', { user: userId, status: 'pending' })
       },
 
-      async fetchByGroupId ({ dispatch }, { groupId }) {
-        await dispatch('fetch', { group: groupId })
-      },
-
       async fetchPendingByGroupId ({ dispatch }, { groupId }) {
         await dispatch('fetch', { group: groupId, status: 'pending' })
-      },
-
-      async fetchPast ({ commit, dispatch }) {
-        const applicationList = await dispatch('pagination/fetchNext', applications.listMore)
-        commit('update', applicationList)
-
-        const users = applicationList.map(a => a.user)
-        commit('users/update', users, { root: true })
       },
 
       async fetchOne ({ commit }, applicationId) {
@@ -125,6 +106,7 @@ export default {
 
     }),
     async maybeFetchOne ({ state, dispatch, getters }, applicationId) {
+      // called by detail, lastestMessages, notifications
       const isPending = getters['meta/status']('fetchOne', applicationId).pending
       if (state.entries[applicationId] || isPending) return
 

@@ -2,7 +2,7 @@
   <div class="bg-white">
     <QList bordered>
       <ApplicationItem
-        v-for="a in pending"
+        v-for="a in pendingApplications"
         :key="a.id"
         v-measure
         :application="a"
@@ -34,7 +34,7 @@
       >
         <QBtn
           size="sm"
-          :loading="fetchPastStatus.pending"
+          :loading="isLoading"
           @click="fetchPast"
         >
           {{ $t('BUTTON.SHOW_MORE') }}
@@ -66,7 +66,11 @@ export default {
   },
   mixins: [paginationMixin],
   props: {
-    pending: {
+    isLoading: {
+      type: Boolean,
+      default: false,
+    },
+    pendingApplications: {
       type: Array,
       default: null,
     },

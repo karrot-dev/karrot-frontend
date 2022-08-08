@@ -6,16 +6,17 @@
       :conversation="conversation"
       :messages="maybeReversedMessages"
       :away="away"
+      :pending="pending"
       :current-user="currentUser"
       :start-at-bottom="Boolean(user) || Boolean(activity)"
       :inline="inline"
+      :has-next-page="hasNextPage"
+      :has-previous-page="hasPreviousPage"
+      :is-fetching-next-page="isFetchingNextPage"
+      :is-fetching-previous-page="isFetchingPreviousPage"
+      :fetch-next-page="fetchNextPage"
+      :fetch-previous-page="fetchPreviousPage"
       compose
-      @send="(...args) => $emit('send', ...args)"
-      @mark="(...args) => $emit('mark', ...args)"
-      @toggle-reaction="(...args) => $emit('toggle-reaction', ...args)"
-      @save-message="(...args) => $emit('save-message', ...args)"
-      @fetch-past="(...args) => $emit('fetch-past', ...args)"
-      @fetch-future="$emit('fetch-future')"
     >
       <template #before-chat-messages>
         <QExpansionItem
@@ -162,14 +163,35 @@ export default {
       type: Object,
       default: null,
     },
+    hasNextPage: {
+      type: Boolean,
+      default: false,
+    },
+    hasPreviousPage: {
+      type: Boolean,
+      default: false,
+    },
+    isFetchingNextPage: {
+      type: Boolean,
+      default: false,
+    },
+    isFetchingPreviousPage: {
+      type: Boolean,
+      default: false,
+    },
+    fetchNextPage: {
+      type: Function,
+      default: () => {},
+    },
+    fetchPreviousPage: {
+      type: Function,
+      default: () => {},
+    },
   },
   emits: [
-    'send',
     'mark',
-    'toggle-reaction',
-    'save-message',
-    'fetch-past',
-    'fetch-future',
+    'fetch-next',
+    'fetch-previous',
     'application-accept',
     'application-decline',
   ],

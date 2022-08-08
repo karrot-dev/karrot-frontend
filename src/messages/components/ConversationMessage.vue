@@ -75,7 +75,7 @@
         />
       </div>
       <QItemLabel
-        v-if="message.isEdited"
+        v-if="getIsMessageEdited(message)"
         caption
         class="q-pb-xs text-weight-light"
       >
@@ -174,6 +174,7 @@ import {
 import { useAuthHelpers } from '@/authuser/helpers'
 import { useUserService } from '@/users/services'
 import { useDetailService } from '@/messages/services'
+import { useMessageHelpers } from '@/messages/helpers'
 export default {
   name: 'ConversationMessage',
   components: {
@@ -196,9 +197,9 @@ export default {
       type: Object,
       required: true,
     },
-    seenUpTo: {
-      type: Number,
-      default: null,
+    isUnread: {
+      type: Boolean,
+      default: false,
     },
     continuation: {
       type: Boolean,
@@ -213,10 +214,10 @@ export default {
     const { getIsCurrentUser } = useAuthHelpers()
     const { getUserById } = useUserService()
     const { openThread } = useDetailService()
+    const { getIsMessageEdited } = useMessageHelpers()
 
     const author = computed(() => getUserById(props.message.author))
     const threadParticipants = computed(() => props.message.threadMeta?.participants?.map(getUserById) ?? [])
-    const isUnread = computed(() => Boolean(props.seenUpTo !== null && props.message.id > props.seenUpTo))
 
     const {
       mutateAsync: saveMessage,
@@ -241,8 +242,8 @@ export default {
     return {
       author,
       threadParticipants,
-      isUnread,
 
+      getIsMessageEdited,
       getIsCurrentUser,
 
       toggleReaction,

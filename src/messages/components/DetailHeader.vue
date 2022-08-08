@@ -3,18 +3,24 @@
     :user="$store.getters['detail/user']"
     :activity="$store.getters['detail/activity']"
     :application="$store.getters['detail/application']"
-    :conversation="$store.getters['detail/conversation']"
-    :current-user="$store.getters['auth/user']"
+    :conversation="conversation"
+    :current-user="currentUser"
     @save-conversation="data => $store.dispatch('conversations/maybeSave', data)"
+    @close="() => close()"
   />
 </template>
 
-<script>
+<script setup>
 import DetailHeaderUI from './DetailHeaderUI'
+import { useDetailService } from '@/messages/services'
+import { useAuthService } from '@/authuser/services'
 
-export default {
-  components: {
-    DetailHeaderUI,
-  },
-}
+const {
+  user: currentUser,
+} = useAuthService()
+
+const {
+  conversation,
+  close,
+} = useDetailService()
 </script>

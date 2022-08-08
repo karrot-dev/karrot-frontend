@@ -11,6 +11,12 @@ function useThread (messageId) {
   const {
     messages: threadMessages,
     isLoading: isLoadingMessages,
+    hasNextPage,
+    hasPreviousPage,
+    isFetchingNextPage,
+    isFetchingPreviousPage,
+    fetchNextPage,
+    fetchPreviousPage,
   } = useMessageThreadListQuery({ messageId })
 
   const messages = computed(() => {
@@ -33,6 +39,27 @@ function useThread (messageId) {
     messages,
     isLoadingConversation,
     isLoadingMessages,
+    hasNextPage,
+    hasPreviousPage,
+    isFetchingNextPage,
+    isFetchingPreviousPage,
+    fetchNextPage,
+    fetchPreviousPage,
+  }
+}
+
+function createDefaultState () {
+  return {
+    conversation: null,
+    messages: [],
+    isLoadingConversation: false,
+    isLoadingMessages: false,
+    hasNextPage: false,
+    hasPreviousPage: false,
+    isFetchingNextPage: false,
+    isFetchingPreviousPage: false,
+    fetchNextPage: () => {},
+    fetchPreviousPage: () => {},
   }
 }
 
@@ -42,20 +69,18 @@ export const useDetailService = defineService(() => {
 
   const isDetailActive = computed(() => Boolean(type.value && id.value)) // vuex one did it based on conversation (pending or loaded)
 
+  // Each type of detail view can declare these state values, and we'll switch them depending on which is active
+  const state = reactive(createDefaultState())
+
   // For thread
-  const messageId = computed(() => type.value === 'thread' && id.value)
+  const threadMessageId = computed(() => type.value === 'thread' && id.value)
+  const threadRefs = useThread(threadMessageId)
 
-  const threadRefs = useThread(messageId)
-  const stuff = reactive({
-    conversation: null,
-    messages: [],
-    isLoadingConversation: false,
-    isLoadingMessages: false,
-  })
-
+  // Assign to state depending on which type is active
   watch(type, value => {
     switch (value) {
-      case 'thread': Object.assign(stuff, threadRefs)
+      case 'thread': return Object.assign(state, threadRefs)
+      default: Object.assign(state, createDefaultState())
     }
   })
 
@@ -63,6 +88,7 @@ export const useDetailService = defineService(() => {
     id.value = messageId
     type.value = 'thread'
 
+    // TODO: implement this logic
     /*
     if (Platform.is.mobile) {
         const { id, groupId } = message
@@ -74,9 +100,16 @@ export const useDetailService = defineService(() => {
      */
   }
 
+  function close () {
+    type.value = null
+    id.value = null
+  }
+
   return {
-    ...toRefs(stuff),
+    ...toRefs(state),
     isDetailActive,
+
     openThread,
+    close,
   }
 })

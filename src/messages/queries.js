@@ -32,16 +32,22 @@ export function useConversationUpdater () {
 
 export function useMessageUpdater () {
   const queryClient = useQueryClient()
-  const { isThreadReply } = useMessageHelpers()
+  const {
+    getIsThreadReply,
+    getIsPartOfThread,
+  } = useMessageHelpers()
   const { on } = useSocketEvents()
 
-  function updateMessageIn (queryKey, message) {
+  function updateMessageIn (queryKey, message, reversed = false) {
     // Update individual message
     let added = false
     queryClient.setQueryData(
       queryKey,
       (data) => {
+        if (data === undefined) return undefined // Don't update if we don't have data already...
         let { pages, pageParams } = data ?? { pages: [], pageParams: [] }
+
+        // If we already have the message, replace it
         pages = pages.map(page => ({
           ...page,
           results: page.results.map(result => {
@@ -53,17 +59,32 @@ export function useMessageUpdater () {
           }),
         }))
 
+        // Otherwise add it to the end, if the id is bigger than previous entry
         if (!added && pages.length > 0) {
-          // add it to the first page if the id is higher than the first entry
-          // TODO: this doesn't add in the right place for thread conversation... needs to go at the end, although pagination isn't wired up properly yet anyway
-          const page = pages[0]
-          const firstResult = page.results?.[0]
-          if (firstResult && message.id > firstResult.id) {
-            pages = [{
-              ...page,
-              results: [message, ...page.results],
-            }, ...pages.slice(1)]
-            added = true
+          if (reversed) {
+            const lastPage = pages[pages.length - 1]
+            const lastResult = lastPage.results?.[lastPage.results?.length - 1]
+            if (lastResult && message.id > lastResult.id) {
+              pages = [
+                ...pages.slice(0, -1),
+                {
+                  ...lastPage,
+                  results: [...lastPage.results, message],
+                },
+              ]
+              added = true
+            }
+          }
+          else {
+            const firstPage = pages[0]
+            const firstResult = firstPage.results?.[0]
+            if (firstResult && message.id > firstResult.id) {
+              pages = [{
+                ...firstPage,
+                results: [message, ...firstPage.results],
+              }, ...pages.slice(1)]
+              added = true
+            }
           }
         }
 
@@ -80,17 +101,21 @@ export function useMessageUpdater () {
     'conversations:message',
     message => {
       // Update individual message query
-      queryClient.setQueryData(queryKeyMessageItem(message.id), () => message)
+      queryClient.setQueryData(queryKeyMessageItem(message.id), value => value !== undefined ? message : undefined)
 
-      // Update a thread reply
-      if (isThreadReply(message)) {
-        updateMessageIn(queryKeyMessageThreadList(message.thread), message)
-        return
+      // Update a message that is part of a thread
+      if (getIsPartOfThread(message)) {
+        // reverse ordering for this case
+        if (!updateMessageIn(queryKeyMessageThreadList(message.thread), message, true)) {
+          queryClient.invalidateQueries(queryKeyMessageThreadList(message.thread))
+        }
       }
 
-      // Update normal message, or invalidate
-      if (!updateMessageIn(queryKeyMessageList(message.conversation), message)) {
-        queryClient.invalidateQueries(queryKeyMessageList(message.conversation))
+      // Update normal message
+      if (!getIsThreadReply(message)) {
+        if (!updateMessageIn(queryKeyMessageList(message.conversation), message)) {
+          queryClient.invalidateQueries(queryKeyMessageList(message.conversation))
+        }
       }
     },
   )
@@ -124,6 +149,7 @@ function paginationHelpers (query) {
     fetchNextPage,
   } = query
 
+  // TODO: can make a next and previous one...
   // A function that can be passed into a QInfiniteScroll @load
   async function infiniteScrollLoad (index, done) {
     if (!isFetching.value && hasNextPage.value) await fetchNextPage()
@@ -145,6 +171,7 @@ export function useMessageListQuery ({ conversationId }) {
       staleTime: 0,
       enabled: computed(() => Boolean(unref(conversationId))),
       getNextPageParam: page => extractCursor(page.next) || undefined,
+      getPreviousPageParam: page => extractCursor(page.previous) || undefined,
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => page.results),
         pageParams,
@@ -175,12 +202,19 @@ export function useMessageItemQuery ({ messageId }) {
 export function useMessageThreadListQuery ({ messageId }) {
   const query = useInfiniteQuery(
     queryKeyMessageThreadList(messageId),
-    () => messageAPI.listThread(unref(messageId)),
+    ({ pageParam }) => messageAPI.listThread(unref(messageId), pageParam, 20),
     {
       cacheTime: 0,
       staleTime: 0,
       enabled: computed(() => Boolean(unref(messageId))),
-      getNextPageParam: page => extractCursor(page.next) || undefined,
+      getNextPageParam: page => {
+        if (!page) {
+          console.log('huh page is', page)
+          return undefined
+        }
+        return extractCursor(page.next) || undefined
+      },
+      getPreviousPageParam: page => extractCursor(page.previous) || undefined,
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => page.results),
         pageParams,

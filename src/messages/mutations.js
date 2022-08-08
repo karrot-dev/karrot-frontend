@@ -8,24 +8,6 @@ import reactionsAPI from '@/messages/api/reactions'
 import { queryKeyMessageList } from '@/messages/queries'
 
 export function useSendMessageMutation () {
-  const queryClient = useQueryClient()
-
-  function addEntryToPaginatedData (entry) {
-    return ({
-       pages,
-       pageParams
-     }) => ({
-      pages: pages.map((page, idx) => {
-        if (idx !== 0) return page // we only want to add to first page
-        return {
-          ...page,
-          results: [entry, ...page.results],
-        }
-      }),
-      pageParams,
-    })
-  }
-
   return withStatus(useMutation(
     ({ id, content, images, threadId }) => messagesAPI.create({
       conversation: id,
@@ -33,14 +15,7 @@ export function useSendMessageMutation () {
       content,
       images,
     }),
-    {
-      onSuccess (message) {
-        queryClient.setQueryData(
-          queryKeyMessageList(message.conversation),
-          addEntryToPaginatedData(message),
-        )
-      },
-    },
+    // relies on websockets to update data
   ))
 }
 
@@ -56,6 +31,12 @@ export function useSaveConversationMutation () {
 export function useConversationSeenUpToMutation () {
   return withStatus(useMutation(
     ({ conversationId, messageId }) => conversationsAPI.save(conversationId, { seenUpTo: messageId }),
+  ))
+}
+
+export function useThreadSeenUpToMutation () {
+  return withStatus(useMutation(
+    ({ threadId, messageId }) => messagesAPI.markThread(threadId, messageId),
   ))
 }
 

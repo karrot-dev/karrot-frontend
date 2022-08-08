@@ -36,8 +36,8 @@ export default {
     }
   },
 
-  async listThread (thread) {
-    const response = (await axios.get('/api/messages/', { params: { thread } })).data
+  async listThread (thread, cursor = null, pageSize = null) {
+    const response = (await axios.get('/api/messages/', { params: { thread, cursor, page_size: pageSize } })).data
     return {
       ...response,
       next: parseCursor(response.next),

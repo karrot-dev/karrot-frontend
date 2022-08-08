@@ -58,7 +58,7 @@
             v-for="message in messages"
             :key="message.id"
             :message="message"
-            :seen-up-to="conversation.seenUpTo"
+            :is-unread="message.id > conversation.seenUpTo"
           />
         </template>
         <KSpinner v-show="isLoadingMessages || isFetchingNextPage" />
@@ -152,10 +152,6 @@ export default {
     } = useSendMessageMutation()
     const { mutate: saveConversation } = useSaveConversationMutation()
     const { mutate: markSeenUpTo } = useConversationSeenUpToMutation()
-
-    // const unreadMessageCount = computed(() => unreadMessageCount(conversation.value))
-    // const isParticipant = computed(() => isParticipant(conversation.value))
-    // const isMuted = computed(() => isMuted(conversation.value))
 
     function markAllRead () {
       const messageId = messages.value?.[0]?.id

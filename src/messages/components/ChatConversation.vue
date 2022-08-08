@@ -5,10 +5,10 @@
     :class="inline && 'absolute-full scroll'"
   >
     <slot name="before-chat-messages" />
-    <KSpinner v-show="fetchingPast" />
+    <KSpinner v-show="isFetchingPreviousPage" />
     <QInfiniteScroll
-      :disable="!conversation.canFetchFuture"
-      @load="maybeFetchFuture"
+      :disable="!hasNextPage"
+      @load="maybeFetchNext"
     >
       <QList
         class="bg-white"
@@ -17,22 +17,21 @@
           v-for="message in messages"
           :key="message.id"
           :message="message"
-          :continuation="Boolean(continuationsById[message.id])"
+          :continuation="getIsContinuation(message.id)"
+          :is-unread="getIsUnread(message.id)"
           slim
-          @toggle-reaction="(...args) => $emit('toggle-reaction', ...args)"
-          @save="(...args) => $emit('save-message', ...args)"
         />
         <slot name="before-chat-compose" />
         <ConversationCompose
-          v-if="compose && !conversation.canFetchFuture && !conversation.isClosed"
+          v-if="compose && !hasNextPage && !conversation.isClosed"
           ref="compose"
-          :status="conversation.sendStatus"
+          :status="sendStatus"
           slim
           filled
           square
           :draft-key="conversation.id"
           :placeholder="messagePrompt"
-          :is-participant="conversation.isParticipant"
+          :is-participant="isParticipant"
           class="q-pb-md"
           @submit="sendMessage"
         />
@@ -64,10 +63,12 @@
 </template>
 
 <script>
+import { computed, toRef } from 'vue'
+
 import ConversationMessage from '@/messages/components/ConversationMessage'
 import ConversationCompose from '@/messages/components/ConversationCompose'
 import KSpinner from '@/utils/components/KSpinner'
-import groupedMessagesMixin from '@/utils/mixins/groupedMessagesMixin'
+import { useMessageContinuations } from '@/utils/mixins/groupedMessagesMixin'
 import {
   scroll,
   dom,
@@ -79,6 +80,12 @@ import {
   QScrollObserver,
   QInfiniteScroll,
 } from 'quasar'
+import {
+  useConversationSeenUpToMutation,
+  useSendMessageMutation,
+  useThreadSeenUpToMutation,
+} from '@/messages/mutations'
+import { useConversationHelpers } from '@/messages/helpers'
 const { getScrollHeight, getVerticalScrollPosition, setVerticalScrollPosition, getScrollTarget } = scroll
 const { height } = dom
 
@@ -100,7 +107,6 @@ export default {
     QScrollObserver,
     QInfiniteScroll,
   },
-  mixins: [groupedMessagesMixin(['messages'])],
   props: {
     conversation: { type: Object, default: null },
     messages: { type: Array, default: null },
@@ -116,15 +122,76 @@ export default {
       type: Boolean,
       default: false,
     },
+    pending: {
+      type: Boolean,
+      default: false,
+    },
+    hasNextPage: {
+      type: Boolean,
+      default: false,
+    },
+    hasPreviousPage: {
+      type: Boolean,
+      default: false,
+    },
+    isFetchingNextPage: {
+      type: Boolean,
+      default: false,
+    },
+    isFetchingPreviousPage: {
+      type: Boolean,
+      default: false,
+    },
+    fetchNextPage: {
+      type: Function,
+      default: () => {},
+    },
+    fetchPreviousPage: {
+      type: Function,
+      default: () => {},
+    },
   },
-  emits: [
-    'toggle-reaction',
-    'save-message',
-    'mark',
-    'send',
-    'fetch-future',
-    'fetch-past',
-  ],
+  setup (props) {
+    const {
+      getIsParticipant,
+    } = useConversationHelpers()
+
+    function getIsUnread (messageId) {
+      const conversationOrThreadMeta = props.conversation?.threadMeta || props.conversation
+      if (!conversationOrThreadMeta) return false
+      if (conversationOrThreadMeta.notifications === 'none') {
+        // don't show unread status if user is not participant
+        // does not apply to thread replies
+        return false
+      }
+      if (!conversationOrThreadMeta.seenUpTo) return true
+      return messageId > conversationOrThreadMeta.seenUpTo
+    }
+
+    const { getIsContinuation } = useMessageContinuations(toRef(props, 'messages'))
+
+
+    const {
+      mutate: send,
+      status: sendStatus,
+    } = useSendMessageMutation()
+
+    const { mutate: markSeenUpTo } = useConversationSeenUpToMutation()
+    const { mutate: markThreadSeenUpTo } = useThreadSeenUpToMutation()
+
+    return {
+      isParticipant: computed(() => props.conversation && getIsParticipant(props.conversation)),
+
+      getIsContinuation,
+      getIsUnread,
+
+      send,
+      sendStatus,
+
+      markSeenUpTo,
+      markThreadSeenUpTo,
+    }
+  },
   data () {
     return {
       scrollContainer: null,
@@ -135,10 +202,6 @@ export default {
     }
   },
   computed: {
-    hasLoaded () {
-      const s = this.conversation.fetchStatus
-      return !s.pending && !s.hasValidationErrors
-    },
     messagePrompt () {
       if (this.conversation.thread) {
         return this.$t('CONVERSATION.REPLY_TO_MESSAGE')
@@ -148,23 +211,17 @@ export default {
       }
       return this.$t('WALL.WRITE_FIRST_MESSAGE')
     },
-    fetchingPast () {
-      return this.conversation.fetchPastStatus && this.conversation.fetchPastStatus.pending
-    },
-    fetchingFuture () {
-      return this.conversation.fetchFutureStatus && this.conversation.fetchFutureStatus.pending
-    },
   },
   watch: {
     away (away) {
-      if (!away && !this.conversation.canFetchFuture) {
+      if (!away && !this.hasNextPage) {
         this.markRead(this.newestMessageId)
       }
     },
-    hasLoaded: {
+    pending: {
       immediate: true,
-      handler (hasLoaded) {
-        if (hasLoaded && this.startAtBottom) this.scrollToBottom()
+      handler (pending) {
+        if (pending && this.startAtBottom) this.scrollToBottom()
       },
     },
     'conversation.id' (id) {
@@ -182,7 +239,7 @@ export default {
       if (this.newestMessageId !== newNewestMessage.id) {
         const scrollPosition = this.getScrollPositionFromBottom()
         this.newestMessageId = newNewestMessage.id
-        if (scrollPosition < 100 && !this.away && !this.conversation.canFetchFuture) {
+        if (scrollPosition < 100 && !this.away && !this.hasNextPage) {
           this.scrollToBottom()
           this.markRead(this.newestMessageId)
         }
@@ -197,8 +254,8 @@ export default {
         })
       }
     },
-    fetchingFuture (pending) {
-      if (pending === false && this.hideBottomSpinner) {
+    isFetchingNextPage (fetching) {
+      if (fetching === false && this.hideBottomSpinner) {
         this.hideBottomSpinner()
         this.hideBottomSpinner = null
       }
@@ -213,15 +270,15 @@ export default {
     markRead (messageId) {
       const isThreadReply = this.conversation.thread && this.messageId !== this.conversation.thread
       if (!isThreadReply && this.conversation.unreadMessageCount > 0) {
-        this.$emit('mark', {
-          id: this.conversation.id,
-          seenUpTo: messageId,
+        this.markSeenUpTo({
+          conversationId: this.conversation.id,
+          messageId,
         })
       }
       if (isThreadReply && this.conversation.threadMeta && this.conversation.threadMeta.unreadReplyCount > 0) {
-        this.$emit('mark', {
+        this.markThreadSeenUpTo({
           threadId: this.conversation.thread,
-          seenUpTo: messageId,
+          messageId,
         })
       }
     },
@@ -238,7 +295,7 @@ export default {
             content,
             images,
           }
-      this.$emit('send', data)
+      this.send(data)
     },
     getScrollPositionFromBottom () {
       if (!this.scrollContainer) return
@@ -267,23 +324,25 @@ export default {
         }
       })
     },
-    async maybeFetchFuture (index, done) {
-      if (!this.conversation.canFetchFuture) {
+    async maybeFetchNext (index, done) {
+      if (!this.hasNextPage) {
         await this.$nextTick()
-        done()
+        done(!this.hasNextPage)
         return
       }
-      this.$emit('fetch-future')
-      this.hideBottomSpinner = done
+      await this.fetchNextPage()
+      done(!this.hasNextPage)
     },
     onScroll ({ position }) {
-      if (position.top < 50 && !this.fetchingPast && this.conversation.canFetchPast) {
-        this.$emit('fetch-past', this.conversation.id)
+      if (position.top < 50 && !this.isFetchingPreviousPage && this.hasPreviousPage) {
+        // this.$emit('fetch-previous')
+        // TODO: await?
+        this.fetchPreviousPage()
       }
       // if user scrolls to bottom and no more messages can be loaded, mark messages as read
       const isAtBottom = () => this.getScrollPositionFromBottom() < 100
       const hasMessages = () => this.conversation && this.messages && this.messages.length > 0
-      if (!this.away && !this.conversation.canFetchFuture && hasMessages() && isAtBottom()) {
+      if (!this.away && !this.hasNextPage && hasMessages() && isAtBottom()) {
         const messages = this.messages
         const newestMessageId = messages[messages.length - 1].id
         this.markRead(newestMessageId)

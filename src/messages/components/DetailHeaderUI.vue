@@ -147,6 +147,7 @@ import {
   QToolbarTitle,
   QIcon,
 } from 'quasar'
+import { useUserService } from '@/users/services'
 
 export default {
   components: {
@@ -179,6 +180,10 @@ export default {
       default: null,
     },
   },
+  setup () {
+    const { getUserById } = useUserService()
+    return { getUserById }
+  },
   emits: [
     'close',
     'save-conversation',
@@ -204,7 +209,7 @@ export default {
         return this.activity.participants
       }
       if (this.conversation.thread && this.conversation.threadMeta) {
-        return this.conversation.threadMeta.participants
+        return this.conversation.threadMeta.participants.map(this.getUserById)
       }
       return this.conversation.participants
     },

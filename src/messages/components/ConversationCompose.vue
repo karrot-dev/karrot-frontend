@@ -100,7 +100,6 @@ import MarkdownInput from '@/utils/components/MarkdownInput'
 import statusMixin from '@/utils/mixins/statusMixin'
 import MultiCroppa from '@/utils/components/MultiCroppa'
 import { deleteDraft, fetchDraft, saveDraft } from '@/messages/utils'
-import { mapGetters } from 'vuex'
 
 export default {
   name: 'ConversationCompose',
@@ -158,19 +157,6 @@ export default {
     }
   },
   computed: {
-    mentionItems () {
-      return this.users.map(user => {
-        return {
-          mentionUser: user,
-          value: user.username,
-          searchText: [user.displayName, user.username].join(' '),
-        }
-      })
-    },
-    // TODO: consider if we keep this, or pass it down with props
-    ...mapGetters({
-      users: 'users/byCurrentGroupConversationCompose',
-    }),
     hasExistingContent () {
       if (!this.value) return false
       return this.value.content || (this.value.images && this.value.images.filter(image => !image._removed).length > 0)

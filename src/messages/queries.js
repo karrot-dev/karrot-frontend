@@ -164,7 +164,7 @@ function paginationHelpers (query) {
 export function useMessageListQuery ({ conversationId }) {
   const query = useInfiniteQuery(
     queryKeyMessageList(conversationId),
-    ({ pageParam }) => messageAPI.list(unref(conversationId), pageParam),
+    ({ pageParam }) => messageAPI.list(unref(conversationId), pageParam, 20),
     {
       // load on demand... TODO: consider a bit more...
       cacheTime: 0,

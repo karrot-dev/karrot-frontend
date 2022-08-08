@@ -2,6 +2,7 @@ import { ref, computed, reactive, watch, toRefs } from 'vue'
 
 import { defineService } from '@/utils/datastore/helpers'
 import { useMessageItemQuery, useMessageThreadListQuery } from '@/messages/queries'
+import { useAuthService } from '@/authuser/services'
 
 function useThread (messageId) {
   const {
@@ -19,13 +20,21 @@ function useThread (messageId) {
     fetchPreviousPage,
   } = useMessageThreadListQuery({ messageId })
 
+  const { userId } = useAuthService()
+
   const messages = computed(() => {
     // If there is not already a thread, then our thread will have no messages in it... so we insert the first message inside
     if (firstMessage.value && threadMessages.value.length === 0) {
       return [{
         ...firstMessage.value,
-        // initialize to make ConversationCompose detect a thread
+        // create a fake thread/threadMeta value so it'll display properly
         thread: firstMessage.value.id,
+        threadMeta: {
+          seenUpTo: firstMessage.value.id,
+          participants: [userId.value],
+          isParticipant: true,
+          muted: null,
+        },
       }]
     }
     return threadMessages.value

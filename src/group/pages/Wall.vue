@@ -16,11 +16,7 @@
         :feedback-possible-count="feedbackPossibleCount"
       />
     </div>
-    <WallConversation
-      :group-id="groupId"
-      :user="user"
-      @open-thread="openThread"
-    />
+    <WallConversation :group-id="groupId" />
   </div>
 </template>
 
@@ -51,7 +47,6 @@ export default {
   },
   setup () {
     const { groupId } = useCurrentGroupService()
-    const { user } = useAuthService()
     const enrichActivity = useActivityEnricher()
     const { getGroupStatus } = useStatusService()
 
@@ -81,7 +76,6 @@ export default {
 
     return {
       groupId,
-      user,
       joinedActivities: computed(() => joinedActivities.value.map(enrichActivity)),
       isLoadingJoinedActivities,
       hasAvailableActivities,
@@ -91,7 +85,6 @@ export default {
   methods: {
     ...mapActions({
       detail: 'detail/openForActivity',
-      openThread: 'detail/openForThread',
     }),
   },
 }

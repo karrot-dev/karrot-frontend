@@ -90,6 +90,7 @@ import {
 } from '@/messages/mutations'
 import { useConversationQuery, useMessageListQuery } from '@/messages/queries'
 import { useConversationHelpers } from '@/messages/helpers'
+import { useAuthService } from '@/authuser/services'
 
 export default {
   name: 'WallConversation',
@@ -113,12 +114,10 @@ export default {
       type: Number,
       default: null,
     },
-    user: {
-      type: Object,
-      default: null,
-    },
   },
   setup (props) {
+    const { user } = useAuthService()
+
     const {
       groupId,
       placeId,
@@ -168,6 +167,7 @@ export default {
     }
 
     return {
+      user,
       conversation,
       isLoadingConversation,
 

@@ -1,59 +1,13 @@
 <template>
-  <div>
-    <WallConversation
-      class="q-pt-lg"
-      :data="conversation"
-      :user="currentUser"
-      :fetch-past="fetchPast"
-      @send="send"
-      @save-message="saveMessage"
-      @mark-all-read="markAllRead"
-      @save-conversation="saveConversation"
-      @toggle-reaction="toggleReaction"
-      @open-thread="openThread"
-    />
-  </div>
+  <WallConversation
+    class="q-pt-lg"
+    :place-id="placeId"
+  />
 </template>
 
-<script>
-import { mapGetters, mapActions } from 'vuex'
+<script setup>
 import WallConversation from '@/messages/components/WallConversation'
 import { useActivePlaceService } from '@/places/services'
-import { useAuthService } from '@/authuser/services'
 
-export default {
-  components: {
-    WallConversation,
-  },
-  setup () {
-    try {
-      const { user: currentUser } = useAuthService()
-      const { conversation } = useActivePlaceService()
-      return {
-        currentUser,
-        conversation,
-      }
-    }
-    catch (error) {
-      console.error(error)
-    }
-  },
-  computed: {
-    ...mapGetters({
-      // conversation: 'places/conversation',
-      // currentUser: 'auth/user',
-    }),
-  },
-  methods: {
-    ...mapActions({
-      openThread: 'detail/openForThread',
-      send: 'conversations/send',
-      saveMessage: 'conversations/saveMessage',
-      saveConversation: 'conversations/maybeSave',
-      markAllRead: 'conversations/markAllRead',
-      toggleReaction: 'conversations/toggleReaction',
-      fetchPast: 'conversations/fetchPast',
-    }),
-  },
-}
+const { placeId } = useActivePlaceService()
 </script>

@@ -124,10 +124,6 @@ function createDefaultState () {
     isFetchingPreviousPage: false,
     fetchNextPage: () => {},
     fetchPreviousPage: () => {},
-
-    // Extra stuff for particular types
-    // type=activity
-    activity: null,
   }
 }
 
@@ -138,15 +134,7 @@ export const useDetailService = defineService(() => {
   const isDetailActive = computed(() => Boolean(type.value && id.value)) // vuex one did it based on conversation (pending or loaded)
 
   // Each type of detail view can declare these state values, and we'll switch them depending on which is active
-  const initialState = createDefaultState()
-  const activeState = ref(initialState)
-
-  // We create a bunch of computed refs, all keys we ever use must be in the initial state
-  // We then always read from the active state object
-  const refs = {}
-  for (const key of Object.keys(initialState)) {
-    refs[key] = computed(() => activeState.value[key])
-  }
+  const activeState = ref(createDefaultState())
 
   // For thread
   const threadMessageId = computed(() => type.value === 'thread' ? id.value : null)
@@ -156,7 +144,15 @@ export const useDetailService = defineService(() => {
   const activityId = computed(() => type.value === 'activity' ? id.value : null)
   const activityState = useActivityDetail(activityId)
 
-  // Assign to state depending on which type is active
+  // We collect all keys used by all state objects and create
+  // computed refs that will read their value from the active state
+  const keys = Object.keys(Object.assign({}, threadState, activityState))
+  const refs = {}
+  for (const key of keys) {
+    refs[key] = computed(() => activeState.value[key])
+  }
+
+  // Select state depending on which type is active
   watch(type, value => {
     if (value === 'thread') {
       activeState.value = threadState

@@ -2,7 +2,6 @@ import groups from '@/group/api/groups'
 import {
   createMetaModule,
   createRouteRedirect,
-  metaStatusesWithId,
   withMeta,
   withPrefixedIdMeta,
 } from '@/utils/datastore/helpers'
@@ -44,16 +43,10 @@ export default {
       if (!group || !group.memberships) return []
       return Object.entries(group.memberships).reduce((obj, [userId, membership]) => {
         // cannot enrich trustedBy and addedBy, as it would create the cyclic dependency "user -> group -> user"
-        const authUserId = rootGetters['auth/userId']
         const isEditor = membership.roles.includes('editor')
-        const { trustThresholdForNewcomer } = state.current
         obj[userId] = {
           ...membership,
           isEditor,
-          trusted: membership.trustedBy.includes(authUserId),
-          trustProgress: isEditor ? 1 : membership.trustedBy.length / trustThresholdForNewcomer,
-          trustThresholdForNewcomer,
-          ...metaStatusesWithId(getters, ['trustUser', 'revokeTrust'], parseInt(userId)),
         }
         return obj
       }, {})
@@ -97,18 +90,6 @@ export default {
          * It currently also gets triggered when the user visits the profile page, but that seems fine.
         */
         if (getters.id) await groups.throttledMarkUserActive(getters.id)
-      },
-
-      async trustUser ({ getters }, userId) {
-        if (getters.id) {
-          await groups.trustUser(getters.id, userId)
-        }
-      },
-
-      async revokeTrust ({ getters }, userId) {
-        if (getters.id) {
-          await groups.revokeTrust(getters.id, userId)
-        }
       },
 
     }),

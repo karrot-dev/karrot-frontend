@@ -73,16 +73,12 @@
     <UserList
       class="q-pt-md"
       :users="users"
-      :group="group"
       :sorting="sorting"
-      @create-trust="createTrust"
-      @revoke-trust="revokeTrust"
     />
   </QCard>
 </template>
 
 <script>
-import { computed } from 'vue'
 import {
   copyToClipboard,
   QCard,
@@ -95,12 +91,7 @@ import RandomArt from '@/utils/components/RandomArt'
 import KSpinner from '@/utils/components/KSpinner'
 import { absoluteURL } from '@/utils/absoluteURL'
 
-import {
-  mapGetters,
-  mapActions,
-} from 'vuex'
 import { useCurrentGroupService } from '@/group/services'
-import { useUserEnricher } from '@/users/enrichers'
 
 export default {
   components: {
@@ -113,29 +104,20 @@ export default {
     QBtn,
   },
   setup () {
-    const enrichUser = useUserEnricher()
     const {
       groupId,
       group,
       users,
       isLoadingUsers,
-      getMembership,
+      isEditor,
     } = useCurrentGroupService()
-
-    function withMembership (user) {
-      // TODO: this used to be done in the user enricher, here is not the best place, but yeah...
-      return {
-        ...user,
-        membership: getMembership(user.id),
-      }
-    }
 
     return {
       isLoadingUsers,
       groupId,
-      // TODO: does it need enriched group here?
       group,
-      users: computed(() => users.value.map(enrichUser).map(withMembership)),
+      users,
+      isEditor,
     }
   },
   data () {
@@ -145,21 +127,11 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      // users: 'users/byCurrentGroup',
-      // group: 'currentGroup/value',
-      isEditor: 'currentGroup/isEditor',
-      fetchStatus: 'users/fetchStatus',
-    }),
     linkToCopy () {
       return absoluteURL('/#/groupPreview/' + this.group.id)
     },
   },
   methods: {
-    ...mapActions({
-      createTrust: 'currentGroup/trustUser',
-      revokeTrust: 'currentGroup/revokeTrust',
-    }),
     toggleSorting () {
       if (this.sorting === 'joinDate') {
         this.sorting = 'name'

@@ -4,6 +4,7 @@
       <ProfilePicture
         :key="user.id"
         :user="user"
+        :membership="membership"
         :size="30"
         class="profilePic"
       />
@@ -24,7 +25,7 @@
           <template #relativeDate>
             <DateAsWords
               style="display: inline"
-              :date="user.membership.createdAt"
+              :date="membership.createdAt"
             />
           </template>
         </i18n-t>
@@ -45,20 +46,17 @@
     </QItemSection>
     <QItemSection side>
       <TrustButton
-        v-if="user.membership"
+        v-if="membership"
         :user="user"
-        :group="group"
-        :membership="user.membership"
+        :membership="membership"
         small
-        @create-trust="(...args) => $emit('create-trust', ...args)"
-        @revoke-trust="(...args) => $emit('revoke-trust', ...args)"
       />
     </QItemSection>
   </QItem>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
+<script setup>
+import { computed, toRefs } from 'vue'
 import {
   QItem,
   QItemSection,
@@ -68,41 +66,27 @@ import {
 import ProfilePicture from './ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
 import TrustButton from '@/users/components/TrustButton'
+import { useUserService } from '@/users/services'
+import { useCurrentGroupService } from '@/group/services'
 
-export default {
-  components: {
-    ProfilePicture,
-    DateAsWords,
-    TrustButton,
-    QItem,
-    QItemSection,
-    QItemLabel,
+const props = defineProps({
+  user: {
+    type: Object,
+    default: null,
   },
-  props: {
-    user: {
-      type: Object,
-      default: null,
-    },
-    group: {
-      type: Object,
-      default: null,
-    },
-  },
-  emits: [
-    'create-trust',
-    'revoke-trust',
-  ],
-  computed: {
-    ...mapGetters({
-      getUser: 'users/get',
-    }),
-    addedBy () {
-      const addedById = this.user.membership.addedBy
-      if (!addedById) return
-      return this.getUser(addedById)
-    },
-  },
-}
+})
+
+const { user } = toRefs(props)
+const {
+  getUserById,
+} = useUserService()
+
+const {
+  getMembership,
+} = useCurrentGroupService()
+
+const membership = computed(() => getMembership(user.value.id))
+const addedBy = computed(() => membership.value.addedBy && getUserById(membership.value.addedBy))
 </script>
 
 <style lang="sass" scoped>

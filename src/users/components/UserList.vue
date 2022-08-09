@@ -23,9 +23,6 @@
         v-for="user in activeUsers"
         :key="user.id"
         :user="user"
-        :group="group"
-        @create-trust="(...args) => $emit('create-trust', ...args)"
-        @revoke-trust="(...args) => $emit('revoke-trust', ...args)"
       />
       <QSeparator />
       <QExpansionItem
@@ -64,10 +61,7 @@
             v-for="user in inactiveUsers"
             :key="user.id"
             :user="user"
-            :group="group"
             class="inactive"
-            @create-trust="(...args) => $emit('create-trust', ...args)"
-            @revoke-trust="(...args) => $emit('revoke-trust', ...args)"
           />
         </template>
       </QExpansionItem>
@@ -90,6 +84,7 @@ import {
 } from 'quasar'
 
 import UserItem from './UserItem'
+import { useCurrentGroupService } from '@/group/services'
 
 export default {
   components: {
@@ -109,19 +104,21 @@ export default {
       type: Array,
       required: true,
     },
-    group: {
-      type: Object,
-      default: null,
-    },
     sorting: {
       type: String,
       default: 'joinDate',
     },
   },
-  emits: [
-    'create-trust',
-    'revoke-trust',
-  ],
+  setup () {
+    const {
+      group,
+      getMembership,
+    } = useCurrentGroupService()
+    return {
+      group,
+      getMembership,
+    }
+  },
   data () {
     return {
       showInactive: false,
@@ -133,15 +130,15 @@ export default {
       return this.inactiveUsers.length + ' ' + this.$tc('JOINGROUP.NUM_MEMBERS', this.inactiveUsers.length)
     },
     activeUsers () {
-      return this.sort(this.filterByTerms(this.users.filter(u => u.membership.active)))
+      return this.sort(this.filterByTerms(this.users.filter(u => this.getMembership(u.id).active)))
     },
     inactiveUsers () {
-      return this.sort(this.filterByTerms(this.users.filter(u => !u.membership.active)))
+      return this.sort(this.filterByTerms(this.users.filter(u => !this.getMembership(u.id).active)))
     },
   },
   methods: {
     sort (list) {
-      const getJoinDate = a => a.membership.createdAt
+      const getJoinDate = a => this.getMembership(a.id).createdAt
       const sortByJoinDate = (a, b) => getJoinDate(b) - getJoinDate(a)
       const sortByName = (a, b) => a.displayName.localeCompare(b.displayName)
       return list.slice().sort(this.sorting === 'joinDate' ? sortByJoinDate : sortByName)

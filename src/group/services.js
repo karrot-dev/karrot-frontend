@@ -41,6 +41,8 @@ export const useCurrentGroupService = defineService(() => {
     store.dispatch('currentGroup/select', { groupId })
   }
 
+  // TODO: move some/all of these to membership helpers
+
   function getMembership (userId) {
     return group.value?.memberships[userId]
   }

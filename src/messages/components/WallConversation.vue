@@ -58,7 +58,7 @@
             v-for="message in messages"
             :key="message.id"
             :message="message"
-            :is-unread="message.id > conversation.seenUpTo"
+            :is-unread="conversation.seenUpTo && message.id > conversation.seenUpTo"
           />
         </template>
         <KSpinner v-show="isLoadingMessages || isFetchingNextPage" />

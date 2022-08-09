@@ -7,6 +7,7 @@
     <QItemSection side>
       <ProfilePicture
         :user="application.user"
+        :membership="getMembership(application.user.id)"
         :size="30"
         :is-link="false"
       />
@@ -40,10 +41,10 @@
           >
             <template #userName>
               <RouterLink
-                :to="{name: 'user', params: { userId: application.decidedBy.id }}"
+                :to="{name: 'user', params: { userId: application.decidedBy }}"
                 @click.stop
               >
-                {{ application.decidedBy.displayName }}
+                {{ decidedBy.displayName }}
               </RouterLink>
             </template>
           </i18n-t>
@@ -61,6 +62,8 @@ import {
 } from 'quasar'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
+import { useUserService } from '@/users/services'
+import { useCurrentGroupService } from '@/group/services'
 
 export default {
   components: {
@@ -79,7 +82,18 @@ export default {
   emits: [
     'open-chat',
   ],
+  setup () {
+    const { getUserById } = useUserService()
+    const { getMembership } = useCurrentGroupService()
+    return {
+      getUserById,
+      getMembership,
+    }
+  },
   computed: {
+    decidedBy () {
+      return this.getUserById(this.application.decidedBy)
+    },
     userName () {
       return this.application.user.displayName
     },

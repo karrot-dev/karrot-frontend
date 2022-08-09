@@ -132,7 +132,7 @@ function useApplicationDetail (applicationId) {
   )
 
   return {
-    ...useConversationAndMessages({ applicationId }),
+    ...useConversationAndMessages({ applicationId }, { order: 'newest-first' }),
     application,
   }
 }

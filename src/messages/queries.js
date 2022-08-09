@@ -5,6 +5,7 @@ import groupsAPI from '@/group/api/groups'
 import placesAPI from '@/places/api/places'
 import activitiesAPI from '@/activities/api/activities'
 import usersAPI from '@/users/api/users'
+import applicationsAPI from '@/applications/api/applications'
 
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
@@ -130,6 +131,7 @@ export function useConversationQuery ({
   placeId,
   activityId,
   userId,
+  applicationId,
 }, queryOptions = {}) {
   const query = useQuery(
     queryKeyConversation({
@@ -137,6 +139,7 @@ export function useConversationQuery ({
       placeId,
       activityId,
       userId,
+      applicationId,
     }),
     () => {
       if (unref(userId)) {
@@ -151,9 +154,12 @@ export function useConversationQuery ({
       else if (unref(groupId)) {
         return groupsAPI.conversation(unref(groupId))
       }
+      else if (unref(applicationId)) {
+        return applicationsAPI.conversation(unref(applicationId))
+      }
     },
     {
-      enabled: computed(() => Boolean(unref(groupId) || unref(placeId) || unref(activityId) || unref(userId))),
+      enabled: computed(() => Boolean(unref(groupId) || unref(placeId) || unref(activityId) || unref(userId) || unref(applicationId))),
       ...queryOptions,
     },
   )

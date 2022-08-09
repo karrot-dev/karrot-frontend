@@ -5,9 +5,6 @@
     :other-applications="otherApplications"
     :can-fetch-past="hasNextPage"
     :fetch-past="() => fetchNextPage()"
-    @accept="data => $store.dispatch('applications/accept', data)"
-    @decline="data => $store.dispatch('applications/decline', data)"
-    @open-chat="data => $store.dispatch('detail/openForApplication', data)"
   />
 </template>
 

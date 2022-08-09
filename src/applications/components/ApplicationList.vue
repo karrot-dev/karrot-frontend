@@ -6,9 +6,6 @@
         :key="a.id"
         v-measure
         :application="a"
-        @accept="(...args) => $emit('accept', ...args)"
-        @decline="(...args) => $emit('decline', ...args)"
-        @open-chat="(...args) => $emit('open-chat', ...args)"
       />
       <QSeparator />
       <QExpansionItem
@@ -24,7 +21,6 @@
             v-for="a in otherApplications"
             :key="a.id"
             :application="a"
-            @open-chat="(...args) => $emit('open-chat', ...args)"
           />
         </template>
       </QExpansionItem>
@@ -79,11 +75,6 @@ export default {
       default: null,
     },
   },
-  emits: [
-    'accept',
-    'decline',
-    'open-chat',
-  ],
   data () {
     return {
       showOthers: false,

@@ -2,7 +2,7 @@
   <DetailUI
     :user="user"
     :activity="activity"
-    :application="$store.getters['detail/application']"
+    :application="application"
     :conversation="conversation"
     :messages="messages"
     :pending="isLoadingConversation || isLoadingMessages"
@@ -37,5 +37,6 @@ const {
 
   activity,
   user,
+  application,
 } = useDetailService()
 </script>

@@ -52,7 +52,7 @@
       </template>
       <template v-else-if="application">
         <ProfilePicture
-          v-if="!application.user.isCurrentUser"
+          v-if="!getIsCurrentUser(application.user)"
           :user="application.user"
           :size="$q.platform.is.mobile ? 25 : 40"
         />
@@ -65,17 +65,17 @@
               <QIcon
                 v-if="application.status === 'accepted'"
                 name="fas fa-fw fa-check"
-                :title="$t('GROUP.ADDED_BY', { userName: application.decidedBy.displayName })"
+                :title="$t('GROUP.ADDED_BY', { userName: getUserById(application.decidedBy).displayName })"
               />
               <QIcon
                 v-else-if="application.status === 'pending'"
                 name="fas fa-fw fa-hourglass-half"
-                :title="application.user.isCurrentUser && $t('JOINGROUP.APPLICATION_PENDING')"
+                :title="getIsCurrentUser(application.user) && $t('JOINGROUP.APPLICATION_PENDING')"
               />
               <QIcon
                 v-else-if="application.status === 'declined'"
                 name="fas fa-fw fa-times"
-                :title="$t('GROUP.DECLINED_BY', { userName: application.decidedBy.displayName })"
+                :title="$t('GROUP.DECLINED_BY', { userName: getUserById(application.decidedBy).displayName })"
               />
               <QIcon
                 v-else-if="application.status === 'withdrawn'"
@@ -86,7 +86,7 @@
           </div>
           <div class="text-caption">
             <span>
-              {{ application.user.isCurrentUser ? application.group.name : application.user.displayName }}
+              {{ getIsCurrentUser(application.user) ? getGroupById(application.group).name : application.user.displayName }}
             </span>
           </div>
         </QToolbarTitle>
@@ -155,6 +155,8 @@ import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useDetailService } from '@/messages/services'
 import { useActivityTypeService } from '@/activities/services'
 import { useConversationHelpers } from '@/messages/helpers'
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useGroupInfoService } from '@/groupInfo/services'
 
 export default {
   components: {
@@ -201,6 +203,8 @@ export default {
     const { getActivityTypeById } = useActivityTypeService()
     const { close } = useDetailService()
     const { getIsParticipant } = useConversationHelpers()
+    const { getIsCurrentUser } = useAuthHelpers()
+    const { getGroupById } = useGroupInfoService()
 
     const {
       getColorName,
@@ -220,6 +224,8 @@ export default {
       activityType,
       activityTypeIconProps,
 
+      getIsCurrentUser,
+      getGroupById,
       getColorName,
       getUserById,
       getPlaceById,
@@ -253,11 +259,11 @@ export default {
     },
     applicationLink () {
       if (!this.application) return
-      if (this.application.user.isCurrentUser) {
+      if (this.getIsCurrentUser(this.application.user)) {
         return {
           name: 'groupPreview',
           params: {
-            groupPreviewId: this.application.group.id,
+            groupPreviewId: this.application.group,
           },
         }
       }
@@ -265,7 +271,7 @@ export default {
         return {
           name: 'applications',
           params: {
-            groupId: this.application.group.id,
+            groupId: this.application.group,
           },
         }
       }
@@ -290,7 +296,7 @@ export default {
     applicationInfo () {
       Dialog.create({
         title: this.$t('APPLICATION.WHAT'),
-        message: this.$t('APPLICATION.HELP', { groupName: this.application.group.name, userName: this.application.user.displayName }),
+        message: this.$t('APPLICATION.HELP', { groupName: this.getGroupById(this.application.group).name, userName: this.application.user.displayName }),
         ok: this.$t('BUTTON.BACK'),
       })
     },

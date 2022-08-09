@@ -2,7 +2,7 @@
   <QItem
     :class="{ isNonPending: !application.status !== 'pending' }"
     clickable
-    @click="$emit('open-chat', application)"
+    @click="openApplication(application.id)"
   >
     <QItemSection side>
       <ProfilePicture
@@ -64,6 +64,7 @@ import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
 import { useUserService } from '@/users/services'
 import { useCurrentGroupService } from '@/group/services'
+import { useDetailService } from '@/messages/services'
 
 export default {
   components: {
@@ -79,15 +80,14 @@ export default {
       type: Object,
     },
   },
-  emits: [
-    'open-chat',
-  ],
   setup () {
     const { getUserById } = useUserService()
     const { getMembership } = useCurrentGroupService()
+    const { openApplication } = useDetailService()
     return {
       getUserById,
       getMembership,
+      openApplication,
     }
   },
   computed: {

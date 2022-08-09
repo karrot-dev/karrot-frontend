@@ -9,6 +9,7 @@ import {
 } from '@/messages/queries'
 import { useActivityItemQuery } from '@/activities/queries'
 import { useUserService } from '@/users/services'
+import { useApplicationItemQuery } from '@/applications/queries'
 
 function useThreadDetail (messageId) {
   // TODO: could first look in query client to see if we have the message already...
@@ -126,6 +127,21 @@ function useUserChatDetail (userId) {
   }
 }
 
+function useApplicationDetail (applicationId) {
+  const {
+    application,
+  } = useApplicationItemQuery(
+    { applicationId },
+    // The keepPreviousData options prevents the detail header from flashing between changes
+    { keepPreviousData: true },
+  )
+
+  return {
+    ...useConversationAndMessages({ applicationId }),
+    application,
+  }
+}
+
 function createDefaultState () {
   return {
     // For all detail views
@@ -162,11 +178,16 @@ export const useDetailService = defineService(() => {
   const userId = computed(() => type.value === 'user' ? id.value : null)
   const userChatState = useUserChatDetail(userId)
 
+  // For application chat
+  const applicationId = computed(() => type.value === 'application' ? id.value : null)
+  const applicationState = useApplicationDetail(applicationId)
+
   // Each type of detail view can declare state values, and we'll switch them depending on which is active
   const statesByType = {
     thread: threadState,
     activity: activityState,
     user: userChatState,
+    application: applicationState,
   }
 
   // We collect all keys used by all state objects and create
@@ -215,6 +236,11 @@ export const useDetailService = defineService(() => {
     type.value = 'user'
   }
 
+  function openApplication (applicationId) {
+    id.value = applicationId
+    type.value = 'application'
+  }
+
   function close () {
     type.value = null
     id.value = null
@@ -227,6 +253,7 @@ export const useDetailService = defineService(() => {
     openThread,
     openActivity,
     openUserChat,
+    openApplication,
 
     close,
   }

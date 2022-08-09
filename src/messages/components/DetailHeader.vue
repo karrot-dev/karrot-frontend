@@ -3,7 +3,7 @@
     :conversation="conversation"
     :user="user"
     :activity="activity"
-    :application="$store.getters['detail/application']"
+    :application="application"
     :current-user="currentUser"
     @save-conversation="data => $store.dispatch('conversations/maybeSave', data)"
     @close="() => close()"
@@ -23,6 +23,7 @@ const {
   conversation,
   activity,
   user,
+  application,
   close,
 } = useDetailService()
 </script>

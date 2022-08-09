@@ -224,7 +224,7 @@ watchEffect(() => {
 function getDateWithPlace (activity) {
   activity = unref(activity)
   if (!activity) return ''
-  const { name } = activity.place || {}
+  const { name } = getPlaceById(activity.place) || {}
   return `${d(activity.date, 'long')} (${name || ''})`
 }
 

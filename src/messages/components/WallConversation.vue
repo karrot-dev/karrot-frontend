@@ -143,7 +143,10 @@ export default {
       fetchNextPage,
       isFetchingNextPage, // TODO: this is not being passed into component yet...
       infiniteScrollLoad,
-    } = useMessageListQuery({ conversationId })
+    } = useMessageListQuery(
+      { conversationId },
+      { order: 'newest-first' },
+    )
 
     const {
       mutate: send,

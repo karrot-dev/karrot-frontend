@@ -188,10 +188,13 @@ function paginationHelpers (query) {
   }
 }
 
-export function useMessageListQuery ({ conversationId }) {
+export function useMessageListQuery ({ conversationId }, { order, pageSize = 20 } = {}) {
   const query = useInfiniteQuery(
-    queryKeyMessageList(conversationId),
-    ({ pageParam }) => messageAPI.list(unref(conversationId), pageParam, 20),
+    queryKeyMessageList(conversationId), // we don't put the order in here, so make sure to use consistent ordering for a given conversationId
+    ({ pageParam: cursor }) => messageAPI.list(
+      unref(conversationId),
+      { cursor, pageSize, order },
+    ),
     {
       // load on demand... TODO: consider a bit more...
       cacheTime: 0,
@@ -228,21 +231,15 @@ export function useMessageItemQuery ({ messageId }, queryOptions = {}) {
   }
 }
 
-export function useMessageThreadListQuery ({ messageId }) {
+export function useMessageThreadListQuery ({ messageId }, { pageSize, order } = {}) {
   const query = useInfiniteQuery(
     queryKeyMessageThreadList(messageId),
-    ({ pageParam }) => messageAPI.listThread(unref(messageId), pageParam, 20),
+    ({ pageParam: cursor }) => messageAPI.listThread(unref(messageId), { cursor, pageSize, order }),
     {
       cacheTime: 0,
       staleTime: 0,
       enabled: computed(() => Boolean(unref(messageId))),
-      getNextPageParam: page => {
-        if (!page) {
-          console.log('huh page is', page)
-          return undefined
-        }
-        return extractCursor(page.next) || undefined
-      },
+      getNextPageParam: page => extractCursor(page.next) || undefined,
       getPreviousPageParam: page => extractCursor(page.previous) || undefined,
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => page.results),

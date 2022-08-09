@@ -5,15 +5,12 @@
     :application="application"
     :conversation="conversation"
     :messages="messages"
+    :order="order"
     :pending="isLoadingConversation || isLoadingMessages"
     :away="$store.getters['presence/toggle/away']"
-    :current-user="$store.getters['auth/user']"
     :has-next-page="hasNextPage"
-    :has-previous-page="hasPreviousPage"
     :is-fetching-next-page="isFetchingNextPage"
-    :is-fetching-previous-page="isFetchingPreviousPage"
     :fetch-next-page="fetchNextPage"
-    :fetch-previous-page="fetchPreviousPage"
     @application-accept="data => $store.dispatch('applications/accept', data)"
     @application-decline="data => $store.dispatch('applications/decline', data)"
   />
@@ -26,15 +23,12 @@ import { useDetailService } from '@/messages/services'
 const {
   conversation,
   messages,
+  order,
   isLoadingConversation,
   isLoadingMessages,
   hasNextPage,
-  hasPreviousPage,
   isFetchingNextPage,
-  isFetchingPreviousPage,
   fetchNextPage,
-  fetchPreviousPage,
-
   activity,
   user,
   application,

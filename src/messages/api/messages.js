@@ -27,8 +27,11 @@ export default {
     return convert((await axios.get(`/api/messages/${id}/`)).data)
   },
 
-  async list (conversationId, cursor = null, pageSize) {
-    const response = (await axios.get('/api/messages/', { params: { conversation: conversationId, cursor, page_size: pageSize } })).data
+  async list (conversationId, { cursor, pageSize, order } = {}) {
+    const response = (await axios.get(
+      '/api/messages/',
+      { params: { conversation: conversationId, cursor, page_size: pageSize, order } },
+    )).data
     return {
       ...response,
       next: parseCursor(response.next),
@@ -36,8 +39,11 @@ export default {
     }
   },
 
-  async listThread (thread, cursor = null, pageSize = null) {
-    const response = (await axios.get('/api/messages/', { params: { thread, cursor, page_size: pageSize } })).data
+  async listThread (thread, { cursor, pageSize, order } = {}) {
+    const response = (await axios.get(
+      '/api/messages/',
+      { params: { thread, cursor, page_size: pageSize, order } },
+    )).data
     return {
       ...response,
       next: parseCursor(response.next),

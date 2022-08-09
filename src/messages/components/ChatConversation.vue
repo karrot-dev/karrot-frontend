@@ -5,9 +5,20 @@
     :class="inline && 'absolute-full scroll'"
   >
     <slot name="before-chat-messages" />
-    <KSpinner v-show="isFetchingPreviousPage" />
+    <KSpinner v-show="newestFirst && !hasNextPage && isFetchingNextPage" />
+    <!-- explicit pagination for loading older messages -->
+    <QBtn
+      v-if="newestFirst && hasNextPage"
+      :loading="isFetchingNextPage"
+      flat
+      no-caps
+      class="full-width"
+      @click="fetchNextPage()"
+    >
+      load earlier messages
+    </QBtn>
     <QInfiniteScroll
-      :disable="!hasNextPage"
+      :disable="newestFirst || !hasNextPage"
       @load="maybeFetchNext"
     >
       <QList
@@ -23,7 +34,7 @@
         />
         <slot name="before-chat-compose" />
         <ConversationCompose
-          v-if="compose && !hasNextPage && !conversation.isClosed"
+          v-if="compose && !(oldestFirst && hasNextPage) && !conversation.isClosed"
           ref="compose"
           :status="sendStatus"
           slim
@@ -54,7 +65,7 @@
         </QItem>
       </QList>
       <template #loading>
-        <KSpinner />
+        <KSpinner v-if="oldestFirst"/>
       </template>
     </QInfiniteScroll>
     <slot name="after-chat-messages" />
@@ -79,6 +90,7 @@ import {
   QAvatar,
   QScrollObserver,
   QInfiniteScroll,
+  QBtn,
 } from 'quasar'
 import {
   useConversationSeenUpToMutation,
@@ -106,13 +118,16 @@ export default {
     QAvatar,
     QScrollObserver,
     QInfiniteScroll,
+    QBtn,
   },
   props: {
     conversation: { type: Object, default: null },
     messages: { type: Array, default: null },
     away: { type: Boolean, required: true },
-    currentUser: { type: Object, default: null },
-    startAtBottom: { type: Boolean, default: false },
+    order: {
+      type: String,
+      default: null,
+    },
     compose: {
       type: Boolean,
       default: false,
@@ -130,15 +145,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    hasPreviousPage: {
-      type: Boolean,
-      default: false,
-    },
     isFetchingNextPage: {
-      type: Boolean,
-      default: false,
-    },
-    isFetchingPreviousPage: {
       type: Boolean,
       default: false,
     },
@@ -146,13 +153,15 @@ export default {
       type: Function,
       default: () => {},
     },
-    fetchPreviousPage: {
-      type: Function,
-      default: () => {},
-    },
   },
   setup (props) {
-    const { conversation } = toRefs(props)
+    const {
+      conversation,
+      order,
+    } = toRefs(props)
+
+    const newestFirst = computed(() => order.value === 'newest-first')
+    const oldestFirst = computed(() => !newestFirst.value) // always make it inverse
 
     const {
       getIsParticipant,
@@ -192,7 +201,10 @@ export default {
     const { mutate: markThreadSeenUpTo } = useThreadSeenUpToMutation()
 
     return {
-      isParticipant: computed(() => props.conversation && getIsParticipant(props.conversation)),
+      newestFirst,
+      oldestFirst,
+
+      isParticipant: computed(() => Boolean(props.conversation && getIsParticipant(props.conversation))),
 
       getIsContinuation,
       getIsUnread,
@@ -210,7 +222,6 @@ export default {
       newestMessageId: -1,
       oldestMessageId: -1,
       scrollPositionFromBottom: 0,
-      hideBottomSpinner: null,
     }
   },
   computed: {
@@ -233,7 +244,7 @@ export default {
     pending: {
       immediate: true,
       handler (pending) {
-        if (pending && this.startAtBottom) this.scrollToBottom()
+        if (pending && this.newestFirst) this.scrollToBottom()
       },
     },
     'conversation.id' (id) {
@@ -256,27 +267,21 @@ export default {
           this.markRead(this.newestMessageId)
         }
       }
+      // TODO: I think we don't need this any more... now we have explicit previous message loaded, we *do* want it to jump
       // Retain position when old message added
-      const newOldestMessageId = messages[0].id
-      if (this.startAtBottom && this.oldestMessageId !== newOldestMessageId) {
-        this.saveScrollPosition()
-        this.oldestMessageId = newOldestMessageId
-        this.$nextTick(() => {
-          this.restoreScrollPosition()
-        })
-      }
-    },
-    isFetchingNextPage (fetching) {
-      if (fetching === false && this.hideBottomSpinner) {
-        this.hideBottomSpinner()
-        this.hideBottomSpinner = null
-      }
+      // const newOldestMessageId = messages[0].id
+      // if (this.newestFirst && this.oldestMessageId !== newOldestMessageId) {
+      //   this.saveScrollPosition()
+      //   this.oldestMessageId = newOldestMessageId
+      //   this.$nextTick(() => {
+      //     this.restoreScrollPosition()
+      //   })
+      // }
     },
   },
   mounted () {
-    this.$nextTick(() => {
-      this.scrollContainer = this.inline ? this.$refs.scroll : getScrollTarget(this.$el)
-    })
+    // TODO: I removed a nextTick call here, seems to work... check?
+    this.scrollContainer = this.inline ? this.$refs.scroll : getScrollTarget(this.$el)
   },
   methods: {
     markRead (messageId) {
@@ -323,7 +328,7 @@ export default {
       }
     },
     restoreScrollPosition () {
-      if (!this.scrollContainer || !this.startAtBottom) return
+      if (!this.scrollContainer || this.oldestFirst) return
       const height = getElementHeight(this.scrollContainer)
       const scrollHeight = getScrollHeight(this.scrollContainer)
       const scrollPosition = scrollHeight - height - this.scrollPositionFromBottom

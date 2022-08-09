@@ -7,15 +7,11 @@
       :messages="maybeReversedMessages"
       :away="away"
       :pending="pending"
-      :current-user="currentUser"
-      :start-at-bottom="Boolean(user) || Boolean(activity)"
+      :order="order"
       :inline="inline"
       :has-next-page="hasNextPage"
-      :has-previous-page="hasPreviousPage"
       :is-fetching-next-page="isFetchingNextPage"
-      :is-fetching-previous-page="isFetchingPreviousPage"
       :fetch-next-page="fetchNextPage"
-      :fetch-previous-page="fetchPreviousPage"
       compose
     >
       <template #before-chat-messages>
@@ -151,6 +147,10 @@ export default {
       type: Array,
       default: null,
     },
+    order: {
+      type: String,
+      default: null,
+    },
     pending: {
       type: Boolean,
       default: false,
@@ -159,15 +159,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    currentUser: {
-      type: Object,
-      default: null,
-    },
     hasNextPage: {
-      type: Boolean,
-      default: false,
-    },
-    hasPreviousPage: {
       type: Boolean,
       default: false,
     },
@@ -175,15 +167,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    isFetchingPreviousPage: {
-      type: Boolean,
-      default: false,
-    },
     fetchNextPage: {
-      type: Function,
-      default: () => {},
-    },
-    fetchPreviousPage: {
       type: Function,
       default: () => {},
     },
@@ -191,7 +175,6 @@ export default {
   emits: [
     'mark',
     'fetch-next',
-    'fetch-previous',
     'application-accept',
     'application-decline',
   ],
@@ -199,7 +182,8 @@ export default {
     maybeReversedMessages () {
       if (!this.conversation || !this.messages) return
       // TODO reverse message on server
-      return this.conversation.thread ? this.messages : this.messages.slice().reverse()
+      return this.order === 'oldest-first' ? this.messages : this.messages.slice().reverse()
+      // return this.conversation.thread ? this.messages : this.messages.slice().reverse()
     },
   },
   methods: {

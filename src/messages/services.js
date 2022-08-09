@@ -12,6 +12,8 @@ import { useUserService } from '@/users/services'
 import { useApplicationItemQuery } from '@/applications/queries'
 
 function useThreadDetail (messageId) {
+  const order = 'oldest-first'
+
   // TODO: could first look in query client to see if we have the message already...
   const {
     message: firstMessage,
@@ -25,12 +27,9 @@ function useThreadDetail (messageId) {
     messages: threadMessages,
     isLoading: isLoadingMessages,
     hasNextPage,
-    hasPreviousPage,
     isFetchingNextPage,
-    isFetchingPreviousPage,
     fetchNextPage,
-    fetchPreviousPage,
-  } = useMessageThreadListQuery({ messageId })
+  } = useMessageThreadListQuery({ messageId }, { order, pageSize: 3 })
 
   const messages = computed(() => {
     // If there is not already a thread, then our thread will have no messages in it... so we insert the first message inside
@@ -54,16 +53,14 @@ function useThreadDetail (messageId) {
   const conversation = computed(() => messages.value[0])
 
   return {
+    order,
     conversation,
     messages,
     isLoadingConversation,
     isLoadingMessages,
     hasNextPage,
-    hasPreviousPage,
     isFetchingNextPage,
-    isFetchingPreviousPage,
     fetchNextPage,
-    fetchPreviousPage,
   }
 }
 
@@ -77,12 +74,12 @@ function useActivityDetail (activityId) {
   )
 
   return {
-    ...useConversationAndMessages({ activityId }),
+    ...useConversationAndMessages({ activityId }, { order: 'newest-first' }),
     activity,
   }
 }
 
-function useConversationAndMessages (conversationQueryParams) {
+function useConversationAndMessages (conversationQueryParams, { order } = {}) {
   const {
     conversation,
     isLoading: isLoadingConversation,
@@ -98,31 +95,29 @@ function useConversationAndMessages (conversationQueryParams) {
     messages,
     isLoading: isLoadingMessages,
     hasNextPage,
-    hasPreviousPage,
     isFetchingNextPage,
-    isFetchingPreviousPage,
     fetchNextPage,
-    fetchPreviousPage,
-  } = useMessageListQuery({ conversationId })
+  } = useMessageListQuery(
+    { conversationId },
+    { order, pageSize: 3 },
+  )
 
   return {
+    order,
     conversation,
     messages,
     isLoadingConversation,
     isLoadingMessages,
     hasNextPage,
-    hasPreviousPage,
     isFetchingNextPage,
-    isFetchingPreviousPage,
     fetchNextPage,
-    fetchPreviousPage,
   }
 }
 
 function useUserChatDetail (userId) {
   const { getUserById } = useUserService()
   return {
-    ...useConversationAndMessages({ userId }),
+    ...useConversationAndMessages({ userId }, { order: 'newest-first' }),
     user: computed(() => getUserById(unref(userId))),
   }
 }
@@ -150,11 +145,8 @@ function createDefaultState () {
     isLoadingConversation: false,
     isLoadingMessages: false,
     hasNextPage: false,
-    hasPreviousPage: false,
     isFetchingNextPage: false,
-    isFetchingPreviousPage: false,
     fetchNextPage: () => {},
-    fetchPreviousPage: () => {},
   }
 }
 

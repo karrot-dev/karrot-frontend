@@ -3,6 +3,8 @@ import { unref, computed } from 'vue'
 import messageAPI from '@/messages/api/messages'
 import groupsAPI from '@/group/api/groups'
 import placesAPI from '@/places/api/places'
+import activitiesAPI from '@/activities/api/activities'
+
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
 import { useSocketEvents } from '@/utils/composables'
@@ -121,19 +123,27 @@ export function useMessageUpdater () {
   )
 }
 
-export function useConversationQuery ({ groupId, placeId }) {
+export function useConversationQuery ({
+  groupId,
+  placeId,
+  activityId,
+}, queryOptions = {}) {
   const query = useQuery(
-    queryKeyConversation({ groupId, placeId }),
+    queryKeyConversation({ groupId, placeId, activityId }),
     () => {
-      if (placeId.value) {
+      if (unref(activityId)) {
+        return activitiesAPI.conversation(unref(activityId))
+      }
+      else if (unref(placeId)) {
         return placesAPI.conversation(unref(placeId))
       }
-      else if (groupId.value) {
+      else if (unref(groupId)) {
         return groupsAPI.conversation(unref(groupId))
       }
     },
     {
-      enabled: computed(() => Boolean(unref(groupId) || unref(placeId))),
+      enabled: computed(() => Boolean(unref(groupId) || unref(placeId) || unref(activityId))),
+      ...queryOptions,
     },
   )
   return {
@@ -186,12 +196,13 @@ export function useMessageListQuery ({ conversationId }) {
   }
 }
 
-export function useMessageItemQuery ({ messageId }) {
+export function useMessageItemQuery ({ messageId }, queryOptions = {}) {
   const query = useQuery(
     queryKeyMessageItem(messageId),
     () => messageAPI.get(unref(messageId)),
     {
       enabled: computed(() => Boolean(unref(messageId))),
+      ...queryOptions,
     },
   )
   return {

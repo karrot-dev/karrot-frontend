@@ -139,12 +139,13 @@ export function useActivityListQuery ({
   }
 }
 
-export function useActivityItemQuery ({ activityId }) {
+export function useActivityItemQuery ({ activityId }, queryOptions = {}) {
   const query = useQuery(
     queryKeyActivityItem(activityId),
     () => api.get(unref(activityId)),
     {
       enabled: computed(() => Boolean(unref(activityId))),
+      ...queryOptions,
     },
   )
   return {

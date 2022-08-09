@@ -1,7 +1,7 @@
 <template>
   <DetailUI
     :user="$store.getters['detail/user']"
-    :activity="$store.getters['detail/activity']"
+    :activity="activity"
     :application="$store.getters['detail/application']"
     :conversation="conversation"
     :messages="messages"
@@ -34,5 +34,7 @@ const {
   isFetchingPreviousPage,
   fetchNextPage,
   fetchPreviousPage,
+
+  activity,
 } = useDetailService()
 </script>

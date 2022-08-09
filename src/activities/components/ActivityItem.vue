@@ -184,6 +184,7 @@ import { useJoinActivityMutation, useLeaveActivityMutation } from '@/activities/
 import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
 import { useActivityTypeService } from '@/activities/services'
 import { usePlaceService } from '@/places/services'
+import { useDetailService } from '@/messages/services'
 
 export default {
   components: {
@@ -222,6 +223,10 @@ export default {
     const {
       getPlaceById,
     } = usePlaceService()
+
+    const {
+      openActivity,
+    } = useDetailService()
 
     const {
       getIsUserMember,
@@ -268,6 +273,8 @@ export default {
       isJoining,
       leaveActivity,
       isLeaving,
+
+      openActivity,
     }
   },
   data () {
@@ -297,7 +304,8 @@ export default {
     },
     detail (event) {
       if (event.target.closest('a')) return // ignore actual links
-      this.$emit('detail', this.activity)
+      // this.$emit('detail', this.activity)
+      this.openActivity(this.activity.id)
     },
   },
 }

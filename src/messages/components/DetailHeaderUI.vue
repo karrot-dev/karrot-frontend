@@ -5,7 +5,7 @@
   >
     <QToolbar
       class="text-white"
-      :class="activity && activity.activityType ? `bg-${activity.activityType.colorName}` : 'bg-secondary'"
+      :class="activityType ? `bg-${getColorName(activityType)}` : 'bg-secondary'"
     >
       <QToolbarTitle
         v-if="activity"
@@ -13,23 +13,23 @@
       >
         <div>
           <span
-            v-if="!$q.platform.is.mobile && activity.activityType"
+            v-if="!$q.platform.is.mobile && activityType"
           >
             <QIcon
-              v-bind="activity.activityType.iconProps"
+              v-bind="activityTypeIconProps"
               color="white"
               size="xs"
               class="q-pr-sm"
-            />{{ activity.activityType.translatedName }} </span>
+            />{{ activityTypeIconProps.title }}&nbsp;</span>
           <strong>
             {{ $d(activity.date, 'weekdayHourMinute') }}
             <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>
           </strong>
         </div>
         <div class="text-caption">
-          <strong v-if="activity.place">
-            <RouterLink :to="{ name: 'place', params: { groupId: activity.group.id, placeId: activity.place.id }}">
-              {{ activity.place.name }}
+          <strong v-if="place">
+            <RouterLink :to="{ name: 'place', params: { groupId: place.group, placeId: activity.place }}">
+              {{ place.name }}
             </RouterLink>
           </strong>
           {{ $d(activity.date, 'yearMonthDay') }}
@@ -101,7 +101,7 @@
       <NotificationToggle
         v-if="isThread ? muted !== null : true"
         :muted="muted"
-        :is-participant="isThread ? true : conversation.isParticipant"
+        :is-participant="isThread ? true : isParticipant"
         :can-unsubscribe="!isThread && !isPrivate"
         :user="currentUser"
         in-toolbar
@@ -115,7 +115,7 @@
         dense
         icon="close"
         :title="$t('BUTTON.CLOSE')"
-        @click="$emit('close')"
+        @click="close()"
       />
     </QToolbar>
     <div
@@ -136,10 +136,7 @@
 </template>
 
 <script>
-import ProfilePicture from '@/users/components/ProfilePicture'
-import NotificationToggle from '@/messages/components/NotificationToggle'
-import dateFnsHelper from '@/utils/dateFnsHelper'
-
+import { toRefs, computed } from 'vue'
 import {
   Dialog,
   QBtn,
@@ -147,7 +144,17 @@ import {
   QToolbarTitle,
   QIcon,
 } from 'quasar'
+
+import ProfilePicture from '@/users/components/ProfilePicture'
+import NotificationToggle from '@/messages/components/NotificationToggle'
+
+import dateFnsHelper from '@/utils/dateFnsHelper'
 import { useUserService } from '@/users/services'
+import { usePlaceService } from '@/places/services'
+import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useDetailService } from '@/messages/services'
+import { useActivityTypeService } from '@/activities/services'
+import { useConversationHelpers } from '@/messages/helpers'
 
 export default {
   components: {
@@ -180,14 +187,45 @@ export default {
       default: null,
     },
   },
-  setup () {
-    const { getUserById } = useUserService()
-    return { getUserById }
-  },
   emits: [
-    'close',
     'save-conversation',
   ],
+  setup (props) {
+    const {
+      conversation,
+      activity,
+    } = toRefs(props)
+
+    const { getUserById } = useUserService()
+    const { getPlaceById } = usePlaceService()
+    const { getActivityTypeById } = useActivityTypeService()
+    const { close } = useDetailService()
+    const { getIsParticipant } = useConversationHelpers()
+
+    const {
+      getColorName,
+      getIconProps,
+    } = useActivityTypeHelpers()
+
+    const isParticipant = computed(() => getIsParticipant(conversation.value))
+
+    const place = computed(() => getPlaceById(activity.value?.place))
+    const activityType = computed(() => getActivityTypeById(activity.value?.activityType))
+    const activityTypeIconProps = computed(() => activityType.value && getIconProps(activityType.value))
+
+    return {
+      isParticipant,
+
+      place,
+      activityType,
+      activityTypeIconProps,
+
+      getColorName,
+      getUserById,
+      getPlaceById,
+      close,
+    }
+  },
   computed: {
     isThread () {
       return Boolean(this.conversation.thread && this.conversation.id === this.conversation.thread)
@@ -199,14 +237,14 @@ export default {
       if (this.conversation.thread && this.conversation.threadMeta) {
         return this.conversation.threadMeta.muted ?? null
       }
-      if (typeof this.conversation.muted !== 'undefined') {
-        return this.conversation.muted
+      if (this.conversation.notifications === 'muted') {
+        return true
       }
       return null
     },
     participants () {
       if (this.activity) {
-        return this.activity.participants
+        return this.activity.participants.map(this.getUserById)
       }
       if (this.conversation.thread && this.conversation.threadMeta) {
         return this.conversation.threadMeta.participants.map(this.getUserById)

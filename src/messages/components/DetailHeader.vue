@@ -1,7 +1,7 @@
 <template>
   <DetailHeaderUI
     :user="$store.getters['detail/user']"
-    :activity="$store.getters['detail/activity']"
+    :activity="activity"
     :application="$store.getters['detail/application']"
     :conversation="conversation"
     :current-user="currentUser"
@@ -21,6 +21,7 @@ const {
 
 const {
   conversation,
+  activity,
   close,
 } = useDetailService()
 </script>

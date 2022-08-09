@@ -176,7 +176,6 @@ export default {
       isMuted: computed(() => getIsMuted(conversation.value)),
 
       messages,
-      // messages: computed(() => messages.value.map(enrichMessage)),
       infiniteScrollLoad,
       isLoadingMessages,
       hasNextPage,

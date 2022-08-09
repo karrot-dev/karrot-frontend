@@ -2,13 +2,14 @@ import { ref, computed, reactive, watch, toRefs } from 'vue'
 
 import { defineService } from '@/utils/datastore/helpers'
 import { useMessageItemQuery, useMessageThreadListQuery } from '@/messages/queries'
-import { useAuthService } from '@/authuser/services'
 
 function useThread (messageId) {
+  // TODO: could first look in query client to see if we have the message already...
   const {
     message: firstMessage,
     isLoading: isLoadingConversation,
   } = useMessageItemQuery({ messageId })
+
   const {
     messages: threadMessages,
     isLoading: isLoadingMessages,
@@ -20,18 +21,16 @@ function useThread (messageId) {
     fetchPreviousPage,
   } = useMessageThreadListQuery({ messageId })
 
-  const { userId } = useAuthService()
-
   const messages = computed(() => {
     // If there is not already a thread, then our thread will have no messages in it... so we insert the first message inside
-    if (firstMessage.value && threadMessages.value.length === 0) {
+    if (firstMessage.value && threadMessages.value?.length === 0) {
       return [{
         ...firstMessage.value,
         // create a fake thread/threadMeta value so it'll display properly
         thread: firstMessage.value.id,
         threadMeta: {
           seenUpTo: firstMessage.value.id,
-          participants: [userId.value],
+          participants: [firstMessage.value.author],
           isParticipant: true,
           muted: null,
         },
@@ -83,12 +82,12 @@ export const useDetailService = defineService(() => {
 
   // For thread
   const threadMessageId = computed(() => type.value === 'thread' && id.value)
-  const threadRefs = useThread(threadMessageId)
+  const threadState = useThread(threadMessageId)
 
   // Assign to state depending on which type is active
   watch(type, value => {
     switch (value) {
-      case 'thread': return Object.assign(state, threadRefs)
+      case 'thread': return Object.assign(state, threadState)
       default: Object.assign(state, createDefaultState())
     }
   })

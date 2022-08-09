@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import { computed, toRef } from 'vue'
+import { computed, toRef, toRefs } from 'vue'
 
 import ConversationMessage from '@/messages/components/ConversationMessage'
 import ConversationCompose from '@/messages/components/ConversationCompose'
@@ -152,24 +152,36 @@ export default {
     },
   },
   setup (props) {
+    const { conversation } = toRefs(props)
+
     const {
       getIsParticipant,
     } = useConversationHelpers()
 
     function getIsUnread (messageId) {
-      const conversationOrThreadMeta = props.conversation?.threadMeta || props.conversation
-      if (!conversationOrThreadMeta) return false
-      if (conversationOrThreadMeta.notifications === 'none') {
-        // don't show unread status if user is not participant
-        // does not apply to thread replies
-        return false
+      if (!conversation.value) return false
+      const threadMeta = conversation.value?.threadMeta
+      if (threadMeta) { // Our "conversation" is a thread
+        // Not part of it, don't keep track of unread
+        if (!threadMeta.isParticipant) return false
+
+        // We are a participant, but haven't seen anything yet, so they must all be unread
+        if (!threadMeta.seenUpTo) return true
+
+        return messageId > threadMeta.seenUpTo
       }
-      if (!conversationOrThreadMeta.seenUpTo) return true
-      return messageId > conversationOrThreadMeta.seenUpTo
+      else { // Our conversation is real conversation
+        // notifications "none", means we don't keep track of it
+        if (conversation.value.notifications === 'none') return false
+
+        // We are a participant, but haven't seen anything yet, so they must all be unread
+        if (!conversation.value.seenUpTo) return true
+
+        return messageId > conversation.value.seenUpTo
+      }
     }
 
     const { getIsContinuation } = useMessageContinuations(toRef(props, 'messages'))
-
 
     const {
       mutate: send,

@@ -2,7 +2,7 @@
   <div class="Detail">
     <KSpinner v-show="pending" />
     <ChatConversation
-      v-if="conversation"
+      v-if="conversation && !pending"
       :conversation="conversation"
       :messages="maybeReversedMessages"
       :away="away"

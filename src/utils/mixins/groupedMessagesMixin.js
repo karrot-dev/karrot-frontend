@@ -14,7 +14,7 @@ export function useMessageContinuations (messagesRef) {
     const byId = {}
     const messages = unref(messagesRef)
     let groupHeading = { timestamp: '', createdAt: 0 }
-    let prevMessage = { createdAt: 0, author: { id: -1 } }
+    let prevMessage = { createdAt: 0, author: -1 }
     for (const message of messages) {
       const timestamp = dateFnsHelper.formatDistanceToNow(message.createdAt)
       // group messages together if their author is the same and:
@@ -22,7 +22,7 @@ export function useMessageContinuations (messagesRef) {
       // 2. the difference to last group heading is small enough
       //    (prevents messages from jumping from one group to another)
       // 3. two subsequent messages are close enough
-      if (message.author.id === prevMessage.author.id &&
+      if (message.author === prevMessage.author &&
         (timestamp === groupHeading.timestamp ||
           differenceInSeconds(message.createdAt, groupHeading.createdAt) < MESSAGE_GROUP_DISTANCE ||
           differenceInSeconds(message.createdAt, prevMessage.createdAt) < SUBSEQUENT_MESSAGE_DISTANCE

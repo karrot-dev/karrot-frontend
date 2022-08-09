@@ -197,7 +197,7 @@ export default {
     },
     muted () {
       if (this.conversation.thread && this.conversation.threadMeta) {
-        return this.conversation.threadMeta.muted
+        return this.conversation.threadMeta.muted ?? null
       }
       if (typeof this.conversation.muted !== 'undefined') {
         return this.conversation.muted

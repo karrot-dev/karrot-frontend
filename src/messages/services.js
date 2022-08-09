@@ -29,7 +29,10 @@ function useThreadDetail (messageId) {
     hasNextPage,
     isFetchingNextPage,
     fetchNextPage,
-  } = useMessageThreadListQuery({ messageId }, { order, pageSize: 3 })
+  } = useMessageThreadListQuery(
+    { messageId },
+    { order, pageSize: 10 },
+  )
 
   const messages = computed(() => {
     // If there is not already a thread, then our thread will have no messages in it... so we insert the first message inside
@@ -99,7 +102,7 @@ function useConversationAndMessages (conversationQueryParams, { order } = {}) {
     fetchNextPage,
   } = useMessageListQuery(
     { conversationId },
-    { order, pageSize: 3 },
+    { order, pageSize: 10 },
   )
 
   return {

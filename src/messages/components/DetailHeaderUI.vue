@@ -249,7 +249,7 @@ export default {
       if (this.conversation.thread && this.conversation.threadMeta) {
         return this.conversation.threadMeta.participants.map(this.getUserById)
       }
-      return this.conversation.participants
+      return this.conversation.participants.map(this.getUserById)
     },
     applicationLink () {
       if (!this.application) return
@@ -271,7 +271,7 @@ export default {
       }
     },
     conversationPartner () {
-      return this.conversation && this.conversation.participants && this.conversation.participants.find(e => !e.isCurrentUser)
+      return this.participants.find(user => user.id !== this.currentUser.id)
     },
   },
   methods: {

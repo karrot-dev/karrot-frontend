@@ -1,4 +1,4 @@
-import { ref, computed, watch } from 'vue'
+import { ref, unref, computed, watch } from 'vue'
 
 import { defineService } from '@/utils/datastore/helpers'
 import {
@@ -8,6 +8,7 @@ import {
   useMessageThreadListQuery,
 } from '@/messages/queries'
 import { useActivityItemQuery } from '@/activities/queries'
+import { useUserService } from '@/users/services'
 
 function useThreadDetail (messageId) {
   // TODO: could first look in query client to see if we have the message already...
@@ -66,19 +67,27 @@ function useThreadDetail (messageId) {
 }
 
 function useActivityDetail (activityId) {
-  // The keepPreviousData options prevents the detail header from flashing between changes
   const {
     activity,
   } = useActivityItemQuery(
     { activityId },
+    // The keepPreviousData options prevents the detail header from flashing between changes
     { keepPreviousData: true },
   )
 
+  return {
+    ...useConversationAndMessages({ activityId }),
+    activity,
+  }
+}
+
+function useConversationAndMessages (conversationQueryParams) {
   const {
     conversation,
     isLoading: isLoadingConversation,
   } = useConversationQuery(
-    { activityId },
+    conversationQueryParams,
+    // The keepPreviousData options prevents the detail header from flashing between changes
     { keepPreviousData: true },
   )
 
@@ -106,8 +115,14 @@ function useActivityDetail (activityId) {
     isFetchingPreviousPage,
     fetchNextPage,
     fetchPreviousPage,
+  }
+}
 
-    activity,
+function useUserChatDetail (userId) {
+  const { getUserById } = useUserService()
+  return {
+    ...useConversationAndMessages({ userId }),
+    user: computed(() => getUserById(unref(userId))),
   }
 }
 
@@ -133,7 +148,6 @@ export const useDetailService = defineService(() => {
 
   const isDetailActive = computed(() => Boolean(type.value && id.value)) // vuex one did it based on conversation (pending or loaded)
 
-  // Each type of detail view can declare these state values, and we'll switch them depending on which is active
   const activeState = ref(createDefaultState())
 
   // For thread
@@ -144,9 +158,20 @@ export const useDetailService = defineService(() => {
   const activityId = computed(() => type.value === 'activity' ? id.value : null)
   const activityState = useActivityDetail(activityId)
 
+  // For user chat
+  const userId = computed(() => type.value === 'user' ? id.value : null)
+  const userChatState = useUserChatDetail(userId)
+
+  // Each type of detail view can declare state values, and we'll switch them depending on which is active
+  const statesByType = {
+    thread: threadState,
+    activity: activityState,
+    user: userChatState,
+  }
+
   // We collect all keys used by all state objects and create
   // computed refs that will read their value from the active state
-  const keys = Object.keys(Object.assign({}, threadState, activityState))
+  const keys = Object.keys(Object.values(statesByType).reduce((acc, obj) => Object.assign(acc, obj), {}))
   const refs = {}
   for (const key of keys) {
     refs[key] = computed(() => activeState.value[key])
@@ -154,11 +179,9 @@ export const useDetailService = defineService(() => {
 
   // Select state depending on which type is active
   watch(type, value => {
-    if (value === 'thread') {
-      activeState.value = threadState
-    }
-    else if (value === 'activity') {
-      activeState.value = activityState
+    const state = statesByType[value]
+    if (state) {
+      activeState.value = state
     }
     else {
       activeState.value = createDefaultState()
@@ -187,6 +210,11 @@ export const useDetailService = defineService(() => {
     // TODO: mobile redirect to other page?
   }
 
+  function openUserChat (userId) {
+    id.value = userId
+    type.value = 'user'
+  }
+
   function close () {
     type.value = null
     id.value = null
@@ -198,6 +226,8 @@ export const useDetailService = defineService(() => {
 
     openThread,
     openActivity,
+    openUserChat,
+
     close,
   }
 })

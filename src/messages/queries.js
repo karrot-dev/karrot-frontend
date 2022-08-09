@@ -4,6 +4,7 @@ import messageAPI from '@/messages/api/messages'
 import groupsAPI from '@/group/api/groups'
 import placesAPI from '@/places/api/places'
 import activitiesAPI from '@/activities/api/activities'
+import usersAPI from '@/users/api/users'
 
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
@@ -123,15 +124,25 @@ export function useMessageUpdater () {
   )
 }
 
+// Only pass in ONE of these params :)
 export function useConversationQuery ({
   groupId,
   placeId,
   activityId,
+  userId,
 }, queryOptions = {}) {
   const query = useQuery(
-    queryKeyConversation({ groupId, placeId, activityId }),
+    queryKeyConversation({
+      groupId,
+      placeId,
+      activityId,
+      userId,
+    }),
     () => {
-      if (unref(activityId)) {
+      if (unref(userId)) {
+        return usersAPI.conversation(unref(userId))
+      }
+      else if (unref(activityId)) {
         return activitiesAPI.conversation(unref(activityId))
       }
       else if (unref(placeId)) {
@@ -142,7 +153,7 @@ export function useConversationQuery ({
       }
     },
     {
-      enabled: computed(() => Boolean(unref(groupId) || unref(placeId) || unref(activityId))),
+      enabled: computed(() => Boolean(unref(groupId) || unref(placeId) || unref(activityId) || unref(userId))),
       ...queryOptions,
     },
   )

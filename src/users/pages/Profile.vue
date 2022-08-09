@@ -74,7 +74,7 @@
             color="secondary"
             icon="fas fa-comments"
             :title="$t('USERDATA.PRIVATE_MESSAGE', {userName: user.displayName})"
-            @click="detail(user)"
+            @click="openUserChat(user.id)"
           />
           <QBtn
             v-if="isConflictOngoing"
@@ -239,6 +239,7 @@ import { useIntegerRouteParam } from '@/utils/composables'
 import { useUserProfileQuery } from '@/users/queries'
 import { useGroupEnricher } from '@/group/enrichers'
 import { useGroupInfoService } from '@/groupInfo/services'
+import { useDetailService } from '@/messages/services'
 
 export default {
   components: {
@@ -272,6 +273,8 @@ export default {
       selectGroup,
     } = useCurrentGroupService()
     const { getGroupById } = useGroupInfoService()
+
+    const { openUserChat } = useDetailService()
 
     const userId = useIntegerRouteParam('userId')
 
@@ -310,6 +313,7 @@ export default {
       historyFetchNextPage,
       currentGroupMembership,
       isEditor,
+      openUserChat,
     }
   },
   data () {
@@ -359,7 +363,6 @@ export default {
   },
   methods: {
     ...mapActions({
-      detail: 'detail/openForUser',
       startConflictResolution: 'issues/create',
       clearIssueMeta: 'issues/meta/clear',
     }),

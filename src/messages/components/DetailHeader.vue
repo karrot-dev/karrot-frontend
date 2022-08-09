@@ -1,9 +1,9 @@
 <template>
   <DetailHeaderUI
-    :user="$store.getters['detail/user']"
+    :conversation="conversation"
+    :user="user"
     :activity="activity"
     :application="$store.getters['detail/application']"
-    :conversation="conversation"
     :current-user="currentUser"
     @save-conversation="data => $store.dispatch('conversations/maybeSave', data)"
     @close="() => close()"
@@ -22,6 +22,7 @@ const {
 const {
   conversation,
   activity,
+  user,
   close,
 } = useDetailService()
 </script>

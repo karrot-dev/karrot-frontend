@@ -38,13 +38,13 @@
               <QIcon
                 v-if="col.name === 'icon'"
                 size="md"
-                v-bind="props.row.iconProps"
+                v-bind="getIconProps(props.row)"
               />
               <QIcon
                 v-else-if="col.name === 'feedback'"
                 v-show="props.row.hasFeedback"
                 size="md"
-                v-bind="props.row.feedbackIconProps"
+                v-bind="getFeedbackIconProps(props.row)"
               />
               <template v-else-if="col.name === 'feedbackWeight'">
                 <span v-show="props.row.hasFeedback && props.row.hasFeedbackWeight">
@@ -112,6 +112,7 @@ import {
   Dialog,
 } from 'quasar'
 import ActivityTypeForm from '@/group/components/ActivityTypeForm'
+import { useActivityTypeHelpers } from '@/activities/helpers'
 
 export default {
   components: {
@@ -143,6 +144,18 @@ export default {
     'save',
     'create',
   ],
+  setup () {
+    const {
+      getTranslatedName,
+      getIconProps,
+      getFeedbackIconProps,
+    } = useActivityTypeHelpers()
+    return {
+      getTranslatedName,
+      getIconProps,
+      getFeedbackIconProps,
+    }
+  },
   data () {
     return {
       showArchived: false,
@@ -176,7 +189,7 @@ export default {
         {
           name: 'name',
           label: this.$t('ACTIVITY_TYPES.NAME'),
-          field: row => row.translatedName,
+          field: row => this.getTranslatedName(row),
           align: 'left',
           classes: 'text-weight-bold',
         },

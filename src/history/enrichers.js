@@ -3,14 +3,14 @@ import { useUserService } from '@/users/services'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { usePlaceService } from '@/places/services'
 import { useActivityTypeService } from '@/activities/services'
-import { useActivityTypeEnricher } from '@/activities/enrichers'
+import { useActivityTypeHelpers } from '@/activities/helpers'
 
 export function useHistoryEnricher () {
   const { getPlaceById } = usePlaceService()
   const { getGroupById } = useGroupInfoService()
   const { getUserById } = useUserService()
   const { getActivityTypeById } = useActivityTypeService()
-  const enrichActivityType = useActivityTypeEnricher()
+  const { getTranslatedName } = useActivityTypeHelpers()
 
   function enrichHistory (history) {
     const place = getPlaceById(history.place)
@@ -24,9 +24,9 @@ export function useHistoryEnricher () {
       })
     }
     if (history.payload && history.payload.activityType) {
-      const activityType = enrichActivityType(getActivityTypeById(history.payload.activityType))
+      const activityType = getActivityTypeById(history.payload.activityType)
       Object.assign(msgValues, {
-        activityType: activityType.translatedName,
+        activityType: getTranslatedName(activityType),
       })
     }
     else if ([

@@ -30,8 +30,8 @@
               >
                 <template #prepend>
                   <QIcon
-                    v-if="activity && activity.activityType"
-                    v-bind="activity.activityType.iconProps"
+                    v-if="activity && activityType"
+                    v-bind="getIconProps(activityType)"
                   />
                 </template>
                 <template #option="{ index, opt: { value: activity }, itemProps }">
@@ -42,7 +42,7 @@
                     <QItemSection avatar>
                       <QIcon
                         v-if="activity && activity.activityType"
-                        v-bind="activity.activityType.iconProps"
+                        v-bind="getIconProps(getActivityTypeById(activity.activityType))"
                       />
                     </QItemSection>
                     <QItemSection>{{ getDateWithPlace(activity) }}</QItemSection>
@@ -73,11 +73,11 @@
           </div>
         </div>
         <FeedbackForm
-          v-if="activity && activity.activityType"
+          v-if="activity && activityType"
           :value="feedbackDefault"
           :status="saveStatus"
           :has-multiple-participants="fellowParticipants.length > 0"
-          :has-weight="activity.activityType.hasFeedbackWeight"
+          :has-weight="activityType.hasFeedbackWeight"
           @save="feedback => save(feedback)"
           @dimiss="activityId => dismiss(activityId)"
         />
@@ -98,11 +98,11 @@
     >
       <RandomArt
         class="randomBanner"
-        :seed="activity.place.id"
+        :seed="place.id"
         type="banner"
       />
       <h4
-        v-t="{ path: 'ACTIVITY_FEEDBACK.PREVIOUS', args: { store: activity.place.name } }"
+        v-t="{ path: 'ACTIVITY_FEEDBACK.PREVIOUS', args: { store: place.name } }"
         class="generic-padding"
       />
       <FeedbackList
@@ -134,23 +134,26 @@ import cart from '@/feedback/assets/cart.png'
 
 import { useActivityListQuery, useActivityItemQuery } from '@/activities/queries'
 import { useCurrentGroupService } from '@/group/services'
-import { useActivityEnricher } from '@/activities/enrichers'
 import { useIntegerRouteParam } from '@/utils/composables'
 import { useFeedbackListQuery, useFeedbackItemQuery } from '@/feedback/queries'
 import { useI18n } from 'vue-i18n'
-import { useUserEnricher } from '@/users/enrichers'
 import { useFeedbackSaveMutation } from '@/feedback/mutations'
 import { useDismissFeedbackMutation } from '@/activities/mutations'
-import { useFeedbackEnricher } from '@/feedback/enrichers'
+import { usePlaceService } from '@/places/services'
+import { useActivityTypeService } from '@/activities/services'
+import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useUserService } from '@/users/services'
 
 const router = useRouter()
 const { d } = useI18n()
 
-const enrichActivity = useActivityEnricher()
-const enrichUser = useUserEnricher()
-const enrichFeedback = useFeedbackEnricher()
-
+const { getPlaceById } = usePlaceService()
 const { groupId } = useCurrentGroupService()
+const { getActivityTypeById } = useActivityTypeService()
+const { getUserById } = useUserService()
+const { getIconProps } = useActivityTypeHelpers()
+const { getIsCurrentUser } = useAuthHelpers()
 
 const activityIdRouteParam = useIntegerRouteParam('activityId')
 const editFeedbackId = useIntegerRouteParam('feedbackId')
@@ -178,14 +181,12 @@ const activityId = computed(() => {
 })
 
 const {
-  activities: activitiesRaw,
+  activities,
   isLoading: isLoadingActivities,
 } = useActivityListQuery({
   groupId,
   feedbackPossible: true,
 })
-
-const activities = computed(() => activitiesRaw.value.map(enrichActivity))
 
 const {
   activity: activityRaw,
@@ -193,23 +194,24 @@ const {
 
 const activity = computed({
   get () {
-    return enrichActivity(activityRaw.value)
+    return activityRaw.value
   },
   set (val) {
     router.push({ params: { activityId: val.id } })
   },
 })
 
-const fellowParticipants = computed(() => activity.value.participants.map(enrichUser).filter(u => !u.isCurrentUser))
+const activityType = computed(() => getActivityTypeById(activity.value.activityType))
+
+const fellowParticipants = computed(() => activity.value.participants.map(getUserById).filter(u => !getIsCurrentUser(u)))
 
 const placeId = computed(() => activityRaw.value?.place)
+const place = computed(() => getPlaceById(placeId.value))
 
 const {
-  feedbackList: feedbackListRaw,
+  feedbackList: feedback,
   isLoading: isLoadingFeedback,
 } = useFeedbackListQuery({ placeId })
-
-const feedback = computed(() => feedbackListRaw.value.map(enrichFeedback))
 
 // If we're not editing, don't have an activity id param, and we have some activities...
 // ... then redirect to the first activity

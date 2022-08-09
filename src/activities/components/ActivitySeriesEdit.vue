@@ -10,11 +10,10 @@
     >
       <h3 v-if="activityType && isNew">
         <QIcon
-          :color="activityType.colorName"
-          :name="activityType.icon"
+          v-bind="activityTypeIconProps"
           class="q-pr-sm"
         />
-        {{ activityType.translatedName }}
+        {{ activityTypeIconProps.title }}
       </h3>
       <QField
         stack-label
@@ -363,6 +362,7 @@ import addSeconds from 'date-fns/addSeconds'
 import addDays from 'date-fns/addDays'
 import differenceInSeconds from 'date-fns/differenceInSeconds'
 import MarkdownInput from '@/utils/components/MarkdownInput'
+import { useActivityTypeHelpers } from '@/activities/helpers'
 
 export default {
   components: {
@@ -389,9 +389,16 @@ export default {
     'cancel',
     'destroy',
   ],
+  setup () {
+    const { getIconProps } = useActivityTypeHelpers()
+    return { getIconProps }
+  },
   computed: {
     activityType () {
       return this.value && this.value.activityType
+    },
+    activityTypeIconProps () {
+      return this.activityType ? this.getIconProps(this.activityType) : {}
     },
     dayOptions,
     canSave () {

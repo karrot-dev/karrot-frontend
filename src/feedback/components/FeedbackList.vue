@@ -68,9 +68,7 @@ export default {
     },
     highlighted () {
       if (!this.feedback || this.highlight < 0) return
-      const val = this.feedback.find(i => i.id === this.highlight)
-      console.log('highlighted ->', this.highlight, val, this.$.uid)
-      return val
+      return this.feedback.find(i => i.id === this.highlight)
     },
   },
   watch: {

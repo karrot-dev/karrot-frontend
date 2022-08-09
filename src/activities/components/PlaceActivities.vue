@@ -57,9 +57,8 @@ import { useCurrentGroupService } from '@/group/services'
 import { useActivityListQuery } from '@/activities/queries'
 import { useActivePlaceService } from '@/places/services'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
-import { useActivityEnricher } from '@/activities/enrichers'
 import { useAuthService } from '@/authuser/services'
-import { isStartedOrUpcoming } from '@/activities/filters'
+import { useActivityHelpers } from '@/activities/helpers'
 
 export default {
   components: {
@@ -73,7 +72,7 @@ export default {
     const { userId } = useAuthService()
     const { groupId, isEditor } = useCurrentGroupService()
     const { place, placeId } = useActivePlaceService()
-    const enrichActivity = useActivityEnricher()
+    const { getIsStartedOrUpcoming } = useActivityHelpers()
     const {
       activities: activitiesRaw,
       isLoading,
@@ -92,9 +91,7 @@ export default {
       done(!hasNextPage.value)
     }
 
-    const activities = computed(() => activitiesRaw.value
-      .filter(isStartedOrUpcoming)
-      .map(enrichActivity))
+    const activities = computed(() => activitiesRaw.value.filter(getIsStartedOrUpcoming))
 
     return {
       userId,

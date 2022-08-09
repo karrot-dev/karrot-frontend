@@ -22,9 +22,7 @@
             :key="activityType.id"
             class="fab-action-fix"
             label-position="left"
-            :color="activityType.colorName"
-            :icon="activityType.icon"
-            :label="activityType.translatedName"
+            v-bind="getIconProps(activityType)"
             @click="createNewSeries(activityType)"
           />
           <QFabAction
@@ -59,7 +57,7 @@
             <QItemSection side>
               <QIcon
                 v-if="series.activityType"
-                v-bind="series.activityType.iconProps"
+                v-bind="getIconProps(getActivityTypeById(series.activityType))"
               />
             </QItemSection>
             <QItemSection>
@@ -103,7 +101,7 @@
                   <QItemSection side>
                     <QIcon
                       v-if="activity.activityType"
-                      v-bind="activity.activityType.iconProps"
+                      v-bind="getIconProps(getActivityTypeById(activity.activityType))"
                     />
                   </QItemSection>
                   <QItemSection>
@@ -189,9 +187,7 @@
             :key="activityType.id"
             class="fab-action-fix"
             label-position="left"
-            :color="activityType.colorName"
-            :icon="activityType.icon"
-            :label="activityType.translatedName"
+            v-bind="getIconProps(activityType)"
             @click="createNewActivity(activityType)"
           />
           <QFabAction
@@ -226,7 +222,7 @@
             <QItemSection side>
               <QIcon
                 v-if="activity.activityType"
-                v-bind="activity.activityType.iconProps"
+                v-bind="getIconProps(getActivityTypeById(activity.activityType))"
               />
             </QItemSection>
             <QItemSection>
@@ -294,10 +290,9 @@ import {
 
 import { useActivityTypeService } from '@/activities/services'
 import { useCurrentGroupService } from '@/group/services'
-import { useActivityEnricher, useActivitySeriesEnricher, useActivityTypeEnricher } from '@/activities/enrichers'
 import { useActivityListQuery, useActivitySeriesListQuery } from '@/activities/queries'
 import { useActivePlaceService } from '@/places/services'
-import { isUpcoming } from '@/activities/filters'
+import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
 
 export default {
   components: {
@@ -323,17 +318,20 @@ export default {
     const { groupId } = useCurrentGroupService()
     const { placeId } = useActivePlaceService()
 
-    const enrichActivity = useActivityEnricher()
-    const enrichActivitySeries = useActivitySeriesEnricher()
-    const enrichActivityType = useActivityTypeEnricher()
+    const { getIsUpcoming } = useActivityHelpers()
 
     // Activity Types
 
     const {
+      getActivityTypeById,
       getActivityTypesByGroup,
     } = useActivityTypeService()
 
-    const enrichedActivityTypes = computed(() => getActivityTypesByGroup(groupId, { status: 'active' }).map(enrichActivityType))
+    const {
+      getIconProps,
+    } = useActivityTypeHelpers()
+
+    const activityTypes = computed(() => getActivityTypesByGroup(groupId, { status: 'active' }))
 
     // Activities
 
@@ -359,9 +357,8 @@ export default {
 
     // TODO: can I filter out series ones on the server?
     const activities = computed(() => activitiesRaw.value
-      .map(enrichActivity)
       .filter(activity => !activity.series)
-      .filter(isUpcoming))
+      .filter(getIsUpcoming))
 
     // Activity Series
 
@@ -383,12 +380,10 @@ export default {
 
     const {
       isLoading: isLoadingActivitySeries,
-      activitySeries: activitySeriesRaw,
+      activitySeries,
     } = useActivitySeriesListQuery({
       placeId,
     })
-
-    const activitySeries = computed(() => activitySeriesRaw.value.map(enrichActivitySeries))
 
     // Series currently visible in the accordian
     const visibleSeriesId = ref(null)
@@ -398,7 +393,7 @@ export default {
 
     // Activities for visible series
     const {
-      activities: activitySeriesActivitiesRaw,
+      activities: activitySeriesActivities,
       isLoading: isLoadingActivitySeriesActivities,
     } = useActivityListQuery({
       seriesId: visibleSeriesId,
@@ -410,17 +405,15 @@ export default {
     // This is to avoid showing repetitive information about series activities, e.g. if they are all Saturday, don't need to show "Saturday"
     // We calculate which aspects of the activities are all the same, and only display relevant values where they are not uniform
     const similarities = computed(() => {
-      const firstDate = activitySeriesActivitiesRaw.value?.length > 0 && activitySeriesActivitiesRaw.value[0].date
+      const firstDate = activitySeriesActivities.value?.length > 0 && activitySeriesActivities.value[0].date
       if (!firstDate) return {}
-      const isSame = lookup => activitySeriesActivitiesRaw.value.every(p => p.date[lookup]() === firstDate[lookup]())
+      const isSame = lookup => activitySeriesActivities.value.every(p => p.date[lookup]() === firstDate[lookup]())
       return {
         isSameWeekday: isSame('getDay'),
         isSameHour: isSame('getHours'),
         isSameMinute: isSame('getMinutes'),
       }
     })
-
-    const activitySeriesActivities = computed(() => activitySeriesActivitiesRaw.value.map(enrichActivity))
 
     function saveSeries (series) {
       // Hiding these, as when we update a series it causes a volley of websocket updates for each activity, which then causes a load of reloads
@@ -452,9 +445,12 @@ export default {
     const matchesRule = (series, activity) => series.datesPreview && series.datesPreview.some(d => Math.abs(d - activity.date) < 1000)
 
     return {
+      getActivityTypeById,
+      getIconProps,
+
       placeId,
 
-      activityTypes: enrichedActivityTypes,
+      activityTypes,
 
       isLoadingActivities,
       activities,

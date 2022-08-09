@@ -1,13 +1,11 @@
 // import { useStore } from 'vuex'
 import { useUserService } from '@/users/services'
 import { usePlaceService } from '@/places/services'
-import { useActivityEnricher } from '@/activities/enrichers'
 
 export function useFeedbackEnricher () {
   // const store = useStore()
   const { getUserById } = useUserService()
   const { getPlaceById } = usePlaceService()
-  const enrichActivity = useActivityEnricher()
 
   function enrichFeedback (feedback) {
     // TODO: decouple from store
@@ -17,7 +15,6 @@ export function useFeedbackEnricher () {
     // const activity = rootGetters['activities/get'](feedback.about)
     return {
       ...feedback,
-      about: enrichActivity(feedback.about),
       givenBy: getUserById(feedback.givenBy), // TODO: enrich here too?
       place: getPlaceById(feedback.about?.place),
       // about: activity,

@@ -101,7 +101,7 @@
         <QItemSection side>
           <QIcon
             v-if="activityType"
-            v-bind="activityType.iconProps"
+            v-bind="getIconProps(activityType)"
           />
           <QIcon
             v-else
@@ -111,7 +111,7 @@
         <QItemSection>
           <QItemLabel>
             <template v-if="activityType">
-              <strong>{{ activityType.translatedName }}</strong>
+              <strong>{{ getTranslatedName(activityType) }}</strong>&nbsp;
             </template>
             <template v-if="activityPayload">
               {{ $d(activityPayload.date, 'long') }}
@@ -175,7 +175,7 @@ import HistoryPayloadDetail from '@/history/components/HistoryPayloadDetail'
 import dateFnsHelper from '@/utils/dateFnsHelper'
 import { convert as convertActivity } from '@/activities/api/activities'
 import { useActivityTypeService } from '@/activities/services'
-import { useActivityTypeEnricher } from '@/activities/enrichers'
+import { useActivityTypeHelpers } from '@/activities/helpers'
 
 export default {
   components: {
@@ -198,8 +198,15 @@ export default {
   },
   setup () {
     const { getActivityTypeById } = useActivityTypeService()
-    const enrichActivityType = useActivityTypeEnricher()
-    return { getActivityTypeById, enrichActivityType }
+    const {
+      getIconProps,
+      getTranslatedName,
+    } = useActivityTypeHelpers()
+    return {
+      getActivityTypeById,
+      getIconProps,
+      getTranslatedName,
+    }
   },
   data () {
     return {
@@ -209,13 +216,13 @@ export default {
   computed: {
     activityType () {
       if (this.entry.payload && this.entry.payload.activityType) {
-        return this.enrichActivityType(this.getActivityTypeById(this.entry.payload.activityType))
+        return this.getActivityTypeById(this.entry.payload.activityType)
       }
       else if (this.entry.after && [
         'ACTIVITY_TYPE_CREATE',
         'ACTIVITY_TYPE_MODIFY',
       ].includes(this.entry.typus)) {
-        return this.enrichActivityType(this.getActivityTypeById(this.entry.after.id))
+        return this.getActivityTypeById(this.entry.after.id)
       }
       return null
     },

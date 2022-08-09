@@ -140,7 +140,7 @@ export default {
       }
       if (messages) commit('updateConversationMessages', messages)
       if (activities) {
-        commit('activities/update', activities, { root: true })
+        // commit('activities/update', activities, { root: true })
       }
       if (applications) {
         commit('applications/update', applications, { root: true })

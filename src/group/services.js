@@ -23,6 +23,7 @@ export const useCurrentGroupService = defineService(() => {
   // computed
   // TODO: decouple from store
   // could come from route param, or auth user currentGroup field... also need to be able to set it...
+  // TODO: move some of these things to helpers...
   const group = computed(() => store.state.currentGroup.current)
   const groupId = computed(() => group.value?.id)
   const users = computed(() => Object.keys(group.value.memberships).map(getUserById))

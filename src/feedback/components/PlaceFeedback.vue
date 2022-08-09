@@ -68,23 +68,19 @@ import { useActivePlaceService } from '@/places/services'
 import { usePlaceStatisticsQuery } from '@/places/queries'
 import { useFeedbackListQuery } from '@/feedback/queries'
 import { useRoute } from 'vue-router'
-import { useFeedbackEnricher } from '@/feedback/enrichers'
 
 const route = useRoute()
-const enrichFeedback = useFeedbackEnricher()
 const {
   placeId,
 } = useActivePlaceService()
 const { statistics } = usePlaceStatisticsQuery({ placeId })
 
 const {
-  feedbackList: feedbackListRaw,
+  feedbackList,
   isLoading,
   hasNextPage,
   fetchNextPage,
 } = useFeedbackListQuery({ placeId })
-
-const feedbackList = computed(() => feedbackListRaw.value.map(enrichFeedback))
 
 const highlight = computed(() => route.query.highlight && parseInt(route.query.highlight, 10))
 </script>

@@ -20,7 +20,7 @@
             <QItemSection avatar>
               <QIcon
                 v-if="opt.activityType"
-                v-bind="opt.activityType.iconProps"
+                v-bind="getIconProps(opt.activityType)"
               />
             </QItemSection>
             <QItemSection>
@@ -169,7 +169,6 @@ import ActivityList from '@/activities/components/ActivityList'
 import KNotice from '@/utils/components/KNotice'
 import PlaceList from '@/places/components/PlaceList'
 import { useActivityListQuery } from '@/activities/queries'
-import { useActivityEnricher, useActivityTypeEnricher } from '@/activities/enrichers'
 import { useActivityTypeService } from '@/activities/services'
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceEnricher } from '@/places/enrichers'
@@ -177,7 +176,7 @@ import { usePlaceService } from '@/places/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 import ICSBtn from '@/activities/components/ICSBtn'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
-import { isStartedOrUpcoming } from '@/activities/filters'
+import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
 
 export default {
   components: {
@@ -201,8 +200,11 @@ export default {
     const { groupId } = useCurrentGroupService()
     const { getActivityTypesByGroup } = useActivityTypeService()
     const { getPlacesByGroup } = usePlaceService()
-    const enrichActivity = useActivityEnricher()
-    const enrichActivityType = useActivityTypeEnricher()
+    const { getIsStartedOrUpcoming } = useActivityHelpers()
+    const {
+      getIconProps,
+      getTranslatedName,
+    } = useActivityTypeHelpers()
     const enrichPlace = usePlaceEnricher()
 
     const defaultQueryParams = {
@@ -258,11 +260,14 @@ export default {
       return a.isSubscribed ? -1 : 1
     }
 
-    const activities = computed(() => activitiesRaw.value.filter(isStartedOrUpcoming).map(enrichActivity))
-    const activityTypes = computed(() => getActivityTypesByGroup(groupId, { status: 'active' }).map(enrichActivityType))
+    // const activities = computed(() => activitiesRaw.value.filter(isStartedOrUpcoming).map(enrichActivity))
+    const activities = computed(() => activitiesRaw.value.filter(getIsStartedOrUpcoming))
+    const activityTypes = computed(() => getActivityTypesByGroup(groupId, { status: 'active' }))
     const places = computed(() => getPlacesByGroup(groupId, { status: 'active' }).sort(sortByFavouritesThenName).map(enrichPlace))
 
     return {
+      getIconProps,
+      getTranslatedName,
       placesFilter,
       groupId,
       slots,
@@ -323,7 +328,7 @@ export default {
         },
         ...this.activityTypes.map(activityType => {
           return {
-            label: activityType.translatedName,
+            label: this.getTranslatedName(activityType),
             value: String(activityType.id),
             activityType,
           }

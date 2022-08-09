@@ -8,12 +8,12 @@
       @resize="calculateSlotsPerRow"
     />
     <div
-      v-for="user in activity.participants"
+      v-for="user in participants"
       :key="'participant' + user.id"
       class="relative-position pic-wrapper"
     >
       <template
-        v-if="user.isCurrentUser && !activity.hasStarted"
+        v-if="getIsCurrentUser(user) && !hasStarted"
       >
         <CurrentUser
           :size="size"
@@ -24,7 +24,7 @@
       </template>
       <template v-else>
         <div
-          v-if="getIsNewcomer(user.id) && !user.isCurrentUser"
+          v-if="getIsNewcomer(user.id) && !getIsCurrentUser(user)"
           class="newcomer-box"
           :title="$t('USERDATA.NEWCOMER_GUIDANCE', { userName: user.displayName })"
         />
@@ -36,7 +36,7 @@
     </div>
 
     <EmptySlot
-      v-if="isJoining && !activity.isUserMember"
+      v-if="isJoining && !isUserMember"
       style="border-color: black"
       :is-loading="true"
       :size="size"
@@ -46,7 +46,7 @@
       v-if="canJoin"
       :size="size"
       :user="currentUser"
-      :show-join="!activity.isUserMember"
+      :show-join="!isUserMember"
       @join="$emit('join')"
     />
 
@@ -70,15 +70,20 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+import {
+  QResizeObserver,
+} from 'quasar'
+
 import ProfilePicture from '@/users/components/ProfilePicture'
 import UserSlot from './UserSlot'
 import EmptySlot from './EmptySlot'
 import CurrentUser from './CurrentUser'
-import { mapGetters } from 'vuex'
-import {
-  QResizeObserver,
-} from 'quasar'
 import { useCurrentGroupService } from '@/group/services'
+import { useAuthService } from '@/authuser/services'
+import { useActivityHelpers } from '@/activities/helpers'
+import { useUserService } from '@/users/services'
+import { useAuthHelpers } from '@/authuser/helpers'
 
 export default {
   components: {
@@ -110,20 +115,48 @@ export default {
     'leave',
     'join',
   ],
-  setup () {
+  setup (props) {
+    const { user: currentUser } = useAuthService()
     const { getIsNewcomer } = useCurrentGroupService()
-    return { getIsNewcomer }
+
+    const {
+      getUserById,
+    } = useUserService()
+
+    const {
+      getHasStarted,
+      getIsUserMember,
+      getIsFull,
+    } = useActivityHelpers()
+
+    const {
+      getIsCurrentUser,
+    } = useAuthHelpers()
+
+    const hasStarted = computed(() => getHasStarted(props.activity))
+    const isUserMember = computed(() => getIsUserMember(props.activity))
+    const isFull = computed(() => getIsFull(props.activity))
+
+    const participants = computed(() => props.activity.participants.map(getUserById))
+
+    return {
+      hasStarted,
+      isUserMember,
+      isFull,
+      participants,
+
+      currentUser,
+
+      getIsNewcomer,
+      getIsCurrentUser,
+    }
   },
   data () {
     return {
       slotsPerRow: 6,
-      // isJoining: true,
     }
   },
   computed: {
-    ...mapGetters({
-      currentUser: 'auth/user',
-    }),
     hasUnlimitedPlaces () {
       return this.activity.maxParticipants === null
     },
@@ -150,7 +183,7 @@ export default {
     },
     canJoin () {
       const activity = this.activity
-      if (activity.isDisabled || activity.isFull || activity.isUserMember) {
+      if (activity.isDisabled || this.isFull || this.isUserMember) {
         return false
       }
       if (this.isJoining || this.isLeaving) {

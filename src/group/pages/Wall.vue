@@ -30,10 +30,8 @@ import WallConversation from '@/messages/components/WallConversation'
 import KSpinner from '@/utils/components/KSpinner'
 
 import { mapActions } from 'vuex'
-import { useAuthService } from '@/authuser/services'
 import { useCurrentGroupService } from '@/group/services'
 import { useActivityListQuery } from '@/activities/queries'
-import { useActivityEnricher } from '@/activities/enrichers'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 import { useStatusService } from '@/status/services'
 
@@ -47,7 +45,6 @@ export default {
   },
   setup () {
     const { groupId } = useCurrentGroupService()
-    const enrichActivity = useActivityEnricher()
     const { getGroupStatus } = useStatusService()
 
     const {
@@ -76,7 +73,7 @@ export default {
 
     return {
       groupId,
-      joinedActivities: computed(() => joinedActivities.value.map(enrichActivity)),
+      joinedActivities,
       isLoadingJoinedActivities,
       hasAvailableActivities,
       feedbackPossibleCount,

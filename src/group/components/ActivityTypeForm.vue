@@ -56,12 +56,13 @@
               />
               <QIconPicker
                 v-model="edit.icon"
-                v-model:pagination="iconPagination"
+                v-model:model-pagination="iconPagination"
                 icon-set="fontawesome-v5"
                 :filter="iconFilter"
-                :color="colour"
-                selected-color="white"
-                :selected-background-color="colour"
+                color="white"
+                :text-color="colorName"
+                :selected-color="colorName"
+                selected-text-color="white"
                 style="height: 220px;"
               />
             </QMenu>
@@ -190,12 +191,13 @@
                 />
                 <QIconPicker
                   v-model="edit.feedbackIcon"
-                  v-model:pagination="feedbackIconPagination"
+                  v-model:model-pagination="feedbackIconPagination"
                   icon-set="fontawesome-v5"
                   :filter="feedbackIconFilter"
-                  :color="colour"
-                  selected-color="white"
-                  :selected-background-color="colour"
+                  color="white"
+                  :text-color="colorName"
+                  :selected-color="colorName"
+                  selected-text-color="white"
                   style="height: 220px;"
                 />
               </QMenu>
@@ -241,7 +243,7 @@ import {
   QSeparator,
   colors,
 } from 'quasar'
-import { QIconPicker } from '@quasar/quasar-ui-qiconpicker/src/index'
+import { QIconPicker } from '@quasar/quasar-ui-qiconpicker'
 import useVuelidate from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
 
@@ -383,9 +385,6 @@ export default {
       set (val) {
         this.edit.colour = val.substring(1)
       },
-    },
-    activityTypesDebug () {
-      return this.activityTypes.map(({ id, name, status, group }) => ({ id, name, status, group }))
     },
   },
   watch: {

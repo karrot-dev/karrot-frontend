@@ -16,13 +16,11 @@ import EditActivityTypesUI from '@/group/components/EditActivityTypesUI'
 import { useCreateActivityTypeMutation, useSaveActivityTypeMutation } from '@/activities/mutations'
 import { useCurrentGroupService } from '@/group/services'
 import { useActivityTypeService } from '@/activities/services'
-import { useActivityTypeEnricher } from '@/activities/enrichers'
 
-const enrichActivityType = useActivityTypeEnricher()
 const { groupId } = useCurrentGroupService()
 const { getActivityTypesByGroup } = useActivityTypeService()
 
-const activityTypes = computed(() => getActivityTypesByGroup(groupId.value).map(enrichActivityType))
+const activityTypes = computed(() => getActivityTypesByGroup(groupId.value))
 
 const {
   mutate: create,

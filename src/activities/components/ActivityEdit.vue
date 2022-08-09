@@ -19,10 +19,10 @@
     >
       <h3 v-if="activityType && isNew">
         <QIcon
-          v-bind="activityType.iconProps"
+          v-bind="activityTypeIconProps"
           class="q-pr-sm"
         />
-        {{ activityType.translatedName }}
+        {{ activityTypeIconProps.title }}
       </h3>
       <template v-if="canEditDate">
         <div class="row q-mt-xs">
@@ -303,6 +303,7 @@ import { defaultDuration } from '@/activities/settings'
 import { formatSeconds } from '@/activities/utils'
 import { objectDiff } from '@/utils/utils'
 import MarkdownInput from '@/utils/components/MarkdownInput'
+import { useActivityTypeHelpers } from '@/activities/helpers'
 
 export default {
   name: 'ActivityEdit',
@@ -328,9 +329,16 @@ export default {
     'cancel',
     'save',
   ],
+  setup () {
+    const { getIconProps } = useActivityTypeHelpers()
+    return { getIconProps }
+  },
   computed: {
     activityType () {
-      return this.value.activityType
+      return this.value && this.value.activityType
+    },
+    activityTypeIconProps () {
+      return this.activityType ? this.getIconProps(this.activityType) : {}
     },
     now () {
       return reactiveNow.value

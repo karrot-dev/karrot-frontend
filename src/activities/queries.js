@@ -17,15 +17,47 @@ export const queryKeyActivityIcsToken = () => [QUERY_KEY_BASE, 'ics-token']
 export function useActivitiesUpdater () {
   const queryClient = useQueryClient()
   const { on } = useSocketEvents()
+
   on(
-    [
-      // TODO: when we save an activity series, we get a storm of these back... and it's then refetching a lot of things!
-      'activities:activity',
-      'activities:activity_deleted',
-    ],
-    // We could do fiddly updates to the data, but simpler to just invalidate the lot
-    async () => {
-      await queryClient.invalidateQueries(queryKeyActivityList())
+    // TODO: when we save an activity series, we get a storm of these back... and it's then refetching a lot of things!
+    'activities:activity',
+    (activity) => {
+      queryClient.setQueriesData(
+        queryKeyActivityList(),
+        data => {
+          if (data === undefined) return undefined
+          const { pages, pageParams } = data
+          return {
+            pages: pages.map(page => ({
+              ...page,
+              results: page.results.map(result => {
+                if (result.id === activity.id) {
+                  return activity
+                }
+                return result
+              }),
+            })),
+            pageParams,
+          }
+        },
+      )
+
+      // Even if we managed to update the value, the filters might be such that it doesn't belong in a list any more
+      // TODO: could we check some more nuanced parameters to avoid invalidation?... group? place? activityType? things that don't change
+      queryClient.invalidateQueries(queryKeyActivityList())
+
+      queryClient.setQueryData(
+        queryKeyActivityItem(activity.id),
+        value => value !== undefined ? activity : undefined,
+      )
+    },
+  )
+
+  on(
+    'activities:activity_deleted',
+    activity => {
+      queryClient.invalidateQueries(queryKeyActivityList())
+      queryClient.setQueryData(queryKeyActivityItem(activity.id), undefined)
     },
   )
 }
@@ -112,7 +144,7 @@ export function useActivityItemQuery ({ activityId }) {
     queryKeyActivityItem(activityId),
     () => api.get(unref(activityId)),
     {
-      enabled: computed(() => !!activityId.value),
+      enabled: computed(() => Boolean(unref(activityId))),
     },
   )
   return {

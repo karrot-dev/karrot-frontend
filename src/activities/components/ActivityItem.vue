@@ -4,7 +4,7 @@
   >
     <QCardSection
       class="no-padding content"
-      :class="{ isEmpty: activity.isEmpty, isUserMember: activity.isUserMember, isDisabled: activity.isDisabled }"
+      :class="{ isEmpty: isEmpty, isUserMember: isUserMember, isDisabled: activity.isDisabled }"
     >
       <div class="content-inner">
         <div class="row no-wrap items-start justify-between">
@@ -18,9 +18,9 @@
                 <span>{{ $d(activity.date, 'dateWithDayName') }}</span>
                 <br>
               </template>
-              <span v-if="activity.place">
-                <RouterLink :to="{ name: 'place', params: { placeId: activity.place.id }}">
-                  {{ activity.place.name }}
+              <span v-if="place">
+                <RouterLink :to="{ name: 'place', params: { placeId: place.id }}">
+                  {{ place.name }}
                 </RouterLink>
               </span>
             </template>
@@ -30,14 +30,14 @@
           </div>
           <QIcon
             v-if="activity.activityType"
-            v-bind="activity.activityType.iconProps"
+            v-bind="activityTypeIconProps"
             title=""
             size="xs"
             class="q-ml-sm"
             style="top: 1px;"
           >
-            <q-tooltip v-if="activity.activityType.iconProps && activity.activityType.iconProps.title">
-              {{ activity.activityType.iconProps.title }}
+            <q-tooltip v-if="activityTypeIconProps && activityTypeIconProps.title">
+              {{ activityTypeIconProps.title }}
             </q-tooltip>
           </QIcon>
         </div>
@@ -48,7 +48,7 @@
           <b class="text-negative">{{ $t('ACTIVITYLIST.ACTIVITY_DISABLED') }}</b>
         </div>
         <div
-          v-if="activity.hasStarted"
+          v-if="hasStarted"
           class="q-my-xs"
         >
           <b class="text-orange">{{ $t('ACTIVITYLIST.ACTIVITY_STARTED') }}</b>
@@ -69,11 +69,11 @@
           <CustomDialog v-model="joinDialog">
             <template #title>
               <QIcon
-                v-bind="activity.activityType.iconProps"
+                v-bind="activityTypeIconProps"
                 size="sm"
                 class="q-pr-sm"
               />
-              {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER', { activityType: activity.activityType.translatedName }) }}
+              {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
             </template>
             <template #message>
               {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_TEXT', { date: $d(activity.date, 'long') }) }}
@@ -98,11 +98,11 @@
           <CustomDialog v-model="leaveDialog">
             <template #title>
               <QIcon
-                v-bind="activity.activityType.iconProps"
+                v-bind="activityTypeIconProps"
                 size="sm"
                 class="q-pr-sm"
               />
-              {{ $t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_HEADER', { activityType: activity.activityType.translatedName }) }}
+              {{ $t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
             </template>
             <template #message>
               {{ $t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_TEXT') }}
@@ -131,7 +131,7 @@
       class="row no-padding full-width justify-end bottom-actions"
     >
       <QBtn
-        v-if="activity.isUserMember"
+        v-if="isUserMember"
         :href="icsUrl"
         flat
         no-caps
@@ -169,6 +169,7 @@
 </template>
 
 <script>
+import { computed, toRefs } from 'vue'
 import {
   QCard,
   QCardSection,
@@ -180,6 +181,9 @@ import CustomDialog from '@/utils/components/CustomDialog'
 import { absoluteURL } from '@/utils/absoluteURL'
 import Markdown from '@/utils/components/Markdown'
 import { useJoinActivityMutation, useLeaveActivityMutation } from '@/activities/mutations'
+import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityTypeService } from '@/activities/services'
+import { usePlaceService } from '@/places/services'
 
 export default {
   components: {
@@ -208,16 +212,58 @@ export default {
   emits: [
     'detail',
   ],
-  setup () {
+  setup (props) {
+    const { activity } = toRefs(props)
+
+    const {
+      getActivityTypeById,
+    } = useActivityTypeService()
+
+    const {
+      getPlaceById,
+    } = usePlaceService()
+
+    const {
+      getIsUserMember,
+      getHasStarted,
+      getIsEmpty,
+    } = useActivityHelpers()
+
+    const {
+      getTranslatedName,
+      getIconProps,
+    } = useActivityTypeHelpers()
+
+    const hasStarted = computed(() => getHasStarted(activity.value))
+    const isUserMember = computed(() => getIsUserMember(activity.value))
+    const isEmpty = computed(() => getIsEmpty(activity.value))
+
+    const place = computed(() => getPlaceById(activity.value.place))
+
+    const activityType = computed(() => getActivityTypeById(activity.value.activityType))
+    const activityTypeTranslatedName = computed(() => getTranslatedName(activityType.value))
+    const activityTypeIconProps = computed(() => getIconProps(activityType.value))
+
     const {
       mutate: joinActivity,
       isLoading: isJoining,
     } = useJoinActivityMutation()
+
     const {
       mutate: leaveActivity,
       isLoading: isLeaving,
     } = useLeaveActivityMutation()
+
     return {
+      place,
+
+      activityTypeTranslatedName,
+      activityTypeIconProps,
+
+      isUserMember,
+      hasStarted,
+      isEmpty,
+
       joinActivity,
       isJoining,
       leaveActivity,
@@ -244,7 +290,7 @@ export default {
       this.joinDialog = true
     },
     leave () {
-      if (!this.activity.hasStarted) {
+      if (!this.hasStarted) {
         this.joinDialog = false
         this.leaveDialog = true
       }

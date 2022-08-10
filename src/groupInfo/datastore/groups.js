@@ -156,6 +156,6 @@ function myGroups (group) {
 
 export function plugin (datastore) {
   datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
-    datastore.dispatch('groups/fetch', null, { root: true })
+    // datastore.dispatch('groups/fetch', null, { root: true })
   })
 }

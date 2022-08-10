@@ -7,7 +7,7 @@ import { setGeoipCoordinates } from '@/base/services'
 import { queryKeyUserListAll } from '@/users/queries'
 import { queryKeyStatus } from '@/status/queries'
 import { queryKeyPlaceListAll } from '@/places/queries'
-import { queryKeyGroupInfoList } from '@/groupInfo/queries'
+import { queryKeyGroupInfoListAll } from '@/groupInfo/queries'
 import { queryKeyActivityTypeListAll } from '@/activities/queries'
 
 export default async function ({ app, store: datastore }) {
@@ -40,7 +40,7 @@ export default async function ({ app, store: datastore }) {
   }
   if (groups) {
     datastore.commit('groups/set', groups)
-    queryClient.setQueryData(queryKeyGroupInfoList(), groups)
+    queryClient.setQueryData(queryKeyGroupInfoListAll(), groups)
   }
   if (user) {
     queryClient.setQueryData(queryKeys.authUser(), user)

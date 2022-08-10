@@ -22,7 +22,6 @@ const datastore = createDatastore({
   auth: { getters: { user: () => currentUserMock } },
   i18n: { getters: { locale: () => 'en' } },
   presence: require('@/utils/datastore/presence').default,
-  loadingprogress: { getters: { active: () => false, closing: () => false } },
   communityFeed: {
     getters: {
       unreadCount: () => 0,

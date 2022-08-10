@@ -30,12 +30,12 @@
       <div> <i class="fas fa-fw fa-angle-right" /> </div>
     </div>
     <div
-      v-if="secondlastElement"
+      v-if="secondLastElement"
       class="xs"
     >
       <RouterLink
-        v-if="secondlastElement.route"
-        :to="secondlastElement.route"
+        v-if="secondLastElement.route"
+        :to="secondLastElement.route"
       >
         <div style="min-width: 20px; padding: 4px; text-align: right">
           <i class="fas fa-fw fa-angle-left" />
@@ -51,114 +51,115 @@
       </div>
     </div>
     <div
-      v-if="secondlastElement"
+      v-if="secondLastElement"
       class="xs"
       style="min-width: 20px"
     />
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import { QBtn } from 'quasar'
+
 import { useActivePlaceService } from '@/places/services'
 import { useActiveOfferService } from '@/offers/services'
 import { useCurrentGroupService } from '@/group/services'
 import { useActiveUserService } from '@/users/services'
+import { useI18n } from 'vue-i18n'
+import { useStore } from 'vuex'
+import { useGroupInfoService } from '@/groupInfo/services'
 
-export default {
-  components: { QBtn },
-  props: {
-    breadcrumbs: {
-      type: Array,
-      required: true,
-    },
-  },
-  setup () {
-    const { group } = useCurrentGroupService()
-    const { offer } = useActiveOfferService()
-    const { place } = useActivePlaceService()
-    const { user } = useActiveUserService()
-    return {
-      group,
-      offer,
-      place,
-      user,
+const { t } = useI18n()
+
+const route = useRoute()
+
+const { group } = useCurrentGroupService()
+const { offer } = useActiveOfferService()
+const { place } = useActivePlaceService()
+const { user } = useActiveUserService()
+
+// TODO: detach from store
+const store = useStore()
+const { getGroupById } = useGroupInfoService()
+const activePreviewId = computed(() => store.state.groups.activePreviewId)
+const activeGroup = computed(() => getGroupById(activePreviewId.value))
+
+// TODO: detach from store
+const activeIssue = computed(() => store.getters['issues/current'])
+
+const breadcrumbs = computed(() => findBreadcrumbs(route.matched))
+
+function findBreadcrumbs (matched) {
+  // Combine all the breadcrumbs from the root
+  return matched.reduce((acc, m) => {
+    if (m.meta && m.meta.breadcrumbs) {
+      acc.push(...m.meta.breadcrumbs)
     }
-  },
-  computed: {
-    elements () {
-      /*
-      if (item.type === 'currentGroup') {
-          const group = rootGetters['currentGroup/value']
-          if (group && group.id) {
-            return {
-              name: group.name,
-              route: { name: 'group', params: { groupId: group.id } },
-            }
-          }
-        }
-        else if (item.type === 'activeUser') {
-          const user = rootGetters['users/activeUser']
-          if (user) {
-            return {
-              name: user.displayName,
-              route: { name: 'user', params: { userId: user.id } },
-            }
-          }
-        }
-        else
-       */
-      return this.breadcrumbs.map(breadcrumb => {
-        if (breadcrumb.type === 'currentGroup') {
-          if (this.group) {
-            return {
-              name: this.group.name,
-              route: { name: 'group', params: { groupId: this.group.id } },
-            }
-          }
-        }
-        else if (breadcrumb.type === 'activeOffer') {
-          if (this.offer) {
-            if (this.offer) {
-              return {
-                name: this.offer.name,
-              }
-            }
-          }
-        }
-        else if (breadcrumb.type === 'activePlace') {
-          if (this.place) {
-            return {
-              name: this.place.name,
-              route: { name: 'place', params: { placeId: this.place.id, groupId: this.place.group } },
-            }
-          }
-        }
-        else if (breadcrumb.type === 'activeUser') {
-          if (this.user) {
-            return {
-              name: this.user.displayName,
-              route: { name: 'user', params: { userId: this.user.id } },
-            }
-          }
-        }
-        return breadcrumb
-      })
-    },
-    hasBreadcrumbs () {
-      return this.elements && this.elements.length > 0
-    },
-    prevElements () {
-      return this.elements.slice(0, this.elements.length - 1)
-    },
-    secondlastElement () {
-      return this.elements[this.elements.length - 2]
-    },
-    lastElement () {
-      return this.elements[this.elements.length - 1]
-    },
-  },
+    return acc
+  }, [])
 }
+
+const elements = computed(() => breadcrumbs.value.map(breadcrumb => {
+  if (breadcrumb.type === 'activeGroupPreview') {
+    if (activeGroup.value) {
+      return {
+        name: activeGroup.value.name,
+        route: { name: 'groupPreview', params: { groupPreviewId: activeGroup.value.id } },
+      }
+    }
+  }
+  else if (breadcrumb.type === 'activeIssue') {
+    if (activeIssue.value) {
+      return {
+        name: activeIssue.value.affectedUser.displayName,
+      }
+    }
+  }
+  else if (breadcrumb.type === 'currentGroup') {
+    if (group.value) {
+      return {
+        name: group.value.name,
+        route: { name: 'group', params: { groupId: group.value.id } },
+      }
+    }
+  }
+  else if (breadcrumb.type === 'activeOffer') {
+    if (offer.value) {
+      if (offer.value) {
+        return {
+          name: offer.value.name,
+        }
+      }
+    }
+  }
+  else if (breadcrumb.type === 'activePlace') {
+    if (place.value) {
+      return {
+        name: place.value.name,
+        route: { name: 'place', params: { placeId: place.value.id, groupId: place.value.group } },
+      }
+    }
+  }
+  else if (breadcrumb.type === 'activeUser') {
+    if (user.value) {
+      return {
+        name: user.value.displayName,
+        route: { name: 'user', params: { userId: user.value.id } },
+      }
+    }
+  }
+  else if (breadcrumb.translation) {
+    return { ...breadcrumb, name: t(breadcrumb.translation) }
+  }
+  return breadcrumb
+}))
+
+const hasBreadcrumbs = computed(() => elements.value.length > 0)
+const prevElements = computed(() => elements.value.slice(0, elements.value.length - 1))
+const secondLastElement = computed(() => elements.value[elements.value.length - 2])
+const lastElement = computed(() => elements.value[elements.value.length - 1])
 </script>
 
 <style scoped lang="sass">

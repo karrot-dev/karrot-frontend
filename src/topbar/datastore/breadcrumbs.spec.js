@@ -31,10 +31,7 @@ describe('breadcrumbs', () => {
         },
       },
     }
-    datastore = createDatastore({
-      breadcrumbs: require('./breadcrumbs').default,
-      ...datastoreMocks,
-    })
+    datastore = createDatastore(datastoreMocks)
   })
 
   it('can create an currentGroup item', async () => {

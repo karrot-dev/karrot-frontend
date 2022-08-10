@@ -97,7 +97,6 @@ export default {
           }
           commit('update', [group])
         }
-        dispatch('applications/fetchMine', null, { root: true })
       },
     }, {
       findId: ({ groupPreviewId }) => groupPreviewId,

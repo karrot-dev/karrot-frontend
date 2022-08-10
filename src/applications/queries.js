@@ -10,17 +10,21 @@ export const queryKeyApplicationItem = applicationId => [QUERY_KEY_BASE, 'item',
 
 export function useApplicationListQuery ({
   groupId,
+  userId,
+  status,
 }, queryOptions = {}) {
   const query = useInfiniteQuery(
-    queryKeyApplicationList({ groupId }),
+    queryKeyApplicationList({ groupId, userId, status }),
     ({ pageParam }) => api.list({
       group: unref(groupId),
+      user: unref(userId),
+      status: unref(status),
       cursor: pageParam,
     }),
     {
       cacheTime: 0,
       staleTime: 0,
-      enabled: computed(() => Boolean(unref(groupId))),
+      enabled: computed(() => Boolean(unref(groupId) || unref(userId) || unref(status))),
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => page.results),

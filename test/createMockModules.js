@@ -30,7 +30,6 @@ export default ({ user }) => ({
     namespaced: true,
     getters: {
       groupHasMyApplication: () => () => null,
-      getForActivePreview: () => null,
     },
     actions: {
       fetchMine: jest.fn(),

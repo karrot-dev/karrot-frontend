@@ -3,10 +3,9 @@
     :group="$store.getters['groups/activePreview']"
     :is-logged-in="$store.getters['auth/isLoggedIn']"
     :user="$store.getters['auth/user']"
-    :application="$store.getters['applications/getForActivePreview']"
+    :application="application"
     @join="data => $store.dispatch('groups/join', data)"
-    @withdraw="data => $store.dispatch('applications/withdraw', data)"
-    @open-chat="data => $store.dispatch('detail/openForApplication', data)"
+    @withdraw="withdraw"
     @go-visit="groupId => $router.push({ name: 'group', params: { groupId } }).catch(() => {})"
     @go-settings="$router.push({ name: 'settings', hash: '#change-email' }).catch(() => {})"
     @go-signup="goSignup"
@@ -14,17 +13,47 @@
   />
 </template>
 
-<script>
+<script setup>
+import { computed, unref } from 'vue'
 import GroupPreviewUI from '@/groupInfo/components/GroupPreviewUI'
+import { useRouter } from 'vue-router'
+import { useIntegerRouteParam } from '@/utils/composables'
+import { useWithdrawApplicationMutation } from '@/applications/mutations'
+import { useApplicationListQuery } from '@/applications/queries'
+import { useAuthService } from '@/authuser/services'
+import { useQueryClient } from 'vue-query'
+import { showToast } from '@/utils/toasts'
 
-export default {
-  components: {
-    GroupPreviewUI,
-  },
-  methods: {
-    goSignup (group) {
-      this.$router.push({ name: 'signup' }).catch(() => {})
+const router = useRouter()
+const { userId } = useAuthService()
+
+const groupPreviewId = useIntegerRouteParam('groupPreviewId')
+
+const {
+  mutate: withdrawApplication,
+} = useWithdrawApplicationMutation()
+
+const queryClient = useQueryClient()
+
+const withdraw = id => {
+  withdrawApplication(id, {
+    onSuccess () {
+      showToast({
+        message: 'JOINGROUP.APPLICATION_WITHDRAWN',
+      })
+      queryClient.invalidateQueries(['applications'])
     },
-  },
+  })
+}
+
+// TODO add pending state, avoid flashing of content?
+const {
+  applications,
+} = useApplicationListQuery({ userId, status: 'pending' })
+
+const application = computed(() => applications.value.find(a => a.group === unref(groupPreviewId)))
+
+function goSignup () {
+  router.push({ name: 'signup' }).catch(() => {})
 }
 </script>

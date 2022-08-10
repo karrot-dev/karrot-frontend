@@ -1,5 +1,4 @@
 import applications from '@/applications/api/applications'
-import router from '@/router'
 import { withMeta, createMetaModule, metaStatuses, createPaginationModule, indexById } from '@/utils/datastore/helpers'
 
 function initialState () {
@@ -36,11 +35,6 @@ export default {
       if (!authUserId) return
       return Object.values(state.entries).find(a => a.group === groupId && a.user.id === authUserId && a.status === 'pending')
     },
-    getForActivePreview: (state, getters, rootState, rootGetters) => {
-      const activePreview = rootGetters['groups/activePreview']
-      if (!activePreview) return
-      return getters.enrich(getters.getMineInGroup(activePreview.id))
-    },
     ...metaStatuses(['apply']),
   },
   actions: {
@@ -52,12 +46,6 @@ export default {
       commit('users/update', users, { root: true })
     },
     ...withMeta({
-      async fetchMine ({ dispatch, rootGetters }) {
-        const userId = rootGetters['auth/userId']
-        if (!userId) return
-        await dispatch('fetch', { user: userId, status: 'pending' })
-      },
-
       async fetchPendingByGroupId ({ dispatch }, { groupId }) {
         await dispatch('fetch', { group: groupId, status: 'pending' })
       },
@@ -67,23 +55,6 @@ export default {
         commit('update', [application])
 
         commit('users/update', [application.user], { root: true })
-      },
-
-      async apply ({ commit, dispatch }, data) {
-        const newApplication = await applications.create(data)
-        commit('update', [newApplication])
-        dispatch('toasts/show', {
-          message: 'JOINGROUP.APPLICATION_SUBMITTED',
-        }, { root: true })
-        router.push({ name: 'groupPreview', params: { groupPreviewId: data.group } }).catch(() => {})
-      },
-
-      async withdraw ({ commit, dispatch }, id) {
-        const removedApplication = await applications.withdraw(id)
-        commit('update', [removedApplication])
-        dispatch('toasts/show', {
-          message: 'JOINGROUP.APPLICATION_WITHDRAWN',
-        }, { root: true })
       },
 
       async accept ({ commit, dispatch }, id) {

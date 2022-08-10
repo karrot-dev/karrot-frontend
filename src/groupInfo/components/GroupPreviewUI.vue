@@ -95,7 +95,7 @@
                     dense
                     :label="$t('BUTTON.OPEN')"
                     icon="fas fa-fw fa-comments"
-                    @click="$emit('open-chat', application)"
+                    @click="openApplication(application.id)"
                   />
                   <QBtn
                     flat
@@ -177,6 +177,7 @@ import {
 import Markdown from '@/utils/components/Markdown'
 import statusMixin from '@/utils/mixins/statusMixin'
 import RandomArt from '@/utils/components/RandomArt'
+import { useDetailService } from '@/messages/services'
 
 export default {
   components: {
@@ -210,7 +211,6 @@ export default {
     },
   },
   emits: [
-    'open-chat',
     'join',
     'go-settings',
     'go-apply',
@@ -218,6 +218,13 @@ export default {
     'go-signup',
     'withdraw',
   ],
+  setup () {
+    const { openApplication } = useDetailService()
+
+    return {
+      openApplication,
+    }
+  },
   computed: {
     status () {
       return this.group && this.group.joinStatus

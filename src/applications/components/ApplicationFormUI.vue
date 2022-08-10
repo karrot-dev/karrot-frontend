@@ -40,7 +40,7 @@
         <QBtn
           type="button"
           color="primary"
-          @click="$emit('cancel', group.id)"
+          :to="{ name: 'groupPreview', params: { groupPreviewId: group.id } }"
         >
           {{ $t('BUTTON.CANCEL') }}
         </QBtn>
@@ -65,6 +65,9 @@ import {
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import Markdown from '@/utils/components/Markdown'
 import statusMixin from '@/utils/mixins/statusMixin'
+import { useCreateApplicationMutation } from '@/applications/mutations'
+import { showToast } from '@/utils/toasts'
+import { useRouter } from 'vue-router'
 
 export default {
   components: {
@@ -82,10 +85,28 @@ export default {
       default: null,
     },
   },
-  emits: [
-    'cancel',
-    'apply',
-  ],
+  setup () {
+    const router = useRouter()
+
+    const {
+      mutate: createApplication,
+      status,
+    } = useCreateApplicationMutation()
+
+    const create = data => createApplication(data, {
+      onSuccess (data) {
+        showToast({
+          message: 'JOINGROUP.APPLICATION_SUBMITTED',
+        })
+        router.push({ name: 'groupPreview', params: { groupPreviewId: data.group } }).catch(() => {})
+      },
+    })
+
+    return {
+      create,
+      status,
+    }
+  },
   data () {
     return {
       applicationAnswers: '',
@@ -93,7 +114,7 @@ export default {
   },
   methods: {
     apply () {
-      this.$emit('apply', { group: this.group.id, answers: this.applicationAnswers })
+      this.create({ group: this.group.id, answers: this.applicationAnswers })
     },
   },
 }

@@ -88,7 +88,6 @@ export default [
       breadcrumbs: [
         { translation: 'JOINGROUP.ALL_GROUPS' },
       ],
-      beforeEnter: 'applications/fetchMine',
     },
     component: GroupGallery,
   },

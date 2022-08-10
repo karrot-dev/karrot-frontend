@@ -126,8 +126,6 @@ export default [
       breadcrumbs: [
         { translation: 'HISTORY.DETAILS', route: { name: 'historyDetail' } },
       ],
-      beforeEnter: 'history/setActive',
-      afterLeave: 'history/clearActive',
     },
     component: HistoryDetail,
   },
@@ -152,10 +150,6 @@ export default [
       {
         name: 'group',
         path: 'wall',
-        meta: {
-          // beforeEnter: 'conversations/fetchForGroup',
-          // afterLeave: 'conversations/clearForGroup',
-        },
         component: GroupWall,
       },
       {
@@ -258,8 +252,6 @@ export default [
             { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
             { type: 'activeOffer' },
           ],
-          // beforeEnter: 'currentOffer/select',
-          // afterLeave: 'currentOffer/clear',
         },
         components: {
           default: OfferEdit,
@@ -289,8 +281,6 @@ export default [
               breadcrumbs: [
                 { type: 'activeOffer' },
               ],
-              // beforeEnter: 'currentOffer/select',
-              // afterLeave: 'currentOffer/clear',
               isDetail: true,
             },
             components: {
@@ -307,8 +297,6 @@ export default [
           breadcrumbs: [
             { translation: 'ACTIVITY_FEEDBACK.TITLE', route: { name: 'groupFeedback' } },
           ],
-          // beforeEnter: 'feedback/fetch',
-          // afterLeave: 'feedback/clear',
         },
         component: GroupFeedback,
       },
@@ -414,8 +402,6 @@ export default [
           breadcrumbs: [
             { type: 'currentGroup' },
           ],
-          beforeEnter: 'detail/routeEnter',
-          afterLeave: 'detail/routeLeave',
         },
         // On desktop will get redirected inside "detail/routeEnter" action
         components: {
@@ -450,8 +436,6 @@ export default [
           breadcrumbs: [
             { type: 'activePlace' },
           ],
-          // beforeEnter: 'places/selectPlace',
-          // afterLeave: 'places/clearSelectedPlace',
         },
         components: {
           default: PlaceLayout,
@@ -462,10 +446,6 @@ export default [
             name: 'placeWall',
             path: 'wall',
             component: PlaceWall,
-            meta: {
-              // beforeEnter: 'conversations/fetchForPlace',
-              // afterLeave: 'conversations/clearForPlace',
-            },
           },
           {
             name: 'placeActivities',
@@ -475,27 +455,16 @@ export default [
           {
             name: 'placeActivitiesManage',
             path: 'activities/manage',
-            meta: {
-              beforeEnter: 'activitySeries/fetchListForActivePlace',
-              afterLeave: 'activitySeries/clearList',
-            },
             component: PlaceActivitiesManage,
           },
           {
             name: 'placeFeedback',
             path: 'feedback',
-            meta: {
-              // beforeEnter: 'places/beforeEnterFeedback',
-              // afterLeave: 'feedback/clear',
-            },
             component: PlaceFeedback,
           },
           {
             name: 'placeHistory',
             path: 'history',
-            meta: {
-              beforeEnter: 'history/fetch',
-            },
             component: PlaceHistory,
           },
           {
@@ -513,8 +482,6 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.ACTIVITY' },
           ],
-          beforeEnter: 'detail/routeEnter',
-          afterLeave: 'detail/routeLeave',
         },
         // On desktop will get redirected inside "detail/routeEnter" action
         components: {
@@ -529,8 +496,6 @@ export default [
           breadcrumbs: [
             { translation: 'ACTIVITY_FEEDBACK.TITLE', route: { name: 'giveFeedback' } },
           ],
-          // beforeEnter: 'feedback/fetch',
-          // afterLeave: 'feedback/clear',
         },
         component: ActivityFeedback,
       },
@@ -541,8 +506,6 @@ export default [
           breadcrumbs: [
             { translation: 'ACTIVITY_FEEDBACK.TITLE', route: { name: 'editFeedback' } },
           ],
-          // beforeEnter: 'feedback/select',
-          // afterLeave: 'feedback/clear',
         },
         component: ActivityFeedback,
       },
@@ -609,8 +572,6 @@ export default [
       breadcrumbs: [
         { type: 'activeUser' },
       ],
-      beforeEnter: 'users/selectUser',
-      afterLeave: 'users/clearSelectedUser',
     },
     components: {
       default: User,
@@ -625,8 +586,6 @@ export default [
       breadcrumbs: [
         { type: 'activeUser' },
       ],
-      beforeEnter: ['currentGroup/select', 'users/selectUser'],
-      afterLeave: 'users/clearSelectedUser',
     },
     components: {
       default: User,
@@ -642,8 +601,6 @@ export default [
         { type: 'currentGroup' },
         { type: 'activeUser' },
       ],
-      beforeEnter: 'detail/routeEnter',
-      afterLeave: 'detail/routeLeave',
     },
     // On desktop will get redirected inside "detail/routeEnter" action
     components: {

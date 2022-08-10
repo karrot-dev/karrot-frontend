@@ -4,6 +4,10 @@ import { configureSentry } from '@/utils/sentry'
 import { QueryClient, VueQueryPlugin } from 'vue-query'
 import { queryKeys } from '@/authuser/queries'
 import { setGeoipCoordinates } from '@/base/services'
+import { queryKeyUserListAll } from '@/users/queries'
+import { queryKeyStatus } from '@/status/queries'
+import { queryKeyPlaceListAll } from '@/places/queries'
+import { queryKeyGroupInfoList } from '@/groupInfo/queries'
 
 export default async function ({ app, store: datastore }) {
   const queryClient = new QueryClient({
@@ -17,8 +21,16 @@ export default async function ({ app, store: datastore }) {
   })
   app.use(VueQueryPlugin, { queryClient })
 
-  const bootstrapData = await bootstrap.fetch()
-  const { config, user, groups, geoip } = bootstrapData
+  const {
+    config,
+    user,
+    groups,
+    places,
+    users,
+    status,
+    geoip,
+  } = await bootstrap.fetch()
+
   if (config) {
     if (config.sentry) {
       configureSentry(app, config.sentry)
@@ -26,11 +38,21 @@ export default async function ({ app, store: datastore }) {
   }
   if (groups) {
     datastore.commit('groups/set', groups)
+    queryClient.setQueryData(queryKeyGroupInfoList(), groups)
   }
   if (user) {
-    queryClient.setQueryData(queryKeys.authUser(), () => user)
+    queryClient.setQueryData(queryKeys.authUser(), user)
     datastore.commit('auth/setUser', user)
     datastore.commit('auth/setMaybeLoggedOut', false)
+  }
+  if (places) {
+    queryClient.setQueryData(queryKeyPlaceListAll(), places)
+  }
+  if (users) {
+    queryClient.setQueryData(queryKeyUserListAll(), users)
+  }
+  if (status) {
+    queryClient.setQueryData(queryKeyStatus(), status)
   }
   if (geoip) {
     datastore.commit('geo/set', geoip)

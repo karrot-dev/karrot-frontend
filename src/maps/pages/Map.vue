@@ -3,20 +3,9 @@
     <GroupMap
       class="map"
       controls="full"
-      :users="users"
-      :places="places"
-      :groups="groups"
-      :current-group="currentGroup"
-      :is-editor="isEditor"
       :force-center="center"
       :force-zoom="zoom"
-      :show-users="showUsers"
-      :show-places="showPlaces"
-      :show-groups="showGroups"
       @map-move-end="mapMoveEnd"
-      @toggle-users="toggleUsers"
-      @toggle-places="togglePlaces"
-      @toggle-groups="toggleGroups"
     />
   </div>
 </template>
@@ -24,41 +13,11 @@
 <script>
 import GroupMap from '@/maps/components/GroupMap'
 
-import { mapGetters, mapActions } from 'vuex'
-
 import { throttle } from 'quasar'
-import { useCurrentGroupService } from '@/group/services'
-import { useGroupInfoService } from '@/groupInfo/services'
 
 export default {
   components: { GroupMap },
-  setup () {
-    const {
-      group: currentGroup,
-      users,
-      places,
-    } = useCurrentGroupService()
-    const {
-      groups,
-    } = useGroupInfoService()
-    return {
-      groups,
-      currentGroup,
-      users,
-      places,
-    }
-  },
   computed: {
-    ...mapGetters({
-      // places: 'places/byCurrentGroup',
-      // users: 'users/byCurrentGroupMap',
-      // groups: 'groups/all',
-      // currentGroup: 'currentGroup/value',
-      isEditor: 'currentGroup/isEditor',
-      showPlaces: 'sidenavBoxes/toggle/placesOnMap',
-      showUsers: 'sidenavBoxes/toggle/usersOnMap',
-      showGroups: 'sidenavBoxes/toggle/groupsOnMap',
-    }),
     center () {
       return { lat: Number(this.$route.query.lat), lng: Number(this.$route.query.lng) }
     },
@@ -70,11 +29,6 @@ export default {
     this.mapMoveEnd = throttle(this.mapMoveEnd, 500)
   },
   methods: {
-    ...mapActions({
-      togglePlaces: 'sidenavBoxes/toggle/placesOnMap',
-      toggleUsers: 'sidenavBoxes/toggle/usersOnMap',
-      toggleGroups: 'sidenavBoxes/toggle/groupsOnMap',
-    }),
     mapMoveEnd (target) {
       this.$router.replace({
         query: {

@@ -1,13 +1,13 @@
 <template>
   <SidenavMapUI
-    :places="$store.getters['places/byCurrentGroup']"
+    :places="places"
     :users="users"
     :show-places="$store.getters['sidenavBoxes/toggle/placesOnMap']"
     :show-users="$store.getters['sidenavBoxes/toggle/usersOnMap']"
-    :selected-place="$store.getters['places/activePlace']"
-    :selected-user="$store.getters['users/activeUser']"
-    :current-group="$store.getters['currentGroup/value']"
-    :is-editor="$store.getters['currentGroup/isEditor']"
+    :selected-place="activePlace"
+    :selected-user="activeUser"
+    :current-group="currentGroup"
+    :is-editor="isEditor"
     @toggle-places="$store.dispatch('sidenavBoxes/toggle/placesOnMap')"
     @toggle-users="$store.dispatch('sidenavBoxes/toggle/usersOnMap')"
   />
@@ -16,6 +16,21 @@
 <script setup>
 import SidenavMapUI from './SidenavMapUI'
 import { useCurrentGroupService } from '@/group/services'
+import { useActivePlaceService } from '@/places/services'
+import { useActiveUserService } from '@/users/services'
 
-const { users } = useCurrentGroupService()
+const {
+  isEditor,
+  users,
+  places,
+  group: currentGroup,
+} = useCurrentGroupService()
+
+const {
+  place: activePlace,
+} = useActivePlaceService()
+
+const {
+  user: activeUser,
+} = useActiveUserService()
 </script>

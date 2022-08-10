@@ -238,6 +238,7 @@ import { useUserProfileQuery } from '@/users/queries'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { useDetailService } from '@/messages/services'
 import { useAuthHelpers } from '@/authuser/helpers'
+import { useActiveUserService } from '@/users/services'
 
 export default {
   components: {
@@ -272,11 +273,10 @@ export default {
     const { openUserChat } = useDetailService()
     const { getIsCurrentUser } = useAuthHelpers()
 
-    const userId = useIntegerRouteParam('userId')
-
     const {
+      userId,
       user,
-    } = useUserProfileQuery({ userId })
+    } = useActiveUserService()
 
     const isCurrentUser = computed(() => getIsCurrentUser(user.value))
     const currentGroupMembership = computed(() => getMembership(userId.value))

@@ -1,5 +1,4 @@
-import { computed, unref, watch } from 'vue'
-import { useStore } from 'vuex'
+import { computed, unref } from 'vue'
 
 import { defineService, indexById } from '@/utils/datastore/helpers'
 import { usePlaceListQuery } from '@/places/queries'
@@ -38,24 +37,15 @@ export const usePlaceService = defineService(() => {
 
 export const useActivePlaceService = defineService(() => {
   // services
-  const store = useStore()
   const { getPlaceById } = usePlaceService()
-  const placeId = useIntegerRouteParam('placeId')
 
-  // effects
-  watch(placeId, () => {
-    if (placeId.value) {
-      store.dispatch('conversations/fetchForPlace', { placeId: placeId.value })
-    }
-  }, { immediate: true })
+  const placeId = useIntegerRouteParam('placeId')
 
   // computed
   const place = computed(() => getPlaceById(placeId.value))
-  const conversation = computed(() => store.getters['conversations/getForPlace'](placeId.value))
 
   return {
     place,
-    conversation,
     placeId,
   }
 })

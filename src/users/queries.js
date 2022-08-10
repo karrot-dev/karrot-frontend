@@ -78,7 +78,7 @@ export function useUserProfileQuery ({ userId }) {
       }
     },
     {
-      enabled: computed(() => Boolean(userId.value)),
+      enabled: computed(() => Boolean(unref(userId))),
     },
   )
   return {

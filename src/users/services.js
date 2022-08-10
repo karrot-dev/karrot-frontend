@@ -1,7 +1,8 @@
 import { computed } from 'vue'
-import { useUserListAllQuery } from '@/users/queries'
+import { useUserListAllQuery, useUserProfileQuery } from '@/users/queries'
 import { indexBy, indexById, defineService } from '@/utils/datastore/helpers'
 import { useAuthService } from '@/authuser/services'
+import { useIntegerRouteParam } from '@/utils/composables'
 
 export const useUserService = defineService(() => {
   // Services
@@ -32,5 +33,18 @@ export const useUserService = defineService(() => {
     usersById,
     usersByUsername,
     getUserById,
+  }
+})
+
+export const useActiveUserService = defineService(() => {
+  const userId = useIntegerRouteParam('userId')
+
+  const {
+    user,
+  } = useUserProfileQuery({ userId })
+
+  return {
+    userId,
+    user,
   }
 })

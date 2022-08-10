@@ -88,6 +88,7 @@ import {
 } from 'quasar'
 
 import { groupMarker, placeMarker, userMarker } from '@/maps/components/markers'
+import { useAuthHelpers } from '@/authuser/helpers'
 
 export default {
   components: {
@@ -122,9 +123,13 @@ export default {
     'toggle-groups',
     'map-move-end',
   ],
+  setup () {
+    const { getIsCurrentUser } = useAuthHelpers()
+    return { getIsCurrentUser }
+  },
   computed: {
     showUserLocationPrompt () {
-      return this.selectedUser && this.selectedUser.isCurrentUser && !hasLocation(this.selectedUser)
+      return this.selectedUser && this.getIsCurrentUser(this.selectedUser) && !hasLocation(this.selectedUser)
     },
     showPlaceLocationPrompt () {
       return this.selectedPlace && !(this.placesWithLocation.findIndex(e => e.id === this.selectedPlace.id) >= 0)

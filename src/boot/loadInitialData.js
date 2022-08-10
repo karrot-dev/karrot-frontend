@@ -8,6 +8,7 @@ import { queryKeyUserListAll } from '@/users/queries'
 import { queryKeyStatus } from '@/status/queries'
 import { queryKeyPlaceListAll } from '@/places/queries'
 import { queryKeyGroupInfoList } from '@/groupInfo/queries'
+import { queryKeyActivityTypeListAll } from '@/activities/queries'
 
 export default async function ({ app, store: datastore }) {
   const queryClient = new QueryClient({
@@ -28,6 +29,7 @@ export default async function ({ app, store: datastore }) {
     places,
     users,
     status,
+    activityTypes,
     geoip,
   } = await bootstrap.fetch()
 
@@ -53,6 +55,9 @@ export default async function ({ app, store: datastore }) {
   }
   if (status) {
     queryClient.setQueryData(queryKeyStatus(), status)
+  }
+  if (activityTypes) {
+    queryClient.setQueryData(queryKeyActivityTypeListAll(), activityTypes)
   }
   if (geoip) {
     datastore.commit('geo/set', geoip)

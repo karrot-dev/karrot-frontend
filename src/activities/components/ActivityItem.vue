@@ -1,6 +1,6 @@
 <template>
   <QCard
-    :class="{ full: activity.isFull }"
+    :class="{ full: isFull }"
   >
     <QCardSection
       class="no-padding content"
@@ -232,6 +232,7 @@ export default {
       getIsUserMember,
       getHasStarted,
       getIsEmpty,
+      getIsFull,
     } = useActivityHelpers()
 
     const {
@@ -242,6 +243,7 @@ export default {
     const hasStarted = computed(() => getHasStarted(activity.value))
     const isUserMember = computed(() => getIsUserMember(activity.value))
     const isEmpty = computed(() => getIsEmpty(activity.value))
+    const isFull = computed(() => getIsFull(activity.value))
 
     const place = computed(() => getPlaceById(activity.value.place))
 
@@ -268,6 +270,7 @@ export default {
       isUserMember,
       hasStarted,
       isEmpty,
+      isFull,
 
       joinActivity,
       isJoining,

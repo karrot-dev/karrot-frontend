@@ -10,7 +10,7 @@ import activitySeriesAPI from './api/activitySeries'
 export const QUERY_KEY_BASE = 'activities'
 export const queryKeyActivityList = params => [QUERY_KEY_BASE, 'list', params].filter(Boolean)
 export const queryKeyActivityItem = activityId => [QUERY_KEY_BASE, 'item', activityId].filter(Boolean)
-export const queryKeyActivityTypeList = () => [QUERY_KEY_BASE, 'types']
+export const queryKeyActivityTypeListAll = () => [QUERY_KEY_BASE, 'types']
 export const queryKeyActivitySeriesList = placeId => [QUERY_KEY_BASE, 'series', 'list', placeId].filter(Boolean)
 export const queryKeyActivityIcsToken = () => [QUERY_KEY_BASE, 'ics-token']
 
@@ -87,7 +87,7 @@ export function useActivityTypeUpdater () {
     ],
     () => {
       // TODO: could do more refined updates... but yeah...
-      queryClient.invalidateQueries(queryKeyActivityTypeList())
+      queryClient.invalidateQueries(queryKeyActivityTypeListAll())
     },
   )
 }
@@ -167,7 +167,7 @@ export function useActivitySeriesListQuery ({ placeId }) {
 
 export function useActivityTypeListQuery () {
   const query = useQuery(
-    queryKeyActivityTypeList(),
+    queryKeyActivityTypeListAll(),
     () => activityTypeAPI.list(),
     {
       staleTime: Infinity,

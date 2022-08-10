@@ -6,7 +6,7 @@ import activitySeriesAPI from './api/activitySeries'
 import activityTypeAPI from './api/activityTypes'
 
 import { withStatus } from '@/utils/queryHelpers'
-import { queryKeyActivityIcsToken, queryKeyActivityTypeList } from '@/activities/queries'
+import { queryKeyActivityIcsToken, queryKeyActivityTypeListAll } from '@/activities/queries'
 
 // TODO: consider doing some immediate update of cached data, even if we also invalidate by websocket, as if we are scrolled far down an infinite list it can take a while to update...
 export function useJoinActivityMutation (mutationOptions = {}) {
@@ -48,7 +48,7 @@ export function useCreateActivityTypeMutation ({ groupId }) {
     {
       onSuccess () {
         // TODO: invalidate query or wait for websocket? both?
-        queryClient.invalidateQueries(queryKeyActivityTypeList())
+        queryClient.invalidateQueries(queryKeyActivityTypeListAll())
       },
     },
   ))
@@ -61,7 +61,7 @@ export function useSaveActivityTypeMutation () {
     {
       onSuccess () {
         // TODO: invalidate query or wait for websocket? both?
-        queryClient.invalidateQueries(queryKeyActivityTypeList())
+        queryClient.invalidateQueries(queryKeyActivityTypeListAll())
       },
     },
   ))

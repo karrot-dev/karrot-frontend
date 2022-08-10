@@ -12,7 +12,7 @@ export const useActivityTypeService = defineService(() => {
 
   // utils
   const { updateActivityTypes } = createActivityTypeStylesheet()
-  watch(activityTypes, updateActivityTypes)
+  watch(activityTypes, updateActivityTypes, { immediate: true })
 
   // methods
   function getActivityTypeById (id) {

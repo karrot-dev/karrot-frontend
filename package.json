@@ -48,6 +48,7 @@
     "@vue/compat": "^3.2.37",
     "@vuelidate/core": "^2.0.0-alpha.42",
     "@vuelidate/validators": "^2.0.0-alpha.30",
+    "@vueuse/core": "^9.1.0",
     "axios": "^0.27.2",
     "clone-deep": "^4.0.1",
     "core-js": "^3.23.4",

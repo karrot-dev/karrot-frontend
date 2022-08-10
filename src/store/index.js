@@ -14,7 +14,6 @@ import issues from '@/issues/datastore'
 import messages from '@/messages/datastore'
 import notifications from '@/notifications/datastore'
 import subscriptions from '@/subscriptions/datastore'
-import topbar from '@/topbar/datastore'
 import unsubscribe from '@/unsubscribe/datastore'
 import users from '@/users/datastore'
 import utils from '@/utils/datastore'
@@ -34,7 +33,6 @@ const appModules = [
   messages,
   notifications,
   subscriptions,
-  topbar,
   unsubscribe,
   users,
   utils,

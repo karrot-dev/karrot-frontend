@@ -65,7 +65,7 @@ export default datastore => {
       datastore.dispatch('routeError/set', routeErrors[0])
     }
 
-    datastore.commit('breadcrumbs/set', findBreadcrumbs(to.matched) || [])
+    // datastore.commit('breadcrumbs/set', findBreadcrumbs(to.matched) || [])
     datastore.commit('routeMeta/setNext', null)
 
     try {

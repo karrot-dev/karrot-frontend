@@ -12,6 +12,7 @@
     :input-debounce="300"
     @filter="selectFilter"
     @update:model-value="select"
+    @keyup.esc="emit('close')"
   >
     <template #prepend>
       <QIcon name="search" />

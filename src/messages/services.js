@@ -82,7 +82,7 @@ function useActivityDetail (activityId) {
   }
 }
 
-function useConversationAndMessages (conversationQueryParams, { order } = {}) {
+export function useConversationAndMessages (conversationQueryParams, { order } = {}) {
   const {
     conversation,
     isLoading: isLoadingConversation,

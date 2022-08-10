@@ -3,16 +3,15 @@
   <pre>conversation: {{ conversation }}</pre>
   <ChatConversation
     v-if="conversation"
-    :conversation="conversationWithReversedMessages"
+    :conversation="conversation"
+    :messages="messages"
     :away="away"
     :current-user="currentUser"
     compose
     :inline="inline"
-    @mark="mark"
-    @toggle-reaction="toggleReaction"
-    @save-message="saveMessage"
-    @fetch-past="fetchPast"
-    @send="send"
+    :has-next-page="hasNextPage"
+    :is-fetching-next-page="isFetchingNextPage"
+    :fetch-next-page="fetchNextPage"
   >
     <template
       v-if="offer"
@@ -77,15 +76,23 @@
 
 <script>
 import { computed } from 'vue'
-import { mapActions, mapGetters, useStore } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
+import {
+  QBtn,
+  QBtnDropdown,
+  QCarousel,
+  QCarouselSlide,
+} from 'quasar'
+
 import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import KSpinner from '@/utils/components/KSpinner'
-import { QBtn, QBtnDropdown, QCarousel, QCarouselSlide } from 'quasar'
+
 import { DEFAULT_STATUS } from '@/offers/queries'
 import { useArchiveOfferMutation } from '@/offers/mutations'
 import { useAuthService } from '@/authuser/services'
 import { useActiveOfferService } from '@/offers/services'
+import { useConversationAndMessages } from '@/messages/services'
 
 export default {
   components: {
@@ -105,14 +112,29 @@ export default {
   },
   setup () {
     const { mutate: archive } = useArchiveOfferMutation()
-    const { offerId, offer, conversation } = useActiveOfferService()
+    const { offerId, offer } = useActiveOfferService()
     const { user: currentUser } = useAuthService()
+    const {
+      conversation,
+      messages,
+      hasNextPage,
+      isFetchingNextPage,
+      fetchNextPage,
+    } = useConversationAndMessages(
+      { offerId },
+      // TODO: should offer messages be this way or oldest-first?
+      { order: 'newest-first' },
+    )
     return {
       currentUser,
       archive,
       offerId,
       offer,
       conversation,
+      messages: computed(() => messages.value.slice().reverse()),
+      hasNextPage,
+      isFetchingNextPage,
+      fetchNextPage,
     }
   },
   data () {

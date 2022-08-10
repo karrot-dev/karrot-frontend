@@ -181,9 +181,7 @@ export default {
   computed: {
     maybeReversedMessages () {
       if (!this.conversation || !this.messages) return
-      // TODO reverse message on server
       return this.order === 'oldest-first' ? this.messages : this.messages.slice().reverse()
-      // return this.conversation.thread ? this.messages : this.messages.slice().reverse()
     },
   },
   methods: {

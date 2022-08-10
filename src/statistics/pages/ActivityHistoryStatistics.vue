@@ -97,6 +97,8 @@ import api from '@/statistics/api/statistics'
 import { mapGetters } from 'vuex'
 import { indexById } from '@/utils/datastore/helpers'
 import { endOfYear, getYear, startOfYear, subYears } from 'date-fns'
+import { useCurrentGroupService } from '@/group/services'
+import { usePlaceService } from '@/places/services'
 
 export default {
   components: {
@@ -107,6 +109,20 @@ export default {
     QItemSection,
     QItemLabel,
     QSeparator,
+  },
+  setup () {
+    const {
+      groupId: currentGroupId,
+      users,
+    } = useCurrentGroupService()
+    const {
+      getPlaceById,
+    } = usePlaceService()
+    return {
+      currentGroupId,
+      users,
+      getPlaceById,
+    }
   },
   data () {
     return {
@@ -131,11 +147,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      currentGroupId: 'currentGroup/id',
-      users: 'users/byCurrentGroup',
-      getPlace: 'places/get',
-    }),
     hasUserFilter () {
       return this.userFilter && this.userFilter.value !== null
     },
@@ -320,7 +331,7 @@ export default {
       return this.data.map(entry => {
         return {
           ...entry,
-          place: this.getPlace(entry.place) || {},
+          place: this.getPlaceById(entry.place) || {},
         }
       })
     },

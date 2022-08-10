@@ -8,7 +8,7 @@
     >
       <QItemSection avatar>
         <HistoryProfilePictures
-          :users="entry.users"
+          :users="users"
         />
       </QItemSection>
       <QItemSection>
@@ -17,7 +17,7 @@
             v-measure
             class="content"
           >
-            {{ entry.description }}
+            {{ description }}
           </span>
         </QItemLabel>
         <QItemLabel
@@ -51,14 +51,18 @@
 </template>
 
 <script>
-import HistoryProfilePictures from '@/history/components/HistoryProfilePictures'
-import DateAsWords from '@/utils/components/DateAsWords'
-import HistoryDetail from '@/history/components/HistoryDetail'
+import { computed, toRefs } from 'vue'
 import {
   QItem,
   QItemSection,
   QItemLabel,
 } from 'quasar'
+
+import HistoryProfilePictures from '@/history/components/HistoryProfilePictures'
+import DateAsWords from '@/utils/components/DateAsWords'
+import HistoryDetail from '@/history/components/HistoryDetail'
+import { useUserService } from '@/users/services'
+import { useHistoryHelpers } from '@/history/helpers'
 
 export default {
   components: {
@@ -74,6 +78,22 @@ export default {
       required: true,
       type: Object,
     },
+  },
+  setup (props) {
+    const { entry } = toRefs(props)
+    const { getUserById } = useUserService()
+
+    const {
+      getHistoryDescription,
+    } = useHistoryHelpers()
+
+    const users = computed(() => entry.value?.users.map(getUserById) ?? [])
+    const description = computed(() => getHistoryDescription(entry.value))
+
+    return {
+      users,
+      description,
+    }
   },
   data () {
     return {

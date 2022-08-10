@@ -1,13 +1,10 @@
 <template>
-  <QBtnGroup
-    v-if="groupId"
-    class="k-groupmapcontrols"
-  >
+  <QBtnGroup class="k-groupmapcontrols">
     <QBtn
       v-if="options.showFullScreenButton"
       :size="options.buttonSize"
       color="primary"
-      :to="{ name: 'map', params: { groupId } }"
+      :to="{ name: 'map' }"
     >
       <i class="fas fa-expand-arrows-alt fa-stack-1x" />
       <QTooltip>
@@ -19,7 +16,7 @@
       v-if="options.showBack && !$q.platform.is.mobile"
       :size="options.buttonSize"
       color="primary"
-      :to="{ name: 'group', params: { groupId } }"
+      :to="{ name: 'group' }"
     >
       <i class="fas fa-fw fa-chevron-left" />
       <QTooltip>
@@ -115,6 +112,7 @@ import {
   QBtnGroup,
   QTooltip,
 } from 'quasar'
+import { useCurrentGroupService } from '@/group/services'
 
 export default {
   components: {
@@ -144,10 +142,6 @@ export default {
           'full',
         ].includes(value)
       },
-    },
-    groupId: {
-      default: null,
-      type: Number,
     },
   },
   emits: [

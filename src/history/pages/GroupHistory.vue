@@ -21,7 +21,6 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
 import { QCard } from 'quasar'
 
 import HistoryList from '@/history/components/HistoryList'
@@ -29,20 +28,16 @@ import RandomArt from '@/utils/components/RandomArt'
 
 import { useCurrentGroupService } from '@/group/services'
 import { useHistoryListQuery } from '@/history/queries'
-import { useHistoryEnricher } from '@/history/enrichers'
 
-const enrichHistory = useHistoryEnricher()
 const { groupId } = useCurrentGroupService()
 const {
-  history: historyRaw,
+  history,
   isLoading,
   hasNextPage,
   fetchNextPage,
 } = useHistoryListQuery({
   groupId,
 })
-
-const history = computed(() => historyRaw.value.map(enrichHistory))
 </script>
 
 <style scoped lang="sass">

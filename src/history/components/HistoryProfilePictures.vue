@@ -1,6 +1,6 @@
 <template>
   <ProfilePicture
-    v-if="users.length == 1"
+    v-if="users.length === 1"
     :user="users[0]"
     :size="25"
   />

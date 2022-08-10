@@ -14,6 +14,7 @@
 import StandardMap from '@/maps/components/StandardMap'
 import { groupMarker } from '@/maps/components/markers'
 import { latLngBounds } from 'leaflet/dist/leaflet-src.esm'
+import { useGroupHelpers } from '@/group/helpers'
 
 export default {
   components: { StandardMap },

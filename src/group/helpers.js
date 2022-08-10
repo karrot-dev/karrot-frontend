@@ -1,5 +1,19 @@
+import { unref } from 'vue'
+
 import { useAuthService } from '@/authuser/services'
 import { useCurrentGroupService } from '@/group/services'
+
+export function useGroupHelpers () {
+  const { groupId: currentGroupId } = useCurrentGroupService()
+
+  function getIsCurrentGroup (group) {
+    return currentGroupId.value === unref(group).id
+  }
+
+  return {
+    getIsCurrentGroup,
+  }
+}
 
 export function useMembershipHelpers () {
   const {

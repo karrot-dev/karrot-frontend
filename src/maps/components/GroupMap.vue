@@ -38,7 +38,6 @@
       :show-users="showUsers"
       :show-places="showPlaces"
       :show-groups="showGroups"
-      :group-id="currentGroupId"
       @toggle-users="$emit('toggle-users')"
       @toggle-places="$emit('toggle-places')"
       @toggle-groups="$emit('toggle-groups')"
@@ -132,7 +131,7 @@ export default {
     },
     showGroupLocationPrompt () {
       if (!this.currentGroup) return
-      return this.markers.length === 0 && !this.currentGroup.hasLocation
+      return this.markers.length === 0 && !hasLocation(this.currentGroup)
     },
     showOverlay () {
       if (this.selectedUser && hasLocation(this.selectedUser)) return false
@@ -159,7 +158,7 @@ export default {
       return this.users.filter(hasLocation)
     },
     activeGroupsWithLocation () {
-      return (this.groups && this.groups.filter(hasLocation).filter(g => !g.isInactive)) || []
+      return (this.groups && this.groups.filter(hasLocation).filter(group => group.status !== 'inactive')) || []
     },
     selectedMarkers () {
       if (this.selectedUser) {
@@ -200,7 +199,7 @@ export default {
       return items
     },
     currentGroupId () {
-      return this.currentGroup && this.currentGroup.id
+      return this.currentGroup?.id
     },
   },
   methods: {

@@ -46,11 +46,14 @@
           <QIcon name="fas fa-fw fa-user" />
         </QItemSection>
         <QItemSection>
-          <ProfilePicture
-            v-for="user in entry.users"
-            :key="user.id"
-            :user="user"
-          />
+          <div class="col">
+            <ProfilePicture
+              v-for="user in users"
+              :key="user.id"
+              :user="user"
+              :size="25"
+            />
+          </div>
         </QItemSection>
       </QItem>
 
@@ -66,30 +69,30 @@
       </QItem>
 
       <QItem
-        v-if="entry.group && entry.group.name"
+        v-if="group"
       >
         <QItemSection side>
           <QIcon name="fas fa-fw fa-home" />
         </QItemSection>
         <QItemSection>
           <QItemLabel>
-            <RouterLink :to="{name: 'group', params: { groupId: entry.group.id }}">
-              {{ entry.group.name }}
+            <RouterLink :to="{name: 'group', params: { groupId: group.id }}">
+              {{ group.name }}
             </RouterLink>
           </QItemLabel>
         </QItemSection>
       </QItem>
 
       <QItem
-        v-if="entry.place && entry.place.name"
+        v-if="place && place.name"
       >
         <QItemSection side>
           <QIcon :name="$icon('place_fw')" />
         </QItemSection>
         <QItemSection>
           <QItemLabel>
-            <RouterLink :to="{name: 'place', params: { groupId: entry.place.group.id, placeId: entry.place.id }}">
-              {{ entry.place.name }}
+            <RouterLink :to="{name: 'place', params: { groupId: place.group, placeId: place.id }}">
+              {{ place.name }}
             </RouterLink>
           </QItemLabel>
         </QItemSection>
@@ -160,6 +163,7 @@
 </template>
 
 <script>
+import { toRefs, computed } from 'vue'
 import {
   QBtn,
   QCard,
@@ -169,6 +173,7 @@ import {
   QItemLabel,
   QIcon,
 } from 'quasar'
+
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
 import HistoryPayloadDetail from '@/history/components/HistoryPayloadDetail'
@@ -176,6 +181,9 @@ import dateFnsHelper from '@/utils/dateFnsHelper'
 import { convert as convertActivity } from '@/activities/api/activities'
 import { useActivityTypeService } from '@/activities/services'
 import { useActivityTypeHelpers } from '@/activities/helpers'
+import { usePlaceService } from '@/places/services'
+import { useGroupInfoService } from '@/groupInfo/services'
+import { useUserService } from '@/users/services'
 
 export default {
   components: {
@@ -196,13 +204,28 @@ export default {
       default: null,
     },
   },
-  setup () {
+  setup (props) {
+    const { entry } = toRefs(props)
+
     const { getActivityTypeById } = useActivityTypeService()
+    const { getGroupById } = useGroupInfoService()
+    const { getPlaceById } = usePlaceService()
+    const { getUserById } = useUserService()
+
     const {
       getIconProps,
       getTranslatedName,
     } = useActivityTypeHelpers()
+
+    const group = computed(() => getGroupById(entry.value.group))
+    const place = computed(() => getPlaceById(entry.value.place))
+    const users = computed(() => entry.value?.users.map(getUserById) ?? [])
+
     return {
+      group,
+      place,
+      users,
+
       getActivityTypeById,
       getIconProps,
       getTranslatedName,

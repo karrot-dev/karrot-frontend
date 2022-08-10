@@ -22,25 +22,19 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-
 import GroupMap from '@/maps/components/GroupMap'
 
 import { mapGetters, mapActions } from 'vuex'
 
 import { throttle } from 'quasar'
 import { useCurrentGroupService } from '@/group/services'
-import { usePlaceEnricher } from '@/places/enrichers'
 import { useGroupInfoService } from '@/groupInfo/services'
-import { useCurrentGroupEnricher } from '@/group/enrichers'
 
 export default {
   components: { GroupMap },
   setup () {
-    const enrichPlace = usePlaceEnricher()
-    const enrichGroup = useCurrentGroupEnricher()
     const {
-      group,
+      group: currentGroup,
       users,
       places,
     } = useCurrentGroupService()
@@ -48,14 +42,10 @@ export default {
       groups,
     } = useGroupInfoService()
     return {
-      // TODO: do these need enriching?
       groups,
-      currentGroup: computed(() => enrichGroup(group.value)),
-      // TODO: given the map potentially shows a lot of stuff, perhaps a more minimal enrichment just for map?
-      // TODO: might need enriched users here?
+      currentGroup,
       users,
-      // TODO: maybe only if enabled?
-      places: computed(() => places.value.map(enrichPlace)),
+      places,
     }
   },
   computed: {

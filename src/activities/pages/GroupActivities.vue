@@ -171,7 +171,6 @@ import PlaceList from '@/places/components/PlaceList'
 import { useActivityListQuery } from '@/activities/queries'
 import { useActivityTypeService } from '@/activities/services'
 import { useCurrentGroupService } from '@/group/services'
-import { usePlaceEnricher } from '@/places/enrichers'
 import { usePlaceService } from '@/places/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 import ICSBtn from '@/activities/components/ICSBtn'
@@ -205,7 +204,6 @@ export default {
       getIconProps,
       getTranslatedName,
     } = useActivityTypeHelpers()
-    const enrichPlace = usePlaceEnricher()
 
     const defaultQueryParams = {
       type: null,
@@ -260,10 +258,9 @@ export default {
       return a.isSubscribed ? -1 : 1
     }
 
-    // const activities = computed(() => activitiesRaw.value.filter(isStartedOrUpcoming).map(enrichActivity))
     const activities = computed(() => activitiesRaw.value.filter(getIsStartedOrUpcoming))
     const activityTypes = computed(() => getActivityTypesByGroup(groupId, { status: 'active' }))
-    const places = computed(() => getPlacesByGroup(groupId, { status: 'active' }).sort(sortByFavouritesThenName).map(enrichPlace))
+    const places = computed(() => getPlacesByGroup(groupId, { status: 'active' }).sort(sortByFavouritesThenName))
 
     return {
       getIconProps,

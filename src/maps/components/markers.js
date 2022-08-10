@@ -3,6 +3,8 @@ import UserMarker from './UserMarker'
 import PlaceMarker from './PlaceMarker'
 import icons from '@/base/icons'
 import { markRaw } from 'vue'
+// eslint-disable-next-line no-unused-vars
+import { optionsFor } from '@/places/placeStatus'
 
 export function groupMarker (group) {
   return {
@@ -43,7 +45,7 @@ export function placeMarker (place) {
     latLng: { lat: place.latitude, lng: place.longitude },
     id: 'place_' + place.id,
     fontIcon: icons.get('place'),
-    color: place.ui.color,
+    color: optionsFor(place).color,
     popup: {
       component: markRaw(PlaceMarker),
       props: { place },

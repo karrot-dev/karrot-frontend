@@ -60,7 +60,7 @@
           class="user-actions"
         >
           <QBtn
-            v-if="user.isCurrentUser"
+            v-if="isCurrentUser"
             icon="fas fa-pencil-alt"
             small
             round
@@ -68,7 +68,7 @@
             :to="{ name: 'settings' }"
           />
           <QBtn
-            v-if="!user.isCurrentUser"
+            v-if="!isCurrentUser"
             small
             round
             color="secondary"
@@ -221,8 +221,6 @@ const ConflictSetup = defineAsyncComponent(() => import('@/issues/components/Con
 
 import { useCurrentGroupService } from '@/group/services'
 import { useHistoryListQuery } from '@/history/queries'
-import { useHistoryEnricher } from '@/history/enrichers'
-import { useUserEnricher } from '@/users/enrichers'
 
 import {
   QCard,
@@ -237,9 +235,9 @@ import {
 } from 'quasar'
 import { useIntegerRouteParam } from '@/utils/composables'
 import { useUserProfileQuery } from '@/users/queries'
-import { useGroupEnricher } from '@/group/enrichers'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { useDetailService } from '@/messages/services'
+import { useAuthHelpers } from '@/authuser/helpers'
 
 export default {
   components: {
@@ -262,9 +260,6 @@ export default {
     QIcon,
   },
   setup () {
-    const enrichHistory = useHistoryEnricher()
-    const enrichUser = useUserEnricher()
-    const enrichGroup = useGroupEnricher()
     const {
       groupId,
       group,
@@ -275,6 +270,7 @@ export default {
     const { getGroupById } = useGroupInfoService()
 
     const { openUserChat } = useDetailService()
+    const { getIsCurrentUser } = useAuthHelpers()
 
     const userId = useIntegerRouteParam('userId')
 
@@ -282,16 +278,16 @@ export default {
       user,
     } = useUserProfileQuery({ userId })
 
+    const isCurrentUser = computed(() => getIsCurrentUser(user.value))
     const currentGroupMembership = computed(() => getMembership(userId.value))
 
     const groups = computed(() => user.value?.groups
       .map(getGroupById)
       .filter(Boolean)
-      .map(enrichGroup)
       .sort((a, b) => a.name.localeCompare(b.name)))
 
     const {
-      history: historyRaw,
+      history,
       isLoading: isLoadingHistory,
       hasNextPage: historyHasNextPage,
       fetchNextPage: historyFetchNextPage,
@@ -300,12 +296,11 @@ export default {
       userId,
     })
 
-    const history = computed(() => historyRaw.value.map(enrichHistory))
-
     return {
+      isCurrentUser,
       selectGroup,
       currentGroup: group,
-      user: computed(() => enrichUser(user.value)),
+      user,
       groups,
       history,
       isLoadingHistory,
@@ -340,7 +335,7 @@ export default {
     },
     conflictResolutionPossible () {
       // is it possible at all to start a conflict resolution process?
-      return this.currentGroupMembership && !this.user.isCurrentUser
+      return this.currentGroupMembership && !this.isCurrentUser
     },
     canStartConflictResolution () {
       return this.conflictResolutionPossible && this.solvableConflictSetupRequirements.length === 0

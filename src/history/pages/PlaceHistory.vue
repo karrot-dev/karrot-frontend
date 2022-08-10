@@ -17,27 +17,22 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
 import { QCard } from 'quasar'
 import HistoryList from '@/history/components/HistoryList'
 
 import { useActivePlaceService } from '@/places/services'
 import { useHistoryListQuery } from '@/history/queries'
-import { useHistoryEnricher } from '@/history/enrichers'
 
-const enrichHistory = useHistoryEnricher()
 const { placeId } = useActivePlaceService()
 
 const {
-  history: historyRaw,
+  history,
   isLoading,
   hasNextPage,
   fetchNextPage,
 } = useHistoryListQuery({
   placeId,
 })
-
-const history = computed(() => historyRaw.value.map(enrichHistory))
 </script>
 
 <style scoped lang="sass">

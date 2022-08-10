@@ -1,18 +1,17 @@
-import i18n from '@/base/i18n'
-import { useUserService } from '@/users/services'
-import { useGroupInfoService } from '@/groupInfo/services'
 import { usePlaceService } from '@/places/services'
 import { useActivityTypeService } from '@/activities/services'
 import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useI18n } from 'vue-i18n'
 
-export function useHistoryEnricher () {
+export function useHistoryHelpers () {
+  const { t } = useI18n()
+
   const { getPlaceById } = usePlaceService()
-  const { getGroupById } = useGroupInfoService()
-  const { getUserById } = useUserService()
   const { getActivityTypeById } = useActivityTypeService()
+
   const { getTranslatedName } = useActivityTypeHelpers()
 
-  function enrichHistory (history) {
+  function getHistoryDescription (history) {
     const place = getPlaceById(history.place)
 
     const msgValues = {}
@@ -35,13 +34,13 @@ export function useHistoryEnricher () {
     ].includes(history.typus) && history.after) {
       const { name, nameIsTranslatable } = history.after
       Object.assign(msgValues, {
-        activityType: nameIsTranslatable ? i18n.t(`ACTIVITY_TYPE_NAMES.${name}`) : name,
+        activityType: nameIsTranslatable ? t(`ACTIVITY_TYPE_NAMES.${name}`) : name,
       })
     }
     else {
       // Generic name incase the payload doesn't not provide activityType
       Object.assign(msgValues, {
-        activityType: i18n.t('GROUP.ACTIVITY'),
+        activityType: t('GROUP.ACTIVITY'),
       })
     }
     if (history.typus === 'APPLICATION_DECLINED') {
@@ -50,16 +49,10 @@ export function useHistoryEnricher () {
       })
     }
 
-    return {
-      ...history,
-      _enrichSource: history,
-
-      users: history.users ? history.users.map(getUserById) : [],
-      group: getGroupById(history.group),
-      place,
-
-      description: i18n.t(`HISTORY.${history.typus}`, msgValues),
-    }
+    return t(`HISTORY.${history.typus}`, msgValues)
   }
-  return enrichHistory
+
+  return {
+    getHistoryDescription,
+  }
 }

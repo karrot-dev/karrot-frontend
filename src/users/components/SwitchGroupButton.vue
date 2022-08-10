@@ -1,6 +1,6 @@
 <template>
   <QBtn
-    v-if="groups.length > 1 || (isLoaded && !currentGroup)"
+    v-if="groups.length > 1 || (groups.length > 0 && !currentGroup)"
     color="primary"
     @click="showModal = true"
   >
@@ -19,7 +19,7 @@
           header
           class="text-weight-medium"
         >
-          {{ user.isCurrentUser ? $t('JOINGROUP.MY_GROUPS') : $t('SWITCHGROUP.COMMON_GROUPS') }}
+          {{ getIsCurrentUser(user) ? $t('JOINGROUP.MY_GROUPS') : $t('SWITCHGROUP.COMMON_GROUPS') }}
         </QItemLabel>
         <QItem
           v-for="group in commonGroups"
@@ -32,7 +32,7 @@
             {{ group.name }}
           </QItemSection>
           <QItemSection
-            v-if="group.isCurrentGroup"
+            v-if="getIsCurrentGroup(group)"
             side
           >
             <QIcon
@@ -63,7 +63,8 @@
   </QBtn>
 </template>
 
-<script>
+<script setup>
+import { toRefs, computed, ref } from 'vue'
 import {
   QBtn,
   QList,
@@ -73,48 +74,33 @@ import {
   QDialog,
   QIcon,
 } from 'quasar'
+import { useGroupHelpers } from '@/group/helpers'
+import { useAuthHelpers } from '@/authuser/helpers'
 
-export default {
-  components: {
-    QBtn,
-    QList,
-    QItemLabel,
-    QItem,
-    QItemSection,
-    QDialog,
-    QIcon,
+const props = defineProps({
+  groups: {
+    default: () => [],
+    type: Array,
   },
-  props: {
-    groups: {
-      default: () => [],
-      type: Array,
-    },
-    user: {
-      default: null,
-      type: Object,
-    },
+  user: {
+    default: null,
+    type: Object,
   },
-  emits: [
-    'select-group',
-  ],
-  data () {
-    return {
-      showModal: false,
-    }
-  },
-  computed: {
-    isLoaded () {
-      return this.groups.length > 0
-    },
-    currentGroup () {
-      return this.groups.find(g => g.isCurrentGroup)
-    },
-    commonGroups () {
-      return this.groups.filter(g => g.isMember)
-    },
-    otherGroups () {
-      return this.groups.filter(g => !g.isMember)
-    },
-  },
-}
+})
+
+defineEmits([
+  'select-group',
+])
+
+const { groups } = toRefs(props)
+
+const showModal = ref(false)
+
+const { getIsCurrentGroup } = useGroupHelpers()
+const { getIsCurrentUser } = useAuthHelpers()
+
+const currentGroup = computed(() => groups.value.find(group => getIsCurrentGroup(group)))
+const commonGroups = computed(() => groups.value.filter(group => group.isMember))
+const otherGroups = computed(() => groups.value.filter(group => !group.isMember))
+
 </script>

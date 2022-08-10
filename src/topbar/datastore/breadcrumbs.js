@@ -12,25 +12,7 @@ export default {
   getters: {
     all: (state, getters, rootState, rootGetters) => {
       return state.breadcrumbs.map(item => {
-        if (item.type === 'currentGroup') {
-          const group = rootGetters['currentGroup/value']
-          if (group && group.id) {
-            return {
-              name: group.name,
-              route: { name: 'group', params: { groupId: group.id } },
-            }
-          }
-        }
-        else if (item.type === 'activeUser') {
-          const user = rootGetters['users/activeUser']
-          if (user) {
-            return {
-              name: user.displayName,
-              route: { name: 'user', params: { userId: user.id } },
-            }
-          }
-        }
-        else if (item.type === 'activeGroupPreview') {
+        if (item.type === 'activeGroupPreview') {
           const group = rootGetters['groups/activePreview']
           if (group && group.id) {
             return {
@@ -47,11 +29,13 @@ export default {
             }
           }
         }
+        // These are now handled in the breadcrumbs component as we need to use setup() function
         else if (
+          item.type === 'currentGroup' ||
           item.type === 'activeOffer' ||
-          item.type === 'activePlace'
+          item.type === 'activePlace' ||
+          item.type === 'activeUser'
         ) {
-          // These are now handled in the breadcrumbs component as we need to use setup() function
           return item
         }
         else if (item.translation) {

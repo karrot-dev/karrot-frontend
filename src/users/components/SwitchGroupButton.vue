@@ -26,7 +26,7 @@
           :key="group.id"
           v-close-popup
           clickable
-          @click="$emit('select-group', { groupId: group.id })"
+          @click="selectGroup(group.id)"
         >
           <QItemSection>
             {{ group.name }}
@@ -76,6 +76,7 @@ import {
 } from 'quasar'
 import { useGroupHelpers } from '@/group/helpers'
 import { useAuthHelpers } from '@/authuser/helpers'
+import { useCurrentGroupService } from '@/group/services'
 
 const props = defineProps({
   groups: {
@@ -88,16 +89,13 @@ const props = defineProps({
   },
 })
 
-defineEmits([
-  'select-group',
-])
-
 const { groups } = toRefs(props)
 
 const showModal = ref(false)
 
 const { getIsCurrentGroup } = useGroupHelpers()
 const { getIsCurrentUser } = useAuthHelpers()
+const { selectGroup } = useCurrentGroupService()
 
 const currentGroup = computed(() => groups.value.find(group => getIsCurrentGroup(group)))
 const commonGroups = computed(() => groups.value.filter(group => group.isMember))

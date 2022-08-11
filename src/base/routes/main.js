@@ -136,7 +136,6 @@ export default [
       breadcrumbs: [
         { type: 'currentGroup' },
       ],
-      beforeEnter: 'currentGroup/select',
     },
     components: {
       default: RouterView,
@@ -555,7 +554,6 @@ export default [
       breadcrumbs: [
         { translation: 'SETTINGS.TITLE', route: { name: 'settings' } },
       ],
-      beforeEnter: ['currentGroup/selectFromCurrentUser'],
       afterLeave: ['auth/clearSettingsStatus', 'unsubscribe/clear'],
     },
     components: {
@@ -617,7 +615,6 @@ export default [
       breadcrumbs: [
         { translation: 'GROUP.MESSAGES', route: { name: 'messages' } },
       ],
-      beforeEnter: 'currentGroup/selectFromCurrentUser',
     },
     components: {
       default: Messages,
@@ -644,7 +641,6 @@ export default [
       breadcrumbs: [
         { translation: 'NOTIFICATION_BELLS_LIST.TITLE', route: { name: 'notifications' } },
       ],
-      beforeEnter: 'currentGroup/selectFromCurrentUser',
     },
     components: {
       default: Notifications,

@@ -27,7 +27,6 @@
         <SwitchGroupButton
           :user="user"
           :groups="groups"
-          @select-group="selectGroup"
         />
       </div>
       <div class="photoAndName row no-wrap ellipsis">
@@ -266,7 +265,6 @@ export default {
       group,
       getMembership,
       isEditor,
-      selectGroup,
     } = useCurrentGroupService()
     const { getGroupById } = useGroupInfoService()
 
@@ -298,7 +296,6 @@ export default {
 
     return {
       isCurrentUser,
-      selectGroup,
       currentGroup: group,
       user,
       groups,

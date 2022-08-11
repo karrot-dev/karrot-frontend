@@ -3,14 +3,14 @@ import { useQuery } from 'vue-query'
 import api from './api/groups'
 
 export const QUERY_KEY_BASE = 'groups'
-export const queryKeyGroupDetail = id => [QUERY_KEY_BASE, 'detail', id].filter(Boolean)
+export const queryKeyGroupDetail = groupId => [QUERY_KEY_BASE, 'detail', groupId].filter(Boolean)
 
-export function useGroupDetailQuery ({ id }) {
+export function useGroupDetailQuery ({ groupId }) {
   const query = useQuery(
-    queryKeyGroupDetail(id),
-    () => api.get(unref(id)),
+    queryKeyGroupDetail(groupId),
+    () => api.get(unref(groupId)),
     {
-      enabled: computed(() => !!unref(id)),
+      enabled: computed(() => Boolean(unref(groupId))),
       // staleTime: Infinity, // TODO: implement updating before using this
     },
   )

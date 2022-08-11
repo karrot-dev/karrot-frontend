@@ -97,14 +97,6 @@ export function useSaveUserMutation () {
     {
       onSuccess (user) {
         setUser(user)
-        // TODO: option for backgroundSave? or useBackgroundSaveMutation ...
-        showToast({
-          message: 'NOTIFICATIONS.CHANGES_SAVED',
-          config: {
-            timeout: 2000,
-            icon: 'thumb_up',
-          },
-        })
       },
     },
   ))

@@ -122,11 +122,12 @@ import {
 import { useAuthService } from '@/authuser/services'
 import { usePushService } from '@/subscriptions/services'
 import { getPwaInstallPrompt, useGeoService } from '@/base/services'
+import { showToast } from '@/utils/toasts'
 
 const { user } = useAuthService()
 
 const {
-  mutate: saveUser,
+  mutateAsync: saveUserMutation,
   status: profileEditStatus,
 } = useSaveUserMutation()
 
@@ -155,6 +156,17 @@ const {
 const {
   defaultMapCenter,
 } = useGeoService()
+
+async function saveUser (data) {
+  await saveUserMutation(data)
+  showToast({
+    message: 'NOTIFICATIONS.CHANGES_SAVED',
+    config: {
+      timeout: 2000,
+      icon: 'thumb_up',
+    },
+  })
+}
 
 // TODO: not sure if this works regarding reactivity...
 const pwaPrompt = getPwaInstallPrompt()

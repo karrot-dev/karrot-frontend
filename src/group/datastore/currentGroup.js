@@ -163,21 +163,13 @@ export default {
           throw createRouteRedirect({ name: 'groupPreview', params: { groupPreviewId: groupId } })
         }
 
-        dispatch('auth/maybeBackgroundSave', { currentGroup: groupId }, { root: true })
+        // dispatch('auth/maybeBackgroundSave', { currentGroup: groupId }, { root: true })
       },
     }, {
       findId: ({ groupId }) => groupId,
       setCurrentId: ({ commit }, { groupId }) => commit('setId', groupId),
       getCurrentId: ({ state }) => state.id,
     }),
-
-    selectFromCurrentUser ({ dispatch, getters, rootGetters }) {
-      const selected = getters.id
-      const groupId = rootGetters['auth/user'].currentGroup
-      if (!selected && groupId) {
-        dispatch('select', { groupId })
-      }
-    },
 
     maybeUpdate ({ getters, commit }, group) {
       if (!getters.id) return

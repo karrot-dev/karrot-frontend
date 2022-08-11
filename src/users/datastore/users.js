@@ -247,21 +247,10 @@ export const plugin = datastore => {
   }), ({ groupId, profileUser }) => {
     if (profileUser && groupId && lastLoadedGroupId !== groupId) {
       lastLoadedGroupId = groupId
-      datastore.dispatch('currentGroup/selectFromCurrentUser')
-      datastore.dispatch('history/fetch', { userId: profileUser.id, groupId })
       datastore.dispatch('issues/fetchOngoingByGroupId', { groupId })
     }
     if (!profileUser) {
       lastLoadedGroupId = null
-    }
-  })
-
-  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
-    if (isLoggedIn) {
-      // datastore.dispatch('users/fetch')
-    }
-    else {
-      datastore.commit('users/clear')
     }
   })
 }

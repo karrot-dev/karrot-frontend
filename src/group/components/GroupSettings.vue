@@ -19,7 +19,6 @@
           class="q-ml-md"
           :user="{ isCurrentUser: true }"
           :groups="groups"
-          @select-group="(...args) => $emit('select-group', ...args)"
         />
       </div>
     </template>
@@ -129,7 +128,6 @@ export default {
     },
   },
   emits: [
-    'select-group',
     'unsubscribe-all-emails',
     'clear-unsubscribe-all-status',
     'change-notification-type',

@@ -65,6 +65,7 @@ export function useUserListAllQuery (queryOptions = {}) {
 
 export function useUserProfileQuery ({ userId }) {
   const query = useQuery(
+    // TODO: update this with websockets too...
     queryKeyUserProfile(userId),
     () => {
       try {

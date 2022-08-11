@@ -1,6 +1,4 @@
 <template>
-  <pre>offerId: {{ offerId }}</pre>
-  <pre>conversation: {{ conversation }}</pre>
   <ChatConversation
     v-if="conversation"
     :conversation="conversation"

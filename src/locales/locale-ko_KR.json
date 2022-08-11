@@ -74,7 +74,7 @@
     "ACTIVITY_STARTED": "이미 시작되었습니다.",
     "AVAILABLE": "당신이 선호하는 장소에 하나의 활동이 당신을 기다리고 있습니다! | 당신이 선호하는 장소에 {count}개의 활동이 당신을 기다리고 있습니다!",
     "AVAILABLE_FEEDBACK": "피드백을 줄 수 있습니다 | {count}개의 활동이 피드백을 기다리고 있습니다",
-    "AVAILABLE_FROM_STORES": "다음날 당신이 좋아하는 장소의 활동을 보여줍니다. 사이드바에서 다른 장소에 접근할 수 있습니다.",
+    "AVAILABLE_FROM_STORES": "당신이 좋아하는 장소의 다음날 활동을 보여줍니다. 사이드바에서 다른 장소에 접근할 수 있습니다.",
     "FILTER": {
       "ALL": "모두",
       "ALL_TYPES": "모든 종류",
@@ -104,8 +104,8 @@
       "SUBSCRIBE_TITLE": "구독",
       "SUBSCRIBE_TEXT": "다음 URL을 사용하여 ICS 캘린더로 구독하세요:",
       "MORE_INFOS": "ICS에 대한 더 많은 정보",
-      "TOKEN_NOTICE": "Anyone who has the secret link can access. No sign-in required.",
-      "RESET_TOKEN": "Reset secret link"
+      "TOKEN_NOTICE": "시크릿 링크를 가진 사람이라면 누구나 가입없이 접근할 수 있습니다.",
+      "RESET_TOKEN": "시크릿 링크 초기화"
     }
   },
   "ACTIVITYMANAGE": {

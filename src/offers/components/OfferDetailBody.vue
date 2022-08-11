@@ -74,7 +74,7 @@
 
 <script>
 import { computed } from 'vue'
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 import {
   QBtn,
   QBtnDropdown,
@@ -171,17 +171,6 @@ export default {
     offer () {
       this.selectedImageIndex = 0
     },
-  },
-  methods: {
-    ...mapActions({
-      send: 'conversations/send',
-      saveMessage: 'conversations/saveMessage',
-      mark: 'conversations/maybeMark',
-      setMuted: 'conversations/maybeSetMuted',
-      toggleReaction: 'conversations/toggleReaction',
-      fetchPast: 'conversations/fetchPast',
-      saveConversation: 'conversations/maybeSave',
-    }),
   },
 }
 </script>

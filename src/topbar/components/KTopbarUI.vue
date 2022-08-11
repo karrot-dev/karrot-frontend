@@ -34,7 +34,7 @@
               class="groups"
             >
               <QAvatar
-                v-if="group.hasPhoto"
+                v-if="group.photoUrls?.fullSize"
                 square
               >
                 <img :src="group.photoUrls.thumbnail">

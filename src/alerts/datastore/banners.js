@@ -36,7 +36,7 @@ export default {
         })
       }
 
-      if (isGroupPage && currentGroup && currentGroup.isPlayground) {
+      if (isGroupPage && currentGroup && currentGroup.status === 'playground') {
         banners.push({
           type: 'playgroundGroupInfo',
           desktopOnly: true,

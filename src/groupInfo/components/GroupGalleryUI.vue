@@ -213,12 +213,12 @@ export default {
     filteredOtherGroups () {
       let filteredGroups = this.searchInName(this.search, this.otherGroups)
       if (!this.showInactive) {
-        filteredGroups = filteredGroups.filter(g => !g.isInactive)
+        filteredGroups = filteredGroups.filter(g => g.status !== 'inactive')
       }
       return filteredGroups
     },
     filteredOtherInactiveGroups () {
-      return this.searchInName(this.search, this.otherGroups).filter(g => g.isInactive)
+      return this.searchInName(this.search, this.otherGroups).filter(g => g.status === 'inactive')
     },
     hasMyGroupsToShow () {
       return this.expanded && this.filteredMyGroups.length > 0

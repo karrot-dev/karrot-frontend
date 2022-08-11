@@ -212,9 +212,9 @@ import router from '@/router'
 // Prefer active non-playground groups with a photo
 function groupSortScore (group) {
   let score = 0
-  if (!group.isInactive) score += 1
-  if (group.hasPhoto) score += 1
-  if (!group.isPlayground) score += 1
+  if (group.status !== 'inactive') score += 1
+  if (group.photoUrls?.fullSize) score += 1
+  if (group.status !== 'playground') score += 1
   return score
 }
 

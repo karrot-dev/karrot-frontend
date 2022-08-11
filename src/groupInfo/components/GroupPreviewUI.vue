@@ -25,7 +25,7 @@
             >
               {{ group.name }}
               <QIcon
-                v-if="group.isPlayground"
+                v-if="group.status === 'playground'"
                 name="fas fa-child"
               />
             </span>
@@ -120,8 +120,7 @@
                 v-if="!group.isOpen && user && !user.mailVerified"
                 color="secondary"
                 class="float-right q-ma-xs"
-                :loading="isPending"
-                @click="$emit('go-settings')"
+                :to="{ name: 'settings', hash: '#change-email' }"
               >
                 {{ $t('JOINGROUP.VERIFY_EMAIL_ADDRESS') }}
               </QBtn>
@@ -129,8 +128,7 @@
                 v-if="!group.isOpen && user && user.mailVerified && !application"
                 color="secondary"
                 class="float-right q-ma-xs"
-                :loading="isPending"
-                @click="$emit('go-apply', group.id)"
+                :to="{ name: 'applicationForm', params: { groupPreviewId: group.id } }"
               >
                 {{ $t('BUTTON.APPLY') }}
               </QBtn>
@@ -138,7 +136,7 @@
             <QBtn
               v-else
               flat
-              @click="$emit('go-visit', group.id)"
+              :to="{ name: 'group', params: { group: group.id } }"
             >
               <QIcon name="fas fa-home" />
               <QTooltip>
@@ -151,8 +149,7 @@
             v-else
             color="secondary"
             class="float-right q-ma-xs"
-            :loading="isPending"
-            @click="$emit('go-signup', group)"
+            :to="{ name: 'signup' }"
           >
             {{ $t('JOINGROUP.SIGNUP_OR_LOGIN') }}
           </QBtn>
@@ -212,10 +209,6 @@ export default {
   },
   emits: [
     'join',
-    'go-settings',
-    'go-apply',
-    'go-visit',
-    'go-signup',
     'withdraw',
   ],
   setup () {

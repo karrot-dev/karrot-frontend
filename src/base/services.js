@@ -3,6 +3,7 @@ import { readonly, ref, computed } from 'vue'
 import { DEFAULT_LOCALE, detectLocale } from '@/base/datastore/i18n'
 import { defineService } from '@/utils/datastore/helpers'
 import { useCurrentGroupService } from '@/group/services'
+import { useStore } from 'vuex'
 
 // TODO: this isn't a reactive ref or anything, does it work?
 let pwaInstallPrompt = null
@@ -54,5 +55,21 @@ export const useI18nService = defineService(() => {
   return {
     locale: readonly(locale),
     setLocale,
+  }
+})
+
+export const useRouteErrorService = defineService(() => {
+  // just interfaces with routeError vuex store module for now
+  const store = useStore()
+
+  const routeError = computed(() => store.getters['routeError/status'])
+
+  function setRouteError (routeError = null) {
+    store.dispatch('routeError/set', routeError)
+  }
+
+  return {
+    routeError,
+    setRouteError,
   }
 })

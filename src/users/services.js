@@ -1,8 +1,9 @@
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { useUserListAllQuery, useUserProfileQuery } from '@/users/queries'
-import { indexBy, indexById, defineService } from '@/utils/datastore/helpers'
+import { indexBy, indexById, defineService, isValidationError } from '@/utils/datastore/helpers'
 import { useAuthService } from '@/authuser/services'
 import { useIntegerRouteParam } from '@/utils/composables'
+import { useRouteErrorService } from '@/base/services'
 
 export const useUserService = defineService(() => {
   // Services
@@ -38,10 +39,18 @@ export const useUserService = defineService(() => {
 
 export const useActiveUserService = defineService(() => {
   const userId = useIntegerRouteParam('userId')
+  const { setRouteError } = useRouteErrorService()
 
   const {
     user,
+    error,
   } = useUserProfileQuery({ userId })
+
+  watch(error, error => {
+    if (isValidationError(error)) {
+      setRouteError({ translation: 'PROFILE.INACCESSIBLE_OR_DELETED' })
+    }
+  })
 
   return {
     userId,

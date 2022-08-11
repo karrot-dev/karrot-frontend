@@ -45,7 +45,7 @@
         </QExpansionItem>
       </template>
       <template
-        v-if="application && application.canDecide"
+        v-if="application && canDecideApplication"
         #before-chat-compose
       >
         <QBtnGroup
@@ -58,7 +58,7 @@
             icon="fas fa-fw fa-check"
             color="positive"
             class="q-pa-sm"
-            @click="applicationAccept(application)"
+            @click="applicationAcceptDialog(application)"
           >
             {{ $t('BUTTON.ACCEPT') }}
           </QBtn>
@@ -67,7 +67,7 @@
             icon="fas fa-fw fa-times"
             color="negative"
             class="q-pa-sm"
-            @click="applicationDecline(application)"
+            @click="applicationDeclineDialog(application)"
           >
             {{ $t('BUTTON.DECLINE') }}
           </QBtn>
@@ -96,6 +96,13 @@ import ChatConversation from '@/messages/components/ChatConversation'
 import Markdown from '@/utils/components/Markdown'
 import DateAsWords from '@/utils/components/DateAsWords'
 import KSpinner from '@/utils/components/KSpinner'
+import { useAcceptApplicationMutation, useDeclineApplicationMutation } from '@/applications/mutations'
+import { showToast } from '@/utils/toasts'
+import { useQueryClient } from 'vue-query'
+import { computed } from 'vue'
+import { useCurrentGroupService } from '@/group/services'
+import { useDetailService } from '../services'
+import { useI18n } from 'vue-i18n'
 
 import {
   QExpansionItem,
@@ -175,33 +182,67 @@ export default {
   emits: [
     'mark',
     'fetch-next',
-    'application-accept',
-    'application-decline',
   ],
+  setup () {
+    const {
+      mutate: acceptApplication,
+    } = useAcceptApplicationMutation()
+    const {
+      mutate: declineApplication,
+    } = useDeclineApplicationMutation()
+    const queryClient = useQueryClient()
+    const { t } = useI18n()
+
+    const { groupId: currentGroupId, isEditor } = useCurrentGroupService()
+    const { application } = useDetailService()
+    const canDecideApplication = computed(() => application.value.status === 'pending' && application.value.group === currentGroupId.value && isEditor)
+
+    function applicationAcceptDialog (application) {
+      Dialog.create({
+        title: t('APPLICATION.ACCEPT_CONFIRMATION_HEADER'),
+        message: t('APPLICATION.ACCEPT_CONFIRMATION_TEXT', { userName: application.user.displayName }),
+        ok: t('BUTTON.YES'),
+        cancel: t('BUTTON.CANCEL'),
+      })
+        .onOk(() => acceptApplication(application.id, {
+          onSuccess () {
+            showToast({
+              message: 'APPLICATION.ACCEPTED',
+              messageParams: { userName: application.user.displayName },
+            })
+            queryClient.invalidateQueries(['applications'])
+          },
+        }))
+    }
+    function applicationDeclineDialog (application) {
+      Dialog.create({
+        title: t('APPLICATION.DECLINE_CONFIRMATION_HEADER'),
+        message: t('APPLICATION.DECLINE_CONFIRMATION_TEXT', { userName: application.user.displayName }),
+        ok: t('BUTTON.YES'),
+        cancel: t('BUTTON.CANCEL'),
+      })
+        .onOk(() => declineApplication(application.id, {
+          onSuccess () {
+            showToast({
+              message: 'APPLICATION.DECLINED',
+              messageParams: { userName: application.user.displayName },
+            })
+            queryClient.invalidateQueries(['applications'])
+          },
+        }))
+    }
+
+    return {
+      applicationAcceptDialog,
+      applicationDeclineDialog,
+      canDecideApplication,
+      queryClient,
+    }
+  },
   computed: {
     maybeReversedMessages () {
       if (!this.conversation || !this.messages) return
       return this.order === 'oldest-first' ? this.messages : this.messages.slice().reverse()
-    },
-  },
-  methods: {
-    applicationAccept (application) {
-      Dialog.create({
-        title: this.$t('APPLICATION.ACCEPT_CONFIRMATION_HEADER'),
-        message: this.$t('APPLICATION.ACCEPT_CONFIRMATION_TEXT', { userName: application.user.displayName }),
-        ok: this.$t('BUTTON.YES'),
-        cancel: this.$t('BUTTON.CANCEL'),
-      })
-        .onOk(() => this.$emit('application-accept', application.id))
-    },
-    applicationDecline (application) {
-      Dialog.create({
-        title: this.$t('APPLICATION.DECLINE_CONFIRMATION_HEADER'),
-        message: this.$t('APPLICATION.DECLINE_CONFIRMATION_TEXT', { userName: application.user.displayName }),
-        ok: this.$t('BUTTON.YES'),
-        cancel: this.$t('BUTTON.CANCEL'),
-      })
-        .onOk(() => this.$emit('application-decline', application.id))
     },
   },
 }

@@ -11,8 +11,6 @@
     :has-next-page="hasNextPage"
     :is-fetching-next-page="isFetchingNextPage"
     :fetch-next-page="fetchNextPage"
-    @application-accept="data => $store.dispatch('applications/accept', data)"
-    @application-decline="data => $store.dispatch('applications/decline', data)"
   />
 </template>
 

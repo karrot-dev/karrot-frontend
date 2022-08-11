@@ -83,10 +83,6 @@ export default {
 
       await dispatch('fetchOne', applicationId)
     },
-    clearGroupPreviewAndStatus ({ dispatch }) {
-      dispatch('meta/clear', ['apply'])
-      dispatch('groups/clearGroupPreview', null, { root: true })
-    },
   },
   mutations: {
     update (state, applications) {

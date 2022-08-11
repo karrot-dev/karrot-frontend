@@ -1,7 +1,7 @@
 <template>
   <GroupSettings
     :group="$store.getters['currentGroup/value']"
-    :groups="$store.getters['groups/mineWithApplications']"
+    :groups="$store.getters['groups/mine']"
     :status="$store.getters['unsubscribe/allEmailsPerGroupStatus']"
     :get-notification-type-status="$store.getters['currentGroup/getNotificationTypeStatus']"
     @change-notification-type="data => $store.dispatch('currentGroup/changeNotificationType', data)"

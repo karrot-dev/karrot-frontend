@@ -193,7 +193,7 @@ export default {
         // TODO: what to do with this?
         // case 'place': return rootGetters['places/get'](targetId)
         // case 'activity': return rootGetters['activities/get'](targetId)
-        case 'application': return rootGetters['applications/get'](targetId)
+        // case 'application': return rootGetters['applications/get'](targetId)
         case 'issue': return rootGetters['issues/get'](targetId)
         // TODO: what to do with this?
         // case 'offer': return rootGetters['latestMessages/getRelated']('offer', targetId)

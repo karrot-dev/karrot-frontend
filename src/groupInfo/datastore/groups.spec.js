@@ -121,14 +121,6 @@ describe('groups', () => {
       expect(datastore.getters['groups/mineWithApplications'].map(e => e.id)).toEqual([group2.id, group3.id])
     })
 
-    it('can join a group', async () => {
-      mockJoin.mockReturnValueOnce({})
-      expect(datastore.getters['groups/mineWithApplications'].map(e => e.id)).toEqual([group2.id, group3.id])
-      await datastore.dispatch('groups/join', group1.id)
-      expect(router.push).toBeCalledWith({ name: 'group', params: { groupId: group1.id } })
-      expect(mockJoin).toBeCalledWith(group1.id)
-    })
-
     it('can leave a group', async () => {
       mockLeave.mockReturnValueOnce({})
       expect(datastore.getters['groups/mineWithApplications'].map(e => e.id)).toEqual([group2.id, group3.id])

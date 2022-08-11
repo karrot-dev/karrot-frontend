@@ -43,10 +43,6 @@ export default {
     return convert((await axios.patch(`/api/groups/${groupId}/`, data)).data)
   },
 
-  async join (groupId) {
-    return (await axios.post(`/api/groups/${groupId}/join/`)).data
-  },
-
   async leave (groupId) {
     return (await axios.post(`/api/groups/${groupId}/leave/`, {})).data
   },

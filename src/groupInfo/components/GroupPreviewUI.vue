@@ -51,7 +51,7 @@
       <QSeparator />
       <QCardActions>
         <div style="width: 100%">
-          <template v-if="!group.isOpen && group.memberCount === 0 && !application">
+          <template v-if="group.memberCount === 0 && !application">
             <QBanner class="bg-info">
               {{ $t('JOINGROUP.ARCHIVED_NOTE' ) }}
               <template #avatar>
@@ -107,17 +107,7 @@
                 </template>
               </QBanner>
               <QBtn
-                v-if="group.isOpen"
-                color="secondary"
-                class="float-right q-ma-xs"
-                :loading="isPending"
-                @click="$emit('join', group.id)"
-              >
-                {{ $t('BUTTON.JOIN') }}
-              </QBtn>
-
-              <QBtn
-                v-if="!group.isOpen && user && !user.mailVerified"
+                v-if="user && !user.mailVerified"
                 color="secondary"
                 class="float-right q-ma-xs"
                 :to="{ name: 'settings', hash: '#change-email' }"
@@ -125,7 +115,7 @@
                 {{ $t('JOINGROUP.VERIFY_EMAIL_ADDRESS') }}
               </QBtn>
               <QBtn
-                v-if="!group.isOpen && user && user.mailVerified && !application"
+                v-if="user && user.mailVerified && !application"
                 color="secondary"
                 class="float-right q-ma-xs"
                 :to="{ name: 'applicationForm', params: { groupPreviewId: group.id } }"
@@ -172,7 +162,6 @@ import {
   QBanner,
 } from 'quasar'
 import Markdown from '@/utils/components/Markdown'
-import statusMixin from '@/utils/mixins/statusMixin'
 import RandomArt from '@/utils/components/RandomArt'
 import { useDetailService } from '@/messages/services'
 
@@ -217,12 +206,6 @@ export default {
     return {
       openApplication,
     }
-  },
-  computed: {
-    status () {
-      return this.group && this.group.joinStatus
-    },
-    ...statusMixin.computed,
   },
   methods: {
     withdraw () {

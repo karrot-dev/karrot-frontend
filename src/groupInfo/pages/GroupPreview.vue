@@ -4,7 +4,6 @@
     :is-logged-in="$store.getters['auth/isLoggedIn']"
     :user="$store.getters['auth/user']"
     :application="application"
-    @join="data => $store.dispatch('groups/join', data)"
     @withdraw="withdraw"
   />
 </template>

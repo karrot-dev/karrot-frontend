@@ -34,7 +34,7 @@ export default {
         isInactive,
         myApplicationPending,
         hasPhoto: group.photoUrls && group.photoUrls.fullSize,
-        ...metaStatusesWithId(getters, ['save', 'join', 'leave'], group.id),
+        ...metaStatusesWithId(getters, ['save', 'leave'], group.id),
       }
     }),
     all: (state, getters, rootState, rootGetters) => {
@@ -57,11 +57,6 @@ export default {
         commit('update', [data])
         dispatch('currentGroup/maybeUpdate', data, { root: true })
         router.push({ name: 'group', params: { groupId: group.id } }).catch(() => {})
-      },
-
-      async join ({ commit, rootGetters }, groupId) {
-        await groups.join(groupId)
-        router.push({ name: 'group', params: { groupId } }).catch(() => {})
       },
 
       async leave ({ commit, dispatch, getters, rootGetters }, groupId) {

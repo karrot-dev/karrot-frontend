@@ -139,10 +139,7 @@
             v-if="hasDetailComponent"
             name="detail"
           />
-          <DetailSidebar
-            v-else-if="isDetailActive"
-            @close="clearDetail"
-          />
+          <DetailSidebar v-else-if="isDetailActive" />
         </QDrawer>
 
         <QFooter>
@@ -161,7 +158,7 @@
 </template>
 
 <script>
-import { computed, watchEffect } from 'vue'
+import { computed } from 'vue'
 
 import KTopbar from '@/topbar/components/KTopbar'
 import KTopbarLoggedOut from '@/topbar/components/LoggedOut/KTopbar'
@@ -312,7 +309,6 @@ export default {
   },
   methods: {
     ...mapActions({
-      clearDetail: 'detail/clear',
       refresh: 'refresh/refresh',
     }),
     toggleSidenav () {

@@ -6,6 +6,7 @@ import conversationsAPI from '@/messages/api/conversations'
 import messagesAPI from '@/messages/api/messages'
 import reactionsAPI from '@/messages/api/reactions'
 import { queryKeyMessageList } from '@/messages/queries'
+import messageAPI from '@/messages/api/messages'
 
 export function useSendMessageMutation () {
   return withStatus(useMutation(
@@ -31,6 +32,12 @@ export function useSaveConversationMutation () {
 export function useConversationSeenUpToMutation () {
   return withStatus(useMutation(
     ({ conversationId, messageId }) => conversationsAPI.save(conversationId, { seenUpTo: messageId }),
+  ))
+}
+
+export function useSaveThreadMutedMutation () {
+  return withStatus(useMutation(
+    ({ threadId, muted }) => messagesAPI.setMuted(threadId, muted),
   ))
 }
 

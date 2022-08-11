@@ -157,6 +157,7 @@ import { useActivityTypeService } from '@/activities/services'
 import { useConversationHelpers } from '@/messages/helpers'
 import { useAuthHelpers } from '@/authuser/helpers'
 import { useGroupInfoService } from '@/groupInfo/services'
+import { useSaveConversationMutation, useSaveThreadMutedMutation } from '@/messages/mutations'
 
 export default {
   components: {
@@ -189,9 +190,6 @@ export default {
       default: null,
     },
   },
-  emits: [
-    'save-conversation',
-  ],
   setup (props) {
     const {
       conversation,
@@ -205,6 +203,8 @@ export default {
     const { getIsParticipant } = useConversationHelpers()
     const { getIsCurrentUser } = useAuthHelpers()
     const { getGroupById } = useGroupInfoService()
+    const { mutate: saveConversation } = useSaveConversationMutation()
+    const { mutate: saveThreadMuted } = useSaveThreadMutedMutation()
 
     const {
       getColorName,
@@ -229,6 +229,9 @@ export default {
       getColorName,
       getUserById,
       getPlaceById,
+
+      saveConversation,
+      saveThreadMuted,
       close,
     }
   },
@@ -282,16 +285,23 @@ export default {
   },
   methods: {
     setNotifications (value) {
-      const data = (this.conversation.thread && this.conversation.threadMeta)
-        ? {
+      if (this.conversation.thread && this.conversation.threadMeta) {
+        try {
+          this.saveThreadMuted({
             threadId: this.conversation.thread,
-            value,
-          }
-        : {
-            conversationId: this.conversation.id,
-            value,
-          }
-      this.$emit('save-conversation', data)
+            muted: value.notifications !== 'all',
+          })
+        }
+        catch (error) {
+          console.error(error)
+        }
+      }
+      else {
+        this.saveConversation({
+          id: this.conversation.id,
+          value,
+        })
+      }
     },
     applicationInfo () {
       Dialog.create({

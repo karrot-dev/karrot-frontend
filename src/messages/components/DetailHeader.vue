@@ -5,7 +5,6 @@
     :activity="activity"
     :application="application"
     :current-user="currentUser"
-    @save-conversation="data => $store.dispatch('conversations/maybeSave', data)"
     @close="() => close()"
   />
 </template>

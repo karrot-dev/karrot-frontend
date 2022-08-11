@@ -10,6 +10,7 @@ import {
 import { useActivityItemQuery } from '@/activities/queries'
 import { useUserService } from '@/users/services'
 import { useApplicationItemQuery } from '@/applications/queries'
+import { useRoute } from 'vue-router'
 
 function useThreadDetail (messageId) {
   const order = 'oldest-first'
@@ -154,6 +155,8 @@ function createDefaultState () {
 }
 
 export const useDetailService = defineService(() => {
+  const route = useRoute()
+
   const type = ref(null) // thread, application, etc.
   const id = ref(null) // the item id
 
@@ -201,6 +204,16 @@ export const useDetailService = defineService(() => {
     }
     else {
       activeState.value = createDefaultState()
+    }
+  })
+
+  // Detail view can come from either Detail page, or separate route components that are details
+  // If we open a detail view via a route, we should "close" this one, in preference to the route one
+  // TODO: maybe make all detail pages separate components, so they are not all mixed up together here...
+  const hasDetailComponent = computed(() => route.matched.some(({ meta }) => meta && meta.isDetail === true))
+  watch(hasDetailComponent, hasDetailComponent => {
+    if (hasDetailComponent) {
+      close()
     }
   })
 

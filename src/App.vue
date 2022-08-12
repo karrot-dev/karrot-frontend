@@ -24,6 +24,7 @@ import { useStatusUpdater } from '@/status/queries'
 import { useAuthUserUpdater } from '@/authuser/queries'
 import { useConversationUpdater, useMessageUpdater } from '@/messages/queries'
 import { useApplicationsUpdater } from '@/applications/queries'
+import { useNotificationsUpdater } from '@/notifications/queries'
 
 export default {
   components: {
@@ -42,6 +43,7 @@ export default {
     useActivityTypeUpdater()
     useConversationUpdater()
     useMessageUpdater()
+    useNotificationsUpdater()
 
     // Utilities
     useTitleStatus()

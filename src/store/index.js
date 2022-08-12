@@ -3,7 +3,6 @@ import { createStore } from 'vuex'
 // alphabetical
 import agreements from '@/agreements/datastore'
 import alerts from '@/alerts/datastore'
-import applications from '@/applications/datastore'
 import authuser from '@/authuser/datastore'
 import base from '@/base/datastore/base'
 import communityFeed from '@/communityFeed/datastore'
@@ -22,7 +21,6 @@ import utils from '@/utils/datastore'
 const appModules = [
   agreements,
   alerts,
-  applications,
   authuser,
   base,
   communityFeed,

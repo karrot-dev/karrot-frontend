@@ -126,7 +126,7 @@
             <QBtn
               v-else
               flat
-              :to="{ name: 'group', params: { group: group.id } }"
+              :to="{ name: 'group', params: { groupId: group.id } }"
             >
               <QIcon name="fas fa-home" />
               <QTooltip>

@@ -28,11 +28,6 @@ export default {
       if (type !== 'user') return
       return rootGetters['users/get'](id)
     },
-    application: (state, getters, rootState, rootGetters) => {
-      const { type, id } = state.scope
-      if (type !== 'application') return
-      return rootGetters['applications/get'](id)
-    },
     conversation: (state, getters, rootState, rootGetters) => {
       const { type, id } = state.scope
       if (type === 'activity') {

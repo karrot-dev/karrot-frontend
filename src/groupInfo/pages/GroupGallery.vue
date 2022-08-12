@@ -22,7 +22,7 @@ const { userId } = useAuthService()
 const { groups } = useGroupInfoService()
 const {
   applications,
-} = useApplicationListQuery({ userId, status: 'pending' })
+} = useApplicationListQuery({ userId, status: 'pending' }, { keepPreviousData: true })
 
 function byName (a, b) {
   return a.name.localeCompare(b.name)

@@ -190,10 +190,7 @@ export default async function ({ store: datastore }) {
 
     socketEvents.emit(topic, payload)
 
-    if (topic === 'applications:update') {
-      datastore.commit('applications/update', [payload])
-    }
-    else if (topic === 'conversations:message') {
+    if (topic === 'conversations:message') {
       const message = payload
       if (message.thread) {
         datastore.dispatch('currentThread/receiveMessage', message)

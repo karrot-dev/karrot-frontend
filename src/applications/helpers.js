@@ -3,7 +3,7 @@ import { useApplicationListQuery } from '@/applications/queries'
 
 export function useApplicationHelpers () {
   const { userId } = useAuthService()
-  const { applications } = useApplicationListQuery({ userId, status: 'pending' })
+  const { applications } = useApplicationListQuery({ userId, status: 'pending' }, { keepPreviousData: true })
 
   function getHasMyApplicationPending (groupId) {
     if (!groupId) return false

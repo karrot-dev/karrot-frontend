@@ -24,6 +24,8 @@ const {
   fetchNextPage,
 } = useApplicationListQuery({
   groupId,
+}, {
+  keepPreviousData: true,
 })
 
 const pendingApplications = computed(() => applications.value.filter(a => a.status === 'pending'))

@@ -23,6 +23,7 @@ import { usePlacesUpdater } from '@/places/queries'
 import { useStatusUpdater } from '@/status/queries'
 import { useAuthUserUpdater } from '@/authuser/queries'
 import { useConversationUpdater, useMessageUpdater } from '@/messages/queries'
+import { useApplicationsUpdater } from '@/applications/queries'
 
 export default {
   components: {
@@ -31,6 +32,7 @@ export default {
   setup () {
     // Websocket updaters
     useAuthUserUpdater()
+    useApplicationsUpdater()
     useUsersUpdater()
     usePlacesUpdater()
     useOffersUpdater()

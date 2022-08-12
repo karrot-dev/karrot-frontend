@@ -1,5 +1,6 @@
 import { unref, computed } from 'vue'
-import { useQuery, useInfiniteQuery } from 'vue-query'
+import { useQuery, useInfiniteQuery, useQueryClient } from 'vue-query'
+import { useSocketEvents } from '@/utils/composables'
 
 import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
 import api from './api/applications'
@@ -7,6 +8,19 @@ import api from './api/applications'
 export const QUERY_KEY_BASE = 'applications'
 export const queryKeyApplicationList = params => [QUERY_KEY_BASE, 'list', params].filter(Boolean)
 export const queryKeyApplicationItem = applicationId => [QUERY_KEY_BASE, 'item', applicationId].filter(Boolean)
+
+export function useApplicationsUpdater () {
+  const queryClient = useQueryClient()
+  const { on } = useSocketEvents()
+  on(
+    [
+      'applications:update',
+    ],
+    async () => {
+      await queryClient.invalidateQueries(['applications'])
+    },
+  )
+}
 
 export function useApplicationListQuery ({
   groupId,

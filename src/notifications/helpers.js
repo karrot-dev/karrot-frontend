@@ -90,29 +90,29 @@ export function useNotificationHelpers () {
     }
   }
 
-  function getRouteTo (type, { group, user, place, activity, issue, url } = {}) {
+  function getRouteTo (type, { group: groupId, user: userId, place: placeId, activity, issue, url } = {}) {
     switch (type) {
       case 'user_became_editor':
       case 'invitation_accepted':
       case 'new_member':
-        return user && { name: 'userInGroup', params: { userId: user.id, groupId: group.id } }
+        return { name: 'userInGroup', params: { userId, groupId } }
       case 'you_became_editor': // TODO show information about editing permissions
       case 'application_accepted':
-        return group && { name: 'group', params: { groupId: group.id } }
+        return { name: 'group', params: { groupId } }
       case 'new_applicant':
-        return group && { name: 'applications', params: { groupId: group.id } }
+        return { name: 'applications', params: { groupId } }
       case 'feedback_possible':
-        return group && activity && { name: 'giveFeedback', params: { groupId: group.id, activityId: activity.id } }
+        return activity && { name: 'giveFeedback', params: { groupId, activityId: activity.id } }
       case 'application_declined':
       case 'conflict_resolution_you_were_removed':
-        return group && { name: 'groupPreview', params: { groupPreviewId: group.id } }
+        return { name: 'groupPreview', params: { groupPreviewId: groupId } }
       case 'new_place':
-        return group && place && { name: 'place', params: { groupId: group.id, placeId: place.id } }
+        return { name: 'place', params: { groupId, placeId } }
       case 'activity_upcoming':
       case 'activity_disabled':
       case 'activity_enabled':
       case 'activity_moved':
-        return group && place && activity && { name: 'activityDetail', params: { groupId: group.id, placeId: place.id, activityId: activity.id } }
+        return activity && { name: 'activityDetail', params: { groupId, placeId, activityId: activity.id } }
       case 'conflict_resolution_created':
       case 'conflict_resolution_created_about_you':
       case 'conflict_resolution_continued':
@@ -120,7 +120,7 @@ export function useNotificationHelpers () {
       case 'conflict_resolution_decided':
       case 'conflict_resolution_decided_about_you':
       case 'voting_ends_soon':
-        return group && issue && { name: 'issueDetail', params: { groupId: group.id, issueId: issue.id } }
+        return issue && { name: 'issueDetail', params: { groupId, issueId: issue.id } }
       case 'mention':
         // Remove the host and the /#/ bit...
         if (url) return url.replace(/https?:\/\/[^/]+\/#/, '')

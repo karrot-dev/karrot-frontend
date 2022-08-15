@@ -1,17 +1,30 @@
 <template>
   <Signup
-    :status="$store.getters['auth/signupStatus']"
-    :prefill-email="$store.getters['route/query'].email"
-    @submit="data => $store.dispatch('users/signup', data)"
+    :status="signupStatus"
+    :prefill-email="route.query.email"
+    @submit="({ userData }) => signupThenLogin(userData)"
   />
 </template>
 
-<script>
+<script setup>
 import Signup from '@/authuser/components/Signup'
+import { useLoginMutation, useSignupMutation } from '@/authuser/mutations'
+import { useRoute } from 'vue-router'
 
-export default {
-  components: {
-    Signup,
-  },
+const route = useRoute()
+
+const {
+  mutateAsync: signup,
+  status: signupStatus,
+} = useSignupMutation()
+
+const {
+  mutateAsync: login,
+} = useLoginMutation()
+
+async function signupThenLogin (userData) {
+  await signup(userData)
+  console.log('logging in!')
+  await login({ email: userData.email, password: userData.password })
 }
 </script>

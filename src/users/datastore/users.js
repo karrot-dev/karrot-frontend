@@ -1,5 +1,4 @@
 import users from '@/users/api/users'
-import authUser from '@/authuser/api/authUser'
 import auth from '@/authuser/api/auth'
 import { createRouteError, createMetaModule, withMeta, metaStatuses, indexById } from '@/utils/datastore/helpers'
 import router from '@/router'
@@ -126,12 +125,6 @@ export default {
 
         if (validData.length < 1) return
         commit('updateInfo', validData)
-      },
-
-      async signup ({ dispatch }, { userData }) {
-        await authUser.create(userData)
-
-        await dispatch('auth/login', { email: userData.email, password: userData.password }, { root: true })
       },
       async requestResetPassword ({ commit }, email) {
         await auth.requestResetPassword(email)

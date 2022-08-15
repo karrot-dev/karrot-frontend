@@ -10,6 +10,10 @@ import usersAPI from '@/users/api/users'
 import { throttle } from 'quasar'
 import { showToast } from '@/utils/toasts'
 
+export function useSignupMutation () {
+  return withStatus(useMutation(userData => authUserAPI.create(userData)))
+}
+
 export function useLoginMutation () {
   const queryClient = useQueryClient()
   const router = useRouter()

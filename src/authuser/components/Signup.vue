@@ -89,6 +89,7 @@ import SplashInput from '@/utils/components/SplashInput'
 import statusMixin from '@/utils/mixins/statusMixin'
 import useVuelidate from '@vuelidate/core'
 import { required, minLength, maxLength, helpers } from '@vuelidate/validators'
+import { useSignupMutation } from '@/authuser/mutations'
 
 export default {
   components: {

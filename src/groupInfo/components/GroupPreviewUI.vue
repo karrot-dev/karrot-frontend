@@ -25,7 +25,7 @@
             >
               {{ group.name }}
               <QIcon
-                v-if="group.isPlayground"
+                v-if="group.status === 'playground'"
                 name="fas fa-child"
               />
             </span>
@@ -51,7 +51,7 @@
       <QSeparator />
       <QCardActions>
         <div style="width: 100%">
-          <template v-if="!group.isOpen && group.memberCount === 0 && !application">
+          <template v-if="group.memberCount === 0 && !application">
             <QBanner class="bg-info">
               {{ $t('JOINGROUP.ARCHIVED_NOTE' ) }}
               <template #avatar>
@@ -107,30 +107,18 @@
                 </template>
               </QBanner>
               <QBtn
-                v-if="group.isOpen"
+                v-if="user && !user.mailVerified"
                 color="secondary"
                 class="float-right q-ma-xs"
-                :loading="isPending"
-                @click="$emit('join', group.id)"
-              >
-                {{ $t('BUTTON.JOIN') }}
-              </QBtn>
-
-              <QBtn
-                v-if="!group.isOpen && user && !user.mailVerified"
-                color="secondary"
-                class="float-right q-ma-xs"
-                :loading="isPending"
-                @click="$emit('go-settings')"
+                :to="{ name: 'settings', hash: '#change-email' }"
               >
                 {{ $t('JOINGROUP.VERIFY_EMAIL_ADDRESS') }}
               </QBtn>
               <QBtn
-                v-if="!group.isOpen && user && user.mailVerified && !application"
+                v-if="user && user.mailVerified && !application"
                 color="secondary"
                 class="float-right q-ma-xs"
-                :loading="isPending"
-                @click="$emit('go-apply', group.id)"
+                :to="{ name: 'applicationForm', params: { groupPreviewId: group.id } }"
               >
                 {{ $t('BUTTON.APPLY') }}
               </QBtn>
@@ -138,7 +126,7 @@
             <QBtn
               v-else
               flat
-              @click="$emit('go-visit', group.id)"
+              :to="{ name: 'group', params: { groupId: group.id } }"
             >
               <QIcon name="fas fa-home" />
               <QTooltip>
@@ -151,8 +139,7 @@
             v-else
             color="secondary"
             class="float-right q-ma-xs"
-            :loading="isPending"
-            @click="$emit('go-signup', group)"
+            :to="{ name: 'signup' }"
           >
             {{ $t('JOINGROUP.SIGNUP_OR_LOGIN') }}
           </QBtn>
@@ -175,7 +162,6 @@ import {
   QBanner,
 } from 'quasar'
 import Markdown from '@/utils/components/Markdown'
-import statusMixin from '@/utils/mixins/statusMixin'
 import RandomArt from '@/utils/components/RandomArt'
 import { useDetailService } from '@/messages/services'
 
@@ -212,10 +198,6 @@ export default {
   },
   emits: [
     'join',
-    'go-settings',
-    'go-apply',
-    'go-visit',
-    'go-signup',
     'withdraw',
   ],
   setup () {
@@ -224,12 +206,6 @@ export default {
     return {
       openApplication,
     }
-  },
-  computed: {
-    status () {
-      return this.group && this.group.joinStatus
-    },
-    ...statusMixin.computed,
   },
   methods: {
     withdraw () {

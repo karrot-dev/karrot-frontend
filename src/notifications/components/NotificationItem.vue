@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import notificationConfig from './notificationConfig'
+
 import {
   QItem,
   QItemSection,
@@ -53,6 +53,10 @@ import {
 } from 'quasar'
 import DateAsWords from '@/utils/components/DateAsWords'
 import ProfilePicture from '@/users/components/ProfilePicture'
+import { useUserService } from '@/users/services'
+import { usePlaceService } from '@/places/services'
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useNotificationHelpers } from '@/notifications/helpers'
 
 export default {
   components: {
@@ -72,6 +76,19 @@ export default {
   emits: [
     'click',
   ],
+  setup () {
+    const { getUserById } = useUserService()
+    const { getPlaceById } = usePlaceService()
+    const { getIsCurrentUser } = useAuthHelpers()
+    const { getNotificationConfig } = useNotificationHelpers()
+
+    return {
+      getUserById,
+      getPlaceById,
+      getIsCurrentUser,
+      getNotificationConfig,
+    }
+  },
   computed: {
     isUnread () {
       return this.notification && !this.notification.clicked
@@ -84,19 +101,19 @@ export default {
     },
     config () {
       if (!this.type || !this.context) return
-      return notificationConfig(this.type, this.context)
+      return this.getNotificationConfig(this.type, this.context)
     },
     user () {
       if (!this.context) return
       if (!this.context.user) return
 
       // it shouldn't be needed to show your own picture
-      if (this.context.user.isCurrentUser) return
+      if (this.getIsCurrentUser(this.context.user)) return
 
       // new_place is not about the user, but the place
       if (this.type === 'new_place') return
 
-      return this.context.user
+      return this.getUserById(this.context.user)
     },
     groupName () {
       if (!this.context) return
@@ -104,7 +121,7 @@ export default {
     },
     placeName () {
       if (!this.context || !this.context.activity || !this.context.activity.place) return ''
-      return this.context.activity.place.name
+      return this.getPlaceById(this.context.activity.place).name
     },
     message () {
       if (!this.config) return

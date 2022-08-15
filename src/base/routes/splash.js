@@ -129,7 +129,7 @@ export default [
         { translation: 'APPLICATION.FORM_HEADER' },
       ],
       beforeEnter: 'groups/selectPreview',
-      afterLeave: 'applications/clearGroupPreviewAndStatus',
+      afterLeave: 'groups/clearGroupPreview',
     },
     components: {
       default: ApplicationForm,

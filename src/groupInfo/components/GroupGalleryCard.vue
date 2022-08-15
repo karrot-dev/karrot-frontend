@@ -3,28 +3,28 @@
     <QCard
       class="groupPreviewCard relative-position"
       :class="{
-        application: group.myApplicationPending,
-        highlight: group.isCurrentGroup,
+        application: myApplicationPending,
+        highlight: isCurrentGroup,
       }"
       :style="cardStyle"
       @click="$emit(group.isMember ? 'visit' : 'preview')"
     >
       <QBadge
-        v-if="group.myApplicationPending"
+        v-if="myApplicationPending"
         floating
         class="q-pl-sm q-pt-xs q-pb-xs z-top"
         color="blue"
       >
         <QIcon name="fas fa-hourglass-half" />
       </QBadge>
-      <QTooltip v-if="group.myApplicationPending">
+      <QTooltip v-if="myApplicationPending">
         {{ $t('APPLICATION.GALLERY_TOOLTIP') }}
       </QTooltip>
       <div
         class="photo text-white relative-position row justify-center"
       >
         <QImg
-          v-if="group.hasPhoto"
+          v-if="group.photoUrls?.fullSize"
           :alt="group.name || ''"
           :src="group.photoUrls['200']"
           :ratio="1"
@@ -47,7 +47,7 @@
             >
               {{ group.name }}
               <QIcon
-                v-if="group.isPlayground"
+                v-if="group.status === 'playground'"
                 name="fas fa-child"
               />
             </span>
@@ -112,6 +112,9 @@ import {
 } from 'quasar'
 import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
+import { useApplicationHelpers } from '@/applications/helpers'
+import { useCurrentGroupService } from '@/group/services'
+import { computed, unref, toRefs } from 'vue'
 
 export default {
   components: {
@@ -139,9 +142,19 @@ export default {
     'visit',
     'preview',
   ],
+  setup (props) {
+    const { group } = toRefs(props)
+    const { getHasMyApplicationPending } = useApplicationHelpers()
+    const { groupId: currentGroupId } = useCurrentGroupService()
+
+    return {
+      myApplicationPending: computed(() => getHasMyApplicationPending(group.value.id)),
+      isCurrentGroup: computed(() => group.id === unref(currentGroupId)),
+    }
+  },
   computed: {
     cardStyle () {
-      const reduceOpacity = this.group.isInactive && !this.group.isMember
+      const reduceOpacity = this.group.status === 'inactive' && !this.group.isMember
       if (reduceOpacity) {
         return { opacity: 0.5 }
       }

@@ -26,6 +26,8 @@ import { useConversationUpdater, useMessageUpdater } from '@/messages/queries'
 import { usePerformance } from '@/boot/performance'
 import { useGroupDetailUpdater } from '@/group/queries'
 import { useGroupInfoUpdater } from '@/groupInfo/queries'
+import { useApplicationsUpdater } from '@/applications/queries'
+import { useNotificationsUpdater } from '@/notifications/queries'
 
 export default {
   components: {
@@ -34,6 +36,7 @@ export default {
   setup () {
     // Websocket updaters
     useAuthUserUpdater()
+    useApplicationsUpdater()
     useUsersUpdater()
     usePlacesUpdater()
     useOffersUpdater()
@@ -45,6 +48,7 @@ export default {
     useMessageUpdater()
     useGroupInfoUpdater()
     useGroupDetailUpdater()
+    useNotificationsUpdater()
 
     // Utilities
     usePerformance()

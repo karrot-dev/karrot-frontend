@@ -21,7 +21,7 @@ export const useGroupInfoService = defineService(() => {
   // TODO: check this works!
   watch(
     () => groups.value
-      .filter(group => group.isMember || group.myApplicationPending)
+      .filter(group => group.isMember)
       .map(group => group.id)
       .sort((a, b) => a - b)
       .join(','),

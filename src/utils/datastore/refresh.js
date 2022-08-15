@@ -44,7 +44,6 @@ export default {
           dispatch('currentGroup/refresh', null, { root: true }),
           dispatch('currentThread/refresh', null, { root: true }),
           dispatch('latestMessages/fetch', {}, { root: true }),
-          dispatch('notifications/fetch', null, { root: true }),
           dispatch('status/refresh', null, { root: true }),
         ])
         commit('setLastRefresh')

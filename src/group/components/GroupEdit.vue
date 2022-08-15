@@ -21,7 +21,7 @@
         </h4>
 
         <QInput
-          v-if="!edit.isPlayground"
+          v-if="edit.status !== 'playground'"
           id="group-title"
           v-model="edit.name"
           :autofocus="!$q.platform.has.touch"
@@ -39,7 +39,7 @@
         </QInput>
 
         <MarkdownInput
-          v-if="!edit.isPlayground"
+          v-if="edit.status !== 'playground'"
           v-model="edit.publicDescription"
           :error="hasError('publicDescription')"
           :error-message="firstError('publicDescription')"

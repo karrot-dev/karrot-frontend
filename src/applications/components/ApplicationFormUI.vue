@@ -24,6 +24,7 @@
         <MarkdownInput
           v-model="applicationAnswers"
           filled
+          autofocus
           :placeholder="$t('CONVERSATION.REPLY_TO_MESSAGE')"
           @keyup.ctrl.enter="apply"
         />

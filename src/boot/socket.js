@@ -190,10 +190,7 @@ export default async function ({ store: datastore }) {
 
     socketEvents.emit(topic, payload)
 
-    if (topic === 'applications:update') {
-      datastore.commit('applications/update', [payload])
-    }
-    else if (topic === 'conversations:message') {
+    if (topic === 'conversations:message') {
       const message = payload
       if (message.thread) {
         datastore.dispatch('currentThread/receiveMessage', message)
@@ -291,15 +288,6 @@ export default async function ({ store: datastore }) {
     }
     else if (topic === 'history:history') {
       // datastore.commit('history/update', [payload])
-    }
-    else if (topic === 'notifications:notification') {
-      datastore.commit('notifications/update', [payload])
-    }
-    else if (topic === 'notifications:notification_deleted') {
-      datastore.commit('notifications/delete', payload.id)
-    }
-    else if (topic === 'notifications:meta') {
-      datastore.commit('notifications/setEntryMeta', payload)
     }
     else if (topic === 'status') {
       // datastore.commit('status/update', payload)

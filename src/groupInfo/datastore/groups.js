@@ -26,23 +26,20 @@ export default {
       const isCurrentGroup = group.id === rootGetters['currentGroup/id']
       const isPlayground = group.status === 'playground'
       const isInactive = group.status === 'inactive'
-      const myApplicationPending = rootGetters['applications/getMineInGroup'] && rootGetters['applications/getMineInGroup'](group.id)
       return {
         ...group,
         isCurrentGroup,
         isPlayground,
         isInactive,
-        myApplicationPending,
         hasPhoto: group.photoUrls && group.photoUrls.fullSize,
-        ...metaStatusesWithId(getters, ['save', 'join', 'leave'], group.id),
+        ...metaStatusesWithId(getters, ['save', 'leave'], group.id),
       }
     }),
     all: (state, getters, rootState, rootGetters) => {
       return Object.values(state.entries).map(getters.enrich)
     },
-    mineWithApplications: (state, getters) => getters.all.filter(myGroupsWithApplications).sort(applicationsFirstThenSortByName),
-    mine: (state, getters) => getters.all.filter(myGroups).sort(applicationsFirstThenSortByName),
-    other: (state, getters) => getters.all.filter(e => !myGroupsWithApplications(e)).sort(sortByDistanceOrMemberCount),
+    mine: (state, getters) => getters.all.filter(myGroups).sort(byName),
+    other: (state, getters) => getters.all.filter(g => !g.isMember).sort(sortByDistanceOrMemberCount),
     activePreview: (state, getters) => getters.get(state.activePreviewId),
     saveStatus: (state, getters, rootState, rootGetters) => {
       const currentGroup = getters.get(rootGetters['currentGroup/id'])
@@ -57,11 +54,6 @@ export default {
         commit('update', [data])
         dispatch('currentGroup/maybeUpdate', data, { root: true })
         router.push({ name: 'group', params: { groupId: group.id } }).catch(() => {})
-      },
-
-      async join ({ commit, rootGetters }, groupId) {
-        await groups.join(groupId)
-        router.push({ name: 'group', params: { groupId } }).catch(() => {})
       },
 
       async leave ({ commit, dispatch, getters, rootGetters }, groupId) {
@@ -120,13 +112,7 @@ export default {
   },
 }
 
-function applicationsFirstThenSortByName (a, b) {
-  if (a.myApplicationPending && !b.myApplicationPending) {
-    return -1
-  }
-  if (!a.myApplicationPending && b.myApplicationPending) {
-    return 1
-  }
+function byName (a, b) {
   return a.name.localeCompare(b.name)
 }
 
@@ -143,10 +129,6 @@ function sortByDistanceOrMemberCount (a, b) {
     return -1
   }
   return a.distance - b.distance
-}
-
-function myGroupsWithApplications (group) {
-  return group.isMember || group.myApplicationPending
 }
 
 function myGroups (group) {

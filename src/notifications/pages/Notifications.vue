@@ -6,20 +6,20 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 import Notifications from '@/notifications/components/Notifications'
+import { useMarkSeenMutation } from '../mutations'
 
 export default {
   components: {
     Notifications,
   },
+  setup () {
+    const { mutate: markSeen } = useMarkSeenMutation()
+
+    return { markSeen }
+  },
   mounted () {
     this.markSeen()
-  },
-  methods: {
-    ...mapActions({
-      markSeen: 'notifications/markSeen',
-    }),
   },
 }
 </script>

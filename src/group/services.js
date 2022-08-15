@@ -88,6 +88,7 @@ export const useCurrentGroupService = defineService(() => {
   const places = computed(() => getPlacesByGroup(groupId))
   const features = computed(() => group.value?.features || [])
   const theme = computed(() => group.value?.theme)
+  const isPlayground = computed(() => group.value?.status === 'playground')
   const isGeneralPurpose = computed(() => theme.value === 'general')
   const isBikeKitchen = computed(() => theme.value === 'bikekitchen')
   const isEditor = computed(() => getIsEditor(userId.value))
@@ -125,6 +126,7 @@ export const useCurrentGroupService = defineService(() => {
     users,
     places,
     theme,
+    isPlayground,
     isGeneralPurpose,
     isBikeKitchen,
     features,

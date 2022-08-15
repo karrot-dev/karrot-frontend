@@ -48,8 +48,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 import {
   QBtn,
   QTabs,
@@ -58,6 +56,7 @@ import {
 } from 'quasar'
 import LatestConversations from './LatestConversations'
 import LatestThreads from './LatestThreads'
+import { useStatusService } from '@/status/services'
 
 export default {
   components: {
@@ -74,17 +73,23 @@ export default {
       default: false,
     },
   },
+  setup () {
+    const {
+      unseenConversationCount,
+      unseenThreadCount,
+    } = useStatusService()
+
+    return {
+      unseenConversationCount,
+      unseenThreadCount,
+    }
+  },
   data () {
     return {
       selected: 'conversations',
     }
   },
   computed: {
-    ...mapGetters({
-      unseenConversationCount: 'status/unseenConversationCount',
-      unseenThreadCount: 'status/unseenThreadCount',
-      hasUnread: 'status/hasUnreadConversationsOrThreads',
-    }),
     hasOnlyUnseenThreads () {
       return Boolean(this.unseenThreadCount > 0 && this.unseenConversationCount === 0)
     },

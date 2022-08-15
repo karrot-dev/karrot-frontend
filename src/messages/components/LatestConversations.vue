@@ -2,8 +2,9 @@
   <div
     class="bg-white relative-position"
   >
-    <KSpinner v-show="fetchInitialPending" />
-    <template v-if="!fetchInitialPending">
+    <KSpinner v-show="isLoading" />
+
+    <template v-if="!isLoading">
       <QList>
         <QItem
           v-if="conversations.length === 0"
@@ -14,10 +15,10 @@
           v-for="conv in conversations"
           :key="conv.id"
           v-close-popup
-          :group="conv.type === 'group' ? conv.target : null"
-          :user="conv.type === 'private' ? conv.target : null"
+          :group="conv.type === 'group' ? getGroupById(conv.targetId) : null"
+          :user="conv.type === 'private' ? getUserById(conv.targetId) : null"
           :activity="conv.type === 'activity' ? conv.target : null"
-          :place="conv.type === 'place' ? conv.target : null"
+          :place="conv.type === 'place' ? getPlaceById(conv.targetId) : null"
           :application="conv.type === 'application' ? conv.target : null"
           :issue="conv.type === 'issue' ? conv.target : null"
           :offer="conv.type === 'offer' ? conv.target : null"
@@ -29,13 +30,13 @@
           @open="open(conv)"
         />
         <QItem
-          v-if="!asPopover && canFetchPastConversations"
+          v-if="!asPopover && hasNextPage"
           class="row justify-center"
         >
           <QBtn
             size="sm"
-            :loading="fetchingPastConversations"
-            @click="fetchPastConversations"
+            :loading="isFetchingNextPage"
+            @click="() => fetchNextPage()"
           >
             {{ $t('BUTTON.SHOW_MORE') }}
           </QBtn>
@@ -64,9 +65,13 @@ import {
   QItem,
   QBtn,
 } from 'quasar'
-import { mapGetters, mapActions } from 'vuex'
 import LatestMessageItem from './LatestMessageItem'
 import KSpinner from '@/utils/components/KSpinner'
+import { useConversationListQuery } from '../queries'
+import { useDetailService } from '../services'
+import { useGroupInfoService } from '@/groupInfo/services'
+import { useUserService } from '@/users/services'
+import { usePlaceService } from '@/places/services'
 
 export default {
   components: {
@@ -82,31 +87,53 @@ export default {
       default: false,
     },
   },
-  computed: {
-    ...mapGetters({
-      conversations: 'latestMessages/conversations',
-      canFetchPastConversations: 'latestMessages/canFetchPastConversations',
-      fetchingPastConversations: 'latestMessages/fetchingPastConversations',
-      fetchInitialPending: 'latestMessages/fetchInitialPending',
-      selectedConversation: 'detail/conversation',
-    }),
+  setup () {
+    const {
+      conversations,
+      isLoading,
+      hasNextPage,
+      isFetchingNextPage,
+      fetchNextPage,
+    } = useConversationListQuery()
+
+    // TODO detail/selectedConversation
+
+    const {
+      openActivity,
+      openUserChat,
+      openApplication,
+    } = useDetailService()
+
+    const { getGroupById } = useGroupInfoService()
+    const { getUserById } = useUserService()
+    const { getPlaceById } = usePlaceService()
+
+    return {
+      conversations,
+      isLoading,
+      hasNextPage,
+      isFetchingNextPage,
+      fetchNextPage,
+      openActivity,
+      openUserChat,
+      openApplication,
+      getGroupById,
+      getUserById,
+      getPlaceById,
+    }
   },
   mounted () {
-    this.fetchInitial()
-    setTimeout(() => this.markConversationsSeen(), 3 * 1000)
+    // setTimeout(() => this.markConversationsSeen(), 3 * 1000)
   },
   unmounted () {
-    this.markConversationsSeen()
+    // this.markConversationsSeen()
   },
   methods: {
+    /*
     ...mapActions({
-      openForActivity: 'detail/openForActivity',
-      openForUser: 'detail/openForUser',
-      openForApplication: 'detail/openForApplication',
-      fetchPastConversations: 'latestMessages/fetchPastConversations',
-      fetchInitial: 'latestMessages/fetchInitial',
       markConversationsSeen: 'latestMessages/markConversationsSeen',
     }),
+    */
     open (conv) {
       const { type, target, targetId } = conv
       console.log('opening latest conversations', { type, target, targetId })
@@ -114,9 +141,9 @@ export default {
         case 'group': return this.$router.push({ name: 'group', params: { groupId: target.id }, hash: '#messages' }).catch(() => {})
         // TODO: I think target.group.id won't exist...
         case 'place': return this.$router.push({ name: 'placeWall', params: { groupId: target.group.id, placeId: target.id } }).catch(() => {})
-        case 'activity': return this.openForActivity(target)
-        case 'private': return this.openForUser(target)
-        case 'application': return this.openForApplication(target)
+        case 'activity': return this.openActivity(target)
+        case 'private': return this.openUser(target)
+        case 'application': return this.openApplication(target)
         case 'issue': return this.$router.push({ name: 'issueChat', params: { groupId: target.group.id, issueId: target.id } }).catch(() => {})
         case 'offer': return this.$router.push({
           name: 'offerDetail',
@@ -126,6 +153,7 @@ export default {
       }
     },
     isSelected (conv) {
+      return false // TODO
       if (!this.selectedConversation) return false
       if (Boolean(conv.thread) !== Boolean(this.selectedConversation.thread)) return false
       return conv.id === this.selectedConversation.id

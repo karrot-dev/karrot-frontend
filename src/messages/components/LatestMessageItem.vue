@@ -26,7 +26,7 @@
           </template>
           <template v-else-if="isActivity">
             <QIcon
-              :name="activity.activityType ? activity.activityType.icon : $icon('activity_fw')"
+              v-bind="getIconProps(getActivityTypeById(activity.activityType))"
               class="q-mr-sm"
             />
             {{ $d(activity.date, 'weekdayHourMinute') }}
@@ -122,7 +122,7 @@
         class="q-mb-xs"
       >
         <small>
-          {{ activity.place && activity.place.name }} ·
+          {{ getPlaceById(activity.place).name }} ·
           {{ $d(activity.date, 'yearMonthDay') }}
         </small>
       </QItemLabel>
@@ -133,13 +133,13 @@
         style="max-height: 18px"
       >
         <div
-          v-if="!isPrivate && !message.author.isCurrentUser"
+          v-if="!isPrivate && !getIsCurrentUser(message.author)"
           class="text-secondary"
         >
-          {{ message.author.displayName }}:&nbsp;
+          {{ getUserById(message.author).displayName }}:&nbsp;
         </div>
         <div
-          v-if="message.author.isCurrentUser"
+          v-if="getIsCurrentUser(message.author)"
           class="text-secondary"
         >
           {{ $t('YOU') }}:&nbsp;
@@ -168,6 +168,11 @@ import {
 } from 'quasar'
 import DateAsWords from '@/utils/components/DateAsWords'
 import ProfilePicture from '@/users/components/ProfilePicture'
+import { useActivityTypeService } from '@/activities/services'
+import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useUserService } from '@/users/services'
+import { useAuthHelpers } from '@/authuser/helpers'
+import { usePlaceService } from '@/places/services'
 
 export default {
   components: {
@@ -236,6 +241,21 @@ export default {
   emits: [
     'open',
   ],
+  setup () {
+    const { getActivityTypeById } = useActivityTypeService()
+    const { getIconProps } = useActivityTypeHelpers()
+    const { getUserById } = useUserService()
+    const { getIsCurrentUser } = useAuthHelpers()
+    const { getPlaceById } = usePlaceService()
+
+    return {
+      getActivityTypeById,
+      getIconProps,
+      getUserById,
+      getIsCurrentUser,
+      getPlaceById,
+    }
+  },
   computed: {
     isGroup () {
       return Boolean(this.group)

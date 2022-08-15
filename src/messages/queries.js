@@ -1,6 +1,7 @@
 import { unref, computed } from 'vue'
 
 import messageAPI from '@/messages/api/messages'
+import conversationsAPI from '@/messages/api/conversations'
 import groupsAPI from '@/group/api/groups'
 import placesAPI from '@/places/api/places'
 import activitiesAPI from '@/activities/api/activities'
@@ -12,8 +13,11 @@ import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
 import { useSocketEvents } from '@/utils/composables'
 import { useMessageHelpers } from '@/messages/helpers'
+import { indexById, indexBy } from '@/utils/datastore/helpers'
 
 export const QUERY_KEY_BASE = 'messages'
+export const queryKeyConversationList = () => [QUERY_KEY_BASE, 'conversations', 'list']
+export const queryKeyMyThreadList = () => [QUERY_KEY_BASE, 'myThreads', 'list']
 export const queryKeyConversation = params => [QUERY_KEY_BASE, 'conversation', params].filter(Boolean)
 export const queryKeyMessageList = conversationId => [QUERY_KEY_BASE, 'list', conversationId].filter(Boolean)
 export const queryKeyMessageThreadList = messageId => [QUERY_KEY_BASE, 'thread', 'list', messageId].filter(Boolean)
@@ -124,6 +128,90 @@ export function useMessageUpdater () {
       }
     },
   )
+}
+
+export function useConversationListQuery () {
+  const query = useInfiniteQuery(
+    queryKeyConversationList(),
+    ({ pageParam: cursor }) => conversationsAPI.list(
+      { cursor, exclude_read: false },
+    ),
+    {
+      cacheTime: 0,
+      staleTime: 0,
+      getNextPageParam: page => extractCursor(page.next) || undefined,
+      getPreviousPageParam: page => extractCursor(page.previous) || undefined,
+      select: ({ pages, pageParams }) => ({
+        pages: pages.map(page => {
+          const { conversations, messages, activities, applications, issues, offers, usersInfo, meta } = page.results
+          const messagesByConversationId = indexBy(messages, 'conversation')
+          const activitiesById = indexById(activities)
+          const issuesById = indexById(issues)
+          const offersById = indexById(offers)
+          // const usersById = indexById(usersInfo)
+          console.log('what TODO with users_info', usersInfo)
+          const applicationsById = indexById(applications)
+          console.log('what TODO with meta', meta)
+
+          function getTarget (conversation) {
+            const { targetId } = conversation
+            switch (conversation.type) {
+              case 'activity': return activitiesById[targetId]
+              case 'issue': return issuesById[targetId]
+              case 'offer': return offersById[targetId]
+              case 'application': return applicationsById[targetId]
+            }
+            return null
+          }
+          return conversations.map(conversation => {
+            return {
+              ...conversation,
+              latestMessage: messagesByConversationId[conversation.id],
+              target: getTarget(conversation),
+            }
+          })
+        }),
+        pageParams,
+      }),
+    },
+  )
+  return {
+    ...query,
+    conversations: flattenPaginatedData(query),
+  }
+}
+
+export function useMyThreadListQuery () {
+  const query = useInfiniteQuery(
+    queryKeyMyThreadList(),
+    ({ pageParam: cursor }) => messageAPI.listMyThreads(
+      { cursor, exclude_read: false },
+    ),
+    {
+      cacheTime: 0,
+      staleTime: 0,
+      getNextPageParam: page => extractCursor(page.next) || undefined,
+      getPreviousPageParam: page => extractCursor(page.previous) || undefined,
+      select: ({ pages, pageParams }) => ({
+        pages: pages.map(page => {
+          const { threads, messages } = page.results
+          const messagesByThreadId = indexBy(messages, 'thread')
+
+          return threads.map(thread => {
+            return {
+              ...thread,
+              latestMessage: messagesByThreadId[thread.id],
+            }
+          })
+        }),
+        pageParams,
+      }),
+    },
+  )
+  return {
+    ...query,
+    threads: flattenPaginatedData(query),
+  }
 }
 
 // Only pass in ONE of these params :)

@@ -43,7 +43,7 @@ export function createActivityTypeStylesheet (suffix = '') {
     getStylesheet().innerText = styles
   }
 
-  function updateActivityTypes (activityTypes) {
+  function updateActivityTypes (activityTypes = []) {
     const colorNames = []
     const styles = activityTypes.map(activityType => {
       let color = activityType.colour || defaultColour

@@ -1,4 +1,5 @@
-import { effectScope } from 'vue'
+import { effectScope, isProxy, isRef, toRaw, unref } from 'vue'
+import { isObject } from '@/utils/utils'
 
 /**
  * Datastore related helpers
@@ -358,6 +359,48 @@ export function toggles (config) {
   return result
 }
 
+const SERVICES = []
+
+window.SERVICES = SERVICES
+
+function walkServices () {
+  function unwrap (value) {
+    if (!value) return value
+    if (isRef(value)) return unwrap(unref(value))
+    else if (isProxy(value)) return unwrap(toRaw(value))
+    else if (Array.isArray(value)) return value.map(unwrap)
+    else if (isObject(value)) {
+      return Object.entries(value).reduce((acc, [key, val]) => {
+        acc[key] = unwrap(val)
+        return acc
+      }, {})
+    }
+    else return value
+  }
+
+  for (const service of SERVICES) {
+    const keys = Object.keys(service)
+    if (keys.length > 0) {
+      console.log('service -----------------------------------------')
+      // the service might just return one value
+      if (isRef(service)) {
+        console.log('service', '->', unwrap(service))
+      }
+      else {
+        for (const key of keys) {
+          const value = service[key]
+          const unwrapped = unwrap(value)
+          if (typeof unwrapped !== 'function') {
+            console.log(key, '->', unwrapped)
+          }
+        }
+      }
+    }
+  }
+}
+
+window.WALK_SERVICES = walkServices
+
 export function defineService (serviceSetup) {
   if (process.env.DEV) {
     if (typeof serviceSetup !== 'function') {
@@ -382,6 +425,11 @@ export function defineService (serviceSetup) {
 
     // initialize our service in this scope, we get back a value, nothing fancy!
     service = scope.run(() => serviceSetup())
+
+    if (service) {
+      // some services won't return anything, they just do some effects...
+      SERVICES.push(service)
+    }
 
     return service
   }

@@ -1,17 +1,18 @@
 import { computed, watch, onScopeDispose } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useStore } from 'vuex'
 import { useQueryClient } from 'vue-query'
 import { isArray } from 'lodash'
 
 import { socketEvents } from '@/boot/socket'
 import { useStatusService } from '@/status/services'
+import { useBreadcrumbs } from '@/topbar/services'
+import { useAuthService } from '@/authuser/services'
 
 export function useClearDataOnLogout () {
-  const store = useStore()
   const queryClient = useQueryClient()
-  store.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
-    if (!isLoggedIn) {
+  const { isLoggedIn } = useAuthService()
+  watch(isLoggedIn, value => {
+    if (!value) {
       // Clear data for all queries
       queryClient.resetQueries([])
     }
@@ -41,22 +42,23 @@ export function useSocketEvents () {
 }
 
 export function useTitleStatus () {
-  const store = useStore()
   const { unseenCount } = useStatusService()
+  const breadcrumbs = useBreadcrumbs()
 
-  watch(() => [
-    store.getters['breadcrumbs/allNames'],
-    unseenCount.value,
-  ], ([allNames, unseenCount]) => {
-    const names = allNames.slice().reverse()
+  const title = computed(() => {
+    const names = breadcrumbs.value.map(breadcrumb => breadcrumb.name).reverse()
     names.push('Karrot')
     let title = names.join(' · ')
 
-    if (unseenCount > 0) {
-      title = `(${unseenCount}) ${title}`
+    if (unseenCount.value > 0) {
+      title = `(${unseenCount.value}) ${title}`
     }
 
-    document.title = title
+    return title
+  })
+
+  watch(title, value => {
+    document.title = value
   })
 }
 

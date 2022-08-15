@@ -1,7 +1,10 @@
-import authUserAPI from './api/authUser'
 import { useQuery, useQueryClient } from 'vue-query'
-import { useSocketEvents } from '@/utils/composables'
 import { useStore } from 'vuex'
+
+import authUserAPI from './api/authUser'
+import { useSocketEvents } from '@/utils/composables'
+import { useWait } from '@/utils/queryHelpers'
+import { isValidationError } from '@/utils/datastore/helpers'
 
 export const QUERY_KEY_BASE = 'authuser'
 export const queryKeys = {
@@ -30,13 +33,28 @@ export function useAuthUserUpdater () {
 export function useAuthUserQuery () {
   const query = useQuery(
     queryKeys.authUser(),
-    () => authUserAPI.get(),
+    async () => {
+      try {
+        return await authUserAPI.get()
+      }
+      catch (error) {
+        if (isValidationError(error)) {
+          if (error.response.status === 403) {
+            // This case is OK, just no user...
+            return null
+          }
+        }
+        throw error
+      }
+    },
     {
       staleTime: Infinity,
     },
   )
+
   return {
     ...query,
+    wait: useWait(query),
     user: query.data,
   }
 }
@@ -45,6 +63,9 @@ export function useFailedEmailDeliveriesQuery () {
   const query = useQuery(
     queryKeys.failedEmailDeliveries(),
     () => authUserAPI.getFailedEmailDeliveries(),
+    {
+      placeholderData: () => [],
+    },
   )
   return {
     ...query,

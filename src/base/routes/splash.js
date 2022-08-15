@@ -25,7 +25,6 @@ export default [
       breadcrumbs: [
         { translation: 'LOGIN.TITLE', route: { name: 'login' } },
       ],
-      afterLeave: 'auth/clearLoginStatus',
     },
     components: {
       default: Login,
@@ -40,7 +39,6 @@ export default [
       breadcrumbs: [
         { translation: 'PASSWORDRESET.TITLE' },
       ],
-      afterLeave: 'users/clearRequestResetPassword',
     },
     components: {
       default: RequestPasswordReset,

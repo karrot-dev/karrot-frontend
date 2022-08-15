@@ -210,9 +210,6 @@ export default {
       default: false,
     },
   },
-  emits: [
-    'detail',
-  ],
   setup (props) {
     const { activity } = toRefs(props)
 
@@ -307,7 +304,6 @@ export default {
     },
     detail (event) {
       if (event.target.closest('a')) return // ignore actual links
-      // this.$emit('detail', this.activity)
       this.openActivity(this.activity.id)
     },
   },

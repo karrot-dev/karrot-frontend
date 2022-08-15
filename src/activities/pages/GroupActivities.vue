@@ -88,9 +88,6 @@
       <ActivityList
         :activities="activities"
         place-link
-        :ics-url="''"
-        :token-pending="false"
-        @detail="detail"
       />
       <KSpinner v-show="isLoading || isFetchingNextPage" />
     </QInfiniteScroll>
@@ -161,8 +158,6 @@ import {
   QBanner,
   QSpace,
 } from 'quasar'
-
-import { mapActions } from 'vuex'
 
 import KSpinner from '@/utils/components/KSpinner'
 import ActivityList from '@/activities/components/ActivityList'
@@ -371,9 +366,6 @@ export default {
     },
   },
   methods: {
-    ...mapActions({
-      detail: 'detail/openForActivity',
-    }),
     filterPlaceOptions (val, update) {
       this.placeOptionsFilter = val
       update()

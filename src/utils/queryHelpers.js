@@ -1,7 +1,6 @@
 import { computed, unref } from 'vue'
 import { isNetworkError, isServerError, isValidationError } from '@/utils/datastore/helpers'
 import { useQueryClient } from 'vue-query'
-import { isObject } from '@/utils/utils'
 
 export function useQueryHelpers () {
   const queryClient = useQueryClient()
@@ -109,18 +108,23 @@ export function newDateRoundedTo5Minutes () {
   return new Date(Math.floor(new Date().getTime() / roundTo) * roundTo)
 }
 
-export function isEnriched (object) {
-  return object && isObject(object) && Object.hasOwn(object, '_enrichSource')
-}
-
-export function requireEnriched (object, message) {
-  if (!isEnriched(object)) {
-    message = message || 'Expected enriched object'
-    console.error(message, object)
-    throw new Error(message)
+/**
+ * If we want to wait for a certain query to be done regardless of whether it errors.
+ *
+ * I thought the suspense() function from the vue-query object would do this...
+ * ... but it causes it to refetch it which is not what I want
+ */
+export function useWait (query) {
+  const {
+    fetchStatus,
+    suspense,
+  } = query
+  return async function wait () {
+    if (fetchStatus.value === 'idle') return // TODO: check this is right
+    try {
+      await suspense()
+    }
+    // We don't mind error, just that we're not waiting any more
+    catch (error) {}
   }
-}
-
-export function unenriched (object) {
-  return isEnriched(object) ? object._enrichSource : object
 }

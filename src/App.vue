@@ -28,16 +28,15 @@ import { useGroupDetailUpdater } from '@/group/queries'
 import { useGroupInfoUpdater } from '@/groupInfo/queries'
 import { useApplicationsUpdater } from '@/applications/queries'
 import { useNotificationsUpdater } from '@/notifications/queries'
-import { onBeforeRouteUpdate, useRouter } from 'vue-router/dist/vue-router'
-import { useCurrentGroupService } from '@/group/services'
-import { useCheckFeaturesService } from '@/base/services'
+import { useRoutingLogic, useCheckResponseAuthStatus } from '@/base/services'
 
 export default {
   components: {
     LoadingProgress,
   },
   setup () {
-    useCheckFeaturesService()
+    useRoutingLogic()
+    useCheckResponseAuthStatus()
 
     // Websocket updaters
     useAuthUserUpdater()

@@ -324,7 +324,6 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.HISTORY', route: { name: 'groupHistory' } },
           ],
-          beforeEnter: 'history/fetch',
         },
         component: GroupHistory,
       },

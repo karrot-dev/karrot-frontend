@@ -111,7 +111,7 @@ export function usePerformance () {
         .getEntriesByType('resource')
         .reduce((total, entry) => total + entry.duration, 0)),
       loggedIn: isLoggedIn.value,
-      group: groupId.value,
+      group: groupId.value || null,
       routeName: route.name,
       routePath: route.fullPath,
       mobile: Boolean(Platform.is.mobile),

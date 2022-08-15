@@ -53,18 +53,18 @@ export default {
 
     async refresh ({ commit, dispatch, getters }) {
       // TODO: how to deal with this bit?
-      const wasLoggedIn = getters.isLoggedIn
-      let user = null
-      try {
-        user = await authUser.get()
-      }
-      catch (error) {}
-      commit('setUser', user)
-      commit('setMaybeLoggedOut', false)
-
-      if (!user && wasLoggedIn && !getters.logoutStatus.pending) {
-        dispatch('logout')
-      }
+      // const wasLoggedIn = getters.isLoggedIn
+      // let user = null
+      // try {
+      //   user = await authUser.get()
+      // }
+      // catch (error) {}
+      // commit('setUser', user)
+      // commit('setMaybeLoggedOut', false)
+      //
+      // if (!user && wasLoggedIn && !getters.logoutStatus.pending) {
+      //   dispatch('logout')
+      // }
     },
 
     clearSettingsStatus ({ commit, dispatch }) {

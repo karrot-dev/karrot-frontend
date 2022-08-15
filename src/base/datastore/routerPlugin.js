@@ -1,56 +1,8 @@
 import router from '@/router'
 
 export default datastore => {
-  const isLoggedIn = () => datastore.getters['auth/isLoggedIn']
-  const getUserGroupId = () => isLoggedIn() && datastore.getters['auth/user'].currentGroup
-
-  router.beforeEach(async (to, from, nextFn) => {
+  router.beforeEach(to => {
     datastore.commit('routeMeta/setNext', to)
-    datastore.dispatch('routeError/clear')
-    let next
-
-    // handle invite parameter
-    const inviteToken = to.query.invite
-    if (inviteToken) {
-      if (isLoggedIn()) {
-        datastore.dispatch('invitations/accept', inviteToken)
-        next = { path: '/' }
-      }
-      else {
-        datastore.dispatch('auth/setAcceptInviteAfterLogin', inviteToken)
-      }
-    }
-
-    // redirect homescreen correctly
-    else if (to.path === '/') {
-      const groupId = getUserGroupId()
-      if (groupId) {
-        next = { name: 'group', params: { groupId } }
-      }
-      else if (isLoggedIn()) {
-        next = { name: 'groupsGallery' }
-      }
-      else {
-        next = { name: 'landing' }
-      }
-    }
-
-    // check meta.requireLoggedIn
-    else if (to.matched.some(m => m.meta.requireLoggedIn) && !isLoggedIn()) {
-      next = { name: 'login', query: { to: to.fullPath } }
-    }
-
-    // check meta.requireLoggedOut
-    else if (to.matched.some(m => m.meta.requireLoggedOut) && isLoggedIn()) {
-      next = { path: '/' }
-    }
-
-    if (next) {
-      nextFn(next)
-      return
-    }
-
-    nextFn()
   })
 
   router.afterEach(async (to, from) => {
@@ -65,16 +17,6 @@ export default datastore => {
 
     datastore.commit('routeMeta/setNext', null)
   })
-}
-
-export function findBreadcrumbs (matched) {
-  // Combine all the breadcrumbs from the root
-  return matched.reduce((acc, m) => {
-    if (m.meta && m.meta.breadcrumbs) {
-      acc.push(...m.meta.breadcrumbs)
-    }
-    return acc
-  }, [])
 }
 
 export async function maybeDispatchActions (datastore, to, from) {

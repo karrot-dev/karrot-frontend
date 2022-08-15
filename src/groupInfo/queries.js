@@ -21,6 +21,7 @@ export function useGroupInfoListQuery () {
     () => api.list(),
     {
       staleTime: Infinity,
+      placeholderData: () => [],
     },
   )
   return {

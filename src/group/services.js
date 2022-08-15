@@ -36,11 +36,11 @@ export const useCurrentGroupService = defineService(() => {
   const {
     group,
     isLoading: isLoadingGroup,
-    suspense: waitForGroupToLoad,
+    wait: waitForGroupToLoad,
   } = useGroupDetailQuery({ groupId })
 
   // computed
-  const users = computed(() => Object.keys(group.value.memberships).map(getUserById))
+  const users = computed(() => Object.keys(group.value?.memberships || {}).map(getUserById))
   const places = computed(() => getPlacesByGroup(groupId))
   const features = computed(() => group.value?.features || [])
   const theme = computed(() => group.value?.theme)
@@ -119,7 +119,7 @@ function useCurrentGroupId () {
 
   // Set a default if we don't already have a groupid
   watch(groupId, value => {
-    if (!value) {
+    if (!value && isLoggedIn.value) {
       groupId.value = groupIdRouteParam.value || user.value?.currentGroup
     }
   }, { immediate: true })
@@ -131,9 +131,15 @@ function useCurrentGroupId () {
     }
   })
 
-  // When logging out, reset it
   watch(isLoggedIn, value => {
-    if (!value) {
+    if (value) {
+      // when use the current group if we don't have it already
+      if (!groupId.value) {
+        groupId.value = user.value.currentGroup
+      }
+    }
+    else {
+      // When logging out, reset it
       groupId.value = null
     }
   })

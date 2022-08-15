@@ -6,6 +6,7 @@ import { useSocketEvents } from '@/utils/composables'
 import api from './api/activities'
 import activityTypeAPI from './api/activityTypes'
 import activitySeriesAPI from './api/activitySeries'
+import { useAuthService } from '@/authuser/services'
 
 export const QUERY_KEY_BASE = 'activities'
 export const queryKeyActivityList = params => [QUERY_KEY_BASE, 'list', params].filter(Boolean)
@@ -166,11 +167,14 @@ export function useActivitySeriesListQuery ({ placeId }) {
 }
 
 export function useActivityTypeListQuery () {
+  const { isLoggedIn } = useAuthService()
   const query = useQuery(
     queryKeyActivityTypeListAll(),
     () => activityTypeAPI.list(),
     {
+      placeholderData: () => [],
       staleTime: Infinity,
+      enabled: isLoggedIn,
     },
   )
   return {

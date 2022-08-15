@@ -1,18 +1,12 @@
 import { computed, watch } from 'vue'
 import { useUserListAllQuery, useUserProfileQuery } from '@/users/queries'
 import { indexBy, indexById, defineService, isValidationError } from '@/utils/datastore/helpers'
-import { useAuthService } from '@/authuser/services'
 import { useIntegerRouteParam } from '@/utils/composables'
 import { useRouteErrorService } from '@/base/services'
 
 export const useUserService = defineService(() => {
-  // Services
-  const { isLoggedIn } = useAuthService()
-
   // queries
-  const { isLoading, users } = useUserListAllQuery({
-    enabled: isLoggedIn,
-  })
+  const { isLoading, users } = useUserListAllQuery()
 
   // computed
   const usersById = computed(() => indexById(users.value))

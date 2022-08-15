@@ -4,6 +4,7 @@ import { unref, computed } from 'vue'
 import api from './api/places'
 import { useSocketEvents } from '@/utils/composables'
 import { useQueryHelpers } from '@/utils/queryHelpers'
+import { useAuthService } from '@/authuser/services'
 
 export const QUERY_KEY_BASE = 'places'
 export const queryKeyPlaceListAll = () => [QUERY_KEY_BASE, 'list', 'all']
@@ -26,7 +27,7 @@ export function usePlaceStatisticsQuery ({ placeId }) {
     queryKeyPlaceStatistics(placeId),
     () => api.statistics(unref(placeId)),
     {
-      enabled: computed(() => !!placeId.value),
+      enabled: computed(() => Boolean(unref(placeId))),
     },
   )
   return {
@@ -35,14 +36,16 @@ export function usePlaceStatisticsQuery ({ placeId }) {
   }
 }
 
-export function usePlaceListQuery (queryOptions = {}) {
+export function usePlaceListQuery () {
+  const { isLoggedIn } = useAuthService()
+
   const query = useQuery(
     queryKeyPlaceListAll(),
     () => api.list(),
     {
       placeholderData: () => [],
       staleTime: Infinity, // rely on socket updates
-      ...queryOptions,
+      enabled: isLoggedIn,
     },
   )
   return {

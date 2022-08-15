@@ -41,16 +41,19 @@ export function useActivityHelpers () {
 
 export function useActivityTypeHelpers () {
   function getColorName (activityType) {
+    if (!activityType) return
     const { id } = activityType
     return `activity-type-${id}`
   }
 
   function getTranslatedName (activityType) {
+    if (!activityType) return
     const { name, nameIsTranslatable } = activityType
     return nameIsTranslatable ? i18n.t(`ACTIVITY_TYPE_NAMES.${name}`) : name
   }
 
   function getIconProps (activityType) {
+    if (!activityType) return
     const { icon } = activityType
     const title = getTranslatedName(activityType)
     return {
@@ -67,6 +70,7 @@ export function useActivityTypeHelpers () {
   }
 
   function getFeedbackIconProps (activityType) {
+    if (!activityType) return
     const { feedbackIcon } = activityType
     return {
       ...getIconProps(activityType),

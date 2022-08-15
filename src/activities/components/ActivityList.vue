@@ -18,7 +18,6 @@
         :dense="dense"
         :activity="activity"
         :place-link="placeLink"
-        @detail="(...args) => $emit('detail', ...args)"
       />
     </template>
   </div>
@@ -49,9 +48,6 @@ export default {
       default: false,
     },
   },
-  emits: [
-    'detail',
-  ],
   computed: {
     // TODO: might need server logic to handle this now??/
     // activityTypes () {

@@ -1,7 +1,7 @@
-import { isNetworkError } from '@/utils/datastore/helpers'
+import { isNetworkError, isValidationError } from '@/utils/datastore/helpers'
 import bootstrap from '@/base/api/bootstrap'
 import { configureSentry } from '@/utils/sentry'
-import { QueryClient, VueQueryPlugin } from 'vue-query'
+import { QueryCache, QueryClient, VueQueryPlugin } from 'vue-query'
 import { queryKeys } from '@/authuser/queries'
 import { setGeoipCoordinates } from '@/base/services'
 import { queryKeyUserListAll } from '@/users/queries'
@@ -11,7 +11,20 @@ import { queryKeyGroupInfoListAll } from '@/groupInfo/queries'
 import { queryKeyActivityTypeListAll } from '@/activities/queries'
 
 export default async function ({ app, store: datastore }) {
+  const queryCache = new QueryCache({
+    onError (error, query) {
+      if (isValidationError(error)) {
+        if (error.response.status === 403) {
+          // console.log('query cache error!', error, query)
+          if (query.queryKey !== queryKeys.authUser()) {
+            // console.log('aha a 403 error for non auth user query...')
+          }
+        }
+      }
+    },
+  })
   const queryClient = new QueryClient({
+    queryCache,
     defaultOptions: {
       queries: {
         // I mainly put this here because on logout it tries to refetch a load of stuff multiple times (places, users)
@@ -31,7 +44,16 @@ export default async function ({ app, store: datastore }) {
     status,
     activityTypes,
     geoip,
-  } = await bootstrap.fetch()
+  } = await bootstrap.fetch([
+    'config',
+    'user',
+    'groups',
+    'places',
+    'users',
+    'status',
+    'activity_types',
+    'geoip',
+  ])
 
   if (config) {
     if (config.sentry) {

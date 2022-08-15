@@ -1,6 +1,5 @@
-import { readonly, ref, computed, watch } from 'vue'
+import { ref, computed, watch } from 'vue'
 
-import { DEFAULT_LOCALE, detectLocale } from '@/base/datastore/i18n'
 import { defineService, isValidationError } from '@/utils/datastore/helpers'
 import { useCurrentGroupService } from '@/group/services'
 import { useStore } from 'vuex'
@@ -42,20 +41,6 @@ export const useGeoService = defineService(() => {
   return {
     myCoordinates,
     defaultCenter,
-  }
-})
-
-export const useI18nService = defineService(() => {
-  const locale = ref(detectLocale() || DEFAULT_LOCALE)
-
-  function setLocale (value) {
-    // maybe do background save if it's changed for the user...
-    locale.value = value
-  }
-
-  return {
-    locale: readonly(locale),
-    setLocale,
   }
 })
 

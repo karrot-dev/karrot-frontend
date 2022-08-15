@@ -15,6 +15,7 @@ import { extend } from 'quasar'
 import i18n from '@/base/i18n'
 import { sortByName } from '@/places/datastore/places'
 import { usePlaceHelpers } from '@/places/helpers'
+import { useI18nService } from '@/base/services/i18nService'
 
 export const useCurrentGroupService = defineService(() => {
   // services
@@ -89,6 +90,9 @@ export const useCurrentGroupService = defineService(() => {
 
   // keep users current group saved
   useSaveUserCurrentGroup({ groupId })
+
+  // keep locale updated
+  useSaveUserCurrentLocale()
 
   // keep set locale messages based on theme
   useLocaleMessagesSetter({ isBikeKitchen, isGeneralPurpose })
@@ -240,6 +244,18 @@ function useSaveUserCurrentGroup ({ groupId }) {
       if (user.value && user.value.currentGroup !== value) {
         saveUser({ currentGroup: value })
       }
+    }
+  }, { immediate: true })
+}
+
+function useSaveUserCurrentLocale () {
+  const { user } = useAuthService()
+  const { mutate: saveUser } = useSaveUserMutation()
+  const { locale } = useI18nService()
+  watch(locale, value => {
+    if (value && user.value && user.value.language !== value) {
+      console.log('saving user locale :)')
+      saveUser({ language: value })
     }
   }, { immediate: true })
 }

@@ -31,8 +31,8 @@ import {
   QDialog,
 } from 'quasar'
 import { defineAsyncComponent } from 'vue'
-import { mapGetters } from 'vuex'
 import locales from '@/locales/index'
+import { useI18nService } from '@/base/services/i18nService'
 
 const LocaleSelectInner = defineAsyncComponent(() => import('./LocaleSelectInner'))
 
@@ -50,15 +50,20 @@ export default {
       default: false,
     },
   },
+  setup () {
+    const {
+      locale: current,
+    } = useI18nService()
+    return {
+      current,
+    }
+  },
   data () {
     return {
       open: false,
     }
   },
   computed: {
-    ...mapGetters({
-      current: 'i18n/locale',
-    }),
     currentName () {
       if (!this.current) return ''
       return locales[this.current].name

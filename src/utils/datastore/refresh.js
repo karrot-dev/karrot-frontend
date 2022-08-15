@@ -33,7 +33,7 @@ export default {
           dispatch('groups/fetch', null, { root: true }),
           dispatch('conversations/refresh', null, { root: true }),
           dispatch('currentThread/refresh', null, { root: true }),
-          dispatch('latestMessages/fetch', {}, { root: true }),
+          // dispatch('latestMessages/fetch', {}, { root: true }),
         ])
         commit('setLastRefresh')
         if (done) done()

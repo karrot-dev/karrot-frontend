@@ -248,9 +248,11 @@ function getFirst (list) {
 export const plugin = datastore => {
   datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
     if (!isLoggedIn) {
+      /*
       datastore.commit('latestMessages/clear')
       datastore.commit('latestMessages/conversationsPagination/clear')
       datastore.commit('latestMessages/threadsPagination/clear')
+      */
     }
   })
 }

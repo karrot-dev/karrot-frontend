@@ -194,21 +194,21 @@ export default async function ({ store: datastore }) {
       const message = payload
       if (message.thread) {
         datastore.dispatch('currentThread/receiveMessage', message)
-        datastore.dispatch('latestMessages/updateThreadsAndRelated', { messages: [message] })
+        // datastore.dispatch('latestMessages/updateThreadsAndRelated', { messages: [message] })
       }
       if (!message.thread || message.thread === message.id) {
         datastore.dispatch('conversations/receiveMessage', message)
-        datastore.dispatch('latestMessages/updateConversationsAndRelated', { messages: [message] })
-        if (message.thread) {
+        // datastore.dispatch('latestMessages/updateConversationsAndRelated', { messages: [message] })
+        /* if (message.thread) {
           datastore.dispatch('latestMessages/updateThreadsAndRelated', { threads: [message] })
-        }
+        } */
         datastore.dispatch('conversations/fetchRelatedUserInfo', [message])
       }
     }
     else if (topic === 'conversations:conversation') {
       const conversation = payload
       datastore.dispatch('conversations/updateConversation', conversation)
-      datastore.dispatch('latestMessages/updateConversationsAndRelated', { conversations: [conversation] })
+      // datastore.dispatch('latestMessages/updateConversationsAndRelated', { conversations: [conversation] })
     }
     else if (topic === 'conversations:meta') {
       datastore.commit('latestMessages/setEntryMeta', payload)
@@ -218,10 +218,12 @@ export default async function ({ store: datastore }) {
     }
     else if (topic === 'conversations:leave') {
       // refresh latest messages
+      /*
       if (!datastore.getters['latestMessages/fetchInitialPending']) {
         datastore.dispatch('latestMessages/clear')
         datastore.dispatch('latestMessages/fetchInitial')
       }
+      */
     }
     else if (topic === 'groups:group_preview') {
       datastore.commit('groups/update', [payload])
@@ -264,10 +266,10 @@ export default async function ({ store: datastore }) {
       // datastore.commit('activityTypes/delete', payload.id)
     }
     else if (topic === 'offers:offer') {
-      datastore.commit('latestMessages/updateRelated', { type: 'offer', items: [payload] })
+      // datastore.commit('latestMessages/updateRelated', { type: 'offer', items: [payload] })
     }
     else if (topic === 'offers:offer_deleted') {
-      datastore.commit('latestMessages/deleteRelated', { type: 'offer', ids: [payload.id] })
+      // datastore.commit('latestMessages/deleteRelated', { type: 'offer', ids: [payload.id] })
     }
     else if (topic === 'feedback:feedback') {
       // datastore.dispatch('feedback/updateOne', payload)

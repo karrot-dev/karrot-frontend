@@ -34,6 +34,7 @@
                     v-bind="getIconProps(activityType)"
                   />
                 </template>
+                <!-- TODO lint "Variable 'activity' is already declared in the upper scope." -->
                 <template #option="{ index, opt: { value: activity }, itemProps }">
                   <QItem
                     :key="index"

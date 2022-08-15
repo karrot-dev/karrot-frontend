@@ -1,5 +1,4 @@
 import router from '@/router'
-import * as Sentry from '@sentry/vue'
 
 export default datastore => {
   const isLoggedIn = () => datastore.getters['auth/isLoggedIn']
@@ -67,13 +66,6 @@ export default datastore => {
 
     // datastore.commit('breadcrumbs/set', findBreadcrumbs(to.matched) || [])
     datastore.commit('routeMeta/setNext', null)
-
-    try {
-      datastore.dispatch('currentGroup/markUserActive')
-    }
-    catch (err) {
-      Sentry.captureException(err)
-    }
 
     // Check if our route requires any features we don't have
     // It would be nice to do this _before_ we visit the route, but we don't have the features

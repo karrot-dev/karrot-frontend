@@ -7,10 +7,14 @@ import { useAuthService } from '@/authuser/services'
 import { useIntegerRouteParam } from '@/utils/composables'
 import { useGroupDetailQuery } from '@/group/queries'
 import { useSaveUserMutation } from '@/authuser/mutations'
+import { useRouter } from 'vue-router'
+import * as Sentry from '@sentry/vue'
+import groups from '@/group/api/groups'
 
 export const useCurrentGroupService = defineService(() => {
   // services
   const store = useStore()
+  const router = useRouter()
   const {
     isLoading: isLoadingUsers,
     getUserById,
@@ -63,6 +67,21 @@ export const useCurrentGroupService = defineService(() => {
     // It's only temporary to do this, so seems fine for now!
     store.commit('currentGroup/set', value ? { ...value } : null)
   }, { immediate: true })
+
+  // mark user active
+  router.afterEach(async () => {
+    try {
+      /**
+       * Marks the user as active in the current group
+       * Should only be triggered when the user visits a group page
+       * It currently also gets triggered when the user visits the profile page, but that seems fine.
+       */
+      if (groupId.value) await groups.throttledMarkUserActive(groupId.value)
+    }
+    catch (err) {
+      Sentry.captureException(err)
+    }
+  })
 
   // computed
   const users = computed(() => Object.keys(group.value.memberships).map(getUserById))

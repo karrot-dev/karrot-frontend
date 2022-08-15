@@ -23,6 +23,7 @@ import { usePlacesUpdater } from '@/places/queries'
 import { useStatusUpdater } from '@/status/queries'
 import { useAuthUserUpdater } from '@/authuser/queries'
 import { useConversationUpdater, useMessageUpdater } from '@/messages/queries'
+import { usePerformance } from '@/boot/performance'
 
 export default {
   components: {
@@ -42,6 +43,7 @@ export default {
     useMessageUpdater()
 
     // Utilities
+    usePerformance()
     useTitleStatus()
     useClearDataOnLogout()
   },

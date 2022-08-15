@@ -1,11 +1,26 @@
 import { Platform } from 'quasar'
 import axios from '@/base/api/axios'
 import { debounceAndFlushOnUnload, underscorizeKeys } from '@/utils/utils'
+import { useRoute, useRouter } from 'vue-router'
+import { useCurrentGroupService } from '@/group/services'
+import { useAuthService } from '@/authuser/services'
 
 const SAVE_INTERVAL_MS = 5000 // batch saves to the backend
 const SHOW_PERFORMANCE_INFO = localStorage.getItem('SHOW_PERFORMANCE_INFO') !== null
 
-export default async ({ store: datastore, app, router }) => {
+let app
+
+export default async ({ app: bootApp }) => {
+  // A bit hacky.... couldn't find something like useApp() or useAppConfig() could create it...
+  app = bootApp
+}
+
+export function usePerformance () {
+  const router = useRouter()
+  const route = useRoute()
+  const { isLoggedIn } = useAuthService()
+  const { groupId } = useCurrentGroupService()
+
   const performance = window.performance
   const fetch = window.fetch
 
@@ -95,10 +110,10 @@ export default async ({ store: datastore, app, router }) => {
       msResources: Math.round(performance
         .getEntriesByType('resource')
         .reduce((total, entry) => total + entry.duration, 0)),
-      loggedIn: datastore.getters['auth/isLoggedIn'],
-      group: datastore.getters['currentGroup/id'],
-      routeName: router.currentRoute.name,
-      routePath: router.currentRoute.fullPath,
+      loggedIn: isLoggedIn.value,
+      group: groupId.value,
+      routeName: route.name,
+      routePath: route.fullPath,
       mobile: Boolean(Platform.is.mobile),
       browser: Platform.is.name,
       os: Platform.is.platform,
@@ -182,6 +197,13 @@ export default async ({ store: datastore, app, router }) => {
     }
   }
 }
+
+// This part is for createInstrument() which is totally separate from
+// the performance measurement.
+//
+// You can use createInstrument(<name>) to wrap around a function to create
+// an instrumented version of it. Synchronous functions only.
+// --------------------------------------------------------------------
 
 let totalMs = 0
 let prevTotalMs = 0

@@ -1,12 +1,8 @@
 <template>
   <div class="wrapper">
     <div class="notices">
-      <KSpinner v-show="isLoadingJoinedActivities" />
       <div v-if="joinedActivities.length > 0">
-        <JoinedActivities
-          :activities="joinedActivities"
-          @detail="detail"
-        />
+        <JoinedActivities :activities="joinedActivities" />
       </div>
       <div v-if="hasAvailableActivities">
         <AvailableActivities />
@@ -27,9 +23,7 @@ import AvailableActivities from '@/group/components/AvailableActivities'
 import FeedbackNotice from '@/group/components/FeedbackNotice'
 import JoinedActivities from '@/group/components/JoinedActivities'
 import WallConversation from '@/messages/components/WallConversation'
-import KSpinner from '@/utils/components/KSpinner'
 
-import { mapActions } from 'vuex'
 import { useCurrentGroupService } from '@/group/services'
 import { useActivityListQuery } from '@/activities/queries'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
@@ -41,7 +35,6 @@ export default {
     AvailableActivities,
     WallConversation,
     FeedbackNotice,
-    KSpinner,
   },
   setup () {
     const { groupId } = useCurrentGroupService()
@@ -49,7 +42,6 @@ export default {
 
     const {
       activities: joinedActivities,
-      isLoading: isLoadingJoinedActivities,
     } = useActivityListQuery({
       groupId,
       dateMin: newDateRoundedTo5Minutes(),
@@ -74,15 +66,9 @@ export default {
     return {
       groupId,
       joinedActivities,
-      isLoadingJoinedActivities,
       hasAvailableActivities,
       feedbackPossibleCount,
     }
-  },
-  methods: {
-    ...mapActions({
-      detail: 'detail/openForActivity',
-    }),
   },
 }
 </script>

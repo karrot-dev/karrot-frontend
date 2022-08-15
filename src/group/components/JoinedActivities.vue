@@ -21,7 +21,6 @@
       :activities="activities"
       place-link
       dense
-      @detail="(...args) => $emit('detail', ...args)"
     />
     <hr v-if="showActivities">
   </div>
@@ -42,9 +41,6 @@ export default {
       type: Array,
     },
   },
-  emits: [
-    'detail',
-  ],
   data () {
     return {
       showActivities: true,

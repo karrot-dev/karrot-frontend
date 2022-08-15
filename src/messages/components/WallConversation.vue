@@ -195,8 +195,7 @@ export default {
   },
   computed: {
     hasLoaded () {
-      if (!this.conversation) return false
-      return !this.pending
+      return !this.isLoadingConversation && !this.isLoadingMessages
     },
     messagePrompt () {
       if (!this.conversation) return ''

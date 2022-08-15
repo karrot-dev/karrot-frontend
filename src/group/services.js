@@ -13,6 +13,8 @@ import groups from '@/group/api/groups'
 import { messages as loadMessages } from '@/locales'
 import { extend } from 'quasar'
 import i18n from '@/base/i18n'
+import { sortByName } from '@/places/datastore/places'
+import { usePlaceHelpers } from '@/places/helpers'
 
 export const useCurrentGroupService = defineService(() => {
   // services
@@ -34,14 +36,28 @@ export const useCurrentGroupService = defineService(() => {
   } = useCurrentGroupId()
 
   const {
+    sortByPlaceStatus,
+  } = usePlaceHelpers()
+
+  const {
     group,
     isLoading: isLoadingGroup,
     wait: waitForGroupToLoad,
   } = useGroupDetailQuery({ groupId })
 
+  const showAllPlaces = ref(false)
+
   // computed
   const users = computed(() => Object.keys(group.value?.memberships || {}).map(getUserById))
-  const places = computed(() => getPlacesByGroup(groupId))
+  const allPlaces = computed(() => getPlacesByGroup(groupId))
+  const places = computed(() => allPlaces.value
+    // Never show these
+    .filter(place => place.status !== 'archived')
+    // Always show subscribed and active, show rest only with showAllPlaces enabled
+    .filter(place => showAllPlaces.value || place.status === 'active' || place.isSubscribed)
+    .sort(sortByName)
+    .sort(sortByPlaceStatus))
+  const archivedPlaces = computed(() => allPlaces.value.filter(place => place.status === 'archived'))
   const features = computed(() => group.value?.features || [])
   const theme = computed(() => group.value?.theme)
   const isPlayground = computed(() => group.value?.status === 'playground')
@@ -93,6 +109,8 @@ export const useCurrentGroupService = defineService(() => {
     isLoadingPlaces,
     users,
     places,
+    showAllPlaces,
+    archivedPlaces,
     theme,
     isPlayground,
     isGeneralPurpose,

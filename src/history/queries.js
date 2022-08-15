@@ -1,11 +1,26 @@
 import { unref, computed } from 'vue'
-import { useInfiniteQuery } from 'vue-query'
+import { useInfiniteQuery, useQuery } from 'vue-query'
 
 import api from './api/history'
 import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
 
 export const QUERY_KEY_BASE = 'history'
+export const queryKeyHistoryDetail = historyId => [QUERY_KEY_BASE, 'detail', historyId].filter(Boolean)
 export const queryKeyHistoryList = params => [QUERY_KEY_BASE, 'list', params].filter(Boolean)
+
+export function useHistoryDetailQuery ({ historyId }) {
+  const query = useQuery(
+    queryKeyHistoryDetail(unref(historyId)),
+    () => api.get(unref(historyId)),
+    {
+      enabled: computed(() => Boolean(unref(historyId))),
+    },
+  )
+  return {
+    ...query,
+    historyItem: query.data,
+  }
+}
 
 export function useHistoryListQuery ({ groupId, placeId, userId }, queryOptions = {}) {
   const query = useInfiniteQuery(

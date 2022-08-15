@@ -24,6 +24,8 @@ import { useStatusUpdater } from '@/status/queries'
 import { useAuthUserUpdater } from '@/authuser/queries'
 import { useConversationUpdater, useMessageUpdater } from '@/messages/queries'
 import { usePerformance } from '@/boot/performance'
+import { useGroupDetailUpdater } from '@/group/queries'
+import { useGroupInfoUpdater } from '@/groupInfo/queries'
 
 export default {
   components: {
@@ -41,6 +43,8 @@ export default {
     useActivityTypeUpdater()
     useConversationUpdater()
     useMessageUpdater()
+    useGroupInfoUpdater()
+    useGroupDetailUpdater()
 
     // Utilities
     usePerformance()

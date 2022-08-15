@@ -27,10 +27,12 @@ export function useQueryHelpers () {
 
         return updatedEntries
       })
+      return true
     }
     else {
       // Not present, probably new, let's invalidate...
       queryClient.invalidateQueries(queryKey)
+      return false
     }
   }
 

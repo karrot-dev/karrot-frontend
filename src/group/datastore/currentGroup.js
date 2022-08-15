@@ -3,7 +3,6 @@ import {
   createMetaModule,
   createRouteRedirect,
   withMeta,
-  withPrefixedIdMeta,
 } from '@/utils/datastore/helpers'
 import { extend } from 'quasar'
 import i18n from '@/base/i18n'
@@ -34,8 +33,6 @@ export default {
         hasLocation: group.latitude && group.longitude,
         membership: getters.membership,
         memberships: getters.memberships,
-        activeAgreement: getters.activeAgreement,
-        awaitingAgreement: !!(getters.activeAgreement && getters.activeAgreement.agreed === false),
       }
     },
     memberships: (state, getters, rootState, rootGetters) => {
@@ -51,7 +48,6 @@ export default {
         return obj
       }, {})
     },
-    agreement: (state, getters, rootState, rootGetters) => state.current && rootGetters['agreements/get'](state.current.activeAgreement),
     conversation: (state, getters, rootState, rootGetters) => {
       if (!state.current) return
       return rootGetters['conversations/getForGroup'](state.current.id)
@@ -76,10 +72,6 @@ export default {
         // aborting, another group has been loaded while we waited
         if (state.id !== groupId) return
 
-        if (group.activeAgreement) {
-          dispatch('agreements/fetch', group.activeAgreement, { root: true })
-        }
-
         commit('set', group)
       },
 
@@ -103,33 +95,6 @@ export default {
       },
     }, {
       findId: ({ notificationType }) => notificationType,
-    }),
-
-    ...withPrefixedIdMeta('agreements/', {
-
-      async agreementSave ({ commit, dispatch, state, getters }, agreement) {
-        const { id } = agreement
-        if (id) {
-          agreement = await dispatch('agreements/save', agreement, { root: true })
-        }
-        else {
-          agreement = await dispatch('agreements/create', { ...agreement, group: getters.id }, { root: true })
-        }
-
-        if (state.current.activeAgreement !== agreement.id) {
-          commit('set', await groups.save({ id: getters.id, activeAgreement: agreement.id }))
-        }
-      },
-
-      async agreementReplace ({ commit, dispatch, state, getters }, agreement) {
-        agreement = await dispatch('agreements/create', { ...agreement, group: getters.id }, { root: true })
-        commit('set', await groups.save({ id: getters.id, activeAgreement: agreement.id }))
-      },
-
-      async agreementRemove ({ commit, dispatch, state, getters }) {
-        commit('set', await groups.save({ id: getters.id, activeAgreement: null }))
-      },
-
     }),
 
     ...withMeta({

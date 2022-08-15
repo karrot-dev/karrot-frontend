@@ -28,8 +28,6 @@ function enrich (group, users, currentUserId) {
     ...group,
     membership: enrichMemberships({ [currentUserId]: membership }, users, currentUserId)[currentUserId],
     memberships: enrichMemberships(group.memberships, users, currentUserId),
-    activeAgreement: undefined,
-    awaitingAgreement: false,
     isPlayground: false,
     isBikeKitchen: false,
     isGeneralPurpose: false,
@@ -85,12 +83,6 @@ describe('currentGroup', () => {
     },
   }
 
-  const agreements = {
-    getters: {
-      get: () => () => {},
-    },
-  }
-
   const auth = {
     getters: {
       userId: () => userId,
@@ -117,7 +109,6 @@ describe('currentGroup', () => {
       datastore = createDatastore({
         currentGroup: require('./currentGroup').default,
         users: require('@/users/datastore/users').default,
-        agreements,
         auth,
         conversations,
       })
@@ -154,7 +145,6 @@ describe('currentGroup', () => {
     beforeEach(() => {
       datastore = createDatastore({
         currentGroup: require('./currentGroup').default,
-        agreements,
         auth,
         conversations,
         activityTypes,
@@ -182,7 +172,6 @@ describe('currentGroup', () => {
       datastore = createDatastore({
         currentGroup: require('./currentGroup').default,
         groups,
-        agreements,
         auth,
       })
     })

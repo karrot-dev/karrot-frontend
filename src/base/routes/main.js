@@ -19,7 +19,6 @@ const GroupMap = () => import('@/maps/pages/Map')
 const GroupEditLayout = () => import('@/group/pages/EditLayout')
 const GroupEdit = () => import('@/group/pages/Edit')
 const GroupEditActivityTypes = () => import('@/group/pages/EditActivityTypes')
-const GroupManageAgreement = () => import('@/agreements/pages/ManageAgreement')
 const GroupCreate = () => import('@/group/pages/Create')
 const GroupPreview = () => import('@/groupInfo/pages/GroupPreview')
 const GroupGallery = () => import('@/groupInfo/pages/GroupGallery')
@@ -381,16 +380,6 @@ export default [
         name: 'groupSettings',
         path: 'settings',
         redirect: { name: 'settings', hash: '#notifications' },
-      },
-      {
-        name: 'groupManageAgreement',
-        path: 'agreement',
-        meta: {
-          breadcrumbs: [
-            { translation: 'GROUP.MANAGE_AGREEMENT', route: { name: 'groupManageAgreement' } },
-          ],
-        },
-        component: GroupManageAgreement,
       },
       {
         name: 'messageReplies',

@@ -170,37 +170,6 @@ async function saveUser (data) {
 
 // TODO: not sure if this works regarding reactivity...
 const pwaPrompt = getPwaInstallPrompt()
-
-// const pwaPrompt = computed(() => store.getters['pwa/installPrompt'])
-
-/*
-  },
-  computed: {
-    ...mapGetters({
-      user: 'auth/user',
-      profileEditStatus: 'auth/saveStatus',
-      changePasswordStatus: 'auth/changePasswordStatus',
-      changeEmailStatus: 'auth/changeEmailStatus',
-      // requestDeleteAccountStatus: 'users/requestDeleteAccountStatus',
-      pushEnabled: 'auth/push/enabled',
-      pushPending: 'auth/push/pending',
-      pwaPrompt: 'pwa/installPrompt',
-      defaultMapCenter: 'geo/defaultCenter',
-    }),
-  },
-  methods: {
-    ...mapActions({
-      saveUser: 'auth/save',
-      changeEmail: 'auth/changeEmail',
-      changePassword: 'auth/changePassword',
-      // requestDeleteAccount: 'users/requestDeleteAccount',
-      enablePush: 'auth/push/enable',
-      disablePush: 'auth/push/disable',
-    }),
-  },
-}
-
- */
 </script>
 
 <style scoped lang="sass">

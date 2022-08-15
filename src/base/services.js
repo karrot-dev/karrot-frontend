@@ -16,10 +16,9 @@ export function getPwaInstallPrompt () {
 
 const DEFAULT_LOCATION = { lat: '49.8990022441358', lng: '8.66415739059448' }
 
-// TODO: this isn't a reactive ref or anything, does it work?
-let geoipCoordinates = null
+const myCoordinates = ref(null)
 export function setGeoipCoordinates (value) {
-  geoipCoordinates = value
+  myCoordinates.value = value
 }
 
 export const useGeoService = defineService(() => {
@@ -27,7 +26,6 @@ export const useGeoService = defineService(() => {
   const { group } = useCurrentGroupService()
 
   // computed
-  const myCoordinates = computed(() => geoipCoordinates)
   const defaultCenter = computed(() => {
     if (group.value?.latitude && group.value?.longitude) {
       return {

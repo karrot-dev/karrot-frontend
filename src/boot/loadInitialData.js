@@ -60,7 +60,6 @@ export default async function ({ app, store: datastore }) {
     queryClient.setQueryData(queryKeyActivityTypeListAll(), activityTypes)
   }
   if (geoip) {
-    datastore.commit('geo/set', geoip)
     setGeoipCoordinates(geoip)
   }
 

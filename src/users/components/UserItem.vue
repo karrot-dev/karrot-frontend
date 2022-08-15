@@ -56,7 +56,6 @@
 </template>
 
 <script setup>
-import { computed, toRefs } from 'vue'
 import {
   QItem,
   QItemSection,
@@ -66,27 +65,21 @@ import {
 import ProfilePicture from './ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
 import TrustButton from '@/users/components/TrustButton'
-import { useUserService } from '@/users/services'
-import { useCurrentGroupService } from '@/group/services'
 
-const props = defineProps({
+defineProps({
   user: {
     type: Object,
     default: null,
   },
+  membership: {
+    type: Object,
+    default: null,
+  },
+  addedBy: {
+    type: Object,
+    default: null,
+  },
 })
-
-const { user } = toRefs(props)
-const {
-  getUserById,
-} = useUserService()
-
-const {
-  getMembership,
-} = useCurrentGroupService()
-
-const membership = computed(() => getMembership(user.value.id))
-const addedBy = computed(() => membership.value.addedBy && getUserById(membership.value.addedBy))
 </script>
 
 <style lang="sass" scoped>

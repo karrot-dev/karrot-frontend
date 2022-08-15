@@ -226,9 +226,6 @@ export default async function ({ store: datastore }) {
         datastore.dispatch('latestMessages/fetchInitial')
       }
     }
-    else if (topic === 'groups:group_detail') {
-      datastore.dispatch('currentGroup/maybeUpdate', payload)
-    }
     else if (topic === 'groups:group_preview') {
       datastore.commit('groups/update', [payload])
     }

@@ -1,6 +1,6 @@
 <template>
   <GroupEdit
-    :value="$store.getters['currentGroup/value']"
+    :value="group"
     :timezones="$store.getters['timezones/autocompleteData']"
     :all-groups="$store.getters['groups/all']"
     :status="$store.getters['groups/saveStatus']"
@@ -13,6 +13,11 @@
 <script setup>
 import GroupEdit from '@/group/components/GroupEdit'
 import { useGeoService } from '@/base/services'
+import { useCurrentGroupService } from '@/group/services'
 
 const { myCoordinates } = useGeoService()
+
+const {
+  group,
+} = useCurrentGroupService()
 </script>

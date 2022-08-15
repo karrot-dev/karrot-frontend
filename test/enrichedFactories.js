@@ -77,7 +77,6 @@ export const makeGroup = data => {
     latitude: 0,
     longitude: 0,
     timezone: 'Europe/Berlin',
-    activeAgreement: null,
     status: 'active',
     theme: 'foodsaving',
     features: ['offers'],
@@ -97,7 +96,6 @@ export const makeGroup = data => {
     hasPhoto: false,
     hasLocation: false,
     membership: {},
-    awaitingAgreement: false,
     ...data,
   }
 }

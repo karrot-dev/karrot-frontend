@@ -1,8 +1,8 @@
 <template>
   <KTopbarUI
-    :current-group="$store.getters['currentGroup/value']"
-    :my-groups="$store.getters['groups/mine']"
-    :user="$store.getters['auth/user']"
+    :current-group="currentGroup"
+    :my-groups="myGroups"
+    :user="user"
     :away="$store.getters['presence/toggle/away']"
     :connected="$store.getters['connectivity/connected']"
     :reconnecting="$store.getters['connectivity/reconnecting']"
@@ -15,10 +15,27 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+
 import KTopbarUI from './KTopbarUI'
 import { useLogoutMutation } from '@/authuser/mutations'
+import { useCurrentGroupService } from '@/group/services'
+import { useAuthService } from '@/authuser/services'
+import { useGroupInfoService } from '@/groupInfo/services'
 
 defineEmits(['toggle-sidenav'])
+
+const {
+  user,
+} = useAuthService()
+
+const {
+  group: currentGroup,
+} = useCurrentGroupService()
+
+const { groups } = useGroupInfoService()
+
+const myGroups = computed(() => groups.value.filter(group => group.isMember))
 
 const { mutate: logout } = useLogoutMutation()
 </script>

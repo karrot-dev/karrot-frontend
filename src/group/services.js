@@ -107,7 +107,10 @@ export const useCurrentGroupService = defineService(() => {
 })
 
 function useCurrentGroupId () {
-  const { user } = useAuthService()
+  const {
+    user,
+    isLoggedIn,
+  } = useAuthService()
 
   const groupId = ref(null)
 
@@ -125,6 +128,13 @@ function useCurrentGroupId () {
   watch(groupIdRouteParam, value => {
     if (value) {
       groupId.value = value
+    }
+  })
+
+  // When logging out, reset it
+  watch(isLoggedIn, value => {
+    if (!value) {
+      groupId.value = null
     }
   })
 

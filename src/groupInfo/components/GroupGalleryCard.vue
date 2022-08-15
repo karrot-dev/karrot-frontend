@@ -115,6 +115,7 @@ import RandomArt from '@/utils/components/RandomArt'
 import { useApplicationHelpers } from '@/applications/helpers'
 import { useCurrentGroupService } from '@/group/services'
 import { computed, unref, toRefs } from 'vue'
+import { useGroupHelpers } from '@/group/helpers'
 
 export default {
   components: {
@@ -145,11 +146,11 @@ export default {
   setup (props) {
     const { group } = toRefs(props)
     const { getHasMyApplicationPending } = useApplicationHelpers()
-    const { groupId: currentGroupId } = useCurrentGroupService()
+    const { getIsCurrentGroup } = useGroupHelpers()
 
     return {
       myApplicationPending: computed(() => getHasMyApplicationPending(group.value.id)),
-      isCurrentGroup: computed(() => group.id === unref(currentGroupId)),
+      isCurrentGroup: computed(() => getIsCurrentGroup(group)),
     }
   },
   computed: {

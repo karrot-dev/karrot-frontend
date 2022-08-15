@@ -1,4 +1,4 @@
-import currentGroup, { plugin as currentGroupPlugin } from '@/group/datastore/currentGroup'
+import currentGroup from '@/group/datastore/currentGroup'
 import timezones from '@/group/datastore/timezones'
 
 export default {
@@ -6,7 +6,4 @@ export default {
     currentGroup,
     timezones,
   },
-  plugins: [
-    currentGroupPlugin,
-  ],
 }

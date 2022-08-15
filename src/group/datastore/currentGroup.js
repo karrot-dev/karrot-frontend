@@ -4,9 +4,6 @@ import {
   createRouteRedirect,
   withMeta,
 } from '@/utils/datastore/helpers'
-import { extend } from 'quasar'
-import i18n from '@/base/i18n'
-import { messages as loadMessages } from '@/locales/index'
 
 function initialState () {
   return {
@@ -153,34 +150,4 @@ export default {
       Object.assign(state, initialState())
     },
   },
-}
-
-export function plugin (datastore) {
-  // clear group when logged out
-  datastore.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
-    if (!isLoggedIn) {
-      datastore.commit('currentGroup/clear')
-      datastore.commit('currentGroup/meta/clear')
-    }
-  })
-  datastore.watch(
-    (state, getters) => [getters['currentGroup/isBikeKitchen'], getters['currentGroup/isGeneralPurpose'], getters['i18n/locale']],
-    async ([isBikeKitchen, isGeneralPurpose, locale] = []) => {
-      if (!locale) return
-      if (isBikeKitchen || isGeneralPurpose) {
-        const generalPurposeMessages = await import('@/locales/generalPurpose.json')
-        const messages = await loadMessages(locale)
-        if (!(datastore.getters['currentGroup/isBikeKitchen'] || datastore.getters['currentGroup/isGeneralPurpose'])) return
-        const mergedMessages = extend(true, {}, messages, generalPurposeMessages)
-        i18n.setLocaleMessage(locale, mergedMessages)
-      }
-      else {
-        const messages = await loadMessages(locale)
-        if (datastore.getters['currentGroup/isBikeKitchen'] || datastore.getters['currentGroup/isGeneralPurpose']) return
-
-        i18n.setLocaleMessage(locale, messages)
-      }
-    },
-    { immediate: true },
-  )
 }

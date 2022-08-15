@@ -10,78 +10,30 @@ import { useSaveUserMutation } from '@/authuser/mutations'
 import { useRouter } from 'vue-router'
 import * as Sentry from '@sentry/vue'
 import groups from '@/group/api/groups'
+import { messages as loadMessages } from '@/locales'
+import { extend } from 'quasar'
+import i18n from '@/base/i18n'
 
 export const useCurrentGroupService = defineService(() => {
   // services
-  const store = useStore()
-  const router = useRouter()
   const {
     isLoading: isLoadingUsers,
     getUserById,
   } = useUserService()
+
+  const { userId } = useAuthService()
 
   const {
     getPlacesByGroup,
     isLoading: isLoadingPlaces,
   } = usePlaceService()
 
-  const { userId, user } = useAuthService()
-  const { mutate: saveUser } = useSaveUserMutation()
-
-  const groupId = ref(null)
-
-  // Do our best to ensure we have a group id set, if we don't have one, get it from the route, or current user
-  const groupIdRouteParam = useIntegerRouteParam('groupId')
-
-  // Set a default if we don't already have a groupid
-  watch(groupId, value => {
-    if (!value) {
-      groupId.value = groupIdRouteParam.value || user.value?.currentGroup
-    }
-  }, { immediate: true })
-
-  // When route changes we want to change
-  watch(groupIdRouteParam, value => {
-    if (value) {
-      groupId.value = value
-    }
-  })
-
-  // Trigger stuff when we set group id
-  watch(groupId, value => {
-    if (value) {
-      // store.dispatch('currentGroup/select', { groupId: value })
-      if (user.value && user.value.currentGroup !== value) {
-        saveUser({ currentGroup: value })
-      }
-    }
-  }, { immediate: true })
+  const {
+    groupId,
+    selectGroup,
+  } = useCurrentGroupId()
 
   const { group } = useGroupDetailQuery({ groupId })
-
-  // Keep vuex updated
-  watch(group, value => {
-    // TODO: remove currentGroup vuex module :)
-    store.commit('currentGroup/setId', value?.id)
-    // We shallow clone the object, otherwise there are some errors with vue proxy stuff...
-    // It's only temporary to do this, so seems fine for now!
-    store.commit('currentGroup/set', value ? { ...value } : null)
-  }, { immediate: true })
-
-  // mark user active
-  router.afterEach(async () => {
-    try {
-      /**
-       * Marks the user as active in the current group
-       * Should only be triggered when the user visits a group page
-       * It currently also gets triggered when the user visits the profile page, but that seems fine.
-       */
-      if (groupId.value) await groups.throttledMarkUserActive(groupId.value)
-    }
-    catch (err) {
-      Sentry.captureException(err)
-    }
-  })
 
   // computed
   const users = computed(() => Object.keys(group.value.memberships).map(getUserById))
@@ -94,10 +46,6 @@ export const useCurrentGroupService = defineService(() => {
   const isEditor = computed(() => getIsEditor(userId.value))
 
   // methods
-
-  function selectGroup (value) {
-    groupId.value = value
-  }
 
   // TODO: move some/all of these to membership helpers
 
@@ -116,6 +64,20 @@ export const useCurrentGroupService = defineService(() => {
   function getIsNewcomer (userId) {
     return !getIsEditor(userId)
   }
+
+  // Things that might be triggered on changes
+
+  // keep users current group saved
+  useSaveUserCurrentGroup({ groupId })
+
+  // keep set locale messages based on theme
+  useLocaleMessagesSetter({ isBikeKitchen, isGeneralPurpose })
+
+  // mark user active
+  useMarkUserActive({ groupId })
+
+  // Keep vuex updated
+  useStoreUpdater({ group })
 
   return {
     selectGroup,
@@ -137,3 +99,107 @@ export const useCurrentGroupService = defineService(() => {
     getIsNewcomer,
   }
 })
+
+function useCurrentGroupId () {
+  const { user } = useAuthService()
+
+  const groupId = ref(null)
+
+  // Do our best to ensure we have a group id set, if we don't have one, get it from the route, or current user
+  const groupIdRouteParam = useIntegerRouteParam('groupId')
+
+  // Set a default if we don't already have a groupid
+  watch(groupId, value => {
+    if (!value) {
+      groupId.value = groupIdRouteParam.value || user.value?.currentGroup
+    }
+  }, { immediate: true })
+
+  // When route changes we want to change
+  watch(groupIdRouteParam, value => {
+    if (value) {
+      groupId.value = value
+    }
+  })
+
+  function selectGroup (value) {
+    groupId.value = value
+  }
+
+  return {
+    groupId: readonly(groupId),
+    selectGroup,
+  }
+}
+
+function useLocaleMessagesSetter ({ isBikeKitchen, isGeneralPurpose }) {
+  const store = useStore()
+
+  // TODO: decouple from store
+  const locale = computed(() => store.getters['i18n/locale'])
+  const useGeneralPurposeMessages = computed(() => isBikeKitchen.value || isGeneralPurpose.value)
+
+  watch(
+    () => [useGeneralPurposeMessages.value, locale.value],
+    async () => {
+      if (!locale.value) return
+      if (useGeneralPurposeMessages.value) {
+        const generalPurposeMessages = await import('@/locales/generalPurpose.json')
+        const messages = await loadMessages(locale.value)
+        if (!useGeneralPurposeMessages.value) return
+        const mergedMessages = extend(true, {}, messages, generalPurposeMessages)
+        i18n.setLocaleMessage(locale.value, mergedMessages)
+      }
+      else {
+        const messages = await loadMessages(locale.value)
+        if (useGeneralPurposeMessages.value) return
+
+        i18n.setLocaleMessage(locale.value, messages)
+      }
+    },
+    {
+      immediate: true,
+    },
+  )
+}
+
+function useMarkUserActive ({ groupId }) {
+  const router = useRouter()
+  router.afterEach(async () => {
+    try {
+      /**
+       * Marks the user as active in the current group
+       * Should only be triggered when the user visits a group page
+       * It currently also gets triggered when the user visits the profile page, but that seems fine.
+       */
+      if (groupId.value) await groups.throttledMarkUserActive(groupId.value)
+    }
+    catch (err) {
+      Sentry.captureException(err)
+    }
+  })
+}
+
+function useStoreUpdater ({ group }) {
+  const store = useStore()
+  watch(group, value => {
+    // TODO: remove currentGroup vuex module :)
+    store.commit('currentGroup/setId', value?.id)
+    // We shallow clone the object, otherwise there are some errors with vue proxy stuff...
+    // It's only temporary to do this, so seems fine for now!
+    store.commit('currentGroup/set', value ? { ...value } : null)
+  }, { immediate: true })
+}
+
+function useSaveUserCurrentGroup ({ groupId }) {
+  const { user } = useAuthService()
+  const { mutate: saveUser } = useSaveUserMutation()
+  // Trigger stuff when we set group id
+  watch(groupId, value => {
+    if (value) {
+      if (user.value && user.value.currentGroup !== value) {
+        saveUser({ currentGroup: value })
+      }
+    }
+  }, { immediate: true })
+}

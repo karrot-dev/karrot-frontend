@@ -19,6 +19,8 @@ import { convert as convertIssue } from '@/issues/api/issues'
 import { convert as convertOffer } from '@/offers/api/offers'
 import { convert as convertGroup } from '@/group/api/groups'
 import { convert as convertNotification, convertMeta as convertNotificationMeta } from '@/notifications/api/notifications'
+import { sleep } from '>/helpers'
+import { random } from 'lodash'
 
 // Global event bus for websocket events
 export const socketEvents = mitt()
@@ -119,7 +121,13 @@ export default async function ({ store: datastore }) {
         }
 
         if (data.topic) {
-          receiveMessage(data)
+          // add artificial delay for dev env
+          if (process.env.DEV && !/^https/.test(process.env.KARROT.BACKEND)) {
+            sleep(random(200, 800)).then(() => receiveMessage(data))
+          }
+          else {
+            receiveMessage(data)
+          }
         }
       })
 

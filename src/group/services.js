@@ -33,7 +33,11 @@ export const useCurrentGroupService = defineService(() => {
     selectGroup,
   } = useCurrentGroupId()
 
-  const { group } = useGroupDetailQuery({ groupId })
+  const {
+    group,
+    isLoading: isLoadingGroup,
+    suspense: waitForGroupToLoad,
+  } = useGroupDetailQuery({ groupId })
 
   // computed
   const users = computed(() => Object.keys(group.value.memberships).map(getUserById))
@@ -83,6 +87,8 @@ export const useCurrentGroupService = defineService(() => {
     selectGroup,
     group,
     groupId: readonly(groupId),
+    waitForGroupToLoad,
+    isLoadingGroup,
     isLoadingUsers,
     isLoadingPlaces,
     users,

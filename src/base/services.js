@@ -4,6 +4,7 @@ import { DEFAULT_LOCALE, detectLocale } from '@/base/datastore/i18n'
 import { defineService } from '@/utils/datastore/helpers'
 import { useCurrentGroupService } from '@/group/services'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 
 // TODO: this isn't a reactive ref or anything, does it work?
 let pwaInstallPrompt = null
@@ -70,4 +71,32 @@ export const useRouteErrorService = defineService(() => {
     routeError,
     setRouteError,
   }
+})
+
+// TODO: this doesn't need to be a service... a helper? something else?
+export const useCheckFeaturesService = defineService(() => {
+  const router = useRouter()
+  const {
+    groupId,
+    features,
+    waitForGroupToLoad,
+  } = useCurrentGroupService()
+
+  // Check if the route we're navigating to requires any features we don't have
+  router.beforeEach(async to => {
+    const requiredFeatures = to.matched.map(m => m.meta.requireFeature).filter(Boolean)
+    if (requiredFeatures.length === 0) return // continue
+
+    // need our group to be ready to check the features
+    await waitForGroupToLoad()
+
+    if (requiredFeatures.some(feature => !features.value.includes(feature))) {
+      if (groupId.value) {
+        await router.push({ name: 'group', params: { groupId: groupId.value } })
+      }
+      else {
+        await router.push({ path: '/' })
+      }
+    }
+  })
 })

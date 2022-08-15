@@ -75,6 +75,7 @@ export default {
       }
     },
     async applicationRouteEnter ({ dispatch, rootGetters }, { groupId, applicationId, routeTo }) {
+      console.log('applicationRouteEnter')
       if (!applicationId) return
       await dispatch('selectApplication', applicationId)
       const { isCurrentUser } = rootGetters['applications/get'](applicationId).user

@@ -3,7 +3,7 @@
     class="no-mobile-margin no-shadow grey-border"
   >
     <RandomArt
-      :seed="groupid"
+      :seed="groupId"
       type="circles"
     >
       <div class="text-white row no-wrap q-mx-md">
@@ -33,9 +33,7 @@ import InvitationsForm from './InvitationsForm'
 import InvitationsList from './InvitationsList'
 import RandomArt from '@/utils/components/RandomArt'
 
-import {
-  mapGetters,
-} from 'vuex'
+import { useCurrentGroupService } from '@/group/services'
 
 export default {
   components: {
@@ -61,10 +59,9 @@ export default {
   emits: [
     'submit',
   ],
-  computed: {
-    ...mapGetters({
-      groupid: 'currentGroup/id',
-    }),
+  setup () {
+    const { groupId } = useCurrentGroupService()
+    return { groupId }
   },
 }
 </script>

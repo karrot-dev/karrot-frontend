@@ -27,15 +27,19 @@ import {
   QTabs,
   QRouteTab,
 } from 'quasar'
+import { useCurrentGroupService } from '@/group/services'
 
 export default {
   components: {
     QTabs,
     QRouteTab,
   },
+  setup () {
+    const { groupId } = useCurrentGroupService()
+    return { groupId }
+  },
   computed: {
     ...mapGetters({
-      groupId: 'currentGroup/id',
       issueId: 'issues/currentId',
     }),
   },

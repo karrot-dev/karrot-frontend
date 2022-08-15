@@ -17,7 +17,7 @@
         </div>
         <SwitchGroupButton
           class="q-ml-md"
-          :user="{ isCurrentUser: true }"
+          :user="user"
           :groups="groups"
         />
       </div>
@@ -84,6 +84,7 @@
 </template>
 
 <script>
+import { computed } from 'vue'
 import {
   QCardSection,
   QCheckbox,
@@ -97,6 +98,8 @@ import {
 import SwitchGroupButton from '@/users/components/SwitchGroupButton'
 import statusMixin from '@/utils/mixins/statusMixin'
 import KFormContainer from '@/base/components/KFormContainer'
+import { useChangeNotificationTypesMutation } from '@/group/mutations'
+import { useAuthService } from '@/authuser/services'
 
 export default {
   name: 'GroupSettings',
@@ -122,16 +125,27 @@ export default {
       type: Array,
       default: null,
     },
-    getNotificationTypeStatus: {
-      type: Function,
-      default: () => () => ({}),
-    },
   },
   emits: [
     'unsubscribe-all-emails',
     'clear-unsubscribe-all-status',
-    'change-notification-type',
   ],
+  setup (props) {
+    const { user } = useAuthService()
+    const groupId = computed(() => props.group?.id)
+    const {
+      mutateAsync: changeNotificationType,
+    } = useChangeNotificationTypesMutation({ groupId })
+    return {
+      user,
+      changeNotificationType,
+    }
+  },
+  data () {
+    return {
+      notificationTypePending: {},
+    }
+  },
   computed: {
     availableNotificationTypes () {
       if (!this.group) return []
@@ -152,16 +166,21 @@ export default {
     },
   },
   methods: {
-    change (notificationType, enabled) {
-      this.$emit('change-notification-type', { notificationType, enabled })
+    async change (notificationType, enabled) {
+      try {
+        this.notificationTypePending[notificationType] = true
+        await this.changeNotificationType({ notificationType, enabled })
+      }
+      finally {
+        delete this.notificationTypePending[notificationType]
+      }
     },
     notificationIsEnabled (type) {
       if (!this.group) return
       return this.group.notificationTypes.includes(type)
     },
     notificationIsPending (type) {
-      const status = this.getNotificationTypeStatus(type)
-      return status && status.pending
+      return Boolean(this.notificationTypePending[type])
     },
   },
 }

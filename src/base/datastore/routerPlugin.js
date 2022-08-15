@@ -3,7 +3,6 @@ import router from '@/router'
 export default datastore => {
   const isLoggedIn = () => datastore.getters['auth/isLoggedIn']
   const getUserGroupId = () => isLoggedIn() && datastore.getters['auth/user'].currentGroup
-  const getFeatures = () => datastore.getters['currentGroup/features']
 
   router.beforeEach(async (to, from, nextFn) => {
     datastore.commit('routeMeta/setNext', to)
@@ -64,22 +63,7 @@ export default datastore => {
       datastore.dispatch('routeError/set', routeErrors[0])
     }
 
-    // datastore.commit('breadcrumbs/set', findBreadcrumbs(to.matched) || [])
     datastore.commit('routeMeta/setNext', null)
-
-    // Check if our route requires any features we don't have
-    // It would be nice to do this _before_ we visit the route, but we don't have the features
-    // available at that point
-    const features = getFeatures()
-    if (to.matched.some(m => m.meta.requireFeature && !features.includes(m.meta.requireFeature))) {
-      const groupId = datastore.getters['currentGroup/id']
-      if (groupId) {
-        await router.push({ name: 'group', params: { groupId } })
-      }
-      else {
-        await router.push({ path: '/' })
-      }
-    }
   })
 }
 

@@ -26,25 +26,14 @@ export default {
           return
         }
 
-        const activeState = {
-          groupId: rootGetters['currentGroup/id'],
-          placeId: rootGetters['places/activePlaceId'],
-          userId: rootGetters['user/activeUserId'],
-        }
         await Promise.all([
           dispatch('users/refresh', {}, { root: true }),
           dispatch('places/fetch', null, { root: true }),
-          dispatch('activities/refresh', null, { root: true }),
-          dispatch('activitySeries/fetchListForActivePlace', null, { root: true }),
           dispatch('invitations/refresh', null, { root: true }),
-          dispatch('history/fetch', activeState, { root: true }),
           dispatch('groups/fetch', null, { root: true }),
           dispatch('conversations/refresh', null, { root: true }),
-          dispatch('feedback/fetch', activeState, { root: true }),
-          dispatch('currentGroup/refresh', null, { root: true }),
           dispatch('currentThread/refresh', null, { root: true }),
           dispatch('latestMessages/fetch', {}, { root: true }),
-          dispatch('status/refresh', null, { root: true }),
         ])
         commit('setLastRefresh')
         if (done) done()

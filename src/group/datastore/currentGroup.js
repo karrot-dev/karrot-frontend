@@ -58,7 +58,6 @@ export default {
     isEditor: (state, getters) => getters.roles.includes('editor'),
     isBikeKitchen: (state, getters) => Boolean(getters.value && getters.value.isBikeKitchen),
     isGeneralPurpose: (state, getters) => Boolean(getters.value && getters.value.isGeneralPurpose),
-    getNotificationTypeStatus: (state, getters) => notificationType => getters['meta/status']('changeNotificationType', notificationType),
   },
   actions: {
     ...withMeta({
@@ -72,26 +71,6 @@ export default {
         commit('set', group)
       },
 
-    }),
-
-    ...withMeta({
-      async changeNotificationType ({ dispatch, getters }, { notificationType, enabled }) {
-        if (enabled) {
-          await groups.addNotificationType(getters.id, notificationType)
-        }
-        else {
-          await groups.removeNotificationType(getters.id, notificationType)
-        }
-        dispatch('toasts/show', {
-          message: 'NOTIFICATIONS.CHANGES_SAVED',
-          config: {
-            timeout: 2000,
-            icon: 'thumb_up',
-          },
-        }, { root: true })
-      },
-    }, {
-      findId: ({ notificationType }) => notificationType,
     }),
 
     ...withMeta({

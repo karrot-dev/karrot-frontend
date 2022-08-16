@@ -129,12 +129,11 @@
           elevated
           :model-value="isDetailActive || hasDetailComponent"
         >
-          <!-- TODO: might want to close the detail if we have a component... otherwise it has odd behaviour, e.g. offer detail is behind activity chat -->
+          <DetailSidebar v-if="isDetailActive" />
           <RouterView
-            v-if="hasDetailComponent"
+            v-else-if="hasDetailComponent"
             name="detail"
           />
-          <DetailSidebar v-else-if="isDetailActive" />
         </QDrawer>
 
         <QFooter>

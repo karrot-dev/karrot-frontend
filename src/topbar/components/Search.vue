@@ -83,6 +83,7 @@ import { usePlaceService } from '@/places/services'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { useUserService } from '@/users/services'
 import icons from '@/base/icons'
+import { optionsFor } from '@/places/placeStatus'
 
 const emit = defineEmits(['close'])
 
@@ -104,14 +105,15 @@ function select (option) {
 const options = shallowRef([])
 
 const allOptions = computed(() => [
-  ...places.value.map(place => ({
+  ...places.value.filter(place => place.status !== 'archived').map(place => ({
     value: { name: 'place', params: { groupId: place.group, placeId: place.id } },
     label: place.name,
     sublabel: getGroupById(place.group).name,
     search: place.name.toLowerCase(),
     icon: icons.get('place'),
+    iconColor: optionsFor(place).color,
   })),
-  ...groups.value.map(group => ({
+  ...groups.value.filter(group => group.status === 'active').map(group => ({
     value: group.isMember ? { name: 'group', params: { groupId: group.id } } : { name: 'groupPreview', params: { groupPreviewId: group.id } },
     label: group.name,
     search: group.name.toLowerCase(),

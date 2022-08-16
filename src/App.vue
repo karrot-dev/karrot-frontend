@@ -29,6 +29,8 @@ import { useGroupInfoUpdater } from '@/groupInfo/queries'
 import { useApplicationsUpdater } from '@/applications/queries'
 import { useNotificationsUpdater } from '@/notifications/queries'
 import { useRoutingLogic, useCheckResponseAuthStatus } from '@/base/services'
+import { onErrorCaptured } from 'vue'
+import { useDetailService } from '@/messages/services'
 
 export default {
   components: {
@@ -58,6 +60,12 @@ export default {
     usePerformance()
     useTitleStatus()
     useClearDataOnLogout()
+    const { installRouterPlugin } = useDetailService() // just to initialize it...
+    installRouterPlugin()
+
+    onErrorCaptured(error => {
+      console.error(error)
+    })
   },
   computed: {
     hasView () {

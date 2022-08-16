@@ -106,7 +106,8 @@
         </QDrawer>
 
         <QPageContainer>
-          <Banners />
+          <!-- on mobile the banners take up lots of space so only show them on group wall page -->
+          <Banners v-if="!$q.platform.is.mobile || isGroupWall"/>
           <QPage
             class="mainContent-page"
             :class="{fullpage}"
@@ -231,7 +232,10 @@ export default {
 
     const disableDesktopSidenav = computed(() => route.meta.disableDesktopSidenav)
 
+    const isGroupWall = computed(() => route.name === 'group')
+
     return {
+      isGroupWall,
       isDetailActive,
       isLoggedIn,
       currentGroupId,

@@ -10,7 +10,7 @@ import applicationsAPI from '@/applications/api/applications'
 import offersAPI from '@/offers/api/offers'
 
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
-import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
+import { extractCursor, flattenPaginatedData, useWait } from '@/utils/queryHelpers'
 import { useSocketEvents } from '@/utils/composables'
 import { useMessageHelpers } from '@/messages/helpers'
 import { indexById, indexBy } from '@/utils/datastore/helpers'
@@ -321,6 +321,7 @@ export function useMessageItemQuery ({ messageId }, queryOptions = {}) {
   )
   return {
     ...query,
+    wait: useWait(query),
     message: query.data,
   }
 }

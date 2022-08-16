@@ -304,7 +304,7 @@ export default {
     },
     detail (event) {
       if (event.target.closest('a')) return // ignore actual links
-      this.openActivity(this.activity.id)
+      this.openActivity(this.activity)
     },
   },
 }

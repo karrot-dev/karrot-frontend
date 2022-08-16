@@ -199,21 +199,21 @@ export default async function ({ store: datastore }) {
     if (topic === 'conversations:message') {
       const message = payload
       if (message.thread) {
-        datastore.dispatch('currentThread/receiveMessage', message)
+        // datastore.dispatch('currentThread/receiveMessage', message)
         // datastore.dispatch('latestMessages/updateThreadsAndRelated', { messages: [message] })
       }
       if (!message.thread || message.thread === message.id) {
-        datastore.dispatch('conversations/receiveMessage', message)
+        // datastore.dispatch('conversations/receiveMessage', message)
         // datastore.dispatch('latestMessages/updateConversationsAndRelated', { messages: [message] })
         /* if (message.thread) {
           datastore.dispatch('latestMessages/updateThreadsAndRelated', { threads: [message] })
         } */
-        datastore.dispatch('conversations/fetchRelatedUserInfo', [message])
+        // datastore.dispatch('conversations/fetchRelatedUserInfo', [message])
       }
     }
     else if (topic === 'conversations:conversation') {
-      const conversation = payload
-      datastore.dispatch('conversations/updateConversation', conversation)
+      // const conversation = payload
+      // datastore.dispatch('conversations/updateConversation', conversation)
       // datastore.dispatch('latestMessages/updateConversationsAndRelated', { conversations: [conversation] })
     }
     else if (topic === 'conversations:meta') {

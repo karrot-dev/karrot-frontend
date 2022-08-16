@@ -22,7 +22,7 @@
         outline
         color="secondary"
         :title="$t('CONVERSATION.REPLIES')"
-        @click="() => openThread(message.id)"
+        @click="() => openThread(message)"
       >
         <i class="fas fa-comments" />
       </QBtn>
@@ -111,7 +111,7 @@
           :text-color="message.threadMeta.unreadReplyCount > 0 ? 'white' : 'black'"
           class="reaction-box k-thread-box"
           no-caps
-          @click="() => openThread(message.id)"
+          @click="() => openThread(message)"
         >
           <ProfilePicture
             v-for="user in threadParticipants"

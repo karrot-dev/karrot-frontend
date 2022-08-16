@@ -13,7 +13,7 @@ export const useCommunityFeedService = defineService(() => {
   } = useCommunityFeedMetaQuery()
 
   function getIsUnread (topic) {
-    return meta.value.markedAt && topic.lastPostedAt > meta.value.markedAt
+    return meta.value?.markedAt && topic.lastPostedAt > meta.value.markedAt
   }
 
   const entries = computed(() => latestTopics.value

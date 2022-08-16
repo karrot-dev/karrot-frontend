@@ -1,5 +1,8 @@
 import { ref, unref, computed, watch } from 'vue'
 
+import conversationsAPI from '@/messages/api/conversations'
+import messagesAPI from '@/messages/api/messages'
+
 import { defineService } from '@/utils/datastore/helpers'
 import {
   useConversationQuery,
@@ -10,16 +13,19 @@ import {
 import { useActivityItemQuery } from '@/activities/queries'
 import { useUserService } from '@/users/services'
 import { useApplicationItemQuery } from '@/applications/queries'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useAuthService } from '@/authuser/services'
+import { Platform } from 'quasar'
+import { useCurrentGroupService } from '@/group/services'
 
-function useThreadDetail (messageId) {
+export function useThreadDetail (messageId) {
   const order = 'oldest-first'
 
   // TODO: could first look in query client to see if we have the message already...
   const {
     message: firstMessage,
     isLoading: isLoadingConversation,
+    wait: waitForConversation,
   } = useMessageItemQuery(
     { messageId },
     { keepPreviousData: true },
@@ -60,6 +66,7 @@ function useThreadDetail (messageId) {
   return {
     order,
     conversation,
+    waitForConversation,
     messages,
     isLoadingConversation,
     isLoadingMessages,
@@ -157,6 +164,9 @@ function createDefaultState () {
 
 export const useDetailService = defineService(() => {
   const route = useRoute()
+  const router = useRouter()
+
+  const { groupId: currentGroupId } = useCurrentGroupService()
 
   const type = ref(null) // thread, application, etc.
   const id = ref(null) // the item id
@@ -208,6 +218,59 @@ export const useDetailService = defineService(() => {
     }
   })
 
+  /**
+   * Here we handle special cases for detail routing
+   */
+  function installRouterPlugin () {
+    router.beforeEach(async (to, from, nextFn) => {
+      let next
+      if (to.name === 'messageReplies') {
+        const messageId = parseInt(to.params.messageId, 10)
+
+        id.value = messageId
+        type.value = 'thread'
+
+        // messageReplies is a mobile-only route
+        // for desktop we want to:
+        // a) open the sidebar with the thread
+        // b) redirect to the wall that the thread is part of
+        // TODO: make it not do these extra requests...
+        if (Platform.is.desktop) {
+          const { groupId } = to.params
+          const threadMessage = await messagesAPI.get(messageId)
+          const conversation = await conversationsAPI.get(threadMessage.conversation)
+          if (conversation.type === 'group') {
+            next = { name: 'group', params: { groupId: conversation.targetId } }
+          }
+          else if (conversation.type === 'place') {
+            next = { name: 'placeWall', params: { groupId, placeId: conversation.targetId } }
+          }
+          else {
+            next = { name: 'group', params: { groupId } }
+          }
+        }
+      }
+      else if (to.name === 'activityDetail') {
+        id.value = parseInt(to.params.activityId, 10)
+        type.value = 'activity'
+
+        if (Platform.is.desktop) {
+          const { groupId, placeId } = to.params
+          // On desktop we don't have an activity detail page,
+          // we go to the place page, and have a sidebar open
+          next = { name: 'place', params: { groupId, placeId } }
+        }
+      }
+
+      if (next) {
+        nextFn(next)
+        return
+      }
+
+      nextFn()
+    })
+  }
+
   // Detail view can come from either Detail page, or separate route components that are details
   // If we open a detail view via a route, we should "close" this one, in preference to the route one
   // TODO: maybe make all detail pages separate components, so they are not all mixed up together here...
@@ -226,26 +289,22 @@ export const useDetailService = defineService(() => {
     }
   })
 
-  function openThread (messageId) {
-    id.value = messageId
-    type.value = 'thread'
-
-    // TODO: implement this logic
-    /*
+  function openThread (message) {
     if (Platform.is.mobile) {
-        const { id, groupId } = message
-        router.push({ name: 'messageReplies', params: { groupId, messageId: id } }).catch(() => {})
-      }
-      else {
-        dispatch('selectThread', message.id)
-      }
-     */
+      const groupId = route.params.groupId || currentGroupId.value
+      router.push({ name: 'messageReplies', params: { groupId, messageId: message.id } })
+    }
+    id.value = message.id
+    type.value = 'thread'
   }
 
-  function openActivity (activityId) {
-    id.value = activityId
+  function openActivity (activity) {
+    if (Platform.is.mobile) {
+      const groupId = route.params.groupId || currentGroupId.value
+      router.push({ name: 'activityDetail', params: { groupId, placeId: activity.place, activityId: activity.id } })
+    }
+    id.value = activity.id
     type.value = 'activity'
-    // TODO: mobile redirect to other page?
   }
 
   function openUserChat (userId) {
@@ -266,6 +325,7 @@ export const useDetailService = defineService(() => {
   return {
     ...refs,
     isDetailActive,
+    installRouterPlugin,
 
     openThread,
     openActivity,

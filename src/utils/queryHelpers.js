@@ -116,11 +116,16 @@ export function newDateRoundedTo5Minutes () {
  */
 export function useWait (query) {
   const {
+    status,
     fetchStatus,
     suspense,
+    isPlaceholderData,
   } = query
   return async function wait () {
-    if (fetchStatus.value === 'idle') return // TODO: check this is right
+    // TODO: I'm not convinced this is quite right...
+    if (!isPlaceholderData.value && status.value === 'success' && fetchStatus.value === 'idle') {
+      return
+    }
     try {
       await suspense()
     }

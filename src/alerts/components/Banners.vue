@@ -86,9 +86,9 @@ const formattedBanners = computed(() => banners.value.map(banner => {
       action: banner.context.reconnecting
         ? null
         : ({
-          icon: 'refresh',
-          handler: () => reconnect(),
-        }),
+            icon: 'refresh',
+            handler: () => reconnect(),
+          }),
     }
 
     case 'updateAvailable': return {

@@ -8,6 +8,7 @@ import { defineService } from '@/utils/datastore/helpers'
 import { useCurrentGroupService } from '@/group/services'
 import { useAuthService } from '@/authuser/services'
 import { useI18n } from 'vue-i18n'
+import { useCommunityBannerQuery } from '@/communityFeed/queries'
 
 export const useBanners = defineService(() => {
   const route = useRoute()
@@ -22,7 +23,8 @@ export const useBanners = defineService(() => {
   const connected = computed(() => store.getters['connectivity/connected'])
   const reconnecting = computed(() => store.getters['connectivity/reconnecting'])
   const updateAvailable = computed(() => store.getters['about/updateAvailable'])
-  const communityBanner = computed(() => store.getters['communityFeed/banner'])
+
+  const { banner: communityBanner } = useCommunityBannerQuery()
 
   return computed(() => {
     const banners = []

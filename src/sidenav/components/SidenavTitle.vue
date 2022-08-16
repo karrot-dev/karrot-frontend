@@ -38,7 +38,7 @@
   </QToolbar>
 </template>
 
-<script>
+<script setup>
 import LatestMessageButton from '@/messages/components/LatestMessageButton'
 import NotificationButton from '@/notifications/components/NotificationButton'
 
@@ -49,25 +49,16 @@ import {
   QIcon,
 } from 'quasar'
 
-import { mapGetters } from 'vuex'
+import { useCurrentGroupService } from '@/group/services'
+import { useAuthService } from '@/authuser/services'
 
-export default {
-  components: {
-    QToolbar,
-    QToolbarTitle,
-    QBtn,
-    QIcon,
-    LatestMessageButton,
-    NotificationButton,
-  },
-  emits: [
-    'click',
-  ],
-  computed: {
-    ...mapGetters({
-      currentGroup: 'currentGroup/value',
-      isLoggedIn: 'auth/isLoggedIn',
-    }),
-  },
-}
+defineEmits(['click'])
+
+const {
+  group: currentGroup,
+} = useCurrentGroupService()
+
+const {
+  isLoggedIn,
+} = useAuthService()
 </script>

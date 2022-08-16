@@ -13,7 +13,6 @@ import groups from '@/group/api/groups'
 import { messages as loadMessages } from '@/locales'
 import { extend } from 'quasar'
 import i18n from '@/base/i18n'
-import { sortByName } from '@/places/datastore/places'
 import { usePlaceHelpers } from '@/places/helpers'
 import { useI18nService } from '@/base/services/i18nService'
 
@@ -99,9 +98,6 @@ export const useCurrentGroupService = defineService(() => {
 
   // mark user active
   useMarkUserActive({ groupId })
-
-  // Keep vuex updated
-  useStoreUpdater({ group })
 
   return {
     selectGroup,
@@ -224,17 +220,6 @@ function useMarkUserActive ({ groupId }) {
   })
 }
 
-function useStoreUpdater ({ group }) {
-  const store = useStore()
-  watch(group, value => {
-    // TODO: remove currentGroup vuex module :)
-    store.commit('currentGroup/setId', value?.id)
-    // We shallow clone the object, otherwise there are some errors with vue proxy stuff...
-    // It's only temporary to do this, so seems fine for now!
-    store.commit('currentGroup/set', value ? { ...value } : null)
-  }, { immediate: true })
-}
-
 function useSaveUserCurrentGroup ({ groupId }) {
   const { user } = useAuthService()
   const { mutate: saveUser } = useSaveUserMutation()
@@ -258,4 +243,9 @@ function useSaveUserCurrentLocale () {
       saveUser({ language: value })
     }
   }, { immediate: true })
+}
+
+// TODO: move somewhere better
+export function sortByName (a, b) {
+  return a.name.localeCompare(b.name)
 }

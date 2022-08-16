@@ -165,18 +165,27 @@ export default {
         return 9999999999
       }
       if (this.activity.participants) {
-        const removeOne = (this.isJoining || this.canJoin) ? 1 : 0
-        return Math.max(this.activity.maxParticipants - this.activity.participants.length - removeOne, 0)
+        return Math.max(
+          this.activity.maxParticipants - this.activity.participants.length - this.canJoinOrIsJoiningSlots,
+          0,
+        )
       }
       return 0
     },
     emptySlots () {
       if (this.activity.participants) {
         const minToShow = Math.min(1, this.emptyPlaces)
-        const maxToShow = Math.max(minToShow, this.slotsPerRow - this.activity.participants.length - 1)
+        const maxToShow = Math.max(
+          minToShow,
+          this.slotsPerRow - this.activity.participants.length - this.canJoinOrIsJoiningSlots - 1,
+        )
         return Math.min(this.emptyPlaces, maxToShow)
       }
       return 0
+    },
+    canJoinOrIsJoiningSlots () {
+      // this is the potential slot the user can click into (or has already)
+      return this.isJoining || this.canJoin ? 1 : 0
     },
     noNotShownEmptySlots () {
       return this.emptyPlaces - this.emptySlots

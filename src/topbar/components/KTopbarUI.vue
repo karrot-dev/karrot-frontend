@@ -268,6 +268,9 @@ export default {
     const searchOpen = ref(false)
     // Secret keyboard shortcut for searching :)
     onKeyStroke('/', event => {
+      // ... ignore slashes in input/textareas...
+      const tagName = event.target.tagName.toLowerCase()
+      if (['textarea', 'input'].includes(tagName)) return
       event.preventDefault()
       searchOpen.value = true
     })

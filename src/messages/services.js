@@ -261,6 +261,17 @@ export const useDetailService = defineService(() => {
           next = { name: 'place', params: { groupId, placeId } }
         }
       }
+      else if (to.name === 'userDetail') {
+        id.value = parseInt(to.params.userId, 10)
+        type.value = 'user'
+
+        if (Platform.is.desktop) {
+          // On desktop we don't have user detail page
+          // we can go to profile page with a sidebar
+          const { userId } = to.params
+          next = { name: 'user', params: { userId } }
+        }
+      }
 
       if (next) {
         nextFn(next)
@@ -307,8 +318,11 @@ export const useDetailService = defineService(() => {
     type.value = 'activity'
   }
 
-  function openUserChat (userId) {
-    id.value = userId
+  function openUserChat (user) {
+    if (Platform.is.mobile) {
+      router.push({ name: 'userDetail', params: { userId: user.id } })
+    }
+    id.value = user.id
     type.value = 'user'
   }
 

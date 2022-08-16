@@ -73,7 +73,7 @@
             color="secondary"
             icon="fas fa-comments"
             :title="$t('USERDATA.PRIVATE_MESSAGE', {userName: user.displayName})"
-            @click="openUserChat(user.id)"
+            @click="openUserChat(user)"
           />
           <QBtn
             v-if="isConflictOngoing"

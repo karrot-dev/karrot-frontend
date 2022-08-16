@@ -5,7 +5,6 @@ import alerts from '@/alerts/datastore'
 import authuser from '@/authuser/datastore'
 import base from '@/base/datastore/base'
 import communityFeed from '@/communityFeed/datastore'
-import group from '@/group/datastore'
 import groupInfo from '@/groupInfo/datastore'
 import invitations from '@/invitations/datastore'
 import issues from '@/issues/datastore'
@@ -21,7 +20,6 @@ const appModules = [
   authuser,
   base,
   communityFeed,
-  group,
   groupInfo,
   invitations,
   issues,

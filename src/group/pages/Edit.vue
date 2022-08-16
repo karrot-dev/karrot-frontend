@@ -1,7 +1,7 @@
 <template>
   <GroupEdit
     :value="group"
-    :timezones="$store.getters['timezones/autocompleteData']"
+    :timezones="timezones"
     :all-groups="$store.getters['groups/all']"
     :status="$store.getters['groups/saveStatus']"
     :default-map-center="myCoordinates"
@@ -14,7 +14,9 @@
 import GroupEdit from '@/group/components/GroupEdit'
 import { useGeoService } from '@/base/services'
 import { useCurrentGroupService } from '@/group/services'
+import { useTimezonesQuery } from '@/group/queries'
 
+const { timezones } = useTimezonesQuery()
 const { myCoordinates } = useGeoService()
 
 const {

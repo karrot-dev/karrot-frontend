@@ -112,7 +112,6 @@ export default [
         { translation: 'JOINGROUP.ALL_GROUPS', route: { name: 'groupsGallery' } },
         { translation: 'GROUP.CREATE_TITLE', route: { name: 'groupCreate' } },
       ],
-      beforeEnter: 'timezones/fetch',
     },
     component: GroupCreate,
   },
@@ -356,7 +355,6 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.EDIT', route: { name: 'groupEdit' } },
           ],
-          beforeEnter: 'timezones/fetch',
         },
         components: {
           default: GroupEditLayout,

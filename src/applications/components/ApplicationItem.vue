@@ -2,7 +2,7 @@
   <QItem
     :class="{ isNonPending: !application.status !== 'pending' }"
     clickable
-    @click="openApplication(application.id)"
+    @click="openApplication(application)"
   >
     <QItemSection side>
       <ProfilePicture

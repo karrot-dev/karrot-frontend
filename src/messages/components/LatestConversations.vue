@@ -149,9 +149,12 @@ export default {
       switch (type) {
         case 'group': return this.$router.push({ name: 'group', params: { groupId: targetId }, hash: '#messages' }).catch(() => {})
         case 'place': return this.$router.push({ name: 'placeWall', params: { groupId: this.getPlaceById(targetId).group, placeId: targetId } }).catch(() => {})
-        case 'activity': return this.openActivity(targetId)
-        case 'private': return this.openUser(targetId)
-        case 'application': return this.openApplication(targetId)
+        case 'activity': return this.openActivity(target)
+        case 'private': {
+          const otherUser = this.getUserById(conv.participants.find(u => !this.getIsCurrentUser(u)))
+          return this.openUserChat(otherUser)
+        }
+        case 'application': return this.openApplication(target)
         case 'issue': return this.$router.push({ name: 'issueChat', params: { groupId: target.group, issueId: targetId } }).catch(() => {})
         case 'offer': return this.$router.push({
           name: 'offerDetail',

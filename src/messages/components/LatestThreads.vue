@@ -19,7 +19,7 @@
           :unread-count="conv.threadMeta.unreadReplyCount"
           :muted="conv.threadMeta.muted"
           :selected="isSelected(conv)"
-          @open="openThread(conv.id)"
+          @open="openThread(conv)"
         />
         <QItem
           v-if="!asPopover && hasNextPage"

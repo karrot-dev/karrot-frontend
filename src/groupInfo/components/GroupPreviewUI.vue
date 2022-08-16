@@ -95,7 +95,7 @@
                     dense
                     :label="$t('BUTTON.OPEN')"
                     icon="fas fa-fw fa-comments"
-                    @click="openApplication(application.id)"
+                    @click="openApplication(application)"
                   />
                   <QBtn
                     flat

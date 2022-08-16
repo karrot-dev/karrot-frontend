@@ -326,8 +326,8 @@ export const useDetailService = defineService(() => {
     type.value = 'user'
   }
 
-  function openApplication (applicationId) {
-    id.value = applicationId
+  function openApplication (application) {
+    id.value = application.id
     type.value = 'application'
   }
 

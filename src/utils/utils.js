@@ -1,5 +1,7 @@
 import deepEqual from 'deep-equal'
 import debounce from 'lodash/debounce'
+import { sleep } from '>/helpers'
+import { random } from 'lodash'
 
 // Quasar's ready() is broken until https://github.com/quasarframework/quasar/pull/2199
 export function ready (fn) {
@@ -133,4 +135,40 @@ export async function toFormData (sourceEntry) {
   )
 
   return data
+}
+
+/**
+ * Can use this to slow down requests to make it a bit more realistic
+ *
+ * Use the setDevSleep(<min>, <max>) function in the developer console to enable it
+ *
+ * e.g. to add a random delay between 300ms and 800ms you can run:
+ *
+ *   setDevSleep(300, 800)
+ *
+ * to clear it again:
+ *
+ *   setDevSleep()
+ */
+export async function devSleep () {
+  if (process.env.DEV) {
+    const value = localStorage.getItem('DEV_SLEEP')
+    if (value) {
+      const [min, max] = value.split(',').map(n => parseInt(n, 10))
+      await sleep(random(min, max))
+    }
+  }
+}
+
+if (process.env.DEV) {
+  window.setDevSleep = function (min, max) {
+    if (min && max) {
+      localStorage.setItem('DEV_SLEEP', [min, max].join(','))
+      console.log(`set dev sleep to min ${min}ms and max ${max}ms`)
+    }
+    else {
+      localStorage.removeItem('DEV_SLEEP')
+      console.log('cleared dev sleep')
+    }
+  }
 }

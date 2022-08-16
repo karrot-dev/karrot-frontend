@@ -2,10 +2,8 @@ import Axios from 'axios'
 import i18n from '@/base/i18n'
 import { Notify, throttle } from 'quasar'
 
-import { camelizeKeys, underscorizeKeys } from '@/utils/utils'
+import { camelizeKeys, devSleep, underscorizeKeys } from '@/utils/utils'
 import { isServerError } from '@/utils/datastore/helpers'
-import { sleep } from '>/helpers'
-import { random } from 'lodash'
 
 /*
 * Axios configured for Django REST API
@@ -38,9 +36,9 @@ axios.interceptors.request.use(request => {
 })
 
 // add artificial delay for dev env
-if (process.env.DEV && !/^https/.test(process.env.KARROT.BACKEND)) {
+if (process.env.DEV) {
   axios.interceptors.response.use(async response => {
-    await sleep(random(200, 800))
+    await devSleep()
     return response
   })
 }

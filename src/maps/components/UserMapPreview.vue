@@ -9,29 +9,28 @@
     />
     <RouterLink
       class="overlay"
-      :to="{name: 'map', params: {userId: user.id}}"
+      :to="{ name: 'map', params: { groupId, userId: user.id } }"
     />
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue'
+
 import StandardMap from '@/maps/components/StandardMap'
 import { userMarker } from '@/maps/components/markers'
+import { useCurrentGroupService } from '@/group/services'
 
-export default {
-  components: { StandardMap },
-  props: {
-    user: {
-      type: Object,
-      required: true,
-    },
+const props = defineProps({
+  user: {
+    type: Object,
+    required: true,
   },
-  computed: {
-    markers () {
-      return [userMarker(this.user)]
-    },
-  },
-}
+})
+
+const { groupId } = useCurrentGroupService()
+
+const markers = computed(() => [userMarker(props.user)])
 </script>
 
 <style scoped lang="sass">

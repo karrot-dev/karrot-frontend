@@ -16,7 +16,7 @@
           :key="conv.id"
           v-close-popup
           :group="conv.type === 'group' ? getGroupById(conv.targetId) : null"
-          :user="conv.type === 'private' ? getUserById(conv.targetId) : null"
+          :user="conv.type === 'private' ? getUserById(conv.participants.find(u => !getIsCurrentUser(u))) : null"
           :activity="conv.type === 'activity' ? conv.target : null"
           :place="conv.type === 'place' ? getPlaceById(conv.targetId) : null"
           :application="conv.type === 'application' ? conv.target : null"
@@ -72,6 +72,9 @@ import { useDetailService } from '../services'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { useUserService } from '@/users/services'
 import { usePlaceService } from '@/places/services'
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useConversationsMarkSeenMutation } from '../mutations'
+import { useStatusService } from '@/status/services'
 
 export default {
   components: {
@@ -96,17 +99,26 @@ export default {
       fetchNextPage,
     } = useConversationListQuery()
 
-    // TODO detail/selectedConversation
-
     const {
       openActivity,
       openUserChat,
       openApplication,
+      conversation: selectedConversation,
     } = useDetailService()
+
+    const { unseenConversationCount } = useStatusService()
+
+    const { mutate: doMarkConversationsSeen } = useConversationsMarkSeenMutation()
+
+    function markConversationsSeen () {
+      if (unseenConversationCount.value <= 0) return
+      doMarkConversationsSeen()
+    }
 
     const { getGroupById } = useGroupInfoService()
     const { getUserById } = useUserService()
     const { getPlaceById } = usePlaceService()
+    const { getIsCurrentUser } = useAuthHelpers()
 
     return {
       conversations,
@@ -120,40 +132,35 @@ export default {
       getGroupById,
       getUserById,
       getPlaceById,
+      getIsCurrentUser,
+      selectedConversation,
+      markConversationsSeen,
     }
   },
   mounted () {
-    // setTimeout(() => this.markConversationsSeen(), 3 * 1000)
+    setTimeout(() => this.markConversationsSeen(), 3 * 1000)
   },
   unmounted () {
-    // this.markConversationsSeen()
+    this.markConversationsSeen()
   },
   methods: {
-    /*
-    ...mapActions({
-      markConversationsSeen: 'latestMessages/markConversationsSeen',
-    }),
-    */
     open (conv) {
       const { type, target, targetId } = conv
-      console.log('opening latest conversations', { type, target, targetId })
       switch (type) {
-        case 'group': return this.$router.push({ name: 'group', params: { groupId: target.id }, hash: '#messages' }).catch(() => {})
-        // TODO: I think target.group.id won't exist...
-        case 'place': return this.$router.push({ name: 'placeWall', params: { groupId: target.group.id, placeId: target.id } }).catch(() => {})
-        case 'activity': return this.openActivity(target)
-        case 'private': return this.openUser(target)
-        case 'application': return this.openApplication(target)
-        case 'issue': return this.$router.push({ name: 'issueChat', params: { groupId: target.group.id, issueId: target.id } }).catch(() => {})
+        case 'group': return this.$router.push({ name: 'group', params: { groupId: targetId }, hash: '#messages' }).catch(() => {})
+        case 'place': return this.$router.push({ name: 'placeWall', params: { groupId: this.getPlaceById(targetId).group, placeId: targetId } }).catch(() => {})
+        case 'activity': return this.openActivity(targetId)
+        case 'private': return this.openUser(targetId)
+        case 'application': return this.openApplication(targetId)
+        case 'issue': return this.$router.push({ name: 'issueChat', params: { groupId: target.group, issueId: targetId } }).catch(() => {})
         case 'offer': return this.$router.push({
           name: 'offerDetail',
-          params: { groupId: target.group, offerId: target.id },
+          params: { groupId: target.group, offerId: targetId },
           query: this.$route.query,
         }).catch(() => {})
       }
     },
     isSelected (conv) {
-      return false // TODO
       if (!this.selectedConversation) return false
       if (Boolean(conv.thread) !== Boolean(this.selectedConversation.thread)) return false
       return conv.id === this.selectedConversation.id

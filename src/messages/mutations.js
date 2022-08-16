@@ -54,3 +54,11 @@ export function useAddReactionMutation () {
 export function useRemoveReactionMutation () {
   return withStatus(useMutation(({ messageId, name }) => reactionsAPI.remove(messageId, name)))
 }
+
+export function useConversationsMarkSeenMutation () {
+  return withStatus(useMutation(() => conversationsAPI.markConversationsSeen()))
+}
+
+export function useMyThreadsMarkSeenMutation () {
+  return withStatus(useMutation(() => conversationsAPI.markThreadsSeen()))
+}

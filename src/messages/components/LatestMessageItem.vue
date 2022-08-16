@@ -77,7 +77,7 @@
               :title="$t('ISSUE.TITLE')"
             />
             <div class="ellipsis">
-              {{ issue.affectedUser && issue.affectedUser.displayName }}
+              {{ getUserById(issue.affectedUser).displayName }}
             </div>
           </template>
           <template v-else-if="isOffer">

@@ -26,7 +26,6 @@ export const queryKeyMessageItem = messageId => [QUERY_KEY_BASE, 'message', mess
 export function useConversationUpdater () {
   const queryClient = useQueryClient()
   const { on } = useSocketEvents()
-  // TODO: also update on 'conversations:meta' ? need to implement the meta thing...
   on(
     'conversations:conversation',
     conversation => {
@@ -35,6 +34,7 @@ export function useConversationUpdater () {
         queryKey: queryKeyConversation(),
         predicate: query => query.state?.data?.id === conversation.id,
       }, () => conversation)
+      queryClient.invalidateQueries(queryKeyConversationList())
     },
   )
 }
@@ -118,6 +118,7 @@ export function useMessageUpdater () {
         if (!updateMessageIn(queryKeyMessageThreadList(message.thread), message, true)) {
           queryClient.invalidateQueries(queryKeyMessageThreadList(message.thread))
         }
+        queryClient.invalidateQueries(queryKeyMyThreadList())
       }
 
       // Update normal message

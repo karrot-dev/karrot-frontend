@@ -216,8 +216,9 @@ export default async function ({ store: datastore }) {
       // datastore.dispatch('conversations/updateConversation', conversation)
       // datastore.dispatch('latestMessages/updateConversationsAndRelated', { conversations: [conversation] })
     }
+    // TODO stop broadcasting meta, seems not needed anymore
     else if (topic === 'conversations:meta') {
-      datastore.commit('latestMessages/setEntryMeta', payload)
+      // datastore.commit('latestMessages/setEntryMeta', payload)
     }
     else if (topic === 'community_feed:meta') {
       datastore.commit('communityFeed/setMeta', payload)

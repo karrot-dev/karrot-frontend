@@ -1,5 +1,6 @@
 import { useAuthService } from '@/authuser/services'
 import i18n from '@/base/i18n'
+import icons from '@/base/icons'
 import reactiveNow from '@/utils/reactiveNow'
 
 export function useActivityHelpers () {
@@ -53,7 +54,8 @@ export function useActivityTypeHelpers () {
   }
 
   function getIconProps (activityType) {
-    if (!activityType) return
+    if (!activityType) return { name: icons.get('activity_fw') }
+
     const { icon } = activityType
     const title = getTranslatedName(activityType)
     return {

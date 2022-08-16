@@ -14,7 +14,6 @@ import { convert as convertActivity } from '@/activities/api/activities'
 import { convert as convertSeries } from '@/activities/api/activitySeries'
 import { convert as convertFeedback } from '@/feedback/api/feedback'
 import { convert as convertHistory } from '@/history/api/history'
-import { convert as convertInvitation } from '@/invitations/api/invitations'
 import { convert as convertIssue } from '@/issues/api/issues'
 import { convert as convertOffer } from '@/offers/api/offers'
 import { convert as convertGroup } from '@/group/api/groups'
@@ -177,7 +176,6 @@ export default async function ({ store: datastore }) {
       case 'conversations:meta': return convertConversationMeta(payload)
       case 'community_feed:meta': return convertCommunityFeedMeta(payload)
       case 'groups:group_detail': return convertGroup(payload)
-      case 'invitations:invitation': return convertInvitation(payload)
       case 'issues:issue': return convertIssue(payload)
       case 'activities:activity': return convertActivity(payload)
       case 'activities:activity_deleted': return convertActivity(payload)
@@ -241,13 +239,6 @@ export default async function ({ store: datastore }) {
     }
     else if (topic === 'groups:user_left') {
       datastore.dispatch('users/fetch', null, { root: true })
-    }
-    else if (topic === 'invitations:invitation') {
-      datastore.commit('invitations/update', [payload])
-    }
-    else if (topic === 'invitations:invitation_accept') {
-      // delete invitation from list until there is a better way to display it
-      datastore.commit('invitations/delete', payload.id)
     }
     else if (topic === 'issues:issue') {
       datastore.commit('issues/update', [payload])

@@ -1,4 +1,3 @@
-import { isNetworkError, isValidationError } from '@/utils/datastore/helpers'
 import bootstrap from '@/base/api/bootstrap'
 import { configureSentry } from '@/utils/sentry'
 import { QueryCache, QueryClient, VueQueryPlugin } from 'vue-query'
@@ -13,14 +12,8 @@ import { queryKeyActivityTypeListAll } from '@/activities/queries'
 export default async function ({ app, store: datastore }) {
   const queryCache = new QueryCache({
     onError (error, query) {
-      if (isValidationError(error)) {
-        if (error.response.status === 403) {
-          // console.log('query cache error!', error, query)
-          if (query.queryKey !== queryKeys.authUser()) {
-            // console.log('aha a 403 error for non auth user query...')
-          }
-        }
-      }
+      // This is a global error handler for queries if we need it
+      console.error('query error for', query.queryKey, error)
     },
   })
   const queryClient = new QueryClient({
@@ -84,25 +77,6 @@ export default async function ({ app, store: datastore }) {
   if (geoip) {
     setGeoipCoordinates(geoip)
   }
-
-  async function fetchCommunityFeed () {
-    try {
-      await Promise.all([
-        datastore.dispatch('communityFeed/fetchTopics'),
-        datastore.dispatch('communityFeed/fetchBanner'),
-      ])
-    }
-    catch (error) {
-      console.warn('Could not fetch community feed topics.')
-      // we only expect a network error or 404, otherwise tell Sentry
-      const { response: { status = -1 } = {} } = error
-      if (status !== 404 && !isNetworkError(error)) {
-        throw error
-      }
-    }
-  }
-
-  fetchCommunityFeed()
 
   if (!process.env.DEV) {
     datastore.dispatch('about/fetch')

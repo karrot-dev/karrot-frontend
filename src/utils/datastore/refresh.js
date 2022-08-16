@@ -27,9 +27,6 @@ export default {
         }
 
         await Promise.all([
-          dispatch('users/refresh', {}, { root: true }),
-          dispatch('places/fetch', null, { root: true }),
-          dispatch('invitations/refresh', null, { root: true }),
           dispatch('groups/fetch', null, { root: true }),
           dispatch('conversations/refresh', null, { root: true }),
           dispatch('currentThread/refresh', null, { root: true }),

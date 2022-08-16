@@ -32,7 +32,6 @@ const PlaceEdit = () => import('@/places/pages/Edit')
 const PlaceCreate = () => import('@/places/pages/Create')
 const PlaceList = () => import('@/places/pages/Places')
 const HistoryDetail = () => import('@/history/pages/HistoryDetail')
-const GroupInvitations = () => import('@/invitations/pages/Invitations')
 const Applications = () => import('@/applications/pages/Applications')
 const GroupDescription = () => import('@/group/pages/Description')
 const GroupMembers = () => import('@/users/pages/Members')
@@ -325,17 +324,6 @@ export default [
           ],
         },
         component: GroupHistory,
-      },
-      {
-        name: 'groupInvitations',
-        path: 'invites',
-        meta: {
-          breadcrumbs: [
-            { translation: 'GROUP.INVITATIONS', route: { name: 'groupInvitations' } },
-          ],
-          beforeEnter: 'invitations/fetch',
-        },
-        component: GroupInvitations,
       },
       {
         name: 'applications',

@@ -111,17 +111,11 @@
             class="mainContent-page"
             :class="{fullpage}"
           >
-            <Component
-              :is="disablePullToRefresh ? 'div' : 'QPullToRefresh'"
-              style="max-height: none"
-              @refresh="refresh"
-            >
-              <RouterView
-                v-if="$q.platform.is.mobile && hasDetailComponent"
-                name="detail"
-              />
-              <RouterView v-else />
-            </Component>
+            <RouterView
+              v-if="$q.platform.is.mobile && hasDetailComponent"
+              name="detail"
+            />
+            <RouterView v-else />
           </QPage>
         </QPageContainer>
 
@@ -172,7 +166,7 @@ import DetailSidebar from '@/messages/components/DetailSidebar'
 import KarrotLogo from '@/logo/components/KarrotLogo'
 import CommunityFeed from '@/communityFeed/components/CommunityFeed'
 
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 import {
   QLayout,
   QHeader,
@@ -185,7 +179,6 @@ import {
   QIcon,
   QItemSection,
   QBtn,
-  QPullToRefresh,
 } from 'quasar'
 import { useStatusService } from '@/status/services'
 import { useCurrentGroupService } from '@/group/services'
@@ -210,10 +203,8 @@ export default {
     QPageContainer,
     QPage,
     QBtn,
-    QIcon,
     QItem,
     QItemSection,
-    QPullToRefresh,
     Banners,
     RouteError,
     UnsupportedBrowserWarning,
@@ -296,11 +287,6 @@ export default {
     hasDetailComponent () {
       return this.$route.matched.some(({ meta }) => meta && meta.isDetail === true)
     },
-    disablePullToRefresh () {
-      if (!this.$q.platform.is.cordova) return true
-      if (this.$route.matched.some(({ meta }) => meta && meta.disablePullToRefresh)) return true
-      return false
-    },
     theme () {
       if (this.isBikeKitchen) return 'bikekitchen'
       if (this.isGeneralPurpose) return 'general'
@@ -308,9 +294,6 @@ export default {
     },
   },
   methods: {
-    ...mapActions({
-      refresh: 'refresh/refresh',
-    }),
     toggleSidenav () {
       this.showSidenav = !this.showSidenav
     },

@@ -11,6 +11,7 @@ import { useActivityItemQuery } from '@/activities/queries'
 import { useUserService } from '@/users/services'
 import { useApplicationItemQuery } from '@/applications/queries'
 import { useRoute } from 'vue-router'
+import { useAuthService } from '@/authuser/services'
 
 function useThreadDetail (messageId) {
   const order = 'oldest-first'
@@ -213,6 +214,14 @@ export const useDetailService = defineService(() => {
   const hasDetailComponent = computed(() => route.matched.some(({ meta }) => meta && meta.isDetail === true))
   watch(hasDetailComponent, hasDetailComponent => {
     if (hasDetailComponent) {
+      close()
+    }
+  })
+
+  // When logged out, close the detail view
+  const { isLoggedIn } = useAuthService()
+  watch(isLoggedIn, value => {
+    if (!value) {
       close()
     }
   })

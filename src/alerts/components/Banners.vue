@@ -51,18 +51,16 @@ import {
 import { useBanners } from '@/alerts/services'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import { useCommunityBannerService } from '@/communityFeed/services'
 
 const { t } = useI18n()
 const store = useStore()
 const router = useRouter()
 const banners = useBanners()
+const { dismissCommunityBanner } = useCommunityBannerService()
 
 function reconnect () {
   store.dispatch('connectivity/reconnect')
-}
-
-function dismissBanner (id) {
-  store.dispatch('communityFeed/dismissBanner', id)
 }
 
 const formattedBanners = computed(() => banners.value.map(banner => {
@@ -107,7 +105,7 @@ const formattedBanners = computed(() => banners.value.map(banner => {
       html: banner.context.html,
       action: {
         label: t('BUTTON.CLOSE'),
-        handler: () => dismissBanner(banner.context.id),
+        handler: () => dismissCommunityBanner(),
       },
     }
 

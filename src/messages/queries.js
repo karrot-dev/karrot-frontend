@@ -48,15 +48,17 @@ export function useMessageUpdater () {
   } = useMessageHelpers()
   const { on } = useSocketEvents()
 
-  function updateMessageIn (queryKey, message) {
+  function getIsOldestFirst (queryKey) {
     // We rely on the meta: { order: <val> } to have been set on the query to know if we're going to
     // insert the message at the top or the bottom
     // Set it to 'newest-first' or 'oldest-first'
     const query = queryClient.getQueryCache().find(queryKey)
     const order = query?.meta?.order
-    if (!order) throw new Error('you must set meta: { order: <val> } for queries using updateMessageIn')
-    const oldestFirst = order === 'oldest-first'
+    if (!order) throw new Error('you must set meta: { order: "oldest-first|newest-first" } for queries using updateMessageIn')
+    return order === 'oldest-first'
+  }
 
+  function updateMessageIn (queryKey, message) {
     // Update individual message
     let added = false
     queryClient.setQueryData(
@@ -79,7 +81,7 @@ export function useMessageUpdater () {
 
         // Otherwise add it to start/end depending on the order
         if (!added && pages.length > 0) {
-          if (oldestFirst) {
+          if (getIsOldestFirst()) {
             const lastPage = pages[pages.length - 1]
             const lastResult = lastPage.results?.[lastPage.results?.length - 1]
             if (lastResult && message.id > lastResult.id) {
@@ -297,6 +299,7 @@ function paginationHelpers (query) {
 }
 
 export function useMessageListQuery ({ conversationId }, { order, pageSize = 20 } = {}) {
+  if (!order) throw new Error('order is required')
   const query = useInfiniteQuery(
     queryKeyMessageList(conversationId), // we don't put the order in here, so make sure to use consistent ordering for a given conversationId
     ({ pageParam: cursor }) => messageAPI.list(
@@ -343,7 +346,8 @@ export function useMessageItemQuery ({ messageId }, queryOptions = {}) {
   }
 }
 
-export function useMessageThreadListQuery ({ messageId }, { pageSize, order } = {}) {
+export function useMessageThreadListQuery ({ messageId }, { order, pageSize } = {}) {
+  if (!order) throw new Error('order is required')
   const query = useInfiniteQuery(
     queryKeyMessageThreadList(messageId),
     ({ pageParam: cursor }) => messageAPI.listThread(unref(messageId), { cursor, pageSize, order }),

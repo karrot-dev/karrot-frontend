@@ -32,6 +32,7 @@ import { useRoutingLogic, useCheckResponseAuthStatus } from '@/base/services'
 import { onErrorCaptured } from 'vue'
 import { useDetailService } from '@/messages/services'
 import { useIssuesUpdater } from '@/issues/queries'
+import { useQueryClient } from 'vue-query'
 
 export default {
   components: {
@@ -65,9 +66,14 @@ export default {
     const { installRouterPlugin } = useDetailService() // just to initialize it...
     installRouterPlugin()
 
+    // This catches things that otherwise don't seem to be printed anywhere in the console
+    // It doesn't stop the error propagating elsewhere, it's just seeing it, so nice and neutral
     onErrorCaptured(error => {
       console.error(error)
     })
+
+    // TODO: remove at some point... just trying it out for now
+    window.queryClient = useQueryClient()
   },
   computed: {
     hasView () {

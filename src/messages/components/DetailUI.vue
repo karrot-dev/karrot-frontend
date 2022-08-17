@@ -194,7 +194,7 @@ export default {
 
     const { groupId: currentGroupId, isEditor } = useCurrentGroupService()
     const { application } = useDetailService()
-    const canDecideApplication = computed(() => application.value.status === 'pending' && application.value.group === currentGroupId.value && isEditor)
+    const canDecideApplication = computed(() => application.value.status === 'pending' && application.value.group === currentGroupId.value && isEditor.value)
 
     function applicationAcceptDialog (application) {
       Dialog.create({

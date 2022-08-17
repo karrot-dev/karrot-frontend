@@ -240,7 +240,7 @@ export default async function ({ store: datastore }) {
       datastore.dispatch('users/fetch', null, { root: true })
     }
     else if (topic === 'issues:issue') {
-      datastore.commit('issues/update', [payload])
+      // datastore.commit('issues/update', [payload])
     }
     else if (topic === 'places:place') {
       // datastore.dispatch('places/update', [payload])

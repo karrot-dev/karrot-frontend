@@ -1,6 +1,5 @@
 import deepEqual from 'deep-equal'
 import debounce from 'lodash/debounce'
-import { sleep } from '>/helpers'
 import { random } from 'lodash'
 
 // Quasar's ready() is broken until https://github.com/quasarframework/quasar/pull/2199
@@ -171,4 +170,8 @@ if (process.env.DEV) {
       console.log('cleared dev sleep')
     }
   }
+}
+
+export function sleep (ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
 }

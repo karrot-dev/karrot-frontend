@@ -1,15 +1,10 @@
 <template>
-  <ApplicationFormUI
-    :group="$store.getters['groups/activePreview']"
-  />
+  <ApplicationFormUI :group="group" />
 </template>
 
-<script>
+<script setup>
 import ApplicationFormUI from '@/applications/components/ApplicationFormUI'
+import { useActiveGroupPreviewService } from '@/groupInfo/services'
 
-export default {
-  components: {
-    ApplicationFormUI,
-  },
-}
+const { group } = useActiveGroupPreviewService()
 </script>

@@ -2,8 +2,8 @@
   <GroupGalleryUI
     :my-groups="partitionedGroups.mine"
     :other-groups="partitionedGroups.other"
-    :fetch-status="$store.getters['groups/fetchStatus']"
-    :is-logged-in="$store.getters['auth/isLoggedIn']"
+    :is-loading="isLoadingGroups"
+    :is-logged-in="isLoggedIn"
     :my-coordinates="myCoordinates"
     @preview="groupId => $router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }).catch(() => {})"
     @visit="groupId => $router.push({ name: 'group', params: { groupId } }).catch(() => {})"
@@ -19,8 +19,16 @@ import { useGroupInfoService } from '@/groupInfo/services'
 import { useApplicationListQuery } from '@/applications/queries'
 import { useAuthService } from '@/authuser/services'
 
-const { userId } = useAuthService()
-const { groups } = useGroupInfoService()
+const {
+  userId,
+  isLoggedIn,
+} = useAuthService()
+
+const {
+  isLoadingGroups,
+  groups,
+} = useGroupInfoService()
+
 const { myCoordinates } = useGeoService()
 const {
   applications,

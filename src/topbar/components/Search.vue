@@ -93,7 +93,7 @@ const query = ref('')
 
 const { places } = usePlaceService()
 // TODO: probably need a bit of filtering, includes all the inactive ones...
-const { groups, getGroupById } = useGroupInfoService()
+const { activeGroups, getGroupById } = useGroupInfoService()
 const { users } = useUserService()
 
 function select (option) {
@@ -113,7 +113,7 @@ const allOptions = computed(() => [
     icon: icons.get('place'),
     iconColor: optionsFor(place).color,
   })),
-  ...groups.value.filter(group => group.status === 'active').map(group => ({
+  ...activeGroups.value.map(group => ({
     value: group.isMember ? { name: 'group', params: { groupId: group.id } } : { name: 'groupPreview', params: { groupPreviewId: group.id } },
     label: group.name,
     search: group.name.toLowerCase(),

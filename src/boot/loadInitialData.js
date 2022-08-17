@@ -54,7 +54,6 @@ export default async function ({ app, store: datastore }) {
     }
   }
   if (groups) {
-    datastore.commit('groups/set', groups)
     queryClient.setQueryData(queryKeyGroupInfoListAll(), groups)
   }
   if (user) {

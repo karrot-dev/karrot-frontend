@@ -100,6 +100,8 @@ import statusMixin from '@/utils/mixins/statusMixin'
 import KFormContainer from '@/base/components/KFormContainer'
 import { useChangeNotificationTypesMutation } from '@/group/mutations'
 import { useAuthService } from '@/authuser/services'
+import { useGroupInfoService } from '@/groupInfo/services'
+import { useCurrentGroupService } from '@/group/services'
 
 export default {
   name: 'GroupSettings',
@@ -116,27 +118,26 @@ export default {
     SwitchGroupButton,
   },
   mixins: [statusMixin],
-  props: {
-    group: {
-      type: Object,
-      default: null,
-    },
-    groups: {
-      type: Array,
-      default: null,
-    },
-  },
   emits: [
     'unsubscribe-all-emails',
     'clear-unsubscribe-all-status',
   ],
   setup (props) {
     const { user } = useAuthService()
-    const groupId = computed(() => props.group?.id)
+    const {
+      groupId,
+      group,
+    } = useCurrentGroupService()
+    const { groups: allGroups } = useGroupInfoService()
+    const groups = computed(() => allGroups.value.filter(group => group.isMember))
+
     const {
       mutateAsync: changeNotificationType,
     } = useChangeNotificationTypesMutation({ groupId })
+
     return {
+      group,
+      groups,
       user,
       changeNotificationType,
     }

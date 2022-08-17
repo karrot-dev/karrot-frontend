@@ -97,8 +97,6 @@ export default [
         { translation: 'JOINGROUP.ALL_GROUPS', route: { name: 'groupsGallery' } },
         { type: 'activeGroupPreview' },
       ],
-      beforeEnter: 'groups/selectPreview',
-      afterLeave: 'groups/clearGroupPreview',
     },
     component: GroupPreview,
   },
@@ -507,8 +505,6 @@ export default [
       breadcrumbs: [
         { translation: 'APPLICATION.APPLICATION', route: { name: 'applicationDetail' } },
       ],
-      beforeEnter: 'detail/applicationRouteEnter',
-      afterLeave: 'detail/routeLeave',
     },
     // On desktop will get redirected inside "detail/routeEnter" action
     components: {
@@ -525,7 +521,7 @@ export default [
       breadcrumbs: [
         { translation: 'SETTINGS.TITLE', route: { name: 'settings' } },
       ],
-      afterLeave: ['auth/clearSettingsStatus', 'unsubscribe/clear'],
+      afterLeave: 'unsubscribe/clear',
     },
     components: {
       default: Settings,

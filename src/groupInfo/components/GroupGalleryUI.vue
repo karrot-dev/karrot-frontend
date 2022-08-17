@@ -96,7 +96,7 @@
           </QBtn>
         </div>
       </div>
-      <KSpinner v-show="isPending" />
+      <KSpinner v-show="isLoading" />
       <div
         v-if="hasMyGroupsToShow"
         class="join-groups"
@@ -179,9 +179,9 @@ export default {
       default: false,
       type: Boolean,
     },
-    fetchStatus: {
-      default: null,
-      type: Object,
+    isLoading: {
+      type: Boolean,
+      default: false,
     },
     myCoordinates: {
       default: null,
@@ -201,9 +201,6 @@ export default {
     }
   },
   computed: {
-    isPending () {
-      return this.fetchStatus && this.fetchStatus.pending
-    },
     hasJoinedGroups () {
       return this.myGroups.length > 0
     },

@@ -17,7 +17,7 @@ export function useApplicationsUpdater () {
       'applications:update',
     ],
     async () => {
-      await queryClient.invalidateQueries(['applications'])
+      await queryClient.invalidateQueries([QUERY_KEY_BASE])
     },
   )
 }

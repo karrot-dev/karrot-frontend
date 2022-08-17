@@ -61,7 +61,11 @@
         </QCardActions>
       </QCardSection>
     </KFormContainer>
-    <GroupSettings />
+    <GroupSettings
+      :status="$store.getters['unsubscribe/allEmailsPerGroupStatus']"
+      @unsubscribe-all-emails="data => $store.dispatch('unsubscribe/allEmailsPerGroup', data)"
+      @clear-unsubscribe-all-status="data => $store.dispatch('unsubscribe/clear', data)"
+    />
     <KFormContainer
       v-if="!$q.platform.is.cordova"
     >
@@ -111,7 +115,7 @@ import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAc
 import Push from '@/authuser/components/Settings/Push'
 import InstallPwa from '@/authuser/components/Settings/InstallPwa'
 import LocaleSelect from '@/utils/components/LocaleSelect'
-import GroupSettings from '@/group/pages/Settings'
+import GroupSettings from '@/group/components/GroupSettings'
 import KFormContainer from '@/base/components/KFormContainer'
 import {
   useChangeEmailMutation,

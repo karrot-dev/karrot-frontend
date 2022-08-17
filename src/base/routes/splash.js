@@ -126,8 +126,6 @@ export default [
       breadcrumbs: [
         { translation: 'APPLICATION.FORM_HEADER' },
       ],
-      beforeEnter: 'groups/selectPreview',
-      afterLeave: 'groups/clearGroupPreview',
     },
     components: {
       default: ApplicationForm,

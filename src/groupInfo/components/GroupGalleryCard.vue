@@ -4,19 +4,10 @@
       class="groupPreviewCard relative-position"
       :class="{
         application: myApplicationPending,
-        highlight: isCurrentGroup,
       }"
       :style="cardStyle"
       @click="$emit(group.isMember ? 'visit' : 'preview')"
     >
-      <QBadge
-        v-if="myApplicationPending"
-        floating
-        class="q-pl-sm q-pt-xs q-pb-xs z-top"
-        color="blue"
-      >
-        <QIcon name="fas fa-hourglass-half" />
-      </QBadge>
       <QTooltip v-if="myApplicationPending">
         {{ $t('APPLICATION.GALLERY_TOOLTIP') }}
       </QTooltip>
@@ -71,8 +62,20 @@
         </span>
         <div class="overlay" />
       </QCardSection>
-      <QSeparator v-if="group.isMember" />
-      <QCardActions v-if="group.isMember">
+      <QSeparator />
+      <QCardActions
+        v-if="myApplicationPending"
+        class="bg-blue text-white"
+      >
+        <QBtn
+          flat
+          size="sm"
+          icon="fas fa-info-circle"
+          class="full-width"
+          :label="$t('JOINGROUP.APPLICATION_PENDING')"
+        />
+      </QCardActions>
+      <QCardActions v-else-if="group.isMember">
         <QBtn
           flat
           size="sm"
@@ -109,12 +112,12 @@ import {
   QIcon,
   QImg,
   QBadge,
+  QSpace,
 } from 'quasar'
 import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
 import { useApplicationHelpers } from '@/applications/helpers'
-import { useCurrentGroupService } from '@/group/services'
-import { computed, unref, toRefs } from 'vue'
+import { computed, toRefs } from 'vue'
 import { useGroupHelpers } from '@/group/helpers'
 
 export default {
@@ -175,12 +178,6 @@ export default {
 
   *
     overflow: hidden
-
-  &.highlight
-    border: 2px solid $secondary
-
-  &.application
-    border: 2px solid $blue
 
   .fixed-height
     position: relative

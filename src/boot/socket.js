@@ -231,7 +231,7 @@ export default async function ({ store: datastore }) {
       */
     }
     else if (topic === 'groups:group_preview') {
-      datastore.commit('groups/update', [payload])
+      // datastore.commit('groups/update', [payload])
     }
     else if (topic === 'groups:user_joined') {
       datastore.dispatch('users/fetch', null, { root: true })

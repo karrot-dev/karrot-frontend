@@ -1,8 +1,8 @@
 <template>
   <GroupPreviewUI
-    :group="$store.getters['groups/activePreview']"
-    :is-logged-in="$store.getters['auth/isLoggedIn']"
-    :user="$store.getters['auth/user']"
+    :group="group"
+    :is-logged-in="isLoggedIn"
+    :user="user"
     :application="application"
     @withdraw="withdraw"
   />
@@ -11,31 +11,31 @@
 <script setup>
 import { computed, unref } from 'vue'
 import GroupPreviewUI from '@/groupInfo/components/GroupPreviewUI'
-import { useIntegerRouteParam } from '@/utils/composables'
 import { useWithdrawApplicationMutation } from '@/applications/mutations'
 import { useApplicationListQuery } from '@/applications/queries'
 import { useAuthService } from '@/authuser/services'
-import { useQueryClient } from 'vue-query'
 import { showToast } from '@/utils/toasts'
-
-const { userId } = useAuthService()
-
-const groupPreviewId = useIntegerRouteParam('groupPreviewId')
+import { useActiveGroupPreviewService } from '@/groupInfo/services'
 
 const {
-  mutate: withdrawApplication,
+  userId,
+  user,
+  isLoggedIn,
+} = useAuthService()
+
+const {
+  groupId: groupPreviewId,
+  group,
+} = useActiveGroupPreviewService()
+
+const {
+  mutateAsync: withdrawApplication,
 } = useWithdrawApplicationMutation()
 
-const queryClient = useQueryClient()
-
-const withdraw = id => {
-  withdrawApplication(id, {
-    onSuccess () {
-      showToast({
-        message: 'JOINGROUP.APPLICATION_WITHDRAWN',
-      })
-      queryClient.invalidateQueries(['applications'])
-    },
+async function withdraw (id) {
+  await withdrawApplication(id)
+  showToast({
+    message: 'JOINGROUP.APPLICATION_WITHDRAWN',
   })
 }
 

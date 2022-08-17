@@ -7,7 +7,7 @@ export function useApplicationHelpers () {
 
   function getHasMyApplicationPending (groupId) {
     if (!groupId) return false
-    return applications.value.find(application => application.group === groupId)
+    return Boolean(applications.value.find(application => application.group === groupId))
   }
 
   return {

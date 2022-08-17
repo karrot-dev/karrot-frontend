@@ -1,6 +1,5 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
 
 import { defineService } from '@/utils/datastore/helpers'
@@ -8,7 +7,7 @@ import { useCurrentGroupService } from '@/group/services'
 import { useActiveOfferService } from '@/offers/services'
 import { useActivePlaceService } from '@/places/services'
 import { useActiveUserService, useUserService } from '@/users/services'
-import { useGroupInfoService } from '@/groupInfo/services'
+import { useActiveGroupPreviewService } from '@/groupInfo/services'
 import { useActiveIssueService } from '@/issues/services'
 
 export const useBreadcrumbs = defineService(() => {
@@ -23,12 +22,7 @@ export const useBreadcrumbs = defineService(() => {
   const { place } = useActivePlaceService()
   const { user } = useActiveUserService()
   const { issue } = useActiveIssueService()
-
-  // TODO: detach from store
-  const store = useStore()
-  const { getGroupById } = useGroupInfoService()
-  const activePreviewId = computed(() => store.state.groups.activePreviewId)
-  const activeGroup = computed(() => getGroupById(activePreviewId.value))
+  const { group: activeGroupPreview } = useActiveGroupPreviewService()
 
   const breadcrumbs = computed(() => findBreadcrumbs(route.matched))
 
@@ -44,10 +38,10 @@ export const useBreadcrumbs = defineService(() => {
 
   return computed(() => breadcrumbs.value.map(breadcrumb => {
     if (breadcrumb.type === 'activeGroupPreview') {
-      if (activeGroup.value) {
+      if (activeGroupPreview.value) {
         return {
-          name: activeGroup.value.name,
-          route: { name: 'groupPreview', params: { groupPreviewId: activeGroup.value.id } },
+          name: activeGroupPreview.value.name,
+          route: { name: 'groupPreview', params: { groupPreviewId: activeGroupPreview.value.id } },
         }
       }
     }

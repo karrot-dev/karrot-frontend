@@ -4,14 +4,21 @@ import { defineService, indexById } from '@/utils/datastore/helpers'
 import { useGroupInfoListQuery } from '@/groupInfo/queries'
 import { useQueryClient } from 'vue-query'
 import { queryKeyPlaceListAll } from '@/places/queries'
+import { useIntegerRouteParam } from '@/utils/composables'
 
 export const useGroupInfoService = defineService(() => {
   // services
   const queryClient = useQueryClient()
 
   // queries
-  // TODO: filtering for active status?
-  const { groups } = useGroupInfoListQuery()
+  // TODO: should we filter for active groups? there are loads of dead/empty groups..? maybe hide ones with no users on server?
+  const {
+    groups,
+    isLoading: isLoadingGroups,
+  } = useGroupInfoListQuery()
+
+  // includes playground status...
+  const activeGroups = computed(() => groups.value.filter(group => group.status !== 'inactive'))
 
   // computed
   const groupsById = computed(() => indexById(groups.value))
@@ -38,6 +45,21 @@ export const useGroupInfoService = defineService(() => {
 
   return {
     groups,
+    isLoadingGroups,
+    activeGroups,
     getGroupById,
+  }
+})
+
+export const useActiveGroupPreviewService = defineService(() => {
+  const groupId = useIntegerRouteParam('groupPreviewId')
+
+  const { getGroupById } = useGroupInfoService()
+
+  const group = computed(() => getGroupById(groupId.value))
+
+  return {
+    groupId,
+    group,
   }
 })

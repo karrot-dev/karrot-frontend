@@ -198,7 +198,6 @@ import {
   QImg,
   QBtn,
 } from 'quasar'
-import { mapGetters } from 'vuex'
 
 import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
 import KAbout from '@/base/components/KAbout'
@@ -208,6 +207,7 @@ import { dirNames, dirs } from '@/base/images-config.mjs'
 import generatedImages from '@/base/images.json'
 
 import router from '@/router'
+import { useGroupInfoService } from '@/groupInfo/services'
 
 // Prefer active non-playground groups with a photo
 function groupSortScore (group) {
@@ -227,15 +227,17 @@ export default {
     KAbout,
     KLandingButtons,
   },
+  setup () {
+    // TODO: this used to show groups/other, but all seems ok...?
+    const { groups } = useGroupInfoService()
+    return { groups }
+  },
   data () {
     return {
       showAbout: false,
     }
   },
   computed: {
-    ...mapGetters({
-      groups: 'groups/other',
-    }),
     groupsToShow () {
       // We might not have enough groups to show, so this is a bit more complicated than it might have been...
       // It attempts to always show _something_

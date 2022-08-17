@@ -272,6 +272,17 @@ export const useDetailService = defineService(() => {
           next = { name: 'user', params: { userId } }
         }
       }
+      else if (to.name === 'applicationDetail') {
+        id.value = parseInt(to.params.applicationId, 10)
+        type.value = 'application'
+
+        if (Platform.is.desktop) {
+          // On desktop we don't have application detail page
+          // we can go to applications page with a sidebar
+          const { groupId } = to.params
+          next = { name: 'applications', params: { groupId } }
+        }
+      }
 
       if (next) {
         nextFn(next)
@@ -327,6 +338,9 @@ export const useDetailService = defineService(() => {
   }
 
   function openApplication (application) {
+    if (Platform.is.mobile) {
+      router.push({ name: 'applicationDetail', params: { groupId: application.group, applicationId: application.id } })
+    }
     id.value = application.id
     type.value = 'application'
   }

@@ -97,11 +97,14 @@
           <QIcon class="fas fa-bed" />
         </template>
         {{ $t('ACTIVITYLIST.NONE') }}
-        <template #desc>
+        <template
+          v-if="isEditor"
+          #desc
+        >
           {{ $t('ACTIVITYLIST.NONE_HINT') }}
         </template>
       </KNotice>
-      <QCard>
+      <QCard v-if="places.length > 0 || isEditor">
         <QCardSection>
           <span v-t="'GROUP.PLACES'" />
         </QCardSection>
@@ -191,7 +194,10 @@ export default {
     PlaceList,
   },
   setup () {
-    const { groupId } = useCurrentGroupService()
+    const {
+      groupId,
+      isEditor,
+    } = useCurrentGroupService()
     const { getActivityTypesByGroup } = useActivityTypeService()
     const { getPlacesByGroup } = usePlaceService()
     const { getIsStartedOrUpcoming } = useActivityHelpers()
@@ -258,6 +264,7 @@ export default {
     const places = computed(() => getPlacesByGroup(groupId, { status: 'active' }).sort(sortByFavouritesThenName))
 
     return {
+      isEditor,
       getIconProps,
       getTranslatedName,
       placesFilter,

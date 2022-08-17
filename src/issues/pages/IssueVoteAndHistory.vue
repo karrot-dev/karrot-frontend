@@ -4,11 +4,12 @@
     class="bg-white"
     style="overflow-x: hidden"
   >
-    <template v-if="issue.isOngoing">
+    <template v-if="issue.status === 'ongoing'">
       <QItem>
         <IssueVote
-          v-if="issue.isOngoing"
           :issue="issue"
+          :group="group"
+          :affected-user="affectedUser"
           :status="saveVoteStatus"
           @save="saveVote"
           @delete="deleteVote"
@@ -28,9 +29,9 @@
       <QItem>
         <VotingResults
           :voting="newestVoting"
-          :affected-user="issue.affectedUser"
-          :group-name="issue.group.name"
-          :is-cancelled="issue.isCancelled"
+          :affected-user="affectedUser"
+          :group-name="group.name"
+          :is-cancelled="issue.status === 'cancelled'"
         />
       </QItem>
       <QItem>
@@ -44,17 +45,22 @@
 </template>
 
 <script>
-import IssueVote from '@/issues/components/IssueVote'
-import VotingResults from '@/issues/components/VotingResults'
-import PreviousVotingList from '@/issues/components/PreviousVotingList'
-import reactiveNow from '@/utils/reactiveNow'
-
-import { mapGetters, mapActions } from 'vuex'
+import { computed } from 'vue'
 
 import {
   QList,
   QItem,
 } from 'quasar'
+
+import IssueVote from '@/issues/components/IssueVote'
+import VotingResults from '@/issues/components/VotingResults'
+import PreviousVotingList from '@/issues/components/PreviousVotingList'
+import reactiveNow from '@/utils/reactiveNow'
+
+import { useActiveIssueService } from '@/issues/services'
+import { useUserService } from '@/users/services'
+import { useGroupInfoService } from '@/groupInfo/services'
+import { useDeleteVoteMutation, useSaveVoteMutation } from '@/issues/mutations'
 
 export default {
   components: {
@@ -64,11 +70,37 @@ export default {
     QList,
     QItem,
   },
+  setup () {
+    const {
+      issueId,
+      issue,
+    } = useActiveIssueService()
+
+    const { getUserById } = useUserService()
+    const { getGroupById } = useGroupInfoService()
+
+    const affectedUser = computed(() => getUserById(issue.value.affectedUser))
+    const group = computed(() => getGroupById(issue.value.group))
+
+    const {
+      mutate: saveVote,
+      status: saveVoteStatus,
+    } = useSaveVoteMutation({ issueId })
+
+    const {
+      mutate: deleteVote,
+    } = useDeleteVoteMutation({ issueId })
+
+    return {
+      issue,
+      affectedUser,
+      group,
+      saveVote,
+      saveVoteStatus,
+      deleteVote,
+    }
+  },
   computed: {
-    ...mapGetters({
-      issue: 'issues/current',
-      saveVoteStatus: 'issues/saveVoteStatus',
-    }),
     sortedVotings () {
       if (!this.issue) return []
       return this.issue.votings.slice().sort((a, b) => b.expiresAt - a.expiresAt)
@@ -83,12 +115,6 @@ export default {
     olderVotings () {
       return this.allPastVotings.filter(v => v.id !== this.newestVoting.id)
     },
-  },
-  methods: {
-    ...mapActions({
-      saveVote: 'issues/saveVote',
-      deleteVote: 'issues/deleteVote',
-    }),
   },
 }
 </script>

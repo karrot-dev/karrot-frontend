@@ -4,10 +4,9 @@
     <ChatConversation
       v-if="conversation && !pending"
       :conversation="conversation"
-      :messages="maybeReversedMessages"
+      :messages="messages"
       :away="away"
       :pending="pending"
-      :order="order"
       :inline="inline"
       :has-next-page="hasNextPage"
       :is-fetching-next-page="isFetchingNextPage"
@@ -154,10 +153,6 @@ export default {
       type: Array,
       default: null,
     },
-    order: {
-      type: String,
-      default: null,
-    },
     pending: {
       type: Boolean,
       default: false,
@@ -238,12 +233,6 @@ export default {
       canDecideApplication,
       queryClient,
     }
-  },
-  computed: {
-    maybeReversedMessages () {
-      if (!this.conversation || !this.messages) return
-      return this.order === 'oldest-first' ? this.messages : this.messages.slice().reverse()
-    },
   },
 }
 </script>

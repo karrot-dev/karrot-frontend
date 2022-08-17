@@ -1,6 +1,7 @@
 import Axios from 'axios'
 import i18n from '@/base/i18n'
 import { Notify, throttle } from 'quasar'
+import qs from 'qs'
 
 import { camelizeKeys, devSleep, underscorizeKeys } from '@/utils/utils'
 import { isServerError } from '@/utils/datastore/helpers'
@@ -12,6 +13,8 @@ import { isServerError } from '@/utils/datastore/helpers'
 const axios = Axios.create({
   xsrfCookieName: 'csrftoken',
   xsrfHeaderName: 'X-CSRFTOKEN',
+  // arrayFormat: 'repeat' works nicely with MultipleChoiceFilter in the backend
+  paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' }),
 })
 
 const makeThrottledWarner = (message) =>

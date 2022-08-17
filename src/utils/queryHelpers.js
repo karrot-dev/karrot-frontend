@@ -9,23 +9,11 @@ export function useQueryHelpers () {
    * For updating non-paginated list data, if it exists, it'll be replaced, otherwise the query invalidated
    */
   function updateOrInvalidateListEntry (queryKey, updatedEntry) {
-    const hasEntry = queryClient.getQueryData(queryKey).some(entry => entry.id === updatedEntry.id)
+    const data = queryClient.getQueryData(queryKey)
+    const hasEntry = data && data.some(entry => entry.id === updatedEntry.id)
     if (hasEntry) {
       // Update existing value
-      queryClient.setQueryData(queryKey, entries => {
-        const idx = entries.findIndex(entry => entry.id === updatedEntry.id)
-
-        // Entry not present after all :/ nothing to do
-        if (idx === -1) return entries
-
-        // Clone our existing list
-        const updatedEntries = [...entries]
-
-        // Delete old entry, and replace with updated one
-        updatedEntries.splice(idx, 1, updatedEntry)
-
-        return updatedEntries
-      })
+      queryClient.setQueryData(queryKey, updateNonPaginatedDataWith(updatedEntry))
       return true
     }
     else {
@@ -35,8 +23,48 @@ export function useQueryHelpers () {
     }
   }
 
+  function maybeUpdateDataWith (updatedEntry, onUpdated = () => {}) {
+    return data => {
+      if (data === undefined) return data
+      if (data.pages) return updatePaginatedDataWith(updatedEntry, onUpdated)(data)
+      else if (Array.isArray(data)) return updateNonPaginatedDataWith(updatedEntry, onUpdated)(data)
+      onUpdated()
+      return updatedEntry
+    }
+  }
+
+  function updateNonPaginatedDataWith (updatedEntry, onUpdated) {
+    return data => {
+      if (data === undefined) return data
+      const hasEntry = data.some(entry => entry.id === updatedEntry.id)
+      if (!hasEntry) return data
+      onUpdated()
+      return data.map(entry => entry.id === updatedEntry.id ? updatedEntry : entry)
+    }
+  }
+
+  function updatePaginatedDataWith (updatedEntry, onUpdated) {
+    return data => {
+      if (data === undefined) return data
+      const { pages, pageParams } = data
+      const hasEntry = pages.some(page => page.results.some(entry => entry.id === updatedEntry.id))
+      if (!hasEntry) return data
+      onUpdated()
+      return {
+        pages: pages.map(page => ({
+          ...page,
+          results: page.results.map(entry => {
+            return entry.id === updatedEntry.id ? updatedEntry : entry
+          }),
+        })),
+        pageParams,
+      }
+    }
+  }
+
   return {
     updateOrInvalidateListEntry,
+    maybeUpdateDataWith,
   }
 }
 

@@ -401,6 +401,10 @@ function walkServices () {
 
 window.WALK_SERVICES = walkServices
 
+export function onServiceInactive (fn) {
+  // TODO: could be nice to define, to clear some queries out?
+}
+
 export function defineService (serviceSetup) {
   if (process.env.DEV) {
     if (typeof serviceSetup !== 'function') {

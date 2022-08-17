@@ -16,7 +16,6 @@
         :key="issue.id"
         v-measure
         :issue="issue"
-        @click="$emit('clear-detail')"
       />
       <QSeparator />
       <QExpansionItem
@@ -32,7 +31,6 @@
             v-for="issue in pastIssues"
             :key="issue.id"
             :issue="issue"
-            @click="$emit('clear-detail')"
           />
         </template>
       </QExpansionItem>
@@ -44,8 +42,6 @@
 import IssueItem from './IssueItem'
 import KSpinner from '@/utils/components/KSpinner'
 import KNotice from '@/utils/components/KNotice'
-
-import statusMixin from '@/utils/mixins/statusMixin'
 
 import {
   QExpansionItem,
@@ -64,7 +60,6 @@ export default {
     QList,
     QIcon,
   },
-  mixins: [statusMixin],
   props: {
     ongoingIssues: {
       type: Array,
@@ -74,10 +69,11 @@ export default {
       type: Array,
       default: null,
     },
+    isPending: {
+      type: Boolean,
+      default: false,
+    },
   },
-  emits: [
-    'clear-detail',
-  ],
   data () {
     return {
       showOthers: false,

@@ -8,6 +8,7 @@ import activitiesAPI from '@/activities/api/activities'
 import usersAPI from '@/users/api/users'
 import applicationsAPI from '@/applications/api/applications'
 import offersAPI from '@/offers/api/offers'
+import issuesAPI from '@/issues/api/issues'
 
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 import { extractCursor, flattenPaginatedData, useWait } from '@/utils/queryHelpers'
@@ -47,7 +48,15 @@ export function useMessageUpdater () {
   } = useMessageHelpers()
   const { on } = useSocketEvents()
 
-  function updateMessageIn (queryKey, message, reversed = false) {
+  function updateMessageIn (queryKey, message) {
+    // We rely on the meta: { order: <val> } to have been set on the query to know if we're going to
+    // insert the message at the top or the bottom
+    // Set it to 'newest-first' or 'oldest-first'
+    const query = queryClient.getQueryCache().find(queryKey)
+    const order = query?.meta?.order
+    if (!order) throw new Error('you must set meta: { order: <val> } for queries using updateMessageIn')
+    const oldestFirst = order === 'oldest-first'
+
     // Update individual message
     let added = false
     queryClient.setQueryData(
@@ -68,9 +77,9 @@ export function useMessageUpdater () {
           }),
         }))
 
-        // Otherwise add it to the end, if the id is bigger than previous entry
+        // Otherwise add it to start/end depending on the order
         if (!added && pages.length > 0) {
-          if (reversed) {
+          if (oldestFirst) {
             const lastPage = pages[pages.length - 1]
             const lastResult = lastPage.results?.[lastPage.results?.length - 1]
             if (lastResult && message.id > lastResult.id) {
@@ -114,8 +123,7 @@ export function useMessageUpdater () {
 
       // Update a message that is part of a thread
       if (getIsPartOfThread(message)) {
-        // reverse ordering for this case
-        if (!updateMessageIn(queryKeyMessageThreadList(message.thread), message, true)) {
+        if (!updateMessageIn(queryKeyMessageThreadList(message.thread), message)) {
           queryClient.invalidateQueries(queryKeyMessageThreadList(message.thread))
         }
         queryClient.invalidateQueries(queryKeyMyThreadList())
@@ -223,6 +231,7 @@ export function useConversationQuery ({
   userId,
   applicationId,
   offerId,
+  issueId,
 }, queryOptions = {}) {
   const query = useQuery(
     queryKeyConversation({
@@ -232,6 +241,7 @@ export function useConversationQuery ({
       userId,
       applicationId,
       offerId,
+      issueId,
     }),
     () => {
       if (unref(userId)) {
@@ -252,9 +262,12 @@ export function useConversationQuery ({
       else if (unref(offerId)) {
         return offersAPI.conversation(unref(offerId))
       }
+      else if (unref(issueId)) {
+        return issuesAPI.conversation(unref(issueId))
+      }
     },
     {
-      enabled: computed(() => [groupId, placeId, activityId, userId, applicationId, offerId].some(unref)),
+      enabled: computed(() => [groupId, placeId, activityId, userId, applicationId, offerId, issueId].some(unref)),
       ...queryOptions,
     },
   )
@@ -291,6 +304,9 @@ export function useMessageListQuery ({ conversationId }, { order, pageSize = 20 
       { cursor, pageSize, order },
     ),
     {
+      meta: {
+        order,
+      },
       // load on demand... TODO: consider a bit more...
       cacheTime: 0,
       staleTime: 0,
@@ -332,6 +348,9 @@ export function useMessageThreadListQuery ({ messageId }, { pageSize, order } = 
     queryKeyMessageThreadList(messageId),
     ({ pageParam: cursor }) => messageAPI.listThread(unref(messageId), { cursor, pageSize, order }),
     {
+      meta: {
+        order,
+      },
       cacheTime: 0,
       staleTime: 0,
       enabled: computed(() => Boolean(unref(messageId))),

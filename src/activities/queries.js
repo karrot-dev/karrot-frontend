@@ -1,7 +1,7 @@
 import { unref, computed } from 'vue'
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
-import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
+import { extractCursor, flattenPaginatedData, useQueryHelpers } from '@/utils/queryHelpers'
 import { useSocketEvents } from '@/utils/composables'
 import api from './api/activities'
 import activityTypeAPI from './api/activityTypes'
@@ -18,38 +18,25 @@ export const queryKeyActivityIcsToken = () => [QUERY_KEY_BASE, 'ics-token']
 export function useActivitiesUpdater () {
   const queryClient = useQueryClient()
   const { on } = useSocketEvents()
+  const { maybeUpdateDataWith } = useQueryHelpers()
 
   on(
     // TODO: when we save an activity series, we get a storm of these back... and it's then refetching a lot of things!
     'activities:activity',
-    (activity) => {
+    updatedActivity => {
+      // Update immediately
       queryClient.setQueriesData(
         queryKeyActivityList(),
-        data => {
-          if (data === undefined) return undefined
-          const { pages, pageParams } = data
-          return {
-            pages: pages.map(page => ({
-              ...page,
-              results: page.results.map(result => {
-                if (result.id === activity.id) {
-                  return activity
-                }
-                return result
-              }),
-            })),
-            pageParams,
-          }
-        },
+        maybeUpdateDataWith(updatedActivity),
       )
 
-      // Even if we managed to update the value, the filters might be such that it doesn't belong in a list any more
+      // ... but even if we managed to update the value, the filters might be such that it doesn't belong in a list any more
       // TODO: could we check some more nuanced parameters to avoid invalidation?... group? place? activityType? things that don't change
       queryClient.invalidateQueries(queryKeyActivityList())
 
       queryClient.setQueryData(
-        queryKeyActivityItem(activity.id),
-        value => value !== undefined ? activity : undefined,
+        queryKeyActivityItem(updatedActivity.id),
+        maybeUpdateDataWith(updatedActivity),
       )
     },
   )

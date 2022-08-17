@@ -31,6 +31,7 @@ import { useNotificationsUpdater } from '@/notifications/queries'
 import { useRoutingLogic, useCheckResponseAuthStatus } from '@/base/services'
 import { onErrorCaptured } from 'vue'
 import { useDetailService } from '@/messages/services'
+import { useIssuesUpdater } from '@/issues/queries'
 
 export default {
   components: {
@@ -55,6 +56,7 @@ export default {
     useGroupInfoUpdater()
     useGroupDetailUpdater()
     useNotificationsUpdater()
+    useIssuesUpdater()
 
     // Utilities
     usePerformance()

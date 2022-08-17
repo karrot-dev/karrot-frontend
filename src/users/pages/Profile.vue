@@ -238,6 +238,8 @@ import { useGroupInfoService } from '@/groupInfo/services'
 import { useDetailService } from '@/messages/services'
 import { useAuthHelpers } from '@/authuser/helpers'
 import { useActiveUserService } from '@/users/services'
+import { useCreateIssueMutation } from '@/issues/mutations'
+import { useIssueListQuery } from '@/issues/queries'
 
 export default {
   components: {
@@ -294,7 +296,17 @@ export default {
       userId,
     })
 
+    const {
+      issues: ongoingIssues,
+    } = useIssueListQuery({ groupId, status: 'ongoing' })
+
+    const {
+      mutate: startConflictResolution,
+      status: issueCreateStatus,
+    } = useCreateIssueMutation()
+
     return {
+      ongoingIssues,
       isCurrentUser,
       currentGroup: group,
       user,
@@ -306,6 +318,8 @@ export default {
       currentGroupMembership,
       isEditor,
       openUserChat,
+      startConflictResolution,
+      issueCreateStatus,
     }
   },
   data () {
@@ -314,12 +328,8 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      ongoingIssues: 'issues/ongoing',
-      issueCreateStatus: 'issues/createStatus',
-    }),
     ongoingConflict () {
-      return this.ongoingIssues.find(i => i.affectedUser.id === this.user.id)
+      return this.ongoingIssues.find(i => i.affectedUser === this.user.id)
     },
     isConflictOngoing () {
       return Boolean(this.ongoingConflict)
@@ -349,15 +359,12 @@ export default {
   },
   watch: {
     showConflictSetup (val) {
-      if (val) return
-      this.clearIssueMeta(['create'])
+      // if (val) return
+      // TODO: do we need to clear the issue create mutation? maybe better to move the action to the component...
+      // this.clearIssueMeta(['create'])
     },
   },
   methods: {
-    ...mapActions({
-      startConflictResolution: 'issues/create',
-      clearIssueMeta: 'issues/meta/clear',
-    }),
     mailto (email) {
       return `mailto:${email}`
     },

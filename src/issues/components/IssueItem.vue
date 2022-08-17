@@ -1,18 +1,18 @@
 <template>
   <QItem
-    :to="{name: issue.isOngoing ? 'issueChat' : 'issueVote', params: { issueId: issue.id }}"
-    :active="issue.isSelected"
+    :to="{name: issue.status === 'ongoing' ? 'issueChat' : 'issueVote', params: { issueId: issue.id }}"
+    :active="issue.id === selectedIssueId"
   >
     <QItemSection side>
       <ProfilePicture
-        :user="issue.affectedUser"
+        :user="affectedUser"
         :size="30"
         :is-link="false"
       />
     </QItemSection>
     <QItemSection>
       <QItemLabel>
-        {{ issue.affectedUser.displayName }}
+        {{ affectedUser.displayName }}
       </QItemLabel>
       <QItemLabel
         caption
@@ -25,7 +25,8 @@
   </QItem>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue'
 import {
   QItem,
   QItemSection,
@@ -34,20 +35,21 @@ import {
 
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
+import { useUserService } from '@/users/services'
+import { useActiveIssueService } from '@/issues/services'
 
-export default {
-  components: {
-    QItem,
-    QItemSection,
-    QItemLabel,
-    ProfilePicture,
-    DateAsWords,
+const props = defineProps({
+  issue: {
+    required: true,
+    type: Object,
   },
-  props: {
-    issue: {
-      required: true,
-      type: Object,
-    },
-  },
-}
+})
+
+const {
+  getUserById,
+} = useUserService()
+
+const { issueId: selectedIssueId } = useActiveIssueService()
+
+const affectedUser = computed(() => getUserById(props.issue.affectedUser))
 </script>

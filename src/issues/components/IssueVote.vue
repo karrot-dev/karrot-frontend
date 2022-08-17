@@ -40,7 +40,7 @@
       </QBtn>
     </div>
     <div class="text-h6 q-mb-md">
-      {{ $t('CONFLICT.VOTING.HEADLINE', { userName: issue.affectedUser.displayName }) }}
+      {{ $t('CONFLICT.VOTING.HEADLINE', { userName: affectedUser.displayName }) }}
     </div>
     <div class="q-pb-lg">
       <div class="text-caption k-caption-opacity row inline">
@@ -161,6 +161,14 @@ export default {
       type: Object,
       required: true,
     },
+    group: {
+      type: Object,
+      required: true,
+    },
+    affectedUser: {
+      type: Object,
+      required: true,
+    },
   },
   emits: [
     'save',
@@ -244,7 +252,7 @@ export default {
       }))
     },
     getTitle (type) {
-      return this.$t(`ISSUE.VOTING.${type.toUpperCase()}`, { userName: this.issue.affectedUser.displayName, groupName: this.issue.group.name })
+      return this.$t(`ISSUE.VOTING.${type.toUpperCase()}`, { userName: this.affectedUser.displayName, groupName: this.group.name })
     },
   },
 }

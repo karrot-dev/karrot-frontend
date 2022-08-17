@@ -107,7 +107,7 @@ export default {
     options () {
       return this.voting.options.map(o => ({
         ...o,
-        icon: this.getIcon(o.meanScore),
+        icon: this.getIcon(this.calculateMeanScore(o)),
         label: this.getLabel(o.type),
         isOutcome: this.voting.acceptedOption === o.id,
       })).sort(function (a, b) {
@@ -116,6 +116,9 @@ export default {
     },
   },
   methods: {
+    calculateMeanScore (option) {
+      return this.voting.participantCount ? option.sumScore / this.voting.participantCount : null
+    },
     getLabel (type) {
       if (!this.affectedUser) return
       return this.$t(`ISSUE.VOTING.${type.toUpperCase()}`, {

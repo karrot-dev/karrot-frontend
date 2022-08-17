@@ -129,7 +129,8 @@ export default {
       offerId,
       offer,
       conversation,
-      messages: computed(() => messages.value.slice().reverse()),
+      // messages: computed(() => messages.value.slice().reverse()),
+      messages,
       hasNextPage,
       isFetchingNextPage,
       fetchNextPage,
@@ -146,12 +147,6 @@ export default {
     }),
     canEdit () {
       return this.offer.user === this.currentUser?.id
-    },
-    conversationWithReversedMessages () {
-      return {
-        ...this.conversation,
-        messages: this.conversation.messages.slice().reverse(),
-      }
     },
     carouselOptions () {
       if (this.offer.images.length <= 1) return

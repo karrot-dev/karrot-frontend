@@ -25,7 +25,7 @@
         class="bg-white"
       >
         <ConversationMessage
-          v-for="message in messages"
+          v-for="message in orderedMessages"
           :key="message.id"
           :message="message"
           :continuation="getIsContinuation(message.id)"
@@ -124,10 +124,6 @@ export default {
     conversation: { type: Object, default: null },
     messages: { type: Array, default: null },
     away: { type: Boolean, required: true },
-    order: {
-      type: String,
-      default: null,
-    },
     compose: {
       type: Boolean,
       default: false,
@@ -157,9 +153,19 @@ export default {
   setup (props) {
     const {
       conversation,
-      order,
+      messages,
     } = toRefs(props)
 
+    const order = computed(() => {
+      if (messages.value && messages.value.length > 1) {
+        const firstMessage = messages.value[0]
+        const lastMessage = messages.value[messages.value.length - 1]
+        if (firstMessage.createdAt > lastMessage.createdAt) {
+          return 'newest-first'
+        }
+      }
+      return 'oldest-first' // default
+    })
     const newestFirst = computed(() => order.value === 'newest-first')
     const oldestFirst = computed(() => !newestFirst.value) // always make it inverse
 
@@ -190,8 +196,6 @@ export default {
       }
     }
 
-    const { getIsContinuation } = useMessageContinuations(toRef(props, 'messages'))
-
     const {
       mutate: send,
       status: sendStatus,
@@ -200,7 +204,13 @@ export default {
     const { mutate: markSeenUpTo } = useConversationSeenUpToMutation()
     const { mutate: markThreadSeenUpTo } = useThreadSeenUpToMutation()
 
+    const orderedMessages = computed(() => messages.value ? (oldestFirst.value ? messages.value : messages.value.slice().reverse()) : [])
+
+    const { getIsContinuation } = useMessageContinuations(orderedMessages)
+
     return {
+      order,
+      orderedMessages,
       newestFirst,
       oldestFirst,
 
@@ -254,7 +264,7 @@ export default {
         scrollPositionFromBottom: 0,
       })
     },
-    messages (messages) {
+    orderedMessages (messages) {
       if (!messages || messages.length === 0) return
       // Jump to bottom when new messages added
       const newNewestMessage = messages[messages.length - 1]
@@ -286,12 +296,14 @@ export default {
   methods: {
     markRead (messageId) {
       const isThreadReply = this.conversation.thread && this.messageId !== this.conversation.thread
+      // TODO: check conversation.unreadMessageCount is available
       if (!isThreadReply && this.conversation.unreadMessageCount > 0) {
         this.markSeenUpTo({
           conversationId: this.conversation.id,
           messageId,
         })
       }
+      // TODO: check threadMeta.unreadReplyCount available?
       if (isThreadReply && this.conversation.threadMeta && this.conversation.threadMeta.unreadReplyCount > 0) {
         this.markThreadSeenUpTo({
           threadId: this.conversation.thread,
@@ -358,9 +370,9 @@ export default {
       }
       // if user scrolls to bottom and no more messages can be loaded, mark messages as read
       const isAtBottom = () => this.getScrollPositionFromBottom() < 100
-      const hasMessages = () => this.conversation && this.messages && this.messages.length > 0
+      const hasMessages = () => this.conversation && this.orderedMessages && this.orderedMessages.length > 0
       if (!this.away && !this.hasNextPage && hasMessages() && isAtBottom()) {
-        const messages = this.messages
+        const messages = this.orderedMessages
         const newestMessageId = messages[messages.length - 1].id
         this.markRead(newestMessageId)
       }

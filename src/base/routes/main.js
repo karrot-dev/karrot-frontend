@@ -155,7 +155,6 @@ export default [
           breadcrumbs: [
             { translation: 'ISSUE.TITLE', route: { name: 'issueList' } },
           ],
-          beforeEnter: 'issues/fetchByGroupId',
         },
         components: {
           default: IssueList,
@@ -178,7 +177,6 @@ export default [
               breadcrumbs: [
                 { type: 'activeIssue' },
               ],
-              beforeEnter: 'issues/select',
               isDetail: true,
             },
             children: [

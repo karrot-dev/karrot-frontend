@@ -23,7 +23,7 @@
         >
           <div class="q-pb-sm bg-grey-2">
             <div class="q-ma-sm q-pa-sm bg-white">
-              <span class="text-bold text-secondary text-uppercase">{{ application.group.name }}</span>
+              <span class="text-bold text-uppercase">{{ getGroupById(application.group).name }}</span>
               <span class="message-date">
                 <small class="text-weight-light">
                   <DateAsWords :date="application.createdAt" />
@@ -32,7 +32,9 @@
               <Markdown :source="application.questions" />
             </div>
             <div class="q-ma-sm q-pa-sm bg-white">
-              <span class="text-bold text-secondary text-uppercase">{{ application.user.displayName }}</span>
+              <RouterLink :to="{ name: 'user', params: { userId: application.user.id } }">
+                <span class="text-bold text-secondary text-uppercase">{{ application.user.displayName }}</span>
+              </RouterLink>
               <span class="message-date">
                 <small class="text-weight-light">
                   <DateAsWords :date="application.createdAt" />
@@ -113,6 +115,7 @@ import {
   QBtnGroup,
   Dialog,
 } from 'quasar'
+import { useGroupInfoService } from '@/groupInfo/services'
 
 export default {
   components: {
@@ -187,6 +190,7 @@ export default {
     } = useDeclineApplicationMutation()
     const queryClient = useQueryClient()
     const { t } = useI18n()
+    const { getGroupById } = useGroupInfoService()
 
     const { groupId: currentGroupId, isEditor } = useCurrentGroupService()
     const { application } = useDetailService()
@@ -228,6 +232,7 @@ export default {
     }
 
     return {
+      getGroupById,
       applicationAcceptDialog,
       applicationDeclineDialog,
       canDecideApplication,

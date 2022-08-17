@@ -7,27 +7,28 @@ import { defineService } from '@/utils/datastore/helpers'
 import { useCurrentGroupService } from '@/group/services'
 import { useActiveOfferService } from '@/offers/services'
 import { useActivePlaceService } from '@/places/services'
-import { useActiveUserService } from '@/users/services'
+import { useActiveUserService, useUserService } from '@/users/services'
 import { useGroupInfoService } from '@/groupInfo/services'
+import { useActiveIssueService } from '@/issues/services'
 
 export const useBreadcrumbs = defineService(() => {
   const { t } = useI18n()
 
   const route = useRoute()
 
+  const { getUserById } = useUserService()
+
   const { group } = useCurrentGroupService()
   const { offer } = useActiveOfferService()
   const { place } = useActivePlaceService()
   const { user } = useActiveUserService()
+  const { issue } = useActiveIssueService()
 
   // TODO: detach from store
   const store = useStore()
   const { getGroupById } = useGroupInfoService()
   const activePreviewId = computed(() => store.state.groups.activePreviewId)
   const activeGroup = computed(() => getGroupById(activePreviewId.value))
-
-  // TODO: detach from store
-  const activeIssue = computed(() => store.getters['issues/current'])
 
   const breadcrumbs = computed(() => findBreadcrumbs(route.matched))
 
@@ -51,9 +52,9 @@ export const useBreadcrumbs = defineService(() => {
       }
     }
     else if (breadcrumb.type === 'activeIssue') {
-      if (activeIssue.value) {
+      if (issue.value) {
         return {
-          name: activeIssue.value.affectedUser.displayName,
+          name: getUserById(issue.value.affectedUser).displayName,
         }
       }
     }

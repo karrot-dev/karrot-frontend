@@ -48,16 +48,6 @@ export function useMessageUpdater () {
   } = useMessageHelpers()
   const { on } = useSocketEvents()
 
-  function getIsOldestFirst (queryKey) {
-    // We rely on the meta: { order: <val> } to have been set on the query to know if we're going to
-    // insert the message at the top or the bottom
-    // Set it to 'newest-first' or 'oldest-first'
-    const query = queryClient.getQueryCache().find(queryKey)
-    const order = query?.meta?.order
-    if (!order) throw new Error('you must set meta: { order: "oldest-first|newest-first" } for queries using updateMessageIn')
-    return order === 'oldest-first'
-  }
-
   function updateMessageIn (queryKey, message) {
     // Update individual message
     let added = false
@@ -114,6 +104,17 @@ export function useMessageUpdater () {
         }
       },
     )
+
+    function getIsOldestFirst () {
+      // We rely on the meta: { order: <val> } to have been set on the query to know if we're going to
+      // insert the message at the top or the bottom
+      // Set it to 'newest-first' or 'oldest-first'
+      const query = queryClient.getQueryCache().find(queryKey)
+      const order = query?.meta?.order
+      if (!order) throw new Error(`You must set order on the query meta, missing for queryKey: ${queryKey}`)
+      return order === 'oldest-first'
+    }
+
     return added
   }
 

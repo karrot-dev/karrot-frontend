@@ -1,15 +1,18 @@
 import { h } from 'vue'
 import { RouterView } from 'vue-router'
 import { Platform } from 'quasar'
-const Empty = Promise.resolve({ render: () => null })
+const Empty = { render: () => null }
 const Landing = () => import('@/base/pages/Landing')
 const GroupWall = () => import('@/group/pages/Wall')
 const GroupActivities = () => import('@/activities/pages/GroupActivities')
 const GroupOffers = () => import('@/offers/pages/GroupOffers')
 const OfferCreate = () => import('@/offers/pages/OfferCreate')
 const OfferEdit = () => import('@/offers/pages/OfferEdit')
-const OfferDetailHeaderIfMobile = () => Platform.is.mobile ? import('@/offers/components/OfferDetailHeader') : Empty
-const OfferDetailOrBodyIfMobile = () => Platform.is.mobile ? import('@/offers/components/OfferDetailBody') : import('@/offers/components/OfferDetail')
+const OfferDetailHeader = () => import('@/offers/components/OfferDetailHeader')
+const OfferDetailBody = () => import('@/offers/components/OfferDetailBody')
+const OfferDetail = () => import('@/offers/components/OfferDetail')
+const OfferDetailHeaderIfMobile = Platform.is.mobile ? OfferDetailHeader : Empty
+const OfferDetailOrBodyIfMobile = Platform.is.mobile ? OfferDetailBody : OfferDetail
 const GroupFeedback = () => import('@/feedback/pages/GroupFeedback')
 const Messages = () => import('@/messages/pages/Messages')
 const LatestConversations = () => import('@/messages/components/LatestConversations')
@@ -43,24 +46,27 @@ const ActivityFeedback = () => import('@/feedback/pages/ActivityFeedback')
 const Detail = () => import('@/messages/components/Detail')
 const DetailHeader = () => import('@/messages/components/DetailHeader')
 const IssueLayout = () => import('@/issues/pages/IssueLayout')
-const IssueTabsIfMobile = () => Platform.is.mobile ? import('@/issues/components/IssueTabs') : Promise.resolve({ render: () => null })
+const IssueTabs = () => import('@/issues/components/IssueTabs')
+const IssueTabsIfMobile = Platform.is.mobile ? IssueTabs : Empty
 const IssueList = () => import('@/issues/pages/IssueList')
 const IssueChat = () => import('@/issues/pages/IssueChat')
 const IssueCompose = () => import('@/issues/pages/IssueCompose')
 const IssueVoteAndHistory = () => import('@/issues/pages/IssueVoteAndHistory')
 const ActivityHistoryStatistics = () => import('@/statistics/pages/ActivityHistoryStatistics')
 
-const RouterViewSubheader = () => h(RouterView, { name: 'subheader' })
+const RouterViewSubheader = h(RouterView, { name: 'subheader' })
 RouterViewSubheader.displayName = 'RouterViewSubheader'
 
-const RouterViewDetail = () => h(RouterView, { name: 'detail' })
+const RouterViewDetail = h(RouterView, { name: 'detail' })
 RouterViewDetail.displayName = 'RouterViewDetail'
 
-const RouterViewFooter = () => h(RouterView, { name: 'footer' })
+const RouterViewFooter = h(RouterView, { name: 'footer' })
 RouterViewFooter.displayName = 'RouterViewFooter'
 
 const RouterViewIssueFooter = h(RouterView, { name: 'issueFooter' })
 RouterViewIssueFooter.displayName = 'RouterViewIssueFooter'
+
+const RouterViewIssueFooterIfMobile = Platform.is.mobile ? RouterViewIssueFooter : Empty
 
 export default [
   {
@@ -168,7 +174,7 @@ export default [
             components: {
               default: IssueLayout,
               subheader: IssueTabsIfMobile,
-              footer: () => Platform.is.mobile ? RouterViewIssueFooter : Empty,
+              footer: RouterViewIssueFooterIfMobile,
             },
             meta: {
               requireLoggedIn: true,

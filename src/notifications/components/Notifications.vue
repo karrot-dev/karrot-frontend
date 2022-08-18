@@ -106,11 +106,5 @@ export default {
       maybeMarkClickedAndSeen,
     }
   },
-  mounted () {
-    this.setPageVisible(true)
-  },
-  beforeUnmount () {
-    this.setPageVisible(false)
-  },
 }
 </script>

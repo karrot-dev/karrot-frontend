@@ -32,6 +32,7 @@ import {
   QIcon,
   Dialog,
 } from 'quasar'
+import { useLeaveGroupMutation } from '@/group/mutations'
 export default {
   components: {
     QList,
@@ -48,6 +49,12 @@ export default {
       default: () => [],
       type: Array,
     },
+  },
+  setup () {
+    const { mutate: leaveGroup } = useLeaveGroupMutation()
+    return {
+      leaveGroup,
+    }
   },
   computed: {
     isEditor () {
@@ -74,13 +81,7 @@ export default {
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.YES'),
       })
-        .onOk(() => this.doLeave())
-    },
-    doLeave () {
-      // FIXME this stopped working for some reason
-      // this.$emit('leave', this.currentGroupId)
-      // we use this as workaround instead
-      this.$store.dispatch('groups/leave', this.currentGroupId)
+        .onOk(() => this.leaveGroup(this.currentGroupId))
     },
   },
 }

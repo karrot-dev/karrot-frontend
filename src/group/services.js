@@ -15,9 +15,11 @@ import { extend } from 'quasar'
 import i18n from '@/base/i18n'
 import { usePlaceHelpers } from '@/places/helpers'
 import { useI18nService } from '@/base/services/i18nService'
+import { useGroupInfoService } from '@/groupInfo/services'
 
 export const useCurrentGroupService = defineService(() => {
   // services
+  const router = useRouter()
   const {
     isLoading: isLoadingUsers,
     getUserById,
@@ -33,7 +35,10 @@ export const useCurrentGroupService = defineService(() => {
   const {
     groupId,
     selectGroup,
+    clearGroup,
   } = useCurrentGroupId()
+
+  const { groups } = useGroupInfoService()
 
   const {
     sortByPlaceStatus,
@@ -43,7 +48,20 @@ export const useCurrentGroupService = defineService(() => {
     group,
     isLoading: isLoadingGroup,
     wait: waitForGroupToLoad,
-  } = useGroupDetailQuery({ groupId })
+  } = useGroupDetailQuery({ groupId }, {
+    onError (error) {
+      if (error?.response?.status === 404) { // TODO: could do for other errors too?
+        // Not found! (only groups we are members of can be found) .. but it might exist for preview
+        const groupPreview = groups.value.find(group => group.id === groupId.value)
+        if (groupPreview) {
+          router.push({ name: 'groupPreview', params: { groupPreviewId: groupPreview.id } })
+        }
+        else {
+          router.push({ name: 'groupsGallery' })
+        }
+      }
+    },
+  })
 
   const showAllPlaces = ref(false)
 
@@ -101,6 +119,7 @@ export const useCurrentGroupService = defineService(() => {
 
   return {
     selectGroup,
+    clearGroup,
     group,
     groupId: readonly(groupId),
     waitForGroupToLoad,
@@ -166,9 +185,14 @@ function useCurrentGroupId () {
     groupId.value = value
   }
 
+  function clearGroup () {
+    groupId.value = null
+  }
+
   return {
     groupId: readonly(groupId),
     selectGroup,
+    clearGroup,
   }
 }
 

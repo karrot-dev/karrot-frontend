@@ -1,20 +1,50 @@
 import { unref } from 'vue'
-import { useMutation, useQueryClient } from 'vue-query'
+import { useMutation } from 'vue-query'
 import { withStatus } from '@/utils/queryHelpers'
 import api from '@/group/api/groups'
 import { showToast } from '@/utils/toasts'
 import { useRouter } from 'vue-router'
-import { queryKeyGroupInfoListAll } from '@/groupInfo/queries'
+import router from '@/router'
+import { useCurrentGroupService } from '@/group/services'
 
 export function useCreateGroupMutation () {
-  const queryClient = useQueryClient()
   const router = useRouter()
   return withStatus(useMutation(
     group => api.create(group),
     {
       onSuccess (createdGroup) {
-        queryClient.setQueryData(queryKeyGroupInfoListAll(), groups => [...groups, createdGroup])
         router.push({ name: 'group', params: { groupId: createdGroup.id } })
+      },
+    },
+  ))
+}
+
+export function useSaveGroupMutation () {
+  const router = useRouter()
+  return withStatus(useMutation(
+    group => api.save(group),
+    {
+      onSuccess (updatedGroup) {
+        router.push({ name: 'group', params: { groupId: updatedGroup.id } })
+      },
+    },
+  ))
+}
+
+export function useLeaveGroupMutation () {
+  const { clearGroup } = useCurrentGroupService()
+  return withStatus(useMutation(
+    groupId => api.leave(groupId),
+    {
+      onSuccess (foo) {
+        console.log('left group!', foo)
+        // showToast({
+        //   message: 'GROUP.LEAVE_CONFIRMATION',
+        //   messageParams: { groupName: getters.get(groupId).name },
+        // })
+
+        clearGroup()
+        router.replace({ name: 'groupsGallery' })
       },
     },
   ))

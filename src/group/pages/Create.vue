@@ -4,7 +4,7 @@
     :all-groups="groups"
     :status="createStatus"
     :default-map-center="myCoordinates"
-    @save="group => create(group)"
+    @save="data => create(data)"
     @reset="reset"
   />
 </template>

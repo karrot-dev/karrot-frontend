@@ -4,7 +4,6 @@ import { createStore } from 'vuex'
 import alerts from '@/alerts/datastore'
 import authuser from '@/authuser/datastore'
 import base from '@/base/datastore/base'
-import groupInfo from '@/groupInfo/datastore'
 import messages from '@/messages/datastore'
 import subscriptions from '@/subscriptions/datastore'
 import unsubscribe from '@/unsubscribe/datastore'
@@ -16,7 +15,6 @@ const appModules = [
   alerts,
   authuser,
   base,
-  groupInfo,
   messages,
   subscriptions,
   unsubscribe,

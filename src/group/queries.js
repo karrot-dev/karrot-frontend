@@ -16,13 +16,14 @@ export function useGroupDetailUpdater () {
   })
 }
 
-export function useGroupDetailQuery ({ groupId }) {
+export function useGroupDetailQuery ({ groupId }, queryOptions = {}) {
   const query = useQuery(
     queryKeyGroupDetail(groupId),
     () => api.get(unref(groupId)), // TODO: this can call api.get(null) :/
     {
       enabled: computed(() => Boolean(unref(groupId))),
       staleTime: Infinity,
+      ...queryOptions,
     },
   )
   return {

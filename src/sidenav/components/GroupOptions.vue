@@ -2,7 +2,6 @@
   <GroupOptionsUI
     :current-group-id="group?.id"
     :roles="roles"
-    @leave="data => $store.dispatch('groups/leave', data)"
   />
 </template>
 

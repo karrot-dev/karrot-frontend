@@ -13,8 +13,13 @@ import { isServerError } from '@/utils/datastore/helpers'
 const axios = Axios.create({
   xsrfCookieName: 'csrftoken',
   xsrfHeaderName: 'X-CSRFTOKEN',
-  // arrayFormat: 'repeat' works nicely with MultipleChoiceFilter in the backend
-  paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' }),
+  paramsSerializer: params => qs.stringify(params, {
+    // this works nicely with MultipleChoiceFilter in the backend
+    // so params { blah: ['a', 'b'] } will turn into blah=a&blah=b
+    arrayFormat: 'repeat',
+    // this puts it back to how default axios behaves
+    skipNulls: true,
+  }),
 })
 
 const makeThrottledWarner = (message) =>

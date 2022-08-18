@@ -66,12 +66,6 @@ export default {
         router.replace({ name: 'groupsGallery' }).catch(() => {})
       },
 
-      async create ({ commit }, group) {
-        const createdGroup = await groups.create(group)
-        commit('update', [createdGroup])
-        router.push({ name: 'group', params: { groupId: createdGroup.id } }).catch(() => {})
-      },
-
       async fetch ({ commit }) {
         commit('set', await groupsInfo.list())
       },

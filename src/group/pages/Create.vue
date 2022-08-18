@@ -1,11 +1,11 @@
 <template>
   <GroupEdit
     :timezones="timezones"
-    :all-groups="$store.getters['groups/all']"
-    :status="$store.getters['groups/createStatus']"
+    :all-groups="groups"
+    :status="createStatus"
     :default-map-center="myCoordinates"
-    @save="data => $store.dispatch('groups/create', data)"
-    @reset="$store.dispatch('groups/meta/clear', ['create'])"
+    @save="group => create(group)"
+    @reset="reset"
   />
 </template>
 
@@ -13,7 +13,15 @@
 import GroupEdit from '@/group/components/GroupEdit'
 import { useGeoService } from '@/base/services'
 import { useTimezonesQuery } from '@/group/queries'
+import { useCreateGroupMutation } from '@/group/mutations'
+import { useGroupInfoService } from '@/groupInfo/services'
 
 const { timezones } = useTimezonesQuery()
 const { myCoordinates } = useGeoService()
+const { groups } = useGroupInfoService()
+const {
+  mutate: create,
+  status: createStatus,
+  reset,
+} = useCreateGroupMutation()
 </script>

@@ -1,6 +1,5 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useStore } from 'vuex'
 
 import { Notify, Platform } from 'quasar'
 
@@ -9,21 +8,21 @@ import { useCurrentGroupService } from '@/group/services'
 import { useAuthService } from '@/authuser/services'
 import { useI18n } from 'vue-i18n'
 import { useCommunityBannerService } from '@/communityFeed/services'
+import { useAboutService, useConnectivity } from '@/utils/services'
 
 export const useBanners = defineService(() => {
   const route = useRoute()
-  const store = useStore()
 
   const { isPlayground } = useCurrentGroupService()
   const { isLoggedIn } = useAuthService()
+  const {
+    isConnected,
+    reconnecting,
+  } = useConnectivity()
 
   const isGroupPage = computed(() => Boolean(route.params.groupId))
 
-  // TODO: decouple from store
-  const connected = computed(() => store.getters['connectivity/connected'])
-  const reconnecting = computed(() => store.getters['connectivity/reconnecting'])
-  const updateAvailable = computed(() => store.getters['about/updateAvailable'])
-
+  const { updateAvailable } = useAboutService()
   const { communityBanner } = useCommunityBannerService()
 
   return computed(() => {
@@ -35,7 +34,7 @@ export const useBanners = defineService(() => {
       })
     }
 
-    if (isLoggedIn.value && !connected.value) {
+    if (isLoggedIn.value && !isConnected.value) {
       banners.push({
         type: 'notConnected',
         desktopOnly: true,

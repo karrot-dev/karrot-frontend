@@ -11,10 +11,10 @@
 
 <script setup>
 import GroupEdit from '@/group/components/GroupEdit'
-import { useGeoService } from '@/base/services'
 import { useTimezonesQuery } from '@/group/queries'
 import { useCreateGroupMutation } from '@/group/mutations'
 import { useGroupInfoService } from '@/groupInfo/services'
+import { useGeoService } from '@/base/services/geo'
 
 const { timezones } = useTimezonesQuery()
 const { myCoordinates } = useGeoService()

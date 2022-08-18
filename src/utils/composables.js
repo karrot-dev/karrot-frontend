@@ -3,10 +3,10 @@ import { useRoute, useRouter } from 'vue-router'
 import { useQueryClient } from 'vue-query'
 import { isArray } from 'lodash'
 
-import { socketEvents } from '@/boot/socket'
 import { useStatusService } from '@/status/services'
 import { useBreadcrumbs } from '@/topbar/services'
 import { useAuthService } from '@/authuser/services'
+import { socketEvents } from '@/base/services/websocket'
 
 export function useClearDataOnLogout () {
   const queryClient = useQueryClient()

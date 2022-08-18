@@ -3,7 +3,7 @@
     v-if="conversation"
     :conversation="conversation"
     :messages="messages"
-    :away="away"
+    :away="isAway"
     :current-user="currentUser"
     compose
     :inline="inline"
@@ -91,6 +91,7 @@ import { useArchiveOfferMutation } from '@/offers/mutations'
 import { useAuthService } from '@/authuser/services'
 import { useActiveOfferService } from '@/offers/services'
 import { useConversationAndMessages } from '@/messages/services'
+import { usePresenceService } from '@/base/services/presence'
 
 export default {
   components: {
@@ -123,7 +124,10 @@ export default {
       // TODO: should offer messages be this way or oldest-first?
       { order: 'newest-first' },
     )
+    const { isAway } = usePresenceService()
+
     return {
+      isAway,
       currentUser,
       archive,
       offerId,
@@ -142,9 +146,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      away: 'presence/toggle/away',
-    }),
     canEdit () {
       return this.offer.user === this.currentUser?.id
     },

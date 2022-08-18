@@ -14,7 +14,7 @@ import { messages as loadMessages } from '@/locales'
 import { extend } from 'quasar'
 import i18n from '@/base/i18n'
 import { usePlaceHelpers } from '@/places/helpers'
-import { useI18nService } from '@/base/services/i18nService'
+import { useI18nService } from '@/base/services/i18n'
 import { useGroupInfoService } from '@/groupInfo/services'
 
 export const useCurrentGroupService = defineService(() => {

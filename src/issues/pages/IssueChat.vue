@@ -88,7 +88,7 @@
       v-if="conversation"
       :conversation="conversation"
       :messages="messages"
-      :away="away"
+      :away="isAway"
       :current-user="currentUser"
       :has-next-page="hasNextPage"
       :is-fetching-next-page="isFetchingNextPage"
@@ -97,9 +97,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { computed } from 'vue'
-import { mapGetters } from 'vuex'
 
 import {
   QExpansionItem,
@@ -118,87 +117,44 @@ import { useUserService } from '@/users/services'
 import { useAuthService } from '@/authuser/services'
 import { useSaveConversationMutation } from '@/messages/mutations'
 import { useConversationHelpers } from '@/messages/helpers'
+import { usePresenceService } from '@/base/services/presence'
 
-export default {
-  components: {
-    ChatConversation,
-    Markdown,
-    DateAsWords,
-    ProfilePicture,
-    NotificationToggle,
-    QExpansionItem,
-    QItemSection,
-    QBtn,
-  },
-  setup () {
-    const {
-      issue,
-      conversation,
-      messages,
-      hasNextPage,
-      isFetchingNextPage,
-      fetchNextPage,
-    } = useActiveIssueService()
+const {
+  issue,
+  conversation,
+  messages,
+  hasNextPage,
+  isFetchingNextPage,
+  fetchNextPage,
+} = useActiveIssueService()
 
-    const {
-      user: currentUser,
-    } = useAuthService()
+const {
+  user: currentUser,
+} = useAuthService()
 
-    const {
-      getUserById,
-    } = useUserService()
+const {
+  getUserById,
+} = useUserService()
 
-    const {
-      getIsMuted,
-      getIsParticipant,
-    } = useConversationHelpers()
+const {
+  getIsMuted,
+  getIsParticipant,
+} = useConversationHelpers()
 
-    const affectedUser = computed(() => getUserById(issue.value.affectedUser))
-    const createdBy = computed(() => getUserById(issue.value.createdBy))
-    const participants = computed(() => conversation.value.participants.map(getUserById))
-    const isMuted = computed(() => getIsMuted(conversation.value))
-    const isParticipant = computed(() => getIsParticipant(conversation.value))
+const affectedUser = computed(() => getUserById(issue.value.affectedUser))
+const createdBy = computed(() => getUserById(issue.value.createdBy))
+const participants = computed(() => conversation.value.participants.map(getUserById))
+const isMuted = computed(() => getIsMuted(conversation.value))
+const isParticipant = computed(() => getIsParticipant(conversation.value))
 
-    const { mutate: saveConversation } = useSaveConversationMutation()
+const { mutate: saveConversation } = useSaveConversationMutation()
 
-    return {
-      currentUser,
-      issue,
-      affectedUser,
-      createdBy,
-      isParticipant,
-      isMuted,
-      participants,
-      conversation,
-      messages,
-      hasNextPage,
-      isFetchingNextPage,
-      fetchNextPage,
-      saveConversation,
-    }
-  },
-  computed: {
-    ...mapGetters({
-      // issue: 'issues/current',
-      // conversation: 'issues/currentConversation',
-      away: 'presence/toggle/away',
-      // currentUser: 'auth/user',
-    }),
-    // conversationWithReversedMessages () {
-    //   return {
-    //     ...this.conversation,
-    //     messages: this.conversation.messages.slice().reverse(),
-    //   }
-    // },
-  },
-  methods: {
-    setNotifications (value) {
-      this.saveConversation({
-        id: this.conversation.id,
-        value,
-      })
-    },
-  },
+const { isAway } = usePresenceService()
 
+function setNotifications (value) {
+  saveConversation({
+    id: conversation.value.id,
+    value,
+  })
 }
 </script>

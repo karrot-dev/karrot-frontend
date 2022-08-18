@@ -74,7 +74,7 @@ import {
   QBtn,
 } from 'quasar'
 import { localeOptions } from '@/base/i18n'
-import { useI18nService } from '@/base/services/i18nService'
+import { useI18nService } from '@/base/services/i18n'
 
 const {
   locale: current,

@@ -1,25 +1,25 @@
 import { createStore } from 'vuex'
 
 // alphabetical
-import alerts from '@/alerts/datastore'
-import authuser from '@/authuser/datastore'
-import base from '@/base/datastore/base'
-import messages from '@/messages/datastore'
-import subscriptions from '@/subscriptions/datastore'
-import unsubscribe from '@/unsubscribe/datastore'
-import users from '@/users/datastore'
-import utils from '@/utils/datastore'
+// import alerts from '@/alerts/datastore'
+// import authuser from '@/authuser/datastore'
+// import base from '@/base/datastore/base'
+// import messages from '@/messages/datastore'
+// import subscriptions from '@/subscriptions/datastore'
+// import unsubscribe from '@/unsubscribe/datastore'
+// import users from '@/users/datastore'
+// import utils from '@/utils/datastore'
 
 // alphabetical
 const appModules = [
-  alerts,
-  authuser,
-  base,
-  messages,
-  subscriptions,
-  unsubscribe,
-  users,
-  utils,
+  // alerts,
+  // authuser,
+  // base,
+  // messages,
+  // subscriptions,
+  // unsubscribe,
+  // users,
+  // utils,
 ]
 
 const collectedModules = {}

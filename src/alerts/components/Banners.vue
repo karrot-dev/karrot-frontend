@@ -41,7 +41,6 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useStore } from 'vuex'
 import {
   QBanner,
   QIcon,
@@ -52,16 +51,13 @@ import { useBanners } from '@/alerts/services'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useCommunityBannerService } from '@/communityFeed/services'
+import { useConnectivity } from '@/utils/services'
 
 const { t } = useI18n()
-const store = useStore()
 const router = useRouter()
 const banners = useBanners()
 const { dismissCommunityBanner } = useCommunityBannerService()
-
-function reconnect () {
-  store.dispatch('connectivity/reconnect')
-}
+const { requestReconnect } = useConnectivity()
 
 const formattedBanners = computed(() => banners.value.map(banner => {
   switch (banner.type) {
@@ -85,7 +81,7 @@ const formattedBanners = computed(() => banners.value.map(banner => {
         ? null
         : ({
             icon: 'refresh',
-            handler: () => reconnect(),
+            handler: () => requestReconnect(),
           }),
     }
 

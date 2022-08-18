@@ -32,7 +32,7 @@ import {
 } from 'quasar'
 import { defineAsyncComponent } from 'vue'
 import locales from '@/locales/index'
-import { useI18nService } from '@/base/services/i18nService'
+import { useI18nService } from '@/base/services/i18n'
 
 const LocaleSelectInner = defineAsyncComponent(() => import('./LocaleSelectInner'))
 

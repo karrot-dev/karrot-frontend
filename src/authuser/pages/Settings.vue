@@ -125,8 +125,9 @@ import {
 
 import { useAuthService } from '@/authuser/services'
 import { usePushService } from '@/subscriptions/services'
-import { getPwaInstallPrompt, useGeoService } from '@/base/services'
+import { getPwaInstallPrompt} from '@/base/services'
 import { showToast } from '@/utils/toasts'
+import { useGeoService } from '@/base/services/geo'
 
 const { user } = useAuthService()
 

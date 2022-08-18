@@ -7,7 +7,7 @@
     :messages="messages"
     :order="order"
     :pending="isLoadingConversation || isLoadingMessages"
-    :away="$store.getters['presence/toggle/away']"
+    :away="isAway"
     :has-next-page="hasNextPage"
     :is-fetching-next-page="isFetchingNextPage"
     :fetch-next-page="fetchNextPage"
@@ -17,6 +17,9 @@
 <script setup>
 import DetailUI from './DetailUI'
 import { useDetailService } from '@/messages/services'
+import { usePresenceService } from '@/base/services/presence'
+
+const { isAway } = usePresenceService()
 
 const {
   conversation,

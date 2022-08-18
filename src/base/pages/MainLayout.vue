@@ -5,19 +5,9 @@
       style="z-index: 9999"
     />
 
-    <template v-if="routeError.hasError">
-      <RouteError>
-        <p
-          v-if="routeError.message"
-          class="caption text-center"
-        >
-          <span
-            v-if="routeError.message.translation"
-            v-t="routeError.message.translation"
-          />
-        </p>
-      </RouteError>
-    </template>
+    <RouteError
+      v-if="hasError"
+    />
 
     <div
       v-else
@@ -185,6 +175,7 @@ import { useCurrentGroupService } from '@/group/services'
 import { useAuthService } from '@/authuser/services'
 import { useRoute } from 'vue-router'
 import { useDetailService } from '@/messages/services'
+import { useRouteErrorService } from '@/base/services'
 
 export default {
   components: {
@@ -214,6 +205,8 @@ export default {
     const { isLoggedIn } = useAuthService()
     const { isDetailActive } = useDetailService()
 
+    const { hasError } = useRouteErrorService()
+
     const {
       groupId: currentGroupId,
       isBikeKitchen,
@@ -234,6 +227,7 @@ export default {
     const isGroupWall = computed(() => route.name === 'group')
 
     return {
+      hasError,
       isGroupWall,
       isDetailActive,
       isLoggedIn,
@@ -251,10 +245,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      routeError: 'routeError/status',
-      // isDetailActive: 'detail/isActive',
-    }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
         return 'hHh LpR fFf'

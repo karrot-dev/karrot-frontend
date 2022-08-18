@@ -1,8 +1,7 @@
-import { ref, computed, watch } from 'vue'
+import { readonly, ref, watch } from 'vue'
 
 import { defineService, isValidationError } from '@/utils/datastore/helpers'
 import { useCurrentGroupService } from '@/group/services'
-import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
 import { useAuthService } from '@/authuser/services'
 import axios from '@/base/api/axios'
@@ -16,47 +15,26 @@ export function getPwaInstallPrompt () {
   return pwaInstallPrompt
 }
 
-const DEFAULT_LOCATION = { lat: '49.8990022441358', lng: '8.66415739059448' }
+export const useRouteErrorService = defineService(() => {
+  const hasError = ref(false)
+  const message = ref(null)
 
-const myCoordinates = ref(null)
-export function setGeoipCoordinates (value) {
-  myCoordinates.value = value
-}
-
-export const useGeoService = defineService(() => {
-  // services
-  const { group } = useCurrentGroupService()
-
-  // computed
-  const defaultCenter = computed(() => {
-    if (group.value?.latitude && group.value?.longitude) {
-      return {
-        lat: group.value?.latitude,
-        lng: group.value?.longitude,
-      }
-    }
-    return myCoordinates.value || DEFAULT_LOCATION
+  const router = useRouter()
+  router.beforeEach(() => {
+    hasError.value = false
+    message.value = null
   })
 
-  return {
-    myCoordinates,
-    defaultCenter,
-  }
-})
-
-export const useRouteErrorService = defineService(() => {
-  // just interfaces with routeError vuex store module for now
-  const store = useStore()
-
-  const routeError = computed(() => store.getters['routeError/status'])
-
-  function setRouteError (routeError = null) {
-    store.dispatch('routeError/set', routeError)
+  function setRouteError (messageValue = null) {
+    console.log('setting route error!', messageValue)
+    hasError.value = true
+    message.value = messageValue
   }
 
   return {
-    routeError,
     setRouteError,
+    hasError: readonly(hasError),
+    message: readonly(message),
   }
 })
 

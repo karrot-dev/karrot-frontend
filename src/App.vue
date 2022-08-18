@@ -33,12 +33,15 @@ import { onErrorCaptured } from 'vue'
 import { useDetailService } from '@/messages/services'
 import { useIssuesUpdater } from '@/issues/queries'
 import { useQueryClient } from 'vue-query'
+import { useWebsocket } from '@/base/services/websocket'
 
 export default {
   components: {
     LoadingProgress,
   },
   setup () {
+    useWebsocket()
+
     useRoutingLogic()
     useCheckResponseAuthStatus()
 

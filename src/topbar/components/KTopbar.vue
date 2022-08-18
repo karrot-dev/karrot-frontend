@@ -3,11 +3,11 @@
     :current-group="currentGroup"
     :my-groups="myGroups"
     :user="user"
-    :away="$store.getters['presence/toggle/away']"
-    :connected="$store.getters['connectivity/connected']"
-    :reconnecting="$store.getters['connectivity/reconnecting']"
+    :away="isAway"
+    :connected="isConnected"
+    :reconnecting="isReconnecting"
     @logout="() => logout()"
-    @reconnect="$store.dispatch('connectivity/reconnect')"
+    @reconnect="requestReconnect"
     @toggle-sidenav="$emit('toggle-sidenav')"
   >
     <slot />
@@ -22,8 +22,12 @@ import { useLogoutMutation } from '@/authuser/mutations'
 import { useCurrentGroupService } from '@/group/services'
 import { useAuthService } from '@/authuser/services'
 import { useGroupInfoService } from '@/groupInfo/services'
+import { useConnectivity } from '@/utils/services'
+import { usePresenceService } from '@/base/services/presence'
 
 defineEmits(['toggle-sidenav'])
+
+const { isAway } = usePresenceService()
 
 const {
   user,
@@ -32,6 +36,12 @@ const {
 const {
   group: currentGroup,
 } = useCurrentGroupService()
+
+const {
+  isConnected,
+  isReconnecting,
+  requestReconnect,
+} = useConnectivity()
 
 const { groups } = useGroupInfoService()
 

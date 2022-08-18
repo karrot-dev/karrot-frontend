@@ -2,12 +2,12 @@ import bootstrap from '@/base/api/bootstrap'
 import { configureSentry } from '@/utils/sentry'
 import { QueryCache, QueryClient, VueQueryPlugin } from 'vue-query'
 import { queryKeys } from '@/authuser/queries'
-import { setGeoipCoordinates } from '@/base/services'
 import { queryKeyUserListAll } from '@/users/queries'
 import { queryKeyStatus } from '@/status/queries'
 import { queryKeyPlaceListAll } from '@/places/queries'
 import { queryKeyGroupInfoListAll } from '@/groupInfo/queries'
 import { queryKeyActivityTypeListAll } from '@/activities/queries'
+import { setGeoipCoordinates } from '@/base/services/geo'
 
 export default async function ({ app, store: datastore }) {
   const queryCache = new QueryCache({
@@ -58,8 +58,6 @@ export default async function ({ app, store: datastore }) {
   }
   if (user) {
     queryClient.setQueryData(queryKeys.authUser(), user)
-    datastore.commit('auth/setUser', user)
-    datastore.commit('auth/setMaybeLoggedOut', false)
   }
   if (places) {
     queryClient.setQueryData(queryKeyPlaceListAll(), places)
@@ -78,6 +76,7 @@ export default async function ({ app, store: datastore }) {
   }
 
   if (!process.env.DEV) {
+    // TODO: implement about!
     datastore.dispatch('about/fetch')
   }
 }

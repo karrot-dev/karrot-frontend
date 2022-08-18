@@ -14,10 +14,10 @@
 import { computed } from 'vue'
 import GroupGalleryUI from '@/groupInfo/components/GroupGalleryUI'
 
-import { useGeoService } from '@/base/services'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { useApplicationListQuery } from '@/applications/queries'
 import { useAuthService } from '@/authuser/services'
+import { useGeoService } from '@/base/services/geo'
 
 const {
   userId,

@@ -147,20 +147,23 @@ export default {
     open (conv) {
       const { type, target, targetId } = conv
       switch (type) {
-        case 'group': return this.$router.push({ name: 'group', params: { groupId: targetId }, hash: '#messages' }).catch(() => {})
-        case 'place': return this.$router.push({ name: 'placeWall', params: { groupId: this.getPlaceById(targetId).group, placeId: targetId } }).catch(() => {})
+        case 'group': return this.$router.push({ name: 'group', params: { groupId: targetId }, hash: '#messages' })
+        case 'place': return this.$router.push({ name: 'placeWall', params: { groupId: this.getPlaceById(targetId).group, placeId: targetId } })
         case 'activity': return this.openActivity(target)
         case 'private': {
           const otherUser = this.getUserById(conv.participants.find(u => !this.getIsCurrentUser(u)))
           return this.openUserChat(otherUser)
         }
         case 'application': return this.openApplication(target)
-        case 'issue': return this.$router.push({ name: 'issueChat', params: { groupId: target.group, issueId: targetId } }).catch(() => {})
+        case 'issue': {
+          console.log('opening issue chat', targetId, target)
+          return this.$router.push({ name: 'issueChat', params: { groupId: target.group, issueId: targetId } })
+        }
         case 'offer': return this.$router.push({
           name: 'offerDetail',
           params: { groupId: target.group, offerId: targetId },
           query: this.$route.query,
-        }).catch(() => {})
+        })
       }
     },
     isSelected (conv) {

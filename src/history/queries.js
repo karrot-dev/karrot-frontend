@@ -10,7 +10,7 @@ export const queryKeyHistoryList = params => [QUERY_KEY_BASE, 'list', params].fi
 
 export function useHistoryDetailQuery ({ historyId }) {
   const query = useQuery(
-    queryKeyHistoryDetail(unref(historyId)),
+    queryKeyHistoryDetail(historyId),
     () => api.get(unref(historyId)),
     {
       enabled: computed(() => Boolean(unref(historyId))),

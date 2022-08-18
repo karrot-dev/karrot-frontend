@@ -59,7 +59,7 @@ export function useIssueListQuery ({ groupId, status }) {
 
 export function useIssueDetailQuery ({ issueId }) {
   const query = useQuery(
-    queryKeyIssueDetail(unref(issueId)),
+    queryKeyIssueDetail(issueId),
     () => api.get(unref(issueId)),
     {
       enabled: computed(() => Boolean(unref(issueId))),

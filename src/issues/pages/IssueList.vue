@@ -7,9 +7,10 @@
 </template>
 
 <script setup>
-import IssueListUI from '@/issues/components/IssueListUI'
-import { useIssueListQuery } from '@/issues/queries'
 import { useCurrentGroupService } from '@/group/services'
+import { useIssueListQuery } from '@/issues/queries'
+
+import IssueListUI from '@/issues/components/IssueListUI'
 
 const {
   groupId,

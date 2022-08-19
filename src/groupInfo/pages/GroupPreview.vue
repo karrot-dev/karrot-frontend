@@ -10,12 +10,14 @@
 
 <script setup>
 import { computed, unref } from 'vue'
-import GroupPreviewUI from '@/groupInfo/components/GroupPreviewUI'
+
 import { useWithdrawApplicationMutation } from '@/applications/mutations'
 import { useApplicationListQuery } from '@/applications/queries'
 import { useAuthService } from '@/authuser/services'
-import { showToast } from '@/utils/toasts'
 import { useActiveGroupPreviewService } from '@/groupInfo/services'
+import { showToast } from '@/utils/toasts'
+
+import GroupPreviewUI from '@/groupInfo/components/GroupPreviewUI'
 
 const {
   userId,

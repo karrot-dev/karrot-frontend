@@ -7,6 +7,7 @@
 
 <script>
 import Notifications from '@/notifications/components/Notifications'
+
 import { useMarkSeenMutation } from '../mutations'
 
 export default {

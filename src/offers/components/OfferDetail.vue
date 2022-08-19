@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import OfferDetailHeader from '@/offers/components/OfferDetailHeader'
 import OfferDetailBody from '@/offers/components/OfferDetailBody'
+import OfferDetailHeader from '@/offers/components/OfferDetailHeader'
 
 export default {
   components: {

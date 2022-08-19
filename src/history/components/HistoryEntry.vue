@@ -51,18 +51,19 @@
 </template>
 
 <script>
-import { computed, toRefs } from 'vue'
 import {
   QItem,
   QItemSection,
   QItemLabel,
 } from 'quasar'
+import { computed, toRefs } from 'vue'
 
+import { useHistoryHelpers } from '@/history/helpers'
+import { useUserService } from '@/users/services'
+
+import HistoryDetail from '@/history/components/HistoryDetail'
 import HistoryProfilePictures from '@/history/components/HistoryProfilePictures'
 import DateAsWords from '@/utils/components/DateAsWords'
-import HistoryDetail from '@/history/components/HistoryDetail'
-import { useUserService } from '@/users/services'
-import { useHistoryHelpers } from '@/history/helpers'
 
 export default {
   components: {

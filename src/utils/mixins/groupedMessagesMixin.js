@@ -1,6 +1,6 @@
+import differenceInSeconds from 'date-fns/differenceInSeconds'
 import { isRef, unref, computed } from 'vue'
 
-import differenceInSeconds from 'date-fns/differenceInSeconds'
 import dateFnsHelper from '@/utils/dateFnsHelper'
 
 // time difference in seconds of any two messages to be included into the same group

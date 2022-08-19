@@ -1,7 +1,9 @@
-import LocaleSelectInner from './LocaleSelectInner'
-import locales from '@/locales'
 import { localeOptions } from '@/base/i18n'
+import locales from '@/locales'
+
 import { mountWithDefaults, createDatastore } from '>/helpers'
+
+import LocaleSelectInner from './LocaleSelectInner'
 
 describe('LocaleSelect', () => {
   beforeEach(() => jest.resetModules())

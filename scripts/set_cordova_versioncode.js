@@ -5,8 +5,9 @@
  */
 
 const { execSync } = require('child_process')
-const CordovaConfig = require('cordova-config')
 const { resolve } = require('path')
+
+const CordovaConfig = require('cordova-config')
 
 const path = resolve(__dirname, '../src-cordova/config.xml')
 

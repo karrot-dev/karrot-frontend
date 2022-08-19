@@ -2,10 +2,9 @@ import { unref } from 'vue'
 import { useMutation } from 'vue-query'
 
 import api from '@/issues/api/issues'
-
+import router from '@/router'
 import { withStatus } from '@/utils/queryHelpers'
 import { showToast } from '@/utils/toasts'
-import router from '@/router'
 
 export function useCreateIssueMutation () {
   return withStatus(useMutation(

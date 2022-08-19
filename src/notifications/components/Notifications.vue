@@ -51,10 +51,13 @@ import {
   QItem,
   QBtn,
 } from 'quasar'
-import NotificationItem from './NotificationItem'
+
 import KSpinner from '@/utils/components/KSpinner'
-import { useNotificationListQuery } from '../queries'
+
 import { useMarkClickedMutation, useMarkSeenMutation } from '../mutations'
+import { useNotificationListQuery } from '../queries'
+
+import NotificationItem from './NotificationItem'
 
 export default {
   components: {

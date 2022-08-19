@@ -25,16 +25,15 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-
 import {
   QTabs,
   QRouteTab,
   QBadge,
 } from 'quasar'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import { useCurrentGroupService } from '@/group/services'
-import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 const { groupId } = useCurrentGroupService()

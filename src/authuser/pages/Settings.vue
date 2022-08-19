@@ -107,27 +107,27 @@ import {
   QCardActions,
 } from 'quasar'
 
-import ProfileEdit from '@/authuser/components/Settings/ProfileEdit'
-import ChangePassword from '@/authuser/components/Settings/ChangePassword'
-import ChangeEmail from '@/authuser/components/Settings/ChangeEmail'
-import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
-import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAccount'
-import Push from '@/authuser/components/Settings/Push'
-import InstallPwa from '@/authuser/components/Settings/InstallPwa'
-import LocaleSelect from '@/utils/components/LocaleSelect'
-import GroupSettings from '@/group/components/GroupSettings'
-import KFormContainer from '@/base/components/KFormContainer'
 import {
   useChangeEmailMutation,
   useChangePasswordMutation,
   useRequestDeleteAccountMutation, useSaveUserMutation,
 } from '@/authuser/mutations'
-
 import { useAuthService } from '@/authuser/services'
-import { usePushService } from '@/subscriptions/services'
-import { getPwaInstallPrompt} from '@/base/services'
-import { showToast } from '@/utils/toasts'
+import { getPwaInstallPrompt } from '@/base/services'
 import { useGeoService } from '@/base/services/geo'
+import { usePushService } from '@/subscriptions/services'
+import { showToast } from '@/utils/toasts'
+
+import ChangeEmail from '@/authuser/components/Settings/ChangeEmail'
+import ChangePassword from '@/authuser/components/Settings/ChangePassword'
+import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
+import InstallPwa from '@/authuser/components/Settings/InstallPwa'
+import ProfileEdit from '@/authuser/components/Settings/ProfileEdit'
+import Push from '@/authuser/components/Settings/Push'
+import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAccount'
+import KFormContainer from '@/base/components/KFormContainer'
+import GroupSettings from '@/group/components/GroupSettings'
+import LocaleSelect from '@/utils/components/LocaleSelect'
 
 const { user } = useAuthService()
 

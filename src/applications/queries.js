@@ -1,8 +1,9 @@
 import { unref, computed } from 'vue'
 import { useQuery, useInfiniteQuery, useQueryClient } from 'vue-query'
-import { useSocketEvents } from '@/utils/composables'
 
+import { useSocketEvents } from '@/utils/composables'
 import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
+
 import api from './api/applications'
 
 export const QUERY_KEY_BASE = 'applications'

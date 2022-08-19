@@ -1,11 +1,12 @@
 import { unref } from 'vue'
 import { useMutation } from 'vue-query'
-import { withStatus } from '@/utils/queryHelpers'
-import api from '@/group/api/groups'
-import { showToast } from '@/utils/toasts'
 import { useRouter } from 'vue-router'
-import router from '@/router'
+
+import api from '@/group/api/groups'
 import { useCurrentGroupService } from '@/group/services'
+import router from '@/router'
+import { withStatus } from '@/utils/queryHelpers'
+import { showToast } from '@/utils/toasts'
 
 export function useCreateGroupMutation () {
   const router = useRouter()

@@ -1,13 +1,14 @@
-import { h } from 'vue'
-import { createDatastore, statusMocks } from '>/helpers'
-import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
+import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
+import { createDatastore, statusMocks } from '>/helpers'
+
+import TrustButton from './TrustButton'
 
 const datastore = createDatastore({
   users: { getters: { get: () => id => id } },
 })
-
-import TrustButton from './TrustButton'
 
 let groupIdCnt = 1
 

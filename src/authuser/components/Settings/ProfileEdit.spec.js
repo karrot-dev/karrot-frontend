@@ -1,10 +1,10 @@
+import cloneDeep from 'clone-deep'
 import { nextTick } from 'vue'
 
-import ProfileEdit from './ProfileEdit'
-import { usersMock } from '>/mockdata'
-import cloneDeep from 'clone-deep'
-
 import { mountWithDefaults, statusMocks } from '>/helpers'
+import { usersMock } from '>/mockdata'
+
+import ProfileEdit from './ProfileEdit'
 
 describe('ProfileEdit', () => {
   beforeEach(() => jest.resetModules())

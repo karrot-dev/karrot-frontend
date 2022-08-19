@@ -10,10 +10,9 @@
 </template>
 
 <script>
+import { map, tileLayer } from 'leaflet/dist/leaflet-src.esm'
 import { debounce } from 'quasar'
 import { computed, markRaw } from 'vue'
-
-import { map, tileLayer } from 'leaflet/dist/leaflet-src.esm'
 
 export default {
   provide () {

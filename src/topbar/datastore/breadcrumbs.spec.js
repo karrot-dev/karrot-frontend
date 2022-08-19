@@ -1,7 +1,7 @@
+import { createDatastore } from '>/helpers'
+
 const mockTranslate = jest.fn()
 jest.mock('@/base/i18n', () => ({ t: mockTranslate }))
-
-import { createDatastore } from '>/helpers'
 
 describe('breadcrumbs', () => {
   let datastoreMocks

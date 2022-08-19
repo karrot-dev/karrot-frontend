@@ -41,8 +41,6 @@
 </template>
 
 <script>
-import ApplicationItem from './ApplicationItem'
-import paginationMixin from '@/utils/mixins/paginationMixin'
 import {
   QExpansionItem,
   QSeparator,
@@ -50,6 +48,10 @@ import {
   QItem,
   QBtn,
 } from 'quasar'
+
+import paginationMixin from '@/utils/mixins/paginationMixin'
+
+import ApplicationItem from './ApplicationItem'
 
 export default {
   components: {

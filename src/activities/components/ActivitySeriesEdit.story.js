@@ -1,9 +1,9 @@
-import { h } from 'vue'
-import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
+import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
 
-import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 import * as factories from '>/enrichedFactories'
+import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 const ActivitySeriesEdit = () => require('./ActivitySeriesEdit').default
 

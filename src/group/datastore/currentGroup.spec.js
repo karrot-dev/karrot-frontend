@@ -1,11 +1,11 @@
+import { createDatastore, createValidationError, throws, statusMocks } from '>/helpers'
+
 const mockGet = jest.fn()
 const mockConversation = jest.fn()
 jest.mock('@/group/api/groups', () => ({
   get: mockGet,
   conversation: mockConversation,
 }))
-
-import { createDatastore, createValidationError, throws, statusMocks } from '>/helpers'
 
 function enrichMemberships (memberships, users, currentUserId) {
   return Object.entries(memberships).reduce((obj, [uId, membership]) => {

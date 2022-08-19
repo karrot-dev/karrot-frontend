@@ -1,9 +1,10 @@
 import { readonly } from 'vue'
 
-import { defineService } from '@/utils/datastore/helpers'
-import { useIntegerRouteParam } from '@/utils/composables'
-import { useIssueDetailQuery } from '@/issues/queries'
 import { useConversationAndMessages } from '@/messages/services'
+import { useIntegerRouteParam } from '@/utils/composables'
+import { defineService } from '@/utils/datastore/helpers'
+
+import { useIssueDetailQuery } from './queries'
 
 export const useActiveIssueService = defineService(() => {
   const issueId = useIntegerRouteParam('issueId')

@@ -1,9 +1,9 @@
+import { createDatastore, statusMocks } from '>/helpers'
+
 const mockList = jest.fn()
 jest.mock('@/messages/api/messages', () => ({
   list: mockList,
 }))
-
-import { createDatastore, statusMocks } from '>/helpers'
 
 describe('conversations', () => {
   let datastore, oneHourAgo

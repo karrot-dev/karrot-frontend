@@ -1,10 +1,10 @@
 import { computed, watch } from 'vue'
-
-import { defineService, indexById } from '@/utils/datastore/helpers'
-import { useGroupInfoListQuery } from '@/groupInfo/queries'
 import { useQueryClient } from 'vue-query'
+
+import { useGroupInfoListQuery } from '@/groupInfo/queries'
 import { queryKeyPlaceListAll } from '@/places/queries'
 import { useIntegerRouteParam } from '@/utils/composables'
+import { defineService, indexById } from '@/utils/datastore/helpers'
 
 export const useGroupInfoService = defineService(() => {
   // services

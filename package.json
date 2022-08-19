@@ -115,6 +115,7 @@
     "dotenv": "^16.0.1",
     "eslint": "^8.19.0",
     "eslint-config-standard": "^17.0.0",
+    "eslint-import-resolver-webpack": "^0.13.2",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^26.5.3",
     "eslint-plugin-n": "^15.2.4",

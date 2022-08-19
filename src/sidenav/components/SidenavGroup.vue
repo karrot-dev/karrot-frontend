@@ -12,9 +12,10 @@
 <script setup>
 import { computed } from 'vue'
 
-import SidenavGroupUI from './SidenavGroupUI'
-import { useStatusService } from '@/status/services'
 import { useCurrentGroupService } from '@/group/services'
+import { useStatusService } from '@/status/services'
+
+import SidenavGroupUI from './SidenavGroupUI'
 
 const {
   groupId,

@@ -18,13 +18,13 @@
 
 <script setup>
 import { computed } from 'vue'
-
-import ConversationCompose from '@/messages/components/ConversationCompose'
-import { useSendMessageMutation } from '@/messages/mutations'
+import { useI18n } from 'vue-i18n'
 
 import { useActiveIssueService } from '@/issues/services'
-import { useI18n } from 'vue-i18n'
 import { useConversationHelpers } from '@/messages/helpers'
+import { useSendMessageMutation } from '@/messages/mutations'
+
+import ConversationCompose from '@/messages/components/ConversationCompose'
 
 const { t } = useI18n()
 

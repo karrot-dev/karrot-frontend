@@ -12,10 +12,11 @@
 <script setup>
 import { computed } from 'vue'
 
-import FeedbackList from '@/feedback/components/FeedbackList'
+import { useFeedbackListQuery } from '@/feedback/queries'
 import { useCurrentGroupService } from '@/group/services'
 import { useStatusService } from '@/status/services'
-import { useFeedbackListQuery } from '@/feedback/queries'
+
+import FeedbackList from '@/feedback/components/FeedbackList'
 
 const { groupId } = useCurrentGroupService()
 const { getGroupStatus } = useStatusService()

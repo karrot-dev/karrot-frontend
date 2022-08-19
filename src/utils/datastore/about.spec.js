@@ -1,7 +1,7 @@
+import { createDatastore, throws } from '>/helpers'
+
 const mockGet = jest.fn()
 jest.mock('@/utils/api/about', () => ({ get: mockGet }))
-
-import { createDatastore, throws } from '>/helpers'
 
 describe('spec', () => {
   let datastore

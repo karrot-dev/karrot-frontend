@@ -51,12 +51,14 @@ import {
   QItemLabel,
   QIcon,
 } from 'quasar'
-import DateAsWords from '@/utils/components/DateAsWords'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import { useUserService } from '@/users/services'
-import { usePlaceService } from '@/places/services'
+
 import { useAuthHelpers } from '@/authuser/helpers'
 import { useNotificationHelpers } from '@/notifications/helpers'
+import { usePlaceService } from '@/places/services'
+import { useUserService } from '@/users/services'
+
+import ProfilePicture from '@/users/components/ProfilePicture'
+import DateAsWords from '@/utils/components/DateAsWords'
 
 export default {
   components: {

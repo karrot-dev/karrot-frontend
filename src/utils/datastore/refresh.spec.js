@@ -1,3 +1,5 @@
+import { nextTicks } from '>/helpers'
+
 jest.mock('@/base/datastore/i18nPlugin')
 
 const mockUsersList = jest.fn()
@@ -37,8 +39,6 @@ jest.mock('@/communityFeed/api/communityFeed', () => ({
 }))
 jest.mock('@/invitations/api/invitations', () => ({ listByGroupId: jest.fn(_ => []) }))
 jest.mock('@/status/api/status', () => ({ fetch: mockStatusFetch }))
-
-import { nextTicks } from '>/helpers'
 
 describe('refresh', () => {
   beforeEach(() => jest.resetModules())

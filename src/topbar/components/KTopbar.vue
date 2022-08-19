@@ -17,13 +17,14 @@
 <script setup>
 import { computed } from 'vue'
 
-import KTopbarUI from './KTopbarUI'
 import { useLogoutMutation } from '@/authuser/mutations'
-import { useCurrentGroupService } from '@/group/services'
 import { useAuthService } from '@/authuser/services'
+import { usePresenceService } from '@/base/services/presence'
+import { useCurrentGroupService } from '@/group/services'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { useConnectivity } from '@/utils/services'
-import { usePresenceService } from '@/base/services/presence'
+
+import KTopbarUI from './KTopbarUI'
 
 defineEmits(['toggle-sidenav'])
 

@@ -85,13 +85,14 @@ import {
   QField,
   QBtn,
 } from 'quasar'
-import CustomDialog from '@/utils/components/CustomDialog'
-import UserList from '@/users/components/UserList'
-import RandomArt from '@/utils/components/RandomArt'
-import KSpinner from '@/utils/components/KSpinner'
-import { absoluteURL } from '@/utils/absoluteURL'
 
 import { useCurrentGroupService } from '@/group/services'
+import { absoluteURL } from '@/utils/absoluteURL'
+
+import UserList from '@/users/components/UserList'
+import CustomDialog from '@/utils/components/CustomDialog'
+import KSpinner from '@/utils/components/KSpinner'
+import RandomArt from '@/utils/components/RandomArt'
 
 export default {
   components: {

@@ -2,13 +2,13 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
-import { defineService } from '@/utils/datastore/helpers'
 import { useCurrentGroupService } from '@/group/services'
+import { useActiveGroupPreviewService } from '@/groupInfo/services'
+import { useActiveIssueService } from '@/issues/services'
 import { useActiveOfferService } from '@/offers/services'
 import { useActivePlaceService } from '@/places/services'
 import { useActiveUserService, useUserService } from '@/users/services'
-import { useActiveGroupPreviewService } from '@/groupInfo/services'
-import { useActiveIssueService } from '@/issues/services'
+import { defineService } from '@/utils/datastore/helpers'
 
 export const useBreadcrumbs = defineService(() => {
   const { t } = useI18n()

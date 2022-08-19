@@ -1,10 +1,11 @@
-import { h } from 'vue'
-import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
+import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
+import { createDatastore, storybookDefaults as defaults, statusMocks } from '>/helpers'
+import { joinableActivity, leavableActivity, fullActivity, emptyActivity, currentUserMock } from '>/mockdata'
 
 const ActivityUsers = () => import('./ActivityUsers')
-import { joinableActivity, leavableActivity, fullActivity, emptyActivity, currentUserMock } from '>/mockdata'
-import { createDatastore, storybookDefaults as defaults, statusMocks } from '>/helpers'
 
 const datastore = createDatastore({
   auth: {

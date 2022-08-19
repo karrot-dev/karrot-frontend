@@ -82,10 +82,11 @@ import {
   QSelect,
   QSeparator,
 } from 'quasar'
-import StandardMap from '@/maps/components/StandardMap'
 
 import geocoding from '@/maps/api/geocoding'
 import { filterTruthy } from '@/utils/utils'
+
+import StandardMap from '@/maps/components/StandardMap'
 
 export default {
   components: {

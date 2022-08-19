@@ -1,12 +1,13 @@
 import { unref, computed } from 'vue'
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
-import { extractCursor, flattenPaginatedData, useQueryHelpers } from '@/utils/queryHelpers'
-import { useSocketEvents } from '@/utils/composables'
-import api from './api/activities'
-import activityTypeAPI from './api/activityTypes'
-import activitySeriesAPI from './api/activitySeries'
 import { useAuthService } from '@/authuser/services'
+import { useSocketEvents } from '@/utils/composables'
+import { extractCursor, flattenPaginatedData, useQueryHelpers } from '@/utils/queryHelpers'
+
+import api from './api/activities'
+import activitySeriesAPI from './api/activitySeries'
+import activityTypeAPI from './api/activityTypes'
 
 export const QUERY_KEY_BASE = 'activities'
 export const queryKeyActivityList = params => [QUERY_KEY_BASE, 'list', params].filter(Boolean)

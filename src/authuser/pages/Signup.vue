@@ -7,9 +7,11 @@
 </template>
 
 <script setup>
-import Signup from '@/authuser/components/Signup'
-import { useLoginMutation, useSignupMutation } from '@/authuser/mutations'
 import { useRoute } from 'vue-router'
+
+import { useLoginMutation, useSignupMutation } from '@/authuser/mutations'
+
+import Signup from '@/authuser/components/Signup'
 
 const route = useRoute()
 

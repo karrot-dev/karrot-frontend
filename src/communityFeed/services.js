@@ -1,7 +1,7 @@
 import { ref, computed } from 'vue'
 
-import { defineService } from '@/utils/datastore/helpers'
 import { useCommunityFeedMetaQuery, useCommunityFeedQuery, useCommunityTopicQuery } from '@/communityFeed/queries'
+import { defineService } from '@/utils/datastore/helpers'
 
 export const useCommunityFeedService = defineService(() => {
   const {

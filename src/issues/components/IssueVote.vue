@@ -128,6 +128,9 @@
 </template>
 
 <script>
+
+import cloneDeep from 'clone-deep'
+import deepEqual from 'deep-equal'
 import {
   QSlider,
   QLinearProgress,
@@ -138,11 +141,10 @@ import {
   QCardActions,
 } from 'quasar'
 
-import DateAsWords from '@/utils/components/DateAsWords'
-import cloneDeep from 'clone-deep'
-import deepEqual from 'deep-equal'
-import reactiveNow from '@/utils/reactiveNow'
 import statusMixin from '@/utils/mixins/statusMixin'
+import reactiveNow from '@/utils/reactiveNow'
+
+import DateAsWords from '@/utils/components/DateAsWords'
 
 export default {
   components: {

@@ -7,9 +7,10 @@
 </template>
 
 <script setup>
-import MobileSidenavUI from './MobileSidenavUI'
 import { useLogoutMutation } from '@/authuser/mutations'
 import { useAuthService } from '@/authuser/services'
+
+import MobileSidenavUI from './MobileSidenavUI'
 
 defineEmits(['toggle-sidenav'])
 

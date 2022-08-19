@@ -90,10 +90,11 @@ import {
   QExpansionItem,
   QIcon,
 } from 'quasar'
-import statusMixin from '@/utils/mixins/statusMixin'
+
+import { useResendVerificationCode } from '@/authuser/mutations'
 import { useFailedEmailDeliveriesQuery } from '@/authuser/queries'
 import { useAuthService } from '@/authuser/services'
-import { useResendVerificationCode } from '@/authuser/mutations'
+import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {

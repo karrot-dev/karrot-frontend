@@ -22,7 +22,6 @@
 </template>
 
 <script>
-import IssueTabs from '@/issues/components/IssueTabs'
 import {
   QLayout,
   QHeader,
@@ -30,6 +29,8 @@ import {
   QPageContainer,
   QPage,
 } from 'quasar'
+
+import IssueTabs from '@/issues/components/IssueTabs'
 
 export default {
   components: {

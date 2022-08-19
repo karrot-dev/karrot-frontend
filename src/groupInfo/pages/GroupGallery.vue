@@ -12,12 +12,13 @@
 
 <script setup>
 import { computed } from 'vue'
-import GroupGalleryUI from '@/groupInfo/components/GroupGalleryUI'
 
-import { useGroupInfoService } from '@/groupInfo/services'
 import { useApplicationListQuery } from '@/applications/queries'
 import { useAuthService } from '@/authuser/services'
 import { useGeoService } from '@/base/services/geo'
+import { useGroupInfoService } from '@/groupInfo/services'
+
+import GroupGalleryUI from '@/groupInfo/components/GroupGalleryUI'
 
 const {
   userId,

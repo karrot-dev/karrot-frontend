@@ -98,26 +98,25 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-
 import {
   QExpansionItem,
   QItemSection,
   QBtn,
 } from 'quasar'
+import { computed } from 'vue'
+
+import { useAuthService } from '@/authuser/services'
+import { usePresenceService } from '@/base/services/presence'
+import { useActiveIssueService } from '@/issues/services'
+import { useConversationHelpers } from '@/messages/helpers'
+import { useSaveConversationMutation } from '@/messages/mutations'
+import { useUserService } from '@/users/services'
 
 import ChatConversation from '@/messages/components/ChatConversation'
-import Markdown from '@/utils/components/Markdown'
-import DateAsWords from '@/utils/components/DateAsWords'
-import ProfilePicture from '@/users/components/ProfilePicture'
 import NotificationToggle from '@/messages/components/NotificationToggle'
-
-import { useActiveIssueService } from '@/issues/services'
-import { useUserService } from '@/users/services'
-import { useAuthService } from '@/authuser/services'
-import { useSaveConversationMutation } from '@/messages/mutations'
-import { useConversationHelpers } from '@/messages/helpers'
-import { usePresenceService } from '@/base/services/presence'
+import ProfilePicture from '@/users/components/ProfilePicture'
+import DateAsWords from '@/utils/components/DateAsWords'
+import Markdown from '@/utils/components/Markdown'
 
 const {
   issue,

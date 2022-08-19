@@ -1,13 +1,13 @@
-import { readonly, ref, watch } from 'vue'
 import { debounce, Quasar } from 'quasar'
+import { readonly, ref, watch } from 'vue'
 
-import { defineService } from '@/utils/datastore/helpers'
 import { useAuthService } from '@/authuser/services'
-import locales, { messages as loadMessages, quasarMessages as loadQuasarMessages } from '@/locales'
 import axios from '@/base/api/axios'
+import i18n from '@/base/i18n'
+import locales, { messages as loadMessages, quasarMessages as loadQuasarMessages } from '@/locales'
+import { defineService } from '@/utils/datastore/helpers'
 import dateFnsHelper from '@/utils/dateFnsHelper'
 import polyfill from '@/utils/polyfill'
-import i18n from '@/base/i18n'
 
 export const DEFAULT_LOCALE = 'en'
 

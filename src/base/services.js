@@ -1,10 +1,10 @@
 import { readonly, ref, watch } from 'vue'
-
-import { defineService, isValidationError } from '@/utils/datastore/helpers'
-import { useCurrentGroupService } from '@/group/services'
 import { useRoute, useRouter } from 'vue-router'
+
 import { useAuthService } from '@/authuser/services'
 import axios from '@/base/api/axios'
+import { useCurrentGroupService } from '@/group/services'
+import { defineService, isValidationError } from '@/utils/datastore/helpers'
 
 // TODO: this isn't a reactive ref or anything, does it work?
 let pwaInstallPrompt = null

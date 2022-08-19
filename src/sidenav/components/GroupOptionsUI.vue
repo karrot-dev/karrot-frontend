@@ -32,6 +32,7 @@ import {
   QIcon,
   Dialog,
 } from 'quasar'
+
 import { useLeaveGroupMutation } from '@/group/mutations'
 export default {
   components: {

@@ -279,6 +279,9 @@
 </template>
 
 <script>
+import addDays from 'date-fns/addDays'
+import addSeconds from 'date-fns/addSeconds'
+import differenceInSeconds from 'date-fns/differenceInSeconds'
 import {
   QDate,
   QTime,
@@ -292,18 +295,15 @@ import {
   date,
 } from 'quasar'
 
+import { useActivityTypeHelpers } from '@/activities/helpers'
+import { defaultDuration } from '@/activities/settings'
+import { formatSeconds } from '@/activities/utils'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 import reactiveNow from '@/utils/reactiveNow'
-
-import differenceInSeconds from 'date-fns/differenceInSeconds'
-import addSeconds from 'date-fns/addSeconds'
-import addDays from 'date-fns/addDays'
-import { defaultDuration } from '@/activities/settings'
-import { formatSeconds } from '@/activities/utils'
 import { objectDiff } from '@/utils/utils'
+
 import MarkdownInput from '@/utils/components/MarkdownInput'
-import { useActivityTypeHelpers } from '@/activities/helpers'
 
 export default {
   name: 'ActivityEdit',

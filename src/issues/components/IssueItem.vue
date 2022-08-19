@@ -26,17 +26,18 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
 import {
   QItem,
   QItemSection,
   QItemLabel,
 } from 'quasar'
+import { computed } from 'vue'
+
+import { useActiveIssueService } from '@/issues/services'
+import { useUserService } from '@/users/services'
 
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
-import { useUserService } from '@/users/services'
-import { useActiveIssueService } from '@/issues/services'
 
 const props = defineProps({
   issue: {

@@ -19,15 +19,15 @@
 <script>
 import { computed } from 'vue'
 
+import { useActivityListQuery } from '@/activities/queries'
+import { useCurrentGroupService } from '@/group/services'
+import { useStatusService } from '@/status/services'
+import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
+
 import AvailableActivities from '@/group/components/AvailableActivities'
 import FeedbackNotice from '@/group/components/FeedbackNotice'
 import JoinedActivities from '@/group/components/JoinedActivities'
 import WallConversation from '@/messages/components/WallConversation'
-
-import { useCurrentGroupService } from '@/group/services'
-import { useActivityListQuery } from '@/activities/queries'
-import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
-import { useStatusService } from '@/status/services'
 
 export default {
   components: {

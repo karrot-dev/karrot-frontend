@@ -22,7 +22,9 @@
 
 <script>
 import { QBtn } from 'quasar'
+
 import statusMixin from '@/utils/mixins/statusMixin'
+
 import KSpinner from '@/utils/components/KSpinner'
 
 export default {

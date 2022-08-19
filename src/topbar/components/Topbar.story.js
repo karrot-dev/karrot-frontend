@@ -1,10 +1,11 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
+import { groupsMock, placesMock, usersMock } from '>/mockdata'
 
 import KBreadcrumb from './KBreadcrumb'
 import Search from './Search'
-import { createDatastore, storybookDefaults as defaults } from '>/helpers'
-import { groupsMock, placesMock, usersMock } from '>/mockdata'
 
 const datastore = createDatastore({
   groups: { getters: { all: () => groupsMock } },

@@ -148,7 +148,6 @@
 </template>
 
 <script>
-import { computed } from 'vue'
 import {
   QCard,
   QIcon,
@@ -161,19 +160,21 @@ import {
   QBanner,
   QSpace,
 } from 'quasar'
+import { computed } from 'vue'
 
-import KSpinner from '@/utils/components/KSpinner'
-import ActivityList from '@/activities/components/ActivityList'
-import KNotice from '@/utils/components/KNotice'
-import PlaceList from '@/places/components/PlaceList'
+import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
 import { useActivityListQuery } from '@/activities/queries'
 import { useActivityTypeService } from '@/activities/services'
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceService } from '@/places/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
-import ICSBtn from '@/activities/components/ICSBtn'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
-import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
+
+import ActivityList from '@/activities/components/ActivityList'
+import ICSBtn from '@/activities/components/ICSBtn'
+import PlaceList from '@/places/components/PlaceList'
+import KNotice from '@/utils/components/KNotice'
+import KSpinner from '@/utils/components/KSpinner'
 
 export default {
   components: {

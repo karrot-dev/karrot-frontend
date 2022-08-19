@@ -1,12 +1,12 @@
-import { computed, watch, onScopeDispose } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { useQueryClient } from 'vue-query'
 import { isArray } from 'lodash'
+import { computed, watch, onScopeDispose } from 'vue'
+import { useQueryClient } from 'vue-query'
+import { useRoute, useRouter } from 'vue-router'
 
-import { useStatusService } from '@/status/services'
-import { useBreadcrumbs } from '@/topbar/services'
 import { useAuthService } from '@/authuser/services'
 import { socketEvents } from '@/base/services/websocket'
+import { useStatusService } from '@/status/services'
+import { useBreadcrumbs } from '@/topbar/services'
 
 export function useClearDataOnLogout () {
   const queryClient = useQueryClient()

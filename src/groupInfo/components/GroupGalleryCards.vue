@@ -16,8 +16,9 @@
 </template>
 
 <script>
-import GroupGalleryCard from './GroupGalleryCard'
 import { QResizeObserver } from 'quasar'
+
+import GroupGalleryCard from './GroupGalleryCard'
 
 export default {
   components: {

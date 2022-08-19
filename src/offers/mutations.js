@@ -1,8 +1,9 @@
-import { useMutation, useQueryClient } from 'vue-query'
-import api from '@/offers/api/offers'
 import { unref } from 'vue'
-import { queryKeyOfferDetail, queryKeyOfferList } from '@/offers/queries'
+import { useMutation, useQueryClient } from 'vue-query'
 import { useRoute, useRouter } from 'vue-router'
+
+import api from '@/offers/api/offers'
+import { queryKeyOfferDetail, queryKeyOfferList } from '@/offers/queries'
 import { withStatus } from '@/utils/queryHelpers'
 
 // Store the ids we are currently mutating, so we can better decide when to refresh from websocket

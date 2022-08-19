@@ -88,18 +88,20 @@
 </template>
 
 <script>
+import deepEqual from 'deep-equal'
 import {
   QItem,
   QItemSection,
   QItemLabel,
   QBtn,
 } from 'quasar'
-import deepEqual from 'deep-equal'
+
+import { deleteDraft, fetchDraft, saveDraft } from '@/messages/utils'
+import statusMixin from '@/utils/mixins/statusMixin'
+
 import ProfilePicture from '@/users/components/ProfilePicture'
 import MarkdownInput from '@/utils/components/MarkdownInput'
-import statusMixin from '@/utils/mixins/statusMixin'
 import MultiCroppa from '@/utils/components/MultiCroppa'
-import { deleteDraft, fetchDraft, saveDraft } from '@/messages/utils'
 
 export default {
   name: 'ConversationCompose',

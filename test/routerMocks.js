@@ -2,7 +2,6 @@
 // See https://github.com/posva/vue-router-mock
 
 const { config } = require('@vue/test-utils')
-
 const {
   VueRouterMock,
   createRouterMock,

@@ -1,10 +1,11 @@
 import { useQuery, useQueryClient } from 'vue-query'
 import { useStore } from 'vuex'
 
-import authUserAPI from './api/authUser'
 import { useSocketEvents } from '@/utils/composables'
-import { useWait } from '@/utils/queryHelpers'
 import { isValidationError } from '@/utils/datastore/helpers'
+import { useWait } from '@/utils/queryHelpers'
+
+import authUserAPI from './api/authUser'
 
 export const QUERY_KEY_BASE = 'authuser'
 export const queryKeys = {

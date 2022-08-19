@@ -70,20 +70,22 @@
 </template>
 
 <script>
-import { computed } from 'vue'
 import {
   QResizeObserver,
 } from 'quasar'
+import { computed } from 'vue'
+
+import { useActivityHelpers } from '@/activities/helpers'
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useAuthService } from '@/authuser/services'
+import { useCurrentGroupService } from '@/group/services'
+import { useUserService } from '@/users/services'
 
 import ProfilePicture from '@/users/components/ProfilePicture'
-import UserSlot from './UserSlot'
-import EmptySlot from './EmptySlot'
+
 import CurrentUser from './CurrentUser'
-import { useCurrentGroupService } from '@/group/services'
-import { useAuthService } from '@/authuser/services'
-import { useActivityHelpers } from '@/activities/helpers'
-import { useUserService } from '@/users/services'
-import { useAuthHelpers } from '@/authuser/helpers'
+import EmptySlot from './EmptySlot'
+import UserSlot from './UserSlot'
 
 export default {
   components: {

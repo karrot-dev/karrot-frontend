@@ -23,16 +23,16 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-
 import {
   QTabs,
   QRouteTab,
   QBadge,
 } from 'quasar'
-import { useStatusService } from '@/status/services'
-import { useActivePlaceService } from '@/places/services'
+import { computed } from 'vue'
+
 import { useCurrentGroupService } from '@/group/services'
+import { useActivePlaceService } from '@/places/services'
+import { useStatusService } from '@/status/services'
 
 export default {
   components: {

@@ -1,4 +1,5 @@
 import createPersistedState from 'vuex-persistedstate'
+
 import { debounceAndFlushOnUnload } from '@/utils/utils'
 
 const SAVE_INTERVAL_MS = 5000

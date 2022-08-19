@@ -254,7 +254,9 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import addHours from 'date-fns/addHours'
+import addSeconds from 'date-fns/addSeconds'
+import startOfTomorrow from 'date-fns/startOfTomorrow'
 import {
   QCard,
   QCardSection,
@@ -268,18 +270,9 @@ import {
   QFabAction,
   QToggle,
 } from 'quasar'
-import ActivitySeriesEdit from '@/activities/components/ActivitySeriesEdit'
-import ActivityEdit from '@/activities/components/ActivityEdit'
-import RandomArt from '@/utils/components/RandomArt'
-import KSpinner from '@/utils/components/KSpinner'
+import { ref, computed } from 'vue'
 
-import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
-
-import addSeconds from 'date-fns/addSeconds'
-import addHours from 'date-fns/addHours'
-import startOfTomorrow from 'date-fns/startOfTomorrow'
-import { defaultDuration } from '@/activities/settings'
-
+import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
 import {
   useCreateActivityMutation,
   useCreateActivitySeriesMutation,
@@ -287,12 +280,17 @@ import {
   useSaveActivityMutation,
   useSaveActivitySeriesMutation,
 } from '@/activities/mutations'
-
-import { useActivityTypeService } from '@/activities/services'
-import { useCurrentGroupService } from '@/group/services'
 import { useActivityListQuery, useActivitySeriesListQuery } from '@/activities/queries'
+import { useActivityTypeService } from '@/activities/services'
+import { defaultDuration } from '@/activities/settings'
+import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
+import { useCurrentGroupService } from '@/group/services'
 import { useActivePlaceService } from '@/places/services'
-import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
+
+import ActivityEdit from '@/activities/components/ActivityEdit'
+import ActivitySeriesEdit from '@/activities/components/ActivitySeriesEdit'
+import KSpinner from '@/utils/components/KSpinner'
+import RandomArt from '@/utils/components/RandomArt'
 
 export default {
   components: {

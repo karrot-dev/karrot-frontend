@@ -1,8 +1,9 @@
 import { useQuery } from 'vue-query'
 
-import api from './api/groupsInfo'
 import { useSocketEvents } from '@/utils/composables'
 import { useQueryHelpers } from '@/utils/queryHelpers'
+
+import api from './api/groupsInfo'
 
 export const QUERY_KEY_BASE = 'groupInfo'
 export const queryKeyGroupInfoListAll = () => [QUERY_KEY_BASE, 'list']

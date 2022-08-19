@@ -25,7 +25,9 @@ import {
   QIcon,
   QInfiniteScroll,
 } from 'quasar'
+
 import paginationMixin from '@/utils/mixins/paginationMixin'
+
 import HistoryEntry from '@/history/components/HistoryEntry'
 import KSpinner from '@/utils/components/KSpinner'
 

@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import GroupMap from '@/maps/components/GroupMap'
-
 import { throttle } from 'quasar'
+
+import GroupMap from '@/maps/components/GroupMap'
 
 export default {
   components: { GroupMap },

@@ -1,9 +1,10 @@
 import { computed, unref } from 'vue'
 import { useInfiniteQuery, useQuery } from 'vue-query'
 
-import api from './api/feedback'
-import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
 import { indexById } from '@/utils/datastore/helpers'
+import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
+
+import api from './api/feedback'
 
 export const QUERY_KEY_BASE = 'feedback'
 export const queryKeyFeedbackList = ({ groupId, placeId }) => [QUERY_KEY_BASE, { groupId, placeId }]

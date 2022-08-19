@@ -27,12 +27,13 @@
 </template>
 
 <script>
-import EmojiButton from './EmojiButton'
 import emojiList from 'markdown-it-emoji/lib/data/full.json'
 import {
   QInput,
   QIcon,
 } from 'quasar'
+
+import EmojiButton from './EmojiButton'
 
 function searchEmoji (search) {
   // Remove colons and set to lowercase to normalize search

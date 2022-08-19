@@ -20,6 +20,7 @@
 import {
   QIcon,
 } from 'quasar'
+
 import SidenavBox from '@/sidenav/components/SidenavBox'
 import SidenavMenu from '@/sidenav/components/SidenavMenu'
 

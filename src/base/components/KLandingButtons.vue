@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import { QBtn } from 'quasar'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {

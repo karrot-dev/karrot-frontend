@@ -25,6 +25,7 @@ import {
   QTabs,
   QRouteTab,
 } from 'quasar'
+
 import { useCurrentGroupService } from '@/group/services'
 import { useActiveIssueService } from '@/issues/services'
 

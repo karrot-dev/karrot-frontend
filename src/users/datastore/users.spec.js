@@ -1,11 +1,11 @@
+import { enrichGroup } from '>/datastoreHelpers'
+import { createDatastore, throws, createValidationError } from '>/helpers'
+
 const mockCreate = jest.fn()
 jest.mock('@/authuser/api/authUser', () => ({ create: mockCreate }))
 const mockGet = jest.fn()
 const mockGetProfile = jest.fn()
 jest.mock('@/users/api/users', () => ({ get: mockGet, getProfile: mockGetProfile }))
-
-import { createDatastore, throws, createValidationError } from '>/helpers'
-import { enrichGroup } from '>/datastoreHelpers'
 
 function enrich (user, groups, currentUserId) {
   return {

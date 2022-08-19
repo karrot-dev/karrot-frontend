@@ -11,11 +11,11 @@
 <script setup>
 import { computed } from 'vue'
 
-import EditActivityTypesUI from '@/group/components/EditActivityTypesUI'
-
 import { useCreateActivityTypeMutation, useSaveActivityTypeMutation } from '@/activities/mutations'
-import { useCurrentGroupService } from '@/group/services'
 import { useActivityTypeService } from '@/activities/services'
+import { useCurrentGroupService } from '@/group/services'
+
+import EditActivityTypesUI from '@/group/components/EditActivityTypesUI'
 
 const { groupId } = useCurrentGroupService()
 const { getActivityTypesByGroup } = useActivityTypeService()

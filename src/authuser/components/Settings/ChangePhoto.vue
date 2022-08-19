@@ -83,13 +83,12 @@ import {
   QIcon,
   QResizeObserver,
 } from 'quasar'
-
 import CroppaPlugin from 'vue-croppa'
+
+import statusMixin from '@/utils/mixins/statusMixin'
 const Croppa = CroppaPlugin.component
 // Upgrade Croppa once it's compatible with Vue3: https://github.com/zhanziyang/vue-croppa/issues/235
 Croppa.compatConfig = { MODE: 2 }
-
-import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {
   components: {

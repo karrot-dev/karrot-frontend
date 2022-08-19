@@ -34,10 +34,11 @@
 </template>
 
 <script>
+import { latLngBounds } from 'leaflet/dist/leaflet-src.esm'
 import { QMenu } from 'quasar'
+
 import KMap from './KMap'
 import KMarker from './KMarker'
-import { latLngBounds } from 'leaflet/dist/leaflet-src.esm'
 
 const SELECTED_OPACITY = 1
 const UNSELECTED_OPACITY = 0.5

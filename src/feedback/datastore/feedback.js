@@ -1,6 +1,11 @@
-import router from '@/router'
 import feedbackAPI from '@/feedback/api/feedback'
-import { createMetaModule, withMeta, metaStatuses, createPaginationModule, indexById } from '@/utils/datastore/helpers'
+import {
+  createMetaModule,
+  withMeta,
+  metaStatuses,
+  createPaginationModule,
+  indexById,
+} from '@/utils/datastore/helpers'
 
 function initialState () {
   return {
@@ -67,8 +72,8 @@ export default {
 
         // In order to redirect to the placeFeedback page, we need to find the place id
         // It's not part of plain saved feedback, so we need to get it from _enriched_ feedback
-        const enrichedFeedback = getters.get(entry.id)
-        const placeId = enrichedFeedback.place.id
+        // const enrichedFeedback = getters.get(entry.id)
+        // const placeId = enrichedFeedback.place.id
         // router.push({ name: 'placeFeedback', params: { placeId }, query: { highlight: entry.id } }).catch(() => {})
       },
 

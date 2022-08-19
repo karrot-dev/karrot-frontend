@@ -39,8 +39,8 @@ import {
   QMenu,
   Platform,
 } from 'quasar'
-
 import { defineAsyncComponent, ref } from 'vue'
+
 import { useStatusService } from '@/status/services'
 
 const LatestMessages = defineAsyncComponent(() => import('@/messages/components/LatestMessages'))

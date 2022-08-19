@@ -1,7 +1,8 @@
-import icons from '@/base/icons'
-import { useUserService } from '@/users/services'
-import { usePlaceService } from '@/places/services'
 import { useI18n } from 'vue-i18n'
+
+import icons from '@/base/icons'
+import { usePlaceService } from '@/places/services'
+import { useUserService } from '@/users/services'
 
 export function useNotificationHelpers () {
   const { t, d } = useI18n()

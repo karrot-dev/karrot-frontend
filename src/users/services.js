@@ -1,8 +1,9 @@
 import { computed, watch } from 'vue'
-import { useUserListAllQuery, useUserProfileQuery } from '@/users/queries'
-import { indexBy, indexById, defineService, isValidationError } from '@/utils/datastore/helpers'
-import { useIntegerRouteParam } from '@/utils/composables'
+
 import { useRouteErrorService } from '@/base/services'
+import { useUserListAllQuery, useUserProfileQuery } from '@/users/queries'
+import { useIntegerRouteParam } from '@/utils/composables'
+import { indexBy, indexById, defineService, isValidationError } from '@/utils/datastore/helpers'
 
 export const useUserService = defineService(() => {
   // queries

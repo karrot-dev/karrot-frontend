@@ -1,10 +1,10 @@
+import cloneDeep from 'clone-deep'
 import { nextTick } from 'vue'
 
-import ActivityEdit from './ActivityEdit'
-import { activitiesMock } from '>/mockdata'
-import cloneDeep from 'clone-deep'
-
 import { createDatastore, mountWithDefaults, statusMocks } from '>/helpers'
+import { activitiesMock } from '>/mockdata'
+
+import ActivityEdit from './ActivityEdit'
 
 const datastore = createDatastore({
   users: {

@@ -10,9 +10,10 @@
 </template>
 
 <script setup>
-import DetailHeaderUI from './DetailHeaderUI'
-import { useDetailService } from '@/messages/services'
 import { useAuthService } from '@/authuser/services'
+import { useDetailService } from '@/messages/services'
+
+import DetailHeaderUI from './DetailHeaderUI'
 
 const {
   user: currentUser,

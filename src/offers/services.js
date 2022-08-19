@@ -1,6 +1,6 @@
-import { defineService } from '@/utils/datastore/helpers'
-import { useIntegerRouteParam } from '@/utils/composables'
 import { useOfferDetailQuery } from '@/offers/queries'
+import { useIntegerRouteParam } from '@/utils/composables'
+import { defineService } from '@/utils/datastore/helpers'
 
 export const useActiveOfferService = defineService(() => {
   // services

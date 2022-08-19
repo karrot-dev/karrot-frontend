@@ -1,5 +1,5 @@
-import datastore from '@/store'
 import router from '@/router'
+import datastore from '@/store'
 
 document.addEventListener('deviceready', onDeviceReady, false)
 

@@ -46,9 +46,11 @@ import {
   QIcon,
   QToggle,
 } from 'quasar'
-import SidenavBox from './SidenavBox'
+
 import PlaceList from '@/places/components/PlaceList'
 import KSpinner from '@/utils/components/KSpinner'
+
+import SidenavBox from './SidenavBox'
 
 export default {
   components: {

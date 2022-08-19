@@ -1,10 +1,11 @@
-import { nextTick } from 'vue'
 import { mount, RouterLinkStub } from '@vue/test-utils'
-import { VueQueryPlugin } from 'vue-query'
 import deepmerge from 'deepmerge'
-import i18n, { i18nPlugin } from '@/base/i18n'
-import { createStore } from 'vuex'
 import { isArray, mergeWith } from 'lodash'
+import { nextTick } from 'vue'
+import { VueQueryPlugin } from 'vue-query'
+import { createStore } from 'vuex'
+
+import i18n, { i18nPlugin } from '@/base/i18n'
 
 const desktopUserAgent = 'Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0'
 const mobileUserAgent = 'Mozilla/5.0 (Android 9; Mobile; rv:68.0) Gecko/68.0 Firefox/68.0'

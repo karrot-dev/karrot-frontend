@@ -6,8 +6,9 @@
 </template>
 
 <script setup>
-import WallConversation from '@/messages/components/WallConversation'
 import { useActivePlaceService } from '@/places/services'
+
+import WallConversation from '@/messages/components/WallConversation'
 
 const { placeId } = useActivePlaceService()
 </script>

@@ -83,21 +83,23 @@
 </template>
 
 <script setup>
-import { toRefs, computed } from 'vue'
 import {
   QCard,
   QCardSection,
   QIcon,
 } from 'quasar'
+import { toRefs, computed } from 'vue'
 
-import AmountBox from './AmountBox'
+import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityTypeService } from '@/activities/services'
+import { usePlaceService } from '@/places/services'
+import { useUserService } from '@/users/services'
+
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
 import Markdown from '@/utils/components/Markdown'
-import { useActivityTypeHelpers } from '@/activities/helpers'
-import { usePlaceService } from '@/places/services'
-import { useUserService } from '@/users/services'
-import { useActivityTypeService } from '@/activities/services'
+
+import AmountBox from './AmountBox'
 
 const props = defineProps({
   feedback: {

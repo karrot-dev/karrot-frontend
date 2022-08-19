@@ -57,12 +57,16 @@ import {
   QItem,
   QBtn,
 } from 'quasar'
-import LatestMessageItem from './LatestMessageItem'
+
+import { useStatusService } from '@/status/services'
+
 import KSpinner from '@/utils/components/KSpinner'
+
+import { useMyThreadsMarkSeenMutation } from '../mutations'
 import { useMyThreadListQuery } from '../queries'
 import { useDetailService } from '../services'
-import { useMyThreadsMarkSeenMutation } from '../mutations'
-import { useStatusService } from '@/status/services'
+
+import LatestMessageItem from './LatestMessageItem'
 
 export default {
   components: {

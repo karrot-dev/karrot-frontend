@@ -6,28 +6,26 @@
  *
  * The implementations are not complete, so if you miss a property that you need, please add it!
  */
-import subHours from 'date-fns/subHours'
-import subDays from 'date-fns/subDays'
 import addDays from 'date-fns/addDays'
 import addMinutes from 'date-fns/addMinutes'
-
-import { statusMocks } from '>/helpers'
-import { optionsFor } from '@/places/placeStatus'
+import subDays from 'date-fns/subDays'
+import subHours from 'date-fns/subHours'
 
 // Reusing the landing page images :)
 
 import imageLarge from '@/base/pages/images/app-screenshots-browser/karrot-screenshot-browser-1776.png'
-
-import imageFeatureA from '@/base/pages/images/feature-screenshots/karrot-feature-groups-978.png'
 import imageFeatureB from '@/base/pages/images/feature-screenshots/karrot-feature-activities-978.png'
+import imageFeatureA from '@/base/pages/images/feature-screenshots/karrot-feature-groups-978.png'
 import imageFeatureC from '@/base/pages/images/feature-screenshots/karrot-feature-offers-978.png'
-
-import imageRandomA from '@/base/pages/images/random-imgs/oestersund-saved-food-200.jpg'
-import imageRandomB from '@/base/pages/images/random-imgs/oestersund-volunteers-200.jpg'
 import imageRandomC from '@/base/pages/images/random-imgs/bike-workshop-200.jpg'
-import imageRandomD from '@/base/pages/images/random-imgs/solikyl-savers-200.jpg'
 import imageRandomE from '@/base/pages/images/random-imgs/fsmaastricht-fairshare-200.jpg'
 import imageRandomF from '@/base/pages/images/random-imgs/fsmaastricht-foodsavers-200.jpg'
+import imageRandomA from '@/base/pages/images/random-imgs/oestersund-saved-food-200.jpg'
+import imageRandomB from '@/base/pages/images/random-imgs/oestersund-volunteers-200.jpg'
+import imageRandomD from '@/base/pages/images/random-imgs/solikyl-savers-200.jpg'
+import { optionsFor } from '@/places/placeStatus'
+
+import { statusMocks } from '>/helpers'
 
 let notificationIdCnt = 0
 export const makeNotification = data => {

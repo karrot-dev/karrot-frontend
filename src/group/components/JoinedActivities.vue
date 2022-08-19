@@ -27,8 +27,9 @@
 </template>
 
 <script>
-import ActivityList from '@/activities/components/ActivityList'
 import { QCard } from 'quasar'
+
+import ActivityList from '@/activities/components/ActivityList'
 
 export default {
   components: {

@@ -1,9 +1,10 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
+import * as factories from '>/enrichedFactories'
+import { createDatastore, storybookDefaults as defaults, statusMocks } from '>/helpers'
 
 import ConversationCompose from './ConversationCompose'
-import { createDatastore, storybookDefaults as defaults, statusMocks } from '>/helpers'
-import * as factories from '>/enrichedFactories'
 
 const user = factories.makeCurrentUser()
 

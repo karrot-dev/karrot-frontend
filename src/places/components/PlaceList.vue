@@ -90,9 +90,9 @@ import {
   QBadge,
 } from 'quasar'
 
+import { useCurrentGroupService } from '@/group/services'
 import { usePlaceHelpers } from '@/places/helpers'
 import { useStatusService } from '@/status/services'
-import { useCurrentGroupService } from '@/group/services'
 
 export default {
   components: {

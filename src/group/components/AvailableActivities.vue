@@ -14,6 +14,7 @@
 <script setup>
 import { QCard } from 'quasar'
 import { useRouter } from 'vue-router'
+
 import { useCurrentGroupService } from '@/group/services'
 
 const { groupId } = useCurrentGroupService()

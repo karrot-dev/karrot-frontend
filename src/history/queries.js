@@ -1,8 +1,9 @@
 import { unref, computed } from 'vue'
 import { useInfiniteQuery, useQuery } from 'vue-query'
 
-import api from './api/history'
 import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
+
+import api from './api/history'
 
 export const QUERY_KEY_BASE = 'history'
 export const queryKeyHistoryDetail = historyId => [QUERY_KEY_BASE, 'detail', historyId].filter(Boolean)

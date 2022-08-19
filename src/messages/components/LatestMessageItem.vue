@@ -166,13 +166,15 @@ import {
   QBadge,
   QIcon,
 } from 'quasar'
-import DateAsWords from '@/utils/components/DateAsWords'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import { useActivityTypeService } from '@/activities/services'
+
 import { useActivityTypeHelpers } from '@/activities/helpers'
-import { useUserService } from '@/users/services'
+import { useActivityTypeService } from '@/activities/services'
 import { useAuthHelpers } from '@/authuser/helpers'
 import { usePlaceService } from '@/places/services'
+import { useUserService } from '@/users/services'
+
+import ProfilePicture from '@/users/components/ProfilePicture'
+import DateAsWords from '@/utils/components/DateAsWords'
 
 export default {
   components: {

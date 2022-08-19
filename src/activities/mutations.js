@@ -1,12 +1,12 @@
 import { unref } from 'vue'
 import { useMutation, useQueryClient } from 'vue-query'
 
+import { queryKeyActivityIcsToken, queryKeyActivityTypeListAll } from '@/activities/queries'
+import { withStatus } from '@/utils/queryHelpers'
+
 import api from './api/activities'
 import activitySeriesAPI from './api/activitySeries'
 import activityTypeAPI from './api/activityTypes'
-
-import { withStatus } from '@/utils/queryHelpers'
-import { queryKeyActivityIcsToken, queryKeyActivityTypeListAll } from '@/activities/queries'
 
 // TODO: consider doing some immediate update of cached data, even if we also invalidate by websocket, as if we are scrolled far down an infinite list it can take a while to update...
 export function useJoinActivityMutation (mutationOptions = {}) {

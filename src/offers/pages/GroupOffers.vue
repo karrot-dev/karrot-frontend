@@ -114,19 +114,17 @@ import {
   QImg,
   QInfiniteScroll,
 } from 'quasar'
+import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
+
+import { useCurrentGroupService } from '@/group/services'
+import { DEFAULT_STATUS, useOfferListQuery } from '@/offers/queries'
+import { useUserService } from '@/users/services'
+import { useQueryParams } from '@/utils/mixins/bindRoute'
 
 import ProfilePicture from '@/users/components/ProfilePicture'
-import KSpinner from '@/utils/components/KSpinner'
 import DateAsWords from '@/utils/components/DateAsWords'
-
-import { DEFAULT_STATUS, useOfferListQuery } from '@/offers/queries'
-
-import { useQueryParams } from '@/utils/mixins/bindRoute'
-import { useRoute } from 'vue-router'
-import { useI18n } from 'vue-i18n'
-import { useCurrentGroupService } from '@/group/services'
-import { useUserService } from '@/users/services'
-import { useStatusService } from '@/status/services'
+import KSpinner from '@/utils/components/KSpinner'
 
 const { t } = useI18n()
 

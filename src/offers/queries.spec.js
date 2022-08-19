@@ -1,10 +1,12 @@
-import { ref } from 'vue'
-import { useOfferDetailQuery, useOfferListQuery } from '@/offers/queries'
 import { flushPromises, mount } from '@vue/test-utils'
+import { ref } from 'vue'
 import { VueQueryPlugin } from 'vue-query'
+
 import { createOffer, createMockOffersBackend } from '@/offers/api/offers.mock'
-import { mockAxios } from '>/mockAxios'
+import { useOfferDetailQuery, useOfferListQuery } from '@/offers/queries'
 import { camelizeKeys } from '@/utils/utils'
+
+import { mockAxios } from '>/mockAxios'
 
 describe('offer queries', () => {
   beforeEach(() => jest.resetModules())

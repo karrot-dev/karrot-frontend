@@ -11,8 +11,9 @@
 </template>
 
 <script setup>
-import SidenavPlacesUI from './SidenavPlacesUI'
 import { useCurrentGroupService } from '@/group/services'
+
+import SidenavPlacesUI from './SidenavPlacesUI'
 
 const {
   groupId,

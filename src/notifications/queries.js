@@ -1,9 +1,10 @@
 import { useInfiniteQuery, useQueryClient } from 'vue-query'
-import { useSocketEvents } from '@/utils/composables'
 
-import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
-import api from './api/notifications'
+import { useSocketEvents } from '@/utils/composables'
 import { indexById } from '@/utils/datastore/helpers'
+import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
+
+import api from './api/notifications'
 
 export const QUERY_KEY_BASE = 'notifications'
 export const queryKeyNotificationList = params => [QUERY_KEY_BASE, 'list', params].filter(Boolean)

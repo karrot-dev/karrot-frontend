@@ -41,7 +41,9 @@ import {
   QMenu,
 } from 'quasar'
 import { defineAsyncComponent } from 'vue'
+
 import { useStatusService } from '@/status/services'
+
 import { useMarkSeenMutation } from '../mutations'
 
 const Notifications = defineAsyncComponent(() => import('@/notifications/components/Notifications'))

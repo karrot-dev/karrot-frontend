@@ -23,11 +23,11 @@
 <script setup>
 import { QCard } from 'quasar'
 
-import HistoryList from '@/history/components/HistoryList'
-import RandomArt from '@/utils/components/RandomArt'
-
 import { useCurrentGroupService } from '@/group/services'
 import { useHistoryListQuery } from '@/history/queries'
+
+import HistoryList from '@/history/components/HistoryList'
+import RandomArt from '@/utils/components/RandomArt'
 
 const { groupId } = useCurrentGroupService()
 const {

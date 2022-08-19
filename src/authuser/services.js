@@ -1,7 +1,7 @@
 import { computed } from 'vue'
 
-import { defineService } from '@/utils/datastore/helpers'
 import { useAuthUserQuery } from '@/authuser/queries'
+import { defineService } from '@/utils/datastore/helpers'
 
 export const useAuthService = defineService(() => {
   // queries

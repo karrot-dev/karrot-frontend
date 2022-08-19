@@ -32,22 +32,22 @@
 </template>
 
 <script setup>
-import { watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 import {
   QCard,
   QBanner,
   QIcon,
   QBtn,
 } from 'quasar'
+import { watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
-import PlaceTabs from '@/places/components/PlaceTabs'
-import PlaceHeader from '@/places/components/PlaceHeader'
-
-import { useActivePlaceService } from '@/places/services'
 import { useCurrentGroupService } from '@/group/services'
 import { useSavePlaceMutation } from '@/places/mutations'
+import { useActivePlaceService } from '@/places/services'
 import { placeRoute } from '@/places/utils'
+
+import PlaceHeader from '@/places/components/PlaceHeader'
+import PlaceTabs from '@/places/components/PlaceTabs'
 
 const route = useRoute()
 const router = useRouter()

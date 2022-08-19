@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import SidenavMap from './SidenavMap'
 import SidenavGroup from './SidenavGroup'
+import SidenavMap from './SidenavMap'
 import SidenavPlaces from './SidenavPlaces'
 
 export default {

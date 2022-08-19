@@ -1,8 +1,8 @@
-import users from '@/users/api/users'
 import auth from '@/authuser/api/auth'
-import { createRouteError, createMetaModule, withMeta, metaStatuses, indexById } from '@/utils/datastore/helpers'
-import router from '@/router'
 import { createInstrument } from '@/boot/performance'
+import router from '@/router'
+import users from '@/users/api/users'
+import { createRouteError, createMetaModule, withMeta, metaStatuses, indexById } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {

@@ -1,7 +1,8 @@
 import { computed, unref, watch } from 'vue'
+
 import { useActivityTypeListQuery } from '@/activities/queries'
-import { defineService, indexById } from '@/utils/datastore/helpers'
 import { createActivityTypeStylesheet } from '@/activities/stylesheet'
+import { defineService, indexById } from '@/utils/datastore/helpers'
 
 export const useActivityTypeService = defineService(() => {
   // queries

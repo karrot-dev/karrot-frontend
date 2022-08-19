@@ -21,7 +21,7 @@ module.exports = {
     // but leave only one uncommented!
     // See https://eslint.vuejs.org/rules/#available-rules
     'plugin:vue/vue3-recommended', // Priority C: Recommended (Minimizing Arbitrary Choices and Cognitive Overhead)
-
+    'plugin:import/recommended',
     'standard',
 
   ],
@@ -48,14 +48,40 @@ module.exports = {
     'arrow-parens': 'off',
     'one-var': 'off',
 
-    'import/first': 'off',
-    'import/named': 'error',
-    'import/namespace': 'error',
-    'import/default': 'error',
-    'import/export': 'error',
-    'import/extensions': 'off',
     'import/no-unresolved': 'off',
-    'import/no-extraneous-dependencies': 'off',
+    'import/order': ['error', {
+      groups: [
+        'builtin', // node "builtin" modules
+        'external',
+        'internal',
+        'parent', // modules from a "parent" directory ('../blah')
+        'sibling', // "sibling" modules from the same or a sibling's directory ('./foo/foo')
+        'index', // "index" of the current directory ('./')
+        'object', // typescript stuff
+        'type', // typescript stuff
+      ],
+      pathGroups: [
+        {
+          // put component files nicely below
+          pattern: '**/components/**',
+          group: 'internal',
+          position: 'after',
+        },
+        {
+          pattern: '@/**',
+          group: 'internal',
+        },
+        {
+          pattern: '>/**',
+          group: 'internal',
+          position: 'after',
+        },
+      ],
+      'newlines-between': 'always',
+      alphabetize: {
+        order: 'asc',
+      },
+    }],
     'prefer-promise-reject-errors': 'off',
     'multiline-ternary': ['error', 'always-multiline'],
 
@@ -74,5 +100,14 @@ module.exports = {
     'vue/component-name-in-template-casing': ['error', 'PascalCase', { ignores: ['i18n'] }],
     // allow single word component names, see https://github.com/karrot-dev/karrot-frontend/issues/2463
     'vue/multi-word-component-names': 'off',
+  },
+
+  settings: {
+    // uses 'eslint-import-resolver-webpack':
+    'import/resolver': {
+      webpack: {
+        config: './webpack.aliases.js',
+      },
+    },
   },
 }

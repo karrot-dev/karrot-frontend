@@ -1,5 +1,6 @@
-import axios from '@/base/api/axios'
 import { throttle } from 'quasar'
+
+import axios from '@/base/api/axios'
 import { convert as convertConversation } from '@/messages/api/conversations'
 
 async function markUserActive (groupId) {

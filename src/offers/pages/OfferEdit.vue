@@ -9,9 +9,10 @@
 </template>
 
 <script setup>
-import OfferForm from '@/offers/components/OfferForm'
 import { useSaveOfferMutation } from '@/offers/mutations'
 import { useActiveOfferService } from '@/offers/services'
+
+import OfferForm from '@/offers/components/OfferForm'
 
 const { offer, isLoading } = useActiveOfferService()
 

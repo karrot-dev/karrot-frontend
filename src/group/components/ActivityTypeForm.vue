@@ -228,6 +228,9 @@
 </template>
 
 <script>
+import { QIconPicker } from '@quasar/quasar-ui-qiconpicker'
+import useVuelidate from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
 import {
   QSelect,
   QInput,
@@ -243,12 +246,8 @@ import {
   QSeparator,
   colors,
 } from 'quasar'
-import { QIconPicker } from '@quasar/quasar-ui-qiconpicker'
-import useVuelidate from '@vuelidate/core'
-import { required } from '@vuelidate/validators'
 
 import { createActivityTypeStylesheet } from '@/activities/stylesheet'
-
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 

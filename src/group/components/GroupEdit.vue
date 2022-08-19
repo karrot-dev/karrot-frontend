@@ -166,6 +166,8 @@
 </template>
 
 <script>
+import useVuelidate from '@vuelidate/core'
+import { required, minLength, maxLength } from '@vuelidate/validators'
 import jstz from 'jstimezonedetect'
 import {
   QCard,
@@ -175,14 +177,14 @@ import {
   QSelect,
   QIcon,
 } from 'quasar'
-import AddressPicker from '@/maps/components/AddressPicker'
-import MarkdownInput from '@/utils/components/MarkdownInput'
-import useVuelidate from '@vuelidate/core'
-import { required, minLength, maxLength } from '@vuelidate/validators'
+
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
+
 import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
+import AddressPicker from '@/maps/components/AddressPicker'
 import InfoPopup from '@/utils/components/InfoPopup'
+import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
   name: 'GroupEdit',

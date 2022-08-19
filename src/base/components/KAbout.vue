@@ -148,8 +148,9 @@ import {
   QIcon,
 } from 'quasar'
 
-import KarrotLogo from '@/logo/components/KarrotLogo'
 import { useAboutService } from '@/utils/services'
+
+import KarrotLogo from '@/logo/components/KarrotLogo'
 
 export default {
   components: {

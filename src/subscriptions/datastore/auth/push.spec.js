@@ -1,3 +1,5 @@
+import { createDatastore, nextTicks } from '>/helpers'
+
 const mockGetToken = jest.fn()
 const mockInitializeMessaging = jest.fn(() => ({
   getToken: mockGetToken,
@@ -22,8 +24,6 @@ jest.mock('@/subscriptions/firebase', () => ({
 }))
 
 const toastShowMock = jest.fn()
-
-import { createDatastore, nextTicks } from '>/helpers'
 
 describe('auth/push', () => {
   beforeEach(() => jest.resetModules())

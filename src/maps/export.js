@@ -1,5 +1,5 @@
-import { toXML } from 'jstoxml'
 import { saveAs } from 'file-saver'
+import { toXML } from 'jstoxml'
 
 export function exportAsGPX (markers, filename) {
   saveAs(new Blob(

@@ -1,7 +1,7 @@
 import { computed, ref } from 'vue'
 
-import { defineService } from '@/utils/datastore/helpers'
 import { useCurrentGroupService } from '@/group/services'
+import { defineService } from '@/utils/datastore/helpers'
 
 const DEFAULT_LOCATION = { lat: '49.8990022441358', lng: '8.66415739059448' }
 const myCoordinates = ref(null)

@@ -18,10 +18,11 @@
 
 <script setup>
 import { QCard } from 'quasar'
-import HistoryList from '@/history/components/HistoryList'
 
-import { useActivePlaceService } from '@/places/services'
 import { useHistoryListQuery } from '@/history/queries'
+import { useActivePlaceService } from '@/places/services'
+
+import HistoryList from '@/history/components/HistoryList'
 
 const { placeId } = useActivePlaceService()
 

@@ -1,9 +1,12 @@
 import { flushPromises, mount } from '@vue/test-utils'
-import GroupOffers from './GroupOffers'
-import '>/routerMocks'
-import { createMockOffersBackend, createOffer } from '@/offers/api/offers.mock'
 import { createStore } from 'vuex'
+
+import { createMockOffersBackend, createOffer } from '@/offers/api/offers.mock'
+
 import { withDefaults } from '>/helpers'
+import '>/routerMocks'
+
+import GroupOffers from './GroupOffers'
 
 describe('GroupOffers', () => {
   it('works', async () => {

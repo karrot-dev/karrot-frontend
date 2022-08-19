@@ -1,7 +1,7 @@
 import { ref, reactive, computed } from 'vue'
 
-import { defineService } from '@/utils/datastore/helpers'
 import { getServiceWorkerRegistration, initializeMessaging, isSupported } from '@/subscriptions/firebase'
+import { defineService } from '@/utils/datastore/helpers'
 import { showToast } from '@/utils/toasts'
 
 function createPendingCounter () {

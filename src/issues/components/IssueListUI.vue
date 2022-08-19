@@ -39,16 +39,17 @@
 </template>
 
 <script>
-import IssueItem from './IssueItem'
-import KSpinner from '@/utils/components/KSpinner'
-import KNotice from '@/utils/components/KNotice'
-
 import {
   QExpansionItem,
   QSeparator,
   QList,
   QIcon,
 } from 'quasar'
+
+import KNotice from '@/utils/components/KNotice'
+import KSpinner from '@/utils/components/KSpinner'
+
+import IssueItem from './IssueItem'
 
 export default {
   components: {

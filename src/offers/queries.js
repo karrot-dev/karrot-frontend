@@ -1,11 +1,11 @@
-import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 import { computed, unref } from 'vue'
+import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
-import api from './api/offers'
-
+import { isMutating } from '@/offers/mutations'
 import { useSocketEvents } from '@/utils/composables'
 import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
-import { isMutating } from '@/offers/mutations'
+
+import api from './api/offers'
 
 export const QUERY_KEY_BASE = 'offers'
 export const queryKeyOfferList = (group, status) => [QUERY_KEY_BASE, 'list', group, status].filter(Boolean)

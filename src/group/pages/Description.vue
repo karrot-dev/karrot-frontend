@@ -43,9 +43,11 @@ import {
   QCard,
   QBtn,
 } from 'quasar'
+
+import { useCurrentGroupService } from '@/group/services'
+
 import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
-import { useCurrentGroupService } from '@/group/services'
 
 const {
   group,

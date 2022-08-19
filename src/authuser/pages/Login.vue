@@ -6,8 +6,9 @@
 </template>
 
 <script setup>
-import Login from '@/authuser/components/Login'
 import { useLoginMutation } from '@/authuser/mutations'
+
+import Login from '@/authuser/components/Login'
 
 const {
   mutate: login,

@@ -54,9 +54,11 @@ import {
   QTab,
   QRouteTab,
 } from 'quasar'
+
+import { useStatusService } from '@/status/services'
+
 import LatestConversations from './LatestConversations'
 import LatestThreads from './LatestThreads'
-import { useStatusService } from '@/status/services'
 
 export default {
   components: {

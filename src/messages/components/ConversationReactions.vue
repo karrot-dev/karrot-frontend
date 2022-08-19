@@ -57,9 +57,6 @@
 </template>
 
 <script>
-import ConversationAddReaction from './ConversationAddReaction'
-import EmojiButton from './EmojiButton'
-
 import {
   QDialog,
   QItem,
@@ -67,7 +64,11 @@ import {
   QItemLabel,
   QBtn,
 } from 'quasar'
+
 import { useMessageHelpers } from '@/messages/helpers'
+
+import ConversationAddReaction from './ConversationAddReaction'
+import EmojiButton from './EmojiButton'
 
 export default {
   name: 'ConversationReactions',

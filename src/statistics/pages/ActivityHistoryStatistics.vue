@@ -89,16 +89,15 @@
 </template>
 
 <script>
-import { QSelect, QTable, QToggle, QItem, QItemSection, QItemLabel, QSeparator } from 'quasar'
+import { endOfYear, getYear, startOfYear, subYears } from 'date-fns'
 import subDays from 'date-fns/subDays'
 import subMonths from 'date-fns/subMonths'
+import { QSelect, QTable, QToggle, QItem, QItemSection, QItemLabel, QSeparator } from 'quasar'
 
-import api from '@/statistics/api/statistics'
-import { mapGetters } from 'vuex'
-import { indexById } from '@/utils/datastore/helpers'
-import { endOfYear, getYear, startOfYear, subYears } from 'date-fns'
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceService } from '@/places/services'
+import api from '@/statistics/api/statistics'
+import { indexById } from '@/utils/datastore/helpers'
 
 export default {
   components: {

@@ -1,30 +1,30 @@
-import { watch } from 'vue'
 import mitt from 'mitt'
 import { AppVisibility, debounce } from 'quasar'
-
-import auth from '@/authuser/api/auth'
-import { defineService } from '@/utils/datastore/helpers'
-import { useConnectivity } from '@/utils/services'
-import { useAuthService } from '@/authuser/services'
 import ReconnectingWebsocket from 'reconnecting-websocket'
-import log from '@/utils/log'
-import { camelizeKeys, devSleep } from '@/utils/utils'
-import { convert as convertApplication } from '@/applications/api/applications'
-import { convert as convertMessage } from '@/messages/api/messages'
-import { convert as convertConversation, convertMeta as convertConversationMeta } from '@/messages/api/conversations'
-import { convert as convertCommunityFeedMeta } from '@/communityFeed/api/communityFeed'
-import { convert as convertGroup } from '@/group/api/groups'
-import { convert as convertIssue } from '@/issues/api/issues'
+import { watch } from 'vue'
+
 import { convert as convertActivity } from '@/activities/api/activities'
 import { convert as convertSeries } from '@/activities/api/activitySeries'
-import { convert as convertOffer } from '@/offers/api/offers'
+import { convert as convertApplication } from '@/applications/api/applications'
+import auth from '@/authuser/api/auth'
+import { useAuthService } from '@/authuser/services'
+import { usePresenceService } from '@/base/services/presence'
+import { convert as convertCommunityFeedMeta } from '@/communityFeed/api/communityFeed'
 import { convert as convertFeedback } from '@/feedback/api/feedback'
+import { convert as convertGroup } from '@/group/api/groups'
 import { convert as convertHistory } from '@/history/api/history'
+import { convert as convertIssue } from '@/issues/api/issues'
+import { convert as convertConversation, convertMeta as convertConversationMeta } from '@/messages/api/conversations'
+import { convert as convertMessage } from '@/messages/api/messages'
 import {
   convert as convertNotification,
   convertMeta as convertNotificationMeta,
 } from '@/notifications/api/notifications'
-import { usePresenceService } from '@/base/services/presence'
+import { convert as convertOffer } from '@/offers/api/offers'
+import { defineService } from '@/utils/datastore/helpers'
+import log from '@/utils/log'
+import { useConnectivity } from '@/utils/services'
+import { camelizeKeys, devSleep } from '@/utils/utils'
 
 // Global event bus for websocket events
 export const socketEvents = mitt()

@@ -9,8 +9,9 @@
 </template>
 
 <script setup>
-import KTopbarUI from './KTopbarUI'
 import { useLogoutMutation } from '@/authuser/mutations'
+
+import KTopbarUI from './KTopbarUI'
 
 const { mutate: logout } = useLogoutMutation()
 </script>

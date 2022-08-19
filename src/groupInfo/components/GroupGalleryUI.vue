@@ -139,10 +139,6 @@
 </template>
 
 <script>
-import GroupGalleryMap from './GroupGalleryMap'
-import GroupGalleryCards from './GroupGalleryCards'
-import KSpinner from '@/utils/components/KSpinner'
-
 import {
   QBtn,
   QTooltip,
@@ -152,6 +148,11 @@ import {
   QIcon,
   QResizeObserver,
 } from 'quasar'
+
+import KSpinner from '@/utils/components/KSpinner'
+
+import GroupGalleryCards from './GroupGalleryCards'
+import GroupGalleryMap from './GroupGalleryMap'
 
 export default {
   components: {

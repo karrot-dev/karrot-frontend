@@ -29,6 +29,7 @@
 
 <script>
 import { QBtn, QToolbar, QToolbarTitle } from 'quasar'
+
 import { useAuthService } from '@/authuser/services'
 import { useActiveOfferService } from '@/offers/services'
 

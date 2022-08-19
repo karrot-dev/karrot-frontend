@@ -15,9 +15,10 @@
 </template>
 
 <script setup>
-import DetailUI from './DetailUI'
-import { useDetailService } from '@/messages/services'
 import { usePresenceService } from '@/base/services/presence'
+import { useDetailService } from '@/messages/services'
+
+import DetailUI from './DetailUI'
 
 const { isAway } = usePresenceService()
 

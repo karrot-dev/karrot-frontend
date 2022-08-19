@@ -205,22 +205,6 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-import { defineAsyncComponent, computed } from 'vue'
-
-import HistoryList from '@/history/components/HistoryList'
-import KSpinner from '@/utils/components/KSpinner'
-import Markdown from '@/utils/components/Markdown'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import UserMapPreview from '@/maps/components/UserMapPreview'
-import TrustButton from '@/users/components/TrustButton'
-import SwitchGroupButton from '@/users/components/SwitchGroupButton'
-
-const ConflictSetup = defineAsyncComponent(() => import('@/issues/components/ConflictSetup'))
-
-import { useCurrentGroupService } from '@/group/services'
-import { useHistoryListQuery } from '@/history/queries'
-
 import {
   QCard,
   QCardSection,
@@ -232,14 +216,26 @@ import {
   QDialog,
   QIcon,
 } from 'quasar'
-import { useIntegerRouteParam } from '@/utils/composables'
-import { useUserProfileQuery } from '@/users/queries'
-import { useGroupInfoService } from '@/groupInfo/services'
-import { useDetailService } from '@/messages/services'
+import { defineAsyncComponent, computed } from 'vue'
+
 import { useAuthHelpers } from '@/authuser/helpers'
-import { useActiveUserService } from '@/users/services'
+import { useCurrentGroupService } from '@/group/services'
+import { useGroupInfoService } from '@/groupInfo/services'
+import { useHistoryListQuery } from '@/history/queries'
 import { useCreateIssueMutation } from '@/issues/mutations'
 import { useIssueListQuery } from '@/issues/queries'
+import { useDetailService } from '@/messages/services'
+import { useActiveUserService } from '@/users/services'
+
+import HistoryList from '@/history/components/HistoryList'
+import UserMapPreview from '@/maps/components/UserMapPreview'
+import ProfilePicture from '@/users/components/ProfilePicture'
+import SwitchGroupButton from '@/users/components/SwitchGroupButton'
+import TrustButton from '@/users/components/TrustButton'
+import KSpinner from '@/utils/components/KSpinner'
+import Markdown from '@/utils/components/Markdown'
+
+const ConflictSetup = defineAsyncComponent(() => import('@/issues/components/ConflictSetup'))
 
 export default {
   components: {

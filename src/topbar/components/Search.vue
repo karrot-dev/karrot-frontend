@@ -67,8 +67,6 @@
 </template>
 
 <script setup>
-import { ref, shallowRef, computed } from 'vue'
-import { useRouter } from 'vue-router'
 import {
   QIcon,
   QSelect,
@@ -76,14 +74,16 @@ import {
   QItemSection,
   QItemLabel,
 } from 'quasar'
+import { ref, shallowRef, computed } from 'vue'
+import { useRouter } from 'vue-router'
+
+import icons from '@/base/icons'
+import { useGroupInfoService } from '@/groupInfo/services'
+import { optionsFor } from '@/places/placeStatus'
+import { usePlaceService } from '@/places/services'
+import { useUserService } from '@/users/services'
 
 import ProfilePicture from '@/users/components/ProfilePicture'
-
-import { usePlaceService } from '@/places/services'
-import { useGroupInfoService } from '@/groupInfo/services'
-import { useUserService } from '@/users/services'
-import icons from '@/base/icons'
-import { optionsFor } from '@/places/placeStatus'
 
 const emit = defineEmits(['close'])
 

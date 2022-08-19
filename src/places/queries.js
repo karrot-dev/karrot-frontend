@@ -1,10 +1,11 @@
-import { useQuery } from 'vue-query'
 import { unref, computed } from 'vue'
+import { useQuery } from 'vue-query'
 
-import api from './api/places'
+import { useAuthService } from '@/authuser/services'
 import { useSocketEvents } from '@/utils/composables'
 import { useQueryHelpers } from '@/utils/queryHelpers'
-import { useAuthService } from '@/authuser/services'
+
+import api from './api/places'
 
 export const QUERY_KEY_BASE = 'places'
 export const queryKeyPlaceListAll = () => [QUERY_KEY_BASE, 'list', 'all']

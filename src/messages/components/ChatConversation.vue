@@ -65,7 +65,7 @@
         </QItem>
       </QList>
       <template #loading>
-        <KSpinner v-if="oldestFirst"/>
+        <KSpinner v-if="oldestFirst" />
       </template>
     </QInfiniteScroll>
     <slot name="after-chat-messages" />
@@ -74,12 +74,6 @@
 </template>
 
 <script>
-import { computed, toRef, toRefs } from 'vue'
-
-import ConversationMessage from '@/messages/components/ConversationMessage'
-import ConversationCompose from '@/messages/components/ConversationCompose'
-import KSpinner from '@/utils/components/KSpinner'
-import { useMessageContinuations } from '@/utils/mixins/groupedMessagesMixin'
 import {
   scroll,
   dom,
@@ -92,12 +86,20 @@ import {
   QInfiniteScroll,
   QBtn,
 } from 'quasar'
+import { computed, toRefs } from 'vue'
+
+import { useConversationHelpers } from '@/messages/helpers'
 import {
   useConversationSeenUpToMutation,
   useSendMessageMutation,
   useThreadSeenUpToMutation,
 } from '@/messages/mutations'
-import { useConversationHelpers } from '@/messages/helpers'
+import { useMessageContinuations } from '@/utils/mixins/groupedMessagesMixin'
+
+import ConversationCompose from '@/messages/components/ConversationCompose'
+import ConversationMessage from '@/messages/components/ConversationMessage'
+import KSpinner from '@/utils/components/KSpinner'
+
 const { getScrollHeight, getVerticalScrollPosition, setVerticalScrollPosition, getScrollTarget } = scroll
 const { height } = dom
 

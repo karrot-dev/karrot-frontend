@@ -46,9 +46,10 @@
 
 <script setup>
 import { QBtn } from 'quasar'
+import { useRouter } from 'vue-router'
+
 import rolling from '@/base/assets/rolling.png'
 import { useRouteErrorService } from '@/base/services'
-import { useRouter } from 'vue-router'
 
 const router = useRouter()
 

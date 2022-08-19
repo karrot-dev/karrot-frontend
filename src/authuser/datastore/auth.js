@@ -1,7 +1,7 @@
 import authUser from '@/authuser/api/authUser'
+import push from '@/subscriptions/datastore/auth/push'
 import { createMetaModule, withMeta, metaStatuses } from '@/utils/datastore/helpers'
 import { objectDiff } from '@/utils/utils'
-import push from '@/subscriptions/datastore/auth/push'
 
 function initialState () {
   return {

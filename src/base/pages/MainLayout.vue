@@ -97,7 +97,7 @@
 
         <QPageContainer>
           <!-- on mobile the banners take up lots of space so only show them on group wall page -->
-          <Banners v-if="!$q.platform.is.mobile || isGroupWall"/>
+          <Banners v-if="!$q.platform.is.mobile || isGroupWall" />
           <QPage
             class="mainContent-page"
             :class="{fullpage}"
@@ -142,21 +142,6 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-
-import KTopbar from '@/topbar/components/KTopbar'
-import KTopbarLoggedOut from '@/topbar/components/LoggedOut/KTopbar'
-import KAbout from '@/base/components/KAbout'
-import SidenavTitle from '@/sidenav/components/SidenavTitle'
-import MobileSidenav from '@/sidenav/components/MobileSidenav'
-import Banners from '@/alerts/components/Banners'
-import RouteError from '@/base/components/RouteError'
-import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarning'
-import DetailSidebar from '@/messages/components/DetailSidebar'
-import KarrotLogo from '@/logo/components/KarrotLogo'
-import CommunityFeed from '@/communityFeed/components/CommunityFeed'
-
-import { mapGetters } from 'vuex'
 import {
   QLayout,
   QHeader,
@@ -166,16 +151,29 @@ import {
   QPageContainer,
   QPage,
   QItem,
-  QIcon,
   QItemSection,
   QBtn,
 } from 'quasar'
-import { useStatusService } from '@/status/services'
-import { useCurrentGroupService } from '@/group/services'
-import { useAuthService } from '@/authuser/services'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useDetailService } from '@/messages/services'
+
+import { useAuthService } from '@/authuser/services'
 import { useRouteErrorService } from '@/base/services'
+import { useCurrentGroupService } from '@/group/services'
+import { useDetailService } from '@/messages/services'
+import { useStatusService } from '@/status/services'
+
+import Banners from '@/alerts/components/Banners'
+import KAbout from '@/base/components/KAbout'
+import RouteError from '@/base/components/RouteError'
+import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarning'
+import CommunityFeed from '@/communityFeed/components/CommunityFeed'
+import KarrotLogo from '@/logo/components/KarrotLogo'
+import DetailSidebar from '@/messages/components/DetailSidebar'
+import MobileSidenav from '@/sidenav/components/MobileSidenav'
+import SidenavTitle from '@/sidenav/components/SidenavTitle'
+import KTopbar from '@/topbar/components/KTopbar'
+import KTopbarLoggedOut from '@/topbar/components/LoggedOut/KTopbar'
 
 export default {
   components: {

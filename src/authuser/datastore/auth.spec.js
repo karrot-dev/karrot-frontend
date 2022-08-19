@@ -1,11 +1,10 @@
+import { createDatastore, createValidationError, throws } from '>/helpers'
+import { router } from '>/routerMocks'
+
 const mockStatus = jest.fn()
 const mockLogin = jest.fn()
 jest.mock('@/authuser/api/auth', () => ({ login: mockLogin }))
 jest.mock('@/authuser/api/authUser', () => ({ get: mockStatus }))
-
-import { router } from '>/routerMocks'
-
-import { createDatastore, createValidationError, throws } from '>/helpers'
 
 describe('auth', () => {
   let datastore

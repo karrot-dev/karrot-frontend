@@ -1,10 +1,13 @@
-import GroupMarker from './GroupMarker'
-import UserMarker from './UserMarker'
-import PlaceMarker from './PlaceMarker'
-import icons from '@/base/icons'
 import { markRaw } from 'vue'
-// eslint-disable-next-line no-unused-vars
+
+import icons from '@/base/icons'
 import { optionsFor } from '@/places/placeStatus'
+
+import GroupMarker from './GroupMarker'
+import PlaceMarker from './PlaceMarker'
+import UserMarker from './UserMarker'
+
+// eslint-disable-next-line no-unused-vars
 
 export function groupMarker (group) {
   return {

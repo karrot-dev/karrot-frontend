@@ -1,10 +1,12 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
 import Profile from '@/users/pages/Profile'
+
 import TrustInfo from '@/users/components/TrustInfo'
 
-import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 import * as factories from '>/enrichedFactories'
+import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 const group = factories.makeGroup({
   isCurrentGroup: true,

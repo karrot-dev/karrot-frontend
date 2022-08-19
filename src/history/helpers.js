@@ -1,7 +1,8 @@
-import { usePlaceService } from '@/places/services'
-import { useActivityTypeService } from '@/activities/services'
-import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useI18n } from 'vue-i18n'
+
+import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityTypeService } from '@/activities/services'
+import { usePlaceService } from '@/places/services'
 
 export function useHistoryHelpers () {
   const { t } = useI18n()

@@ -1,6 +1,7 @@
 import MockAdapter from 'axios-mock-adapter'
-import axios from '@/base/api/axios'
 import { pathToRegexp } from 'path-to-regexp'
+
+import axios from '@/base/api/axios'
 
 export const mockAxios = new MockAdapter(axios, { onNoMatch: 'throwException' })
 

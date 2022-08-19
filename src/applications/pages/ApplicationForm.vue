@@ -3,8 +3,9 @@
 </template>
 
 <script setup>
-import ApplicationFormUI from '@/applications/components/ApplicationFormUI'
 import { useActiveGroupPreviewService } from '@/groupInfo/services'
+
+import ApplicationFormUI from '@/applications/components/ApplicationFormUI'
 
 const { group } = useActiveGroupPreviewService()
 </script>

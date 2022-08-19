@@ -1,22 +1,21 @@
+import { Platform } from 'quasar'
 import { ref, unref, computed, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
+import { useActivityItemQuery } from '@/activities/queries'
+import { useApplicationItemQuery } from '@/applications/queries'
+import { useAuthService } from '@/authuser/services'
+import { useCurrentGroupService } from '@/group/services'
 import conversationsAPI from '@/messages/api/conversations'
 import messagesAPI from '@/messages/api/messages'
-
-import { defineService } from '@/utils/datastore/helpers'
 import {
   useConversationQuery,
   useMessageItemQuery,
   useMessageListQuery,
   useMessageThreadListQuery,
 } from '@/messages/queries'
-import { useActivityItemQuery } from '@/activities/queries'
 import { useUserService } from '@/users/services'
-import { useApplicationItemQuery } from '@/applications/queries'
-import { useRoute, useRouter } from 'vue-router'
-import { useAuthService } from '@/authuser/services'
-import { Platform } from 'quasar'
-import { useCurrentGroupService } from '@/group/services'
+import { defineService } from '@/utils/datastore/helpers'
 
 export function useThreadDetail (messageId) {
   const order = 'oldest-first'

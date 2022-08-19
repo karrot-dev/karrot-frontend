@@ -7,9 +7,10 @@
 </template>
 
 <script setup>
-import OfferForm from '@/offers/components/OfferForm'
-import { useCreateOfferMutation } from '@/offers/mutations'
 import { useCurrentGroupService } from '@/group/services'
+import { useCreateOfferMutation } from '@/offers/mutations'
+
+import OfferForm from '@/offers/components/OfferForm'
 
 const { groupId } = useCurrentGroupService()
 const {

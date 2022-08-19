@@ -199,15 +199,15 @@ import {
   QBtn,
 } from 'quasar'
 
-import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
-import KAbout from '@/base/components/KAbout'
-import KLandingButtons from '@/base/components/KLandingButtons'
-import logo from '@/logo/assets/carrot-logo.svg'
 import { dirNames, dirs } from '@/base/images-config.mjs'
 import generatedImages from '@/base/images.json'
-
-import router from '@/router'
 import { useGroupInfoService } from '@/groupInfo/services'
+import logo from '@/logo/assets/carrot-logo.svg'
+import router from '@/router'
+
+import KAbout from '@/base/components/KAbout'
+import KLandingButtons from '@/base/components/KLandingButtons'
+import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
 
 // Prefer active non-playground groups with a photo
 function groupSortScore (group) {

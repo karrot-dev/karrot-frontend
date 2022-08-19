@@ -9,9 +9,9 @@
 </template>
 
 <script setup>
+import { QLinearProgress } from 'quasar'
 import { computed } from 'vue'
 import { useIsFetching } from 'vue-query'
-import { QLinearProgress } from 'quasar'
 
 const activeQueryCount = useIsFetching()
 const isFetching = computed(() => activeQueryCount.value > 0)

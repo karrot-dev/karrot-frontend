@@ -1,11 +1,11 @@
 /**
  * Serves built files from 'dist', proxies API requests and websockets to backend
  */
-
-const express = require('express')
-const compression = require('compression')
-const proxyMiddleware = require('http-proxy-middleware').createProxyMiddleware
 const { join } = require('path')
+
+const compression = require('compression')
+const express = require('express')
+const proxyMiddleware = require('http-proxy-middleware').createProxyMiddleware
 
 const { proxyTable } = require('./config')
 

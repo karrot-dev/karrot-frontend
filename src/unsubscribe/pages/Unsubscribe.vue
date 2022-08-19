@@ -9,10 +9,11 @@
 </template>
 
 <script>
-import Unsubscribe from '@/unsubscribe/components/Unsubscribe'
 
 import api from '@/unsubscribe/api/unsubscribe'
 import { parseToken } from '@/unsubscribe/utils'
+
+import Unsubscribe from '@/unsubscribe/components/Unsubscribe'
 
 export default {
   components: {

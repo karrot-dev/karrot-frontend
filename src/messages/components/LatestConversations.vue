@@ -65,16 +65,20 @@ import {
   QItem,
   QBtn,
 } from 'quasar'
-import LatestMessageItem from './LatestMessageItem'
+
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useGroupInfoService } from '@/groupInfo/services'
+import { usePlaceService } from '@/places/services'
+import { useStatusService } from '@/status/services'
+import { useUserService } from '@/users/services'
+
 import KSpinner from '@/utils/components/KSpinner'
+
+import { useConversationsMarkSeenMutation } from '../mutations'
 import { useConversationListQuery } from '../queries'
 import { useDetailService } from '../services'
-import { useGroupInfoService } from '@/groupInfo/services'
-import { useUserService } from '@/users/services'
-import { usePlaceService } from '@/places/services'
-import { useAuthHelpers } from '@/authuser/helpers'
-import { useConversationsMarkSeenMutation } from '../mutations'
-import { useStatusService } from '@/status/services'
+
+import LatestMessageItem from './LatestMessageItem'
 
 export default {
   components: {

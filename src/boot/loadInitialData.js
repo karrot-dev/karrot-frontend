@@ -1,13 +1,14 @@
-import bootstrap from '@/base/api/bootstrap'
-import { configureSentry } from '@/utils/sentry'
 import { QueryCache, QueryClient, VueQueryPlugin } from 'vue-query'
-import { queryKeys } from '@/authuser/queries'
-import { queryKeyUserListAll } from '@/users/queries'
-import { queryKeyStatus } from '@/status/queries'
-import { queryKeyPlaceListAll } from '@/places/queries'
-import { queryKeyGroupInfoListAll } from '@/groupInfo/queries'
+
 import { queryKeyActivityTypeListAll } from '@/activities/queries'
+import { queryKeys } from '@/authuser/queries'
+import bootstrap from '@/base/api/bootstrap'
 import { setGeoipCoordinates } from '@/base/services/geo'
+import { queryKeyGroupInfoListAll } from '@/groupInfo/queries'
+import { queryKeyPlaceListAll } from '@/places/queries'
+import { queryKeyStatus } from '@/status/queries'
+import { queryKeyUserListAll } from '@/users/queries'
+import { configureSentry } from '@/utils/sentry'
 
 export default async function ({ app, store: datastore }) {
   const queryCache = new QueryCache({

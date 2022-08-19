@@ -54,20 +54,19 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-
-import FeedbackList from '@/feedback/components/FeedbackList'
-import KSpinner from '@/utils/components/KSpinner'
-
 import {
   QCard,
   QChip,
 } from 'quasar'
-
-import { useActivePlaceService } from '@/places/services'
-import { usePlaceStatisticsQuery } from '@/places/queries'
-import { useFeedbackListQuery } from '@/feedback/queries'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+
+import { useFeedbackListQuery } from '@/feedback/queries'
+import { usePlaceStatisticsQuery } from '@/places/queries'
+import { useActivePlaceService } from '@/places/services'
+
+import FeedbackList from '@/feedback/components/FeedbackList'
+import KSpinner from '@/utils/components/KSpinner'
 
 const route = useRoute()
 const {

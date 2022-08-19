@@ -59,8 +59,8 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
 import { QBtn } from 'quasar'
+import { computed } from 'vue'
 
 import { useBreadcrumbs } from '@/topbar/services'
 

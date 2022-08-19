@@ -1,5 +1,6 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
 import { storybookDefaults as defaults } from '>/helpers'
 
 import Banners from './BannersUI'

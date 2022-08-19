@@ -1,4 +1,5 @@
 import { faker } from '@faker-js/faker'
+
 import { createCursorPaginatedBackend, createGetByIdBackend } from '>/mockAxios'
 
 function sample (items) {

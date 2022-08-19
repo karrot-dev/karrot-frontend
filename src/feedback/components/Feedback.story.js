@@ -1,16 +1,17 @@
-import { h } from 'vue'
-import { storybookDefaults as defaults, statusMocks, createDatastore } from '>/helpers'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
 
-import AmountPicker from './AmountPicker'
-import AmountBox from './AmountBox'
+import * as factories from '>/enrichedFactories'
+import { storybookDefaults as defaults, statusMocks, createDatastore } from '>/helpers'
+import { feedbackMock, placesMock, activitiesMock } from '>/mockdata'
+
 import ActivityFeedback from '../pages/ActivityFeedback'
+
+import AmountBox from './AmountBox'
+import AmountPicker from './AmountPicker'
 import FeedbackItem from './FeedbackItem'
 import FeedbackList from './FeedbackList'
 import PlaceFeedback from './PlaceFeedback'
-
-import { feedbackMock, placesMock, activitiesMock } from '>/mockdata'
-import * as factories from '>/enrichedFactories'
 
 const range = n => [...Array(n).keys()]
 

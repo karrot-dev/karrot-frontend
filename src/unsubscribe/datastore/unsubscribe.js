@@ -1,5 +1,5 @@
-import { withMeta, createMetaModule, metaStatuses } from '@/utils/datastore/helpers'
 import unsubscribeAPI from '@/unsubscribe/api/unsubscribe'
+import { withMeta, createMetaModule, metaStatuses } from '@/utils/datastore/helpers'
 
 export default {
   namespaced: true,

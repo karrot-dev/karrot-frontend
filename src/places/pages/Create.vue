@@ -11,10 +11,11 @@
 <script setup>
 import { computed } from 'vue'
 
-import PlaceEdit from '@/places/components/PlaceEdit'
-import { useCreatePlaceMutation } from '@/places/mutations'
 import { useCurrentGroupService } from '@/group/services'
+import { useCreatePlaceMutation } from '@/places/mutations'
 import { usePlaceService } from '@/places/services'
+
+import PlaceEdit from '@/places/components/PlaceEdit'
 
 const { groupId, group } = useCurrentGroupService()
 const { getPlacesByGroup } = usePlaceService()

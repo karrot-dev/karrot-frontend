@@ -1,14 +1,15 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
-import { storybookDefaults as defaults, statusMocks } from '>/helpers'
-import subHours from 'date-fns/subHours'
 import addHours from 'date-fns/addHours'
-import * as factories from '>/enrichedFactories'
+import subHours from 'date-fns/subHours'
+import { h } from 'vue'
 
-import IssueVote from './IssueVote'
-import VotingResults from './VotingResults'
+import * as factories from '>/enrichedFactories'
+import { storybookDefaults as defaults, statusMocks } from '>/helpers'
+
 import IssueHistoryItem from './IssueHistoryItem'
 import IssueList from './IssueListUI'
+import IssueVote from './IssueVote'
+import VotingResults from './VotingResults'
 
 const range = n => [...Array(n).keys()]
 

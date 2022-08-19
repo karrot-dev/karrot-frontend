@@ -179,17 +179,6 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-
-import Markdown from '@/utils/components/Markdown'
-import StandardMap from '@/maps/components/StandardMap'
-import RandomArt from '@/utils/components/RandomArt'
-import KSpinner from '@/utils/components/KSpinner'
-import ProfilePicture from '@/users/components/ProfilePicture'
-
-import { placeMarker } from '@/maps/components/markers'
-import directions from '@/maps/directions'
-
 import {
   QSeparator,
   QBtn,
@@ -207,11 +196,21 @@ import {
   QToolbarTitle,
   QIcon,
 } from 'quasar'
-import { useActivePlaceService } from '@/places/services'
-import { useCurrentGroupService } from '@/group/services'
+import { computed } from 'vue'
+
 import { useAuthService } from '@/authuser/services'
-import { useUserService } from '@/users/services'
+import { useCurrentGroupService } from '@/group/services'
+import directions from '@/maps/directions'
 import { usePlaceSubscribeMutation, usePlaceUnsubscribeMutation } from '@/places/mutations'
+import { useActivePlaceService } from '@/places/services'
+import { useUserService } from '@/users/services'
+
+import StandardMap from '@/maps/components/StandardMap'
+import { placeMarker } from '@/maps/components/markers'
+import ProfilePicture from '@/users/components/ProfilePicture'
+import KSpinner from '@/utils/components/KSpinner'
+import Markdown from '@/utils/components/Markdown'
+import RandomArt from '@/utils/components/RandomArt'
 
 export default {
   components: {

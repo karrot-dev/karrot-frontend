@@ -1,7 +1,8 @@
 import { createI18n } from 'vue-i18n'
-import status from '@/locales/translationStatus.json'
+
 import locales from '@/locales/index'
 import localeEn from '@/locales/locale-en.json'
+import status from '@/locales/translationStatus.json'
 
 const defaultDateTimeFormat = {
   hourMinute: {

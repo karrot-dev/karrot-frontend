@@ -1,9 +1,10 @@
 import { Platform } from 'quasar'
-import axios from '@/base/api/axios'
-import { debounceAndFlushOnUnload, underscorizeKeys } from '@/utils/utils'
 import { useRoute, useRouter } from 'vue-router'
-import { useCurrentGroupService } from '@/group/services'
+
 import { useAuthService } from '@/authuser/services'
+import axios from '@/base/api/axios'
+import { useCurrentGroupService } from '@/group/services'
+import { debounceAndFlushOnUnload, underscorizeKeys } from '@/utils/utils'
 
 const SAVE_INTERVAL_MS = 5000 // batch saves to the backend
 const SHOW_PERFORMANCE_INFO = localStorage.getItem('SHOW_PERFORMANCE_INFO') !== null

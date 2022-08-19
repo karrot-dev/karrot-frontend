@@ -40,15 +40,16 @@
 </template>
 
 <script setup>
+import { QItem, QItemLabel, QItemSection } from 'quasar'
 import { computed } from 'vue'
 import { Mentionable } from 'vue-mention'
-import { QItem, QItemLabel, QItemSection } from 'quasar'
 
 // for vue-mention
 import 'floating-vue/dist/style.css'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
 import { useCurrentGroupService } from '@/group/services'
+
+import ProfilePicture from '@/users/components/ProfilePicture'
 
 defineProps({
   disable: {

@@ -1,9 +1,10 @@
-import axios, { parseCursor } from '@/base/api/axios'
-import { convert as convertMessage } from './messages'
 import { convert as convertActivity } from '@/activities/api/activities'
 import { convert as convertApplication } from '@/applications/api/applications'
+import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertIssue } from '@/issues/api/issues'
 import { convert as convertOffer } from '@/offers/api/offers'
+
+import { convert as convertMessage } from './messages'
 
 export default {
   async get (id) {

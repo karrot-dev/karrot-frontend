@@ -70,7 +70,6 @@
 </template>
 
 <script>
-import { computed } from 'vue'
 import {
   QBtn,
   QList,
@@ -79,16 +78,18 @@ import {
   QItemLabel,
   QIcon,
 } from 'quasar'
+import { computed } from 'vue'
 
-import StandardMap from '@/maps/components/StandardMap'
-import GroupMapControls from '@/maps/components/GroupMapControls'
-import { groupMarker, placeMarker, userMarker } from '@/maps/components/markers'
 import { useAuthHelpers } from '@/authuser/helpers'
-import { useMapToggles } from '@/maps/services'
 import { useCurrentGroupService } from '@/group/services'
 import { useGroupInfoService } from '@/groupInfo/services'
+import { useMapToggles } from '@/maps/services'
 import { useActivePlaceService } from '@/places/services'
 import { useActiveUserService } from '@/users/services'
+
+import GroupMapControls from '@/maps/components/GroupMapControls'
+import StandardMap from '@/maps/components/StandardMap'
+import { groupMarker, placeMarker, userMarker } from '@/maps/components/markers'
 
 export default {
   components: {

@@ -1,9 +1,11 @@
-import ChangePhoto from './ChangePhoto'
-import { usersMock } from '>/mockdata'
+import { configureCompat } from '@vue/compat'
 import cloneDeep from 'clone-deep'
 
 import { mountWithDefaults, statusMocks, nextTicks } from '>/helpers'
-import { configureCompat } from '@vue/compat'
+import { usersMock } from '>/mockdata'
+
+import ChangePhoto from './ChangePhoto'
+
 jest.mock('vue', () => jest.requireActual('@vue/compat'))
 configureCompat({ MODE: 3 })
 

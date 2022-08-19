@@ -1,14 +1,15 @@
+import { throttle } from 'quasar'
 import { useMutation, useQueryClient } from 'vue-query'
-import { useStore } from 'vuex'
 import { useRoute, useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 
-import { withStatus } from '@/utils/queryHelpers'
 import { useSetUser } from '@/authuser/queries'
+import usersAPI from '@/users/api/users'
+import { withStatus } from '@/utils/queryHelpers'
+import { showToast } from '@/utils/toasts'
+
 import api from './api/auth'
 import authUserAPI from './api/authUser'
-import usersAPI from '@/users/api/users'
-import { throttle } from 'quasar'
-import { showToast } from '@/utils/toasts'
 
 export function useSignupMutation () {
   return withStatus(useMutation(userData => authUserAPI.create(userData)))

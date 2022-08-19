@@ -8,8 +8,9 @@
 <script setup>
 import { useRoute } from 'vue-router'
 
-import VerifyMail from '@/authuser/components/VerifyMail'
 import { useVerifyEmailMutation } from '@/authuser/mutations'
+
+import VerifyMail from '@/authuser/components/VerifyMail'
 
 const route = useRoute()
 

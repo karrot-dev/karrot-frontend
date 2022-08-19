@@ -36,6 +36,7 @@
 
 <script>
 import { QSpinner } from 'quasar'
+
 import ProfilePicture from '@/users/components/ProfilePicture'
 
 export default {

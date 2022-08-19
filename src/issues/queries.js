@@ -1,9 +1,9 @@
-import { unref, computed } from 'vue'
+import { computed, unref } from 'vue'
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
 import api from '@/issues/api/issues'
-import { extractCursor, flattenPaginatedData, useQueryHelpers } from '@/utils/queryHelpers'
 import { useSocketEvents } from '@/utils/composables'
+import { extractCursor, flattenPaginatedData, useQueryHelpers } from '@/utils/queryHelpers'
 
 export const QUERY_KEY_BASE = 'issues'
 export const queryKeyIssueList = params => [QUERY_KEY_BASE, 'list', params].filter(Boolean)

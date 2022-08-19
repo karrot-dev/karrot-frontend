@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
-import { nextTicks } from '>/helpers'
+
 import createMockModules from '>/createMockModules'
+import { nextTicks } from '>/helpers'
 
 const mockJoin = jest.fn()
 

@@ -64,7 +64,6 @@
 </template>
 
 <script setup>
-import { toRefs, computed, ref } from 'vue'
 import {
   QBtn,
   QList,
@@ -74,8 +73,10 @@ import {
   QDialog,
   QIcon,
 } from 'quasar'
-import { useGroupHelpers } from '@/group/helpers'
+import { toRefs, computed, ref } from 'vue'
+
 import { useAuthHelpers } from '@/authuser/helpers'
+import { useGroupHelpers } from '@/group/helpers'
 import { useCurrentGroupService } from '@/group/services'
 
 const props = defineProps({

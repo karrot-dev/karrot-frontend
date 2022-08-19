@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-import splashRoutes from '@/base/routes/splash'
 import mainRoutes from '@/base/routes/main'
+import splashRoutes from '@/base/routes/splash'
 
 const MainLayout = () => import('@/base/pages/MainLayout')
 const SplashLayout = () => import('@/base/pages/SplashLayout')

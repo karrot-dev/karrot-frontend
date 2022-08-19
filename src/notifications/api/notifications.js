@@ -1,7 +1,7 @@
-import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertActivities } from '@/activities/api/activities'
-import { convert as convertIssues } from '@/issues/api/issues'
 import { convert as convertApplications } from '@/applications/api/applications'
+import axios, { parseCursor } from '@/base/api/axios'
+import { convert as convertIssues } from '@/issues/api/issues'
 
 export default {
   async list (filter) {

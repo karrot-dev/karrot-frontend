@@ -36,12 +36,15 @@
 </template>
 
 <script>
-import FeedbackItem from './FeedbackItem'
-import paginationMixin from '@/utils/mixins/paginationMixin'
 import { QInfiniteScroll, QIcon } from 'quasar'
+
+import paginationMixin from '@/utils/mixins/paginationMixin'
+
+import FeedbackNotice from '@/group/components/FeedbackNotice'
 import KNotice from '@/utils/components/KNotice'
 import KSpinner from '@/utils/components/KSpinner'
-import FeedbackNotice from '@/group/components/FeedbackNotice'
+
+import FeedbackItem from './FeedbackItem'
 
 export default {
   components: {

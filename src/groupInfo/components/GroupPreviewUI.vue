@@ -161,9 +161,11 @@ import {
   QIcon,
   QBanner,
 } from 'quasar'
+
+import { useDetailService } from '@/messages/services'
+
 import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
-import { useDetailService } from '@/messages/services'
 
 export default {
   components: {

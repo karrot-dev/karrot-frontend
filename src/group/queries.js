@@ -1,8 +1,10 @@
 import { computed, unref } from 'vue'
 import { useQuery, useQueryClient } from 'vue-query'
-import api from './api/groups'
+
 import { useSocketEvents } from '@/utils/composables'
 import { useWait } from '@/utils/queryHelpers'
+
+import api from './api/groups'
 
 export const QUERY_KEY_BASE = 'groups'
 export const queryKeyGroupDetail = groupId => [QUERY_KEY_BASE, 'detail', groupId].filter(Boolean)

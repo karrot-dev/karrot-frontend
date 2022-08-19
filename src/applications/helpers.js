@@ -1,5 +1,5 @@
-import { useAuthService } from '@/authuser/services'
 import { useApplicationListQuery } from '@/applications/queries'
+import { useAuthService } from '@/authuser/services'
 
 export function useApplicationHelpers () {
   const { userId } = useAuthService()

@@ -1,5 +1,6 @@
-import dateFnsHelper from '@/utils/dateFnsHelper'
 import addSeconds from 'date-fns/addSeconds'
+
+import dateFnsHelper from '@/utils/dateFnsHelper'
 
 const oneHourInSeconds = 60 * 60
 

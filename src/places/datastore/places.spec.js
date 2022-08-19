@@ -1,8 +1,8 @@
+import { createDatastore, throws, createValidationError } from '>/helpers'
+
 const mockGet = jest.fn()
 const mockGetStatistics = jest.fn()
 jest.mock('@/places/api/places', () => ({ get: mockGet, statistics: mockGetStatistics }))
-
-import { createDatastore, throws, createValidationError } from '>/helpers'
 
 const groups = {
   getters: {

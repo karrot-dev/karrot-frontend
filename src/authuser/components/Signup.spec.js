@@ -1,6 +1,8 @@
-import Signup from './Signup'
 import { QCheckbox } from 'quasar'
+
 import { mountWithDefaults, statusMocks } from '>/helpers'
+
+import Signup from './Signup'
 
 const userData = {
   displayName: 'my name',

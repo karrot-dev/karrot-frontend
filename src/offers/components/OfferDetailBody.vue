@@ -73,8 +73,6 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-import { mapGetters } from 'vuex'
 import {
   QBtn,
   QBtnDropdown,
@@ -82,16 +80,16 @@ import {
   QCarouselSlide,
 } from 'quasar'
 
-import ChatConversation from '@/messages/components/ChatConversation'
-import Markdown from '@/utils/components/Markdown'
-import KSpinner from '@/utils/components/KSpinner'
-
-import { DEFAULT_STATUS } from '@/offers/queries'
-import { useArchiveOfferMutation } from '@/offers/mutations'
 import { useAuthService } from '@/authuser/services'
-import { useActiveOfferService } from '@/offers/services'
-import { useConversationAndMessages } from '@/messages/services'
 import { usePresenceService } from '@/base/services/presence'
+import { useConversationAndMessages } from '@/messages/services'
+import { useArchiveOfferMutation } from '@/offers/mutations'
+import { DEFAULT_STATUS } from '@/offers/queries'
+import { useActiveOfferService } from '@/offers/services'
+
+import ChatConversation from '@/messages/components/ChatConversation'
+import KSpinner from '@/utils/components/KSpinner'
+import Markdown from '@/utils/components/Markdown'
 
 export default {
   components: {

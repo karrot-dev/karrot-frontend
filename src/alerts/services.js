@@ -1,13 +1,12 @@
+import { Notify, Platform } from 'quasar'
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
-import { Notify, Platform } from 'quasar'
-
-import { defineService } from '@/utils/datastore/helpers'
-import { useCurrentGroupService } from '@/group/services'
 import { useAuthService } from '@/authuser/services'
-import { useI18n } from 'vue-i18n'
 import { useCommunityBannerService } from '@/communityFeed/services'
+import { useCurrentGroupService } from '@/group/services'
+import { defineService } from '@/utils/datastore/helpers'
 import { useAboutService, useConnectivity } from '@/utils/services'
 
 export const useBanners = defineService(() => {

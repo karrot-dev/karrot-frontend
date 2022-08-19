@@ -1,7 +1,7 @@
 import { Platform } from 'quasar'
 
-import { createRouteRedirect } from '@/utils/datastore/helpers'
 import router from '@/router'
+import { createRouteRedirect } from '@/utils/datastore/helpers'
 
 function initialState () {
   return {

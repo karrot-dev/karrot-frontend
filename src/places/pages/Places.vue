@@ -12,8 +12,9 @@
 <script setup>
 import { QCard } from 'quasar'
 
-import PlaceList from '@/places/components/PlaceList'
 import { useCurrentGroupService } from '@/group/services'
+
+import PlaceList from '@/places/components/PlaceList'
 
 const {
   groupId,

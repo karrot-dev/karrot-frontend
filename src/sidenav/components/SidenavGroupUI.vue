@@ -82,9 +82,10 @@ import {
   QItemSection,
   QBadge,
 } from 'quasar'
+
+import GroupOptions from './GroupOptions'
 import SidenavBox from './SidenavBox'
 import SidenavMenu from './SidenavMenu'
-import GroupOptions from './GroupOptions'
 
 export default {
   components: {

@@ -13,9 +13,9 @@
  * To do: connect via HTTP2 to support pipelining
  */
 
-const puppeteer = require('puppeteer')
 const axios = require('axios')
 const cookie = require('cookie')
+const puppeteer = require('puppeteer')
 
 puppeteer.launch({ headless: false }).then(async browser => {
   // log in directly via API

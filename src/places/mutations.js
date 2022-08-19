@@ -1,10 +1,11 @@
 import { unref } from 'vue'
 import { useMutation } from 'vue-query'
+import { useRouter } from 'vue-router'
+
+import { placeRoute } from '@/places/utils'
+import { withStatus } from '@/utils/queryHelpers'
 
 import api from './api/places'
-import { withStatus } from '@/utils/queryHelpers'
-import { useRouter } from 'vue-router'
-import { placeRoute } from '@/places/utils'
 
 export function usePlaceSubscribeMutation () {
   return withStatus(useMutation(placeId => api.subscribe(placeId)))

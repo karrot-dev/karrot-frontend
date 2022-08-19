@@ -146,16 +146,6 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-
-import ConversationReactions from '@/messages/components/ConversationReactions'
-import ConversationAddReaction from './ConversationAddReaction'
-import ConversationCompose from '@/messages/components/ConversationCompose'
-import ImageGalleryDialog from '@/messages/components/ImageGalleryDialog'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import Markdown from '@/utils/components/Markdown'
-import DateAsWords from '@/utils/components/DateAsWords'
-
 import {
   Dialog,
   QBtn,
@@ -166,15 +156,27 @@ import {
   QItemLabel,
   QIcon,
 } from 'quasar'
+import { computed } from 'vue'
+
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useMessageHelpers } from '@/messages/helpers'
 import {
   useAddReactionMutation,
   useRemoveReactionMutation,
   useSaveMesssageMutation,
 } from '@/messages/mutations'
-import { useAuthHelpers } from '@/authuser/helpers'
-import { useUserService } from '@/users/services'
 import { useDetailService } from '@/messages/services'
-import { useMessageHelpers } from '@/messages/helpers'
+import { useUserService } from '@/users/services'
+
+import ConversationCompose from '@/messages/components/ConversationCompose'
+import ConversationReactions from '@/messages/components/ConversationReactions'
+import ImageGalleryDialog from '@/messages/components/ImageGalleryDialog'
+import ProfilePicture from '@/users/components/ProfilePicture'
+import DateAsWords from '@/utils/components/DateAsWords'
+import Markdown from '@/utils/components/Markdown'
+
+import ConversationAddReaction from './ConversationAddReaction'
+
 export default {
   name: 'ConversationMessage',
   components: {

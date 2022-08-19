@@ -1,8 +1,8 @@
+import { Platform } from 'quasar'
 import { computed, readonly, ref, reactive } from 'vue'
 
-import { defineService } from '@/utils/datastore/helpers'
 import about from '@/utils/api/about'
-import { Platform } from 'quasar'
+import { defineService } from '@/utils/datastore/helpers'
 
 export const useConnectivity = defineService(() => {
   const state = reactive({

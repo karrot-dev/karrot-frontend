@@ -1,6 +1,6 @@
+import { Platform } from 'quasar'
 import { h } from 'vue'
 import { RouterView } from 'vue-router'
-import { Platform } from 'quasar'
 const Empty = { render: () => null }
 const Landing = () => import('@/base/pages/Landing')
 const GroupWall = () => import('@/group/pages/Wall')

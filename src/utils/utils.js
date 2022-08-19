@@ -1,6 +1,6 @@
 import deepEqual from 'deep-equal'
-import debounce from 'lodash/debounce'
 import { random } from 'lodash'
+import debounce from 'lodash/debounce'
 
 // Quasar's ready() is broken until https://github.com/quasarframework/quasar/pull/2199
 export function ready (fn) {

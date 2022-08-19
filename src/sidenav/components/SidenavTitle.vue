@@ -39,9 +39,6 @@
 </template>
 
 <script setup>
-import LatestMessageButton from '@/messages/components/LatestMessageButton'
-import NotificationButton from '@/notifications/components/NotificationButton'
-
 import {
   QToolbar,
   QToolbarTitle,
@@ -49,8 +46,11 @@ import {
   QIcon,
 } from 'quasar'
 
-import { useCurrentGroupService } from '@/group/services'
 import { useAuthService } from '@/authuser/services'
+import { useCurrentGroupService } from '@/group/services'
+
+import LatestMessageButton from '@/messages/components/LatestMessageButton'
+import NotificationButton from '@/notifications/components/NotificationButton'
 
 defineEmits(['click'])
 

@@ -1,9 +1,10 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
+import * as factories from '>/enrichedFactories'
+import { storybookDefaults as defaults } from '>/helpers'
 
 import NotificationToggle from './NotificationToggle'
-import { storybookDefaults as defaults } from '>/helpers'
-import * as factories from '>/enrichedFactories'
 
 const user = factories.makeCurrentUser()
 const unverifiedUser = factories.makeCurrentUser({ mailVerified: false })

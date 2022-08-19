@@ -81,7 +81,6 @@
 </template>
 
 <script>
-import { toRefs, computed } from 'vue'
 import {
   QBtn,
   QBadge,
@@ -91,17 +90,19 @@ import {
   QCardActions,
   Dialog,
 } from 'quasar'
+import { toRefs, computed } from 'vue'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
-import CircleProgress from '@/utils/components/CircleProgress'
-import TrustInfo from '@/users/components/TrustInfo'
-import twemojiCarrot from './twemoji-carrot.png'
-
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useMembershipHelpers } from '@/group/helpers'
+import { useRevokeTrustMutation, useTrustUserMutation } from '@/group/mutations'
 import { useCurrentGroupService } from '@/group/services'
 import { useUserService } from '@/users/services'
-import { useAuthHelpers } from '@/authuser/helpers'
-import { useRevokeTrustMutation, useTrustUserMutation } from '@/group/mutations'
-import { useMembershipHelpers } from '@/group/helpers'
+
+import ProfilePicture from '@/users/components/ProfilePicture'
+import TrustInfo from '@/users/components/TrustInfo'
+import CircleProgress from '@/utils/components/CircleProgress'
+
+import twemojiCarrot from './twemoji-carrot.png'
 
 export default {
   components: {
@@ -256,7 +257,7 @@ export default {
         message: this.$t('USERDATA.DIALOGS.GIVE_TRUST.MESSAGE', { userName: this.user.displayName, groupName: this.group.name }),
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.OF_COURSE'),
-      }).onOk(() => this.trustUser({ groupId: this.groupId, userId: this.user.id}))
+      }).onOk(() => this.trustUser({ groupId: this.groupId, userId: this.user.id }))
     },
     showRevokeTrustDialog () {
       Dialog.create({
@@ -264,7 +265,7 @@ export default {
         message: this.$t('USERDATA.DIALOGS.REVOKE_TRUST.MESSAGE', { userName: this.user.displayName, groupName: this.group.name }),
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.YES'),
-      }).onOk(() => this.revokeTrust({ groupId: this.groupId, userId: this.user.id}))
+      }).onOk(() => this.revokeTrust({ groupId: this.groupId, userId: this.user.id }))
     },
   },
 }

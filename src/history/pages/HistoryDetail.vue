@@ -3,9 +3,10 @@
 </template>
 
 <script setup>
-import HistoryDetail from '@/history/components/HistoryDetail'
 import { useHistoryDetailQuery } from '@/history/queries'
 import { useIntegerRouteParam } from '@/utils/composables'
+
+import HistoryDetail from '@/history/components/HistoryDetail'
 
 const historyId = useIntegerRouteParam('historyId')
 const {

@@ -1,15 +1,16 @@
 import differenceInSeconds from 'date-fns/differenceInSeconds'
-import messageAPI from '@/messages/api/messages'
-import conversationsAPI from '@/messages/api/conversations'
-import reactionsAPI from '@/messages/api/reactions'
+
 import activitiesAPI from '@/activities/api/activities'
-import usersAPI from '@/users/api/users'
+import applicationsAPI from '@/applications/api/applications'
+import i18n from '@/base/i18n'
 import groupsAPI from '@/group/api/groups'
 import issuesAPI from '@/issues/api/issues'
-import placesAPI from '@/places/api/places'
-import applicationsAPI from '@/applications/api/applications'
+import conversationsAPI from '@/messages/api/conversations'
+import messageAPI from '@/messages/api/messages'
+import reactionsAPI from '@/messages/api/reactions'
 import offersAPI from '@/offers/api/offers'
-import i18n from '@/base/i18n'
+import placesAPI from '@/places/api/places'
+import usersAPI from '@/users/api/users'
 import { createMetaModule, withMeta, withPrefixedIdMeta, metaStatusesWithId } from '@/utils/datastore/helpers'
 
 export function isUnread (message, conversation) {

@@ -40,16 +40,16 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
 import {
   QBanner,
   QIcon,
   QBtn, Platform,
 } from 'quasar'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 
 import { useBanners } from '@/alerts/services'
-import { useRouter } from 'vue-router'
-import { useI18n } from 'vue-i18n'
 import { useCommunityBannerService } from '@/communityFeed/services'
 import { useConnectivity } from '@/utils/services'
 

@@ -1,7 +1,7 @@
 import { QBtn } from 'quasar'
 
-import { createDatastore, useMobileUserAgent } from '>/helpers'
 import * as factories from '>/enrichedFactories'
+import { createDatastore, useMobileUserAgent } from '>/helpers'
 
 const propsData = {
   conversation: factories.makeConversation(),

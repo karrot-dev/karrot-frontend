@@ -1,6 +1,7 @@
 import differenceInSeconds from 'date-fns/differenceInSeconds'
-import i18n from '@/base/i18n'
+
 import { useAuthHelpers } from '@/authuser/helpers'
+import i18n from '@/base/i18n'
 
 export function sortByName (a, b) {
   return a.name.localeCompare(b.name)

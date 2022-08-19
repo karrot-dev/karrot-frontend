@@ -112,6 +112,7 @@ import {
   QBtnGroup,
   QTooltip,
 } from 'quasar'
+
 import { useMapToggles } from '@/maps/services'
 
 export default {

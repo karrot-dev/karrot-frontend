@@ -82,14 +82,15 @@
 </template>
 
 <script>
+import useVuelidate from '@vuelidate/core'
+import { required, minLength, maxLength, helpers } from '@vuelidate/validators'
 import {
   QBtn,
 } from 'quasar'
-import SplashInput from '@/utils/components/SplashInput'
+
 import statusMixin from '@/utils/mixins/statusMixin'
-import useVuelidate from '@vuelidate/core'
-import { required, minLength, maxLength, helpers } from '@vuelidate/validators'
-import { useSignupMutation } from '@/authuser/mutations'
+
+import SplashInput from '@/utils/components/SplashInput'
 
 export default {
   components: {

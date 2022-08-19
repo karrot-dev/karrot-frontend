@@ -60,11 +60,13 @@ import {
   QItemSection,
   QItemLabel,
 } from 'quasar'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import DateAsWords from '@/utils/components/DateAsWords'
-import { useUserService } from '@/users/services'
+
 import { useCurrentGroupService } from '@/group/services'
 import { useDetailService } from '@/messages/services'
+import { useUserService } from '@/users/services'
+
+import ProfilePicture from '@/users/components/ProfilePicture'
+import DateAsWords from '@/utils/components/DateAsWords'
 
 export default {
   components: {

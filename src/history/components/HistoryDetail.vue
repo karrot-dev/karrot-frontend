@@ -163,7 +163,6 @@
 </template>
 
 <script>
-import { toRefs, computed } from 'vue'
 import {
   QBtn,
   QCard,
@@ -173,17 +172,19 @@ import {
   QItemLabel,
   QIcon,
 } from 'quasar'
+import { toRefs, computed } from 'vue'
 
+import { convert as convertActivity } from '@/activities/api/activities'
+import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityTypeService } from '@/activities/services'
+import { useGroupInfoService } from '@/groupInfo/services'
+import { usePlaceService } from '@/places/services'
+import { useUserService } from '@/users/services'
+import dateFnsHelper from '@/utils/dateFnsHelper'
+
+import HistoryPayloadDetail from '@/history/components/HistoryPayloadDetail'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
-import HistoryPayloadDetail from '@/history/components/HistoryPayloadDetail'
-import dateFnsHelper from '@/utils/dateFnsHelper'
-import { convert as convertActivity } from '@/activities/api/activities'
-import { useActivityTypeService } from '@/activities/services'
-import { useActivityTypeHelpers } from '@/activities/helpers'
-import { usePlaceService } from '@/places/services'
-import { useGroupInfoService } from '@/groupInfo/services'
-import { useUserService } from '@/users/services'
 
 export default {
   components: {

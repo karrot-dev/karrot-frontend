@@ -68,8 +68,6 @@
 </template>
 
 <script>
-import { computed, toRefs } from 'vue'
-
 import {
   QBtn,
   QInfiniteScroll,
@@ -77,20 +75,22 @@ import {
   QBanner,
   QIcon,
 } from 'quasar'
+import { computed, toRefs } from 'vue'
 
-import ConversationMessage from './ConversationMessage'
-import ConversationCompose from './ConversationCompose'
-import NotificationToggle from './NotificationToggle'
-import KSpinner from '@/utils/components/KSpinner'
-
+import { useAuthService } from '@/authuser/services'
+import { useConversationHelpers } from '@/messages/helpers'
 import {
   useConversationSeenUpToMutation,
   useSaveConversationMutation,
   useSendMessageMutation,
 } from '@/messages/mutations'
 import { useConversationQuery, useMessageListQuery } from '@/messages/queries'
-import { useConversationHelpers } from '@/messages/helpers'
-import { useAuthService } from '@/authuser/services'
+
+import KSpinner from '@/utils/components/KSpinner'
+
+import ConversationCompose from './ConversationCompose'
+import ConversationMessage from './ConversationMessage'
+import NotificationToggle from './NotificationToggle'
 
 export default {
   name: 'WallConversation',

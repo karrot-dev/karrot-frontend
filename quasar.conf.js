@@ -7,13 +7,16 @@
 // https://quasar.dev/quasar-cli/quasar-conf-js
 /* eslint-env node */
 
-const { configure } = require('quasar/wrappers')
 const { resolve } = require('path')
-const fs = require('fs')
+
 const ESLintPlugin = require('eslint-webpack-plugin')
+const fs = require('fs')
 // const StyleLintPlugin = require('stylelint-webpack-plugin') TODO?
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
+const { configure } = require('quasar/wrappers')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
+const webpackAliases = require('./webpack.aliases').resolve.alias
 
 function getHttpsOptions () {
   /* Try to set up https with your own cert for usage with mkcert
@@ -178,13 +181,7 @@ module.exports = configure(function (ctx) {
 
         cfg.resolve.alias = {
           ...cfg.resolve.alias, // This adds the existing alias
-
-          // Add your own alias like this
-          '@': resolve(__dirname, './src'),
-          '>': resolve(__dirname, './test'),
-          variables: resolve(__dirname, './src/css/quasar.variables.sass'),
-          editbox: resolve(__dirname, './src/css/karrot.editbox.sass'),
-          vue: '@vue/compat',
+          ...webpackAliases, // from webpack.aliases.js
         }
 
         cfg.plugins.push(

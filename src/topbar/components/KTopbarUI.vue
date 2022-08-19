@@ -195,7 +195,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { onKeyStroke } from '@vueuse/core'
 import {
   QAvatar,
   QToolbar,
@@ -207,14 +207,13 @@ import {
   QItem,
   QItemSection,
 } from 'quasar'
-
-import { onKeyStroke } from '@vueuse/core'
+import { ref } from 'vue'
 
 import KarrotLogo from '@/logo/components/KarrotLogo'
-import KBreadcrumb from '@/topbar/components/KBreadcrumb'
-import Search from '@/topbar/components/Search'
 import LatestMessageButton from '@/messages/components/LatestMessageButton'
 import NotificationButton from '@/notifications/components/NotificationButton'
+import KBreadcrumb from '@/topbar/components/KBreadcrumb'
+import Search from '@/topbar/components/Search'
 
 export default {
   components: {

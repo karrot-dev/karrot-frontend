@@ -1,13 +1,14 @@
-import { h } from 'vue'
-import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
+import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
 
 import Settings from '@/authuser/pages/Settings'
-import VerificationWarning from '@/authuser/components/Settings/VerificationWarning'
-import { currentUserMock, groupsMock } from '>/mockdata'
 
-import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
+import VerificationWarning from '@/authuser/components/Settings/VerificationWarning'
+
 import * as factories from '>/enrichedFactories'
+import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { currentUserMock, groupsMock } from '>/mockdata'
 
 const datastore = createDatastore({
   auth: {

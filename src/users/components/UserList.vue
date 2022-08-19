@@ -81,7 +81,6 @@
 </template>
 
 <script>
-import { computed, toRefs } from 'vue'
 import {
   Dialog,
   QList,
@@ -95,11 +94,14 @@ import {
   QIcon,
   QInfiniteScroll,
 } from 'quasar'
+import { computed, toRefs } from 'vue'
 
-import KSpinner from '@/utils/components/KSpinner'
-import UserItem from './UserItem'
 import { useCurrentGroupService } from '@/group/services'
 import { useUserService } from '@/users/services'
+
+import KSpinner from '@/utils/components/KSpinner'
+
+import UserItem from './UserItem'
 
 export default {
   components: {

@@ -1,10 +1,10 @@
 import Axios from 'axios'
-import i18n from '@/base/i18n'
-import { Notify, throttle } from 'quasar'
 import qs from 'qs'
+import { Notify, throttle } from 'quasar'
 
-import { camelizeKeys, devSleep, underscorizeKeys } from '@/utils/utils'
+import i18n from '@/base/i18n'
 import { isServerError } from '@/utils/datastore/helpers'
+import { camelizeKeys, devSleep, underscorizeKeys } from '@/utils/utils'
 
 /*
 * Axios configured for Django REST API

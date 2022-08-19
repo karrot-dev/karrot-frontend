@@ -84,7 +84,6 @@
 </template>
 
 <script>
-import { computed } from 'vue'
 import {
   QCardSection,
   QCheckbox,
@@ -95,13 +94,16 @@ import {
   QBtn,
   QSpinner,
 } from 'quasar'
-import SwitchGroupButton from '@/users/components/SwitchGroupButton'
-import statusMixin from '@/utils/mixins/statusMixin'
-import KFormContainer from '@/base/components/KFormContainer'
-import { useChangeNotificationTypesMutation } from '@/group/mutations'
+import { computed } from 'vue'
+
 import { useAuthService } from '@/authuser/services'
-import { useGroupInfoService } from '@/groupInfo/services'
+import { useChangeNotificationTypesMutation } from '@/group/mutations'
 import { useCurrentGroupService } from '@/group/services'
+import { useGroupInfoService } from '@/groupInfo/services'
+import statusMixin from '@/utils/mixins/statusMixin'
+
+import KFormContainer from '@/base/components/KFormContainer'
+import SwitchGroupButton from '@/users/components/SwitchGroupButton'
 
 export default {
   name: 'GroupSettings',

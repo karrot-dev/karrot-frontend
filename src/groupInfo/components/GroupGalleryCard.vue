@@ -111,14 +111,14 @@ import {
   QTooltip,
   QIcon,
   QImg,
-  QBadge,
-  QSpace,
 } from 'quasar'
+import { computed, toRefs } from 'vue'
+
+import { useApplicationHelpers } from '@/applications/helpers'
+import { useGroupHelpers } from '@/group/helpers'
+
 import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
-import { useApplicationHelpers } from '@/applications/helpers'
-import { computed, toRefs } from 'vue'
-import { useGroupHelpers } from '@/group/helpers'
 
 export default {
   components: {
@@ -132,7 +132,6 @@ export default {
     QTooltip,
     QIcon,
     QImg,
-    QBadge,
   },
   props: {
     group: {

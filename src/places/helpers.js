@@ -1,8 +1,8 @@
 import { unref } from 'vue'
-
-import { useActivePlaceService } from '@/places/services'
-import { optionsFor } from '@/places/placeStatus'
 import { useI18n } from 'vue-i18n'
+
+import { optionsFor } from '@/places/placeStatus'
+import { useActivePlaceService } from '@/places/services'
 
 export function usePlaceHelpers () {
   const { t } = useI18n()

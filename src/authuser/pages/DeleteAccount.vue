@@ -8,8 +8,9 @@
 <script setup>
 import { useRoute } from 'vue-router'
 
-import DeleteAccount from '@/authuser/components/Settings/DeleteAccount'
 import { useDeleteAccountMutation } from '@/authuser/mutations'
+
+import DeleteAccount from '@/authuser/components/Settings/DeleteAccount'
 
 const route = useRoute()
 

@@ -1,11 +1,11 @@
-import { h } from 'vue'
-import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
+import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
 import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { groupsMock, timezones } from '>/mockdata'
 
 import GroupEdit from './GroupEdit'
-
-import { groupsMock, timezones } from '>/mockdata'
 
 const methods = {
   save: action('save group'),

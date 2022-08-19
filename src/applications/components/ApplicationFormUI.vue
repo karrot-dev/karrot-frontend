@@ -63,12 +63,14 @@ import {
   QBtn,
   QIcon,
 } from 'quasar'
-import MarkdownInput from '@/utils/components/MarkdownInput'
-import Markdown from '@/utils/components/Markdown'
-import statusMixin from '@/utils/mixins/statusMixin'
-import { useCreateApplicationMutation } from '@/applications/mutations'
-import { showToast } from '@/utils/toasts'
 import { useRouter } from 'vue-router'
+
+import { useCreateApplicationMutation } from '@/applications/mutations'
+import statusMixin from '@/utils/mixins/statusMixin'
+import { showToast } from '@/utils/toasts'
+
+import Markdown from '@/utils/components/Markdown'
+import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
   components: {

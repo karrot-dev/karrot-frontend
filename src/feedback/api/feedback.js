@@ -1,5 +1,5 @@
-import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertActivity } from '@/activities/api/activities'
+import axios, { parseCursor } from '@/base/api/axios'
 
 export default {
   async create (feedback) {

@@ -1,9 +1,10 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
 
-import KTopbar from './KTopbar'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import { groupsMock, placesMock, usersMock, currentUserMock } from '>/mockdata'
+
+import KTopbar from './KTopbar'
 
 const datastore = createDatastore({
   about: { getters: { deployed: () => ({}) }, actions: { fetch () {} } },

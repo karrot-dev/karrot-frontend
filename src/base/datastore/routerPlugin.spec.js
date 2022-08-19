@@ -1,8 +1,11 @@
-import { createDatastore, throws } from '>/helpers'
-import { createRouteError } from '@/utils/datastore/helpers'
-import { createRouter, createWebHashHistory } from 'vue-router'
-import { maybeDispatchActions } from './routerPlugin'
 import { flushPromises } from '@vue/test-utils'
+import { createRouter, createWebHashHistory } from 'vue-router'
+
+import { createRouteError } from '@/utils/datastore/helpers'
+
+import { createDatastore, throws } from '>/helpers'
+
+import { maybeDispatchActions } from './routerPlugin'
 
 jest.mock('@/router')
 

@@ -46,19 +46,19 @@
 
 <script>
 import { QIcon, QInfiniteScroll } from 'quasar'
-import { mapActions } from 'vuex'
 import { computed } from 'vue'
+import { mapActions } from 'vuex'
+
+import { useActivityHelpers } from '@/activities/helpers'
+import { useActivityListQuery } from '@/activities/queries'
+import { useAuthService } from '@/authuser/services'
+import { useCurrentGroupService } from '@/group/services'
+import { useActivePlaceService } from '@/places/services'
+import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 
 import ActivityList from '@/activities/components/ActivityList'
 import KNotice from '@/utils/components/KNotice'
 import KSpinner from '@/utils/components/KSpinner'
-
-import { useCurrentGroupService } from '@/group/services'
-import { useActivityListQuery } from '@/activities/queries'
-import { useActivePlaceService } from '@/places/services'
-import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
-import { useAuthService } from '@/authuser/services'
-import { useActivityHelpers } from '@/activities/helpers'
 
 export default {
   components: {

@@ -93,18 +93,6 @@
 </template>
 
 <script>
-import ChatConversation from '@/messages/components/ChatConversation'
-import Markdown from '@/utils/components/Markdown'
-import DateAsWords from '@/utils/components/DateAsWords'
-import KSpinner from '@/utils/components/KSpinner'
-import { useAcceptApplicationMutation, useDeclineApplicationMutation } from '@/applications/mutations'
-import { showToast } from '@/utils/toasts'
-import { useQueryClient } from 'vue-query'
-import { computed } from 'vue'
-import { useCurrentGroupService } from '@/group/services'
-import { useDetailService } from '../services'
-import { useI18n } from 'vue-i18n'
-
 import {
   QExpansionItem,
   QList,
@@ -115,7 +103,21 @@ import {
   QBtnGroup,
   Dialog,
 } from 'quasar'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useQueryClient } from 'vue-query'
+
+import { useAcceptApplicationMutation, useDeclineApplicationMutation } from '@/applications/mutations'
+import { useCurrentGroupService } from '@/group/services'
 import { useGroupInfoService } from '@/groupInfo/services'
+import { showToast } from '@/utils/toasts'
+
+import ChatConversation from '@/messages/components/ChatConversation'
+import DateAsWords from '@/utils/components/DateAsWords'
+import KSpinner from '@/utils/components/KSpinner'
+import Markdown from '@/utils/components/Markdown'
+
+import { useDetailService } from '../services'
 
 export default {
   components: {

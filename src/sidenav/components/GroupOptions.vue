@@ -8,9 +8,10 @@
 <script setup>
 import { computed } from 'vue'
 
-import GroupOptionsUI from './GroupOptionsUI'
-import { useCurrentGroupService } from '@/group/services'
 import { useAuthService } from '@/authuser/services'
+import { useCurrentGroupService } from '@/group/services'
+
+import GroupOptionsUI from './GroupOptionsUI'
 
 const { group, getUserRoles } = useCurrentGroupService()
 const { userId } = useAuthService()

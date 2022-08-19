@@ -31,8 +31,9 @@ import {
   QDialog,
 } from 'quasar'
 import { defineAsyncComponent } from 'vue'
-import locales from '@/locales/index'
+
 import { useI18nService } from '@/base/services/i18n'
+import locales from '@/locales/index'
 
 const LocaleSelectInner = defineAsyncComponent(() => import('./LocaleSelectInner'))
 

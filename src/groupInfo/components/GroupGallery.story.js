@@ -1,10 +1,11 @@
-import { h } from 'vue'
-import { storybookDefaults as defaults } from '>/helpers'
-import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
+import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
+import { makeGroupInfo } from '>/enrichedFactories'
+import { storybookDefaults as defaults } from '>/helpers'
 
 import GroupGallery from './GroupGalleryUI'
-import { makeGroupInfo } from '>/enrichedFactories'
 
 const groups = [
   makeGroupInfo({ memberCount: 20 }),

@@ -1,8 +1,9 @@
+import deepmerge from 'deepmerge'
 import { useQuery, useQueryClient } from 'vue-query'
 
-import api from './api/status'
 import { useSocketEvents } from '@/utils/composables'
-import deepmerge from 'deepmerge'
+
+import api from './api/status'
 
 export const queryKeyStatus = () => ['status']
 

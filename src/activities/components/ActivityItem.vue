@@ -169,22 +169,25 @@
 </template>
 
 <script>
-import { computed, toRefs } from 'vue'
 import {
   QCard,
   QCardSection,
   QIcon,
   QBtn,
 } from 'quasar'
-import ActivityUsers from './ActivityUsers'
-import CustomDialog from '@/utils/components/CustomDialog'
-import { absoluteURL } from '@/utils/absoluteURL'
-import Markdown from '@/utils/components/Markdown'
-import { useJoinActivityMutation, useLeaveActivityMutation } from '@/activities/mutations'
+import { computed, toRefs } from 'vue'
+
 import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
+import { useJoinActivityMutation, useLeaveActivityMutation } from '@/activities/mutations'
 import { useActivityTypeService } from '@/activities/services'
-import { usePlaceService } from '@/places/services'
 import { useDetailService } from '@/messages/services'
+import { usePlaceService } from '@/places/services'
+import { absoluteURL } from '@/utils/absoluteURL'
+
+import CustomDialog from '@/utils/components/CustomDialog'
+import Markdown from '@/utils/components/Markdown'
+
+import ActivityUsers from './ActivityUsers'
 
 export default {
   components: {

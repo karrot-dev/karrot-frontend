@@ -111,8 +111,10 @@ import {
   QBadge,
   Dialog,
 } from 'quasar'
-import ActivityTypeForm from '@/group/components/ActivityTypeForm'
+
 import { useActivityTypeHelpers } from '@/activities/helpers'
+
+import ActivityTypeForm from '@/group/components/ActivityTypeForm'
 
 export default {
   components: {

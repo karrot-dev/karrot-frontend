@@ -1,3 +1,6 @@
+import { enrichGroup } from '>/datastoreHelpers'
+import { createDatastore, createValidationError, throws, statusMocks } from '>/helpers'
+
 const mockJoin = jest.fn()
 const mockLeave = jest.fn()
 const mockSave = jest.fn()
@@ -11,11 +14,6 @@ const mockFetchGroupsPreview = jest.fn()
 jest.mock('@/groupInfo/api/groupsInfo', () => ({
   list: mockFetchGroupsPreview,
 }))
-
-import { router } from '>/routerMocks'
-
-import { createDatastore, createValidationError, throws, statusMocks } from '>/helpers'
-import { enrichGroup } from '>/datastoreHelpers'
 
 describe('groups', () => {
   beforeEach(() => jest.resetModules())

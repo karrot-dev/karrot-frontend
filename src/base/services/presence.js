@@ -1,5 +1,5 @@
-import { readonly, ref, watch } from 'vue'
 import { AppVisibility } from 'quasar'
+import { readonly, ref, watch } from 'vue'
 
 import { defineService } from '@/utils/datastore/helpers'
 

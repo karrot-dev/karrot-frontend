@@ -40,6 +40,7 @@
 
 <script>
 import { QToolbar, QToolbarTitle, QBtn } from 'quasar'
+
 import KarrotLogo from '@/logo/components/KarrotLogo'
 import KBreadcrumb from '@/topbar/components/KBreadcrumb'
 import LocaleSelect from '@/utils/components/LocaleSelect'

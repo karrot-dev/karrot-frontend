@@ -45,22 +45,21 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-
 import {
   QList,
   QItem,
 } from 'quasar'
+import { computed } from 'vue'
 
-import IssueVote from '@/issues/components/IssueVote'
-import VotingResults from '@/issues/components/VotingResults'
-import PreviousVotingList from '@/issues/components/PreviousVotingList'
-import reactiveNow from '@/utils/reactiveNow'
-
-import { useActiveIssueService } from '@/issues/services'
-import { useUserService } from '@/users/services'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { useDeleteVoteMutation, useSaveVoteMutation } from '@/issues/mutations'
+import { useActiveIssueService } from '@/issues/services'
+import { useUserService } from '@/users/services'
+import reactiveNow from '@/utils/reactiveNow'
+
+import IssueVote from '@/issues/components/IssueVote'
+import PreviousVotingList from '@/issues/components/PreviousVotingList'
+import VotingResults from '@/issues/components/VotingResults'
 
 export default {
   components: {

@@ -5,6 +5,7 @@
  *
  * Obviously it does not handle dynamically composed translation keys, so expect some false positives.
  */
+const { exec } = require('child_process')
 
 const { readFileSync } = require('fs')
 
@@ -28,7 +29,6 @@ function getKeys (src, parent) {
 }
 getKeys(messages)
 
-const { exec } = require('child_process')
 keys.forEach(k => {
   exec(`grep -Fr ${k} src/`, (error) => {
     // error is not null -> probably not found (or some other error occurred)

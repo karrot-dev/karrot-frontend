@@ -1,8 +1,8 @@
 import { computed, unref } from 'vue'
 
-import { defineService, indexById } from '@/utils/datastore/helpers'
 import { usePlaceListQuery } from '@/places/queries'
 import { useIntegerRouteParam } from '@/utils/composables'
+import { defineService, indexById } from '@/utils/datastore/helpers'
 
 export const usePlaceService = defineService(() => {
   // queries

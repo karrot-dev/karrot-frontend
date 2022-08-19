@@ -1,20 +1,19 @@
 import { unref, computed } from 'vue'
-
-import messageAPI from '@/messages/api/messages'
-import conversationsAPI from '@/messages/api/conversations'
-import groupsAPI from '@/group/api/groups'
-import placesAPI from '@/places/api/places'
-import activitiesAPI from '@/activities/api/activities'
-import usersAPI from '@/users/api/users'
-import applicationsAPI from '@/applications/api/applications'
-import offersAPI from '@/offers/api/offers'
-import issuesAPI from '@/issues/api/issues'
-
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
-import { extractCursor, flattenPaginatedData, useWait } from '@/utils/queryHelpers'
-import { useSocketEvents } from '@/utils/composables'
+
+import activitiesAPI from '@/activities/api/activities'
+import applicationsAPI from '@/applications/api/applications'
+import groupsAPI from '@/group/api/groups'
+import issuesAPI from '@/issues/api/issues'
+import conversationsAPI from '@/messages/api/conversations'
+import messageAPI from '@/messages/api/messages'
 import { useMessageHelpers } from '@/messages/helpers'
+import offersAPI from '@/offers/api/offers'
+import placesAPI from '@/places/api/places'
+import usersAPI from '@/users/api/users'
+import { useSocketEvents } from '@/utils/composables'
 import { indexById, indexBy } from '@/utils/datastore/helpers'
+import { extractCursor, flattenPaginatedData, useWait } from '@/utils/queryHelpers'
 
 export const QUERY_KEY_BASE = 'messages'
 export const queryKeyConversationList = () => [QUERY_KEY_BASE, 'conversations', 'list']

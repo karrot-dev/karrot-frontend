@@ -1,15 +1,15 @@
-import { h } from 'vue'
-import { createDatastore, storybookDefaults as defaults } from '>/helpers'
-import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
+import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
 
 import * as factories from '>/enrichedFactories'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
+
+import UserList from './UserList'
 
 const datastore = createDatastore({
   users: { getters: { get: () => id => id } },
 })
-
-import UserList from './UserList'
 
 const users = [...Array(15).keys()].map((_, i) => factories.makeUser({
   membership: factories.makeMembership({

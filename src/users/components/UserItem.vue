@@ -62,9 +62,10 @@ import {
   QItemLabel,
 } from 'quasar'
 
-import ProfilePicture from './ProfilePicture'
-import DateAsWords from '@/utils/components/DateAsWords'
 import TrustButton from '@/users/components/TrustButton'
+import DateAsWords from '@/utils/components/DateAsWords'
+
+import ProfilePicture from './ProfilePicture'
 
 defineProps({
   user: {

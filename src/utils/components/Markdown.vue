@@ -9,8 +9,9 @@
 </template>
 
 <script>
-import markdown from './markdownRenderer'
 import { useUserService } from '@/users/services'
+
+import markdown from './markdownRenderer'
 
 export default {
   props: {

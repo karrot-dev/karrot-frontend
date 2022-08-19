@@ -17,9 +17,10 @@
 <script setup>
 import { computed } from 'vue'
 
+import { useCurrentGroupService } from '@/group/services'
+
 import StandardMap from '@/maps/components/StandardMap'
 import { userMarker } from '@/maps/components/markers'
-import { useCurrentGroupService } from '@/group/services'
 
 const props = defineProps({
   user: {

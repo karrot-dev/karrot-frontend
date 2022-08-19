@@ -35,18 +35,18 @@
                   />
                 </template>
                 <!-- TODO lint "Variable 'activity' is already declared in the upper scope." -->
-                <template #option="{ index, opt: { value: activity }, itemProps }">
+                <template #option="{ index, opt: { value: activityOption }, itemProps }">
                   <QItem
                     :key="index"
                     v-bind="itemProps"
                   >
                     <QItemSection avatar>
                       <QIcon
-                        v-if="activity && activity.activityType"
-                        v-bind="getIconProps(getActivityTypeById(activity.activityType))"
+                        v-if="activityOption && activityOption.activityType"
+                        v-bind="getIconProps(getActivityTypeById(activityOption.activityType))"
                       />
                     </QItemSection>
-                    <QItemSection>{{ getDateWithPlace(activity) }}</QItemSection>
+                    <QItemSection>{{ getDateWithPlace(activityOption) }}</QItemSection>
                   </QItem>
                 </template>
               </QSelect>
@@ -115,8 +115,6 @@
 </template>
 
 <script setup>
-import { computed, watchEffect, unref } from 'vue'
-import { useRouter } from 'vue-router'
 
 import {
   QIcon,
@@ -125,26 +123,29 @@ import {
   QCard,
   QSelect,
 } from 'quasar'
-
-import FeedbackList from '../components/FeedbackList'
-import RandomArt from '@/utils/components/RandomArt'
-import FeedbackForm from '../components/FeedbackForm'
-import KNotice from '@/utils/components/KNotice'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import cart from '@/feedback/assets/cart.png'
-
-import { useActivityListQuery, useActivityItemQuery } from '@/activities/queries'
-import { useCurrentGroupService } from '@/group/services'
-import { useIntegerRouteParam } from '@/utils/composables'
-import { useFeedbackListQuery, useFeedbackItemQuery } from '@/feedback/queries'
+import { computed, watchEffect, unref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useFeedbackSaveMutation } from '@/feedback/mutations'
-import { useDismissFeedbackMutation } from '@/activities/mutations'
-import { usePlaceService } from '@/places/services'
-import { useActivityTypeService } from '@/activities/services'
+import { useRouter } from 'vue-router'
+
 import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useDismissFeedbackMutation } from '@/activities/mutations'
+import { useActivityListQuery, useActivityItemQuery } from '@/activities/queries'
+import { useActivityTypeService } from '@/activities/services'
 import { useAuthHelpers } from '@/authuser/helpers'
+import cart from '@/feedback/assets/cart.png'
+import { useFeedbackSaveMutation } from '@/feedback/mutations'
+import { useFeedbackListQuery, useFeedbackItemQuery } from '@/feedback/queries'
+import { useCurrentGroupService } from '@/group/services'
+import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
+import { useIntegerRouteParam } from '@/utils/composables'
+
+import ProfilePicture from '@/users/components/ProfilePicture'
+import KNotice from '@/utils/components/KNotice'
+import RandomArt from '@/utils/components/RandomArt'
+
+import FeedbackForm from '../components/FeedbackForm'
+import FeedbackList from '../components/FeedbackList'
 
 const router = useRouter()
 const { d } = useI18n()

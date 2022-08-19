@@ -136,7 +136,6 @@
 </template>
 
 <script>
-import { toRefs, computed } from 'vue'
 import {
   Dialog,
   QBtn,
@@ -144,20 +143,21 @@ import {
   QToolbarTitle,
   QIcon,
 } from 'quasar'
+import { toRefs, computed } from 'vue'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
-import NotificationToggle from '@/messages/components/NotificationToggle'
-
-import dateFnsHelper from '@/utils/dateFnsHelper'
-import { useUserService } from '@/users/services'
-import { usePlaceService } from '@/places/services'
 import { useActivityTypeHelpers } from '@/activities/helpers'
-import { useDetailService } from '@/messages/services'
 import { useActivityTypeService } from '@/activities/services'
-import { useConversationHelpers } from '@/messages/helpers'
 import { useAuthHelpers } from '@/authuser/helpers'
 import { useGroupInfoService } from '@/groupInfo/services'
+import { useConversationHelpers } from '@/messages/helpers'
 import { useSaveConversationMutation, useSaveThreadMutedMutation } from '@/messages/mutations'
+import { useDetailService } from '@/messages/services'
+import { usePlaceService } from '@/places/services'
+import { useUserService } from '@/users/services'
+import dateFnsHelper from '@/utils/dateFnsHelper'
+
+import NotificationToggle from '@/messages/components/NotificationToggle'
+import ProfilePicture from '@/users/components/ProfilePicture'
 
 export default {
   components: {

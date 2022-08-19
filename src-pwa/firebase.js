@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { getMessaging, onBackgroundMessage } from 'firebase/messaging/sw'
+
 import { getFirebaseConfig } from '@/subscriptions/firebase.config'
 
 export async function init () {

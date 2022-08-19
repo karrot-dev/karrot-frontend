@@ -1,8 +1,8 @@
 import { unref, computed } from 'vue'
 import { useQuery } from 'vue-query'
 
-import api from '@/communityFeed/api/communityFeed'
 import { useAuthService } from '@/authuser/services'
+import api from '@/communityFeed/api/communityFeed'
 
 export const QUERY_KEY_BASE = 'communityFeed'
 export const queryKeyCommunityFeed = () => [QUERY_KEY_BASE, 'feed']

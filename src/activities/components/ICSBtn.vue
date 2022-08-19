@@ -150,7 +150,6 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
 import {
   copyToClipboard,
   QAvatar,
@@ -164,12 +163,14 @@ import {
   QSeparator,
   QInnerLoading,
 } from 'quasar'
+import { ref, computed } from 'vue'
+
+import activities from '@/activities/api/activities'
+import { useICSRefreshTokenMutation } from '@/activities/mutations'
+import { useICSTokenQuery } from '@/activities/queries'
+import { useToastService } from '@/alerts/services'
 
 import CustomDialog from '@/utils/components/CustomDialog'
-import activities from '@/activities/api/activities'
-import { useICSTokenQuery } from '@/activities/queries'
-import { useICSRefreshTokenMutation } from '@/activities/mutations'
-import { useToastService } from '@/alerts/services'
 
 const props = defineProps({
   group: {

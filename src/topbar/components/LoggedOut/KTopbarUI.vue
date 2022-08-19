@@ -9,10 +9,7 @@
     <QToolbarTitle>
       <div class="row justify-between no-wrap">
         <div />
-        <KBreadcrumb
-          class="bread"
-          :breadcrumbs="breadcrumbs"
-        />
+        <KBreadcrumb class="bread" />
         <div />
       </div>
     </QToolbarTitle>

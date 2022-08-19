@@ -34,6 +34,7 @@ import { usePlacesUpdater } from '@/places/queries'
 import { useStatusUpdater } from '@/status/queries'
 import { useUsersUpdater } from '@/users/queries'
 import { useClearDataOnLogout, useTitleStatus } from '@/utils/composables'
+import { useCordova } from '@/utils/cordova'
 
 import LoadingProgress from '@/topbar/components/LoadingProgress'
 
@@ -42,6 +43,9 @@ export default {
     LoadingProgress,
   },
   setup () {
+    if (process.env.MODE === 'cordova') {
+      useCordova()
+    }
     useWebsocket()
 
     useRoutingLogic()

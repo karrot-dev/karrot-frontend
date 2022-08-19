@@ -1,38 +1,35 @@
-import { reactive, watch } from 'vue'
+import { onlineManager, focusManager } from 'vue-query'
 
-import datastore from '@/store'
+export function useCordovaOnlineAndFocusState () {
+  // Hook vue-query up to cordova online state
+  // https://tanstack.com/query/v4/docs/reference/onlineManager#onlinemanagerseteventlistener
+  onlineManager.setEventListener(setOnline => {
+    return subscribe({
+      online: () => setOnline(true),
+      offline: () => setOnline(false),
+    })
+  })
 
-const state = reactive({
-  foreground: true,
-  online: null,
-})
+  // Hook vue-query up to cordova focus state
+  // https://tanstack.com/query/v4/docs/guides/window-focus-refetching#custom-window-focus-event
+  focusManager.setEventListener(setFocused => {
+    return subscribe({
+      resume: () => setFocused(true),
+      pause: () => setFocused(false),
+    })
+  })
+}
 
-state.online = navigator.connection.type !== 'none'
-document.addEventListener('deviceready', () => {
-  document.addEventListener('online', () => {
-    state.online = true
-  }, false)
-  document.addEventListener('offline', () => {
-    state.online = false
-  }, false)
-
-  document.addEventListener('resume', () => {
-    state.foreground = true
-  }, false)
-
-  document.addEventListener('pause', () => {
-    state.foreground = false
-  }, false)
-}, false)
-
-// wait 5 seconds before triggering refresh
-// TODO: how does vue-query refresh work on cordova? might need to do some of these manual event listeners and trigger something?
-const refresh = () => setTimeout(() => datastore.commit('refresh/requestRefresh', true), 5000)
-
-watch(() => status.online, val => {
-  if (val) refresh()
-})
-
-watch(() => status.foreground, val => {
-  if (val) refresh()
-})
+// Just a utility to subscribe to events with handlers returning an unsubscribe function
+function subscribe (options) {
+  for (const type of Object.keys(options)) {
+    const fn = options[type]
+    document.addEventListener(type, fn, false)
+  }
+  return () => {
+    for (const type of Object.keys(options)) {
+      const fn = options[type]
+      document.removeEventListener(type, fn)
+    }
+  }
+}

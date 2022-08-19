@@ -1,36 +1,46 @@
-import { computed, ref, watch, reactive } from 'vue'
+import { computed, ref, toRef, watch, reactive } from 'vue'
 
 import { useAuthService } from '@/authuser/services'
-import subscriptionsAPI from '@/subscriptions/api/subscriptions'
 import { getServiceWorkerRegistration, initializeMessaging, isSupported } from '@/subscriptions/firebase'
+import { useTokenService } from '@/subscriptions/services/token'
 import { defineService } from '@/utils/datastore/helpers'
 import { showToast } from '@/utils/toasts'
 
-const LOCAL_STORAGE_KEY = 'KARROT_PUSH'
+const LOCAL_STORAGE_KEY = 'KARROT_PUSH_INTENTION'
+
+function getIntention () {
+  const item = localStorage.getItem(LOCAL_STORAGE_KEY)
+  if (item) {
+    try {
+      return JSON.parse(item).value
+    }
+    catch (error) {}
+  }
+  return null
+}
+
+function setIntention (value) {
+  if (value === null) {
+    localStorage.removeItem(LOCAL_STORAGE_KEY)
+  }
+  else {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify({ value }))
+  }
+}
 
 export const usePushService = defineService(() => {
   const { trackPending, isPending } = createPendingTracker()
   const { isLoggedIn } = useAuthService()
+  const { syncToken } = useTokenService()
 
-  function getState () {
-    const item = localStorage.getItem(LOCAL_STORAGE_KEY)
-    return item
-      ? JSON.parse(item)
-      : {
-          intention: null, // true (please notify me), false (please don't notify me), or null (don't notify me, but maybe pester me)
-          token: null,
-        }
-  }
+  const state = reactive({
+    // true (please notify me), false (please don't notify me), or null (don't notify me, but maybe pester me)
+    intention: getIntention(),
+    token: null,
+  })
 
-  const state = reactive(getState())
-
-  watch(state, value => {
-    if (value.intention === null && value.token === null) {
-      localStorage.removeItem(LOCAL_STORAGE_KEY)
-    }
-    else {
-      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(value))
-    }
+  watch(() => state.intention, value => {
+    setIntention(value)
   })
 
   const isEnabled = computed(() => Boolean(state.intention))
@@ -47,7 +57,7 @@ export const usePushService = defineService(() => {
       state.token = await getToken({ serviceWorkerRegistration })
     }
     catch (err) {
-      state.tokenvalue = null
+      state.token = null
       if (err.code === 'messaging/notifications-blocked' || err.code === 'messaging/permission-blocked') {
         state.intention = false
         showToast({
@@ -74,7 +84,7 @@ export const usePushService = defineService(() => {
     state.token = null
   }
 
-  async function setup () {
+  async function initialize () {
     if (!isSupported()) return
 
     if (state.intention === true) {
@@ -91,26 +101,12 @@ export const usePushService = defineService(() => {
   // for stuff on logout, we do in logout mutation so we can cleanup whislt still logged in
   watch(isLoggedIn, value => {
     if (value) {
-      setup()
-    }
-  })
-
-  // Ensure the server has the correct tokens
-  watch(() => state.token, async (currentValue, previousValue) => {
-    if (!isLoggedIn.value) return // we can't modify the server if we're not logged in
-
-    const subscriptions = await subscriptionsAPI.list()
-
-    if (previousValue) {
-      const subscription = subscriptions.find(subscription => subscription.token === previousValue)
-      if (subscription) await subscriptionsAPI.delete(subscription.id)
-    }
-
-    if (currentValue) {
-      const subscription = subscriptions.find(subscription => subscription.token === currentValue)
-      if (!subscription) await subscriptionsAPI.create({ token: currentValue, platform: 'web' })
+      initialize()
     }
   }, { immediate: true })
+
+  // This keeps token synced on the server
+  syncToken(toRef(state, 'token'), { platform: 'web' })
 
   return {
     enable: trackPending(enable),

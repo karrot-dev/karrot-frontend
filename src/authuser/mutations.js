@@ -70,26 +70,6 @@ export function useLogoutMutation () {
         router.push({ name: 'groupsGallery' })
         setUser(null)
         showLogoutToast()
-
-        // TODO: where to do this? maybe on the useClearDataOnLogout() thing? as we can be logged out for other reasons than explicit logout
-        // async logout ({ commit, dispatch }) {
-        //   await dispatch('push/disable')
-        //   await dispatch('fcm/disable', null, { root: true })
-        //   await auth.logout()
-        //
-        //   commit('setUser', null)
-        //   showLogoutToast(dispatch)
-        //
-        //   router.push({ name: 'groupsGallery' }).catch(() => {})
-        // },
-        // const showLogoutToast = throttle((dispatch) => {
-        //   dispatch('toasts/show', {
-        //     message: 'USERDATA.LOGOUT_SUCCESS',
-        //     config: {
-        //       timeout: 5000,
-        //     },
-        //   }, { root: true })
-        // }, 5000)
       },
     },
   ))
@@ -110,6 +90,33 @@ export function useSaveUserMutation () {
 export function useVerifyEmailMutation () {
   return withStatus(useMutation(
     code => api.verifyMail(code),
+  ))
+}
+
+export function useRequestPasswordResetMutation () {
+  const router = useRouter()
+  return withStatus(useMutation(
+    email => api.requestResetPassword(email),
+    {
+      onSuccess () {
+        router.push({ name: 'requestPasswordResetSuccess' })
+      },
+    },
+  ))
+}
+
+export function usePasswordResetMutation () {
+  const router = useRouter()
+  return withStatus(useMutation(
+    data => api.resetPassword(data),
+    {
+      onSuccess () {
+        router.push({ name: 'login' })
+        showToast({
+          message: 'PASSWORD.RESET.SUCCESS',
+        })
+      },
+    },
   ))
 }
 

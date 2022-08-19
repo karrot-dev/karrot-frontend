@@ -1,16 +1,17 @@
 <template>
   <RequestPasswordReset
-    :status="$store.getters['users/requestResetPasswordStatus']"
-    @submit="data => $store.dispatch('users/requestResetPassword', data)"
+    :status="status"
+    @submit="data => request(data)"
   />
 </template>
 
-<script>
+<script setup>
+import { useRequestPasswordResetMutation } from '@/authuser/mutations'
+
 import RequestPasswordReset from '@/authuser/components/RequestPasswordReset'
 
-export default {
-  components: {
-    RequestPasswordReset,
-  },
-}
+const {
+  mutate: request,
+  status,
+} = useRequestPasswordResetMutation()
 </script>

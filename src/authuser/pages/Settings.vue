@@ -61,11 +61,7 @@
         </QCardActions>
       </QCardSection>
     </KFormContainer>
-    <GroupSettings
-      :status="$store.getters['unsubscribe/allEmailsPerGroupStatus']"
-      @unsubscribe-all-emails="data => $store.dispatch('unsubscribe/allEmailsPerGroup', data)"
-      @clear-unsubscribe-all-status="data => $store.dispatch('unsubscribe/clear', data)"
-    />
+    <GroupSettings />
     <KFormContainer
       v-if="!$q.platform.is.cordova"
     >

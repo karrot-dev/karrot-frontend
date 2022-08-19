@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
 import { useSetUser } from '@/authuser/queries'
+import unsubscribeAPI from '@/unsubscribe/api/unsubscribe'
 import usersAPI from '@/users/api/users'
 import { withStatus } from '@/utils/queryHelpers'
 import { showToast } from '@/utils/toasts'
@@ -90,6 +91,21 @@ export function useSaveUserMutation () {
 export function useVerifyEmailMutation () {
   return withStatus(useMutation(
     code => api.verifyMail(code),
+  ))
+}
+
+export function useUnsubscribeAllMutation () {
+  return withStatus(useMutation(
+    groupId => unsubscribeAPI.unsubscribe({ group: groupId, choice: 'group' }),
+    {
+      onSuccess (counts) {
+        const { conversations: formerConversations, threads: formerReplies } = counts
+        showToast({
+          message: 'UNSUBSCRIBE.COUNTS',
+          messageParams: { formerConversations, formerReplies },
+        })
+      },
+    },
   ))
 }
 

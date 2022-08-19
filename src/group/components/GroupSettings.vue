@@ -62,8 +62,8 @@
           <QBtn
             color="primary"
             :label="$t('UNSUBSCRIBE.ALL')"
-            :loading="isPending"
-            @click="$emit('unsubscribe-all-emails', group.id)"
+            :loading="unsubscribeIsPending"
+            @click="unsubscribeAll(group.id)"
           />
           <div
             class="q-pt-sm k-caption-opacity"
@@ -72,11 +72,11 @@
           </div>
         </div>
         <div
-          v-if="hasAnyError"
+          v-if="unsubscribeHasAnyError"
           class="text-negative q-mt-md"
         >
           <i class="fas fa-exclamation-triangle" />
-          {{ anyFirstError }}
+          {{ unsubscribeAnyFirstError }}
         </div>
       </QList>
     </QCardSection>
@@ -96,11 +96,12 @@ import {
 } from 'quasar'
 import { computed } from 'vue'
 
+import { useUnsubscribeAllMutation } from '@/authuser/mutations'
 import { useAuthService } from '@/authuser/services'
 import { useChangeNotificationTypesMutation } from '@/group/mutations'
 import { useCurrentGroupService } from '@/group/services'
 import { useGroupInfoService } from '@/groupInfo/services'
-import statusMixin from '@/utils/mixins/statusMixin'
+import { useStatusHelpers } from '@/utils/mixins/statusMixin'
 
 import KFormContainer from '@/base/components/KFormContainer'
 import SwitchGroupButton from '@/users/components/SwitchGroupButton'
@@ -119,12 +120,7 @@ export default {
     KFormContainer,
     SwitchGroupButton,
   },
-  mixins: [statusMixin],
-  emits: [
-    'unsubscribe-all-emails',
-    'clear-unsubscribe-all-status',
-  ],
-  setup (props) {
+  setup () {
     const { user } = useAuthService()
     const {
       groupId,
@@ -137,11 +133,28 @@ export default {
       mutateAsync: changeNotificationType,
     } = useChangeNotificationTypesMutation({ groupId })
 
+    const {
+      mutate: unsubscribeAll,
+      status: unsubscribeAllStatus,
+      reset: resetUnsubscribeAll,
+    } = useUnsubscribeAllMutation()
+
+    const {
+      hasAnyError: unsubscribeHasAnyError,
+      anyFirstError: unsubscribeAnyFirstError,
+      isPending: unsubscribeIsPending,
+    } = useStatusHelpers(unsubscribeAllStatus)
+
     return {
       group,
       groups,
       user,
       changeNotificationType,
+      unsubscribeAll,
+      unsubscribeHasAnyError,
+      unsubscribeAnyFirstError,
+      unsubscribeIsPending,
+      resetUnsubscribeAll,
     }
   },
   data () {
@@ -164,7 +177,7 @@ export default {
   watch: {
     group (val, oldval) {
       if (!val || !oldval || val.id !== oldval.id) {
-        this.$emit('clear-unsubscribe-all-status')
+        this.resetUnsubscribeAll()
       }
     },
   },

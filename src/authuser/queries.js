@@ -1,5 +1,4 @@
 import { useQuery, useQueryClient } from 'vue-query'
-import { useStore } from 'vuex'
 
 import { useSocketEvents } from '@/utils/composables'
 import { isValidationError } from '@/utils/datastore/helpers'
@@ -13,19 +12,19 @@ export const queryKeys = {
   failedEmailDeliveries: () => [QUERY_KEY_BASE, 'failed-email-deliveries'],
 }
 
-export function useSetUser () {
+export function useSetAuthUser () {
   const queryClient = useQueryClient()
-  const store = useStore()
-  return user => {
-    // Allow legacy vuex stuff to access the user too
-    store.commit('auth/setUser', user)
+
+  function setAuthUser (user) {
     queryClient.setQueryData(queryKeys.authUser(), () => user)
   }
+
+  return setAuthUser
 }
 
 export function useAuthUserUpdater () {
   const { on } = useSocketEvents()
-  const setUser = useSetUser()
+  const setUser = useSetAuthUser()
   on('auth:user', user => {
     setUser(user)
   })

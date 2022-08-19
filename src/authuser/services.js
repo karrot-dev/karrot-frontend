@@ -14,7 +14,7 @@ export const useAuthService = defineService(() => {
 
   // computed
   const userId = computed(() => user.value?.id)
-  const isLoggedIn = computed(() => !!user.value)
+  const isLoggedIn = computed(() => Boolean(user.value))
 
   // actions
   async function refresh () {

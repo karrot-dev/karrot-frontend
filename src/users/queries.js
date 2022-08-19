@@ -1,7 +1,6 @@
 import { computed, unref } from 'vue'
 import { useQuery, useQueryClient } from 'vue-query'
 
-import { useAuthService } from '@/authuser/services'
 import { useSocketEvents } from '@/utils/composables'
 import { useQueryHelpers } from '@/utils/queryHelpers'
 
@@ -24,24 +23,19 @@ export function useUsersUpdater () {
       'auth:user',
       'users:user',
     ],
-    user => updateOrInvalidateListEntry(queryKeyUserListAll(), user),
+    user => {
+      queryClient.invalidateQueries(queryKeyUserProfile(user.id))
+      updateOrInvalidateListEntry(queryKeyUserListAll(), user)
+    },
   )
   on(
     [
       'groups:user_joined',
       'groups:user_left',
     ],
-    async ({ userId, groupId }) => {
-      // Find the user again, and update...
-      // TODO: check if this handles user is now 404... probably not
-      const user = await api.get(userId)
-      if (user) {
-        updateOrInvalidateListEntry(queryKeyUserListAll(), user)
-      }
-      else {
-        // User removed I guess... TODO: make sure this makes sense!
-        queryClient.invalidateQueries(queryKeyUserListAll())
-      }
+    async ({ userId }) => {
+      queryClient.invalidateQueries(queryKeyUserProfile(userId))
+      queryClient.invalidateQueries(queryKeyUserListAll())
     },
   )
 }
@@ -49,8 +43,7 @@ export function useUsersUpdater () {
 /**
  * Holds all users across all groups
  */
-export function useUserListAllQuery () {
-  const { isLoggedIn } = useAuthService()
+export function useUserListAllQuery (queryOptions = {}) {
   const query = useQuery(
     queryKeyUserListAll(),
     () => api.list(),
@@ -58,7 +51,7 @@ export function useUserListAllQuery () {
       // TODO: could set 10 minutes or something, just to periodically check, or on background refresh? as might not have got websockets?
       staleTime: Infinity, // rely on websockets to keep updated
       placeholderData: () => [],
-      enabled: isLoggedIn,
+      ...queryOptions,
     },
   )
   return {
@@ -69,7 +62,6 @@ export function useUserListAllQuery () {
 
 export function useUserProfileQuery ({ userId }) {
   const query = useQuery(
-    // TODO: update this with websockets too...
     queryKeyUserProfile(userId),
     () => {
       try {
@@ -77,9 +69,6 @@ export function useUserProfileQuery ({ userId }) {
       }
       catch (error) {
         return api.getInfo(unref(userId))
-        // TODO: implement this bit? if the profile isn't there? or is that for somewhere else? where?
-        //     const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
-        //     throw createRouteError(data)
       }
     },
     {

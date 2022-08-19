@@ -1,7 +1,6 @@
 import { unref, computed } from 'vue'
 import { useQuery } from 'vue-query'
 
-import { useAuthService } from '@/authuser/services'
 import { useSocketEvents } from '@/utils/composables'
 import { useQueryHelpers } from '@/utils/queryHelpers'
 
@@ -37,16 +36,14 @@ export function usePlaceStatisticsQuery ({ placeId }) {
   }
 }
 
-export function usePlaceListQuery () {
-  const { isLoggedIn } = useAuthService()
-
+export function usePlaceListQuery (queryOptions = {}) {
   const query = useQuery(
     queryKeyPlaceListAll(),
     () => api.list(),
     {
       placeholderData: () => [],
       staleTime: Infinity, // rely on socket updates
-      enabled: isLoggedIn,
+      ...queryOptions,
     },
   )
   return {

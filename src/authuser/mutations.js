@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from 'vue-query'
 import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
-import { useSetUser } from '@/authuser/queries'
+import { useSetAuthUser } from '@/authuser/queries'
 import unsubscribeAPI from '@/unsubscribe/api/unsubscribe'
 import usersAPI from '@/users/api/users'
 import { withStatus } from '@/utils/queryHelpers'
@@ -20,7 +20,7 @@ export function useLoginMutation () {
   const queryClient = useQueryClient()
   const router = useRouter()
   const route = useRoute()
-  const setUser = useSetUser()
+  const setAuthUser = useSetAuthUser()
   return withStatus(useMutation(
     ({ email, password }) => api.login({ email, password }),
     {
@@ -28,7 +28,7 @@ export function useLoginMutation () {
         // We might have some logged out data, let's start fresh :)
         queryClient.resetQueries([])
 
-        setUser(user)
+        setAuthUser(user)
 
         // then do stuff
         // - set locale for i18n
@@ -45,17 +45,17 @@ export function useLoginMutation () {
   ))
 }
 
+const showLogoutToast = throttle(() => showToast({
+  message: 'USERDATA.LOGOUT_SUCCESS',
+  config: {
+    timeout: 5000,
+  },
+}), 5000)
+
 export function useLogoutMutation () {
   const router = useRouter()
   const store = useStore()
-  const setUser = useSetUser()
-
-  const showLogoutToast = throttle(() => showToast({
-    message: 'USERDATA.LOGOUT_SUCCESS',
-    config: {
-      timeout: 5000,
-    },
-  }), 5000)
+  const setAuthUser = useSetAuthUser()
 
   return withStatus(useMutation(
     () => api.logout(),
@@ -67,22 +67,22 @@ export function useLogoutMutation () {
           store.dispatch('fcm/disable'),
         ])
       },
-      onSuccess () {
-        router.push({ name: 'groupsGallery' })
-        setUser(null)
+      async onSuccess () {
+        await router.push({ name: 'groupsGallery' })
         showLogoutToast()
+        setAuthUser(null)
       },
     },
   ))
 }
 
 export function useSaveUserMutation () {
-  const setUser = useSetUser()
+  const setAuthUser = useSetAuthUser()
   return withStatus(useMutation(
     data => authUserAPI.save(data),
     {
       onSuccess (user) {
-        setUser(user)
+        setAuthUser(user)
       },
     },
   ))

@@ -1,12 +1,15 @@
 import { computed, unref } from 'vue'
 
+import { useAuthService } from '@/authuser/services'
 import { usePlaceListQuery } from '@/places/queries'
 import { useIntegerRouteParam } from '@/utils/composables'
 import { defineService, indexById } from '@/utils/datastore/helpers'
 
 export const usePlaceService = defineService(() => {
+  const { isLoggedIn } = useAuthService()
+
   // queries
-  const { places, isLoading } = usePlaceListQuery()
+  const { places, isLoading } = usePlaceListQuery({ enabled: isLoggedIn })
 
   // computed
   const placesById = computed(() => indexById(places.value))

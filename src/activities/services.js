@@ -2,11 +2,14 @@ import { computed, unref, watch } from 'vue'
 
 import { useActivityTypeListQuery } from '@/activities/queries'
 import { createActivityTypeStylesheet } from '@/activities/stylesheet'
+import { useAuthService } from '@/authuser/services'
 import { defineService, indexById } from '@/utils/datastore/helpers'
 
 export const useActivityTypeService = defineService(() => {
+  const { isLoggedIn } = useAuthService()
+
   // queries
-  const { activityTypes } = useActivityTypeListQuery()
+  const { activityTypes } = useActivityTypeListQuery({ enabled: isLoggedIn })
 
   // computed
   const activityTypesById = computed(() => indexById(activityTypes.value))

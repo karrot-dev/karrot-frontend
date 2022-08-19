@@ -1,7 +1,6 @@
 import { unref, computed } from 'vue'
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
-import { useAuthService } from '@/authuser/services'
 import { useSocketEvents } from '@/utils/composables'
 import { extractCursor, flattenPaginatedData, useQueryHelpers } from '@/utils/queryHelpers'
 
@@ -154,15 +153,14 @@ export function useActivitySeriesListQuery ({ placeId }) {
   }
 }
 
-export function useActivityTypeListQuery () {
-  const { isLoggedIn } = useAuthService()
+export function useActivityTypeListQuery (queryOptions = {}) {
   const query = useQuery(
     queryKeyActivityTypeListAll(),
     () => activityTypeAPI.list(),
     {
       placeholderData: () => [],
       staleTime: Infinity,
-      enabled: isLoggedIn,
+      ...queryOptions,
     },
   )
   return {

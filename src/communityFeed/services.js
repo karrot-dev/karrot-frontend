@@ -1,16 +1,18 @@
 import { ref, computed } from 'vue'
 
+import { useAuthService } from '@/authuser/services'
 import { useCommunityFeedMetaQuery, useCommunityFeedQuery, useCommunityTopicQuery } from '@/communityFeed/queries'
 import { defineService } from '@/utils/datastore/helpers'
 
 export const useCommunityFeedService = defineService(() => {
+  const { isLoggedIn } = useAuthService()
   const {
     latestTopics,
-  } = useCommunityFeedQuery()
+  } = useCommunityFeedQuery({ enabled: isLoggedIn })
 
   const {
     meta,
-  } = useCommunityFeedMetaQuery()
+  } = useCommunityFeedMetaQuery({ enabled: isLoggedIn })
 
   function getIsUnread (topic) {
     return meta.value?.markedAt && topic.lastPostedAt > meta.value.markedAt

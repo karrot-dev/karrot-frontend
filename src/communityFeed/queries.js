@@ -1,7 +1,6 @@
 import { unref, computed } from 'vue'
 import { useQuery } from 'vue-query'
 
-import { useAuthService } from '@/authuser/services'
 import api from '@/communityFeed/api/communityFeed'
 
 export const QUERY_KEY_BASE = 'communityFeed'
@@ -9,14 +8,13 @@ export const queryKeyCommunityFeed = () => [QUERY_KEY_BASE, 'feed']
 export const queryKeyCommunityFeedMeta = () => [QUERY_KEY_BASE, 'feed-meta']
 export const queryKeyCommunityTopic = topicId => [QUERY_KEY_BASE, 'topic', topicId]
 
-export function useCommunityFeedQuery () {
-  const { isLoggedIn } = useAuthService()
+export function useCommunityFeedQuery (queryOptions = {}) {
   const query = useQuery(
     queryKeyCommunityFeed(),
     () => api.latestTopics(),
     {
-      enabled: isLoggedIn,
       placeholderData: () => [],
+      ...queryOptions,
     },
   )
   return {
@@ -25,14 +23,13 @@ export function useCommunityFeedQuery () {
   }
 }
 
-export function useCommunityFeedMetaQuery () {
-  const { isLoggedIn } = useAuthService()
+export function useCommunityFeedMetaQuery (queryOptions = {}) {
   const query = useQuery(
     queryKeyCommunityFeedMeta(),
     () => api.getMeta(),
     {
-      enabled: isLoggedIn,
       placeholderData: () => {},
+      ...queryOptions,
     },
   )
   return {

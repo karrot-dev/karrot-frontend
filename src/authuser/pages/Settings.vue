@@ -63,7 +63,7 @@
     </KFormContainer>
     <GroupSettings />
     <KFormContainer
-      v-if="!$q.platform.is.cordova"
+      v-if="!$q.platform.is.cordova && pushIsSupported"
     >
       <QCardSection>
         <div class="text-h6">
@@ -71,16 +71,11 @@
         </div>
       </QCardSection>
       <QCardSection>
-        <Push
-          :value="pushEnabled"
-          :pending="pushPending"
-          @enable="enablePush"
-          @disable="disablePush"
-        />
+        <Push />
       </QCardSection>
     </KFormContainer>
     <KFormContainer
-      v-if="!$q.platform.is.cordova && pwaPrompt"
+      v-if="!$q.platform.is.cordova && hasPwaInstallPrompt()"
     >
       <QCardSection>
         <div class="text-h6">
@@ -88,9 +83,7 @@
         </div>
       </QCardSection>
       <QCardSection>
-        <InstallPwa
-          :prompt="pwaPrompt"
-        />
+        <InstallPwa />
       </QCardSection>
     </KFormContainer>
   </div>
@@ -109,9 +102,9 @@ import {
   useRequestDeleteAccountMutation, useSaveUserMutation,
 } from '@/authuser/mutations'
 import { useAuthService } from '@/authuser/services'
-import { getPwaInstallPrompt } from '@/base/services'
 import { useGeoService } from '@/base/services/geo'
-import { usePushService } from '@/subscriptions/services'
+import { hasPwaInstallPrompt } from '@/base/services/pwa'
+import { usePushService } from '@/subscriptions/services/push'
 import { showToast } from '@/utils/toasts'
 
 import ChangeEmail from '@/authuser/components/Settings/ChangeEmail'
@@ -148,10 +141,7 @@ const {
 } = useChangePasswordMutation()
 
 const {
-  enable: enablePush,
-  disable: disablePush,
-  enabled: pushEnabled,
-  pending: pushPending,
+  isSupported: pushIsSupported,
 } = usePushService()
 
 const {
@@ -168,9 +158,6 @@ async function saveUser (data) {
     },
   })
 }
-
-// TODO: not sure if this works regarding reactivity...
-const pwaPrompt = getPwaInstallPrompt()
 </script>
 
 <style scoped lang="sass">

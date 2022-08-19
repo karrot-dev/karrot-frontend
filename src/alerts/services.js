@@ -16,7 +16,7 @@ export const useBanners = defineService(() => {
   const { isLoggedIn } = useAuthService()
   const {
     isConnected,
-    reconnecting,
+    isReconnecting,
   } = useConnectivity()
 
   const isGroupPage = computed(() => Boolean(route.params.groupId))
@@ -38,7 +38,7 @@ export const useBanners = defineService(() => {
         type: 'notConnected',
         desktopOnly: true,
         context: {
-          reconnecting: reconnecting.value,
+          reconnecting: isReconnecting.value,
         },
       })
     }

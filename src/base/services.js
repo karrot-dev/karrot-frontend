@@ -6,15 +6,6 @@ import axios from '@/base/api/axios'
 import { useCurrentGroupService } from '@/group/services'
 import { defineService, isValidationError } from '@/utils/datastore/helpers'
 
-// TODO: this isn't a reactive ref or anything, does it work?
-let pwaInstallPrompt = null
-export function setPwaInstallPrompt (value) {
-  pwaInstallPrompt = value
-}
-export function getPwaInstallPrompt () {
-  return pwaInstallPrompt
-}
-
 export const useRouteErrorService = defineService(() => {
   const hasError = ref(false)
   const message = ref(null)

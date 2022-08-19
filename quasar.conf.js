@@ -10,7 +10,7 @@
 const { resolve } = require('path')
 
 const ESLintPlugin = require('eslint-webpack-plugin')
-const fs = require('fs')
+const { readFileSync, existsSync } = require('fs')
 // const StyleLintPlugin = require('stylelint-webpack-plugin') TODO?
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const { configure } = require('quasar/wrappers')
@@ -29,16 +29,20 @@ function getHttpsOptions () {
   More info: https://github.com/FiloSottile/mkcert
   If these are not available, fall back to making our own cert
   */
-  try {
-    return {
-      key: fs.readFileSync(process.env.KEY),
-      cert: fs.readFileSync(process.env.CERT),
-      ca: fs.readFileSync(process.env.CA),
-    }
-  }
-  catch (e) {
-    console.log('Could not find key/cert/ca files, falling back to our own...', e)
+  const keyFilename = process.env.KEY || resolve(__dirname, './build/dev-certs/key.pem')
+  const certFilename = process.env.CERT || resolve(__dirname, './build/dev-certs/cert.pem')
+  const caFilename = process.env.CA || resolve(__dirname, './build/dev-certs/ca.pem')
+  const all = [keyFilename, certFilename, caFilename]
+  const missing = all.filter(filename => !existsSync(filename))
+  if (missing.length > 0) {
+    console.log(`Could not find key/cert/ca files ${missing.join(', ')}, falling back to our own...`)
     return true
+  }
+  console.log('Using key/cert/ca files', all.join(', '))
+  return {
+    key: readFileSync(keyFilename),
+    cert: readFileSync(certFilename),
+    ca: readFileSync(caFilename),
   }
 }
 

@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 
 import { useSetAuthUser } from '@/authuser/queries'
+import { usePushService } from '@/subscriptions/services/push'
 import unsubscribeAPI from '@/unsubscribe/api/unsubscribe'
 import usersAPI from '@/users/api/users'
 import { withStatus } from '@/utils/queryHelpers'
@@ -56,6 +57,7 @@ export function useLogoutMutation () {
   const router = useRouter()
   const store = useStore()
   const setAuthUser = useSetAuthUser()
+  const { disablePush } = usePushService()
 
   return withStatus(useMutation(
     () => api.logout(),
@@ -63,7 +65,7 @@ export function useLogoutMutation () {
       async onMutate () {
         // Before the logout..
         await Promise.all([
-          store.dispatch('push/disable'),
+          disablePush(),
           store.dispatch('fcm/disable'),
         ])
       },

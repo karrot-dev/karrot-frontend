@@ -80,8 +80,13 @@ export const usePushService = defineService(() => {
   async function disable () {
     if (!isSupported()) return
     state.intention = false
-    if (state.token) (await initializeMessaging()).deleteToken()
+    await deleteToken()
     state.token = null
+  }
+
+  async function deleteToken () {
+    if (!isSupported()) return
+    if (state.token) (await initializeMessaging()).deleteToken()
   }
 
   async function initialize () {
@@ -98,7 +103,7 @@ export const usePushService = defineService(() => {
   }
 
   // Trigger setup after logging in
-  // for stuff on logout, we do in logout mutation so we can cleanup whislt still logged in
+  // for stuff on logout, we do in logout mutation so we can cleanup whilst still logged in
   watch(isLoggedIn, value => {
     if (value) {
       initialize()
@@ -114,6 +119,7 @@ export const usePushService = defineService(() => {
     isEnabled,
     isPending,
     isSupported: isSupported(),
+    deleteToken,
   }
 })
 

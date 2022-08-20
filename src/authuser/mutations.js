@@ -1,10 +1,10 @@
 import { throttle } from 'quasar'
 import { useMutation, useQueryClient } from 'vue-query'
 import { useRoute, useRouter } from 'vue-router'
-import { useStore } from 'vuex'
 
 import { useSetAuthUser } from '@/authuser/queries'
 import { usePushService } from '@/subscriptions/services/push'
+import { useTokenService } from '@/subscriptions/services/token'
 import unsubscribeAPI from '@/unsubscribe/api/unsubscribe'
 import usersAPI from '@/users/api/users'
 import { withStatus } from '@/utils/queryHelpers'
@@ -55,18 +55,22 @@ const showLogoutToast = throttle(() => showToast({
 
 export function useLogoutMutation () {
   const router = useRouter()
-  const store = useStore()
   const setAuthUser = useSetAuthUser()
-  const { disablePush } = usePushService()
+  const { deleteToken } = usePushService()
+  const { deleteToken: deleteTokenFromServer } = useTokenService()
 
   return withStatus(useMutation(
     () => api.logout(),
     {
       async onMutate () {
-        // Before the logout..
+        // Before the logout...
+        // We wait for the response as we need to be logged in still
         await Promise.all([
-          disablePush(),
-          store.dispatch('fcm/disable'),
+          // removes the token from browser and fcm
+          deleteToken(),
+          // removes the subscription from server
+          // TODO: would be better to have the subscriptions associated with sessions and clear them on the server
+          deleteTokenFromServer(),
         ])
       },
       async onSuccess () {

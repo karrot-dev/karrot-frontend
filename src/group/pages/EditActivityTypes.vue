@@ -1,17 +1,11 @@
 <template>
-  <EditActivityTypesUI
-    :activity-types="activityTypes"
-    :activity-type-save-status="saveStatus"
-    :activity-type-create-status="createStatus"
-    @create="activityType => create(activityType)"
-    @save="activityType => save(activityType)"
-  />
+  <EditActivityTypesUI :activity-types="activityTypes" />
 </template>
 
 <script setup>
 import { computed } from 'vue'
 
-import { useCreateActivityTypeMutation, useSaveActivityTypeMutation } from '@/activities/mutations'
+import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useActivityTypeService } from '@/activities/services'
 import { useCurrentGroupService } from '@/group/services'
 
@@ -19,17 +13,12 @@ import EditActivityTypesUI from '@/group/components/EditActivityTypesUI'
 
 const { groupId } = useCurrentGroupService()
 const { getActivityTypesByGroup } = useActivityTypeService()
+const { getTranslatedName } = useActivityTypeHelpers()
 
-const activityTypes = computed(() => getActivityTypesByGroup(groupId.value))
+function sortByTranslatedName (a, b) {
+  return getTranslatedName(a).localeCompare(getTranslatedName(b))
+}
 
-const {
-  mutate: create,
-  status: createStatus,
-} = useCreateActivityTypeMutation({ groupId })
-
-const {
-  mutate: save,
-  status: saveStatus,
-} = useSaveActivityTypeMutation()
-
+const activityTypes = computed(() => getActivityTypesByGroup(groupId.value)
+  .sort(sortByTranslatedName))
 </script>

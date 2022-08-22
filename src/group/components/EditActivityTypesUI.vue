@@ -78,8 +78,8 @@
               <ActivityTypeForm
                 :value="editActivityType"
                 :activity-types="activityTypes"
-                :status="activityTypeSaveStatus"
-                @save="save"
+                :status="saveStatus"
+                @save="saveDialog"
                 @cancel="cancelActivityType"
               />
             </QTd>
@@ -90,7 +90,7 @@
         v-if="newActivityType"
         :value="newActivityType"
         :activity-types="activityTypes"
-        :status="activityTypeCreateStatus"
+        :status="createStatus"
         :class="$q.platform.is.mobile ? '' : 'q-ma-md'"
         @save="saveNewActivityType"
         @cancel="cancelNewActivityType"
@@ -115,6 +115,8 @@ import {
 import { useActivityTypeHelpers } from '@/activities/helpers'
 
 import ActivityTypeForm from '@/group/components/ActivityTypeForm'
+import { useCreateActivityTypeMutation, useSaveActivityTypeMutation } from '@/activities/mutations'
+import { useCurrentGroupService } from '@/group/services'
 
 export default {
   components: {
@@ -133,26 +135,37 @@ export default {
       type: Array,
       required: true,
     },
-    activityTypeCreateStatus: {
-      type: Object,
-      required: true,
-    },
-    activityTypeSaveStatus: {
-      type: Object,
-      required: true,
-    },
   },
-  emits: [
-    'save',
-    'create',
-  ],
   setup () {
+    const { groupId } = useCurrentGroupService()
+
+    const {
+      mutateAsync: create,
+      status: createStatus,
+      reset: resetCreate,
+    } = useCreateActivityTypeMutation({ groupId })
+
+    const {
+      mutateAsync: save,
+      status: saveStatus,
+      reset: resetSave,
+    } = useSaveActivityTypeMutation()
+
     const {
       getTranslatedName,
       getIconProps,
       getFeedbackIconProps,
     } = useActivityTypeHelpers()
+
     return {
+      create,
+      createStatus,
+      resetCreate,
+
+      save,
+      saveStatus,
+      resetSave,
+
       getTranslatedName,
       getIconProps,
       getFeedbackIconProps,
@@ -212,18 +225,6 @@ export default {
       ].filter(Boolean).filter(col => !(this.$q.platform.is.mobile && col.hideOnMobile))
     },
   },
-  watch: {
-    activityTypeSaveStatus (status, prevStatus) {
-      if (this.wasSuccessful(status, prevStatus)) {
-        this.editActivityTypeId = null // hide the edit form
-      }
-    },
-    activityTypeCreateStatus (status, prevStatus) {
-      if (this.wasSuccessful(status, prevStatus)) {
-        this.newActivityType = null // hide the new form
-      }
-    },
-  },
   methods: {
     toggleEdit (activityType) {
       if (this.editActivityTypeId === activityType.id) {
@@ -233,7 +234,7 @@ export default {
         this.editActivityTypeId = activityType.id
       }
     },
-    save (activityType) {
+    saveDialog (activityType) {
       Dialog.create({
         title: this.$t('HISTORY.CONFIRM_CHANGES'),
         message: this.$t('HISTORY.CONFIRM_CHANGES_HINT'),
@@ -244,13 +245,14 @@ export default {
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.SAVE_CHANGES'),
       })
-        .onOk(updatedMessage => {
+        .onOk(async updatedMessage => {
           if (updatedMessage) {
-            this.$emit('save', { updatedMessage, ...activityType })
+            await this.save({ updatedMessage, ...activityType })
           }
           else {
-            this.$emit('save', activityType)
+            await this.save(activityType)
           }
+          this.editActivityTypeId = null // hide the edit form
         })
     },
     colourForStatus (status) {
@@ -271,29 +273,17 @@ export default {
         hasFeedbackWeight: false,
       }
     },
-    saveNewActivityType (activityType) {
-      this.$emit('create', activityType)
+    async saveNewActivityType (activityType) {
+      await this.create(activityType)
+      this.newActivityType = null // hide the new form
     },
     cancelNewActivityType () {
       this.newActivityType = null
-      this.resetNewActivityType()
+      this.resetCreate()
     },
     cancelActivityType () {
       this.editActivityTypeId = null
-      this.resetActivityType()
-    },
-    wasSuccessful (status, prevStatus) {
-      // Means we just saved! I hate this convoluted way to find out the simplest of things...
-      // I'm hoping the composable data layer concept will address this
-      // See https://github.com/karrot-dev/karrot-frontend/pull/2252
-      if (!status || !prevStatus) return
-      return prevStatus.pending && !status.pending && !status.hasValidationErrors
-    },
-    resetNewActivityType () {
-      this.$store.dispatch('activityTypes/meta/clear', ['create'])
-    },
-    resetActivityType (activityId) {
-      this.$store.dispatch('activityTypes/meta/clear', ['save', activityId])
+      this.resetSave()
     },
   },
 }

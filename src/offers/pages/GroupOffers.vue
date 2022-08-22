@@ -114,6 +114,8 @@ import {
   QImg,
   QInfiniteScroll,
 } from 'quasar'
+// TODO: fix whatever means I have to import this
+// eslint-disable-next-line no-unused-vars
 import Vue from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'

@@ -1,7 +1,8 @@
+import { useI18n } from 'vue-i18n'
+
 import { useAuthService } from '@/authuser/services'
 import icons from '@/base/icons'
 import reactiveNow from '@/utils/reactiveNow'
-import { useI18n } from 'vue-i18n'
 
 export function useActivityHelpers () {
   const { userId } = useAuthService()

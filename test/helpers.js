@@ -6,7 +6,6 @@ import { VueQueryPlugin } from 'vue-query'
 
 import i18n, { i18nPlugin } from '@/base/i18n'
 import { queryClient } from '@/base/vue-query'
-import router from '@/router'
 
 const desktopUserAgent = 'Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0'
 const mobileUserAgent = 'Mozilla/5.0 (Android 9; Mobile; rv:68.0) Gecko/68.0 Firefox/68.0'

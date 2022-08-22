@@ -44,6 +44,6 @@ export function createGroupDetail ({ members = [] }) {
   }
 }
 
-export function createMockGroupDetailBackend (entries) {
-  createGetByIdBackend('/api/groups/:id/', entries)
+export function createMockGroupDetailBackend (db) {
+  createGetByIdBackend('/api/groups/:id/', () => db.groups)
 }

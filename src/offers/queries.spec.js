@@ -16,7 +16,7 @@ describe('offer queries', () => {
     it('can switch between offers', async () => {
       const offer1 = createOffer()
       const offer2 = createOffer()
-      createMockOffersBackend([offer1, offer2])
+      createMockOffersBackend({ offers: [offer1, offer2] })
 
       const offerId = ref(null)
       const wrapper = mount({
@@ -47,16 +47,18 @@ describe('offer queries', () => {
 
   describe('useOfferListQuery', () => {
     it('can filter and paginate', async () => {
-      createMockOffersBackend([
-        ...Array.from(
-          { length: 8 },
-          () => createOffer({ status: 'active', group: 1 }),
-        ),
-        ...Array.from(
-          { length: 4 },
-          () => createOffer({ status: 'archived', group: 1 }),
-        ),
-      ], {
+      createMockOffersBackend({
+        offers: [
+          ...Array.from(
+            { length: 8 },
+            () => createOffer({ status: 'active', group: 1 }),
+          ),
+          ...Array.from(
+            { length: 4 },
+            () => createOffer({ status: 'archived', group: 1 }),
+          ),
+        ],
+      }, {
         pageSize: 5,
       })
 

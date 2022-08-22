@@ -1,27 +1,14 @@
 import cloneDeep from 'clone-deep'
 import { nextTick } from 'vue'
 
-import { createAuthUser, createAuthUserBackend } from '@/authuser/api/authUser.mock'
-import { createMockGroupsInfoBackend } from '@/groupInfo/api/groupsInfo.mock'
-import { createMockPlacesBackend } from '@/places/api/places.mock'
-import { createMockUsersBackend } from '@/users/api/users.mock'
+import { createAuthUser } from '@/authuser/api/authUser.mock'
 import { camelizeKeys } from '@/utils/utils'
 
 import { mountWithDefaults, statusMocks } from '>/helpers'
 import '>/routerMocks'
+import { createMockBackend } from '>/mockBackend'
 
 import ProfileEdit from './ProfileEdit'
-
-// jest.mock('@/group/services', () => {
-//   // const { ref } = require('vue')
-//   return {
-//     useCurrentGroupService: jest.fn(() => {
-//       return {
-//         users: [],
-//       }
-//     }),
-//   }
-// })
 
 describe('ProfileEdit', () => {
   beforeEach(() => jest.resetModules())
@@ -29,13 +16,10 @@ describe('ProfileEdit', () => {
   let user
 
   beforeEach(() => {
-    const rawUser = createAuthUser()
-    createAuthUserBackend(rawUser)
-    // It needs all this stuff because of the @mention markdown stuff
-    createMockGroupsInfoBackend([])
-    createMockPlacesBackend([])
-    createMockUsersBackend([])
-    user = camelizeKeys(rawUser)
+    createMockBackend(({ db }) => {
+      db.authUser = createAuthUser()
+      user = camelizeKeys(db.authUser)
+    })
   })
 
   beforeEach(() => {

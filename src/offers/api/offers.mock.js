@@ -20,12 +20,12 @@ export function createOffer (params) {
   }
 }
 
-export function createMockOffersBackend (entries, options = {}) {
-  createCursorPaginatedBackend('/api/offers/', entries, ({ params }) => {
+export function createMockOffersBackend (db, options = {}) {
+  createCursorPaginatedBackend('/api/offers/', () => db.offers, ({ params }) => {
     const status = params.status
     const group = parseInt(params.group || '1')
     return offer => offer.status === status && offer.group === group
   }, options)
 
-  createGetByIdBackend('/api/offers/:id/', entries)
+  createGetByIdBackend('/api/offers/:id/', () => db.offers)
 }

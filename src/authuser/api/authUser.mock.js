@@ -24,6 +24,6 @@ export function createAuthUser (params = {}) {
   }
 }
 
-export function createAuthUserBackend (user) {
-  createBackend('/api/auth/user/', user)
+export function createAuthUserBackend (db) {
+  createBackend('/api/auth/user/', () => db.authUser)
 }

@@ -34,6 +34,6 @@ function groupDetailToGroupInfo (groupDetail) {
   return groupInfo
 }
 
-export function createMockGroupsInfoBackend (entries, options = {}) {
-  createBackend('/api/groups-info/', entries, { transform: groupDetailToGroupInfo })
+export function createMockGroupsInfoBackend (db, options = {}) {
+  createBackend('/api/groups-info/', () => db.groups.map(groupDetailToGroupInfo))
 }

@@ -7,30 +7,32 @@ import { createMockUsersBackend } from '@/users/api/users.mock'
 
 import { mockAxios } from '>/mockAxios'
 
+/**
+ * Creates a fake backend that can be used in tests.
+ *
+ * Internally holds a mini database of entries that each backend
+ * module can use how it wishes, so things that cross reference each
+ * other can work.
+ *
+ * It's a bit basic still, let's see how it goes...
+ */
 export function createMockBackend (setup) {
-  const users = []
-  const places = []
-  const offers = []
-  const groups = []
-  const authUser = createAuthUser()
-  const currentGroup = createGroupDetail({
-    members: [authUser],
-  })
-  groups.push(currentGroup)
-  authUser.current_group = currentGroup.id
-  createMockGroupDetailBackend([currentGroup])
-  createAuthUserBackend(authUser)
-  createMockGroupsInfoBackend(groups)
-  createMockPlacesBackend(places)
-  createMockUsersBackend(users)
-  createMockOffersBackend(offers)
-  setup({
-    authUser,
-    currentGroup,
-    users,
-    places,
-    offers,
-  })
+  const db = {
+    users: [],
+    places: [],
+    offers: [],
+    groups: [],
+    authUser: null,
+  }
+  createMockGroupDetailBackend(db)
+  createAuthUserBackend(db)
+  createMockGroupsInfoBackend(db)
+  createMockPlacesBackend(db)
+  createMockUsersBackend(db)
+  createMockOffersBackend(db)
+  if (setup) {
+    setup({ db })
+  }
 }
 
 export function removeMockBackend () {

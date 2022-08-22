@@ -21,9 +21,10 @@
           placeholder=""
           prevent-white-space
           replace-drop
-          :class="{'cursor-pointer': canChoose}"
+          :class="{'cursor-pointer': canChoose, 'can-choose': canChoose}"
           :zoom-speed="10"
           :initial-image="photo"
+          initial-size="cover"
           :show-remove-button="false"
           @init="init"
           @move="allowSave"
@@ -34,7 +35,10 @@
           @image-remove="canChoose = true"
         >
           <template #placeholder>
-            <img src="statics/add_a_photo.svg">
+            <img
+              src="statics/add_a_photo.svg"
+              :width="size"
+            >
           </template>
         </Croppa>
         <QResizeObserver @resize="onResize" />
@@ -140,7 +144,12 @@ export default {
 
       // In development we want to force the images to load from our local proxy
       // so that we don't get issues with missing CORS headers
-      if (process.env.DEV && url.includes('/media')) return ['http://localhost:8080', url.substring(url.indexOf('/media'))].join('')
+      if (process.env.DEV && url.startsWith('http')) {
+        const { pathname } = new URL(url)
+        if (pathname.startsWith('/media')) {
+          return [location.protocol, '//', location.host, pathname].join('')
+        }
+      }
 
       return url
     },
@@ -205,4 +214,11 @@ export default {
 .croppa-container.croppa--has-target
   cursor: move
 
+.can-choose
+  ::v-deep(canvas)
+    cursor: pointer
+    border: 1px solid #ddd
+  ::v-deep(.slots)
+    // I'm not sure why I'm having to set this? But I think we need to move away from vue-croppa anyway...
+    visibility: visible !important
 </style>

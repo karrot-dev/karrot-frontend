@@ -73,8 +73,7 @@ export default {
     usePerformance()
     useTitleStatus()
     useClearDataOnLogout()
-    const { installRouterPlugin } = useDetailService() // just to initialize it...
-    installRouterPlugin()
+    useDetailService() // needs to be initialized as it uses router hooks
 
     // This catches things that otherwise don't seem to be printed anywhere in the console
     // It doesn't stop the error propagating elsewhere, it's just seeing it, so nice and neutral

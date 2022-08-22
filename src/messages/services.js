@@ -220,77 +220,75 @@ export const useDetailService = defineService(() => {
   /**
    * Here we handle special cases for detail routing
    */
-  function installRouterPlugin () {
-    router.beforeEach(async (to, from, nextFn) => {
-      let next
-      if (to.name === 'messageReplies') {
-        const messageId = parseInt(to.params.messageId, 10)
+  router.beforeEach(async (to, from, nextFn) => {
+    let next
+    if (to.name === 'messageReplies') {
+      const messageId = parseInt(to.params.messageId, 10)
 
-        id.value = messageId
-        type.value = 'thread'
+      id.value = messageId
+      type.value = 'thread'
 
-        // messageReplies is a mobile-only route
-        // for desktop we want to:
-        // a) open the sidebar with the thread
-        // b) redirect to the wall that the thread is part of
-        // TODO: make it not do these extra requests...
-        if (Platform.is.desktop) {
-          const { groupId } = to.params
-          const threadMessage = await messagesAPI.get(messageId)
-          const conversation = await conversationsAPI.get(threadMessage.conversation)
-          if (conversation.type === 'group') {
-            next = { name: 'group', params: { groupId: conversation.targetId } }
-          }
-          else if (conversation.type === 'place') {
-            next = { name: 'placeWall', params: { groupId, placeId: conversation.targetId } }
-          }
-          else {
-            next = { name: 'group', params: { groupId } }
-          }
+      // messageReplies is a mobile-only route
+      // for desktop we want to:
+      // a) open the sidebar with the thread
+      // b) redirect to the wall that the thread is part of
+      // TODO: make it not do these extra requests...
+      if (Platform.is.desktop) {
+        const { groupId } = to.params
+        const threadMessage = await messagesAPI.get(messageId)
+        const conversation = await conversationsAPI.get(threadMessage.conversation)
+        if (conversation.type === 'group') {
+          next = { name: 'group', params: { groupId: conversation.targetId } }
+        }
+        else if (conversation.type === 'place') {
+          next = { name: 'placeWall', params: { groupId, placeId: conversation.targetId } }
+        }
+        else {
+          next = { name: 'group', params: { groupId } }
         }
       }
-      else if (to.name === 'activityDetail') {
-        id.value = parseInt(to.params.activityId, 10)
-        type.value = 'activity'
+    }
+    else if (to.name === 'activityDetail') {
+      id.value = parseInt(to.params.activityId, 10)
+      type.value = 'activity'
 
-        if (Platform.is.desktop) {
-          const { groupId, placeId } = to.params
-          // On desktop we don't have an activity detail page,
-          // we go to the place page, and have a sidebar open
-          next = { name: 'place', params: { groupId, placeId } }
-        }
+      if (Platform.is.desktop) {
+        const { groupId, placeId } = to.params
+        // On desktop we don't have an activity detail page,
+        // we go to the place page, and have a sidebar open
+        next = { name: 'place', params: { groupId, placeId } }
       }
-      else if (to.name === 'userDetail') {
-        id.value = parseInt(to.params.userId, 10)
-        type.value = 'user'
+    }
+    else if (to.name === 'userDetail') {
+      id.value = parseInt(to.params.userId, 10)
+      type.value = 'user'
 
-        if (Platform.is.desktop) {
-          // On desktop we don't have user detail page
-          // we can go to profile page with a sidebar
-          const { userId } = to.params
-          next = { name: 'user', params: { userId } }
-        }
+      if (Platform.is.desktop) {
+        // On desktop we don't have user detail page
+        // we can go to profile page with a sidebar
+        const { userId } = to.params
+        next = { name: 'user', params: { userId } }
       }
-      else if (to.name === 'applicationDetail') {
-        id.value = parseInt(to.params.applicationId, 10)
-        type.value = 'application'
+    }
+    else if (to.name === 'applicationDetail') {
+      id.value = parseInt(to.params.applicationId, 10)
+      type.value = 'application'
 
-        if (Platform.is.desktop) {
-          // On desktop we don't have application detail page
-          // we can go to applications page with a sidebar
-          const { groupId } = to.params
-          next = { name: 'applications', params: { groupId } }
-        }
+      if (Platform.is.desktop) {
+        // On desktop we don't have application detail page
+        // we can go to applications page with a sidebar
+        const { groupId } = to.params
+        next = { name: 'applications', params: { groupId } }
       }
+    }
 
-      if (next) {
-        nextFn(next)
-        return
-      }
+    if (next) {
+      nextFn(next)
+      return
+    }
 
-      nextFn()
-    })
-  }
+    nextFn()
+  })
 
   // Detail view can come from either Detail page, or separate route components that are details
   // If we open a detail view via a route, we should "close" this one, in preference to the route one
@@ -352,7 +350,6 @@ export const useDetailService = defineService(() => {
   return {
     ...refs,
     isDetailActive,
-    installRouterPlugin,
 
     openThread,
     openActivity,

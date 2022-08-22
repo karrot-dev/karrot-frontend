@@ -107,7 +107,7 @@ _Karrot_ is built with open-source software. Here are some of them:
 
 - [Django](https://www.djangoproject.com/)
 - [Django REST framework](http://www.django-rest-framework.org/)
-- [VueJS](https://vuejs.org/) + [Vuex](https://vuex.vuejs.org)
+- [VueJS](https://vuejs.org/) + [vue-query](https://github.com/DamianOsipiuk/vue-query)
 - [Quasar Framework](http://quasar.dev/)
 - [Twemoji](https://github.com/twitter/twemoji)
 

@@ -3,6 +3,7 @@ const esModules = ['quasar', 'quasar/lang', 'lodash-es', 'leaflet'].join('|')
 module.exports = {
   roots: [
     '<rootDir>/src/',
+    '<rootDir>/test/',
   ],
   globals: {
     __DEV__: true,
@@ -22,6 +23,7 @@ module.exports = {
   coveragePathIgnorePatterns: ['/node_modules/', '.d.ts$'],
   testMatch: [
     '<rootDir>/src/**/*.spec.js',
+    '<rootDir>/test/**/*.spec.js',
   ],
   moduleDirectories: [
     'node_modules',

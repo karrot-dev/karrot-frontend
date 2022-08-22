@@ -1,24 +1,20 @@
 import { nextTick } from 'vue'
 
-import { createAuthUser } from '@/authuser/api/authUser.mock'
-import { camelizeKeys } from '@/utils/utils'
-
 import { mountWithDefaults, statusMocks } from '>/helpers'
 import '>/routerMocks'
-import { createMockBackend } from '>/mockBackend'
+import { useMockBackend, createUser, loginAs } from '>/mockBackend'
 
 import ProfileEdit from './ProfileEdit'
 
 describe('ProfileEdit', () => {
+  useMockBackend()
   beforeEach(() => jest.resetModules())
   let wrapper
   let user
 
   beforeEach(() => {
-    createMockBackend(({ db }) => {
-      db.authUser = createAuthUser()
-      user = camelizeKeys(db.authUser)
-    })
+    user = createUser()
+    loginAs(user)
   })
 
   beforeEach(() => {

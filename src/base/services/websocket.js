@@ -230,7 +230,6 @@ export const useWebsocket = defineService(() => {
   }
 
   watch(isAway, value => {
-    console.log('isAway', value)
     if (ws && ws.readyState === WebSocket.OPEN) {
       ws.send(JSON.stringify({ type: value ? 'away' : 'back' }))
     }

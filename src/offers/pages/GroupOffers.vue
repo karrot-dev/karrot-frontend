@@ -114,6 +114,7 @@ import {
   QImg,
   QInfiniteScroll,
 } from 'quasar'
+import Vue from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 

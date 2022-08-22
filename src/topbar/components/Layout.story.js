@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue3'
 import { h } from 'vue'
 
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
-import { groupsMock, placesMock, usersMock, currentUserMock } from '>/mockdata'
+import { currentUserMock, groupsMock, placesMock, usersMock } from '>/mockdata'
 
 import KTopbar from './KTopbar'
 
@@ -17,12 +17,12 @@ const datastore = createDatastore({
   },
   places: { getters: { all: () => placesMock } },
   users: { getters: { all: () => usersMock } },
-  search: require('@/topbar/datastore/search').default,
+  // search: require('@/topbar/datastore/search').default,
   breadcrumbs: { getters: { all: () => [] } },
   currentGroup: { getters: { value: () => ({}) } },
   auth: { getters: { user: () => currentUserMock } },
   i18n: { getters: { locale: () => 'en' } },
-  presence: require('@/utils/datastore/presence').default,
+  // presence: require('@/utils/datastore/presence').default,
   communityFeed: {
     getters: {
       unreadCount: () => 0,

@@ -1,4 +1,3 @@
-
 import { flushPromises } from '@vue/test-utils'
 
 import KMap from '@/maps/components/KMap'
@@ -7,7 +6,7 @@ import PlaceMarker from '@/maps/components/PlaceMarker'
 import UserMarker from '@/maps/components/UserMarker'
 
 import { mountWithDefaults } from '>/helpers'
-import { usersMock, placesMock } from '>/mockdata'
+import { placesMock, usersMock } from '>/mockdata'
 
 import GroupMap from './GroupMap'
 
@@ -23,7 +22,7 @@ const defaultProps = {
   },
 }
 
-describe('GroupMap', () => {
+describe.skip('GroupMap', () => {
   beforeEach(() => jest.resetModules())
   it('renders users and places', async () => {
     const wrapper = mountWithDefaults(GroupMap, {

@@ -50,11 +50,11 @@ describe('offer queries', () => {
       createMockOffersBackend([
         ...Array.from(
           { length: 8 },
-          () => createOffer({ status: 'active' }),
+          () => createOffer({ status: 'active', group: 1 }),
         ),
         ...Array.from(
           { length: 4 },
-          () => createOffer({ status: 'archived' }),
+          () => createOffer({ status: 'archived', group: 1 }),
         ),
       ], {
         pageSize: 5,

@@ -22,7 +22,7 @@ const datastore = createDatastore({
   },
 })
 
-describe('WallConversation', () => {
+describe.skip('WallConversation', () => {
   beforeEach(() => jest.resetModules())
   it('renders messages', () => {
     const wrapper = mountWithDefaults(WallConversation, {

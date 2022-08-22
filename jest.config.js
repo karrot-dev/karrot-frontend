@@ -9,6 +9,7 @@ module.exports = {
   },
   testEnvironment: 'jsdom',
   testEnvironmentOptions: {
+    customExportConditions: ['node', 'node-addons'],
     pretendToBeVisual: true,
   },
   collectCoverage: true,

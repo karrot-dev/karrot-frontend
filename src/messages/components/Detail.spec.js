@@ -15,7 +15,7 @@ const datastore = createDatastore({
   },
 })
 
-describe('Detail', () => {
+describe.skip('Detail', () => {
   beforeEach(() => jest.resetModules())
 
   let mountWithDefaults

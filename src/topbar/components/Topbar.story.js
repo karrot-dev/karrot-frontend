@@ -11,7 +11,7 @@ const datastore = createDatastore({
   groups: { getters: { all: () => groupsMock } },
   places: { getters: { all: () => placesMock } },
   users: { getters: { all: () => usersMock } },
-  search: require('@/topbar/datastore/search').default,
+  // search: require('@/topbar/datastore/search').default,
 })
 
 storiesOf('Topbar', module)

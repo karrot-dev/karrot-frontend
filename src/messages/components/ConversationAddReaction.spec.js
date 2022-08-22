@@ -5,7 +5,7 @@ import { mountWithDefaults, nextTicks } from '>/helpers'
 import ConversationAddReactionInner from './ConversationAddReactionInner'
 import EmojiButton from './EmojiButton'
 
-describe('Conversation message reactions', () => {
+describe.skip('Conversation message reactions', () => {
   beforeEach(() => jest.resetModules())
   let wrapper
 

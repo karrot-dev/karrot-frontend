@@ -81,7 +81,7 @@ for (const f of files) {
 }
 
 for (const group of mockStories) {
-  describe('Storyshots', () => {
+  describe.skip('Storyshots', () => {
     describe(group.kind, () => {
       for (const story of group.stories) {
         it(story.name, async () => {

@@ -26,7 +26,7 @@ const datastore = createDatastore({
   },
 })
 
-describe('ChatConversation', () => {
+describe.skip('ChatConversation', () => {
   beforeEach(() => jest.resetModules())
   it('can send a message', async () => {
     const propsData = defaultProps({

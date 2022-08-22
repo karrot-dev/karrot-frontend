@@ -6,10 +6,10 @@ function sample (items) {
   return items[Math.floor(Math.realRandom() * items.length)]
 }
 
-let nextOfferId = 1
+let nextId = 1
 export function createOffer (params) {
   return {
-    id: ++nextOfferId,
+    id: ++nextId,
     name: faker.random.words(5),
     description: faker.lorem.paragraphs(2),
     status: sample(['active', 'archived']),
@@ -20,12 +20,12 @@ export function createOffer (params) {
   }
 }
 
-export function createMockOffersBackend (offers, options = {}) {
-  createCursorPaginatedBackend('/api/offers/', offers, ({ params }) => {
+export function createMockOffersBackend (entries, options = {}) {
+  createCursorPaginatedBackend('/api/offers/', entries, ({ params }) => {
     const status = params.status
     const group = parseInt(params.group || '1')
     return offer => offer.status === status && offer.group === group
   }, options)
 
-  createGetByIdBackend('/api/offers/:id/', offers)
+  createGetByIdBackend('/api/offers/:id/', entries)
 }

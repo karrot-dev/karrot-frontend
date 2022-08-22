@@ -6,7 +6,7 @@ import { joinableActivity, currentUserMock } from '>/mockdata'
 
 import ActivityUsers from './ActivityUsers'
 
-describe('ActivityUsers', () => {
+describe.skip('ActivityUsers', () => {
   beforeEach(() => jest.resetModules())
   let wrapper, activity, datastore
 

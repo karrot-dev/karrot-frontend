@@ -6,7 +6,7 @@ import { currentUserMock, usersMockWithoutCurrent } from '>/mockdata'
 import MessageReactions from './ConversationReactions'
 import EmojiButton from './EmojiButton'
 
-describe('Conversation message reactions', () => {
+describe.skip('Conversation message reactions', () => {
   let wrapper
 
   beforeEach(() => {

@@ -5,6 +5,18 @@ import axios from '@/base/api/axios'
 
 export const mockAxios = new MockAdapter(axios, { onNoMatch: 'throwException' })
 
+export function createBackend (
+  path,
+  data,
+  {
+    transform = val => val,
+  } = {},
+) {
+  mockAxios.onGet(path).reply(() => {
+    return [200, Array.isArray(data) ? data.map(transform) : transform(data)]
+  })
+}
+
 export function createCursorPaginatedBackend (path, entries, getMatchFn, options) {
   const {
     pageSize = 30,

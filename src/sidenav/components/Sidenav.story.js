@@ -7,7 +7,7 @@ import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import GroupOptions from './GroupOptionsUI'
 import MobileSidenavUI from './MobileSidenavUI'
 import SidenavGroupUI from './SidenavGroupUI'
-import SidenavMapUI from './SidenavMapUI'
+import SidenavMap from './SidenavMap'
 import SidenavPlacesUI from './SidenavPlacesUI'
 
 const range = n => [...Array(n).keys()]
@@ -23,7 +23,7 @@ storiesOf('Sidenav', module)
   .add('Map', () => defaults({
     render () {
       const { showPlaces, showUsers, onToggleUsers, onTogglePlaces } = this
-      return h(SidenavMapUI, {
+      return h(SidenavMap, {
         places,
         users,
         showPlaces,

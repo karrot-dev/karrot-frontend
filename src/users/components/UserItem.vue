@@ -56,11 +56,10 @@
 </template>
 
 <script setup>
-import {
-  QItem,
-  QItemSection,
-  QItemLabel,
-} from 'quasar'
+import { QItem, QItemLabel, QItemSection } from 'quasar'
+// TODO: find out why this is needed in tests (storyshots test errors without it)
+// eslint-disable-next-line no-unused-vars
+import Vue from 'vue'
 
 import TrustButton from '@/users/components/TrustButton'
 import DateAsWords from '@/utils/components/DateAsWords'

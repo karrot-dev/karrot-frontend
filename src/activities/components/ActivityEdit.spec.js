@@ -14,7 +14,7 @@ const datastore = createDatastore({
   },
 })
 
-describe('ActivityEdit', () => {
+describe.skip('ActivityEdit', () => {
   beforeEach(() => jest.resetModules())
   let wrapper, activity, unenriched
 

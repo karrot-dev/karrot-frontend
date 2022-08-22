@@ -1,41 +1,25 @@
 import { flushPromises, mount } from '@vue/test-utils'
-import { createStore } from 'vuex'
+import { times } from 'lodash'
 
-import { createMockOffersBackend, createOffer } from '@/offers/api/offers.mock'
+import { createOffer } from '@/offers/api/offers.mock'
 
-import { withDefaults } from '>/helpers'
 import '>/routerMocks'
+import { withDefaults } from '>/helpers'
+import { createMockBackend, removeMockBackend } from '>/mockBackend'
 
 import GroupOffers from './GroupOffers'
 
 describe('GroupOffers', () => {
-  it('works', async () => {
-    createMockOffersBackend(Array.from(
-      { length: 8 },
-      () => createOffer({ status: 'active' }),
-    ))
-    const wrapper = mount(GroupOffers, withDefaults({
-      global: {
-        plugins: [
-          createStore({
-            modules: {
-              users: {
-                namespaced: true,
-                getters: {
-                  get: () => () => null,
-                },
-              },
-              currentGroup: {
-                namespaced: true,
-                getters: {
-                  id: () => 1,
-                },
-              },
-            },
-          }),
-        ],
-      },
-    }))
+  beforeEach(() => {
+    createMockBackend(({ currentGroup, offers }) => {
+      times(8, () => {
+        offers.push(createOffer({ status: 'active', group: currentGroup.id }))
+      })
+    })
+  })
+  afterEach(() => removeMockBackend())
+  it('has the right number of offers', async () => {
+    const wrapper = mount(GroupOffers, withDefaults())
     await flushPromises()
     expect(wrapper.vm.offers).toHaveLength(8)
   })

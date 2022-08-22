@@ -70,13 +70,15 @@ export function useOfferListQuery ({
 }) {
   const query = useInfiniteQuery(
     queryKeyOfferList(groupId, status),
-    ({ pageParam }) => api.list({
-      group: unref(groupId),
-      status: unref(status),
-      cursor: pageParam,
-    }),
+    ({ pageParam }) => {
+      return api.list({
+        group: unref(groupId),
+        status: unref(status),
+        cursor: pageParam,
+      })
+    },
     {
-      enabled: computed(() => !!unref(groupId)),
+      enabled: computed(() => Boolean(unref(groupId))),
       staleTime: Infinity,
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({

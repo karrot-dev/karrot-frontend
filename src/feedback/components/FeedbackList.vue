@@ -4,7 +4,7 @@
       v-if="feedbackPossibleCount > 0"
       :feedback-possible-count="feedbackPossibleCount"
     />
-    <KSpinner v-show="pending" />
+    <KSpinner v-show="isLoading" />
     <KNotice v-if="empty">
       <template #icon>
         <QIcon :class="$icon('feedback')" />
@@ -16,8 +16,8 @@
     </KNotice>
     <QInfiniteScroll
       v-else
-      :disable="!canFetchPast"
-      @load="maybeFetchPast"
+      :disable="!hasNextPage"
+      @load="maybeFetchNextPage"
     >
       <FeedbackItem
         v-for="feedbackItem in feedback"
@@ -37,8 +37,7 @@
 
 <script>
 import { QInfiniteScroll, QIcon } from 'quasar'
-
-import paginationMixin from '@/utils/mixins/paginationMixin'
+import { toRefs } from 'vue'
 
 import FeedbackNotice from '@/group/components/FeedbackNotice'
 import KNotice from '@/utils/components/KNotice'
@@ -55,19 +54,53 @@ export default {
     FeedbackNotice,
     KSpinner,
   },
-  mixins: [paginationMixin],
   props: {
-    feedback: { required: true, type: Array },
-    feedbackPossibleCount: { default: 0, type: Number },
-    pending: { default: false, type: Boolean },
+    feedback: {
+      type: Array,
+      required: true,
+    },
+    feedbackPossibleCount: {
+      type: Number,
+      default: 0,
+    },
+    isLoading: {
+      type: Boolean,
+      default: false,
+    },
+    hasNextPage: {
+      type: Boolean,
+      default: false,
+    },
+    fetchNextPage: {
+      type: Function,
+      default: () => {},
+    },
+    isFetchingNextPage: {
+      type: Boolean,
+      default: false,
+    },
     highlight: {
       default: null,
       type: Number,
     },
   },
+  setup (props) {
+    const {
+      hasNextPage,
+      fetchNextPage,
+      isFetchingNextPage,
+    } = toRefs(props)
+    async function maybeFetchNextPage (index, done) {
+      if (!isFetchingNextPage.value && hasNextPage.value) await fetchNextPage()
+      done(!hasNextPage.value)
+    }
+    return {
+      maybeFetchNextPage,
+    }
+  },
   computed: {
     empty () {
-      return !this.pending && this.feedback.length < 1
+      return !this.isLoading && this.feedback.length < 1
     },
     highlighted () {
       if (!this.feedback || this.highlight < 0) return

@@ -108,7 +108,10 @@
       />
       <FeedbackList
         :feedback="feedback"
-        :pending="isLoadingActivities || isLoadingFeedback"
+        :is-loading="isLoading"
+        :has-next-page="hasNextPage"
+        :fetch-next-page="fetchNextPage"
+        :is-fetching-next-page="isFetchingNextPage"
       />
     </QCard>
   </div>
@@ -212,7 +215,10 @@ const place = computed(() => getPlaceById(placeId.value))
 
 const {
   feedbackList: feedback,
-  isLoading: isLoadingFeedback,
+  isLoading,
+  hasNextPage,
+  fetchNextPage,
+  isFetchingNextPage,
 } = useFeedbackListQuery({ placeId })
 
 // If we're not editing, don't have an activity id param, and we have some activities...

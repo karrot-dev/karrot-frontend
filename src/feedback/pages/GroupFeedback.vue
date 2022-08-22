@@ -1,10 +1,10 @@
 <template>
   <FeedbackList
     :feedback="feedbackList"
-    :pending="isLoading"
-    :can-fetch-past="hasNextPage"
-    :fetch-past-status="$store.getters['feedback/fetchPastStatus']"
-    :fetch-past="() => fetchNextPage()"
+    :is-loading="isLoading"
+    :has-next-page="hasNextPage"
+    :fetch-next-page="fetchNextPage"
+    :is-fetching-next-page="isFetchingNextPage"
     :feedback-possible-count="feedbackPossibleCount"
   />
 </template>
@@ -27,5 +27,6 @@ const {
   isLoading,
   hasNextPage,
   fetchNextPage,
+  isFetchingNextPage,
 } = useFeedbackListQuery({ groupId })
 </script>

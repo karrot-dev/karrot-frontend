@@ -45,9 +45,10 @@
     <!-- TODO: I removed feedbackPossibleCount as we only have it in the status object per group, not per place -->
     <FeedbackList
       :feedback="feedbackList"
-      :pending="isLoading"
-      :can-fetch-past="hasNextPage"
-      :fetch-past="() => fetchNextPage()"
+      :is-loading="isLoading"
+      :has-next-page="hasNextPage"
+      :fetch-next-page="fetchNextPage"
+      :is-fetching-next-page="isFetchingNextPage"
       :highlight="highlight"
     />
   </div>
@@ -79,6 +80,7 @@ const {
   isLoading,
   hasNextPage,
   fetchNextPage,
+  isFetchingNextPage,
 } = useFeedbackListQuery({ placeId })
 
 const highlight = computed(() => route.query.highlight && parseInt(route.query.highlight, 10))

@@ -1,19 +1,7 @@
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 import { useTokenService } from '@/subscriptions/services/token'
-
-const deviceReady = ref(false)
-document.addEventListener('deviceready', onDeviceReady, false)
-
-const devicereadyTimeout = setTimeout(() => {
-  console.error('deviceready not fired within 5 seconds, is cordova.js loaded? FCM will not work otherwise.')
-}, 5000)
-
-async function onDeviceReady () {
-  clearTimeout(devicereadyTimeout)
-  deviceReady.value = true
-}
 
 export function useCordovaFCM () {
   const router = useRouter()
@@ -22,9 +10,17 @@ export function useCordovaFCM () {
 
   syncToken(token, { platform: 'android' })
 
-  watch(deviceReady, ready => {
-    if (ready) initialize()
-  }, { immediate: true })
+  const devicereadyTimeout = setTimeout(() => {
+    console.error('deviceready not fired within 5 seconds, is cordova.js loaded? FCM will not work otherwise.')
+  }, 5000)
+
+  // The deviceready event behaves somewhat differently from others.
+  // Any event handler registered after the deviceready event fires has its callback function called immediately.
+  // https://cordova.apache.org/docs/en/11.x/cordova/events/events.html#deviceready
+  document.addEventListener('deviceready', () => {
+    clearTimeout(devicereadyTimeout)
+    initialize()
+  }, false)
 
   async function initialize () {
     const { FCM } = window

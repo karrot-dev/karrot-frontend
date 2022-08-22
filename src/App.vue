@@ -34,7 +34,6 @@ import { usePlacesUpdater } from '@/places/queries'
 import { useStatusUpdater } from '@/status/queries'
 import { useUsersUpdater } from '@/users/queries'
 import { useClearDataOnLogout, useTitleStatus } from '@/utils/composables'
-import { useCordova } from '@/utils/cordova'
 
 import LoadingProgress from '@/topbar/components/LoadingProgress'
 
@@ -44,6 +43,8 @@ export default {
   },
   setup () {
     if (process.env.MODE === 'cordova') {
+      // Only load the dependencies if actually in cordova mode
+      const { useCordova } = require('@/utils/cordova')
       useCordova()
     }
     useWebsocket()

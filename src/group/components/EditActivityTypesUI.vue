@@ -113,10 +113,10 @@ import {
 } from 'quasar'
 
 import { useActivityTypeHelpers } from '@/activities/helpers'
-
-import ActivityTypeForm from '@/group/components/ActivityTypeForm'
 import { useCreateActivityTypeMutation, useSaveActivityTypeMutation } from '@/activities/mutations'
 import { useCurrentGroupService } from '@/group/services'
+
+import ActivityTypeForm from '@/group/components/ActivityTypeForm'
 
 export default {
   components: {

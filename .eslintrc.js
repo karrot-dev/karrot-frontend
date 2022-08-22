@@ -63,7 +63,7 @@ module.exports = {
       pathGroups: [
         {
           // put component files nicely below
-          pattern: '**/components/**',
+          pattern: '@/**/components/**',
           group: 'internal',
           position: 'after',
         },
@@ -77,6 +77,7 @@ module.exports = {
           position: 'after',
         },
       ],
+      pathGroupsExcludedImportTypes: [],
       'newlines-between': 'always',
       alphabetize: {
         order: 'asc',

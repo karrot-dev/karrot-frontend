@@ -76,36 +76,35 @@
                   />
                 </template>
               </QBanner>
-              <QBanner
+              <div
                 v-if="application"
-                class="bg-blue text-white"
-                inline-actions
+                class="bg-blue text-white row q-pa-sm q-gutter-md"
               >
-                {{ $t('JOINGROUP.APPLICATION_PENDING' ) }}
-                <template #avatar>
+                <div class="col-sm-grow col-xs-12 self-center">
                   <QIcon
                     name="info"
                     color="white"
                     style="font-size: 24px"
                   />
-                </template>
-                <template #action>
-                  <QBtn
-                    flat
-                    dense
-                    :label="$t('BUTTON.OPEN')"
-                    icon="fas fa-fw fa-comments"
-                    @click="openApplication(application)"
-                  />
-                  <QBtn
-                    flat
-                    dense
-                    :label="$t('BUTTON.WITHDRAW')"
-                    icon="fas fa-fw fa-trash-alt"
-                    @click="withdraw"
-                  />
-                </template>
-              </QBanner>
+                  {{ $t('JOINGROUP.APPLICATION_PENDING' ) }}
+                </div>
+                <QBtn
+                  class="col-auto col-xs-grow"
+                  flat
+                  dense
+                  :label="$t('BUTTON.OPEN')"
+                  icon="fas fa-fw fa-comments"
+                  @click="openApplication(application)"
+                />
+                <QBtn
+                  class="col-auto col-xs-grow"
+                  flat
+                  dense
+                  :label="$t('BUTTON.WITHDRAW')"
+                  icon="fas fa-fw fa-trash-alt"
+                  @click="withdraw"
+                />
+              </div>
               <QBtn
                 v-if="user && !user.mailVerified"
                 color="secondary"

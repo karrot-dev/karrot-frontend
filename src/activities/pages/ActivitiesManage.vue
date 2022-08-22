@@ -573,18 +573,6 @@ export default {
       this.newActivity = null
       this.resetNewActivity()
     },
-    // resetNewSeries () {
-    //   this.$store.dispatch('activitySeries/meta/clear', ['create'])
-    // },
-    // resetSeries (seriesId) {
-    //   this.$store.dispatch('activitySeries/meta/clear', ['save', seriesId])
-    // },
-    // resetNewActivity () {
-    //   this.$store.dispatch('activities/meta/clear', ['create'])
-    // },
-    // resetActivity (activityId) {
-    //   this.$store.dispatch('activities/meta/clear', ['save', activityId])
-    // },
   },
 }
 </script>

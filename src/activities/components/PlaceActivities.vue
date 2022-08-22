@@ -37,7 +37,6 @@
       <ActivityList
         :pending="isLoading"
         :activities="activities"
-        @detail="detail"
       />
       <KSpinner v-show="isLoading || isFetchingNextPage" />
     </QInfiniteScroll>
@@ -47,7 +46,6 @@
 <script>
 import { QIcon, QInfiniteScroll } from 'quasar'
 import { computed } from 'vue'
-import { mapActions } from 'vuex'
 
 import { useActivityHelpers } from '@/activities/helpers'
 import { useActivityListQuery } from '@/activities/queries'
@@ -113,11 +111,6 @@ export default {
     isInactive () {
       return this.place?.status !== 'active'
     },
-  },
-  methods: {
-    ...mapActions({
-      detail: 'detail/openForActivity',
-    }),
   },
 }
 </script>

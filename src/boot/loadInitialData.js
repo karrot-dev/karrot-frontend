@@ -1,32 +1,17 @@
-import { QueryCache, QueryClient, VueQueryPlugin } from 'vue-query'
+import { VueQueryPlugin } from 'vue-query'
 
 import { queryKeyActivityTypeListAll } from '@/activities/queries'
 import { queryKeys } from '@/authuser/queries'
 import bootstrap from '@/base/api/bootstrap'
 import { setGeoipCoordinates } from '@/base/services/geo'
+import { queryClient } from '@/base/vue-query'
 import { queryKeyGroupInfoListAll } from '@/groupInfo/queries'
 import { queryKeyPlaceListAll } from '@/places/queries'
 import { queryKeyStatus } from '@/status/queries'
 import { queryKeyUserListAll } from '@/users/queries'
 import { configureSentry } from '@/utils/sentry'
 
-export default async function ({ app, store: datastore }) {
-  const queryCache = new QueryCache({
-    onError (error, query) {
-      // This is a global error handler for queries if we need it
-      console.error('query error for', query.queryKey, error)
-    },
-  })
-  const queryClient = new QueryClient({
-    queryCache,
-    defaultOptions: {
-      queries: {
-        // I mainly put this here because on logout it tries to refetch a load of stuff multiple times (places, users)
-        // (even though I have the "enabled" option to only do that if it's logged in
-        retry: false,
-      },
-    },
-  })
+export default async function ({ app }) {
   app.use(VueQueryPlugin, { queryClient })
 
   const {
@@ -74,10 +59,5 @@ export default async function ({ app, store: datastore }) {
   }
   if (geoip) {
     setGeoipCoordinates(geoip)
-  }
-
-  if (!process.env.DEV) {
-    // TODO: implement about!
-    datastore.dispatch('about/fetch')
   }
 }

@@ -2,7 +2,6 @@ import * as Sentry from '@sentry/vue'
 import { extend } from 'quasar'
 import { computed, watch, ref, readonly } from 'vue'
 import { useRouter } from 'vue-router'
-import { useStore } from 'vuex'
 
 import { useSaveUserMutation } from '@/authuser/mutations'
 import { useAuthService } from '@/authuser/services'
@@ -198,10 +197,7 @@ function useCurrentGroupId () {
 }
 
 function useLocaleMessagesSetter ({ isBikeKitchen, isGeneralPurpose }) {
-  const store = useStore()
-
-  // TODO: decouple from store
-  const locale = computed(() => store.getters['i18n/locale'])
+  const { locale } = useI18nService()
   const useGeneralPurposeMessages = computed(() => isBikeKitchen.value || isGeneralPurpose.value)
 
   watch(

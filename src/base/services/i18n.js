@@ -14,6 +14,8 @@ export const DEFAULT_LOCALE = 'en'
 export const useI18nService = defineService(() => {
   const { user } = useAuthService()
   const defaultLocale = detectLocale() || DEFAULT_LOCALE
+
+  // TODO: we used to persist this to localStorage
   const locale = ref(defaultLocale)
 
   function setLocale (value) {

@@ -75,12 +75,10 @@ module.exports = configure(function (ctx) {
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
       'compat',
-      'vue-query',
       'loglevel',
       'pwa',
       'helloDeveloper',
       'addressbar-color',
-      'socket',
       'cordova',
       'i18n',
       'loadInitialData',
@@ -88,7 +86,6 @@ module.exports = configure(function (ctx) {
       'icons',
       'detectMobileKeyboard',
       'performance',
-      'presenceReporter',
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css

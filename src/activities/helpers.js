@@ -1,5 +1,6 @@
+import { useI18n } from 'vue-i18n'
+
 import { useAuthService } from '@/authuser/services'
-import i18n from '@/base/i18n'
 import icons from '@/base/icons'
 import reactiveNow from '@/utils/reactiveNow'
 
@@ -41,6 +42,8 @@ export function useActivityHelpers () {
 }
 
 export function useActivityTypeHelpers () {
+  const { t } = useI18n()
+
   function getColorName (activityType) {
     if (!activityType) return
     const { id } = activityType
@@ -50,7 +53,7 @@ export function useActivityTypeHelpers () {
   function getTranslatedName (activityType) {
     if (!activityType) return
     const { name, nameIsTranslatable } = activityType
-    return nameIsTranslatable ? i18n.t(`ACTIVITY_TYPE_NAMES.${name}`) : name
+    return nameIsTranslatable ? t(`ACTIVITY_TYPE_NAMES.${name}`) : name
   }
 
   function getIconProps (activityType) {

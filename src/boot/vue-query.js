@@ -1,3 +1,0 @@
-export default ({ app, store }) => {
-  // TODO: I guess can remove this file, or do something anyway... have to load it initial data boot file to customize stuff...
-}

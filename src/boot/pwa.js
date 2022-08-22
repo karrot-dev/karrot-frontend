@@ -1,7 +1,7 @@
 import { setPwaInstallPrompt } from '@/base/services/pwa'
 import { showToast } from '@/utils/toasts'
 
-export default ({ store: datastore }) => {
+export default () => {
   window.addEventListener('beforeinstallprompt', event => {
     // Prevent the mini-infobar from appearing on mobile
     event.preventDefault()

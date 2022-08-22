@@ -88,6 +88,7 @@ import {
 
 import { useCurrentGroupService } from '@/group/services'
 import { absoluteURL } from '@/utils/absoluteURL'
+import { showToast } from '@/utils/toasts'
 
 import UserList from '@/users/components/UserList'
 import CustomDialog from '@/utils/components/CustomDialog'
@@ -143,9 +144,9 @@ export default {
     },
     copyLink () {
       return copyToClipboard(this.linkToCopy).then(() => {
-        this.$store.dispatch('toasts/show', {
+        showToast({
           message: 'URL_COPIED_TOAST',
-        }, { root: true })
+        })
       })
     },
   },

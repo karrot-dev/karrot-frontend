@@ -3,7 +3,6 @@ import deepmerge from 'deepmerge'
 import { isArray, mergeWith } from 'lodash'
 import { nextTick } from 'vue'
 import { VueQueryPlugin } from 'vue-query'
-import { createStore } from 'vuex'
 
 import i18n, { i18nPlugin } from '@/base/i18n'
 
@@ -25,21 +24,7 @@ export async function nextTicks (n) {
 }
 
 export function createDatastore (mods = {}, { debug = false, plugins = [] } = {}) {
-  const modules = {}
-  for (const key of Object.keys(mods)) {
-    modules[key] = { ...mods[key], namespaced: true }
-  }
-
-  const datastore = createStore({
-    modules, plugins, strict: false,
-  })
-
-  if (debug) {
-    datastore.subscribe(({ type, payload }) => console.log('mutation', type, payload))
-    datastore.subscribeAction(({ type, payload }) => console.log('action', type, payload))
-  }
-
-  return datastore
+  throw new Error('datastores are no more!')
 }
 
 export function throws (val) {

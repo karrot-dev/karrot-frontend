@@ -49,7 +49,9 @@
         </span>
       </QCardSection>
       <QSeparator />
-      <QCardActions>
+      <QCardActions
+        :class="application ? 'bg-blue text-white' : ''"
+      >
         <div style="width: 100%">
           <template v-if="group.memberCount === 0 && !application">
             <QBanner class="bg-info">
@@ -78,7 +80,7 @@
               </QBanner>
               <div
                 v-if="application"
-                class="bg-blue text-white row q-pa-sm q-gutter-md"
+                class="row q-pa-xs q-gutter-md"
               >
                 <div class="col-sm-grow col-xs-12 self-center">
                   <QIcon

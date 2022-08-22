@@ -13,6 +13,8 @@ const backendProxy = {
   // so we need to use the origin origin (localhost).
   changeOrigin: /^https:/.test(backend),
   ws: true,
+  // This is needed if using https in local dev, so we give image URLS the right host
+  xfwd: true,
   onProxyReq: (proxyReq, req, res) => {
     // We generate a local one on the fly
     // Have a look at https://dev.karrot.world/about.json to see what it should contain

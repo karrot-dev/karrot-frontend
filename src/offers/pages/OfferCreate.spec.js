@@ -31,13 +31,9 @@ describe('OfferCreate', () => {
 
   it('can create an offer and see it listed', async () => {
     const { getByLabelText, getByRole, unmount } = render(OfferCreate, withDefaults({
-      global: {
-        stubs: {
-          // Stub Croppa as it doesn't seem to work otherwise...
-          // TODO: maybe could work if enabled configureCompat mode for testing?
-          Croppa: true,
-        },
-      },
+      // Stub Croppa as it doesn't seem to work otherwise...
+      // TODO: maybe could work if enabled configureCompat mode for testing?
+      global: { stubs: { Croppa: true } },
     }))
     await flushPromises()
     const offerParams = {

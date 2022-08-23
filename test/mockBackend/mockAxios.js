@@ -28,87 +28,46 @@ export function resetMockAxios () {
   mockAxios = null
 }
 
-/**
- * @returns {MockAdapter}
- */
-function ensureMockAxios () {
-  if (!mockAxios) throw new Error('no mock in this context!')
-  return mockAxios
+export function post (path, handler, options = {}) {
+  on('post', path, handler, options)
 }
 
-function notAuthenticated () {
-  return [
-    403,
-    {
-      detail: 'Authentication credentials were not provided.',
-      error_code: 'not_authenticated',
-    },
-  ]
+export function get (path, handler, options = {}) {
+  on('get', path, handler, options)
 }
 
-export class ValidationError extends Error {
-  constructor (statusCode) {
-    super()
-    this.statusCode = statusCode
-  }
-}
-
-export function createBackend (method, path, fn, options = {}) {
+function on (method, path, handler, options = {}) {
   const {
     requireAuth = true,
   } = options
   const mockAxios = ensureMockAxios()
-  function on (path) {
+  function onRequest (path) {
     switch (method) {
       case 'get': return mockAxios.onGet(path)
       case 'post': return mockAxios.onPost(path)
       default: throw new Error('have not implemented method: ' + method)
     }
   }
-  on(path).reply(async config => {
+  // If we have a path with params/:like/:this/, we  match/extract them
+  // They are available to the handler as pathParams
+  const matcher = path.includes(':') ? createPathMatcher(path) : null
+  onRequest(matcher || path).reply(async config => {
     if (!ctx.authUser && requireAuth) return notAuthenticated()
-    try {
-      if (method === 'post') {
-        let data = config.data
-        if (data instanceof FormData) {
-          // This is the reverse of toFormData (but ignoring the images)
-          data = JSON.parse(await config.data.get('document').text())
-        }
-        return [200, underscorizeKeys(fn(data))]
-      }
-      else {
-        return [200, underscorizeKeys(fn())]
-      }
+    if (matcher) {
+      config.pathParams = matcher.getParams(config.url)
     }
-    catch (error) {
-      if (error instanceof ValidationError) {
-        return [error.statusCode]
-      }
-      throw error
+    if (method === 'post' && config.data instanceof FormData) {
+      // This is the reverse of toFormData (but ignoring the images)
+      config.data = JSON.parse(await config.data.get('document').text())
     }
+    const [statusCode, body] = handler(config)
+    return [statusCode, underscorizeKeys(body)]
   })
 }
 
-// function toText (blob) {
-//   return new Promise(resolve => {
-//     const reader = new FileReader()
-//     console.log('waiting for file reader')
-//     reader.addEventListener('load', () => {
-//       console.log('loaded!', reader.result)
-//       resolve(reader.result)
-//     }, false)
-//     reader.readAsText(blob)
-//   })
-// }
-
-export function createCursorPaginatedBackend (path, getAllEntries, getFilterFn, options = {}) {
-  const {
-    requireAuth = true,
-  } = options
-  ensureMockAxios().onGet(path).reply((config) => {
-    if (!ctx.authUser && requireAuth) return notAuthenticated()
+export function cursorPaginated (path, getAllEntries, getFilterFn, options = {}) {
+  get(path, config => {
     const pageSize = ctx.pageSize || 30
-
     const cursor = parseInt(config.params.cursor || '0')
     const filterFn = getFilterFn(config)
     const entries = getAllEntries()
@@ -127,28 +86,26 @@ export function createCursorPaginatedBackend (path, getAllEntries, getFilterFn, 
       searchParams.append('cursor', newCursor)
       return `${path}?${searchParams.toString()}`
     }
-
     return [200, {
-      results: underscorizeKeys(results),
+      results,
       next: hasNextPage ? cursorURL(cursor + pageSize) : null,
       prev: hasPrevPage ? cursorURL(cursor - pageSize) : null,
     }]
-  })
+  }, options)
 }
 
-export function createGetByIdBackend (path, getEntries, options = {}) {
+export function getById (path, getEntries, options = {}) {
   const {
     requireAuth = true,
   } = options
   if (!path.includes(':id')) throw new Error('path must contain :id')
-  const matcher = createPathMatcher(path)
-  ensureMockAxios().onGet(matcher).reply((config) => {
+  get(path, ({ pathParams }) => {
     if (!ctx.authUser && requireAuth) return notAuthenticated()
-    const id = parseInt(matcher.getParams(config.url).id)
+    const id = parseInt(pathParams.id)
     const entry = getEntries().find(entry => entry.id === id)
     if (!entry) return [404]
-    return [200, underscorizeKeys(entry)]
-  })
+    return [200, entry]
+  }, options)
 }
 
 /**
@@ -166,4 +123,22 @@ function createPathMatcher (path) {
     return params
   }
   return re
+}
+
+/**
+ * @returns {MockAdapter}
+ */
+function ensureMockAxios () {
+  if (!mockAxios) throw new Error('no mock in this context!')
+  return mockAxios
+}
+
+function notAuthenticated () {
+  return [
+    403,
+    {
+      detail: 'Authentication credentials were not provided.',
+      error_code: 'not_authenticated',
+    },
+  ]
 }

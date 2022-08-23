@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 import { pick } from 'lodash'
 
-import { createBackend } from './mockAxios'
+import { get } from './mockAxios'
 
 import { db } from './index'
 
@@ -44,5 +44,5 @@ function toUserInfo (user) {
 }
 
 export function createMockUsersBackend () {
-  createBackend('get', '/api/users/', () => db.users.map(toUserInfo))
+  get('/api/users/', () => [200, db.users.map(toUserInfo)])
 }

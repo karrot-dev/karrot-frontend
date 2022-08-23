@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-import { createCursorPaginatedBackend, createGetByIdBackend, createBackend, ValidationError } from './mockAxios'
+import { cursorPaginated, getById, post } from './mockAxios'
 
 import { ctx, db } from './index'
 
@@ -11,7 +11,6 @@ function sample (items) {
 let nextId = 1
 export function generateOffer (params = {}) {
   return {
-    // TODO: store the user id here in a _meta field?
     id: nextId++,
     name: faker.random.words(5),
     description: faker.lorem.paragraphs(2),
@@ -25,7 +24,7 @@ export function generateOffer (params = {}) {
 }
 
 export function createMockOffersBackend () {
-  createCursorPaginatedBackend(
+  cursorPaginated(
     '/api/offers/',
     () => db.offers,
     ({ params }) => {
@@ -40,14 +39,14 @@ export function createMockOffersBackend () {
     },
   )
 
-  createGetByIdBackend('/api/offers/:id/', () => db.offers)
+  getById('/api/offers/:id/', () => db.offers)
 
-  createBackend('post', '/api/offers/', offer => {
+  post('/api/offers/', ({ data: offer }) => {
     // TODO: implement validation errors that match the backend
-    if (!offer.group) throw new ValidationError(400)
+    if (!offer.group) return [400]
     offer.user = ctx.authUser.id
     offer.createdAt = new Date()
     db.offers.push(offer)
-    return offer
+    return [200, offer]
   })
 }

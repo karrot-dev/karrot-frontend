@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-import { createGetByIdBackend } from './mockAxios'
+import { getById } from './mockAxios'
 
 import { db } from './index'
 
@@ -48,5 +48,5 @@ export function addMemberToGroup (member, group) {
 }
 
 export function createMockGroupDetailBackend () {
-  createGetByIdBackend('/api/groups/:id/', () => db.groups)
+  getById('/api/groups/:id/', () => db.groups)
 }

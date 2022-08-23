@@ -1,5 +1,4 @@
 import deepEqual from 'deep-equal'
-import { random } from 'lodash'
 import debounce from 'lodash/debounce'
 
 // Quasar's ready() is broken until https://github.com/quasarframework/quasar/pull/2199
@@ -154,6 +153,7 @@ export async function devSleep () {
     const value = localStorage.getItem('DEV_SLEEP')
     if (value) {
       const [min, max] = value.split(',').map(n => parseInt(n, 10))
+      const random = require('lodash/random') // only load if we need it
       await sleep(random(min, max))
     }
   }

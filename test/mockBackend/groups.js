@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker'
 
 import { getById } from './mockAxios'
 
-import { db } from './index'
+import { db, ctx } from './index'
 
 let nextId = 1
 export function generateGroup () {
@@ -47,6 +47,19 @@ export function addMemberToGroup (member, group) {
   }
 }
 
+export function groupsForUser (user) {
+  return db.groups.filter(group => group.members.includes(user.id))
+}
+
+export function groupIdsForUser (user) {
+  return groupsForUser(user).map(group => group.id)
+}
+
+export function filterByAuthUserGroups () {
+  const groupIds = ctx.authUser ? groupIdsForUser(ctx.authUser) : []
+  return entry => groupIds.includes(entry.group)
+}
+
 export function createMockGroupDetailBackend () {
-  getById('/api/groups/:id/', () => db.groups)
+  getById('/api/groups/:id/', () => groupsForUser(ctx.authUser))
 }

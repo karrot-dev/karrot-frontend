@@ -2,11 +2,14 @@
  * Testing our test harness!
  */
 
+import { faker } from '@faker-js/faker'
+
 import authUserAPI from '@/authuser/api/authUser'
 import groupsInfoAPI from '@/groupInfo/api/groupsInfo'
+import offersAPI from '@/offers/api/offers'
 import userAPI from '@/users/api/users'
 
-import { loginAs, createUser, db, useMockBackend, createGroup } from './mockBackend'
+import { loginAs, createUser, db, useMockBackend, createGroup, createOffer } from './mockBackend'
 import { addMemberToGroup } from './mockBackend/groups'
 
 describe('mock backend', () => {
@@ -46,5 +49,38 @@ describe('mock backend', () => {
     loginAs(user)
     const groupRes2 = (await groupsInfoAPI.list())[0]
     expect(groupRes2.isMember).toEqual(true)
+  })
+
+  it('can create and retrieve an offer', async () => {
+    const group = createGroup()
+    const user = createUser()
+    addMemberToGroup(user, group)
+    loginAs(user)
+    const offerData = {
+      name: faker.random.words(5),
+      description: faker.lorem.paragraphs(2),
+      group: group.id,
+    }
+    const createdOffer = await offersAPI.create(offerData)
+    expect(db.offers).toHaveLength(1)
+    expect(createdOffer).toEqual(db.offers[0])
+    for (const key of Object.keys(offerData)) {
+      expect(createdOffer[key]).toEqual(offerData[key])
+      expect(db.offers[0][key]).toEqual(offerData[key])
+    }
+    const fetchedOffer = await offersAPI.get(createdOffer.id)
+    expect(fetchedOffer).toEqual(createdOffer)
+    expect(fetchedOffer).toEqual(db.offers[0])
+  })
+
+  it('does not show you offers for other groups', async () => {
+    const groupA = createGroup()
+    const groupB = createGroup()
+    const user = createUser()
+    addMemberToGroup(user, groupA)
+    const offerA = createOffer({ group: groupA.id })
+    createOffer({ group: groupB.id })
+    loginAs(user)
+    expect((await offersAPI.list()).results).toEqual([offerA])
   })
 })

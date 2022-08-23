@@ -1,5 +1,7 @@
 import { faker } from '@faker-js/faker'
 
+import { filterByAuthUserGroups, filterByGroup } from '>/mockBackend/groups'
+
 import { cursorPaginated, getById, post } from './mockAxios'
 
 import { ctx, db } from './index'
@@ -26,24 +28,30 @@ export function generateOffer (params = {}) {
 export function createMockOffersBackend () {
   cursorPaginated(
     '/api/offers/',
-    () => db.offers,
-    ({ params }) => {
-      const status = params.status
-      const group = parseInt(params.group || '1')
-      const filterFn = offer => offer.status === status && offer.group === group
-      if (status === 'archived') {
-        // only show archived ones for current user
-        return offer => filterFn(offer) && offer.user === ctx.authUser.id
-      }
-      return filterFn
-    },
+    ({ params }) => db.offers
+      .filter(filterByAuthUserGroups())
+      .filter(offer => {
+        const status = params.status
+        if (status && offer.status !== status) return false
+        // Can only view your own archived offers
+        if (status === 'archived' && offer.user !== ctx.authUser.id) return false
+
+        const group = params.group ? parseInt(params.group) : null
+        if (group && offer.group !== group) return false
+
+        return true
+      }),
   )
 
-  getById('/api/offers/:id/', () => db.offers)
+  getById(
+    '/api/offers/:id/',
+    () => db.offers.filter(filterByAuthUserGroups()),
+  )
 
   post('/api/offers/', ({ data: offer }) => {
     // TODO: implement validation errors that match the backend
-    if (!offer.group) return [400]
+    if (!offer.group) return [400, 'must pass a group']
+    offer.id = nextId++
     offer.user = ctx.authUser.id
     offer.createdAt = new Date()
     db.offers.push(offer)

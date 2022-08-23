@@ -65,15 +65,13 @@ function on (method, path, handler, options = {}) {
   })
 }
 
-export function cursorPaginated (path, getAllEntries, getFilterFn, options = {}) {
+export function cursorPaginated (path, getEntries, options = {}) {
   get(path, config => {
     const pageSize = ctx.pageSize || 30
     const cursor = parseInt(config.params.cursor || '0')
-    const filterFn = getFilterFn(config)
-    const entries = getAllEntries()
-    const matches = entries.filter(entry => filterFn(entry))
-    const results = matches.slice(cursor, cursor + pageSize)
-    const hasNextPage = matches.length > (cursor + pageSize)
+    const entries = getEntries(config)
+    const results = entries.slice(cursor, cursor + pageSize)
+    const hasNextPage = entries.length > (cursor + pageSize)
     const hasPrevPage = cursor > 0
 
     function cursorURL (newCursor) {

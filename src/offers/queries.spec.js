@@ -6,17 +6,20 @@ import { VueQueryPlugin } from 'vue-query'
 import { useOfferDetailQuery, useOfferListQuery } from '@/offers/queries'
 import { camelizeKeys } from '@/utils/utils'
 
-import { createOffer, useMockBackend, setPageSize, createUser, loginAs } from '>/mockBackend'
+import { createOffer, useMockBackend, setPageSize, createUser, createGroup, loginAs } from '>/mockBackend'
+import { addMemberToGroup } from '>/mockBackend/groups'
 
 describe('offer queries', () => {
   useMockBackend()
 
   describe('useOfferDetailQuery', () => {
     it('can switch between offers', async () => {
+      const group = createGroup()
       const user = createUser()
+      addMemberToGroup(user, group)
       loginAs(user)
-      const offer1 = createOffer({ user: user.id })
-      const offer2 = createOffer({ user: user.id })
+      const offer1 = createOffer({ user: user.id, group: group.id })
+      const offer2 = createOffer({ user: user.id, group: group.id })
 
       const offerId = ref(null)
       const wrapper = mount({
@@ -47,11 +50,13 @@ describe('offer queries', () => {
 
   describe('useOfferListQuery', () => {
     it('can filter and paginate', async () => {
+      const group = createGroup()
       const user = createUser()
+      addMemberToGroup(user, group)
       loginAs(user)
       setPageSize(5) // TODO: better to pass it as param to query/API
-      times(8, () => createOffer({ status: 'active', user: user.id, group: 1 }))
-      times(4, () => createOffer({ status: 'archived', user: user.id, group: 1 }))
+      times(8, () => createOffer({ status: 'active', user: user.id, group: group.id }))
+      times(4, () => createOffer({ status: 'archived', user: user.id, group: group.id }))
 
       const groupId = ref(null)
       const status = ref('active')
@@ -66,7 +71,7 @@ describe('offer queries', () => {
       // nothing as we have no group set
       expect(wrapper.vm.offers).toHaveLength(0)
 
-      groupId.value = 1
+      groupId.value = group.id
       await flushPromises()
 
       // First page of entries

@@ -13,6 +13,11 @@ beforeEach(() => {
   injectRouterMock(router)
 })
 
+afterEach(() => {
+  // Reset or route params stay between tests
+  router.reset()
+})
+
 // Add properties to the wrapper
 config.plugins.VueWrapper.install(VueRouterMock)
 

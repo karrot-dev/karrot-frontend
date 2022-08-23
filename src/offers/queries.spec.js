@@ -15,8 +15,8 @@ describe('offer queries', () => {
     it('can switch between offers', async () => {
       const user = createUser()
       loginAs(user)
-      const offer1 = createOffer()
-      const offer2 = createOffer()
+      const offer1 = createOffer({ user: user.id })
+      const offer2 = createOffer({ user: user.id })
 
       const offerId = ref(null)
       const wrapper = mount({
@@ -50,8 +50,8 @@ describe('offer queries', () => {
       const user = createUser()
       loginAs(user)
       setPageSize(5) // TODO: better to pass it as param to query/API
-      times(8, () => createOffer({ status: 'active', group: 1 }))
-      times(4, () => createOffer({ status: 'archived', group: 1 }))
+      times(8, () => createOffer({ status: 'active', user: user.id, group: 1 }))
+      times(4, () => createOffer({ status: 'archived', user: user.id, group: 1 }))
 
       const groupId = ref(null)
       const status = ref('active')

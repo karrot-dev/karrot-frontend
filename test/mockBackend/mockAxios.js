@@ -1,5 +1,6 @@
 import MockAdapter from 'axios-mock-adapter'
 import { pathToRegexp } from 'path-to-regexp'
+import 'blob-polyfill'
 
 import axios from '@/base/api/axios'
 import { underscorizeKeys } from '@/utils/utils'
@@ -45,17 +46,62 @@ function notAuthenticated () {
   ]
 }
 
-export function createBackend (path, fn, options = {}) {
+export class ValidationError extends Error {
+  constructor (statusCode) {
+    super()
+    this.statusCode = statusCode
+  }
+}
+
+export function createBackend (method, path, fn, options = {}) {
   const {
     requireAuth = true,
   } = options
-  ensureMockAxios().onGet(path).reply(() => {
+  const mockAxios = ensureMockAxios()
+  function on (path) {
+    switch (method) {
+      case 'get': return mockAxios.onGet(path)
+      case 'post': return mockAxios.onPost(path)
+      default: throw new Error('have not implemented method: ' + method)
+    }
+  }
+  on(path).reply(async config => {
     if (!ctx.authUser && requireAuth) return notAuthenticated()
-    return [200, underscorizeKeys(fn())]
+    try {
+      if (method === 'post') {
+        let data = config.data
+        if (data instanceof FormData) {
+          // This is the reverse of toFormData (but ignoring the images)
+          data = JSON.parse(await config.data.get('document').text())
+        }
+        return [200, underscorizeKeys(fn(data))]
+      }
+      else {
+        return [200, underscorizeKeys(fn())]
+      }
+    }
+    catch (error) {
+      if (error instanceof ValidationError) {
+        return [error.statusCode]
+      }
+      throw error
+    }
   })
 }
 
-export function createCursorPaginatedBackend (path, getEntries, getMatchFn, options = {}) {
+// function toText (blob) {
+//   return new Promise(resolve => {
+//     const reader = new FileReader()
+//     console.log('waiting for file reader')
+//     reader.addEventListener('load', () => {
+//       console.log('loaded!', reader.result)
+//       resolve(reader.result)
+//     }, false)
+//     reader.readAsText(blob)
+//   })
+// }
+
+export function createCursorPaginatedBackend (path, getAllEntries, getFilterFn, options = {}) {
   const {
     requireAuth = true,
   } = options
@@ -64,8 +110,9 @@ export function createCursorPaginatedBackend (path, getEntries, getMatchFn, opti
     const pageSize = ctx.pageSize || 30
 
     const cursor = parseInt(config.params.cursor || '0')
-    const matchFn = getMatchFn(config)
-    const matches = getEntries().filter(entry => matchFn(entry))
+    const filterFn = getFilterFn(config)
+    const entries = getAllEntries()
+    const matches = entries.filter(entry => filterFn(entry))
     const results = matches.slice(cursor, cursor + pageSize)
     const hasNextPage = matches.length > (cursor + pageSize)
     const hasPrevPage = cursor > 0
@@ -98,9 +145,9 @@ export function createGetByIdBackend (path, getEntries, options = {}) {
   ensureMockAxios().onGet(matcher).reply((config) => {
     if (!ctx.authUser && requireAuth) return notAuthenticated()
     const id = parseInt(matcher.getParams(config.url).id)
-    const offer = getEntries().find(entry => entry.id === id)
-    if (!offer) return [404]
-    return [200, underscorizeKeys(offer)]
+    const entry = getEntries().find(entry => entry.id === id)
+    if (!entry) return [404]
+    return [200, underscorizeKeys(entry)]
   })
 }
 

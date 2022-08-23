@@ -50,5 +50,5 @@ function toGroupInfo (group) {
 }
 
 export function createMockGroupsInfoBackend () {
-  createBackend('/api/groups-info/', () => db.groups.map(toGroupInfo), { requireAuth: false })
+  createBackend('get', '/api/groups-info/', () => db.groups.map(toGroupInfo), { requireAuth: false })
 }

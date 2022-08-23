@@ -44,5 +44,5 @@ function toUserInfo (user) {
 }
 
 export function createMockUsersBackend () {
-  createBackend('/api/users/', () => db.users.map(toUserInfo))
+  createBackend('get', '/api/users/', () => db.users.map(toUserInfo))
 }

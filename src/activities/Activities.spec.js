@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 
-describe('foo', () => {
+describe('Activities', () => {
   it('does something', () => {
     // const app = require('../../.quasar/app')
     const App = require('@/App')

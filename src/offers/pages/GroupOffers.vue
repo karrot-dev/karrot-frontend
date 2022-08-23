@@ -33,7 +33,7 @@
             <QItem style="min-height: 57px;" />
             <RouterLink
               class="absolute-center fit"
-              :to="{ name: 'offerCreate' }"
+              :to="{ name: 'offerCreate', params: { groupId } }"
               :title="$t('OFFER.CREATE_TITLE')"
             >
               <QIcon
@@ -168,7 +168,7 @@ const route = useRoute()
 function detailRouteFor (offerId) {
   return {
     name: 'offerDetail',
-    params: { offerId },
+    params: { groupId: groupId.value, offerId },
     query: route.query,
   }
 }

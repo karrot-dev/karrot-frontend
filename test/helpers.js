@@ -66,6 +66,8 @@ export function withDefaults (options = {}) {
   // We want a fresh Quasar for every test
   const Quasar = require('quasar').Quasar
   const quasarConfig = require('>/quasarConfig').default
+  // Use a fresh queryClient each time or we end up with data sharing between tests
+  const { queryClient } = require('@/base/vue-query')
   // For some reason StandardMap.spec.js fails if propsData comes after global
   const { propsData } = options
   delete options.propsData

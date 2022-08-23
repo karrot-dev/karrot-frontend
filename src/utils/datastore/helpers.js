@@ -1,3 +1,4 @@
+import mitt from 'mitt'
 import { effectScope, isProxy, isRef, toRaw, unref } from 'vue'
 
 import { isObject } from '@/utils/utils'
@@ -49,6 +50,18 @@ export function isNetworkError (error) {
   return false
 }
 
+const events = mitt()
+
+/**
+ * This is important for testing, so we don't keep services around between tests
+ */
+export function resetServices () {
+  events.emit('reset')
+  if (process.env.DEV) {
+    window.karrot.services.length = 0
+  }
+}
+
 export function defineService (serviceSetup) {
   if (process.env.DEV) {
     if (typeof serviceSetup !== 'function') {
@@ -58,6 +71,13 @@ export function defineService (serviceSetup) {
 
   // hold a reference to our service instance in this outer scope so we always return the same one
   let service
+
+  events.on('reset', () => {
+    if (service) {
+      service.$scope.stop()
+      service = undefined
+    }
+  })
 
   return (...args) => {
     if (process.env.DEV) {
@@ -73,6 +93,7 @@ export function defineService (serviceSetup) {
 
     // initialize our service in this scope, we get back a value, nothing fancy!
     service = scope.run(() => serviceSetup())
+    service.$scope = scope
 
     if (process.env.DEV) {
       if (service) {

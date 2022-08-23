@@ -32,7 +32,7 @@ export const useGroupInfoService = defineService(() => {
       .map(group => group.id)
       .sort((a, b) => a - b)
       .join(','),
-    (val) => {
+    val => {
       queryClient.invalidateQueries(queryKeyPlaceListAll())
     },
   )

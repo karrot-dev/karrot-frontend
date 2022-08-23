@@ -106,8 +106,6 @@ for (const group of mockStories) {
               ],
               stubs: {
                 RouterLink: RouterLinkStub,
-                // Stub Croppa as it doesn't seem to work otherwise...
-                Croppa: true,
               },
               directives: {
                 measure: {},

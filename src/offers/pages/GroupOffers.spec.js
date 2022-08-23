@@ -1,31 +1,65 @@
-import { flushPromises, mount } from '@vue/test-utils'
+import '@testing-library/jest-dom'
+import { fireEvent, render } from '@testing-library/vue'
 import { times } from 'lodash'
 
-import '>/routerMocks'
+import { resetServices } from '@/utils/datastore/helpers'
+
 import { withDefaults } from '>/helpers'
-import { useMockBackend, createUser, createGroup, createOffer, loginAs } from '>/mockBackend'
+import { useMockBackend, createUser, createGroup, createOffer, loginAs, db, setPageSize } from '>/mockBackend'
 import { addMemberToGroup } from '>/mockBackend/groups'
+import '>/routerMocks'
 
 import GroupOffers from './GroupOffers'
 
 describe('GroupOffers', () => {
   useMockBackend()
 
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => {
+    jest.resetModules()
+    resetServices()
+  })
 
   beforeEach(() => {
     const user = createUser()
     const group = createGroup()
     addMemberToGroup(user, group)
     user.currentGroup = group.id
-    times(8, () => {
-      createOffer({ status: 'active', group: group.id })
-    })
+    setPageSize(3)
+    times(8, () => createOffer({ status: 'active', user: user.id, group: group.id }))
+    times(4, () => createOffer({ status: 'archived', user: user.id, group: group.id }))
     loginAs(user)
   })
-  it('has the right number of offers', async () => {
-    const wrapper = mount(GroupOffers, withDefaults())
-    await flushPromises()
-    expect(wrapper.vm.offers).toHaveLength(8)
+
+  it('renders a list of active offers', async () => {
+    const { findByText, queryByText, queryByTitle } = render(GroupOffers, withDefaults())
+
+    // expect all the active ones to be on the page
+    for (const offer of db.offers.filter(offer => offer.status === 'active')) {
+      expect(await findByText(offer.name)).toBeInTheDocument()
+    }
+
+    // after all those are done loading, let's check the non-active ones aren't there too
+    for (const offer of db.offers.filter(offer => offer.status !== 'active')) {
+      expect(queryByText(offer.name)).not.toBeInTheDocument()
+    }
+
+    // has a "Create offer" button
+    expect(queryByTitle('Create offer')).toBeInTheDocument()
+  })
+
+  it('can also select archived offers', async () => {
+    const { findByText, findByRole, queryByTitle } = render(GroupOffers, withDefaults())
+
+    // select the archived ones
+    await fireEvent.click(await findByRole('combobox'))
+    await fireEvent.click(await findByText('My archived offers'))
+
+    // expect all the archived ones to be on the page
+    for (const offer of db.offers.filter(offer => offer.status === 'archived')) {
+      expect(await findByText(offer.name)).toBeInTheDocument()
+    }
+
+    // does not have a Create offer button
+    expect(queryByTitle('Create offer')).not.toBeInTheDocument()
   })
 })

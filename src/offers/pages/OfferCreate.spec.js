@@ -7,7 +7,7 @@ import { resetServices } from '@/utils/datastore/helpers'
 
 import { withDefaults } from '>/helpers'
 import { useMockBackend, createUser, createGroup, loginAs } from '>/mockBackend'
-import { addMemberToGroup } from '>/mockBackend/groups'
+import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
 import GroupOffers from './GroupOffers'
@@ -24,7 +24,7 @@ describe('OfferCreate', () => {
   beforeEach(() => {
     const user = createUser()
     const group = createGroup()
-    addMemberToGroup(user, group)
+    addUserToGroup(user, group)
     user.currentGroup = group.id
     loginAs(user)
   })

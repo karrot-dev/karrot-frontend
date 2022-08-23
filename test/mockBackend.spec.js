@@ -10,7 +10,7 @@ import offersAPI from '@/offers/api/offers'
 import userAPI from '@/users/api/users'
 
 import { loginAs, createUser, db, useMockBackend, createGroup, createOffer } from './mockBackend'
-import { addMemberToGroup } from './mockBackend/groups'
+import { addUserToGroup } from './mockBackend/groups'
 
 describe('mock backend', () => {
   useMockBackend()
@@ -40,7 +40,7 @@ describe('mock backend', () => {
   it('can retrieve group info', async () => {
     const user = createUser()
     const group = createGroup()
-    addMemberToGroup(user, group)
+    addUserToGroup(user, group)
     const groupRes = (await groupsInfoAPI.list())[0]
     expect(groupRes.memberCount).toEqual(1)
     expect(groupRes.isMember).toEqual(false)
@@ -54,7 +54,7 @@ describe('mock backend', () => {
   it('can create and retrieve an offer', async () => {
     const group = createGroup()
     const user = createUser()
-    addMemberToGroup(user, group)
+    addUserToGroup(user, group)
     loginAs(user)
     const offerData = {
       name: faker.random.words(5),
@@ -77,7 +77,7 @@ describe('mock backend', () => {
     const groupA = createGroup()
     const groupB = createGroup()
     const user = createUser()
-    addMemberToGroup(user, groupA)
+    addUserToGroup(user, groupA)
     const offerA = createOffer({ group: groupA.id })
     createOffer({ group: groupB.id })
     loginAs(user)

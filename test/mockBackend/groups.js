@@ -34,7 +34,7 @@ export function generateGroup () {
   }
 }
 
-export function addMemberToGroup (member, group) {
+export function addUserToGroup (member, group) {
   group.members.push(member.id)
   group.memberships[member.id] = {
     createdAt: faker.date.past(),

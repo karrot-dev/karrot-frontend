@@ -7,7 +7,7 @@ import { useOfferDetailQuery, useOfferListQuery } from '@/offers/queries'
 import { camelizeKeys } from '@/utils/utils'
 
 import { createOffer, useMockBackend, setPageSize, createUser, createGroup, loginAs } from '>/mockBackend'
-import { addMemberToGroup } from '>/mockBackend/groups'
+import { addUserToGroup } from '>/mockBackend/groups'
 
 describe('offer queries', () => {
   useMockBackend()
@@ -16,7 +16,7 @@ describe('offer queries', () => {
     it('can switch between offers', async () => {
       const group = createGroup()
       const user = createUser()
-      addMemberToGroup(user, group)
+      addUserToGroup(user, group)
       loginAs(user)
       const offer1 = createOffer({ user: user.id, group: group.id })
       const offer2 = createOffer({ user: user.id, group: group.id })
@@ -52,7 +52,7 @@ describe('offer queries', () => {
     it('can filter and paginate', async () => {
       const group = createGroup()
       const user = createUser()
-      addMemberToGroup(user, group)
+      addUserToGroup(user, group)
       loginAs(user)
       setPageSize(5) // TODO: better to pass it as param to query/API
       times(8, () => createOffer({ status: 'active', user: user.id, group: group.id }))

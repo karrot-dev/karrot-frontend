@@ -13,7 +13,7 @@ export function generateGroup () {
     welcomeMessage: faker.lorem.paragraphs(2),
     publicDescription: faker.lorem.paragraphs(2),
     applicationQuestions: faker.lorem.paragraphs(2),
-    applicationQuestions_default: faker.lorem.paragraphs(2),
+    applicationQuestionsDefault: faker.lorem.paragraphs(2),
     members: [],
     memberships: {},
     address: faker.address.streetAddress(true),

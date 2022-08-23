@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-import { filterByAuthUserGroups, filterByGroup } from '>/mockBackend/groups'
+import { filterByAuthUserGroups } from '>/mockBackend/groups'
 
 import { cursorPaginated, getById, post } from './mockAxios'
 

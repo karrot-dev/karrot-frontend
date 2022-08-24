@@ -1,6 +1,6 @@
 {
   "ABOUT_KARROT": {
-    "AND_MORE": "Y mas...",
+    "AND_MORE": "Y más...",
     "EXISTING_GROUPS": "Algunos grupos que ya usan Karrot",
     "LINKS": {
       "CHAT": "Chat de grupo",
@@ -17,7 +17,7 @@
         "TITLE": "Comunicación en el contexto adecuado"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot es un programa libre y de código abierto desarrollado con los comentarios y participación de la gente que lo usa. Un pequeño grupo central lo desarrolla, pero este está en continuo contacto con los usuarios  para que guie su desarrollo las distintas necesidades de cada grupo. En Karrot seguimos los principio de integridad y no comercialización de datos.",
+        "DESCRIPTION": "Karrot es un programa libre y de código abierto desarrollado con los comentarios y participación de la gente que lo usa. Un pequeño grupo central lo desarrolla, pero este está en continuo contacto con los usuarios para que guie su desarrollo las distintas necesidades de cada grupo. En Karrot seguimos los principio de integridad y no comercialización de datos.",
         "DESCRIPTION2": "Invitamos a quienes desarrollan y diseñan software a participar en este desarrollo.",
         "TITLE": "Desarrollo democrático y participativo"
       },
@@ -45,7 +45,7 @@
       },
       "TEAM": {
         "DESCRIPTION": "Siéntete libre para hablar a quienes desarrollan Karrot, tanto en nuestro {forum}, en {code} o en tiempo real en nuestro {chat}.",
-        "TITLE": "Equipo abierto"
+        "TITLE": "Equipo receptivo"
       },
       "TRANSLATIONS": {
         "DESCRIPTION": "Karrot está traducido por la comunidad y todavía se están añadiendo más idiomas. Para contribuir con más traducciones, simplemente visita el proyecto en {translations}.",
@@ -56,12 +56,12 @@
         "TITLE": "Transparencia"
       },
       "TRUST": {
-        "DESCRIPTION": "No hay poderes supremos en los grupos de Karrot. La que recibe suficiente confianza de sus iguales tiene derecho a modificar la configuración de su grupo. Cuando entra nueva gente, tienen que solicitar la entrada y responder a una serie de pregunta que decide el grupo. Todas las personas con derechos de edición pueden aprobar o rechazar la solicitud. Igualmente, si hay algún conflicto, el grupo puede crear una votación para resolver el problema de forma comunal.",
+        "DESCRIPTION": "No hay poderes supremos en los grupos de Karrot. La persona que recibe suficiente confianza de sus iguales tiene derecho a modificar la configuración de su grupo. Cuando entra nueva gente, tienen que solicitar la entrada y responder a una serie de pregunta que decide el grupo. Todas las personas con derechos de edición pueden aprobar o rechazar la solicitud. Igualmente, si hay algún conflicto, el grupo puede crear una votación para resolver el problema de forma comunal.",
         "TITLE": "Gestión democrática y basada en confianza grupal"
       }
     },
-    "SUBTITLE1": "Karrot es una herramient para todo tipo de iniciativas de base para conectar y crecer apoyando la coordinación de actividades cara a cara a nivel local, autónomo y voluntario.",
-    "SUBTITLE2": "Está diseñado de forma que facilite el crecimiento de la comunidad y apoye una mas transparencia, democracia y gestión participativa de tu grupo.",
+    "SUBTITLE1": "Karrot es una herramienta para todo tipo de iniciativas de base para conectar y crecer apoyando la coordinación de actividades cara a cara a nivel local, autónomo y voluntario.",
+    "SUBTITLE2": "Está diseñado de forma que facilite el crecimiento de la comunidad y apoye una gestión participativa más transparente y más democrático de tu grupo.",
     "TITLE": "Empieza un grupo, comienza tu comunidad",
     "VISION_INTRO": "Tanto si salvas o compartes comida, si gestionas una tienda libre o un espacio creativo, si participas en un jardín comunitario o una taller de autoreparación..."
   },
@@ -72,7 +72,7 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "Esta ha sido desactivada.",
     "ACTIVITY_STARTED": "Esta ya ha comenzado.",
-    "AVAILABLE": "¡Hay una actividad en tus lugares favoritos esperándote! ¡Hay {count}actividades en tus lugares favoritos esperándote!",
+    "AVAILABLE": "¡Hay una actividad en tus lugares favoritos esperándote! ¡Hay {count} actividades en tus lugares favoritos esperándote!",
     "AVAILABLE_FEEDBACK": "Puedes dejar un comentario | {count} actividades esperan tus comentarios",
     "AVAILABLE_FROM_STORES": "Esto muestra las actividades en tus lugares favoritos en los próximos días. Puedes acceder a otros lugares en la barra lateral.",
     "FILTER": {
@@ -94,31 +94,33 @@
     "NONE": "No hay actividades pendientes",
     "NONE_DUE_TO_FILTER": "Ninguna actividad coincide con tus filtros",
     "NONE_HINT": "Puedes crear una nueva actividad en la página del lugar.",
-    "STORE_NONE_HINT": "Puedes crear una nueva actividad en la página \"Gestionar actividades\".",
+    "STORE_NONE_HINT": "Puedes crear una nueva actividad en la página «Gestionar actividades».",
     "ICS_DIALOG": {
-      "TITLE": "Add to calendar",
-      "INTRO": "Add your activities to your calendar by using one of the following options:",
-      "DOWNLOAD_TITLE": "Download",
-      "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
-      "DOWNLOAD_BUTTON_LABEL": "Download ICS",
-      "SUBSCRIBE_TITLE": "Subscribe",
-      "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
-      "MORE_INFOS": "More info about ICS"
+      "TITLE": "Añadir al calendario",
+      "INTRO": "Añade tus actividades a tu calendario utilizando una de las siguientes opciones:",
+      "DOWNLOAD_TITLE": "Descargar",
+      "DOWNLOAD_TEXT": "Descarga el archivo ICS para importarlo manualmente a tu calendario:",
+      "DOWNLOAD_BUTTON_LABEL": "Descargar ICS",
+      "SUBSCRIBE_TITLE": "Suscribirse ",
+      "SUBSCRIBE_TEXT": "Utiliza esta URL para suscribirse como calendario ICS:",
+      "MORE_INFOS": "Más información sobre ICS",
+      "TOKEN_NOTICE": "Cualquiera que tenga el enlace secreto puede acceder. No es necesario iniciar sesión.",
+      "RESET_TOKEN": "Restablecer enlace secreto"
     }
   },
   "ACTIVITYMANAGE": {
-    "ACTIVITY_DESCRIPTION_CHANGED": "\"Información adicional\" ha sido cambiada",
+    "ACTIVITY_DESCRIPTION_CHANGED": "«Información adicional» ha sido cambiada",
     "ACTIVITY_DOES_NOT_MATCH": "Esta fecha no coincide con el patrón",
-    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "\"Máximo de espacios\" ha sido cambiado",
+    "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "«Máximo de espacios» ha sido cambiado",
     "SERIES": "Series de actividades",
     "SINGLE": "Actividades únicas",
     "TITLE": "Gestionar actividades",
     "UPCOMING_ACTIVITIES_IN_SERIES": "Próximas actividades en esta serie"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "Amount of food you were able to save",
+    "AMOUNT": "Cantidad de alimentos que has podido ahorrar",
     "AMOUNT_INFO": "Para las estadísticas de la página, añadiremos la cantidad total de comentarios.",
-    "COMMENT_PLACEHOLDER": "¿Fue todo correctamente? ¿Vino todo el mundo? Deja tu comentario aquí.",
+    "COMMENT_PLACEHOLDER": "¿Ha ido todo bien? ¿Vino todo el mundo? Deja tu comentario aquí.",
     "DELETE_AMOUNT": "Eliminar cantidad",
     "EDIT": "Editar comentario",
     "HEADER": "¡Gracias por tu participación!",
@@ -144,7 +146,7 @@
   },
   "ACTIVITY_TYPES": {
     "ADD": "Añadir nuevo tipo de actividad",
-    "FEEDBACK_YES_HINT": "Se pedirá comentar al respecto a quienes participen en al actividad",
+    "FEEDBACK_YES_HINT": "Se pedirá comentar al respecto a quienes participen en la actividad",
     "FEEDBACK_NO_HINT": "No se pedirán comentarios",
     "FEEDBACK_WEIGHT_LABEL": "¿Pidiendo peso?",
     "NAME": "Nombre",
@@ -168,37 +170,37 @@
   },
   "AGREEMENT": {
     "AGREE": "Tienes que aceptar {title}",
-    "BLURB1": "Todavia no hay un acuerdo!",
+    "BLURB1": "¡Todavía no hay un acuerdo!",
     "BLURB2": "Si añades un acuerdo la gente tendrá que aceptarlo antes de poder hacer recogidas. ",
     "CONTENT": "Contenido",
     "CONTENT_HELPER": "El texto para vuestro acuerdo",
     "DIALOGS": {
       "REMOVE": {
         "CONFIRM": "Si, eliminar el acuerdo",
-        "MESSAGE": "Esto significa que todas podrán hacer recogidas",
-        "TITLE": "Eliminar el acuerdo?"
+        "MESSAGE": "Esto significa que cualquiera podrá hacer recogidas",
+        "TITLE": "¿Eliminar el acuerdo?"
       },
       "REPLACE": {
         "CONFIRM": "Si, cambiar el acuerdo",
         "MESSAGE": "Todo el mundo tendrán que aceptar el acuerdo de nuevo antes de poder apuntarse a las recogidas",
-        "TITLE": "Cambiar el acuerdo?"
+        "TITLE": "¿Cambiar el acuerdo?"
       }
     },
-    "MINOR_EDIT": "Edición menor?",
-    "MINOR_EDIT_HELPER": "Errores ortográficos, formateo, etc. ... no se les pedirá a las personas que vuelvan a estar de acuerdo",
+    "MINOR_EDIT": "¿Edición menor?",
+    "MINOR_EDIT_HELPER": "Errores ortográficos, formateo, etc... No se les pedirá a las personas que vuelvan a estar de acuerdo",
     "NEW": "Nuevo acuerdo",
     "TITLE": "Título",
     "TITLE_HELPER": "Dále un título a tu acuerdo, p. ej. Reglas del Grupo",
     "VIEW": "Ver acuerdo"
   },
   "APPLICATION": {
-    "ACCEPTED": "¡Has aceptado a {userName}en este grupo!",
+    "ACCEPTED": "¡Has aceptado a {userName} en este grupo!",
     "ACCEPT_CONFIRMATION_HEADER": "Solicitud aceptada",
-    "ACCEPT_CONFIRMATION_TEXT": "¿Estás segura que quieres aceptar a {userName}en este grupo?",
+    "ACCEPT_CONFIRMATION_TEXT": "¿Estás segurx que quieres aceptar a {userName} en este grupo?",
     "APPLICATION": "Solicitud",
     "DECLINED": "Has rechazado la solicitud de {userName}.",
     "DECLINE_CONFIRMATION_HEADER": "Solicitud rechazada",
-    "DECLINE_CONFIRMATION_TEXT": "¿Estás segura que quieres rechazar la solicitud de {userName}?",
+    "DECLINE_CONFIRMATION_TEXT": "¿Estás segurx que quieres rechazar la solicitud de {userName}?",
     "FORM_HEADER": "Solicitar",
     "FORM_TITLE": "Solicitar unirse a {groupName}",
     "GALLERY_TOOLTIP": "Has solicitado unirte a este grupo. Tu solicitud está todavía pendiente",
@@ -218,7 +220,7 @@
     "ARCHIVE": "Archivo",
     "BACK": "Atrás",
     "CANCEL": "Cancelar",
-    "CHANGE_COLOUR": "ar color",
+    "CHANGE_COLOUR": "Cambiar color",
     "CHANGE_EMAIL": "Cambiar correo electrónico",
     "CHANGE_ICON": "Cambiar icono",
     "CHANGE_PASSWORD": "Nueva contraseña",
@@ -233,7 +235,7 @@
     "HIDE": "Ocultar",
     "JOIN": "Unirse",
     "NEXT": "Siguiente",
-    "OF_COURSE": "Si, claro!",
+    "OF_COURSE": "¡Sí, claro!",
     "OPEN": "Abrir",
     "PREVIEW": "Vista previa",
     "REMOVE": "Quitar",
@@ -247,13 +249,13 @@
     "UNSUBSCRIBE": "Darse de baja",
     "WITHDRAW": "Retirar",
     "YES": "Si",
-    "READ_MORE": "Leer menos"
+    "READ_MORE": "Más información"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Actualizaciones de {community}",
-    "HEADER_LINK": "Karrot community",
+    "HEADER_LINK": "Comunidad de Karrot",
     "KARROT_DISCUSSION": "Discusiones sobre Karrot",
-    "LAST_UPDATED": "Ultima actualización{relativeDate}"
+    "LAST_UPDATED": "Ultima actualización {relativeDate}"
   },
   "CONFLICT": {
     "FIND_OUT_MORE": "¡Obtén más información!",
@@ -270,7 +272,7 @@
     "STEPPER1a": "Está a punto de empezar un proceso grupal de resolución de problemas ",
     "STEPPER1b": "Esto involucrará a todas las personas en el grupo para encontrar la mejor forma de proceder.",
     "STEPPER2a": "¡Gracias por preocuparte por tu comunidad!",
-    "STEPPER2b": "Es importante que tengas en cuentas las cuestiones sociales, aunque a veces pueda ser incómodo. ¡Gracias por tu valentía!",
+    "STEPPER2b": "Es importante que tengas en cuenta las cuestiones sociales, aunque a veces pueda ser incómodo. ¡Gracias por tu valentía!",
     "STEPPER3a": "Esto es lo que pasará:",
     "STEPPER3b": "Este proceso abrirá un chat y una votación.",
     "STEPPER3c": "El chat será visible para miembros e incluye a {userName}.",
@@ -311,16 +313,16 @@
     "DISABLE_TITLE": "¿Deshabilitar?",
     "ENABLE_DISABLE_MESSAGE": "Las personas que se unieron a esta actividad recibirán una notificación. Puedes cambiar este texto para proporcionar una razón:",
     "ENABLE_TITLE": "¿Habilitar?",
-    "EXCEPTIONS_MESSAGE": "Algunas próximas actividades no coinciden con la configuración de esta serie. Echa un vistazo a \"{upcomingLabel}\" para cambiarlas o deshabilitarlas si es necesario.",
+    "EXCEPTIONS_MESSAGE": "Algunas próximas actividades no coinciden con la configuración de esta serie. Echa un vistazo a «{upcomingLabel}» para cambiarlas o deshabilitarlas si es necesario.",
     "EXCEPTIONS_TITLE": "Controla tus actividades",
     "FREQUENCY": "Frecuencia",
     "MAX_PARTICIPANTS": "Máximo de espacios",
     "MAX_PARTICIPANTS_HELPER": "¿Cuántas personas deberían participar?",
     "RRULE": "Regla de recurrencia",
-    "RRULE_EXAMPLE": "último día hábil (Lunes-Viernes) de cada mes",
+    "RRULE_EXAMPLE": "último día laborable (Lunes-Viernes) de cada mes",
     "RRULE_EXAMPLE2": "cada segundo lunes",
     "RRULE_HELPER": "Escriba un {ruleHelper} válido, por ejemplo {ruleExample} o {ruleExample2}",
-    "RRULE_HELPER_URL": "regla iCalender",
+    "RRULE_HELPER_URL": "Regla iCalender",
     "STARTDATE_HELPER": "¿Cuándo debería comenzar la serie?",
     "TIME_HELPER": "¿Cuándo debe llevarse a cabo?",
     "UNLIMITED": "ilimitado",
@@ -342,9 +344,9 @@
     "NO_DONE_ACTIVITIES": "¡Todo hecho!",
     "NO_DONE_ACTIVITIES_HINT": "No tienes actividades en las que dejar comentarios. ¿Por qué no te unes a otra recogida?",
     "NUMBER_ACTIVITIES": "{count} actividades realizadas",
-    "NUMBER_FEEDBACK": "{count}comentarios dados",
-    "SAVED_FOOD": "Al menos 1 kg fue rescatado aquí. ¡Gracias! | ¡La gente ya dejó un comentario de {amount}kg de comida rescatada! ¡Mantengamos el buen trabajo!",
-    "WEIGHT_SUM": "{sum}kg de comida rescatados"
+    "NUMBER_FEEDBACK": "{count} comentarios dados",
+    "SAVED_FOOD": "Al menos 1 kg fue rescatado aquí. ¡Gracias! | ¡La gente ya dejó un comentario de {amount} kg de comida rescatada! ¡Mantengamos el buen trabajo!",
+    "WEIGHT_SUM": "{sum} kg de comida rescatados"
   },
   "GLOBAL": {
     "ABOUT_KARROT": "Sobre Karrot",
@@ -354,7 +356,7 @@
     "INVALID_LINK": "Lo sentimos, el enlace que has abierto no es válido.",
     "LOGO_ALT": "logo de karrot",
     "NOT_CONNECTED": "No estás conenctado al servidor",
-    "OFFLINE_RECONNECT": "Sin conectar. Por favor presiona aquí para reconectar.",
+    "OFFLINE_RECONNECT": "Sin conectar. Por favor, presiona aquí para reconectar.",
     "RECONNECTING": "Reconectando...",
     "SEARCH_NOT_FOUND": "No encontrado",
     "SEARCH_RESULTS": "Buscar resultados",
@@ -365,14 +367,14 @@
     "ACTIVITIES": "Actividades",
     "ACTIVITY": "Actividad",
     "PICKUPS_TO_ACTIVITIES": "¡Ahora puedes organizar más cosas además de recogidas!",
-    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "La recogidas todavía está disponibles pero además puedes añadir otros tipos como encuentros, eventos y distribuciones",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "La recogidas todavía están disponibles, pero además puedes añadir otros tipos como encuentros, eventos y distribuciones",
     "ADDED_BY": "Añadido por {userName}",
     "ADDRESS": "Dirección",
     "APPLICATIONS": "Solicitudes",
-    "APPLICATION_QUESTIONS": "Preguntas para presonas que quieren unirse a este grupo",
+    "APPLICATION_QUESTIONS": "Preguntas para personas que quieran unirse a este grupo",
     "CREATE_TITLE": "Crear un grupo nuevo",
-    "DECLINED": "Rechazado{relativeDate}",
-    "DECLINED_BY": "Rechazado por{userName}",
+    "DECLINED": "Rechazado {relativeDate}",
+    "DECLINED_BY": "Rechazado por {userName}",
     "DESCRIPTION": "Descripción",
     "DESCRIPTION_VERBOSE": "Descripción del grupo, visible para los miembros",
     "EDIT": "Editar grupo",
@@ -393,8 +395,8 @@
     "INVITATION_ACCEPT_ERROR": "Ooops, no se ha podido aceptar la invitación!",
     "INVITATION_ACCEPT_SUCCESS": "Bienvenid@! Has acceptado la invitación. ",
     "INVITATION_DIALOG": {
-      "MESSAGE": "Copy the link and send it to the person you want to invite.",
-      "TITLE": "Invitation link"
+      "MESSAGE": "Copia el enlace y envíaselo a la persona que quieres invitar.",
+      "TITLE": "Enlace de invitación"
     },
     "INVITED_LIST": "Ya se enviaron invitaciones a los siguientes correos electrónicos: ",
     "INVITE_EMAIL": "Introducir un correo electrónico",
@@ -451,7 +453,7 @@
     "WELCOMEMESSAGE_VERBOSE": "Mensaje de bienvenida enviado a nuevos miembros."
   },
   "GROUPINFO": {
-    "MEMBER_VIEW": "Eres miembro de este grupo. Haga clic aquí para cambiar a vista completa.",
+    "MEMBER_VIEW": "Eres miembro de este grupo. Haz clic aquí para cambiar a vista completa.",
     "META": "Enseñar información pública del grupo",
     "TITLE": "Información pública del grupo"
   },
@@ -493,7 +495,7 @@
     "GROUP_MODIFY": "cambió los ajustes de este grupo",
     "MEMBER_BECAME_EDITOR": "obtuvo permisos de edición",
     "MEMBER_REMOVED": "fue eliminado por decisión del grupo",
-    "NOTHING_HAPPENEND": "Todavía nada ha pasado...",
+    "NOTHING_HAPPENEND": "Todavía no ha pasado nada...",
     "SERIES_CREATE": "serie de {activityType}s creada ",
     "SERIES_DELETE": "serie de {activityType}s eliminada ",
     "SERIES_MODIFY": "cambió la configuración de una serie",
@@ -504,7 +506,7 @@
   },
   "INACTIVITY": {
     "HELP": "Toda persona que no se ha conectado a un grupo en {dayCount}días o más se considera como inactiva. Dichas cuentas pasa a no recibir notificaciones por correo electrónico.",
-    "WHAT": "¿Qué significa estar inactiva?"
+    "WHAT": "¿Qué significa estar inactivx?"
   },
   "INFO": "Información",
   "ISSUE": {
@@ -513,7 +515,7 @@
       "TOAST": "Has iniciado exitosamente un proceso de resolución de problemas"
     },
     "NO_ONGOING": "No hay conflictos actualmente.",
-    "PARTICIPANTS": "{count}miembros han sido añadidos a esta discusión.",
+    "PARTICIPANTS": "{count} miembros han sido añadidos a esta discusión.",
     "PAST": "Conflictos pasados",
     "PREVIOUS_VOTINGS": "Votaciones previas sobre este conflicto",
     "TITLE": "Conflictos",
@@ -528,10 +530,10 @@
       "RESULTS": {
         "ENDED_AT": "Esta ronda de votación acaba el {date}",
         "KEEP_DISCUSSING": "Tu grupo ha votado para seguir discutiendo",
-        "PARTICIPANTS": "{number} personas participaron en la votación",
+        "PARTICIPANTS": "{number} personas participaron en la votación.",
         "TIME_UP": "¡Se acabó el tiempo!",
         "TOTAL_SCORE": "Resultado final",
-        "UNDECIDED": "Desafortunadamente no se pudo concluir este problema.",
+        "UNDECIDED": "Desafortunadamente, no se pudo concluir este problema.",
         "UNDECIDED_REASON_1": "la persona afectada ha dejado el grupo mientras el proceso de resolución de problemas esta en marcha",
         "UNDECIDED_REASON_2": "nadie votó sobre el conflicto",
         "UNDECIDED_WHY": "Hay dos posibles razones para ello:"
@@ -558,8 +560,8 @@
     "ARCHIVED_NOTE": "Este grupo no tiene miembros. Si quieres revivirlo, contacta al equipo de la página.",
     "BROWSE_GROUPS": "Buscar grupos existentes",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "Está desconectado. {iniciar sesión}",
-      "LOG_IN": "Iniciar sesión para ver tus grupos!"
+      "LOGGED_OUT": "Estás desconectado. {login}",
+      "LOG_IN": "¡Inicia sesión para ver tus grupos!"
     },
     "MY_GROUPS": "Mis grupos",
     "NO_PUBLIC_DESCRIPTION": "(Este grupo no tiene una descripción pública... todavía)",
@@ -568,17 +570,17 @@
     "PROFILE_NOTE": "Si te unes a este grupo tus datos de perfil serán visibles para otros miembros del grupo. ",
     "SIGNUP_OR_LOGIN": "Inicia sesión o regístrate para unirte a este grupo!",
     "VERIFY_EMAIL_ADDRESS": "Verifica tu correo electronico para apuntarte",
-    "WHICHGROUP": "¿A qué grupo quiere unirse?",
+    "WHICHGROUP": "¿A qué grupo quieres unirte?",
     "WITHDRAW_CONFIRMATION_HEADER": "Retirar solicitud",
-    "WITHDRAW_CONFIRMATION_TEXT": "¿Estás segura que quieres retirar tu solicitud para unirte a {groupName}?"
+    "WITHDRAW_CONFIRMATION_TEXT": "¿Estás segurx que quieres retirar tu solicitud para unirte a {groupName}?"
   },
   "LANGUAGECHOOSER": {
-    "ADD_MORE": "Ayuda con la traducción",
-    "SWITCH": "Cambiar lengua"
+    "ADD_MORE": "¡Ayuda a traducir!",
+    "SWITCH": "Cambiar idioma"
   },
   "LOGIN": {
-    "FORGOT_PASSWORD": "¿Olvidó la contraseña?",
-    "SIGNUP": "¡Únase!",
+    "FORGOT_PASSWORD": "¿Olvidaste la contraseña?",
+    "SIGNUP": "¡Únete!",
     "SUBMIT": "Iniciar sesión",
     "TITLE": "Iniciar sesión"
   },
@@ -587,14 +589,14 @@
     "HELP": "Qué es Markdown?",
     "ITALIC": "cursiva",
     "QUOTE": "citar",
-    "STRIKE": "Huelga"
+    "STRIKE": "huelga"
   },
   "NOTIFICATIONS": {
     "CHANGES_SAVED": "Se han guardado los cambios.",
     "CHECK_YOUR_MAILS": "Por favor, chequea tu correo electrónico o {enviar de nuevo}",
     "EMAIL_NOT_DELIVERED": "Un correo electrónico no pudo serte enviado | {count} correos electrónicos no pudieron serte enviados",
     "NOT_VERIFIED": "{email}no está verificado",
-    "RESEND_VERIFICATION": "Enviar verificación de correo otra vez",
+    "RESEND_VERIFICATION": "Reenviar verificación de correo electrónico",
     "VERIFICATION_EMAIL_SENT": "Se te envió otro correo electrónico de verificación. Por favor, chequea tu buzón. "
   },
   "NOTIFICATION_BELLS": {
@@ -619,7 +621,7 @@
     "USER_BECAME_EDITOR": "{userName}obtuvo permisos de edición",
     "VOTING_ENDS_SOON": "La votación terminará pronto, ¡no te olvides de participar!",
     "YOU_BECAME_EDITOR": "Conseguiste permiso de edición",
-    "MENTION": "{userName} mentioned you!"
+    "MENTION": "¡{userName} te ha mencionado!"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "No tenemos notificaciones para ti ahora.",
@@ -635,7 +637,7 @@
     "SOME_TEXT": "En app/web"
   },
   "NOT_FOUND": {
-    "EXPLANATION": "¡Perdona! No podíamos encontrar esta página. ",
+    "EXPLANATION": "¡Lo siento! No pudimos encontrar esta página. ",
     "HOME": "Volver al inicio"
   },
   "OFFER": {
@@ -654,7 +656,7 @@
   },
   "OUTDATED_BROWSER": {
     "LINK": "Por favor, actualiza o cambia de navegador",
-    "MESSAGE": "Estas usando un navegador no soportado. {upgradeBrowser}para disfrutar de todas las opciones"
+    "MESSAGE": "Estas usando un navegador no soportado. {upgradeBrowser} para disfrutar de todas las opciones"
   },
   "PASSWORD": {
     "CHANGE": {
@@ -675,7 +677,7 @@
     "TITLE": "Resetear contraseña"
   },
   "PLACEWALL": {
-    "SUBSCRIBED_USERS": "{count}personas han marcado este lugar como favorito",
+    "SUBSCRIBED_USERS": "{count} personas han marcado este lugar como favorito",
     "SUBSCRIPTION": {
       "HEADER": "¿Quieres marcar este lugar como favorito?",
       "NO": "no",
@@ -697,29 +699,29 @@
   "SIGNUP": {
     "BACK": "Volver al inicio",
     "OK": "Unirse",
-    "TITLE": "¡Únase!"
+    "TITLE": "¡Únete!"
   },
   "STATISTICS": {
     "ACTIVITY_HISTORY": "Estadísticas de actividades",
     "FILTER_USER_LABEL": "Persona usuaria",
     "FILTER_ALL_USERS": "Todas las personas usuarias",
     "FILTER_TIME_LABEL": "Periodo de tiempo",
-    "FILTER_TIME_YEARS_LABEL": "Years",
+    "FILTER_TIME_YEARS_LABEL": "Años",
     "FILTER_TIME_PREVIOUS_DAYS": "Último {count} días",
     "FILTER_TIME_PREVIOUS_MONTHS": "Últimos {count} meses",
     "FILTER_TIME_FOREVER": "Siempre",
     "COLUMN_PLACE": "Lugar",
     "COLUMN_ACTIVITY_DONE": "Realizado",
-    "COLUMN_ACTIVITY_MISSED": "Missed",
-    "COLUMN_ACTIVITY_LEFT": "Withdrew",
-    "COLUMN_FEEDBACK": "Feedback",
+    "COLUMN_ACTIVITY_MISSED": "Perdidos",
+    "COLUMN_ACTIVITY_LEFT": "Retirado",
+    "COLUMN_FEEDBACK": "Comentarios",
     "COLUMN_FEEDBACK_WEIGHT": "Peso",
     "TOTAL_LABEL": "Total",
-    "OPTIONS_ANY": "Any",
-    "OPTIONS_MISSED_LABEL": "Missed",
-    "OPTIONS_MISSED_DESCRIPTION": "Only if the activity was missed",
-    "OPTIONS_LATE_LABEL": "Late",
-    "OPTIONS_LATE_DESCRIPTION": "Only if less than 24 hours before"
+    "OPTIONS_ANY": "Cualquiera",
+    "OPTIONS_MISSED_LABEL": "Perdido",
+    "OPTIONS_MISSED_DESCRIPTION": "Sólo si se ha perdido la actividad",
+    "OPTIONS_LATE_LABEL": "Tarde",
+    "OPTIONS_LATE_DESCRIPTION": "Sólo si son menos de 24 horas antes"
   },
   "STOREDETAIL": {
     "ARCHIVED": "Este lugar ha sido archivado",
@@ -731,13 +733,13 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Dirección",
-    "DEFAULT_VIEW": "Default View",
-    "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
+    "DEFAULT_VIEW": "Vista predeterminada",
+    "DEFAULT_VIEW_HINT": "¿Qué debería aparecer por defecto al hacer clic en este lugar?",
     "DESCRIPTION": "Descripción",
     "DIALOGS": {
       "ARCHIVE": {
         "CONFIRM": "Si, archivar lugar",
-        "MESSAGE": "Estás segur@?",
+        "MESSAGE": "¿Estás segurx?",
         "TITLE": "Archivar lugar"
       }
     },
@@ -784,8 +786,8 @@
     "DETAIL": "Una nueva versión de Karrot está disponible",
     "RELOAD": "Recargar"
   },
-  "URL_CLICK_TO_COPY": "Click to copy",
-  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
+  "URL_CLICK_TO_COPY": "Clic para copiar",
+  "URL_COPIED_TOAST": "La URL se ha copiado correctamente en el portapapeles",
   "USERDATA": {
     "ACCOUNT": "Cuenta",
     "CONFIRM_PASSWORD": "Confirma tu contraseña",
@@ -795,12 +797,12 @@
         "TITLE": "Confiar en el usuario"
       },
       "REVOKE_TRUST": {
-        "MESSAGE": "Do you want to revoke the trust you have given to {userName} in {groupName}?",
-        "TITLE": "Revoke trust"
+        "MESSAGE": "¿Quieres revocar la confianza que has dado a {userName} en {groupName}?",
+        "TITLE": "Revocar la confianza"
       },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "Confirmar",
-        "MESSAGE": "¿Estás seguro? tu cuenta y tus datos personales serán eliminados permanentemente. Todo lo que haya hecho en esta plataforma se hará anónimo. Si confirma, le enviaremos un correo electrónico con un enlace para completar el proceso de eliminación.",
+        "MESSAGE": "¿Estás seguro? Tu cuenta y tus datos personales serán eliminados permanentemente. Todo lo que hayas hecho en esta plataforma se hará anónimo. Si confirmas, te enviaremos un correo electrónico con un enlace para completar el proceso de eliminación.",
         "TITLE": "Eliminar cuenta"
       }
     },
@@ -826,16 +828,16 @@
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Te hemos enviado un correo electrónico con un enlace para completar el proceso de eliminación"
     },
-    "SET_PHOTO": "Configura tu foto de perfil ...",
+    "SET_PHOTO": "Configura tu foto de perfil...",
     "TRUST_INFO": {
       "LINK": "Haga clic aquí para obtener más información.",
       "MESSAGE": "Es parte del sistema de confianza Karrot. Muestra si un miembro del grupo es un recién llegado y cuánta confianza se necesita hasta que obtenga permisos de edición.",
       "TITLE": "¿Qué significa esta zanahoria?"
     },
-    "TRUST_PROGRESS_TEXT": "{trustNeeded}",
+    "TRUST_PROGRESS_TEXT": "{trustNeeded} más confianza requerida",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded}más personas necesitan expresar su confianza en {userName}para otorgarle permiso de edición.",
-    "DISPLAY_NAME": "Display Name",
-    "USERNAME": "Username",
+    "DISPLAY_NAME": "Nombre para mostrar",
+    "USERNAME": "Nombre de usuario",
     "WHERE_FROM": "De dónde eres (opcional)",
     "YOU_TRUST_USER": "Confias en {userName} en {groupName}"
   },
@@ -850,14 +852,14 @@
     "MAXLENGTH": "Demasiado largo, por favor, usa menos de {max} caracteres.",
     "MINLENGTH": "Por favor, introduce más de {min} caracteres.",
     "REQUIRED": "Este campo es obligatorio. ",
-    "UNIQUE": "Este nombre ya existe, por favor elige otro. ",
+    "UNIQUE": "Este nombre ya existe, por favor, elige otro. ",
     "VALID_EMAIL": "Introduce un correo electrónico válido.",
     "VALID_TIMEZONE": "Introduce una zona horaria válida.",
-    "VALID_USERNAME": "Enter a valid username.",
-    "TAKEN": "Already taken."
+    "VALID_USERNAME": "Introduce un nombre de usuario válido.",
+    "TAKEN": "Ya ha sido escogido."
   },
   "VERIFYMAIL": {
-    "SUCCESS": "¡Su dirección de correo electrónico fue verificada con éxito!",
+    "SUCCESS": "¡Tu dirección de correo electrónico fue verificada con éxito!",
     "TITLE": "Verificacion de email"
   },
   "WALL": {

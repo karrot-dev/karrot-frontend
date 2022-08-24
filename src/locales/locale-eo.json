@@ -103,7 +103,9 @@
       "DOWNLOAD_BUTTON_LABEL": "Download ICS",
       "SUBSCRIBE_TITLE": "Subscribe",
       "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
-      "MORE_INFOS": "More info about ICS"
+      "MORE_INFOS": "More info about ICS",
+      "TOKEN_NOTICE": "Anyone who has the secret link can access. No sign-in required.",
+      "RESET_TOKEN": "Reset secret link"
     }
   },
   "ACTIVITYMANAGE": {

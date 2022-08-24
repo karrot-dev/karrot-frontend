@@ -2,6 +2,7 @@ import differenceInSeconds from 'date-fns/differenceInSeconds'
 
 import { useAuthHelpers } from '@/authuser/helpers'
 import i18n from '@/base/i18n'
+import { useUserService } from '@/users/services'
 
 export function sortByName (a, b) {
   return a.name.localeCompare(b.name)
@@ -29,13 +30,15 @@ export function useConversationHelpers () {
 
 export function useMessageHelpers () {
   const { getIsCurrentUser } = useAuthHelpers()
+  const { getUserById } = useUserService()
 
   function readableReactionMessage (reaction) {
     if (!reaction.users.length) return ''
+    const users = reaction.users.map(getUserById)
     // form the message which users reacted
     // i.e. "foo, bar and baz reacted with heart"
-    const names = reaction.users.filter(user => !getIsCurrentUser(user)).map(u => u.displayName)
-    if (names.length !== reaction.users.length) {
+    const names = users.filter(user => !getIsCurrentUser(user)).map(u => u.displayName)
+    if (names.length !== users.length) {
       names.unshift(i18n.t('CONVERSATION.REACTIONS.YOU'))
     }
 

@@ -1,7 +1,5 @@
 # State
 
-_Note: not all state is using these patterns yet, it's a work in progress..._
-
 ## Types of state
 
 There are multiple aspects of state to manage in the frontend:

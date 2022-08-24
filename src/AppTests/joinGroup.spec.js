@@ -34,15 +34,17 @@ test('join group', async () => {
   }))
 
   // We're on the group preview page with a link to the group :)
-  const groupLink = await findByText(group.name, { selector: 'a' })
-  expect(groupLink).toBeInTheDocument()
+  const groupLink = await findByRole('link', { name: group.name })
   expect(router.currentRoute.value.path).toEqual('/groupPreview')
 
-  // Open the group
+  // Open the group preview page
   await fireEvent.click(groupLink)
 
+  const applyLink = await findByRole('link', { name: 'Apply' })
+  expect(router.currentRoute.value.path).toEqual(`/groupPreview/${group.id}`)
+
   // Let's apply!
-  await fireEvent.click(await findByRole('link', { name: 'Apply' }))
+  await fireEvent.click(applyLink)
   const applicationAnswers = faker.lorem.paragraphs(2)
   await fireEvent.update(await findByPlaceholderText('Reply to message...'), applicationAnswers)
   await fireEvent.submit(getByRole('button', { name: 'Submit' }))
@@ -50,9 +52,9 @@ test('join group', async () => {
   // Yay \o/
   await findByText('Your application is pending!')
 
-  acceptApplication(group, user)
+  acceptApplication(user, group)
 
-  // We need this to trigger reload of the changed backend data (we don't have mock websockets...)
+  // We need this to trigger reload of the changed backend data (we don't have mock websockets...(yet!))
   await require('@/base/vue-query').queryClient.invalidateQueries()
 
   expect(queryByText('Your application is pending!')).not.toBeInTheDocument()

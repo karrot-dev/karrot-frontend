@@ -15,7 +15,7 @@ function toApplicationInfo (application) {
   }
 }
 
-export function acceptApplication (group, user) {
+export function acceptApplication (user, group) {
   const application = db.applications.find(application => application.group === group.id && application.user === user.id)
   if (!application) throw new Error('no application for this group+user')
   addUserToGroup(user, group, { roles: [] })
@@ -24,6 +24,7 @@ export function acceptApplication (group, user) {
     decidedAt: new Date(),
     decidedBy: null, // TODO: who by?
   })
+  return application
 }
 
 export function createMockApplicationsBackend () {

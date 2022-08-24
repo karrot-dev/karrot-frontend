@@ -67,7 +67,7 @@
           :title="$t('WALL.RECEIVED_VIA_EMAIL')"
         />
       </QItemLabel>
-      <div class="content">
+      <div class="content full-width">
         <Markdown
           v-measure
           :source="message.content"

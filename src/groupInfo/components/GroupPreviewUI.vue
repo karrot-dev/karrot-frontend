@@ -127,9 +127,10 @@
             <QBtn
               v-else
               flat
+              :label="$t('BUTTON.OPEN')"
+              icon="fas fa-home"
               :to="{ name: 'group', params: { groupId: group.id } }"
             >
-              <QIcon name="fas fa-home" />
               <QTooltip>
                 {{ $t('GROUPINFO.MEMBER_VIEW') }}
               </QTooltip>

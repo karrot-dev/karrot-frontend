@@ -7,9 +7,6 @@
 </template>
 
 <script setup>
-// eslint-disable-next-line no-unused-vars
-import Vue from 'vue'
-
 import { useCurrentGroupService } from '@/group/services'
 import { useCreateOfferMutation } from '@/offers/mutations'
 

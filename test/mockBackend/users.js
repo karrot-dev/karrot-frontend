@@ -32,7 +32,7 @@ export function generateUser (params) {
   }
 }
 
-function toUserInfo (user) {
+export function toUserInfo (user) {
   return pick(user, [
     'id',
     'username',

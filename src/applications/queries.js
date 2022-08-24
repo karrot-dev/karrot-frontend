@@ -39,7 +39,7 @@ export function useApplicationListQuery ({
     {
       cacheTime: 0,
       staleTime: 0,
-      enabled: computed(() => Boolean(unref(groupId) || unref(userId) || unref(status))),
+      enabled: computed(() => Boolean(unref(groupId) || unref(userId))),
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => page.results),

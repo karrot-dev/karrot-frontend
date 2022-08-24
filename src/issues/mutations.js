@@ -1,12 +1,13 @@
 import { unref } from 'vue'
 import { useMutation } from 'vue-query'
+import { useRouter } from 'vue-router'
 
 import api from '@/issues/api/issues'
-import router from '@/router'
 import { withStatus } from '@/utils/queryHelpers'
 import { showToast } from '@/utils/toasts'
 
 export function useCreateIssueMutation () {
+  const router = useRouter()
   return withStatus(useMutation(
     data => api.create(data),
     {

@@ -14,7 +14,7 @@
  * Root component
  */
 
-import { onErrorCaptured } from 'vue'
+import { onErrorCaptured, getCurrentInstance } from 'vue'
 import { useQueryClient } from 'vue-query'
 
 import { useActivitiesUpdater, useActivitySeriesUpdater, useActivityTypeUpdater } from '@/activities/queries'

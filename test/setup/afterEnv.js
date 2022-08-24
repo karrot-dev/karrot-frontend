@@ -7,3 +7,9 @@ global.console = {
   warn: jest.fn(),
   // error: jest.fn(),
 }
+
+// TODO: this is a hacky way to resolve "ReferenceError: _vue is not defined" errors
+// It only happens in <script setup> components
+// <script> components used to also have the error but adding this snippet to jest config resolved it:
+// customExportConditions: ['node', 'node-addons'],
+global._vue = require('vue')

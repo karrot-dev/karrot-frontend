@@ -3,7 +3,7 @@ import { pathToRegexp } from 'path-to-regexp'
 import 'blob-polyfill'
 
 import axios from '@/base/api/axios'
-import { underscorizeKeys } from '@/utils/utils'
+import { camelizeKeys, underscorizeKeys } from '@/utils/utils'
 
 import { ctx } from './index'
 
@@ -28,12 +28,16 @@ export function resetMockAxios () {
   mockAxios = null
 }
 
+export function get (path, handler, options = {}) {
+  on('get', path, handler, options)
+}
+
 export function post (path, handler, options = {}) {
   on('post', path, handler, options)
 }
 
-export function get (path, handler, options = {}) {
-  on('get', path, handler, options)
+export function patch (path, handler, options = {}) {
+  on('patch', path, handler, options)
 }
 
 function on (method, path, handler, options = {}) {
@@ -45,6 +49,7 @@ function on (method, path, handler, options = {}) {
     switch (method) {
       case 'get': return mockAxios.onGet(path)
       case 'post': return mockAxios.onPost(path)
+      case 'patch': return mockAxios.onPatch(path)
       default: throw new Error('have not implemented method: ' + method)
     }
   }
@@ -56,12 +61,23 @@ function on (method, path, handler, options = {}) {
     if (matcher) {
       config.pathParams = matcher.getParams(config.url)
     }
-    if (method === 'post' && config.data instanceof FormData) {
-      // This is the reverse of toFormData (but ignoring the images)
-      config.data = JSON.parse(await config.data.get('document').text())
+    if (['post', 'patch', 'put'].includes(config.method)) {
+      if (config.data instanceof FormData) {
+        // This is the reverse of toFormData (but ignoring the images)
+        config.data = camelizeKeys(JSON.parse(await config.data.get('document').text()))
+      }
+      else if (
+        typeof config.data === 'string' &&
+          config.headers['Content-Type'] === 'application/json'
+      ) {
+        config.data = camelizeKeys(JSON.parse(config.data))
+      }
     }
-    const [statusCode, body] = handler(config)
-    return [statusCode, underscorizeKeys(body)]
+    const handlerResponse = handler(config)
+    if (!Array.isArray(handlerResponse)) throw new Error('mock handler must return an array')
+    const [statusCode, body] = handlerResponse
+    if (typeof statusCode !== 'number') throw new Error('mock handler array must have numeric status code as first arg')
+    return [statusCode, body && underscorizeKeys(body)]
   })
 }
 

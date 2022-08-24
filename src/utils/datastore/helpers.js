@@ -1,5 +1,5 @@
 import mitt from 'mitt'
-import { effectScope, isProxy, isRef, toRaw, unref } from 'vue'
+import { effectScope, isProxy, isRef, toRaw, unref, getCurrentInstance } from 'vue'
 
 import { isObject } from '@/utils/utils'
 
@@ -88,11 +88,15 @@ export function defineService (serviceSetup) {
     // it's already setup, can just return our service instance
     if (service) return service
 
+    if (!getCurrentInstance()) {
+      throw new Error('Cannot setup services without a current vue instance :/')
+    }
+
     // Create a detached scope so it will stay around beyond the lifecycle of the initial setup
     const scope = effectScope(true)
 
     // initialize our service in this scope, we get back a value, nothing fancy!
-    service = scope.run(() => serviceSetup())
+    service = scope.run(() => serviceSetup()) || {}
     service.$scope = scope
 
     if (process.env.DEV) {

@@ -107,6 +107,7 @@ export function withDefaults (options = {}) {
 }
 
 export function mountWithDefaults (Component, options = {}) {
+  // const i18n = require('@/base/i18n').default
   i18n.locale = 'en'
 
   const mergedOptions = withDefaults(options)

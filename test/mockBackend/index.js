@@ -1,9 +1,15 @@
+
+import { createMockActivitiesBackend } from '>/mockBackend/activities'
+import { createMockApplicationsBackend } from '>/mockBackend/applications'
+import { createMockCommunityBackend } from '>/mockBackend/community'
+
 import { createAuthUserBackend } from './authUser'
 import { createMockGroupDetailBackend, generateGroup } from './groups'
 import { createMockGroupsInfoBackend } from './groupsInfo'
-import { initializeMockAxios, resetMockAxios } from './mockAxios'
+import { initializeMockAxios, resetMockAxios, get } from './mockAxios'
 import { createMockOffersBackend, generateOffer } from './offers'
 import { createMockPlacesBackend } from './places'
+import { createMockStatusBackend } from './status'
 import { createMockUsersBackend, generateUser } from './users'
 
 export let db
@@ -27,12 +33,14 @@ export function useMockBackend () {
  * is we could include helper functions for setting the db to a useful
  * state.
  */
-function setupMockBackend () {
+export function setupMockBackend () {
   db = {
     users: [],
     places: [],
     offers: [],
     groups: [],
+    applications: [],
+    activities: [],
   }
   ctx = {
     authUser: null,
@@ -40,14 +48,29 @@ function setupMockBackend () {
   initializeMockAxios()
 
   createAuthUserBackend()
+  createMockApplicationsBackend()
+  createMockActivitiesBackend()
   createMockGroupsInfoBackend()
   createMockGroupDetailBackend()
   createMockPlacesBackend()
   createMockUsersBackend()
   createMockOffersBackend()
+  createMockStatusBackend()
+  createMockCommunityBackend()
+
+  get('/about.json', () => [200, {
+    commitSHA: 'blah',
+    commitSHAShort: 'blah',
+    ref: 'blah',
+    env: 'local',
+    apkURL: null,
+    date: new Date().toISOString().replace(/T.*/, ''),
+  }], {
+    requireAuth: false,
+  })
 }
 
-function resetMockBackend () {
+export function resetMockBackend () {
   db = null
   ctx = null
   resetMockAxios()

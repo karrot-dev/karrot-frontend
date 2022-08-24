@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-import { getById } from './mockAxios'
+import { getById, get } from './mockAxios'
 
 import { db, ctx } from './index'
 
@@ -34,9 +34,9 @@ export function generateGroup () {
   }
 }
 
-export function addUserToGroup (member, group) {
-  group.members.push(member.id)
-  group.memberships[member.id] = {
+export function addUserToGroup (user, group, membershipParams = {}) {
+  group.members.push(user.id)
+  group.memberships[user.id] = {
     createdAt: faker.date.past(),
     addedBy: null,
     roles: [
@@ -44,6 +44,7 @@ export function addUserToGroup (member, group) {
     ],
     active: true,
     trustedBy: [],
+    ...membershipParams,
   }
 }
 
@@ -62,4 +63,7 @@ export function filterByAuthUserGroups () {
 
 export function createMockGroupDetailBackend () {
   getById('/api/groups/:id/', () => groupsForUser(ctx.authUser))
+
+  // TODO: implement a conversation...
+  get('/api/groups/:id/conversation/', () => [200, {}])
 }

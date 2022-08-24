@@ -1,6 +1,6 @@
 import { get, patch } from './mockAxios'
 
-import { ctx, db } from './index'
+import { ctx } from './index'
 
 export function createAuthUserBackend () {
   get('/api/auth/user/', () => [200, ctx.authUser])

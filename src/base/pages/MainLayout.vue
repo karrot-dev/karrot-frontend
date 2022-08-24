@@ -154,7 +154,7 @@ import {
   QItemSection,
   QBtn,
 } from 'quasar'
-import { computed, getCurrentInstance } from 'vue'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { useAuthService } from '@/authuser/services'

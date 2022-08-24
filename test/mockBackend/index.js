@@ -1,5 +1,8 @@
 
-import { createMockActivitiesBackend } from '>/mockBackend/activities'
+import { times } from 'lodash'
+
+import { createMockActivitiesBackend, generateActivity } from '>/mockBackend/activities'
+import { createMockActivityTypesBackend, generateActivityType } from '>/mockBackend/activityTypes'
 import { createMockApplicationsBackend } from '>/mockBackend/applications'
 import { createMockCommunityBackend } from '>/mockBackend/community'
 
@@ -8,7 +11,7 @@ import { createMockGroupDetailBackend, generateGroup } from './groups'
 import { createMockGroupsInfoBackend } from './groupsInfo'
 import { initializeMockAxios, resetMockAxios, get } from './mockAxios'
 import { createMockOffersBackend, generateOffer } from './offers'
-import { createMockPlacesBackend } from './places'
+import { createMockPlacesBackend, generatePlace } from './places'
 import { createMockStatusBackend } from './status'
 import { createMockUsersBackend, generateUser } from './users'
 
@@ -41,6 +44,12 @@ export function setupMockBackend () {
     groups: [],
     applications: [],
     activities: [],
+    activityTypes: [],
+  }
+  db.orm = {
+    places: createFinder(db, 'places'),
+    activities: createFinder(db, 'activities'),
+    activityTypes: createFinder(db, 'activityTypes'),
   }
   ctx = {
     authUser: null,
@@ -50,6 +59,7 @@ export function setupMockBackend () {
   createAuthUserBackend()
   createMockApplicationsBackend()
   createMockActivitiesBackend()
+  createMockActivityTypesBackend()
   createMockGroupsInfoBackend()
   createMockGroupDetailBackend()
   createMockPlacesBackend()
@@ -98,6 +108,35 @@ export function createGroup (params) {
   return group
 }
 
+export function createPlace (params) {
+  const place = generatePlace(params)
+  db.places.push(place)
+  return place
+}
+
+export function createActivity (params) {
+  const activity = generateActivity(params)
+  db.activities.push(activity)
+  return activity
+}
+
+export function createActivityType (params) {
+  const activityType = generateActivityType(params)
+  db.activityTypes.push(activityType)
+  return activityType
+}
+
 export function setPageSize (pageSize) {
   ctx.pageSize = pageSize
+}
+
+function createFinder (db, dbKey) {
+  return {
+    get (filter) {
+      const entries = db[dbKey].filter(entry => Object.keys(filter).every(field => entry[field] === filter[field]))
+      if (entries.length > 1) throw new Error(`more than one entry! ${dbKey} for ${JSON.stringify(filter)}`)
+      if (entries.length === 0) throw new Error(`no ${dbKey} for ${JSON.stringify(filter)}`)
+      return entries[0]
+    },
+  }
 }

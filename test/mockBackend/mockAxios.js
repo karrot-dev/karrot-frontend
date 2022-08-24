@@ -58,22 +58,24 @@ function on (method, path, handler, options = {}) {
   const matcher = path.includes(':') ? createPathMatcher(path) : null
   onRequest(matcher || path).reply(async config => {
     if (!ctx.authUser && requireAuth) return notAuthenticated()
+    let data = config.data
+    let pathParams
     if (matcher) {
-      config.pathParams = matcher.getParams(config.url)
+      pathParams = matcher.getParams(config.url)
     }
     if (['post', 'patch', 'put'].includes(config.method)) {
       if (config.data instanceof FormData) {
         // This is the reverse of toFormData (but ignoring the images)
-        config.data = camelizeKeys(JSON.parse(await config.data.get('document').text()))
+        data = camelizeKeys(JSON.parse(await config.data.get('document').text()))
       }
       else if (
         typeof config.data === 'string' &&
           config.headers['Content-Type'] === 'application/json'
       ) {
-        config.data = camelizeKeys(JSON.parse(config.data))
+        data = camelizeKeys(JSON.parse(config.data))
       }
     }
-    const handlerResponse = handler(config)
+    const handlerResponse = handler({ ...config, data, pathParams })
     if (!Array.isArray(handlerResponse)) throw new Error('mock handler must return an array')
     const [statusCode, body] = handlerResponse
     if (typeof statusCode !== 'number') throw new Error('mock handler array must have numeric status code as first arg')
@@ -85,7 +87,7 @@ export function cursorPaginated (path, getEntries, options = {}) {
   get(path, config => {
     const pageSize = ctx.pageSize || 30
     const cursor = parseInt(config.params.cursor || '0')
-    const entries = getEntries(config)
+    const entries = getEntries({ ...config, params: camelizeKeys(config.params) })
     const results = entries.slice(cursor, cursor + pageSize)
     const hasNextPage = entries.length > (cursor + pageSize)
     const hasPrevPage = cursor > 0

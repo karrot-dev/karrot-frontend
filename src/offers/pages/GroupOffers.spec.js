@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { fireEvent, render } from '@testing-library/vue'
-import { times } from 'lodash'
+import { partition, times } from 'lodash'
 
 import { resetServices } from '@/utils/datastore/helpers'
 
@@ -33,13 +33,15 @@ describe('GroupOffers', () => {
   it('renders a list of active offers', async () => {
     const { findByText, queryByText, queryByTitle } = render(GroupOffers, withDefaults())
 
+    const [expectedOffers, otherOffers] = partition(db.offers, offer => offer.status === 'active')
+
     // expect all the active ones to be on the page
-    for (const offer of db.offers.filter(offer => offer.status === 'active')) {
+    for (const offer of expectedOffers) {
       expect(await findByText(offer.name)).toBeInTheDocument()
     }
 
     // after all those are done loading, let's check the non-active ones aren't there too
-    for (const offer of db.offers.filter(offer => offer.status !== 'active')) {
+    for (const offer of otherOffers) {
       expect(queryByText(offer.name)).not.toBeInTheDocument()
     }
 

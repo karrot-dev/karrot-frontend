@@ -5,7 +5,7 @@ import { getById, get } from './mockAxios'
 import { db, ctx } from './index'
 
 let nextId = 1
-export function generateGroup () {
+export function generateGroup (params = {}) {
   return {
     id: nextId++,
     name: faker.random.words(5),
@@ -31,6 +31,7 @@ export function generateGroup () {
     memberInactiveAfterDays: 30,
     issueVotingDurationDays: 7,
     photoUrls: {},
+    ...params,
   }
 }
 

@@ -6,7 +6,8 @@ import { cursorPaginated, getById, post } from './mockAxios'
 
 import { ctx, db } from './index'
 
-function sample (items) {
+// Can't use the normal one as we've made random not random for tests...
+export function sample (items) {
   return items[Math.floor(Math.realRandom() * items.length)]
 }
 

@@ -54,7 +54,7 @@ test('join group', async () => {
 
   acceptApplication(user, group)
 
-  // We need this to trigger reload of the changed backend data (we don't have mock websockets...(yet!))
+  // TODO: add mock websockets, for now we need to manually invalidate...
   await require('@/base/vue-query').queryClient.invalidateQueries()
 
   expect(queryByText('Your application is pending!')).not.toBeInTheDocument()

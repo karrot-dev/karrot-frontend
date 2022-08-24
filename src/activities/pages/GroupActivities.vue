@@ -227,7 +227,11 @@ export default {
 
     // "place" can be a place id, or the string "subscribed", but for the query they need to be separate params
     const placeIdFilter = computed(() => place.value !== 'subscribed' ? place.value : null)
-    const placesFilter = computed(() => place.value === 'subscribed' ? place.value : null)
+    const placesFilter = computed(() => place.value === 'subscribed' ? 'subscribed' : null)
+
+    function toInt (ref) {
+      return computed(() => ref.value && parseInt(ref.value))
+    }
 
     const {
       isLoading,
@@ -239,8 +243,10 @@ export default {
     } = useActivityListQuery({
       groupId,
       slots,
-      activityTypeId: type,
-      placeId: placeIdFilter,
+      // not strictly needed, but nice to keep id params as ints
+      // as these come from URL query they are strings otherwise
+      activityTypeId: toInt(type),
+      placeId: toInt(placeIdFilter),
       places: placesFilter,
       // so we can use cached query results for a while, otherwise it'll always be a fresh query
       dateMin: newDateRoundedTo5Minutes(),
@@ -331,6 +337,7 @@ export default {
         ...this.activityTypes.map(activityType => {
           return {
             label: this.getTranslatedName(activityType),
+            // convert to a String as it's also reflected in URL query which is always string
             value: String(activityType.id),
             activityType,
           }

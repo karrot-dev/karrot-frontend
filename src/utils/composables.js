@@ -1,4 +1,3 @@
-import { isArray } from 'lodash'
 import { computed, watch, onScopeDispose } from 'vue'
 import { useQueryClient } from 'vue-query'
 import { useRoute, useRouter } from 'vue-router'
@@ -28,7 +27,7 @@ export function useSocketEvents () {
      * @param handler Function
      */
     on (types, handler) {
-      if (!isArray(types)) types = [types]
+      if (!Array.isArray(types)) types = [types]
       for (const type of types) {
         socketEvents.on(type, handler)
       }

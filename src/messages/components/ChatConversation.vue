@@ -15,7 +15,7 @@
       class="full-width"
       @click="fetchNextPage()"
     >
-      load earlier messages
+      {{ $t('CONVERSATION.LOAD_EARLIER_MESSAGES') }}
     </QBtn>
     <QInfiniteScroll
       :disable="newestFirst || !hasNextPage"

@@ -114,9 +114,6 @@ export function useActivityListQuery ({ groupId }) {
       // (important to specifically return undefined, rather than null/false/etc)
       getNextPageParam: page => extractCursor(page.next) || undefined,
 
-      // ... I'm not sure we will be using previous param, so can probably leave this one out...
-      getPreviousPageParam: page => extractCursor(page.previous) || undefined,
-
       // For paginated data our backend returns the data in the "results" field,
       // so we can fish it out here
       // For non-paginated queries the vue-query cache just holds the value returned by the API directly

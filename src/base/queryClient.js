@@ -1,6 +1,6 @@
 import { QueryCache, QueryClient } from 'vue-query'
 
-export const queryCache = new QueryCache({
+const queryCache = new QueryCache({
   onError (error, query) {
     if (error.code === 'ECONNABORTED') return
     // This is a global error handler for queries if we need it
@@ -8,7 +8,7 @@ export const queryCache = new QueryCache({
   },
 })
 
-export const queryClient = new QueryClient({
+export default new QueryClient({
   queryCache,
   defaultOptions: {
     queries: {

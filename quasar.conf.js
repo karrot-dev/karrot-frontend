@@ -75,13 +75,14 @@ module.exports = configure(function (ctx) {
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
       'compat',
+      'vueQuery',
       'loglevel',
       'pwa',
       'helloDeveloper',
       'addressbar-color',
       'cordova',
       'i18n',
-      'loadInitialData',
+      'bootstrapData',
       'polyfill',
       'icons',
       'detectMobileKeyboard',

@@ -208,7 +208,7 @@ const activity = computed({
 
 const activityType = computed(() => getActivityTypeById(activity.value.activityType))
 
-const fellowParticipants = computed(() => activity.value.participants.map(getUserById).filter(u => !getIsCurrentUser(u)))
+const fellowParticipants = computed(() => activity.value ? activity.value.participants.map(getUserById).filter(u => !getIsCurrentUser(u)) : [])
 
 const placeId = computed(() => activityRaw.value?.place)
 const place = computed(() => getPlaceById(placeId.value))

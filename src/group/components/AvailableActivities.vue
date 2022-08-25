@@ -2,7 +2,7 @@
   <QCard
     v-ripple
     class="notice bg-info q-hoverable cursor-pointer"
-    @click="foo"
+    @click="go"
   >
     <div class="q-pa-md">
       <i class="fas fa-star on-left" />
@@ -20,7 +20,7 @@ import { useCurrentGroupService } from '@/group/services'
 const { groupId } = useCurrentGroupService()
 const router = useRouter()
 
-function foo () {
+function go () {
   router.push({ name: 'groupActivities', params: { groupId: groupId.value }, query: { place: 'subscribed' } })
 }
 

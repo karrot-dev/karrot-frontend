@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 
 import api from '@/group/api/groups'
 import { useCurrentGroupService } from '@/group/services'
+import { useGroupInfoService } from '@/groupInfo/services'
 import router from '@/router'
 import { withStatus } from '@/utils/queryHelpers'
 import { showToast } from '@/utils/toasts'
@@ -34,16 +35,16 @@ export function useSaveGroupMutation () {
 
 export function useLeaveGroupMutation () {
   const { clearGroup } = useCurrentGroupService()
+  const { getGroupById } = useGroupInfoService()
   return withStatus(useMutation(
     groupId => api.leave(groupId),
     {
-      onSuccess (foo) {
-        console.log('left group!', foo)
-        // showToast({
-        //   message: 'GROUP.LEAVE_CONFIRMATION',
-        //   messageParams: { groupName: getters.get(groupId).name },
-        // })
-
+      onSuccess (_, groupId) {
+        const group = getGroupById(groupId)
+        showToast({
+          message: 'GROUP.LEAVE_CONFIRMATION',
+          messageParams: { groupName: group.name },
+        })
         clearGroup()
         router.replace({ name: 'groupsGallery' })
       },

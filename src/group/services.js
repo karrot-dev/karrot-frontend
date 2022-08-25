@@ -245,7 +245,6 @@ function useMarkUserActive ({ groupId }) {
 function useSaveUserCurrentGroup ({ groupId }) {
   const { user } = useAuthService()
   const { mutate: saveUser } = useSaveUserMutation()
-  // Trigger stuff when we set group id
   watch(groupId, value => {
     if (value) {
       if (user.value && user.value.currentGroup !== value) {
@@ -261,7 +260,6 @@ function useSaveUserCurrentLocale () {
   const { locale } = useI18nService()
   watch(locale, value => {
     if (value && user.value && user.value.language !== value) {
-      console.log('saving user locale :)')
       saveUser({ language: value })
     }
   }, { immediate: true })

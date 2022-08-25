@@ -8,17 +8,16 @@ import api from './api/activities'
 import activitySeriesAPI from './api/activitySeries'
 import activityTypeAPI from './api/activityTypes'
 
-// TODO: consider doing some immediate update of cached data, even if we also invalidate by websocket, as if we are scrolled far down an infinite list it can take a while to update...
-export function useJoinActivityMutation (mutationOptions = {}) {
-  return withStatus(useMutation(activityId => api.join(activityId), mutationOptions))
+export function useJoinActivityMutation () {
+  return withStatus(useMutation(activityId => api.join(activityId)))
 }
 
-export function useLeaveActivityMutation (mutationOptions = {}) {
-  return withStatus(useMutation(activityId => api.leave(activityId), mutationOptions))
+export function useLeaveActivityMutation () {
+  return withStatus(useMutation(activityId => api.leave(activityId)))
 }
 
-export function useDismissFeedbackMutation (mutationOptions = {}) {
-  return withStatus(useMutation(activityId => api.dismissFeedback(activityId), mutationOptions))
+export function useDismissFeedbackMutation () {
+  return withStatus(useMutation(activityId => api.dismissFeedback(activityId)))
 }
 
 export function useCreateActivityMutation () {
@@ -67,7 +66,7 @@ export function useSaveActivityTypeMutation () {
   ))
 }
 
-export function useICSRefreshTokenMutation (mutationOptions = {}) {
+export function useICSRefreshTokenMutation () {
   const queryClient = useQueryClient()
   return useMutation(
     () => api.refreshICSAuthToken(),
@@ -78,7 +77,6 @@ export function useICSRefreshTokenMutation (mutationOptions = {}) {
           () => token,
         )
       },
-      ...mutationOptions,
     },
   )
 }

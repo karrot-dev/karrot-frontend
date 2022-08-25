@@ -256,11 +256,7 @@ const {
 
 const {
   mutate: dismiss,
-} = useDismissFeedbackMutation({
-  onSuccess () {
-    // router.push({ name: 'placeFeedback', params: { placeId: placeId.value } })
-  },
-})
+} = useDismissFeedbackMutation()
 
 </script>
 

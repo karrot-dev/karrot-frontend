@@ -79,16 +79,4 @@ export function useUserProfileQuery ({ userId }) {
     ...query,
     user: query.data,
   }
-  // try {
-  //   commit('setProfile', await users.getProfile(userId))
-  // }
-  // catch (error) {
-  //   try {
-  //     commit('setProfile', await users.getInfo(userId))
-  //   }
-  //   catch (error) {
-  //     const data = { translation: 'PROFILE.INACCESSIBLE_OR_DELETED' }
-  //     throw createRouteError(data)
-  //   }
-  // }
 }

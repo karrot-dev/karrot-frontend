@@ -13,7 +13,7 @@ import placesAPI from '@/places/api/places'
 import usersAPI from '@/users/api/users'
 import { useSocketEvents } from '@/utils/composables'
 import { indexById, indexBy } from '@/utils/datastore/helpers'
-import { extractCursor, flattenPaginatedData, useWait } from '@/utils/queryHelpers'
+import { extractCursor, flattenPaginatedData, useQueryHelpers, useWait } from '@/utils/queryHelpers'
 
 export const QUERY_KEY_BASE = 'messages'
 export const queryKeyConversationList = () => [QUERY_KEY_BASE, 'conversations', 'list']
@@ -41,12 +41,14 @@ export function useConversationUpdater () {
 
 export function useMessageUpdater () {
   const queryClient = useQueryClient()
+  const { maybeUpdateDataWith } = useQueryHelpers()
   const {
     getIsThreadReply,
     getIsPartOfThread,
   } = useMessageHelpers()
   const { on } = useSocketEvents()
 
+  // TODO: maybe can use maybeUpdateDataWith to have less duplicated code? it's not exactly the same though...
   function updateMessageIn (queryKey, message) {
     // Update individual message
     let added = false
@@ -121,7 +123,10 @@ export function useMessageUpdater () {
     'conversations:message',
     message => {
       // Update individual message query
-      queryClient.setQueryData(queryKeyMessageItem(message.id), value => value !== undefined ? message : undefined)
+      queryClient.setQueryData(
+        queryKeyMessageItem(message.id),
+        maybeUpdateDataWith(message),
+      )
 
       // Update a message that is part of a thread
       if (getIsPartOfThread(message)) {

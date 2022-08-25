@@ -24,7 +24,6 @@ const {
 } = usePushService()
 
 function update (value) {
-  console.log('updating!', value)
   if (value) {
     enable()
   }

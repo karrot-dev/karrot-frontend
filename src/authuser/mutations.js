@@ -31,10 +31,6 @@ export function useLoginMutation () {
 
         setAuthUser(user)
 
-        // then do stuff
-        // - set locale for i18n
-        //   - or do that in query onSuccess? so whereever it's received it goes there?
-
         if (route.query.to) {
           router.push(route.query.to)
         }

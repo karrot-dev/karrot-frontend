@@ -366,7 +366,6 @@ export default {
     },
     onScroll ({ position }) {
       if (position.top < 50 && !this.isFetchingPreviousPage && this.hasPreviousPage) {
-        // this.$emit('fetch-previous')
         // TODO: await?
         this.fetchPreviousPage()
       }

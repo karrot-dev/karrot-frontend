@@ -257,7 +257,7 @@
         :placeholder="$t('CREATEACTIVITY.UNLIMITED')"
         :error="hasError('maxParticipants')"
         :error-message="firstError('maxParticipants')"
-        input-style="max-width: 100px"
+        :input-style="{ maxWidth: '100px' }"
       >
         <template #before>
           <QIcon name="group" />

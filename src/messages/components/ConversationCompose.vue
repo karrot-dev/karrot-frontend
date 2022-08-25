@@ -25,7 +25,7 @@
             :disable="isPending"
             :error="hasAnyError"
             :error-message="anyFirstError"
-            input-style="min-height: unset; max-height: 320px;"
+            :input-style="{ minHeight: 'unset', maxHeight: '320px' }"
             @keyup.ctrl.enter="submit"
             @keyup.esc="leaveEdit"
             @focus="onFocus"

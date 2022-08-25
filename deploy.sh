@@ -124,7 +124,7 @@ ZIP_FILENAME="$BUNDLE_FILENAME_BASE.zip"
 (cd dist/pwa && zip -r "../../$ZIP_FILENAME" .)
 rsync -avz "$ZIP_FILENAME" "karrot-download@$HOST:www/"
 
-if [ ! -z "$STORYBOOK_URL" ]; then
+if [ ! -z "$STORYBOOK_URL" ] && [ -d storybook-static ]; then
   echo "$about_json" > storybook-static/about.json
   rsync -avz --delete storybook-static/ "deploy@$HOST:karrot-frontend-storybook/$DIR/"
   if [ ! -z "$STORYBOOK_BUNDLE_FILENAME_BASE" ]; then

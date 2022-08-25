@@ -210,6 +210,7 @@
         :error="hasError('rule')"
         :error-message="firstError('rule')"
         autogrow
+        :input-style="{ overflow: 'hidden' }"
         @keyup.ctrl.enter="maybeSave"
       >
         <template #before>

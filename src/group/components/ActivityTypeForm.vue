@@ -46,10 +46,20 @@
               ref="iconMenu"
               square
             >
+              <QSelect
+                v-model="iconTag"
+                label="Tag"
+                outlined
+                clearable
+                dense
+                class="q-ma-md"
+                :options="pickerTags"
+              />
               <QInput
                 v-model="iconFilter"
-                label="Filter"
+                :label="$t('BUTTON.SEARCH')"
                 outlined
+                dense
                 clearable
                 class="q-ma-md"
                 :autofocus="!$q.platform.has.touch"
@@ -57,7 +67,7 @@
               <QIconPicker
                 v-model="edit.icon"
                 v-model:model-pagination="iconPagination"
-                icon-set="fontawesome-v5"
+                :icons="pickerIcons"
                 :filter="iconFilter"
                 color="white"
                 :text-color="colorName"
@@ -181,10 +191,20 @@
               <QMenu
                 ref="feedbackIconMenu"
               >
+                <QSelect
+                  v-model="feedbackIconTag"
+                  label="Tag"
+                  outlined
+                  clearable
+                  dense
+                  class="q-ma-md"
+                  :options="pickerTags"
+                />
                 <QInput
                   v-model="feedbackIconFilter"
-                  label="Filter"
+                  :label="$t('BUTTON.SEARCH')"
                   outlined
+                  dense
                   clearable
                   class="q-ma-md"
                   :autofocus="!$q.platform.has.touch"
@@ -192,7 +212,7 @@
                 <QIconPicker
                   v-model="edit.feedbackIcon"
                   v-model:model-pagination="feedbackIconPagination"
-                  icon-set="fontawesome-v5"
+                  :icons="feedbackPickerIcons"
                   :filter="feedbackIconFilter"
                   color="white"
                   :text-color="colorName"
@@ -250,6 +270,7 @@ import {
 import { createActivityTypeStylesheet } from '@/activities/stylesheet'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
+import pickerIcons, { tags as pickerTags } from '@/utils/pickerIcons'
 
 const { getPaletteColor } = colors
 
@@ -315,11 +336,13 @@ export default {
       paletteColours: PALETTE_COLOURS,
       customName: '',
       colorName: null,
+      iconTag: null,
       iconFilter: '',
       iconPagination: {
         itemsPerPage: 20,
         page: 0,
       },
+      feedbackIconTag: null,
       feedbackIconFilter: '',
       feedbackIconPagination: {
         itemsPerPage: 20,
@@ -328,6 +351,14 @@ export default {
     }
   },
   computed: {
+    pickerIcons () {
+      if (!this.iconTag) return pickerIcons
+      return pickerIcons.filter(icon => icon.tags.includes(this.iconTag))
+    },
+    feedbackPickerIcons () {
+      if (!this.feedbackIconTag) return pickerIcons
+      return pickerIcons.filter(icon => icon.tags.includes(this.iconTag))
+    },
     canSave () {
       if (!this.isNew && !this.hasChanged) {
         return false
@@ -400,6 +431,9 @@ export default {
     'edit.feedbackIcon' () {
       this.$refs.feedbackIconMenu.hide()
     },
+  },
+  created () {
+    this.pickerTags = pickerTags
   },
   beforeCreate () {
     const { updateActivityType, removeStylesheet } = createActivityTypeStylesheet('-edit')

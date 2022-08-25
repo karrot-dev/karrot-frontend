@@ -25,7 +25,7 @@ export const useGroupInfoService = defineService(() => {
 
   // We keep the place list up to date across all groups, so when our available groups changes, we need to invalidate our list of places too
   // It's stored as a comma separated string of group ids, so it doesn't change just because something else in the group changed
-  // TODO: check this works!
+  // TODO: check this works! Also maybe useful for other things, e.g. users, activityTypes?
   watch(
     () => groups.value
       .filter(group => group.isMember)
@@ -33,7 +33,6 @@ export const useGroupInfoService = defineService(() => {
       .sort((a, b) => a - b)
       .join(','),
     (val) => {
-      console.log('groups changed!', val, 'invalidating places')
       queryClient.invalidateQueries(queryKeyPlaceListAll())
     },
   )

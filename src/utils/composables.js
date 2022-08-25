@@ -10,6 +10,7 @@ import { useBreadcrumbs } from '@/topbar/services'
 export function useClearDataOnLogout () {
   const queryClient = useQueryClient()
   const { isLoggedIn } = useAuthService()
+  // TODO: this is probably better in the auth user service...
   watch(isLoggedIn, value => {
     if (!value) {
       // Clear data for all queries

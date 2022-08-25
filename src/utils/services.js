@@ -42,6 +42,8 @@ export const useAboutService = defineService(() => {
     deployed.value = await about.get()
   }
 
+  // TODO: this would be better as a vue-query query, as it'll do this for us...
+
   // initial fetch
   fetch()
 

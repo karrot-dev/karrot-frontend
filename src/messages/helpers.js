@@ -34,11 +34,10 @@ export function useMessageHelpers () {
 
   function readableReactionMessage (reaction) {
     if (!reaction.users.length) return ''
-    const users = reaction.users.map(getUserById)
     // form the message which users reacted
     // i.e. "foo, bar and baz reacted with heart"
-    const names = users.filter(user => !getIsCurrentUser(user)).map(u => u.displayName)
-    if (names.length !== users.length) {
+    const names = reaction.users.filter(user => !getIsCurrentUser(user)).map(u => u.displayName)
+    if (names.length !== reaction.users.length) {
       names.unshift(i18n.t('CONVERSATION.REACTIONS.YOU'))
     }
 
@@ -61,7 +60,7 @@ export function useMessageHelpers () {
           reacted: false,
         }
       }
-      const user = reaction.user
+      const user = getUserById(reaction.user)
       acc[reaction.name].users.push(user)
       if (getIsCurrentUser(user)) {
         acc[reaction.name].reacted = true

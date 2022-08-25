@@ -55,7 +55,7 @@ test('join group', async () => {
   acceptApplication(user, group)
 
   // TODO: add mock websockets, for now we need to manually invalidate...
-  await require('@/base/vue-query').queryClient.invalidateQueries()
+  await require('@/base/queryClient').default.invalidateQueries()
 
   expect(queryByText('Your application is pending!')).not.toBeInTheDocument()
 

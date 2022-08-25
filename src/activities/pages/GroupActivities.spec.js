@@ -113,7 +113,7 @@ describe('GroupActivities', () => {
     await fireEvent.click(getByRole('button', { name: 'Yes, of course!' }))
 
     // TODO: add mock websockets, for now we need to manually invalidate...
-    await require('@/base/vue-query').queryClient.invalidateQueries()
+    await require('@/base/queryClient').default.invalidateQueries()
 
     // when we're signed up we get a nice Download ICS link
     // TODO: is there another way to find out we signed up?? filter by slots=joined?

@@ -80,7 +80,6 @@ export function withDefaults (options = {}) {
         [Quasar, quasarConfig],
         [VueQueryPlugin, { queryClient }],
         i18nPlugin,
-        // router,
       ],
       stubs: {
         RouterLink: RouterLinkStub,

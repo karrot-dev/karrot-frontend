@@ -4,7 +4,7 @@
     :disable="!canFetchPast"
     @load="maybeFetchPast"
   >
-    <KSpinner v-show="isPending" />
+    <KSpinner v-show="pending" />
     <HistoryEntry
       v-for="entry in history"
       :key="entry.id"
@@ -25,8 +25,9 @@ import {
   QIcon,
   QInfiniteScroll,
 } from 'quasar'
+
 import paginationMixin from '@/utils/mixins/paginationMixin'
-import statusMixin from '@/utils/mixins/statusMixin'
+
 import HistoryEntry from '@/history/components/HistoryEntry'
 import KSpinner from '@/utils/components/KSpinner'
 
@@ -37,14 +38,14 @@ export default {
     HistoryEntry,
     KSpinner,
   },
-  mixins: [statusMixin, paginationMixin],
+  mixins: [paginationMixin],
   props: {
     history: { required: true, type: Array },
-    status: { default: null, type: Object },
+    pending: { default: false, type: Boolean },
   },
   computed: {
     empty () {
-      return !this.history.length && !this.status.pending && !this.status.hasValidationErrors
+      return !this.history.length && !this.pending
     },
   },
 }

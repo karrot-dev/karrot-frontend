@@ -5,19 +5,9 @@
       style="z-index: 9999"
     />
 
-    <template v-if="routeError.hasError">
-      <RouteError>
-        <p
-          v-if="routeError.message"
-          class="caption text-center"
-        >
-          <span
-            v-if="routeError.message.translation"
-            v-t="routeError.message.translation"
-          />
-        </p>
-      </RouteError>
-    </template>
+    <RouteError
+      v-if="hasError"
+    />
 
     <div
       v-else
@@ -37,7 +27,7 @@
             >
               <i class="fas fa-bars relative-position">
                 <div
-                  v-if="hasNotification"
+                  v-if="hasUnseen"
                   class="k-highlight-dot bg-secondary"
                 />
               </i>
@@ -106,27 +96,22 @@
         </QDrawer>
 
         <QPageContainer>
-          <Banners />
+          <!-- on mobile the banners take up lots of space so only show them on group wall page -->
+          <Banners v-if="!$q.platform.is.mobile || isGroupWall" />
           <QPage
             class="mainContent-page"
             :class="{fullpage}"
           >
-            <Component
-              :is="disablePullToRefresh ? 'div' : 'QPullToRefresh'"
-              style="max-height: none"
-              @refresh="refresh"
-            >
-              <RouterView
-                v-if="$q.platform.is.mobile && hasDetailComponent"
-                name="detail"
-              />
-              <RouterView v-else />
-            </Component>
+            <RouterView
+              v-if="$q.platform.is.mobile && hasDetailComponent"
+              name="detail"
+            />
+            <RouterView v-else />
           </QPage>
         </QPageContainer>
 
         <QDrawer
-          v-if="!$q.platform.is.mobile"
+          v-if="!$q.platform.is.mobile && isLoggedIn"
           side="right"
           :width="detailWidth"
           :overlay="false"
@@ -134,12 +119,9 @@
           elevated
           :model-value="isDetailActive || hasDetailComponent"
         >
-          <DetailSidebar
-            v-if="isDetailActive"
-            @close="clearDetail"
-          />
+          <DetailSidebar v-if="isDetailActive" />
           <RouterView
-            v-else
+            v-else-if="hasDetailComponent"
             name="detail"
           />
         </QDrawer>
@@ -160,19 +142,6 @@
 </template>
 
 <script>
-import KTopbar from '@/topbar/components/KTopbar'
-import KTopbarLoggedOut from '@/topbar/components/LoggedOut/KTopbar'
-import KAbout from '@/base/components/KAbout'
-import SidenavTitle from '@/sidenav/components/SidenavTitle'
-import MobileSidenav from '@/sidenav/components/MobileSidenav'
-import Banners from '@/alerts/components/Banners'
-import RouteError from '@/base/components/RouteError'
-import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarning'
-import DetailSidebar from '@/messages/components/DetailSidebar'
-import KarrotLogo from '@/logo/components/KarrotLogo'
-import CommunityFeed from '@/communityFeed/components/CommunityFeed'
-
-import { mapGetters, mapActions } from 'vuex'
 import {
   QLayout,
   QHeader,
@@ -182,11 +151,29 @@ import {
   QPageContainer,
   QPage,
   QItem,
-  QIcon,
   QItemSection,
   QBtn,
-  QPullToRefresh,
 } from 'quasar'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+import { useAuthService } from '@/authuser/services'
+import { useRouteErrorService } from '@/base/services'
+import { useCurrentGroupService } from '@/group/services'
+import { useDetailService } from '@/messages/services'
+import { useStatusService } from '@/status/services'
+
+import Banners from '@/alerts/components/Banners'
+import KAbout from '@/base/components/KAbout'
+import RouteError from '@/base/components/RouteError'
+import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarning'
+import CommunityFeed from '@/communityFeed/components/CommunityFeed'
+import KarrotLogo from '@/logo/components/KarrotLogo'
+import DetailSidebar from '@/messages/components/DetailSidebar'
+import MobileSidenav from '@/sidenav/components/MobileSidenav'
+import SidenavTitle from '@/sidenav/components/SidenavTitle'
+import KTopbar from '@/topbar/components/KTopbar'
+import KTopbarLoggedOut from '@/topbar/components/LoggedOut/KTopbar'
 
 export default {
   components: {
@@ -205,14 +192,49 @@ export default {
     QPageContainer,
     QPage,
     QBtn,
-    QIcon,
     QItem,
     QItemSection,
-    QPullToRefresh,
     Banners,
     RouteError,
     UnsupportedBrowserWarning,
     CommunityFeed,
+  },
+  setup () {
+    const { isLoggedIn } = useAuthService()
+    const { isDetailActive } = useDetailService()
+
+    const { hasError } = useRouteErrorService()
+
+    const {
+      groupId: currentGroupId,
+      isBikeKitchen,
+      isGeneralPurpose,
+    } = useCurrentGroupService()
+
+    const {
+      unseenCount,
+      unseenNotificationCount,
+    } = useStatusService()
+
+    const hasUnseen = computed(() => unseenCount.value > 0 || unseenNotificationCount.value > 0)
+
+    const route = useRoute()
+
+    const disableDesktopSidenav = computed(() => route.meta.disableDesktopSidenav)
+
+    const isGroupWall = computed(() => route.name === 'group')
+
+    return {
+      hasError,
+      isGroupWall,
+      isDetailActive,
+      isLoggedIn,
+      currentGroupId,
+      isBikeKitchen,
+      isGeneralPurpose,
+      hasUnseen,
+      disableDesktopSidenav,
+    }
   },
   data () {
     return {
@@ -221,17 +243,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      isLoggedIn: 'auth/isLoggedIn',
-      routeError: 'routeError/status',
-      isDetailActive: 'detail/isActive',
-      disableDesktopSidenav: 'route/disableDesktopSidenav',
-      messagesUnseenCount: 'status/unseenCount',
-      notificationsUnseenCount: 'status/unseenNotificationCount',
-      currentGroupId: 'currentGroup/id',
-      isBikeKitchen: 'currentGroup/isBikeKitchen',
-      isGeneralPurpose: 'currentGroup/isGeneralPurpose',
-    }),
     layoutView () {
       if (this.$q.platform.is.mobile) {
         return 'hHh LpR fFf'
@@ -267,14 +278,6 @@ export default {
     hasDetailComponent () {
       return this.$route.matched.some(({ meta }) => meta && meta.isDetail === true)
     },
-    hasNotification () {
-      return this.messagesUnseenCount > 0 || this.notificationsUnseenCount > 0
-    },
-    disablePullToRefresh () {
-      if (!this.$q.platform.is.cordova) return true
-      if (this.$route.matched.some(({ meta }) => meta && meta.disablePullToRefresh)) return true
-      return false
-    },
     theme () {
       if (this.isBikeKitchen) return 'bikekitchen'
       if (this.isGeneralPurpose) return 'general'
@@ -282,10 +285,6 @@ export default {
     },
   },
   methods: {
-    ...mapActions({
-      clearDetail: 'detail/clear',
-      refresh: 'refresh/refresh',
-    }),
     toggleSidenav () {
       this.showSidenav = !this.showSidenav
     },

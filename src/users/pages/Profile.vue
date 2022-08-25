@@ -26,8 +26,7 @@
       >
         <SwitchGroupButton
           :user="user"
-          :groups="user.groups"
-          @select-group="selectGroup"
+          :groups="groups"
         />
       </div>
       <div class="photoAndName row no-wrap ellipsis">
@@ -60,7 +59,7 @@
           class="user-actions"
         >
           <QBtn
-            v-if="user.isCurrentUser"
+            v-if="isCurrentUser"
             icon="fas fa-pencil-alt"
             small
             round
@@ -68,13 +67,13 @@
             :to="{ name: 'settings' }"
           />
           <QBtn
-            v-if="!user.isCurrentUser"
+            v-if="!isCurrentUser"
             small
             round
             color="secondary"
             icon="fas fa-comments"
             :title="$t('USERDATA.PRIVATE_MESSAGE', {userName: user.displayName})"
-            @click="detail(user)"
+            @click="openUserChat(user)"
           />
           <QBtn
             v-if="isConflictOngoing"
@@ -97,10 +96,7 @@
           <TrustButton
             v-if="currentGroupMembership"
             :user="user"
-            :group="currentGroup"
             :membership="currentGroupMembership"
-            @create-trust="createTrust"
-            @revoke-trust="revokeTrust"
           />
         </div>
         <QList>
@@ -190,32 +186,25 @@
         />
       </QDialog>
     </div>
-    <KSpinner v-show="historyStatus.pending" />
+    <KSpinner v-show="isLoadingHistory" />
     <QCard v-if="history.length > 0">
       <QCardSection>
         {{ $t('GROUP.HISTORY') }}
       </QCardSection>
       <QCardSection>
-        <HistoryContainer :history="history" />
+        <HistoryList
+          class="padding-top"
+          :history="history"
+          :pending="isLoadingHistory"
+          :can-fetch-past="historyHasNextPage"
+          :fetch-past="() => historyFetchNextPage()"
+        />
       </QCardSection>
     </QCard>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-import { defineAsyncComponent } from 'vue'
-
-import HistoryContainer from '@/history/pages/HistoryContainer'
-import KSpinner from '@/utils/components/KSpinner'
-import Markdown from '@/utils/components/Markdown'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import UserMapPreview from '@/maps/components/UserMapPreview'
-import TrustButton from '@/users/components/TrustButton'
-import SwitchGroupButton from '@/users/components/SwitchGroupButton'
-
-const ConflictSetup = defineAsyncComponent(() => import('@/issues/components/ConflictSetup'))
-
 import {
   QCard,
   QCardSection,
@@ -227,10 +216,30 @@ import {
   QDialog,
   QIcon,
 } from 'quasar'
+import { defineAsyncComponent, computed } from 'vue'
+
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useCurrentGroupService } from '@/group/services'
+import { useGroupInfoService } from '@/groupInfo/services'
+import { useHistoryListQuery } from '@/history/queries'
+import { useCreateIssueMutation } from '@/issues/mutations'
+import { useIssueListQuery } from '@/issues/queries'
+import { useDetailService } from '@/messages/services'
+import { useActiveUserService } from '@/users/services'
+
+import HistoryList from '@/history/components/HistoryList'
+import UserMapPreview from '@/maps/components/UserMapPreview'
+import ProfilePicture from '@/users/components/ProfilePicture'
+import SwitchGroupButton from '@/users/components/SwitchGroupButton'
+import TrustButton from '@/users/components/TrustButton'
+import KSpinner from '@/utils/components/KSpinner'
+import Markdown from '@/utils/components/Markdown'
+
+const ConflictSetup = defineAsyncComponent(() => import('@/issues/components/ConflictSetup'))
 
 export default {
   components: {
-    HistoryContainer,
+    HistoryList,
     KSpinner,
     Markdown,
     UserMapPreview,
@@ -248,22 +257,75 @@ export default {
     QDialog,
     QIcon,
   },
+  setup () {
+    const {
+      groupId,
+      group,
+      getMembership,
+      isEditor,
+    } = useCurrentGroupService()
+    const { getGroupById } = useGroupInfoService()
+
+    const { openUserChat } = useDetailService()
+    const { getIsCurrentUser } = useAuthHelpers()
+
+    const {
+      userId,
+      user,
+    } = useActiveUserService()
+
+    const isCurrentUser = computed(() => getIsCurrentUser(user.value))
+    const currentGroupMembership = computed(() => getMembership(userId.value))
+
+    const groups = computed(() => user.value?.groups
+      .map(getGroupById)
+      .filter(Boolean)
+      .sort((a, b) => a.name.localeCompare(b.name)))
+
+    const {
+      history,
+      isLoading: isLoadingHistory,
+      hasNextPage: historyHasNextPage,
+      fetchNextPage: historyFetchNextPage,
+    } = useHistoryListQuery({
+      groupId,
+      userId,
+    })
+
+    const {
+      issues: ongoingIssues,
+    } = useIssueListQuery({ groupId, status: 'ongoing' })
+
+    const {
+      mutate: startConflictResolution,
+      status: issueCreateStatus,
+    } = useCreateIssueMutation()
+
+    return {
+      ongoingIssues,
+      isCurrentUser,
+      currentGroup: group,
+      user,
+      groups,
+      history,
+      isLoadingHistory,
+      historyHasNextPage,
+      historyFetchNextPage,
+      currentGroupMembership,
+      isEditor,
+      openUserChat,
+      startConflictResolution,
+      issueCreateStatus,
+    }
+  },
   data () {
     return {
       showConflictSetup: false,
     }
   },
   computed: {
-    ...mapGetters({
-      user: 'users/activeUser',
-      currentGroup: 'currentGroup/value',
-      history: 'history/byCurrentGroupAndUser',
-      historyStatus: 'history/fetchStatus',
-      ongoingIssues: 'issues/ongoing',
-      issueCreateStatus: 'issues/createStatus',
-    }),
     ongoingConflict () {
-      return this.ongoingIssues.find(i => i.affectedUser.id === this.user.id)
+      return this.ongoingIssues.find(i => i.affectedUser === this.user.id)
     },
     isConflictOngoing () {
       return Boolean(this.ongoingConflict)
@@ -271,15 +333,12 @@ export default {
     profilePictureSize () {
       return this.$q.platform.is.mobile ? 80 : 180
     },
-    currentGroupMembership () {
-      return this.user.membership
-    },
     isInfoOnly () {
       return !this.user.email
     },
     conflictResolutionPossible () {
       // is it possible at all to start a conflict resolution process?
-      return this.currentGroupMembership && !this.user.isCurrentUser
+      return this.currentGroupMembership && !this.isCurrentUser
     },
     canStartConflictResolution () {
       return this.conflictResolutionPossible && this.solvableConflictSetupRequirements.length === 0
@@ -288,27 +347,13 @@ export default {
       if (!this.currentGroup) {
         return []
       }
-      if (this.currentGroup && this.currentGroup.membership && !this.currentGroup.membership.isEditor) {
+      if (this.currentGroup && this.currentGroup.membership && !this.isEditor) {
         return [this.$t('CONFLICT.REQUIREMENTS.NEWCOMER')]
       }
       return []
     },
   },
-  watch: {
-    showConflictSetup (val) {
-      if (val) return
-      this.clearIssueMeta(['create'])
-    },
-  },
   methods: {
-    ...mapActions({
-      detail: 'detail/openForUser',
-      createTrust: 'currentGroup/trustUser',
-      revokeTrust: 'currentGroup/revokeTrust',
-      selectGroup: 'currentGroup/select',
-      startConflictResolution: 'issues/create',
-      clearIssueMeta: 'issues/meta/clear',
-    }),
     mailto (email) {
       return `mailto:${email}`
     },

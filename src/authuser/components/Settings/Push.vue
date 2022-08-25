@@ -2,42 +2,36 @@
   <div class="edit-box">
     <QToggle
       :label="$t('USERDATA.PUSH_CURRENT_BROWSER')"
-      :disable="pending"
-      :model-value="value"
-      @update:model-value="onChange"
+      :disable="isPending"
+      :model-value="isEnabled"
+      @update:model-value="update"
     />
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   QToggle,
 } from 'quasar'
 
-export default {
-  components: {
-    QToggle,
-  },
-  props: {
-    value: {
-      required: true,
-      type: Boolean,
-    },
-    pending: {
-      required: true,
-      type: Boolean,
-    },
-  },
-  emits: [
-    'enable',
-    'disable',
-  ],
-  methods: {
-    onChange (value) {
-      this.$emit(value ? 'enable' : 'disable')
-    },
-  },
+import { usePushService } from '@/subscriptions/services/push'
+
+const {
+  enable,
+  disable,
+  isEnabled,
+  isPending,
+} = usePushService()
+
+function update (value) {
+  if (value) {
+    enable()
+  }
+  else {
+    disable()
+  }
 }
+
 </script>
 
 <style scoped lang="sass">

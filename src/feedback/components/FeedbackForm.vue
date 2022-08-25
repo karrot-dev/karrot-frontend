@@ -101,11 +101,14 @@ import {
   QBtn,
   QIcon,
 } from 'quasar'
-import AmountPicker from './AmountPicker'
-import CustomDialog from '@/utils/components/CustomDialog'
-import MarkdownInput from '@/utils/components/MarkdownInput'
+
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
+
+import CustomDialog from '@/utils/components/CustomDialog'
+import MarkdownInput from '@/utils/components/MarkdownInput'
+
+import AmountPicker from './AmountPicker'
 
 export default {
   components: {

@@ -3,20 +3,21 @@
     :fetching="isLoading"
     :value="offer"
     :status="status"
-    @save="data => mutate(data)"
+    @save="offer => save(offer)"
     @reset="() => reset()"
   />
 </template>
 
 <script setup>
-import OfferForm from '@/offers/components/OfferForm'
-import { useCurrentOfferQuery } from '@/offers/queries'
 import { useSaveOfferMutation } from '@/offers/mutations'
+import { useActiveOfferService } from '@/offers/services'
 
-const { offer, isLoading } = useCurrentOfferQuery()
+import OfferForm from '@/offers/components/OfferForm'
+
+const { offer, isLoading } = useActiveOfferService()
 
 const {
-  mutate,
+  mutate: save,
   reset,
   status,
 } = useSaveOfferMutation()

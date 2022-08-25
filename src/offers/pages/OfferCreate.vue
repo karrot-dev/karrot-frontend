@@ -1,18 +1,21 @@
 <template>
   <OfferForm
     :status="status"
-    @save="data => mutate(data)"
+    @save="offer => create(offer)"
     @reset="() => reset()"
   />
 </template>
 
 <script setup>
-import OfferForm from '@/offers/components/OfferForm'
+import { useCurrentGroupService } from '@/group/services'
 import { useCreateOfferMutation } from '@/offers/mutations'
 
+import OfferForm from '@/offers/components/OfferForm'
+
+const { groupId } = useCurrentGroupService()
 const {
-  mutate,
+  mutate: create,
   reset,
   status,
-} = useCreateOfferMutation()
+} = useCreateOfferMutation({ groupId })
 </script>

@@ -1,15 +1,15 @@
 <template>
-  <HistoryDetail
-    :entry="$store.getters['history/active']"
-  />
+  <HistoryDetail :entry="historyItem" />
 </template>
 
-<script>
+<script setup>
+import { useHistoryDetailQuery } from '@/history/queries'
+import { useIntegerRouteParam } from '@/utils/composables'
+
 import HistoryDetail from '@/history/components/HistoryDetail'
 
-export default {
-  components: {
-    HistoryDetail,
-  },
-}
+const historyId = useIntegerRouteParam('historyId')
+const {
+  historyItem,
+} = useHistoryDetailQuery({ historyId })
 </script>

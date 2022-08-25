@@ -38,32 +38,21 @@
   </QCard>
 </template>
 
-<script>
+<script setup>
 import {
   QCard,
   QBtn,
 } from 'quasar'
+
+import { useCurrentGroupService } from '@/group/services'
+
 import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
 
-import {
-  mapGetters,
-} from 'vuex'
-
-export default {
-  components: {
-    QCard,
-    QBtn,
-    RandomArt,
-    Markdown,
-  },
-  computed: {
-    ...mapGetters({
-      group: 'currentGroup/value',
-      isEditor: 'currentGroup/isEditor',
-    }),
-  },
-}
+const {
+  group,
+  isEditor,
+} = useCurrentGroupService()
 </script>
 
 <style scoped lang="sass">

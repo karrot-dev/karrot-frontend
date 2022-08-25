@@ -1,8 +1,9 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 
 import CommunityFeed from './CommunityFeed'
-import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 
 const range = n => [...Array(n).keys()]
 

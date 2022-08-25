@@ -9,8 +9,9 @@ function renameKey (key) {
   return key
 }
 
-const { readFileSync, writeFileSync } = require('fs')
 const { execSync } = require('child_process')
+
+const { readFileSync, writeFileSync } = require('fs')
 const glob = require('glob')
 const _ = require('lodash')
 

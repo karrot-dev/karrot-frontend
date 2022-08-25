@@ -1,16 +1,15 @@
 <template>
   <ChatConversation
     v-if="conversation"
-    :conversation="conversationWithReversedMessages"
-    :away="away"
+    :conversation="conversation"
+    :messages="messages"
+    :away="isAway"
     :current-user="currentUser"
     compose
     :inline="inline"
-    @mark="mark"
-    @toggle-reaction="toggleReaction"
-    @save-message="saveMessage"
-    @fetch-past="fetchPast"
-    @send="send"
+    :has-next-page="hasNextPage"
+    :is-fetching-next-page="isFetchingNextPage"
+    :fetch-next-page="fetchNextPage"
   >
     <template
       v-if="offer"
@@ -74,14 +73,23 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import ChatConversation from '@/messages/components/ChatConversation'
-import Markdown from '@/utils/components/Markdown'
-import KSpinner from '@/utils/components/KSpinner'
-import { QBtn, QBtnDropdown, QCarousel, QCarouselSlide } from 'quasar'
-import { DEFAULT_STATUS, useCurrentOfferQuery } from '@/offers/queries'
-import { useCurrentUserIdRef } from '@/users/queries'
+import {
+  QBtn,
+  QBtnDropdown,
+  QCarousel,
+  QCarouselSlide,
+} from 'quasar'
+
+import { useAuthService } from '@/authuser/services'
+import { usePresenceService } from '@/base/services/presence'
+import { useConversationAndMessages } from '@/messages/services'
 import { useArchiveOfferMutation } from '@/offers/mutations'
+import { DEFAULT_STATUS } from '@/offers/queries'
+import { useActiveOfferService } from '@/offers/services'
+
+import ChatConversation from '@/messages/components/ChatConversation'
+import KSpinner from '@/utils/components/KSpinner'
+import Markdown from '@/utils/components/Markdown'
 
 export default {
   components: {
@@ -101,11 +109,32 @@ export default {
   },
   setup () {
     const { mutate: archive } = useArchiveOfferMutation()
-    const { offer } = useCurrentOfferQuery()
+    const { offerId, offer } = useActiveOfferService()
+    const { user: currentUser } = useAuthService()
+    const {
+      conversation,
+      messages,
+      hasNextPage,
+      isFetchingNextPage,
+      fetchNextPage,
+    } = useConversationAndMessages(
+      { offerId },
+      // TODO: should offer messages be this way or oldest-first?
+      { order: 'newest-first' },
+    )
+    const { isAway } = usePresenceService()
+
     return {
+      isAway,
+      currentUser,
       archive,
+      offerId,
       offer,
-      currentUserId: useCurrentUserIdRef(),
+      conversation,
+      messages,
+      hasNextPage,
+      isFetchingNextPage,
+      fetchNextPage,
     }
   },
   data () {
@@ -114,19 +143,8 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      conversation: 'currentOffer/conversation',
-      away: 'presence/toggle/away',
-      currentUser: 'auth/user',
-    }),
     canEdit () {
-      return this.offer.user === this.currentUserId
-    },
-    conversationWithReversedMessages () {
-      return {
-        ...this.conversation,
-        messages: this.conversation.messages.slice().reverse(),
-      }
+      return this.offer.user === this.currentUser?.id
     },
     carouselOptions () {
       if (this.offer.images.length <= 1) return
@@ -146,17 +164,6 @@ export default {
     offer () {
       this.selectedImageIndex = 0
     },
-  },
-  methods: {
-    ...mapActions({
-      send: 'conversations/send',
-      saveMessage: 'conversations/saveMessage',
-      mark: 'conversations/maybeMark',
-      setMuted: 'conversations/maybeSetMuted',
-      toggleReaction: 'conversations/toggleReaction',
-      fetchPast: 'conversations/fetchPast',
-      saveConversation: 'conversations/maybeSave',
-    }),
   },
 }
 </script>

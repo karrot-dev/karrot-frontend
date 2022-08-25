@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+import { reactive, toRefs, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 export default function bindRoute (params) {
@@ -10,7 +10,7 @@ export default function bindRoute (params) {
     const def = params[key]
     mixin.computed[key] = {
       get () {
-        if (Object.prototype.hasOwnProperty.call(this.$route.query, key)) {
+        if (Object.hasOwn(this.$route.query, key)) {
           return this.$route.query[key]
         }
         else {
@@ -33,29 +33,63 @@ export default function bindRoute (params) {
   return mixin
 }
 
-export function useRouteParam (name, defaultValue) {
+/**
+ * Create refs that map to query params.
+ *
+ * You must pass in defaults for all the parameters you are interested in.
+ * e.g.
+ *     const { type, category } = useQueryParams({ type: 'animal', category: null })
+ *
+ *  You can destructure the result, each param is a read/write ref that will keep
+ *  up to date with the underlying query param.
+ */
+export function useQueryParams (defaultParams) {
   const router = useRouter()
   const route = useRoute()
 
-  return computed({
-    get () {
-      if (Object.prototype.hasOwnProperty.call(route.query, name)) {
-        return route.query[name]
-      }
-      else {
-        return defaultValue
-      }
-    },
-    set (val) {
-      if (val === defaultValue) {
-        // if value is same as the default, remove it from the query to keep the URL neat
-        const query = { ...route.query }
-        delete query[name]
-        router.replace({ query }).catch(() => {})
-      }
-      else {
-        router.replace({ query: { ...route.query, ...{ [name]: val } } }).catch(() => {})
-      }
-    },
+  // The defaults passed in form our base reactive state
+  const state = reactive({ ...defaultParams })
+
+  // Keep track of when we are updating so we can avoid circular updates
+  let updatingQuery = false
+  let updatingState = false
+
+  // Read the initial query params so our state is up to date
+  updateState()
+
+  // Watch for updates to state and query
+  watch(state, () => {
+    if (!updatingState) updateQuery()
   })
+  watch(() => route.query, () => {
+    if (!updatingQuery) updateState()
+  })
+
+  // Set the state from the query
+  // If the query is missing a param, uses the default
+  function updateState () {
+    updatingState = true
+    for (const name of Object.keys(defaultParams)) {
+      state[name] = route.query[name] || defaultParams[name]
+    }
+    updatingState = false
+  }
+
+  // Set the query from the state
+  // No query param is set for falsey or default values
+  function updateQuery () {
+    updatingQuery = true
+    const query = {}
+    for (const name of Object.keys(state)) {
+      const value = state[name]
+      if (value && value !== defaultParams[name]) {
+        query[name] = value
+      }
+    }
+    router.replace({ query }).catch(() => {}).then(() => {
+      updatingQuery = false
+    })
+  }
+
+  return toRefs(state)
 }

@@ -6,7 +6,7 @@
       flat
       color="negative"
       :loading="isPending || dialogShown"
-      @click="requestDeleteAccount"
+      @click="() => requestDeleteAccount()"
     />
     <div
       v-if="hasNonFieldError"
@@ -22,6 +22,7 @@ import {
   QBtn,
   Dialog,
 } from 'quasar'
+
 import statusMixin from '@/utils/mixins/statusMixin'
 
 export default {

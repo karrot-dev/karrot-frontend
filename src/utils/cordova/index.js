@@ -1,3 +1,9 @@
-import './setupFCM'
+import { useCordovaFCM } from '@/utils/cordova/setupFCM'
+import { useCordovaOnlineAndFocusState } from '@/utils/cordova/setupRefresh'
+
 import './configureUniversalLinks'
-import './setupRefresh'
+
+export function useCordova () {
+  useCordovaFCM()
+  useCordovaOnlineAndFocusState()
+}

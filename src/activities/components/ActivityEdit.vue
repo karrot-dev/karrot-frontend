@@ -19,10 +19,10 @@
     >
       <h3 v-if="activityType && isNew">
         <QIcon
-          v-bind="activityType.iconProps"
+          v-bind="activityTypeIconProps"
           class="q-pr-sm"
         />
-        {{ activityType.translatedName }}
+        {{ activityTypeIconProps.title }}
       </h3>
       <template v-if="canEditDate">
         <div class="row q-mt-xs">
@@ -161,7 +161,7 @@
           :placeholder="$t('CREATEACTIVITY.UNLIMITED')"
           :error="hasError('maxParticipants')"
           :error-message="firstError('maxParticipants')"
-          input-style="max-width: 100px"
+          :input-style="{ maxWidth: '100px' }"
         >
           <template #before>
             <QIcon name="group" />
@@ -279,6 +279,9 @@
 </template>
 
 <script>
+import addDays from 'date-fns/addDays'
+import addSeconds from 'date-fns/addSeconds'
+import differenceInSeconds from 'date-fns/differenceInSeconds'
 import {
   QDate,
   QTime,
@@ -292,16 +295,14 @@ import {
   date,
 } from 'quasar'
 
+import { useActivityTypeHelpers } from '@/activities/helpers'
+import { defaultDuration } from '@/activities/settings'
+import { formatSeconds } from '@/activities/utils'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 import reactiveNow from '@/utils/reactiveNow'
-
-import differenceInSeconds from 'date-fns/differenceInSeconds'
-import addSeconds from 'date-fns/addSeconds'
-import addDays from 'date-fns/addDays'
-import { defaultDuration } from '@/activities/settings'
-import { formatSeconds } from '@/activities/utils'
 import { objectDiff } from '@/utils/utils'
+
 import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
@@ -328,9 +329,16 @@ export default {
     'cancel',
     'save',
   ],
+  setup () {
+    const { getIconProps } = useActivityTypeHelpers()
+    return { getIconProps }
+  },
   computed: {
     activityType () {
-      return this.value.activityType
+      return this.value && this.value.activityType
+    },
+    activityTypeIconProps () {
+      return this.activityType ? this.getIconProps(this.activityType) : {}
     },
     now () {
       return reactiveNow.value

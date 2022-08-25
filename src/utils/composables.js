@@ -1,15 +1,20 @@
-import { useStore } from 'vuex'
+import { computed, watch, onScopeDispose } from 'vue'
 import { useQueryClient } from 'vue-query'
-import { socketEvents } from '@/boot/socket'
-import { onUnmounted } from 'vue'
-import { isArray } from 'lodash'
+import { useRoute, useRouter } from 'vue-router'
+
+import { useAuthService } from '@/authuser/services'
+import { socketEvents } from '@/base/services/websocket'
+import { useStatusService } from '@/status/services'
+import { useBreadcrumbs } from '@/topbar/services'
 
 export function useClearDataOnLogout () {
-  const store = useStore()
   const queryClient = useQueryClient()
-  store.watch((state, getters) => getters['auth/isLoggedIn'], isLoggedIn => {
-    if (!isLoggedIn) {
-      queryClient.clear()
+  const { isLoggedIn } = useAuthService()
+  // TODO: this is probably better in the auth user service...
+  watch(isLoggedIn, value => {
+    if (!value) {
+      // Clear data for all queries
+      queryClient.resetQueries([])
     }
   })
 }
@@ -23,15 +28,49 @@ export function useSocketEvents () {
      * @param handler Function
      */
     on (types, handler) {
-      if (!isArray(types)) types = [types]
+      if (!Array.isArray(types)) types = [types]
       for (const type of types) {
         socketEvents.on(type, handler)
       }
-      onUnmounted(() => {
+      onScopeDispose(() => {
         for (const type of types) {
           socketEvents.off(type, handler)
         }
       })
     },
   }
+}
+
+export function useTitleStatus () {
+  const { unseenCount } = useStatusService()
+  const breadcrumbs = useBreadcrumbs()
+
+  const title = computed(() => {
+    const names = breadcrumbs.value.map(breadcrumb => breadcrumb.name).reverse()
+    names.push('Karrot')
+    let title = names.join(' · ')
+
+    if (unseenCount.value > 0) {
+      title = `(${unseenCount.value}) ${title}`
+    }
+
+    return title
+  })
+
+  watch(title, value => {
+    document.title = value
+  })
+}
+
+export function useIntegerRouteParam (name) {
+  const router = useRouter()
+  const route = useRoute()
+  return computed({
+    get () {
+      return route.params[name] && parseInt(route.params[name], 10)
+    },
+    set (val) {
+      router.push({ params: { [name]: val } })
+    },
+  })
 }

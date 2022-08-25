@@ -8,32 +8,23 @@
       @resize="calculateSlotsPerRow"
     />
     <div
-      v-for="user in activity.participants"
+      v-for="user in participants"
       :key="'participant' + user.id"
       class="relative-position pic-wrapper"
     >
       <template
-        v-if="user.isCurrentUser && !activity.hasStarted"
+        v-if="getIsCurrentUser(user) && !hasStarted"
       >
         <CurrentUser
-          v-if="!isLeaving"
           :size="size"
           :user="currentUser"
-          :activity="activity"
+          :is-leaving="isLeaving"
           @leave="$emit('leave')"
         />
-        <div
-          v-else
-          class="emptySlots"
-          style="border-color: black"
-          :style="{ width: size + 'px', height: size + 'px' }"
-        >
-          <QSpinner :size="size - 4" />
-        </div>
       </template>
       <template v-else>
         <div
-          v-if="isNewcomer(user) && !user.isCurrentUser"
+          v-if="getIsNewcomer(user.id) && !getIsCurrentUser(user)"
           class="newcomer-box"
           :title="$t('USERDATA.NEWCOMER_GUIDANCE', { userName: user.displayName })"
         />
@@ -44,20 +35,18 @@
       </template>
     </div>
 
-    <div
-      v-if="isJoining && !activity.isUserMember"
-      class="emptySlots"
+    <EmptySlot
+      v-if="isJoining && !isUserMember"
       style="border-color: black"
-      :style="{ width: size + 'px', height: size + 'px' }"
-    >
-      <QSpinner :size="size - 4" />
-    </div>
+      :is-loading="true"
+      :size="size"
+    />
 
     <UserSlot
       v-if="canJoin"
       :size="size"
       :user="currentUser"
-      :show-join="!activity.isUserMember"
+      :show-join="!isUserMember"
       @join="$emit('join')"
     />
 
@@ -81,15 +70,22 @@
 </template>
 
 <script>
-import ProfilePicture from '@/users/components/ProfilePicture'
-import UserSlot from './UserSlot'
-import EmptySlot from './EmptySlot'
-import CurrentUser from './CurrentUser'
-import { mapGetters } from 'vuex'
 import {
-  QSpinner,
   QResizeObserver,
 } from 'quasar'
+import { computed } from 'vue'
+
+import { useActivityHelpers } from '@/activities/helpers'
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useAuthService } from '@/authuser/services'
+import { useCurrentGroupService } from '@/group/services'
+import { useUserService } from '@/users/services'
+
+import ProfilePicture from '@/users/components/ProfilePicture'
+
+import CurrentUser from './CurrentUser'
+import EmptySlot from './EmptySlot'
+import UserSlot from './UserSlot'
 
 export default {
   components: {
@@ -97,7 +93,6 @@ export default {
     UserSlot,
     EmptySlot,
     CurrentUser,
-    QSpinner,
     QResizeObserver,
   },
   props: {
@@ -109,28 +104,61 @@ export default {
       type: Number,
       default: 36,
     },
+    isJoining: {
+      type: Boolean,
+      default: false,
+    },
+    isLeaving: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: [
     'leave',
     'join',
   ],
+  setup (props) {
+    const { user: currentUser } = useAuthService()
+    const { getIsNewcomer } = useCurrentGroupService()
+
+    const {
+      getUserById,
+    } = useUserService()
+
+    const {
+      getHasStarted,
+      getIsUserMember,
+      getIsFull,
+    } = useActivityHelpers()
+
+    const {
+      getIsCurrentUser,
+    } = useAuthHelpers()
+
+    const hasStarted = computed(() => getHasStarted(props.activity))
+    const isUserMember = computed(() => getIsUserMember(props.activity))
+    const isFull = computed(() => getIsFull(props.activity))
+
+    const participants = computed(() => props.activity.participants.map(getUserById))
+
+    return {
+      hasStarted,
+      isUserMember,
+      isFull,
+      participants,
+
+      currentUser,
+
+      getIsNewcomer,
+      getIsCurrentUser,
+    }
+  },
   data () {
     return {
       slotsPerRow: 6,
     }
   },
   computed: {
-    ...mapGetters({
-      currentUser: 'auth/user',
-    }),
-    isJoining () {
-      // if request is in progress and user is not member yet (watches out for websocket updates!)
-      return this.activity.joinStatus.pending && !this.activity.isUserMember
-    },
-    isLeaving () {
-      // if request is in progress and user has not left yet
-      return this.activity.leaveStatus.pending && this.activity.isUserMember
-    },
     hasUnlimitedPlaces () {
       return this.activity.maxParticipants === null
     },
@@ -139,25 +167,34 @@ export default {
         return 9999999999
       }
       if (this.activity.participants) {
-        const removeOne = (this.isJoining || this.canJoin) ? 1 : 0
-        return Math.max(this.activity.maxParticipants - this.activity.participants.length - removeOne, 0)
+        return Math.max(
+          this.activity.maxParticipants - this.activity.participants.length - this.canJoinOrIsJoiningSlots,
+          0,
+        )
       }
       return 0
     },
     emptySlots () {
       if (this.activity.participants) {
         const minToShow = Math.min(1, this.emptyPlaces)
-        const maxToShow = Math.max(minToShow, this.slotsPerRow - this.activity.participants.length - 1)
+        const maxToShow = Math.max(
+          minToShow,
+          this.slotsPerRow - this.activity.participants.length - this.canJoinOrIsJoiningSlots - 1,
+        )
         return Math.min(this.emptyPlaces, maxToShow)
       }
       return 0
+    },
+    canJoinOrIsJoiningSlots () {
+      // this is the potential slot the user can click into (or has already)
+      return this.isJoining || this.canJoin ? 1 : 0
     },
     noNotShownEmptySlots () {
       return this.emptyPlaces - this.emptySlots
     },
     canJoin () {
       const activity = this.activity
-      if (activity.isDisabled || activity.isFull || activity.isUserMember) {
+      if (activity.isDisabled || this.isFull || this.isUserMember) {
         return false
       }
       if (this.isJoining || this.isLeaving) {
@@ -172,9 +209,6 @@ export default {
         this.slotsPerRow = Math.floor(this.$refs.wrapperDiv.clientWidth / (this.size + 3.8))
       }
     },
-    isNewcomer (user) {
-      return user.membership && !user.membership.isEditor
-    },
   },
 }
 </script>
@@ -183,7 +217,7 @@ export default {
 @use 'sass:color'
 
 .pic-wrapper
-  margin-right: 3px
+  margin-right: 3.8px
 
 .newcomer-box
   position: absolute

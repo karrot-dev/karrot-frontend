@@ -1,6 +1,6 @@
 <template>
   <QLinearProgress
-    v-if="loading || closing"
+    v-if="isFetching"
     indeterminate
     color="info"
     class="fixed-top"
@@ -8,17 +8,11 @@
   />
 </template>
 
-<script>
+<script setup>
 import { QLinearProgress } from 'quasar'
-import { mapGetters } from 'vuex'
+import { computed } from 'vue'
+import { useIsFetching } from 'vue-query'
 
-export default {
-  components: { QLinearProgress },
-  computed: {
-    ...mapGetters({
-      loading: 'loadingprogress/active',
-      closing: 'loadingprogress/closing',
-    }),
-  },
-}
+const activeQueryCount = useIsFetching()
+const isFetching = computed(() => activeQueryCount.value > 0)
 </script>

@@ -1,13 +1,13 @@
-import { nextTick } from 'vue'
-
-import ConversationCompose from './ConversationCompose'
-import ChatConversation from './ChatConversation'
-import { createDatastore, mountWithDefaults } from '>/helpers'
-import * as factories from '>/enrichedFactories'
-
-import { QInput } from 'quasar'
 import { flushPromises } from '@vue/test-utils'
 import cloneDeep from 'clone-deep'
+import { QInput } from 'quasar'
+import { nextTick } from 'vue'
+
+import * as factories from '>/enrichedFactories'
+import { createDatastore, mountWithDefaults } from '>/helpers'
+
+import ChatConversation from './ChatConversation'
+import ConversationCompose from './ConversationCompose'
 
 const defaultProps = data => ({
   currentUser: factories.makeCurrentUser(),
@@ -26,7 +26,7 @@ const datastore = createDatastore({
   },
 })
 
-describe('ChatConversation', () => {
+describe.skip('ChatConversation', () => {
   beforeEach(() => jest.resetModules())
   it('can send a message', async () => {
     const propsData = defaultProps({

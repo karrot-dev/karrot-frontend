@@ -1,21 +1,26 @@
 <template>
   <SidenavPlacesUI
-    :group-id="$store.getters['currentGroup/id']"
-    :places="$store.getters['places/byCurrentGroup']"
-    :show-all-places="$store.getters['places/toggle/showAll']"
-    :archived="$store.getters['places/byCurrentGroupArchived']"
-    :is-editor="$store.getters['currentGroup/isEditor']"
-    :fetch-status="$store.getters['places/fetchStatus']"
-    @toggle-show-all-places="$store.dispatch('places/toggle/showAll')"
+    :group-id="groupId"
+    :places="places"
+    :show-all-places="showAllPlaces"
+    :archived="archivedPlaces"
+    :is-editor="isEditor"
+    :pending="isLoadingPlaces"
+    @toggle-show-all-places="showAllPlaces = !showAllPlaces"
   />
 </template>
 
-<script>
+<script setup>
+import { useCurrentGroupService } from '@/group/services'
+
 import SidenavPlacesUI from './SidenavPlacesUI'
 
-export default {
-  components: {
-    SidenavPlacesUI,
-  },
-}
+const {
+  groupId,
+  isEditor,
+  places,
+  showAllPlaces,
+  archivedPlaces,
+  isLoadingPlaces,
+} = useCurrentGroupService()
 </script>

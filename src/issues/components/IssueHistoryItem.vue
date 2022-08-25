@@ -29,6 +29,7 @@ import {
 } from 'quasar'
 
 import DateAsWords from '@/utils/components/DateAsWords'
+
 import VotingResults from './VotingResults'
 
 export default {

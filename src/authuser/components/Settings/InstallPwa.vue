@@ -8,26 +8,17 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   QBtn,
 } from 'quasar'
 
-export default {
-  components: {
-    QBtn,
-  },
-  props: {
-    prompt: {
-      required: true,
-      type: Object,
-    },
-  },
-  methods: {
-    async install () {
-      this.prompt.prompt()
-    },
-  },
+import { getPwaInstallPrompt } from '@/base/services/pwa'
+
+const pwaInstallPrompt = getPwaInstallPrompt()
+
+function install () {
+  pwaInstallPrompt.prompt()
 }
 </script>
 

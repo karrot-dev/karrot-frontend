@@ -40,7 +40,7 @@
       </QBtn>
     </div>
     <div class="text-h6 q-mb-md">
-      {{ $t('CONFLICT.VOTING.HEADLINE', { userName: issue.affectedUser.displayName }) }}
+      {{ $t('CONFLICT.VOTING.HEADLINE', { userName: affectedUser.displayName }) }}
     </div>
     <div class="q-pb-lg">
       <div class="text-caption k-caption-opacity row inline">
@@ -128,6 +128,9 @@
 </template>
 
 <script>
+
+import cloneDeep from 'clone-deep'
+import deepEqual from 'deep-equal'
 import {
   QSlider,
   QLinearProgress,
@@ -138,11 +141,10 @@ import {
   QCardActions,
 } from 'quasar'
 
-import DateAsWords from '@/utils/components/DateAsWords'
-import cloneDeep from 'clone-deep'
-import deepEqual from 'deep-equal'
-import reactiveNow from '@/utils/reactiveNow'
 import statusMixin from '@/utils/mixins/statusMixin'
+import reactiveNow from '@/utils/reactiveNow'
+
+import DateAsWords from '@/utils/components/DateAsWords'
 
 export default {
   components: {
@@ -158,6 +160,14 @@ export default {
   mixins: [statusMixin],
   props: {
     issue: {
+      type: Object,
+      required: true,
+    },
+    group: {
+      type: Object,
+      required: true,
+    },
+    affectedUser: {
       type: Object,
       required: true,
     },
@@ -244,7 +254,7 @@ export default {
       }))
     },
     getTitle (type) {
-      return this.$t(`ISSUE.VOTING.${type.toUpperCase()}`, { userName: this.issue.affectedUser.displayName, groupName: this.issue.group.name })
+      return this.$t(`ISSUE.VOTING.${type.toUpperCase()}`, { userName: this.affectedUser.displayName, groupName: this.group.name })
     },
   },
 }

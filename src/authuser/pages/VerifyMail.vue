@@ -1,19 +1,26 @@
 <template>
   <VerifyMail
-    :status="$store.getters['verifymail/verifyStatus']"
-    :success="$store.getters['verifymail/success']"
+    :status="status"
+    :success="isSuccess"
   />
 </template>
 
-<script>
+<script setup>
+import { useRoute } from 'vue-router'
+
+import { useVerifyEmailMutation } from '@/authuser/mutations'
+
 import VerifyMail from '@/authuser/components/VerifyMail'
 
-export default {
-  components: {
-    VerifyMail,
-  },
-  mounted () {
-    this.$store.dispatch('verifymail/verify', this.$store.getters['route/query'].code)
-  },
+const route = useRoute()
+
+const {
+  mutate: verify,
+  status,
+  isSuccess,
+} = useVerifyEmailMutation()
+
+if (route.query.code) {
+  verify(route.query.code)
 }
 </script>

@@ -1,32 +1,52 @@
 <template>
   <KTopbarUI
-    :current-group="$store.getters['currentGroup/value']"
-    :my-groups="$store.getters['groups/mine']"
-    :breadcrumbs="$store.getters['breadcrumbs/all']"
-    :user="$store.getters['auth/user']"
-    :search-open="$store.getters['search/open']"
-    :away="$store.getters['presence/toggle/away']"
-    :connected="$store.getters['connectivity/connected']"
-    :reconnecting="$store.getters['connectivity/reconnecting']"
-    @logout="$store.dispatch('auth/logout')"
-    @reconnect="$store.dispatch('connectivity/reconnect')"
-    @show-search="$store.commit('search/show')"
-    @hide-search="$store.commit('search/hide')"
+    :current-group="currentGroup"
+    :my-groups="myGroups"
+    :user="user"
+    :away="isAway"
+    :connected="isConnected"
+    :reconnecting="isReconnecting"
+    @logout="() => logout()"
+    @reconnect="requestReconnect"
     @toggle-sidenav="$emit('toggle-sidenav')"
   >
     <slot />
   </KTopbarUI>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue'
+
+import { useLogoutMutation } from '@/authuser/mutations'
+import { useAuthService } from '@/authuser/services'
+import { usePresenceService } from '@/base/services/presence'
+import { useCurrentGroupService } from '@/group/services'
+import { useGroupInfoService } from '@/groupInfo/services'
+import { useConnectivity } from '@/utils/services'
+
 import KTopbarUI from './KTopbarUI'
 
-export default {
-  components: {
-    KTopbarUI,
-  },
-  emits: [
-    'toggle-sidenav',
-  ],
-}
+defineEmits(['toggle-sidenav'])
+
+const { isAway } = usePresenceService()
+
+const {
+  user,
+} = useAuthService()
+
+const {
+  group: currentGroup,
+} = useCurrentGroupService()
+
+const {
+  isConnected,
+  isReconnecting,
+  requestReconnect,
+} = useConnectivity()
+
+const { groups } = useGroupInfoService()
+
+const myGroups = computed(() => groups.value.filter(group => group.isMember))
+
+const { mutate: logout } = useLogoutMutation()
 </script>

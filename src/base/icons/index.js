@@ -1,4 +1,5 @@
 import { reactive } from 'vue'
+
 import iconsData from './icons.json'
 
 const state = reactive({

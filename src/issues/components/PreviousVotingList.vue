@@ -17,12 +17,12 @@
 </template>
 
 <script>
-import IssueHistoryItem from '@/issues/components/IssueHistoryItem'
-
 import {
   QList,
   QItemLabel,
 } from 'quasar'
+
+import IssueHistoryItem from '@/issues/components/IssueHistoryItem'
 
 export default {
   components: {

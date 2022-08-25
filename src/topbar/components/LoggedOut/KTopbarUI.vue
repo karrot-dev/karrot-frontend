@@ -9,10 +9,7 @@
     <QToolbarTitle>
       <div class="row justify-between no-wrap">
         <div />
-        <KBreadcrumb
-          class="bread"
-          :breadcrumbs="breadcrumbs"
-        />
+        <KBreadcrumb class="bread" />
         <div />
       </div>
     </QToolbarTitle>
@@ -40,6 +37,7 @@
 
 <script>
 import { QToolbar, QToolbarTitle, QBtn } from 'quasar'
+
 import KarrotLogo from '@/logo/components/KarrotLogo'
 import KBreadcrumb from '@/topbar/components/KBreadcrumb'
 import LocaleSelect from '@/utils/components/LocaleSelect'

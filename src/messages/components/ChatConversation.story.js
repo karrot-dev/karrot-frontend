@@ -1,10 +1,11 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
 
-import ChatConversation from './ChatConversation'
 import * as factories from '>/enrichedFactories'
 import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 import { messagesMock } from '>/mockdata'
+
+import ChatConversation from './ChatConversation'
 
 const conversation = factories.makeConversation()
 const thread = factories.makeThread()

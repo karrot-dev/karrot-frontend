@@ -1,20 +1,29 @@
 <template>
   <SidenavGroupUI
-    :group-id="$store.getters['currentGroup/id']"
-    :theme="$store.getters['currentGroup/theme']"
-    :features="$store.getters['currentGroup/features']"
-    :wall-unread-count="$store.getters['status/currentGroupWallUnreadCount']"
-    :feedback-possible-count="$store.getters['status/currentGroupFeedbackPossibleCount']"
-    :pending-application-count="$store.getters['status/currentGroupPendingApplicationCount']"
+    :group-id="groupId"
+    :theme="theme"
+    :features="features"
+    :wall-unread-count="status.unreadWallMessageCount"
+    :feedback-possible-count="status.feedbackPossibleCount"
+    :pending-application-count="status.pendingApplicationCount"
   />
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue'
+
+import { useCurrentGroupService } from '@/group/services'
+import { useStatusService } from '@/status/services'
+
 import SidenavGroupUI from './SidenavGroupUI'
 
-export default {
-  components: {
-    SidenavGroupUI,
-  },
-}
+const {
+  groupId,
+  theme,
+  features,
+} = useCurrentGroupService()
+
+const { getGroupStatus } = useStatusService()
+
+const status = computed(() => getGroupStatus(groupId.value))
 </script>

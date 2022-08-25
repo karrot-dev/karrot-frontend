@@ -1,6 +1,7 @@
-import { h, reactive } from 'vue'
-import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
+import { storiesOf } from '@storybook/vue3'
+import { h, reactive } from 'vue'
+
 import { storybookDefaults as defaults } from '>/helpers'
 import { groupsMock } from '>/mockdata'
 

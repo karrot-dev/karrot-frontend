@@ -13,6 +13,7 @@
   - [Account](features/account.md)
   - [General](features/general.md)
 - [Frontend structure](frontend-structure.md)
+  - [State](state.md)
   - [Forms](forms.md)
   - [Pages and Routes](pages.md)
   - [Alerts](alerts.md)

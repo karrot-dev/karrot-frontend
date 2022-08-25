@@ -16,7 +16,7 @@
     <QBadge
       floating
       :style="small && 'top: 5px; right: -12px'"
-      :color="trusted || user.isCurrentUser ? 'positive' : 'negative'"
+      :color="isTrusted || isCurrentUser ? 'positive' : 'negative'"
     >
       {{ trustedBy.length }}
     </QBadge>
@@ -51,9 +51,9 @@
             :label="$t('BUTTON.CLOSE')"
           />
           <QBtn
-            v-if="!trusted && !user.isCurrentUser"
+            v-if="!isTrusted && !isCurrentUser"
             color="secondary"
-            :loading="membership.trustUserStatus.pending"
+            :loading="trustUserStatus.pending"
             @click="showCreateTrustDialog"
           >
             <span class="q-mr-xs">+</span>
@@ -63,9 +63,9 @@
             >
           </QBtn>
           <QBtn
-            v-if="trusted && !user.isCurrentUser"
+            v-if="isTrusted && !isCurrentUser"
             color="negative"
-            :loading="membership.revokeTrustStatus.pending"
+            :loading="revokeTrustStatus.pending"
             @click="showRevokeTrustDialog"
           >
             <span class="q-mr-xs">-</span>
@@ -81,12 +81,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import CircleProgress from '@/utils/components/CircleProgress'
-import TrustInfo from '@/users/components/TrustInfo'
-import twemojiCarrot from './twemoji-carrot.png'
-
 import {
   QBtn,
   QBadge,
@@ -96,6 +90,19 @@ import {
   QCardActions,
   Dialog,
 } from 'quasar'
+import { toRefs, computed } from 'vue'
+
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useMembershipHelpers } from '@/group/helpers'
+import { useRevokeTrustMutation, useTrustUserMutation } from '@/group/mutations'
+import { useCurrentGroupService } from '@/group/services'
+import { useUserService } from '@/users/services'
+
+import ProfilePicture from '@/users/components/ProfilePicture'
+import TrustInfo from '@/users/components/TrustInfo'
+import CircleProgress from '@/utils/components/CircleProgress'
+
+import twemojiCarrot from './twemoji-carrot.png'
 
 export default {
   components: {
@@ -114,10 +121,6 @@ export default {
       default: null,
       type: Object,
     },
-    group: {
-      default: () => ({}),
-      type: Object,
-    },
     membership: {
       default: () => ({}),
       type: Object,
@@ -127,37 +130,78 @@ export default {
       type: Boolean,
     },
   },
-  emits: [
-    'create-trust',
-    'revoke-trust',
-  ],
+  setup (props) {
+    const {
+      user,
+      membership,
+    } = toRefs(props)
+
+    const {
+      group,
+      groupId,
+    } = useCurrentGroupService()
+
+    const {
+      getUserById,
+    } = useUserService()
+
+    const {
+      getIsCurrentUser,
+    } = useAuthHelpers()
+
+    const {
+      getIsEditor,
+      getIsTrusted,
+      getTrustProgress,
+    } = useMembershipHelpers()
+
+    const isCurrentUser = computed(() => getIsCurrentUser(user.value))
+    const isEditor = computed(() => getIsEditor(membership.value))
+    const isTrusted = computed(() => getIsTrusted(membership.value))
+    const trustProgress = computed(() => getTrustProgress(membership.value))
+
+    const {
+      mutate: trustUser,
+      status: trustUserStatus,
+    } = useTrustUserMutation()
+
+    const {
+      mutate: revokeTrust,
+      status: revokeTrustStatus,
+    } = useRevokeTrustMutation()
+
+    return {
+      group,
+      groupId,
+      isTrusted,
+      trustProgress,
+      isCurrentUser,
+      isEditor,
+      getUserById,
+      getIsCurrentUser,
+
+      trustUser,
+      trustUserStatus,
+
+      revokeTrust,
+      revokeTrustStatus,
+    }
+  },
   data () {
     return {
       showing: false,
     }
   },
   computed: {
-    ...mapGetters({
-      getUser: 'users/get',
-    }),
     trustedBy () {
-      return this.membership.trustedBy.map(this.getUser)
-    },
-    trusted () {
-      return this.membership.trusted
+      return this.membership.trustedBy.map(this.getUserById)
     },
     threshold () {
-      return this.membership.trustThresholdForNewcomer
-    },
-    trustProgress () {
-      return this.membership.trustProgress
-    },
-    isEditor () {
-      return this.membership.isEditor
+      return this.group.trustThresholdForNewcomer
     },
     headline () {
-      const otherTrust = this.trustedBy.filter(u => !u.isCurrentUser)
-      const youTrust = this.trustedBy.find(u => u.isCurrentUser)
+      const otherTrust = this.trustedBy.filter(u => !this.getIsCurrentUser(u))
+      const youTrust = this.trustedBy.find(u => this.getIsCurrentUser(u))
 
       const firstTrustMessage = () => this.$t('USERDATA.FIRST_TRUST', {
         groupName: this.group.name,
@@ -165,7 +209,7 @@ export default {
       })
 
       const trustMessagePath = () => {
-        if (this.user.isCurrentUser) return 'USERDATA.OTHER_PEOPLE_TRUST_YOU'
+        if (this.isCurrentUser) return 'USERDATA.OTHER_PEOPLE_TRUST_YOU'
         if (!youTrust) return 'USERDATA.OTHER_PEOPLE_TRUST_USER'
         if (otherTrust.length === 0) return 'USERDATA.YOU_TRUST_USER'
         return 'USERDATA.PEOPLE_TRUST_USER'
@@ -178,10 +222,10 @@ export default {
         otherUser: otherTrust.length > 0 && otherTrust[0].displayName,
       })
 
-      return (this.trustedBy.length > 0 || this.user.isCurrentUser) ? trustMessage() : firstTrustMessage()
+      return (this.trustedBy.length > 0 || this.isCurrentUser) ? trustMessage() : firstTrustMessage()
     },
     info () {
-      if (!this.isEditor && this.user.isCurrentUser) {
+      if (!this.isEditor && this.isCurrentUser) {
         return this.$t('USERDATA.NEWCOMER_INFO', {
           groupName: this.group.name,
           threshold: this.threshold,
@@ -213,7 +257,7 @@ export default {
         message: this.$t('USERDATA.DIALOGS.GIVE_TRUST.MESSAGE', { userName: this.user.displayName, groupName: this.group.name }),
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.OF_COURSE'),
-      }).onOk(() => this.$emit('create-trust', this.user.id))
+      }).onOk(() => this.trustUser({ groupId: this.groupId, userId: this.user.id }))
     },
     showRevokeTrustDialog () {
       Dialog.create({
@@ -221,7 +265,7 @@ export default {
         message: this.$t('USERDATA.DIALOGS.REVOKE_TRUST.MESSAGE', { userName: this.user.displayName, groupName: this.group.name }),
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.YES'),
-      }).onOk(() => this.$emit('revoke-trust', this.user.id))
+      }).onOk(() => this.revokeTrust({ groupId: this.groupId, userId: this.user.id }))
     },
   },
 }

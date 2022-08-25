@@ -96,7 +96,7 @@
           </QBtn>
         </div>
       </div>
-      <KSpinner v-show="isPending" />
+      <KSpinner v-show="isLoading" />
       <div
         v-if="hasMyGroupsToShow"
         class="join-groups"
@@ -139,10 +139,6 @@
 </template>
 
 <script>
-import GroupGalleryMap from './GroupGalleryMap'
-import GroupGalleryCards from './GroupGalleryCards'
-import KSpinner from '@/utils/components/KSpinner'
-
 import {
   QBtn,
   QTooltip,
@@ -152,6 +148,11 @@ import {
   QIcon,
   QResizeObserver,
 } from 'quasar'
+
+import KSpinner from '@/utils/components/KSpinner'
+
+import GroupGalleryCards from './GroupGalleryCards'
+import GroupGalleryMap from './GroupGalleryMap'
 
 export default {
   components: {
@@ -179,9 +180,9 @@ export default {
       default: false,
       type: Boolean,
     },
-    fetchStatus: {
-      default: null,
-      type: Object,
+    isLoading: {
+      type: Boolean,
+      default: false,
     },
     myCoordinates: {
       default: null,
@@ -201,9 +202,6 @@ export default {
     }
   },
   computed: {
-    isPending () {
-      return this.fetchStatus && this.fetchStatus.pending
-    },
     hasJoinedGroups () {
       return this.myGroups.length > 0
     },
@@ -213,12 +211,12 @@ export default {
     filteredOtherGroups () {
       let filteredGroups = this.searchInName(this.search, this.otherGroups)
       if (!this.showInactive) {
-        filteredGroups = filteredGroups.filter(g => !g.isInactive)
+        filteredGroups = filteredGroups.filter(g => g.status !== 'inactive')
       }
       return filteredGroups
     },
     filteredOtherInactiveGroups () {
-      return this.searchInName(this.search, this.otherGroups).filter(g => g.isInactive)
+      return this.searchInName(this.search, this.otherGroups).filter(g => g.status === 'inactive')
     },
     hasMyGroupsToShow () {
       return this.expanded && this.filteredMyGroups.length > 0

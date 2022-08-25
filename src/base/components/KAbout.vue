@@ -148,7 +148,7 @@ import {
   QIcon,
 } from 'quasar'
 
-import { mapGetters } from 'vuex'
+import { useAboutService } from '@/utils/services'
 
 import KarrotLogo from '@/logo/components/KarrotLogo'
 
@@ -165,18 +165,19 @@ export default {
   emits: [
     'close',
   ],
+  setup () {
+    const { deployed } = useAboutService()
+    return { deployed }
+  },
   computed: {
-    ...mapGetters({
-      deployed: 'about/deployed',
-    }),
     release () {
-      if (process.env.DEV) {
-        return {
-          link: '',
-          name: 'local dev',
-        }
-      }
       if (this.deployed) {
+        if (this.deployed.env === 'local') {
+          return {
+            link: '',
+            name: 'local development',
+          }
+        }
         if (this.deployed.env === 'production') {
           return {
             link: 'https://github.com/karrot-dev/karrot-frontend/blob/master/CHANGELOG.md',

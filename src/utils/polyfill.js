@@ -1,4 +1,5 @@
 import { reactive, watch } from 'vue'
+
 import { intlLocale } from '@/locales/index'
 
 // Allows us to use someElement.closest(selector)

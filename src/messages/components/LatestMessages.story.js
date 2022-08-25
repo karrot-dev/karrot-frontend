@@ -1,12 +1,12 @@
-import { storybookDefaults as defaults } from '>/helpers'
-import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
-import * as factories from '>/enrichedFactories'
+import { storiesOf } from '@storybook/vue3'
 import { h } from 'vue'
 
-import LatestMessageItem from './LatestMessageItem'
-
+import * as factories from '>/enrichedFactories'
+import { storybookDefaults as defaults } from '>/helpers'
 import { messagesMock, usersMock, activitiesMock, groupsMock } from '>/mockdata'
+
+import LatestMessageItem from './LatestMessageItem'
 
 const on = {
   onOpen: action('open'),

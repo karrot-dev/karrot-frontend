@@ -20,24 +20,15 @@
   </QTabs>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
-
+<script setup>
 import {
   QTabs,
   QRouteTab,
 } from 'quasar'
 
-export default {
-  components: {
-    QTabs,
-    QRouteTab,
-  },
-  computed: {
-    ...mapGetters({
-      groupId: 'currentGroup/id',
-      issueId: 'issues/currentId',
-    }),
-  },
-}
+import { useCurrentGroupService } from '@/group/services'
+import { useActiveIssueService } from '@/issues/services'
+
+const { groupId } = useCurrentGroupService()
+const { issueId } = useActiveIssueService()
 </script>

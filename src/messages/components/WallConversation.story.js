@@ -1,10 +1,11 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
+import * as factories from '>/enrichedFactories'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
+import { currentUserMock } from '>/mockdata'
 
 import WallConversation from './WallConversation'
-import { currentUserMock } from '>/mockdata'
-import { createDatastore, storybookDefaults as defaults } from '>/helpers'
-import * as factories from '>/enrichedFactories'
 
 const conversation = factories.makeConversation()
 

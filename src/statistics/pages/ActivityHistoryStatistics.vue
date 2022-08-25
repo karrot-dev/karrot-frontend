@@ -32,7 +32,7 @@
           class="q-mr-sm"
           style="min-width: 180px;"
         >
-          <template #option="{ index, itemProps, itemEvents, opt: { label: itemLabel, sectionLabel } }">
+          <template #option="{ index, itemProps, opt: { label: itemLabel, sectionLabel } }">
             <template v-if="sectionLabel">
               <QSeparator />
               <QItemLabel header>
@@ -42,7 +42,6 @@
             <QItem
               :key="index"
               v-bind="itemProps"
-              v-on="itemEvents"
             >
               <QItemSection>
                 <QItemLabel>
@@ -89,14 +88,15 @@
 </template>
 
 <script>
-import { QSelect, QTable, QToggle, QItem, QItemSection, QItemLabel, QSeparator } from 'quasar'
+import { endOfYear, getYear, startOfYear, subYears } from 'date-fns'
 import subDays from 'date-fns/subDays'
 import subMonths from 'date-fns/subMonths'
+import { QSelect, QTable, QToggle, QItem, QItemSection, QItemLabel, QSeparator } from 'quasar'
 
+import { useCurrentGroupService } from '@/group/services'
+import { usePlaceService } from '@/places/services'
 import api from '@/statistics/api/statistics'
-import { mapGetters } from 'vuex'
 import { indexById } from '@/utils/datastore/helpers'
-import { endOfYear, getYear, startOfYear, subYears } from 'date-fns'
 
 export default {
   components: {
@@ -107,6 +107,20 @@ export default {
     QItemSection,
     QItemLabel,
     QSeparator,
+  },
+  setup () {
+    const {
+      groupId: currentGroupId,
+      users,
+    } = useCurrentGroupService()
+    const {
+      getPlaceById,
+    } = usePlaceService()
+    return {
+      currentGroupId,
+      users,
+      getPlaceById,
+    }
   },
   data () {
     return {
@@ -131,11 +145,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      currentGroupId: 'currentGroup/id',
-      users: 'users/byCurrentGroup',
-      getPlace: 'places/get',
-    }),
     hasUserFilter () {
       return this.userFilter && this.userFilter.value !== null
     },
@@ -320,7 +329,7 @@ export default {
       return this.data.map(entry => {
         return {
           ...entry,
-          place: this.getPlace(entry.place) || {},
+          place: this.getPlaceById(entry.place) || {},
         }
       })
     },

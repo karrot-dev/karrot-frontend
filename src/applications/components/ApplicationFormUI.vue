@@ -24,6 +24,7 @@
         <MarkdownInput
           v-model="applicationAnswers"
           filled
+          autofocus
           :placeholder="$t('CONVERSATION.REPLY_TO_MESSAGE')"
           @keyup.ctrl.enter="apply"
         />
@@ -40,7 +41,7 @@
         <QBtn
           type="button"
           color="primary"
-          @click="$emit('cancel', group.id)"
+          :to="{ name: 'groupPreview', params: { groupPreviewId: group.id } }"
         >
           {{ $t('BUTTON.CANCEL') }}
         </QBtn>
@@ -62,9 +63,14 @@ import {
   QBtn,
   QIcon,
 } from 'quasar'
-import MarkdownInput from '@/utils/components/MarkdownInput'
-import Markdown from '@/utils/components/Markdown'
+import { useRouter } from 'vue-router'
+
+import { useCreateApplicationMutation } from '@/applications/mutations'
 import statusMixin from '@/utils/mixins/statusMixin'
+import { showToast } from '@/utils/toasts'
+
+import Markdown from '@/utils/components/Markdown'
+import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
   components: {
@@ -82,10 +88,28 @@ export default {
       default: null,
     },
   },
-  emits: [
-    'cancel',
-    'apply',
-  ],
+  setup () {
+    const router = useRouter()
+
+    const {
+      mutate: createApplication,
+      status,
+    } = useCreateApplicationMutation()
+
+    const create = data => createApplication(data, {
+      onSuccess (data) {
+        showToast({
+          message: 'JOINGROUP.APPLICATION_SUBMITTED',
+        })
+        router.push({ name: 'groupPreview', params: { groupPreviewId: data.group } }).catch(() => {})
+      },
+    })
+
+    return {
+      create,
+      status,
+    }
+  },
   data () {
     return {
       applicationAnswers: '',
@@ -93,7 +117,7 @@ export default {
   },
   methods: {
     apply () {
-      this.$emit('apply', { group: this.group.id, answers: this.applicationAnswers })
+      this.create({ group: this.group.id, answers: this.applicationAnswers })
     },
   },
 }

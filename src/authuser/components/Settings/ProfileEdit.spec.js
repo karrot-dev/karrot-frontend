@@ -1,10 +1,13 @@
 import { nextTick } from 'vue'
 
-import ProfileEdit from './ProfileEdit'
-import { usersMock } from '>/mockdata'
-import cloneDeep from 'clone-deep'
+import { createAuthUser } from '@/authuser/api/authUser.mock'
+import { camelizeKeys } from '@/utils/utils'
 
 import { mountWithDefaults, statusMocks } from '>/helpers'
+import '>/routerMocks'
+import { createMockBackend } from '>/mockBackend'
+
+import ProfileEdit from './ProfileEdit'
 
 describe('ProfileEdit', () => {
   beforeEach(() => jest.resetModules())
@@ -12,7 +15,13 @@ describe('ProfileEdit', () => {
   let user
 
   beforeEach(() => {
-    user = cloneDeep(usersMock[0])
+    createMockBackend(({ db }) => {
+      db.authUser = createAuthUser()
+      user = camelizeKeys(db.authUser)
+    })
+  })
+
+  beforeEach(() => {
     wrapper = mountWithDefaults(ProfileEdit, { propsData: { value: user, status: statusMocks.default() } })
   })
 

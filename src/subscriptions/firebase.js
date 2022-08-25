@@ -6,6 +6,9 @@ export function isSupported () {
 
 export async function getServiceWorkerRegistration () {
   // See also https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/ready
+  //
+  // It returns a Promise that will never reject, and which waits indefinitely until the
+  // ServiceWorkerRegistration associated with the current page has an active worker
   return await navigator.serviceWorker.ready
 }
 
@@ -19,8 +22,19 @@ export async function initializeMessaging () {
     const app = initializeApp(firebaseConfig)
     messaging = await getMessaging(app)
 
-    onMessage(messaging, m => {
-      console.log('onMessage', m)
+    const registration = await getServiceWorkerRegistration()
+
+    onMessage(messaging, message => {
+      console.log('onMessage', message)
+      if (registration && registration.showNotification) {
+        // Show push messages when in the foreground
+        const { title, body } = message.notification || {}
+        if (title) {
+          const options = {}
+          if (body) options.body = body
+          registration.showNotification(title, options)
+        }
+      }
     })
   }
 

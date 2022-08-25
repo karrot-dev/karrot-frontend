@@ -1,15 +1,18 @@
+import { Platform } from 'quasar'
 import { h } from 'vue'
 import { RouterView } from 'vue-router'
-import { Platform } from 'quasar'
-const Empty = Promise.resolve({ render: () => null })
+const Empty = { render: () => null }
 const Landing = () => import('@/base/pages/Landing')
 const GroupWall = () => import('@/group/pages/Wall')
 const GroupActivities = () => import('@/activities/pages/GroupActivities')
 const GroupOffers = () => import('@/offers/pages/GroupOffers')
 const OfferCreate = () => import('@/offers/pages/OfferCreate')
 const OfferEdit = () => import('@/offers/pages/OfferEdit')
-const OfferDetailHeaderIfMobile = () => Platform.is.mobile ? import('@/offers/components/OfferDetailHeader') : Empty
-const OfferDetailOrBodyIfMobile = () => Platform.is.mobile ? import('@/offers/components/OfferDetailBody') : import('@/offers/components/OfferDetail')
+const OfferDetailHeader = () => import('@/offers/components/OfferDetailHeader')
+const OfferDetailBody = () => import('@/offers/components/OfferDetailBody')
+const OfferDetail = () => import('@/offers/components/OfferDetail')
+const OfferDetailHeaderIfMobile = Platform.is.mobile ? OfferDetailHeader : Empty
+const OfferDetailOrBodyIfMobile = Platform.is.mobile ? OfferDetailBody : OfferDetail
 const GroupFeedback = () => import('@/feedback/pages/GroupFeedback')
 const Messages = () => import('@/messages/pages/Messages')
 const LatestConversations = () => import('@/messages/components/LatestConversations')
@@ -19,7 +22,6 @@ const GroupMap = () => import('@/maps/pages/Map')
 const GroupEditLayout = () => import('@/group/pages/EditLayout')
 const GroupEdit = () => import('@/group/pages/Edit')
 const GroupEditActivityTypes = () => import('@/group/pages/EditActivityTypes')
-const GroupManageAgreement = () => import('@/agreements/pages/ManageAgreement')
 const GroupCreate = () => import('@/group/pages/Create')
 const GroupPreview = () => import('@/groupInfo/pages/GroupPreview')
 const GroupGallery = () => import('@/groupInfo/pages/GroupGallery')
@@ -33,7 +35,6 @@ const PlaceEdit = () => import('@/places/pages/Edit')
 const PlaceCreate = () => import('@/places/pages/Create')
 const PlaceList = () => import('@/places/pages/Places')
 const HistoryDetail = () => import('@/history/pages/HistoryDetail')
-const GroupInvitations = () => import('@/invitations/pages/Invitations')
 const Applications = () => import('@/applications/pages/Applications')
 const GroupDescription = () => import('@/group/pages/Description')
 const GroupMembers = () => import('@/users/pages/Members')
@@ -41,28 +42,31 @@ const GroupHistory = () => import('@/history/pages/GroupHistory')
 const Sidenav = () => import('@/sidenav/components/Sidenav')
 const Settings = () => import('@/authuser/pages/Settings')
 const User = () => import('@/users/pages/Profile')
-const ActivityFeedback = () => import('@/feedback/pages/GiveFeedback')
+const ActivityFeedback = () => import('@/feedback/pages/ActivityFeedback')
 const Detail = () => import('@/messages/components/Detail')
 const DetailHeader = () => import('@/messages/components/DetailHeader')
 const IssueLayout = () => import('@/issues/pages/IssueLayout')
-const IssueTabsIfMobile = () => Platform.is.mobile ? import('@/issues/components/IssueTabs') : Promise.resolve({ render: () => null })
+const IssueTabs = () => import('@/issues/components/IssueTabs')
+const IssueTabsIfMobile = Platform.is.mobile ? IssueTabs : Empty
 const IssueList = () => import('@/issues/pages/IssueList')
 const IssueChat = () => import('@/issues/pages/IssueChat')
 const IssueCompose = () => import('@/issues/pages/IssueCompose')
 const IssueVoteAndHistory = () => import('@/issues/pages/IssueVoteAndHistory')
 const ActivityHistoryStatistics = () => import('@/statistics/pages/ActivityHistoryStatistics')
 
-const RouterViewSubheader = () => h(RouterView, { name: 'subheader' })
+const RouterViewSubheader = h(RouterView, { name: 'subheader' })
 RouterViewSubheader.displayName = 'RouterViewSubheader'
 
-const RouterViewDetail = () => h(RouterView, { name: 'detail' })
+const RouterViewDetail = h(RouterView, { name: 'detail' })
 RouterViewDetail.displayName = 'RouterViewDetail'
 
-const RouterViewFooter = () => h(RouterView, { name: 'footer' })
+const RouterViewFooter = h(RouterView, { name: 'footer' })
 RouterViewFooter.displayName = 'RouterViewFooter'
 
 const RouterViewIssueFooter = h(RouterView, { name: 'issueFooter' })
 RouterViewIssueFooter.displayName = 'RouterViewIssueFooter'
+
+const RouterViewIssueFooterIfMobile = Platform.is.mobile ? RouterViewIssueFooter : Empty
 
 export default [
   {
@@ -88,7 +92,6 @@ export default [
       breadcrumbs: [
         { translation: 'JOINGROUP.ALL_GROUPS' },
       ],
-      beforeEnter: 'applications/fetchMine',
     },
     component: GroupGallery,
   },
@@ -100,8 +103,6 @@ export default [
         { translation: 'JOINGROUP.ALL_GROUPS', route: { name: 'groupsGallery' } },
         { type: 'activeGroupPreview' },
       ],
-      beforeEnter: 'groups/selectPreview',
-      afterLeave: 'groups/clearGroupPreview',
     },
     component: GroupPreview,
   },
@@ -114,7 +115,6 @@ export default [
         { translation: 'JOINGROUP.ALL_GROUPS', route: { name: 'groupsGallery' } },
         { translation: 'GROUP.CREATE_TITLE', route: { name: 'groupCreate' } },
       ],
-      beforeEnter: 'timezones/fetch',
     },
     component: GroupCreate,
   },
@@ -126,8 +126,6 @@ export default [
       breadcrumbs: [
         { translation: 'HISTORY.DETAILS', route: { name: 'historyDetail' } },
       ],
-      beforeEnter: 'history/setActive',
-      afterLeave: 'history/clearActive',
     },
     component: HistoryDetail,
   },
@@ -139,7 +137,6 @@ export default [
       breadcrumbs: [
         { type: 'currentGroup' },
       ],
-      beforeEnter: 'currentGroup/select',
     },
     components: {
       default: RouterView,
@@ -152,10 +149,6 @@ export default [
       {
         name: 'group',
         path: 'wall',
-        meta: {
-          beforeEnter: 'conversations/fetchForGroup',
-          afterLeave: 'conversations/clearForGroup',
-        },
         component: GroupWall,
       },
       {
@@ -166,7 +159,6 @@ export default [
           breadcrumbs: [
             { translation: 'ISSUE.TITLE', route: { name: 'issueList' } },
           ],
-          beforeEnter: 'issues/fetchByGroupId',
         },
         components: {
           default: IssueList,
@@ -182,14 +174,13 @@ export default [
             components: {
               default: IssueLayout,
               subheader: IssueTabsIfMobile,
-              footer: () => Platform.is.mobile ? RouterViewIssueFooter : Empty,
+              footer: RouterViewIssueFooterIfMobile,
             },
             meta: {
               requireLoggedIn: true,
               breadcrumbs: [
                 { type: 'activeIssue' },
               ],
-              beforeEnter: 'issues/select',
               isDetail: true,
             },
             children: [
@@ -215,7 +206,6 @@ export default [
         path: 'map',
         meta: {
           disableDesktopSidenav: true,
-          disablePullToRefresh: true,
           fullpage: true,
           breadcrumbs: [
             { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
@@ -258,8 +248,6 @@ export default [
             { translation: 'GROUP.OFFERS', route: { name: 'groupOffers' } },
             { type: 'activeOffer' },
           ],
-          beforeEnter: 'currentOffer/select',
-          afterLeave: 'currentOffer/clear',
         },
         components: {
           default: OfferEdit,
@@ -289,8 +277,6 @@ export default [
               breadcrumbs: [
                 { type: 'activeOffer' },
               ],
-              beforeEnter: 'currentOffer/select',
-              afterLeave: 'currentOffer/clear',
               isDetail: true,
             },
             components: {
@@ -307,8 +293,6 @@ export default [
           breadcrumbs: [
             { translation: 'ACTIVITY_FEEDBACK.TITLE', route: { name: 'groupFeedback' } },
           ],
-          beforeEnter: 'feedback/fetch',
-          afterLeave: 'feedback/clear',
         },
         component: GroupFeedback,
       },
@@ -339,20 +323,8 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.HISTORY', route: { name: 'groupHistory' } },
           ],
-          beforeEnter: 'history/fetch',
         },
         component: GroupHistory,
-      },
-      {
-        name: 'groupInvitations',
-        path: 'invites',
-        meta: {
-          breadcrumbs: [
-            { translation: 'GROUP.INVITATIONS', route: { name: 'groupInvitations' } },
-          ],
-          beforeEnter: 'invitations/fetch',
-        },
-        component: GroupInvitations,
       },
       {
         name: 'applications',
@@ -361,7 +333,6 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.APPLICATIONS', route: { name: 'applications' } },
           ],
-          beforeEnter: 'applications/fetchByGroupId',
         },
         component: Applications,
       },
@@ -373,7 +344,6 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.EDIT', route: { name: 'groupEdit' } },
           ],
-          beforeEnter: 'timezones/fetch',
         },
         components: {
           default: GroupEditLayout,
@@ -398,16 +368,6 @@ export default [
         redirect: { name: 'settings', hash: '#notifications' },
       },
       {
-        name: 'groupManageAgreement',
-        path: 'agreement',
-        meta: {
-          breadcrumbs: [
-            { translation: 'GROUP.MANAGE_AGREEMENT', route: { name: 'groupManageAgreement' } },
-          ],
-        },
-        component: GroupManageAgreement,
-      },
-      {
         name: 'messageReplies',
         path: 'message/:messageId/replies',
         meta: {
@@ -415,8 +375,6 @@ export default [
           breadcrumbs: [
             { type: 'currentGroup' },
           ],
-          beforeEnter: 'detail/routeEnter',
-          afterLeave: 'detail/routeLeave',
         },
         // On desktop will get redirected inside "detail/routeEnter" action
         components: {
@@ -451,8 +409,6 @@ export default [
           breadcrumbs: [
             { type: 'activePlace' },
           ],
-          beforeEnter: 'places/selectPlace',
-          afterLeave: 'places/clearSelectedPlace',
         },
         components: {
           default: PlaceLayout,
@@ -463,10 +419,6 @@ export default [
             name: 'placeWall',
             path: 'wall',
             component: PlaceWall,
-            meta: {
-              beforeEnter: 'conversations/fetchForPlace',
-              afterLeave: 'conversations/clearForPlace',
-            },
           },
           {
             name: 'placeActivities',
@@ -476,27 +428,16 @@ export default [
           {
             name: 'placeActivitiesManage',
             path: 'activities/manage',
-            meta: {
-              beforeEnter: 'activitySeries/fetchListForActivePlace',
-              afterLeave: 'activitySeries/clearList',
-            },
             component: PlaceActivitiesManage,
           },
           {
             name: 'placeFeedback',
             path: 'feedback',
-            meta: {
-              beforeEnter: 'places/beforeEnterFeedback',
-              afterLeave: 'feedback/clear',
-            },
             component: PlaceFeedback,
           },
           {
             name: 'placeHistory',
             path: 'history',
-            meta: {
-              beforeEnter: 'history/fetch',
-            },
             component: PlaceHistory,
           },
           {
@@ -514,8 +455,6 @@ export default [
           breadcrumbs: [
             { translation: 'GROUP.ACTIVITY' },
           ],
-          beforeEnter: 'detail/routeEnter',
-          afterLeave: 'detail/routeLeave',
         },
         // On desktop will get redirected inside "detail/routeEnter" action
         components: {
@@ -530,8 +469,6 @@ export default [
           breadcrumbs: [
             { translation: 'ACTIVITY_FEEDBACK.TITLE', route: { name: 'giveFeedback' } },
           ],
-          beforeEnter: 'feedback/fetch',
-          afterLeave: 'feedback/clear',
         },
         component: ActivityFeedback,
       },
@@ -542,8 +479,6 @@ export default [
           breadcrumbs: [
             { translation: 'ACTIVITY_FEEDBACK.TITLE', route: { name: 'editFeedback' } },
           ],
-          beforeEnter: 'feedback/select',
-          afterLeave: 'feedback/clear',
         },
         component: ActivityFeedback,
       },
@@ -576,8 +511,6 @@ export default [
       breadcrumbs: [
         { translation: 'APPLICATION.APPLICATION', route: { name: 'applicationDetail' } },
       ],
-      beforeEnter: 'detail/applicationRouteEnter',
-      afterLeave: 'detail/routeLeave',
     },
     // On desktop will get redirected inside "detail/routeEnter" action
     components: {
@@ -594,8 +527,7 @@ export default [
       breadcrumbs: [
         { translation: 'SETTINGS.TITLE', route: { name: 'settings' } },
       ],
-      beforeEnter: ['auth/getFailedEmailDeliveries', 'currentGroup/selectFromCurrentUser'],
-      afterLeave: ['auth/clearSettingsStatus', 'unsubscribe/clear'],
+      afterLeave: 'unsubscribe/clear',
     },
     components: {
       default: Settings,
@@ -610,8 +542,6 @@ export default [
       breadcrumbs: [
         { type: 'activeUser' },
       ],
-      beforeEnter: 'users/selectUser',
-      afterLeave: 'users/clearSelectedUser',
     },
     components: {
       default: User,
@@ -626,8 +556,6 @@ export default [
       breadcrumbs: [
         { type: 'activeUser' },
       ],
-      beforeEnter: ['currentGroup/select', 'users/selectUser'],
-      afterLeave: 'users/clearSelectedUser',
     },
     components: {
       default: User,
@@ -643,8 +571,6 @@ export default [
         { type: 'currentGroup' },
         { type: 'activeUser' },
       ],
-      beforeEnter: 'detail/routeEnter',
-      afterLeave: 'detail/routeLeave',
     },
     // On desktop will get redirected inside "detail/routeEnter" action
     components: {
@@ -662,7 +588,6 @@ export default [
       breadcrumbs: [
         { translation: 'GROUP.MESSAGES', route: { name: 'messages' } },
       ],
-      beforeEnter: 'currentGroup/selectFromCurrentUser',
     },
     components: {
       default: Messages,
@@ -689,7 +614,6 @@ export default [
       breadcrumbs: [
         { translation: 'NOTIFICATION_BELLS_LIST.TITLE', route: { name: 'notifications' } },
       ],
-      beforeEnter: 'currentGroup/selectFromCurrentUser',
     },
     components: {
       default: Notifications,

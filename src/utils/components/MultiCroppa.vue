@@ -49,8 +49,8 @@
           :class="{ 'q-ma-xs' : !small }"
           :padding="small ? 'xs' : 'xs md'"
           icon="rotate_right"
-          :text-color="isExisting(item) ? 'grey' : 'green'"
-          :disable="!hasImage(item) || isExisting(item)"
+          :text-color="canRotate(item) ? 'green' : 'grey'"
+          :disable="!canRotate(item)"
           @click="rotateImage(item)"
         />
         <QBtn
@@ -81,6 +81,7 @@
 <script>
 import { QBtn, QBtnGroup } from 'quasar'
 import CroppaPlugin from 'vue-croppa'
+
 const Croppa = CroppaPlugin.component
 // Upgrade Croppa once it's compatible with Vue3: https://github.com/zhanziyang/vue-croppa/issues/235
 Croppa.compatConfig = { MODE: 2 }
@@ -168,7 +169,7 @@ export default {
     },
     hasImage (item) {
       const croppa = this.croppaFor(item)
-      return this.isExisting(item) || Boolean(croppa && croppa.hasImage())
+      return this.isExistingOrNew(item) || Boolean(croppa && croppa.hasImage())
     },
     isFirstImage (idx) {
       return idx === 0
@@ -177,7 +178,15 @@ export default {
       return idx >= this.items.length - 2
     },
     isExisting (item) {
-      return item.source && item.source.id !== undefined
+      // It only has an id if it's been saved already
+      return Boolean(item.source?.id)
+    },
+    isExistingOrNew (item) {
+      return this.isExisting(item) || Boolean(item.source?._new)
+    },
+    canRotate (item) {
+      // Once it's uploaded we can't rotate any more
+      return this.hasImage(item) && !this.isExisting(item)
     },
     initialImageFor (item) {
       const { source: { imageUrls: { fullSize: url } = {} } = {} } = item || {}
@@ -185,7 +194,12 @@ export default {
 
       // In development we want to force the images to load from our local proxy
       // so that we don't get issues with missing CORS headers
-      if (process.env.DEV && url.includes('/media')) return ['http://localhost:8080', url.substring(url.indexOf('/media'))].join('')
+      if (process.env.DEV && url.startsWith('http')) {
+        const { pathname } = new URL(url)
+        if (pathname.startsWith('/media')) {
+          return [location.protocol, '//', location.host, pathname].join('')
+        }
+      }
 
       return url
     },
@@ -199,7 +213,7 @@ export default {
       return nextPosition
     },
     imageDrawn (item) {
-      if (this.isExisting(item)) return // this happens when showing existing images
+      if (this.isExistingOrNew(item)) return
       const { key } = item
       const position = this.getNextPosition()
       const croppa = this.croppaFor(item)
@@ -278,7 +292,7 @@ export default {
       }
       else {
         // this image was never on the server, so we can just delete it
-        this.$emit('update:modelValue', this.modelValue.filter(i => i.id !== item.source.id))
+        this.$emit('update:modelValue', this.modelValue.filter(source => item.source !== source))
       }
       // in both cases, this source item will never come back
       // so we can forget the source -> key mapping
@@ -286,7 +300,7 @@ export default {
       this.recalculatePositions()
     },
     itemClasses (item) {
-      return this.hasImage(item) ? [] : ['new-image']
+      return this.isExistingOrNew(item) ? [] : ['add-image']
     },
   },
 }
@@ -304,7 +318,7 @@ export default {
     width: 80px
     height: 80px
 
-.new-image
+.add-image
   ::v-deep(canvas)
     cursor: pointer
     border: 1px solid #ddd

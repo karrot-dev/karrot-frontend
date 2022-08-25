@@ -63,7 +63,7 @@
     </KFormContainer>
     <GroupSettings />
     <KFormContainer
-      v-if="!$q.platform.is.cordova"
+      v-if="!$q.platform.is.cordova && pushIsSupported"
     >
       <QCardSection>
         <div class="text-h6">
@@ -71,16 +71,11 @@
         </div>
       </QCardSection>
       <QCardSection>
-        <Push
-          :value="pushEnabled"
-          :pending="pushPending"
-          @enable="enablePush"
-          @disable="disablePush"
-        />
+        <Push />
       </QCardSection>
     </KFormContainer>
     <KFormContainer
-      v-if="!$q.platform.is.cordova && pwaPrompt"
+      v-if="!$q.platform.is.cordova && hasPwaInstallPrompt()"
     >
       <QCardSection>
         <div class="text-h6">
@@ -88,74 +83,80 @@
         </div>
       </QCardSection>
       <QCardSection>
-        <InstallPwa
-          :prompt="pwaPrompt"
-        />
+        <InstallPwa />
       </QCardSection>
     </KFormContainer>
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   QCardSection,
   QSeparator,
   QCardActions,
 } from 'quasar'
 
-import { mapGetters, mapActions } from 'vuex'
+import {
+  useChangeEmailMutation,
+  useChangePasswordMutation,
+  useRequestDeleteAccountMutation, useSaveUserMutation,
+} from '@/authuser/mutations'
+import { useAuthService } from '@/authuser/services'
+import { useGeoService } from '@/base/services/geo'
+import { hasPwaInstallPrompt } from '@/base/services/pwa'
+import { usePushService } from '@/subscriptions/services/push'
+import { showToast } from '@/utils/toasts'
 
-import ProfileEdit from '@/authuser/components/Settings/ProfileEdit'
-import ChangePassword from '@/authuser/components/Settings/ChangePassword'
 import ChangeEmail from '@/authuser/components/Settings/ChangeEmail'
+import ChangePassword from '@/authuser/components/Settings/ChangePassword'
 import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
-import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAccount'
-import Push from '@/authuser/components/Settings/Push'
 import InstallPwa from '@/authuser/components/Settings/InstallPwa'
-import LocaleSelect from '@/utils/components/LocaleSelect'
-import GroupSettings from '@/group/pages/Settings'
+import ProfileEdit from '@/authuser/components/Settings/ProfileEdit'
+import Push from '@/authuser/components/Settings/Push'
+import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAccount'
 import KFormContainer from '@/base/components/KFormContainer'
+import GroupSettings from '@/group/components/GroupSettings'
+import LocaleSelect from '@/utils/components/LocaleSelect'
 
-export default {
-  name: 'Settings',
-  components: {
-    QCardSection,
-    QSeparator,
-    QCardActions,
-    ProfileEdit,
-    ChangePassword,
-    ChangeEmail,
-    ChangePhoto,
-    RequestDeleteAccount,
-    Push,
-    InstallPwa,
-    LocaleSelect,
-    GroupSettings,
-    KFormContainer,
-  },
-  computed: {
-    ...mapGetters({
-      user: 'auth/user',
-      profileEditStatus: 'auth/saveStatus',
-      changePasswordStatus: 'auth/changePasswordStatus',
-      changeEmailStatus: 'auth/changeEmailStatus',
-      requestDeleteAccountStatus: 'users/requestDeleteAccountStatus',
-      pushEnabled: 'auth/push/enabled',
-      pushPending: 'auth/push/pending',
-      pwaPrompt: 'pwa/installPrompt',
-      defaultMapCenter: 'geo/defaultCenter',
-    }),
-  },
-  methods: {
-    ...mapActions({
-      saveUser: 'auth/save',
-      changeEmail: 'auth/changeEmail',
-      changePassword: 'auth/changePassword',
-      requestDeleteAccount: 'users/requestDeleteAccount',
-      enablePush: 'auth/push/enable',
-      disablePush: 'auth/push/disable',
-    }),
-  },
+const { user } = useAuthService()
+
+const {
+  mutateAsync: saveUserMutation,
+  status: profileEditStatus,
+} = useSaveUserMutation()
+
+const {
+  mutate: requestDeleteAccount,
+  status: requestDeleteAccountStatus,
+} = useRequestDeleteAccountMutation()
+
+const {
+  mutate: changeEmail,
+  status: changeEmailStatus,
+} = useChangeEmailMutation()
+
+const {
+  mutate: changePassword,
+  status: changePasswordStatus,
+} = useChangePasswordMutation()
+
+const {
+  isSupported: pushIsSupported,
+} = usePushService()
+
+const {
+  defaultMapCenter,
+} = useGeoService()
+
+async function saveUser (data) {
+  await saveUserMutation(data)
+  showToast({
+    message: 'NOTIFICATIONS.CHANGES_SAVED',
+    config: {
+      timeout: 2000,
+      icon: 'thumb_up',
+    },
+  })
 }
 </script>
 

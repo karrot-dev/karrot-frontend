@@ -1,11 +1,11 @@
-import { h } from 'vue'
-import { statusMocks, storybookDefaults as defaults } from '>/helpers'
-import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
-
-import GroupPreviewUI from './GroupPreviewUI'
+import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
 
 import { makeGroupInfo } from '>/enrichedFactories'
+import { statusMocks, storybookDefaults as defaults } from '>/helpers'
+
+import GroupPreviewUI from './GroupPreviewUI'
 
 const on = {
   onJoin: action('join group'),

@@ -19,16 +19,6 @@ export default {
     }
   },
 
-  async listMore (cursor) {
-    const response = (await axios.get(cursor)).data
-    return {
-      ...response,
-      next: parseCursor(response.next),
-      prev: parseCursor(response.prev),
-      results: convert(response.results),
-    }
-  },
-
   async accept (applicationId) {
     return convert((await axios.post(`/api/applications/${applicationId}/accept/`)).data)
   },

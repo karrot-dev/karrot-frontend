@@ -1,10 +1,11 @@
-import { nextTick } from 'vue'
 import { mount, RouterLinkStub } from '@vue/test-utils'
-import { VueQueryPlugin } from 'vue-query'
 import deepmerge from 'deepmerge'
-import i18n, { i18nPlugin } from '@/base/i18n'
-import { createStore } from 'vuex'
 import { isArray, mergeWith } from 'lodash'
+import { nextTick } from 'vue'
+import { VueQueryPlugin } from 'vue-query'
+
+import i18n, { i18nPlugin } from '@/base/i18n'
+import queryClient from '@/base/queryClient'
 
 const desktopUserAgent = 'Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0'
 const mobileUserAgent = 'Mozilla/5.0 (Android 9; Mobile; rv:68.0) Gecko/68.0 Firefox/68.0'
@@ -23,22 +24,10 @@ export async function nextTicks (n) {
   }
 }
 
+// TODO: remove all calls to this
 export function createDatastore (mods = {}, { debug = false, plugins = [] } = {}) {
-  const modules = {}
-  for (const key of Object.keys(mods)) {
-    modules[key] = { ...mods[key], namespaced: true }
-  }
-
-  const datastore = createStore({
-    modules, plugins, strict: false,
-  })
-
-  if (debug) {
-    datastore.subscribe(({ type, payload }) => console.log('mutation', type, payload))
-    datastore.subscribeAction(({ type, payload }) => console.log('action', type, payload))
-  }
-
-  return datastore
+  console.warn('datastores are no more! (created an empty object)')
+  return {}
 }
 
 export function throws (val) {
@@ -89,7 +78,7 @@ export function withDefaults (options = {}) {
       },
       plugins: [
         [Quasar, quasarConfig],
-        VueQueryPlugin,
+        [VueQueryPlugin, { queryClient }],
         i18nPlugin,
       ],
       stubs: {

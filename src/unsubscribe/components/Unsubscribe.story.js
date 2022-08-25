@@ -1,8 +1,9 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
+import { storybookDefaults as defaults } from '>/helpers'
 
 import Unsubscribe from './Unsubscribe'
-import { storybookDefaults as defaults } from '>/helpers'
 
 storiesOf('Unsubscribe', module)
   .add('conversation', () => defaults({

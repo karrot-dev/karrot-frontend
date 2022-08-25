@@ -27,7 +27,7 @@
     </QItemSection>
     <QDialog
       v-model="showing"
-      @hide="mark"
+      @hide="mark()"
     >
       <QCard>
         <QList>
@@ -65,13 +65,13 @@
             </QItemSection>
           </QItem>
           <QItem
-            v-for="topic in topics"
+            v-for="{ topic, isUnread } in entries"
             :key="topic.id"
             tag="a"
             :href="topic.link"
             target="_blank"
             rel="noopener"
-            :class="{ isUnread: topic.isUnread }"
+            :class="{ isUnread }"
           >
             <QItemSection avatar>
               <QAvatar>
@@ -111,11 +111,7 @@
   </QItem>
 </template>
 
-<script>
-import {
-  mapActions,
-  mapGetters,
-} from 'vuex'
+<script setup>
 import {
   QBtn,
   QIcon,
@@ -128,38 +124,28 @@ import {
   QAvatar,
   QCard,
 } from 'quasar'
+import { ref } from 'vue'
+
+import { useAuthService } from '@/authuser/services'
+import { useMarkCommunityFeedMutation } from '@/communityFeed/mutations'
+import { useCommunityFeedService } from '@/communityFeed/services'
+
 import DateAsWords from '@/utils/components/DateAsWords'
 
-export default {
-  components: {
-    DateAsWords,
-    QBtn,
-    QIcon,
-    QDialog,
-    QList,
-    QItemLabel,
-    QItem,
-    QItemSection,
-    QBadge,
-    QAvatar,
-    QCard,
-  },
-  data () {
-    return {
-      showing: false,
-    }
-  },
-  computed: {
-    ...mapGetters({
-      unreadCount: 'communityFeed/unreadCount',
-      topics: 'communityFeed/topics',
-    }),
-  },
-  methods: {
-    ...mapActions({
-      mark: 'communityFeed/mark',
-    }),
-  },
+const showing = ref(false)
+
+const {
+  entries,
+  unreadCount,
+} = useCommunityFeedService()
+
+const { isLoggedIn } = useAuthService()
+
+const { mutate: markSeen } = useMarkCommunityFeedMutation()
+
+function mark () {
+  if (!isLoggedIn.value) return
+  markSeen()
 }
 </script>
 

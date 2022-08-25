@@ -1,9 +1,11 @@
-import ChangePhoto from './ChangePhoto'
-import { usersMock } from '>/mockdata'
+import { configureCompat } from '@vue/compat'
 import cloneDeep from 'clone-deep'
 
 import { mountWithDefaults, statusMocks, nextTicks } from '>/helpers'
-import { configureCompat } from '@vue/compat'
+import { usersMock } from '>/mockdata'
+
+import ChangePhoto from './ChangePhoto'
+
 jest.mock('vue', () => jest.requireActual('@vue/compat'))
 configureCompat({ MODE: 3 })
 
@@ -32,11 +34,11 @@ describe('ChangePhoto', () => {
     await wrapper.setProps({
       value: {
         ...user,
-        photoUrls: { fullSize: '/media/foo.jpg' },
+        photoUrls: { fullSize: 'https://karrot.world/media/foo.jpg' },
       },
     })
     await nextTicks(1)
-    expect(wrapper.vm.photo).toBe('http://localhost:8080/media/foo.jpg')
+    expect(wrapper.vm.photo).toBe(`${location.protocol}//${location.host}/media/foo.jpg`)
   })
 
   it('emits a save event', async () => {

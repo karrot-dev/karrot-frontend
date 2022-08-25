@@ -1,12 +1,11 @@
-import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 import { computed, unref } from 'vue'
+import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
+
+import { isMutating } from '@/offers/mutations'
+import { useSocketEvents } from '@/utils/composables'
+import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
 
 import api from './api/offers'
-
-import { useRoute } from 'vue-router'
-import { useSocketEvents } from '@/utils/composables'
-import { extractCursor } from '@/utils/queryHelpers'
-import { isMutating } from '@/offers/mutations'
 
 export const QUERY_KEY_BASE = 'offers'
 export const queryKeyOfferList = (group, status) => [QUERY_KEY_BASE, 'list', group, status].filter(Boolean)
@@ -39,30 +38,19 @@ export function useOffersUpdater () {
 }
 
 /**
- * Get current offer, based on route
- *
- * Gives a full query object
- */
-export function useCurrentOfferQuery () {
-  const route = useRoute()
-  const id = computed(() => route.params.offerId && Number(route.params.offerId))
-  return useOfferQuery({ id })
-}
-
-/**
  * Fetch an offer by id
  *
  * Returns a query object with data also available "offer" key
  */
-export function useOfferQuery ({
-  id,
+export function useOfferDetailQuery ({
+  offerId,
 }) {
   const query = useQuery(
-    queryKeyOfferDetail(id),
-    () => api.get(unref(id)),
+    queryKeyOfferDetail(offerId),
+    () => api.get(unref(offerId)),
     {
-      enabled: computed(() => !!unref(id)),
-      staleTime: Infinity,
+      enabled: computed(() => Boolean(unref(offerId))),
+      staleTime: Infinity, // rely on websockets
     },
   )
   return {
@@ -76,19 +64,21 @@ export function useOfferQuery ({
  *
  * Returns a paginated query object with additional "offers" item with flattened list of all offers
  */
-export function useOffersQuery ({
-  group,
+export function useOfferListQuery ({
+  groupId,
   status = 'active',
 }) {
   const query = useInfiniteQuery(
-    queryKeyOfferList(group, status),
-    ({ pageParam }) => api.list({
-      group: unref(group),
-      status: unref(status),
-      cursor: pageParam,
-    }),
+    queryKeyOfferList(groupId, status),
+    ({ pageParam }) => {
+      return api.list({
+        group: unref(groupId),
+        status: unref(status),
+        cursor: pageParam,
+      })
+    },
     {
-      enabled: computed(() => !!unref(group)),
+      enabled: computed(() => Boolean(unref(groupId))),
       staleTime: Infinity,
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({
@@ -98,15 +88,8 @@ export function useOffersQuery ({
     },
   )
 
-  // Flatten the pages, so we have a single offers array with all the results in
-  const offers = computed(() => {
-    const data = unref(query.data)
-    if (!data) return []
-    return data.pages.flat()
-  })
-
   return {
     ...query,
-    offers,
+    offers: flattenPaginatedData(query),
   }
 }

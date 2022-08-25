@@ -1,9 +1,10 @@
 import Axios from 'axios'
-import i18n from '@/base/i18n'
+import qs from 'qs'
 import { Notify, throttle } from 'quasar'
 
-import { camelizeKeys, underscorizeKeys } from '@/utils/utils'
+import i18n from '@/base/i18n'
 import { isServerError } from '@/utils/datastore/helpers'
+import { camelizeKeys, devSleep, underscorizeKeys } from '@/utils/utils'
 
 /*
 * Axios configured for Django REST API
@@ -12,6 +13,13 @@ import { isServerError } from '@/utils/datastore/helpers'
 const axios = Axios.create({
   xsrfCookieName: 'csrftoken',
   xsrfHeaderName: 'X-CSRFTOKEN',
+  paramsSerializer: params => qs.stringify(params, {
+    // this works nicely with MultipleChoiceFilter in the backend
+    // so params { blah: ['a', 'b'] } will turn into blah=a&blah=b
+    arrayFormat: 'repeat',
+    // this puts it back to how default axios behaves
+    skipNulls: true,
+  }),
 })
 
 const makeThrottledWarner = (message) =>
@@ -34,6 +42,14 @@ axios.interceptors.request.use(request => {
   request.data = underscorizeKeys(request.data)
   return request
 })
+
+// add artificial delay for dev env
+if (process.env.DEV) {
+  axios.interceptors.response.use(async response => {
+    await devSleep()
+    return response
+  })
+}
 
 axios.interceptors.response.use(response => {
   response.data = camelizeKeys(response.data)

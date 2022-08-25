@@ -1,5 +1,6 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
 import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 import VerifyMail from './VerifyMail'

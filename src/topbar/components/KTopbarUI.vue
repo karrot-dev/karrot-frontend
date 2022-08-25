@@ -34,7 +34,7 @@
               class="groups"
             >
               <QAvatar
-                v-if="group.hasPhoto"
+                v-if="group.photoUrls?.fullSize"
                 square
               >
                 <img :src="group.photoUrls.thumbnail">
@@ -67,10 +67,7 @@
     </QBtn>
     <QToolbarTitle class="no-wrap text-center">
       <div class="column text-center">
-        <KBreadcrumb
-          class="bread"
-          :breadcrumbs="breadcrumbs"
-        />
+        <KBreadcrumb class="bread" />
         <div
           v-if="!connected && $q.platform.is.mobile"
           class="row items-center text-center"
@@ -94,7 +91,7 @@
         v-if="searchOpen"
         class="k-searchbar row no-wrap"
       >
-        <Search @clear="$emit('hide-search')" />
+        <Search @close="searchOpen = false" />
       </div>
       <QBtn
         v-show="!searchOpen"
@@ -104,7 +101,7 @@
         icon="fas fa-fw fa-search"
         class="k-search-button"
         :title="$t('BUTTON.SEARCH')"
-        @click="$emit('show-search')"
+        @click="searchOpen = true"
       />
       <template v-if="!$q.platform.is.mobile">
         <LatestMessageButton />
@@ -198,6 +195,7 @@
 </template>
 
 <script>
+import { onKeyStroke } from '@vueuse/core'
 import {
   QAvatar,
   QToolbar,
@@ -209,11 +207,13 @@ import {
   QItem,
   QItemSection,
 } from 'quasar'
+import { ref } from 'vue'
+
 import KarrotLogo from '@/logo/components/KarrotLogo'
-import KBreadcrumb from '@/topbar/components/KBreadcrumb'
-import Search from '@/topbar/components/Search'
 import LatestMessageButton from '@/messages/components/LatestMessageButton'
 import NotificationButton from '@/notifications/components/NotificationButton'
+import KBreadcrumb from '@/topbar/components/KBreadcrumb'
+import Search from '@/topbar/components/Search'
 
 export default {
   components: {
@@ -242,15 +242,6 @@ export default {
       required: false,
       default: () => [],
     },
-    breadcrumbs: {
-      type: Array,
-      required: false,
-      default: () => [],
-    },
-    searchOpen: {
-      type: Boolean,
-      required: true,
-    },
     user: {
       type: Object,
       required: true,
@@ -269,11 +260,23 @@ export default {
     },
   },
   emits: [
-    'hide-search',
-    'show-search',
     'logout',
     'reconnect',
   ],
+  setup () {
+    const searchOpen = ref(false)
+    // Secret keyboard shortcut for searching :)
+    onKeyStroke('/', event => {
+      // ... ignore slashes in input/textareas...
+      const tagName = event.target.tagName.toLowerCase()
+      if (['textarea', 'input'].includes(tagName)) return
+      event.preventDefault()
+      searchOpen.value = true
+    })
+    return {
+      searchOpen,
+    }
+  },
   computed: {
     hasPhoto () {
       return !!this.photo

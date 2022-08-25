@@ -10,11 +10,12 @@
  * 4. Click the "approve" button on https://app.circleci.com/pipelines/github/karrot-dev/karrot-frontend?branch=master
  */
 
-const { parser, Release } = require('keep-a-changelog')
-const fs = require('fs')
 const { execSync } = require('child_process')
-const CordovaConfig = require('cordova-config')
 const { resolve } = require('path')
+
+const CordovaConfig = require('cordova-config')
+const fs = require('fs')
+const { parser, Release } = require('keep-a-changelog')
 
 const changelogFilePath = resolve(__dirname, '../CHANGELOG.md')
 const cordovaConfigPaths = [

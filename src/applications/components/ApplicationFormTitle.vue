@@ -7,18 +7,9 @@
   </div>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
+<script setup>
 import cherry from '@/authuser/assets/cherry.png'
+import { useActiveGroupPreviewService } from '@/groupInfo/services'
 
-export default {
-  computed: {
-    ...mapGetters({
-      group: 'groups/activePreview',
-    }),
-  },
-  created () {
-    this.cherry = cherry
-  },
-}
+const { group } = useActiveGroupPreviewService()
 </script>

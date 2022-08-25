@@ -1,6 +1,7 @@
-import axios from '@/base/api/axios'
-import authUser from '@/authuser/api/authUser'
 import * as Sentry from '@sentry/vue'
+
+import authUser from '@/authuser/api/authUser'
+import axios from '@/base/api/axios'
 
 let KEY, updateToken, clearToken
 

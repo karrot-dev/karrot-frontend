@@ -42,64 +42,48 @@
         </span>
       </div>
     </QCard>
+    <!-- TODO: I removed feedbackPossibleCount as we only have it in the status object per group, not per place -->
     <FeedbackList
-      :feedback="feedback"
-      :status="fetchStatus"
-      :can-fetch-past="canFetchPast"
-      :fetch-past="fetchPast"
-      :fetch-past-status="fetchPastStatus"
-      :feedback-possible="feedbackPossible"
-      :feedback-possible-status="feedbackPossibleStatus"
+      :feedback="feedbackList"
+      :is-loading="isLoading"
+      :has-next-page="hasNextPage"
+      :fetch-next-page="fetchNextPage"
+      :is-fetching-next-page="isFetchingNextPage"
       :highlight="highlight"
     />
   </div>
 </template>
 
-<script>
-import FeedbackList from '@/feedback/components/FeedbackList'
-import KSpinner from '@/utils/components/KSpinner'
-
+<script setup>
 import {
   QCard,
   QChip,
 } from 'quasar'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 
-import {
-  mapGetters,
-  mapActions,
-} from 'vuex'
+import { useFeedbackListQuery } from '@/feedback/queries'
+import { usePlaceStatisticsQuery } from '@/places/queries'
+import { useActivePlaceService } from '@/places/services'
 
-export default {
-  components: {
-    FeedbackList,
-    KSpinner,
-    QCard,
-    QChip,
-  },
-  computed: {
-    ...mapGetters({
-      place: 'places/activePlace',
-      feedback: 'feedback/byActivePlace',
-      fetchStatus: 'feedback/fetchStatus',
-      canFetchPast: 'feedback/canFetchPast',
-      fetchPastStatus: 'feedback/fetchPastStatus',
-      feedbackPossible: 'activities/feedbackPossibleByActivePlace',
-      feedbackPossibleStatus: 'activities/fetchFeedbackPossibleStatus',
-      routeQuery: 'route/query',
-    }),
-    statistics () {
-      return this.place && this.place.statistics
-    },
-    highlight () {
-      return parseInt(this.routeQuery.highlight)
-    },
-  },
-  methods: {
-    ...mapActions({
-      fetchPast: 'feedback/fetchPast',
-    }),
-  },
-}
+import FeedbackList from '@/feedback/components/FeedbackList'
+import KSpinner from '@/utils/components/KSpinner'
+
+const route = useRoute()
+const {
+  placeId,
+} = useActivePlaceService()
+const { statistics } = usePlaceStatisticsQuery({ placeId })
+
+const {
+  feedbackList,
+  isLoading,
+  hasNextPage,
+  fetchNextPage,
+  isFetchingNextPage,
+} = useFeedbackListQuery({ placeId })
+
+const highlight = computed(() => route.query.highlight && parseInt(route.query.highlight, 10))
 </script>
 
 <style scoped lang="sass">

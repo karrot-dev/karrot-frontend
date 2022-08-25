@@ -17,9 +17,8 @@
         </div>
         <SwitchGroupButton
           class="q-ml-md"
-          :user="{ isCurrentUser: true }"
+          :user="user"
           :groups="groups"
-          @select-group="(...args) => $emit('select-group', ...args)"
         />
       </div>
     </template>
@@ -63,8 +62,8 @@
           <QBtn
             color="primary"
             :label="$t('UNSUBSCRIBE.ALL')"
-            :loading="isPending"
-            @click="$emit('unsubscribe-all-emails', group.id)"
+            :loading="unsubscribeIsPending"
+            @click="unsubscribeAll(group.id)"
           />
           <div
             class="q-pt-sm k-caption-opacity"
@@ -73,11 +72,11 @@
           </div>
         </div>
         <div
-          v-if="hasAnyError"
+          v-if="unsubscribeHasAnyError"
           class="text-negative q-mt-md"
         >
           <i class="fas fa-exclamation-triangle" />
-          {{ anyFirstError }}
+          {{ unsubscribeAnyFirstError }}
         </div>
       </QList>
     </QCardSection>
@@ -95,9 +94,17 @@ import {
   QBtn,
   QSpinner,
 } from 'quasar'
-import SwitchGroupButton from '@/users/components/SwitchGroupButton'
-import statusMixin from '@/utils/mixins/statusMixin'
+import { computed } from 'vue'
+
+import { useUnsubscribeAllMutation } from '@/authuser/mutations'
+import { useAuthService } from '@/authuser/services'
+import { useChangeNotificationTypesMutation } from '@/group/mutations'
+import { useCurrentGroupService } from '@/group/services'
+import { useGroupInfoService } from '@/groupInfo/services'
+import { useStatusHelpers } from '@/utils/mixins/statusMixin'
+
 import KFormContainer from '@/base/components/KFormContainer'
+import SwitchGroupButton from '@/users/components/SwitchGroupButton'
 
 export default {
   name: 'GroupSettings',
@@ -113,27 +120,48 @@ export default {
     KFormContainer,
     SwitchGroupButton,
   },
-  mixins: [statusMixin],
-  props: {
-    group: {
-      type: Object,
-      default: null,
-    },
-    groups: {
-      type: Array,
-      default: null,
-    },
-    getNotificationTypeStatus: {
-      type: Function,
-      default: () => () => ({}),
-    },
+  setup () {
+    const { user } = useAuthService()
+    const {
+      groupId,
+      group,
+    } = useCurrentGroupService()
+    const { groups: allGroups } = useGroupInfoService()
+    const groups = computed(() => allGroups.value.filter(group => group.isMember))
+
+    const {
+      mutateAsync: changeNotificationType,
+    } = useChangeNotificationTypesMutation({ groupId })
+
+    const {
+      mutate: unsubscribeAll,
+      status: unsubscribeAllStatus,
+      reset: resetUnsubscribeAll,
+    } = useUnsubscribeAllMutation()
+
+    const {
+      hasAnyError: unsubscribeHasAnyError,
+      anyFirstError: unsubscribeAnyFirstError,
+      isPending: unsubscribeIsPending,
+    } = useStatusHelpers(unsubscribeAllStatus)
+
+    return {
+      group,
+      groups,
+      user,
+      changeNotificationType,
+      unsubscribeAll,
+      unsubscribeHasAnyError,
+      unsubscribeAnyFirstError,
+      unsubscribeIsPending,
+      resetUnsubscribeAll,
+    }
   },
-  emits: [
-    'select-group',
-    'unsubscribe-all-emails',
-    'clear-unsubscribe-all-status',
-    'change-notification-type',
-  ],
+  data () {
+    return {
+      notificationTypePending: {},
+    }
+  },
   computed: {
     availableNotificationTypes () {
       if (!this.group) return []
@@ -149,21 +177,26 @@ export default {
   watch: {
     group (val, oldval) {
       if (!val || !oldval || val.id !== oldval.id) {
-        this.$emit('clear-unsubscribe-all-status')
+        this.resetUnsubscribeAll()
       }
     },
   },
   methods: {
-    change (notificationType, enabled) {
-      this.$emit('change-notification-type', { notificationType, enabled })
+    async change (notificationType, enabled) {
+      try {
+        this.notificationTypePending[notificationType] = true
+        await this.changeNotificationType({ notificationType, enabled })
+      }
+      finally {
+        delete this.notificationTypePending[notificationType]
+      }
     },
     notificationIsEnabled (type) {
       if (!this.group) return
       return this.group.notificationTypes.includes(type)
     },
     notificationIsPending (type) {
-      const status = this.getNotificationTypeStatus(type)
-      return status && status.pending
+      return Boolean(this.notificationTypePending[type])
     },
   },
 }

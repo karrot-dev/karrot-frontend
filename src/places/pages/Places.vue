@@ -4,26 +4,21 @@
       class="white-background"
       :group-id="groupId"
       :places="places"
-      :archived="archived"
+      :archived="archivedPlaces"
     />
   </QCard>
 </template>
 
-<script>
-import PlaceList from '@/places/components/PlaceList'
-import { mapGetters } from 'vuex'
+<script setup>
 import { QCard } from 'quasar'
 
-export default {
-  components: {
-    PlaceList, QCard,
-  },
-  computed: {
-    ...mapGetters({
-      groupId: 'currentGroup/id',
-      places: 'places/byCurrentGroup',
-      archived: 'places/byCurrentGroupArchived',
-    }),
-  },
-}
+import { useCurrentGroupService } from '@/group/services'
+
+import PlaceList from '@/places/components/PlaceList'
+
+const {
+  groupId,
+  places,
+  archivedPlaces,
+} = useCurrentGroupService()
 </script>

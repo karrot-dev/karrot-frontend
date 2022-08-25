@@ -1,23 +1,11 @@
 <template>
-  <ApplicationFormUI
-    :group="$store.getters['groups/activePreview']"
-    :status="$store.getters['applications/applyStatus']"
-    @apply="data => $store.dispatch('applications/apply', data)"
-    @cancel="cancel"
-  />
+  <ApplicationFormUI :group="group" />
 </template>
 
-<script>
+<script setup>
+import { useActiveGroupPreviewService } from '@/groupInfo/services'
+
 import ApplicationFormUI from '@/applications/components/ApplicationFormUI'
 
-export default {
-  components: {
-    ApplicationFormUI,
-  },
-  methods: {
-    cancel: (groupId) => {
-      this.$router.push({ name: 'groupPreview', params: { groupId } }).catch(() => {})
-    },
-  },
-}
+const { group } = useActiveGroupPreviewService()
 </script>

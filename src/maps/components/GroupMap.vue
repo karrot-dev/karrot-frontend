@@ -35,13 +35,7 @@
     <GroupMapControls
       v-if="controls !== 'none'"
       :type="controls"
-      :show-users="showUsers"
-      :show-places="showPlaces"
-      :show-groups="showGroups"
-      :group-id="currentGroupId"
-      @toggle-users="$emit('toggle-users')"
-      @toggle-places="$emit('toggle-places')"
-      @toggle-groups="$emit('toggle-groups')"
+      :hide-groups-button="hideGroups"
       @export="exportMarkers"
     />
     <div
@@ -76,9 +70,6 @@
 </template>
 
 <script>
-
-import StandardMap from '@/maps/components/StandardMap'
-import GroupMapControls from '@/maps/components/GroupMapControls'
 import {
   QBtn,
   QList,
@@ -87,7 +78,17 @@ import {
   QItemLabel,
   QIcon,
 } from 'quasar'
+import { computed } from 'vue'
 
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useCurrentGroupService } from '@/group/services'
+import { useGroupInfoService } from '@/groupInfo/services'
+import { useMapToggles } from '@/maps/services'
+import { useActivePlaceService } from '@/places/services'
+import { useActiveUserService } from '@/users/services'
+
+import GroupMapControls from '@/maps/components/GroupMapControls'
+import StandardMap from '@/maps/components/StandardMap'
 import { groupMarker, placeMarker, userMarker } from '@/maps/components/markers'
 
 export default {
@@ -102,37 +103,66 @@ export default {
     GroupMapControls,
   },
   props: {
-    users: { required: true, type: Array },
-    places: { required: true, type: Array },
-    groups: { default: null, type: Array },
-    selectedPlace: { default: null, type: Object },
-    selectedUser: { default: null, type: Object },
-    showUsers: { default: false, type: Boolean },
-    showPlaces: { default: true, type: Boolean },
-    showGroups: { default: false, type: Boolean },
-    currentGroup: { type: Object, default: null },
-    isEditor: { type: Boolean, default: false },
     forceCenter: { type: Object, default: null },
     forceZoom: { type: Number, default: null },
     controls: { type: String, default: 'none' },
     height: { type: Number, default: null },
+    hideGroups: { type: Boolean, default: false },
   },
   emits: [
-    'toggle-users',
-    'toggle-places',
-    'toggle-groups',
     'map-move-end',
   ],
+  setup (props) {
+    const { getIsCurrentUser } = useAuthHelpers()
+    const {
+      group: currentGroup,
+      users,
+      places,
+      isEditor,
+    } = useCurrentGroupService()
+
+    const {
+      groups,
+    } = useGroupInfoService()
+
+    const {
+      place: selectedPlace,
+    } = useActivePlaceService()
+
+    const {
+      user: selectedUser,
+    } = useActiveUserService()
+
+    const {
+      showPlaces,
+      showUsers,
+      showGroups,
+    } = useMapToggles()
+
+    return {
+      showPlaces,
+      showUsers,
+      showGroups: computed(() => showGroups.value && !props.hideGroups),
+      selectedPlace,
+      selectedUser,
+      isEditor,
+      groups,
+      currentGroup,
+      users,
+      places,
+      getIsCurrentUser,
+    }
+  },
   computed: {
     showUserLocationPrompt () {
-      return this.selectedUser && this.selectedUser.isCurrentUser && !hasLocation(this.selectedUser)
+      return this.selectedUser && this.getIsCurrentUser(this.selectedUser) && !hasLocation(this.selectedUser)
     },
     showPlaceLocationPrompt () {
       return this.selectedPlace && !(this.placesWithLocation.findIndex(e => e.id === this.selectedPlace.id) >= 0)
     },
     showGroupLocationPrompt () {
       if (!this.currentGroup) return
-      return this.markers.length === 0 && !this.currentGroup.hasLocation
+      return this.markers.length === 0 && !hasLocation(this.currentGroup)
     },
     showOverlay () {
       if (this.selectedUser && hasLocation(this.selectedUser)) return false
@@ -159,7 +189,7 @@ export default {
       return this.users.filter(hasLocation)
     },
     activeGroupsWithLocation () {
-      return (this.groups && this.groups.filter(hasLocation).filter(g => !g.isInactive)) || []
+      return (this.groups && this.groups.filter(hasLocation).filter(group => group.status !== 'inactive')) || []
     },
     selectedMarkers () {
       if (this.selectedUser) {
@@ -200,7 +230,7 @@ export default {
       return items
     },
     currentGroupId () {
-      return this.currentGroup && this.currentGroup.id
+      return this.currentGroup?.id
     },
   },
   methods: {

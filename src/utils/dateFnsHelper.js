@@ -1,7 +1,8 @@
-import { reactive, watch } from 'vue'
 import formatDistance from 'date-fns/formatDistance'
 import formatDistanceStrict from 'date-fns/formatDistanceStrict'
 import en from 'date-fns/locale/en-US'
+import { reactive, watch } from 'vue'
+
 import { dateFnsLocale } from '@/locales/index'
 import reactiveNow from '@/utils/reactiveNow'
 

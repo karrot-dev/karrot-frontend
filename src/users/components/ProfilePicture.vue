@@ -46,6 +46,7 @@ export default {
   },
   props: {
     user: { default: null, type: Object },
+    membership: { default: null, type: Object },
     size: { default: 20, type: Number },
     isLink: { default: true, type: Boolean },
   },
@@ -54,7 +55,7 @@ export default {
       if (this.user.displayName === '?') {
         return this.$t('PROFILE.INACCESSIBLE_OR_DELETED')
       }
-      if (!this.user.membership || this.user.membership.isEditor) {
+      if (!this.membership || this.membership.roles.includes('editor')) {
         return this.user.displayName
       }
       const role = this.$t('USERDATA.NEWCOMER')

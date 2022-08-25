@@ -1,7 +1,8 @@
-import { reactive } from 'vue'
 import { Platform, throttle, dom } from 'quasar'
-const { height, width } = dom
+import { reactive } from 'vue'
+
 import { ready } from '@/utils/utils'
+const { height, width } = dom
 
 const getSize = () => height(window) + width(window)
 

@@ -8,8 +8,8 @@
  *
  */
 
-import { precacheAndRoute } from 'workbox-precaching'
 import { skipWaiting, clientsClaim } from 'workbox-core'
+import { precacheAndRoute } from 'workbox-precaching'
 
 // Ensures new workers replace old ones immediately, without waiting until the old one has unloaded
 skipWaiting()

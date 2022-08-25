@@ -1,33 +1,36 @@
 <template>
-  <QCard class="no-shadow grey-border">
+  <QCard
+    v-if="feedback"
+    class="no-shadow grey-border"
+  >
     <QCardSection class="q-pa-md">
       <div class="row no-wrap">
         <div class="content full-width">
           <div class="row no-wrap items-baseline q-gutter-sm">
             <template v-if="activityType">
               <QIcon
-                v-bind="activityType.iconProps"
+                v-bind="getIconProps(activityType)"
               />
-              <span>{{ activityType.translatedName }}</span>
+              <span>{{ getTranslatedName(activityType) }}</span>
             </template>
             <strong
               v-measure
               class="q-mr-sm"
               style="white-space: nowrap"
             >
-              {{ $d(activityDate, 'longWithDayName') }}
+              {{ $d(activity.date, 'longWithDayName') }}
             </strong>
             <RouterLink
-              v-if="placeName && placeId"
-              :to="{ name: 'placeFeedback', params: { placeId }}"
+              v-if="place"
+              :to="{ name: 'placeFeedback', params: { groupId: place.group, placeId: place.id }}"
               class="ellipsis text-secondary"
             >
-              {{ placeName }}
+              {{ place.name }}
             </RouterLink>
             <RouterLink
-              v-if="feedback.isEditable"
+              v-if="place && feedback.isEditable"
               class="edit-button"
-              :to="{ name: 'editFeedback', params: { feedbackId: feedback.id }}"
+              :to="{ name: 'editFeedback', params: { groupId: place.group, feedbackId: feedback.id }}"
             >
               <QIcon
                 name="fas fa-pencil-alt"
@@ -36,13 +39,13 @@
             </RouterLink>
           </div>
           <small class="text-weight-light">
-            <RouterLink :to="{ name: 'user', params: { userId } }">
-              {{ userName }}
+            <RouterLink :to="{ name: 'user', params: { userId: feedback.givenBy } }">
+              {{ givenBy?.userName }}
             </RouterLink>
             <span
               class="message-date q-ml-xs"
             >
-              <DateAsWords :date="createdAt" />
+              <DateAsWords :date="feedback.createdAt" />
             </span>
           </small>
           <div>
@@ -50,24 +53,24 @@
               v-if="hasWeight"
               class="on-right float-right amount-box"
               :size="80"
-              :amount="weight"
+              :amount="feedback.weight"
             />
             <div
-              v-if="comment"
+              v-if="feedback.comment"
               class="comment"
             >
-              <Markdown :source="comment" />
+              <Markdown :source="feedback.comment" />
             </div>
             <div class="q-mt-sm">
               <ProfilePicture
-                :user="feedback.givenBy"
+                :user="givenBy"
                 :size="22"
               />
               <span v-if="membersWithoutGiver.length > 0">
                 <ProfilePicture
                   v-for="member in membersWithoutGiver"
                   :key="member.id"
-                  user="member"
+                  :user="member"
                   :size="15"
                 />
               </span>
@@ -79,71 +82,51 @@
   </QCard>
 </template>
 
-<script>
+<script setup>
 import {
   QCard,
   QCardSection,
   QIcon,
 } from 'quasar'
-import AmountBox from './AmountBox'
+import { toRefs, computed } from 'vue'
+
+import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityTypeService } from '@/activities/services'
+import { usePlaceService } from '@/places/services'
+import { useUserService } from '@/users/services'
+
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
 import Markdown from '@/utils/components/Markdown'
 
-export default {
-  components: {
-    QCard,
-    QCardSection,
-    QIcon,
-    AmountBox,
-    ProfilePicture,
-    DateAsWords,
-    Markdown,
+import AmountBox from './AmountBox'
+
+const props = defineProps({
+  feedback: {
+    type: Object,
+    required: true,
   },
-  props: {
-    feedback: { required: true, type: Object },
-  },
-  computed: {
-    membersWithoutGiver () {
-      const { activity: { participants = [] } = {} } = this.feedback
-      return participants.filter((el) => {
-        return el.id !== this.feedback.givenBy.id
-      })
-    },
-    weight () {
-      return this.feedback && this.feedback.weight
-    },
-    hasWeight () {
-      return Number.isFinite(this.weight)
-    },
-    comment () {
-      return this.feedback && this.feedback.comment
-    },
-    createdAt () {
-      return this.feedback && this.feedback.createdAt
-    },
-    placeName () {
-      const { about: { place: { name } = {} } = {} } = this.feedback
-      return name
-    },
-    placeId () {
-      const { about: { place: { id } = {} } = {} } = this.feedback
-      return id
-    },
-    userName () {
-      return (this.feedback && this.feedback.givenBy && this.feedback.givenBy.displayName) || '?'
-    },
-    userId () {
-      return this.feedback && this.feedback.givenBy && this.feedback.givenBy.id
-    },
-    activityDate () {
-      return this.feedback && this.feedback.about && this.feedback.about.date
-    },
-    activityType () {
-      return this.feedback && this.feedback.about && this.feedback.about.activityType
-    },
-  },
-}
+})
+
+const { feedback } = toRefs(props)
+
+const { getUserById } = useUserService()
+const { getPlaceById } = usePlaceService()
+const { getActivityTypeById } = useActivityTypeService()
+const {
+  getTranslatedName,
+  getIconProps,
+} = useActivityTypeHelpers()
+
+const activity = computed(() => feedback.value.about)
+const activityType = computed(() => getActivityTypeById(activity.value.activityType))
+const place = computed(() => getPlaceById(activity.value.place))
+
+const givenBy = computed(() => getUserById(feedback.value.givenBy))
+
+const membersWithoutGiver = computed(() => activity.value.participants.filter(userId => userId !== feedback.value.givenBy).map(getUserById))
+
+const hasWeight = computed(() => Number.isFinite(feedback.value?.weight))
 </script>
 
 <style scoped lang="sass">

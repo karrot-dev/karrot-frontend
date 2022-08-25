@@ -1,4 +1,15 @@
+import { mount, RouterLinkStub } from '@vue/test-utils'
+import glob from 'glob'
+import lolex from 'lolex'
+import { Quasar } from 'quasar'
 import { VueQueryPlugin } from 'vue-query'
+import { renderToString } from 'vue/server-renderer'
+
+import i18n, { i18nPlugin } from '@/base/i18n'
+import icons from '@/base/icons'
+
+import quasarConfig from '>/quasarConfig'
+import '>/routerMocks'
 
 /** Storybook has some unwanted side effects and we actually don't need it to test the stories
  * Therefore, we mimick the Storybook API to get the components and then run the snapshot tests
@@ -20,16 +31,6 @@ jest.mock('@storybook/vue3', () => ({
     return api
   },
 }))
-
-import glob from 'glob'
-import lolex from 'lolex'
-import { renderToString } from 'vue/server-renderer'
-import { Quasar } from 'quasar'
-import i18n, { i18nPlugin } from '@/base/i18n'
-import quasarConfig from '>/quasarConfig'
-import { mount, RouterLinkStub } from '@vue/test-utils'
-import routerMocks from '>/routerMocks'
-import icons from '@/base/icons'
 
 i18n.locale = 'en'
 
@@ -80,7 +81,7 @@ for (const f of files) {
 }
 
 for (const group of mockStories) {
-  describe('Storyshots', () => {
+  describe.skip('Storyshots', () => {
     describe(group.kind, () => {
       for (const story of group.stories) {
         it(story.name, async () => {
@@ -113,7 +114,6 @@ for (const group of mockStories) {
               },
               mocks: {
                 $icon: icons.get,
-                ...routerMocks,
               },
             },
           })

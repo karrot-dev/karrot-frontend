@@ -1,6 +1,6 @@
-import { groupMarker } from './components/markers'
 import { makeGroup } from '>/enrichedFactories'
 
+import { groupMarker } from './components/markers'
 import { markersAsGPX } from './export'
 
 describe('map export', () => {

@@ -5,7 +5,7 @@
   >
     <QToolbar
       class="text-white"
-      :class="activity && activity.activityType ? `bg-${activity.activityType.colorName}` : 'bg-secondary'"
+      :class="activityType ? `bg-${getColorName(activityType)}` : 'bg-secondary'"
     >
       <QToolbarTitle
         v-if="activity"
@@ -13,23 +13,23 @@
       >
         <div>
           <span
-            v-if="!$q.platform.is.mobile && activity.activityType"
+            v-if="!$q.platform.is.mobile && activityType"
           >
             <QIcon
-              v-bind="activity.activityType.iconProps"
+              v-bind="activityTypeIconProps"
               color="white"
               size="xs"
               class="q-pr-sm"
-            />{{ activity.activityType.translatedName }} </span>
+            />{{ activityTypeIconProps.title }}&nbsp;</span>
           <strong>
             {{ $d(activity.date, 'weekdayHourMinute') }}
             <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>
           </strong>
         </div>
         <div class="text-caption">
-          <strong v-if="activity.place">
-            <RouterLink :to="{ name: 'place', params: { groupId: activity.group.id, placeId: activity.place.id }}">
-              {{ activity.place.name }}
+          <strong v-if="place">
+            <RouterLink :to="{ name: 'place', params: { groupId: place.group, placeId: activity.place }}">
+              {{ place.name }}
             </RouterLink>
           </strong>
           {{ $d(activity.date, 'yearMonthDay') }}
@@ -52,7 +52,7 @@
       </template>
       <template v-else-if="application">
         <ProfilePicture
-          v-if="!application.user.isCurrentUser"
+          v-if="!getIsCurrentUser(application.user)"
           :user="application.user"
           :size="$q.platform.is.mobile ? 25 : 40"
         />
@@ -65,17 +65,17 @@
               <QIcon
                 v-if="application.status === 'accepted'"
                 name="fas fa-fw fa-check"
-                :title="$t('GROUP.ADDED_BY', { userName: application.decidedBy.displayName })"
+                :title="$t('GROUP.ADDED_BY', { userName: getUserById(application.decidedBy).displayName })"
               />
               <QIcon
                 v-else-if="application.status === 'pending'"
                 name="fas fa-fw fa-hourglass-half"
-                :title="application.user.isCurrentUser && $t('JOINGROUP.APPLICATION_PENDING')"
+                :title="getIsCurrentUser(application.user) && $t('JOINGROUP.APPLICATION_PENDING')"
               />
               <QIcon
                 v-else-if="application.status === 'declined'"
                 name="fas fa-fw fa-times"
-                :title="$t('GROUP.DECLINED_BY', { userName: application.decidedBy.displayName })"
+                :title="$t('GROUP.DECLINED_BY', { userName: getUserById(application.decidedBy).displayName })"
               />
               <QIcon
                 v-else-if="application.status === 'withdrawn'"
@@ -86,7 +86,7 @@
           </div>
           <div class="text-caption">
             <span>
-              {{ application.user.isCurrentUser ? application.group.name : application.user.displayName }}
+              {{ getIsCurrentUser(application.user) ? getGroupById(application.group).name : application.user.displayName }}
             </span>
           </div>
         </QToolbarTitle>
@@ -101,7 +101,7 @@
       <NotificationToggle
         v-if="isThread ? muted !== null : true"
         :muted="muted"
-        :is-participant="isThread ? true : conversation.isParticipant"
+        :is-participant="isThread ? true : isParticipant"
         :can-unsubscribe="!isThread && !isPrivate"
         :user="currentUser"
         in-toolbar
@@ -115,7 +115,7 @@
         dense
         icon="close"
         :title="$t('BUTTON.CLOSE')"
-        @click="$emit('close')"
+        @click="close()"
       />
     </QToolbar>
     <div
@@ -136,10 +136,6 @@
 </template>
 
 <script>
-import ProfilePicture from '@/users/components/ProfilePicture'
-import NotificationToggle from '@/messages/components/NotificationToggle'
-import dateFnsHelper from '@/utils/dateFnsHelper'
-
 import {
   Dialog,
   QBtn,
@@ -147,6 +143,21 @@ import {
   QToolbarTitle,
   QIcon,
 } from 'quasar'
+import { toRefs, computed } from 'vue'
+
+import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityTypeService } from '@/activities/services'
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useGroupInfoService } from '@/groupInfo/services'
+import { useConversationHelpers } from '@/messages/helpers'
+import { useSaveConversationMutation, useSaveThreadMutedMutation } from '@/messages/mutations'
+import { useDetailService } from '@/messages/services'
+import { usePlaceService } from '@/places/services'
+import { useUserService } from '@/users/services'
+import dateFnsHelper from '@/utils/dateFnsHelper'
+
+import NotificationToggle from '@/messages/components/NotificationToggle'
+import ProfilePicture from '@/users/components/ProfilePicture'
 
 export default {
   components: {
@@ -179,10 +190,51 @@ export default {
       default: null,
     },
   },
-  emits: [
-    'close',
-    'save-conversation',
-  ],
+  setup (props) {
+    const {
+      conversation,
+      activity,
+    } = toRefs(props)
+
+    const { getUserById } = useUserService()
+    const { getPlaceById } = usePlaceService()
+    const { getActivityTypeById } = useActivityTypeService()
+    const { close } = useDetailService()
+    const { getIsParticipant } = useConversationHelpers()
+    const { getIsCurrentUser } = useAuthHelpers()
+    const { getGroupById } = useGroupInfoService()
+    const { mutate: saveConversation } = useSaveConversationMutation()
+    const { mutate: saveThreadMuted } = useSaveThreadMutedMutation()
+
+    const {
+      getColorName,
+      getIconProps,
+    } = useActivityTypeHelpers()
+
+    const isParticipant = computed(() => getIsParticipant(conversation.value))
+
+    const place = computed(() => getPlaceById(activity.value?.place))
+    const activityType = computed(() => getActivityTypeById(activity.value?.activityType))
+    const activityTypeIconProps = computed(() => activityType.value && getIconProps(activityType.value))
+
+    return {
+      isParticipant,
+
+      place,
+      activityType,
+      activityTypeIconProps,
+
+      getIsCurrentUser,
+      getGroupById,
+      getColorName,
+      getUserById,
+      getPlaceById,
+
+      saveConversation,
+      saveThreadMuted,
+      close,
+    }
+  },
   computed: {
     isThread () {
       return Boolean(this.conversation.thread && this.conversation.id === this.conversation.thread)
@@ -192,29 +244,29 @@ export default {
     },
     muted () {
       if (this.conversation.thread && this.conversation.threadMeta) {
-        return this.conversation.threadMeta.muted
+        return this.conversation.threadMeta.muted ?? null
       }
-      if (typeof this.conversation.muted !== 'undefined') {
-        return this.conversation.muted
+      if (this.conversation.notifications === 'muted') {
+        return true
       }
       return null
     },
     participants () {
       if (this.activity) {
-        return this.activity.participants
+        return this.activity.participants.map(this.getUserById)
       }
       if (this.conversation.thread && this.conversation.threadMeta) {
-        return this.conversation.threadMeta.participants
+        return this.conversation.threadMeta.participants.map(this.getUserById)
       }
-      return this.conversation.participants
+      return this.conversation.participants.map(this.getUserById)
     },
     applicationLink () {
       if (!this.application) return
-      if (this.application.user.isCurrentUser) {
+      if (this.getIsCurrentUser(this.application.user)) {
         return {
           name: 'groupPreview',
           params: {
-            groupPreviewId: this.application.group.id,
+            groupPreviewId: this.application.group,
           },
         }
       }
@@ -222,32 +274,39 @@ export default {
         return {
           name: 'applications',
           params: {
-            groupId: this.application.group.id,
+            groupId: this.application.group,
           },
         }
       }
     },
     conversationPartner () {
-      return this.conversation && this.conversation.participants && this.conversation.participants.find(e => !e.isCurrentUser)
+      return this.participants.find(user => user.id !== this.currentUser.id)
     },
   },
   methods: {
     setNotifications (value) {
-      const data = (this.conversation.thread && this.conversation.threadMeta)
-        ? {
+      if (this.conversation.thread && this.conversation.threadMeta) {
+        try {
+          this.saveThreadMuted({
             threadId: this.conversation.thread,
-            value,
-          }
-        : {
-            conversationId: this.conversation.id,
-            value,
-          }
-      this.$emit('save-conversation', data)
+            muted: value.notifications !== 'all',
+          })
+        }
+        catch (error) {
+          console.error(error)
+        }
+      }
+      else {
+        this.saveConversation({
+          id: this.conversation.id,
+          value,
+        })
+      }
     },
     applicationInfo () {
       Dialog.create({
         title: this.$t('APPLICATION.WHAT'),
-        message: this.$t('APPLICATION.HELP', { groupName: this.application.group.name, userName: this.application.user.displayName }),
+        message: this.$t('APPLICATION.HELP', { groupName: this.getGroupById(this.application.group).name, userName: this.application.user.displayName }),
         ok: this.$t('BUTTON.BACK'),
       })
     },

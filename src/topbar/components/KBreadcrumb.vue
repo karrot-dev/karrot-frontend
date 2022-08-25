@@ -30,12 +30,12 @@
       <div> <i class="fas fa-fw fa-angle-right" /> </div>
     </div>
     <div
-      v-if="secondlastElement"
+      v-if="secondLastElement"
       class="xs"
     >
       <RouterLink
-        v-if="secondlastElement.route"
-        :to="secondlastElement.route"
+        v-if="secondLastElement.route"
+        :to="secondLastElement.route"
       >
         <div style="min-width: 20px; padding: 4px; text-align: right">
           <i class="fas fa-fw fa-angle-left" />
@@ -51,60 +51,25 @@
       </div>
     </div>
     <div
-      v-if="secondlastElement"
+      v-if="secondLastElement"
       class="xs"
       style="min-width: 20px"
     />
   </div>
 </template>
 
-<script>
+<script setup>
 import { QBtn } from 'quasar'
-import { useCurrentOfferQuery } from '@/offers/queries'
+import { computed } from 'vue'
 
-export default {
-  components: { QBtn },
-  props: {
-    breadcrumbs: {
-      type: Array,
-      required: true,
-    },
-  },
-  setup () {
-    const { offer } = useCurrentOfferQuery()
-    return {
-      offer,
-    }
-  },
-  computed: {
-    elements () {
-      return this.breadcrumbs.map(breadcrumb => {
-        if (breadcrumb.type === 'activeOffer') {
-          if (this.offer) {
-            if (this.offer) {
-              return {
-                name: this.offer.name,
-              }
-            }
-          }
-        }
-        return breadcrumb
-      })
-    },
-    hasBreadcrumbs () {
-      return this.elements && this.elements.length > 0
-    },
-    prevElements () {
-      return this.elements.slice(0, this.elements.length - 1)
-    },
-    secondlastElement () {
-      return this.elements[this.elements.length - 2]
-    },
-    lastElement () {
-      return this.elements[this.elements.length - 1]
-    },
-  },
-}
+import { useBreadcrumbs } from '@/topbar/services'
+
+const breadcrumbs = useBreadcrumbs()
+
+const hasBreadcrumbs = computed(() => breadcrumbs.value.length > 0)
+const prevElements = computed(() => breadcrumbs.value.slice(0, breadcrumbs.value.length - 1))
+const secondLastElement = computed(() => breadcrumbs.value[breadcrumbs.value.length - 2])
+const lastElement = computed(() => breadcrumbs.value[breadcrumbs.value.length - 1])
 </script>
 
 <style scoped lang="sass">

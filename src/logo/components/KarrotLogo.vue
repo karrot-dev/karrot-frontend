@@ -1,35 +1,28 @@
 <template>
   <img
     :src="logo"
-    :class="{ loading: isLoading }"
+    :class="{ loading: isFetching }"
     :alt="$t('GLOBAL.LOGO_ALT')"
   >
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
-import logo from '@/logo/assets/carrot-logo.svg'
+<script setup>
+import { computed } from 'vue'
+import { useIsFetching } from 'vue-query'
 
-export default {
-  props: {
-    showLoading: {
-      type: Boolean,
-      default: false,
-    },
+import carrotLogo from '@/logo/assets/carrot-logo.svg'
+
+const logo = process.env.KARROT.THEME === 'dev' ? 'icons/dev.svg' : carrotLogo
+
+const props = defineProps({
+  showLoading: {
+    type: Boolean,
+    default: false,
   },
-  computed: {
-    isLoading () {
-      return this.showLoading && (this.loading || this.closing)
-    },
-    ...mapGetters({
-      loading: 'loadingprogress/active',
-      closing: 'loadingprogress/closing',
-    }),
-  },
-  created () {
-    this.logo = process.env.KARROT.THEME === 'dev' ? 'icons/dev.svg' : logo
-  },
-}
+})
+
+const activeQueryCount = useIsFetching()
+const isFetching = computed(() => props.showLoading && activeQueryCount.value > 0)
 </script>
 
 <style scoped lang="sass">

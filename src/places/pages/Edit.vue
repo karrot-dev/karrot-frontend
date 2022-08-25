@@ -1,24 +1,29 @@
 <template>
   <PlaceEdit
-    :value="$store.getters['places/activePlace']"
-    :all-places="$store.getters['places/byCurrentGroup']"
+    :value="place"
+    :all-places="places"
     :status="status"
-    @save="data => $store.dispatch('places/save', data)"
+    @save="place => save(place)"
   />
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue'
+
+import { useCurrentGroupService } from '@/group/services'
+import { useSavePlaceMutation } from '@/places/mutations'
+import { useActivePlaceService, usePlaceService } from '@/places/services'
+
 import PlaceEdit from '@/places/components/PlaceEdit'
 
-export default {
-  components: {
-    PlaceEdit,
-  },
-  computed: {
-    status () {
-      const active = this.$store.getters['places/activePlace']
-      return active && active.saveStatus
-    },
-  },
-}
+const { groupId } = useCurrentGroupService()
+const { getPlacesByGroup } = usePlaceService()
+const { place } = useActivePlaceService()
+
+const places = computed(() => getPlacesByGroup(groupId.value))
+
+const {
+  mutate: save,
+  status,
+} = useSavePlaceMutation()
 </script>

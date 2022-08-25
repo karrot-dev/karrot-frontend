@@ -2,13 +2,10 @@
   <div class="bg-white">
     <QList bordered>
       <ApplicationItem
-        v-for="a in pending"
+        v-for="a in pendingApplications"
         :key="a.id"
         v-measure
         :application="a"
-        @accept="(...args) => $emit('accept', ...args)"
-        @decline="(...args) => $emit('decline', ...args)"
-        @open-chat="(...args) => $emit('open-chat', ...args)"
       />
       <QSeparator />
       <QExpansionItem
@@ -24,7 +21,6 @@
             v-for="a in otherApplications"
             :key="a.id"
             :application="a"
-            @open-chat="(...args) => $emit('open-chat', ...args)"
           />
         </template>
       </QExpansionItem>
@@ -34,7 +30,7 @@
       >
         <QBtn
           size="sm"
-          :loading="fetchPastStatus.pending"
+          :loading="isLoading"
           @click="fetchPast"
         >
           {{ $t('BUTTON.SHOW_MORE') }}
@@ -45,8 +41,6 @@
 </template>
 
 <script>
-import ApplicationItem from './ApplicationItem'
-import paginationMixin from '@/utils/mixins/paginationMixin'
 import {
   QExpansionItem,
   QSeparator,
@@ -54,6 +48,10 @@ import {
   QItem,
   QBtn,
 } from 'quasar'
+
+import paginationMixin from '@/utils/mixins/paginationMixin'
+
+import ApplicationItem from './ApplicationItem'
 
 export default {
   components: {
@@ -66,7 +64,11 @@ export default {
   },
   mixins: [paginationMixin],
   props: {
-    pending: {
+    isLoading: {
+      type: Boolean,
+      default: false,
+    },
+    pendingApplications: {
       type: Array,
       default: null,
     },
@@ -75,11 +77,6 @@ export default {
       default: null,
     },
   },
-  emits: [
-    'accept',
-    'decline',
-    'open-chat',
-  ],
   data () {
     return {
       showOthers: false,

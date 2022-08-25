@@ -1,11 +1,12 @@
-import { h } from 'vue'
-import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
-
-import ChangePhoto from './ChangePhoto'
-import { statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
 
 import logo from '@/../public/statics/carrot_logo.png'
+
+import { statusMocks, storybookDefaults as defaults } from '>/helpers'
+
+import ChangePhoto from './ChangePhoto'
 
 const on = {
   onSave: action('save'),

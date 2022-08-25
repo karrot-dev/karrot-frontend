@@ -41,7 +41,10 @@ import {
   QMenu,
 } from 'quasar'
 import { defineAsyncComponent } from 'vue'
-import { mapGetters, mapActions } from 'vuex'
+
+import { useStatusService } from '@/status/services'
+
+import { useMarkSeenMutation } from '../mutations'
 
 const Notifications = defineAsyncComponent(() => import('@/notifications/components/Notifications'))
 
@@ -56,23 +59,20 @@ export default {
   emits: [
     'click',
   ],
+  setup () {
+    const { unseenNotificationCount } = useStatusService()
+    const {
+      mutate: markSeen,
+    } = useMarkSeenMutation()
+    return { unseenCount: unseenNotificationCount, markSeen }
+  },
   data () {
     return {
       showing: false,
     }
   },
-  computed: {
-    ...mapGetters({
-      unseenCount: 'status/unseenNotificationCount',
-    }),
-  },
   methods: {
-    ...mapActions({
-      fetchInitial: 'notifications/fetchInitial',
-      markSeen: 'notifications/markSeen',
-    }),
     async maybeOpen () {
-      await this.fetchInitial()
       if (!this.$q.platform.is.mobile) {
         this.showing = !this.showing
         this.markSeen()

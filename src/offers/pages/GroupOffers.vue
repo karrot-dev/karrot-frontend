@@ -78,7 +78,8 @@
               <QItem clickable>
                 <QItemSection avatar>
                   <ProfilePicture
-                    :user="getUserRef(offer.user).value"
+                    :user="getUserById(offer.user)"
+                    :membership="getMembership(offer.user)"
                     :size="36"
                   />
                 </QItemSection>
@@ -103,11 +104,6 @@
 </template>
 
 <script setup>
-// For some reason need *some* vue import or get this error:
-//   ReferenceError: _vue is not defined
-// eslint-disable-next-line no-unused-vars
-import { ref } from 'vue'
-
 import {
   QIcon,
   QSelect,
@@ -118,18 +114,20 @@ import {
   QImg,
   QInfiniteScroll,
 } from 'quasar'
+// TODO: fix whatever means I have to import this
+// eslint-disable-next-line no-unused-vars
+import Vue from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
+
+import { useCurrentGroupService } from '@/group/services'
+import { DEFAULT_STATUS, useOfferListQuery } from '@/offers/queries'
+import { useUserService } from '@/users/services'
+import { useQueryParams } from '@/utils/mixins/bindRoute'
 
 import ProfilePicture from '@/users/components/ProfilePicture'
-import KSpinner from '@/utils/components/KSpinner'
 import DateAsWords from '@/utils/components/DateAsWords'
-
-import { DEFAULT_STATUS, useOffersQuery } from '@/offers/queries'
-
-import { useRouteParam } from '@/utils/mixins/bindRoute'
-import { useRoute } from 'vue-router'
-import { useI18n } from 'vue-i18n'
-import { useUsers } from '@/users/queries'
-import { useCurrentGroupIdRef } from '@/group/queries'
+import KSpinner from '@/utils/components/KSpinner'
 
 const { t } = useI18n()
 
@@ -144,10 +142,13 @@ const statusOptions = [
   },
 ]
 
-const group = useCurrentGroupIdRef()
-const status = useRouteParam('status', DEFAULT_STATUS)
+const { groupId, getMembership } = useCurrentGroupService()
 
-const { getUserRef } = useUsers()
+const { getUserById } = useUserService()
+
+const { status } = useQueryParams({
+  status: DEFAULT_STATUS,
+})
 
 const {
   isLoading,
@@ -155,7 +156,7 @@ const {
   hasNextPage,
   fetchNextPage,
   offers,
-} = useOffersQuery({ group, status })
+} = useOfferListQuery({ groupId, status })
 
 async function maybeFetchMore (index, done) {
   if (!isFetching.value && hasNextPage.value) await fetchNextPage()

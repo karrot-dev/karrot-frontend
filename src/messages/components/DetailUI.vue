@@ -1,20 +1,17 @@
 <template>
   <div class="Detail">
-    <KSpinner v-show="isPending" />
+    <KSpinner v-show="pending" />
     <ChatConversation
-      v-if="conversation"
-      :conversation="conversationWithMaybeReversedMessages"
+      v-if="conversation && !pending"
+      :conversation="conversation"
+      :messages="messages"
       :away="away"
-      :current-user="currentUser"
-      :start-at-bottom="Boolean(user) || Boolean(activity)"
+      :pending="pending"
       :inline="inline"
+      :has-next-page="hasNextPage"
+      :is-fetching-next-page="isFetchingNextPage"
+      :fetch-next-page="fetchNextPage"
       compose
-      @send="(...args) => $emit('send', ...args)"
-      @mark="(...args) => $emit('mark', ...args)"
-      @toggle-reaction="(...args) => $emit('toggle-reaction', ...args)"
-      @save-message="(...args) => $emit('save-message', ...args)"
-      @fetch-past="(...args) => $emit('fetch-past', ...args)"
-      @fetch-future="$emit('fetch-future')"
     >
       <template #before-chat-messages>
         <QExpansionItem
@@ -26,7 +23,7 @@
         >
           <div class="q-pb-sm bg-grey-2">
             <div class="q-ma-sm q-pa-sm bg-white">
-              <span class="text-bold text-secondary text-uppercase">{{ application.group.name }}</span>
+              <span class="text-bold text-uppercase">{{ getGroupById(application.group).name }}</span>
               <span class="message-date">
                 <small class="text-weight-light">
                   <DateAsWords :date="application.createdAt" />
@@ -35,7 +32,9 @@
               <Markdown :source="application.questions" />
             </div>
             <div class="q-ma-sm q-pa-sm bg-white">
-              <span class="text-bold text-secondary text-uppercase">{{ application.user.displayName }}</span>
+              <RouterLink :to="{ name: 'user', params: { userId: application.user.id } }">
+                <span class="text-bold text-secondary text-uppercase">{{ application.user.displayName }}</span>
+              </RouterLink>
               <span class="message-date">
                 <small class="text-weight-light">
                   <DateAsWords :date="application.createdAt" />
@@ -47,7 +46,7 @@
         </QExpansionItem>
       </template>
       <template
-        v-if="application && application.canDecide"
+        v-if="application && canDecideApplication"
         #before-chat-compose
       >
         <QBtnGroup
@@ -60,7 +59,7 @@
             icon="fas fa-fw fa-check"
             color="positive"
             class="q-pa-sm"
-            @click="applicationAccept(application)"
+            @click="applicationAcceptDialog(application)"
           >
             {{ $t('BUTTON.ACCEPT') }}
           </QBtn>
@@ -69,7 +68,7 @@
             icon="fas fa-fw fa-times"
             color="negative"
             class="q-pa-sm"
-            @click="applicationDecline(application)"
+            @click="applicationDeclineDialog(application)"
           >
             {{ $t('BUTTON.DECLINE') }}
           </QBtn>
@@ -94,11 +93,6 @@
 </template>
 
 <script>
-import ChatConversation from '@/messages/components/ChatConversation'
-import Markdown from '@/utils/components/Markdown'
-import DateAsWords from '@/utils/components/DateAsWords'
-import KSpinner from '@/utils/components/KSpinner'
-
 import {
   QExpansionItem,
   QList,
@@ -109,6 +103,21 @@ import {
   QBtnGroup,
   Dialog,
 } from 'quasar'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useQueryClient } from 'vue-query'
+
+import { useAcceptApplicationMutation, useDeclineApplicationMutation } from '@/applications/mutations'
+import { useCurrentGroupService } from '@/group/services'
+import { useGroupInfoService } from '@/groupInfo/services'
+import { showToast } from '@/utils/toasts'
+
+import ChatConversation from '@/messages/components/ChatConversation'
+import DateAsWords from '@/utils/components/DateAsWords'
+import KSpinner from '@/utils/components/KSpinner'
+import Markdown from '@/utils/components/Markdown'
+
+import { useDetailService } from '../services'
 
 export default {
   components: {
@@ -145,59 +154,92 @@ export default {
       type: Object,
       default: null,
     },
+    messages: {
+      type: Array,
+      default: null,
+    },
+    pending: {
+      type: Boolean,
+      default: false,
+    },
     away: {
       type: Boolean,
       default: false,
     },
-    currentUser: {
-      type: Object,
-      default: null,
+    hasNextPage: {
+      type: Boolean,
+      default: false,
+    },
+    isFetchingNextPage: {
+      type: Boolean,
+      default: false,
+    },
+    fetchNextPage: {
+      type: Function,
+      default: () => {},
     },
   },
   emits: [
-    'send',
     'mark',
-    'toggle-reaction',
-    'save-message',
-    'fetch-past',
-    'fetch-future',
-    'application-accept',
-    'application-decline',
+    'fetch-next',
   ],
-  computed: {
-    isPending () {
-      if (!this.conversation) return false
-      return this.conversation.fetchStatus.pending
-    },
-    conversationWithMaybeReversedMessages () {
-      if (!this.conversation) return
-      // TODO reverse message on server
-      const messages = this.conversation.thread ? this.conversation.messages : this.conversation.messages.slice().reverse()
-      return {
-        ...this.conversation,
-        messages,
-      }
-    },
-  },
-  methods: {
-    applicationAccept (application) {
+  setup () {
+    const {
+      mutate: acceptApplication,
+    } = useAcceptApplicationMutation()
+    const {
+      mutate: declineApplication,
+    } = useDeclineApplicationMutation()
+    const queryClient = useQueryClient()
+    const { t } = useI18n()
+    const { getGroupById } = useGroupInfoService()
+
+    const { groupId: currentGroupId, isEditor } = useCurrentGroupService()
+    const { application } = useDetailService()
+    const canDecideApplication = computed(() => application.value.status === 'pending' && application.value.group === currentGroupId.value && isEditor.value)
+
+    function applicationAcceptDialog (application) {
       Dialog.create({
-        title: this.$t('APPLICATION.ACCEPT_CONFIRMATION_HEADER'),
-        message: this.$t('APPLICATION.ACCEPT_CONFIRMATION_TEXT', { userName: application.user.displayName }),
-        ok: this.$t('BUTTON.YES'),
-        cancel: this.$t('BUTTON.CANCEL'),
+        title: t('APPLICATION.ACCEPT_CONFIRMATION_HEADER'),
+        message: t('APPLICATION.ACCEPT_CONFIRMATION_TEXT', { userName: application.user.displayName }),
+        ok: t('BUTTON.YES'),
+        cancel: t('BUTTON.CANCEL'),
       })
-        .onOk(() => this.$emit('application-accept', application.id))
-    },
-    applicationDecline (application) {
+        .onOk(() => acceptApplication(application.id, {
+          onSuccess () {
+            showToast({
+              message: 'APPLICATION.ACCEPTED',
+              messageParams: { userName: application.user.displayName },
+            })
+            queryClient.invalidateQueries(['applications'])
+          },
+        }))
+    }
+    function applicationDeclineDialog (application) {
       Dialog.create({
-        title: this.$t('APPLICATION.DECLINE_CONFIRMATION_HEADER'),
-        message: this.$t('APPLICATION.DECLINE_CONFIRMATION_TEXT', { userName: application.user.displayName }),
-        ok: this.$t('BUTTON.YES'),
-        cancel: this.$t('BUTTON.CANCEL'),
+        title: t('APPLICATION.DECLINE_CONFIRMATION_HEADER'),
+        message: t('APPLICATION.DECLINE_CONFIRMATION_TEXT', { userName: application.user.displayName }),
+        ok: t('BUTTON.YES'),
+        cancel: t('BUTTON.CANCEL'),
       })
-        .onOk(() => this.$emit('application-decline', application.id))
-    },
+        .onOk(() => declineApplication(application.id, {
+          onSuccess () {
+            showToast({
+              message: 'APPLICATION.DECLINED',
+              messageParams: { userName: application.user.displayName },
+            })
+            queryClient.invalidateQueries(['applications'])
+          },
+        }))
+    }
+
+    return {
+      getGroupById,
+      applicationAcceptDialog,
+      applicationDeclineDialog,
+      canDecideApplication,
+      queryClient,
+    }
   },
 }
 </script>

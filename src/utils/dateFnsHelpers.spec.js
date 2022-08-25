@@ -1,5 +1,6 @@
-import { sleep } from '>/helpers'
 import lolex from 'lolex'
+
+import { sleep } from '>/helpers'
 
 describe('dateFnsHelper', () => {
   const now = new Date('2017-08-12T12:00:00Z')

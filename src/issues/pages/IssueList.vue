@@ -1,18 +1,28 @@
 <template>
   <IssueListUI
-    :ongoing-issues="$store.getters['issues/ongoing']"
-    :past-issues="$store.getters['issues/past']"
-    :status="$store.getters['issues/fetchByGroupIdStatus']"
-    @clear-detail="data => $store.dispatch('detail/clear', data)"
+    :ongoing-issues="ongoingIssues"
+    :past-issues="pastIssues"
+    :is-pending="isLoadingOngoingIssues || isLoadingPastIssues"
   />
 </template>
 
-<script>
+<script setup>
+import { useCurrentGroupService } from '@/group/services'
+import { useIssueListQuery } from '@/issues/queries'
+
 import IssueListUI from '@/issues/components/IssueListUI'
 
-export default {
-  components: {
-    IssueListUI,
-  },
-}
+const {
+  groupId,
+} = useCurrentGroupService()
+
+const {
+  issues: ongoingIssues,
+  isLoading: isLoadingOngoingIssues,
+} = useIssueListQuery({ groupId, status: 'ongoing' })
+
+const {
+  issues: pastIssues,
+  isLoading: isLoadingPastIssues,
+} = useIssueListQuery({ groupId, status: ['decided', 'cancelled'] })
 </script>

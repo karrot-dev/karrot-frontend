@@ -69,14 +69,11 @@
       </div>
     </div>
 
-    <KSpinner v-show="fetchStatus.pending" />
+    <KSpinner v-show="isLoadingUsers" />
     <UserList
       class="q-pt-md"
       :users="users"
-      :group="group"
       :sorting="sorting"
-      @create-trust="createTrust"
-      @revoke-trust="revokeTrust"
     />
   </QCard>
 </template>
@@ -88,16 +85,15 @@ import {
   QField,
   QBtn,
 } from 'quasar'
-import CustomDialog from '@/utils/components/CustomDialog'
-import UserList from '@/users/components/UserList'
-import RandomArt from '@/utils/components/RandomArt'
-import KSpinner from '@/utils/components/KSpinner'
-import { absoluteURL } from '@/utils/absoluteURL'
 
-import {
-  mapGetters,
-  mapActions,
-} from 'vuex'
+import { useCurrentGroupService } from '@/group/services'
+import { absoluteURL } from '@/utils/absoluteURL'
+import { showToast } from '@/utils/toasts'
+
+import UserList from '@/users/components/UserList'
+import CustomDialog from '@/utils/components/CustomDialog'
+import KSpinner from '@/utils/components/KSpinner'
+import RandomArt from '@/utils/components/RandomArt'
 
 export default {
   components: {
@@ -109,6 +105,23 @@ export default {
     QField,
     QBtn,
   },
+  setup () {
+    const {
+      groupId,
+      group,
+      users,
+      isLoadingUsers,
+      isEditor,
+    } = useCurrentGroupService()
+
+    return {
+      isLoadingUsers,
+      groupId,
+      group,
+      users,
+      isEditor,
+    }
+  },
   data () {
     return {
       sorting: 'joinDate',
@@ -116,24 +129,11 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      users: 'users/byCurrentGroup',
-      group: 'currentGroup/value',
-      isEditor: 'currentGroup/isEditor',
-      fetchStatus: 'users/fetchStatus',
-    }),
-    groupId () {
-      return this.group && this.group.id
-    },
     linkToCopy () {
       return absoluteURL('/#/groupPreview/' + this.group.id)
     },
   },
   methods: {
-    ...mapActions({
-      createTrust: 'currentGroup/trustUser',
-      revokeTrust: 'currentGroup/revokeTrust',
-    }),
     toggleSorting () {
       if (this.sorting === 'joinDate') {
         this.sorting = 'name'
@@ -144,9 +144,9 @@ export default {
     },
     copyLink () {
       return copyToClipboard(this.linkToCopy).then(() => {
-        this.$store.dispatch('toasts/show', {
+        showToast({
           message: 'URL_COPIED_TOAST',
-        }, { root: true })
+        })
       })
     },
   },

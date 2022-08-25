@@ -1,14 +1,15 @@
-import { useMutation, useQueryClient } from 'vue-query'
-import api from '@/offers/api/offers'
 import { unref } from 'vue'
-import { queryKeyOfferDetail, queryKeyOfferList } from '@/offers/queries'
+import { useMutation, useQueryClient } from 'vue-query'
 import { useRoute, useRouter } from 'vue-router'
+
+import api from '@/offers/api/offers'
+import { queryKeyOfferDetail, queryKeyOfferList } from '@/offers/queries'
 import { withStatus } from '@/utils/queryHelpers'
-import { useCurrentGroupIdRef } from '@/group/queries'
 
 // Store the ids we are currently mutating, so we can better decide when to refresh from websocket
 const mutatingOfferIds = new Set()
 
+// TODO: I *think* this could be done by setting mutation keys...
 export function isMutating (id) {
   return mutatingOfferIds.has(id)
 }
@@ -45,10 +46,9 @@ export function useSaveOfferMutation () {
  *
  * Returns a mutation object with validationErrors
  */
-export function useCreateOfferMutation () {
+export function useCreateOfferMutation ({ groupId }) {
   const queryClient = useQueryClient()
   const { goToOffer } = useOfferUtils()
-  const groupId = useCurrentGroupIdRef()
   const mutation = useMutation(
     offer => api.create({ ...offer, group: unref(groupId) }),
     {

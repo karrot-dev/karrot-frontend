@@ -1,22 +1,34 @@
 <template>
   <ApplicationList
-    :pending="$store.getters['applications/forCurrentGroupPending']"
-    :other-applications="$store.getters['applications/forCurrentGroupNonPending']"
-    :can-fetch-past="$store.getters['applications/canFetchPast']"
-    :fetch-past-status="$store.getters['applications/fetchPastStatus']"
-    :fetch-past="() => $store.dispatch('applications/fetchPast')"
-    @accept="data => $store.dispatch('applications/accept', data)"
-    @decline="data => $store.dispatch('applications/decline', data)"
-    @open-chat="data => $store.dispatch('detail/openForApplication', data)"
+    :is-loading="isLoading"
+    :pending-applications="pendingApplications"
+    :other-applications="otherApplications"
+    :can-fetch-past="hasNextPage"
+    :fetch-past="() => fetchNextPage()"
   />
 </template>
 
-<script>
+<script setup>
+
+import { computed } from 'vue'
+
+import { useApplicationListQuery } from '@/applications/queries'
+import { useCurrentGroupService } from '@/group/services'
+
 import ApplicationList from '@/applications/components/ApplicationList'
 
-export default {
-  components: {
-    ApplicationList,
-  },
-}
+const { groupId } = useCurrentGroupService()
+const {
+  applications,
+  isLoading,
+  hasNextPage,
+  fetchNextPage,
+} = useApplicationListQuery({
+  groupId,
+}, {
+  keepPreviousData: true,
+})
+
+const pendingApplications = computed(() => applications.value.filter(a => a.status === 'pending'))
+const otherApplications = computed(() => applications.value.filter(a => a.status !== 'pending'))
 </script>

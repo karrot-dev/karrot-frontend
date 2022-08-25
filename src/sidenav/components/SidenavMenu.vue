@@ -47,7 +47,6 @@
 </template>
 
 <script>
-import InfoPopup from '@/utils/components/InfoPopup'
 import {
   QList,
   QItem,
@@ -55,6 +54,8 @@ import {
   QIcon,
   QBadge,
 } from 'quasar'
+
+import InfoPopup from '@/utils/components/InfoPopup'
 
 export default {
   components: {

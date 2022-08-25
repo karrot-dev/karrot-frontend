@@ -1,8 +1,9 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
+import * as factories from '>/enrichedFactories'
 import { storybookDefaults as defaults } from '>/helpers'
 import { groupsMock } from '>/mockdata'
-import * as factories from '>/enrichedFactories'
 
 import ConflictSetup from './ConflictSetup'
 

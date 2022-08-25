@@ -2,7 +2,6 @@
   <div class="absolute-full column">
     <DetailHeader
       class="col-auto"
-      @close="$emit('close')"
     />
     <Detail
       class="col relative-position"
@@ -11,17 +10,7 @@
   </div>
 </template>
 
-<script>
-import DetailHeader from './DetailHeader'
+<script setup>
 import Detail from './Detail'
-
-export default {
-  components: {
-    DetailHeader,
-    Detail,
-  },
-  emits: [
-    'close',
-  ],
-}
+import DetailHeader from './DetailHeader'
 </script>

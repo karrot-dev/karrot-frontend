@@ -1,12 +1,13 @@
-import { h } from 'vue'
-import { storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue3'
+import { latLng as LlatLng } from 'leaflet/dist/leaflet-src.esm'
+import { h } from 'vue'
+
+import { storybookDefaults as defaults } from '>/helpers'
+import { usersMock, placesMock, placeWithoutLocation } from '>/mockdata'
 
 import GroupMap from './GroupMap'
-import UserMapPreview from './UserMapPreview'
 import StandardMap from './StandardMap'
-import { usersMock, placesMock, placeWithoutLocation } from '>/mockdata'
-import { latLng as LlatLng } from 'leaflet/dist/leaflet-src.esm'
+import UserMapPreview from './UserMapPreview'
 
 const style = {
   height: '200px',

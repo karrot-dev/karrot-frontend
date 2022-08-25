@@ -78,17 +78,19 @@
 </template>
 
 <script>
+import useVuelidate from '@vuelidate/core'
+import { required, minLength, maxLength } from '@vuelidate/validators'
 import {
   QIcon,
   QInput,
   QBtn,
 } from 'quasar'
-import AddressPicker from '@/maps/components/AddressPicker'
-import MarkdownInput from '@/utils/components/MarkdownInput'
+
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
-import useVuelidate from '@vuelidate/core'
-import { required, minLength, maxLength } from '@vuelidate/validators'
+
+import AddressPicker from '@/maps/components/AddressPicker'
+import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
   components: {

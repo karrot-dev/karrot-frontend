@@ -21,17 +21,15 @@
       :activities="activities"
       place-link
       dense
-      @join="(...args) => $emit('join', ...args)"
-      @leave="(...args) => $emit('leave', ...args)"
-      @detail="(...args) => $emit('detail', ...args)"
     />
     <hr v-if="showActivities">
   </div>
 </template>
 
 <script>
-import ActivityList from '@/activities/components/ActivityList'
 import { QCard } from 'quasar'
+
+import ActivityList from '@/activities/components/ActivityList'
 
 export default {
   components: {
@@ -44,11 +42,6 @@ export default {
       type: Array,
     },
   },
-  emits: [
-    'join',
-    'leave',
-    'detail',
-  ],
   data () {
     return {
       showActivities: true,

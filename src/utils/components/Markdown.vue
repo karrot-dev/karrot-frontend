@@ -9,8 +9,9 @@
 </template>
 
 <script>
+import { useUserService } from '@/users/services'
+
 import markdown from './markdownRenderer'
-import { mapGetters } from 'vuex'
 
 export default {
   props: {
@@ -23,14 +24,15 @@ export default {
       type: Boolean,
     },
   },
+  setup () {
+    const { usersByUsername } = useUserService()
+    return { usersByUsername }
+  },
   computed: {
-    ...mapGetters({
-      users: 'users/byCurrentGroup',
-    }),
     markdownEnv () {
-      if (this.mentions && this.users) {
+      if (this.mentions && this.usersByUsername) {
         return {
-          users: this.users,
+          usersByUsername: this.usersByUsername,
         }
       }
       return {}

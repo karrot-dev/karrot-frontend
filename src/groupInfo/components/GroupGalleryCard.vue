@@ -3,28 +3,19 @@
     <QCard
       class="groupPreviewCard relative-position"
       :class="{
-        application: group.myApplicationPending,
-        highlight: group.isCurrentGroup,
+        application: myApplicationPending,
       }"
       :style="cardStyle"
       @click="$emit(group.isMember ? 'visit' : 'preview')"
     >
-      <QBadge
-        v-if="group.myApplicationPending"
-        floating
-        class="q-pl-sm q-pt-xs q-pb-xs z-top"
-        color="blue"
-      >
-        <QIcon name="fas fa-hourglass-half" />
-      </QBadge>
-      <QTooltip v-if="group.myApplicationPending">
+      <QTooltip v-if="myApplicationPending">
         {{ $t('APPLICATION.GALLERY_TOOLTIP') }}
       </QTooltip>
       <div
         class="photo text-white relative-position row justify-center"
       >
         <QImg
-          v-if="group.hasPhoto"
+          v-if="group.photoUrls?.fullSize"
           :alt="group.name || ''"
           :src="group.photoUrls['200']"
           :ratio="1"
@@ -47,7 +38,7 @@
             >
               {{ group.name }}
               <QIcon
-                v-if="group.isPlayground"
+                v-if="group.status === 'playground'"
                 name="fas fa-child"
               />
             </span>
@@ -71,8 +62,20 @@
         </span>
         <div class="overlay" />
       </QCardSection>
-      <QSeparator v-if="group.isMember" />
-      <QCardActions v-if="group.isMember">
+      <QSeparator />
+      <QCardActions
+        v-if="myApplicationPending"
+        class="bg-blue text-white"
+      >
+        <QBtn
+          flat
+          size="sm"
+          icon="fas fa-info-circle"
+          class="full-width"
+          :label="$t('JOINGROUP.APPLICATION_PENDING')"
+        />
+      </QCardActions>
+      <QCardActions v-else-if="group.isMember">
         <QBtn
           flat
           size="sm"
@@ -108,8 +111,12 @@ import {
   QTooltip,
   QIcon,
   QImg,
-  QBadge,
 } from 'quasar'
+import { computed, toRefs } from 'vue'
+
+import { useApplicationHelpers } from '@/applications/helpers'
+import { useGroupHelpers } from '@/group/helpers'
+
 import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
 
@@ -125,7 +132,6 @@ export default {
     QTooltip,
     QIcon,
     QImg,
-    QBadge,
   },
   props: {
     group: {
@@ -139,9 +145,19 @@ export default {
     'visit',
     'preview',
   ],
+  setup (props) {
+    const { group } = toRefs(props)
+    const { getHasMyApplicationPending } = useApplicationHelpers()
+    const { getIsCurrentGroup } = useGroupHelpers()
+
+    return {
+      myApplicationPending: computed(() => getHasMyApplicationPending(group.value.id)),
+      isCurrentGroup: computed(() => getIsCurrentGroup(group)),
+    }
+  },
   computed: {
     cardStyle () {
-      const reduceOpacity = this.group.isInactive && !this.group.isMember
+      const reduceOpacity = this.group.status === 'inactive' && !this.group.isMember
       if (reduceOpacity) {
         return { opacity: 0.5 }
       }
@@ -161,12 +177,6 @@ export default {
 
   *
     overflow: hidden
-
-  &.highlight
-    border: 2px solid $secondary
-
-  &.application
-    border: 2px solid $blue
 
   .fixed-height
     position: relative

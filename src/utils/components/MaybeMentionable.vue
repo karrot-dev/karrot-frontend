@@ -39,47 +39,35 @@
   </Mentionable>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
-import { Mentionable } from 'vue-mention'
+<script setup>
 import { QItem, QItemLabel, QItemSection } from 'quasar'
+import { computed } from 'vue'
+import { Mentionable } from 'vue-mention'
 
 // for vue-mention
 import 'floating-vue/dist/style.css'
 
+import { useCurrentGroupService } from '@/group/services'
+
 import ProfilePicture from '@/users/components/ProfilePicture'
 
-export default {
-  name: 'MaybeMentionable',
-  components: {
-    QItem,
-    QItemSection,
-    QItemLabel,
-    ProfilePicture,
-    Mentionable,
+defineProps({
+  disable: {
+    type: Boolean,
+    default: false,
   },
-  props: {
-    disable: {
-      default: false,
-      type: Boolean,
-    },
-  },
-  computed: {
-    mentionItems () {
-      return this.users.map(user => {
-        return {
-          mentionUser: user,
-          value: user.username,
-          searchText: [user.displayName, user.username].join(' '),
-        }
-      })
-    },
-    // TODO: consider if we keep this, or pass it down with props
-    ...mapGetters({
-      users: 'users/byCurrentGroup',
-    }),
-  },
-}
+})
+const { users } = useCurrentGroupService()
+
+const mentionItems = computed(() => {
+  return users.value.map(user => {
+    return {
+      mentionUser: user,
+      value: user.username,
+      searchText: [user.displayName, user.username].join(' '),
+    }
+  })
+})
 </script>
 
 <style lang="sass">

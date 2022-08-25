@@ -1,17 +1,20 @@
 <template>
   <GroupOptionsUI
-    :current-group-id="$store.getters['currentGroup/id']"
-    :roles="$store.getters['currentGroup/roles']"
-    @leave="data => $store.dispatch('groups/leave', data)"
+    :current-group-id="group?.id"
+    :roles="roles"
   />
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue'
+
+import { useAuthService } from '@/authuser/services'
+import { useCurrentGroupService } from '@/group/services'
+
 import GroupOptionsUI from './GroupOptionsUI'
 
-export default {
-  components: {
-    GroupOptionsUI,
-  },
-}
+const { group, getUserRoles } = useCurrentGroupService()
+const { userId } = useAuthService()
+
+const roles = computed(() => getUserRoles(userId.value))
 </script>

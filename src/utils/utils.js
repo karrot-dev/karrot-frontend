@@ -134,3 +134,44 @@ export async function toFormData (sourceEntry) {
 
   return data
 }
+
+/**
+ * Can use this to slow down requests to make it a bit more realistic
+ *
+ * Use the setDevSleep(<min>, <max>) function in the developer console to enable it
+ *
+ * e.g. to add a random delay between 300ms and 800ms you can run:
+ *
+ *   setDevSleep(300, 800)
+ *
+ * to clear it again:
+ *
+ *   setDevSleep()
+ */
+export async function devSleep () {
+  if (process.env.DEV) {
+    const value = localStorage.getItem('DEV_SLEEP')
+    if (value) {
+      const [min, max] = value.split(',').map(n => parseInt(n, 10))
+      const random = require('lodash/random') // only load if we need it
+      await sleep(random(min, max))
+    }
+  }
+}
+
+if (process.env.DEV) {
+  window.setDevSleep = function (min, max) {
+    if (min && max) {
+      localStorage.setItem('DEV_SLEEP', [min, max].join(','))
+      console.log(`set dev sleep to min ${min}ms and max ${max}ms`)
+    }
+    else {
+      localStorage.removeItem('DEV_SLEEP')
+      console.log('cleared dev sleep')
+    }
+  }
+}
+
+export function sleep (ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}

@@ -4,14 +4,12 @@
       v-for="place in sortedPlaces"
       :key="place.id"
       :to="linkParamsFor(place)"
-      :class="{'router-link-active': place.isActivePlace}"
+      :class="{'router-link-active': getIsActivePlace(place)}"
       dense
     >
       <QItemSection side>
         <QIcon
-          :name="place.ui.icon"
-          :color="place.ui.color"
-          :title="$t(place.ui.label)"
+          v-bind="getPlaceIconProps(place)"
           size="1.1em"
         />
       </QItemSection>
@@ -29,13 +27,13 @@
         </QItemLabel>
       </QItemSection>
       <QItemSection
-        v-if="place.conversationUnreadCount > 0"
+        v-if="getUnreadWallMessageCount(place) > 0"
         side
       >
         <QBadge
           color="secondary"
         >
-          {{ place.conversationUnreadCount > 99 ? '99+' : place.conversationUnreadCount }}
+          {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }}
         </QBadge>
       </QItemSection>
     </QItem>
@@ -91,7 +89,10 @@ import {
   QSeparator,
   QBadge,
 } from 'quasar'
-import { mapGetters } from 'vuex'
+
+import { useCurrentGroupService } from '@/group/services'
+import { usePlaceHelpers } from '@/places/helpers'
+import { useStatusService } from '@/status/services'
 
 export default {
   components: {
@@ -122,6 +123,31 @@ export default {
       type: String,
     },
   },
+  setup () {
+    const {
+      getIsActivePlace,
+      getPlaceIconProps,
+    } = usePlaceHelpers()
+
+    const {
+      isEditor,
+    } = useCurrentGroupService()
+
+    const {
+      getPlaceStatus,
+    } = useStatusService()
+
+    function getUnreadWallMessageCount (place) {
+      return getPlaceStatus(place.id).unreadWallMessageCount
+    }
+
+    return {
+      isEditor,
+      getIsActivePlace,
+      getPlaceIconProps,
+      getUnreadWallMessageCount,
+    }
+  },
   computed: {
     sortedPlaces () {
       const subscribed = this.places.filter(e => e.isSubscribed)
@@ -131,16 +157,13 @@ export default {
     hasPlaces () {
       return this.places && this.places.length > 0
     },
-    ...mapGetters({
-      isEditor: 'currentGroup/isEditor',
-    }),
   },
   methods: {
     linkParamsFor (place) {
       return {
         name: this.linkTo,
         params: {
-          groupId: place.group.id,
+          groupId: place.group,
           placeId: place.id,
         },
       }

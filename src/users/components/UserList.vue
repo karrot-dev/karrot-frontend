@@ -12,6 +12,7 @@
         <QInput
           v-model="filterTerm"
           :placeholder="$t('BUTTON.SEARCH')"
+          :debounce="300"
           class="full-width"
         >
           <template #prepend>
@@ -19,17 +20,22 @@
           </template>
         </QInput>
       </QItem>
-      <UserItem
-        v-for="user in activeUsers"
-        :key="user.id"
-        :user="user"
-        :group="group"
-        @create-trust="(...args) => $emit('create-trust', ...args)"
-        @revoke-trust="(...args) => $emit('revoke-trust', ...args)"
-      />
+      <QInfiniteScroll
+        :disable="activeEntriesLimit >= activeEntries.length"
+        @load="loadMoreActiveEntries"
+      >
+        <UserItem
+          v-for="entry in limitedActiveEntries"
+          :key="entry.key"
+          :user="entry.user"
+          :membership="entry.membership"
+          :added-by="entry.addedBy"
+        />
+      </QInfiniteScroll>
+      <KSpinner v-if="activeEntriesLimit < activeEntries.length" />
       <QSeparator />
       <QExpansionItem
-        v-if="inactiveUsers.length > 0"
+        v-if="inactiveEntries.length > 0"
         @show="showInactive = true"
         @hide="showInactive = false"
       >
@@ -61,13 +67,12 @@
 
         <template v-if="showInactive">
           <UserItem
-            v-for="user in inactiveUsers"
-            :key="user.id"
-            :user="user"
-            :group="group"
+            v-for="entry in inactiveEntries"
+            :key="entry.key"
+            :user="entry.user"
+            :membership="entry.membership"
+            :added-by="entry.addedBy"
             class="inactive"
-            @create-trust="(...args) => $emit('create-trust', ...args)"
-            @revoke-trust="(...args) => $emit('revoke-trust', ...args)"
           />
         </template>
       </QExpansionItem>
@@ -87,7 +92,14 @@ import {
   QBtn,
   QInput,
   QIcon,
+  QInfiniteScroll,
 } from 'quasar'
+import { computed, toRefs } from 'vue'
+
+import { useCurrentGroupService } from '@/group/services'
+import { useUserService } from '@/users/services'
+
+import KSpinner from '@/utils/components/KSpinner'
 
 import UserItem from './UserItem'
 
@@ -103,52 +115,85 @@ export default {
     QBtn,
     QInput,
     QIcon,
+    QInfiniteScroll,
+    KSpinner,
   },
   props: {
     users: {
       type: Array,
       required: true,
     },
-    group: {
-      type: Object,
-      default: null,
-    },
     sorting: {
       type: String,
       default: 'joinDate',
     },
   },
-  emits: [
-    'create-trust',
-    'revoke-trust',
-  ],
+  setup (props) {
+    const { users } = toRefs(props)
+
+    const {
+      group,
+      getMembership,
+    } = useCurrentGroupService()
+
+    const {
+      getUserById,
+    } = useUserService()
+
+    const entries = computed(() => {
+      return users.value.map(user => {
+        const membership = getMembership(user.id)
+        return {
+          key: user.id,
+          user,
+          search: user.displayName.toLowerCase(),
+          membership,
+          addedBy: membership.addedBy && getUserById(membership.addedBy),
+        }
+      })
+    })
+
+    return {
+      entries,
+      group,
+      getMembership,
+    }
+  },
   data () {
     return {
+      activeEntriesLimit: 20,
       showInactive: false,
       filterTerm: '',
     }
   },
   computed: {
     inactiveSublabel () {
-      return this.inactiveUsers.length + ' ' + this.$tc('JOINGROUP.NUM_MEMBERS', this.inactiveUsers.length)
+      return this.inactiveEntries.length + ' ' + this.$tc('JOINGROUP.NUM_MEMBERS', this.inactiveEntries.length)
     },
-    activeUsers () {
-      return this.sort(this.filterByTerms(this.users.filter(u => u.membership.active)))
+    activeEntries () {
+      return this.sort(this.filterByTerms(this.entries.filter(entry => entry.membership.active)))
     },
-    inactiveUsers () {
-      return this.sort(this.filterByTerms(this.users.filter(u => !u.membership.active)))
+    limitedActiveEntries () {
+      return this.activeEntries.slice(0, this.activeEntriesLimit)
+    },
+    inactiveEntries () {
+      return this.sort(this.filterByTerms(this.entries.filter(entry => !entry.membership.active)))
     },
   },
   methods: {
+    loadMoreActiveEntries (index, done) {
+      this.activeEntriesLimit += 20
+      done(this.activeEntriesLimit >= this.activeEntries.length)
+    },
     sort (list) {
-      const getJoinDate = a => a.membership.createdAt
-      const sortByJoinDate = (a, b) => getJoinDate(b) - getJoinDate(a)
-      const sortByName = (a, b) => a.displayName.localeCompare(b.displayName)
+      const sortByJoinDate = (a, b) => b.membership.createdAt - a.membership.createdAt
+      const sortByName = (a, b) => a.user.displayName.localeCompare(b.user.displayName)
       return list.slice().sort(this.sorting === 'joinDate' ? sortByJoinDate : sortByName)
     },
     filterByTerms (list) {
       if (!this.filterTerm || this.filterTerm === '') return list
-      return list.filter(u => u.displayName.toLowerCase().includes(this.filterTerm.toLowerCase()))
+      const filterTermLower = this.filterTerm.toLowerCase()
+      return list.filter(entry => entry.search.includes(filterTermLower))
     },
     inactivityInfo () {
       Dialog.create({

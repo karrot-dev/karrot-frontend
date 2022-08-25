@@ -29,7 +29,7 @@
       </div>
     </template>
 
-    <KSpinner v-if="!hasPlaces && fetchStatus.pending" />
+    <KSpinner v-if="!hasPlaces && pending" />
     <PlaceList
       v-else
       :group-id="groupId"
@@ -46,9 +46,11 @@ import {
   QIcon,
   QToggle,
 } from 'quasar'
-import SidenavBox from './SidenavBox'
+
 import PlaceList from '@/places/components/PlaceList'
 import KSpinner from '@/utils/components/KSpinner'
+
+import SidenavBox from './SidenavBox'
 
 export default {
   components: {
@@ -65,7 +67,7 @@ export default {
     showAllPlaces: { default: false, type: Boolean },
     archived: { default: () => [], type: Array },
     isEditor: { default: false, type: Boolean },
-    fetchStatus: { default: null, type: Object },
+    pending: { default: false, type: Boolean },
   },
   emits: [
     'toggle-show-all-places',

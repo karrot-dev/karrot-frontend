@@ -63,7 +63,7 @@
   </QList>
 </template>
 
-<script>
+<script setup>
 import {
   QLinearProgress,
   QIcon,
@@ -73,33 +73,12 @@ import {
   QItemSection,
   QBtn,
 } from 'quasar'
-import { mapGetters, mapActions } from 'vuex'
-import { localeOptions } from '@/base/i18n'
 
-export default {
-  components: {
-    QLinearProgress,
-    QIcon,
-    QList,
-    QItem,
-    QItemLabel,
-    QItemSection,
-    QBtn,
-  },
-  data () {
-    return {
-      localeOptions,
-    }
-  },
-  computed: {
-    ...mapGetters({
-      current: 'i18n/locale',
-    }),
-  },
-  methods: {
-    ...mapActions({
-      setLocale: 'i18n/setLocale',
-    }),
-  },
-}
+import { localeOptions } from '@/base/i18n'
+import { useI18nService } from '@/base/services/i18n'
+
+const {
+  locale: current,
+  setLocale,
+} = useI18nService()
 </script>

@@ -1,17 +1,24 @@
 import MockAdapter from 'axios-mock-adapter'
-import axios from '@/base/api/axios'
 import { pathToRegexp } from 'path-to-regexp'
+
+import axios from '@/base/api/axios'
 
 export const mockAxios = new MockAdapter(axios, { onNoMatch: 'throwException' })
 
-export function createCursorPaginatedBackend (path, entries, getMatchFn, options) {
+export function createBackend (path, fn) {
+  mockAxios.onGet(path).reply(() => {
+    return [200, fn()]
+  })
+}
+
+export function createCursorPaginatedBackend (path, getEntries, getMatchFn, options) {
   const {
     pageSize = 30,
   } = options
   mockAxios.onGet(path).reply((config) => {
     const cursor = parseInt(config.params.cursor || '0')
     const matchFn = getMatchFn(config)
-    const matches = entries.filter(entry => matchFn(entry))
+    const matches = getEntries().filter(entry => matchFn(entry))
     const results = matches.slice(cursor, cursor + pageSize)
     const hasNextPage = matches.length > (cursor + pageSize)
     const hasPrevPage = cursor > 0
@@ -35,12 +42,12 @@ export function createCursorPaginatedBackend (path, entries, getMatchFn, options
   })
 }
 
-export function createGetByIdBackend (path, entries) {
+export function createGetByIdBackend (path, getEntries) {
   if (!path.includes(':id')) throw new Error('path must contain :id')
   const matcher = createPathMatcher(path)
   mockAxios.onGet(matcher).reply((config) => {
     const id = parseInt(matcher.getParams(config.url).id)
-    const offer = entries.find(entry => entry.id === id)
+    const offer = getEntries().find(entry => entry.id === id)
     if (!offer) return [404]
     return [200, offer]
   })

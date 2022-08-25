@@ -1,5 +1,6 @@
-import axios from '@/base/api/axios'
 import { throttle } from 'quasar'
+
+import axios from '@/base/api/axios'
 import { convert as convertConversation } from '@/messages/api/conversations'
 
 async function markUserActive (groupId) {
@@ -41,10 +42,6 @@ export default {
 
     const groupId = group.id
     return convert((await axios.patch(`/api/groups/${groupId}/`, data)).data)
-  },
-
-  async join (groupId) {
-    return (await axios.post(`/api/groups/${groupId}/join/`)).data
   },
 
   async leave (groupId) {

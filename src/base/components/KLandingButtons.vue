@@ -27,26 +27,19 @@
   </div>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
+<script setup>
 import { QBtn } from 'quasar'
 
-export default {
-  components: {
-    QBtn,
+import { useAuthService } from '@/authuser/services'
+
+const { isLoggedIn } = useAuthService()
+
+defineProps({
+  alignLeftOnBiggerScreens: {
+    type: Boolean,
+    default: false,
   },
-  props: {
-    alignLeftOnBiggerScreens: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  computed: {
-    ...mapGetters({
-      isLoggedIn: 'auth/isLoggedIn',
-    }),
-  },
-}
+})
 </script>
 
 <style scoped lang="sass">

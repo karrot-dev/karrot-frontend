@@ -1,10 +1,10 @@
 <template>
   <div class="k-feedback-list">
     <FeedbackNotice
-      v-if="feedbackPossible.length > 0"
-      :feedback-possible="feedbackPossible"
+      v-if="feedbackPossibleCount > 0"
+      :feedback-possible-count="feedbackPossibleCount"
     />
-    <KSpinner v-show="isPending || (feedbackPossibleStatus && feedbackPossibleStatus.pending)" />
+    <KSpinner v-show="isLoading" />
     <KNotice v-if="empty">
       <template #icon>
         <QIcon :class="$icon('feedback')" />
@@ -16,17 +16,17 @@
     </KNotice>
     <QInfiniteScroll
       v-else
-      :disable="!canFetchPast"
-      @load="maybeFetchPast"
+      :disable="!hasNextPage"
+      @load="maybeFetchNextPage"
     >
       <FeedbackItem
-        v-for="feedbackitem in feedback"
-        :key="feedbackitem.id"
-        :ref="refFor(feedbackitem.id)"
-        :feedback="feedbackitem"
-        :class="{ highlight: highlight === feedbackitem.id }"
+        v-for="feedbackItem in feedback"
+        :key="feedbackItem.id"
+        :ref="refFor(feedbackItem.id)"
+        :feedback="feedbackItem"
+        :class="{ highlight: highlight === feedbackItem.id }"
       >
-        {{ $d(feedbackitem.createdAt, 'dateLongWithDayName') }}
+        {{ $d(feedbackItem.createdAt, 'dateLongWithDayName') }}
       </FeedbackItem>
       <template #loading>
         <KSpinner />
@@ -36,13 +36,14 @@
 </template>
 
 <script>
-import FeedbackItem from './FeedbackItem'
-import statusMixin from '@/utils/mixins/statusMixin'
-import paginationMixin from '@/utils/mixins/paginationMixin'
 import { QInfiniteScroll, QIcon } from 'quasar'
+import { toRefs } from 'vue'
+
+import FeedbackNotice from '@/group/components/FeedbackNotice'
 import KNotice from '@/utils/components/KNotice'
 import KSpinner from '@/utils/components/KSpinner'
-import FeedbackNotice from '@/group/components/FeedbackNotice'
+
+import FeedbackItem from './FeedbackItem'
 
 export default {
   components: {
@@ -53,22 +54,53 @@ export default {
     FeedbackNotice,
     KSpinner,
   },
-  mixins: [statusMixin, paginationMixin],
   props: {
-    feedback: { required: true, type: Array },
-    feedbackPossible: { default: () => [], type: Array },
-    feedbackPossibleStatus: {
-      default: null,
-      type: Object,
+    feedback: {
+      type: Array,
+      required: true,
+    },
+    feedbackPossibleCount: {
+      type: Number,
+      default: 0,
+    },
+    isLoading: {
+      type: Boolean,
+      default: false,
+    },
+    hasNextPage: {
+      type: Boolean,
+      default: false,
+    },
+    fetchNextPage: {
+      type: Function,
+      default: () => {},
+    },
+    isFetchingNextPage: {
+      type: Boolean,
+      default: false,
     },
     highlight: {
       default: null,
       type: Number,
     },
   },
+  setup (props) {
+    const {
+      hasNextPage,
+      fetchNextPage,
+      isFetchingNextPage,
+    } = toRefs(props)
+    async function maybeFetchNextPage (index, done) {
+      if (!isFetchingNextPage.value && hasNextPage.value) await fetchNextPage.value()
+      done(!hasNextPage.value)
+    }
+    return {
+      maybeFetchNextPage,
+    }
+  },
   computed: {
     empty () {
-      return !this.isPending && !this.hasAnyError && this.feedback.length < 1
+      return !this.isLoading && this.feedback.length < 1
     },
     highlighted () {
       if (!this.feedback || this.highlight < 0) return

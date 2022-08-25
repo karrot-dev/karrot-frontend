@@ -1,4 +1,43 @@
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
 import i18n from '@/base/i18n'
+
+export function useStatusHelpers (status) {
+  const { t } = useI18n()
+
+  const isPending = computed(() => status.value?.pending)
+  const firstNonFieldError = computed(() => status.value?.firstNonFieldError)
+  const hasNonFieldError = computed(() => Boolean(firstNonFieldError.value))
+  const anyFirstError = computed(() => {
+    if (!status.value) return
+    const errorLabel = status.value.firstValidationError ||
+      (status.value.serverError && t('GLOBAL.SERVER_ERROR')) ||
+      (status.value.networkError && t('GLOBAL.NOT_CONNECTED'))
+    if (!errorLabel) return
+    return errorLabel
+  })
+  const hasAnyError = computed(() => Boolean(anyFirstError.value))
+
+  function hasError (field) {
+    return Boolean(firstError(field))
+  }
+
+  function firstError (field) {
+    return status.value?.validationErrors?.[field]?.[0]
+  }
+
+  return {
+    isPending,
+    hasNonFieldError,
+    firstNonFieldError,
+    hasAnyError,
+    anyFirstError,
+
+    hasError,
+    firstError,
+  }
+}
 
 export default {
   props: {

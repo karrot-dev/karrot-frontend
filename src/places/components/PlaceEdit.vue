@@ -198,6 +198,8 @@
 </template>
 
 <script>
+import useVuelidate from '@vuelidate/core'
+import { required, minLength, maxLength } from '@vuelidate/validators'
 import {
   QCard,
   QField,
@@ -211,13 +213,13 @@ import {
   QItemLabel,
   Dialog,
 } from 'quasar'
-import AddressPicker from '@/maps/components/AddressPicker'
-import MarkdownInput from '@/utils/components/MarkdownInput'
-import useVuelidate from '@vuelidate/core'
+
+import { statusList, optionsFor } from '@/places/placeStatus'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
-import { required, minLength, maxLength } from '@vuelidate/validators'
-import { statusList, optionsFor } from '@/places/placeStatus'
+
+import AddressPicker from '@/maps/components/AddressPicker'
+import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
   name: 'PlaceEdit',

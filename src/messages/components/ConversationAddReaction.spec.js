@@ -1,9 +1,11 @@
-import ConversationAddReactionInner from './ConversationAddReactionInner'
-import { mountWithDefaults, nextTicks } from '>/helpers'
-import EmojiButton from './EmojiButton'
 import { QBtn } from 'quasar'
 
-describe('Conversation message reactions', () => {
+import { mountWithDefaults, nextTicks } from '>/helpers'
+
+import ConversationAddReactionInner from './ConversationAddReactionInner'
+import EmojiButton from './EmojiButton'
+
+describe.skip('Conversation message reactions', () => {
   beforeEach(() => jest.resetModules())
   let wrapper
 

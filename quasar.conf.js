@@ -7,13 +7,16 @@
 // https://quasar.dev/quasar-cli/quasar-conf-js
 /* eslint-env node */
 
-const { configure } = require('quasar/wrappers')
 const { resolve } = require('path')
-const fs = require('fs')
+
 const ESLintPlugin = require('eslint-webpack-plugin')
+const { readFileSync, existsSync } = require('fs')
 // const StyleLintPlugin = require('stylelint-webpack-plugin') TODO?
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
+const { configure } = require('quasar/wrappers')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
+const webpackAliases = require('./webpack.aliases').resolve.alias
 
 function getHttpsOptions () {
   /* Try to set up https with your own cert for usage with mkcert
@@ -26,16 +29,20 @@ function getHttpsOptions () {
   More info: https://github.com/FiloSottile/mkcert
   If these are not available, fall back to making our own cert
   */
-  try {
-    return {
-      key: fs.readFileSync(process.env.KEY),
-      cert: fs.readFileSync(process.env.CERT),
-      ca: fs.readFileSync(process.env.CA),
-    }
-  }
-  catch (e) {
-    console.log('Could not find key/cert/ca files, falling back to our own...', e)
+  const keyFilename = process.env.KEY || resolve(__dirname, './build/dev-certs/key.pem')
+  const certFilename = process.env.CERT || resolve(__dirname, './build/dev-certs/cert.pem')
+  const caFilename = process.env.CA || resolve(__dirname, './build/dev-certs/ca.pem')
+  const all = [keyFilename, certFilename, caFilename]
+  const missing = all.filter(filename => !existsSync(filename))
+  if (missing.length > 0) {
+    console.log(`Could not find key/cert/ca files ${missing.join(', ')}, falling back to our own...`)
     return true
+  }
+  console.log('Using key/cert/ca files', all.join(', '))
+  return {
+    key: readFileSync(keyFilename),
+    cert: readFileSync(certFilename),
+    ca: readFileSync(caFilename),
   }
 }
 
@@ -68,21 +75,18 @@ module.exports = configure(function (ctx) {
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
       'compat',
-      'vue-query',
+      'vueQuery',
       'loglevel',
       'pwa',
       'helloDeveloper',
       'addressbar-color',
-      'socket',
       'cordova',
       'i18n',
-      'loadInitialData',
+      'bootstrapData',
       'polyfill',
       'icons',
       'detectMobileKeyboard',
       'performance',
-      'presenceReporter',
-      'vuex-router-sync',
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -179,13 +183,7 @@ module.exports = configure(function (ctx) {
 
         cfg.resolve.alias = {
           ...cfg.resolve.alias, // This adds the existing alias
-
-          // Add your own alias like this
-          '@': resolve(__dirname, './src'),
-          '>': resolve(__dirname, './test'),
-          variables: resolve(__dirname, './src/css/quasar.variables.sass'),
-          editbox: resolve(__dirname, './src/css/karrot.editbox.sass'),
-          vue: '@vue/compat',
+          ...webpackAliases, // from webpack.aliases.js
         }
 
         cfg.plugins.push(

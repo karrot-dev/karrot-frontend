@@ -1,13 +1,14 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
 
-import SidenavMapUI from './SidenavMapUI'
-import SidenavGroupUI from './SidenavGroupUI'
-import GroupOptions from './GroupOptionsUI'
-import SidenavPlacesUI from './SidenavPlacesUI'
-import MobileSidenavUI from './MobileSidenavUI'
-import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import * as factories from '>/enrichedFactories'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
+
+import GroupOptions from './GroupOptionsUI'
+import MobileSidenavUI from './MobileSidenavUI'
+import SidenavGroupUI from './SidenavGroupUI'
+import SidenavMap from './SidenavMap'
+import SidenavPlacesUI from './SidenavPlacesUI'
 
 const range = n => [...Array(n).keys()]
 
@@ -22,7 +23,7 @@ storiesOf('Sidenav', module)
   .add('Map', () => defaults({
     render () {
       const { showPlaces, showUsers, onToggleUsers, onTogglePlaces } = this
-      return h(SidenavMapUI, {
+      return h(SidenavMap, {
         places,
         users,
         showPlaces,

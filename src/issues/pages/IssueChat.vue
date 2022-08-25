@@ -15,22 +15,22 @@
       </template>
       <div class="q-mx-sm q-mb-sm q-pa-sm">
         <span class="text-bold text-primary">
-          {{ $t('CONFLICT.WITH', { userName: issue.affectedUser.displayName }) }}
+          {{ $t('CONFLICT.WITH', { userName: affectedUser.displayName }) }}
         </span>
         <ProfilePicture
-          :user="issue.affectedUser"
+          :user="affectedUser"
           :size="25"
           class="q-mt-xs"
         />
       </div>
       <div
-        v-if="!issue.isOngoing"
+        v-if="issue.status !== 'ongoing'"
         class="q-mx-sm q-mb-sm q-pl-sm text-warning"
       >
         <i class="fas fa-info-circle q-mr-xs" />
         {{ $t('ISSUE.VOTING.RESULTS.TIME_UP') }}
         <QBtn
-          :to="{ name: 'issueVote', params: { groupId: issue.group.id, issueId: issue.id } }"
+          :to="{ name: 'issueVote', params: { groupId: issue.group, issueId: issue.id } }"
           flat
         >
           {{ $t('ISSUE.VOTING.SEE_RESULTS') }}
@@ -39,10 +39,10 @@
       <div class="q-mx-sm q-mb-sm q-pa-sm bg-white">
         <span class="text-bold text-secondary text-uppercase">
           <RouterLink
-            :to="{name: 'user', params: { userId: issue.createdBy.id }}"
+            :to="{name: 'user', params: { userId: issue.createdBy }}"
             @click.stop
           >
-            {{ issue.createdBy.displayName }}
+            {{ createdBy.displayName }}
           </RouterLink>
         </span>
         <span class="message-date">
@@ -58,7 +58,7 @@
       >
         <div>
           <ProfilePicture
-            v-for="user in conversation.participants"
+            v-for="user in participants"
             :key="user.id"
             :user="user"
             :size="20"
@@ -66,7 +66,7 @@
           />
         </div>
         <div class="text-caption k-caption-opacity q-mt-xs">
-          {{ $t('ISSUE.PARTICIPANTS', { count: conversation.participants.length }) }}
+          {{ $t('ISSUE.PARTICIPANTS', { count: participants.length }) }}
         </div>
       </div>
     </QExpansionItem>
@@ -75,8 +75,8 @@
       class="bg-secondary absolute-top-right q-pa-xs"
     >
       <NotificationToggle
-        :muted="conversation.muted"
-        :is-participant="conversation.isParticipant"
+        :muted="isMuted"
+        :is-participant="isParticipant"
         :can-unsubscribe="false"
         :user="currentUser"
         in-toolbar
@@ -86,74 +86,74 @@
     </div>
     <ChatConversation
       v-if="conversation"
-      :conversation="conversationWithReversedMessages"
-      :away="away"
+      :conversation="conversation"
+      :messages="messages"
+      :away="isAway"
       :current-user="currentUser"
-      :start-at-bottom="true"
-      @mark="mark"
-      @toggle-reaction="toggleReaction"
-      @save-message="saveMessage"
-      @fetch-past="fetchPast"
+      :has-next-page="hasNextPage"
+      :is-fetching-next-page="isFetchingNextPage"
+      :fetch-next-page="fetchNextPage"
     />
   </div>
 </template>
 
-<script>
-import ChatConversation from '@/messages/components/ChatConversation'
-import Markdown from '@/utils/components/Markdown'
-import DateAsWords from '@/utils/components/DateAsWords'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import NotificationToggle from '@/messages/components/NotificationToggle'
-
-import { mapGetters, mapActions } from 'vuex'
-
+<script setup>
 import {
   QExpansionItem,
   QItemSection,
   QBtn,
 } from 'quasar'
+import { computed } from 'vue'
 
-export default {
-  components: {
-    ChatConversation,
-    Markdown,
-    DateAsWords,
-    ProfilePicture,
-    NotificationToggle,
-    QExpansionItem,
-    QItemSection,
-    QBtn,
-  },
-  computed: {
-    ...mapGetters({
-      issue: 'issues/current',
-      conversation: 'issues/currentConversation',
-      away: 'presence/toggle/away',
-      currentUser: 'auth/user',
-    }),
-    conversationWithReversedMessages () {
-      return {
-        ...this.conversation,
-        messages: this.conversation.messages.slice().reverse(),
-      }
-    },
-  },
-  methods: {
-    ...mapActions({
-      saveMessage: 'conversations/saveMessage',
-      mark: 'conversations/maybeMark',
-      setMuted: 'conversations/maybeSetMuted',
-      toggleReaction: 'conversations/toggleReaction',
-      fetchPast: 'conversations/fetchPast',
-      saveConversation: 'conversations/maybeSave',
-    }),
-    setNotifications (value) {
-      this.saveConversation({
-        conversationId: this.conversation.id,
-        value,
-      })
-    },
-  },
+import { useAuthService } from '@/authuser/services'
+import { usePresenceService } from '@/base/services/presence'
+import { useActiveIssueService } from '@/issues/services'
+import { useConversationHelpers } from '@/messages/helpers'
+import { useSaveConversationMutation } from '@/messages/mutations'
+import { useUserService } from '@/users/services'
 
+import ChatConversation from '@/messages/components/ChatConversation'
+import NotificationToggle from '@/messages/components/NotificationToggle'
+import ProfilePicture from '@/users/components/ProfilePicture'
+import DateAsWords from '@/utils/components/DateAsWords'
+import Markdown from '@/utils/components/Markdown'
+
+const {
+  issue,
+  conversation,
+  messages,
+  hasNextPage,
+  isFetchingNextPage,
+  fetchNextPage,
+} = useActiveIssueService()
+
+const {
+  user: currentUser,
+} = useAuthService()
+
+const {
+  getUserById,
+} = useUserService()
+
+const {
+  getIsMuted,
+  getIsParticipant,
+} = useConversationHelpers()
+
+const affectedUser = computed(() => getUserById(issue.value.affectedUser))
+const createdBy = computed(() => getUserById(issue.value.createdBy))
+const participants = computed(() => conversation.value.participants.map(getUserById))
+const isMuted = computed(() => getIsMuted(conversation.value))
+const isParticipant = computed(() => getIsParticipant(conversation.value))
+
+const { mutate: saveConversation } = useSaveConversationMutation()
+
+const { isAway } = usePresenceService()
+
+function setNotifications (value) {
+  saveConversation({
+    id: conversation.value.id,
+    value,
+  })
 }
 </script>

@@ -8,13 +8,12 @@
       style="max-width: 700px"
       @submit.prevent="maybeSave"
     >
-      <h3 v-if="activityType && isNew">
+      <h3 v-if="activityTypeIconProps && isNew">
         <QIcon
-          :color="activityType.colorName"
-          :name="activityType.icon"
+          v-bind="activityTypeIconProps"
           class="q-pr-sm"
         />
-        {{ activityType.translatedName }}
+        {{ activityTypeIconProps.title }}
       </h3>
       <QField
         stack-label
@@ -211,6 +210,7 @@
         :error="hasError('rule')"
         :error-message="firstError('rule')"
         autogrow
+        :input-style="{ overflow: 'hidden' }"
         @keyup.ctrl.enter="maybeSave"
       >
         <template #before>
@@ -258,7 +258,7 @@
         :placeholder="$t('CREATEACTIVITY.UNLIMITED')"
         :error="hasError('maxParticipants')"
         :error-message="firstError('maxParticipants')"
-        input-style="max-width: 100px"
+        :input-style="{ maxWidth: '100px' }"
       >
         <template #before>
           <QIcon name="group" />
@@ -331,6 +331,9 @@
 </template>
 
 <script>
+import addDays from 'date-fns/addDays'
+import addSeconds from 'date-fns/addSeconds'
+import differenceInSeconds from 'date-fns/differenceInSeconds'
 import {
   QTime,
   QField,
@@ -351,17 +354,14 @@ import {
   Dialog,
   date,
 } from 'quasar'
+
+import { useActivityTypeHelpers } from '@/activities/helpers'
+import { defaultDuration } from '@/activities/settings'
+import { formatSeconds } from '@/activities/utils'
+import { dayOptions } from '@/base/i18n'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import { dayOptions } from '@/base/i18n'
-
-import { defaultDuration } from '@/activities/settings'
-import { formatSeconds } from '@/activities/utils'
-
-import addSeconds from 'date-fns/addSeconds'
-import addDays from 'date-fns/addDays'
-import differenceInSeconds from 'date-fns/differenceInSeconds'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
@@ -389,9 +389,16 @@ export default {
     'cancel',
     'destroy',
   ],
+  setup () {
+    const { getIconProps } = useActivityTypeHelpers()
+    return { getIconProps }
+  },
   computed: {
     activityType () {
       return this.value && this.value.activityType
+    },
+    activityTypeIconProps () {
+      return this.activityType ? this.getIconProps(this.activityType) : {}
     },
     dayOptions,
     canSave () {

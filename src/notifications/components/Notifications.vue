@@ -2,10 +2,10 @@
   <div
     class="bg-white"
   >
-    <KSpinner v-show="fetching" />
+    <KSpinner v-show="isLoading" />
     <QList>
       <QItem
-        v-if="!fetching && notifications.length === 0"
+        v-if="!isLoading && notifications.length === 0"
       >
         {{ $t('NOTIFICATION_BELLS_LIST.NO_ITEMS') }}
       </QItem>
@@ -14,7 +14,7 @@
         :key="notification.id"
         v-close-popup
         :notification="notification"
-        @click="markClicked"
+        @click="() => maybeMarkClickedAndSeen(notification)"
       />
       <div
         v-if="asPopover"
@@ -30,13 +30,13 @@
         </QBtn>
       </div>
       <QItem
-        v-if="!asPopover && canFetchPast"
+        v-if="!asPopover && hasNextPage"
         class="row justify-center"
       >
         <QBtn
           size="sm"
-          :loading="fetchingPast"
-          @click="fetchPast"
+          :loading="isFetchingNextPage"
+          @click="() => fetchNextPage()"
         >
           {{ $t('BUTTON.SHOW_MORE') }}
         </QBtn>
@@ -51,9 +51,13 @@ import {
   QItem,
   QBtn,
 } from 'quasar'
-import { mapGetters, mapActions, mapMutations } from 'vuex'
-import NotificationItem from './NotificationItem'
+
 import KSpinner from '@/utils/components/KSpinner'
+
+import { useMarkClickedMutation, useMarkSeenMutation } from '../mutations'
+import { useNotificationListQuery } from '../queries'
+
+import NotificationItem from './NotificationItem'
 
 export default {
   components: {
@@ -73,28 +77,37 @@ export default {
       default: false,
     },
   },
-  computed: {
-    ...mapGetters({
-      notifications: 'notifications/current',
-      fetching: 'notifications/fetching',
-      canFetchPast: 'notifications/canFetchPast',
-      fetchingPast: 'notifications/fetchingPast',
-    }),
-  },
-  mounted () {
-    this.setPageVisible(true)
-  },
-  beforeUnmount () {
-    this.setPageVisible(false)
-  },
-  methods: {
-    ...mapActions({
-      fetchPast: 'notifications/fetchPast',
-      markClicked: 'notifications/markClicked',
-    }),
-    ...mapMutations({
-      setPageVisible: 'notifications/setPageVisible',
-    }),
+  setup () {
+    const {
+      notifications,
+      isLoading,
+      hasNextPage,
+      isFetchingNextPage,
+      fetchNextPage,
+    } = useNotificationListQuery()
+
+    const {
+      mutate: markClicked,
+    } = useMarkClickedMutation()
+
+    const {
+      mutate: markSeen,
+      isIdle,
+    } = useMarkSeenMutation()
+
+    function maybeMarkClickedAndSeen (notification) {
+      if (!notification.clicked) markClicked(notification.id)
+      if (isIdle) markSeen()
+    }
+
+    return {
+      notifications,
+      isLoading,
+      hasNextPage,
+      isFetchingNextPage,
+      fetchNextPage,
+      maybeMarkClickedAndSeen,
+    }
   },
 }
 </script>

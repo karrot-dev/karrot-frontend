@@ -1,25 +1,14 @@
+import { convert as convertActivities } from '@/activities/api/activities'
+import { convert as convertApplications } from '@/applications/api/applications'
 import axios, { parseCursor } from '@/base/api/axios'
+import { convert as convertIssues } from '@/issues/api/issues'
 
 export default {
-  async get (id) {
-    return (await axios.get(`/api/notifications/${id}/`)).data
-  },
-
-  async list () {
-    const response = (await axios.get('/api/notifications/')).data
+  async list (filter) {
+    const response = (await axios.get('/api/notifications/', { params: filter })).data
     return {
       ...response,
       next: parseCursor(response.next),
-      results: convertListResults(response.results),
-    }
-  },
-
-  async listMore (cursor) {
-    const response = (await axios.get(cursor)).data
-    return {
-      ...response,
-      next: parseCursor(response.next),
-      prev: parseCursor(response.prev),
       results: convertListResults(response.results),
     }
   },
@@ -36,7 +25,9 @@ export default {
 function convertListResults (results) {
   return {
     notifications: convert(results.notifications),
-    meta: convertMeta(results.meta),
+    activities: convertActivities(results.activities),
+    issues: convertIssues(results.issues),
+    applications: convertApplications(results.applications),
   }
 }
 
@@ -50,12 +41,5 @@ export function convert (val) {
       createdAt: new Date(val.createdAt),
       expiresAt: val.expiresAt && new Date(val.expiresAt),
     }
-  }
-}
-
-export function convertMeta (val) {
-  return {
-    ...val,
-    markedAt: new Date(val.markedAt),
   }
 }

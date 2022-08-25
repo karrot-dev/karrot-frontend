@@ -1,5 +1,6 @@
-import { mountWithDefaults } from '>/helpers'
 import lolex from 'lolex'
+
+import { mountWithDefaults } from '>/helpers'
 
 describe('DateAsWords', () => {
   const now = new Date('2017-08-11T12:00:10Z')

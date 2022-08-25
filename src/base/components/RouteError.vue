@@ -1,5 +1,8 @@
 <template>
-  <div class="error-page window-height window-width bg-primary column items-center no-wrap">
+  <div
+    v-if="hasError"
+    class="error-page window-height window-width bg-primary column items-center no-wrap"
+  >
     <div class="error-code bg-grey-2 flex items-center justify-center">
       <img :src="rolling">
     </div>
@@ -7,14 +10,24 @@
       <h1>
         Oooooops!
       </h1>
-      <slot>
-        <p class="caption text-center">
-          {{ $t('NOT_FOUND.EXPLANATION') }}
-        </p>
-      </slot>
+      <p
+        v-if="message"
+        class="caption text-center"
+      >
+        <span
+          v-if="message.translation"
+          v-t="message.translation"
+        />
+      </p>
+      <p
+        v-else
+        class="caption text-center"
+      >
+        {{ $t('NOT_FOUND.EXPLANATION') }}
+      </p>
       <p class="q-gutter-md">
         <QBtn
-          v-if="canGoBack"
+          v-if="canGoBack()"
           color="secondary"
           icon="keyboard_arrow_left"
           :label="$t('BUTTON.BACK')"
@@ -24,34 +37,37 @@
           color="secondary"
           icon-right="fas fa-home"
           :label="$t('NOT_FOUND.HOME')"
-          @click="$router.replace('/').catch(() => {})"
+          @click="goHome"
         />
       </p>
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
 import { QBtn } from 'quasar'
-import rolling from '@/base/assets/rolling.png'
+import { useRouter } from 'vue-router'
 
-export default {
-  components: {
-    QBtn,
-  },
-  data () {
-    return {
-      canGoBack: window.history.length > 1,
-    }
-  },
-  created () {
-    this.rolling = rolling
-  },
-  methods: {
-    goBack () {
-      window.history.go(-1)
-    },
-  },
+import rolling from '@/base/assets/rolling.png'
+import { useRouteErrorService } from '@/base/services'
+
+const router = useRouter()
+
+const {
+  hasError,
+  message,
+} = useRouteErrorService()
+
+function canGoBack () {
+  return window.history.length > 1
+}
+
+function goBack () {
+  window.history.go(-1)
+}
+
+function goHome () {
+  router.replace('/')
 }
 </script>
 

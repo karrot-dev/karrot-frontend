@@ -51,7 +51,9 @@ import {
   QBtn,
   QIcon,
 } from 'quasar'
+
 import statusMixin from '@/utils/mixins/statusMixin'
+
 import VerificationWarning from '@/authuser/components/Settings/VerificationWarning'
 
 export default {

@@ -1,5 +1,5 @@
-import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertActivity } from '@/activities/api/activities'
+import axios, { parseCursor } from '@/base/api/axios'
 
 export default {
   async create (feedback) {
@@ -15,16 +15,6 @@ export default {
     return {
       ...response,
       next: parseCursor(response.next),
-      results: convertListResults(response.results),
-    }
-  },
-
-  async listMore (cursor) {
-    const response = (await axios.get(cursor)).data
-    return {
-      ...response,
-      next: parseCursor(response.next),
-      prev: parseCursor(response.prev),
       results: convertListResults(response.results),
     }
   },

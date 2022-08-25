@@ -13,11 +13,11 @@
 </template>
 
 <script>
-import { marker, Icon, popup } from 'leaflet/dist/leaflet-src.esm'
 
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png'
 import iconUrl from 'leaflet/dist/images/marker-icon.png'
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png'
+import { marker, Icon, popup } from 'leaflet/dist/leaflet-src.esm'
 import { markRaw } from 'vue'
 
 // fix default marker icon

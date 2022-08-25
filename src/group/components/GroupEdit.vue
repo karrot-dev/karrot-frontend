@@ -21,12 +21,11 @@
         </h4>
 
         <QInput
-          v-if="!edit.isPlayground"
+          v-if="edit.status !== 'playground'"
           id="group-title"
           v-model="edit.name"
           :autofocus="!$q.platform.has.touch"
-          :error="hasNameError"
-          :error-message="nameError"
+          v-bind="nameError"
           :label="$t('GROUP.TITLE')"
           autocomplete="off"
           outlined
@@ -39,7 +38,7 @@
         </QInput>
 
         <MarkdownInput
-          v-if="!edit.isPlayground"
+          v-if="edit.status !== 'playground'"
           v-model="edit.publicDescription"
           :error="hasError('publicDescription')"
           :error-message="firstError('publicDescription')"
@@ -85,8 +84,7 @@
 
         <QSelect
           v-model="edit.timezone"
-          :error="hasTimezoneError"
-          :error-message="timezoneError"
+          v-bind="timezoneError"
           :label="$t('GROUP.TIMEZONE')"
           :options="filteredTimezones"
           fill-input
@@ -168,6 +166,8 @@
 </template>
 
 <script>
+import useVuelidate from '@vuelidate/core'
+import { required, minLength, maxLength } from '@vuelidate/validators'
 import jstz from 'jstimezonedetect'
 import {
   QCard,
@@ -177,14 +177,14 @@ import {
   QSelect,
   QIcon,
 } from 'quasar'
-import AddressPicker from '@/maps/components/AddressPicker'
-import MarkdownInput from '@/utils/components/MarkdownInput'
-import useVuelidate from '@vuelidate/core'
-import { required, minLength, maxLength } from '@vuelidate/validators'
+
 import editMixin from '@/utils/mixins/editMixin'
-import statusMixin from '@/utils/mixins/statusMixin'
+import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
+
 import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
+import AddressPicker from '@/maps/components/AddressPicker'
 import InfoPopup from '@/utils/components/InfoPopup'
+import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
   name: 'GroupEdit',
@@ -253,30 +253,18 @@ export default {
       }
       return true
     },
-    hasNameError () {
-      return !!this.nameError
-    },
-    nameError () {
-      if (this.v$.edit.name.$error) {
-        const m = this.v$.edit.name
-        if (!m.required) return this.$t('VALIDATION.REQUIRED')
-        if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', { min: 4 })
-        if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
-        if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
-      }
-      return this.firstError('name')
-    },
-    hasTimezoneError () {
-      return !!this.timezoneError
-    },
-    timezoneError () {
-      if (this.v$.edit.timezone.$error) {
-        const m = this.v$.edit.timezone
-        if (!m.required) return this.$t('VALIDATION.REQUIRED')
-        if (!m.inList) return this.$t('VALIDATION.VALID_TIMEZONE')
-      }
-      return this.firstError('timezone')
-    },
+    ...mapErrors({
+      name: [
+        ['required', 'VALIDATION.REQUIRED'],
+        ['minLength', 'VALIDATION.MINLENGTH', { min: 4 }],
+        ['maxLength', 'VALIDATION.MAXLENGTH', { max: 81 }],
+        ['isUnique', 'VALIDATION.UNIQUE'],
+      ],
+      timezone: [
+        ['required', 'VALIDATION.REQUIRED'],
+        ['inList', 'VALIDATION.VALID_TIMEZONE'],
+      ],
+    }),
     hasAddressError () {
       return !!this.addressError
     },
@@ -298,6 +286,7 @@ export default {
   methods: {
     maybeSave (event) {
       this.v$.edit.$touch()
+      console.log('maybe save?', this.canSave)
       if (!this.canSave) return
       this.v$.edit.$reset()
       this.save()
@@ -329,8 +318,8 @@ export default {
         required,
         inList (value) {
           if (value === '') return true
-          if (this.timezones && this.timezones.list) {
-            return this.timezones.list.findIndex(e => e.value === value) > 0
+          if (this.timezones) {
+            return this.timezones.findIndex(timezone => timezone === value) !== -1
           }
           return true
         },

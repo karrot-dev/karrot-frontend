@@ -13,11 +13,11 @@ export default {
       }
       if (!this.canFetchPast) {
         await this.$nextTick()
-        done()
+        done(!this.canFetchPast)
         return
       }
       await this.fetchPast()
-      done()
+      done(!this.canFetchPast)
     },
   },
 }

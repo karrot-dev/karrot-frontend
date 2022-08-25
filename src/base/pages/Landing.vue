@@ -198,23 +198,23 @@ import {
   QImg,
   QBtn,
 } from 'quasar'
-import { mapGetters } from 'vuex'
 
-import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
-import KAbout from '@/base/components/KAbout'
-import KLandingButtons from '@/base/components/KLandingButtons'
-import logo from '@/logo/assets/carrot-logo.svg'
 import { dirNames, dirs } from '@/base/images-config.mjs'
 import generatedImages from '@/base/images.json'
-
+import { useGroupInfoService } from '@/groupInfo/services'
+import logo from '@/logo/assets/carrot-logo.svg'
 import router from '@/router'
+
+import KAbout from '@/base/components/KAbout'
+import KLandingButtons from '@/base/components/KLandingButtons'
+import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
 
 // Prefer active non-playground groups with a photo
 function groupSortScore (group) {
   let score = 0
-  if (!group.isInactive) score += 1
-  if (group.hasPhoto) score += 1
-  if (!group.isPlayground) score += 1
+  if (group.status !== 'inactive') score += 1
+  if (group.photoUrls?.fullSize) score += 1
+  if (group.status !== 'playground') score += 1
   return score
 }
 
@@ -227,15 +227,17 @@ export default {
     KAbout,
     KLandingButtons,
   },
+  setup () {
+    // TODO: this used to show groups/other, but all seems ok...?
+    const { groups } = useGroupInfoService()
+    return { groups }
+  },
   data () {
     return {
       showAbout: false,
     }
   },
   computed: {
-    ...mapGetters({
-      groups: 'groups/other',
-    }),
     groupsToShow () {
       // We might not have enough groups to show, so this is a bit more complicated than it might have been...
       // It attempts to always show _something_

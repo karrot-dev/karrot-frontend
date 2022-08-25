@@ -1,18 +1,24 @@
 <template>
-  <EditActivityTypesUI
-    :activity-types="$store.getters['activityTypes/byCurrentGroup']"
-    :activity-type-create-status="$store.getters['activityTypes/createStatus']"
-    @create="data => $store.dispatch('activityTypes/create', data)"
-    @save="data => $store.dispatch('activityTypes/save', data)"
-  />
+  <EditActivityTypesUI :activity-types="activityTypes" />
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue'
+
+import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityTypeService } from '@/activities/services'
+import { useCurrentGroupService } from '@/group/services'
+
 import EditActivityTypesUI from '@/group/components/EditActivityTypesUI'
 
-export default {
-  components: {
-    EditActivityTypesUI,
-  },
+const { groupId } = useCurrentGroupService()
+const { getActivityTypesByGroup } = useActivityTypeService()
+const { getTranslatedName } = useActivityTypeHelpers()
+
+function sortByTranslatedName (a, b) {
+  return getTranslatedName(a).localeCompare(getTranslatedName(b))
 }
+
+const activityTypes = computed(() => getActivityTypesByGroup(groupId.value)
+  .sort(sortByTranslatedName))
 </script>

@@ -24,37 +24,31 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   QTabs,
   QRouteTab,
   QBadge,
 } from 'quasar'
-import { mapGetters } from 'vuex'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-export default {
-  components: {
-    QTabs,
-    QRouteTab,
-    QBadge,
-  },
-  computed: {
-    ...mapGetters({
-      groupId: 'currentGroup/id',
-    }),
-    tabs () {
-      const params = { groupId: this.groupId }
-      return [
-        {
-          to: { name: 'groupEditDetails', params },
-          label: this.$t('GROUP.EDIT_DETAILS'),
-        },
-        {
-          to: { name: 'groupEditActivityTypes', params },
-          label: this.$t('GROUP.EDIT_ACTIVITY_TYPES'),
-        },
-      ]
+import { useCurrentGroupService } from '@/group/services'
+
+const { t } = useI18n()
+const { groupId } = useCurrentGroupService()
+
+const tabs = computed(() => {
+  const params = { groupId: groupId.value }
+  return [
+    {
+      to: { name: 'groupEditDetails', params },
+      label: t('GROUP.EDIT_DETAILS'),
     },
-  },
-}
+    {
+      to: { name: 'groupEditActivityTypes', params },
+      label: t('GROUP.EDIT_ACTIVITY_TYPES'),
+    },
+  ]
+})
 </script>

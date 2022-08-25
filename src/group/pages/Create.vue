@@ -1,20 +1,28 @@
 <template>
   <GroupEdit
-    :timezones="$store.getters['timezones/autocompleteData']"
-    :all-groups="$store.getters['groups/all']"
-    :status="$store.getters['groups/createStatus']"
-    :default-map-center="$store.getters['geo/myCoordinates']"
-    @save="data => $store.dispatch('groups/create', data)"
-    @reset="$store.dispatch('groups/meta/clear', ['create'])"
+    :timezones="timezones"
+    :all-groups="groups"
+    :status="createStatus"
+    :default-map-center="myCoordinates"
+    @save="data => create(data)"
+    @reset="reset"
   />
 </template>
 
-<script>
+<script setup>
+import { useGeoService } from '@/base/services/geo'
+import { useCreateGroupMutation } from '@/group/mutations'
+import { useTimezonesQuery } from '@/group/queries'
+import { useGroupInfoService } from '@/groupInfo/services'
+
 import GroupEdit from '@/group/components/GroupEdit'
 
-export default {
-  components: {
-    GroupEdit,
-  },
-}
+const { timezones } = useTimezonesQuery()
+const { myCoordinates } = useGeoService()
+const { groups } = useGroupInfoService()
+const {
+  mutate: create,
+  status: createStatus,
+  reset,
+} = useCreateGroupMutation()
 </script>

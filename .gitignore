@@ -15,6 +15,9 @@ node_modules
 /src-cordova/getpassword
 /src-cordova/ul_web_hooks
 
+# Dev certs
+/build/dev-certs/*.pem
+
 # Capacitor related directories and files
 /src-capacitor/www
 /src-capacitor/node_modules

@@ -1,7 +1,7 @@
 <template>
   <QItem
     v-if="!editMode"
-    :class="{ isUnread: message.isUnread, slim, continuation: !!message.continuation }"
+    :class="{ isUnread, slim, continuation }"
     class="conversation-message relative-position"
   >
     <QBtnGroup
@@ -22,7 +22,7 @@
         outline
         color="secondary"
         :title="$t('CONVERSATION.REPLIES')"
-        @click="$emit('open-thread')"
+        @click="() => openThread(message)"
       >
         <i class="fas fa-comments" />
       </QBtn>
@@ -40,17 +40,17 @@
       class="q-mt-xs q-pr-sm"
     >
       <ProfilePicture
-        :user="message.author"
+        :user="author"
         :size="$q.platform.is.mobile ? 30 : 40"
       />
     </QItemSection>
     <QItemSection>
       <QItemLabel
-        v-if="!message.continuation"
+        v-if="!continuation"
         class="no-wrap k-message-meta"
       >
-        <RouterLink :to="{ name: 'user', params: { userId: message.author.id } }">
-          <span class="k-message-author text-bold text-secondary text-uppercase">{{ message.author.displayName }}</span>
+        <RouterLink :to="{ name: 'user', params: { userId: author.id } }">
+          <span class="k-message-author text-bold text-secondary text-uppercase">{{ author.displayName }}</span>
         </RouterLink>
         <span class="message-date">
           <small class="text-weight-light">
@@ -67,7 +67,7 @@
           :title="$t('WALL.RECEIVED_VIA_EMAIL')"
         />
       </QItemLabel>
-      <div class="content">
+      <div class="content full-width">
         <Markdown
           v-measure
           :source="message.content"
@@ -75,7 +75,7 @@
         />
       </div>
       <QItemLabel
-        v-if="message.isEdited"
+        v-if="getIsMessageEdited(message)"
         caption
         class="q-pb-xs text-weight-light"
       >
@@ -111,10 +111,10 @@
           :text-color="message.threadMeta.unreadReplyCount > 0 ? 'white' : 'black'"
           class="reaction-box k-thread-box"
           no-caps
-          @click="$emit('open-thread')"
+          @click="() => openThread(message)"
         >
           <ProfilePicture
-            v-for="user in message.threadMeta.participants"
+            v-for="user in threadParticipants"
             :key="user.id"
             class="k-profile-picture"
             :user="user"
@@ -136,8 +136,8 @@
   </QItem>
   <ConversationCompose
     v-else
-    :status="message.saveStatus"
-    :user="message.author"
+    :status="saveMessageStatus"
+    :user="author"
     :value="message"
     :slim="slim"
     @submit="save"
@@ -146,14 +146,6 @@
 </template>
 
 <script>
-import ConversationReactions from '@/messages/components/ConversationReactions'
-import ConversationAddReaction from './ConversationAddReaction'
-import ConversationCompose from '@/messages/components/ConversationCompose'
-import ImageGalleryDialog from '@/messages/components/ImageGalleryDialog'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import Markdown from '@/utils/components/Markdown'
-import DateAsWords from '@/utils/components/DateAsWords'
-
 import {
   Dialog,
   QBtn,
@@ -164,6 +156,27 @@ import {
   QItemLabel,
   QIcon,
 } from 'quasar'
+import { computed } from 'vue'
+
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useMessageHelpers } from '@/messages/helpers'
+import {
+  useAddReactionMutation,
+  useRemoveReactionMutation,
+  useSaveMesssageMutation,
+} from '@/messages/mutations'
+import { useDetailService } from '@/messages/services'
+import { useUserService } from '@/users/services'
+
+import ConversationCompose from '@/messages/components/ConversationCompose'
+import ConversationReactions from '@/messages/components/ConversationReactions'
+import ImageGalleryDialog from '@/messages/components/ImageGalleryDialog'
+import ProfilePicture from '@/users/components/ProfilePicture'
+import DateAsWords from '@/utils/components/DateAsWords'
+import Markdown from '@/utils/components/Markdown'
+
+import ConversationAddReaction from './ConversationAddReaction'
+
 export default {
   name: 'ConversationMessage',
   components: {
@@ -186,16 +199,61 @@ export default {
       type: Object,
       required: true,
     },
+    isUnread: {
+      type: Boolean,
+      default: false,
+    },
+    continuation: {
+      type: Boolean,
+      default: false,
+    },
     slim: {
       type: Boolean,
       default: false,
     },
   },
-  emits: [
-    'open-thread',
-    'toggle-reaction',
-    'save',
-  ],
+  setup (props) {
+    const { getIsCurrentUser } = useAuthHelpers()
+    const { getUserById } = useUserService()
+    const { openThread } = useDetailService()
+    const { getIsMessageEdited } = useMessageHelpers()
+
+    const author = computed(() => getUserById(props.message.author))
+    const threadParticipants = computed(() => props.message.threadMeta?.participants?.map(getUserById) ?? [])
+
+    const {
+      mutateAsync: saveMessage,
+      status: saveMessageStatus,
+    } = useSaveMesssageMutation()
+
+    const { mutate: addReaction } = useAddReactionMutation()
+    const { mutate: removeReaction } = useRemoveReactionMutation()
+
+    function toggleReaction (name) {
+      const messageId = props.message.id
+      const reactionIndex = props.message.reactions.findIndex(reaction => getIsCurrentUser(reaction.user) && reaction.name === name)
+
+      if (reactionIndex === -1) {
+        addReaction({ messageId, name })
+      }
+      else {
+        removeReaction({ messageId, name })
+      }
+    }
+
+    return {
+      author,
+      threadParticipants,
+
+      getIsMessageEdited,
+      getIsCurrentUser,
+
+      toggleReaction,
+      saveMessage,
+      saveMessageStatus,
+      openThread,
+    }
+  },
   data () {
     return {
       editMode: false,
@@ -203,10 +261,10 @@ export default {
   },
   computed: {
     currentUserReactions () {
-      return this.message && this.message.reactions && this.message.reactions.filter(e => e.reacted).map(e => e.name)
+      return this.message?.reactions?.filter(reaction => this.getIsCurrentUser(reaction.user)).map(reaction => reaction.name)
     },
     hasReactions () {
-      return this.message && this.message.reactions && this.message.reactions.length > 0
+      return this.message?.reactions?.length > 0
     },
     showReplies () {
       return this.message.threadMeta && !this.slim
@@ -215,17 +273,10 @@ export default {
       return this.$d(this.message.createdAt, 'long')
     },
     imagesForDisplay () {
-      if (!this.message || !this.message.images) return []
-      return this.message.images.filter(image => image.id && !image._removed)
+      return this.message?.images?.filter(image => image.id && !image._removed) || []
     },
   },
   methods: {
-    toggleReaction (name) {
-      this.$emit('toggle-reaction', {
-        message: this.message,
-        name,
-      })
-    },
     toggleEdit () {
       this.editMode = !this.editMode
     },
@@ -239,15 +290,13 @@ export default {
         parent: this,
       })
     },
-    save ({ content, images }) {
-      this.$emit('save', {
-        message: {
-          id: this.message.id,
-          content,
-          images,
-        },
-        done: this.toggleEdit,
+    async save ({ content, images }) {
+      await this.saveMessage({
+        id: this.message.id,
+        content,
+        images,
       })
+      this.toggleEdit()
     },
   },
 }

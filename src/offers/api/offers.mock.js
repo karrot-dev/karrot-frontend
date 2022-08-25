@@ -1,14 +1,15 @@
 import { faker } from '@faker-js/faker'
+
 import { createCursorPaginatedBackend, createGetByIdBackend } from '>/mockAxios'
 
 function sample (items) {
   return items[Math.floor(Math.realRandom() * items.length)]
 }
 
-let nextOfferId = 1
+let nextId = 1
 export function createOffer (params) {
   return {
-    id: ++nextOfferId,
+    id: ++nextId,
     name: faker.random.words(5),
     description: faker.lorem.paragraphs(2),
     status: sample(['active', 'archived']),
@@ -19,12 +20,12 @@ export function createOffer (params) {
   }
 }
 
-export function createMockOffersBackend (offers, options = {}) {
-  createCursorPaginatedBackend('/api/offers/', offers, ({ params }) => {
+export function createMockOffersBackend (db, options = {}) {
+  createCursorPaginatedBackend('/api/offers/', () => db.offers, ({ params }) => {
     const status = params.status
     const group = parseInt(params.group || '1')
     return offer => offer.status === status && offer.group === group
   }, options)
 
-  createGetByIdBackend('/api/offers/:id/', offers)
+  createGetByIdBackend('/api/offers/:id/', () => db.offers)
 }

@@ -1,12 +1,13 @@
 <template>
   <QItem
-    :class="{ isNonPending: !application.isPending }"
+    :class="{ isNonPending: !application.status !== 'pending' }"
     clickable
-    @click="$emit('open-chat', application)"
+    @click="openApplication(application)"
   >
     <QItemSection side>
       <ProfilePicture
         :user="application.user"
+        :membership="getMembership(application.user.id)"
         :size="30"
         :is-link="false"
       />
@@ -40,10 +41,10 @@
           >
             <template #userName>
               <RouterLink
-                :to="{name: 'user', params: { userId: application.decidedBy.id }}"
+                :to="{name: 'user', params: { userId: application.decidedBy }}"
                 @click.stop
               >
-                {{ application.decidedBy.displayName }}
+                {{ decidedBy.displayName }}
               </RouterLink>
             </template>
           </i18n-t>
@@ -59,6 +60,11 @@ import {
   QItemSection,
   QItemLabel,
 } from 'quasar'
+
+import { useCurrentGroupService } from '@/group/services'
+import { useDetailService } from '@/messages/services'
+import { useUserService } from '@/users/services'
+
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
 
@@ -76,10 +82,20 @@ export default {
       type: Object,
     },
   },
-  emits: [
-    'open-chat',
-  ],
+  setup () {
+    const { getUserById } = useUserService()
+    const { getMembership } = useCurrentGroupService()
+    const { openApplication } = useDetailService()
+    return {
+      getUserById,
+      getMembership,
+      openApplication,
+    }
+  },
   computed: {
+    decidedBy () {
+      return this.getUserById(this.application.decidedBy)
+    },
     userName () {
       return this.application.user.displayName
     },

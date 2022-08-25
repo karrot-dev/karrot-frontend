@@ -1,10 +1,11 @@
-import { h } from 'vue'
-import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
+import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
+import * as factories from '>/enrichedFactories'
+import { createDatastore, storybookDefaults as defaults, statusMocks } from '>/helpers'
 
 import ActivityItem from './ActivityItem'
-import { createDatastore, storybookDefaults as defaults, statusMocks } from '>/helpers'
-import * as factories from '>/enrichedFactories'
 
 const range = n => [...Array(n).keys()]
 

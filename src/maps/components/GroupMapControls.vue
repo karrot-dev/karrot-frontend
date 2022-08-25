@@ -1,13 +1,10 @@
 <template>
-  <QBtnGroup
-    v-if="groupId"
-    class="k-groupmapcontrols"
-  >
+  <QBtnGroup class="k-groupmapcontrols">
     <QBtn
       v-if="options.showFullScreenButton"
       :size="options.buttonSize"
       color="primary"
-      :to="{ name: 'map', params: { groupId } }"
+      :to="{ name: 'map' }"
     >
       <i class="fas fa-expand-arrows-alt fa-stack-1x" />
       <QTooltip>
@@ -19,7 +16,7 @@
       v-if="options.showBack && !$q.platform.is.mobile"
       :size="options.buttonSize"
       color="primary"
-      :to="{ name: 'group', params: { groupId } }"
+      :to="{ name: 'group' }"
     >
       <i class="fas fa-fw fa-chevron-left" />
       <QTooltip>
@@ -30,7 +27,7 @@
     <QBtn
       color="primary"
       :size="options.buttonSize"
-      @click="$emit('toggle-places')"
+      @click="togglePlaces()"
     >
       <span class="fa-fw fa-stack">
         <i
@@ -54,7 +51,7 @@
     <QBtn
       color="primary"
       :size="options.buttonSize"
-      @click="$emit('toggle-users')"
+      @click="toggleUsers()"
     >
       <span class="fa-fw fa-stack">
         <i class="fas fa-user fa-stack-1x" />
@@ -73,10 +70,10 @@
     </QBtn>
 
     <QBtn
-      v-if="options.showGroupsButton"
+      v-if="!hideGroupsButton"
       color="primary"
       :size="options.buttonSize"
-      @click="$emit('toggle-groups')"
+      @click="toggleGroups()"
     >
       <span class="fa-fw fa-stack">
         <i class="fas fa-home fa-stack-1x" />
@@ -116,6 +113,8 @@ import {
   QTooltip,
 } from 'quasar'
 
+import { useMapToggles } from '@/maps/services'
+
 export default {
   components: {
     QBtn,
@@ -123,18 +122,6 @@ export default {
     QTooltip,
   },
   props: {
-    showPlaces: {
-      default: true,
-      type: Boolean,
-    },
-    showUsers: {
-      default: true,
-      type: Boolean,
-    },
-    showGroups: {
-      default: true,
-      type: Boolean,
-    },
     type: {
       default: 'full',
       type: String,
@@ -145,24 +132,38 @@ export default {
         ].includes(value)
       },
     },
-    groupId: {
-      default: null,
-      type: Number,
+    hideGroupsButton: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: [
-    'toggle-places',
-    'toggle-users',
-    'toggle-groups',
     'export',
   ],
+  setup () {
+    const {
+      showPlaces,
+      showUsers,
+      showGroups,
+      togglePlaces,
+      toggleUsers,
+      toggleGroups,
+    } = useMapToggles()
+    return {
+      showPlaces,
+      showUsers,
+      showGroups,
+      togglePlaces,
+      toggleUsers,
+      toggleGroups,
+    }
+  },
   computed: {
     options () {
       if (this.type === 'mini') {
         return {
           showBack: false,
           buttonSize: 'sm',
-          showGroupsButton: false,
           showExportButton: false,
           showFullScreenButton: true,
         }
@@ -171,7 +172,6 @@ export default {
         return {
           showBack: true,
           buttonSize: 'md',
-          showGroupsButton: true,
           showExportButton: true,
           showFullScreenButton: false,
         }

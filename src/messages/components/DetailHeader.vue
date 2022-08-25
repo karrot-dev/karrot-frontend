@@ -1,20 +1,29 @@
 <template>
   <DetailHeaderUI
-    :user="$store.getters['detail/user']"
-    :activity="$store.getters['detail/activity']"
-    :application="$store.getters['detail/application']"
-    :conversation="$store.getters['detail/conversation']"
-    :current-user="$store.getters['auth/user']"
-    @save-conversation="data => $store.dispatch('conversations/maybeSave', data)"
+    :conversation="conversation"
+    :user="user"
+    :activity="activity"
+    :application="application"
+    :current-user="currentUser"
+    @close="() => close()"
   />
 </template>
 
-<script>
+<script setup>
+import { useAuthService } from '@/authuser/services'
+import { useDetailService } from '@/messages/services'
+
 import DetailHeaderUI from './DetailHeaderUI'
 
-export default {
-  components: {
-    DetailHeaderUI,
-  },
-}
+const {
+  user: currentUser,
+} = useAuthService()
+
+const {
+  conversation,
+  activity,
+  user,
+  application,
+  close,
+} = useDetailService()
 </script>

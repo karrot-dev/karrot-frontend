@@ -1,9 +1,10 @@
-import { h } from 'vue'
-import { storiesOf } from '@storybook/vue3'
 import { action } from '@storybook/addon-actions'
+import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
+import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 import PasswordReset from './RequestPasswordReset'
-import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
 const on = {
   onSubmit: action('send reset request'),

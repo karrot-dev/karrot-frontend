@@ -1,9 +1,8 @@
+import { QSelect } from 'quasar'
 import { nextTick } from 'vue'
 
 import * as factories from '>/enrichedFactories'
 import { createDatastore } from '>/helpers'
-
-import { QSelect } from 'quasar'
 
 const datastore = createDatastore({
   users: {
@@ -13,7 +12,7 @@ const datastore = createDatastore({
   },
 })
 
-describe('ActivitySeriesEdit', () => {
+describe.skip('ActivitySeriesEdit', () => {
   beforeEach(() => jest.resetModules())
   let wrapper
   let series

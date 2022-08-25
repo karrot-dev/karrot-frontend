@@ -1,7 +1,8 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
-import { createDatastore, storybookDefaults as defaults } from '>/helpers'
+import { h } from 'vue'
+
 import * as factories from '>/enrichedFactories'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 
 import DetailHeader from './DetailHeaderUI'
 import DetailUI from './DetailUI'

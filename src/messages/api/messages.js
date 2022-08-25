@@ -27,8 +27,11 @@ export default {
     return convert((await axios.get(`/api/messages/${id}/`)).data)
   },
 
-  async list (conversationId) {
-    const response = (await axios.get('/api/messages/', { params: { conversation: conversationId } })).data
+  async list (conversationId, { cursor, pageSize, order } = {}) {
+    const response = (await axios.get(
+      '/api/messages/',
+      { params: { conversation: conversationId, cursor, page_size: pageSize, order } },
+    )).data
     return {
       ...response,
       next: parseCursor(response.next),
@@ -36,21 +39,14 @@ export default {
     }
   },
 
-  async listThread (thread) {
-    const response = (await axios.get('/api/messages/', { params: { thread } })).data
+  async listThread (thread, { cursor, pageSize, order } = {}) {
+    const response = (await axios.get(
+      '/api/messages/',
+      { params: { thread, cursor, page_size: pageSize, order } },
+    )).data
     return {
       ...response,
       next: parseCursor(response.next),
-      results: convert(response.results),
-    }
-  },
-
-  async listMore (cursor) {
-    const response = (await axios.get(cursor)).data
-    return {
-      ...response,
-      next: parseCursor(response.next),
-      prev: parseCursor(response.prev),
       results: convert(response.results),
     }
   },
@@ -60,16 +56,6 @@ export default {
     return {
       ...response,
       next: parseCursor(response.next),
-      results: convertListMyThreadsResult(response.results),
-    }
-  },
-
-  async listMyThreadsMore (cursor) {
-    const response = (await axios.get(cursor)).data
-    return {
-      ...response,
-      next: parseCursor(response.next),
-      prev: parseCursor(response.prev),
       results: convertListMyThreadsResult(response.results),
     }
   },

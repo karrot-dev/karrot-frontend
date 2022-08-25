@@ -1,24 +1,26 @@
-import { ref } from 'vue'
-import { useOfferQuery, useOffersQuery } from '@/offers/queries'
 import { flushPromises, mount } from '@vue/test-utils'
+import { ref } from 'vue'
 import { VueQueryPlugin } from 'vue-query'
-import { createOffer, createMockOffersBackend } from '@/offers/api/offers.mock'
-import { mockAxios } from '>/mockAxios'
+
+import { createMockOffersBackend, createOffer } from '@/offers/api/offers.mock'
+import { useOfferDetailQuery, useOfferListQuery } from '@/offers/queries'
 import { camelizeKeys } from '@/utils/utils'
+
+import { mockAxios } from '>/mockAxios'
 
 describe('offer queries', () => {
   beforeEach(() => jest.resetModules())
   afterEach(() => mockAxios.reset())
 
-  describe('useOfferQuery', () => {
+  describe('useOfferDetailQuery', () => {
     it('can switch between offers', async () => {
       const offer1 = createOffer()
       const offer2 = createOffer()
-      createMockOffersBackend([offer1, offer2])
+      createMockOffersBackend({ offers: [offer1, offer2] })
 
-      const id = ref(null)
+      const offerId = ref(null)
       const wrapper = mount({
-        setup: () => useOfferQuery({ id }),
+        setup: () => useOfferDetailQuery({ offerId }),
       }, {
         global: { plugins: [VueQueryPlugin] },
       })
@@ -27,41 +29,43 @@ describe('offer queries', () => {
       expect(wrapper.vm.offer).toBeUndefined()
 
       // switch to offer1
-      id.value = offer1.id
+      offerId.value = offer1.id
       await flushPromises()
       expect(wrapper.vm.offer).toEqual(camelizeKeys(offer1))
 
       // switch to offer2
-      id.value = offer2.id
+      offerId.value = offer2.id
       await flushPromises()
       expect(wrapper.vm.offer).toEqual(camelizeKeys(offer2))
 
       // and back to nothing again!
-      id.value = null
+      offerId.value = null
       await flushPromises()
       expect(wrapper.vm.offer).toBeUndefined()
     })
   })
 
-  describe('useOffersQuery', () => {
+  describe('useOfferListQuery', () => {
     it('can filter and paginate', async () => {
-      createMockOffersBackend([
-        ...Array.from(
-          { length: 8 },
-          () => createOffer({ status: 'active' }),
-        ),
-        ...Array.from(
-          { length: 4 },
-          () => createOffer({ status: 'archived' }),
-        ),
-      ], {
+      createMockOffersBackend({
+        offers: [
+          ...Array.from(
+            { length: 8 },
+            () => createOffer({ status: 'active', group: 1 }),
+          ),
+          ...Array.from(
+            { length: 4 },
+            () => createOffer({ status: 'archived', group: 1 }),
+          ),
+        ],
+      }, {
         pageSize: 5,
       })
 
-      const group = ref(null)
+      const groupId = ref(null)
       const status = ref('active')
       const wrapper = mount({
-        setup: () => useOffersQuery({ group, status }),
+        setup: () => useOfferListQuery({ groupId, status }),
       }, {
         global: { plugins: [VueQueryPlugin] },
       })
@@ -71,7 +75,7 @@ describe('offer queries', () => {
       // nothing as we have no group set
       expect(wrapper.vm.offers).toHaveLength(0)
 
-      group.value = 1
+      groupId.value = 1
       await flushPromises()
 
       // First page of entries

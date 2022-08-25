@@ -1,10 +1,12 @@
-import MessageReactions from './ConversationReactions'
-import { currentUserMock, usersMockWithoutCurrent } from '>/mockdata'
-import { mountWithDefaults } from '>/helpers'
-import EmojiButton from './EmojiButton'
 import { QBtn } from 'quasar'
 
-describe('Conversation message reactions', () => {
+import { mountWithDefaults } from '>/helpers'
+import { currentUserMock, usersMockWithoutCurrent } from '>/mockdata'
+
+import MessageReactions from './ConversationReactions'
+import EmojiButton from './EmojiButton'
+
+describe.skip('Conversation message reactions', () => {
   let wrapper
 
   beforeEach(() => {

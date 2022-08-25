@@ -2,7 +2,7 @@
   <div class="conversation-reactions row">
     <div class="reactions row">
       <EmojiButton
-        v-for="reaction in reactions"
+        v-for="reaction in groupedReactions"
         :key="reaction.name"
         v-touch-hold="toggleDetail"
         :name="reaction.name"
@@ -27,7 +27,7 @@
       class="bg-grey-10 text-grey-1 q-pa-md"
     >
       <QItem
-        v-for="reaction in reactions"
+        v-for="reaction in groupedReactions"
         :key="reaction.name"
         @click="toggleDetail"
       >
@@ -57,9 +57,6 @@
 </template>
 
 <script>
-import ConversationAddReaction from './ConversationAddReaction'
-import EmojiButton from './EmojiButton'
-
 import {
   QDialog,
   QItem,
@@ -67,6 +64,12 @@ import {
   QItemLabel,
   QBtn,
 } from 'quasar'
+import { computed } from 'vue'
+
+import { useMessageHelpers } from '@/messages/helpers'
+
+import ConversationAddReaction from './ConversationAddReaction'
+import EmojiButton from './EmojiButton'
 
 export default {
   name: 'ConversationReactions',
@@ -92,6 +95,11 @@ export default {
   emits: [
     'toggle',
   ],
+  setup (props) {
+    const { groupReactions } = useMessageHelpers()
+    const groupedReactions = computed(() => groupReactions(props.reactions))
+    return { groupedReactions }
+  },
   data () {
     return {
       showDetail: false,

@@ -179,20 +179,6 @@
 </template>
 
 <script>
-import Markdown from '@/utils/components/Markdown'
-import StandardMap from '@/maps/components/StandardMap'
-import RandomArt from '@/utils/components/RandomArt'
-import KSpinner from '@/utils/components/KSpinner'
-import ProfilePicture from '@/users/components/ProfilePicture'
-
-import { placeMarker } from '@/maps/components/markers'
-import directions from '@/maps/directions'
-
-import {
-  mapGetters,
-  mapActions,
-} from 'vuex'
-
 import {
   QSeparator,
   QBtn,
@@ -210,6 +196,21 @@ import {
   QToolbarTitle,
   QIcon,
 } from 'quasar'
+import { computed } from 'vue'
+
+import { useAuthService } from '@/authuser/services'
+import { useCurrentGroupService } from '@/group/services'
+import directions from '@/maps/directions'
+import { usePlaceSubscribeMutation, usePlaceUnsubscribeMutation } from '@/places/mutations'
+import { useActivePlaceService } from '@/places/services'
+import { useUserService } from '@/users/services'
+
+import StandardMap from '@/maps/components/StandardMap'
+import { placeMarker } from '@/maps/components/markers'
+import ProfilePicture from '@/users/components/ProfilePicture'
+import KSpinner from '@/utils/components/KSpinner'
+import Markdown from '@/utils/components/Markdown'
+import RandomArt from '@/utils/components/RandomArt'
 
 export default {
   components: {
@@ -234,6 +235,26 @@ export default {
     QToolbarTitle,
     QIcon,
   },
+  setup () {
+    const { user: currentUser } = useAuthService()
+    const { isEditor } = useCurrentGroupService()
+    const { placeId, place } = useActivePlaceService()
+    const { getUserById } = useUserService()
+    const subscribers = computed(() => place.value.subscribers.map(getUserById))
+
+    const { mutate: subscribe } = usePlaceSubscribeMutation()
+    const { mutate: unsubscribe } = usePlaceUnsubscribeMutation()
+
+    return {
+      placeId,
+      place,
+      isEditor,
+      currentUser,
+      subscribers,
+      subscribe,
+      unsubscribe,
+    }
+  },
   data () {
     return {
       showDetail: false,
@@ -243,13 +264,6 @@ export default {
     markers () {
       return this.place ? [placeMarker(this.place)] : []
     },
-    ...mapGetters({
-      placeId: 'places/activePlaceId',
-      place: 'places/activePlace',
-      subscribers: 'places/activePlaceSubscribers',
-      currentUser: 'auth/user',
-      isEditor: 'currentGroup/isEditor',
-    }),
     directionsURL () {
       if (!this.place || !this.place.latitude || !this.place.longitude) return
       if (this.$q.platform.is.ios) {
@@ -291,10 +305,6 @@ export default {
     },
   },
   methods: {
-    ...mapActions({
-      subscribe: 'places/subscribe',
-      unsubscribe: 'places/unsubscribe',
-    }),
     select (option) {
       if (option.id === 'subscribe') {
         this.subscribe(this.placeId)

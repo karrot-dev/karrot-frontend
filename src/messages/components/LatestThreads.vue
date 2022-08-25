@@ -2,8 +2,8 @@
   <div
     class="bg-white relative-position"
   >
-    <KSpinner v-show="fetchInitialPending" />
-    <template v-if="!fetchInitialPending">
+    <KSpinner v-show="isLoading" />
+    <template v-if="!isLoading">
       <QList>
         <QItem
           v-if="threads.length === 0"
@@ -19,16 +19,16 @@
           :unread-count="conv.threadMeta.unreadReplyCount"
           :muted="conv.threadMeta.muted"
           :selected="isSelected(conv)"
-          @open="openForThread(conv)"
+          @open="openThread(conv)"
         />
         <QItem
-          v-if="!asPopover && canFetchPastThreads"
+          v-if="!asPopover && hasNextPage"
           class="row justify-center"
         >
           <QBtn
             size="sm"
-            :loading="fetchingPastThreads"
-            @click="fetchPastThreads"
+            :loading="isFetchingNextPage"
+            @click="() => fetchNextPage()"
           >
             {{ $t('BUTTON.SHOW_MORE') }}
           </QBtn>
@@ -57,9 +57,16 @@ import {
   QItem,
   QBtn,
 } from 'quasar'
-import { mapGetters, mapActions } from 'vuex'
-import LatestMessageItem from './LatestMessageItem'
+
+import { useStatusService } from '@/status/services'
+
 import KSpinner from '@/utils/components/KSpinner'
+
+import { useMyThreadsMarkSeenMutation } from '../mutations'
+import { useMyThreadListQuery } from '../queries'
+import { useDetailService } from '../services'
+
+import LatestMessageItem from './LatestMessageItem'
 
 export default {
   components: {
@@ -75,29 +82,47 @@ export default {
       default: false,
     },
   },
-  computed: {
-    ...mapGetters({
-      threads: 'latestMessages/threads',
-      canFetchPastThreads: 'latestMessages/canFetchPastThreads',
-      fetchingPastThreads: 'latestMessages/fetchingPastThreads',
-      fetchInitialPending: 'latestMessages/fetchInitialPending',
-      selectedConversation: 'detail/conversation',
-    }),
+  setup () {
+    const {
+      threads,
+      isLoading,
+      hasNextPage,
+      isFetchingNextPage,
+      fetchNextPage,
+    } = useMyThreadListQuery()
+
+    const {
+      openThread,
+      conversation: selectedConversation,
+    } = useDetailService()
+
+    const { mutate: doMarkThreadsSeen } = useMyThreadsMarkSeenMutation()
+
+    const { unseenThreadCount } = useStatusService()
+
+    function markThreadsSeen () {
+      if (unseenThreadCount.value <= 0) return
+      doMarkThreadsSeen()
+    }
+
+    return {
+      threads,
+      isLoading,
+      hasNextPage,
+      isFetchingNextPage,
+      fetchNextPage,
+      selectedConversation,
+      openThread,
+      markThreadsSeen,
+    }
   },
   mounted () {
-    this.fetchInitial()
     setTimeout(() => this.markThreadsSeen(), 3 * 1000)
   },
   unmounted () {
     this.markThreadsSeen()
   },
   methods: {
-    ...mapActions({
-      openForThread: 'detail/openForThread',
-      fetchPastThreads: 'latestMessages/fetchPastThreads',
-      fetchInitial: 'latestMessages/fetchInitial',
-      markThreadsSeen: 'latestMessages/markThreadsSeen',
-    }),
     isSelected (conv) {
       if (!this.selectedConversation) return false
       if (Boolean(conv.thread) !== Boolean(this.selectedConversation.thread)) return false

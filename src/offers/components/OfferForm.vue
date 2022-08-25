@@ -65,13 +65,15 @@
 <script>
 import useVuelidate from '@vuelidate/core'
 import { maxLength, minLength, required } from '@vuelidate/validators'
+import { QBtn, QField, QIcon, QInput } from 'quasar'
+
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
-import { QBtn, QField, QIcon, QInput } from 'quasar'
+
+import KFormContainer from '@/base/components/KFormContainer'
+import KSpinner from '@/utils/components/KSpinner'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import MultiCroppa from '@/utils/components/MultiCroppa'
-import KSpinner from '@/utils/components/KSpinner'
-import KFormContainer from '@/base/components/KFormContainer'
 
 const NAME_MIN_LENGTH = 5
 const NAME_MAX_LENGTH = 80

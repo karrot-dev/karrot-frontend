@@ -1,31 +1,50 @@
 <template>
   <GroupPreviewUI
-    :group="$store.getters['groups/activePreview']"
-    :is-logged-in="$store.getters['auth/isLoggedIn']"
-    :user="$store.getters['auth/user']"
-    :application="$store.getters['applications/getForActivePreview']"
-    @join="data => $store.dispatch('groups/join', data)"
-    @withdraw="data => $store.dispatch('applications/withdraw', data)"
-    @open-chat="data => $store.dispatch('detail/openForApplication', data)"
-    @go-visit="groupId => $router.push({ name: 'group', params: { groupId } }).catch(() => {})"
-    @go-settings="$router.push({ name: 'settings', hash: '#change-email' }).catch(() => {})"
-    @go-signup="goSignup"
-    @go-apply="groupId => $router.push({ name: 'applicationForm', params: { groupPreviewId: groupId } }).catch(() => {})"
+    :group="group"
+    :is-logged-in="isLoggedIn"
+    :user="user"
+    :application="application"
+    @withdraw="withdraw"
   />
 </template>
 
-<script>
+<script setup>
+import { computed, unref } from 'vue'
+
+import { useWithdrawApplicationMutation } from '@/applications/mutations'
+import { useApplicationListQuery } from '@/applications/queries'
+import { useAuthService } from '@/authuser/services'
+import { useActiveGroupPreviewService } from '@/groupInfo/services'
+import { showToast } from '@/utils/toasts'
+
 import GroupPreviewUI from '@/groupInfo/components/GroupPreviewUI'
 
-export default {
-  components: {
-    GroupPreviewUI,
-  },
-  methods: {
-    goSignup (group) {
-      if (group.isOpen) this.$store.dispatch('auth/setJoinGroupAfterLogin', group.id)
-      this.$router.push({ name: 'signup' }).catch(() => {})
-    },
-  },
+const {
+  userId,
+  user,
+  isLoggedIn,
+} = useAuthService()
+
+const {
+  groupId: groupPreviewId,
+  group,
+} = useActiveGroupPreviewService()
+
+const {
+  mutateAsync: withdrawApplication,
+} = useWithdrawApplicationMutation()
+
+async function withdraw (id) {
+  await withdrawApplication(id)
+  showToast({
+    message: 'JOINGROUP.APPLICATION_WITHDRAWN',
+  })
 }
+
+// TODO add pending state, avoid flashing of content?
+const {
+  applications,
+} = useApplicationListQuery({ userId, status: 'pending' }, { keepPreviousData: true })
+
+const application = computed(() => applications.value.find(a => a.group === unref(groupPreviewId)))
 </script>

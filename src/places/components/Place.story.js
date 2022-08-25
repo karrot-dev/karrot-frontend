@@ -1,11 +1,12 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
+import { makePlace, makeGroup, makeUser } from '>/enrichedFactories'
 import { statusMocks, storybookDefaults as defaults, createDatastore } from '>/helpers'
 
-import PlaceList from './PlaceList'
 import PlaceEdit from './PlaceEdit'
 import PlaceHeader from './PlaceHeader'
-import { makePlace, makeGroup, makeUser } from '>/enrichedFactories'
+import PlaceList from './PlaceList'
 
 const group = makeGroup()
 const place = makePlace({

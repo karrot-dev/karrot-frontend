@@ -1,8 +1,9 @@
-import { h } from 'vue'
 import { storiesOf } from '@storybook/vue3'
+import { h } from 'vue'
+
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 
 import KAbout from './KAbout'
-import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 
 storiesOf('KAbout', module)
   .add('KAbout', () => defaults({

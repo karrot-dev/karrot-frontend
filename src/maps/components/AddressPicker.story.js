@@ -1,5 +1,6 @@
-import { storybookDefaults as defaults } from '>/helpers'
 import { storiesOf } from '@storybook/vue3'
+
+import { storybookDefaults as defaults } from '>/helpers'
 
 import AddressPicker from './AddressPicker'
 

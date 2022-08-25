@@ -25,7 +25,7 @@
             :disable="isPending"
             :error="hasAnyError"
             :error-message="anyFirstError"
-            input-style="min-height: unset; max-height: 320px;"
+            :input-style="{ minHeight: 'unset', maxHeight: '320px' }"
             @keyup.ctrl.enter="submit"
             @keyup.esc="leaveEdit"
             @focus="onFocus"
@@ -88,19 +88,20 @@
 </template>
 
 <script>
+import deepEqual from 'deep-equal'
 import {
   QItem,
   QItemSection,
   QItemLabel,
   QBtn,
 } from 'quasar'
-import deepEqual from 'deep-equal'
+
+import { deleteDraft, fetchDraft, saveDraft } from '@/messages/utils'
+import statusMixin from '@/utils/mixins/statusMixin'
+
 import ProfilePicture from '@/users/components/ProfilePicture'
 import MarkdownInput from '@/utils/components/MarkdownInput'
-import statusMixin from '@/utils/mixins/statusMixin'
 import MultiCroppa from '@/utils/components/MultiCroppa'
-import { deleteDraft, fetchDraft, saveDraft } from '@/messages/utils'
-import { mapGetters } from 'vuex'
 
 export default {
   name: 'ConversationCompose',
@@ -158,19 +159,6 @@ export default {
     }
   },
   computed: {
-    mentionItems () {
-      return this.users.map(user => {
-        return {
-          mentionUser: user,
-          value: user.username,
-          searchText: [user.displayName, user.username].join(' '),
-        }
-      })
-    },
-    // TODO: consider if we keep this, or pass it down with props
-    ...mapGetters({
-      users: 'users/byCurrentGroup',
-    }),
     hasExistingContent () {
       if (!this.value) return false
       return this.value.content || (this.value.images && this.value.images.filter(image => !image._removed).length > 0)

@@ -170,7 +170,7 @@ export const useDetailService = defineService(() => {
   const type = ref(null) // thread, application, etc.
   const id = ref(null) // the item id
 
-  const isDetailActive = computed(() => Boolean(type.value && id.value)) // vuex one did it based on conversation (pending or loaded)
+  const isDetailActive = computed(() => Boolean(type.value && id.value))
 
   const activeState = ref(createDefaultState())
 

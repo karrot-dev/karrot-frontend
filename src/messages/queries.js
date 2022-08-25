@@ -289,8 +289,8 @@ function paginationHelpers (query) {
     fetchNextPage,
   } = query
 
-  // TODO: can make a next and previous one...
   // A function that can be passed into a QInfiniteScroll @load
+  // TODO: use this more!
   async function infiniteScrollLoad (index, done) {
     if (!isFetching.value && hasNextPage.value) await fetchNextPage()
     done(!hasNextPage.value)
@@ -304,7 +304,9 @@ function paginationHelpers (query) {
 export function useMessageListQuery ({ conversationId }, { order, pageSize = 20 } = {}) {
   if (!order) throw new Error('order is required')
   const query = useInfiniteQuery(
-    queryKeyMessageList(conversationId), // we don't put the order in here, so make sure to use consistent ordering for a given conversationId
+    // we don't put the order in here, so make sure to use consistent ordering for a given conversationId
+    // could check the meta for existing data?
+    queryKeyMessageList(conversationId),
     ({ pageParam: cursor }) => messageAPI.list(
       unref(conversationId),
       { cursor, pageSize, order },

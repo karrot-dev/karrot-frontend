@@ -131,7 +131,6 @@ export default {
       offerId,
       offer,
       conversation,
-      // messages: computed(() => messages.value.slice().reverse()),
       messages,
       hasNextPage,
       isFetchingNextPage,

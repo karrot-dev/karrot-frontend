@@ -9,6 +9,7 @@ import { withStatus } from '@/utils/queryHelpers'
 // Store the ids we are currently mutating, so we can better decide when to refresh from websocket
 const mutatingOfferIds = new Set()
 
+// TODO: I *think* this could be done by setting mutation keys...
 export function isMutating (id) {
   return mutatingOfferIds.has(id)
 }
@@ -53,7 +54,6 @@ export function useCreateOfferMutation ({ groupId }) {
     {
       async onSuccess (offer) {
         await queryClient.setQueryData(queryKeyOfferDetail(offer.id), offer)
-        // TODO: maybe move routing stuff to where it's called from?
         goToOffer(offer)
       },
       onMutate (variables) {

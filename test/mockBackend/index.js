@@ -1,6 +1,3 @@
-
-import { times } from 'lodash'
-
 import { createMockActivitiesBackend, generateActivity } from '>/mockBackend/activities'
 import { createMockActivityTypesBackend, generateActivityType } from '>/mockBackend/activityTypes'
 import { createMockApplicationsBackend } from '>/mockBackend/applications'
@@ -18,24 +15,18 @@ import { createMockUsersBackend, generateUser } from './users'
 export let db
 export let ctx
 
-export function useMockBackend () {
-  beforeEach(setupMockBackend)
-  afterEach(resetMockBackend)
-}
-
 /**
  * Creates a fake backend that can be used in tests.
  *
  * Internally holds a mini database of entries that each backend
  * module can use how it wishes, so things that cross-reference each
  * other can work.
- *
- * It's a bit basic still, let's see how it goes...
- *
- * We currently just pass the db to the setup function, but the idea
- * is we could include helper functions for setting the db to a useful
- * state.
  */
+export function useMockBackend () {
+  beforeEach(setupMockBackend)
+  afterEach(resetMockBackend)
+}
+
 export function setupMockBackend () {
   db = {
     users: [],

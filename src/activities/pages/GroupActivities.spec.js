@@ -10,16 +10,13 @@ import {
   useMockBackend,
   createUser,
   createGroup,
-  createOffer,
   loginAs,
-  db,
   setPageSize,
   createPlace, createActivity, createActivityType,
 } from '>/mockBackend'
 import { translatableActivityTypeNames } from '>/mockBackend/activityTypes'
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
-
 import { sample } from '>/mockBackend/offers'
 
 import GroupActivities from './GroupActivities'

@@ -156,7 +156,6 @@ export function useConversationListQuery () {
       cacheTime: 0,
       staleTime: 0,
       getNextPageParam: page => extractCursor(page.next) || undefined,
-      getPreviousPageParam: page => extractCursor(page.previous) || undefined,
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => {
           const { conversations, messages, activities, applications, issues, offers, usersInfo, meta } = page.results
@@ -207,7 +206,6 @@ export function useMyThreadListQuery () {
       cacheTime: 0,
       staleTime: 0,
       getNextPageParam: page => extractCursor(page.next) || undefined,
-      getPreviousPageParam: page => extractCursor(page.previous) || undefined,
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => {
           const { threads, messages } = page.results
@@ -320,7 +318,6 @@ export function useMessageListQuery ({ conversationId }, { order, pageSize = 20 
       staleTime: 0,
       enabled: computed(() => Boolean(unref(conversationId))),
       getNextPageParam: page => extractCursor(page.next) || undefined,
-      getPreviousPageParam: page => extractCursor(page.previous) || undefined,
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => page.results),
         pageParams,
@@ -364,7 +361,6 @@ export function useMessageThreadListQuery ({ messageId }, { order, pageSize } = 
       staleTime: 0,
       enabled: computed(() => Boolean(unref(messageId))),
       getNextPageParam: page => extractCursor(page.next) || undefined,
-      getPreviousPageParam: page => extractCursor(page.previous) || undefined,
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => page.results),
         pageParams,

@@ -19,7 +19,7 @@
                 <br>
               </template>
               <span v-if="place">
-                <RouterLink :to="{ name: 'place', params: { placeId: place.id }}">
+                <RouterLink :to="{ name: 'place', params: { groupId: place.group, placeId: place.id }}">
                   {{ place.name }}
                 </RouterLink>
               </span>

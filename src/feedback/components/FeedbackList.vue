@@ -91,7 +91,7 @@ export default {
       isFetchingNextPage,
     } = toRefs(props)
     async function maybeFetchNextPage (index, done) {
-      if (!isFetchingNextPage.value && hasNextPage.value) await fetchNextPage()
+      if (!isFetchingNextPage.value && hasNextPage.value) await fetchNextPage.value()
       done(!hasNextPage.value)
     }
     return {

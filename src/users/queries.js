@@ -48,8 +48,7 @@ export function useUserListAllQuery (queryOptions = {}) {
     queryKeyUserListAll(),
     () => api.list(),
     {
-      // TODO: could set 10 minutes or something, just to periodically check, or on background refresh? as might not have got websockets?
-      staleTime: Infinity, // rely on websockets to keep updated
+      staleTime: 15 * 60 * 1000, // rely on websockets to keep updated, but refresh after 15 minutes
       placeholderData: () => [],
       ...queryOptions,
     },

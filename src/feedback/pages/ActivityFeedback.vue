@@ -250,7 +250,7 @@ const {
   status: saveStatus,
 } = useFeedbackSaveMutation({
   onSuccess (feedback) {
-    router.push({ name: 'placeFeedback', params: { placeId: placeId.value }, query: { highlight: feedback.id } })
+    router.push({ name: 'placeFeedback', params: { groupId: place.value.group, placeId: placeId.value }, query: { highlight: feedback.id } })
   },
 })
 

@@ -22,15 +22,15 @@
             </strong>
             <RouterLink
               v-if="place"
-              :to="{ name: 'placeFeedback', params: { placeId: place.id }}"
+              :to="{ name: 'placeFeedback', params: { groupId: place.group, placeId: place.id }}"
               class="ellipsis text-secondary"
             >
               {{ place.name }}
             </RouterLink>
             <RouterLink
-              v-if="feedback.isEditable"
+              v-if="place && feedback.isEditable"
               class="edit-button"
-              :to="{ name: 'editFeedback', params: { feedbackId: feedback.id }}"
+              :to="{ name: 'editFeedback', params: { groupId: place.group, feedbackId: feedback.id }}"
             >
               <QIcon
                 name="fas fa-pencil-alt"

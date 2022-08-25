@@ -128,7 +128,6 @@ export function usePerformance () {
 
   if (ENABLED) {
     router.beforeEach((to, from, next) => {
-      onBeforeRoute.forEach(fn => fn())
       clearPerformanceInfo()
       if (firstLoad) {
         firstLoad = false
@@ -195,59 +194,6 @@ export function usePerformance () {
   function clearPerformanceInfo () {
     if (performanceInfoElement) {
       performanceInfoElement.style.display = 'none'
-    }
-  }
-}
-
-// This part is for createInstrument() which is totally separate from
-// the performance measurement.
-//
-// You can use createInstrument(<name>) to wrap around a function to create
-// an instrumented version of it. Synchronous functions only.
-// --------------------------------------------------------------------
-
-let totalMs = 0
-let prevTotalMs = 0
-
-const onBeforeRoute = []
-
-onBeforeRoute.push(() => {
-  totalMs = 0
-  prevTotalMs = 0
-})
-
-setInterval(() => {
-  if (prevTotalMs !== totalMs) {
-    console.log('total time spent:', totalMs, 'ms')
-    prevTotalMs = totalMs
-  }
-}, 1000)
-
-export function createInstrument (name) {
-  if (!SHOW_PERFORMANCE_INFO) return fn => fn
-  let ms = 0
-  let prevMs = 0
-
-  onBeforeRoute.push(() => {
-    ms = 0
-    prevMs = 0
-  })
-
-  setInterval(() => {
-    if (prevMs !== ms) {
-      console.log('time spent:', name, '->', ms, 'ms')
-      prevMs = ms
-    }
-  }, 1000)
-
-  return fn => {
-    return function () {
-      const start = performance.now()
-      const res = fn.apply(this, arguments)
-      const inc = performance.now() - start
-      ms += inc
-      totalMs += inc
-      return res
     }
   }
 }

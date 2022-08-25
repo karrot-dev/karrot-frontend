@@ -15,12 +15,7 @@ export default {
   },
 
   async list () {
-    const users = (await axios.get('/api/users/')).data
-    // TODO: remove this sorting
-    return users.sort((a, b) => a.id > b.id)
-    // const fewerUsers = users.slice(0, 30)
-    // console.log('returning fewer users', fewerUsers)
-    // return fewerUsers
+    return (await axios.get('/api/users/')).data
   },
 
   async search (query) {

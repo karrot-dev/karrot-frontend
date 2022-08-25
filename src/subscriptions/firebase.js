@@ -27,6 +27,7 @@ export async function initializeMessaging () {
     onMessage(messaging, message => {
       console.log('onMessage', message)
       if (registration && registration.showNotification) {
+        // Show push messages when in the foreground
         const { title, body } = message.notification || {}
         if (title) {
           const options = {}

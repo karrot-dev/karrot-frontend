@@ -17,7 +17,6 @@ export const useRouteErrorService = defineService(() => {
   })
 
   function setRouteError (messageValue = null) {
-    console.log('setting route error!', messageValue)
     hasError.value = true
     message.value = messageValue
   }

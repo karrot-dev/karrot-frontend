@@ -26,7 +26,6 @@ const {
 
 async function signupThenLogin (userData) {
   await signup(userData)
-  console.log('logging in!')
   await login({ email: userData.email, password: userData.password })
 }
 </script>

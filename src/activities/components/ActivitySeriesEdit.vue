@@ -8,7 +8,7 @@
       style="max-width: 700px"
       @submit.prevent="maybeSave"
     >
-      <h3 v-if="activityType && isNew">
+      <h3 v-if="activityTypeIconProps && isNew">
         <QIcon
           v-bind="activityTypeIconProps"
           class="q-pr-sm"

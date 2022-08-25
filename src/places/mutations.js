@@ -38,18 +38,3 @@ export function useSavePlaceMutation () {
     },
   ))
 }
-
-/*
-async save ({ dispatch }, place) {
-        dispatch('update', [await places.save(place)])
-        router.push({ name: placeRoute(place), params: { placeId: place.id } }).catch(() => {})
-      },
-      async create ({ dispatch, rootGetters }, place) {
-        const createdPlace = await places.create({
-          ...place,
-          group: rootGetters['currentGroup/id'],
-        })
-        dispatch('update', [createdPlace])
-        router.push({ name: placeRoute(createdPlace), params: { placeId: createdPlace.id } }).catch(() => {})
-      },
- */

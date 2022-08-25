@@ -13,16 +13,6 @@ export default {
       results: convert(response.results),
     }
   },
-
-  async listMore (cursor) {
-    const response = (await axios.get(cursor)).data
-    return {
-      ...response,
-      next: parseCursor(response.next),
-      prev: parseCursor(response.prev),
-      results: convert(response.results),
-    }
-  },
 }
 
 export function convert (val) {

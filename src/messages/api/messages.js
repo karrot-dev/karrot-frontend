@@ -51,31 +51,11 @@ export default {
     }
   },
 
-  async listMore (cursor) {
-    const response = (await axios.get(cursor)).data
-    return {
-      ...response,
-      next: parseCursor(response.next),
-      prev: parseCursor(response.prev),
-      results: convert(response.results),
-    }
-  },
-
   async listMyThreads (filter) {
     const response = (await axios.get('/api/messages/my_threads/', { params: filter })).data
     return {
       ...response,
       next: parseCursor(response.next),
-      results: convertListMyThreadsResult(response.results),
-    }
-  },
-
-  async listMyThreadsMore (cursor) {
-    const response = (await axios.get(cursor)).data
-    return {
-      ...response,
-      next: parseCursor(response.next),
-      prev: parseCursor(response.prev),
       results: convertListMyThreadsResult(response.results),
     }
   },

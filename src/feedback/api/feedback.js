@@ -19,16 +19,6 @@ export default {
     }
   },
 
-  async listMore (cursor) {
-    const response = (await axios.get(cursor)).data
-    return {
-      ...response,
-      next: parseCursor(response.next),
-      prev: parseCursor(response.prev),
-      results: convertListResults(response.results),
-    }
-  },
-
   async save (feedback) {
     return convert((await axios.patch(`/api/feedback/${feedback.id}/`, feedback)).data)
   },

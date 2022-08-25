@@ -141,7 +141,7 @@ export default {
       isFetching,
       hasNextPage,
       fetchNextPage,
-      isFetchingNextPage, // TODO: this is not being passed into component yet...
+      isFetchingNextPage,
       infiniteScrollLoad,
     } = useMessageListQuery(
       { conversationId },

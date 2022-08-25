@@ -2,7 +2,7 @@ import { computed, unref } from 'vue'
 import { useQuery, useQueryClient } from 'vue-query'
 
 import { useSocketEvents } from '@/utils/composables'
-import { useWait } from '@/utils/queryHelpers'
+import { useQueryHelpers, useWait } from '@/utils/queryHelpers'
 
 import api from './api/groups'
 
@@ -12,9 +12,13 @@ export const queryKeyTimezones = () => [QUERY_KEY_BASE, 'timezones']
 
 export function useGroupDetailUpdater () {
   const queryClient = useQueryClient()
+  const { maybeUpdateDataWith } = useQueryHelpers()
   const { on } = useSocketEvents()
-  on('groups:group_detail', group => {
-    queryClient.setQueryData(queryKeyGroupDetail(group.id), value => value !== undefined ? group : undefined)
+  on('groups:group_detail', updatedGroup => {
+    queryClient.setQueryData(
+      queryKeyGroupDetail(updatedGroup.id),
+      maybeUpdateDataWith(updatedGroup),
+    )
   })
 }
 

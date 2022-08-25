@@ -27,6 +27,27 @@ export function useQueryHelpers () {
     return updated
   }
 
+  /**
+   * A nice method that can handle updating:
+   * - individual item entries
+   * - non-paginated list entries
+   * - paginated list entries
+   *
+   * If the data is not already present, it will not update it.
+   * It's designed to be passed in like this:
+   *
+   * queryClient.setQueriesData(queryKey, maybeUpdateDataWith(newEntry))
+   * queryClient.setQueryData(queryKey, maybeUpdateDataWith(newEntry))
+   *
+   * It has a callback you can use, which is useful if you want to find out if it was updated or not:
+   *
+   * let updated = false
+   * maybeUpdateDataWith(newEntry, () => {
+   *   updated = true
+   * })
+   *
+   * If using with setQueriesData() the onUpdated() callback will be called for each item updated.
+   */
   function maybeUpdateDataWith (updatedEntry, onUpdated = () => {}) {
     return data => {
       if (data === undefined) return data

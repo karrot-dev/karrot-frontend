@@ -196,6 +196,7 @@ function useCurrentGroupId () {
   }
 }
 
+// TODO: this probably belongs in the i18nService ...
 function useLocaleMessagesSetter ({ isBikeKitchen, isGeneralPurpose }) {
   const { locale } = useI18nService()
   const useGeneralPurposeMessages = computed(() => isBikeKitchen.value || isGeneralPurpose.value)

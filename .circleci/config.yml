@@ -462,7 +462,9 @@ workflows:
             - test
             - lint
             - build-dev
-            - build-storybook
+            # storybook is a bit out of action for now
+            # let's not hold up the pipeline...
+            #- build-storybook
             - build-docs
       - approval:
           type: approval

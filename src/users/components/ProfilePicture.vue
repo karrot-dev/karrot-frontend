@@ -46,22 +46,16 @@ export default {
   },
   props: {
     user: { default: null, type: Object },
-    // Old style enrichment includes the membership for the current group on the user object
-    // New style you pass it in explicitly
     membership: { default: null, type: Object },
     size: { default: 20, type: Number },
     isLink: { default: true, type: Boolean },
   },
   computed: {
-    userMembership () {
-      if (this.membership) return this.membership
-      return this.user?.membership
-    },
     tooltip () {
       if (this.user.displayName === '?') {
         return this.$t('PROFILE.INACCESSIBLE_OR_DELETED')
       }
-      if (!this.userMembership || this.userMembership.roles.includes('editor')) {
+      if (!this.membership || this.membership.roles.includes('editor')) {
         return this.user.displayName
       }
       const role = this.$t('USERDATA.NEWCOMER')
@@ -82,18 +76,6 @@ export default {
         return this.size > 120 ? p['600'] : p.thumbnail
       }
       return null
-    },
-  },
-  watch: {
-    user: {
-      immediate: true,
-      handler (val) {
-        if (process.env.DEV) {
-          if (val?.membership) {
-            console.warn('Karrot: deprecated use of user enriched with membership', val)
-          }
-        }
-      },
     },
   },
 }

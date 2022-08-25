@@ -32,7 +32,7 @@
           class="q-mr-sm"
           style="min-width: 180px;"
         >
-          <template #option="{ index, itemProps, itemEvents, opt: { label: itemLabel, sectionLabel } }">
+          <template #option="{ index, itemProps, opt: { label: itemLabel, sectionLabel } }">
             <template v-if="sectionLabel">
               <QSeparator />
               <QItemLabel header>
@@ -42,7 +42,6 @@
             <QItem
               :key="index"
               v-bind="itemProps"
-              v-on="itemEvents"
             >
               <QItemSection>
                 <QItemLabel>

@@ -49,39 +49,6 @@ export default {
     },
   },
   computed: {
-    // TODO: might need server logic to handle this now??/
-    // activityTypes () {
-    //   const activityTypes = this.filterActivityTypes.slice()
-    //   const archivedTypes = {}
-    //
-    //   for (const activityType of activityTypes) {
-    //     if (activityType.status === 'archived') {
-    //       archivedTypes[activityType.id] = false
-    //     }
-    //   }
-    //
-    //   for (const activity of this.activities) {
-    //     if (activity.activityType.id in archivedTypes) {
-    //       const id = activity.activityType.id
-    //       archivedTypes[id] = true
-    //     }
-    //   }
-    //
-    //   for (const archivedTypeId in archivedTypes) {
-    //     if (archivedTypes[archivedTypeId] === false) {
-    //       // For any archived types with zero activities in view, remove the type from the filter
-    //       for (const [index, activityType] of activityTypes.entries()) {
-    //         if (parseInt(activityType.id) === parseInt(archivedTypeId)) {
-    //           // delete archived type from the filter
-    //           activityTypes.splice(index, 1)
-    //           break
-    //         }
-    //       }
-    //     }
-    //   }
-    //
-    //   return activityTypes
-    // },
     displayedActivitiesGroupedByDate () {
       const result = []
       let dateIterated = ''

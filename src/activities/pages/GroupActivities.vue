@@ -261,6 +261,9 @@ export default {
     }
 
     const activities = computed(() => activitiesRaw.value.filter(getIsStartedOrUpcoming))
+    // TODO: allow filtering for activities where the type is archived?
+    // before we would include archived activity types if we had some activities for that type
+    // maybe we can just have an option somewhere to include archived types?
     const activityTypes = computed(() => getActivityTypesByGroup(groupId, { status: 'active' }))
     const places = computed(() => getPlacesByGroup(groupId, { status: 'active' }).sort(sortByFavouritesThenName))
 
@@ -280,7 +283,6 @@ export default {
       isFetching,
       isFetchingNextPage,
       activities,
-      // TODO: how to do that filtering to hide archived types unless we have results for them? (we can't tell if we have results for them now we don't fetch them all)
       activityTypes,
       places,
     }

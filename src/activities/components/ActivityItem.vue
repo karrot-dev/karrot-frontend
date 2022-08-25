@@ -4,7 +4,7 @@
   >
     <QCardSection
       class="no-padding content"
-      :class="{ isEmpty: isEmpty, isUserMember: isUserMember, isDisabled: activity.isDisabled }"
+      :class="{ isUserMember, isDisabled: activity.isDisabled }"
     >
       <div class="content-inner">
         <div class="row no-wrap items-start justify-between">
@@ -231,7 +231,6 @@ export default {
     const {
       getIsUserMember,
       getHasStarted,
-      getIsEmpty,
       getIsFull,
     } = useActivityHelpers()
 
@@ -242,7 +241,6 @@ export default {
 
     const hasStarted = computed(() => getHasStarted(activity.value))
     const isUserMember = computed(() => getIsUserMember(activity.value))
-    const isEmpty = computed(() => getIsEmpty(activity.value))
     const isFull = computed(() => getIsFull(activity.value))
 
     const place = computed(() => getPlaceById(activity.value.place))
@@ -269,7 +267,6 @@ export default {
 
       isUserMember,
       hasStarted,
-      isEmpty,
       isFull,
 
       joinActivity,

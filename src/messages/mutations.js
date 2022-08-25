@@ -1,12 +1,9 @@
-/* eslint-disable */
+import { useMutation } from 'vue-query'
 
-import { useMutation, useQueryClient } from 'vue-query'
-import { withStatus } from '@/utils/queryHelpers'
 import conversationsAPI from '@/messages/api/conversations'
 import messagesAPI from '@/messages/api/messages'
 import reactionsAPI from '@/messages/api/reactions'
-import { queryKeyMessageList } from '@/messages/queries'
-import messageAPI from '@/messages/api/messages'
+import { withStatus } from '@/utils/queryHelpers'
 
 export function useSendMessageMutation () {
   return withStatus(useMutation(

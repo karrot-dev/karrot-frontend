@@ -28,8 +28,6 @@ function convertListResults (results) {
     activities: convertActivities(results.activities),
     issues: convertIssues(results.issues),
     applications: convertApplications(results.applications),
-    // TODO meta not needed anymore? remove from API
-    // meta: convertMeta(results.meta),
   }
 }
 
@@ -43,12 +41,5 @@ export function convert (val) {
       createdAt: new Date(val.createdAt),
       expiresAt: val.expiresAt && new Date(val.expiresAt),
     }
-  }
-}
-
-export function convertMeta (val) {
-  return {
-    ...val,
-    markedAt: new Date(val.markedAt),
   }
 }

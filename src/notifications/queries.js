@@ -16,7 +16,6 @@ export function useNotificationsUpdater () {
     [
       'notifications:notification',
       'notifications:notification_deleted',
-      'notifications:meta', // TODO remove?
     ],
     async () => {
       await queryClient.invalidateQueries(['notifications'])

@@ -18,7 +18,6 @@ import { convert as convertConversation, convertMeta as convertConversationMeta 
 import { convert as convertMessage } from '@/messages/api/messages'
 import {
   convert as convertNotification,
-  convertMeta as convertNotificationMeta,
 } from '@/notifications/api/notifications'
 import { convert as convertOffer } from '@/offers/api/offers'
 import { defineService } from '@/utils/datastore/helpers'
@@ -218,8 +217,6 @@ export const useWebsocket = defineService(() => {
         return convertHistory(payload)
       case 'notifications:notification':
         return convertNotification(payload)
-      case 'notifications:meta':
-        return convertNotificationMeta(payload)
       default:
         return payload
     }

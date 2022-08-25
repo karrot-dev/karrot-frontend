@@ -353,13 +353,6 @@ export default {
       return []
     },
   },
-  watch: {
-    showConflictSetup (val) {
-      // if (val) return
-      // TODO: do we need to clear the issue create mutation? maybe better to move the action to the component...
-      // this.clearIssueMeta(['create'])
-    },
-  },
   methods: {
     mailto (email) {
       return `mailto:${email}`

@@ -3632,6 +3632,11 @@
     lodash "^4.17.15"
     redent "^3.0.0"
 
+"@testing-library/user-event@^14.4.3":
+  version "14.4.3"
+  resolved "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-14.4.3.tgz#af975e367743fa91989cd666666aec31a8f50591"
+  integrity sha512-kCUc5MEwaEMakkO5x7aoD+DLi02ehmEM2QCGWvNqAS1dV/fAvORWEjnjsEIvml59M7Y5kCkWN6fCCyPOe8OL6Q==
+
 "@testing-library/vue@^6.6.1":
   version "6.6.1"
   resolved "https://registry.yarnpkg.com/@testing-library/vue/-/vue-6.6.1.tgz#b28d0ce9c0228032873947a1a5a2b96fc9016096"

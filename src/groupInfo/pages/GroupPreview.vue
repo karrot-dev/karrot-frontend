@@ -44,7 +44,7 @@ async function withdraw (id) {
 // TODO add pending state, avoid flashing of content?
 const {
   applications,
-} = useApplicationListQuery({ userId, status: 'pending' }, { keepPreviousData: true })
+} = useApplicationListQuery({ userId, status: 'pending', isLoggedIn }, { keepPreviousData: true })
 
 const application = computed(() => applications.value.find(a => a.group === unref(groupPreviewId)))
 </script>

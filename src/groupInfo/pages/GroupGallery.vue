@@ -33,7 +33,7 @@ const {
 const { myCoordinates } = useGeoService()
 const {
   applications,
-} = useApplicationListQuery({ userId, status: 'pending' }, { keepPreviousData: true })
+} = useApplicationListQuery({ userId, status: 'pending', isLoggedIn }, { keepPreviousData: true })
 
 function byName (a, b) {
   return a.name.localeCompare(b.name)

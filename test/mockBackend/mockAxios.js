@@ -83,12 +83,12 @@ function on (method, path, handler, options = {}) {
   })
 }
 
-export function cursorPaginated (path, getEntries, options = {}) {
+export function cursorPaginated (path, getEntries, options = {}, makeResults = null) {
   get(path, config => {
     const pageSize = ctx.pageSize || 30
     const cursor = parseInt(config.params.cursor || '0')
     const entries = getEntries({ ...config, params: camelizeKeys(config.params) })
-    const results = entries.slice(cursor, cursor + pageSize)
+    const paginatedEntries = entries.slice(cursor, cursor + pageSize)
     const hasNextPage = entries.length > (cursor + pageSize)
     const hasPrevPage = cursor > 0
 
@@ -103,7 +103,7 @@ export function cursorPaginated (path, getEntries, options = {}) {
       return `${path}?${searchParams.toString()}`
     }
     return [200, {
-      results,
+      results: makeResults ? makeResults(paginatedEntries) : paginatedEntries,
       next: hasNextPage ? cursorURL(cursor + pageSize) : null,
       prev: hasPrevPage ? cursorURL(cursor - pageSize) : null,
     }]

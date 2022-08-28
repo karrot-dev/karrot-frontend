@@ -1,5 +1,7 @@
 import { useI18n } from 'vue-i18n'
 
+import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityTypeService } from '@/activities/services'
 import icons from '@/base/icons'
 import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
@@ -8,10 +10,12 @@ export function useNotificationHelpers () {
   const { t, d } = useI18n()
   const { getUserById } = useUserService()
   const { getPlaceById } = usePlaceService()
+  const { getActivityTypeById } = useActivityTypeService()
+  const { getTranslatedName } = useActivityTypeHelpers()
 
   function getMessageParams (type, context) {
     function getActivityTypeName () {
-      return context.activity && context.activity.activityType && context.activity.activityType.translatedName
+      return getTranslatedName(getActivityTypeById(context.activity.activityType))
     }
 
     switch (type) {
@@ -38,7 +42,7 @@ export function useNotificationHelpers () {
         }
       case 'new_place':
         return {
-          placeName: getPlaceById(context.place).name,
+          placeName: getPlaceById(context.place)?.name,
         }
     }
 

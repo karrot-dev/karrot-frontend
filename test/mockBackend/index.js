@@ -1,12 +1,14 @@
 import { createMockActivitiesBackend, generateActivity } from '>/mockBackend/activities'
 import { createMockActivityTypesBackend, generateActivityType } from '>/mockBackend/activityTypes'
-import { createMockApplicationsBackend } from '>/mockBackend/applications'
 import { createMockCommunityBackend } from '>/mockBackend/community'
 
+import { createMockApplicationsBackend, generateApplication } from './applications'
 import { createAuthUserBackend } from './authUser'
 import { createMockGroupDetailBackend, generateGroup } from './groups'
 import { createMockGroupsInfoBackend } from './groupsInfo'
+import { generateIssue } from './issues'
 import { initializeMockAxios, resetMockAxios, get } from './mockAxios'
+import { generateNotification, createMockNotificationsBackend } from './notifications'
 import { createMockOffersBackend, generateOffer } from './offers'
 import { createMockPlacesBackend, generatePlace } from './places'
 import { createMockStatusBackend } from './status'
@@ -36,6 +38,8 @@ export function setupMockBackend () {
     applications: [],
     activities: [],
     activityTypes: [],
+    notifications: [],
+    issues: [],
   }
   db.orm = {
     places: createFinder(db, 'places'),
@@ -58,6 +62,7 @@ export function setupMockBackend () {
   createMockOffersBackend()
   createMockStatusBackend()
   createMockCommunityBackend()
+  createMockNotificationsBackend()
 
   get('/about.json', () => [200, {
     commitSHA: 'blah',
@@ -115,6 +120,24 @@ export function createActivityType (params) {
   const activityType = generateActivityType(params)
   db.activityTypes.push(activityType)
   return activityType
+}
+
+export function createNotification (params) {
+  const notification = generateNotification(params)
+  db.notifications.push(notification)
+  return notification
+}
+
+export function createApplication (params) {
+  const application = generateApplication(params)
+  db.applications.push(application)
+  return application
+}
+
+export function createIssue (params) {
+  const issue = generateIssue(params)
+  db.issues.push(issue)
+  return issue
 }
 
 export function setPageSize (pageSize) {

@@ -1,3 +1,5 @@
+import { faker } from '@faker-js/faker'
+
 import { addUserToGroup } from '>/mockBackend/groups'
 import { toUserInfo } from '>/mockBackend/users'
 
@@ -6,8 +8,22 @@ import { cursorPaginated, post } from './mockAxios'
 import { ctx, db } from './index'
 
 let nextId = 1
+export function generateApplication (params) {
+  const group = db.groups.find(group => group.id === params.group)
+  return {
+    id: nextId++,
+    user: ctx.authUser.id,
+    createdAt: new Date(),
+    questions: group.applicationQuestions,
+    answers: faker.random.words(10),
+    status: 'pending',
+    decidedBy: null,
+    decidedAt: null,
+    ...params,
+  }
+}
 
-function toApplicationInfo (application) {
+export function toApplicationInfo (application) {
   return {
     ...application,
     // we actually embed the user in the application
@@ -42,16 +58,7 @@ export function createMockApplicationsBackend () {
   )
 
   post('/api/applications/', ({ data: application }) => {
-    const group = db.groups.find(group => group.id === application.group)
-    Object.assign(application, {
-      id: nextId++,
-      user: ctx.authUser.id,
-      createdAt: new Date(),
-      questions: group.applicationQuestions,
-      status: 'pending',
-      decidedBy: null,
-      decidedAt: null,
-    })
+    Object.assign(application, generateApplication(application))
     db.applications.push(application)
     return [200, toApplicationInfo(application)]
   })

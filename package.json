@@ -94,7 +94,7 @@
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-links": "^6.5.9",
-    "@storybook/addon-storyshots": "^6.5.9",
+    "@storybook/addon-storyshots": "^6.5.10",
     "@storybook/builder-webpack5": "^6.5.9",
     "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/vue3": "^6.5.9",

@@ -43,7 +43,7 @@ const group = createGroup()
 const currentUser = createUser()
 addUserToGroup(currentUser, group)
 loginAs(currentUser)
-createActivityType({ group: group.id })
+createActivityType({ name: 'Task', group: group.id })
 const place = createPlace({ group: group.id })
 
 ;[

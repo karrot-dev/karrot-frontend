@@ -33,7 +33,8 @@ export const useCheckResponseAuthStatus = defineService(() => {
   axios.interceptors.response.use(response => response, async error => {
     if (isValidationError(error)) {
       if (error.response.status === 403) {
-        if (!error.request.responseURL.endsWith('/api/auth/user/')) {
+        const url = error.request?.responseURL || error.response.request?.responseURL
+        if (url && !url.endsWith('/api/auth/user/')) {
           await refresh()
         }
       }

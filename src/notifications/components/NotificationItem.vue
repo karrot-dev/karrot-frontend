@@ -53,6 +53,7 @@ import {
 } from 'quasar'
 
 import { useAuthHelpers } from '@/authuser/helpers'
+import { useGroupInfoService } from '@/groupInfo/services'
 import { useNotificationHelpers } from '@/notifications/helpers'
 import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
@@ -83,12 +84,14 @@ export default {
     const { getPlaceById } = usePlaceService()
     const { getIsCurrentUser } = useAuthHelpers()
     const { getNotificationConfig } = useNotificationHelpers()
+    const { getGroupById } = useGroupInfoService()
 
     return {
       getUserById,
       getPlaceById,
       getIsCurrentUser,
       getNotificationConfig,
+      getGroupById,
     }
   },
   computed: {
@@ -119,11 +122,11 @@ export default {
     },
     groupName () {
       if (!this.context) return
-      return this.context.group && this.context.group.name
+      return this.context.group && this.getGroupById(this.context.group)?.name
     },
     placeName () {
       if (!this.context || !this.context.activity || !this.context.activity.place) return ''
-      return this.getPlaceById(this.context.activity.place).name
+      return this.getPlaceById(this.context.activity.place)?.name
     },
     message () {
       if (!this.config) return

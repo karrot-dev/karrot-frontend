@@ -29,7 +29,7 @@ export function usePerformance () {
   // and fetch to avoid needing the polyfill (we don't need all browser support)
   // and that vue's performance mode is not enabled (don't want to fight it)
   // unless we are actively wanting to show the performance info
-  const ENABLED = fetch &&
+  const ENABLED = app && fetch &&
     performance &&
     performance.clearMeasures &&
     performance.clearMarks &&
@@ -154,7 +154,9 @@ export function usePerformance () {
   else {
     // measurement is not enabled
     // we create an empty directive so we don't have invalid use of v-measure directives in the rest of the code
-    app.directive('measure', {})
+    if (app) { // TODO: find out how to declare this when testing App (as we don't use boot files)
+      app.directive('measure', {})
+    }
   }
 
   function readCookie (name) {

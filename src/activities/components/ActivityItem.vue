@@ -36,9 +36,9 @@
             class="q-ml-sm"
             style="top: 1px;"
           >
-            <q-tooltip v-if="activityTypeIconProps && activityTypeIconProps.title">
+            <QTooltip v-if="activityTypeIconProps && activityTypeIconProps.title">
               {{ activityTypeIconProps.title }}
-            </q-tooltip>
+            </QTooltip>
           </QIcon>
         </div>
         <div
@@ -174,6 +174,7 @@ import {
   QCardSection,
   QIcon,
   QBtn,
+  QTooltip,
 } from 'quasar'
 import { computed, toRefs } from 'vue'
 
@@ -196,6 +197,7 @@ export default {
     QCardSection,
     QIcon,
     QBtn,
+    QTooltip,
     ActivityUsers,
     Markdown,
   },

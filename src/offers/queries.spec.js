@@ -1,22 +1,25 @@
 import { flushPromises, mount } from '@vue/test-utils'
+import { times } from 'lodash'
 import { ref } from 'vue'
 import { VueQueryPlugin } from 'vue-query'
 
-import { createMockOffersBackend, createOffer } from '@/offers/api/offers.mock'
 import { useOfferDetailQuery, useOfferListQuery } from '@/offers/queries'
 import { camelizeKeys } from '@/utils/utils'
 
-import { mockAxios } from '>/mockAxios'
+import { createOffer, useMockBackend, setPageSize, createUser, createGroup, loginAs } from '>/mockBackend'
+import { addUserToGroup } from '>/mockBackend/groups'
 
 describe('offer queries', () => {
-  beforeEach(() => jest.resetModules())
-  afterEach(() => mockAxios.reset())
+  useMockBackend()
 
   describe('useOfferDetailQuery', () => {
     it('can switch between offers', async () => {
-      const offer1 = createOffer()
-      const offer2 = createOffer()
-      createMockOffersBackend({ offers: [offer1, offer2] })
+      const group = createGroup()
+      const user = createUser()
+      addUserToGroup(user, group)
+      loginAs(user)
+      const offer1 = createOffer({ user: user.id, group: group.id })
+      const offer2 = createOffer({ user: user.id, group: group.id })
 
       const offerId = ref(null)
       const wrapper = mount({
@@ -47,20 +50,13 @@ describe('offer queries', () => {
 
   describe('useOfferListQuery', () => {
     it('can filter and paginate', async () => {
-      createMockOffersBackend({
-        offers: [
-          ...Array.from(
-            { length: 8 },
-            () => createOffer({ status: 'active', group: 1 }),
-          ),
-          ...Array.from(
-            { length: 4 },
-            () => createOffer({ status: 'archived', group: 1 }),
-          ),
-        ],
-      }, {
-        pageSize: 5,
-      })
+      const group = createGroup()
+      const user = createUser()
+      addUserToGroup(user, group)
+      loginAs(user)
+      setPageSize(5) // TODO: better to pass it as param to query/API
+      times(8, () => createOffer({ status: 'active', user: user.id, group: group.id }))
+      times(4, () => createOffer({ status: 'archived', user: user.id, group: group.id }))
 
       const groupId = ref(null)
       const status = ref('active')
@@ -75,7 +71,7 @@ describe('offer queries', () => {
       // nothing as we have no group set
       expect(wrapper.vm.offers).toHaveLength(0)
 
-      groupId.value = 1
+      groupId.value = group.id
       await flushPromises()
 
       // First page of entries

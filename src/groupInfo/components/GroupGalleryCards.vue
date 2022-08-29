@@ -9,8 +9,6 @@
       :key="group.id"
       :style="cardStyle"
       :group="group"
-      @preview="$emit('preview', group.id)"
-      @visit="$emit('visit', group.id)"
     />
   </div>
 </template>
@@ -31,10 +29,6 @@ export default {
       type: Array,
     },
   },
-  emits: [
-    'visit',
-    'preview',
-  ],
   data () {
     return {
       width: 230,

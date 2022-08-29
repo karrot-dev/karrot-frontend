@@ -1,36 +1,9 @@
-import { mount, RouterLinkStub } from '@vue/test-utils'
-import glob from 'glob'
+
+import initStoryshots, { Stories2SnapsConverter } from '@storybook/addon-storyshots'
 import lolex from 'lolex'
-import { Quasar } from 'quasar'
-import { VueQueryPlugin } from 'vue-query'
-import { renderToString } from 'vue/server-renderer'
 
-import i18n, { i18nPlugin } from '@/base/i18n'
-import icons from '@/base/icons'
-
-import quasarConfig from '>/quasarConfig'
+import i18n from '@/base/i18n'
 import '>/routerMocks'
-
-/** Storybook has some unwanted side effects and we actually don't need it to test the stories
- * Therefore, we mimick the Storybook API to get the components and then run the snapshot tests
-*/
-
-const mockStories = []
-jest.mock('@storybook/vue3', () => ({
-  storiesOf: (kind) => {
-    const api = { kind }
-    const kindStories = { kind, stories: [] }
-    mockStories.push(kindStories)
-    api.add = (storyName, getStory) => {
-      kindStories.stories.push({
-        name: storyName,
-        render: getStory,
-      })
-      return api
-    }
-    return api
-  },
-}))
 
 i18n.locale = 'en'
 
@@ -70,59 +43,32 @@ jest.mock('@/locales/translationStatus.json', () => ({
   en: '42',
 }))
 
-// Mock annoying components (e.g. too much vuex dependency)
-jest.mock('@/authuser/components/Settings/VerificationWarning', () => ({
-  template: '<div>VerificationWarning has been mocked</div>',
-}))
+// Runner
+initStoryshots({
+  asyncJest: true, // this is the option that activates the async behaviour
+  test: async ({
+    story,
+    context,
+    renderTree,
+    done, // --> callback passed to test method when asyncJest option is true
+  }) => {
+    const converter = new Stories2SnapsConverter()
+    // to avoid snapshots in src/src/, strip leading 'src/' in filename
+    const snapshotFilename = converter.getSnapshotFileName(context).slice(4)
 
-const files = glob.sync('**/*.story.js', { absolute: true })
-for (const f of files) {
-  require(f)
-}
+    const tree = renderTree(story, context)
 
-for (const group of mockStories) {
-  describe.skip('Storyshots', () => {
-    describe(group.kind, () => {
-      for (const story of group.stories) {
-        it(story.name, async () => {
-          // get the component from storybook
-          const component = story.render()
-
-          const { store } = component
-
-          delete component.store
-
-          const wrapper = mount(component, {
-            global: {
-              config: {
-                // TODO: should be able to remove this with vue v3.3.x
-                unwrapInjectedRef: true,
-              },
-              plugins: [
-                VueQueryPlugin,
-                store,
-                i18nPlugin,
-                [Quasar, quasarConfig],
-              ],
-              stubs: {
-                RouterLink: RouterLinkStub,
-                // Stub Croppa as it doesn't seem to work otherwise...
-                Croppa: true,
-              },
-              directives: {
-                measure: {},
-              },
-              mocks: {
-                $icon: icons.get,
-              },
-            },
-          })
-
-          // use server side renderer to get renderered html string
-          const html = await renderToString(wrapper.__app)
-          expect(html).toMatchSnapshot()
-        })
+    // wait until the mount is updated, in our app mostly by vue-query
+    // but maybe something else updating the state of the component
+    // somewhere
+    const waitTime = 2000
+    setTimeout(async () => {
+      if (snapshotFilename) {
+        expect(tree).toMatchSpecificSnapshot(snapshotFilename)
       }
-    })
-  })
-}
+
+      done()
+    }, waitTime)
+  },
+  // other options here
+})

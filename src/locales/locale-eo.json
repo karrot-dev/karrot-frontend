@@ -72,14 +72,16 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "Ĉi tio estas malebligita",
     "ACTIVITY_STARTED": "Ĉi tio jam komenciĝis",
-    "AVAILABLE": "Aktivaĵo atendas vin en viaj preferataj lokoj! {count}aktivaĵoj atendas vin en viaj preferataj lokoj!",
+    "AVAILABLE": "There are activities in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "Vi povas komenti aktivaĵojn | {count}aktivaĵoj atendas komentojn viajn",
-    "AVAILABLE_FROM_STORES": "Tio ĉi montras aktivaĵojn en viaj preferataj lokoj en venontaj tagoj. Vi povas aliri aliajn lokojn je la flankpanelo.",
     "FILTER": {
       "ALL": "Ĉiuj",
       "ALL_TYPES": "Ĉiuj tipoj",
+      "ALL_PLACES": "All places",
+      "ALL_FAVOURITE_PLACES": "All favourite places",
       "EMPTY": "Nur malplenaj",
-      "FREE": "Kun vaka savlokoj"
+      "FREE": "Kun vaka savlokoj",
+      "JOINED": "Joined"
     },
     "ITEM": {
       "JOIN": "Aliĝi",
@@ -302,7 +304,8 @@
     "REPLIES": "Respondoj",
     "REPLIES_COUNT": "1 respondo | {count}respondojn",
     "REPLY_TO_MESSAGE": "Respondi al mesaĝo...",
-    "UNREAD_MESSAGES": "Vi havas unu nelegitan mesaĝon | Vi havas {count}nelegitajn mesaĝojn."
+    "UNREAD_MESSAGES": "Vi havas unu nelegitan mesaĝon | Vi havas {count}nelegitajn mesaĝojn.",
+    "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
     "COMMENT": "Aldona informo",

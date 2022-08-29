@@ -72,14 +72,16 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "불가능한 작업입니다.",
     "ACTIVITY_STARTED": "이미 시작되었습니다.",
-    "AVAILABLE": "당신이 선호하는 장소에 하나의 활동이 당신을 기다리고 있습니다! | 당신이 선호하는 장소에 {count}개의 활동이 당신을 기다리고 있습니다!",
+    "AVAILABLE": "There are activities in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "피드백을 줄 수 있습니다 | {count}개의 활동이 피드백을 기다리고 있습니다",
-    "AVAILABLE_FROM_STORES": "당신이 좋아하는 장소의 다음날 활동을 보여줍니다. 사이드바에서 다른 장소에 접근할 수 있습니다.",
     "FILTER": {
       "ALL": "모두",
       "ALL_TYPES": "모든 종류",
+      "ALL_PLACES": "All places",
+      "ALL_FAVOURITE_PLACES": "All favourite places",
       "EMPTY": "빈 것만",
-      "FREE": "무료 슬롯이 포함됨"
+      "FREE": "무료 슬롯이 포함됨",
+      "JOINED": "Joined"
     },
     "ITEM": {
       "JOIN": "참가하기",
@@ -302,7 +304,8 @@
     "REPLIES": "답글",
     "REPLIES_COUNT": "1개의 답글 | {count}개의 답글",
     "REPLY_TO_MESSAGE": "메시지에 답하기",
-    "UNREAD_MESSAGES": "1개의 읽지 않은 메시지가 있습니다 | {count}개의 읽지 않은 메시지가 있습니다."
+    "UNREAD_MESSAGES": "1개의 읽지 않은 메시지가 있습니다 | {count}개의 읽지 않은 메시지가 있습니다.",
+    "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
     "COMMENT": "추가 정보",

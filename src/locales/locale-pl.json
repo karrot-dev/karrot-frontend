@@ -72,14 +72,16 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "Aktywność odwołana.",
     "ACTIVITY_STARTED": "Aktywność już się rozpoczęła.",
-    "AVAILABLE": "Dostępna jest jedna aktywność w Twoich ulubionych miejscach! | Dostępne są {count} aktywności w Twoich ulubionych miejscach!",
+    "AVAILABLE": "There are activities in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "Możesz dodać komentarz | Możesz dodać komentarz do {count} aktywności",
-    "AVAILABLE_FROM_STORES": "Lista pokazuje dostępne aktywności w Twoich ulubionych miejscach w najbliższych dniach. W panelu bocznym możesz zobaczyć pozostałe miejsca.",
     "FILTER": {
       "ALL": "Wszystkie odbiory",
       "ALL_TYPES": "Wszystkie",
+      "ALL_PLACES": "All places",
+      "ALL_FAVOURITE_PLACES": "All favourite places",
       "EMPTY": "Odbiory, na które nikt się nie zapisał",
-      "FREE": "Odbiory z wolnymi okienkami"
+      "FREE": "Odbiory z wolnymi okienkami",
+      "JOINED": "Joined"
     },
     "ITEM": {
       "JOIN": "Zapisz się",
@@ -302,7 +304,8 @@
     "REPLIES": "Odpowiedzi",
     "REPLIES_COUNT": "1 odpowiedź | {count} odpowiedzi",
     "REPLY_TO_MESSAGE": "Odpowiedz na wiadomość...",
-    "UNREAD_MESSAGES": "Masz jedną nieprzeczytaną wiadomość | Masz {count} nieprzeczytane wiadomości"
+    "UNREAD_MESSAGES": "Masz jedną nieprzeczytaną wiadomość | Masz {count} nieprzeczytane wiadomości",
+    "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
     "COMMENT": "Dodatkowe informacje",

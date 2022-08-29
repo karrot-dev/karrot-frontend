@@ -72,14 +72,16 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "Είναι απενεργοποιημένο ",
     "ACTIVITY_STARTED": "Έχει ήδη ξεκινήσει ",
-    "AVAILABLE": "Δεν υπάρχουν δράσεις/δραστηριότητες που συμβαίνουν στα αγαπημένα σου μέρη-locations. Υπάρχουν {count} δράσεις/δραστηριότητες που συμβαίνουν στα αγαπημένα σου μέρη-locations.",
+    "AVAILABLE": "There are activities in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "Μπορείς να δώσεις feedback. {count}δράσεις/δραστηρίοτητες αναμένουν τα σχόλια σου, το feedback σου ",
-    "AVAILABLE_FROM_STORES": "Εδώ μπορείς να δεις τις δράσεις/δραστηριότητες που συμβαίνουν στο αγαπημένο σου μέρος-location τις επομένες ημέρες. Μπορείς να δεις τα υπόλοιπα μέρη-locations που έχουν δημιουργηθεί απο μέλη του group στην πλευρική γραμμή. ",
     "FILTER": {
       "ALL": "Όλα",
       "ALL_TYPES": "All types",
+      "ALL_PLACES": "All places",
+      "ALL_FAVOURITE_PLACES": "All favourite places",
       "EMPTY": "Μόνο κενά ",
-      "FREE": "Με άδειες θέσεις "
+      "FREE": "Με άδειες θέσεις ",
+      "JOINED": "Joined"
     },
     "ITEM": {
       "JOIN": "Λάβε μέρος ",
@@ -302,7 +304,8 @@
     "REPLIES": "Απαντήσεις",
     "REPLIES_COUNT": "1 απάντηση | {count}απαντήσεις ",
     "REPLY_TO_MESSAGE": "Reply to message...",
-    "UNREAD_MESSAGES": "Υπάρχει ενα αδιάβαστο μήνυμα. | Έχεις {count}αδίαβαστα μηνύματα "
+    "UNREAD_MESSAGES": "Υπάρχει ενα αδιάβαστο μήνυμα. | Έχεις {count}αδίαβαστα μηνύματα ",
+    "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
     "COMMENT": "Επιπλέον πληροφορίες",

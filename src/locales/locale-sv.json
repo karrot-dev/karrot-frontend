@@ -72,14 +72,16 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "Detta har inaktiverats",
     "ACTIVITY_STARTED": "Det har redan påbörjats.",
-    "AVAILABLE": "Det finns en aktivitet på dina favoritplatser som väntar på dig! | Det finns {count} aktiviteter på dina favoritplatser som väntar på dig!",
+    "AVAILABLE": "There are activities in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "Du kan ge feedback till en aktivitet | {count} aktiviteter väntar på din feedback",
-    "AVAILABLE_FROM_STORES": "Detta visar aktiviteter från dina favoritplatser de närmaste dagarna. Du kan komma åt andra platser i sidofältet.",
     "FILTER": {
       "ALL": "Allt",
       "ALL_TYPES": "Alla typer",
+      "ALL_PLACES": "All places",
+      "ALL_FAVOURITE_PLACES": "All favourite places",
       "EMPTY": "Endast tomma",
-      "FREE": "Med lediga öppningar"
+      "FREE": "Med lediga öppningar",
+      "JOINED": "Joined"
     },
     "ITEM": {
       "JOIN": "Gå med",
@@ -302,7 +304,8 @@
     "REPLIES": "Svar",
     "REPLIES_COUNT": "1 svar | {count} svar",
     "REPLY_TO_MESSAGE": "Svara på meddelandet...",
-    "UNREAD_MESSAGES": "Du har ett oläst meddelande. | Du har {count} olästa meddelande."
+    "UNREAD_MESSAGES": "Du har ett oläst meddelande. | Du har {count} olästa meddelande.",
+    "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
     "COMMENT": "Mer information",

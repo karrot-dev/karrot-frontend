@@ -72,14 +72,16 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "Esta ha sido desactivada.",
     "ACTIVITY_STARTED": "Esta ya ha comenzado.",
-    "AVAILABLE": "¡Hay una actividad en tus lugares favoritos esperándote! ¡Hay {count} actividades en tus lugares favoritos esperándote!",
+    "AVAILABLE": "There are activities in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "Puedes dejar un comentario | {count} actividades esperan tus comentarios",
-    "AVAILABLE_FROM_STORES": "Esto muestra las actividades en tus lugares favoritos en los próximos días. Puedes acceder a otros lugares en la barra lateral.",
     "FILTER": {
       "ALL": "Todo",
       "ALL_TYPES": "Todos los tipos",
+      "ALL_PLACES": "All places",
+      "ALL_FAVOURITE_PLACES": "All favourite places",
       "EMPTY": "Solo vacios",
-      "FREE": "Con espacios libres"
+      "FREE": "Con espacios libres",
+      "JOINED": "Joined"
     },
     "ITEM": {
       "JOIN": "Unirse",
@@ -302,7 +304,8 @@
     "REPLIES": "Respuestas",
     "REPLIES_COUNT": "1 respuesta | {count} respuestas",
     "REPLY_TO_MESSAGE": "Responder al mensaje",
-    "UNREAD_MESSAGES": "Tienes un mensaje sin leer. | Tienes {count} mensajes no leídos."
+    "UNREAD_MESSAGES": "Tienes un mensaje sin leer. | Tienes {count} mensajes no leídos.",
+    "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
     "COMMENT": "Información adicional",

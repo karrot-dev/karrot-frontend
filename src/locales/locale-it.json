@@ -72,14 +72,16 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "This is disabled.",
     "ACTIVITY_STARTED": "This has already started.",
-    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
+    "AVAILABLE": "There are activities in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
-    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
       "ALL": "All",
       "ALL_TYPES": "All types",
+      "ALL_PLACES": "All places",
+      "ALL_FAVOURITE_PLACES": "All favourite places",
       "EMPTY": "Only empty",
-      "FREE": "With free slots"
+      "FREE": "With free slots",
+      "JOINED": "Joined"
     },
     "ITEM": {
       "JOIN": "Unisciti",
@@ -302,7 +304,8 @@
     "REPLIES": "Replies",
     "REPLIES_COUNT": "1 reply | {count} replies",
     "REPLY_TO_MESSAGE": "Reply to message...",
-    "UNREAD_MESSAGES": "Hai un messaggio non letto. | Hai {count} messaggi non letti."
+    "UNREAD_MESSAGES": "Hai un messaggio non letto. | Hai {count} messaggi non letti.",
+    "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
     "COMMENT": "Informazioni aggiuntive",

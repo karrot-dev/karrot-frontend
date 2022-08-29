@@ -72,14 +72,16 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "Ez ki van kapcsolva.",
     "ACTIVITY_STARTED": "Ez már elkezdődött.",
-    "AVAILABLE": "Egy tevékenység vár rád az egyik kedvenc helyeden! | {count} tevékenység vár rád a kedvenc helyeiden!",
+    "AVAILABLE": "There are activities in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "Visszajelzést küldhetsz | {count} tevékenység vár a visszajelzésedre",
-    "AVAILABLE_FROM_STORES": "Ez mutatja a közelgő tevékenységeket a kedvenc helyeidről a következő pár napban. A többi helyet az oldalmenüben találod.",
     "FILTER": {
       "ALL": "Mind",
       "ALL_TYPES": "Minden tevékenységtípus",
+      "ALL_PLACES": "All places",
+      "ALL_FAVOURITE_PLACES": "All favourite places",
       "EMPTY": "Csak üres",
-      "FREE": "Üres helyekkel"
+      "FREE": "Üres helyekkel",
+      "JOINED": "Joined"
     },
     "ITEM": {
       "JOIN": "Csatlakozás",
@@ -302,7 +304,8 @@
     "REPLIES": "Válaszok",
     "REPLIES_COUNT": "1 válasz | {count} válasz",
     "REPLY_TO_MESSAGE": "Válasz az üzenetre...",
-    "UNREAD_MESSAGES": "Egy olvasatlan üzeneted van. | {count} olvasatlan üzeneted van."
+    "UNREAD_MESSAGES": "Egy olvasatlan üzeneted van. | {count} olvasatlan üzeneted van.",
+    "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
     "COMMENT": "További infók",

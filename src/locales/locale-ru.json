@@ -72,14 +72,16 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "Это отключено.",
     "ACTIVITY_STARTED": "Это уже запущено.",
-    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
+    "AVAILABLE": "There are activities in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
-    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
       "ALL": "Все",
       "ALL_TYPES": "Все типы",
+      "ALL_PLACES": "All places",
+      "ALL_FAVOURITE_PLACES": "All favourite places",
       "EMPTY": "Только пустые",
-      "FREE": "With free slots"
+      "FREE": "With free slots",
+      "JOINED": "Joined"
     },
     "ITEM": {
       "JOIN": "Войти",
@@ -302,7 +304,8 @@
     "REPLIES": "Ответы",
     "REPLIES_COUNT": "1 reply | {count} replies",
     "REPLY_TO_MESSAGE": "Ответить на сообщение...",
-    "UNREAD_MESSAGES": "У вас есть одно непрочитанное сообщение. | У вас есть {count} непрочитанных сообщений"
+    "UNREAD_MESSAGES": "У вас есть одно непрочитанное сообщение. | У вас есть {count} непрочитанных сообщений",
+    "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
     "COMMENT": "Additional information",

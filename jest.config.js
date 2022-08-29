@@ -20,7 +20,12 @@ module.exports = {
     'lcov',
   ],
   // Needed in JS codebases too because of feature flags
-  coveragePathIgnorePatterns: ['/node_modules/', '.d.ts$'],
+  coveragePathIgnorePatterns: [
+    '/node_modules/',
+    '.d.ts$',
+    '.story.js$',
+    '.spec.js$',
+  ],
   testMatch: [
     '<rootDir>/src/**/*.spec.js',
     '<rootDir>/test/**/*.spec.js',

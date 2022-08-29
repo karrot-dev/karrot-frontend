@@ -4,8 +4,8 @@
  * It is probably better for most use cases to use the factory functions from 'enrichedFactories.js' instead.
  */
 
-import addSeconds from 'date-fns/addSeconds'
 import cloneDeep from 'clone-deep'
+import addSeconds from 'date-fns/addSeconds'
 
 import { optionsFor } from '@/places/placeStatus'
 

@@ -353,7 +353,9 @@ import {
   Dialog,
   date,
 } from 'quasar'
+import { rrulestr } from 'rrule' // TODO: only import this if preview needed? how big is it anyway?
 
+import { serializeRule } from '@/activities/api/activitySeries'
 import { useActivityTypeHelpers } from '@/activities/helpers'
 import { defaultDuration } from '@/activities/settings'
 import { formatSeconds } from '@/activities/utils'
@@ -361,11 +363,9 @@ import { dayOptions } from '@/base/i18n'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import MarkdownInput from '@/utils/components/MarkdownInput'
-import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
 import ActivityItem from '@/activities/components/ActivityItem'
-import { rrulestr } from 'rrule' // TODO: only import this if preview needed? how big is it anyway?
-import { serializeRule } from '@/activities/api/activitySeries'
+import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
+import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
   components: {

@@ -178,8 +178,9 @@ import {
   QItemLabel,
 } from 'quasar'
 
-import MarkdownInput from '@/utils/components/MarkdownInput'
 import statusMixin from '@/utils/mixins/statusMixin'
+
+import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
   components: {

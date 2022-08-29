@@ -292,10 +292,10 @@ import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 import reactiveNow from '@/utils/reactiveNow'
 import { objectDiff } from '@/utils/utils'
-import ActivityItem from '@/activities/components/ActivityItem'
 
-import MarkdownInput from '@/utils/components/MarkdownInput'
+import ActivityItem from '@/activities/components/ActivityItem'
 import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
+import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
   name: 'ActivityEdit',

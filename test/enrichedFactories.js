@@ -6,6 +6,7 @@
  *
  * The implementations are not complete, so if you miss a property that you need, please add it!
  */
+import cloneDeep from 'clone-deep'
 import addDays from 'date-fns/addDays'
 import addMinutes from 'date-fns/addMinutes'
 import subDays from 'date-fns/subDays'
@@ -26,7 +27,6 @@ import imageRandomD from '@/base/pages/images/random-imgs/solikyl-savers-200.jpg
 import { optionsFor } from '@/places/placeStatus'
 
 import { statusMocks } from '>/helpers'
-import cloneDeep from 'clone-deep'
 
 let notificationIdCnt = 0
 export const makeNotification = data => {

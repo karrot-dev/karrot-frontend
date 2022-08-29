@@ -56,7 +56,7 @@ export function generateVoting (params = {}) {
     id: nextVotingId++,
     createdAt: null,
     expiresAt: null,
-    acceptedOption: 74,
+    acceptedOption: null,
     options: [
       generateOption({
         type: 'further_discussion',

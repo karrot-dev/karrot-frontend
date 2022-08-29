@@ -21,18 +21,19 @@ export function createMockNotificationsBackend () {
   cursorPaginated(
     '/api/notifications/',
     () => db.notifications,
-    {},
-    notifications => {
-      // find related entries
-      const applications = db.applications.filter(application => notifications.find(({ context }) => context.application === application.id))
-      const issues = db.issues.filter(issue => notifications.find(({ context }) => context.issue === issue.id))
-      const activities = db.activities.filter(activity => notifications.find(({ context }) => context.activity === activity.id))
-      return {
-        notifications,
-        applications,
-        issues,
-        activities,
-      }
+    {
+      makeResults: notifications => {
+        // find related entries
+        const applications = db.applications.filter(application => notifications.find(({ context }) => context.application === application.id))
+        const issues = db.issues.filter(issue => notifications.find(({ context }) => context.issue === issue.id))
+        const activities = db.activities.filter(activity => notifications.find(({ context }) => context.activity === activity.id))
+        return {
+          notifications,
+          applications,
+          issues,
+          activities,
+        }
+      },
     },
   )
 }

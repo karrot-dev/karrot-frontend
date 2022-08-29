@@ -83,7 +83,7 @@ function on (method, path, handler, options = {}) {
   })
 }
 
-export function cursorPaginated (path, getEntries, options = {}, makeResults = null) {
+export function cursorPaginated (path, getEntries, options = {}) {
   get(path, config => {
     const pageSize = ctx.pageSize || 30
     const cursor = parseInt(config.params.cursor || '0')
@@ -102,6 +102,9 @@ export function cursorPaginated (path, getEntries, options = {}, makeResults = n
       searchParams.append('cursor', newCursor)
       return `${path}?${searchParams.toString()}`
     }
+    const { makeResults } = options
+    delete options.makeResults
+
     return [200, {
       results: makeResults ? makeResults(paginatedEntries) : paginatedEntries,
       next: hasNextPage ? cursorURL(cursor + pageSize) : null,

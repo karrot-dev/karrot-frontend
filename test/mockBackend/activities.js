@@ -5,6 +5,7 @@ import { ctx, db } from '>/mockBackend/index'
 import { cursorPaginated, post } from '>/mockBackend/mockAxios'
 
 let nextId = 1
+let nextParticipantTypeId = 1
 export function generateActivity (params = {}) {
   if (!params.place) throw new Error('must provide place')
   if (!params.activityType) {
@@ -24,7 +25,7 @@ export function generateActivity (params = {}) {
     description: faker.lorem.paragraphs(2),
     series: null,
     place: null,
-    maxParticipants: 2,
+    participantTypes: [{ id: nextParticipantTypeId++, role: 'member', maxParticipants: 2 }],
     participants: [],
     feedbackDue: addDays(endDate, 30), // TODO: is this about right?
     feedbackGivenBy: [],
@@ -51,20 +52,34 @@ export function createMockActivitiesBackend () {
       if (params.series && activity.series !== params.series) return false
       if (params.dateMin && activity.date[0] < params.dateMin) return false
       if (params.activityType && activity.activityType !== params.activityType) return false
-      // TODO: implement feedbackPossible and slots
+      if (params.slots) {
+        if (params.slots === 'joined') {
+          if (!activity.participants.some(participant => participant.user === ctx.authUser.id)) return false
+        }
+        else {
+          throw new Error(`have not implemented slots=${params.slots} filter`)
+        }
+      }
+      if (params.feedbackPossible) throw new Error('have not implemented feedbackPossible filter')
       return true
     }).map(toResponse),
   )
 
-  post('/api/activities/:id/add/', ({ pathParams }) => {
+  post('/api/activities/:id/add/', ({ pathParams, data }) => {
     const activity = db.orm.activities.get({ id: parseInt(pathParams.id) })
-    if (activity.participants.includes(ctx.authUser.id)) {
+    if (activity.participants.map(participant => participant.user).includes(ctx.authUser.id)) {
       return [403, {
         detail: 'You have already joined this activity.',
         error_code: 'permission_denied',
       }]
     }
-    activity.participants.push(ctx.authUser.id)
+    // TODO: this is probably a required param?
+    const { participantType } = data
+    activity.participants.push({
+      user: ctx.authUser.id,
+      participantType,
+      createdAt: new Date(),
+    })
     return [200, {}]
   })
 }

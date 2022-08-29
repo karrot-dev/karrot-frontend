@@ -41,6 +41,7 @@ export function addUserToGroup (user, group, membershipParams = {}) {
     createdAt: faker.date.past(),
     addedBy: null,
     roles: [
+      'member',
       'editor',
     ],
     active: true,

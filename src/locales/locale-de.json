@@ -72,14 +72,16 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "Aktivität wurde deaktiviert.",
     "ACTIVITY_STARTED": "Das hat bereits begonnen.",
-    "AVAILABLE": "Es gibt eine Aktivität an deinen Lieblingsorten, die auf dich wartet! | Es gibt '{count}' Aktivitäten an deinen Lieblingsorten, die auf dich warten!",
+    "AVAILABLE": "There are activities in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "Du kannst Feedback zu einer Aktivität geben | {count} Aktivitäten warten auf dein Feedback.",
-    "AVAILABLE_FROM_STORES": "Hier werden Aktivitäten der nächsten Tage an deinen Lieblingsorten angezeigt. Du erhältst über die Seitenleiste Zugang zu anderen Orten.",
     "FILTER": {
       "ALL": "Alle",
       "ALL_TYPES": "Alle Aktivitätsarten",
+      "ALL_PLACES": "All places",
+      "ALL_FAVOURITE_PLACES": "All favourite places",
       "EMPTY": "Nur leere",
-      "FREE": "Mit offenen Slots"
+      "FREE": "Mit offenen Slots",
+      "JOINED": "Joined"
     },
     "ITEM": {
       "JOIN": "Abholen",
@@ -118,7 +120,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Kommende Aktivitäten in dieser Serie"
   },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "Menge der Lebensmittel, die du einsparen konntest",
+    "AMOUNT": "Menge der Lebensmittel, die du abholen konntest",
     "AMOUNT_INFO": "Für Ortsstatistiken fassen wir die Menge allen Feedbacks zusammen.",
     "COMMENT_PLACEHOLDER": "Lief alles gut? Sind alle aufgetaucht? Dein Kommentar bitte...",
     "DELETE_AMOUNT": "Gewicht löschen",
@@ -153,11 +155,11 @@
     "FEEDBACK": "Feedback",
     "FEEDBACK_WEIGHT": "Gewichtsfeedback",
     "STATUS": "Status",
-    "STANDARD_NAME_HEADING": "Standard Bezeichnungen",
+    "STANDARD_NAME_HEADING": "Standard-Bezeichnungen",
     "STANDARD_NAME_HINT": "Die Bezeichnung ist auch in anderen Sprachen verfügbar.",
     "CUSTOM_NAME_HINT": "Die Bezeichnung wird genau so benutzt und nicht übersetzt.",
     "CUSTOM_NAME_USE": "Benutze eigene Bezeichnung {name}",
-    "CUSTOM_NAME_PROMPT": "Gib einen eigene Bezeichnung ein oder wähle eine Standard Bezeichnung",
+    "CUSTOM_NAME_PROMPT": "Gib einen eigene Bezeichnung ein oder wähle eine Standard-Bezeichnung",
     "MANAGE_TYPES": "Aktivitätstypen bearbeiten...",
     "SHOW_ARCHIVED": "Archivierte anzeigen",
     "STATUS_ACTIVE_HINT": "Du wirst in der Lage sein, neue Aktivitäten und Serien dieses Typs zu erstellen",
@@ -302,7 +304,8 @@
     "REPLIES": "Antworten",
     "REPLIES_COUNT": "1 Antwort | {count} Antworten",
     "REPLY_TO_MESSAGE": "Auf Nachricht antworten...",
-    "UNREAD_MESSAGES": "Du hast eine ungelesene Nachricht. | Du hast {count} ungelesene Nachrichten."
+    "UNREAD_MESSAGES": "Du hast eine ungelesene Nachricht. | Du hast {count} ungelesene Nachrichten.",
+    "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
     "COMMENT": "Zusätzliche Informationen",

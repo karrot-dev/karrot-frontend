@@ -72,14 +72,16 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "Dëst ass deaktivéiert.",
     "ACTIVITY_STARTED": "Dëst huet schonn ugefaangen.",
-    "AVAILABLE": "Et gëtt eng Aktivitéit op denge favoriséierte Plaze fir dech! | Et gëtt {count} Aktivitéiten op denge favoriséierte Plaze fir dech!",
+    "AVAILABLE": "There are activities in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "Du kanns Feedback ofginn | {count} Aktivitéite waarden op däi Feedback",
-    "AVAILABLE_FROM_STORES": "Dëst weist d'Aktivitéite vun denge favoriséierte Plazen an den nächsten Deeg. Du kanns un aner Plazen iwwert d'Sidebar dru kommen.",
     "FILTER": {
       "ALL": "All",
       "ALL_TYPES": "All d'Typpen",
+      "ALL_PLACES": "All places",
+      "ALL_FAVOURITE_PLACES": "All favourite places",
       "EMPTY": "Just eideler",
-      "FREE": "Mat eidele Plazen"
+      "FREE": "Mat eidele Plazen",
+      "JOINED": "Joined"
     },
     "ITEM": {
       "JOIN": "Matmaachen",
@@ -302,7 +304,8 @@
     "REPLIES": "Äntwerten",
     "REPLIES_COUNT": "1 Äntwert | {count} Äntwerten",
     "REPLY_TO_MESSAGE": "Op Noriicht äntwerten...",
-    "UNREAD_MESSAGES": "Du hues eng ongeliesen Noriicht. | Du hues {count}ongeliesen Noriichten."
+    "UNREAD_MESSAGES": "Du hues eng ongeliesen Noriicht. | Du hues {count}ongeliesen Noriichten.",
+    "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
     "COMMENT": "Zousätzlech Informatiounen",

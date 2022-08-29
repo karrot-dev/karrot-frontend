@@ -72,14 +72,16 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "This is disabled.",
     "ACTIVITY_STARTED": "This has already started.",
-    "AVAILABLE": "There is one activity in your favorite places waiting for you! | There are {count} activities in your favorite places waiting for you!",
+    "AVAILABLE": "There are activities in your favorite places waiting for you!",
     "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
-    "AVAILABLE_FROM_STORES": "This shows activities from your favorite places in the next days. You can access other places in the sidebar.",
     "FILTER": {
       "ALL": "सब",
       "ALL_TYPES": "All types",
+      "ALL_PLACES": "All places",
+      "ALL_FAVOURITE_PLACES": "All favourite places",
       "EMPTY": "केवल खाली",
-      "FREE": "खाली स्लॉट के साथ"
+      "FREE": "खाली स्लॉट के साथ",
+      "JOINED": "Joined"
     },
     "ITEM": {
       "JOIN": "शामिल होना",
@@ -302,7 +304,8 @@
     "REPLIES": "उत्तर",
     "REPLIES_COUNT": "1 उत्तर | {count} उत्तर",
     "REPLY_TO_MESSAGE": "संदेश का उत्तर दें ...",
-    "UNREAD_MESSAGES": "आपके पास एक अपठित संदेश है | आपके पास {count} अपठित संदेश हैं"
+    "UNREAD_MESSAGES": "आपके पास एक अपठित संदेश है | आपके पास {count} अपठित संदेश हैं",
+    "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
     "COMMENT": "अधिक जानकारी",

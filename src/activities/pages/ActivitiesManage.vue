@@ -37,6 +37,7 @@
         <ActivitySeriesEdit
           :value="newSeries"
           :status="createSeriesStatus"
+          :roles="roles"
           @save="saveNewSeries"
           @cancel="cancelNewSeries"
           @reset="resetNewSeries"
@@ -73,6 +74,7 @@
             <ActivitySeriesEdit
               :value="series"
               :status="saveSeriesStatus"
+              :roles="roles"
               @save="saveSeries"
               @destroy="destroySeries"
               @reset="resetActivity"
@@ -150,6 +152,7 @@
                   :value="activity"
                   :status="saveActivityStatus"
                   :series="series"
+                  :roles="roles"
                   @save="saveActivity"
                   @reset="resetActivity"
                 />
@@ -202,6 +205,7 @@
         <ActivityEdit
           :value="newActivity"
           :status="createActivityStatus"
+          :roles="roles"
           @save="saveNewActivity"
           @cancel="cancelNewActivity"
           @reset="resetNewActivity"
@@ -244,6 +248,7 @@
             v-if="visible.activity[activity.id]"
             :value="activity"
             :status="saveActivityStatus"
+            :roles="roles"
             @save="saveActivity"
             @reset="resetActivity"
           />
@@ -313,7 +318,7 @@ export default {
   setup () {
     // TODO: this component is doing way too much stuff... split it up! But I think could do with some UI changes too...
 
-    const { groupId } = useCurrentGroupService()
+    const { groupId, roles } = useCurrentGroupService()
     const { placeId } = useActivePlaceService()
 
     const { getIsUpcoming } = useActivityHelpers()
@@ -449,6 +454,7 @@ export default {
       placeId,
 
       activityTypes,
+      roles,
 
       isLoadingActivities,
       activities,
@@ -530,7 +536,13 @@ export default {
     createNewSeries (activityType) {
       this.newSeries = {
         activityType,
-        maxParticipants: 2,
+        participantTypes: [
+          {
+            role: 'member',
+            maxParticipants: 2,
+            description: '',
+          },
+        ],
         description: '',
         startDate: addHours(startOfTomorrow(), 10),
         duration: null,
@@ -555,7 +567,13 @@ export default {
       const date = addHours(startOfTomorrow(), 10) // default to 10am tomorrow
       this.newActivity = {
         activityType,
-        maxParticipants: 2,
+        participantTypes: [
+          {
+            role: 'member',
+            maxParticipants: 2,
+            description: '',
+          },
+        ],
         description: '',
         date,
         dateEnd: addSeconds(date, defaultDuration),

@@ -2,36 +2,48 @@ import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/vue3'
 import { h } from 'vue'
 
-import * as factories from '>/enrichedFactories'
 import { createDatastore, storybookDefaults as defaults, statusMocks } from '>/helpers'
+import * as factories from '>/enrichedFactories'
+import { makeActivity, makeCurrentUser, makeUser, participantType } from '>/enrichedFactories'
 
 import ActivityItem from './ActivityItem'
 
 const range = n => [...Array(n).keys()]
 
-const user = factories.makeCurrentUser()
-const joinableActivity = factories.makeActivity({
+const roles = []
+
+const user = makeCurrentUser()
+const joinableActivity = makeActivity({
   maxParticipants: 4,
-  participants: range(3).map(factories.makeUser),
+  participants: range(3).map(() => ({
+    user: makeUser(),
+    participantType,
+  })),
   isUserMember: false,
   isFull: false,
   isEmpty: false,
   description: 'You can join this activity.',
 })
-const fullActivity = factories.makeActivity({
+const fullActivity = makeActivity({
   maxParticipants: 4,
-  participants: range(4).map(factories.makeUser),
+  participants: range(4).map(() => ({
+    user: makeUser(),
+    participantType,
+  })),
   isUserMember: false,
   isFull: true,
   isEmpty: false,
   description: 'This activity is already full.',
 })
-const leavableActivity = factories.makeActivity({
+const leavableActivity = makeActivity({
   maxParticipants: 4,
   participants: [
-    ...range(2).map(factories.makeUser),
+    ...range(2).map(makeUser),
     user,
-  ],
+  ].map(user => ({
+    user,
+    participantType,
+  })),
   isUserMember: true,
   isFull: true,
   isEmpty: false,
@@ -60,6 +72,7 @@ storiesOf('ActivityItem', module)
   .add('join', () => defaults({
     render: () => h(ActivityItem, {
       activity: joinableActivity,
+      roles,
       ...on,
     }),
     store: datastore,
@@ -67,6 +80,7 @@ storiesOf('ActivityItem', module)
   .add('joined', () => defaults({
     render: () => h(ActivityItem, {
       activity: leavableActivity,
+      roles,
       ...on,
     }),
     store: datastore,
@@ -77,6 +91,7 @@ storiesOf('ActivityItem', module)
         ...joinableActivity,
         joinStatus: statusMocks.pending(),
       },
+      roles,
       ...on,
     }),
     store: datastore,
@@ -84,6 +99,7 @@ storiesOf('ActivityItem', module)
   .add('full', () => defaults({
     render: () => h(ActivityItem, {
       activity: fullActivity,
+      roles,
       ...on,
     }),
     store: datastore,
@@ -94,6 +110,7 @@ storiesOf('ActivityItem', module)
         ...fullActivity,
         isDisabled: true,
       },
+      roles,
       ...on,
     }),
     store: datastore,
@@ -104,6 +121,7 @@ storiesOf('ActivityItem', module)
         ...fullActivity,
         hasStarted: true,
       },
+      roles,
       ...on,
     }),
     store: datastore,

@@ -33,6 +33,7 @@
             :error="hasError('date')"
             size="9"
             hide-bottom-space
+            outlined
             class="q-mr-sm"
             @focus="$refs.qStartDateProxy.show()"
           >
@@ -63,6 +64,7 @@
             size="3"
             :error="hasError('date')"
             hide-bottom-space
+            outlined
             @focus="$refs.qStartTimeProxy.show()"
           >
             <Component
@@ -105,6 +107,7 @@
               size="3"
               :error="hasError('date')"
               hide-bottom-space
+              outlined
               @focus="$refs.qEndTimeProxy.show()"
             >
               <Component
@@ -151,77 +154,42 @@
         </div>
       </template>
 
-      <div>
-        <QInput
-          v-model.number="edit.maxParticipants"
-          type="number"
-          stack-label
-          :label="$t('CREATEACTIVITY.MAX_PARTICIPANTS')"
-          :hint="$t('CREATEACTIVITY.MAX_PARTICIPANTS_HELPER')"
-          :placeholder="$t('CREATEACTIVITY.UNLIMITED')"
-          :error="hasError('maxParticipants')"
-          :error-message="firstError('maxParticipants')"
-          :input-style="{ maxWidth: '100px' }"
-        >
-          <template #before>
-            <QIcon name="group" />
-          </template>
-          <QSlider
-            v-if="edit.maxParticipants > 0 && edit.maxParticipants <= 10"
-            v-model="edit.maxParticipants"
-            :min="1"
-            :max="10"
-            label
-            markers
-            class="q-mx-sm self-end"
-            style="min-width: 60px"
+      <MarkdownInput
+        v-model="edit.description"
+        :error="hasError('description')"
+        :error-message="firstError('description')"
+        :label="$t('CREATEACTIVITY.COMMENT')"
+        :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
+        icon="info"
+        maxlength="500"
+        :input-style="{ minHeight: 'auto' }"
+        mentions
+        outlined
+        @keyup.ctrl.enter="maybeSave"
+      >
+        <template #after>
+          <QIcon
+            v-if="series ? series.description !== edit.description : false"
+            name="undo"
+            @click="edit.description = series.description"
           />
-          <template #after>
-            <QIcon
-              v-if="series ? series.maxParticipants !== edit.maxParticipants : false"
-              name="undo"
-              @click="edit.maxParticipants = series.maxParticipants"
-            />
-          </template>
-        </QInput>
-        <div
-          v-if="seriesMeta.isMaxParticipantsChanged"
-          class="q-ml-lg col-12 q-field__bottom text-warning"
-        >
-          <QIcon name="warning" />
-          {{ $t('CREATEACTIVITY.DIFFERS_WARNING') }}
-        </div>
+        </template>
+      </MarkdownInput>
+      <div
+        v-if="seriesMeta.isDescriptionChanged"
+        class="q-ml-lg col-12 q-field__bottom text-warning"
+      >
+        <QIcon name="warning" />
+        {{ $t('CREATEACTIVITY.DIFFERS_WARNING') }}
       </div>
 
-      <div>
-        <MarkdownInput
-          v-model="edit.description"
-          :error="hasError('description')"
-          :error-message="firstError('description')"
-          :label="$t('CREATEACTIVITY.COMMENT')"
-          :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
-          icon="info"
-          mentions
-          maxlength="500"
-          @keyup.ctrl.enter="maybeSave"
-        >
-          <template #after>
-            <QIcon
-              v-if="series ? series.description !== edit.description : false"
-              name="undo"
-              @click="edit.description = series.description"
-            />
-          </template>
-        </MarkdownInput>
-
-        <div
-          v-if="seriesMeta.isDescriptionChanged"
-          class="q-ml-lg col-12 q-field__bottom text-warning"
-        >
-          <QIcon name="warning" />
-          {{ $t('CREATEACTIVITY.DIFFERS_WARNING') }}
-        </div>
-      </div>
+      <ParticipantTypesEdit
+        v-model="edit.participantTypes"
+        :roles="roles"
+        :series="series"
+        :series-meta="seriesMeta"
+        @maybe-save="maybeSave"
+      />
 
       <div
         v-if="hasNonFieldError"
@@ -229,7 +197,13 @@
       >
         {{ firstNonFieldError }}
       </div>
+
       <div class="row justify-end q-gutter-sm q-mt-lg">
+        <QToggle
+          v-model="showPreview"
+          label="Show preview"
+        />
+        <QSpace />
         <QBtn
           v-if="isNew"
           type="button"
@@ -242,7 +216,7 @@
           v-if="!isNew"
           type="button"
           :disable="!hasChanged"
-          @click="reset"
+          @click="doReset"
         >
           {{ $t('BUTTON.RESET') }}
         </QBtn>
@@ -274,6 +248,13 @@
           {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
         </QBtn>
       </div>
+
+      <div v-if="showPreview">
+        <ActivityItem
+          :activity="previewActivity"
+          :roles="roles"
+        />
+      </div>
     </form>
   </div>
 </template>
@@ -283,6 +264,9 @@ import addDays from 'date-fns/addDays'
 import addSeconds from 'date-fns/addSeconds'
 import differenceInSeconds from 'date-fns/differenceInSeconds'
 import {
+  QCard,
+  QCardSection,
+  QCardActions,
   QDate,
   QTime,
   QSlider,
@@ -291,8 +275,14 @@ import {
   QIcon,
   QMenu,
   QDialog,
+  QToggle,
+  QSelect,
+  QSpace,
   Dialog,
   date,
+  QItem,
+  QItemSection,
+  QItemLabel,
 } from 'quasar'
 
 import { useActivityTypeHelpers } from '@/activities/helpers'
@@ -302,12 +292,16 @@ import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 import reactiveNow from '@/utils/reactiveNow'
 import { objectDiff } from '@/utils/utils'
+import ActivityItem from '@/activities/components/ActivityItem'
 
 import MarkdownInput from '@/utils/components/MarkdownInput'
+import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
 
 export default {
   name: 'ActivityEdit',
   components: {
+    ParticipantTypesEdit,
+    ActivityItem,
     QDate,
     QTime,
     QSlider,
@@ -316,13 +310,26 @@ export default {
     QIcon,
     QMenu,
     QDialog,
+    QToggle,
+    QSelect,
+    QCard,
+    QCardSection,
+    QCardActions,
+    QSpace,
     MarkdownInput,
+    QItem,
+    QItemSection,
+    QItemLabel,
   },
   mixins: [editMixin, statusMixin],
   props: {
     series: {
       type: Object,
       default: null,
+    },
+    roles: {
+      type: Array,
+      required: true,
     },
   },
   emits: [
@@ -333,7 +340,48 @@ export default {
     const { getIconProps } = useActivityTypeHelpers()
     return { getIconProps }
   },
+  data () {
+    return {
+      showPreview: false,
+    }
+  },
   computed: {
+    previewActivity () {
+      return {
+        ...this.edit,
+        // fake statuses, just enough for the preview
+        joinStatus: {
+          pending: false,
+        },
+        leaveStatus: {
+          pending: false,
+        },
+      }
+    },
+    roleOptions () {
+      return [
+        {
+          label: 'Anyone',
+          value: 'member',
+          description: 'Anyone in the group',
+        },
+        {
+          label: 'Newcomer',
+          value: 'newcomer',
+          description: 'People that haven\'t yet got any other roles',
+        },
+        {
+          label: 'Approved',
+          value: 'approved',
+          description: 'People that have been trusted with approved role',
+        },
+        {
+          label: 'Editor',
+          value: 'editor',
+          description: 'People that have been trusted in the group as an editor',
+        },
+      ]
+    },
     activityType () {
       return this.value && this.value.activityType
     },
@@ -439,6 +487,10 @@ export default {
     },
   },
   methods: {
+    doReset () {
+      this.reset()
+      // TODO: reset in nested ParticipantTypesEdit
+    },
     futureDates (dateString) {
       return date.extractDate(`${dateString} 23:59`, 'YYYY/MM/DD HH:mm') > this.now
     },

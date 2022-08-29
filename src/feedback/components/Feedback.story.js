@@ -13,6 +13,9 @@ import FeedbackItem from './FeedbackItem'
 import FeedbackList from './FeedbackList'
 import PlaceFeedback from './PlaceFeedback'
 
+import { feedbackMock, activitiesMock } from '>/mockdata'
+import * as factories from '>/enrichedFactories'
+
 const range = n => [...Array(n).keys()]
 
 const datastore = createDatastore({
@@ -83,7 +86,6 @@ storiesOf('Feedback', module)
   .add('FeedbackList', () => defaults({
     render: () => h(FeedbackList, {
       feedback: feedbackMock,
-      place: placesMock[0],
       status: statusMocks.default(),
       highlight: feedbackMock[1].id,
     }),

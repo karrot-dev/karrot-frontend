@@ -16,7 +16,7 @@
           type="email"
           autocorrect="off"
           autocapitalize="off"
-          spellcheck="false"
+          :spellcheck="false"
           :error="hasError('email')"
         />
 

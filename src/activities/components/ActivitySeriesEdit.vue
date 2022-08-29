@@ -45,6 +45,7 @@
           mask="####-##-##"
           :error="hasError('startDate')"
           size="9"
+          outlined
           hide-bottom-space
           class="q-mr-sm"
           @focus="$refs.qStartDateProxy.show()"
@@ -73,6 +74,7 @@
           mask="time"
           :rules="['time']"
           size="3"
+          outlined
           :error="hasError('startDate')"
           hide-bottom-space
           @focus="$refs.qStartTimeProxy.show()"
@@ -121,6 +123,7 @@
             mask="time"
             :rules="['time']"
             size="3"
+            outlined
             :error="hasError('startDate')"
             hide-bottom-space
             @focus="$refs.qEndTimeProxy.show()"
@@ -177,6 +180,7 @@
         :hint="$t('CREATEACTIVITY.WEEKDAYS_HELPER')"
         :error="hasError('rule')"
         :error-message="firstError('rule')"
+        outlined
         emit-value
         map-options
       >
@@ -210,6 +214,7 @@
         :error="hasError('rule')"
         :error-message="firstError('rule')"
         autogrow
+        outlined
         :input-style="{ overflow: 'hidden' }"
         @keyup.ctrl.enter="maybeSave"
       >
@@ -249,32 +254,6 @@
         </template>
       </QInput>
 
-      <QInput
-        v-model.number="edit.maxParticipants"
-        type="number"
-        stack-label
-        :label="$t('CREATEACTIVITY.MAX_PARTICIPANTS')"
-        :hint="$t('CREATEACTIVITY.MAX_PARTICIPANTS_HELPER')"
-        :placeholder="$t('CREATEACTIVITY.UNLIMITED')"
-        :error="hasError('maxParticipants')"
-        :error-message="firstError('maxParticipants')"
-        :input-style="{ maxWidth: '100px' }"
-      >
-        <template #before>
-          <QIcon name="group" />
-        </template>
-        <QSlider
-          v-if="edit.maxParticipants > 0 && edit.maxParticipants <= 10"
-          v-model="edit.maxParticipants"
-          :min="1"
-          :max="10"
-          label
-          markers
-          class="q-mx-sm self-end"
-          style="min-width: 60px"
-        />
-      </QInput>
-
       <MarkdownInput
         v-model="edit.description"
         :error="hasError('description')"
@@ -283,8 +262,15 @@
         :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
         icon="info"
         mentions
+        outlined
         maxlength="500"
         @keyup.ctrl.enter="maybeSave"
+      />
+
+      <ParticipantTypesEdit
+        v-model="edit.participantTypes"
+        :roles="roles"
+        @maybe-save="maybeSave"
       />
 
       <div
@@ -295,6 +281,11 @@
       </div>
 
       <div class="row justify-end q-gutter-sm q-mt-lg">
+        <QToggle
+          v-model="showPreview"
+          label="Show preview"
+        />
+        <QSpace />
         <QBtn
           v-if="isNew"
           type="button"
@@ -326,6 +317,13 @@
           {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
         </QBtn>
       </div>
+
+      <div v-if="showPreview">
+        <ActivityItem
+          :activity="previewActivity"
+          :roles="roles"
+        />
+      </div>
     </form>
   </div>
 </template>
@@ -346,6 +344,7 @@ import {
   QSeparator,
   QDialog,
   QMenu,
+  QSpace,
   QItem,
   QItemSection,
   QItemLabel,
@@ -363,9 +362,14 @@ import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 import MarkdownInput from '@/utils/components/MarkdownInput'
+import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
+import ActivityItem from '@/activities/components/ActivityItem'
+import { rrulestr } from 'rrule' // TODO: only import this if preview needed? how big is it anyway?
+import { serializeRule } from '@/activities/api/activitySeries'
 
 export default {
   components: {
+    ActivityItem,
     QTime,
     QField,
     QSlider,
@@ -381,10 +385,18 @@ export default {
     QDialog,
     QMenu,
     QToggle,
+    QSpace,
     QDate,
     MarkdownInput,
+    ParticipantTypesEdit,
   },
   mixins: [editMixin, statusMixin],
+  props: {
+    roles: {
+      type: Array,
+      required: true,
+    },
+  },
   emits: [
     'cancel',
     'destroy',
@@ -392,6 +404,11 @@ export default {
   setup () {
     const { getIconProps } = useActivityTypeHelpers()
     return { getIconProps }
+  },
+  data () {
+    return {
+      showPreview: false,
+    }
   },
   computed: {
     activityType () {
@@ -477,6 +494,40 @@ export default {
     },
     smallScreen () {
       return this.$q.screen.width < 450 || this.$q.screen.height < 450
+    },
+    rruleObject () {
+      const { rule, startDate } = this.edit
+      return rrulestr(serializeRule(rule), { dtstart: startDate })
+    },
+    previewActivity () {
+      if (!this.showPreview) return null
+      const {
+        activityType,
+        participantTypes,
+        place,
+        description,
+        startDate,
+        datesPreview = [],
+        duration,
+      } = this.edit
+      const date = datesPreview[0] || this.rruleObject.after(new Date()) || startDate || new Date()
+      const dateEnd = duration ? addSeconds(date, duration) : null
+      return {
+        activityType,
+        participantTypes,
+        place,
+        description,
+        date,
+        dateEnd,
+        hasDuration: Boolean(duration),
+        // fake statuses, just enough for the preview
+        joinStatus: {
+          pending: false,
+        },
+        leaveStatus: {
+          pending: false,
+        },
+      }
     },
   },
   watch: {

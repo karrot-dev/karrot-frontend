@@ -26,6 +26,7 @@ import imageRandomD from '@/base/pages/images/random-imgs/solikyl-savers-200.jpg
 import { optionsFor } from '@/places/placeStatus'
 
 import { statusMocks } from '>/helpers'
+import cloneDeep from 'clone-deep'
 
 let notificationIdCnt = 0
 export const makeNotification = data => {
@@ -218,6 +219,16 @@ export const makePlaceStatistics = data => {
   }
 }
 
+export const participantType = {
+  role: 'member',
+  maxParticipants: 4,
+  description: 'normal member',
+}
+
+export const participantTypes = [
+  participantType,
+]
+
 let activityTypeIdCnt = 0
 export const activityTypes = {
   pickup: {
@@ -257,6 +268,7 @@ export const makeActivity = data => {
     saveStatus: statusMocks.default(),
     leaveStatus: statusMocks.default(),
     joinStatus: statusMocks.default(),
+    participantTypes: cloneDeep(participantTypes),
     ...data,
   }
 }
@@ -284,6 +296,7 @@ export const makeActivitySeries = data => {
       freq: 'WEEKLY',
       isCustom: false,
     },
+    participantTypes: cloneDeep(participantTypes),
     ...data,
   }
 }

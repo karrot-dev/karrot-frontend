@@ -33,7 +33,7 @@
             <QItem style="min-height: 57px;" />
             <RouterLink
               class="absolute-center fit"
-              :to="{ name: 'offerCreate' }"
+              :to="{ name: 'offerCreate', params: { groupId } }"
               :title="$t('OFFER.CREATE_TITLE')"
             >
               <QIcon
@@ -114,9 +114,6 @@ import {
   QImg,
   QInfiniteScroll,
 } from 'quasar'
-// TODO: fix whatever means I have to import this
-// eslint-disable-next-line no-unused-vars
-import Vue from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
@@ -168,7 +165,7 @@ const route = useRoute()
 function detailRouteFor (offerId) {
   return {
     name: 'offerDetail',
-    params: { offerId },
+    params: { groupId: groupId.value, offerId },
     query: route.query,
   }
 }

@@ -14,6 +14,7 @@ const { readFileSync, existsSync } = require('fs')
 // const StyleLintPlugin = require('stylelint-webpack-plugin') TODO?
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const { configure } = require('quasar/wrappers')
+const webpack = require('webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const webpackAliases = require('./webpack.aliases').resolve.alias
@@ -185,6 +186,38 @@ module.exports = configure(function (ctx) {
           ...cfg.resolve.alias, // This adds the existing alias
           ...webpackAliases, // from webpack.aliases.js
         }
+
+        // We're ignore the quasar-ui-qiconpicker icon sets as we don't need them all
+        // They are quite big, so can make some savings
+        // We load what we want explicitly in src/pickerIcons.js
+
+        // Check we actually ignored some, as perhaps the config breaks one day...
+        const ignoredIconSetResources = new Set()
+
+        cfg.plugins.push(
+          new webpack.IgnorePlugin({
+            checkResource (resource, context) {
+              if (context.endsWith('@quasar/quasar-ui-qiconpicker/src/components/icon-set')) {
+                ignoredIconSetResources.add(resource)
+                return true
+              }
+              return false
+            },
+          }),
+        )
+
+        cfg.plugins.push({
+          apply (compiler) {
+            compiler.hooks.done.tap(
+              'KarrotPlugin',
+              () => {
+                if (ignoredIconSetResources.size === 0) {
+                  throw new Error('expected to ignore some icon-sets... maybe something about the library changed?')
+                }
+              },
+            )
+          },
+        })
 
         cfg.plugins.push(
           new PreloadWebpackPlugin({

@@ -112,7 +112,6 @@
       <GroupGalleryCards
         :groups="groupsToShow"
         class="q-mt-xl"
-        @preview="arg => preview(arg)"
       />
 
       <div class="text-center q-pt-xs q-pb-xl">
@@ -203,7 +202,6 @@ import { dirNames, dirs } from '@/base/images-config.mjs'
 import generatedImages from '@/base/images.json'
 import { useGroupInfoService } from '@/groupInfo/services'
 import logo from '@/logo/assets/carrot-logo.svg'
-import router from '@/router'
 
 import KAbout from '@/base/components/KAbout'
 import KLandingButtons from '@/base/components/KLandingButtons'
@@ -267,9 +265,6 @@ export default {
     ]
   },
   methods: {
-    preview (groupId) {
-      router.push({ name: 'groupPreview', params: { groupPreviewId: groupId } }).catch(() => {})
-    },
     toggleAbout () {
       this.showAbout = !this.showAbout
     },

@@ -47,6 +47,7 @@
       :size="size"
       :user="currentUser"
       :show-join="!isUserMember"
+      data-testid="join-slot"
       @join="$emit('join')"
     />
 

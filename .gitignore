@@ -37,6 +37,7 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
+tsconfig.json
 
 # Old stuff
 .vscode

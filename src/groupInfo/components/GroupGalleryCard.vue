@@ -6,7 +6,7 @@
         application: myApplicationPending,
       }"
       :style="cardStyle"
-      @click="$emit(group.isMember ? 'visit' : 'preview')"
+      @click="() => group.isMember ? visit() : preview()"
     >
       <QTooltip v-if="myApplicationPending">
         {{ $t('APPLICATION.GALLERY_TOOLTIP') }}
@@ -80,7 +80,7 @@
           flat
           size="sm"
           icon="fas fa-home"
-          @click.stop="$emit('visit')"
+          @click.stop="visit"
         >
           <QTooltip>
             {{ $t('GROUPINFO.MEMBER_VIEW') }}
@@ -90,7 +90,7 @@
           flat
           size="sm"
           icon="fas fa-info-circle"
-          @click.stop="$emit('preview')"
+          @click.stop="preview"
         >
           <QTooltip>
             {{ $t('GROUPINFO.META') }}
@@ -113,6 +113,7 @@ import {
   QImg,
 } from 'quasar'
 import { computed, toRefs } from 'vue'
+import { useRouter } from 'vue-router'
 
 import { useApplicationHelpers } from '@/applications/helpers'
 import { useGroupHelpers } from '@/group/helpers'
@@ -141,18 +142,25 @@ export default {
       }),
     },
   },
-  emits: [
-    'visit',
-    'preview',
-  ],
   setup (props) {
     const { group } = toRefs(props)
+    const router = useRouter()
     const { getHasMyApplicationPending } = useApplicationHelpers()
     const { getIsCurrentGroup } = useGroupHelpers()
+
+    function preview () {
+      router.push({ name: 'groupPreview', params: { groupPreviewId: group.value.id } })
+    }
+
+    function visit () {
+      router.push({ name: 'group', params: { groupId: group.value.id } })
+    }
 
     return {
       myApplicationPending: computed(() => getHasMyApplicationPending(group.value.id)),
       isCurrentGroup: computed(() => getIsCurrentGroup(group)),
+      preview,
+      visit,
     }
   },
   computed: {

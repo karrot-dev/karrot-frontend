@@ -43,11 +43,6 @@ jest.mock('@/locales/translationStatus.json', () => ({
   en: '42',
 }))
 
-// Mock annoying components (e.g. too much vuex dependency)
-jest.mock('@/authuser/components/Settings/VerificationWarning', () => ({
-  template: '<div>VerificationWarning has been mocked</div>',
-}))
-
 // Runner
 initStoryshots({
   asyncJest: true, // this is the option that activates the async behaviour
@@ -63,7 +58,7 @@ initStoryshots({
 
     const tree = renderTree(story, context)
 
-    // wait until the mount is updated, in our app mostly by Relay
+    // wait until the mount is updated, in our app mostly by vue-query
     // but maybe something else updating the state of the component
     // somewhere
     const waitTime = 2000

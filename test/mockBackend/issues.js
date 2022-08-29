@@ -21,12 +21,15 @@ export function generateIssue (params = {}) {
     topic: 'I complain about this user',
     votings: [
       generateVoting({
+        createdAt: subDays(new Date(), 2 * 7 + 6),
         expiresAt: subDays(new Date(), 7 + 6),
       }),
       generateVoting({
+        createdAt: subDays(new Date(), 7 + 6),
         expiresAt: subDays(new Date(), 6),
       }),
       generateVoting({
+        createdAt: subDays(new Date(), 6),
         expiresAt: addDays(new Date(), 1),
       }),
     ],
@@ -47,10 +50,12 @@ export function generateOption (params = {}) {
 
 let nextVotingId = 1
 export function generateVoting (params = {}) {
+  if (!params.createdAt) throw new Error('must provide createdAt')
+  if (!params.expiresAt) throw new Error('must provide expiresAt')
   return {
     id: nextVotingId++,
-    createdAt: subDays(new Date(), 6),
-    expiresAt: addDays(new Date(), 7),
+    createdAt: null,
+    expiresAt: null,
     acceptedOption: 74,
     options: [
       generateOption({

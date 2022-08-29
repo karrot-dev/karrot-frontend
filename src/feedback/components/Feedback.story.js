@@ -3,7 +3,7 @@ import { h } from 'vue'
 
 import * as factories from '>/enrichedFactories'
 import { storybookDefaults as defaults, statusMocks, createDatastore } from '>/helpers'
-import { feedbackMock, placesMock, activitiesMock } from '>/mockdata'
+import { feedbackMock, activitiesMock } from '>/mockdata'
 
 import ActivityFeedback from '../pages/ActivityFeedback'
 
@@ -12,9 +12,6 @@ import AmountPicker from './AmountPicker'
 import FeedbackItem from './FeedbackItem'
 import FeedbackList from './FeedbackList'
 import PlaceFeedback from './PlaceFeedback'
-
-import { feedbackMock, activitiesMock } from '>/mockdata'
-import * as factories from '>/enrichedFactories'
 
 const range = n => [...Array(n).keys()]
 

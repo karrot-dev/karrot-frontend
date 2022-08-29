@@ -413,14 +413,6 @@ export default {
       // see https://github.com/karrot-dev/karrot-frontend/issues/2400
       return absoluteURL(`/api/activities/${this.activity.id}/ics/`)
     },
-    isJoining () {
-      // if request is in progress and user is not member yet (watches out for websocket updates!)
-      return this.activity.joinStatus.pending && !this.activity.isUserMember
-    },
-    isLeaving () {
-      // if request is in progress and user has not left yet
-      return this.activity.leaveStatus.pending && this.activity.isUserMember
-    },
   },
   methods: {
     join () {

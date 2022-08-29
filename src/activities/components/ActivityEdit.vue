@@ -185,7 +185,6 @@
 
       <ParticipantTypesEdit
         v-model="edit.participantTypes"
-        :roles="roles"
         :series="series"
         :series-meta="seriesMeta"
         @maybe-save="maybeSave"
@@ -250,10 +249,7 @@
       </div>
 
       <div v-if="showPreview">
-        <ActivityItem
-          :activity="previewActivity"
-          :roles="roles"
-        />
+        <ActivityItem :activity="previewActivity" />
       </div>
     </form>
   </div>
@@ -326,10 +322,6 @@ export default {
     series: {
       type: Object,
       default: null,
-    },
-    roles: {
-      type: Array,
-      required: true,
     },
   },
   emits: [

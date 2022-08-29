@@ -269,7 +269,6 @@
 
       <ParticipantTypesEdit
         v-model="edit.participantTypes"
-        :roles="roles"
         @maybe-save="maybeSave"
       />
 
@@ -319,10 +318,7 @@
       </div>
 
       <div v-if="showPreview">
-        <ActivityItem
-          :activity="previewActivity"
-          :roles="roles"
-        />
+        <ActivityItem :activity="previewActivity" />
       </div>
     </form>
   </div>
@@ -391,12 +387,6 @@ export default {
     ParticipantTypesEdit,
   },
   mixins: [editMixin, statusMixin],
-  props: {
-    roles: {
-      type: Array,
-      required: true,
-    },
-  },
   emits: [
     'cancel',
     'destroy',

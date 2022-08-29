@@ -8,15 +8,17 @@ export function useActivityHelpers () {
   const { userId } = useAuthService()
 
   function getIsUserMember (activity) {
-    return activity.participants.includes(userId.value)
+    return activity.participants.some(participant => participant.user === userId.value)
   }
 
   function getIsEmpty (activity) {
     return activity.participants.length === 0
   }
 
-  function getIsFull (activity) {
-    return activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants
+  function getIsFull (activity, participantType) {
+    if (!participantType) throw new Error('must include participantType arg')
+    const participantCount = activity.participants.filter(participant => participant.participantType === participantType.id).length
+    return participantCount.maxParticipants > 0 && participantCount >= participantType.maxParticipants
   }
 
   function getHasStarted (activity) {

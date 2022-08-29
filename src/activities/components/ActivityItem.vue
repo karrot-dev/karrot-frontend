@@ -1,8 +1,5 @@
 <template>
-  <QCard
-    class="activity-item"
-    :class="{ full: isFull }"
-  >
+  <QCard class="activity-item">
     <QCardSection
       class="no-padding content"
       :class="{ isUserMember, isDisabled: activity.isDisabled }"
@@ -96,14 +93,14 @@
                   v-for="participantType in participantTypes"
                   :key="participantType.role"
                   tag="label"
-                  :class="!roles.includes(participantType.role) || participantType.isFull ? 'text-grey-5' : ''"
+                  :class="!roles.includes(participantType.role) || getIsFull(activity, participantType) ? 'text-grey-5' : ''"
                 >
                   <QItemSection avatar>
                     <QRadio
                       v-model="joinParticipantTypeId"
                       :val="participantType.id"
                       color="orange"
-                      :disable="!roles.includes(participantType.role) || participantType.isFull"
+                      :disable="!roles.includes(participantType.role) || getIsFull(activity, participantType)"
                     />
                   </QItemSection>
                   <QItemSection>
@@ -141,7 +138,7 @@
                 color="primary"
                 data-autofocus
                 :label="$t('BUTTON.OF_COURSE')"
-                @click="joinActivity({ id: activity.id, participantTypeId: joinParticipantTypeId })"
+                @click="joinActivity({ activityId: activity.id, participantTypeId: joinParticipantTypeId })"
               />
             </template>
           </CustomDialog>
@@ -184,7 +181,7 @@
         v-if="canJoin"
         flat
         no-caps
-        :color="activity.activityType.iconProps.color"
+        :color="activityTypeIconProps.color"
         class="action-button"
         :loading="isJoining"
         @click="join"
@@ -194,7 +191,7 @@
           size="xs"
           class="q-mr-sm"
         />
-        <span class="block">Join {{ activity.activityType.name }}</span>
+        <span class="block">Join {{ activityTypeTranslatedName }}</span>
       </QBtn>
       <QBtn
         v-if="canLeave"
@@ -210,7 +207,7 @@
           size="xs"
           class="q-mr-sm"
         />
-        <span class="block">Leave {{ activity.activityType.name }}</span>
+        <span class="block">Leave {{ activityTypeTranslatedName }}</span>
       </QBtn>
       <QSpace />
       <QBtn
@@ -269,6 +266,7 @@ import { computed, toRefs } from 'vue'
 import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
 import { useJoinActivityMutation, useLeaveActivityMutation } from '@/activities/mutations'
 import { useActivityTypeService } from '@/activities/services'
+import { useCurrentGroupService } from '@/group/services'
 import { useDetailService } from '@/messages/services'
 import { usePlaceService } from '@/places/services'
 import { absoluteURL } from '@/utils/absoluteURL'
@@ -299,10 +297,6 @@ export default {
       type: Object,
       required: true,
     },
-    roles: {
-      type: Array,
-      required: true,
-    },
     dense: {
       type: Boolean,
       default: false,
@@ -314,6 +308,8 @@ export default {
   },
   setup (props) {
     const { activity } = toRefs(props)
+
+    const { roles } = useCurrentGroupService()
 
     const {
       getActivityTypeById,
@@ -340,7 +336,6 @@ export default {
 
     const hasStarted = computed(() => getHasStarted(activity.value))
     const isUserMember = computed(() => getIsUserMember(activity.value))
-    const isFull = computed(() => getIsFull(activity.value))
 
     const place = computed(() => getPlaceById(activity.value.place))
 
@@ -360,13 +355,14 @@ export default {
 
     return {
       place,
+      roles,
 
       activityTypeTranslatedName,
       activityTypeIconProps,
 
       isUserMember,
       hasStarted,
-      isFull,
+      getIsFull,
 
       joinActivity,
       isJoining,
@@ -385,20 +381,20 @@ export default {
   },
   computed: {
     canJoin () {
-      if (this.activity.isDisabled || this.activity.isUserMember) {
+      if (this.activity.isDisabled || this.isUserMember) {
         return false
       }
       return this.availableParticipantTypes.length > 0
     },
     canLeave () {
-      return this.activity.isUserMember
+      return this.isUserMember
     },
     participantTypes () {
       return this.activity.participantTypes.filter(entry => !entry._removed)
     },
     availableParticipantTypes () {
       return this.participantTypes.filter(participantType => {
-        return this.roles.includes(participantType.role) && !participantType.isFull
+        return this.roles.includes(participantType.role) && !this.getIsFull(this.activity, participantType)
       })
     },
     onlyAvailableParticipantType () {

@@ -6,15 +6,9 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-
-import { useAuthService } from '@/authuser/services'
 import { useCurrentGroupService } from '@/group/services'
 
 import GroupOptionsUI from './GroupOptionsUI'
 
-const { group, getUserRoles } = useCurrentGroupService()
-const { userId } = useAuthService()
-
-const roles = computed(() => getUserRoles(userId.value))
+const { group, roles } = useCurrentGroupService()
 </script>

@@ -13,7 +13,7 @@
       class="relative-position pic-wrapper"
     >
       <div
-        v-if="isNewcomer(user) && !getIsCurrentUser(user)"
+        v-if="getIsNewcomer(user) && !getIsCurrentUser(user)"
         class="newcomer-box"
         :title="$t('USERDATA.NEWCOMER_GUIDANCE', { userName: user.displayName })"
       />
@@ -112,7 +112,12 @@ export default {
 
     // TODO: this needs to be participant objects with { user, ? } in them...
     // ... and filter for correct participant type
-    const participants = computed(() => props.activity.participants.map(getUserById))
+    const participants = computed(() => props.activity.participants
+      .filter(participant => participant.participantType === props.participantType.id)
+      .map(participant => ({
+        ...participant,
+        user: getUserById(participant.user),
+      })))
 
     return {
       hasStarted,

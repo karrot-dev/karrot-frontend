@@ -19,7 +19,6 @@
     <ActivityList
       v-if="showActivities"
       :activities="activities"
-      :roles="roles"
       place-link
       dense
     />

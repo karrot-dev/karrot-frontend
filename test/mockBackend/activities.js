@@ -58,6 +58,12 @@ export function createMockActivitiesBackend () {
 
   post('/api/activities/:id/add/', ({ pathParams }) => {
     const activity = db.orm.activities.get({ id: parseInt(pathParams.id) })
+    if (activity.participants.includes(ctx.authUser.id)) {
+      return [403, {
+        detail: 'You have already joined this activity.',
+        error_code: 'permission_denied',
+      }]
+    }
     activity.participants.push(ctx.authUser.id)
     return [200, {}]
   })

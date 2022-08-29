@@ -62,7 +62,7 @@
             :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
             icon="info"
             maxlength="500"
-            input-style="min-height: auto;"
+            :input-style="{ minHeight: 'auto' }"
             outlined
             @keyup.ctrl.enter="$emit('maybe-save')"
           />
@@ -77,7 +77,7 @@
             :placeholder="$t('CREATEACTIVITY.UNLIMITED')"
             :error="hasError('maxParticipants')"
             :error-message="firstError('maxParticipants')"
-            input-style="max-width: 100px"
+            :input-style="{ maxWidth: '100px' }"
           >
             <template #before>
               <QIcon name="group" />
@@ -93,6 +93,7 @@
               style="min-width: 60px"
             />
             <!--
+            TODO: how to do this max participants changed in the context of participant types?
             <template #after>
               <QIcon
                 v-if="series ? series.maxParticipants !== edit.maxParticipants : false"
@@ -102,6 +103,7 @@
             </template>
             -->
           </QInput>
+          <!--
           <div
             v-if="seriesMeta.isMaxParticipantsChanged"
             class="q-ml-lg col-12 q-field__bottom text-warning"
@@ -109,6 +111,7 @@
             <QIcon name="warning" />
             {{ $t('CREATEACTIVITY.DIFFERS_WARNING') }}
           </div>
+          -->
           <QSelect
             v-model="participantType.role"
             map-options
@@ -178,6 +181,7 @@ import {
   QItemLabel,
 } from 'quasar'
 
+import { useCurrentGroupService } from '@/group/services'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 import MarkdownInput from '@/utils/components/MarkdownInput'
@@ -212,15 +216,15 @@ export default {
       type: Object,
       default: () => ({}),
     },
-    roles: {
-      type: Array,
-      required: true,
-    },
   },
   emits: [
     'input',
     'maybe-save',
   ],
+  setup () {
+    const { roles } = useCurrentGroupService()
+    return { roles }
+  },
   data () {
     return {
       participantTypes: [],

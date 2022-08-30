@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Notifications All Notifications 1`] = `
+exports[`Storyshots notifications/Notifications All Notifications 1`] = `
 <div
   class="bg-white"
 >

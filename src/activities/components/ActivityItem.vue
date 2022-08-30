@@ -26,18 +26,6 @@
               {{ $d(activity.date, 'dateLongWithDayName') }}
             </template>
           </div>
-          <QIcon
-            v-if="activity.activityType"
-            v-bind="activityTypeIconProps"
-            title=""
-            size="xs"
-            class="q-ml-sm"
-            style="top: 1px;"
-          >
-            <QTooltip v-if="activityTypeIconProps && activityTypeIconProps.title">
-              {{ activityTypeIconProps.title }}
-            </QTooltip>
-          </QIcon>
         </div>
         <div
           v-if="activity.isDisabled"
@@ -187,27 +175,32 @@
         @click="join"
       >
         <QIcon
-          name="fas fa-user-plus"
+          v-bind="activityTypeIconProps"
           size="xs"
           class="q-mr-sm"
         />
-        <span class="block">Join {{ activityTypeTranslatedName }}</span>
+        <span class="block">
+          {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
+        </span>
       </QBtn>
       <QBtn
         v-if="canLeave"
         flat
         no-caps
-        color="red-4"
-        class="action-button activity-hover"
+        color="grey-9"
+        class="action-button"
         :loading="isLeaving"
         @click="leave"
       >
         <QIcon
-          name="fas fa-user-times"
+          v-bind="activityTypeIconProps"
+          color="grey-9"
           size="xs"
           class="q-mr-sm"
         />
-        <span class="block">Leave {{ activityTypeTranslatedName }}</span>
+        <span class="block">
+          {{ $t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
+        </span>
       </QBtn>
       <QSpace />
       <QBtn
@@ -259,7 +252,6 @@ import {
   QItemSection,
   QItemLabel,
   QRadio,
-  QTooltip,
 } from 'quasar'
 import { computed, toRefs } from 'vue'
 
@@ -288,7 +280,6 @@ export default {
     QItemSection,
     QItemLabel,
     QRadio,
-    QTooltip,
     ActivityUsers,
     Markdown,
   },
@@ -391,7 +382,7 @@ export default {
       return this.availableParticipantTypes.length > 0
     },
     canLeave () {
-      return this.isUserMember
+      return this.isUserMember && !this.hasStarted
     },
     participantTypes () {
       return this.activity.participantTypes.filter(entry => !entry._removed)

@@ -1,6 +1,7 @@
 <template>
   <div>
     <QToggle
+      v-if="isUsingParticipantTypesFeature"
       v-model="advancedMode"
       label="Use advanced mode"
       class="q-mt-xs"
@@ -172,6 +173,7 @@ import {
   QItemSection,
   QItemLabel,
 } from 'quasar'
+import { computed } from 'vue'
 
 import { useCurrentGroupService } from '@/group/services'
 import statusMixin from '@/utils/mixins/statusMixin'
@@ -214,8 +216,15 @@ export default {
     'maybe-save',
   ],
   setup () {
-    const { roles } = useCurrentGroupService()
-    return { roles }
+    const {
+      features,
+      roles,
+    } = useCurrentGroupService()
+    const isUsingParticipantTypesFeature = computed(() => features.value.includes('participant-types'))
+    return {
+      isUsingParticipantTypesFeature,
+      roles,
+    }
   },
   data () {
     return {

@@ -11,6 +11,7 @@
       v-for="{ user } in participants"
       :key="'participant' + user.id"
       class="relative-position pic-wrapper"
+      :style="{ width: size + 'px', height: size + 'px' }"
     >
       <div
         v-if="getIsNewcomer(user) && !getIsCurrentUser(user)"

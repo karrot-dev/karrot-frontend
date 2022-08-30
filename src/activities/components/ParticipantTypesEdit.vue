@@ -1,7 +1,7 @@
 <template>
   <div>
     <QToggle
-      v-if="isUsingParticipantTypesFeature"
+      v-if="isFeatureEnabled || isUsingAdvanced"
       v-model="advancedMode"
       label="Use advanced mode"
       class="q-mt-xs"
@@ -220,9 +220,9 @@ export default {
       features,
       roles,
     } = useCurrentGroupService()
-    const isUsingParticipantTypesFeature = computed(() => features.value.includes('participant-types'))
+    const isFeatureEnabled = computed(() => features.value.includes('participant-types'))
     return {
-      isUsingParticipantTypesFeature,
+      isFeatureEnabled,
       roles,
     }
   },

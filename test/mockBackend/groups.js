@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker'
 
+import { toResponse as toConversationResponse } from './conversations'
 import { getById, get } from './mockAxios'
 
 import { db, ctx } from './index'
@@ -65,6 +66,9 @@ export function filterByAuthUserGroups () {
 export function createMockGroupDetailBackend () {
   getById('/api/groups/:id/', () => groupsForUser(ctx.authUser))
 
-  // TODO: implement a conversation...
-  get('/api/groups/:id/conversation/', () => [200, {}])
+  get('/api/groups/:id/conversation/', ({ pathParams }) => {
+    const conversation = db.conversations.find(({ type, targetId }) => type === 'group' && targetId === parseInt(pathParams.id))
+    if (!conversation) return [404]
+    return [200, toConversationResponse(conversation)]
+  })
 }

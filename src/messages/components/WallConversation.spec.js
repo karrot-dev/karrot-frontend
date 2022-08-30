@@ -1,50 +1,80 @@
+import '@testing-library/jest-dom'
+import { render } from '@testing-library/vue'
+import userEvent from '@testing-library/user-event'
+import { flushPromises } from '@vue/test-utils'
+import { partition, times } from 'lodash'
 
-import { QInput } from 'quasar'
+import { resetServices } from '@/utils/datastore/helpers'
 
-import * as factories from '>/enrichedFactories'
-import { createDatastore, mountWithDefaults } from '>/helpers'
+import { withDefaults } from '>/helpers'
+import {
+  useMockBackend,
+  createUser,
+  createGroup,
+  createConversation,
+  createMessage,
+  loginAs,
+  setPageSize,
+} from '>/mockBackend'
+import { addUserToConversation } from '>/mockBackend/conversations'
+import { addUserToGroup } from '>/mockBackend/groups'
+import '>/routerMocks'
 
-import ConversationCompose from './ConversationCompose'
-import ConversationMessage from './ConversationMessage'
 import WallConversation from './WallConversation'
 
-const defaultProps = {
-  data: factories.makeConversation(),
-  user: factories.makeCurrentUser(),
-  fetchPast: jest.fn(),
-}
+describe('WallConversation', () => {
+  let group
+  let messages
+  useMockBackend()
 
-const datastore = createDatastore({
-  users: {
-    getters: {
-      byCurrentGroup: () => [],
-    },
-  },
-})
-
-describe.skip('WallConversation', () => {
-  beforeEach(() => jest.resetModules())
-  it('renders messages', () => {
-    const wrapper = mountWithDefaults(WallConversation, {
-      datastore,
-      propsData: defaultProps,
-    })
-    expect(wrapper.findAllComponents(ConversationMessage).length).toBe(defaultProps.data.messages.length)
+  beforeEach(() => {
+    jest.resetModules()
+    resetServices()
   })
 
-  it('can send a message', () => {
-    const wrapper = mountWithDefaults(WallConversation, {
-      datastore,
-      propsData: defaultProps,
+  beforeEach(() => {
+    group = createGroup()
+    const user = createUser()
+    addUserToGroup(user, group)
+    user.currentGroup = group.id
+    const conversation = createConversation({
+      group: group.id,
+      type: 'group',
+      targetId: group.id,
     })
-    expect(wrapper.findAllComponents(QInput).length).toBe(1)
-    expect(wrapper.findAllComponents(ConversationCompose).length).toBe(1)
+    addUserToConversation(user, conversation)
+    messages = times(7, () => createMessage({
+      author: user.id,
+      conversation: conversation.id,
+    }))
+    setPageSize(3) // make it have to do pagination stuff too...
+    loginAs(user)
+  })
+  it('renders messages', async () => {
+    const { findByText } = render(WallConversation, withDefaults({ props: { groupId: group.id } }))
+    await flushPromises()
 
-    const content = 'A nice new message'
+    // can see all messages
+    for (const message of messages) {
+      await findByText(message.content)
+    }
+  })
 
-    // Would be nicer to directly put the message into the QInput but did not find a way yet
-    wrapper.findComponent(ConversationCompose).setData({ message: { content } })
-    wrapper.findComponent(ConversationCompose).vm.submit()
-    expect(wrapper.emitted().send[0]).toEqual([{ id: defaultProps.data.id, content, images: [] }])
+  it('can send a message', async () => {
+    const { type, click } = userEvent.setup()
+    const { findByText, findByPlaceholderText, findByTestId } = render(WallConversation, withDefaults({ props: { groupId: group.id } }))
+    await flushPromises()
+
+    await type(
+      await findByPlaceholderText('Write a message...'),
+      'my new message',
+    )
+    await click(await findByTestId('send-message'))
+    await flushPromises()
+
+    // TODO: add mock websockets, for now we need to manually invalidate...
+    await require('@/base/queryClient').default.invalidateQueries()
+
+    await findByText('my new message')
   })
 })

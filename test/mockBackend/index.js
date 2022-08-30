@@ -4,9 +4,11 @@ import { createMockCommunityBackend } from '>/mockBackend/community'
 
 import { createMockApplicationsBackend, generateApplication } from './applications'
 import { createAuthUserBackend } from './authUser'
+import { generateConversation } from './conversations'
 import { createMockGroupDetailBackend, generateGroup } from './groups'
 import { createMockGroupsInfoBackend } from './groupsInfo'
 import { generateIssue } from './issues'
+import { createMockMessagesBackend, generateMessage } from './messages'
 import { initializeMockAxios, resetMockAxios, get } from './mockAxios'
 import { generateNotification, createMockNotificationsBackend } from './notifications'
 import { createMockOffersBackend, generateOffer } from './offers'
@@ -40,6 +42,8 @@ export function setupMockBackend () {
     activityTypes: [],
     notifications: [],
     issues: [],
+    conversations: [],
+    messages: [],
   }
   db.orm = {
     places: createFinder(db, 'places'),
@@ -63,6 +67,7 @@ export function setupMockBackend () {
   createMockStatusBackend()
   createMockCommunityBackend()
   createMockNotificationsBackend()
+  createMockMessagesBackend()
 
   get('/about.json', () => [200, {
     commitSHA: 'blah',
@@ -138,6 +143,18 @@ export function createIssue (params) {
   const issue = generateIssue(params)
   db.issues.push(issue)
   return issue
+}
+
+export function createConversation (params) {
+  const conversation = generateConversation(params)
+  db.conversations.push(conversation)
+  return conversation
+}
+
+export function createMessage (params) {
+  const message = generateMessage(params)
+  db.messages.push(message)
+  return message
 }
 
 export function setPageSize (pageSize) {

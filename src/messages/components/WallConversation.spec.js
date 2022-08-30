@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom'
-import { render } from '@testing-library/vue'
 import userEvent from '@testing-library/user-event'
+import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
-import { partition, times } from 'lodash'
+import { times } from 'lodash'
 
 import { resetServices } from '@/utils/datastore/helpers'
 

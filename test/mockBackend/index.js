@@ -64,6 +64,8 @@ export function setupMockBackend () {
   createMockCommunityBackend()
   createMockNotificationsBackend()
 
+  get('/api/bootstrap/', () => [200, {}], { requireAuth: false })
+
   get('/about.json', () => [200, {
     commitSHA: 'blah',
     commitSHAShort: 'blah',

@@ -285,6 +285,7 @@ import {
 } from 'quasar'
 
 import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityTypeService } from '@/activities/services'
 import { defaultDuration } from '@/activities/settings'
 import { formatSeconds } from '@/activities/utils'
 import editMixin from '@/utils/mixins/editMixin'
@@ -332,8 +333,12 @@ export default {
     'save',
   ],
   setup () {
+    const { getActivityTypeById } = useActivityTypeService()
     const { getIconProps } = useActivityTypeHelpers()
-    return { getIconProps }
+    return {
+      getActivityTypeById,
+      getIconProps,
+    }
   },
   data () {
     return {
@@ -374,7 +379,7 @@ export default {
       ]
     },
     activityType () {
-      return this.value && this.value.activityType
+      return this.value && this.getActivityTypeById(this.value.activityType)
     },
     activityTypeIconProps () {
       return this.activityType ? this.getIconProps(this.activityType) : {}

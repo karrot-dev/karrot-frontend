@@ -2,7 +2,7 @@
   <div>
     <QToggle
       v-model="advancedMode"
-      label="Advanced participant types"
+      label="Use advanced mode"
       class="q-mt-xs"
     />
 
@@ -47,6 +47,8 @@
         v-for="(participantType, idx) in visibleParticipantTypes"
         :key="participantType.id || `new-${idx}`"
         flat
+        bordered
+        class="participant-type"
       >
         <QCardSection>
           <div class="text-h6">
@@ -60,7 +62,6 @@
             :error-message="firstError('description')"
             :label="$t('CREATEACTIVITY.COMMENT')"
             :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
-            icon="info"
             maxlength="500"
             :input-style="{ minHeight: 'auto' }"
             outlined
@@ -79,9 +80,6 @@
             :error-message="firstError('maxParticipants')"
             :input-style="{ maxWidth: '100px' }"
           >
-            <template #before>
-              <QIcon name="group" />
-            </template>
             <QSlider
               v-if="participantType.maxParticipants > 0 && participantType.maxParticipants <= 10"
               v-model="participantType.maxParticipants"
@@ -123,9 +121,6 @@
             outlined
             :behavior="smallScreen ? 'dialog' : 'menu'"
           >
-            <template #before>
-              <QIcon name="fas fa-key" />
-            </template>
             <template #option="{ itemProps, opt: { label, description } }">
               <QItem v-bind="itemProps">
                 <QItemSection>
@@ -215,7 +210,7 @@ export default {
     },
   },
   emits: [
-    'input',
+    'update:modelValue',
     'maybe-save',
   ],
   setup () {
@@ -236,8 +231,7 @@ export default {
       set (val) {
         if (!val && this.isUsingAdvanced) {
           Dialog.create({
-            title: 'Are you sure?',
-            message: 'Your customizations will be lost',
+            title: 'Remove advanced participant types?',
             cancel: this.$t('BUTTON.CANCEL'),
             ok: this.$t('BUTTON.YES'),
           }).onOk(description => {
@@ -323,7 +317,7 @@ export default {
       }
     },
     resetAdvancedMode () {
-      this.participantTypes = [
+      const updatedParticipantTypes = [
         // A fresh new entry
         {
           role: this.roles[0],
@@ -336,9 +330,13 @@ export default {
           .filter(participantType => participantType.id)
           .map(participantType => ({ ...participantType, _removed: true })),
       ]
-      // TODO: not sure if this is needed, but I think so as we re-assign the value (or could just modify array...)
-      this.$emit('input', this.participantTypes)
+      this.$emit('update:modelValue', updatedParticipantTypes)
     },
   },
 }
 </script>
+
+<style scoped lang="sass">
+.participant-type
+  background-color: rgba(255, 255, 255, 0.4)
+</style>

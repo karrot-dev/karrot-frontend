@@ -353,6 +353,7 @@ import { rrulestr } from 'rrule' // TODO: only import this if preview needed? ho
 
 import { serializeRule } from '@/activities/api/activitySeries'
 import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityTypeService } from '@/activities/services'
 import { defaultDuration } from '@/activities/settings'
 import { formatSeconds } from '@/activities/utils'
 import { dayOptions } from '@/base/i18n'
@@ -392,8 +393,12 @@ export default {
     'destroy',
   ],
   setup () {
+    const { getActivityTypeById } = useActivityTypeService()
     const { getIconProps } = useActivityTypeHelpers()
-    return { getIconProps }
+    return {
+      getActivityTypeById,
+      getIconProps,
+    }
   },
   data () {
     return {
@@ -402,7 +407,7 @@ export default {
   },
   computed: {
     activityType () {
-      return this.value && this.value.activityType
+      return this.value && this.getActivityTypeById(this.value.activityType)
     },
     activityTypeIconProps () {
       return this.activityType ? this.getIconProps(this.activityType) : {}
@@ -510,30 +515,23 @@ export default {
         date,
         dateEnd,
         hasDuration: Boolean(duration),
-        // fake statuses, just enough for the preview
-        joinStatus: {
-          pending: false,
-        },
-        leaveStatus: {
-          pending: false,
-        },
       }
     },
   },
   watch: {
-    isPending (val) {
-      const hasExceptions = () => {
-        const { activities } = this.edit
-        return activities.some(({ seriesMeta }) => seriesMeta.isDescriptionChanged || seriesMeta.isMaxParticipantsChanged || !seriesMeta.matchesRule)
-      }
-      if (!val && !this.hasAnyError && hasExceptions()) {
-        Dialog.create({
-          title: this.$t('CREATEACTIVITY.EXCEPTIONS_TITLE'),
-          message: this.$t('CREATEACTIVITY.EXCEPTIONS_MESSAGE', { upcomingLabel: this.$t('ACTIVITYMANAGE.UPCOMING_ACTIVITIES_IN_SERIES') }),
-          ok: this.$t('BUTTON.YES'),
-        })
-      }
-    },
+    // isPending (val) {
+    //   const hasExceptions = () => {
+    //     const { activities } = this.edit
+    //     return activities.some(({ seriesMeta }) => seriesMeta.isDescriptionChanged || seriesMeta.isMaxParticipantsChanged || !seriesMeta.matchesRule)
+    //   }
+    //   if (!val && !this.hasAnyError && hasExceptions()) {
+    //     Dialog.create({
+    //       title: this.$t('CREATEACTIVITY.EXCEPTIONS_TITLE'),
+    //       message: this.$t('CREATEACTIVITY.EXCEPTIONS_MESSAGE', { upcomingLabel: this.$t('ACTIVITYMANAGE.UPCOMING_ACTIVITIES_IN_SERIES') }),
+    //       ok: this.$t('BUTTON.YES'),
+    //     })
+    //   }
+    // },
   },
   methods: {
     toggleDuration () {
@@ -542,12 +540,6 @@ export default {
     maybeSave () {
       if (!this.canSave) return
       this.save()
-    },
-    getCreateData () {
-      return {
-        ...this.edit,
-        activityType: this.activityType.id,
-      }
     },
     destroy (event) {
       Dialog.create({

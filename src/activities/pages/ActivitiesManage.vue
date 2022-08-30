@@ -340,7 +340,7 @@ export default {
     } = useCreateActivityMutation()
 
     const {
-      mutate: saveActivity,
+      mutateAsync: saveActivity,
       status: saveActivityStatus,
       reset: resetActivity,
     } = useSaveActivityMutation()
@@ -361,19 +361,19 @@ export default {
     // Activity Series
 
     const {
-      mutate: createSeries,
+      mutateAsync: createSeries,
       reset: resetNewSeries,
       status: createSeriesStatus,
     } = useCreateActivitySeriesMutation()
 
     const {
-      mutate: saveSeriesMutate,
+      mutateAsync: saveSeriesMutate,
       reset: resetSeries,
       status: saveSeriesStatus,
     } = useSaveActivitySeriesMutation()
 
     const {
-      mutate: destroySeries,
+      mutateAsync: destroySeries,
     } = useDestroyActivitySeriesMutation()
 
     const {
@@ -550,9 +550,7 @@ export default {
     },
     async saveNewSeries (series) {
       await this.createSeries(series)
-      if (!this.createSeriesStatus.hasValidationErrors) {
-        this.newSeries = null
-      }
+      this.newSeries = null
     },
     cancelNewSeries () {
       this.newSeries = null
@@ -577,9 +575,7 @@ export default {
     },
     async saveNewActivity (activity) {
       await this.createActivity(activity)
-      if (!this.createActivityStatus.hasValidationErrors) {
-        this.newActivity = null
-      }
+      this.newActivity = null
     },
     cancelNewActivity () {
       this.newActivity = null

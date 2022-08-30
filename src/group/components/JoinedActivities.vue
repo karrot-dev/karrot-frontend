@@ -41,10 +41,6 @@ export default {
       required: true,
       type: Array,
     },
-    roles: {
-      required: true,
-      type: Array,
-    },
   },
   data () {
     return {

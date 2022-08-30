@@ -529,7 +529,7 @@ export default {
     },
     createNewSeries (activityType) {
       this.newSeries = {
-        activityType,
+        activityType: activityType.id,
         participantTypes: [
           {
             role: 'member',
@@ -560,7 +560,7 @@ export default {
     createNewActivity (activityType) {
       const date = addHours(startOfTomorrow(), 10) // default to 10am tomorrow
       this.newActivity = {
-        activityType,
+        activityType: activityType.id,
         participantTypes: [
           {
             role: 'member',

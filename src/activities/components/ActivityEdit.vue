@@ -249,7 +249,10 @@
       </div>
 
       <div v-if="showPreview">
-        <ActivityItem :activity="previewActivity" />
+        <ActivityItem
+          preview
+          :activity="previewActivity"
+        />
       </div>
     </form>
   </div>
@@ -341,13 +344,7 @@ export default {
     previewActivity () {
       return {
         ...this.edit,
-        // fake statuses, just enough for the preview
-        joinStatus: {
-          pending: false,
-        },
-        leaveStatus: {
-          pending: false,
-        },
+        participants: [],
       }
     },
     roleOptions () {
@@ -362,11 +359,13 @@ export default {
           value: 'newcomer',
           description: 'People that haven\'t yet got any other roles',
         },
+        /* Not adding this role yet until we have a way to trust for a specific role...
         {
           label: 'Approved',
           value: 'approved',
           description: 'People that have been trusted with approved role',
         },
+         */
         {
           label: 'Editor',
           value: 'editor',
@@ -492,12 +491,6 @@ export default {
     maybeSave () {
       if (!this.canSave) return
       this.save()
-    },
-    getCreateData () {
-      return {
-        ...this.edit,
-        activityType: this.activityType.id,
-      }
     },
     // Overrides mixin method to always provide start date if we have modified end date
     getPatchData () {

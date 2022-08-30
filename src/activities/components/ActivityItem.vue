@@ -138,7 +138,7 @@
                 color="primary"
                 data-autofocus
                 :label="$t('BUTTON.OF_COURSE')"
-                @click="joinActivity({ activityId: activity.id, participantTypeId: joinParticipantTypeId })"
+                @click="!preview && joinActivity({ activityId: activity.id, participantTypeId: joinParticipantTypeId })"
               />
             </template>
           </CustomDialog>
@@ -167,7 +167,7 @@
                 color="primary"
                 data-autofocus
                 :label="$t('BUTTON.YES')"
-                @click="leaveActivity(activity.id)"
+                @click="!preview && leaveActivity(activity.id)"
               />
             </template>
           </CustomDialog>
@@ -305,6 +305,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    preview: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup (props) {
     const { activity } = toRefs(props)
@@ -429,7 +433,7 @@ export default {
     },
     detail (event) {
       if (event.target.closest('a')) return // ignore actual links
-      this.openActivity(this.activity)
+      !this.preview && this.openActivity(this.activity)
     },
     roleName (role) {
       return role === 'member' ? 'anyone' : role // TODO: translation

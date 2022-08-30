@@ -126,11 +126,8 @@
             <template #before>
               <QIcon name="fas fa-key" />
             </template>
-            <template #option="{ itemProps, itemEvents, opt: { label, description } }">
-              <QItem
-                v-bind="itemProps"
-                v-on="itemEvents"
-              >
+            <template #option="{ itemProps, opt: { label, description } }">
+              <QItem v-bind="itemProps">
                 <QItemSection>
                   <QItemLabel>
                     {{ label }}
@@ -280,11 +277,13 @@ export default {
           value: 'newcomer',
           description: 'People that haven\'t yet got any other roles',
         },
+        /* Not adding this role yet until we have a way to trust for a specific role...
         {
           label: 'Approved',
           value: 'approved',
           description: 'People that have been trusted with approved role',
         },
+         */
         {
           label: 'Editor',
           value: 'editor',

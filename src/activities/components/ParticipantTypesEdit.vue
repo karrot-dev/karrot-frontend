@@ -20,7 +20,7 @@
 
     <template v-if="simple">
       <QInput
-        v-model.number="simple.participantType.maxParticipants"
+        :model-value="simple.participantType.maxParticipants"
         type="number"
         stack-label
         outlined
@@ -32,6 +32,7 @@
         :error-message="firstError('maxParticipants')"
         input-style="max-width: 100px"
         :bg-color="simple.changed.maxParticipants ? 'orange-1' : null"
+        @update:model-value="val => (simple.participantType.maxParticipants = val ? parseInt(val) : null)"
       >
         <template #before>
           <QIcon name="group" />
@@ -94,7 +95,7 @@
             </template>
           </MarkdownInput>
           <QInput
-            v-model.number="participantType.maxParticipants"
+            :model-value="participantType.maxParticipants"
             type="number"
             stack-label
             outlined
@@ -106,6 +107,7 @@
             :error-message="firstError('maxParticipants')"
             :input-style="{ maxWidth: '100px' }"
             :bg-color="changed.maxParticipants ? 'orange-1' : null"
+            @update:model-value="val => (participantType.maxParticipants = val ? parseInt(val) : null)"
           >
             <QSlider
               v-if="participantType.maxParticipants > 0 && participantType.maxParticipants <= 10"
@@ -126,26 +128,7 @@
                 @click="participantType.maxParticipants = seriesParticipantType.maxParticipants"
               />
             </template>
-            <!--
-            TODO: how to do this max participants changed in the context of participant types?
-            <template #after>
-              <QIcon
-                v-if="series ? series.maxParticipants !== edit.maxParticipants : false"
-                name="undo"
-                @click="edit.maxParticipants = series.maxParticipants"
-              />
-            </template>
-            -->
           </QInput>
-          <!--
-          <div
-            v-if="seriesMeta.isMaxParticipantsChanged"
-            class="q-ml-lg col-12 q-field__bottom text-warning"
-          >
-            <QIcon name="warning" />
-            {{ $t('CREATEACTIVITY.DIFFERS_WARNING') }}
-          </div>
-          -->
           <QSelect
             v-model="participantType.role"
             map-options

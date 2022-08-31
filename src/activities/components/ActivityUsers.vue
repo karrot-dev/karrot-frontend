@@ -186,6 +186,7 @@ export default {
 
 .pic-wrapper
   margin-right: 3.8px
+  margin-bottom: 3.8px
 
 .newcomer-box
   position: absolute

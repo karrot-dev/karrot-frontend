@@ -15,6 +15,11 @@ module.exports = {
   },
   // do not collect coverage by default, can always pass the --coverage command line option
   collectCoverage: false,
+  collectCoverageFrom: [
+    '<rootDir>/src/**/*.{js,vue}',
+    // exclude old files, TODO remove
+    '!**/*.story.js',
+  ],
   coverageDirectory: './coverage/',
   coverageProvider: 'v8',
   coverageReporters: [

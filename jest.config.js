@@ -13,12 +13,14 @@ module.exports = {
     customExportConditions: ['node', 'node-addons'],
     pretendToBeVisual: true,
   },
-  collectCoverage: true,
+  // do not collect coverage by default, can always pass the --coverage command line option
+  collectCoverage: false,
   coverageDirectory: './coverage/',
   coverageProvider: 'v8',
   coverageReporters: [
     'json',
     'lcov',
+    'text',
   ],
   // Needed in JS codebases too because of feature flags
   coveragePathIgnorePatterns: [

@@ -100,6 +100,7 @@ jobs:
             mkdir -p test-reports
             NODE_OPTIONS=--max-old-space-size=4096 yarn test \
               --ci \
+              --coverage \
               --runInBand \
               --reporters=default \
               --reporters=jest-junit

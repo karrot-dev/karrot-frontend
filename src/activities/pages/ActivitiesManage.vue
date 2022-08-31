@@ -122,27 +122,29 @@
                     side
                     class="text-bold"
                   >
-                    <QIcon
-                      v-if="!matchesRule(series, activity)"
-                      class="text-warning"
-                      name="access_time"
-                      size="150%"
-                      :title="$t('ACTIVITYMANAGE.ACTIVITY_DOES_NOT_MATCH')"
-                    />
-                    <QIcon
-                      v-if="isDescriptionChanged(series, activity)"
-                      class="text-warning"
-                      name="info"
-                      size="150%"
-                      :title="$t('ACTIVITYMANAGE.ACTIVITY_DESCRIPTION_CHANGED')"
-                    />
-                    <QIcon
-                      v-if="isMaxParticipantsChanged(series, activity)"
-                      class="text-warning"
-                      name="group"
-                      size="150%"
-                      :title="$t('ACTIVITYMANAGE.ACTIVITY_MAX_PARTICIPANTS_CHANGED')"
-                    />
+                    <span>
+                      <QIcon
+                        v-if="!matchesRule(series, activity)"
+                        class="text-warning"
+                        name="access_time"
+                        size="150%"
+                        :title="$t('ACTIVITYMANAGE.ACTIVITY_DOES_NOT_MATCH')"
+                      />
+                      <QIcon
+                        v-if="isDescriptionChanged(series, activity)"
+                        class="text-warning"
+                        name="info"
+                        size="150%"
+                        :title="$t('ACTIVITYMANAGE.ACTIVITY_DESCRIPTION_CHANGED')"
+                      />
+                      <QIcon
+                        v-if="isParticipantTypesChanged(series, activity)"
+                        class="text-warning"
+                        name="group"
+                        size="150%"
+                        :title="$t('ACTIVITYMANAGE.ACTIVITY_PARTICIPANT_TYPES_CHANGED')"
+                      />
+                    </span>
                   </QItemSection>
                 </template>
                 <ActivityEdit
@@ -257,6 +259,7 @@
 import addHours from 'date-fns/addHours'
 import addSeconds from 'date-fns/addSeconds'
 import startOfTomorrow from 'date-fns/startOfTomorrow'
+import deepEqual from 'deep-equal'
 import {
   QCard,
   QCardSection,
@@ -286,6 +289,8 @@ import { defaultDuration } from '@/activities/settings'
 import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
 import { useCurrentGroupService } from '@/group/services'
 import { useActivePlaceService } from '@/places/services'
+import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
+import { withoutKeys } from '@/utils/utils'
 
 import ActivityEdit from '@/activities/components/ActivityEdit'
 import ActivitySeriesEdit from '@/activities/components/ActivitySeriesEdit'
@@ -351,6 +356,7 @@ export default {
     } = useActivityListQuery({
       placeId,
       pageSize: 1000,
+      dateMin: newDateRoundedTo5Minutes(),
     })
 
     // TODO: can I filter out series ones on the server?
@@ -391,14 +397,17 @@ export default {
 
     // Activities for visible series
     const {
-      activities: activitySeriesActivities,
+      activities: activitySeriesActivitiesRaw,
       isLoading: isLoadingActivitySeriesActivities,
     } = useActivityListQuery({
       seriesId: visibleSeriesId,
       pageSize: 100,
+      dateMin: newDateRoundedTo5Minutes(),
     }, {
       enabled: computed(() => Boolean(visibleSeriesId) && showSeriesActivities.value),
     })
+
+    const activitySeriesActivities = computed(() => activitySeriesActivitiesRaw.value.filter(getIsUpcoming))
 
     // This is to avoid showing repetitive information about series activities, e.g. if they are all Saturday, don't need to show "Saturday"
     // We calculate which aspects of the activities are all the same, and only display relevant values where they are not uniform
@@ -439,8 +448,14 @@ export default {
 
     // Utils
     const isDescriptionChanged = (series, activity) => series.description !== activity.description
-    const isMaxParticipantsChanged = (series, activity) => series.maxParticipants !== activity.maxParticipants
     const matchesRule = (series, activity) => series.datesPreview && series.datesPreview.some(d => Math.abs(d - activity.date) < 1000)
+    const isParticipantTypesChanged = (series, activity) => {
+      if (!series) return false
+      const removeKeys = withoutKeys('id', 'seriesParticipantType')
+      const a = series.participantTypes.filter(pt => !pt._removed).map(removeKeys)
+      const b = activity.participantTypes.filter(pt => !pt._removed).map(removeKeys)
+      return !deepEqual(a, b)
+    }
 
     return {
       getActivityTypeById,
@@ -481,7 +496,7 @@ export default {
       destroySeries,
 
       isDescriptionChanged,
-      isMaxParticipantsChanged,
+      isParticipantTypesChanged,
       matchesRule,
     }
   },

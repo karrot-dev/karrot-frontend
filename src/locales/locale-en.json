@@ -114,6 +114,7 @@
     "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
     "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed",
+    "ACTIVITY_PARTICIPANT_TYPES_CHANGED": "Participant types have been changed",
     "SERIES": "Activity series",
     "SINGLE": "One-time activities",
     "TITLE": "Manage activities",

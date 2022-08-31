@@ -165,18 +165,21 @@
         :input-style="{ minHeight: 'auto' }"
         mentions
         outlined
+        :bg-color="series && series.description !== edit.description ? 'orange-1' : null"
         @keyup.ctrl.enter="maybeSave"
       >
         <template #after>
-          <QIcon
+          <QBtn
             v-if="series ? series.description !== edit.description : false"
-            name="undo"
+            icon="undo"
+            unelevated
+            dense
             @click="edit.description = series.description"
           />
         </template>
       </MarkdownInput>
       <div
-        v-if="seriesMeta.isDescriptionChanged"
+        v-if="series && series.description !== edit.description"
         class="q-ml-lg col-12 q-field__bottom text-warning"
       >
         <QIcon name="warning" />
@@ -186,7 +189,7 @@
       <ParticipantTypesEdit
         v-model="edit.participantTypes"
         :series="series"
-        :series-meta="seriesMeta"
+        :participants="value.participants"
         @maybe-save="maybeSave"
       />
 
@@ -215,7 +218,7 @@
           v-if="!isNew"
           type="button"
           :disable="!hasChanged"
-          @click="doReset"
+          @click="reset"
         >
           {{ $t('BUTTON.RESET') }}
         </QBtn>
@@ -397,10 +400,6 @@ export default {
       if (this.edit.series) return false
       return true
     },
-    seriesMeta () {
-      if (!this.edit.seriesMeta) return {}
-      return this.edit.seriesMeta
-    },
     date: {
       get () {
         return this.edit.date
@@ -483,10 +482,6 @@ export default {
     },
   },
   methods: {
-    doReset () {
-      this.reset()
-      // TODO: reset in nested ParticipantTypesEdit
-    },
     futureDates (dateString) {
       return date.extractDate(`${dateString} 23:59`, 'YYYY/MM/DD HH:mm') > this.now
     },

@@ -515,6 +515,7 @@ export default {
         date,
         dateEnd,
         hasDuration: Boolean(duration),
+        participants: [],
       }
     },
   },

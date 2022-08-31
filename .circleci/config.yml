@@ -98,7 +98,7 @@ jobs:
             JEST_JUNIT_OUTPUT_DIR: test-reports/junit.xml
           command: |
             mkdir -p test-reports
-            yarn test \
+            NODE_OPTIONS=--max-old-space-size=4096 yarn test \
               --ci \
               --runInBand \
               --reporters=default \

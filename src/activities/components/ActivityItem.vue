@@ -2,7 +2,7 @@
   <QCard class="activity-item">
     <QCardSection
       class="no-padding content"
-      :class="{ isUserMember, isDisabled: activity.isDisabled }"
+      :class="{ isUserParticipant, isDisabled: activity.isDisabled }"
     >
       <div class="content-inner">
         <div class="row no-wrap items-start justify-between">
@@ -49,7 +49,7 @@
             v-for="participantType in participantTypes"
             :key="participantType.id"
             class="col"
-            :class="[participantTypes.length > 1 ? 'multiple-types' : '', participantType.isUserParticipant ? 'active' : '']"
+            :class="[participantTypes.length > 1 ? 'multiple-types' : '', getIsUserParticipant(activity, participantType) ? 'active' : '']"
           >
             <Markdown
               v-if="participantType.description"
@@ -204,7 +204,7 @@
       </QBtn>
       <QSpace />
       <QBtn
-        v-if="isUserMember"
+        v-if="isUserParticipant"
         :href="icsUrl"
         flat
         no-caps
@@ -319,7 +319,7 @@ export default {
     } = useDetailService()
 
     const {
-      getIsUserMember,
+      getIsUserParticipant,
       getHasStarted,
       getIsFull,
     } = useActivityHelpers()
@@ -330,7 +330,7 @@ export default {
     } = useActivityTypeHelpers()
 
     const hasStarted = computed(() => getHasStarted(activity.value))
-    const isUserMember = computed(() => getIsUserMember(activity.value))
+    const isUserParticipant = computed(() => getIsUserParticipant(activity.value))
 
     const place = computed(() => getPlaceById(activity.value.place))
 
@@ -355,7 +355,8 @@ export default {
       activityTypeTranslatedName,
       activityTypeIconProps,
 
-      isUserMember,
+      getIsUserParticipant,
+      isUserParticipant,
       hasStarted,
       getIsFull,
 
@@ -376,13 +377,13 @@ export default {
   },
   computed: {
     canJoin () {
-      if (this.activity.isDisabled || this.isUserMember) {
+      if (this.activity.isDisabled || this.isUserParticipant) {
         return false
       }
       return this.availableParticipantTypes.length > 0
     },
     canLeave () {
-      return this.isUserMember && !this.hasStarted
+      return this.isUserParticipant && !this.hasStarted
     },
     participantTypes () {
       return this.activity.participantTypes.filter(entry => !entry._removed)
@@ -452,7 +453,7 @@ export default {
   width: 100%
   transition: background-color 2s ease
 
-  &.isUserMember
+  &.isUserParticipant
     &:not(.isDisabled)
       background: linear-gradient(to right, $lightGreen, $lighterGreen)
 

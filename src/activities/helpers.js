@@ -7,8 +7,13 @@ import reactiveNow from '@/utils/reactiveNow'
 export function useActivityHelpers () {
   const { userId } = useAuthService()
 
-  function getIsUserMember (activity) {
-    return activity.participants.some(participant => participant.user === userId.value)
+  function getIsUserParticipant (activity, participantType = null) {
+    if (participantType) {
+      return activity.participants.some(participant => participant.user === userId.value && participant.participantType === participantType.id)
+    }
+    else {
+      return activity.participants.some(participant => participant.user === userId.value)
+    }
   }
 
   function getIsEmpty (activity) {
@@ -16,9 +21,10 @@ export function useActivityHelpers () {
   }
 
   function getIsFull (activity, participantType) {
-    if (!participantType) throw new Error('must include participantType arg')
+    if (!participantType) throw new Error('must specify participantType')
+    if (!participantType.maxParticipants) return false
     const participantCount = activity.participants.filter(participant => participant.participantType === participantType.id).length
-    return participantCount.maxParticipants > 0 && participantCount >= participantType.maxParticipants
+    return participantCount >= participantType.maxParticipants
   }
 
   function getHasStarted (activity) {
@@ -34,7 +40,7 @@ export function useActivityHelpers () {
   }
 
   return {
-    getIsUserMember,
+    getIsUserParticipant,
     getIsEmpty,
     getIsFull,
     getHasStarted,

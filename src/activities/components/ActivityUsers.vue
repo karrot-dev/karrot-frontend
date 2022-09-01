@@ -99,7 +99,6 @@ export default {
 
     const {
       getHasStarted,
-      getIsUserMember,
       getIsFull,
     } = useActivityHelpers()
 
@@ -108,11 +107,8 @@ export default {
     } = useAuthHelpers()
 
     const hasStarted = computed(() => getHasStarted(props.activity))
-    const isUserMember = computed(() => getIsUserMember(props.activity))
     const isFull = computed(() => getIsFull(props.activity))
 
-    // TODO: this needs to be participant objects with { user, ? } in them...
-    // ... and filter for correct participant type
     const participants = computed(() => props.activity.participants
       .filter(participant => participant.participantType === props.participantType.id)
       .map(participant => ({
@@ -122,7 +118,6 @@ export default {
 
     return {
       hasStarted,
-      isUserMember,
       isFull,
       participants,
 

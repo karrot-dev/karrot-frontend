@@ -520,6 +520,7 @@ export default {
     },
   },
   watch: {
+    // TODO: would be nice to include helpful message somewhere, but we access the activities differently now
     // isPending (val) {
     //   const hasExceptions = () => {
     //     const { activities } = this.edit

@@ -1,4 +1,5 @@
 
+import { faker } from '@faker-js/faker'
 import initStoryshots from '@storybook/addon-storyshots'
 import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
@@ -12,6 +13,7 @@ import { setupMockBackend, resetMockBackend } from '>/mockBackend'
 import '>/routerMocks'
 
 i18n.locale = 'en'
+faker.seed(123)
 
 // To get properly faked dates, install fake Date object before importing stories
 const now = new Date('2017-12-24T12:00:00Z')

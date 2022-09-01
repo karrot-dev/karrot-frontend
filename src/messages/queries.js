@@ -282,9 +282,10 @@ export function useConversationQuery ({
   }
 }
 
-function paginationHelpers (query) {
+// TODO: move to other place
+export function paginationHelpers (query) {
   const {
-    isFetching, // TODO: check we don't need isFetchNextPage
+    isFetchingNextPage,
     hasNextPage,
     fetchNextPage,
   } = query
@@ -292,12 +293,21 @@ function paginationHelpers (query) {
   // A function that can be passed into a QInfiniteScroll @load
   // TODO: use this more!
   async function infiniteScrollLoad (index, done) {
-    if (!isFetching.value && hasNextPage.value) await fetchNextPage()
+    if (!isFetchingNextPage.value && hasNextPage.value) await fetchNextPage()
     done(!hasNextPage.value)
   }
 
+  // For --> <QInfiniteScroll v-bind="infiniteScroll" />
+  const infiniteScroll = computed(() => {
+    return {
+      onLoad: infiniteScrollLoad,
+      disable: !hasNextPage.value,
+    }
+  })
+
   return {
     infiniteScrollLoad,
+    infiniteScroll,
   }
 }
 

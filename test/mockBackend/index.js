@@ -8,7 +8,7 @@ import { createAuthUserBackend } from './authUser'
 import { generateConversation } from './conversations'
 import { createMockGroupDetailBackend, generateGroup } from './groups'
 import { createMockGroupsInfoBackend } from './groupsInfo'
-import { generateIssue } from './issues'
+import { createMockIssuesBackend, generateIssue } from './issues'
 import { createMockMessagesBackend, generateMessage } from './messages'
 import { initializeMockAxios, resetMockAxios, get } from './mockAxios'
 import { generateNotification, createMockNotificationsBackend } from './notifications'
@@ -48,6 +48,7 @@ export function setupMockBackend () {
     messages: [],
   }
   db.orm = {
+    users: createFinder(db, 'users'),
     places: createFinder(db, 'places'),
     activities: createFinder(db, 'activities'),
     activityTypes: createFinder(db, 'activityTypes'),
@@ -61,6 +62,7 @@ export function setupMockBackend () {
   createMockApplicationsBackend()
   createMockActivitiesBackend()
   createMockActivityTypesBackend()
+  createMockIssuesBackend()
   createMockGroupsInfoBackend()
   createMockGroupDetailBackend()
   createMockPlacesBackend()
@@ -70,6 +72,8 @@ export function setupMockBackend () {
   createMockCommunityBackend()
   createMockNotificationsBackend()
   createMockMessagesBackend()
+
+  get('/api/bootstrap/', () => [200, {}])
 
   get('/about.json', () => [200, {
     commitSHA: 'blah',

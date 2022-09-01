@@ -1,28 +1,82 @@
 <template>
-  <IssueListUI
-    :ongoing-issues="ongoingIssues"
-    :past-issues="pastIssues"
-    :is-pending="isLoadingOngoingIssues || isLoadingPastIssues"
-  />
+  <div class="q-mt-lg">
+    <div
+      class="row items-center bg-white q-px-sm q-py-xs q-gutter-sm"
+    >
+      <QSelect
+        v-model="status"
+        :options="[
+          { label: t('ISSUE.STATUS.ONGOING'), value: 'ongoing' },
+          { label: t('ISSUE.STATUS.DECIDED'), value: 'decided' },
+          { label: t('ISSUE.STATUS.CANCELLED'), value: 'cancelled' },
+        ]"
+        emit-valueq
+        map-options
+        outlined
+        hide-bottom-space
+        dense
+      />
+    </div>
+    <KNotice v-if="hasNoOngoing">
+      <template #icon>
+        <QIcon class="fas fa-bed" />
+      </template>
+      {{ $t('ISSUE.NO_ONGOING') }}
+    </KNotice>
+    <QInfiniteScroll v-bind="infiniteScroll">
+      <QList
+        class="bg-white q-mt-md"
+        bordered
+      >
+        <IssueItem
+          v-for="issue in issues"
+          :key="issue.id"
+          v-measure
+          :issue="issue"
+        />
+      </QList>
+      <template #loading>
+        <KSpinner />
+      </template>
+    </QInfiniteScroll>
+  </div>
 </template>
 
 <script setup>
+import {
+  QList,
+  QIcon,
+  QSelect,
+  QInfiniteScroll,
+} from 'quasar'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
 import { useCurrentGroupService } from '@/group/services'
 import { useIssueListQuery } from '@/issues/queries'
+import { useQueryParams } from '@/utils/mixins/bindRoute'
 
-import IssueListUI from '@/issues/components/IssueListUI'
+import IssueItem from '@/issues/components/IssueItem'
+import KNotice from '@/utils/components/KNotice'
+import KSpinner from '@/utils/components/KSpinner'
+
+const { t } = useI18n()
 
 const {
   groupId,
 } = useCurrentGroupService()
 
 const {
-  issues: ongoingIssues,
-  isLoading: isLoadingOngoingIssues,
-} = useIssueListQuery({ groupId, status: 'ongoing' })
+  status,
+} = useQueryParams({ status: 'ongoing' })
 
 const {
-  issues: pastIssues,
-  isLoading: isLoadingPastIssues,
-} = useIssueListQuery({ groupId, status: ['decided', 'cancelled'] })
+  issues,
+  infiniteScroll,
+  isFetching,
+} = useIssueListQuery({ groupId, status })
+
+const hasNoOngoing = computed(() => {
+  return status.value === 'ongoing' && !isFetching.value && issues.value.length === 0
+})
 </script>

@@ -1,5 +1,8 @@
+import { faker } from '@faker-js/faker'
 import addDays from 'date-fns/addDays'
 import subDays from 'date-fns/subDays'
+
+import { cursorPaginated } from '>/mockBackend/mockAxios'
 
 import { sample } from './offers'
 
@@ -10,15 +13,18 @@ export function generateIssue (params = {}) {
   if (!params.group) throw new Error('must provide group')
   if (!params.affectedUser) {
     const group = db.groups.find(group => group.id === params.group)
-    params.affectedUser = sample(group.members).id
+    if (group.members.length === 0) throw new Error('no group members to pick from')
+    params.affectedUser = sample(group.members)
   }
+  if (!params.createdBy) params.createdBy = ctx.authUser?.id
+  if (!params.createdBy) throw new Error('must be logged in or provide createdBy param')
   return {
     id: nextId++,
     createdAt: subDays(new Date(), 7 + 6),
-    createdBy: ctx.authUser.id,
+    createdBy: null,
     status: 'ongoing',
     type: 'conflict_resolution',
-    topic: 'I complain about this user',
+    topic: faker.lorem.paragraphs(3),
     votings: [
       generateVoting({
         createdAt: subDays(new Date(), 2 * 7 + 6),
@@ -71,4 +77,12 @@ export function generateVoting (params = {}) {
     participantCount: 6,
     ...params,
   }
+}
+
+export function createMockIssuesBackend () {
+  cursorPaginated('/api/issues/', ({ params }) => db.issues.filter(issue => {
+    // TODO: implement other filters?
+    if (params.status && params.status !== issue.status) return false
+    return true
+  }))
 }

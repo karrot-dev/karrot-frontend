@@ -1,5 +1,5 @@
 <template>
-  <div class="q-mt-lg">
+  <div>
     <div
       class="row items-center bg-white q-px-sm q-py-xs q-gutter-sm"
     >
@@ -10,7 +10,7 @@
           { label: t('ISSUE.STATUS.DECIDED'), value: 'decided' },
           { label: t('ISSUE.STATUS.CANCELLED'), value: 'cancelled' },
         ]"
-        emit-valueq
+        emit-value
         map-options
         outlined
         hide-bottom-space

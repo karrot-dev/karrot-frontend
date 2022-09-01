@@ -227,7 +227,7 @@ function useLocaleMessagesSetter ({ isBikeKitchen, isGeneralPurpose }) {
 
 function useMarkUserActive ({ groupId }) {
   const router = useRouter()
-  router.afterEach(async () => {
+  router?.afterEach(async () => {
     try {
       /**
        * Marks the user as active in the current group

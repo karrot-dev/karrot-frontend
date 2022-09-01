@@ -1,8 +1,14 @@
 
-import initStoryshots, { Stories2SnapsConverter } from '@storybook/addon-storyshots'
+import initStoryshots from '@storybook/addon-storyshots'
+import { render } from '@testing-library/vue'
+import { flushPromises } from '@vue/test-utils'
 import lolex from 'lolex'
 
 import i18n from '@/base/i18n'
+import { resetServices } from '@/utils/datastore/helpers'
+
+import { withDefaults } from '>/helpers'
+import { setupMockBackend, resetMockBackend } from '>/mockBackend'
 import '>/routerMocks'
 
 i18n.locale = 'en'
@@ -15,6 +21,17 @@ afterAll(() => {
   clock.uninstall()
 })
 
+beforeEach(() => {
+  resetMockBackend()
+  setupMockBackend()
+})
+
+afterEach(() => {
+  resetMockBackend()
+  jest.resetModules()
+  resetServices()
+})
+
 // Mock RandomArt because it doesn't play nicely with JSDOM
 jest.mock('@/utils/components/RandomArt', () => ({
   template: '<div><slot /></div>',
@@ -22,53 +39,29 @@ jest.mock('@/utils/components/RandomArt', () => ({
 
 // Mock locales
 jest.mock('@/locales', () => ({
-  de: {
-    name: 'Deutsch',
-    locale: 'de',
-    messages: () => import('@/locales/locale-de.json'),
-    dateFnsLocale: () => import('date-fns/locale/de'),
-  },
-
-  en: {
-    name: 'English',
-    locale: 'en',
-    messages: () => import('@/locales/locale-en.json'),
-    dateFnsLocale: () => import('date-fns/locale/en'),
+  __esModule: true,
+  ...jest.requireActual('@/locales'),
+  default: {
+    en: {
+      name: 'English',
+      locale: 'en',
+      messages: () => import('@/locales/locale-en.json'),
+      dateFnsLocale: () => import('date-fns/locale/en'),
+    },
   },
 }))
 
 // Mock translation status
 jest.mock('@/locales/translationStatus.json', () => ({
-  de: '13',
   en: '42',
 }))
 
-// Runner
 initStoryshots({
-  asyncJest: true, // this is the option that activates the async behaviour
   test: async ({
     story,
-    context,
-    renderTree,
-    done, // --> callback passed to test method when asyncJest option is true
   }) => {
-    const converter = new Stories2SnapsConverter()
-    // to avoid snapshots in src/src/, strip leading 'src/' in filename
-    const snapshotFilename = converter.getSnapshotFileName(context).slice(4)
-
-    const tree = renderTree(story, context)
-
-    // wait until the mount is updated, in our app mostly by vue-query
-    // but maybe something else updating the state of the component
-    // somewhere
-    const waitTime = 2000
-    setTimeout(async () => {
-      if (snapshotFilename) {
-        expect(tree).toMatchSpecificSnapshot(snapshotFilename)
-      }
-
-      done()
-    }, waitTime)
+    const tree = render(story.render(), withDefaults())
+    await flushPromises()
+    expect(tree.html()).toMatchSnapshot()
   },
-  // other options here
 })

@@ -2,7 +2,7 @@
 import 'quasar/dist/quasar.css'
 import '@/css/app.sass'
 
-// import VueRouter from 'vue-router'
+import VueRouter from 'vue-router'
 import { VueQueryPlugin } from 'vue-query'
 import { i18nPlugin } from '@/base/i18n'
 import { Quasar } from 'quasar'
@@ -16,7 +16,7 @@ import { setupMockBackend } from '>/mockBackend'
 app.use(i18nPlugin)
 app.use(Quasar, quasarConfig)
 app.use(VueQueryPlugin, { queryClient })
-// app.use(VueRouter)
+app.use(VueRouter)
 app.config.globalProperties.$icon = icons.get
 // TODO: should be able to remove this with vue v3.3.x
 app.config.unwrapInjectedRef = true

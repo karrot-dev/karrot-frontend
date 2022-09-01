@@ -2,6 +2,7 @@ import { createMockActivitiesBackend, generateActivity } from '>/mockBackend/act
 import { createMockActivityTypesBackend, generateActivityType } from '>/mockBackend/activityTypes'
 import { createMockCommunityBackend } from '>/mockBackend/community'
 
+import { generateActivitySeries } from './activitySeries'
 import { createMockApplicationsBackend, generateApplication } from './applications'
 import { createAuthUserBackend } from './authUser'
 import { generateConversation } from './conversations'
@@ -39,6 +40,7 @@ export function setupMockBackend () {
     groups: [],
     applications: [],
     activities: [],
+    activitySeries: [],
     activityTypes: [],
     notifications: [],
     issues: [],
@@ -119,6 +121,12 @@ export function createActivity (params) {
   const activity = generateActivity(params)
   db.activities.push(activity)
   return activity
+}
+
+export function createActivitySeries (params) {
+  const series = generateActivitySeries(params)
+  db.activitySeries.push(series)
+  return series
 }
 
 export function createActivityType (params) {

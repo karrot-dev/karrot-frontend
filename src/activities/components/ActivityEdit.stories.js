@@ -1,22 +1,42 @@
-import { storiesOf } from '@storybook/vue3'
 import { h } from 'vue'
 
-import * as factories from '>/enrichedFactories'
-import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { statusMocks } from '>/helpers'
+import {
+  createGroup,
+  createPlace,
+  createActivity,
+  createActivityType,
+  createActivitySeries,
+} from '>/mockBackend'
 
-const ActivityEdit = () => require('./ActivityEdit').default
+import ActivityEdit from './ActivityEdit'
+// const ActivityEdit = () => require('./ActivityEdit').default
 
-const activity = factories.makeActivity()
-const series = factories.makeActivitySeries()
+const group = createGroup()
+const place = createPlace({ group: group.id })
+createActivityType({ group: group.id })
+const activity = createActivity({ place: place.id })
+const series = createActivitySeries({ place: place.id })
 
-const store = createDatastore({
-  users: {
-    getters: {
-      byCurrentGroup: () => [],
-    },
+export default {
+  component: ActivityEdit,
+}
+
+const Template = (args) => ({
+  setup () {
+    return () => h(ActivityEdit, args)
   },
 })
 
+export const Normal = Template.bind({})
+
+Normal.args = {
+  value: activity,
+  series,
+  status: statusMocks.default(),
+}
+
+/*
 storiesOf('ActivityEdit', module)
   .add('default', () => defaults({
     store,
@@ -94,3 +114,4 @@ storiesOf('ActivityEdit', module)
       })
     },
   }))
+*/

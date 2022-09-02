@@ -44,7 +44,7 @@ describe('IssueList', () => {
   })
 
   it('lists activities', async () => {
-    const { findByText, findAllByText } = render(IssueList, withDefaults())
+    const { findByText } = render(IssueList, withDefaults())
     for (const issue of issues) {
       const affectedUser = db.orm.users.get({ id: issue.affectedUser })
       await findByText(affectedUser.displayName)

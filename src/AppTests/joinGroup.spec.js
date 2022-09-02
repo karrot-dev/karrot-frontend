@@ -8,7 +8,7 @@ import App from '@/App'
 import router from '@/router'
 
 import { withDefaults } from '>/helpers'
-import { useMockBackend, createUser, createGroup, loginAs, createConversation, db } from '>/mockBackend'
+import { useMockBackend, createUser, createGroup, loginAs } from '>/mockBackend'
 import { acceptApplication } from '>/mockBackend/applications'
 import { addUserToGroup } from '>/mockBackend/groups'
 

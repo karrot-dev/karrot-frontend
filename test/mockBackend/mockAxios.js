@@ -1,13 +1,12 @@
 import MockAdapter from 'axios-mock-adapter'
+import { isPlainObject } from 'lodash'
 import { pathToRegexp } from 'path-to-regexp'
 import 'blob-polyfill'
 
 import axios from '@/base/api/axios'
-import { camelize, camelizeKeys, underscorize, underscorizeKeys } from '@/utils/utils'
+import { camelizeKeys, underscorize } from '@/utils/utils'
 
 import { ctx } from './index'
-
-import { isObject, isPlainObject, omitBy } from 'lodash'
 
 // holds the current context for the mock axios
 /**

@@ -11,7 +11,6 @@ import {
   useMockBackend,
   createUser,
   createGroup,
-  createConversation,
   createMessage,
   loginAs,
   setPageSize, db,

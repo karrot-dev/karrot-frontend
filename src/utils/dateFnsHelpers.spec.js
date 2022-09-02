@@ -1,4 +1,4 @@
-import lolex from 'lolex'
+import FakeTimers from '@sinonjs/fake-timers'
 
 import { sleep } from '>/helpers'
 
@@ -8,7 +8,7 @@ describe('dateFnsHelper', () => {
   let dateFnsHelper, clock
   beforeEach(() => {
     jest.resetModules()
-    clock = lolex.install({ now, toFake: ['Date'] })
+    clock = FakeTimers.install({ now, toFake: ['Date'] })
     dateFnsHelper = require('./dateFnsHelper').default
   })
   afterEach(() => {

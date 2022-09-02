@@ -1,9 +1,7 @@
-
-import { faker } from '@faker-js/faker'
+import FakeTimers from '@sinonjs/fake-timers'
 import initStoryshots from '@storybook/addon-storyshots'
 import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
-import lolex from 'lolex'
 
 import i18n from '@/base/i18n'
 import { resetServices } from '@/utils/datastore/helpers'
@@ -13,11 +11,10 @@ import { setupMockBackend, resetMockBackend } from '>/mockBackend'
 import '>/routerMocks'
 
 i18n.locale = 'en'
-faker.seed(123)
 
 // To get properly faked dates, install fake Date object before importing stories
 const now = new Date('2017-12-24T12:00:00Z')
-const clock = lolex.install({ now, toFake: ['Date'] })
+const clock = FakeTimers.install({ now, toFake: ['Date'] })
 
 afterAll(() => {
   clock.uninstall()

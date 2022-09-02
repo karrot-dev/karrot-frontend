@@ -83,50 +83,12 @@ export function generateVoting (params = {}) {
 }
 
 function toResponse (issue) {
-  /*
-    "id": 6,
-    "created_at": "2022-09-02T10:19:38.488661Z",
-    "created_by": 23,
-    "status": "ongoing",
-    "type": "conflict_resolution",
-    "topic": "asefasef",
-    "votings": [
-      {
-        "id": 6,
-        "created_at": "2022-09-02T10:19:38.728576Z",
-        "expires_at": "2022-09-09T10:19:38.728602Z",
-        "options": [
-          {
-            "id": 16,
-            "type": "further_discussion",
-            "sum_score": null,
-            "your_score": null
-          },
-          {
-            "id": 17,
-            "type": "no_change",
-            "sum_score": null,
-            "your_score": null
-          },
-          {
-            "id": 18,
-            "type": "remove_user",
-            "sum_score": null,
-            "your_score": null
-          }
-        ],
-        "accepted_option": null,
-        "participant_count": 0
-      }
-    ],
-    "group": 1,
-    "affected_user": 7
-  } */
   return {
     ...issue,
     votings: issue.votings.map(voting => {
       return {
         ...voting,
+        // TODO: is this visible the whole time?
         participantCount: uniq(voting.options.flatMap(option => option.$votes.map(vote => vote.user))).length,
         options: voting.options.map(option => {
           return {
@@ -156,12 +118,12 @@ export function createMockIssuesBackend () {
     }))]
   })
 
-  post('/api/issues/:id/vote/', ({ pathParams, data }) => {
+  post('/api/issues/:id/vote/', ({ pathParams, data: newVotes }) => {
     const issue = db.orm.issues.get({ id: parseInt(pathParams.id) }, null)
     if (!issue) return [404] // TODO: not sure if this is what it does do
     const voting = issue.votings.find(voting => voting.expiresAt > new Date() && !voting.acceptedOption)
     if (!voting) throw new Error('no voting to vote on...')
-    for (const newVote of data) {
+    for (const newVote of newVotes) {
       const option = voting.options.find(option => option.id === newVote.option)
       if (!option) throw new Error('missing option')
       const vote = option.$votes.find(vote => vote.user === ctx.authUser.id)
@@ -172,7 +134,7 @@ export function createMockIssuesBackend () {
         option.$votes.push({ score: newVote.score, option: option.id })
       }
     }
-    return [200, data] // we return the request data for some reason...
+    return [200, newVotes] // we return the request data for some reason...
   })
 
   // TODO: filter for access

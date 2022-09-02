@@ -218,7 +218,7 @@ function createFinder (db, dbKey) {
   // If there are no entries AND you provide a default value that is different to "undefined", it'll return that
   function get (params, defaultValue) {
     const entries = filter(params)
-    if (entries.length > 1) throw new Error(`more than one entry! ${dbKey} for ${JSON.stringify(filter)}`)
+    if (entries.length > 1) throw new Error(`more than one entry! ${dbKey} for ${JSON.stringify(params)}`)
     if (entries.length === 0) {
       if (defaultValue !== undefined) return defaultValue
       throw new Error(`no ${dbKey} for ${JSON.stringify(filter)}`)

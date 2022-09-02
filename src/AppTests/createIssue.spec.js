@@ -82,7 +82,6 @@ test('create issue', async () => {
   // TODO: add mock websockets, for now we need to manually invalidate...
   await require('@/base/queryClient').default.invalidateQueries()
 
-  // this seems to be a bit slow/fakey? not sure...
   await findByText(messageContent)
 
   // time to vote!

@@ -1,3 +1,9 @@
+import { faker } from '@faker-js/faker'
+
+beforeEach(() => {
+  faker.seed(500)
+})
+
 global.console = {
   ...console,
   // uncomment to ignore a specific log level

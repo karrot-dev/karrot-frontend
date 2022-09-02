@@ -40,6 +40,7 @@
           class="q-pr-lg"
           outlined
           size="8"
+          data-testid="amount-picker"
         >
           <template #append>
             <span class="text-caption">kg</span>

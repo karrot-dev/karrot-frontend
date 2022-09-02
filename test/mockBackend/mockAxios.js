@@ -105,7 +105,6 @@ export function cursorPaginated (path, getEntries, options = {}) {
       return `${path}?${searchParams.toString()}`
     }
     const { makeResults } = options
-    delete options.makeResults
 
     return [200, {
       results: makeResults ? makeResults(paginatedEntries) : paginatedEntries,

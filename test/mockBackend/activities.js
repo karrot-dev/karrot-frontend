@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker'
 import { addDays, addHours, addMinutes, startOfTomorrow } from 'date-fns'
 
 import { ctx, db } from '>/mockBackend/index'
-import { cursorPaginated, post } from '>/mockBackend/mockAxios'
+import { cursorPaginated, getById, post } from '>/mockBackend/mockAxios'
 
 let nextId = 1
 export function generateActivity (params = {}) {
@@ -12,7 +12,7 @@ export function generateActivity (params = {}) {
     const place = db.orm.places.get({ id: params.place })
     params.activityType = db.orm.activityTypes.get({ group: place.group }).id
   }
-  const startDate = addHours(startOfTomorrow(), 10)
+  const startDate = addHours(params.startDate || startOfTomorrow(), 10)
   const endDate = addMinutes(startDate, 30)
   return {
     id: nextId++,
@@ -35,7 +35,7 @@ export function generateActivity (params = {}) {
   }
 }
 
-function toResponse (activity) {
+export function toResponse (activity) {
   return {
     ...activity,
     isDone: activity.date[1] < new Date(), // TODO: is this the right definition?
@@ -55,6 +55,9 @@ export function createMockActivitiesBackend () {
       return true
     }).map(toResponse),
   )
+
+  // TODO: add a few filters
+  getById('/api/activities/:id/', () => db.activities)
 
   post('/api/activities/:id/add/', ({ pathParams }) => {
     const activity = db.orm.activities.get({ id: parseInt(pathParams.id) })

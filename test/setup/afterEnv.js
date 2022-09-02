@@ -19,3 +19,8 @@ global.console = {
 // <script> components used to also have the error but adding this snippet to jest config resolved it:
 // customExportConditions: ['node', 'node-addons'],
 global._vue = require('vue')
+
+// We use scrollIntoView but in jsdom it doesn't make sense:
+//   "We can't really implemented it since we don't do layout."
+// See https://github.com/jsdom/jsdom/issues/1695
+Element.prototype.scrollIntoView = jest.fn()

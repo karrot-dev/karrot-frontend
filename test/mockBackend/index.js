@@ -3,6 +3,7 @@ import addDays from 'date-fns/addDays'
 import { createMockActivitiesBackend, generateActivity } from '>/mockBackend/activities'
 import { createMockActivityTypesBackend, generateActivityType } from '>/mockBackend/activityTypes'
 import { createMockCommunityBackend } from '>/mockBackend/community'
+import { createMockFeedbackBackend, generateFeedback } from '>/mockBackend/feedback'
 import { createMockHistoryBackend } from '>/mockBackend/history'
 
 import { generateActivitySeries } from './activitySeries'
@@ -41,6 +42,7 @@ export function setupMockBackend () {
     places: [],
     offers: [],
     groups: [],
+    feedback: [],
     applications: [],
     activities: [],
     activitySeries: [],
@@ -52,6 +54,7 @@ export function setupMockBackend () {
   }
   db.orm = {
     users: createFinder(db, 'users'),
+    feedback: createFinder(db, 'feedback'),
     groups: createFinder(db, 'groups'),
     places: createFinder(db, 'places'),
     conversations: createFinder(db, 'conversations'),
@@ -72,6 +75,7 @@ export function setupMockBackend () {
   createMockGroupsInfoBackend()
   createMockGroupDetailBackend()
   createMockPlacesBackend()
+  createMockFeedbackBackend()
   createMockHistoryBackend()
   createMockUsersBackend()
   createMockOffersBackend()
@@ -199,6 +203,12 @@ export function createMessage (params) {
   return message
 }
 
+export function createFeedback (params) {
+  const feedback = generateFeedback(params)
+  db.feedback.push(feedback)
+  return feedback
+}
+
 export function setPageSize (pageSize) {
   ctx.pageSize = pageSize
 }
@@ -207,8 +217,15 @@ export function setPageSize (pageSize) {
 function createFinder (db, dbKey) {
   // Find a list of entries that match the params
   // e.g. filter({ type: 'group', targetId: 3 }) will return an array of matches
+  // you can also pass a function as the filter value, e.g.
+  // filter({ place: id => placeIds.includes(id) })
   function filter (params) {
-    return db[dbKey].filter(entry => Object.keys(params).every(field => entry[field] === params[field]))
+    return db[dbKey].filter(entry => Object.keys(params).every(field => {
+      if (typeof params[field] === 'function') {
+        return params[field](entry[field])
+      }
+      return entry[field] === params[field]
+    }))
   }
 
   // Find ONE entry with the specified params
@@ -221,7 +238,7 @@ function createFinder (db, dbKey) {
     if (entries.length > 1) throw new Error(`more than one entry! ${dbKey} for ${JSON.stringify(params)}`)
     if (entries.length === 0) {
       if (defaultValue !== undefined) return defaultValue
-      throw new Error(`no ${dbKey} for ${JSON.stringify(filter)}`)
+      throw new Error(`no ${dbKey} for ${JSON.stringify(params)}`)
     }
     return entries[0]
   }

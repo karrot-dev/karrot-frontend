@@ -8,7 +8,7 @@ import App from '@/App'
 import router from '@/router'
 
 import { withDefaults } from '>/helpers'
-import { useMockBackend, createUser, createGroup, loginAs, createConversation } from '>/mockBackend'
+import { useMockBackend, createUser, createGroup, loginAs, createConversation, db } from '>/mockBackend'
 import { acceptApplication } from '>/mockBackend/applications'
 import { addUserToGroup } from '>/mockBackend/groups'
 
@@ -17,11 +17,6 @@ useMockBackend()
 test('join group', async () => {
   const user = createUser()
   const group = createGroup()
-  createConversation({
-    group: group.id,
-    type: 'group',
-    targetId: group.id,
-  })
 
   // Put a few users in this group, as you can't apply to groups without users
   times(3, () => addUserToGroup(createUser(), group))

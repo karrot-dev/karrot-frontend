@@ -27,7 +27,7 @@ export function generateMessage (params = {}) {
 export function createMockMessagesBackend () {
   cursorPaginated(
     '/api/messages/',
-    ({ params }) => db.messages.filter(activity => {
+    ({ params }) => db.messages.filter(message => {
       /* TODO add message filters by conversation, authuser
       */
 

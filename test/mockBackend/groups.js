@@ -67,7 +67,7 @@ export function createMockGroupDetailBackend () {
   getById('/api/groups/:id/', () => groupsForUser(ctx.authUser))
 
   get('/api/groups/:id/conversation/', ({ pathParams }) => {
-    const conversation = db.conversations.find(({ type, targetId }) => type === 'group' && targetId === parseInt(pathParams.id))
+    const conversation = db.orm.conversations.get({ type: 'group', targetId: parseInt(pathParams.id) }, null)
     if (!conversation) return [404]
     return [200, toConversationResponse(conversation)]
   })

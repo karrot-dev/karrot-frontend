@@ -21,7 +21,7 @@ export function toResponse (conversation) {
   return {
     ...conversation,
     ...participants[ctx.authUser.id],
-    participants: Object.keys(participants),
+    participants: Object.keys(participants).map(key => parseInt(key)),
   }
 }
 

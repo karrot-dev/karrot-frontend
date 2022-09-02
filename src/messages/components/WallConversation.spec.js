@@ -14,7 +14,7 @@ import {
   createConversation,
   createMessage,
   loginAs,
-  setPageSize,
+  setPageSize, db,
 } from '>/mockBackend'
 import { addUserToConversation } from '>/mockBackend/conversations'
 import { addUserToGroup } from '>/mockBackend/groups'
@@ -37,11 +37,7 @@ describe('WallConversation', () => {
     const user = createUser()
     addUserToGroup(user, group)
     user.currentGroup = group.id
-    const conversation = createConversation({
-      group: group.id,
-      type: 'group',
-      targetId: group.id,
-    })
+    const conversation = db.orm.conversations.get({ type: 'group', targetId: group.id })
     addUserToConversation(user, conversation)
     messages = times(7, () => createMessage({
       author: user.id,

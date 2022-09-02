@@ -1,14 +1,17 @@
+import addDays from 'date-fns/addDays'
+
 import { createMockActivitiesBackend, generateActivity } from '>/mockBackend/activities'
 import { createMockActivityTypesBackend, generateActivityType } from '>/mockBackend/activityTypes'
 import { createMockCommunityBackend } from '>/mockBackend/community'
+import { createMockHistoryBackend } from '>/mockBackend/history'
 
 import { generateActivitySeries } from './activitySeries'
 import { createMockApplicationsBackend, generateApplication } from './applications'
 import { createAuthUserBackend } from './authUser'
-import { generateConversation } from './conversations'
+import { addUserToConversation, generateConversation } from './conversations'
 import { createMockGroupDetailBackend, generateGroup } from './groups'
 import { createMockGroupsInfoBackend } from './groupsInfo'
-import { createMockIssuesBackend, generateIssue } from './issues'
+import { createMockIssuesBackend, generateIssue, generateVoting } from './issues'
 import { createMockMessagesBackend, generateMessage } from './messages'
 import { initializeMockAxios, resetMockAxios, get } from './mockAxios'
 import { generateNotification, createMockNotificationsBackend } from './notifications'
@@ -49,7 +52,10 @@ export function setupMockBackend () {
   }
   db.orm = {
     users: createFinder(db, 'users'),
+    groups: createFinder(db, 'groups'),
     places: createFinder(db, 'places'),
+    conversations: createFinder(db, 'conversations'),
+    issues: createFinder(db, 'issues'),
     activities: createFinder(db, 'activities'),
     activityTypes: createFinder(db, 'activityTypes'),
   }
@@ -66,6 +72,7 @@ export function setupMockBackend () {
   createMockGroupsInfoBackend()
   createMockGroupDetailBackend()
   createMockPlacesBackend()
+  createMockHistoryBackend()
   createMockUsersBackend()
   createMockOffersBackend()
   createMockStatusBackend()
@@ -111,6 +118,11 @@ export function createOffer (params) {
 
 export function createGroup (params) {
   const group = generateGroup(params)
+  createConversation({
+    group: group.id,
+    type: 'group',
+    targetId: group.id,
+  })
   db.groups.push(group)
   return group
 }
@@ -152,7 +164,25 @@ export function createApplication (params) {
 }
 
 export function createIssue (params) {
-  const issue = generateIssue(params)
+  const issue = generateIssue({
+    ...params,
+    votings: [
+      generateVoting({
+        createdAt: new Date(),
+        expiresAt: addDays(new Date(), 7),
+      }),
+    ],
+  })
+  const conversation = createConversation({
+    group: issue.group,
+    type: 'issue',
+    targetId: issue.id,
+  })
+  const group = db.orm.groups.get({ id: issue.group })
+  for (const user of group.members.map(id => db.orm.users.get({ id }))) {
+    // TODO: I _think_ this is what we do? dump everyone in? maybe changing soon!
+    addUserToConversation(user, conversation)
+  }
   db.issues.push(issue)
   return issue
 }
@@ -173,13 +203,31 @@ export function setPageSize (pageSize) {
   ctx.pageSize = pageSize
 }
 
+// This creates a finder object that is _a little bit_ like django ORM stuff
 function createFinder (db, dbKey) {
+  // Find a list of entries that match the params
+  // e.g. filter({ type: 'group', targetId: 3 }) will return an array of matches
+  function filter (params) {
+    return db[dbKey].filter(entry => Object.keys(params).every(field => entry[field] === params[field]))
+  }
+
+  // Find ONE entry with the specified params
+  // E.g. get({ id: 2 }) will return a single entry
+  // If there are more than 1 it'll throw an error (regardless of a default value)
+  // If there are no entries it'll throw and error UNLESS you provide a defaultValue
+  // If there are no entries AND you provide a default value that is different to "undefined", it'll return that
+  function get (params, defaultValue) {
+    const entries = filter(params)
+    if (entries.length > 1) throw new Error(`more than one entry! ${dbKey} for ${JSON.stringify(filter)}`)
+    if (entries.length === 0) {
+      if (defaultValue !== undefined) return defaultValue
+      throw new Error(`no ${dbKey} for ${JSON.stringify(filter)}`)
+    }
+    return entries[0]
+  }
+
   return {
-    get (filter) {
-      const entries = db[dbKey].filter(entry => Object.keys(filter).every(field => entry[field] === filter[field]))
-      if (entries.length > 1) throw new Error(`more than one entry! ${dbKey} for ${JSON.stringify(filter)}`)
-      if (entries.length === 0) throw new Error(`no ${dbKey} for ${JSON.stringify(filter)}`)
-      return entries[0]
-    },
+    filter,
+    get,
   }
 }

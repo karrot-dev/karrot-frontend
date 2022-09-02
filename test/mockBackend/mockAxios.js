@@ -3,9 +3,11 @@ import { pathToRegexp } from 'path-to-regexp'
 import 'blob-polyfill'
 
 import axios from '@/base/api/axios'
-import { camelizeKeys, underscorizeKeys } from '@/utils/utils'
+import { camelize, camelizeKeys, underscorize, underscorizeKeys } from '@/utils/utils'
 
 import { ctx } from './index'
+
+import { isObject, isPlainObject, omitBy } from 'lodash'
 
 // holds the current context for the mock axios
 /**
@@ -53,6 +55,30 @@ function on (method, path, handler, options = {}) {
       default: throw new Error('have not implemented method: ' + method)
     }
   }
+
+  // Just before sending back to client, we do a few things...
+  function processBody (val) {
+    if (!val) return val
+    if (Array.isArray(val)) {
+      return val.map(processBody)
+    }
+    else if (val instanceof Date) {
+      return val.toISOString()
+    }
+    else if (isPlainObject(val)) { // must check plain object, so we don't mangle anything
+      const newVal = {}
+      for (const key of Object.keys(val)) {
+        // $ prefixed keys are considered internal for mockBackend...
+        if (!key.startsWith('$')) {
+          // return underscored_keys_like_this to mimic backend
+          newVal[underscorize(key)] = processBody(val[key])
+        }
+      }
+      return newVal
+    }
+    return val
+  }
+
   // If we have a path with params/:like/:this/, we  match/extract them
   // They are available to the handler as pathParams
   const matcher = path.includes(':') ? createPathMatcher(path) : null
@@ -79,7 +105,11 @@ function on (method, path, handler, options = {}) {
     if (!Array.isArray(handlerResponse)) throw new Error('mock handler must return an array')
     const [statusCode, body] = handlerResponse
     if (typeof statusCode !== 'number') throw new Error('mock handler array must have numeric status code as first arg')
-    return [statusCode, body && underscorizeKeys(body)]
+    const processedBody = processBody(body)
+    // if (/issue/.test(config.url)) {
+    //   console.log('response for', config.url, '->', require('util').inspect(processedBody, false, null))
+    // }
+    return [statusCode, processedBody]
   })
 }
 

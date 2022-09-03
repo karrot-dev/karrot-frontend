@@ -351,7 +351,7 @@ import {
 } from 'quasar'
 import { rrulestr } from 'rrule' // TODO: only import this if preview needed? how big is it anyway?
 
-import { serializeRule } from '@/activities/api/activitySeries'
+import activitySeriesAPI, { serializeRule } from '@/activities/api/activitySeries'
 import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useActivityTypeService } from '@/activities/services'
 import { defaultDuration } from '@/activities/settings'
@@ -539,9 +539,26 @@ export default {
     toggleDuration () {
       this.hasDuration = !this.hasDuration
     },
-    maybeSave () {
+    async maybeSave () {
       if (!this.canSave) return
-      this.save()
+      const { willRemoveCount } = await activitySeriesAPI.checkSave({ ...this.getPatchData(), id: this.value.id })
+      if (willRemoveCount !== 0) {
+        Dialog.create({
+          title: 'Confirm changes',
+          message: `If you change then ${willRemoveCount} signed up activity slots will be cleared, write them a message to explain the changes:`,
+          prompt: {
+            outlined: true,
+            model: '',
+            type: 'textarea',
+          },
+          ok: 'OK',
+          cancel: this.$t('BUTTON.CANCEL'),
+        })
+          .onOk(message => this.save())
+      }
+      else {
+        this.save()
+      }
     },
     destroy (event) {
       Dialog.create({

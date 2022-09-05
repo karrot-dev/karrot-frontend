@@ -12,7 +12,7 @@ import { useMockBackend, createUser, createGroup, loginAs } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 
 useMockBackend()
-jest.setTimeout(30 * 1000) // we do a lot of stuff here, give it some time!
+jest.setTimeout(60 * 1000) // we do a lot of stuff here, give it some time!
 
 configure({
   asyncUtilTimeout: 2000,

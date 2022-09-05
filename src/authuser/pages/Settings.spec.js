@@ -52,16 +52,18 @@ describe('User Settings', () => {
   })
 
   it('changes name', async () => {
-    const { type, click } = userEvent.setup()
+    const { type, click, clear } = userEvent.setup()
 
-    const { findByTestId, findByText, findByDisplayValue } = render(Settings, withDefaults({
+    const { findByTestId, findByRole, findByDisplayValue } = render(Settings, withDefaults({
       global: { stubs: { Croppa: true } },
     }))
     await flushPromises()
 
     // set a new name
     const newDisplayName = faker.name.findName()
-    await type(await findByText('Name'), `{Control>}A{/Control}{Backspace}${newDisplayName}`)
+    const textbox = await findByRole('textbox', { name: 'Name' })
+    await clear(textbox)
+    await type(textbox, newDisplayName)
 
     await click(await findByTestId('save-profile'))
     await flushPromises()
@@ -72,7 +74,7 @@ describe('User Settings', () => {
   })
 
   it('changes email', async () => {
-    const { type, click } = userEvent.setup()
+    const { type, click, clear } = userEvent.setup()
 
     const { findByTestId, findByRole } = render(Settings, withDefaults({
       global: { stubs: { Croppa: true } },
@@ -81,7 +83,9 @@ describe('User Settings', () => {
 
     // set a new email address
     const newEmail = faker.internet.email()
-    await type(await findByRole('textbox', { name: 'E-mail' }), `{Control>}A{/Control}{Backspace}${newEmail}`)
+    const textbox = await findByRole('textbox', { name: 'E-mail' })
+    await clear(textbox)
+    await type(textbox, newEmail)
 
     // TODO couldn't make this work with any of the other queries, resorting to testid
     await type(await findByTestId('change-email-confirm-password'), 'nobody knows')

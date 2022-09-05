@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker'
 import en from '@/locales/locale-en.json'
 
 import { db } from '>/mockBackend/index'
-import { get } from '>/mockBackend/mockAxios'
+import { get, post } from '>/mockBackend/mockAxios'
 import { sample } from '>/mockBackend/offers'
 
 export const translatableActivityTypeNames = Object.keys(en.ACTIVITY_TYPE_NAMES)
@@ -39,5 +39,14 @@ export function createMockActivityTypesBackend () {
   get(
     '/api/activity-types/',
     () => [200, db.activityTypes.map(toResponse)],
+  )
+
+  post(
+    '/api/activity-types/',
+    ({ data }) => {
+      const activityType = generateActivityType({ ...data })
+      db.activityTypes.push(activityType)
+      return [201, toResponse(activityType)]
+    },
   )
 }

@@ -21,6 +21,7 @@
       :label="$t('USERDATA.CONFIRM_PASSWORD')"
       :error="hasError('password')"
       :error-message="firstError('password')"
+      data-testid="change-email-confirm-password"
     >
       <template #before>
         <QIcon name="fas fa-unlock" />

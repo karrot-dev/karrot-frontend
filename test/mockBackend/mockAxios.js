@@ -41,6 +41,14 @@ export function patch (path, handler, options = {}) {
   on('patch', path, handler, options)
 }
 
+export function put (path, handler, options = {}) {
+  on('put', path, handler, options)
+}
+
+export function delete_ (path, handler, options = {}) {
+  on('delete', path, handler, options)
+}
+
 function on (method, path, handler, options = {}) {
   const {
     requireAuth = true,
@@ -51,6 +59,8 @@ function on (method, path, handler, options = {}) {
       case 'get': return mockAxios.onGet(path)
       case 'post': return mockAxios.onPost(path)
       case 'patch': return mockAxios.onPatch(path)
+      case 'put': return mockAxios.onPut(path)
+      case 'delete': return mockAxios.onDelete(path)
       default: throw new Error('have not implemented method: ' + method)
     }
   }
@@ -88,7 +98,7 @@ function on (method, path, handler, options = {}) {
 export function cursorPaginated (path, getEntries, options = {}) {
   get(path, config => {
     const pageSize = ctx.pageSize || 30
-    const cursor = parseInt(config.params.cursor || '0')
+    const cursor = parseInt(config.params?.cursor || '0')
     const entries = getEntries({ ...config, params: camelizeKeys(config.params) })
     const paginatedEntries = entries.slice(cursor, cursor + pageSize)
     const hasNextPage = entries.length > (cursor + pageSize)

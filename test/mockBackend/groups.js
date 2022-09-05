@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 
 import { toResponse as toConversationResponse } from './conversations'
-import { getById, get } from './mockAxios'
+import { getById, get, put, delete_ } from './mockAxios'
 
 import { db, ctx } from './index'
 
@@ -70,5 +70,21 @@ export function createMockGroupDetailBackend () {
     const conversation = db.orm.conversations.get({ type: 'group', targetId: parseInt(pathParams.id) }, null)
     if (!conversation) return [404]
     return [200, toConversationResponse(conversation)]
+  })
+
+  put('/api/groups/:id/notification_types/:type/', ({ pathParams }) => {
+    const groupId = parseInt(pathParams.id)
+    const { notificationTypes } = db.groups.find(group => group.id === groupId)
+    notificationTypes.push(pathParams.type)
+    return [200, {}]
+  })
+
+  delete_('/api/groups/:id/notification_types/:type/', ({ pathParams }) => {
+    const groupId = parseInt(pathParams.id)
+    const { notificationTypes } = db.groups.find(group => group.id === groupId)
+    const idx = notificationTypes.indexOf(pathParams.type)
+    if (idx < 0) return [400, 'notification type not found']
+    notificationTypes.splice(idx, 1)
+    return [200, {}]
   })
 }

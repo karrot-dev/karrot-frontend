@@ -69,6 +69,7 @@
           color="primary"
           :disable="!hasChanged"
           :loading="isPending"
+          data-testid="save-profile"
         >
           {{ $t('BUTTON.SAVE_CHANGES') }}
         </QBtn>

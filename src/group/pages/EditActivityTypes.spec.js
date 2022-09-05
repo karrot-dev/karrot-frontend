@@ -2,6 +2,7 @@ import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
+import { Dialog } from 'quasar'
 
 import { resetServices } from '@/utils/datastore/helpers'
 
@@ -10,6 +11,7 @@ import {
   useMockBackend,
   createUser,
   createGroup,
+  createActivityType,
   loginAs,
 } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
@@ -17,9 +19,13 @@ import '>/routerMocks'
 
 import EditActivityTypes from './EditActivityTypes'
 
+Dialog.create = jest.fn(() => {
+  return { onOk (fn) { fn('') } }
+})
+
 describe('EditActivityTypes', () => {
   useMockBackend()
-  let user
+  let group
 
   beforeEach(() => {
     jest.resetModules()
@@ -27,8 +33,8 @@ describe('EditActivityTypes', () => {
   })
 
   beforeEach(() => {
-    user = createUser()
-    const group = createGroup()
+    const user = createUser()
+    group = createGroup()
     addUserToGroup(user, group)
     user.currentGroup = group.id
     loginAs(user)
@@ -48,16 +54,37 @@ describe('EditActivityTypes', () => {
     const { queryByRole, findByTitle, findByRole, findByText } = render(EditActivityTypes, withDefaults())
     await flushPromises()
 
-    click(await findByTitle('Add new activity type'))
-    type(await findByRole('combobox', { name: 'Name' }), 'Testtype')
-    click(await findByRole('option', { name: /Use custom name/i }))
-    click(await findByRole('button', { name: /create/i }))
+    await click(await findByTitle('Add new activity type'))
+    const textbox = await findByRole('combobox', { name: 'Name' })
+    // somehow we need to type the name before we can choose it
+    // seems like a problem between jsdom/testing-library and Quasar
+    await type(textbox, 'Pickup')
+    await click(await findByRole('option', { name: 'Pickup' }))
+    await click(await findByRole('button', { name: /create/i }))
     await flushPromises()
-    await flushPromises() // for some reason it needs extra flushing...
 
     expect(queryByRole('button', { name: /create/i })).not.toBeInTheDocument()
 
-    // TODO for some reason, it doesn't type the whole text... :(
-    await findByText('Tes')
+    await findByText('Pickup')
+  })
+
+  it('edits activity type name', async () => {
+    const activityType = createActivityType({ group: group.id })
+    const { click, type, clear } = userEvent.setup()
+
+    const { queryByRole, findByRole, findByText } = render(EditActivityTypes, withDefaults())
+    await flushPromises()
+
+    await click(await findByText(activityType.name))
+    const textbox = await findByRole('combobox', { name: 'Name' })
+    await clear(textbox)
+    await type(textbox, 'Testtype')
+    await click(await findByRole('option', { name: /Use custom name/i }))
+    await click(await findByRole('button', { name: /save changes/i }))
+    await flushPromises()
+
+    expect(queryByRole('button', { name: /save changes/i })).not.toBeInTheDocument()
+
+    await findByText('Testtype')
   })
 })

@@ -67,7 +67,7 @@ export function useIntegerRouteParam (name) {
   const route = useRoute()
   return computed({
     get () {
-      return route?.params[name] && parseInt(route.params[name], 10)
+      return route.params[name] && parseInt(route.params[name], 10)
     },
     set (val) {
       router.push({ params: { [name]: val } })

@@ -146,6 +146,9 @@ export function useActivitySeriesListQuery ({ placeId }) {
   const query = useQuery(
     queryKeyActivitySeriesList(placeId),
     () => activitySeriesAPI.listByPlaceId(unref(placeId)),
+    {
+      enabled: computed(() => Boolean(unref(placeId))),
+    },
   )
   return {
     ...query,

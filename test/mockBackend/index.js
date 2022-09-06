@@ -6,7 +6,7 @@ import { createMockCommunityBackend } from '>/mockBackend/community'
 import { createMockFeedbackBackend, generateFeedback } from '>/mockBackend/feedback'
 import { createMockHistoryBackend } from '>/mockBackend/history'
 
-import { generateActivitySeries } from './activitySeries'
+import { createMockActivitySeriesBackend, generateActivitySeries } from './activitySeries'
 import { createMockApplicationsBackend, generateApplication } from './applications'
 import { createAuthUserBackend } from './authUser'
 import { addUserToConversation, generateConversation } from './conversations'
@@ -70,6 +70,7 @@ export function setupMockBackend () {
   createAuthUserBackend()
   createMockApplicationsBackend()
   createMockActivitiesBackend()
+  createMockActivitySeriesBackend()
   createMockActivityTypesBackend()
   createMockIssuesBackend()
   createMockGroupsInfoBackend()

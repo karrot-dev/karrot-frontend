@@ -10,10 +10,6 @@ export default {
     return convert((await axios.get(`/api/activity-series/${seriesId}/`)).data)
   },
 
-  async list () {
-    return convert((await axios.get('/api/activity-series/')).data)
-  },
-
   async listByPlaceId (placeId) {
     return convert((await axios.get('/api/activity-series/', { params: { place: placeId } })).data)
   },

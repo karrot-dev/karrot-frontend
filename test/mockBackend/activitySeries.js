@@ -1,4 +1,7 @@
+import { convert } from '@/activities/api/activitySeries'
+
 import { db } from '>/mockBackend/index'
+import { get, post } from '>/mockBackend/mockAxios'
 
 let nextId = 1
 export function generateActivitySeries (params = {}) {
@@ -24,4 +27,27 @@ export function generateActivitySeries (params = {}) {
     datesPreview: [],
     ...params,
   }
+}
+
+function toResponse (activitySeries) {
+  return {
+    ...activitySeries,
+    rule: activitySeries.rule.custom,
+  }
+}
+
+export function createMockActivitySeriesBackend () {
+  get(
+    '/api/activity-series/',
+    () => [200, db.activitySeries.map(toResponse)], // TODO add filters
+  )
+
+  post(
+    '/api/activity-series/',
+    ({ data }) => {
+      const series = generateActivitySeries({ ...convert(data) })
+      db.activitySeries.push(series)
+      return [201, toResponse(series)]
+    },
+  )
 }

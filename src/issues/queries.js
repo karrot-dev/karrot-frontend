@@ -44,7 +44,7 @@ export function useIssueListQuery ({ groupId, status }) {
     {
       enabled: computed(() => Boolean(unref(groupId))), // group is required
       // TODO: explore these more
-      cacheTime: 0,
+      cacheTime: 1000,
       staleTime: 0,
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({

@@ -108,7 +108,8 @@ export function useActivityListQuery ({ groupId }) {
 
       // in some places we might not even want to cache the data at all
       // by default it is 5 minutes
-      // cacheTime: 0,
+      // set it to 1 second (1000ms) to essentially disable caching, but avoid almost simultaneous requests
+      // cacheTime: 1000,
 
       // as it's an infinite query, also need to define these
       // (important to specifically return undefined, rather than null/false/etc)

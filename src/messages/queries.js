@@ -153,7 +153,7 @@ export function useConversationListQuery () {
       { cursor, exclude_read: false },
     ),
     {
-      cacheTime: 0,
+      cacheTime: 1000,
       staleTime: 0,
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({
@@ -203,7 +203,7 @@ export function useMyThreadListQuery () {
       { cursor, exclude_read: false },
     ),
     {
-      cacheTime: 0,
+      cacheTime: 1000,
       staleTime: 0,
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({
@@ -326,7 +326,7 @@ export function useMessageListQuery ({ conversationId }, { order, pageSize = 20 
         order,
       },
       // load on demand... TODO: consider a bit more...
-      cacheTime: 0,
+      cacheTime: 1000,
       staleTime: 0,
       enabled: computed(() => Boolean(unref(conversationId))),
       getNextPageParam: page => extractCursor(page.next) || undefined,
@@ -369,7 +369,7 @@ export function useMessageThreadListQuery ({ messageId }, { order, pageSize } = 
       meta: {
         order,
       },
-      cacheTime: 0,
+      cacheTime: 1000,
       staleTime: 0,
       enabled: computed(() => Boolean(unref(messageId))),
       getNextPageParam: page => extractCursor(page.next) || undefined,

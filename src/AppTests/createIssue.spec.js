@@ -81,6 +81,7 @@ test('create issue', async () => {
 
   // TODO: add mock websockets, for now we need to manually invalidate...
   await require('@/base/queryClient').default.invalidateQueries()
+  await flushPromises()
 
   await findByText(messageContent)
 

@@ -7,22 +7,22 @@ exports[`Storyshots activities/components/ActivityEdit Normal 1`] = `
   </div>
   <form class="q-gutter-y-lg" style="max-width: 700px;">
     <!--v-if-->
-    <div class="row q-mt-xs"><label class="q-field row no-wrap items-start q-field--standard q-input q-mr-sm" for="f_80808080-8080-4080-8080-808080808080">
+    <div class="row q-mt-xs"><label class="q-field row no-wrap items-start q-field--standard q-input q-mr-sm" for="f_f8f68f5e-1734-4bdf-aea2-d110031ed2b5">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">access_time</i></div>
         <div class="q-field__inner relative-position col self-stretch">
           <div class="q-field__control relative-position row no-wrap" tabindex="-1">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" tabindex="0" size="9" id="f_80808080-8080-4080-8080-808080808080" type="text">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" tabindex="0" size="9" id="f_f8f68f5e-1734-4bdf-aea2-d110031ed2b5" type="text">
               <!---->
             </div>
           </div>
           <!---->
         </div>
         <!---->
-      </label><label class="q-field row no-wrap items-start q-field--standard q-input" for="f_80808080-8080-4080-8080-808080808080">
+      </label><label class="q-field row no-wrap items-start q-field--standard q-input" for="f_ed7f6616-5f62-486b-804f-6d21dcf3e51e">
         <!---->
         <div class="q-field__inner relative-position col self-stretch">
           <div class="q-field__control relative-position row no-wrap" tabindex="-1">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" tabindex="0" size="3" id="f_80808080-8080-4080-8080-808080808080" type="text">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" tabindex="0" size="3" id="f_ed7f6616-5f62-486b-804f-6d21dcf3e51e" type="text">
               <!---->
             </div>
           </div>
@@ -35,11 +35,11 @@ exports[`Storyshots activities/components/ActivityEdit Normal 1`] = `
         <div>When should it take place?</div>
       </div>
     </div>
-    <div><label class="q-field row no-wrap items-start q-field--standard q-input q-field--float q-field--labeled q-field--with-bottom" for="f_80808080-8080-4080-8080-808080808080">
+    <div><label class="q-field row no-wrap items-start q-field--standard q-input q-field--float q-field--labeled q-field--with-bottom" for="f_e02c39d6-344a-45fa-9bfd-66cc07f97c91">
         <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">group</i></div>
         <div class="q-field__inner relative-position col self-stretch">
           <div class="q-field__control relative-position row no-wrap" tabindex="-1">
-            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" style="max-width: 100px;" tabindex="0" aria-label="Max Slots" modelmodifiers="[object Object]" placeholder="unlimited" id="f_80808080-8080-4080-8080-808080808080" type="number">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" style="max-width: 100px;" tabindex="0" aria-label="Max Slots" modelmodifiers="[object Object]" placeholder="unlimited" id="f_e02c39d6-344a-45fa-9bfd-66cc07f97c91" type="number">
               <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
               <div class="q-slider q-slider--h q-slider--inactive inline no-wrap column q-slider--enabled q-slider--editable q-slider--label q-mx-sm self-end" role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="2" style="min-width: 60px;">
                 <div class="q-slider__track-container q-slider__track-container--h" tabindex="0">
@@ -79,11 +79,11 @@ exports[`Storyshots activities/components/ActivityEdit Normal 1`] = `
     </div>
     <div>
       <div class="mentionable" style="position: relative;">
-        <div class="relative-position q-mb-sm"><label class="q-field row no-wrap items-start q-field--standard q-textarea q-textarea--autogrow q-field--float q-field--labeled q-field--with-bottom" for="f_80808080-8080-4080-8080-808080808080">
+        <div class="relative-position q-mb-sm"><label class="q-field row no-wrap items-start q-field--standard q-textarea q-textarea--autogrow q-field--float q-field--labeled q-field--with-bottom" for="f_30cf052f-1009-4c45-ad63-2e10dc9d9164">
             <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">info</i></div>
             <div class="q-field__inner relative-position col self-stretch">
               <div class="q-field__control relative-position row no-wrap" tabindex="-1">
-                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: 100px; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_80808080-8080-4080-8080-808080808080" maxlength="500"></textarea>
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: 100px; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_30cf052f-1009-4c45-ad63-2e10dc9d9164" maxlength="500"></textarea>
                   <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
                   <!---->
                 </div>

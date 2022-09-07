@@ -479,21 +479,6 @@ export default {
       return this.$q.screen.width < 450 || this.$q.screen.height < 450
     },
   },
-  watch: {
-    isPending (val) {
-      const hasExceptions = () => {
-        const { activities } = this.edit
-        return activities.some(({ seriesMeta }) => seriesMeta.isDescriptionChanged || seriesMeta.isMaxParticipantsChanged || !seriesMeta.matchesRule)
-      }
-      if (!val && !this.hasAnyError && hasExceptions()) {
-        Dialog.create({
-          title: this.$t('CREATEACTIVITY.EXCEPTIONS_TITLE'),
-          message: this.$t('CREATEACTIVITY.EXCEPTIONS_MESSAGE', { upcomingLabel: this.$t('ACTIVITYMANAGE.UPCOMING_ACTIVITIES_IN_SERIES') }),
-          ok: this.$t('BUTTON.YES'),
-        })
-      }
-    },
-  },
   methods: {
     toggleDuration () {
       this.hasDuration = !this.hasDuration

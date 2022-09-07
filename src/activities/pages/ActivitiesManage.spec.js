@@ -59,6 +59,7 @@ describe('ActivitiesManage', () => {
     await findByText('One-time activities')
 
     await findByText('Tuesday')
+    await findByText('10:00 AM')
   })
 
   it('creates activity series', async () => {
@@ -82,24 +83,30 @@ describe('ActivitiesManage', () => {
     await findByText('Monday')
   })
 
-  it.skip('edits activity series', async () => {
+  it('edits activity series', async () => {
     const { click } = userEvent.setup()
 
-    const { findByText, getByText, getByRole } = render(ActivitiesManage, withDefaults())
+    const { queryByRole, findAllByText, getByText, getByRole, findByRole } = render(ActivitiesManage, withDefaults())
     await flushPromises()
+
+    expect(queryByRole('button', { name: /save changes/i })).not.toBeInTheDocument()
 
     await click(getByText('Tuesday'))
     // now ActivitySeriesEdit is open
     await click(getByRole('combobox', { name: /weekdays/i }))
     // add Wednesday
-    await click(await findByText(/Wednesday/i))
+    // somehow we need to click two times to activate the option
+    await click(await findByRole('option', { name: 'Wednesday' }))
+    await click(await findByRole('option', { name: 'Wednesday' }))
 
     await click(getByRole('button', { name: /save changes/i }))
-    await flushPromises()
 
     // TODO: add mock websockets, for now we need to manually invalidate...
     await require('@/base/queryClient').default.invalidateQueries()
+    await flushPromises()
 
-    await findByText('Wednesday')
+    expect(queryByRole('button', { name: /save changes/i })).toBeDisabled()
+
+    await findAllByText('Tuesday, Wednesday')
   })
 })

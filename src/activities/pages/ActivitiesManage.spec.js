@@ -5,7 +5,6 @@ import { flushPromises } from '@vue/test-utils'
 import { Dialog } from 'quasar'
 import { getRouter } from 'vue-router-mock'
 
-import router from '@/router'
 import { resetServices } from '@/utils/datastore/helpers'
 
 import { withDefaults } from '>/helpers'
@@ -30,8 +29,6 @@ Dialog.create = jest.fn(() => {
 
 describe('ActivitiesManage', () => {
   useMockBackend()
-  let activity
-  let activitySeries
   let activityType
 
   beforeEach(() => {
@@ -48,8 +45,8 @@ describe('ActivitiesManage', () => {
 
     activityType = createActivityType({ group: group.id })
     const place = createPlace({ group: group.id })
-    activitySeries = createActivitySeries({ place: place.id })
-    activity = createActivity({ place: place.id })
+    createActivitySeries({ place: place.id })
+    createActivity({ place: place.id })
 
     getRouter().setParams({ groupId: group.id, placeId: place.id })
   })
@@ -88,7 +85,7 @@ describe('ActivitiesManage', () => {
   it.skip('edits activity series', async () => {
     const { click } = userEvent.setup()
 
-    const { findByText, getByText, getAllByRole, findByRole, getByRole } = render(ActivitiesManage, withDefaults())
+    const { findByText, getByText, getByRole } = render(ActivitiesManage, withDefaults())
     await flushPromises()
 
     await click(getByText('Tuesday'))

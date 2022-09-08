@@ -19,6 +19,7 @@
             round
             color="green"
             icon="fas fa-plus"
+            :title="$t('ACTIVITY_TYPES.ADD')"
             @click="createNewActivityType()"
           />
         </template>

@@ -45,6 +45,7 @@
                 dense
                 flat
                 icon="fas fa-arrow-right"
+                data-testid="send-message"
                 @click="submit"
               />
               <QBtn

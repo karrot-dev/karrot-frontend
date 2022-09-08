@@ -1,4 +1,5 @@
 import { faker } from '@faker-js/faker'
+import { sum } from 'lodash'
 
 import { get } from './mockAxios'
 
@@ -26,4 +27,14 @@ export function generatePlace (params = {}) {
 
 export function createMockPlacesBackend () {
   get('/api/places/', () => [200, db.places])
+  get('/api/places/:id/statistics/', ({ pathParams }) => {
+    const activityIds = db.orm.activities.filter({ place: parseInt(pathParams.id) }).map(activity => activity.id)
+    const feedback = db.orm.feedback.filter({ about: id => activityIds.includes(id) })
+    return [200, {
+      feedbackCount: feedback.length,
+      feedbackWeight: sum(feedback.map(entry => entry.weight || 0)),
+      // TODO: make it add 'em up!
+      activitiesDone: 0,
+    }]
+  })
 }

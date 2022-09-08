@@ -272,7 +272,7 @@ import {
 } from 'quasar'
 import { ref, computed } from 'vue'
 
-import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityTypeHelpers } from '@/activities/helpers'
 import {
   useCreateActivityMutation,
   useCreateActivitySeriesMutation,
@@ -286,6 +286,7 @@ import { defaultDuration } from '@/activities/settings'
 import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
 import { useCurrentGroupService } from '@/group/services'
 import { useActivePlaceService } from '@/places/services'
+import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 
 import ActivityEdit from '@/activities/components/ActivityEdit'
 import ActivitySeriesEdit from '@/activities/components/ActivitySeriesEdit'
@@ -315,8 +316,6 @@ export default {
 
     const { groupId } = useCurrentGroupService()
     const { placeId } = useActivePlaceService()
-
-    const { getIsUpcoming } = useActivityHelpers()
 
     // Activity Types
 
@@ -351,12 +350,12 @@ export default {
     } = useActivityListQuery({
       placeId,
       pageSize: 1000,
+      dateMin: newDateRoundedTo5Minutes(),
     })
 
     // TODO: can I filter out series ones on the server?
     const activities = computed(() => activitiesRaw.value
-      .filter(activity => !activity.series)
-      .filter(getIsUpcoming))
+      .filter(activity => !activity.series))
 
     // Activity Series
 
@@ -396,6 +395,7 @@ export default {
     } = useActivityListQuery({
       seriesId: visibleSeriesId,
       pageSize: 100,
+      dateMin: newDateRoundedTo5Minutes(),
     }, {
       enabled: computed(() => Boolean(visibleSeriesId) && showSeriesActivities.value),
     })

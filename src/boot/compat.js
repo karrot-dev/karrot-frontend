@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 import { configureCompat } from 'vue'
 
 // for compatibility with vue-croppa

@@ -38,7 +38,6 @@ export function useApplicationListQuery ({
       cursor: pageParam,
     }),
     {
-      cacheTime: 0,
       staleTime: 0,
       enabled: computed(() => Boolean(unref(isLoggedIn) && (unref(groupId) || unref(userId)))),
       getNextPageParam: page => extractCursor(page.next) || undefined,

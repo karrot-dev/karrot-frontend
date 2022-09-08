@@ -1,3 +1,4 @@
+import { debounce } from 'quasar'
 import { unref, computed } from 'vue'
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
@@ -14,6 +15,8 @@ export const queryKeyActivityItem = activityId => [QUERY_KEY_BASE, 'item', activ
 export const queryKeyActivityTypeListAll = () => [QUERY_KEY_BASE, 'types']
 export const queryKeyActivitySeriesList = placeId => [QUERY_KEY_BASE, 'series', 'list', placeId].filter(Boolean)
 export const queryKeyActivityIcsToken = () => [QUERY_KEY_BASE, 'ics-token']
+
+const invalidateActivityList = debounce(queryClient => queryClient.invalidateQueries(queryKeyActivityList()), 500)
 
 export function useActivitiesUpdater () {
   const queryClient = useQueryClient()
@@ -32,7 +35,7 @@ export function useActivitiesUpdater () {
 
       // ... but even if we managed to update the value, the filters might be such that it doesn't belong in a list any more
       // TODO: could we check some more nuanced parameters to avoid invalidation?... group? place? activityType? things that don't change
-      queryClient.invalidateQueries(queryKeyActivityList())
+      invalidateActivityList(queryClient)
 
       queryClient.setQueryData(
         queryKeyActivityItem(updatedActivity.id),
@@ -44,7 +47,7 @@ export function useActivitiesUpdater () {
   on(
     'activities:activity_deleted',
     activity => {
-      queryClient.invalidateQueries(queryKeyActivityList())
+      invalidateActivityList(queryClient)
       queryClient.setQueryData(queryKeyActivityItem(activity.id), undefined)
     },
   )
@@ -106,11 +109,11 @@ export function useActivityListQuery ({
       pageSize,
     }),
     {
-      // setting cache to 0, as otherwise it seems to lag when switching filters to one with a cached result
+      // setting cache to 1 second, as otherwise it seems to lag when switching filters to one with a cached result
       // also, if there are LOADS of results cached, can be slow to re-render them all...
       // TODO: maybe explore some other solutions...
-      cacheTime: 0,
-      staleTime: 0,
+      cacheTime: 1000,
+      staleTime: 1000,
       enabled: computed(() => Boolean(unref(groupId)) || Boolean(unref(placeId))),
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({
@@ -146,6 +149,9 @@ export function useActivitySeriesListQuery ({ placeId }) {
   const query = useQuery(
     queryKeyActivitySeriesList(placeId),
     () => activitySeriesAPI.listByPlaceId(unref(placeId)),
+    {
+      enabled: computed(() => Boolean(unref(placeId))),
+    },
   )
   return {
     ...query,

@@ -40,7 +40,7 @@ export function useHistoryListQuery ({ groupId, placeId, userId }, queryOptions 
         pageParams,
       }),
       // keep it simple, don't leave it lying around cached...
-      cacheTime: 0,
+      cacheTime: 1000,
       staleTime: 0,
       ...queryOptions,
     },

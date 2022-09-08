@@ -165,31 +165,21 @@
     <QCardSection
       class="row no-padding full-width justify-end bottom-actions"
     >
+      <!--
+        button can be in 4 states where user:
+        - has not already joined, and has a suitable role to join
+        - has not already joined, but does not have suitable role, so cannot join
+        - has joined, but it's already started, so can't leave
+        - has joined, and can leave
+      -->
       <QBtn
-        v-if="canJoin"
-        flat
-        no-caps
-        :color="activityTypeIconProps.color"
-        class="action-button"
-        :loading="isJoining"
-        @click="join"
-      >
-        <QIcon
-          v-bind="activityTypeIconProps"
-          size="xs"
-          class="q-mr-sm"
-        />
-        <span class="block">
-          {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
-        </span>
-      </QBtn>
-      <QBtn
-        v-if="canLeave"
+        v-if="isUserParticipant"
         flat
         no-caps
         color="grey-9"
         class="action-button"
         :loading="isLeaving"
+        :disable="!canLeave"
         @click="leave"
       >
         <QIcon
@@ -200,6 +190,26 @@
         />
         <span class="block">
           {{ $t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
+        </span>
+      </QBtn>
+      <QBtn
+        v-else
+        flat
+        no-caps
+        :color="canJoin ? activityTypeIconProps.color : 'grey-5'"
+        class="action-button"
+        :loading="isJoining"
+        :disable="!canJoin"
+        @click="join"
+      >
+        <QIcon
+          v-bind="activityTypeIconProps"
+          :color="canJoin ? activityTypeIconProps.color : 'grey-5'"
+          size="xs"
+          class="q-mr-sm"
+        />
+        <span class="block">
+          {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
         </span>
       </QBtn>
       <QSpace />

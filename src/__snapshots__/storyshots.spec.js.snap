@@ -1,5 +1,241 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots activities/components/ActivityEdit Disabled 1`] = `
+<div class="edit-box">
+  <div class="q-mb-lg"><b class="text-negative">This is disabled.</b></div>
+  <form class="q-gutter-y-lg" style="max-width: 700px;">
+    <!--v-if-->
+    <div class="row q-mt-xs"><label class="q-field row no-wrap items-start q-field--standard q-input q-mr-sm" for="f_01010101-0101-4101-8101-010101010101">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">access_time</i></div>
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" tabindex="0" size="9" id="f_01010101-0101-4101-8101-010101010101" type="text">
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </label><label class="q-field row no-wrap items-start q-field--standard q-input" for="f_01010101-0101-4101-8101-010101010101">
+        <!---->
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" tabindex="0" size="3" id="f_01010101-0101-4101-8101-010101010101" type="text">
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        <div class="q-field__after q-field__marginal row no-wrap items-center"><button class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-ml-xs" style="font-size: 8px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="q-icon fas fa-plus" aria-hidden="true" role="img"> </i></span></button></div>
+      </label>
+      <!--v-if-->
+      <div class="q-ml-lg col-12 q-field__bottom">
+        <div>When should it take place?</div>
+      </div>
+    </div>
+    <div><label class="q-field row no-wrap items-start q-field--standard q-input q-field--float q-field--labeled q-field--with-bottom" for="f_01010101-0101-4101-8101-010101010101">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">group</i></div>
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" style="max-width: 100px;" tabindex="0" aria-label="Max Slots" modelmodifiers="[object Object]" placeholder="unlimited" id="f_01010101-0101-4101-8101-010101010101" type="number">
+              <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
+              <div class="q-slider q-slider--h q-slider--inactive inline no-wrap column q-slider--enabled q-slider--editable q-slider--label q-mx-sm self-end" role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="2" style="min-width: 60px;">
+                <div class="q-slider__track-container q-slider__track-container--h" tabindex="0">
+                  <div class="q-slider__track relative-position no-outline" style="height: 4px;">
+                    <div class="q-slider__inner absolute" style="left: 0%; width: 100%;"></div>
+                    <div class="q-slider__selection absolute" style="left: 0%; width: 11.11111111111111%;"></div>
+                    <div class="q-slider__markers q-slider__markers--h absolute overflow-hidden" style="left: 0%; width: 100%; background-size: 11.11111111111111% 2px;"></div>
+                    <div class="q-slider__thumb q-slider__thumb--h q-slider__thumb--h-ltr absolute non-selectable" style="width: 20px; height: 20px; left: 11.11111111111111%;"><svg class="q-slider__thumb-shape absolute-full" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
+                      </svg>
+                      <div class="q-slider__focus-ring fit"></div>
+                      <div class="q-slider__pin q-slider__pin--h q-slider__pin--h-standard absolute fit no-pointer-events">
+                        <div class="q-slider__label q-slider__label--h q-slider__label--h-standard" style="min-width: 20px;">
+                          <div class="q-slider__text-container q-slider__text-container--h q-slider__text-container--h-standard" style="transform: translateX(calc(-0.7777777777777778 * 20px / 2 + 38.888888888888886%));"><span class="q-slider__text">2</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="q-field__bottom row items-start q-field__bottom--animated">
+            <transition-stub>
+              <div class="q-field__messages col">
+                <div>How many people should participate?</div>
+              </div>
+            </transition-stub>
+            <!---->
+          </div>
+        </div>
+        <div class="q-field__after q-field__marginal row no-wrap items-center">
+          <!--v-if-->
+        </div>
+      </label>
+      <!--v-if-->
+    </div>
+    <div>
+      <div class="mentionable" style="position: relative;">
+        <div class="relative-position q-mb-sm"><label class="q-field row no-wrap items-start q-field--standard q-textarea q-textarea--autogrow q-field--float q-field--labeled q-field--with-bottom" for="f_01010101-0101-4101-8101-010101010101">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">info</i></div>
+            <div class="q-field__inner relative-position col self-stretch">
+              <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: 100px; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="500"></textarea>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+                  <!---->
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <transition-stub>
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
+                <!---->
+              </div>
+            </div>
+            <div class="q-field__after q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">undo</i></div>
+          </label><button class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable absolute-bottom-right bg-white" style="font-size: 8px; bottom: -10px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
+            <!----></span>
+          </button></div>
+        <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
+          <div></div>
+        </div>
+      </div>
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+    <div class="row justify-end q-gutter-sm q-mt-lg">
+      <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button>
+      <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-secondary text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Enable</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled" tabindex="-1" type="submit" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Save changes</span>
+        <transition-stub>
+          <!---->
+        </transition-stub>
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots activities/components/ActivityEdit Error 1`] = `
+<div class="edit-box">
+  <div class="q-mb-lg">
+    <!--v-if-->
+  </div>
+  <form class="q-gutter-y-lg" style="max-width: 700px;">
+    <!--v-if-->
+    <div class="row q-mt-xs"><label class="q-field row no-wrap items-start q-field--standard q-input q-field--error q-field--highlighted q-mr-sm" for="f_01010101-0101-4101-8101-010101010101">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">access_time</i></div>
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap text-negative" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" tabindex="0" size="9" id="f_01010101-0101-4101-8101-010101010101" type="text">
+              <!---->
+            </div>
+            <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i class="q-icon text-negative notranslate material-icons" aria-hidden="true" role="presentation">error</i></div>
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </label><label class="q-field row no-wrap items-start q-field--standard q-input q-field--error q-field--highlighted" for="f_01010101-0101-4101-8101-010101010101">
+        <!---->
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap text-negative" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" tabindex="0" size="3" id="f_01010101-0101-4101-8101-010101010101" type="text">
+              <!---->
+            </div>
+            <div class="q-field__append q-field__marginal row no-wrap items-center q-anchor--skip"><i class="q-icon text-negative notranslate material-icons" aria-hidden="true" role="presentation">error</i></div>
+          </div>
+          <!---->
+        </div>
+        <div class="q-field__after q-field__marginal row no-wrap items-center"><button class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-ml-xs" style="font-size: 8px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="q-icon fas fa-plus" aria-hidden="true" role="img"> </i></span></button></div>
+      </label>
+      <!--v-if-->
+      <div class="q-ml-lg col-12 q-field__bottom">
+        <div class="text-negative">Wrong time</div>
+      </div>
+    </div>
+    <div><label class="q-field row no-wrap items-start q-field--standard q-input q-field--float q-field--labeled q-field--with-bottom" for="f_01010101-0101-4101-8101-010101010101">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">group</i></div>
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" style="max-width: 100px;" tabindex="0" aria-label="Max Slots" modelmodifiers="[object Object]" placeholder="unlimited" id="f_01010101-0101-4101-8101-010101010101" type="number">
+              <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
+              <div class="q-slider q-slider--h q-slider--inactive inline no-wrap column q-slider--enabled q-slider--editable q-slider--label q-mx-sm self-end" role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="2" style="min-width: 60px;">
+                <div class="q-slider__track-container q-slider__track-container--h" tabindex="0">
+                  <div class="q-slider__track relative-position no-outline" style="height: 4px;">
+                    <div class="q-slider__inner absolute" style="left: 0%; width: 100%;"></div>
+                    <div class="q-slider__selection absolute" style="left: 0%; width: 11.11111111111111%;"></div>
+                    <div class="q-slider__markers q-slider__markers--h absolute overflow-hidden" style="left: 0%; width: 100%; background-size: 11.11111111111111% 2px;"></div>
+                    <div class="q-slider__thumb q-slider__thumb--h q-slider__thumb--h-ltr absolute non-selectable" style="width: 20px; height: 20px; left: 11.11111111111111%;"><svg class="q-slider__thumb-shape absolute-full" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
+                      </svg>
+                      <div class="q-slider__focus-ring fit"></div>
+                      <div class="q-slider__pin q-slider__pin--h q-slider__pin--h-standard absolute fit no-pointer-events">
+                        <div class="q-slider__label q-slider__label--h q-slider__label--h-standard" style="min-width: 20px;">
+                          <div class="q-slider__text-container q-slider__text-container--h q-slider__text-container--h-standard" style="transform: translateX(calc(-0.7777777777777778 * 20px / 2 + 38.888888888888886%));"><span class="q-slider__text">2</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="q-field__bottom row items-start q-field__bottom--animated">
+            <transition-stub>
+              <div class="q-field__messages col">
+                <div>How many people should participate?</div>
+              </div>
+            </transition-stub>
+            <!---->
+          </div>
+        </div>
+        <div class="q-field__after q-field__marginal row no-wrap items-center">
+          <!--v-if-->
+        </div>
+      </label>
+      <!--v-if-->
+    </div>
+    <div>
+      <div class="mentionable" style="position: relative;">
+        <div class="relative-position q-mb-sm"><label class="q-field row no-wrap items-start q-field--standard q-textarea q-textarea--autogrow q-field--float q-field--labeled q-field--with-bottom" for="f_01010101-0101-4101-8101-010101010101">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">info</i></div>
+            <div class="q-field__inner relative-position col self-stretch">
+              <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: 100px; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="500"></textarea>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+                  <!---->
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <transition-stub>
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
+                <!---->
+              </div>
+            </div>
+            <div class="q-field__after q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">undo</i></div>
+          </label><button class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable absolute-bottom-right bg-white" style="font-size: 8px; bottom: -10px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
+            <!----></span>
+          </button></div>
+        <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
+          <div></div>
+        </div>
+      </div>
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+    <div class="row justify-end q-gutter-sm q-mt-lg">
+      <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Disable</span></button>
+      <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled" tabindex="-1" type="submit" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Save changes</span>
+        <transition-stub>
+          <!---->
+        </transition-stub>
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
 exports[`Storyshots activities/components/ActivityEdit Normal 1`] = `
 <div class="edit-box">
   <div class="q-mb-lg">
@@ -31,6 +267,371 @@ exports[`Storyshots activities/components/ActivityEdit Normal 1`] = `
         <div class="q-field__after q-field__marginal row no-wrap items-center"><button class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-ml-xs" style="font-size: 8px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="q-icon fas fa-plus" aria-hidden="true" role="img"> </i></span></button></div>
       </label>
       <!--v-if-->
+      <div class="q-ml-lg col-12 q-field__bottom">
+        <div>When should it take place?</div>
+      </div>
+    </div>
+    <div><label class="q-field row no-wrap items-start q-field--standard q-input q-field--float q-field--labeled q-field--with-bottom" for="f_01010101-0101-4101-8101-010101010101">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">group</i></div>
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" style="max-width: 100px;" tabindex="0" aria-label="Max Slots" modelmodifiers="[object Object]" placeholder="unlimited" id="f_01010101-0101-4101-8101-010101010101" type="number">
+              <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
+              <div class="q-slider q-slider--h q-slider--inactive inline no-wrap column q-slider--enabled q-slider--editable q-slider--label q-mx-sm self-end" role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="2" style="min-width: 60px;">
+                <div class="q-slider__track-container q-slider__track-container--h" tabindex="0">
+                  <div class="q-slider__track relative-position no-outline" style="height: 4px;">
+                    <div class="q-slider__inner absolute" style="left: 0%; width: 100%;"></div>
+                    <div class="q-slider__selection absolute" style="left: 0%; width: 11.11111111111111%;"></div>
+                    <div class="q-slider__markers q-slider__markers--h absolute overflow-hidden" style="left: 0%; width: 100%; background-size: 11.11111111111111% 2px;"></div>
+                    <div class="q-slider__thumb q-slider__thumb--h q-slider__thumb--h-ltr absolute non-selectable" style="width: 20px; height: 20px; left: 11.11111111111111%;"><svg class="q-slider__thumb-shape absolute-full" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
+                      </svg>
+                      <div class="q-slider__focus-ring fit"></div>
+                      <div class="q-slider__pin q-slider__pin--h q-slider__pin--h-standard absolute fit no-pointer-events">
+                        <div class="q-slider__label q-slider__label--h q-slider__label--h-standard" style="min-width: 20px;">
+                          <div class="q-slider__text-container q-slider__text-container--h q-slider__text-container--h-standard" style="transform: translateX(calc(-0.7777777777777778 * 20px / 2 + 38.888888888888886%));"><span class="q-slider__text">2</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="q-field__bottom row items-start q-field__bottom--animated">
+            <transition-stub>
+              <div class="q-field__messages col">
+                <div>How many people should participate?</div>
+              </div>
+            </transition-stub>
+            <!---->
+          </div>
+        </div>
+        <div class="q-field__after q-field__marginal row no-wrap items-center">
+          <!--v-if-->
+        </div>
+      </label>
+      <!--v-if-->
+    </div>
+    <div>
+      <div class="mentionable" style="position: relative;">
+        <div class="relative-position q-mb-sm"><label class="q-field row no-wrap items-start q-field--standard q-textarea q-textarea--autogrow q-field--float q-field--labeled q-field--with-bottom" for="f_01010101-0101-4101-8101-010101010101">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">info</i></div>
+            <div class="q-field__inner relative-position col self-stretch">
+              <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: 100px; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="500"></textarea>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+                  <!---->
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <transition-stub>
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
+                <!---->
+              </div>
+            </div>
+            <div class="q-field__after q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">undo</i></div>
+          </label><button class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable absolute-bottom-right bg-white" style="font-size: 8px; bottom: -10px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
+            <!----></span>
+          </button></div>
+        <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
+          <div></div>
+        </div>
+      </div>
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+    <div class="row justify-end q-gutter-sm q-mt-lg">
+      <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Disable</span></button>
+      <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled" tabindex="-1" type="submit" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Save changes</span>
+        <transition-stub>
+          <!---->
+        </transition-stub>
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots activities/components/ActivityEdit Pending 1`] = `
+<div class="edit-box">
+  <div class="q-mb-lg">
+    <!--v-if-->
+  </div>
+  <form class="q-gutter-y-lg" style="max-width: 700px;">
+    <!--v-if-->
+    <div class="row q-mt-xs"><label class="q-field row no-wrap items-start q-field--standard q-input q-mr-sm" for="f_01010101-0101-4101-8101-010101010101">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">access_time</i></div>
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" tabindex="0" size="9" id="f_01010101-0101-4101-8101-010101010101" type="text">
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </label><label class="q-field row no-wrap items-start q-field--standard q-input" for="f_01010101-0101-4101-8101-010101010101">
+        <!---->
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" tabindex="0" size="3" id="f_01010101-0101-4101-8101-010101010101" type="text">
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        <div class="q-field__after q-field__marginal row no-wrap items-center"><button class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-ml-xs" style="font-size: 8px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="q-icon fas fa-plus" aria-hidden="true" role="img"> </i></span></button></div>
+      </label>
+      <!--v-if-->
+      <div class="q-ml-lg col-12 q-field__bottom">
+        <div>When should it take place?</div>
+      </div>
+    </div>
+    <div><label class="q-field row no-wrap items-start q-field--standard q-input q-field--float q-field--labeled q-field--with-bottom" for="f_01010101-0101-4101-8101-010101010101">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">group</i></div>
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" style="max-width: 100px;" tabindex="0" aria-label="Max Slots" modelmodifiers="[object Object]" placeholder="unlimited" id="f_01010101-0101-4101-8101-010101010101" type="number">
+              <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
+              <div class="q-slider q-slider--h q-slider--inactive inline no-wrap column q-slider--enabled q-slider--editable q-slider--label q-mx-sm self-end" role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="2" style="min-width: 60px;">
+                <div class="q-slider__track-container q-slider__track-container--h" tabindex="0">
+                  <div class="q-slider__track relative-position no-outline" style="height: 4px;">
+                    <div class="q-slider__inner absolute" style="left: 0%; width: 100%;"></div>
+                    <div class="q-slider__selection absolute" style="left: 0%; width: 11.11111111111111%;"></div>
+                    <div class="q-slider__markers q-slider__markers--h absolute overflow-hidden" style="left: 0%; width: 100%; background-size: 11.11111111111111% 2px;"></div>
+                    <div class="q-slider__thumb q-slider__thumb--h q-slider__thumb--h-ltr absolute non-selectable" style="width: 20px; height: 20px; left: 11.11111111111111%;"><svg class="q-slider__thumb-shape absolute-full" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
+                      </svg>
+                      <div class="q-slider__focus-ring fit"></div>
+                      <div class="q-slider__pin q-slider__pin--h q-slider__pin--h-standard absolute fit no-pointer-events">
+                        <div class="q-slider__label q-slider__label--h q-slider__label--h-standard" style="min-width: 20px;">
+                          <div class="q-slider__text-container q-slider__text-container--h q-slider__text-container--h-standard" style="transform: translateX(calc(-0.7777777777777778 * 20px / 2 + 38.888888888888886%));"><span class="q-slider__text">2</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="q-field__bottom row items-start q-field__bottom--animated">
+            <transition-stub>
+              <div class="q-field__messages col">
+                <div>How many people should participate?</div>
+              </div>
+            </transition-stub>
+            <!---->
+          </div>
+        </div>
+        <div class="q-field__after q-field__marginal row no-wrap items-center">
+          <!--v-if-->
+        </div>
+      </label>
+      <!--v-if-->
+    </div>
+    <div>
+      <div class="mentionable" style="position: relative;">
+        <div class="relative-position q-mb-sm"><label class="q-field row no-wrap items-start q-field--standard q-textarea q-textarea--autogrow q-field--float q-field--labeled q-field--with-bottom" for="f_01010101-0101-4101-8101-010101010101">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">info</i></div>
+            <div class="q-field__inner relative-position col self-stretch">
+              <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: 100px; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="500"></textarea>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+                  <!---->
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <transition-stub>
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
+                <!---->
+              </div>
+            </div>
+            <div class="q-field__after q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">undo</i></div>
+          </label><button class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable absolute-bottom-right bg-white" style="font-size: 8px; bottom: -10px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
+            <!----></span>
+          </button></div>
+        <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
+          <div></div>
+        </div>
+      </div>
+      <!--v-if-->
+    </div>
+    <!--v-if-->
+    <div class="row justify-end q-gutter-sm q-mt-lg">
+      <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Disable</span></button>
+      <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled" tabindex="-1" type="submit" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row q-btn__content--hidden">Save changes</span>
+        <transition-stub><span class="absolute-full flex flex-center"><svg class="q-spinner q-spinner-mat" width="1em" height="1em" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10"></circle></svg></span></transition-stub>
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots activities/components/ActivityEdit Series Changed 1`] = `
+<div class="edit-box">
+  <div class="q-mb-lg">
+    <!--v-if-->
+  </div>
+  <form class="q-gutter-y-lg" style="max-width: 700px;">
+    <!--v-if-->
+    <div class="row q-mt-xs"><label class="q-field row no-wrap items-start q-field--standard q-input q-mr-sm" for="f_01010101-0101-4101-8101-010101010101">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">access_time</i></div>
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" tabindex="0" size="9" id="f_01010101-0101-4101-8101-010101010101" type="text">
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </label><label class="q-field row no-wrap items-start q-field--standard q-input" for="f_01010101-0101-4101-8101-010101010101">
+        <!---->
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" tabindex="0" size="3" id="f_01010101-0101-4101-8101-010101010101" type="text">
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        <div class="q-field__after q-field__marginal row no-wrap items-center"><button class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-ml-xs" style="font-size: 8px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="q-icon fas fa-plus" aria-hidden="true" role="img"> </i></span></button></div>
+      </label>
+      <!--v-if-->
+      <div class="q-ml-lg col-12 q-field__bottom">
+        <div>When should it take place?</div>
+      </div>
+    </div>
+    <div><label class="q-field row no-wrap items-start q-field--standard q-input q-field--float q-field--labeled q-field--with-bottom" for="f_01010101-0101-4101-8101-010101010101">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">group</i></div>
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" style="max-width: 100px;" tabindex="0" aria-label="Max Slots" modelmodifiers="[object Object]" placeholder="unlimited" id="f_01010101-0101-4101-8101-010101010101" type="number">
+              <div class="q-field__label no-pointer-events absolute ellipsis">Max Slots</div>
+              <div class="q-slider q-slider--h q-slider--inactive inline no-wrap column q-slider--enabled q-slider--editable q-slider--label q-mx-sm self-end" role="slider" aria-valuemin="1" aria-valuemax="10" aria-orientation="horizontal" data-step="1" aria-valuenow="2" style="min-width: 60px;">
+                <div class="q-slider__track-container q-slider__track-container--h" tabindex="0">
+                  <div class="q-slider__track relative-position no-outline" style="height: 4px;">
+                    <div class="q-slider__inner absolute" style="left: 0%; width: 100%;"></div>
+                    <div class="q-slider__selection absolute" style="left: 0%; width: 11.11111111111111%;"></div>
+                    <div class="q-slider__markers q-slider__markers--h absolute overflow-hidden" style="left: 0%; width: 100%; background-size: 11.11111111111111% 2px;"></div>
+                    <div class="q-slider__thumb q-slider__thumb--h q-slider__thumb--h-ltr absolute non-selectable" style="width: 20px; height: 20px; left: 11.11111111111111%;"><svg class="q-slider__thumb-shape absolute-full" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M 4, 10 a 6,6 0 1,0 12,0 a 6,6 0 1,0 -12,0"></path>
+                      </svg>
+                      <div class="q-slider__focus-ring fit"></div>
+                      <div class="q-slider__pin q-slider__pin--h q-slider__pin--h-standard absolute fit no-pointer-events">
+                        <div class="q-slider__label q-slider__label--h q-slider__label--h-standard" style="min-width: 20px;">
+                          <div class="q-slider__text-container q-slider__text-container--h q-slider__text-container--h-standard" style="transform: translateX(calc(-0.7777777777777778 * 20px / 2 + 38.888888888888886%));"><span class="q-slider__text">2</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="q-field__bottom row items-start q-field__bottom--animated">
+            <transition-stub>
+              <div class="q-field__messages col">
+                <div>How many people should participate?</div>
+              </div>
+            </transition-stub>
+            <!---->
+          </div>
+        </div>
+        <div class="q-field__after q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">undo</i></div>
+      </label>
+      <div class="q-ml-lg col-12 q-field__bottom text-warning"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">warning</i> This value differs from the default. To undo this change, click on the arrow button and save the changes.</div>
+    </div>
+    <div>
+      <div class="mentionable" style="position: relative;">
+        <div class="relative-position q-mb-sm"><label class="q-field row no-wrap items-start q-field--standard q-textarea q-textarea--autogrow q-field--float q-field--labeled q-field--with-bottom" for="f_01010101-0101-4101-8101-010101010101">
+            <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">info</i></div>
+            <div class="q-field__inner relative-position col self-stretch">
+              <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+                <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: 100px; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="500"></textarea>
+                  <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
+                  <!---->
+                </div>
+              </div>
+              <div class="q-field__bottom row items-start q-field__bottom--animated">
+                <transition-stub>
+                  <div class="q-field__messages col"></div>
+                </transition-stub>
+                <!---->
+              </div>
+            </div>
+            <div class="q-field__after q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">undo</i></div>
+          </label><button class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable absolute-bottom-right bg-white" style="font-size: 8px; bottom: -10px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
+            <!----></span>
+          </button></div>
+        <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
+          <div></div>
+        </div>
+      </div>
+      <div class="q-ml-lg col-12 q-field__bottom text-warning"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">warning</i> This value differs from the default. To undo this change, click on the arrow button and save the changes.</div>
+    </div>
+    <!--v-if-->
+    <div class="row justify-end q-gutter-sm q-mt-lg">
+      <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Disable</span></button>
+      <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled" tabindex="-1" type="submit" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Save changes</span>
+        <transition-stub>
+          <!---->
+        </transition-stub>
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots activities/components/ActivityEdit With Duration 1`] = `
+<div class="edit-box">
+  <div class="q-mb-lg">
+    <!--v-if-->
+  </div>
+  <form class="q-gutter-y-lg" style="max-width: 700px;">
+    <!--v-if-->
+    <div class="row q-mt-xs"><label class="q-field row no-wrap items-start q-field--standard q-input q-mr-sm" for="f_01010101-0101-4101-8101-010101010101">
+        <div class="q-field__before q-field__marginal row no-wrap items-center"><i class="q-icon notranslate material-icons" aria-hidden="true" role="presentation">access_time</i></div>
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" tabindex="0" size="9" id="f_01010101-0101-4101-8101-010101010101" type="text">
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </label><label class="q-field row no-wrap items-start q-field--standard q-input" for="f_01010101-0101-4101-8101-010101010101">
+        <!---->
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" tabindex="0" size="3" id="f_01010101-0101-4101-8101-010101010101" type="text">
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        <div class="q-field__after q-field__marginal row no-wrap items-center">
+          <!--v-if-->
+        </div>
+      </label>
+      <div class="q-px-md self-center">to</div><label class="q-field row no-wrap items-start q-field--standard q-input" for="f_01010101-0101-4101-8101-010101010101">
+        <!---->
+        <div class="q-field__inner relative-position col self-stretch">
+          <div class="q-field__control relative-position row no-wrap" tabindex="-1">
+            <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><input class="q-field__native q-placeholder" tabindex="0" size="3" id="f_01010101-0101-4101-8101-010101010101" type="text">
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        <div class="q-field__after q-field__marginal row no-wrap items-center"><i class="q-icon text-grey notranslate material-icons cursor-pointer" aria-hidden="true" role="presentation">cancel</i>
+          <div class="text-caption q-ml-xs"> () </div>
+        </div>
+      </label>
       <div class="q-ml-lg col-12 q-field__bottom">
         <div>When should it take place?</div>
       </div>

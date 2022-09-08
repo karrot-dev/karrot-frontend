@@ -10,7 +10,6 @@ import {
 } from '>/mockBackend'
 
 import ActivityEdit from './ActivityEdit'
-// const ActivityEdit = () => require('./ActivityEdit').default
 
 const group = createGroup()
 const place = createPlace({ group: group.id })
@@ -36,82 +35,59 @@ Normal.args = {
   status: statusMocks.default(),
 }
 
-/*
-storiesOf('ActivityEdit', module)
-  .add('default', () => defaults({
-    store,
-    render () {
-      return h(ActivityEdit(), {
-        value: activity,
-        series,
-        status: statusMocks.default(),
-      })
+export const Disabled = Template.bind({})
+
+Disabled.args = {
+  value: {
+    ...activity,
+    isDisabled: true,
+  },
+  series,
+  status: statusMocks.default(),
+}
+
+export const WithDuration = Template.bind({})
+
+WithDuration.args = {
+  value: {
+    ...activity,
+    hasDuration: true,
+  },
+  series,
+  status: statusMocks.default(),
+}
+
+export const SeriesChanged = Template.bind({})
+// TODO seriesMeta does not exist on activity anymore - figure out some other solution
+
+SeriesChanged.args = {
+  value: {
+    ...activity,
+    seriesMeta: {
+      isMaxParticipantsChanged: true,
+      isDescriptionChanged: true,
     },
-  }))
-  .add('disabled', () => defaults({
-    store,
-    render () {
-      return h(ActivityEdit(), {
-        value: {
-          ...activity,
-          isDisabled: true,
-        },
-        series,
-        status: statusMocks.default(),
-      })
-    },
-  }))
-  .add('with duration', () => defaults({
-    store,
-    render () {
-      return h(ActivityEdit(), {
-        value: {
-          ...activity,
-          hasDuration: true,
-        },
-        series,
-        status: statusMocks.default(),
-      })
-    },
-  }))
-  .add('series changed', () => defaults({
-    store,
-    render () {
-      return h(ActivityEdit(), {
-        value: {
-          ...activity,
-          seriesMeta: {
-            isMaxParticipantsChanged: true,
-            isDescriptionChanged: true,
-          },
-        },
-        series: {
-          ...series,
-          description: 'other',
-          maxParticipants: 1,
-        },
-        status: statusMocks.default(),
-      })
-    },
-  }))
-  .add('pending', () => defaults({
-    store,
-    render () {
-      return h(ActivityEdit(), {
-        value: activity,
-        series,
-        status: statusMocks.pending(),
-      })
-    },
-  }))
-  .add('error', () => defaults({
-    store,
-    render () {
-      return h(ActivityEdit(), {
-        value: activity,
-        series,
-        status: statusMocks.validationError('date', 'Wrong time'),
-      })
-    },
-  }))
-*/
+  },
+  series: {
+    ...series,
+    description: 'other',
+    maxParticipants: 1,
+  },
+  status: statusMocks.default(),
+}
+
+export const Pending = Template.bind({})
+
+Pending.args = {
+  value: activity,
+  series,
+  status: statusMocks.pending(),
+}
+
+export const Error = Template.bind({})
+
+Error.args = {
+  value: activity,
+  series,
+  status: statusMocks.validationError('date', 'Wrong time'),
+}

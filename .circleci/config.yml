@@ -103,7 +103,8 @@ jobs:
               --coverage \
               --runInBand \
               --reporters=default \
-              --reporters=jest-junit
+              --reporters=jest-junit \
+              --verbose
       - run: bash <(curl -s https://codecov.io/bash) || true
       - store_test_results:
           path: test-reports

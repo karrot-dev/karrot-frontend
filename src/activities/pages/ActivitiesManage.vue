@@ -423,9 +423,6 @@ export default {
     })
 
     function saveSeries (series) {
-      // Hiding these, as when we update a series it causes a volley of websocket updates for each activity, which then causes a load of reloads
-      // TODO: consider doing something better about that problem
-      showSeriesActivities.value = false
       saveSeriesMutate(series)
     }
 

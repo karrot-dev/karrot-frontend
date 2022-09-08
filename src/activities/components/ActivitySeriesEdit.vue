@@ -553,18 +553,22 @@ export default {
         },
       })
         .onOk(({ updatedMessage }) => {
-          this.edit.updatedMessage = updatedMessage
-          this.save()
+          if (updatedMessage) {
+            this.save({ updatedMessage })
+          }
+          else {
+            this.save()
+          }
         })
     },
-    destroy (event) {
+    destroy () {
       Dialog.create({
         title: this.$t('ACTIVITYDELETE.DELETE_SERIES_TITLE'),
         message: this.$t('ACTIVITYDELETE.DELETE_SERIES_TEXT'),
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.YES'),
       })
-        .onOk(() => this.$emit('destroy', this.value.id, event))
+        .onOk(() => this.$emit('destroy', this.value.id))
     },
   },
 }

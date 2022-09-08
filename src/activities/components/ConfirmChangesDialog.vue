@@ -4,7 +4,7 @@
     @hide="onDialogHide"
   >
     <QCard class="q-dialog-plugin">
-      <form @submit.prevent="onDialogOK({ updatedMessage })">
+      <form @submit.prevent.stop="submit">
         <QCardSection class="q-dialog__title">
           {{ $t('HISTORY.CONFIRM_CHANGES') }}
         </QCardSection>
@@ -12,7 +12,7 @@
           {{ $t('HISTORY.CONFIRM_CHANGES_HINT') }}
         </QCardSection>
         <QCardSection
-          v-if="participants.length > 0"
+          v-if="willRemoveUsers"
           class="q-dialog__message"
         >
           <QBanner class="bg-orange-2">
@@ -34,10 +34,12 @@
         </QCardSection>
         <QCardSection class="q-dialog__message">
           <QInput
+            ref="updatedMessageRef"
             v-model="updatedMessage"
             autogrow
             outlined
             autofocus
+            :rules="[val => !willRemoveUsers || Boolean(val) || $t('VALIDATION.REQUIRED')]"
           />
         </QCardSection>
         <QCardSection align="right">
@@ -52,7 +54,6 @@
             color="primary"
             type="submit"
             :label="$t('BUTTON.SAVE_CHANGES')"
-            @click="onDialogOK({ updatedMessage })"
           />
         </QCardSection>
       </form>
@@ -74,6 +75,7 @@ import { computed, ref } from 'vue'
 
 import { useUserService } from '@/users/services'
 
+const updatedMessageRef = ref(null)
 const updatedMessage = ref('')
 
 const props = defineProps({
@@ -92,7 +94,14 @@ const {
   onDialogCancel,
 } = useDialogPluginComponent()
 
+function submit () {
+  updatedMessageRef.value.validate()
+  if (updatedMessageRef.value.hasError) return
+  onDialogOK({ updatedMessage: updatedMessage.value })
+}
+
 const { getUserById } = useUserService()
 
+const willRemoveUsers = computed(() => props.participants.length > 0)
 const users = computed(() => props.participants.map(participant => getUserById(participant.user)))
 </script>

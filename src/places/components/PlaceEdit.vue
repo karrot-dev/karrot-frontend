@@ -348,14 +348,14 @@ export default {
       this.v$.edit.$reset()
       this.save()
     },
-    archive (event) {
+    archive () {
       Dialog.create({
         title: this.$t('STOREEDIT.DIALOGS.ARCHIVE.TITLE'),
         message: this.$t('STOREEDIT.DIALOGS.ARCHIVE.MESSAGE'),
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('STOREEDIT.DIALOGS.ARCHIVE.CONFIRM'),
       })
-        .onOk(() => this.$emit('save', { id: this.value.id, status: 'archived' }, event))
+        .onOk(() => this.$emit('save', { id: this.value.id, status: 'archived' }))
     },
   },
   validations: {

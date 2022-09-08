@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
-// import { Dialog } from 'quasar'
+import { Dialog } from 'quasar'
 
 import { resetServices } from '@/utils/datastore/helpers'
 
@@ -19,11 +19,9 @@ import '>/routerMocks'
 
 import EditActivityTypes from './EditActivityTypes'
 
-/*
 Dialog.create = jest.fn(() => {
   return { onOk (fn) { fn('') } }
 })
-*/
 
 describe('EditActivityTypes', () => {
   useMockBackend()
@@ -70,7 +68,7 @@ describe('EditActivityTypes', () => {
     await findByText('Pickup')
   })
 
-  it.skip('edits activity type name', async () => {
+  it('edits activity type name', async () => {
     const activityType = createActivityType({ group: group.id })
     const { click, type, clear } = userEvent.setup()
 

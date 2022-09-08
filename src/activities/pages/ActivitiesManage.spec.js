@@ -2,6 +2,7 @@ import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
+import { Dialog } from 'quasar'
 import { getRouter } from 'vue-router-mock'
 
 import { resetServices } from '@/utils/datastore/helpers'
@@ -21,6 +22,10 @@ import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
 import ActivitiesManage from './ActivitiesManage'
+
+Dialog.create = jest.fn(() => {
+  return { onOk (fn) { fn('') } }
+})
 
 describe('ActivitiesManage', () => {
   useMockBackend()

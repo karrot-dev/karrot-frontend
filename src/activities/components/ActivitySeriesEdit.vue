@@ -357,10 +357,12 @@ import { useActivityTypeService } from '@/activities/services'
 import { defaultDuration } from '@/activities/settings'
 import { formatSeconds } from '@/activities/utils'
 import { dayOptions } from '@/base/i18n'
+import { useUserService } from '@/users/services'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
 import ActivityItem from '@/activities/components/ActivityItem'
+import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog'
 import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 
@@ -393,9 +395,11 @@ export default {
     'destroy',
   ],
   setup () {
+    const { getUserById } = useUserService()
     const { getActivityTypeById } = useActivityTypeService()
     const { getIconProps } = useActivityTypeHelpers()
     return {
+      getUserById,
       getActivityTypeById,
       getIconProps,
     }
@@ -541,24 +545,17 @@ export default {
     },
     async maybeSave () {
       if (!this.canSave) return
-      const { willRemoveCount } = await activitySeriesAPI.checkSave({ ...this.getPatchData(), id: this.value.id })
-      if (willRemoveCount !== 0) {
-        Dialog.create({
-          title: 'Confirm changes',
-          message: `If you change then ${willRemoveCount} signed up activity slots will be cleared, write them a message to explain the changes:`,
-          prompt: {
-            outlined: true,
-            model: '',
-            type: 'textarea',
-          },
-          ok: 'OK',
-          cancel: this.$t('BUTTON.CANCEL'),
+      const { participants } = await activitySeriesAPI.checkSave({ ...this.getPatchData(), id: this.value.id })
+      Dialog.create({
+        component: ConfirmChangesDialog,
+        componentProps: {
+          participants,
+        },
+      })
+        .onOk(({ updatedMessage }) => {
+          this.edit.updatedMessage = updatedMessage
+          this.save()
         })
-          .onOk(message => this.save())
-      }
-      else {
-        this.save()
-      }
     },
     destroy (event) {
       Dialog.create({

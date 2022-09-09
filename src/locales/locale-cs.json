@@ -72,16 +72,16 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "To je zakázáno.",
     "ACTIVITY_STARTED": "Toto již začalo.",
-    "AVAILABLE": "There are activities in your favorite places waiting for you!",
+    "AVAILABLE": "Čekají na vás aktivity na vašich oblíbených místech!",
     "AVAILABLE_FEEDBACK": "Můžete dát zpětnou vazbu | {count} aktivity čekají na vaši zpětnou vazbu",
     "FILTER": {
       "ALL": "Vše",
       "ALL_TYPES": "Všechny typy",
-      "ALL_PLACES": "All places",
-      "ALL_FAVOURITE_PLACES": "All favourite places",
+      "ALL_PLACES": "Všechna místa",
+      "ALL_FAVOURITE_PLACES": "Všechna oblíbená místa",
       "EMPTY": "Pouze prázdný",
       "FREE": "S volnými sloty",
-      "JOINED": "Joined"
+      "JOINED": "Připojen"
     },
     "ITEM": {
       "JOIN": "Připojit",
@@ -305,7 +305,7 @@
     "REPLIES_COUNT": "1 odpověď | {count} odpovědi",
     "REPLY_TO_MESSAGE": "Odpovědět na zprávu ...",
     "UNREAD_MESSAGES": "Máte jednu nepřečtenou zprávu. | Máte {count} nepřečtené zprávy.",
-    "LOAD_EARLIER_MESSAGES": "Load earlier messages"
+    "LOAD_EARLIER_MESSAGES": "Načtení dřívějších zpráv"
   },
   "CREATEACTIVITY": {
     "COMMENT": "Dodatečné informace",
@@ -513,6 +513,11 @@
   },
   "INFO": "Info",
   "ISSUE": {
+    "STATUS": {
+      "ONGOING": "Ongoing",
+      "DECIDED": "Decided",
+      "CANCELLED": "Cancelled"
+    },
     "CHAT": "Chat",
     "CREATION": {
       "TOAST": "Úspěšně jste zahájili proces řešení konfliktů"

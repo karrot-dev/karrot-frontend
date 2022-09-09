@@ -513,6 +513,11 @@
   },
   "INFO": "정보",
   "ISSUE": {
+    "STATUS": {
+      "ONGOING": "Ongoing",
+      "DECIDED": "Decided",
+      "CANCELLED": "Cancelled"
+    },
     "CHAT": "채팅",
     "CREATION": {
       "TOAST": "갈등 해결 프로세스를 성공적으로 시작하셨습니다"

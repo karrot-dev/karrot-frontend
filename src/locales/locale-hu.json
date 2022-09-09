@@ -513,6 +513,11 @@
   },
   "INFO": "Infó",
   "ISSUE": {
+    "STATUS": {
+      "ONGOING": "Ongoing",
+      "DECIDED": "Decided",
+      "CANCELLED": "Cancelled"
+    },
     "CHAT": "Beszélgetés",
     "CREATION": {
       "TOAST": "Sikeresen indítottál konfliktusmegoldási folyamatot"

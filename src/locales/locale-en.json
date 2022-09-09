@@ -516,6 +516,11 @@
   },
   "INFO": "Info",
   "ISSUE": {
+    "STATUS": {
+      "ONGOING": "Ongoing",
+      "DECIDED": "Decided",
+      "CANCELLED": "Cancelled"
+    },
     "CHAT": "Chat",
     "CREATION": {
       "TOAST": "You successfully started a conflict resolution process"

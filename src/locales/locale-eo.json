@@ -513,6 +513,11 @@
   },
   "INFO": "Informo",
   "ISSUE": {
+    "STATUS": {
+      "ONGOING": "Ongoing",
+      "DECIDED": "Decided",
+      "CANCELLED": "Cancelled"
+    },
     "CHAT": "Babilejo",
     "CREATION": {
       "TOAST": "Vi sukcese komencis problemsolvadan proceson"

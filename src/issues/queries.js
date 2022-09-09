@@ -2,6 +2,7 @@ import { computed, unref } from 'vue'
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
 import api from '@/issues/api/issues'
+import { paginationHelpers } from '@/messages/queries'
 import { useSocketEvents } from '@/utils/composables'
 import { extractCursor, flattenPaginatedData, useQueryHelpers } from '@/utils/queryHelpers'
 
@@ -35,14 +36,15 @@ export function useIssuesUpdater () {
 export function useIssueListQuery ({ groupId, status }) {
   const query = useInfiniteQuery(
     queryKeyIssueList({ groupId, status }),
-    () => api.list({
+    ({ pageParam }) => api.list({
       group: unref(groupId),
       status: unref(status),
+      cursor: pageParam,
     }),
     {
       enabled: computed(() => Boolean(unref(groupId))), // group is required
       // TODO: explore these more
-      cacheTime: 0,
+      cacheTime: 1000,
       staleTime: 0,
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({
@@ -53,6 +55,7 @@ export function useIssueListQuery ({ groupId, status }) {
   )
   return {
     ...query,
+    ...paginationHelpers(query),
     issues: flattenPaginatedData(query),
   }
 }

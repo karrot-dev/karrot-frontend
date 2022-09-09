@@ -38,6 +38,7 @@
             <QCheckbox
               :model-value="notificationIsEnabled(type)"
               :disable="notificationIsPending(type)"
+              :title="$t('GROUP.NOTIFICATION_TYPES.' + type + '.NAME')"
               @update:model-value="value => change(type, value)"
             />
           </QItemSection>

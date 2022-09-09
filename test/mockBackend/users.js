@@ -1,6 +1,8 @@
 import { faker } from '@faker-js/faker'
 import { pick } from 'lodash'
 
+import { groupIdsForUser } from '>/mockBackend/groups'
+
 import { get } from './mockAxios'
 
 import { db } from './index'
@@ -43,6 +45,19 @@ export function toUserInfo (user) {
   ])
 }
 
+export function toUserDetail (user) {
+  return {
+    ...user,
+    groups: groupIdsForUser(user),
+  }
+}
+
 export function createMockUsersBackend () {
   get('/api/users/', () => [200, db.users.map(toUserInfo)])
+  get('/api/users/:id/profile/', ({ pathParams }) => {
+    // TODO: add filters... not all users should be accessible...
+    const user = db.orm.users.get({ id: parseInt(pathParams.id) }, null)
+    if (!user) return [404]
+    return [200, toUserDetail(user)]
+  })
 }

@@ -1,4 +1,4 @@
-import lolex from 'lolex'
+import FakeTimers from '@sinonjs/fake-timers'
 
 import { mountWithDefaults } from '>/helpers'
 
@@ -8,7 +8,7 @@ describe('DateAsWords', () => {
   let DateAsWords, clock
   beforeEach(() => {
     jest.resetModules()
-    clock = lolex.install({ now, toFake: ['Date'] })
+    clock = FakeTimers.install({ now, toFake: ['Date'] })
     DateAsWords = require('./DateAsWords').default
   })
   afterEach(() => {

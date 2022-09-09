@@ -513,6 +513,11 @@
   },
   "INFO": "जानकारी",
   "ISSUE": {
+    "STATUS": {
+      "ONGOING": "Ongoing",
+      "DECIDED": "Decided",
+      "CANCELLED": "Cancelled"
+    },
     "CHAT": "चैट",
     "CREATION": {
       "TOAST": "आपने सफलतापूर्वक एक संकल्प समाधान प्रक्रिया शुरू की"

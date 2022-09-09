@@ -30,7 +30,6 @@ export function useNotificationListQuery (_, queryOptions = {}) {
       cursor: pageParam,
     }),
     {
-      cacheTime: 0,
       staleTime: 0,
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({

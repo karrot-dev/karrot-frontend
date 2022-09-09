@@ -6,6 +6,7 @@
       :label="$t('USERDETAIL.PASSWORD')"
       :error="hasError('newPassword')"
       :error-message="firstError('newPassword')"
+      data-testid="change-password-new-password"
     >
       <template #before>
         <QIcon name="fas fa-lock" />
@@ -18,6 +19,7 @@
       :label="$t('USERDETAIL.OLD_PASSWORD')"
       :error="hasError('oldPassword')"
       :error-message="firstError('oldPassword')"
+      data-testid="change-password-old-password"
     >
       <template #before>
         <QIcon name="fas fa-unlock" />

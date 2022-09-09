@@ -1,9 +1,10 @@
 import MockAdapter from 'axios-mock-adapter'
+import { isPlainObject } from 'lodash'
 import { pathToRegexp } from 'path-to-regexp'
 import 'blob-polyfill'
 
 import axios from '@/base/api/axios'
-import { camelizeKeys, underscorizeKeys } from '@/utils/utils'
+import { camelizeKeys, underscorize } from '@/utils/utils'
 
 import { ctx } from './index'
 
@@ -40,6 +41,14 @@ export function patch (path, handler, options = {}) {
   on('patch', path, handler, options)
 }
 
+export function put (path, handler, options = {}) {
+  on('put', path, handler, options)
+}
+
+export function delete_ (path, handler, options = {}) {
+  on('delete', path, handler, options)
+}
+
 function on (method, path, handler, options = {}) {
   const {
     requireAuth = true,
@@ -50,9 +59,12 @@ function on (method, path, handler, options = {}) {
       case 'get': return mockAxios.onGet(path)
       case 'post': return mockAxios.onPost(path)
       case 'patch': return mockAxios.onPatch(path)
+      case 'put': return mockAxios.onPut(path)
+      case 'delete': return mockAxios.onDelete(path)
       default: throw new Error('have not implemented method: ' + method)
     }
   }
+
   // If we have a path with params/:like/:this/, we  match/extract them
   // They are available to the handler as pathParams
   const matcher = path.includes(':') ? createPathMatcher(path) : null
@@ -79,14 +91,14 @@ function on (method, path, handler, options = {}) {
     if (!Array.isArray(handlerResponse)) throw new Error('mock handler must return an array')
     const [statusCode, body] = handlerResponse
     if (typeof statusCode !== 'number') throw new Error('mock handler array must have numeric status code as first arg')
-    return [statusCode, body && underscorizeKeys(body)]
+    return [statusCode, formatResponseData(body)]
   })
 }
 
 export function cursorPaginated (path, getEntries, options = {}) {
   get(path, config => {
     const pageSize = ctx.pageSize || 30
-    const cursor = parseInt(config.params.cursor || '0')
+    const cursor = parseInt(config.params?.cursor || '0')
     const entries = getEntries({ ...config, params: camelizeKeys(config.params) })
     const paginatedEntries = entries.slice(cursor, cursor + pageSize)
     const hasNextPage = entries.length > (cursor + pageSize)
@@ -103,7 +115,6 @@ export function cursorPaginated (path, getEntries, options = {}) {
       return `${path}?${searchParams.toString()}`
     }
     const { makeResults } = options
-    delete options.makeResults
 
     return [200, {
       results: makeResults ? makeResults(paginatedEntries) : paginatedEntries,
@@ -142,6 +153,29 @@ function createPathMatcher (path) {
     return params
   }
   return re
+}
+
+// Just before sending back to client, we do a few things...
+function formatResponseData (val) {
+  if (!val) return val
+  if (Array.isArray(val)) {
+    return val.map(formatResponseData)
+  }
+  else if (val instanceof Date) {
+    return val.toISOString()
+  }
+  else if (isPlainObject(val)) { // must check plain object, so we don't mangle anything
+    const newVal = {}
+    for (const key of Object.keys(val)) {
+      // $ prefixed keys are considered internal for mockBackend...
+      if (!key.startsWith('$')) {
+        // return underscored_keys_like_this to mimic backend
+        newVal[underscorize(key)] = formatResponseData(val[key])
+      }
+    }
+    return newVal
+  }
+  return val
 }
 
 /**

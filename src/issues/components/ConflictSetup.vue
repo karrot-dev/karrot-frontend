@@ -57,6 +57,7 @@
           <p>{{ $t('CONFLICT.STEPPER4b', { userName: user.displayName }) }}</p>
           <MarkdownInput
             v-model="initialStatement"
+            data-testid="topic"
             @keyup.ctrl.enter="submit"
           />
         </QStep>

@@ -513,6 +513,11 @@
   },
   "INFO": "情報",
   "ISSUE": {
+    "STATUS": {
+      "ONGOING": "Ongoing",
+      "DECIDED": "Decided",
+      "CANCELLED": "Cancelled"
+    },
     "CHAT": "チャット",
     "CREATION": {
       "TOAST": "You successfully started a conflict resolution process"

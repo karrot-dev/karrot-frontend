@@ -513,6 +513,11 @@
   },
   "INFO": "Πληροφορίες",
   "ISSUE": {
+    "STATUS": {
+      "ONGOING": "Ongoing",
+      "DECIDED": "Decided",
+      "CANCELLED": "Cancelled"
+    },
     "CHAT": "Συνομιλία",
     "CREATION": {
       "TOAST": "Ξεκίνησες μια διαδικασία 'διαχείρισης συγκρούσεων΄"

@@ -513,6 +513,11 @@
   },
   "INFO": "Info",
   "ISSUE": {
+    "STATUS": {
+      "ONGOING": "Ongoing",
+      "DECIDED": "Decided",
+      "CANCELLED": "Cancelled"
+    },
     "CHAT": "Czat",
     "CREATION": {
       "TOAST": "Rozpoczęłaś/-ąłeś rozwiązywanie konfliktu"

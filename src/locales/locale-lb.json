@@ -72,16 +72,16 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "Dëst ass deaktivéiert.",
     "ACTIVITY_STARTED": "Dëst huet schonn ugefaangen.",
-    "AVAILABLE": "There are activities in your favorite places waiting for you!",
+    "AVAILABLE": "Op dech waarden Aktivitéiten op denge favoriséierte Plazen!",
     "AVAILABLE_FEEDBACK": "Du kanns Feedback ofginn | {count} Aktivitéite waarden op däi Feedback",
     "FILTER": {
       "ALL": "All",
       "ALL_TYPES": "All d'Typpen",
-      "ALL_PLACES": "All places",
-      "ALL_FAVOURITE_PLACES": "All favourite places",
+      "ALL_PLACES": "All d'Plazen",
+      "ALL_FAVOURITE_PLACES": "All d'favoriséiert Plazen",
       "EMPTY": "Just eideler",
       "FREE": "Mat eidele Plazen",
-      "JOINED": "Joined"
+      "JOINED": "Bäigetrueden"
     },
     "ITEM": {
       "JOIN": "Matmaachen",
@@ -305,7 +305,7 @@
     "REPLIES_COUNT": "1 Äntwert | {count} Äntwerten",
     "REPLY_TO_MESSAGE": "Op Noriicht äntwerten...",
     "UNREAD_MESSAGES": "Du hues eng ongeliesen Noriicht. | Du hues {count}ongeliesen Noriichten.",
-    "LOAD_EARLIER_MESSAGES": "Load earlier messages"
+    "LOAD_EARLIER_MESSAGES": "Méi fréi Noriichte lueden"
   },
   "CREATEACTIVITY": {
     "COMMENT": "Zousätzlech Informatiounen",
@@ -513,6 +513,11 @@
   },
   "INFO": "Info",
   "ISSUE": {
+    "STATUS": {
+      "ONGOING": "Ongoing",
+      "DECIDED": "Decided",
+      "CANCELLED": "Cancelled"
+    },
     "CHAT": "Chat",
     "CREATION": {
       "TOAST": "Du hues erfollegräich ee Konflikt-Léisungsprozess gestart"

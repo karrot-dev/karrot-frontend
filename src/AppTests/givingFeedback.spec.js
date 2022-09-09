@@ -38,6 +38,7 @@ test('give activity feedback', async () => {
     }).id,
     // in the past, so we can give feedback to it
     startDate: subDays(new Date(), 5),
+    participants: [user.id],
   })
 
   user.currentGroup = group.id

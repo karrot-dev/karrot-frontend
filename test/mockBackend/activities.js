@@ -43,10 +43,19 @@ export function toResponse (activity) {
   }
 }
 
+function isFeedbackPossible (activity, user) {
+  if (activity.date[1] > new Date()) return false
+  if (!activity.participants.includes(user.id)) return false
+  // TODO add remaining filters: feedback_possible_days, activity_type_has_feedback, feedback_given_by_user, feedback_dismissed
+  return true
+}
+
 export function createMockActivitiesBackend () {
   cursorPaginated(
     '/api/activities/',
     ({ params }) => db.activities.filter(activity => {
+      if (params.feedbackPossible && !isFeedbackPossible(activity, ctx.authUser)) return false
+      if (!params.feedbackPossible && isFeedbackPossible(activity, ctx.authUser)) return false
       if (params.group && db.orm.places.get({ id: activity.place }).group !== params.group) return false
       if (params.place && activity.place !== params.place) return false
       if (params.series && activity.series !== params.series) return false
@@ -60,7 +69,6 @@ export function createMockActivitiesBackend () {
           throw new Error(`have not implemented slots=${params.slots} filter`)
         }
       }
-      if (params.feedbackPossible) throw new Error('have not implemented feedbackPossible filter')
       return true
     }).map(toResponse),
   )

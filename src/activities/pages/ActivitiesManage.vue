@@ -275,7 +275,7 @@ import {
 } from 'quasar'
 import { ref, computed } from 'vue'
 
-import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
 import {
   useCreateActivityMutation,
   useCreateActivitySeriesMutation,
@@ -355,7 +355,6 @@ export default {
       placeId,
       pageSize: 1000,
       dateMin: newDateRoundedTo5Minutes(),
-      dateMin: newDateRoundedTo5Minutes(),
     })
 
     // TODO: can I filter out series ones on the server?
@@ -387,6 +386,10 @@ export default {
       placeId,
     })
 
+    const {
+      getIsUpcoming,
+    } = useActivityHelpers()
+
     // Series currently visible in the accordian
     const visibleSeriesId = ref(null)
 
@@ -400,7 +403,6 @@ export default {
     } = useActivityListQuery({
       seriesId: visibleSeriesId,
       pageSize: 100,
-      dateMin: newDateRoundedTo5Minutes(),
       dateMin: newDateRoundedTo5Minutes(),
     }, {
       enabled: computed(() => Boolean(visibleSeriesId) && showSeriesActivities.value),

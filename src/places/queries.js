@@ -4,11 +4,13 @@ import { useQuery } from 'vue-query'
 import { useSocketEvents } from '@/utils/composables'
 import { useQueryHelpers } from '@/utils/queryHelpers'
 
+import placeTypeAPI from './api/placeTypes'
 import api from './api/places'
 
 export const QUERY_KEY_BASE = 'places'
 export const queryKeyPlaceListAll = () => [QUERY_KEY_BASE, 'list', 'all']
 export const queryKeyPlaceStatistics = (placeId) => [QUERY_KEY_BASE, 'statistics', placeId].filter(Boolean)
+export const queryKeyPlaceTypeListAll = () => [QUERY_KEY_BASE, 'types']
 
 /**
  * Handler for socket updates
@@ -49,5 +51,21 @@ export function usePlaceListQuery (queryOptions = {}) {
   return {
     ...query,
     places: query.data,
+  }
+}
+
+export function usePlaceTypeListQuery (queryOptions = {}) {
+  const query = useQuery(
+    queryKeyPlaceTypeListAll(),
+    () => placeTypeAPI.list(),
+    {
+      placeholderData: () => [],
+      staleTime: Infinity,
+      ...queryOptions,
+    },
+  )
+  return {
+    ...query,
+    placeTypes: query.data,
   }
 }

@@ -50,9 +50,7 @@
                   />
                 </QItemSection>
                 <QItemSection>
-                  <QItemLabel :title="hello">
-                    {{ scope.opt.label }}
-                  </QItemLabel>
+                  <QItemLabel>{{ scope.opt.label }}</QItemLabel>
                 </QItemSection>
               </QItem>
             </template>
@@ -375,7 +373,7 @@ export default {
       return null
     },
     statusOptions () {
-      const { icon = 'fas fa-circle' } = this.getPlaceTypeById(this.edit.placeType)
+      const { icon } = this.edit.placeType ? this.getPlaceTypeById(this.edit.placeType) : { icon: 'fas fa-circle' }
       return statusList
         .filter(s => s.selectable)
         .map(s => ({

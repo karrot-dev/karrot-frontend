@@ -3,18 +3,21 @@ import { useI18n } from 'vue-i18n'
 
 import icons from '@/base/icons'
 import { optionsFor } from '@/places/placeStatus'
-import { useActivePlaceService } from '@/places/services'
+import { useActivePlaceService, usePlaceTypeService } from '@/places/services'
 
 export function usePlaceHelpers () {
   const { t } = useI18n()
   const { placeId: activePlaceId } = useActivePlaceService()
+  const { getPlaceTypeById } = usePlaceTypeService()
 
   function getIsActivePlace (place) {
     return activePlaceId.value === unref(place).id
   }
 
   function getPlaceIconProps (place) {
-    const { icon, color, label } = optionsFor(place)
+    const { color, label } = optionsFor(place)
+    const { icon } = getPlaceTypeById(place.placeType)
+
     return {
       name: icon,
       color,

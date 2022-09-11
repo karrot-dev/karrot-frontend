@@ -1,7 +1,7 @@
 import { markRaw } from 'vue'
 
-import icons from '@/base/icons'
 import { optionsFor } from '@/places/placeStatus'
+import { usePlaceTypeService } from '@/places/services'
 
 import GroupMarker from './GroupMarker'
 import PlaceMarker from './PlaceMarker'
@@ -44,10 +44,12 @@ export function userMarker (user) {
 }
 
 export function placeMarker (place) {
+  const { getPlaceTypeById } = usePlaceTypeService()
+
   return {
     latLng: { lat: place.latitude, lng: place.longitude },
     id: 'place_' + place.id,
-    fontIcon: icons.get('place'),
+    fontIcon: getPlaceTypeById(place.placeType).icon,
     color: optionsFor(place).color,
     popup: {
       component: markRaw(PlaceMarker),

@@ -37,6 +37,35 @@
             <template #before>
               <QIcon name="fas fa-eye" />
             </template>
+            <template #option="scope">
+              <QItem
+                :key="scope.index"
+                dense
+                v-bind="scope.itemProps"
+              >
+                <QItemSection side>
+                  <QIcon
+                    :name="scope.opt.icon"
+                    size="1.1em"
+                  />
+                </QItemSection>
+                <QItemSection>
+                  <QItemLabel>{{ scope.opt.label }}</QItemLabel>
+                </QItemSection>
+              </QItem>
+            </template>
+            <template #selected-item="scope">
+              <div class="row">
+                <QIcon
+                  :name="scope.opt.icon"
+                  size="1.1em"
+                  class="on-left q-ml-xs"
+                />
+                <div>
+                  {{ scope.opt.label }}
+                </div>
+              </div>
+            </template>
             <template #after>
               <QBtn
                 :label="$t('PLACE_TYPES.MANAGE_TYPES')"
@@ -291,7 +320,7 @@ export default {
   setup () {
     const { groupId } = useCurrentGroupService()
 
-    const { getPlaceTypesByGroup } = usePlaceTypeService()
+    const { getPlaceTypesByGroup, getPlaceTypeById } = usePlaceTypeService()
 
     const { getTranslatedName } = usePlaceTypeHelpers()
 
@@ -300,11 +329,13 @@ export default {
     const placeTypeOptions = computed(() => placeTypes.value.map(placeType => ({
       value: placeType.id,
       label: getTranslatedName(placeType),
+      icon: placeType.icon,
     })))
 
     return {
       v$: useVuelidate(),
       placeTypeOptions,
+      getPlaceTypeById,
     }
   },
   computed: {
@@ -340,13 +371,14 @@ export default {
       return null
     },
     statusOptions () {
+      const { icon = 'fas fa-circle' } = this.getPlaceTypeById(this.edit.placeType)
       return statusList
         .filter(s => s.selectable)
         .map(s => ({
           value: s.key,
           label: this.$t(s.label),
           color: s.color,
-          icon: s.icon,
+          icon,
         }))
     },
     markerColor () {

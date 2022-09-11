@@ -26,6 +26,26 @@
           </QInput>
 
           <QSelect
+            v-model="edit.placeType"
+            :options="placeTypeOptions"
+            map-options
+            emit-value
+            :label="$t('STOREEDIT.PLACE_TYPE')"
+            outlined
+            class="q-mb-lg"
+          >
+            <template #before>
+              <QIcon name="fas fa-eye" />
+            </template>
+            <template #after>
+              <QBtn
+                :label="$t('PLACE_TYPES.MANAGE_TYPES')"
+                :to="{ name: 'groupEditPlaceTypes' }"
+              />
+            </template>
+          </QSelect>
+
+          <QSelect
             v-model="edit.status"
             :options="statusOptions"
             map-options
@@ -213,8 +233,12 @@ import {
   QItemLabel,
   Dialog,
 } from 'quasar'
+import { computed } from 'vue'
 
+import { useCurrentGroupService } from '@/group/services'
+import { usePlaceTypeHelpers } from '@/places/helpers'
 import { statusList, optionsFor } from '@/places/placeStatus'
+import { usePlaceTypeService } from '@/places/services'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
@@ -265,8 +289,22 @@ export default {
     'save',
   ],
   setup () {
+    const { groupId } = useCurrentGroupService()
+
+    const { getPlaceTypesByGroup } = usePlaceTypeService()
+
+    const { getTranslatedName } = usePlaceTypeHelpers()
+
+    const placeTypes = computed(() => getPlaceTypesByGroup(groupId, { status: 'active' }))
+
+    const placeTypeOptions = computed(() => placeTypes.value.map(placeType => ({
+      value: placeType.id,
+      label: getTranslatedName(placeType),
+    })))
+
     return {
       v$: useVuelidate(),
+      placeTypeOptions,
     }
   },
   computed: {

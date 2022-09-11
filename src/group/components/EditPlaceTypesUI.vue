@@ -237,7 +237,7 @@ export default {
         name: '',
         nameIsTranslatable: true,
         status: 'active',
-        icon: 'fas fa-asterisk',
+        icon: 'fas fa-circle',
       }
     },
     async saveNewPlaceType (placeType) {

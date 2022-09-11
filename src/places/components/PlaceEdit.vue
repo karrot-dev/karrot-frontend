@@ -27,7 +27,7 @@
 
           <QSelect
             v-model="edit.placeType"
-            :options="placeTypeOptions"
+            :options="placeTypeOptions.filter(({ status, value }) => status === 'active' || edit.placeType === value)"
             map-options
             emit-value
             :label="$t('STOREEDIT.PLACE_TYPE')"
@@ -50,7 +50,9 @@
                   />
                 </QItemSection>
                 <QItemSection>
-                  <QItemLabel>{{ scope.opt.label }}</QItemLabel>
+                  <QItemLabel :title="hello">
+                    {{ scope.opt.label }}
+                  </QItemLabel>
                 </QItemSection>
               </QItem>
             </template>
@@ -324,13 +326,14 @@ export default {
 
     const { getTranslatedName } = usePlaceTypeHelpers()
 
-    const placeTypes = computed(() => getPlaceTypesByGroup(groupId, { status: 'active' }))
+    const placeTypes = computed(() => getPlaceTypesByGroup(groupId))
 
     // TODO sorting?
     const placeTypeOptions = computed(() => placeTypes.value.map(placeType => ({
       value: placeType.id,
       label: getTranslatedName(placeType),
       icon: placeType.icon,
+      status: placeType.status,
     })))
 
     return {

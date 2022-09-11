@@ -326,6 +326,7 @@ export default {
 
     const placeTypes = computed(() => getPlaceTypesByGroup(groupId, { status: 'active' }))
 
+    // TODO sorting?
     const placeTypeOptions = computed(() => placeTypes.value.map(placeType => ({
       value: placeType.id,
       label: getTranslatedName(placeType),

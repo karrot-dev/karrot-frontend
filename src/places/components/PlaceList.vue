@@ -1,42 +1,53 @@
 <template>
   <QList>
-    <QItem
-      v-for="place in sortedPlaces"
-      :key="place.id"
-      :to="linkParamsFor(place)"
-      :class="{'router-link-active': getIsActivePlace(place)}"
-      dense
+    <template
+      v-for="{ placeType, filteredPlaces } in placeTypesWithPlaces"
+      :key="placeType.id"
     >
-      <QItemSection side>
-        <QIcon
-          v-bind="getPlaceIconProps(place)"
-          size="1.1em"
-        />
-      </QItemSection>
-      <QItemSection>
-        <QItemLabel
-          class="items-baseline"
-        >
-          {{ place.name }}
-          <QIcon
-            v-if="place.isSubscribed"
-            name="fas fa-fw fa-star"
-            class="vertical-baseline q-ml-xs"
-            color="secondary"
-          />
-        </QItemLabel>
-      </QItemSection>
-      <QItemSection
-        v-if="getUnreadWallMessageCount(place) > 0"
-        side
+      <QItemLabel
+        v-if="placeTypesWithPlaces.length > 1"
+        header
       >
-        <QBadge
-          color="secondary"
+        {{ placeType.name }}
+      </QItemLabel>
+      <QItem
+        v-for="place in filteredPlaces"
+        :key="place.id"
+        :to="linkParamsFor(place)"
+        :class="{'router-link-active': getIsActivePlace(place)}"
+        dense
+      >
+        <QItemSection side>
+          <QIcon
+            v-bind="getPlaceIconProps(place)"
+            size="1.1em"
+          />
+        </QItemSection>
+        <QItemSection>
+          <QItemLabel
+            class="items-baseline"
+          >
+            {{ place.name }}
+            <QIcon
+              v-if="place.isSubscribed"
+              name="fas fa-fw fa-star"
+              class="vertical-baseline q-ml-xs"
+              color="secondary"
+            />
+          </QItemLabel>
+        </QItemSection>
+        <QItemSection
+          v-if="getUnreadWallMessageCount(place) > 0"
+          side
         >
-          {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }}
-        </QBadge>
-      </QItemSection>
-    </QItem>
+          <QBadge
+            color="secondary"
+          >
+            {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }}
+          </QBadge>
+        </QItemSection>
+      </QItem>
+    </template>
 
     <QItem
       v-if="!hasPlaces && isEditor"
@@ -89,9 +100,11 @@ import {
   QSeparator,
   QBadge,
 } from 'quasar'
+import { computed, toRefs } from 'vue'
 
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceHelpers } from '@/places/helpers'
+import { usePlaceTypeService } from '@/places/services'
 import { useStatusService } from '@/status/services'
 
 export default {
@@ -106,10 +119,6 @@ export default {
     QBadge,
   },
   props: {
-    groupId: {
-      default: null,
-      type: Number,
-    },
     places: {
       required: true,
       type: Array,
@@ -123,14 +132,21 @@ export default {
       type: String,
     },
   },
-  setup () {
+  setup (props) {
+    const { places } = toRefs(props)
+
     const {
       getIsActivePlace,
       getPlaceIconProps,
     } = usePlaceHelpers()
 
     const {
+      getPlaceTypesByGroup,
+    } = usePlaceTypeService()
+
+    const {
       isEditor,
+      groupId,
     } = useCurrentGroupService()
 
     const {
@@ -141,19 +157,32 @@ export default {
       return getPlaceStatus(place.id).unreadWallMessageCount
     }
 
+    // TODO sorting?
+    // ideally user-defined, but at least shouldn't change when changing locales?
+    // maybe just by untranslated name for now?
+    const placeTypes = computed(() => getPlaceTypesByGroup(groupId.value))
+
+    const sortedPlaces = computed(() => {
+      const subscribed = places.value.filter(e => e.isSubscribed)
+      const notSubscribed = places.value.filter(e => !e.isSubscribed)
+      return subscribed.concat(notSubscribed)
+    })
+
+    // We only show types that also have places
+    const placeTypesWithPlaces = computed(() => placeTypes.value.map(placeType => ({
+      placeType,
+      filteredPlaces: sortedPlaces.value.filter(place => place.placeType === placeType.id),
+    })).filter(({ filteredPlaces }) => filteredPlaces.length > 0))
+
     return {
       isEditor,
+      placeTypesWithPlaces,
       getIsActivePlace,
       getPlaceIconProps,
       getUnreadWallMessageCount,
     }
   },
   computed: {
-    sortedPlaces () {
-      const subscribed = this.places.filter(e => e.isSubscribed)
-      const notSubscribed = this.places.filter(e => !e.isSubscribed)
-      return subscribed.concat(notSubscribed)
-    },
     hasPlaces () {
       return this.places && this.places.length > 0
     },

@@ -60,7 +60,7 @@ export function usePlaceTypeListQuery (queryOptions = {}) {
     () => placeTypeAPI.list(),
     {
       placeholderData: () => [],
-      staleTime: Infinity,
+      staleTime: 30 * 60 * 1000, // reload every 30 minutes as we don't have websocket updates for it yet
       ...queryOptions,
     },
   )

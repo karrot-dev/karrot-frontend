@@ -4,17 +4,12 @@
       <QIcon :name="$icon('place_fw')" />
     </template>
     <template #name>
-      {{ $t('GROUP.PLACES') }}
+      Your places
     </template>
     <template #tools>
       <div
         class="tools"
       >
-        <QToggle
-          :model-value="showAllPlaces"
-          :title="$t(showAllPlaces ? 'STOREEDIT.SHOW_ACTIVE_ONLY' : 'STOREEDIT.SHOW_ALL')"
-          @update:model-value="$emit('toggle-show-all-places')"
-        />
         <QBtn
           v-if="hasPlaces && isEditor"
           flat
@@ -33,9 +28,17 @@
     <PlaceList
       v-else
       :group-id="groupId"
-      :places="places"
+      :places="places.filter(place => place.isSubscribed)"
       :archived="showAllPlaces ? archived : []"
     />
+    <QItem
+      :to="{ name: 'places' }"
+      dense
+    >
+      <QItemSection>
+        Show all places...
+      </QItemSection>
+    </QItem>
   </SidenavBox>
 </template>
 
@@ -44,7 +47,8 @@
 import {
   QBtn,
   QIcon,
-  QToggle,
+  QItemSection,
+  QItem,
 } from 'quasar'
 
 import PlaceList from '@/places/components/PlaceList'
@@ -57,7 +61,8 @@ export default {
     SidenavBox,
     QBtn,
     QIcon,
-    QToggle,
+    QItemSection,
+    QItem,
     PlaceList,
     KSpinner,
   },

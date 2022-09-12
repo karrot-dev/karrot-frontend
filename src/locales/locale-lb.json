@@ -514,9 +514,9 @@
   "INFO": "Info",
   "ISSUE": {
     "STATUS": {
-      "ONGOING": "Ongoing",
-      "DECIDED": "Decided",
-      "CANCELLED": "Cancelled"
+      "ONGOING": "Lafend",
+      "DECIDED": "Entscheet",
+      "CANCELLED": "Opgebrach"
     },
     "CHAT": "Chat",
     "CREATION": {

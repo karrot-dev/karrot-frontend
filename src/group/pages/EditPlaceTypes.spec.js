@@ -55,8 +55,7 @@ describe('EditPlaceTypes', () => {
 
     await click(await findByTitle('Add new place type'))
     const textbox = await findByRole('combobox', { name: 'Name' })
-    // somehow we need to type the name before we can choose it
-    // seems like a problem between jsdom/testing-library and Quasar
+
     await type(textbox, 'Distribution Place')
     await click(await findByRole('option', { name: /Distribution Place/i }))
     await click(await findByRole('button', { name: /create/i }))

@@ -47,6 +47,7 @@
                   <QIcon
                     :name="scope.opt.icon"
                     size="1.1em"
+                    color="positive"
                   />
                 </QItemSection>
                 <QItemSection>
@@ -60,6 +61,7 @@
                   :name="scope.opt.icon"
                   size="1.1em"
                   class="on-left q-ml-xs"
+                  color="positive"
                 />
                 <div>
                   {{ scope.opt.label }}
@@ -322,11 +324,13 @@ export default {
 
     const { getPlaceTypesByGroup, getPlaceTypeById } = usePlaceTypeService()
 
-    const { getTranslatedName } = usePlaceTypeHelpers()
+    const {
+      getTranslatedName,
+      sortByTranslatedName,
+    } = usePlaceTypeHelpers()
 
-    const placeTypes = computed(() => getPlaceTypesByGroup(groupId))
+    const placeTypes = computed(() => getPlaceTypesByGroup(groupId).sort(sortByTranslatedName))
 
-    // TODO sorting?
     const placeTypeOptions = computed(() => placeTypes.value.map(placeType => ({
       value: placeType.id,
       label: getTranslatedName(placeType),

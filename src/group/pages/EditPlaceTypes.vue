@@ -13,11 +13,7 @@ import EditPlaceTypesUI from '@/group/components/EditPlaceTypesUI'
 
 const { groupId } = useCurrentGroupService()
 const { getPlaceTypesByGroup } = usePlaceTypeService()
-const { getTranslatedName } = usePlaceTypeHelpers()
-
-function sortByTranslatedName (a, b) {
-  return getTranslatedName(a).localeCompare(getTranslatedName(b))
-}
+const { sortByTranslatedName } = usePlaceTypeHelpers()
 
 const placeTypes = computed(() => getPlaceTypesByGroup(groupId.value)
   .sort(sortByTranslatedName))

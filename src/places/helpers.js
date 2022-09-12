@@ -45,6 +45,10 @@ export function usePlaceTypeHelpers () {
     return nameIsTranslatable ? t(`PLACE_TYPE_NAMES.${name}`) : name
   }
 
+  function sortByTranslatedName (a, b) {
+    return getTranslatedName(a).localeCompare(getTranslatedName(b))
+  }
+
   function getIconProps (placeType) {
     if (!placeType) return { name: icons.get('place_fw') }
 
@@ -63,6 +67,7 @@ export function usePlaceTypeHelpers () {
 
   return {
     getTranslatedName,
+    sortByTranslatedName,
     getIconProps,
   }
 }

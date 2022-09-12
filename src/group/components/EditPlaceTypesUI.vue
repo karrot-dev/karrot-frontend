@@ -39,6 +39,7 @@
               <QIcon
                 v-if="col.name === 'icon'"
                 size="md"
+                color="positive"
                 v-bind="getIconProps(props.row)"
               />
               <QBadge

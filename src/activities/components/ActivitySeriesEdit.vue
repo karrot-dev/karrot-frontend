@@ -15,6 +15,7 @@
         />
         {{ activityTypeIconProps.title }}
       </h3>
+      <slot />
       <QField
         stack-label
         borderless

@@ -75,6 +75,7 @@
         </template>
       </QSelect>
       <QSpace />
+      <ActivityEditButton v-if="isEditor" />
       <ICSBtn
         :group="groupId"
         :joined="true"
@@ -170,6 +171,7 @@ import { usePlaceService } from '@/places/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 
+import ActivityEditButton from '@/activities/components/ActivityEditButton.vue'
 import ActivityList from '@/activities/components/ActivityList'
 import ICSBtn from '@/activities/components/ICSBtn'
 import PlaceList from '@/places/components/PlaceList'
@@ -193,6 +195,7 @@ export default {
     KNotice,
     KSpinner,
     PlaceList,
+    ActivityEditButton,
   },
   setup () {
     const {

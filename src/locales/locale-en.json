@@ -331,7 +331,8 @@
     "UNLIMITED": "unlimited",
     "WEEKDAYS": "Weekdays",
     "WEEKDAYS_HELPER": "On which days should it take place?",
-    "WEEKLY": "Weekly"
+    "WEEKLY": "Weekly",
+    "PLACE": "Choose a place"
   },
   "CREATESTORE": {
     "TITLE": "Create a new place"

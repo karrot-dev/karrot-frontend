@@ -24,6 +24,7 @@
         />
         {{ activityTypeIconProps.title }}
       </h3>
+      <slot />
       <template v-if="canEditDate">
         <div class="row q-mt-xs">
           <QInput

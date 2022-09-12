@@ -27,8 +27,11 @@
             map-options
             emit-value
             :label="$t('STOREEDIT.PLACE_TYPE')"
+            :error="hasPlaceTypeError"
+            :error-message="placeTypeError"
             outlined
             class="q-mb-lg"
+            @blur="v$.edit.placeType.$touch"
           >
             <template #option="scope">
               <QItem
@@ -49,14 +52,14 @@
               </QItem>
             </template>
             <template #selected-item="scope">
-              <div class="row">
+              <div class="row no-wrap ellipsis">
                 <QIcon
                   :name="scope.opt.icon"
                   size="1.1em"
                   class="on-left q-ml-xs"
                   color="positive"
                 />
-                <div>
+                <div class="ellipsis">
                   {{ scope.opt.label }}
                 </div>
               </div>
@@ -341,12 +344,21 @@ export default {
     nameError () {
       if (this.v$.edit.name.$error) {
         const m = this.v$.edit.name
-        if (!m.required) return this.$t('VALIDATION.REQUIRED')
-        if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', { min: 2 })
-        if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
-        if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
+        if (m.required.$invalid) return this.$t('VALIDATION.REQUIRED')
+        if (m.minLength.$invalid) return this.$t('VALIDATION.MINLENGTH', { min: 2 })
+        if (m.maxLength.$invalid) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
+        if (m.isUnique.$invalid) return this.$t('VALIDATION.UNIQUE')
       }
       return this.firstError('name')
+    },
+    hasPlaceTypeError () {
+      return !!this.placeTypeError
+    },
+    placeTypeError () {
+      if (this.v$.edit.placeType.$error) {
+        if (this.v$.edit.placeType.required.$invalid) return this.$t('VALIDATION.REQUIRED')
+      }
+      return this.firstError('placeType')
     },
     hasAddressError () {
       return !!this.addressError
@@ -427,6 +439,9 @@ export default {
             .filter(e => e.id !== this.edit.id)
             .find(e => e.name === value)
         },
+      },
+      placeType: {
+        required,
       },
     },
   },

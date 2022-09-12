@@ -13,6 +13,7 @@ import {
   loginAs,
   setPageSize,
   createPlace, createActivity, createActivityType,
+  createPlaceType,
 } from '>/mockBackend'
 import { translatableActivityTypeNames } from '>/mockBackend/activityTypes'
 import { addUserToGroup } from '>/mockBackend/groups'
@@ -38,6 +39,7 @@ describe('GroupActivities', () => {
     addUserToGroup(user, group)
     user.currentGroup = group.id
     setPageSize(3) // make it have to do pagination stuff too...
+    createPlaceType({ group: group.id })
     places = times(3, () => createPlace({ group: group.id }))
     activityTypes = times(
       3,

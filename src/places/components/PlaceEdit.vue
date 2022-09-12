@@ -99,14 +99,14 @@
               </QItem>
             </template>
             <template #selected-item="scope">
-              <div class="row">
+              <div class="row no-wrap ellipsis">
                 <QIcon
                   :name="scope.opt.icon"
                   :color="scope.opt.color"
                   size="1.1em"
                   class="on-left q-ml-xs"
                 />
-                <div>
+                <div class="ellipsis">
                   {{ scope.opt.label }}
                 </div>
               </div>
@@ -115,7 +115,6 @@
 
           <MarkdownInput
             v-model="edit.description"
-            icon="fas fa-question"
             :label="$t('STOREEDIT.DESCRIPTION')"
             :error="hasError('description')"
             :error-message="firstError('description')"
@@ -141,7 +140,6 @@
 
           <AddressPicker
             v-model="edit"
-            icon="fas fa-map-marker"
             :color="markerColor"
             :font-icon="$icon('place')"
             :label="$t('STOREEDIT.ADDRESS')"

@@ -19,11 +19,7 @@
             outlined
             class="q-mb-lg"
             @blur="v$.edit.name.$touch"
-          >
-            <template #before>
-              <QIcon name="fas fa-star" />
-            </template>
-          </QInput>
+          />
 
           <QSelect
             v-model="edit.placeType"
@@ -34,9 +30,6 @@
             outlined
             class="q-mb-lg"
           >
-            <template #before>
-              <QIcon name="fas fa-eye" />
-            </template>
             <template #option="scope">
               <QItem
                 :key="scope.index"
@@ -87,9 +80,6 @@
             outlined
             class="q-mb-lg"
           >
-            <template #before>
-              <QIcon name="fas fa-handshake" />
-            </template>
             <template #option="scope">
               <QItem
                 :key="scope.index"
@@ -147,11 +137,7 @@
             outlined
             :hint="$t('STOREEDIT.DEFAULT_VIEW_HINT')"
             class="q-mb-lg"
-          >
-            <template #before>
-              <QIcon name="fas fa-eye" />
-            </template>
-          </QSelect>
+          />
 
           <AddressPicker
             v-model="edit"
@@ -175,9 +161,6 @@
               :error="hasError('weeksInAdvance')"
               :error-message="firstError('weeksInAdvance')"
             >
-              <template #before>
-                <QIcon name="fas fa-calendar-alt" />
-              </template>
               <template #control>
                 <QSlider
                   v-model="edit.weeksInAdvance"

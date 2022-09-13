@@ -1,7 +1,7 @@
 import { computed, unref } from 'vue'
 
 import { useAuthService } from '@/authuser/services'
-import { usePlaceListQuery } from '@/places/queries'
+import { usePlaceListQuery, usePlaceTypeListQuery } from '@/places/queries'
 import { useIntegerRouteParam } from '@/utils/composables'
 import { defineService, indexById } from '@/utils/datastore/helpers'
 
@@ -44,5 +44,31 @@ export const useActivePlaceService = defineService(() => {
   return {
     place,
     placeId,
+  }
+})
+
+export const usePlaceTypeService = defineService(() => {
+  const { isLoggedIn } = useAuthService()
+
+  // queries
+  const { placeTypes } = usePlaceTypeListQuery({ enabled: isLoggedIn })
+
+  // computed
+  const placeTypesById = computed(() => indexById(placeTypes.value))
+
+  // methods
+  function getPlaceTypeById (id) {
+    return placeTypesById.value[id]
+  }
+
+  function getPlaceTypesByGroup (groupId, filters = {}) {
+    const entries = placeTypes.value.filter(entry => entry.group === unref(groupId))
+    return filters.status ? entries.filter(entry => entry.status === unref(filters.status)) : entries
+  }
+
+  return {
+    placeTypes,
+    getPlaceTypeById,
+    getPlaceTypesByGroup,
   }
 })

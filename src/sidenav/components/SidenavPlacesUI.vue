@@ -27,7 +27,6 @@
     <KSpinner v-if="!hasPlaces && pending" />
     <PlaceList
       v-else
-      :group-id="groupId"
       :places="places.filter(place => place.isSubscribed)"
       :archived="showAllPlaces ? archived : []"
     />

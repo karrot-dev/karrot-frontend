@@ -67,11 +67,6 @@
         class="participant-type"
       >
         <QCardSection>
-          <div class="text-h6">
-            Participant type {{ idx + 1 }}
-          </div>
-        </QCardSection>
-        <QCardSection>
           <MarkdownInput
             v-model="participantType.description"
             :error="hasError('description')"

@@ -793,6 +793,57 @@ exports[`Storyshots activities/components/ActivityEdit With Duration 1`] = `
 </div>
 `;
 
+exports[`Storyshots activities/components/ActivityItem Normal 1`] = `
+<div class="q-card activity-item">
+  <div class="q-card__section q-card__section--vert no-padding content">
+    <div class="content-inner">
+      <div class="row no-wrap items-start justify-between">
+        <div><strong class="featured-text">10:00 AM <!--v-if--></strong>Monday, December 25, 2017</div>
+      </div>
+      <!--v-if-->
+      <!--v-if-->
+      <!-- eslint-disable vue/no-v-html -->
+      <div class="markdown">
+        <p>Omnis qui quam nostrum et aut asperiores qui error. Ullam voluptatem dolorem maiores consequatur. Et ea officiis odit omnis. Maiores quis fugit quasi harum incidunt sed et alias. Veniam dolore nihil nam dolorem blanditiis et ut molestiae magni. Ea modi ut odio quia.<br>
+          Sunt quia cum illo assumenda commodi adipisci eius vitae consequatur. Repudiandae qui est reiciendis qui facere illo eos numquam qui. Qui est nisi aspernatur.</p>
+      </div><!-- eslint-enable -->
+      <div class="q-mt-none q-mb-none full-width column q-gutter-y-md">
+        <div class="col">
+          <!--v-if-->
+          <div class="row justify-start"><object style="display: block; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;" tabindex="-1" type="text/html" data="about:blank" aria-hidden="true"></object>
+            <div class="user-slot-wrapper greyedOut" style="width: 36px; height: 36px;">
+              <!--v-if-->
+            </div>
+            <div class="user-slot-wrapper greyedOut" style="width: 36px; height: 36px;">
+              <!--v-if-->
+            </div>
+            <!--v-if-->
+          </div>
+          <!--v-if-->
+        </div>
+        <!---->
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div class="q-card__section q-card__section--vert row no-padding full-width justify-end bottom-actions">
+    <!--
+        button can be in 4 states where user:
+        - has not already joined, and has a suitable role to join
+        - has not already joined, but does not have suitable role, so cannot join
+        - has joined, but it's already started, so can't leave
+        - has joined, and can leave
+      --><button class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle text-grey-5 disabled q-btn--no-uppercase action-button" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="q-icon text-grey-5 fas fa-fw fa-asterisk q-mr-sm" style="font-size: 18px;" aria-hidden="true" role="presentation"> </i><span class="block">Join </span></span>
+      <transition-stub>
+        <!---->
+      </transition-stub>
+    </button>
+    <div class="q-space"></div>
+    <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle text-secondary q-btn--actionable q-focusable q-hoverable q-btn--no-uppercase action-button" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="q-icon notranslate material-icons q-mr-xs icon-chat" style="font-size: 18px;" aria-hidden="true" role="presentation">chat</i><span class="block">Open Chat</span></span></button>
+  </div>
+</div>
+`;
+
 exports[`Storyshots notifications/Notifications All Notifications 1`] = `
 <div class="bg-white">
   <div class="full-width text-center generic-padding" style="display: none;"><svg class="q-spinner" fill="currentColor" width="40" height="40" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg">
@@ -834,7 +885,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
     <div class="q-item q-item-type row no-wrap isUnread">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
         <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kunze">
-            <div text="Connie Kunze" seed="1" class="randomArt fill"></div>
+            <div text="Connie Kunze" seed="2" class="randomArt fill"></div>
           </a></div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
@@ -889,7 +940,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
     <div class="q-item q-item-type row no-wrap isUnread">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
         <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kunze">
-            <div text="Connie Kunze" seed="1" class="randomArt fill"></div>
+            <div text="Connie Kunze" seed="2" class="randomArt fill"></div>
           </a></div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
@@ -903,7 +954,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
     <div class="q-item q-item-type row no-wrap isUnread">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
         <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kunze">
-            <div text="Connie Kunze" seed="1" class="randomArt fill"></div>
+            <div text="Connie Kunze" seed="2" class="randomArt fill"></div>
           </a></div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
@@ -955,7 +1006,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
     <div class="q-item q-item-type row no-wrap isUnread">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
         <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kunze">
-            <div text="Connie Kunze" seed="1" class="randomArt fill"></div>
+            <div text="Connie Kunze" seed="2" class="randomArt fill"></div>
           </a></div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
@@ -979,7 +1030,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
     <div class="q-item q-item-type row no-wrap isUnread">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
         <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kunze">
-            <div text="Connie Kunze" seed="1" class="randomArt fill"></div>
+            <div text="Connie Kunze" seed="2" class="randomArt fill"></div>
           </a></div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
@@ -1003,7 +1054,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
     <div class="q-item q-item-type row no-wrap isUnread">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
         <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kunze">
-            <div text="Connie Kunze" seed="1" class="randomArt fill"></div>
+            <div text="Connie Kunze" seed="2" class="randomArt fill"></div>
           </a></div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">

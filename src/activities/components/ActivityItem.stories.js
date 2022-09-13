@@ -1,41 +1,55 @@
-import { action } from '@storybook/addon-actions'
-import { storiesOf } from '@storybook/vue3'
 import { h } from 'vue'
 
-import { makeActivity, makeCurrentUser, makeUser, participantType } from '>/enrichedFactories'
-import { createDatastore, storybookDefaults as defaults, statusMocks } from '>/helpers'
+import { convert } from '@/activities/api/activities'
+
+import { createActivity, createActivityType, createGroup, createPlace, createUser, loginAs } from '>/mockBackend'
+import { toResponse } from '>/mockBackend/activities'
 
 import ActivityItem from './ActivityItem'
 
-const range = n => [...Array(n).keys()]
+const group = createGroup()
+const place = createPlace({ group: group.id })
+createActivityType({ group: group.id })
+const activity = createActivity({ place: place.id })
+const user = createUser()
 
-const roles = []
+loginAs(user)
 
-const user = makeCurrentUser()
-const joinableActivity = makeActivity({
-  maxParticipants: 4,
+export default {
+  component: ActivityItem,
+}
+
+const Template = (args) => ({
+  setup () {
+    return () => h(ActivityItem, args)
+  },
+})
+
+export const Normal = Template.bind({})
+
+Normal.args = {
+  activity: convert(toResponse(activity)),
+}
+
+/*
+
+TODO: implement these other activity item states
+
+const joinableActivity = createActivity({
   participants: range(3).map(() => ({
-    user: makeUser(),
+    user: user.id,
     participantType,
   })),
-  isUserMember: false,
-  isFull: false,
-  isEmpty: false,
   description: 'You can join this activity.',
 })
 const fullActivity = makeActivity({
-  maxParticipants: 4,
   participants: range(4).map(() => ({
     user: makeUser(),
     participantType,
   })),
-  isUserMember: false,
-  isFull: true,
-  isEmpty: false,
   description: 'This activity is already full.',
 })
 const leavableActivity = makeActivity({
-  maxParticipants: 4,
   participants: [
     ...range(2).map(makeUser),
     user,
@@ -43,65 +57,29 @@ const leavableActivity = makeActivity({
     user,
     participantType,
   })),
-  isUserMember: true,
-  isFull: true,
-  isEmpty: false,
   description: 'You can leave this activity.',
 })
-
-const datastore = createDatastore({
-  auth: {
-    getters: {
-      user: () => user,
-    },
-  },
-  users: {
-    getters: {
-      byCurrentGroup: () => [],
-    },
-  },
-})
-
-const on = {
-  onJoin: action('join'),
-  onLeave: action('leave'),
-}
 
 storiesOf('ActivityItem', module)
   .add('join', () => defaults({
     render: () => h(ActivityItem, {
       activity: joinableActivity,
-      roles,
-      ...on,
     }),
-    store: datastore,
   }))
   .add('joined', () => defaults({
     render: () => h(ActivityItem, {
       activity: leavableActivity,
-      roles,
-      ...on,
     }),
-    store: datastore,
   }))
   .add('pending', () => defaults({
     render: () => h(ActivityItem, {
-      activity: {
-        ...joinableActivity,
-        joinStatus: statusMocks.pending(),
-      },
-      roles,
-      ...on,
+      activity: joinableActivity,
     }),
-    store: datastore,
   }))
   .add('full', () => defaults({
     render: () => h(ActivityItem, {
       activity: fullActivity,
-      roles,
-      ...on,
     }),
-    store: datastore,
   }))
   .add('disabled', () => defaults({
     render: () => h(ActivityItem, {
@@ -109,19 +87,13 @@ storiesOf('ActivityItem', module)
         ...fullActivity,
         isDisabled: true,
       },
-      roles,
-      ...on,
     }),
-    store: datastore,
   }))
   .add('started', () => defaults({
     render: () => h(ActivityItem, {
       activity: {
         ...fullActivity,
-        hasStarted: true,
       },
-      roles,
-      ...on,
     }),
-    store: datastore,
   }))
+*/

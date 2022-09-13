@@ -5,7 +5,6 @@ import { ctx, db } from '>/mockBackend/index'
 import { cursorPaginated, getById, post } from '>/mockBackend/mockAxios'
 
 let nextId = 1
-let nextParticipantTypeId = 1
 export function generateActivity (params = {}) {
   if (!params.place) throw new Error('must provide place')
   if (!params.activityType) {
@@ -25,7 +24,7 @@ export function generateActivity (params = {}) {
     description: faker.lorem.paragraphs(2),
     series: null,
     place: null,
-    participantTypes: [{ id: nextParticipantTypeId++, role: 'member', maxParticipants: 2 }],
+    participantTypes: [generateParticipantType()],
     participants: [],
     feedbackDue: addDays(endDate, 30), // TODO: is this about right?
     feedbackGivenBy: [],
@@ -34,6 +33,27 @@ export function generateActivity (params = {}) {
     hasDuration: false,
     ...params,
   }
+}
+
+let nextParticipantTypeId = 1
+export function generateParticipantType (params = {}) {
+  return {
+    id: nextParticipantTypeId++,
+    role: 'member',
+    maxParticipants: 2,
+    ...params,
+  }
+}
+
+export function joinActivity (activity, user, params = {}) {
+  if (!params.participantType) {
+    params.participantType = activity.participantTypes[0].id
+  }
+  activity.participants.push({
+    user: user.id,
+    createdAt: new Date(),
+    ...params,
+  })
 }
 
 export function toResponse (activity) {
@@ -45,7 +65,7 @@ export function toResponse (activity) {
 
 function isFeedbackPossible (activity, user) {
   if (activity.date[1] > new Date()) return false
-  if (!activity.participants.includes(user.id)) return false
+  if (!activity.participants.map(p => p.user).includes(user.id)) return false
   // TODO add remaining filters: feedback_possible_days, activity_type_has_feedback, feedback_given_by_user, feedback_dismissed
   return true
 }
@@ -86,10 +106,8 @@ export function createMockActivitiesBackend () {
     }
     // TODO: this is probably a required param?
     const { participantType } = data
-    activity.participants.push({
-      user: ctx.authUser.id,
+    joinActivity(activity, ctx.authUser, {
       participantType,
-      createdAt: new Date(),
     })
     return [200, {}]
   })

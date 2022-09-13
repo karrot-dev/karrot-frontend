@@ -17,6 +17,7 @@ import {
   createPlace,
   createActivityType,
 } from '>/mockBackend'
+import { joinActivity } from '>/mockBackend/activities'
 import { addUserToGroup } from '>/mockBackend/groups'
 
 useMockBackend()
@@ -29,7 +30,7 @@ test('give activity feedback', async () => {
   const group = createGroup()
   addUserToGroup(user, group)
 
-  createActivity({
+  const activity = createActivity({
     place: createPlace({ group: group.id }).id,
     activityType: createActivityType({
       group: group.id,
@@ -38,8 +39,9 @@ test('give activity feedback', async () => {
     }).id,
     // in the past, so we can give feedback to it
     startDate: subDays(new Date(), 5),
-    participants: [user.id],
   })
+
+  joinActivity(activity, user)
 
   user.currentGroup = group.id
   loginAs(user)

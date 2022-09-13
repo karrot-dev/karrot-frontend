@@ -32,6 +32,7 @@
           <QIcon
             :name="edit.icon"
             size="lg"
+            color="positive"
           />
         </template>
         <template #control>
@@ -68,6 +69,10 @@
                 v-model:model-pagination="iconPagination"
                 :icons="pickerIcons"
                 :filter="iconFilter"
+                color="white"
+                text-color="positive"
+                selected-color="positive"
+                selected-text-color="white"
                 style="height: 220px;"
               />
             </QMenu>

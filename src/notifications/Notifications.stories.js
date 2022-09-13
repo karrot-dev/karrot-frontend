@@ -6,6 +6,7 @@ import {
   createGroup,
   loginAs,
   createPlace,
+  createPlaceType,
   createActivity,
   createActivityType,
   createNotification,
@@ -41,6 +42,7 @@ function fillBackend () {
   addUserToGroup(currentUser, group)
   loginAs(currentUser)
   createActivityType({ name: 'Task', group: group.id })
+  createPlaceType({ group: group.id })
   const place = createPlace({ group: group.id })
 
   ;[

@@ -14,6 +14,7 @@ import {
   createGroup,
   createActivityType,
   createPlace,
+  createPlaceType,
   createActivity,
   createActivitySeries,
   loginAs,
@@ -42,6 +43,8 @@ describe('ActivitiesManage', () => {
     addUserToGroup(user, group)
     user.currentGroup = group.id
     loginAs(user)
+
+    createPlaceType({ group: group.id })
 
     activityType = createActivityType({ group: group.id })
     const place = createPlace({ group: group.id })

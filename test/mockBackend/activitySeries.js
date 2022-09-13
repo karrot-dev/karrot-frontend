@@ -16,7 +16,6 @@ export function generateActivitySeries (params = {}) {
     id: nextId++,
     activityType: null,
     participantTypes: [{ id: nextParticipantTypeId++, role: 'member', maxParticipants: 2 }],
-    maxParticipants: 2,
     place: null,
     rule: {
       byDay: ['TU'],

@@ -4,13 +4,13 @@
       <QToggle
         v-if="isFeatureEnabled || isUsingAdvanced"
         v-model="advancedMode"
-        label="Use participant types"
+        :label="$t('CREATEACTIVITY.USE_PARTICIPANT_TYPES')"
         class="q-mt-xs"
       />
       <QSpace />
       <QBtn
         v-if="participantTypesChanged"
-        label="Revert to series values"
+        :label="$t('CREATEACTIVITY.REVERT_TO_SERIES_VALUES')"
         color="warning"
         flat
         icon="undo"
@@ -128,7 +128,7 @@
             v-model="participantType.role"
             map-options
             emit-value
-            label="Open for"
+            :label="$t('CREATEACTIVITY.OPEN_FOR')"
             :options="roleOptions"
             :error="hasError('role')"
             :error-message="firstError('role')"
@@ -167,7 +167,7 @@
             />
             <QSpace />
             <QBtn
-              label="Remove participant type"
+              :label="$t('CREATEACTIVITY.REMOVE_PARTICIPANT_TYPE')"
               :disable="visibleParticipantTypes.length === 1"
               @click="removeSlots(participantType)"
             />
@@ -182,7 +182,7 @@
     >
       <QBtn
         color="positive"
-        label="Add participant type"
+        :label="$t('CREATEACTIVITY.ADD_PARTICIPANT_TYPE')"
         @click="addParticipantType()"
       />
     </div>
@@ -207,6 +207,7 @@ import {
 } from 'quasar'
 import { computed } from 'vue'
 
+import { useActivityHelpers } from '@/activities/helpers'
 import { useCurrentGroupService } from '@/group/services'
 import { useUserService } from '@/users/services'
 import statusMixin from '@/utils/mixins/statusMixin'
@@ -252,6 +253,7 @@ export default {
     'maybe-save',
   ],
   setup () {
+    const { roleOptions } = useActivityHelpers()
     const {
       features,
       roles,
@@ -259,6 +261,7 @@ export default {
     const { getUserById } = useUserService()
     const isFeatureEnabled = computed(() => features.value.includes('participant-types'))
     return {
+      roleOptions,
       isFeatureEnabled,
       roles,
       getUserById,
@@ -334,32 +337,6 @@ export default {
           users,
         }
       })
-    },
-    roleOptions () {
-      return [
-        {
-          label: 'Anyone',
-          value: 'member',
-          description: 'Anyone in the group',
-        },
-        {
-          label: 'Newcomer',
-          value: 'newcomer',
-          description: 'People that haven\'t yet got any other roles',
-        },
-        /* Not adding this role yet until we have a way to trust for a specific role...
-        {
-          label: 'Approved',
-          value: 'approved',
-          description: 'People that have been trusted with approved role',
-        },
-         */
-        {
-          label: 'Editor',
-          value: 'editor',
-          description: 'People that have been trusted in the group as an editor',
-        },
-      ]
     },
     smallScreen () {
       return this.$q.screen.width < 450 || this.$q.screen.height < 450

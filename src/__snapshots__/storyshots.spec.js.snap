@@ -108,12 +108,12 @@ exports[`Storyshots activities/components/ActivityEdit Disabled 1`] = `
     </div>
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Show preview" aria-checked="false">
+      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
         <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
         </div>
-        <div class="q-toggle__label q-anchor--skip">Show preview</div>
+        <div class="q-toggle__label q-anchor--skip">Preview</div>
       </div>
       <div class="q-space"></div>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button>
@@ -240,12 +240,12 @@ exports[`Storyshots activities/components/ActivityEdit Error 1`] = `
     </div>
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Show preview" aria-checked="false">
+      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
         <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
         </div>
-        <div class="q-toggle__label q-anchor--skip">Show preview</div>
+        <div class="q-toggle__label q-anchor--skip">Preview</div>
       </div>
       <div class="q-space"></div>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Disable</span></button>
@@ -370,12 +370,12 @@ exports[`Storyshots activities/components/ActivityEdit Normal 1`] = `
     </div>
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Show preview" aria-checked="false">
+      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
         <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
         </div>
-        <div class="q-toggle__label q-anchor--skip">Show preview</div>
+        <div class="q-toggle__label q-anchor--skip">Preview</div>
       </div>
       <div class="q-space"></div>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Disable</span></button>
@@ -500,12 +500,12 @@ exports[`Storyshots activities/components/ActivityEdit Pending 1`] = `
     </div>
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Show preview" aria-checked="false">
+      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
         <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
         </div>
-        <div class="q-toggle__label q-anchor--skip">Show preview</div>
+        <div class="q-toggle__label q-anchor--skip">Preview</div>
       </div>
       <div class="q-space"></div>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Disable</span></button>
@@ -628,12 +628,12 @@ exports[`Storyshots activities/components/ActivityEdit Series Changed 1`] = `
     </div>
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Show preview" aria-checked="false">
+      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
         <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
         </div>
-        <div class="q-toggle__label q-anchor--skip">Show preview</div>
+        <div class="q-toggle__label q-anchor--skip">Preview</div>
       </div>
       <div class="q-space"></div>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Disable</span></button>
@@ -773,12 +773,12 @@ exports[`Storyshots activities/components/ActivityEdit With Duration 1`] = `
     </div>
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Show preview" aria-checked="false">
+      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
         <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
         </div>
-        <div class="q-toggle__label q-anchor--skip">Show preview</div>
+        <div class="q-toggle__label q-anchor--skip">Preview</div>
       </div>
       <div class="q-space"></div>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Disable</span></button>

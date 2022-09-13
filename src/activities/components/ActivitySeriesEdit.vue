@@ -282,7 +282,7 @@
       <div class="row justify-end q-gutter-sm q-mt-lg">
         <QToggle
           v-model="showPreview"
-          label="Show preview"
+          :label="$t('BUTTON.PREVIEW')"
         />
         <QSpace />
         <QBtn

@@ -63,7 +63,14 @@
               v-if="participantTypes.length > 1 || participantType.role !== 'member'"
               class="q-my-xs"
             >
-              <em>Open for <strong>{{ roleName(participantType.role) }}</strong></em>
+              <i18n-t
+                keypath="ACTIVITYLIST.OPEN_FOR_ROLE"
+                tag="em"
+              >
+                <template #role>
+                  <strong>{{ roleName(participantType.role) }}</strong>
+                </template>
+              </i18n-t>
             </div>
           </div>
           <CustomDialog v-model="joinDialog">
@@ -99,7 +106,14 @@
                       />
                     </QItemLabel>
                     <QItemLabel>
-                      <em>Open for <strong>{{ roleName(participantType.role) }}</strong></em>
+                      <i18n-t
+                        keypath="ACTIVITYLIST.OPEN_FOR_ROLE"
+                        tag="em"
+                      >
+                        <template #role>
+                          <strong>{{ roleName(participantType.role) }}</strong>
+                        </template>
+                      </i18n-t>
                     </QItemLabel>
                   </QItemSection>
                 </QItem>

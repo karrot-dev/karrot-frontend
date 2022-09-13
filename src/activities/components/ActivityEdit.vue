@@ -203,7 +203,7 @@
       <div class="row justify-end q-gutter-sm q-mt-lg">
         <QToggle
           v-model="showPreview"
-          label="Show preview"
+          :label="$t('BUTTON.PREVIEW')"
         />
         <QSpace />
         <QBtn
@@ -287,7 +287,7 @@ import {
   QItemLabel,
 } from 'quasar'
 
-import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
 import { useActivityTypeService } from '@/activities/services'
 import { defaultDuration } from '@/activities/settings'
 import { formatSeconds } from '@/activities/utils'
@@ -336,9 +336,11 @@ export default {
     'save',
   ],
   setup () {
+    const { roleOptions } = useActivityHelpers()
     const { getActivityTypeById } = useActivityTypeService()
     const { getIconProps } = useActivityTypeHelpers()
     return {
+      roleOptions,
       getActivityTypeById,
       getIconProps,
     }
@@ -354,32 +356,6 @@ export default {
         ...this.edit,
         participants: [],
       }
-    },
-    roleOptions () {
-      return [
-        {
-          label: 'Anyone',
-          value: 'member',
-          description: 'Anyone in the group',
-        },
-        {
-          label: 'Newcomer',
-          value: 'newcomer',
-          description: 'People that haven\'t yet got any other roles',
-        },
-        /* Not adding this role yet until we have a way to trust for a specific role...
-        {
-          label: 'Approved',
-          value: 'approved',
-          description: 'People that have been trusted with approved role',
-        },
-         */
-        {
-          label: 'Editor',
-          value: 'editor',
-          description: 'People that have been trusted in the group as an editor',
-        },
-      ]
     },
     activityType () {
       return this.value && this.getActivityTypeById(this.value.activityType)

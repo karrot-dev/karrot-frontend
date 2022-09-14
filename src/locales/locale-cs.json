@@ -382,6 +382,7 @@
     "DESCRIPTION_VERBOSE": "Popis skupiny, viditelný pro členy",
     "EDIT": "Upravit skupinu",
     "EDIT_ACTIVITY_TYPES": "Typy aktivit",
+    "EDIT_PLACE_TYPES": "Place types",
     "EDIT_DETAILS": "Podrobnosti o skupině",
     "EMAIL_NOTIFICATIONS": "E-mailová oznámení",
     "HEADINGS": {
@@ -684,6 +685,32 @@
     "SUCCESS": "Žádost byla úspěšně odeslána. Podívejte se na své e-maily!",
     "TITLE": "Resetovat heslo"
   },
+  "PLACE_TYPE_NAMES": {
+    "Unspecified": "Unspecified",
+    "Store": "Store",
+    "Sharing Point": "Sharing Point",
+    "Meeting Place": "Meeting Place",
+    "Restaurant": "Restaurant",
+    "Market": "Market"
+  },
+  "PLACE_TYPE_STATUS": {
+    "ACTIVE": "Active",
+    "ARCHIVED": "Archived"
+  },
+  "PLACE_TYPES": {
+    "ADD": "Add new place type",
+    "NAME": "Name",
+    "STATUS": "Status",
+    "STANDARD_NAME_HEADING": "Standard names",
+    "STANDARD_NAME_HINT": "Name will be available in other languages",
+    "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
+    "CUSTOM_NAME_USE": "Use custom name {name}",
+    "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
+    "MANAGE_TYPES": "Manage types...",
+    "SHOW_ARCHIVED": "Show archived",
+    "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
+    "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
+  },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} lidí označilo toto místo jako oblíbené",
     "SUBSCRIPTION": {
@@ -744,6 +771,7 @@
     "DEFAULT_VIEW": "Výchozí zobrazení",
     "DEFAULT_VIEW_HINT": "Co by se mělo ve výchozím nastavení zobrazit po kliknutí na toto místo?",
     "DESCRIPTION": "Popis",
+    "PLACE_TYPE": "Place type",
     "DIALOGS": {
       "ARCHIVE": {
         "CONFIRM": "Ano, archivujte místo",

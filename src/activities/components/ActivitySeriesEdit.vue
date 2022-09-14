@@ -545,21 +545,26 @@ export default {
     },
     async maybeSave () {
       if (!this.canSave) return
-      const { participants } = await activitySeriesAPI.checkSave({ ...this.getPatchData(), id: this.value.id })
-      Dialog.create({
-        component: ConfirmChangesDialog,
-        componentProps: {
-          participants,
-        },
-      })
-        .onOk(({ updatedMessage }) => {
-          if (updatedMessage) {
-            this.save({ updatedMessage })
-          }
-          else {
-            this.save()
-          }
+      if (this.isNew) {
+        this.save()
+      }
+      else {
+        const { participants } = await activitySeriesAPI.checkSave({ ...this.getPatchData(), id: this.value.id })
+        Dialog.create({
+          component: ConfirmChangesDialog,
+          componentProps: {
+            users: participants.map(participant => participant.user),
+          },
         })
+          .onOk(({ updatedMessage }) => {
+            if (updatedMessage) {
+              this.save({ updatedMessage })
+            }
+            else {
+              this.save()
+            }
+          })
+      }
     },
     destroy () {
       Dialog.create({

@@ -287,6 +287,7 @@ import {
   QItemLabel,
 } from 'quasar'
 
+import activityAPI from '@/activities/api/activities'
 import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
 import { useActivityTypeService } from '@/activities/services'
 import { defaultDuration } from '@/activities/settings'
@@ -297,6 +298,7 @@ import reactiveNow from '@/utils/reactiveNow'
 import { objectDiff } from '@/utils/utils'
 
 import ActivityItem from '@/activities/components/ActivityItem'
+import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog'
 import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 
@@ -456,9 +458,28 @@ export default {
     toggleDuration () {
       this.hasDuration = !this.hasDuration
     },
-    maybeSave () {
+    async maybeSave () {
       if (!this.canSave) return
-      this.save()
+      if (this.isNew) {
+        this.save()
+      }
+      else {
+        const { users } = await activityAPI.checkSave({ ...this.getPatchData(), id: this.value.id })
+        Dialog.create({
+          component: ConfirmChangesDialog,
+          componentProps: {
+            users,
+          },
+        })
+          .onOk(({ updatedMessage }) => {
+            if (updatedMessage) {
+              this.save({ updatedMessage })
+            }
+            else {
+              this.save()
+            }
+          })
+      }
     },
     // Overrides mixin method to always provide start date if we have modified end date
     getPatchData () {

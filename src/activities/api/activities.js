@@ -58,6 +58,11 @@ export default {
     return convert((await axios.patch(`/api/activities/${activity.id}/`, convertDateToRange(activity))).data)
   },
 
+  async checkSave (activity) {
+    const { id } = activity
+    return (await axios.patch(`/api/activities/${id}/check/`, convertDateToRange(activity))).data
+  },
+
   async join ({ activityId, participantTypeId }) {
     return convert((await axios.post(`/api/activities/${activityId}/add/`, { participantType: participantTypeId })).data)
   },

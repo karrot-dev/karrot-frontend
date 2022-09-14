@@ -879,6 +879,7 @@
     "MINLENGTH": "Please enter more than {min} characters.",
     "REQUIRED": "This field is required.",
     "UNIQUE": "Name already exists, please choose another.",
+    "OPTIONAL": "optional",
     "VALID_EMAIL": "Enter a valid e-mail address.",
     "VALID_TIMEZONE": "Enter a valid timezone.",
     "VALID_USERNAME": "Enter a valid username.",

@@ -10,6 +10,11 @@
         </QCardSection>
         <QCardSection class="q-dialog__message">
           {{ $t('HISTORY.CONFIRM_CHANGES_HINT') }}
+          <span
+            v-if="!willRemoveUsers"
+          >
+            ({{ $t('VALIDATION.OPTIONAL') }})
+          </span>
         </QCardSection>
         <QCardSection
           v-if="willRemoveUsers"
@@ -39,6 +44,7 @@
             autogrow
             outlined
             autofocus
+            :placeholder="$t('WALL.WRITE_MESSAGE')"
             :rules="[val => !willRemoveUsers || Boolean(val) || $t('VALIDATION.REQUIRED')]"
           />
         </QCardSection>
@@ -79,7 +85,7 @@ const updatedMessageRef = ref(null)
 const updatedMessage = ref('')
 
 const props = defineProps({
-  participants: {
+  users: {
     type: Array,
     required: true,
   },
@@ -102,6 +108,6 @@ function submit () {
 
 const { getUserById } = useUserService()
 
-const willRemoveUsers = computed(() => props.participants.length > 0)
-const users = computed(() => props.participants.map(participant => getUserById(participant.user)))
+const willRemoveUsers = computed(() => props.users.length > 0)
+const users = computed(() => props.users.map(userId => getUserById(userId)))
 </script>

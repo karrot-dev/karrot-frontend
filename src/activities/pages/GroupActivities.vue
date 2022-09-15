@@ -110,7 +110,6 @@
         </QCardSection>
         <QCardSection>
           <PlaceList
-            :group-id="groupId"
             :places="places"
             link-to="placeActivitiesManage"
           />

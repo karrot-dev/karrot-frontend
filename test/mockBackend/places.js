@@ -7,6 +7,11 @@ import { db } from './index'
 
 let nextId = 1
 export function generatePlace (params = {}) {
+  if (!params.group) throw new Error('must provide group')
+  if (!params.placeType) {
+    // Auto-choose one based on group
+    params.placeType = db.orm.placeTypes.get({ group: params.group }).id
+  }
   return {
     id: nextId++,
     name: faker.random.words(5),
@@ -19,7 +24,7 @@ export function generatePlace (params = {}) {
     status: 'active',
     isSubscribed: false,
     subscribers: [],
-    placeType: null, // I don't think they are used yet...
+    placeType: null,
     defaultView: 'activities',
     ...params,
   }

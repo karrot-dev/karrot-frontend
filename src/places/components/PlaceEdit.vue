@@ -19,11 +19,58 @@
             outlined
             class="q-mb-lg"
             @blur="v$.edit.name.$touch"
+          />
+
+          <QSelect
+            v-model="edit.placeType"
+            :options="placeTypeOptions.filter(({ status, value }) => status === 'active' || edit.placeType === value)"
+            map-options
+            emit-value
+            :label="$t('STOREEDIT.PLACE_TYPE')"
+            :error="hasPlaceTypeError"
+            :error-message="placeTypeError"
+            outlined
+            class="q-mb-lg"
+            @blur="v$.edit.placeType.$touch"
           >
-            <template #before>
-              <QIcon name="fas fa-star" />
+            <template #option="scope">
+              <QItem
+                :key="scope.index"
+                dense
+                v-bind="scope.itemProps"
+              >
+                <QItemSection side>
+                  <QIcon
+                    :name="scope.opt.icon"
+                    size="1.1em"
+                    color="positive"
+                  />
+                </QItemSection>
+                <QItemSection>
+                  <QItemLabel>{{ scope.opt.label }}</QItemLabel>
+                </QItemSection>
+              </QItem>
             </template>
-          </QInput>
+            <template #selected-item="scope">
+              <div class="row no-wrap ellipsis">
+                <QIcon
+                  :name="scope.opt.icon"
+                  size="1.1em"
+                  class="on-left q-ml-xs"
+                  color="positive"
+                />
+                <div class="ellipsis">
+                  {{ scope.opt.label }}
+                </div>
+              </div>
+            </template>
+            <template #after>
+              <QBtn
+                :label="$t('PLACE_TYPES.MANAGE_TYPES')"
+                :to="{ name: 'groupEditPlaceTypes' }"
+              />
+            </template>
+          </QSelect>
 
           <QSelect
             v-model="edit.status"
@@ -36,9 +83,6 @@
             outlined
             class="q-mb-lg"
           >
-            <template #before>
-              <QIcon name="fas fa-handshake" />
-            </template>
             <template #option="scope">
               <QItem
                 :key="scope.index"
@@ -58,14 +102,14 @@
               </QItem>
             </template>
             <template #selected-item="scope">
-              <div class="row">
+              <div class="row no-wrap ellipsis">
                 <QIcon
                   :name="scope.opt.icon"
                   :color="scope.opt.color"
                   size="1.1em"
                   class="on-left q-ml-xs"
                 />
-                <div>
+                <div class="ellipsis">
                   {{ scope.opt.label }}
                 </div>
               </div>
@@ -74,7 +118,6 @@
 
           <MarkdownInput
             v-model="edit.description"
-            icon="fas fa-question"
             :label="$t('STOREEDIT.DESCRIPTION')"
             :error="hasError('description')"
             :error-message="firstError('description')"
@@ -96,15 +139,10 @@
             outlined
             :hint="$t('STOREEDIT.DEFAULT_VIEW_HINT')"
             class="q-mb-lg"
-          >
-            <template #before>
-              <QIcon name="fas fa-eye" />
-            </template>
-          </QSelect>
+          />
 
           <AddressPicker
             v-model="edit"
-            icon="fas fa-map-marker"
             :color="markerColor"
             :font-icon="$icon('place')"
             :label="$t('STOREEDIT.ADDRESS')"
@@ -124,9 +162,6 @@
               :error="hasError('weeksInAdvance')"
               :error-message="firstError('weeksInAdvance')"
             >
-              <template #before>
-                <QIcon name="fas fa-calendar-alt" />
-              </template>
               <template #control>
                 <QSlider
                   v-model="edit.weeksInAdvance"
@@ -213,8 +248,12 @@ import {
   QItemLabel,
   Dialog,
 } from 'quasar'
+import { computed } from 'vue'
 
+import { useCurrentGroupService } from '@/group/services'
+import { usePlaceTypeHelpers } from '@/places/helpers'
 import { statusList, optionsFor } from '@/places/placeStatus'
+import { usePlaceTypeService } from '@/places/services'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
@@ -265,8 +304,28 @@ export default {
     'save',
   ],
   setup () {
+    const { groupId } = useCurrentGroupService()
+
+    const { getPlaceTypesByGroup, getPlaceTypeById } = usePlaceTypeService()
+
+    const {
+      getTranslatedName,
+      sortByTranslatedName,
+    } = usePlaceTypeHelpers()
+
+    const placeTypes = computed(() => getPlaceTypesByGroup(groupId).sort(sortByTranslatedName))
+
+    const placeTypeOptions = computed(() => placeTypes.value.map(placeType => ({
+      value: placeType.id,
+      label: getTranslatedName(placeType),
+      icon: placeType.icon,
+      status: placeType.status,
+    })))
+
     return {
       v$: useVuelidate(),
+      placeTypeOptions,
+      getPlaceTypeById,
     }
   },
   computed: {
@@ -285,12 +344,21 @@ export default {
     nameError () {
       if (this.v$.edit.name.$error) {
         const m = this.v$.edit.name
-        if (!m.required) return this.$t('VALIDATION.REQUIRED')
-        if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', { min: 2 })
-        if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
-        if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
+        if (m.required.$invalid) return this.$t('VALIDATION.REQUIRED')
+        if (m.minLength.$invalid) return this.$t('VALIDATION.MINLENGTH', { min: 2 })
+        if (m.maxLength.$invalid) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
+        if (m.isUnique.$invalid) return this.$t('VALIDATION.UNIQUE')
       }
       return this.firstError('name')
+    },
+    hasPlaceTypeError () {
+      return !!this.placeTypeError
+    },
+    placeTypeError () {
+      if (this.v$.edit.placeType.$error) {
+        if (this.v$.edit.placeType.required.$invalid) return this.$t('VALIDATION.REQUIRED')
+      }
+      return this.firstError('placeType')
     },
     hasAddressError () {
       return !!this.addressError
@@ -302,13 +370,14 @@ export default {
       return null
     },
     statusOptions () {
+      const { icon } = this.edit.placeType ? this.getPlaceTypeById(this.edit.placeType) : { icon: 'fas fa-circle' }
       return statusList
         .filter(s => s.selectable)
         .map(s => ({
           value: s.key,
           label: this.$t(s.label),
           color: s.color,
-          icon: s.icon,
+          icon,
         }))
     },
     markerColor () {
@@ -370,6 +439,9 @@ export default {
             .filter(e => e.id !== this.edit.id)
             .find(e => e.name === value)
         },
+      },
+      placeType: {
+        required,
       },
     },
   },

@@ -17,6 +17,7 @@ import { createMockMessagesBackend, generateMessage } from './messages'
 import { initializeMockAxios, resetMockAxios, get } from './mockAxios'
 import { generateNotification, createMockNotificationsBackend } from './notifications'
 import { createMockOffersBackend, generateOffer } from './offers'
+import { createMockPlaceTypesBackend, generatePlaceType } from './placeTypes'
 import { createMockPlacesBackend, generatePlace } from './places'
 import { createMockStatusBackend } from './status'
 import { createMockUsersBackend, generateUser } from './users'
@@ -40,6 +41,7 @@ export function setupMockBackend () {
   db = {
     users: [],
     places: [],
+    placeTypes: [],
     offers: [],
     groups: [],
     feedback: [],
@@ -57,6 +59,7 @@ export function setupMockBackend () {
     feedback: createFinder(db, 'feedback'),
     groups: createFinder(db, 'groups'),
     places: createFinder(db, 'places'),
+    placeTypes: createFinder(db, 'placeTypes'),
     conversations: createFinder(db, 'conversations'),
     issues: createFinder(db, 'issues'),
     activities: createFinder(db, 'activities'),
@@ -76,6 +79,7 @@ export function setupMockBackend () {
   createMockGroupsInfoBackend()
   createMockGroupDetailBackend()
   createMockPlacesBackend()
+  createMockPlaceTypesBackend()
   createMockFeedbackBackend()
   createMockHistoryBackend()
   createMockUsersBackend()
@@ -137,6 +141,12 @@ export function createGroup (params) {
 export function createPlace (params) {
   const place = generatePlace(params)
   db.places.push(place)
+  return place
+}
+
+export function createPlaceType (params) {
+  const place = generatePlaceType(params)
+  db.placeTypes.push(place)
   return place
 }
 

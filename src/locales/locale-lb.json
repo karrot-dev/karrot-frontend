@@ -382,6 +382,7 @@
     "DESCRIPTION_VERBOSE": "Beschreiwung vun der Grupp, siichtbar fir Memberen",
     "EDIT": "Grupp veränneren",
     "EDIT_ACTIVITY_TYPES": "Aktivitéitstypen",
+    "EDIT_PLACE_TYPES": "Place types",
     "EDIT_DETAILS": "Detailer vun der Grupp",
     "EMAIL_NOTIFICATIONS": "Benoriichtegungen via E-Mail",
     "HEADINGS": {
@@ -514,9 +515,9 @@
   "INFO": "Info",
   "ISSUE": {
     "STATUS": {
-      "ONGOING": "Ongoing",
-      "DECIDED": "Decided",
-      "CANCELLED": "Cancelled"
+      "ONGOING": "Lafend",
+      "DECIDED": "Entscheet",
+      "CANCELLED": "Opgebrach"
     },
     "CHAT": "Chat",
     "CREATION": {
@@ -684,6 +685,32 @@
     "SUCCESS": "D'Ufro gouf erfollegräich geschéckt. Kuck an deng E-Mailen!",
     "TITLE": "Passwuert zrécksetzen"
   },
+  "PLACE_TYPE_NAMES": {
+    "Unspecified": "Unspecified",
+    "Store": "Store",
+    "Sharing Point": "Sharing Point",
+    "Meeting Place": "Meeting Place",
+    "Restaurant": "Restaurant",
+    "Market": "Market"
+  },
+  "PLACE_TYPE_STATUS": {
+    "ACTIVE": "Active",
+    "ARCHIVED": "Archived"
+  },
+  "PLACE_TYPES": {
+    "ADD": "Add new place type",
+    "NAME": "Name",
+    "STATUS": "Status",
+    "STANDARD_NAME_HEADING": "Standard names",
+    "STANDARD_NAME_HINT": "Name will be available in other languages",
+    "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
+    "CUSTOM_NAME_USE": "Use custom name {name}",
+    "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
+    "MANAGE_TYPES": "Manage types...",
+    "SHOW_ARCHIVED": "Show archived",
+    "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
+    "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
+  },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} Leit hunn dës Plaz als Favorit markéiert",
     "SUBSCRIPTION": {
@@ -744,6 +771,7 @@
     "DEFAULT_VIEW": "Standard-Usicht",
     "DEFAULT_VIEW_HINT": "Wat soll standardweis ugewise gi wann een op dës Plaz klickt?",
     "DESCRIPTION": "Beschreiwung",
+    "PLACE_TYPE": "Place type",
     "DIALOGS": {
       "ARCHIVE": {
         "CONFIRM": "Jo, Plaz archivéieren",

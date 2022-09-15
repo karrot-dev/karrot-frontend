@@ -106,10 +106,6 @@ export default {
     QBadge,
   },
   props: {
-    groupId: {
-      default: null,
-      type: Number,
-    },
     places: {
       required: true,
       type: Array,
@@ -131,6 +127,7 @@ export default {
 
     const {
       isEditor,
+      groupId,
     } = useCurrentGroupService()
 
     const {
@@ -143,6 +140,7 @@ export default {
 
     return {
       isEditor,
+      groupId,
       getIsActivePlace,
       getPlaceIconProps,
       getUnreadWallMessageCount,

@@ -382,6 +382,7 @@
     "DESCRIPTION_VERBOSE": "모든 구성원이 볼 수 있는 그룹의 설명",
     "EDIT": "그룹 편집하기",
     "EDIT_ACTIVITY_TYPES": "활동 종류",
+    "EDIT_PLACE_TYPES": "Place types",
     "EDIT_DETAILS": "그룹 상세",
     "EMAIL_NOTIFICATIONS": "이메일 알림",
     "HEADINGS": {
@@ -684,6 +685,32 @@
     "SUCCESS": "요청이 성공적으로 전송되었습니다. 이메일을 확인해보세요!",
     "TITLE": "비밀번호 재설정"
   },
+  "PLACE_TYPE_NAMES": {
+    "Unspecified": "Unspecified",
+    "Store": "Store",
+    "Sharing Point": "Sharing Point",
+    "Meeting Place": "Meeting Place",
+    "Restaurant": "Restaurant",
+    "Market": "Market"
+  },
+  "PLACE_TYPE_STATUS": {
+    "ACTIVE": "Active",
+    "ARCHIVED": "Archived"
+  },
+  "PLACE_TYPES": {
+    "ADD": "Add new place type",
+    "NAME": "Name",
+    "STATUS": "Status",
+    "STANDARD_NAME_HEADING": "Standard names",
+    "STANDARD_NAME_HINT": "Name will be available in other languages",
+    "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
+    "CUSTOM_NAME_USE": "Use custom name {name}",
+    "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
+    "MANAGE_TYPES": "Manage types...",
+    "SHOW_ARCHIVED": "Show archived",
+    "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
+    "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
+  },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count}명의 사람이 이곳을 좋아하는 장소로 표시했습니다",
     "SUBSCRIPTION": {
@@ -744,6 +771,7 @@
     "DEFAULT_VIEW": "기본 보기",
     "DEFAULT_VIEW_HINT": "이 장소가 클릭될 때 어떤 것이 기본으로 보이도록 하시겠습니까?",
     "DESCRIPTION": "설명",
+    "PLACE_TYPE": "Place type",
     "DIALOGS": {
       "ARCHIVE": {
         "CONFIRM": "네, 장소를 기록합니다",

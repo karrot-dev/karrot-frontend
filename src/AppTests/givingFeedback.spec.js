@@ -16,6 +16,7 @@ import {
   createActivity,
   createPlace,
   createActivityType,
+  createPlaceType,
 } from '>/mockBackend'
 import { joinActivity } from '>/mockBackend/activities'
 import { addUserToGroup } from '>/mockBackend/groups'
@@ -29,6 +30,8 @@ test('give activity feedback', async () => {
   const user = createUser()
   const group = createGroup()
   addUserToGroup(user, group)
+
+  createPlaceType({ group: group.id })
 
   const activity = createActivity({
     place: createPlace({ group: group.id }).id,

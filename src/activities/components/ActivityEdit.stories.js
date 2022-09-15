@@ -4,6 +4,7 @@ import { statusMocks } from '>/helpers'
 import {
   createGroup,
   createPlace,
+  createPlaceType,
   createActivity,
   createActivityType,
   createActivitySeries,
@@ -12,6 +13,7 @@ import {
 import ActivityEdit from './ActivityEdit'
 
 const group = createGroup()
+createPlaceType({ group: group.id })
 const place = createPlace({ group: group.id })
 createActivityType({ group: group.id })
 const activity = createActivity({ place: place.id })

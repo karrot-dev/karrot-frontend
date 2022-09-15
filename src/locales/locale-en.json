@@ -711,6 +711,9 @@
     "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
+  "PLACE_LIST": {
+    "ONLY_FAVORITES": "Only favorite"
+  },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
     "SUBSCRIPTION": {

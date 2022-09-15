@@ -127,11 +127,17 @@
                 :source="place.description"
               />
             </div>
-            <QCardActions v-if="getUnreadWallMessageCount(place)">
+            <QCardActions>
               <QBadge
+                v-if="getUnreadWallMessageCount(place)"
                 color="secondary"
               >
-                {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }}
+                {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }} unread messages
+              </QBadge>
+              <QBadge
+                color="yellow-10"
+              >
+                {{ activityCountFor(place.id) }} upcoming activities
               </QBadge>
             </QCardActions>
           </QCard>
@@ -184,13 +190,15 @@ import {
   QCheckbox,
   QInput,
 } from 'quasar'
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
+import { useActivityListQuery } from '@/activities/queries'
 import { useCurrentGroupService } from '@/group/services'
 import { statusList } from '@/places/placeStatus'
 import { useStatusService } from '@/status/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
+import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 
 import Markdown from '@/utils/components/Markdown.vue'
 import RandomArt from '@/utils/components/RandomArt'
@@ -217,6 +225,40 @@ const {
 const {
   getPlaceTypesByGroup,
 } = usePlaceTypeService()
+
+const {
+  activities,
+  isFetching: isFetchingActivities,
+  hasNextPage,
+  fetchNextPage,
+} = useActivityListQuery({
+  groupId,
+  dateMin: newDateRoundedTo5Minutes(),
+  pageSize: 100,
+}, {
+  cacheTime: 5 * 60 * 1000,
+  staleTime: Infinity, // no need for staleness, gets reloaded after 5 min anyway due to dateMin changing,
+})
+
+watch(isFetchingActivities, value => {
+  if (!value && hasNextPage.value) {
+    fetchNextPage()
+  }
+})
+
+const activityCountByPlace = computed(() => activities.value.reduce((acc, entry) => {
+  if (acc[entry.place]) {
+    acc[entry.place] += 1
+  }
+  else {
+    acc[entry.place] = 1
+  }
+  return acc
+}, {}))
+
+function activityCountFor (placeId) {
+  return activityCountByPlace.value[placeId]
+}
 
 const placeTypes = computed(() => getPlaceTypesByGroup(groupId).sort(sortByTranslatedName))
 

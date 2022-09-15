@@ -781,8 +781,7 @@
     },
     "NAME": "Name",
     "RESTORE": "Restore",
-    "SHOW_ACTIVE_ONLY": "Only show active places",
-    "SHOW_ALL": "Show all places",
+    "SHOW_ALL": "Show all { count } places",
     "STATUS": "Status",
     "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
     "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."

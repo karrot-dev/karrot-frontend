@@ -1,41 +1,42 @@
 <template>
   <SidenavBox>
     <template #icon>
-      <QIcon :name="$icon('place_fw')" />
+      <QIcon
+        name="fas fa-fw fa-star"
+        color="secondary"
+      />
     </template>
     <template #name>
-      Your places
-    </template>
-    <template #tools>
-      <div
-        class="tools"
-      >
-        <QBtn
-          v-if="hasPlaces && isEditor"
-          flat
-          dense
-          round
-          size="sm"
-          :to="{ name: 'placeCreate', params: { groupId } }"
-          :title="$t('BUTTON.CREATE')"
-        >
-          <QIcon name="fas fa-fw fa-plus-circle" />
-        </QBtn>
-      </div>
+      Your places (TODO)
     </template>
 
-    <KSpinner v-if="!hasPlaces && pending" />
+    <KSpinner v-if="pending" />
     <PlaceList
       v-else
       :places="places.filter(place => place.isSubscribed)"
-      :archived="showAllPlaces ? archived : []"
     />
     <QItem
+      v-if="placeCount > 0"
       :to="{ name: 'places' }"
       dense
     >
       <QItemSection>
-        Show all places...
+        {{ $t('STOREEDIT.SHOW_ALL', { count: placeCount }) }}
+      </QItemSection>
+    </QItem>
+    <QItem
+      v-if="placeCount < 1 && isEditor"
+      :to="{ name: 'placeCreate', params: { groupId } }"
+      class="bg-secondary justify-center"
+      :title="$t('BUTTON.CREATE')"
+      dense
+    >
+      <QItemSection side>
+        <QIcon
+          name="add_circle"
+          color="white"
+          size="1.5em"
+        />
       </QItemSection>
     </QItem>
   </SidenavBox>
@@ -44,7 +45,6 @@
 <script>
 
 import {
-  QBtn,
   QIcon,
   QItemSection,
   QItem,
@@ -58,7 +58,6 @@ import SidenavBox from './SidenavBox'
 export default {
   components: {
     SidenavBox,
-    QBtn,
     QIcon,
     QItemSection,
     QItem,
@@ -68,27 +67,12 @@ export default {
   props: {
     groupId: { default: null, type: Number },
     places: { required: true, type: Array },
-    showAllPlaces: { default: false, type: Boolean },
-    archived: { default: () => [], type: Array },
     isEditor: { default: false, type: Boolean },
     pending: { default: false, type: Boolean },
   },
-  emits: [
-    'toggle-show-all-places',
-  ],
-  data () {
-    return {
-      showArchived: false,
-    }
-  },
   computed: {
-    hasPlaces () {
-      return this.places && this.places.length > 0
-    },
-  },
-  methods: {
-    toggleArchived () {
-      this.showArchived = !this.showArchived
+    placeCount () {
+      return this.places.filter(place => place.status === 'active').length
     },
   },
 }

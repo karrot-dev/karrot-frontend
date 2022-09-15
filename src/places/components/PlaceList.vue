@@ -18,12 +18,6 @@
           class="items-baseline"
         >
           {{ place.name }}
-          <QIcon
-            v-if="place.isSubscribed"
-            name="fas fa-fw fa-star"
-            class="vertical-baseline q-ml-xs"
-            color="secondary"
-          />
         </QItemLabel>
       </QItemSection>
       <QItemSection
@@ -37,44 +31,6 @@
         </QBadge>
       </QItemSection>
     </QItem>
-
-    <QItem
-      v-if="!hasPlaces && isEditor"
-      :to="{ name: 'placeCreate', params: { groupId } }"
-      class="bg-secondary justify-center"
-      :title="$t('BUTTON.CREATE')"
-      dense
-    >
-      <QItemSection side>
-        <QIcon
-          name="add_circle"
-          color="white"
-          size="1.5em"
-        />
-      </QItemSection>
-    </QItem>
-
-    <QSeparator v-if="archived.length > 0" />
-
-    <QExpansionItem
-      v-if="archived.length > 0 && isEditor"
-      icon="fas fa-trash-alt"
-      :label="`${$t('STORESTATUS.ARCHIVED')} (${archived.length})`"
-    >
-      <QItem
-        v-for="place in archived"
-        :key="place.id"
-        :to="linkParamsFor(place)"
-        :class="{'router-link-active': place.isActivePlace}"
-        dense
-      >
-        <QItemSection>
-          <QItemLabel>
-            {{ place.name }}
-          </QItemLabel>
-        </QItemSection>
-      </QItem>
-    </QExpansionItem>
   </QList>
 </template>
 
@@ -85,8 +41,6 @@ import {
   QItemSection,
   QItemLabel,
   QIcon,
-  QExpansionItem,
-  QSeparator,
   QBadge,
 } from 'quasar'
 
@@ -101,22 +55,12 @@ export default {
     QItemSection,
     QItemLabel,
     QIcon,
-    QExpansionItem,
-    QSeparator,
     QBadge,
   },
   props: {
     places: {
       required: true,
       type: Array,
-    },
-    archived: {
-      default: () => [],
-      type: Array,
-    },
-    linkTo: {
-      default: 'place',
-      type: String,
     },
   },
   setup () {
@@ -152,14 +96,11 @@ export default {
       const notSubscribed = this.places.filter(e => !e.isSubscribed)
       return subscribed.concat(notSubscribed)
     },
-    hasPlaces () {
-      return this.places && this.places.length > 0
-    },
   },
   methods: {
     linkParamsFor (place) {
       return {
-        name: this.linkTo,
+        name: 'place',
         params: {
           groupId: place.group,
           placeId: place.id,

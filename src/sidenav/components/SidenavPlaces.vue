@@ -2,11 +2,8 @@
   <SidenavPlacesUI
     :group-id="groupId"
     :places="places"
-    :show-all-places="showAllPlaces"
-    :archived="archivedPlaces"
     :is-editor="isEditor"
     :pending="isLoadingPlaces"
-    @toggle-show-all-places="showAllPlaces = !showAllPlaces"
   />
 </template>
 
@@ -19,8 +16,6 @@ const {
   groupId,
   isEditor,
   places,
-  showAllPlaces,
-  archivedPlaces,
   isLoadingPlaces,
 } = useCurrentGroupService()
 </script>

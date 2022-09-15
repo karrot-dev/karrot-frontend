@@ -21,7 +21,8 @@ import {
 import { translatableActivityTypeNames } from '>/mockBackend/activityTypes'
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
-import { sample } from '>/mockBackend/offers'
+
+import { realSample } from '>/mockBackend/utils'
 
 import GroupActivities from './GroupActivities'
 
@@ -81,7 +82,7 @@ describe('GroupActivities', () => {
   it('can filter by activity type', async () => {
     const { findByText, queryByText } = render(GroupActivities, withDefaults())
 
-    const activityType = sample(activityTypes)
+    const activityType = realSample(activityTypes)
     await fireEvent.click(await findByText('All types'))
     await fireEvent.click(await findByText(activityType.name))
 
@@ -108,9 +109,9 @@ describe('GroupActivities', () => {
     const { findByText, getByRole, findByRole, findAllByRole } = render(GroupActivities, withDefaults())
 
     // find a slot we can sign into and click it!
-    const activityType = sample(activityTypes)
+    const activityType = realSample(activityTypes)
     const joinButtons = await findAllByRole('button', { name: `Join ${activityType.name}` })
-    await fireEvent.click(sample(joinButtons))
+    await fireEvent.click(realSample(joinButtons))
 
     // confirm our attendance
     await findByText(/Are you sure you have time/)

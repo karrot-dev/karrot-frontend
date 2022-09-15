@@ -2,12 +2,21 @@ import { h } from 'vue'
 
 import { convert } from '@/activities/api/activities'
 
-import { createActivity, createActivityType, createGroup, createPlace, createUser, loginAs } from '>/mockBackend'
+import {
+  createActivity,
+  createActivityType,
+  createGroup,
+  createPlace,
+  createPlaceType,
+  createUser,
+  loginAs,
+} from '>/mockBackend'
 import { toResponse } from '>/mockBackend/activities'
 
 import ActivityItem from './ActivityItem'
 
 const group = createGroup()
+createPlaceType({ group: group.id })
 const place = createPlace({ group: group.id })
 createActivityType({ group: group.id })
 const activity = createActivity({ place: place.id })

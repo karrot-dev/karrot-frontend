@@ -804,8 +804,8 @@ exports[`Storyshots activities/components/ActivityItem Normal 1`] = `
       <!--v-if-->
       <!-- eslint-disable vue/no-v-html -->
       <div class="markdown">
-        <p>Omnis qui quam nostrum et aut asperiores qui error. Ullam voluptatem dolorem maiores consequatur. Et ea officiis odit omnis. Maiores quis fugit quasi harum incidunt sed et alias. Veniam dolore nihil nam dolorem blanditiis et ut molestiae magni. Ea modi ut odio quia.<br>
-          Sunt quia cum illo assumenda commodi adipisci eius vitae consequatur. Repudiandae qui est reiciendis qui facere illo eos numquam qui. Qui est nisi aspernatur.</p>
+        <p>Incidunt sed et alias necessitatibus veniam dolore nihil. Dolorem blanditiis et ut molestiae magni quis ea. Ut odio quia dolore.<br>
+          Quia cum illo. Commodi adipisci eius vitae consequatur doloribus repudiandae qui est. Qui facere illo eos numquam qui dolore qui est nisi. Fugiat molestias nisi. Aliquam et non ad eos ab. Et in impedit et nostrum voluptatibus quo.</p>
       </div><!-- eslint-enable -->
       <div class="q-mt-none q-mb-none full-width column q-gutter-y-md">
         <div class="col">
@@ -932,8 +932,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-circle q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Automotive Jewelery Intelligent connecting Cambridgeshire has been created</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Feb 19, 2017, 8:59 AM" style="display: inline;">10 months ago</div> · enable Corporate bypassing Bedfordshire Tuna
-          <!--v-if-->
+          <div title="Feb 19, 2017, 8:59 AM" style="display: inline;">10 months ago</div> · enable Corporate bypassing Bedfordshire Tuna · Automotive Jewelery Intelligent connecting Cambridgeshire
         </div>
       </div>
     </div>

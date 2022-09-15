@@ -15,7 +15,7 @@ export function useNotificationHelpers () {
 
   function getMessageParams (type, context) {
     function getActivityTypeName () {
-      return getTranslatedName(getActivityTypeById(context.activity.activityType))
+      return getTranslatedName(getActivityTypeById(context.activityType || context.activity.activityType))
     }
 
     switch (type) {
@@ -44,6 +44,11 @@ export function useNotificationHelpers () {
         return {
           placeName: getPlaceById(context.place)?.name,
         }
+      case 'participant_removed': {
+        return {
+          activityType: getActivityTypeName(),
+        }
+      }
     }
 
     return {
@@ -95,7 +100,7 @@ export function useNotificationHelpers () {
     }
   }
 
-  function getRouteTo (type, { group: groupId, user: userId, place: placeId, activity, issue, url } = {}) {
+  function getRouteTo (type, { group: groupId, user: userId, place: placeId, activity, issue, history: historyId, url } = {}) {
     switch (type) {
       case 'user_became_editor':
       case 'invitation_accepted':
@@ -118,6 +123,8 @@ export function useNotificationHelpers () {
       case 'activity_enabled':
       case 'activity_moved':
         return activity && { name: 'activityDetail', params: { groupId, placeId, activityId: activity.id } }
+      case 'participant_removed':
+        return historyId && { name: 'historyDetail', params: { historyId } }
       case 'conflict_resolution_created':
       case 'conflict_resolution_created_about_you':
       case 'conflict_resolution_continued':

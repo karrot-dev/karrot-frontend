@@ -124,9 +124,14 @@ export default {
       if (!this.context) return
       return this.context.group && this.getGroupById(this.context.group)?.name
     },
+    place () {
+      if (!this.context) return
+      if (this.context.activity) return this.context.activity.place
+      return this.context.place
+    },
     placeName () {
-      if (!this.context || !this.context.activity || !this.context.activity.place) return ''
-      return this.getPlaceById(this.context.activity.place)?.name
+      if (!this.place) return ''
+      return this.getPlaceById(this.place)?.name
     },
     message () {
       if (!this.config) return

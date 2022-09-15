@@ -121,7 +121,7 @@
     "TITLE": "Manage activities",
     "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series",
     "CHANGE_AFFECTS_USERS": "This change affects the future activities of {users}.",
-    "CHANGE_AFFECTS_USERS_HINT": "Let them know what is changing, why the activity is no longer available for them and how they can get involved instead. The message will be sent to them."
+    "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
 },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Amount of food you were able to save",
@@ -639,7 +639,7 @@
     "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!",
     "YOU_BECAME_EDITOR": "You gained editing permissions",
     "MENTION": "{userName} mentioned you!",
-    "PARTICIPANT_REMOVED": "You were removed from some activities"
+    "PARTICIPANT_REMOVED": "{activityType} no longer available"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "We currently don't have notifications for you.",

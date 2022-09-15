@@ -550,10 +550,12 @@ export default {
       }
       else {
         const { participants } = await activitySeriesAPI.checkSave({ ...this.getPatchData(), id: this.value.id })
+        const uniqueUsers = Array.from(new Set(participants.map(participant => participant.user)))
+
         Dialog.create({
           component: ConfirmChangesDialog,
           componentProps: {
-            users: participants.map(participant => participant.user),
+            users: uniqueUsers,
           },
         })
           .onOk(({ updatedMessage }) => {

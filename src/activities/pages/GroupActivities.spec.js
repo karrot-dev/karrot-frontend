@@ -20,9 +20,8 @@ import {
 } from '>/mockBackend'
 import { translatableActivityTypeNames } from '>/mockBackend/activityTypes'
 import { addUserToGroup } from '>/mockBackend/groups'
-import '>/routerMocks'
-
 import { realSample } from '>/mockBackend/utils'
+import '>/routerMocks'
 
 import GroupActivities from './GroupActivities'
 

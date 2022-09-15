@@ -35,6 +35,7 @@
               <QIcon
                 v-if="opt.placeType"
                 v-bind="getIconProps(opt.placeType)"
+                color="positive"
               />
             </QItemSection>
             <QItemSection>
@@ -60,7 +61,7 @@
             dense
             v-bind="scope.itemProps"
           >
-            <QItemSection side>
+            <QItemSection avatar>
               <QIcon
                 :name="scope.opt.icon"
                 :color="scope.opt.color"
@@ -87,11 +88,13 @@
         </template>
       </QSelect>
       <QInput
-        v-model="search"
+        :model-value="search"
         :label="$t('BUTTON.SEARCH')"
         outlined
         hide-bottom-space
         dense
+        @update:model-value="debouncedSearch"
+        @keyup.enter="event => search = event.target.value"
       />
       <QCheckbox
         v-model="onlyFavorites"
@@ -107,39 +110,44 @@
         <RouterLink :to="{ name: 'place', params: { placeId: place.id } }">
           <QCard
             style="height: 200px"
-            class="relative-position"
           >
-            <RandomArt
-              :seed="place.id"
-              type="banner"
-              style="height: 42px"
-            />
-            <div
-              class="q-pl-md q-pa-sm text-h5 ellipsis absolute-top text-white"
-              style="background-color: rgba(0, 0, 0, 0.35); height: 42px"
-              :title="place.name"
-            >
-              {{ place.name }}
-            </div>
+            <QItem>
+              <QItemSection side>
+                <QIcon
+                  v-bind="getPlaceIconProps(place)"
+                />
+              </QItemSection>
+              <QItemSection>
+                <QItemLabel
+                  class="ellipsis"
+                >
+                  {{ place.name }}
+                </QItemLabel>
+              </QItemSection>
+            </QItem>
             <div class="q-ml-md limit-height">
               <Markdown
                 v-if="place.description"
                 :source="place.description"
               />
             </div>
-            <QCardActions>
+
+            <div class="row q-gutter-xs">
               <QBadge
-                v-if="getUnreadWallMessageCount(place)"
+                v-if="getUnreadWallMessageCount(place) > 0"
                 color="secondary"
               >
-                {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }} unread messages
+                {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }}
+                <QIcon name="fas fa-comments" />
               </QBadge>
               <QBadge
+                v-if="activityCountFor(place.id) > 0"
                 color="yellow-10"
               >
-                {{ activityCountFor(place.id) }} upcoming activities
+                {{ activityCountFor(place.id) }}
+                <QIcon name="fas fa-asterisk" />
               </QBadge>
-            </QCardActions>
+            </div>
           </QCard>
         </RouterLink>
       </div>
@@ -189,6 +197,7 @@ import {
   QBanner,
   QCheckbox,
   QInput,
+  debounce,
 } from 'quasar'
 import { computed, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -203,7 +212,7 @@ import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 import Markdown from '@/utils/components/Markdown.vue'
 import RandomArt from '@/utils/components/RandomArt'
 
-import { usePlaceTypeHelpers } from '../helpers'
+import { usePlaceHelpers, usePlaceTypeHelpers } from '../helpers'
 import { usePlaceTypeService } from '../services'
 
 const {
@@ -215,6 +224,10 @@ const {
 const {
   getPlaceStatus,
 } = useStatusService()
+
+const {
+  getPlaceIconProps,
+} = usePlaceHelpers()
 
 const {
   getTranslatedName,
@@ -234,13 +247,14 @@ const {
 } = useActivityListQuery({
   groupId,
   dateMin: newDateRoundedTo5Minutes(),
-  pageSize: 100,
+  pageSize: 1200,
 }, {
   cacheTime: 5 * 60 * 1000,
   staleTime: Infinity, // no need for staleness, gets reloaded after 5 min anyway due to dateMin changing,
 })
 
 watch(isFetchingActivities, value => {
+  // load ALL activities
   if (!value && hasNextPage.value) {
     fetchNextPage()
   }
@@ -314,15 +328,18 @@ const statusOptions = computed(() => {
     }))
 })
 
-const filteredPlaces = computed(() => places.value
-  .filter(place => !type.value || place.placeType === parseInt(type.value))
-  .filter(place => place.status === status.value)
-  .filter(place => !onlyFavorites.value || place.isSubscribed)
-  .filter(place => !search || place.name.toLowerCase().includes(search.value.toLowerCase())))
+const filteredPlaces = computed(() => places.value.filter(place => (
+  (!type.value || place.placeType === parseInt(type.value)) &&
+  (place.status === status.value) &&
+  (!onlyFavorites.value || place.isSubscribed) &&
+  (!search || place.name.toLowerCase().includes(search.value.toLowerCase()))
+)))
 
 const hasNoPlacesDueToFilters = computed(() => {
   return type && filteredPlaces.value.length === 0
 })
+
+const debouncedSearch = debounce(value => { search.value = value }, 500)
 </script>
 
 <style lang="sass">

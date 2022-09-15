@@ -10,12 +10,12 @@
     >
       <template #header>
         <QItemSection>
-          <b>{{ $t('CONFLICT.INITIAL') }}</b>
+          <b>{{ $t('MEMBERSHIP_REVIEW.INITIAL') }}</b>
         </QItemSection>
       </template>
       <div class="q-mx-sm q-mb-sm q-pa-sm">
         <span class="text-bold text-primary">
-          {{ $t('CONFLICT.WITH', { userName: affectedUser.displayName }) }}
+          {{ $t('MEMBERSHIP_REVIEW.WITH', { userName: affectedUser.displayName }) }}
         </span>
         <ProfilePicture
           :user="affectedUser"

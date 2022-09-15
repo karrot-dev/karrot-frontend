@@ -162,7 +162,7 @@ function fillBackend () {
       },
     },
     {
-      type: 'conflict_resolution_created',
+      type: 'membership_review_created',
       context: {
         group: group.id,
         issue: createIssue({ group: group.id }).id,
@@ -170,29 +170,14 @@ function fillBackend () {
       },
     },
     {
-      type: 'conflict_resolution_created_about_you',
+      type: 'membership_review_created_about_you',
       context: {
         group: group.id,
         issue: createIssue({ group: group.id }).id,
       },
     },
     {
-      type: 'conflict_resolution_continued',
-      context: {
-        group: group.id,
-        issue: createIssue({ group: group.id }).id,
-        user: user.id,
-      },
-    },
-    {
-      type: 'conflict_resolution_continued_about_you',
-      context: {
-        group: group.id,
-        issue: createIssue({ group: group.id }).id,
-      },
-    },
-    {
-      type: 'conflict_resolution_decided',
+      type: 'membership_review_continued',
       context: {
         group: group.id,
         issue: createIssue({ group: group.id }).id,
@@ -200,14 +185,29 @@ function fillBackend () {
       },
     },
     {
-      type: 'conflict_resolution_decided_about_you',
+      type: 'membership_review_continued_about_you',
       context: {
         group: group.id,
         issue: createIssue({ group: group.id }).id,
       },
     },
     {
-      type: 'conflict_resolution_you_were_removed',
+      type: 'membership_review_decided',
+      context: {
+        group: group.id,
+        issue: createIssue({ group: group.id }).id,
+        user: user.id,
+      },
+    },
+    {
+      type: 'membership_review_decided_about_you',
+      context: {
+        group: group.id,
+        issue: createIssue({ group: group.id }).id,
+      },
+    },
+    {
+      type: 'membership_review_you_were_removed',
       context: {
         group: group.id,
       },

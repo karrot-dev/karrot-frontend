@@ -421,7 +421,7 @@
     "NONMEMBER_REDIRECT": "Nejste členem této skupiny.",
     "NOTIFICATIONS_BY_GROUP": "Oznámení podle skupiny",
     "NOTIFICATION_TYPES": {
-      "conflict_resolution": {
+      "membership_review": {
         "DESCRIPTION": "Řekne vám, kdy byl ve vaší skupině zahájen nový proces řešení konfliktů",
         "NAME": "Nové procesy řešení konfliktů"
       },
@@ -614,13 +614,13 @@
     "ACTIVITY_UPCOMING": "Připomenutí: {activityType} v {time}",
     "APPLICATION_ACCEPTED": "Vaše žádost  byla přijata!",
     "APPLICATION_DECLINED": "Vaše přihláška byla zamítnuta",
-    "CONFLICT_RESOLUTION_CONTINUED": "Proces řešení konfliktu s {userName} pokračuje",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Proces řešení konfliktů s vámi pokračuje",
-    "CONFLICT_RESOLUTION_CREATED": "Připojte se k diskusi o konfliktu s {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "S vámi byl zahájen proces řešení konfliktů",
-    "CONFLICT_RESOLUTION_DECIDED": "Proces řešení konfliktu s {userName} byl rozhodnut",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Bylo rozhodnuto v procesu řešení konfliktů s vámi",
-    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Byl jste odstraněn ze skupiny",
+    "MEMBERSHIP_REVIEW_CONTINUED": "Proces řešení konfliktu s {userName} pokračuje",
+    "MEMBERSHIP_REVIEW_CONTINUED_ABOUT_YOU": "Proces řešení konfliktů s vámi pokračuje",
+    "MEMBERSHIP_REVIEW_CREATED": "Připojte se k diskusi o konfliktu s {userName}",
+    "MEMBERSHIP_REVIEW_CREATED_ABOUT_YOU": "S vámi byl zahájen proces řešení konfliktů",
+    "MEMBERSHIP_REVIEW_DECIDED": "Proces řešení konfliktu s {userName} byl rozhodnut",
+    "MEMBERSHIP_REVIEW_DECIDED_ABOUT_YOU": "Bylo rozhodnuto v procesu řešení konfliktů s vámi",
+    "MEMBERSHIP_REVIEW_YOU_WERE_REMOVED": "Byl jste odstraněn ze skupiny",
     "FEEDBACK_POSSIBLE": "Můžete poskytnout zpětnou vazbu -{activityType} na {date}",
     "INVITATION_ACCEPTED": "{userName} přijal vaše pozvání",
     "NEW_APPLICANT": "{userName} přihlášen do vaší skupiny",

@@ -15,13 +15,13 @@
           <QCard>
             <QCardSection>
               <div class="text-h6">
-                {{ $t('CONFLICT.INFO.TITLE') }}
+                {{ $t('MEMBERSHIP_REVIEW.INFO.TITLE') }}
               </div>
             </QCardSection>
             <QCardSection>
-              <p v-t="'CONFLICT.INFO.MESSAGE'" />
+              <p v-t="'MEMBERSHIP_REVIEW.INFO.MESSAGE'" />
               <a
-                v-t="'CONFLICT.FIND_OUT_MORE'"
+                v-t="'MEMBERSHIP_REVIEW.FIND_OUT_MORE'"
                 href="https://community.karrot.world/t/how-does-the-conflict-resolution-feature-work/254/3"
                 target="_blank"
                 rel="noopener"
@@ -40,7 +40,7 @@
       </QBtn>
     </div>
     <div class="text-h6 q-mb-md">
-      {{ $t('CONFLICT.VOTING.HEADLINE', { userName: affectedUser.displayName }) }}
+      {{ $t('MEMBERSHIP_REVIEW.VOTING.HEADLINE', { userName: affectedUser.displayName }) }}
     </div>
     <div class="q-pb-lg">
       <div class="text-caption k-caption-opacity row inline">

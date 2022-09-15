@@ -259,33 +259,6 @@
     "KARROT_DISCUSSION": "Discussions about Karrot",
     "LAST_UPDATED": "Last updated {relativeDate}"
   },
-  "CONFLICT": {
-    "FIND_OUT_MORE": "Find out more!",
-    "INFO": {
-      "MESSAGE": "This is a score voting in which group members can participate to determine someone's membership.",
-      "TITLE": "How does this process work?"
-    },
-    "INITIAL": "Information",
-    "REQUIREMENTS": {
-      "NEWCOMER": "Before you can start a membership review, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
-    },
-    "SETUP_HEADER": "Start a membership review?",
-    "STATEMENT": "Statement",
-    "STEPPER1a": "You are about to start a group-wide membership review to decide whether {userName} should continue as a member of the group",
-    "STEPPER1b": "This will be open for all members to participate.",
-    "STEPPER2a": "Thank you for caring for your community!",
-    "STEPPER2b": "For a group it is important to practise honest communication and address any issues.",
-    "STEPPER3a": "Here's what will happen:",
-    "STEPPER3b": "This process will start a chat and a vote.",
-    "STEPPER3c": "The chat will be visible for members and includes {userName}.",
-    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
-    "STEPPER4a": "Please explain why you are starting this process!",
-    "STEPPER4b": "Tell your group what made you think this is justified and needed. This statement will be visible to {userName} and group members.",
-    "VOTING": {
-      "HEADLINE": "How do you want to proceed with the ongoing membership review of {userName}?"
-    },
-    "WITH": "This process is to review the membership of {userName}"
-  },
   "CONVERSATION": {
     "CLOSED": "This conversation has been closed automatically.",
     "CONVERSATIONS": "Conversations",
@@ -422,7 +395,7 @@
     "NONMEMBER_REDIRECT": "You are not a member of this group.",
     "NOTIFICATIONS_BY_GROUP": "Notifications by group",
     "NOTIFICATION_TYPES": {
-      "conflict_resolution": {
+      "membership_review": {
         "DESCRIPTION": "Tells you when a new membership review has been started in your group",
         "NAME": "New membership review"
       },
@@ -602,6 +575,33 @@
     "QUOTE": "quote",
     "STRIKE": "strike"
   },
+  "MEMBERSHIP_REVIEW": {
+    "FIND_OUT_MORE": "Find out more!",
+    "INFO": {
+      "MESSAGE": "This is a score voting in which group members can participate to determine someone's membership.",
+      "TITLE": "How does this process work?"
+    },
+    "INITIAL": "Information",
+    "REQUIREMENTS": {
+      "NEWCOMER": "Before you can start a membership review, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+    },
+    "SETUP_HEADER": "Start a membership review?",
+    "STATEMENT": "Statement",
+    "STEPPER1a": "You are about to start a group-wide membership review to decide whether {userName} should continue as a member of the group",
+    "STEPPER1b": "This will be open for all members to participate.",
+    "STEPPER2a": "Thank you for caring for your community!",
+    "STEPPER2b": "For a group it is important to practise honest communication and address any issues.",
+    "STEPPER3a": "Here's what will happen:",
+    "STEPPER3b": "This process will start a chat and a vote.",
+    "STEPPER3c": "The chat will be visible for members and includes {userName}.",
+    "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
+    "STEPPER4a": "Please explain why you are starting this process!",
+    "STEPPER4b": "Tell your group what made you think this is justified and needed. This statement will be visible to {userName} and group members.",
+    "VOTING": {
+      "HEADLINE": "How do you want to proceed with the ongoing membership review of {userName}?"
+    },
+    "WITH": "This process is to review the membership of {userName}"
+  },
   "NOTIFICATIONS": {
     "CHANGES_SAVED": "Your changes have been saved.",
     "CHECK_YOUR_MAILS": "Please check your emails or {resend}",
@@ -617,13 +617,13 @@
     "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
     "APPLICATION_ACCEPTED": "Your application was accepted!",
     "APPLICATION_DECLINED": "Your application was declined",
-    "CONFLICT_RESOLUTION_CONTINUED": "The membership review of {userName} continues",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Your membership review continues",
-    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a membership review of {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A review of your membership was started",
-    "CONFLICT_RESOLUTION_DECIDED": "The membership review of {userName} was decided",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Your membership was decided",
-    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
+    "MEMBERSHIP_REVIEW_CONTINUED": "The membership review of {userName} continues",
+    "MEMBERSHIP_REVIEW_CONTINUED_ABOUT_YOU": "Your membership review continues",
+    "MEMBERSHIP_REVIEW_CREATED": "Join the discussion about a membership review of {userName}",
+    "MEMBERSHIP_REVIEW_CREATED_ABOUT_YOU": "A review of your membership was started",
+    "MEMBERSHIP_REVIEW_DECIDED": "The membership review of {userName} was decided",
+    "MEMBERSHIP_REVIEW_DECIDED_ABOUT_YOU": "Your membership was decided",
+    "MEMBERSHIP_REVIEW_YOU_WERE_REMOVED": "You were removed from the group",
     "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName} accepted your invitation",
     "NEW_APPLICANT": "{userName} applied to join your group",

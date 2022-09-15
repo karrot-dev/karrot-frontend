@@ -421,7 +421,7 @@
     "NONMEMBER_REDIRECT": "Nie jesteś członkiem tej grupy.",
     "NOTIFICATIONS_BY_GROUP": "Powiadomienia według grup",
     "NOTIFICATION_TYPES": {
-      "conflict_resolution": {
+      "membership_review": {
         "DESCRIPTION": "Wskazuje, gdy rozpoczęto rozwiązywanie konfliktu w Twojej grupie",
         "NAME": "Nowe konflikty do rozwiązania"
       },
@@ -614,13 +614,13 @@
     "ACTIVITY_UPCOMING": "Przypomnienie: {activityType} o {time}",
     "APPLICATION_ACCEPTED": "Twoje zgłoszenie zostało zaakceptowane!",
     "APPLICATION_DECLINED": "Twoje zgłoszenie zostało odrzucone",
-    "CONFLICT_RESOLUTION_CONTINUED": "Kontynuowano rozwiązywanie konfliktu z {userName}",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Kontynuowano rozwiązywanie konfliktu z Tobą",
-    "CONFLICT_RESOLUTION_CREATED": "Dołącz do dyskusji o konflikcie z {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Rozpoczęto rozwiązywanie konfliktu z Tobą",
-    "CONFLICT_RESOLUTION_DECIDED": "Rozstrzygnięto konflikt z {userName}",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Rozstrzygnięto konflikt z Tobą",
-    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Usunięto Cię z grupy",
+    "MEMBERSHIP_REVIEW_CONTINUED": "Kontynuowano rozwiązywanie konfliktu z {userName}",
+    "MEMBERSHIP_REVIEW_CONTINUED_ABOUT_YOU": "Kontynuowano rozwiązywanie konfliktu z Tobą",
+    "MEMBERSHIP_REVIEW_CREATED": "Dołącz do dyskusji o konflikcie z {userName}",
+    "MEMBERSHIP_REVIEW_CREATED_ABOUT_YOU": "Rozpoczęto rozwiązywanie konfliktu z Tobą",
+    "MEMBERSHIP_REVIEW_DECIDED": "Rozstrzygnięto konflikt z {userName}",
+    "MEMBERSHIP_REVIEW_DECIDED_ABOUT_YOU": "Rozstrzygnięto konflikt z Tobą",
+    "MEMBERSHIP_REVIEW_YOU_WERE_REMOVED": "Usunięto Cię z grupy",
     "FEEDBACK_POSSIBLE": "Możesz dodać komentarz - {activityType} w dniu {date}",
     "INVITATION_ACCEPTED": "{userName} zaakceptował/-a twoje zaproszenie",
     "NEW_APPLICANT": "{userName} zgłosił/-a się do Twojej grupy",

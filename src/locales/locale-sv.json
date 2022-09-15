@@ -421,7 +421,7 @@
     "NONMEMBER_REDIRECT": "Du är inte en medlem i denna grupp",
     "NOTIFICATIONS_BY_GROUP": "Aviseringar per grupp",
     "NOTIFICATION_TYPES": {
-      "conflict_resolution": {
+      "membership_review": {
         "DESCRIPTION": "Berättar när en ny konfliktlösningsprocess har startats i din grupp",
         "NAME": "Nya processer för konfliktlösning"
       },
@@ -614,13 +614,13 @@
     "ACTIVITY_UPCOMING": "Påminnelse: {activityType} {time}",
     "APPLICATION_ACCEPTED": "Din ansökan har beviljats!",
     "APPLICATION_DECLINED": "Din ansökan har avböjts",
-    "CONFLICT_RESOLUTION_CONTINUED": "Processen för konfliktlösning med {userName} fortsätter",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Processen för konfliktlösning med dig fortsätter",
-    "CONFLICT_RESOLUTION_CREATED": "Gå med i diskussionen om en konflikt med {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "En konfliktlösningsprocess startades med dig",
-    "CONFLICT_RESOLUTION_DECIDED": "Processen för konfliktlösning med {userName} beslutades",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Konfliktlösningsprocessen med dig beslutades",
-    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du togs bort från gruppen",
+    "MEMBERSHIP_REVIEW_CONTINUED": "Processen för konfliktlösning med {userName} fortsätter",
+    "MEMBERSHIP_REVIEW_CONTINUED_ABOUT_YOU": "Processen för konfliktlösning med dig fortsätter",
+    "MEMBERSHIP_REVIEW_CREATED": "Gå med i diskussionen om en konflikt med {userName}",
+    "MEMBERSHIP_REVIEW_CREATED_ABOUT_YOU": "En konfliktlösningsprocess startades med dig",
+    "MEMBERSHIP_REVIEW_DECIDED": "Processen för konfliktlösning med {userName} beslutades",
+    "MEMBERSHIP_REVIEW_DECIDED_ABOUT_YOU": "Konfliktlösningsprocessen med dig beslutades",
+    "MEMBERSHIP_REVIEW_YOU_WERE_REMOVED": "Du togs bort från gruppen",
     "FEEDBACK_POSSIBLE": "Du kan ge feedback - {activityType} den {date}",
     "INVITATION_ACCEPTED": "{userName} beviljade din ansökan",
     "NEW_APPLICANT": "{userName} ansökte om att gå med i din grupp",

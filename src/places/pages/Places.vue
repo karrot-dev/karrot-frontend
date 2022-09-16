@@ -107,49 +107,81 @@
         :key="place.id"
         class="col-md-4 col-6"
       >
-        <RouterLink :to="{ name: 'place', params: { placeId: place.id } }">
-          <QCard
-            style="height: 200px"
-          >
-            <QItem>
-              <QItemSection side>
-                <QIcon
-                  v-bind="getPlaceIconProps(place)"
-                />
-              </QItemSection>
-              <QItemSection>
-                <QItemLabel
-                  class="ellipsis"
-                >
-                  {{ place.name }}
-                </QItemLabel>
-              </QItemSection>
-            </QItem>
-            <div class="q-ml-md limit-height">
-              <Markdown
-                v-if="place.description"
-                :source="place.description"
+        <QCard
+          style="height: 200px"
+        >
+          <QItem :to="{ name: 'place', params: { placeId: place.id } }">
+            <QItemSection side>
+              <QIcon
+                v-bind="getPlaceIconProps(place)"
               />
-            </div>
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel
+                class="ellipsis"
+              >
+                {{ place.name }}
+              </QItemLabel>
+              <QItemLabel
+                caption
+                class="ellipsis"
+              >
+                {{ getTranslatedName(getPlaceTypeById(place.placeType)) }}
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
 
-            <div class="row q-gutter-xs">
-              <QBadge
-                v-if="getUnreadWallMessageCount(place) > 0"
+          <div class="row q-gutter-xs q-ml-xs">
+            <RouterLink
+              v-if="getUnreadWallMessageCount(place) > 0"
+              :to="{ name: 'placeWall', params: { placeId: place.id }}"
+            >
+              <QChip
                 color="secondary"
+                square
+                text-color="white"
+                icon="fas fa-comments"
+                :title="$tc('CONVERSATION.UNREAD_MESSAGES', getUnreadWallMessageCount(place), { count: getUnreadWallMessageCount(place) })"
               >
-                {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }}
-                <QIcon name="fas fa-comments" />
-              </QBadge>
-              <QBadge
-                v-if="activityCountFor(place.id) > 0"
-                color="yellow-10"
+                <strong class="q-ml-sm">
+                  {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }}
+                </strong>
+              </QChip>
+            </RouterLink>
+            <RouterLink
+              v-if="activityCountFor(place.id) > 0"
+              :to="{ name: 'placeActivities', params: { placeId: place.id }}"
+              :title="$tc('PLACE_LIST.UPCOMING_ACTIVITIES', activityCountFor(place.id), { count: activityCountFor(place.id) })"
+            >
+              <QChip
+                color="secondary"
+                square
+                text-color="white"
+                icon="fas fa-asterisk"
               >
-                {{ activityCountFor(place.id) }}
-                <QIcon name="fas fa-asterisk" />
-              </QBadge>
-            </div>
-          </QCard>
-        </RouterLink>
+                <strong class="q-ml-sm">
+                  {{ activityCountFor(place.id) }}
+                </strong>
+              </QChip>
+              <QIcon
+                v-if="place.isSubscribed"
+                class="q-ml-xs"
+                name="fas fa-star"
+                color="secondary"
+                :title="$t('PLACE_LIST.SUBSCRIBED')"
+              />
+            </RouterLink>
+          </div>
+
+          <QSeparator />
+
+          <div class="q-ml-md q-mr-xs q-mt-xs limit-height">
+            <Markdown
+              v-if="place.description"
+              :source="place.description"
+            />
+          </div>
+        </QCard>
       </div>
     </div>
 
@@ -197,6 +229,8 @@ import {
   QBanner,
   QCheckbox,
   QInput,
+  QChip,
+  QSeparator,
   debounce,
 } from 'quasar'
 import { computed, watch } from 'vue'
@@ -237,6 +271,7 @@ const {
 
 const {
   getPlaceTypesByGroup,
+  getPlaceTypeById,
 } = usePlaceTypeService()
 
 const {
@@ -345,6 +380,6 @@ const debouncedSearch = debounce(value => { search.value = value }, 500)
 <style lang="sass">
 .limit-height
   position: relative
-  max-height: 67px
+  max-height: 100px
   overflow-y: hidden
 </style>

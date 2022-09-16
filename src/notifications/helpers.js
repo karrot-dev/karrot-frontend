@@ -118,12 +118,12 @@ export function useNotificationHelpers () {
       case 'activity_enabled':
       case 'activity_moved':
         return activity && { name: 'activityDetail', params: { groupId, placeId, activityId: activity.id } }
-      case 'membership_review_created':
-      case 'membership_review_created_about_you':
-      case 'membership_review_continued':
-      case 'membership_review_continued_about_you':
-      case 'membership_review_decided':
-      case 'membership_review_decided_about_you':
+      case 'conflict_resolution_created':
+      case 'conflict_resolution_created_about_you':
+      case 'conflict_resolution_continued':
+      case 'conflict_resolution_continued_about_you':
+      case 'conflict_resolution_decided':
+      case 'conflict_resolution_decided_about_you':
       case 'voting_ends_soon':
         return issue && { name: 'issueDetail', params: { groupId, issueId: issue.id } }
       case 'mention':

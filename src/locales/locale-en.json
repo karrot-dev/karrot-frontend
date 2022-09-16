@@ -498,6 +498,7 @@
     "CREATION": {
       "TOAST": "You successfully started a membership review"
     },
+    "NOTICE": "There is an ongoing issue! | There are {count} ongoing issues!",
     "NO_ONGOING": "No ongoing issues.",
     "PARTICIPANTS": "{count} members have been added to this discussion.",
     "PAST": "Past issues",

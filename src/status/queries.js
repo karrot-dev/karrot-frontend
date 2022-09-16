@@ -40,6 +40,7 @@ export function useStatusQuery (queryOptions = {}) {
           {
             <id> {
               unreadWallMessageCount: 0
+              ongoingIssueCount: 0
             }
           }
         */

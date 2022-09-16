@@ -53,7 +53,7 @@
         <Markdown :source="issue.topic" />
       </div>
       <div
-        v-if="conversation"
+        v-if="conversation && isParticipant"
         class="q-ml-sm q-pt-sm q-pl-sm"
       >
         <div>
@@ -69,6 +69,7 @@
           {{ $t('ISSUE.PARTICIPANTS', { count: participants.length }) }}
         </div>
       </div>
+      <hr class="text-grey-1">
     </QExpansionItem>
     <div
       v-if="conversation"
@@ -77,7 +78,6 @@
       <NotificationToggle
         :muted="isMuted"
         :is-participant="isParticipant"
-        :can-unsubscribe="false"
         :user="currentUser"
         in-toolbar
         :size="$q.platform.is.mobile ? 'sm' : 'md'"

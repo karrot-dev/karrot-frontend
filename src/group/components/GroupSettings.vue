@@ -171,7 +171,7 @@ export default {
         'daily_activity_notification',
         'new_application',
         ...(this.group.features.includes('offers') ? ['new_offer'] : []),
-        'membership_review',
+        'conflict_resolution',
       ]
     },
   },

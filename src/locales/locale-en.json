@@ -395,7 +395,7 @@
     "NONMEMBER_REDIRECT": "You are not a member of this group.",
     "NOTIFICATIONS_BY_GROUP": "Notifications by group",
     "NOTIFICATION_TYPES": {
-      "membership_review": {
+      "conflict_resolution": {
         "DESCRIPTION": "Tells you when a new membership review has been started in your group",
         "NAME": "New membership review"
       },

@@ -140,7 +140,7 @@
           </QItem>
 
           <div
-            class="row no-wrap q-gutter-xs q-ml-xs"
+            class="row no-wrap q-gutter-xs q-ml-sm q-mr-sm"
             style="height: 32px"
           >
             <RouterLink
@@ -176,14 +176,14 @@
                   {{ activityCountFor(place.id) }}
                 </strong>
               </QChip>
-              <QIcon
-                v-if="place.isSubscribed"
-                class="q-ml-xs"
-                name="fas fa-star"
-                color="secondary"
-                :title="$t('PLACE_LIST.SUBSCRIBED')"
-              />
             </RouterLink>
+            <QIcon
+              v-if="place.isSubscribed"
+              class="q-ml-sm self-center"
+              name="fas fa-star"
+              color="secondary"
+              :title="$t('PLACE_LIST.SUBSCRIBED')"
+            />
           </div>
 
           <div class="q-ml-md q-mr-xs q-mt-xs limit-height text-grey-9">

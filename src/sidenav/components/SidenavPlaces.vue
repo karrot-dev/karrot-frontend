@@ -7,67 +7,71 @@
       />
     </template>
     <template #name>
-      Your places (TODO)
+      {{ $t('PLACE_LIST.FAVORITE_PLACES') }}
     </template>
 
     <KSpinner v-if="isLoadingPlaces" />
-    <QList v-else>
+
+    <template v-else>
+      <QList>
+        <QItem
+          v-for="place in subscribedPlaces"
+          :key="place.id"
+          :to="{ name: 'place', params: { groupId, placeId: place.id }}"
+          :class="{'router-link-active': getIsActivePlace(place)}"
+          dense
+        >
+          <QItemSection side>
+            <QIcon
+              v-bind="getPlaceIconProps(place)"
+              size="1.1em"
+            />
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel
+              class="items-baseline"
+            >
+              {{ place.name }}
+            </QItemLabel>
+          </QItemSection>
+          <QItemSection
+            v-if="getUnreadWallMessageCount(place) > 0"
+            side
+          >
+            <QBadge
+              color="secondary"
+            >
+              {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }}
+            </QBadge>
+          </QItemSection>
+        </QItem>
+      </QList>
+
+      <div v-if="subscribedPlaces.length < 1">
+        <QBanner
+          class="bg-info q-mx-md"
+          rounded
+        >
+          When you mark places as favorite, they will show here.
+          Click below to see all places, then open one and click <QIcon name="fas fa-star" />.
+        </QBanner>
+      </div>
+
       <QItem
-        v-for="place in places.filter(place => place.isSubscribed)"
-        :key="place.id"
-        :to="{ name: 'place', params: { groupId, placeId: place.id }}"
-        :class="{'router-link-active': getIsActivePlace(place)}"
+        :to="{ name: 'places', params: { groupId } }"
         dense
       >
         <QItemSection side>
           <QIcon
-            v-bind="getPlaceIconProps(place)"
+            name="fas fa-arrow-right"
             size="1.1em"
           />
         </QItemSection>
         <QItemSection>
-          <QItemLabel
-            class="items-baseline"
-          >
-            {{ place.name }}
-          </QItemLabel>
-        </QItemSection>
-        <QItemSection
-          v-if="getUnreadWallMessageCount(place) > 0"
-          side
-        >
-          <QBadge
-            color="secondary"
-          >
-            {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }}
-          </QBadge>
+          {{ $t('STOREEDIT.SHOW_ALL') }} ({{ activePlaceCount }})
         </QItemSection>
       </QItem>
-    </QList>
-    <QItem
-      v-if="placeCount > 0"
-      :to="{ name: 'places', params: { groupId } }"
-      dense
-    >
-      <QItemSection>
-        {{ $t('STOREEDIT.SHOW_ALL', { count: placeCount }) }}
-      </QItemSection>
-    </QItem>
-    <QItem
-      v-if="placeCount < 1 && isEditor"
-      :to="{ name: 'placeCreate', params: { groupId } }"
-      class="bg-secondary justify-center"
-      :title="$t('BUTTON.CREATE')"
-      dense
-    >
-      <QItemSection side>
-        <QIcon
-          name="add_circle"
-          color="white"
-          size="1.5em"
-        />
-      </QItemSection>
-    </QItem>
+    </template>
   </SidenavBox>
 </template>
 
@@ -79,6 +83,7 @@ import {
   QList,
   QItemLabel,
   QBadge,
+  QBanner,
 } from 'quasar'
 import { computed } from 'vue'
 
@@ -110,7 +115,8 @@ function getUnreadWallMessageCount (place) {
   return getPlaceStatus(place.id).unreadWallMessageCount
 }
 
-const placeCount = computed(() => places.value.filter(place => place.status === 'active').length)
+const subscribedPlaces = computed(() => places.value.filter(place => place.isSubscribed))
+const activePlaceCount = computed(() => places.value.filter(place => place.status === 'active').length)
 </script>
 
 <style scoped lang="sass">

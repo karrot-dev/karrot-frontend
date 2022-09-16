@@ -714,7 +714,8 @@
   "PLACE_LIST": {
     "ONLY_FAVORITES": "Only favorite",
     "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
-    "SUBSCRIBED": "You have marked this place as favorite"
+    "SUBSCRIBED": "You have marked this place as favorite",
+    "FAVORITE_PLACES": "Favorite places"
   },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
@@ -786,7 +787,7 @@
     },
     "NAME": "Name",
     "RESTORE": "Restore",
-    "SHOW_ALL": "Show all { count } places",
+    "SHOW_ALL": "Show all places",
     "STATUS": "Status",
     "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
     "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."

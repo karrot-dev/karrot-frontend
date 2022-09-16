@@ -17,7 +17,7 @@
         <QItem
           v-for="place in subscribedPlaces"
           :key="place.id"
-          :to="{ name: 'place', params: { groupId, placeId: place.id }}"
+          :to="{ name: placeRoute(place), params: { groupId, placeId: place.id }}"
           :class="{'router-link-active': getIsActivePlace(place)}"
           dense
         >
@@ -89,6 +89,7 @@ import { computed } from 'vue'
 
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceHelpers } from '@/places/helpers'
+import { placeRoute } from '@/places/utils'
 import { useStatusService } from '@/status/services'
 
 import KSpinner from '@/utils/components/KSpinner'
@@ -101,7 +102,6 @@ const {
 } = usePlaceHelpers()
 
 const {
-  isEditor,
   groupId,
   places,
   isLoadingPlaces,

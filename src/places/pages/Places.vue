@@ -116,7 +116,7 @@
           style="height: 240px"
         >
           <QItem
-            :to="{ name: 'place', params: { placeId: place.id } }"
+            :to="{ name: placeRoute(place), params: { placeId: place.id } }"
             class="bg-grey-3"
           >
             <QItemSection side>
@@ -247,6 +247,7 @@ import { useI18n } from 'vue-i18n'
 import { useActivityListQuery } from '@/activities/queries'
 import { useCurrentGroupService } from '@/group/services'
 import { statusList } from '@/places/placeStatus'
+import { placeRoute } from '@/places/utils'
 import { useStatusService } from '@/status/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'

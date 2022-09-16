@@ -1,19 +1,5 @@
 <template>
   <div>
-    <div class="bg-white q-px-sm q-py-lg row justify-between">
-      <span class="text-h4">
-        Discover Places...
-      </span>
-      <QBtn
-        v-if="isEditor"
-        round
-        color="secondary"
-        :to="{ name: 'placeCreate', params: { groupId } }"
-        :title="$t('BUTTON.CREATE')"
-      >
-        <QIcon name="fas fa-fw fa-plus" />
-      </QBtn>
-    </div>
     <div
       class="row no-wrap items-center justify-between bg-white q-px-sm q-py-xs"
     >
@@ -103,14 +89,36 @@
     </div>
     <div class="row">
       <div
+        v-if="isEditor && status === 'active'"
+        class="col-md-4 col-6"
+      >
+        <QCard style="height: 240px">
+          <RouterLink
+            class="absolute-center fit"
+            :to="{ name: 'placeCreate', params: { groupId } }"
+            :title="$t('BUTTON.CREATE')"
+          >
+            <QIcon
+              size="5em"
+              class="fit"
+              name="fas fa-plus"
+              color="secondary"
+            />
+          </RouterLink>
+        </QCard>
+      </div>
+      <div
         v-for="place in filteredPlaces"
         :key="place.id"
         class="col-md-4 col-6"
       >
         <QCard
-          style="height: 200px"
+          style="height: 240px"
         >
-          <QItem :to="{ name: 'place', params: { placeId: place.id } }">
+          <QItem
+            :to="{ name: 'place', params: { placeId: place.id } }"
+            class="bg-grey-3"
+          >
             <QItemSection side>
               <QIcon
                 v-bind="getPlaceIconProps(place)"
@@ -131,14 +139,18 @@
             </QItemSection>
           </QItem>
 
-          <div class="row q-gutter-xs q-ml-xs">
+          <div
+            class="row no-wrap q-gutter-xs q-ml-xs"
+            style="height: 32px"
+          >
             <RouterLink
               v-if="getUnreadWallMessageCount(place) > 0"
               :to="{ name: 'placeWall', params: { placeId: place.id }}"
             >
               <QChip
-                color="secondary"
                 square
+                size="sm"
+                color="secondary"
                 text-color="white"
                 icon="fas fa-comments"
                 :title="$tc('CONVERSATION.UNREAD_MESSAGES', getUnreadWallMessageCount(place), { count: getUnreadWallMessageCount(place) })"
@@ -154,8 +166,9 @@
               :title="$tc('PLACE_LIST.UPCOMING_ACTIVITIES', activityCountFor(place.id), { count: activityCountFor(place.id) })"
             >
               <QChip
-                color="secondary"
                 square
+                size="sm"
+                color="secondary"
                 text-color="white"
                 icon="fas fa-asterisk"
               >
@@ -173,9 +186,7 @@
             </RouterLink>
           </div>
 
-          <QSeparator />
-
-          <div class="q-ml-md q-mr-xs q-mt-xs limit-height">
+          <div class="q-ml-md q-mr-xs q-mt-xs limit-height text-grey-9">
             <Markdown
               v-if="place.description"
               :source="place.description"
@@ -221,8 +232,6 @@ import {
   QSelect,
   QBtn,
   QIcon,
-  QCardActions,
-  QBadge,
   QItem,
   QItemSection,
   QItemLabel,
@@ -230,7 +239,6 @@ import {
   QCheckbox,
   QInput,
   QChip,
-  QSeparator,
   debounce,
 } from 'quasar'
 import { computed, watch } from 'vue'
@@ -244,7 +252,6 @@ import { useQueryParams } from '@/utils/mixins/bindRoute'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 
 import Markdown from '@/utils/components/Markdown.vue'
-import RandomArt from '@/utils/components/RandomArt'
 
 import { usePlaceHelpers, usePlaceTypeHelpers } from '../helpers'
 import { usePlaceTypeService } from '../services'
@@ -380,6 +387,6 @@ const debouncedSearch = debounce(value => { search.value = value }, 500)
 <style lang="sass">
 .limit-height
   position: relative
-  max-height: 100px
+  max-height: 140px
   overflow-y: hidden
 </style>

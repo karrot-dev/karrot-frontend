@@ -17,7 +17,7 @@
     />
     <QItem
       v-if="placeCount > 0"
-      :to="{ name: 'places' }"
+      :to="{ name: 'places', params: { groupId } }"
       dense
     >
       <QItemSection>

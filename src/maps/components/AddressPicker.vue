@@ -15,7 +15,10 @@
       @update:model-value="input"
       @filter="search"
     >
-      <template #before>
+      <template
+        v-if="icon"
+        #before
+      >
         <QIcon :name="icon" />
       </template>
       <template #selected-item />
@@ -61,7 +64,10 @@
         </template>
       </template>
     </QSelect>
-    <div class="map">
+    <div
+      class="map"
+      :class="icon ? 'map-indented' : ''"
+    >
       <StandardMap
         :markers="marker ? [marker] : []"
         :prevent-zoom="preventZoom"
@@ -209,8 +215,10 @@ export default {
 
 <style scoped lang="sass">
 .map
-  width: calc(100% - 42px)
   height: 260px
   margin-top: -10px
+
+.map-indented
+  width: calc(100% - 42px)
   margin-left: 37px
 </style>

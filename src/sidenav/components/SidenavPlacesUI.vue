@@ -32,7 +32,6 @@
     <KSpinner v-if="!hasPlaces && pending" />
     <PlaceList
       v-else
-      :group-id="groupId"
       :places="places"
       :archived="showAllPlaces ? archived : []"
     />

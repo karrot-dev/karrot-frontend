@@ -2,7 +2,6 @@
   <QCard>
     <PlaceList
       class="white-background"
-      :group-id="groupId"
       :places="places"
       :archived="archivedPlaces"
     />
@@ -17,7 +16,6 @@ import { useCurrentGroupService } from '@/group/services'
 import PlaceList from '@/places/components/PlaceList'
 
 const {
-  groupId,
   places,
   archivedPlaces,
 } = useCurrentGroupService()

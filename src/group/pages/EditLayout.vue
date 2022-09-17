@@ -49,6 +49,10 @@ const tabs = computed(() => {
       to: { name: 'groupEditActivityTypes', params },
       label: t('GROUP.EDIT_ACTIVITY_TYPES'),
     },
+    {
+      to: { name: 'groupEditPlaceTypes', params },
+      label: t('GROUP.EDIT_PLACE_TYPES'),
+    },
   ]
 })
 </script>

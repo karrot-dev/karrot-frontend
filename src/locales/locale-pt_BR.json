@@ -382,6 +382,7 @@
     "DESCRIPTION_VERBOSE": "Descrição do grupo. Visível para os membros",
     "EDIT": "Editar grupo",
     "EDIT_ACTIVITY_TYPES": "Activity types",
+    "EDIT_PLACE_TYPES": "Place types",
     "EDIT_DETAILS": "Group details",
     "EMAIL_NOTIFICATIONS": "Notificações por e-mail",
     "HEADINGS": {
@@ -684,6 +685,32 @@
     "SUCCESS": "A requisição foi enviada com sucesso. Verifique seu e-mail!",
     "TITLE": "Redefinir senha"
   },
+  "PLACE_TYPE_NAMES": {
+    "Unspecified": "Unspecified",
+    "Store": "Store",
+    "Sharing Point": "Sharing Point",
+    "Meeting Place": "Meeting Place",
+    "Restaurant": "Restaurant",
+    "Market": "Market"
+  },
+  "PLACE_TYPE_STATUS": {
+    "ACTIVE": "Active",
+    "ARCHIVED": "Archived"
+  },
+  "PLACE_TYPES": {
+    "ADD": "Add new place type",
+    "NAME": "Name",
+    "STATUS": "Status",
+    "STANDARD_NAME_HEADING": "Standard names",
+    "STANDARD_NAME_HINT": "Name will be available in other languages",
+    "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
+    "CUSTOM_NAME_USE": "Use custom name {name}",
+    "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
+    "MANAGE_TYPES": "Manage types...",
+    "SHOW_ARCHIVED": "Show archived",
+    "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
+    "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
+  },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
     "SUBSCRIPTION": {
@@ -744,6 +771,7 @@
     "DEFAULT_VIEW": "Default View",
     "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
     "DESCRIPTION": "Descricão",
+    "PLACE_TYPE": "Place type",
     "DIALOGS": {
       "ARCHIVE": {
         "CONFIRM": "Yes, archive place",

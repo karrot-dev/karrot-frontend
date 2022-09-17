@@ -22,6 +22,7 @@ const GroupMap = () => import('@/maps/pages/Map')
 const GroupEditLayout = () => import('@/group/pages/EditLayout')
 const GroupEdit = () => import('@/group/pages/Edit')
 const GroupEditActivityTypes = () => import('@/group/pages/EditActivityTypes')
+const GroupEditPlaceTypes = () => import('@/group/pages/EditPlaceTypes')
 const GroupCreate = () => import('@/group/pages/Create')
 const GroupPreview = () => import('@/groupInfo/pages/GroupPreview')
 const GroupGallery = () => import('@/groupInfo/pages/GroupGallery')
@@ -358,6 +359,11 @@ export default [
             name: 'groupEditActivityTypes',
             path: 'activity-types',
             component: GroupEditActivityTypes,
+          },
+          {
+            name: 'groupEditPlaceTypes',
+            path: 'place-types',
+            component: GroupEditPlaceTypes,
           },
         ],
       },

@@ -89,7 +89,7 @@
     </div>
     <div class="row">
       <div
-        v-if="isEditor && status === 'active'"
+        v-if="isEditor"
         class="col-md-4 col-6"
       >
         <QCard style="height: 240px">
@@ -191,6 +191,11 @@
               v-if="place.description"
               :source="place.description"
             />
+            <div v-else>
+              <span class="text-italic">
+                {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
+              </span>
+            </div>
           </div>
         </QCard>
       </div>
@@ -211,7 +216,7 @@
           />
         </template>
         <h5 class="q-ma-xs">
-          {{ $t('ACTIVITYLIST.NONE_DUE_TO_FILTER') }}
+          {{ $t('PLACE_LIST.NONE_DUE_TO_FILTER') }}
         </h5>
         <template #action>
           <QBtn
@@ -348,7 +353,7 @@ function getUnreadWallMessageCount (place) {
 
 const typeOptions = computed(() => ([
   {
-    label: t('ACTIVITYLIST.FILTER.ALL_TYPES'),
+    label: t('PLACE_LIST.ALL_TYPES'),
     value: null,
   },
   ...placeTypes.value.map(placeType => {
@@ -361,19 +366,22 @@ const typeOptions = computed(() => ([
   }),
 ]))
 
-const statusOptions = computed(() => {
-  return statusList
-    .map(s => ({
-      value: s.key,
-      label: t(s.label),
-      color: s.color,
-      icon: 'fas fa-circle',
-    }))
-})
+const statusOptions = computed(() => ([
+  {
+    label: t('PLACE_LIST.ALL_STATUSES'),
+    value: 'all',
+  },
+  ...statusList.map(s => ({
+    value: s.key,
+    label: t(s.label),
+    color: s.color,
+    icon: 'fas fa-circle',
+  })),
+]))
 
 const filteredPlaces = computed(() => places.value.filter(place => (
   (!type.value || place.placeType === parseInt(type.value)) &&
-  (place.status === status.value) &&
+  (status.value === 'all' || place.status === status.value) &&
   (!onlyFavorites.value || place.isSubscribed) &&
   (!search || place.name.toLowerCase().includes(search.value.toLowerCase()))
 )))

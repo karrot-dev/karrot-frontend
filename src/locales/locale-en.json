@@ -715,7 +715,10 @@
     "ONLY_FAVORITES": "Only favorite",
     "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
     "SUBSCRIBED": "You have marked this place as favorite",
-    "FAVORITE_PLACES": "Favorite places"
+    "FAVORITE_PLACES": "Favorite places",
+    "NONE_DUE_TO_FILTER": "No places match your filters",
+    "ALL_TYPES": "All types",
+    "ALL_STATUSES": "All statuses"
   },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",

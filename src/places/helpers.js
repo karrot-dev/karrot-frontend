@@ -25,14 +25,9 @@ export function usePlaceHelpers () {
     }
   }
 
-  function sortByPlaceStatus (a, b) {
-    return optionsFor(a).sort - optionsFor(b).sort
-  }
-
   return {
     getIsActivePlace,
     getPlaceIconProps,
-    sortByPlaceStatus,
   }
 }
 

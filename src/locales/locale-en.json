@@ -714,6 +714,16 @@
     "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
+  "PLACE_LIST": {
+    "ONLY_FAVORITES": "Only favorite",
+    "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
+    "SUBSCRIBED": "You have marked this place as favorite",
+    "FAVORITE_PLACES": "Favorite places",
+    "NONE_DUE_TO_FILTER": "No places match your filters",
+    "ALL_TYPES": "All types",
+    "ALL_STATUSES": "All statuses",
+    "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then open one and click { icon }."
+  },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
     "SUBSCRIPTION": {
@@ -784,7 +794,6 @@
     },
     "NAME": "Name",
     "RESTORE": "Restore",
-    "SHOW_ACTIVE_ONLY": "Only show active places",
     "SHOW_ALL": "Show all places",
     "STATUS": "Status",
     "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",

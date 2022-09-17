@@ -105,17 +105,6 @@
           {{ $t('ACTIVITYLIST.NONE_HINT') }}
         </template>
       </KNotice>
-      <QCard v-if="places.length > 0 || isEditor">
-        <QCardSection>
-          <span v-t="'GROUP.PLACES'" />
-        </QCardSection>
-        <QCardSection>
-          <PlaceList
-            :places="places"
-            link-to="placeActivitiesManage"
-          />
-        </QCardSection>
-      </QCard>
     </template>
     <div
       v-if="hasNoActivitiesDueToFilters"
@@ -149,9 +138,7 @@
 
 <script>
 import {
-  QCard,
   QIcon,
-  QCardSection,
   QItem,
   QItemSection,
   QItemLabel,
@@ -173,16 +160,13 @@ import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 import ActivityEditButton from '@/activities/components/ActivityEditButton.vue'
 import ActivityList from '@/activities/components/ActivityList'
 import ICSBtn from '@/activities/components/ICSBtn'
-import PlaceList from '@/places/components/PlaceList'
 import KNotice from '@/utils/components/KNotice'
 import KSpinner from '@/utils/components/KSpinner'
 
 export default {
   components: {
     ICSBtn,
-    QCard,
     QIcon,
-    QCardSection,
     QInfiniteScroll,
     QSelect,
     QBanner,
@@ -193,7 +177,6 @@ export default {
     ActivityList,
     KNotice,
     KSpinner,
-    PlaceList,
     ActivityEditButton,
   },
   setup () {

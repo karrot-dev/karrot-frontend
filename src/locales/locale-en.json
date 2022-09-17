@@ -718,7 +718,8 @@
     "FAVORITE_PLACES": "Favorite places",
     "NONE_DUE_TO_FILTER": "No places match your filters",
     "ALL_TYPES": "All types",
-    "ALL_STATUSES": "All statuses"
+    "ALL_STATUSES": "All statuses",
+    "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then open one and click { icon }."
   },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",

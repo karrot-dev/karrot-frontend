@@ -221,9 +221,9 @@
         <template #action>
           <QBtn
             flat
-            @click="() => clearFilters()"
+            @click="() => showAll()"
           >
-            {{ $t('GLOBAL.CLEAR_FILTERS') }}
+            {{ $t('STOREEDIT.SHOW_ALL') }}
           </QBtn>
         </template>
       </QBanner>
@@ -340,9 +340,9 @@ const {
   search,
 } = useQueryParams(defaultQueryParams)
 
-function clearFilters () {
+function showAll () {
   type.value = null
-  status.value = 'active'
+  status.value = 'all'
   onlyFavorites.value = false
   search.value = ''
 }

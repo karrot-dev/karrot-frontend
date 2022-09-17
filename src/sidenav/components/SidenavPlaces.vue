@@ -49,11 +49,14 @@
 
       <div v-if="subscribedPlaces.length < 1">
         <QBanner
-          class="bg-info q-mx-md"
+          class="bg-info q-mx-md q-mb-xs"
           rounded
         >
-          When you mark places as favorite, they will show here.
-          Click below to see all places, then open one and click <QIcon name="fas fa-star" />.
+          <i18n-t keypath="PLACE_LIST.SUBSCRIBE_HINT">
+            <template #icon>
+              <QIcon name="fas fa-star" />
+            </template>
+          </i18n-t>
         </QBanner>
       </div>
 

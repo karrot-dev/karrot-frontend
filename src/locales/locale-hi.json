@@ -506,7 +506,9 @@
     "STORE_CREATE": "{name} स्थान बनाया गया",
     "STORE_DELETE": "{name} स्थान हटाई गई",
     "STORE_MODIFY": "{name} स्थान की सेटिंग बदल दी",
-    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
+    "USER_LOST_EDITOR_ROLE": "lost editing permissions",
+    "PLACE_TYPE_CREATE": "created a place type",
+    "PLACE_TYPE_MODIFY": "modified a place type"
   },
   "INACTIVITY": {
     "HELP": "हर कोई जो {dayCount} या अधिक दिनों के लिए समूह में लॉग इन नहीं करता, उसे निष्क्रिय माना जाता हैं। इन उपयोगकर्ताओं को अब अधिसूचना ईमेल प्राप्त नहीं होंगे।",

@@ -506,7 +506,9 @@
     "STORE_CREATE": "hat den Ort {name} erstellt",
     "STORE_DELETE": "hat den Ort {name} gelöscht",
     "STORE_MODIFY": "hat die Einstellungen vom Ort {name} verändert",
-    "USER_LOST_EDITOR_ROLE": "Bearbeitungsrechte verloren"
+    "USER_LOST_EDITOR_ROLE": "Bearbeitungsrechte verloren",
+    "PLACE_TYPE_CREATE": "created a place type",
+    "PLACE_TYPE_MODIFY": "modified a place type"
   },
   "INACTIVITY": {
     "HELP": "Jede Person, die sich seit {dayCount} Tagen oder länger nicht in die Gruppe eingeloggt hat, zählt als inaktiv. Diese Nutzerinnen und Nutzer erhalten keine E-Mail-Benachrichtigungen mehr.",

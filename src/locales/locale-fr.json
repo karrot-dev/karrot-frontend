@@ -506,7 +506,9 @@
     "STORE_CREATE": "Lieu de récolte créé {name}",
     "STORE_DELETE": "Lieu de récolte supprimé {name}",
     "STORE_MODIFY": "les paramètres de lieu de récolte {name} ont été changé.",
-    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
+    "USER_LOST_EDITOR_ROLE": "lost editing permissions",
+    "PLACE_TYPE_CREATE": "created a place type",
+    "PLACE_TYPE_MODIFY": "modified a place type"
   },
   "INACTIVITY": {
     "HELP": "Toutes les personnes ne se connectant pas au groupe pendant {dayCount} jours ou plus seront considérés comme inactifs. Ces utilisateurs ne recevront plus de notifications par email.",

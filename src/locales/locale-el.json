@@ -506,7 +506,9 @@
     "STORE_CREATE": "δημιούργησε μια τοποθεσία {name}",
     "STORE_DELETE": "διέγραψε την τοποθεσία {name}",
     "STORE_MODIFY": "έγιναν αλλαγές σχετικά με την τοποθεσία {name}",
-    "USER_LOST_EDITOR_ROLE": "έχασε την ικανότητα να κάνει αλλαγές και να επιμελείται το group"
+    "USER_LOST_EDITOR_ROLE": "έχασε την ικανότητα να κάνει αλλαγές και να επιμελείται το group",
+    "PLACE_TYPE_CREATE": "created a place type",
+    "PLACE_TYPE_MODIFY": "modified a place type"
   },
   "INACTIVITY": {
     "HELP": "Τα μέλη που δεν μπαίνουν στο/στα group/s που είναι εγγεγραμμένα για {dayCount}ημέρες και παραπάνω θεωρούνται ανενεργά και δεν λαμβάνουν ειδοποιήσεις",

@@ -506,7 +506,9 @@
     "STORE_CREATE": "létrehozta a(z) {name} helyet",
     "STORE_DELETE": "{name} hely törlése",
     "STORE_MODIFY": "megváltoztatta {name} hely beállításait",
-    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
+    "USER_LOST_EDITOR_ROLE": "lost editing permissions",
+    "PLACE_TYPE_CREATE": "created a place type",
+    "PLACE_TYPE_MODIFY": "modified a place type"
   },
   "INACTIVITY": {
     "HELP": "Azok akik legalább {dayCount} napig nem léptek be a csoportba inaktívnak számítanak. Ezek a felhasználók nem fognak email értesítéseket kapni.",

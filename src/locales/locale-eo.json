@@ -506,7 +506,9 @@
     "STORE_CREATE": "loko kreita{name}",
     "STORE_DELETE": "forigita loko {name}",
     "STORE_MODIFY": "ŝanĝis la agordojn de la loko {name}",
-    "USER_LOST_EDITOR_ROLE": "Perditaj redaktpermesoj"
+    "USER_LOST_EDITOR_ROLE": "Perditaj redaktpermesoj",
+    "PLACE_TYPE_CREATE": "created a place type",
+    "PLACE_TYPE_MODIFY": "modified a place type"
   },
   "INACTIVITY": {
     "HELP": "Ĉiuj kiuj ne ensalutis en la grupo dum {dayCount}aŭ pli da tagoj sinsekve malaktiviĝas. Tiuj uzantoj ne plu ricevos sciigojn retmesaĝe.",

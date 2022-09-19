@@ -9,7 +9,7 @@ import activitySeriesAPI from './api/activitySeries'
 import activityTypeAPI from './api/activityTypes'
 
 export function useJoinActivityMutation () {
-  return withStatus(useMutation(activityId => api.join(activityId)))
+  return withStatus(useMutation(({ activityId, participantTypeId }) => api.join({ activityId, participantTypeId })))
 }
 
 export function useLeaveActivityMutation () {

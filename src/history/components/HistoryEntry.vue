@@ -102,7 +102,7 @@ export default {
     }
   },
   methods: {
-    toggleDetail (event) {
+    toggleDetail () {
       if (this.detailIsShown) {
         window.history.replaceState(window.history.state, null, `#${this.$route.path}`)
       }

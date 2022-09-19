@@ -62,6 +62,34 @@ export function resetServices () {
   }
 }
 
+/**
+ * Define a singleton service that can be used as a composable.
+ *
+ * e.g. defining a singleton foo service...
+ *
+ * // define in a services file somewhere
+ *
+ * export const useFoo = defineService(() => {
+ *
+ *   function blah () {
+ *     return 'blah'
+ *   }
+ *
+ *   return {
+ *     getBlah,
+ *   }
+ * })
+ *
+ * // elsewhere in a setup function
+ *
+ * const { getBlah } = useFoo()
+ *
+ * getBlah()
+ *
+ * @template T
+ * @param {function(): T} serviceSetup
+ * @returns {function(): T}
+ */
 export function defineService (serviceSetup) {
   if (process.env.DEV) {
     if (typeof serviceSetup !== 'function') {
@@ -74,6 +102,10 @@ export function defineService (serviceSetup) {
 
   events.on('reset', () => {
     if (service) {
+      if (process.env.DEV) {
+        const idx = window.karrot.services.indexOf(service)
+        if (idx !== -1) window.karrot.services.splice(idx, 1)
+      }
       service.$scope.stop()
       service = undefined
     }

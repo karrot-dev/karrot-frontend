@@ -19,6 +19,11 @@ export default {
     return convert((await axios.patch(`/api/activity-series/${id}/`, serialize(series))).data)
   },
 
+  async checkSave (series) {
+    const { id } = series
+    return (await axios.patch(`/api/activity-series/${id}/check/`, serialize(series))).data
+  },
+
   delete (seriesId) {
     return axios.delete(`/api/activity-series/${seriesId}/`)
   },

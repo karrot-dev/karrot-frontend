@@ -6,6 +6,7 @@
  *
  * The implementations are not complete, so if you miss a property that you need, please add it!
  */
+import cloneDeep from 'clone-deep'
 import addDays from 'date-fns/addDays'
 import addMinutes from 'date-fns/addMinutes'
 import subDays from 'date-fns/subDays'
@@ -218,6 +219,16 @@ export const makePlaceStatistics = data => {
   }
 }
 
+export const participantType = {
+  role: 'member',
+  maxParticipants: 4,
+  description: 'normal member',
+}
+
+export const participantTypes = [
+  participantType,
+]
+
 let activityTypeIdCnt = 0
 export const activityTypes = {
   pickup: {
@@ -257,6 +268,7 @@ export const makeActivity = data => {
     saveStatus: statusMocks.default(),
     leaveStatus: statusMocks.default(),
     joinStatus: statusMocks.default(),
+    participantTypes: cloneDeep(participantTypes),
     ...data,
   }
 }
@@ -284,6 +296,7 @@ export const makeActivitySeries = data => {
       freq: 'WEEKLY',
       isCustom: false,
     },
+    participantTypes: cloneDeep(participantTypes),
     ...data,
   }
 }

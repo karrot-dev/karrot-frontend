@@ -17,7 +17,7 @@
           done-icon="fas fa-exclamation"
           :title="$t('ATTENTION')"
         >
-          <p><strong>{{ $t('CONFLICT.STEPPER1a') }}</strong></p>
+          <p><strong>{{ $t('CONFLICT.STEPPER1a', { user: user.displayName }) }}</strong></p>
           <p>{{ $t('CONFLICT.STEPPER1b') }}</p>
         </QStep>
         <QStep

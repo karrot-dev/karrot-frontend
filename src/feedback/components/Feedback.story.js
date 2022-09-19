@@ -3,7 +3,7 @@ import { h } from 'vue'
 
 import * as factories from '>/enrichedFactories'
 import { storybookDefaults as defaults, statusMocks, createDatastore } from '>/helpers'
-import { feedbackMock, placesMock, activitiesMock } from '>/mockdata'
+import { feedbackMock, activitiesMock } from '>/mockdata'
 
 import ActivityFeedback from '../pages/ActivityFeedback'
 
@@ -83,7 +83,6 @@ storiesOf('Feedback', module)
   .add('FeedbackList', () => defaults({
     render: () => h(FeedbackList, {
       feedback: feedbackMock,
-      place: placesMock[0],
       status: statusMocks.default(),
       highlight: feedbackMock[1].id,
     }),

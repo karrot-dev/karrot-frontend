@@ -14,7 +14,7 @@
           :error-message="displayNameError"
           autocorrect="off"
           autocapitalize="off"
-          spellcheck="false"
+          :spellcheck="false"
           @blur="v$.user.displayName.$touch"
         />
         <SplashInput
@@ -25,7 +25,7 @@
           :error-message="usernameError"
           autocorrect="off"
           autocapitalize="off"
-          spellcheck="false"
+          :spellcheck="false"
           @blur="v$.user.username.$touch"
         />
         <SplashInput
@@ -37,7 +37,7 @@
           :error-message="firstError('email')"
           autocorrect="off"
           autocapitalize="off"
-          spellcheck="false"
+          :spellcheck="false"
         />
         <SplashInput
           v-model="user.password"
@@ -48,7 +48,7 @@
           :error-message="firstError('password')"
           autocorrect="off"
           autocapitalize="off"
-          spellcheck="false"
+          :spellcheck="false"
         />
 
         <div

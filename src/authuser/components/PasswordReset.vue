@@ -12,7 +12,7 @@
           :label="$t('USERDETAIL.PASSWORD')"
           autocorrect="off"
           autocapitalize="off"
-          spellcheck="false"
+          :spellcheck="false"
           :error="hasError('newPassword')"
           :error-message="firstError('newPassword')"
         />

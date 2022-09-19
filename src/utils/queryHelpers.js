@@ -132,7 +132,7 @@ export function mutationToStatus (mutation) {
 
   return {
     validationErrors,
-    hasValidationErrors: validationErrors.length > 0,
+    hasValidationErrors: Object.keys(validationErrors).length > 0,
     pending: mutation.isLoading.value,
     serverError: isServerError(error),
     networkError: isNetworkError(error),

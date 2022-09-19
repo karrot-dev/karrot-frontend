@@ -34,6 +34,7 @@
             :error="hasError('date')"
             size="9"
             hide-bottom-space
+            outlined
             class="q-mr-sm"
             @focus="$refs.qStartDateProxy.show()"
           >
@@ -64,6 +65,7 @@
             size="3"
             :error="hasError('date')"
             hide-bottom-space
+            outlined
             @focus="$refs.qStartTimeProxy.show()"
           >
             <Component
@@ -106,6 +108,7 @@
               size="3"
               :error="hasError('date')"
               hide-bottom-space
+              outlined
               @focus="$refs.qEndTimeProxy.show()"
             >
               <Component
@@ -152,77 +155,44 @@
         </div>
       </template>
 
-      <div>
-        <QInput
-          v-model.number="edit.maxParticipants"
-          type="number"
-          stack-label
-          :label="$t('CREATEACTIVITY.MAX_PARTICIPANTS')"
-          :hint="$t('CREATEACTIVITY.MAX_PARTICIPANTS_HELPER')"
-          :placeholder="$t('CREATEACTIVITY.UNLIMITED')"
-          :error="hasError('maxParticipants')"
-          :error-message="firstError('maxParticipants')"
-          :input-style="{ maxWidth: '100px' }"
-        >
-          <template #before>
-            <QIcon name="group" />
-          </template>
-          <QSlider
-            v-if="edit.maxParticipants > 0 && edit.maxParticipants <= 10"
-            v-model="edit.maxParticipants"
-            :min="1"
-            :max="10"
-            label
-            markers
-            class="q-mx-sm self-end"
-            style="min-width: 60px"
+      <MarkdownInput
+        v-model="edit.description"
+        :error="hasError('description')"
+        :error-message="firstError('description')"
+        :label="$t('CREATEACTIVITY.COMMENT')"
+        :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
+        icon="info"
+        maxlength="500"
+        :input-style="{ minHeight: 'auto' }"
+        mentions
+        outlined
+        :bg-color="series && series.description !== edit.description ? 'orange-1' : null"
+        @keyup.ctrl.enter="maybeSave"
+      >
+        <template #after>
+          <QBtn
+            v-if="series ? series.description !== edit.description : false"
+            icon="undo"
+            unelevated
+            dense
+            @click="edit.description = series.description"
           />
-          <template #after>
-            <QIcon
-              v-if="series ? series.maxParticipants !== edit.maxParticipants : false"
-              name="undo"
-              @click="edit.maxParticipants = series.maxParticipants"
-            />
-          </template>
-        </QInput>
-        <div
-          v-if="seriesMeta.isMaxParticipantsChanged"
-          class="q-ml-lg col-12 q-field__bottom text-warning"
-        >
-          <QIcon name="warning" />
-          {{ $t('CREATEACTIVITY.DIFFERS_WARNING') }}
-        </div>
+        </template>
+      </MarkdownInput>
+      <div
+        v-if="series && series.description !== edit.description"
+        class="q-ml-lg col-12 q-field__bottom text-warning"
+      >
+        <QIcon name="warning" />
+        {{ $t('CREATEACTIVITY.DIFFERS_WARNING') }}
       </div>
 
-      <div>
-        <MarkdownInput
-          v-model="edit.description"
-          :error="hasError('description')"
-          :error-message="firstError('description')"
-          :label="$t('CREATEACTIVITY.COMMENT')"
-          :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
-          icon="info"
-          mentions
-          maxlength="500"
-          @keyup.ctrl.enter="maybeSave"
-        >
-          <template #after>
-            <QIcon
-              v-if="series ? series.description !== edit.description : false"
-              name="undo"
-              @click="edit.description = series.description"
-            />
-          </template>
-        </MarkdownInput>
-
-        <div
-          v-if="seriesMeta.isDescriptionChanged"
-          class="q-ml-lg col-12 q-field__bottom text-warning"
-        >
-          <QIcon name="warning" />
-          {{ $t('CREATEACTIVITY.DIFFERS_WARNING') }}
-        </div>
-      </div>
+      <ParticipantTypesEdit
+        v-model="edit.participantTypes"
+        :series="series"
+        :participants="value.participants"
+        @maybe-save="maybeSave"
+      />
 
       <div
         v-if="hasNonFieldError"
@@ -230,7 +200,13 @@
       >
         {{ firstNonFieldError }}
       </div>
+
       <div class="row justify-end q-gutter-sm q-mt-lg">
+        <QToggle
+          v-model="showPreview"
+          :label="$t('BUTTON.PREVIEW')"
+        />
+        <QSpace />
         <QBtn
           v-if="isNew"
           type="button"
@@ -275,6 +251,13 @@
           {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
         </QBtn>
       </div>
+
+      <div v-if="showPreview">
+        <ActivityItem
+          preview
+          :activity="previewActivity"
+        />
+      </div>
     </form>
   </div>
 </template>
@@ -284,6 +267,9 @@ import addDays from 'date-fns/addDays'
 import addSeconds from 'date-fns/addSeconds'
 import differenceInSeconds from 'date-fns/differenceInSeconds'
 import {
+  QCard,
+  QCardSection,
+  QCardActions,
   QDate,
   QTime,
   QSlider,
@@ -292,11 +278,19 @@ import {
   QIcon,
   QMenu,
   QDialog,
+  QToggle,
+  QSelect,
+  QSpace,
   Dialog,
   date,
+  QItem,
+  QItemSection,
+  QItemLabel,
 } from 'quasar'
 
-import { useActivityTypeHelpers } from '@/activities/helpers'
+import activityAPI from '@/activities/api/activities'
+import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityTypeService } from '@/activities/services'
 import { defaultDuration } from '@/activities/settings'
 import { formatSeconds } from '@/activities/utils'
 import editMixin from '@/utils/mixins/editMixin'
@@ -304,11 +298,16 @@ import statusMixin from '@/utils/mixins/statusMixin'
 import reactiveNow from '@/utils/reactiveNow'
 import { objectDiff } from '@/utils/utils'
 
+import ActivityItem from '@/activities/components/ActivityItem'
+import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog'
+import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
   name: 'ActivityEdit',
   components: {
+    ParticipantTypesEdit,
+    ActivityItem,
     QDate,
     QTime,
     QSlider,
@@ -317,7 +316,16 @@ export default {
     QIcon,
     QMenu,
     QDialog,
+    QToggle,
+    QSelect,
+    QCard,
+    QCardSection,
+    QCardActions,
+    QSpace,
     MarkdownInput,
+    QItem,
+    QItemSection,
+    QItemLabel,
   },
   mixins: [editMixin, statusMixin],
   props: {
@@ -331,12 +339,29 @@ export default {
     'save',
   ],
   setup () {
+    const { roleOptions } = useActivityHelpers()
+    const { getActivityTypeById } = useActivityTypeService()
     const { getIconProps } = useActivityTypeHelpers()
-    return { getIconProps }
+    return {
+      roleOptions,
+      getActivityTypeById,
+      getIconProps,
+    }
+  },
+  data () {
+    return {
+      showPreview: false,
+    }
   },
   computed: {
+    previewActivity () {
+      return {
+        ...this.edit,
+        participants: [],
+      }
+    },
     activityType () {
-      return this.value && this.value.activityType
+      return this.value && this.getActivityTypeById(this.value.activityType)
     },
     activityTypeIconProps () {
       return this.activityType ? this.getIconProps(this.activityType) : {}
@@ -353,10 +378,6 @@ export default {
     canEditDate () {
       if (this.edit.series) return false
       return true
-    },
-    seriesMeta () {
-      if (!this.edit.seriesMeta) return {}
-      return this.edit.seriesMeta
     },
     date: {
       get () {
@@ -431,14 +452,6 @@ export default {
       return this.$q.screen.width < 450 || this.$q.screen.height < 450
     },
   },
-  watch: {
-    'edit.maxParticipants' (val) {
-      if (val === '') {
-        // if we have 'unlimited' participants, val gets parsed to empty string, but the server expects null
-        this.edit.maxParticipants = null
-      }
-    },
-  },
   methods: {
     futureDates (dateString) {
       return date.extractDate(`${dateString} 23:59`, 'YYYY/MM/DD HH:mm') > this.now
@@ -446,14 +459,27 @@ export default {
     toggleDuration () {
       this.hasDuration = !this.hasDuration
     },
-    maybeSave () {
+    async maybeSave () {
       if (!this.canSave) return
-      this.save()
-    },
-    getCreateData () {
-      return {
-        ...this.edit,
-        activityType: this.activityType.id,
+      if (this.isNew) {
+        this.save()
+      }
+      else {
+        const { users } = await activityAPI.checkSave({ ...this.getPatchData(), id: this.value.id })
+        Dialog.create({
+          component: ConfirmChangesDialog,
+          componentProps: {
+            users,
+          },
+        })
+          .onOk(({ updatedMessage }) => {
+            if (updatedMessage) {
+              this.save({ updatedMessage })
+            }
+            else {
+              this.save()
+            }
+          })
       }
     },
     // Overrides mixin method to always provide start date if we have modified end date

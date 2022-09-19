@@ -20,16 +20,16 @@ export function useDismissFeedbackMutation () {
   return withStatus(useMutation(activityId => api.dismissFeedback(activityId)))
 }
 
-export function useCreateActivityMutation () {
-  return withStatus(useMutation(activity => api.create(activity)))
+export function useCreateActivityMutation (params) {
+  return withStatus(useMutation(activity => api.create(activity), params))
 }
 
 export function useSaveActivityMutation () {
   return withStatus(useMutation(activity => api.save(activity)))
 }
 
-export function useCreateActivitySeriesMutation () {
-  return withStatus(useMutation(activitySeries => activitySeriesAPI.create(activitySeries)))
+export function useCreateActivitySeriesMutation (params) {
+  return withStatus(useMutation(activitySeries => activitySeriesAPI.create(activitySeries), params))
 }
 
 export function useSaveActivitySeriesMutation () {

@@ -8,6 +8,7 @@
     direction="down"
     unelevated
     padding="0px 13px"
+    :title="$t('BUTTON.CREATE')"
   >
     <QFabAction
       v-for="activityType in activityTypes"
@@ -41,16 +42,48 @@
       >
         <QSelect
           v-model="placeId"
-          :options="places.map(({ name, id}) => ({ label: name, value: id }))"
+          :options="places.map(({ name, id, placeType }) => ({ label: name, value: id, icon: getPlaceTypeById(placeType).icon }))"
           :label="$t('CREATEACTIVITY.PLACE')"
           emit-value
           map-options
-        />
+        >
+          <template #option="scope">
+            <QItem
+              :key="scope.index"
+              dense
+              v-bind="scope.itemProps"
+            >
+              <QItemSection side>
+                <QIcon
+                  :name="scope.opt.icon"
+                  size="1.1em"
+                  color="positive"
+                />
+              </QItemSection>
+              <QItemSection>
+                <QItemLabel>{{ scope.opt.label }}</QItemLabel>
+              </QItemSection>
+            </QItem>
+          </template>
+          <template #selected-item="scope">
+            <div class="row no-wrap ellipsis">
+              <QIcon
+                :name="scope.opt.icon"
+                size="1.1em"
+                class="on-left q-ml-xs"
+                color="positive"
+              />
+              <div class="ellipsis">
+                {{ scope.opt.label }}
+              </div>
+            </div>
+          </template>
+        </QSelect>
         <QOptionGroup
           v-model="isSeries"
           :options="[
-            { label: 'one-time', value: false },
-            { label: 'recurring', value: true },
+            { label: $t('ACTIVITYMANAGE.SINGLE'), value: false },
+            { label: $t('ACTIVITYMANAGE.SERIES'), value: true },
           ]"
           color="primary"
           inline
@@ -66,16 +99,48 @@
       >
         <QSelect
           v-model="placeId"
-          :options="places.map(({ name, id}) => ({ label: name, value: id }))"
+          :options="places.map(({ name, id, placeType }) => ({ label: name, value: id, icon: getPlaceTypeById(placeType).icon }))"
           :label="$t('CREATEACTIVITY.PLACE')"
           emit-value
           map-options
-        />
+        >
+          <template #option="scope">
+            <QItem
+              :key="scope.index"
+              dense
+              v-bind="scope.itemProps"
+            >
+              <QItemSection side>
+                <QIcon
+                  :name="scope.opt.icon"
+                  size="1.1em"
+                  color="positive"
+                />
+              </QItemSection>
+              <QItemSection>
+                <QItemLabel>{{ scope.opt.label }}</QItemLabel>
+              </QItemSection>
+            </QItem>
+          </template>
+          <template #selected-item="scope">
+            <div class="row no-wrap ellipsis">
+              <QIcon
+                :name="scope.opt.icon"
+                size="1.1em"
+                class="on-left q-ml-xs"
+                color="positive"
+              />
+              <div class="ellipsis">
+                {{ scope.opt.label }}
+              </div>
+            </div>
+          </template>
+        </QSelect>
         <QOptionGroup
           v-model="isSeries"
           :options="[
-            { label: 'one-time', value: false },
-            { label: 'recurring', value: true },
+            { label: $t('ACTIVITYMANAGE.SINGLE'), value: false },
+            { label: $t('ACTIVITYMANAGE.SERIES'), value: true },
           ]"
           color="primary"
           inline
@@ -107,24 +172,24 @@ import {
   QSelect,
   QOptionGroup,
 } from 'quasar'
-import { ref, computed, reactive, watch, unref } from 'vue'
+import { ref, computed, watch, unref } from 'vue'
 
 import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useCreateActivityMutation, useCreateActivitySeriesMutation } from '@/activities/mutations'
 import { useActivityTypeService } from '@/activities/services'
 import { defaultDuration } from '@/activities/settings'
 import { useCurrentGroupService } from '@/group/services'
-import { usePlaceService } from '@/places/services'
+import { usePlaceService, usePlaceTypeService } from '@/places/services'
 
 import ActivityEdit from './ActivityEdit.vue'
 import ActivitySeriesEdit from './ActivitySeriesEdit.vue'
 
 const isOpen = ref(false)
-const placeId = ref()
+const placeId = ref(null)
 const isSeries = ref(false)
 
-const newActivity = reactive({})
-const newSeries = reactive({})
+const newActivity = ref({})
+const newSeries = ref({})
 
 const {
   groupId,
@@ -134,19 +199,31 @@ const {
   getPlacesByGroup,
 } = usePlaceService()
 
-const places = computed(() => getPlacesByGroup(groupId))
+const {
+  getPlaceTypeById,
+} = usePlaceTypeService()
+
+const places = computed(() => getPlacesByGroup(groupId).filter(place => place.status === 'active'))
 
 const {
-  mutateAsync: saveNewActivity, // using the async version as we await the result later
+  mutate: saveNewActivity,
   status: createActivityStatus,
   reset: resetNewActivity,
-} = useCreateActivityMutation()
+} = useCreateActivityMutation({
+  onSuccess () {
+    isOpen.value = false
+  },
+})
 
 const {
   mutate: saveNewSeries,
   reset: resetNewSeries,
   status: createSeriesStatus,
-} = useCreateActivitySeriesMutation()
+} = useCreateActivitySeriesMutation({
+  onSuccess () {
+    isOpen.value = false
+  },
+})
 
 const {
   getIconProps,
@@ -159,34 +236,41 @@ const {
 
 const activityTypes = computed(() => getActivityTypesByGroup(groupId, { status: 'active' }))
 
-watch(placeId, value => {
-  newActivity.place = unref(value)
-  console.log(value, unref(newActivity))
-  newSeries.place = unref(value)
-  newActivity.maxParticipants = 5
+watch(placeId, id => {
+  // replace object to trigger 'value' watcher in editMixin
+  newActivity.value = {
+    ...newActivity.value,
+    place: unref(id),
+  }
+  newSeries.value = {
+    ...newSeries.value,
+    place: unref(id),
+  }
 })
 
 function selectActivityTypeAndOpen (activityType) {
   createNewActivity(activityType)
   createNewSeries(activityType)
+  resetNewSeries()
+  resetNewActivity()
   isOpen.value = true
 }
 
 function createNewActivity (activityType) {
   const date = addHours(startOfTomorrow(), 10) // default to 10am tomorrow
-  Object.assign(newActivity, {
+  newActivity.value = {
     activityType,
     maxParticipants: 2,
     description: '',
+    place: unref(placeId),
     date,
     dateEnd: addSeconds(date, defaultDuration),
-    place: unref(placeId),
     hasDuration: false,
-  })
+  }
 }
 
 function createNewSeries (activityType) {
-  Object.assign(newSeries, {
+  newSeries.value = {
     activityType,
     maxParticipants: 2,
     description: '',
@@ -198,6 +282,6 @@ function createNewSeries (activityType) {
       byDay: ['MO'],
       freq: 'WEEKLY',
     },
-  })
+  }
 }
 </script>

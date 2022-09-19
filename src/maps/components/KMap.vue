@@ -96,7 +96,6 @@ export default {
     })
 
     leafletMap.on('contextmenu', event => {
-      console.log('KMap contextmenu!')
       this.$emit('contextmenu', event)
     })
 

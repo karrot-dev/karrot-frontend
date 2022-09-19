@@ -6,7 +6,6 @@ import { underscorizeKeys } from '@/utils/utils'
 export default {
 
   async create (activity) {
-    console.log(activity)
     return convert((await axios.post('/api/activities/', convertDateToRange(activity))).data)
   },
 

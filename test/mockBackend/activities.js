@@ -64,4 +64,11 @@ export function createMockActivitiesBackend () {
     activity.participants.push(ctx.authUser.id)
     return [200, {}]
   })
+
+  post('/api/activities/', ({ data }) => {
+    if (!data.place) throw new Error('no place given for new activity, must specify one')
+    const activity = generateActivity(data)
+    db.activities.push(activity)
+    return [201, toResponse(activity)]
+  })
 }

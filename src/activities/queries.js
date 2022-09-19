@@ -194,6 +194,34 @@ export function useICSTokenQuery (queryOptions) {
   }
 }
 
+export function usePublicActivityListQuery ({
+  groupId,
+  pageSize = 10,
+}, queryOptions = {}) {
+  const query = useInfiniteQuery(
+    queryKeyActivityList({ groupId }),
+    ({ pageParam }) => api.listPublic({
+      group: unref(groupId),
+      cursor: pageParam,
+      pageSize,
+    }),
+    {
+      enabled: computed(() => Boolean(unref(groupId))),
+      getNextPageParam: page => extractCursor(page.next) || undefined,
+      select: ({ pages, pageParams }) => ({
+        pages: pages.map(page => page.results),
+        pageParams,
+      }),
+      ...queryOptions,
+    },
+  )
+
+  return {
+    ...query,
+    publicActivities: flattenPaginatedData(query),
+  }
+}
+
 export function usePublicActivityItemQuery ({ activityPublicId }, queryOptions = {}) {
   const query = useQuery(
     queryKeyPublicActivityItem(activityPublicId),

@@ -3,10 +3,10 @@
     <QCard class="shadow-6">
       <div
         class="photo text-white relative-position row justify-center"
-        :class="{ hasPhoto: group.hasPhoto }"
+        :class="{ hasPhoto: group.photoUrls['600'] }"
       >
         <img
-          v-if="group.hasPhoto"
+          v-if="group.photoUrls['600']"
           :src="group.photoUrls['600']"
         >
         <RandomArt
@@ -147,6 +147,44 @@
           </QBtn>
         </div>
       </QCardActions>
+      <template v-if="publicActivities.length > 0">
+        <QSeparator />
+        <QCardSection
+          class="row public-activities"
+        >
+          <div
+            v-for="publicActivity in publicActivities"
+            :key="publicActivity.publicId"
+            class="col-4 smaller-text"
+          >
+            <QCard
+              v-ripple
+              flat
+              bordered
+              class="cursor-pointer q-hoverable"
+              @click="$router.push({ name: 'publicActivity', params: { activityPublicId: publicActivity.publicId } })"
+            >
+              <QImg
+                v-if="publicActivity.bannerImageUrls?.fullSize"
+                :src="publicActivity.bannerImageUrls.fullSize"
+                class="full-width"
+              />
+              <QCardSection>
+                <span
+                  :style="{ color: '#' + publicActivity.activityType.colour }"
+                >
+                  <QIcon
+                    v-bind="getIconProps(publicActivity.activityType)"
+                    class="q-pr-xs"
+                  />
+                </span>
+                {{ $d(publicActivity.date, 'shortDateAndTime') }}
+                <Markdown :source="publicActivity.description" />
+              </QCardSection>
+            </QCard>
+          </div>
+        </QCardSection>
+      </template>
     </QCard>
   </div>
 </template>
@@ -162,8 +200,10 @@ import {
   QBtn,
   QIcon,
   QBanner,
+  QImg,
 } from 'quasar'
 
+import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useDetailService } from '@/messages/services'
 
 import Markdown from '@/utils/components/Markdown'
@@ -181,6 +221,7 @@ export default {
     QBanner,
     Markdown,
     RandomArt,
+    QImg,
   },
   props: {
     group: {
@@ -199,6 +240,10 @@ export default {
       default: null,
       type: Object,
     },
+    publicActivities: {
+      type: Array,
+      default: () => [],
+    },
   },
   emits: [
     'join',
@@ -206,9 +251,12 @@ export default {
   ],
   setup () {
     const { openApplication } = useDetailService()
+    const { getIconProps, getTranslatedName } = useActivityTypeHelpers()
 
     return {
       openApplication,
+      getIconProps,
+      getTranslatedName,
     }
   },
   methods: {
@@ -247,4 +295,8 @@ export default {
 
   .k-media-overlay
     background-color: rgba(0, 0, 0, 0.47)
+
+.public-activities
+  .q-card
+    height: 220px
 </style>

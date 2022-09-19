@@ -24,8 +24,11 @@
     </QImg>
     <QCardSection>
       <div class="row">
-        <div class="col-12 col-sm-8 q-pa-lg">
-          <Markdown :source="publicActivity.description" />
+        <div class="col-12 col-sm-8">
+          <Markdown
+            :source="publicActivity.description"
+            class="q-pl-lg q-pr-lg"
+          />
         </div>
         <div
           class="col-12 col-sm-4 q-pl-md"
@@ -40,7 +43,7 @@
               width="100px"
             />
           </div>
-          <div v-if="!bannerImageURL">
+          <div>
             <div class="text-h6 q-mt-sm q-mb-sm">
               <QIcon
                 v-bind="getIconProps(activityType)"

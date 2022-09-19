@@ -27,6 +27,16 @@ export default {
     }
   },
 
+  async listPublic (filter) {
+    const params = filter || { dateMin: new Date() }
+    const response = (await axios.get('/api/public-activities/', { params: underscorizeKeys(params) })).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      results: convert(response.results),
+    }
+  },
+
   async listByGroupId (groupId) {
     return this.list({ group: groupId, dateMin: new Date() })
   },

@@ -4,6 +4,7 @@
     :is-logged-in="isLoggedIn"
     :user="user"
     :application="application"
+    :public-activities="publicActivities"
     @withdraw="withdraw"
   />
 </template>
@@ -11,6 +12,7 @@
 <script setup>
 import { computed, unref } from 'vue'
 
+import { usePublicActivityListQuery } from '@/activities/queries'
 import { useWithdrawApplicationMutation } from '@/applications/mutations'
 import { useApplicationListQuery } from '@/applications/queries'
 import { useAuthService } from '@/authuser/services'
@@ -40,6 +42,10 @@ async function withdraw (id) {
     message: 'JOINGROUP.APPLICATION_WITHDRAWN',
   })
 }
+
+const {
+  publicActivities,
+} = usePublicActivityListQuery({ groupId: groupPreviewId })
 
 // TODO add pending state, avoid flashing of content?
 const {

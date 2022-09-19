@@ -12,6 +12,7 @@ import activityTypeAPI from './api/activityTypes'
 export const QUERY_KEY_BASE = 'activities'
 export const queryKeyActivityList = params => [QUERY_KEY_BASE, 'activity', 'list', params].filter(Boolean)
 export const queryKeyActivityItem = activityId => [QUERY_KEY_BASE, 'activity', 'item', activityId].filter(Boolean)
+export const queryKeyPublicActivityItem = activityPublicId => [QUERY_KEY_BASE, 'public-activity', 'item', activityPublicId].filter(Boolean)
 export const queryKeyActivityTypeListAll = () => [QUERY_KEY_BASE, 'types']
 export const queryKeyActivitySeriesList = placeId => [QUERY_KEY_BASE, 'series', 'list', placeId].filter(Boolean)
 export const queryKeyActivityIcsToken = () => [QUERY_KEY_BASE, 'ics-token']
@@ -190,5 +191,20 @@ export function useICSTokenQuery (queryOptions) {
   return {
     ...query,
     token: query.data,
+  }
+}
+
+export function usePublicActivityItemQuery ({ activityPublicId }, queryOptions = {}) {
+  const query = useQuery(
+    queryKeyPublicActivityItem(activityPublicId),
+    () => api.getByPublicId(unref(activityPublicId)),
+    {
+      enabled: computed(() => Boolean(unref(activityPublicId))),
+      ...queryOptions,
+    },
+  )
+  return {
+    ...query,
+    publicActivity: query.data,
   }
 }

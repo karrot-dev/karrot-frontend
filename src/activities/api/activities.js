@@ -13,6 +13,10 @@ export default {
     return convert((await axios.get(`/api/activities/${activityId}/`)).data)
   },
 
+  async getByPublicId (activityPublicId) {
+    return convert((await axios.get(`/api/public-activities/${activityPublicId}/`)).data)
+  },
+
   async list (filter) {
     const params = filter || { dateMin: new Date() }
     const response = (await axios.get('/api/activities/', { params: underscorizeKeys(params) })).data

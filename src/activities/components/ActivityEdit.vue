@@ -157,7 +157,7 @@
         :error-message="firstError('description')"
         :label="$t('CREATEACTIVITY.COMMENT')"
         :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
-        maxlength="500"
+        maxlength="5000"
         :input-style="{ minHeight: 'auto' }"
         mentions
         outlined

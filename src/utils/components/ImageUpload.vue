@@ -9,7 +9,7 @@
     :initial-image="initialImage"
     initial-size="cover"
     class="q-mt-sm grey-border"
-    :show-remove-button="false"
+    :show-remove-button="true"
     @new-image-drawn="imageDrawn"
   >
     <template #placeholder>

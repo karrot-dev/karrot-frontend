@@ -231,7 +231,7 @@
         class="action-button"
         flat
         no-caps
-        :to="{ name: 'publicActivity', params: { activityId: activity.id } }"
+        :to="{ name: 'publicActivity', params: { activityPublicId: activity.publicId } }"
       >
         <QIcon
           name="fas fa-globe"

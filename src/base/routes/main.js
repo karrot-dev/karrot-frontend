@@ -133,9 +133,10 @@ export default [
   },
   {
     name: 'publicActivity',
-    path: '/public-activity/:activityId', // TODO: this needs to be something else... uuid, etc..
+    path: '/a/:activityPublicId',
     meta: {
-      breadcrumbs: [],
+      hideHeaderIfLoggedOut: true,
+      breadcrumbs: [{ type: 'publicActivity' }],
     },
     component: PublicActivity,
   },

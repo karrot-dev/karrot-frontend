@@ -1,17 +1,38 @@
 <template>
-  <QCard>
+  <QCard v-if="publicActivity">
     <QImg
+      v-if="bannerImageURL"
       :src="bannerImageURL"
       style="border-bottom: 1px solid #eee;"
-    />
+    >
+      <!-- TODO: need to also show this when there isn't a banner -->
+      <div class="absolute-bottom text-h5">
+        <RouterLink :to="{ name: 'groupPreview', params: { groupPreviewId: group.id } }">
+          {{ group.name }}
+        </RouterLink> //
+        <span :style="{ color: '#' + activityType.colour }">
+          <QIcon
+            v-bind="getIconProps(activityType)"
+            size="lg"
+          />
+        </span>
+        <span :style="{ color: '#' + activityType.colour }">
+          {{ getTranslatedName(activityType) }}
+        </span>
+      </div>
+    </QImg>
     <QCardSection>
       <div class="row">
-        <div class="col-12 col-sm-8">
-          <Markdown :source="activity.description" />
+        <div class="col-12 col-sm-8 q-pa-lg">
+          <Markdown :source="publicActivity.description" />
         </div>
-        <div class="col-12 col-sm-4">
+        <div
+          class="col-12 col-sm-4 q-pl-md"
+          style="border-left: 1px solid #eee;"
+        >
           <div
-            class="q-mb-sm"
+            v-if="groupImageURL"
+            class="q-mb-sm text-center"
           >
             <QImg
               :src="groupImageURL"
@@ -19,32 +40,24 @@
             />
           </div>
           <div class="text-h6 q-mt-sm q-mb-sm">
-            <QIcon v-bind="getIconProps(activityType)" />
-            What
-          </div>
-          <span :class="'text-' + getColorName(activityType)">
-            {{ getTranslatedName(activityType) }}
-          </span>
-          by <RouterLink :to="{ name: 'groupPreview', params: { groupPreviewId: group.id } }">
-            {{ group.name }}
-          </RouterLink>
-          <div class="text-h6 q-mt-sm q-mb-sm">
             <QIcon
               name="fas fa-clock"
               color="grey"
+              class="q-pr-xs"
             />
             When
           </div>
-          {{ $d(activity.date, 'dateLongWithDayName') }}<br>
+          {{ $d(publicActivity.date, 'dateLongWithDayName') }}<br>
 
-          {{ $d(activity.date, 'hourMinute') }}
-          <template v-if="activity.hasDuration">
-            &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}
+          {{ $d(publicActivity.date, 'hourMinute') }}
+          <template v-if="publicActivity.hasDuration">
+            &mdash; {{ $d(publicActivity.dateEnd, 'hourMinute') }}
           </template>
           <div class="text-h6 q-mt-sm q-mb-sm">
             <QIcon
-              name="fas fa-map-marker"
+              :name="place.placeType.icon || 'fas fa-map-marker'"
               color="grey"
+              class="q-pr-xs"
             />
             Where
           </div>
@@ -53,12 +66,16 @@
         </div>
       </div>
     </QCardSection>
-    <QCardSection>
+    <QCardSection v-if="markers.length > 0">
       <div style="height: 300px;">
-        <StandardMap :markers="markers" />
+        <StandardMap
+          :markers="markers"
+          :scroll-wheel-zoom="false"
+        />
       </div>
     </QCardSection>
   </QCard>
+  <KSpinner v-else />
 </template>
 
 <script setup>
@@ -71,33 +88,30 @@ import {
 import { computed } from 'vue'
 
 import { useActivityTypeHelpers } from '@/activities/helpers'
-import { useActivityItemQuery } from '@/activities/queries'
-import { useActivityTypeService } from '@/activities/services'
-import { useGroupInfoService } from '@/groupInfo/services'
-import { usePlaceService } from '@/places/services'
-import { useIntegerRouteParam } from '@/utils/composables'
+import { useActivePublicActivityService } from '@/activities/services'
 
 import StandardMap from '@/maps/components/StandardMap'
-import { placeMarker } from '@/maps/components/markers'
+import KSpinner from '@/utils/components/KSpinner'
 import Markdown from '@/utils/components/Markdown'
 
-const activityId = useIntegerRouteParam('activityId')
+const { getIconProps, getTranslatedName } = useActivityTypeHelpers()
 
-// TODO: these values will probably get returned by the public activity API ...
-const { getPlaceById } = usePlaceService()
-const { getGroupById } = useGroupInfoService()
-const { getActivityTypeById } = useActivityTypeService()
+const { publicActivity } = useActivePublicActivityService()
 
-const { getIconProps, getColorName, getTranslatedName } = useActivityTypeHelpers()
+const activityType = computed(() => publicActivity.value?.activityType)
+const place = computed(() => publicActivity.value?.place)
+const group = computed(() => place.value?.group)
 
-const { activity } = useActivityItemQuery({ activityId })
-
-const activityType = computed(() => activity.value ? getActivityTypeById(activity.value.activityType) : null)
-const place = computed(() => activity.value ? getPlaceById(activity.value.place) : null)
-const group = computed(() => place.value ? getGroupById(place.value.group) : null)
-
-const bannerImageURL = computed(() => activity.value?.bannerImageUrls?.fullSize)
+const bannerImageURL = computed(() => publicActivity.value?.bannerImageUrls?.fullSize)
 const groupImageURL = computed(() => group.value?.photoUrls?.[200])
 
-const markers = computed(() => [placeMarker(place.value)])
+function markerForPlace (place) {
+  return {
+    latLng: { lat: place.latitude, lng: place.longitude },
+    fontIcon: place.placeType.icon,
+    color: 'positive',
+  }
+}
+
+const markers = computed(() => place.value ? [markerForPlace(place.value)] : [])
 </script>

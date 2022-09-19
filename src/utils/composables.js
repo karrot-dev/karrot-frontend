@@ -62,15 +62,27 @@ export function useTitleStatus () {
   })
 }
 
-export function useIntegerRouteParam (name) {
+export function useRouteParam (name) {
   const router = useRouter()
   const route = useRoute()
   return computed({
     get () {
-      return route.params[name] && parseInt(route.params[name], 10)
+      return route.params[name]
     },
     set (val) {
       router.push({ params: { [name]: val } })
+    },
+  })
+}
+
+export function useIntegerRouteParam (name) {
+  const param = useRouteParam(name)
+  return computed({
+    get () {
+      return parseInt(param.value, 10)
+    },
+    set (val) {
+      param.value = val
     },
   })
 }

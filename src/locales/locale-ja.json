@@ -506,7 +506,9 @@
     "STORE_CREATE": "が、{name}の場所を作成しました",
     "STORE_DELETE": "が、{name}の場所を削除しました",
     "STORE_MODIFY": "が、{name}の場所の設定変更をしました",
-    "USER_LOST_EDITOR_ROLE": "編集権限を失いました"
+    "USER_LOST_EDITOR_ROLE": "編集権限を失いました",
+    "PLACE_TYPE_CREATE": "created a place type",
+    "PLACE_TYPE_MODIFY": "modified a place type"
   },
   "INACTIVITY": {
     "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore.",

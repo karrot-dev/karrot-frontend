@@ -506,7 +506,9 @@
     "STORE_CREATE": "vytvořené místo {name}",
     "STORE_DELETE": "smazané místo {name}",
     "STORE_MODIFY": "změněno nastavení místa {name}",
-    "USER_LOST_EDITOR_ROLE": "ztracená oprávnění k úpravám"
+    "USER_LOST_EDITOR_ROLE": "ztracená oprávnění k úpravám",
+    "PLACE_TYPE_CREATE": "created a place type",
+    "PLACE_TYPE_MODIFY": "modified a place type"
   },
   "INACTIVITY": {
     "HELP": "Každý, kdo se do skupiny nepřihlásil {dayCount} dní nebo déle, se považuje za neaktivní. Tito uživatelé již nebudou dostávat e-maily s oznámením.",

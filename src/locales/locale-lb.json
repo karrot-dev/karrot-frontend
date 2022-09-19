@@ -160,7 +160,7 @@
     "CUSTOM_NAME_HINT": "Den Numm wäert genausou benotzt ginn wéi's du e geschriwwen hues an e wäert net iwwersetzt ginn",
     "CUSTOM_NAME_USE": "Eegenen Numm benotzen {name}",
     "CUSTOM_NAME_PROMPT": "Gëff een eegenen Numm an, oder wiel ee Standard-Numm",
-    "MANAGE_TYPES": "Typen verwalten",
+    "MANAGE_TYPES": "Typpe verwalten",
     "SHOW_ARCHIVED": "Archivéiert uweisen",
     "STATUS_ACTIVE_HINT": "Du wäerts kënnen nei Aktivitéiten a Serie vun dësem Typ erstellen",
     "STATUS_ARCHIVED_HINT": "Et wäert net méiglech sinn nei Aktivitéiten a Serie vun dësem Typ ze erstellen, awer déi, déi et ginn, wäerte bleiwen"
@@ -381,8 +381,8 @@
     "DESCRIPTION": "Beschreiwung",
     "DESCRIPTION_VERBOSE": "Beschreiwung vun der Grupp, siichtbar fir Memberen",
     "EDIT": "Grupp veränneren",
-    "EDIT_ACTIVITY_TYPES": "Aktivitéitstypen",
-    "EDIT_PLACE_TYPES": "Place types",
+    "EDIT_ACTIVITY_TYPES": "Aktivitéitstyppen",
+    "EDIT_PLACE_TYPES": "Typpe vu Plazen",
     "EDIT_DETAILS": "Detailer vun der Grupp",
     "EMAIL_NOTIFICATIONS": "Benoriichtegungen via E-Mail",
     "HEADINGS": {
@@ -506,7 +506,9 @@
     "STORE_CREATE": "huet d'Plaz {name} erstallt",
     "STORE_DELETE": "huet d'Plaz {name} geläscht",
     "STORE_MODIFY": "huet d'Astellunge vun der Plaz {name} verännert",
-    "USER_LOST_EDITOR_ROLE": "duerf elo net méi beaarbechten"
+    "USER_LOST_EDITOR_ROLE": "duerf elo net méi beaarbechten",
+    "PLACE_TYPE_CREATE": "huet een Typ vu Plaz erstallt",
+    "PLACE_TYPE_MODIFY": "huet een Typ vu Plaz verännert"
   },
   "INACTIVITY": {
     "HELP": "All Persoun, déi sech wärend {dayCount} oder méi Deeg net an d'Grupp ageloggt huet, gëtt als inaktiv markéiert. Dës Notzer wäerte keng Benoriichtegunge via E-Mail méi kréien.",
@@ -686,30 +688,30 @@
     "TITLE": "Passwuert zrécksetzen"
   },
   "PLACE_TYPE_NAMES": {
-    "Unspecified": "Unspecified",
-    "Store": "Store",
-    "Sharing Point": "Sharing Point",
-    "Meeting Place": "Meeting Place",
+    "Unspecified": "Net spezifizéiert",
+    "Store": "Buttek",
+    "Sharing Point": "Verdeelungspunkt",
+    "Meeting Place": "Treffpunkt",
     "Restaurant": "Restaurant",
-    "Market": "Market"
+    "Market": "Maart"
   },
   "PLACE_TYPE_STATUS": {
-    "ACTIVE": "Active",
-    "ARCHIVED": "Archived"
+    "ACTIVE": "Aktiv",
+    "ARCHIVED": "Archivéiert"
   },
   "PLACE_TYPES": {
-    "ADD": "Add new place type",
-    "NAME": "Name",
+    "ADD": "Neien Typ vu Plaz erstellen",
+    "NAME": "Numm",
     "STATUS": "Status",
-    "STANDARD_NAME_HEADING": "Standard names",
-    "STANDARD_NAME_HINT": "Name will be available in other languages",
-    "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
-    "CUSTOM_NAME_USE": "Use custom name {name}",
-    "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
-    "MANAGE_TYPES": "Manage types...",
-    "SHOW_ARCHIVED": "Show archived",
-    "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
-    "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
+    "STANDARD_NAME_HEADING": "Standard-Nimm",
+    "STANDARD_NAME_HINT": "Den Numm wäert an anere Sprooche verfügbar sinn",
+    "CUSTOM_NAME_HINT": "Den Numm wäert genausou benotzt ginn wéi's du e geschriwwen hues an e wäert net iwwersetzt ginn",
+    "CUSTOM_NAME_USE": "Eegenen Numm benotzen {name}",
+    "CUSTOM_NAME_PROMPT": "Gëff een eegenen Numm an, oder wiel ee Standard-Numm",
+    "MANAGE_TYPES": "Typpe verwalten...",
+    "SHOW_ARCHIVED": "Archivéiert uweisen",
+    "STATUS_ACTIVE_HINT": "Du wäerts kënnen nei Plaze vun dësem Typ erstellen",
+    "STATUS_ARCHIVED_HINT": "Et wäert net méiglech sinn nei Plaze vun dësem Typ ze erstellen, awer déi, déi et ginn, wäerte bleiwen"
   },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} Leit hunn dës Plaz als Favorit markéiert",
@@ -771,7 +773,7 @@
     "DEFAULT_VIEW": "Standard-Usicht",
     "DEFAULT_VIEW_HINT": "Wat soll standardweis ugewise gi wann een op dës Plaz klickt?",
     "DESCRIPTION": "Beschreiwung",
-    "PLACE_TYPE": "Place type",
+    "PLACE_TYPE": "Typ vu Plaz",
     "DIALOGS": {
       "ARCHIVE": {
         "CONFIRM": "Jo, Plaz archivéieren",

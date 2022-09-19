@@ -37,9 +37,6 @@
             class="q-mr-sm"
             @focus="$refs.qStartDateProxy.show()"
           >
-            <template #before>
-              <QIcon name="access_time" />
-            </template>
             <Component
               :is="smallScreen ? 'QDialog' : 'QMenu'"
               ref="qStartDateProxy"
@@ -160,7 +157,6 @@
         :error-message="firstError('description')"
         :label="$t('CREATEACTIVITY.COMMENT')"
         :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
-        icon="info"
         maxlength="500"
         :input-style="{ minHeight: 'auto' }"
         mentions
@@ -192,6 +188,28 @@
         :participants="value.participants"
         @maybe-save="maybeSave"
       />
+
+      <QField
+        borderless
+      >
+        <QToggle
+          v-model="edit.isPublic"
+          label="Make it public"
+        />
+      </QField>
+
+      <pre>edit.bannerImage: {{ edit.bannerImage }}</pre>
+
+      <QField
+        v-show="edit.isPublic"
+        borderless
+        label="Activity banner"
+      >
+        <ImageUpload
+          v-model="edit.bannerImage"
+          :urls="value.bannerImageUrls"
+        />
+      </QField>
 
       <div
         v-if="hasNonFieldError"
@@ -262,6 +280,7 @@
 </template>
 
 <script>
+
 import addDays from 'date-fns/addDays'
 import addSeconds from 'date-fns/addSeconds'
 import differenceInSeconds from 'date-fns/differenceInSeconds'
@@ -285,6 +304,7 @@ import {
   QItem,
   QItemSection,
   QItemLabel,
+  QField,
 } from 'quasar'
 
 import activityAPI from '@/activities/api/activities'
@@ -300,6 +320,7 @@ import { objectDiff } from '@/utils/utils'
 import ActivityItem from '@/activities/components/ActivityItem'
 import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog'
 import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
+import ImageUpload from '@/utils/components/ImageUpload'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
@@ -325,6 +346,8 @@ export default {
     QItem,
     QItemSection,
     QItemLabel,
+    QField,
+    ImageUpload,
   },
   mixins: [editMixin, statusMixin],
   props: {

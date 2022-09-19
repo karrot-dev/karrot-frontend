@@ -226,6 +226,20 @@
           {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
         </span>
       </QBtn>
+      <QBtn
+        v-if="activity.isPublic"
+        class="action-button"
+        flat
+        no-caps
+        :to="{ name: 'publicActivity', params: { activityId: activity.id } }"
+      >
+        <QIcon
+          name="fas fa-globe"
+          size="xs"
+          class="q-mr-sm"
+        />
+        Public activity
+      </QBtn>
       <QSpace />
       <QBtn
         v-if="isUserParticipant"

@@ -1,12 +1,12 @@
 import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertConversation } from '@/messages/api/conversations'
 import { absoluteURL } from '@/utils/absoluteURL'
-import { underscorizeKeys } from '@/utils/utils'
+import { toFormData, underscorizeKeys } from '@/utils/utils'
 
 export default {
 
   async create (activity) {
-    return convert((await axios.post('/api/activities/', convertDateToRange(activity))).data)
+    return convert((await axios.post('/api/activities/', await toFormData(convertDateToRange(activity)))).data)
   },
 
   async get (activityId) {
@@ -55,7 +55,7 @@ export default {
   },
 
   async save (activity) {
-    return convert((await axios.patch(`/api/activities/${activity.id}/`, convertDateToRange(activity))).data)
+    return convert((await axios.patch(`/api/activities/${activity.id}/`, await toFormData(convertDateToRange(activity)))).data)
   },
 
   async checkSave (activity) {

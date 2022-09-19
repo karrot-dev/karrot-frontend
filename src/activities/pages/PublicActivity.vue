@@ -39,6 +39,21 @@
               width="100px"
             />
           </div>
+          <div v-if="!bannerImageURL">
+            <div class="text-h6 q-mt-sm q-mb-sm">
+              <QIcon
+                v-bind="getIconProps(activityType)"
+                color="grey"
+                class="q-pr-xs"
+              />
+              What
+            </div>
+            <span :style="{ color: '#' + activityType.colour }">
+              {{ getTranslatedName(activityType) }}
+            </span> by <em><RouterLink :to="{ name: 'groupPreview', params: { groupPreviewId: group.id } }">
+              {{ group.name }}
+            </RouterLink></em>
+          </div>
           <div class="text-h6 q-mt-sm q-mb-sm">
             <QIcon
               name="fas fa-clock"
@@ -66,10 +81,10 @@
         </div>
       </div>
     </QCardSection>
-    <QCardSection v-if="markers.length > 0">
+    <QCardSection v-if="mapMarker">
       <div style="height: 300px;">
         <StandardMap
-          :markers="markers"
+          :markers="[mapMarker]"
           :scroll-wheel-zoom="false"
         />
       </div>
@@ -105,13 +120,14 @@ const group = computed(() => place.value?.group)
 const bannerImageURL = computed(() => publicActivity.value?.bannerImageUrls?.fullSize)
 const groupImageURL = computed(() => group.value?.photoUrls?.[200])
 
-function markerForPlace (place) {
+const mapMarker = computed(() => {
+  if (!place.value) return
+  const { latitude, longitude } = place.value
+  if (!latitude || !longitude) return
   return {
-    latLng: { lat: place.latitude, lng: place.longitude },
-    fontIcon: place.placeType.icon,
+    latLng: { lat: latitude, lng: longitude },
+    fontIcon: place.value.placeType.icon || 'fas fa-map-marker',
     color: 'positive',
   }
-}
-
-const markers = computed(() => place.value ? [markerForPlace(place.value)] : [])
+})
 </script>

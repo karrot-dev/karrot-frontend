@@ -13,7 +13,8 @@
         <span :style="{ color: '#' + activityType.colour }">
           <QIcon
             v-bind="getIconProps(activityType)"
-            size="lg"
+            size="md"
+            class="q-px-sm"
           />
         </span>
         <span :style="{ color: '#' + activityType.colour }">

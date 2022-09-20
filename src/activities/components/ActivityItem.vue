@@ -39,11 +39,13 @@
         >
           <b class="text-orange">{{ $t('ACTIVITYLIST.ACTIVITY_STARTED') }}</b>
         </div>
-        <Markdown
-          v-if="activity.description"
-          :source="activity.description"
-          mentions
-        />
+        <ReadMore :height="200">
+          <Markdown
+            v-if="activity.description"
+            :source="activity.description"
+            mentions
+          />
+        </ReadMore>
         <div class="q-mt-none q-mb-none full-width column q-gutter-y-md">
           <div
             v-for="participantType in participantTypes"
@@ -303,6 +305,7 @@ import { absoluteURL } from '@/utils/absoluteURL'
 
 import CustomDialog from '@/utils/components/CustomDialog'
 import Markdown from '@/utils/components/Markdown'
+import ReadMore from '@/utils/components/ReadMore'
 
 import ActivityUsers from './ActivityUsers'
 
@@ -320,6 +323,7 @@ export default {
     QRadio,
     ActivityUsers,
     Markdown,
+    ReadMore,
   },
   props: {
     activity: {

@@ -44,6 +44,13 @@ const defaultDateTimeFormat = {
     hour: 'numeric',
     minute: 'numeric',
   },
+  shortDateAndTime: {
+    month: 'short',
+    day: 'numeric',
+    weekday: 'short',
+    hour: 'numeric',
+    minute: 'numeric',
+  },
   dateWithDayName: {
     month: 'long',
     day: 'numeric',

@@ -13,9 +13,15 @@ export function useNotificationHelpers () {
   const { getActivityTypeById } = useActivityTypeService()
   const { getTranslatedName } = useActivityTypeHelpers()
 
+  function getActivityType (context) {
+    const id = context.activityType || context.activity.activityType
+    if (!id) return
+    return getActivityTypeById(id)
+  }
+
   function getMessageParams (type, context) {
     function getActivityTypeName () {
-      return getTranslatedName(getActivityTypeById(context.activityType || context.activity.activityType))
+      return getTranslatedName(getActivityType(context))
     }
 
     switch (type) {
@@ -46,6 +52,7 @@ export function useNotificationHelpers () {
         }
       case 'participant_removed': {
         return {
+          dateTime: context.activityDate && d(context.activityDate, 'shortDateAndTime'),
           activityType: getActivityTypeName(),
         }
       }
@@ -68,16 +75,20 @@ export function useNotificationHelpers () {
       case 'invitation_accepted':
       case 'new_member':
         return 'fas fa-user-plus'
-      case 'feedback_possible':
-        if (context.activity && context.activity.activityType) {
-          return context.activity.activityType.feedbackIcon
+      case 'feedback_possible': {
+        const activityType = getActivityType(context)
+        if (activityType) {
+          return activityType.feedbackIcon
         }
         return icons.get('feedback')
+      }
       case 'activity_upcoming':
         if (context.activity && context.activity.activityType) {
           return context.activity.activityType.icon
         }
         return 'fas fa-calendar-alt'
+      case 'participant_removed':
+        return 'fas fa-times-circle'
       case 'new_place':
         return icons.get('place')
       case 'new_applicant':

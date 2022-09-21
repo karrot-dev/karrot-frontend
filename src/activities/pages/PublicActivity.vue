@@ -3,25 +3,25 @@
     <QImg
       v-if="bannerImageURL"
       :src="bannerImageURL"
-      style="border-bottom: 1px solid #eee;"
     >
-      <!-- TODO: need to also show this when there isn't a banner -->
-      <div class="absolute-bottom text-h5">
+      <div
+        class="full-width text-h5 q-pa-md text-black absolute-bottom"
+        style="background: rgba(255, 255, 255, 0.8)"
+      >
         <RouterLink :to="{ name: 'groupPreview', params: { groupPreviewId: group.id } }">
           {{ group.name }}
         </RouterLink> //
-        <span :style="{ color: '#' + activityType.colour }">
-          <QIcon
-            v-bind="getIconProps(activityType)"
-            size="md"
-            class="q-px-sm"
-          />
-        </span>
-        <span :style="{ color: '#' + activityType.colour }">
+        <QIcon
+          v-bind="getIconProps(activityType)"
+          size="md"
+          class="q-px-sm"
+        />
+        <span :class="getTextClass(activityType)">
           {{ getTranslatedName(activityType) }}
         </span>
       </div>
     </QImg>
+    <QSeparator />
     <QCardSection>
       <div class="row">
         <div class="col-12 col-sm-8">
@@ -52,11 +52,14 @@
               />
               What
             </div>
-            <span :style="{ color: '#' + activityType.colour }">
+            <span>
               {{ getTranslatedName(activityType) }}
-            </span> by <em><RouterLink :to="{ name: 'groupPreview', params: { groupPreviewId: group.id } }">
+            </span> by <RouterLink
+              :to="{ name: 'groupPreview', params: { groupPreviewId: group.id } }"
+              style="text-decoration: underline;"
+            >
               {{ group.name }}
-            </RouterLink></em>
+            </RouterLink>
           </div>
           <div class="text-h6 q-mt-sm q-mb-sm">
             <QIcon
@@ -98,22 +101,24 @@
 </template>
 
 <script setup>
+import { onUnmounted, computed, watch } from '@vue/compat'
 import {
   QCard,
   QCardSection,
   QImg,
   QIcon,
+  QSeparator,
 } from 'quasar'
-import { computed } from 'vue'
 
 import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useActivePublicActivityService } from '@/activities/services'
+import { createActivityTypeStylesheet } from '@/activities/stylesheet'
 
 import StandardMap from '@/maps/components/StandardMap'
 import KSpinner from '@/utils/components/KSpinner'
 import Markdown from '@/utils/components/Markdown'
 
-const { getIconProps, getTranslatedName } = useActivityTypeHelpers()
+const { getTextClass, getIconProps, getTranslatedName } = useActivityTypeHelpers()
 
 const { publicActivity } = useActivePublicActivityService()
 
@@ -123,6 +128,13 @@ const group = computed(() => place.value?.group)
 
 const bannerImageURL = computed(() => publicActivity.value?.bannerImageUrls?.fullSize)
 const groupImageURL = computed(() => group.value?.photoUrls?.[200])
+
+// Need this as we might not be signed in, so might not have any activity type stylesheet loaded
+// (This enables the custom activity type colour names)
+const { updateActivityTypes, removeStylesheet } = createActivityTypeStylesheet()
+watch(activityType, value => updateActivityTypes([value]), { immediate: true })
+
+onUnmounted(() => removeStylesheet())
 
 const mapMarker = computed(() => {
   if (!place.value) return

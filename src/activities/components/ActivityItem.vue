@@ -39,13 +39,16 @@
         >
           <b class="text-orange">{{ $t('ACTIVITYLIST.ACTIVITY_STARTED') }}</b>
         </div>
-        <ReadMore :height="200">
+        <ShowMore
+          :height="200"
+          :overlay-color="isUserParticipant ? '#E7FFE0' : 'white'"
+        >
           <Markdown
             v-if="activity.description"
             :source="activity.description"
             mentions
           />
-        </ReadMore>
+        </ShowMore>
         <div class="q-mt-none q-mb-none full-width column q-gutter-y-md">
           <div
             v-for="participantType in participantTypes"
@@ -305,12 +308,13 @@ import { absoluteURL } from '@/utils/absoluteURL'
 
 import CustomDialog from '@/utils/components/CustomDialog'
 import Markdown from '@/utils/components/Markdown'
-import ReadMore from '@/utils/components/ReadMore'
+import ShowMore from '@/utils/components/ShowMore'
 
 import ActivityUsers from './ActivityUsers'
 
 export default {
   components: {
+    ShowMore,
     CustomDialog,
     QCard,
     QCardSection,
@@ -323,7 +327,6 @@ export default {
     QRadio,
     ActivityUsers,
     Markdown,
-    ReadMore,
   },
   props: {
     activity: {
@@ -493,11 +496,10 @@ export default {
 
 .content
   width: 100%
-  transition: background-color 2s ease
 
   &.isUserParticipant
     &:not(.isDisabled)
-      background: linear-gradient(to right, $lightGreen, $lighterGreen)
+      background-color: $lightGreen
 
   &.isDisabled
     background: $lightRed

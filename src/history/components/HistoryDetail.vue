@@ -127,7 +127,7 @@
       </QItem>
     </QList>
     <QList
-      v-if="entry.payload"
+      v-if="visiblePayloadEntries.length > 0"
     >
       <QItem class="bg-accent">
         <QItemSection side>
@@ -138,7 +138,7 @@
         </QItemSection>
       </QItem>
       <HistoryPayloadDetail
-        v-for="(value, key) in entry.payload"
+        v-for="{ key, value } in visiblePayloadEntries"
         :key="key"
         :label="key"
         :value="value"
@@ -259,6 +259,20 @@ export default {
         return convertActivity(this.entry.payload)
       }
       return null
+    },
+    // Just payload entries that we can display nicely, don't want to show raw JSON
+    visiblePayloadEntries () {
+      const { payload } = this.entry
+      if (!payload) return []
+      return Object.keys(payload)
+        .map(key => ({ key, value: payload[key] }))
+        .filter(({ key, value }) => (
+          // Special handling for these in HistoryPayloadDetail
+          ['participants', 'date'].includes(key) ||
+          // Simple renderable types
+          ['string', 'number', 'boolean'].includes(typeof value) ||
+          value instanceof Date
+        ) && value !== '')
     },
   },
   methods: {

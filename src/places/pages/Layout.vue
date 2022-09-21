@@ -63,7 +63,7 @@ function restore () {
 // if we are at the base place route redirect to the default view for this place
 watch(() => [place.value, route.name], ([place, routeName]) => {
   if (place && routeName === 'place') {
-    router.push({ name: placeRoute(place), params: route.params })
+    router.replace({ name: placeRoute(place), params: route.params })
   }
 }, { immediate: true })
 </script>

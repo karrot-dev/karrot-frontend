@@ -216,7 +216,7 @@ export default {
     leaveEdit () {
       this.$emit('leave-edit')
     },
-    onFocus (event) {
+    onFocus () {
       this.hasFocus = true
     },
     onBlur () {

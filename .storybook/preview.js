@@ -43,6 +43,9 @@ setupMockBackend()
 
 // Storybook config
 import { create } from '@storybook/theming'
+import { faker } from '@faker-js/faker'
+
+faker.seed(500)
 
 export const parameters = {
   options: {

@@ -15456,6 +15456,13 @@ rollup@^2.43.1:
   optionalDependencies:
     fsevents "~2.3.2"
 
+rrule@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/rrule/-/rrule-2.7.0.tgz#f985bae79102a08893885a81e551a4977c6e6bcc"
+  integrity sha512-PnSvdJLHrETO4qQxm9nlDvSxNfbPdDFbgdz2BSHXTP+IzHbdwSNvTHOeN0O9khiy91GjzWXyiVJhnPDOQvejNg==
+  dependencies:
+    tslib "^1.10.0"
+
 rsvp@^4.8.4:
   version "4.8.5"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"
@@ -17102,7 +17109,7 @@ tsconfig@^7.0.0:
     strip-bom "^3.0.0"
     strip-json-comments "^2.0.0"
 
-tslib@^1.8.1, tslib@^1.9.3:
+tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.3:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==

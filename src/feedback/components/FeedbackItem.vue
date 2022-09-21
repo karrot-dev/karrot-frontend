@@ -124,7 +124,9 @@ const place = computed(() => getPlaceById(activity.value.place))
 
 const givenBy = computed(() => getUserById(feedback.value.givenBy))
 
-const membersWithoutGiver = computed(() => activity.value.participants.filter(userId => userId !== feedback.value.givenBy).map(getUserById))
+const membersWithoutGiver = computed(() => activity.value.participants
+  .filter(participant => participant.user !== feedback.value.givenBy)
+  .map(participant => getUserById(participant.user)))
 
 const hasWeight = computed(() => Number.isFinite(feedback.value?.weight))
 </script>

@@ -1,17 +1,11 @@
 import { faker } from '@faker-js/faker'
 
 import { filterByAuthUserGroups } from '>/mockBackend/groups'
+import { realSample } from '>/mockBackend/utils'
 
 import { cursorPaginated, getById, post } from './mockAxios'
 
 import { ctx, db } from './index'
-
-// Can't use the normal one as we've made random not random for tests...
-// Only exists in Jest environment, so fall back to Math.random outside of it (e.g. Storybook)
-export function sample (items) {
-  const random = Math.realRandom || Math.random
-  return items[Math.floor(random() * items.length)]
-}
 
 let nextId = 1
 export function generateOffer (params = {}) {
@@ -19,7 +13,7 @@ export function generateOffer (params = {}) {
     id: nextId++,
     name: faker.random.words(5),
     description: faker.lorem.paragraphs(2),
-    status: sample(['active', 'archived']),
+    status: realSample(['active', 'archived']),
     createdAt: faker.date.past(),
     user: null,
     group: null,

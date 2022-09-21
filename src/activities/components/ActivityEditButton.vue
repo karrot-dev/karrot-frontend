@@ -32,13 +32,13 @@
       class="bg-white"
       style="width: 700px; overflow-x: hidden"
     >
-      <ActivityEdit
-        v-if="!isSeries"
-        :value="newActivity"
-        :status="createActivityStatus"
-        @save="saveNewActivity"
+      <Component
+        :is="isSeries ? ActivitySeriesEdit : ActivityEdit"
+        :value="isSeries ? newSeries : newActivity"
+        :status="isSeries ? createSeriesStatus : createActivityStatus"
+        @save="data => isSeries ? saveNewSeries(data) : saveNewActivity(data)"
         @cancel="isOpen = false"
-        @reset="resetNewActivity"
+        @reset="() => isSeries ? resetNewSeries() : resetNewSeries()"
       >
         <QSelect
           v-model="placeId"
@@ -88,64 +88,7 @@
           color="primary"
           inline
         />
-      </ActivityEdit>
-      <ActivitySeriesEdit
-        v-else
-        :value="newSeries"
-        :status="createSeriesStatus"
-        @save="saveNewSeries"
-        @cancel="isOpen = false"
-        @reset="resetNewSeries"
-      >
-        <QSelect
-          v-model="placeId"
-          :options="places.map(({ name, id, placeType }) => ({ label: name, value: id, icon: getPlaceTypeById(placeType).icon }))"
-          :label="$t('CREATEACTIVITY.PLACE')"
-          emit-value
-          map-options
-        >
-          <template #option="scope">
-            <QItem
-              :key="scope.index"
-              dense
-              v-bind="scope.itemProps"
-            >
-              <QItemSection side>
-                <QIcon
-                  :name="scope.opt.icon"
-                  size="1.1em"
-                  color="positive"
-                />
-              </QItemSection>
-              <QItemSection>
-                <QItemLabel>{{ scope.opt.label }}</QItemLabel>
-              </QItemSection>
-            </QItem>
-          </template>
-          <template #selected-item="scope">
-            <div class="row no-wrap ellipsis">
-              <QIcon
-                :name="scope.opt.icon"
-                size="1.1em"
-                class="on-left q-ml-xs"
-                color="positive"
-              />
-              <div class="ellipsis">
-                {{ scope.opt.label }}
-              </div>
-            </div>
-          </template>
-        </QSelect>
-        <QOptionGroup
-          v-model="isSeries"
-          :options="[
-            { label: $t('ACTIVITYMANAGE.SINGLE'), value: false },
-            { label: $t('ACTIVITYMANAGE.SERIES'), value: true },
-          ]"
-          color="primary"
-          inline
-        />
-      </ActivitySeriesEdit>
+      </Component>
     </div>
   </QDialog>
 </template>
@@ -260,6 +203,13 @@ function createNewActivity (activityType) {
   const date = addHours(startOfTomorrow(), 10) // default to 10am tomorrow
   newActivity.value = {
     activityType,
+    participantTypes: [
+      {
+        role: 'member',
+        maxParticipants: 2,
+        description: '',
+      },
+    ],
     maxParticipants: 2,
     description: '',
     place: unref(placeId),
@@ -272,6 +222,13 @@ function createNewActivity (activityType) {
 function createNewSeries (activityType) {
   newSeries.value = {
     activityType,
+    participantTypes: [
+      {
+        role: 'member',
+        maxParticipants: 2,
+        description: '',
+      },
+    ],
     maxParticipants: 2,
     description: '',
     startDate: addHours(startOfTomorrow(), 10),

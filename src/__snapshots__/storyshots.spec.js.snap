@@ -919,9 +919,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
     <div class="q-item q-item-type row no-wrap isUnread">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
-        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label">
-          <!--v-if--> You can give feedback - Task on Monday 10:00 AM
-        </div>
+        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-reply q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> You can give feedback - Task on Monday 10:00 AM</div>
         <div class="q-item__label q-item__label--caption text-caption">
           <div title="Mar 11, 2017, 8:02 AM" style="display: inline;">10 months ago</div> · enable Corporate bypassing Bedfordshire Tuna · Automotive Jewelery Intelligent connecting Cambridgeshire
         </div>

@@ -1,48 +1,25 @@
 <template>
   <div>
-    <div class="float-right">
-      <QBtn
-        flat
-        round
-        dense
-        icon="help_outline"
-        @click="showInfo = true"
-      >
-        <QDialog
-          v-if="showInfo"
-          v-model="showInfo"
-        >
-          <QCard>
-            <QCardSection>
-              <div class="text-h6">
-                {{ $t('MEMBERSHIP_REVIEW.INFO.TITLE') }}
-              </div>
-            </QCardSection>
-            <QCardSection>
-              <p v-t="'MEMBERSHIP_REVIEW.INFO.MESSAGE'" />
-              <a
-                v-t="'MEMBERSHIP_REVIEW.FIND_OUT_MORE'"
-                href="https://community.karrot.world/t/how-does-the-conflict-resolution-feature-work/254/3"
-                target="_blank"
-                rel="noopener"
-                style="text-decoration: underline"
-              />
-            </QCardSection>
-            <QCardActions align="right">
-              <QBtn
-                v-close-popup
-                flat
-                :label="$t('BUTTON.CLOSE')"
-              />
-            </QCardActions>
-          </QCard>
-        </QDialog>
-      </QBtn>
-    </div>
-    <div class="text-h6 q-mb-md">
+    <div class="text-bold">
       {{ $t('MEMBERSHIP_REVIEW.VOTING.HEADLINE', { userName: affectedUser.displayName }) }}
     </div>
-    <div class="q-pb-lg">
+    <div class="q-pb-md">
+      <QBanner class="q-mt-sm q-mb-md bg-yellow-2">
+        <template #avatar>
+          <QIcon
+            name="help_outline"
+            size="sm"
+          />
+        </template>
+        {{ $t('MEMBERSHIP_REVIEW.INFO.MESSAGE') }}
+        <a
+          v-t="'MEMBERSHIP_REVIEW.FIND_OUT_MORE'"
+          href="https://community.karrot.world/t/how-does-the-conflict-resolution-feature-work/254/3"
+          target="_blank"
+          rel="noopener"
+          style="text-decoration: underline"
+        />
+      </QBanner>
       <div class="text-caption k-caption-opacity row inline">
         <div>{{ $t('ISSUE.VOTING.TIME_LEFT') }}</div>:
         <DateAsWords
@@ -65,6 +42,10 @@
         :class="{showOverlay}"
       >
         <div>
+          <div class="text-caption k-caption-opacity">
+            {{ $t('ISSUE.VOTING.DECIDE') }}
+            {{ $t('ISSUE.VOTING.ANONYMOUS') }}
+          </div>
           <div
             v-for="o in edit"
             :key="o.id"
@@ -86,10 +67,7 @@
             />
           </div>
         </div>
-        <div class="text-caption k-caption-opacity q-my-xs">
-          {{ $t('ISSUE.VOTING.ANONYMOUS') }}
-        </div>
-        <div class="row justify-end q-gutter-sm">
+        <div class="row justify-end q-gutter-sm q-mt-sm">
           <QBtn
             color="negative"
             @click="deleteVote"
@@ -103,7 +81,7 @@
             :disable="!hasChanged"
             @click="$emit('save', results)"
           >
-            {{ $t('ISSUE.VOTING.SAVE') }}
+            {{ $t('ISSUE.VOTING.BTN_START') }}
           </QBtn>
         </div>
       </div>
@@ -135,10 +113,8 @@ import {
   QSlider,
   QLinearProgress,
   QBtn,
-  QDialog,
-  QCard,
-  QCardSection,
-  QCardActions,
+  QBanner,
+  QIcon,
 } from 'quasar'
 
 import statusMixin from '@/utils/mixins/statusMixin'
@@ -151,11 +127,9 @@ export default {
     QSlider,
     QLinearProgress,
     QBtn,
-    QDialog,
-    QCard,
-    QCardSection,
-    QCardActions,
     DateAsWords,
+    QBanner,
+    QIcon,
   },
   mixins: [statusMixin],
   props: {

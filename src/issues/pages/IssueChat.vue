@@ -13,15 +13,15 @@
           <b>{{ $t('MEMBERSHIP_REVIEW.INITIAL') }}</b>
         </QItemSection>
       </template>
-      <div class="q-mx-sm q-mb-sm q-pa-sm">
-        <span class="text-bold text-primary">
-          {{ $t('MEMBERSHIP_REVIEW.WITH', { userName: affectedUser.displayName }) }}
-        </span>
+      <div class="q-mx-sm q-mb-sm q-pa-sm row">
         <ProfilePicture
           :user="affectedUser"
-          :size="25"
-          class="q-mt-xs"
+          :size="40"
+          class="q-mr-sm col-auto"
         />
+        <span class="text-bold col">
+          {{ $t('MEMBERSHIP_REVIEW.WITH', { userName: affectedUser.displayName }) }}
+        </span>
       </div>
       <div
         v-if="issue.status !== 'ongoing'"

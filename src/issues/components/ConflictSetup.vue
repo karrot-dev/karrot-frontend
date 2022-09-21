@@ -17,7 +17,7 @@
           done-icon="fas fa-exclamation"
           :title="$t('ATTENTION')"
         >
-          <p><strong>{{ $t('MEMBERSHIP_REVIEW.STEPPER1a') }}</strong></p>
+          <p><strong>{{ $t('MEMBERSHIP_REVIEW.STEPPER1a', { userName: user.displayName }) }}</strong></p>
           <p>{{ $t('MEMBERSHIP_REVIEW.STEPPER1b') }}</p>
         </QStep>
         <QStep
@@ -58,6 +58,7 @@
           <MarkdownInput
             v-model="initialStatement"
             data-testid="topic"
+            outlined
             @keyup.ctrl.enter="submit"
           />
         </QStep>

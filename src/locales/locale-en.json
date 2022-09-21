@@ -500,18 +500,19 @@
     },
     "NOTICE": "There is an ongoing issue! | There are {count} ongoing issues!",
     "NO_ONGOING": "No ongoing issues.",
-    "PARTICIPANTS": "{count} members have been added to this discussion.",
+    "PARTICIPANTS": "{count} members are in this discussion.",
     "PAST": "Past issues",
     "PREVIOUS_VOTINGS": "Previous votings in this issue",
     "TITLE": "Issues",
     "VOTE": "Vote",
     "VOTING": {
       "ANONYMOUS": "Your vote will be anonymous.",
+      "DECIDE": "Decide your level of support for each proposal.",
       "BTN_DELETE": "Delete vote",
       "BTN_START": "Vote now",
       "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
       "NO_CHANGE": "No change: {userName} stays in {groupName}",
-      "REMOVE_USER": "{userName} gets removed from {groupName}",
+      "REMOVE_USER": "Membership ends and {userName} gets removed from {groupName}",
       "RESULTS": {
         "ENDED_AT": "This voting round ended on {date}",
         "KEEP_DISCUSSING": "Your group voted to keep discussing",
@@ -579,8 +580,7 @@
   "MEMBERSHIP_REVIEW": {
     "FIND_OUT_MORE": "Find out more!",
     "INFO": {
-      "MESSAGE": "This is a score voting in which group members can participate to determine someone's membership.",
-      "TITLE": "How does this process work?"
+      "MESSAGE": "This is a score voting in which all group members can participate to determine someone's membership."
     },
     "INITIAL": "Information",
     "REQUIREMENTS": {
@@ -589,12 +589,12 @@
     "SETUP_HEADER": "Start a membership review?",
     "STATEMENT": "Statement",
     "STEPPER1a": "You are about to start a group-wide membership review to decide whether {userName} should continue as a member of the group",
-    "STEPPER1b": "This will be open for all members to participate.",
+    "STEPPER1b": "This will be open for all group members to participate.",
     "STEPPER2a": "Thank you for caring for your community!",
     "STEPPER2b": "For a group it is important to practise honest communication and address any issues.",
     "STEPPER3a": "Here's what will happen:",
     "STEPPER3b": "This process will start a chat and a vote.",
-    "STEPPER3c": "The chat will be visible for members and includes {userName}.",
+    "STEPPER3c": "The chat will be visible for all group members and includes {userName}.",
     "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
     "STEPPER4a": "Please explain why you are starting this process!",
     "STEPPER4b": "Tell your group what made you think this is justified and needed. This statement will be visible to {userName} and group members.",

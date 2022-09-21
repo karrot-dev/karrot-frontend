@@ -112,9 +112,6 @@ export default {
       if (!this.context) return
       if (!this.context.user) return
 
-      // it shouldn't be needed to show your own picture
-      if (this.getIsCurrentUser(this.context.user)) return
-
       // new_place is not about the user, but the place
       if (this.type === 'new_place') return
 

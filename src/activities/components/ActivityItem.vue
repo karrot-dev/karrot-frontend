@@ -1,5 +1,15 @@
 <template>
   <QCard class="activity-item">
+    <div
+      v-if="bannerImageURL"
+      style="height: 50px;"
+      class="relative-position overflow-hidden-y"
+    >
+      <QImg
+        :src="bannerImageURL"
+        class="absolute-center"
+      />
+    </div>
     <QCardSection
       class="no-padding content"
       :class="{ isUserParticipant, isDisabled: activity.isDisabled }"
@@ -295,6 +305,7 @@ import {
   QItemSection,
   QItemLabel,
   QRadio,
+  QImg,
 } from 'quasar'
 import { computed, toRefs } from 'vue'
 
@@ -327,6 +338,7 @@ export default {
     QRadio,
     ActivityUsers,
     Markdown,
+    QImg,
   },
   props: {
     activity: {
@@ -449,6 +461,9 @@ export default {
       // not in Cordova so we always make it absolute for simplicity.
       // see https://github.com/karrot-dev/karrot-frontend/issues/2400
       return absoluteURL(`/api/activities/${this.activity.id}/ics/`)
+    },
+    bannerImageURL () {
+      return this.activity?.bannerImageUrls?.fullSize
     },
   },
   methods: {

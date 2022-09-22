@@ -149,41 +149,43 @@
       </QCardActions>
       <template v-if="publicActivities.length > 0">
         <QSeparator />
-        <QCardSection
-          class="row public-activities"
-        >
-          <div
-            v-for="publicActivity in publicActivities"
-            :key="publicActivity.publicId"
-            class="col-4 smaller-text"
+        <QInfiniteScroll v-bind="infiniteScroll">
+          <QCardSection
+            class="row public-activities"
           >
-            <QCard
-              v-ripple
-              flat
-              bordered
-              class="cursor-pointer q-hoverable"
-              @click="$router.push({ name: 'publicActivity', params: { activityPublicId: publicActivity.publicId } })"
+            <div
+              v-for="publicActivity in publicActivities"
+              :key="publicActivity.publicId"
+              class="col-12 col-sm-4 smaller-text"
             >
-              <QImg
-                v-if="publicActivity.bannerImageUrls?.fullSize"
-                :src="publicActivity.bannerImageUrls.fullSize"
-                class="full-width"
-              />
-              <QCardSection>
-                <span
-                  :style="{ color: '#' + publicActivity.activityType.colour }"
-                >
-                  <QIcon
-                    v-bind="getIconProps(publicActivity.activityType)"
-                    class="q-pr-xs"
-                  />
-                </span>
-                {{ $d(publicActivity.date, 'shortDateAndTime') }}
-                <Markdown :source="publicActivity.description" />
-              </QCardSection>
-            </QCard>
-          </div>
-        </QCardSection>
+              <QCard
+                v-ripple
+                flat
+                bordered
+                class="cursor-pointer q-hoverable"
+                @click="$router.push({ name: 'publicActivity', params: { activityPublicId: publicActivity.publicId } })"
+              >
+                <QImg
+                  v-if="publicActivity.bannerImageUrls?.fullSize"
+                  :src="publicActivity.bannerImageUrls.fullSize"
+                  class="full-width"
+                />
+                <QCardSection>
+                  <span
+                    :style="{ color: '#' + publicActivity.activityType.colour }"
+                  >
+                    <QIcon
+                      v-bind="getIconProps(publicActivity.activityType)"
+                      class="q-pr-xs"
+                    />
+                  </span>
+                  {{ $d(publicActivity.date, 'shortDateAndTime') }}
+                  <Markdown :source="publicActivity.description" />
+                </QCardSection>
+              </QCard>
+            </div>
+          </QCardSection>
+        </QInfiniteScroll>
       </template>
     </QCard>
   </div>
@@ -201,6 +203,7 @@ import {
   QIcon,
   QBanner,
   QImg,
+  QInfiniteScroll,
 } from 'quasar'
 import { computed, unref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -240,6 +243,7 @@ const {
 
 const {
   publicActivities,
+  infiniteScroll,
 } = usePublicActivityListQuery({
   groupId: groupPreviewId,
   dateMin: newDateRoundedTo5Minutes(),

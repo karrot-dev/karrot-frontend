@@ -2,6 +2,7 @@ import { debounce } from 'quasar'
 import { unref, computed } from 'vue'
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
+import { paginationHelpers } from '@/messages/queries'
 import { useSocketEvents } from '@/utils/composables'
 import { extractCursor, flattenPaginatedData, useQueryHelpers } from '@/utils/queryHelpers'
 
@@ -220,6 +221,7 @@ export function usePublicActivityListQuery ({
 
   return {
     ...query,
+    ...paginationHelpers(query),
     publicActivities: flattenPaginatedData(query),
   }
 }

@@ -14,7 +14,6 @@
 
     <form
       class="q-gutter-y-lg"
-      style="max-width: 700px"
       @submit.prevent="maybeSave"
     >
       <h3 v-if="activityType && isNew">
@@ -191,6 +190,7 @@
 
       <QField
         borderless
+        hide-bottom-space
       >
         <QToggle
           v-model="edit.isPublic"
@@ -198,16 +198,17 @@
         />
       </QField>
 
-      <pre>edit.bannerImage: {{ edit.bannerImage }}</pre>
-
       <QField
-        v-show="edit.isPublic"
+        v-if="edit.isPublic"
         borderless
-        label="Activity banner"
+        stack-label
+        label="Banner image"
       >
         <ImageUpload
+          ref="imageUpload"
           v-model="edit.bannerImage"
           :urls="value.bannerImageUrls"
+          class="q-mt-sm"
         />
       </QField>
 
@@ -236,7 +237,7 @@
           v-if="!isNew"
           type="button"
           :disable="!hasChanged"
-          @click="reset"
+          @click="doReset"
         >
           {{ $t('BUTTON.RESET') }}
         </QBtn>
@@ -376,6 +377,11 @@ export default {
     }
   },
   computed: {
+    debug () {
+      return require('util').inspect({
+        bannerImage: this.edit.bannerImage,
+      })
+    },
     previewActivity () {
       return {
         ...this.edit,
@@ -475,6 +481,12 @@ export default {
     },
   },
   methods: {
+    doReset () {
+      if (this.$refs.imageUpload) {
+        this.$refs.imageUpload.reset()
+      }
+      this.reset()
+    },
     futureDates (dateString) {
       return date.extractDate(`${dateString} 23:59`, 'YYYY/MM/DD HH:mm') > this.now
     },
@@ -494,20 +506,32 @@ export default {
             users,
           },
         })
-          .onOk(({ updatedMessage }) => {
+          .onOk(async ({ updatedMessage }) => {
             if (updatedMessage) {
-              this.save({ updatedMessage })
+              await this.save({ updatedMessage })
             }
             else {
-              this.save()
+              await this.save()
+            }
+            // reset
+            this.$refs.imageUpload.reset()
+            for (const key of Object.keys(this.edit)) {
+              if (this.edit[key] === undefined) {
+                delete this.edit[key]
+              }
             }
           })
       }
     },
-    // Overrides mixin method to always provide start date if we have modified end date
+    // Overrides mixin method
     getPatchData () {
       const diff = objectDiff(this.value, this.edit)
+      // Always provide start date if we have modified end date
       if (diff.dateEnd && !diff.date) diff.date = this.edit.date
+      // Have to explicitly set this...
+      if (this.edit.bannerImage === null) {
+        diff.bannerImage = null
+      }
       return diff
     },
     disable () {

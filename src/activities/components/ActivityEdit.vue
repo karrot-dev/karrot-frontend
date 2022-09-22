@@ -188,29 +188,40 @@
         @maybe-save="maybeSave"
       />
 
-      <QField
-        borderless
-        hide-bottom-space
-      >
-        <QToggle
-          v-model="edit.isPublic"
-          label="Make it public"
-        />
-      </QField>
+      <template v-if="!series">
+        <QField
+          borderless
+          hide-bottom-space
+        >
+          <QToggle
+            v-model="edit.isPublic"
+            label="Make it public"
+          />
+        </QField>
 
-      <QField
-        v-if="edit.isPublic"
-        borderless
-        stack-label
-        label="Banner image"
-      >
-        <ImageUpload
-          ref="imageUpload"
-          v-model="edit.bannerImage"
-          :urls="value.bannerImageUrls"
-          class="q-mt-sm"
-        />
-      </QField>
+        <QField
+          v-if="edit.isPublic"
+          borderless
+          stack-label
+          bottom-slots
+          label="Banner image"
+        >
+          <template #hint>
+            Tip: You can get free banners images at <a
+              rel="noopener nofollow noreferrer"
+              class="fas-after fa-after-external-link"
+              target="_blank"
+              href="https://www.pexels.com/search/banner/?orientation=landscape"
+            >pexels.com</a>
+          </template>
+          <ImageUpload
+            ref="imageUpload"
+            v-model="edit.bannerImage"
+            :urls="value.bannerImageUrls"
+            class="q-mt-sm"
+          />
+        </QField>
+      </template>
 
       <div
         v-if="hasNonFieldError"

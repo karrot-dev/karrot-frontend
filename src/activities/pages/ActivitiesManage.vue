@@ -584,6 +584,7 @@ export default {
         dateEnd: addSeconds(date, defaultDuration),
         place: this.placeId,
         hasDuration: false,
+        isPublic: false,
       }
     },
     async saveNewActivity (activity) {

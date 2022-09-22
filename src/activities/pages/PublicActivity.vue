@@ -76,6 +76,7 @@
             &mdash; {{ $d(publicActivity.dateEnd, 'hourMinute') }}
           </template>
 
+          <br v-if="icsURL">
           <QBtn
             v-if="icsURL"
             :href="icsURL"

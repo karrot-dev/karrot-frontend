@@ -196,12 +196,14 @@ export function useICSTokenQuery (queryOptions) {
 
 export function usePublicActivityListQuery ({
   groupId,
+  dateMin,
   pageSize = 10,
 }, queryOptions = {}) {
   const query = useInfiniteQuery(
-    queryKeyActivityList({ groupId }),
+    queryKeyActivityList({ groupId, dateMin }),
     ({ pageParam }) => api.listPublic({
       group: unref(groupId),
+      dateMin: unref(dateMin),
       cursor: pageParam,
       pageSize,
     }),

@@ -17,6 +17,7 @@ import { useWithdrawApplicationMutation } from '@/applications/mutations'
 import { useApplicationListQuery } from '@/applications/queries'
 import { useAuthService } from '@/authuser/services'
 import { useActiveGroupPreviewService } from '@/groupInfo/services'
+import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 import { showToast } from '@/utils/toasts'
 
 import GroupPreviewUI from '@/groupInfo/components/GroupPreviewUI'
@@ -45,7 +46,10 @@ async function withdraw (id) {
 
 const {
   publicActivities,
-} = usePublicActivityListQuery({ groupId: groupPreviewId })
+} = usePublicActivityListQuery({
+  groupId: groupPreviewId,
+  dateMin: newDateRoundedTo5Minutes(),
+})
 
 // TODO add pending state, avoid flashing of content?
 const {

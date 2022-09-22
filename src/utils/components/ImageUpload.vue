@@ -10,7 +10,7 @@
       replace-drop
       initial-size="cover"
       class="q-mb-sm grey-border cursor-pointer full-width"
-      style="aspect-ratio: 8 / 3"
+      style="aspect-ratio: 8 / 3; min-height: 0;"
       :show-remove-button="false"
       @new-image-drawn="imageDrawn"
     >
@@ -30,12 +30,14 @@
       v-else
       label="Select image"
       unelevated
+      color="primary"
       @click="addImage"
     />
     <QBtn
       v-if="canRemove"
       label="Clear image"
       unelevated
+      color="primary"
       @click="removeImage"
     />
   </div>

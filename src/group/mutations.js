@@ -54,13 +54,13 @@ export function useLeaveGroupMutation () {
 
 export function useTrustUserMutation () {
   return withStatus(useMutation(
-    ({ groupId, userId }) => api.trustUser(groupId, userId),
+    ({ groupId, userId, role }) => api.trustUser(groupId, userId, role),
   ))
 }
 
 export function useRevokeTrustMutation () {
   return withStatus(useMutation(
-    ({ groupId, userId }) => api.revokeTrust(groupId, userId),
+    ({ groupId, userId, role }) => api.revokeTrust(groupId, userId, role),
   ))
 }
 

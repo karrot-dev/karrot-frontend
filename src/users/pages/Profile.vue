@@ -98,6 +98,11 @@
             :user="user"
             :membership="currentGroupMembership"
           />
+          <ApproveButton
+            v-if="currentGroupMembership && currentGroup.roles.includes('approved')"
+            :user="user"
+            :membership="currentGroupMembership"
+          />
         </div>
         <QList>
           <QItem>
@@ -229,6 +234,7 @@ import { useActiveUserService } from '@/users/services'
 
 import HistoryList from '@/history/components/HistoryList'
 import UserMapPreview from '@/maps/components/UserMapPreview'
+import ApproveButton from '@/users/components/ApproveButton.vue'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import SwitchGroupButton from '@/users/components/SwitchGroupButton'
 import TrustButton from '@/users/components/TrustButton'
@@ -245,6 +251,7 @@ export default {
     UserMapPreview,
     ProfilePicture,
     TrustButton,
+    ApproveButton,
     SwitchGroupButton,
     ConflictSetup,
     QCard,

@@ -66,12 +66,13 @@ export default {
     return axios.delete(`/api/groups/${groupId}/notification_types/${notificationType}/`)
   },
 
-  trustUser (groupId, userId) {
-    return axios.post(`/api/groups/${groupId}/users/${userId}/trust/`)
+  trustUser (groupId, userId, role) {
+    return axios.post(`/api/groups/${groupId}/users/${userId}/trust/`, { role })
   },
 
-  revokeTrust (groupId, userId) {
-    return axios.delete(`/api/groups/${groupId}/users/${userId}/trust/`)
+  revokeTrust (groupId, userId, role) {
+    // passing data in delete(url, config)! luckily, the config object accepts a data property
+    return axios.delete(`/api/groups/${groupId}/users/${userId}/trust/`, { data: { role } })
   },
 }
 

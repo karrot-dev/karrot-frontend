@@ -134,7 +134,7 @@
               </template>
             </QInput>
           </template>
-          <div class="q-ml-lg col-12 q-field__bottom">
+          <div class="col-12 q-field__bottom">
             <div
               v-if="hasError('date')"
               class="text-negative"
@@ -207,7 +207,7 @@
           label="Banner image"
         >
           <template #hint>
-            Tip: You can get free banners images at <a
+            Tip: You can get free banners images from <a
               rel="noopener nofollow noreferrer"
               class="fas-after fa-after-external-link"
               target="_blank"

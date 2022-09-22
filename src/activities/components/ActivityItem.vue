@@ -253,7 +253,7 @@
           size="xs"
           class="q-mr-sm"
         />
-        Public activity
+        Public View
       </QBtn>
       <QSpace />
       <QBtn

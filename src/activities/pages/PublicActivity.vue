@@ -75,6 +75,26 @@
           <template v-if="publicActivity.hasDuration">
             &mdash; {{ $d(publicActivity.dateEnd, 'hourMinute') }}
           </template>
+
+          <QBtn
+            v-if="icsURL"
+            :href="icsURL"
+            outline
+            no-caps
+            type="a"
+            color="primary"
+            class="q-mt-sm"
+          >
+            <template #default>
+              <QIcon
+                name="event"
+                size="xs"
+                class="q-mr-xs"
+              />
+              <span>{{ $t('ACTIVITYLIST.ICS_DIALOG.TITLE') }}</span>
+            </template>
+          </QBtn>
+
           <div class="text-h6 q-mt-sm q-mb-sm">
             <QIcon
               :name="place.placeType.icon || 'fas fa-map-marker'"
@@ -108,11 +128,13 @@ import {
   QImg,
   QIcon,
   QSeparator,
+  QBtn,
 } from 'quasar'
 
 import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useActivePublicActivityService } from '@/activities/services'
 import { createActivityTypeStylesheet } from '@/activities/stylesheet'
+import { absoluteURL } from '@/utils/absoluteURL'
 
 import StandardMap from '@/maps/components/StandardMap'
 import KSpinner from '@/utils/components/KSpinner'
@@ -128,6 +150,11 @@ const group = computed(() => place.value?.group)
 
 const bannerImageURL = computed(() => publicActivity.value?.bannerImageUrls?.fullSize)
 const groupImageURL = computed(() => group.value?.photoUrls?.[200])
+
+const icsURL = computed(() => {
+  if (!publicActivity.value) return ''
+  return absoluteURL(`/api/public-activities/${publicActivity.value.publicId}/ics/`)
+})
 
 // Need this as we might not be signed in, so might not have any activity type stylesheet loaded
 // (This enables the custom activity type colour names)

@@ -506,7 +506,9 @@
     "STORE_CREATE": "skapade platsen {name}",
     "STORE_DELETE": "ta bort platsen {name}",
     "STORE_MODIFY": "ändrade inställningar för platsen {name}",
-    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
+    "USER_LOST_EDITOR_ROLE": "lost editing permissions",
+    "PLACE_TYPE_CREATE": "created a place type",
+    "PLACE_TYPE_MODIFY": "modified a place type"
   },
   "INACTIVITY": {
     "HELP": "Alla som inte loggade in i gruppen i {dayCount} dagar eller mer räknas som inaktiv. Dessa användare kommer inte längre få e-postnotifieringar",

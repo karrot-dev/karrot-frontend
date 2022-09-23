@@ -143,9 +143,10 @@
             </div>
 
             <QSeparator />
-            <QCardActions style="height: 42px">
+            <QCardActions
+              style="height: 42px"
+            >
               <RouterLink
-                v-if="getUnreadWallMessageCount(place) > 0"
                 :to="{ name: 'placeWall', params: { placeId: place.id }}"
               >
                 <QChip
@@ -157,12 +158,11 @@
                   :title="$tc('CONVERSATION.UNREAD_MESSAGES', getUnreadWallMessageCount(place), { count: getUnreadWallMessageCount(place) })"
                 >
                   <strong class="q-ml-sm">
-                    {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }}
+                    {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) || 0 }}
                   </strong>
                 </QChip>
               </RouterLink>
               <RouterLink
-                v-if="activityCountFor(place.id) > 0"
                 :to="{ name: 'placeActivities', params: { placeId: place.id }}"
                 :title="$tc('PLACE_LIST.UPCOMING_ACTIVITIES', activityCountFor(place.id), { count: activityCountFor(place.id) })"
               >
@@ -178,12 +178,17 @@
                   </strong>
                 </QChip>
               </RouterLink>
-              <QIcon
-                v-if="place.isSubscribed"
+              <QSpace />
+              <QBtn
                 class="q-ml-sm self-center"
-                name="fas fa-star"
-                color="secondary"
-                :title="$t('PLACE_LIST.SUBSCRIBED')"
+                size="sm"
+                rounded
+                unelevated
+                icon="fas fa-star"
+                color="white"
+                :text-color="place.isSubscribed ? 'secondary' : 'grey'"
+                :title="place.isSubscribed ? $t('PLACE_LIST.SUBSCRIBED') : $t('PLACEWALL.SUBSCRIPTION.HEADER')"
+                @click.stop.prevent="place.isSubscribed ? unsubscribe(place.id) : subscribe(place.id)"
               />
             </QCardActions>
           </QCard>
@@ -244,6 +249,7 @@ import { useI18n } from 'vue-i18n'
 
 import { useActivityCountQuery } from '@/activities/queries'
 import { useCurrentGroupService } from '@/group/services'
+import { usePlaceSubscribeMutation, usePlaceUnsubscribeMutation } from '@/places/mutations'
 import { statusList } from '@/places/placeStatus'
 import { placeRoute } from '@/places/utils'
 import { useStatusService } from '@/status/services'
@@ -279,6 +285,9 @@ const {
   getPlaceTypesByGroup,
   getPlaceTypeById,
 } = usePlaceTypeService()
+
+const { mutate: subscribe } = usePlaceSubscribeMutation()
+const { mutate: unsubscribe } = usePlaceUnsubscribeMutation()
 
 const {
   activityCountByPlace,

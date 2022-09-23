@@ -83,8 +83,8 @@
         @keyup.enter="event => search = event.target.value"
       />
       <QCheckbox
-        v-model="onlyFavorites"
-        :label="$t('PLACE_LIST.ONLY_FAVORITES')"
+        v-model="onlyFavourites"
+        :label="$t('PLACE_LIST.ONLY_FAVOURITES')"
       />
     </div>
     <div class="row">
@@ -329,21 +329,21 @@ const { t } = useI18n()
 const defaultQueryParams = {
   type: null,
   status: 'active',
-  onlyFavorites: false,
+  onlyFavourites: false,
   search: '',
 }
 
 const {
   type,
   status,
-  onlyFavorites,
+  onlyFavourites,
   search,
 } = useQueryParams(defaultQueryParams)
 
 function showAll () {
   type.value = null
   status.value = 'all'
-  onlyFavorites.value = false
+  onlyFavourites.value = false
   search.value = ''
 }
 
@@ -382,7 +382,7 @@ const statusOptions = computed(() => ([
 const filteredPlaces = computed(() => places.value.filter(place => (
   (!type.value || place.placeType === parseInt(type.value)) &&
   (status.value === 'all' || place.status === status.value) &&
-  (!onlyFavorites.value || place.isSubscribed) &&
+  (!onlyFavourites.value || place.isSubscribed) &&
   (!search || place.name.toLowerCase().includes(search.value.toLowerCase()))
 )))
 

@@ -724,7 +724,7 @@
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
   "PLACE_LIST": {
-    "ONLY_FAVORITES": "Only favorite",
+    "ONLY_FAVOURITES": "Only favourite",
     "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
     "SUBSCRIBED": "You have marked this place as favorite",
     "FAVORITE_PLACES": "Favorite places",

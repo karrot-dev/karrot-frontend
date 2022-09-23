@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="row no-wrap items-center justify-between bg-white q-px-sm q-py-xs"
+      class="row items-center bg-white q-px-sm q-py-xs q-gutter-sm"
     >
       <QSelect
         v-model="type"

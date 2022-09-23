@@ -525,7 +525,11 @@ export default {
               await this.save()
             }
             // reset
-            this.$refs.imageUpload.reset()
+            if (this.$refs.imageUpload) {
+              this.$refs.imageUpload.reset()
+            }
+            // remove any undefined props, otherwise our "is changed" logic will include them
+            // (edit.bannerImage can be set to undefined when it is not present on the original value)
             for (const key of Object.keys(this.edit)) {
               if (this.edit[key] === undefined) {
                 delete this.edit[key]

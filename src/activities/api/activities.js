@@ -60,6 +60,13 @@ export default {
     })
   },
 
+  publicIcsUrl (filter) {
+    return axios.getUri({
+      params: filter,
+      url: absoluteURL('/api/public-activities/ics/'),
+    })
+  },
+
   async getICSAuthToken () {
     return (await axios.get('/api/activities/ics_token/')).data
   },

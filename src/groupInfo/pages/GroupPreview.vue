@@ -52,7 +52,7 @@
       <QCardActions
         :class="application ? 'bg-blue text-white' : ''"
       >
-        <div style="width: 100%">
+        <div class="full-width">
           <template v-if="group.memberCount === 0 && !application">
             <QBanner class="bg-info">
               {{ $t('JOINGROUP.ARCHIVED_NOTE' ) }}
@@ -140,11 +140,19 @@
           <QBtn
             v-else
             color="secondary"
-            class="float-right q-ma-xs"
+            class="float-right q-ml-xs"
             :to="{ name: 'signup' }"
           >
             {{ $t('JOINGROUP.SIGNUP_OR_LOGIN') }}
           </QBtn>
+          <ICSBtn
+            v-if="publicActivities.length > 0"
+            class="float-right"
+            is-public
+            outline
+            no-caps
+            :group="groupPreviewId"
+          />
         </div>
       </QCardActions>
       <template v-if="publicActivities.length > 0">
@@ -169,6 +177,7 @@
                   v-if="publicActivity.bannerImageUrls?.fullSize"
                   :src="publicActivity.bannerImageUrls.fullSize"
                   class="full-width"
+                  style="max-height: 80px;"
                 />
                 <QCardSection>
                   <span
@@ -218,6 +227,7 @@ import { useDetailService } from '@/messages/services'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 import { showToast } from '@/utils/toasts'
 
+import ICSBtn from '@/activities/components/ICSBtn'
 import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
 

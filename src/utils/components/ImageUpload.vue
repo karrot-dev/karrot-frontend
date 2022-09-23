@@ -123,14 +123,7 @@ const existingImageURL = computed(() => {
   return url
 })
 
-const debug = computed(() => {
-  return require('util').inspect({
-    modelValue: props.modelValue,
-  })
-})
-
 function reset () {
-  console.log('aha resetting!')
   editing.value = false
   emit('update:modelValue', undefined)
 }

@@ -1,13 +1,10 @@
 <template>
   <QBtn
     v-if="icsUrl"
-    color="secondary"
     icon="event"
-    padding="4px 13px"
-    rounded
-    size="sm"
     unelevated
     :label="$t('ACTIVITYLIST.ICS_DIALOG.TITLE')"
+    v-bind="$attrs"
     @click="icsDialog = true"
   />
   <CustomDialog
@@ -24,7 +21,10 @@
       </p>
 
       <QList>
-        <QItem class="q-pl-none">
+        <QItem
+          v-if="!isPublic"
+          class="q-pl-none"
+        >
           <QItemSection
             avatar
             top
@@ -54,6 +54,7 @@
         </QItem>
 
         <QSeparator
+          v-if="!isPublic"
           spaced
           style="margin-left: 56px;"
         />
@@ -106,10 +107,13 @@
                 </template>
               </QField>
             </QItemLabel>
-            <QItemLabel caption>
+            <QItemLabel
+              v-if="!isPublic"
+              caption
+            >
               {{ $t('ACTIVITYLIST.ICS_DIALOG.TOKEN_NOTICE') }}
             </QItemLabel>
-            <QItemLabel>
+            <QItemLabel v-if="!isPublic">
               <QBtn
                 icon="sync"
                 size="sm"
@@ -181,6 +185,10 @@ const props = defineProps({
     type: Boolean,
     default: null,
   },
+  isPublic: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const icsDialog = ref(false)
@@ -191,7 +199,7 @@ const {
   isLoading,
   token,
 } = useICSTokenQuery({
-  enabled: icsDialog,
+  enabled: computed(() => !props.public && icsDialog.value),
 })
 
 const {
@@ -200,11 +208,18 @@ const {
 } = useICSRefreshTokenMutation()
 
 const icsUrl = computed(() => {
-  return activities.icsUrl({
-    group: props.group,
-    joined: props.joined,
-    token: token.value,
-  })
+  if (props.isPublic) {
+    return activities.publicIcsUrl({
+      group: props.group,
+    })
+  }
+  else {
+    return activities.icsUrl({
+      group: props.group,
+      joined: props.joined,
+      token: token.value,
+    })
+  }
 })
 
 function copyLink () {

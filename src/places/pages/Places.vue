@@ -86,27 +86,20 @@
         v-model="onlyFavourites"
         :label="$t('PLACE_LIST.ONLY_FAVOURITES')"
       />
+      <QSpace />
+      <QBtn
+        v-if="isEditor"
+        color="secondary"
+        icon="fas fa-plus"
+        padding="4px 13px"
+        rounded
+        size="sm"
+        unelevated
+        :title="$t('BUTTON.CREATE')"
+        :to="{ name: 'placeCreate', params: { groupId } }"
+      />
     </div>
     <div class="row">
-      <div
-        v-if="isEditor"
-        class="col-md-4 col-6"
-      >
-        <QCard style="height: 240px">
-          <RouterLink
-            class="absolute-center fit"
-            :to="{ name: 'placeCreate', params: { groupId } }"
-            :title="$t('BUTTON.CREATE')"
-          >
-            <QIcon
-              size="5em"
-              class="fit"
-              name="fas fa-plus"
-              color="secondary"
-            />
-          </RouterLink>
-        </QCard>
-      </div>
       <div
         v-for="place in filteredPlaces"
         :key="place.id"
@@ -245,6 +238,7 @@ import {
   QCheckbox,
   QInput,
   QChip,
+  QSpace,
   debounce,
 } from 'quasar'
 import { computed } from 'vue'

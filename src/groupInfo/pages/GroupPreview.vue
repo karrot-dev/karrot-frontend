@@ -107,52 +107,59 @@
                   @click="withdraw"
                 />
               </div>
-              <QBtn
-                v-if="user && !user.mailVerified"
-                color="secondary"
-                class="float-right q-ma-xs"
-                :to="{ name: 'settings', hash: '#change-email' }"
-              >
-                {{ $t('JOINGROUP.VERIFY_EMAIL_ADDRESS') }}
-              </QBtn>
-              <QBtn
-                v-if="user && user.mailVerified && !application"
-                color="secondary"
-                class="float-right q-ma-xs"
-                :to="{ name: 'applicationForm', params: { groupPreviewId: group.id } }"
-              >
-                {{ $t('BUTTON.APPLY') }}
-              </QBtn>
             </template>
-            <QBtn
-              v-else
-              flat
-              :label="$t('BUTTON.OPEN')"
-              icon="fas fa-home"
-              :to="{ name: 'group', params: { groupId: group.id } }"
-            >
-              <QTooltip>
-                {{ $t('GROUPINFO.MEMBER_VIEW') }}
-              </QTooltip>
-            </QBtn>
           </template>
 
-          <QBtn
-            v-else
-            color="secondary"
-            class="float-right q-ml-xs"
-            :to="{ name: 'signup' }"
-          >
-            {{ $t('JOINGROUP.SIGNUP_OR_LOGIN') }}
-          </QBtn>
-          <ICSBtn
-            v-if="publicActivities.length > 0"
-            class="float-right"
-            is-public
-            outline
-            no-caps
-            :group="groupPreviewId"
-          />
+          <div class="row q-gutter-sm items-start">
+            <template v-if="isLoggedIn">
+              <template v-if="!group.isMember">
+                <QBtn
+                  v-if="user && !user.mailVerified"
+                  color="secondary"
+                  class="self-end q-ma-xs"
+                  :to="{ name: 'settings', hash: '#change-email' }"
+                >
+                  {{ $t('JOINGROUP.VERIFY_EMAIL_ADDRESS') }}
+                </QBtn>
+                <QBtn
+                  v-if="user && user.mailVerified && !application"
+                  color="secondary"
+                  class="self-end q-ma-xs"
+                  :to="{ name: 'applicationForm', params: { groupPreviewId: group.id } }"
+                >
+                  {{ $t('BUTTON.APPLY') }}
+                </QBtn>
+              </template>
+              <QBtn
+                v-else
+                flat
+                :label="$t('BUTTON.OPEN')"
+                icon="fas fa-home"
+                :to="{ name: 'group', params: { groupId: group.id } }"
+              >
+                <QTooltip>
+                  {{ $t('GROUPINFO.MEMBER_VIEW') }}
+                </QTooltip>
+              </QBtn>
+            </template>
+            <QSpace />
+            <ICSBtn
+              v-if="publicActivities.length > 0"
+              class="self-end"
+              is-public
+              outline
+              no-caps
+              :group="groupPreviewId"
+            />
+            <QBtn
+              v-if="!isLoggedIn"
+              color="secondary"
+              :to="{ name: 'signup' }"
+              class="self-end"
+            >
+              {{ $t('JOINGROUP.SIGNUP_OR_LOGIN') }}
+            </QBtn>
+          </div>
         </div>
       </QCardActions>
       <template v-if="publicActivities.length > 0">
@@ -213,6 +220,7 @@ import {
   QBanner,
   QImg,
   QInfiniteScroll,
+  QSpace,
 } from 'quasar'
 import { computed, unref } from 'vue'
 import { useI18n } from 'vue-i18n'

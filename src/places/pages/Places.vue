@@ -246,10 +246,10 @@ import {
   QChip,
   debounce,
 } from 'quasar'
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-import { useActivityListQuery } from '@/activities/queries'
+import { useActivityCountQuery } from '@/activities/queries'
 import { useCurrentGroupService } from '@/group/services'
 import { statusList } from '@/places/placeStatus'
 import { placeRoute } from '@/places/utils'
@@ -288,35 +288,11 @@ const {
 } = usePlaceTypeService()
 
 const {
-  activities,
-  isFetching: isFetchingActivities,
-  hasNextPage,
-  fetchNextPage,
-} = useActivityListQuery({
+  activityCountByPlace,
+} = useActivityCountQuery({
   groupId,
   dateMin: newDateRoundedTo5Minutes(),
-  pageSize: 1200,
-}, {
-  cacheTime: 5 * 60 * 1000,
-  staleTime: Infinity, // no need for staleness, gets reloaded after 5 min anyway due to dateMin changing,
 })
-
-watch(isFetchingActivities, value => {
-  // load ALL activities
-  if (!value && hasNextPage.value) {
-    fetchNextPage()
-  }
-})
-
-const activityCountByPlace = computed(() => activities.value.reduce((acc, entry) => {
-  if (acc[entry.place]) {
-    acc[entry.place] += 1
-  }
-  else {
-    acc[entry.place] = 1
-  }
-  return acc
-}, {}))
 
 function activityCountFor (placeId) {
   return activityCountByPlace.value[placeId]

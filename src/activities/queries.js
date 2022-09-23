@@ -1,5 +1,5 @@
 import { debounce } from 'quasar'
-import { unref, computed } from 'vue'
+import { unref, computed, watch } from 'vue'
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
 import { useSocketEvents } from '@/utils/composables'
@@ -11,6 +11,7 @@ import activityTypeAPI from './api/activityTypes'
 
 export const QUERY_KEY_BASE = 'activities'
 export const queryKeyActivityList = params => [QUERY_KEY_BASE, 'activity', 'list', params].filter(Boolean)
+export const queryKeyActivityCount = params => [QUERY_KEY_BASE, 'activity', 'count', params].filter(Boolean)
 export const queryKeyActivityItem = activityId => [QUERY_KEY_BASE, 'activity', 'item', activityId].filter(Boolean)
 export const queryKeyActivityTypeListAll = () => [QUERY_KEY_BASE, 'types']
 export const queryKeyActivitySeriesList = placeId => [QUERY_KEY_BASE, 'series', 'list', placeId].filter(Boolean)
@@ -133,6 +134,56 @@ export function useActivityListQuery ({
   return {
     ...query,
     activities: flattenPaginatedData(query),
+  }
+}
+
+export function useActivityCountQuery ({
+  groupId,
+  dateMin,
+}, queryOptions = {}) {
+  const query = useInfiniteQuery(
+    queryKeyActivityCount({ groupId, dateMin }),
+    ({ pageParam }) => api.list({
+      group: unref(groupId),
+      dateMin: unref(dateMin),
+      cursor: pageParam,
+      pageSize: 1200,
+    }),
+    {
+      cacheTime: 5 * 60 * 1000,
+      staleTime: 5 * 60 * 1000,
+      enabled: computed(() => Boolean(unref(groupId))),
+      getNextPageParam: page => extractCursor(page.next) || undefined,
+      select: ({ pages, pageParams }) => ({
+        pages: pages.map(page => page.results),
+        pageParams,
+      }),
+      ...queryOptions,
+    },
+  )
+
+  watch(query.isFetching, value => {
+    // load ALL activities
+    if (!value && unref(query.hasNextPage)) {
+      query.fetchNextPage()
+    }
+  })
+
+  const activities = flattenPaginatedData(query)
+
+  const activityCountByPlace = computed(() => unref(activities).reduce((acc, entry) => {
+    if (acc[entry.place]) {
+      acc[entry.place] += 1
+    }
+    else {
+      acc[entry.place] = 1
+    }
+    return acc
+  }, {}))
+
+  return {
+    ...query,
+    activityCountByPlace,
   }
 }
 

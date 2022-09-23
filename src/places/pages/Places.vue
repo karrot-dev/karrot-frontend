@@ -106,9 +106,7 @@
         class="col-md-4 col-6"
       >
         <RouterLink :to="{ name: placeRoute(place), params: { placeId: place.id } }">
-          <QCard
-            style="height: 240px"
-          >
+          <QCard>
             <QItem
               class="bg-grey-3"
             >
@@ -132,10 +130,20 @@
               </QItemSection>
             </QItem>
 
-            <div
-              class="row no-wrap q-gutter-xs q-ml-sm q-mr-sm"
-              style="height: 32px"
-            >
+            <div class="q-ml-md q-mr-xs q-mt-xs limit-height text-grey-9">
+              <Markdown
+                v-if="place.description"
+                :source="place.description"
+              />
+              <div v-else>
+                <span class="text-italic">
+                  {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
+                </span>
+              </div>
+            </div>
+
+            <QSeparator />
+            <QCardActions style="height: 42px">
               <RouterLink
                 v-if="getUnreadWallMessageCount(place) > 0"
                 :to="{ name: 'placeWall', params: { placeId: place.id }}"
@@ -177,19 +185,7 @@
                 color="secondary"
                 :title="$t('PLACE_LIST.SUBSCRIBED')"
               />
-            </div>
-
-            <div class="q-ml-md q-mr-xs q-mt-xs limit-height text-grey-9">
-              <Markdown
-                v-if="place.description"
-                :source="place.description"
-              />
-              <div v-else>
-                <span class="text-italic">
-                  {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
-                </span>
-              </div>
-            </div>
+            </QCardActions>
           </QCard>
         </RouterLink>
       </div>
@@ -239,6 +235,8 @@ import {
   QInput,
   QChip,
   QSpace,
+  QCardActions,
+  QSeparator,
   debounce,
 } from 'quasar'
 import { computed } from 'vue'
@@ -367,6 +365,7 @@ const debouncedSearch = debounce(value => { search.value = value }, 500)
 <style lang="sass">
 .limit-height
   position: relative
+  min-height: 140px
   max-height: 140px
   overflow-y: hidden
 </style>

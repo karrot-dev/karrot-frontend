@@ -8,48 +8,21 @@
       @resize="calculateSlotsPerRow"
     />
     <div
-      v-for="user in participants"
+      v-for="{ user } in participants"
       :key="'participant' + user.id"
       class="relative-position pic-wrapper"
+      :style="{ width: size + 'px', height: size + 'px' }"
     >
-      <template
-        v-if="getIsCurrentUser(user) && !hasStarted"
-      >
-        <CurrentUser
-          :size="size"
-          :user="currentUser"
-          :is-leaving="isLeaving"
-          @leave="$emit('leave')"
-        />
-      </template>
-      <template v-else>
-        <div
-          v-if="getIsNewcomer(user.id) && !getIsCurrentUser(user)"
-          class="newcomer-box"
-          :title="$t('USERDATA.NEWCOMER_GUIDANCE', { userName: user.displayName })"
-        />
-        <ProfilePicture
-          :user="user"
-          :size="size"
-        />
-      </template>
+      <div
+        v-if="getIsNewcomer(user) && !getIsCurrentUser(user)"
+        class="newcomer-box"
+        :title="$t('USERDATA.NEWCOMER_GUIDANCE', { userName: user.displayName })"
+      />
+      <ProfilePicture
+        :user="user"
+        :size="size"
+      />
     </div>
-
-    <EmptySlot
-      v-if="isJoining && !isUserMember"
-      style="border-color: black"
-      :is-loading="true"
-      :size="size"
-    />
-
-    <UserSlot
-      v-if="canJoin"
-      :size="size"
-      :user="currentUser"
-      :show-join="!isUserMember"
-      data-testid="join-slot"
-      @join="$emit('join')"
-    />
 
     <EmptySlot
       v-for="n in emptySlots"
@@ -58,14 +31,12 @@
     />
 
     <div
-      v-if="noNotShownEmptySlots > 0"
+      v-if="notShownEmptySlotCount > 0"
       class="emptySlots"
       :style="{ width: size + 'px', height: size + 'px' }"
     >
       <div />
-      <span v-if="noNotShownEmptySlots <= 99">+ {{ noNotShownEmptySlots }}</span>
-      <span v-if="noNotShownEmptySlots > 99 && !hasUnlimitedPlaces">...</span>
-      <span v-if="noNotShownEmptySlots > 99 && hasUnlimitedPlaces">+ ∞</span>
+      {{ notShownEmptySlotSymbol }}
     </div>
   </div>
 </template>
@@ -84,20 +55,20 @@ import { useUserService } from '@/users/services'
 
 import ProfilePicture from '@/users/components/ProfilePicture'
 
-import CurrentUser from './CurrentUser'
 import EmptySlot from './EmptySlot'
-import UserSlot from './UserSlot'
 
 export default {
   components: {
     ProfilePicture,
-    UserSlot,
     EmptySlot,
-    CurrentUser,
     QResizeObserver,
   },
   props: {
     activity: {
+      type: Object,
+      required: true,
+    },
+    participantType: {
       type: Object,
       required: true,
     },
@@ -128,7 +99,6 @@ export default {
 
     const {
       getHasStarted,
-      getIsUserMember,
       getIsFull,
     } = useActivityHelpers()
 
@@ -137,14 +107,17 @@ export default {
     } = useAuthHelpers()
 
     const hasStarted = computed(() => getHasStarted(props.activity))
-    const isUserMember = computed(() => getIsUserMember(props.activity))
     const isFull = computed(() => getIsFull(props.activity))
 
-    const participants = computed(() => props.activity.participants.map(getUserById))
+    const participants = computed(() => props.activity.participants
+      .filter(participant => participant.participantType === props.participantType.id)
+      .map(participant => ({
+        ...participant,
+        user: getUserById(participant.user),
+      })))
 
     return {
       hasStarted,
-      isUserMember,
       isFull,
       participants,
 
@@ -161,47 +134,36 @@ export default {
   },
   computed: {
     hasUnlimitedPlaces () {
-      return this.activity.maxParticipants === null
+      return this.maxParticipants === null
+    },
+    maxParticipants () {
+      return this.participantType.maxParticipants
     },
     emptyPlaces () {
       if (this.hasUnlimitedPlaces) {
         return 9999999999
       }
-      if (this.activity.participants) {
-        return Math.max(
-          this.activity.maxParticipants - this.activity.participants.length - this.canJoinOrIsJoiningSlots,
-          0,
-        )
+      if (this.participants) {
+        return Math.max(this.maxParticipants - this.participants.length, 0)
       }
       return 0
     },
     emptySlots () {
-      if (this.activity.participants) {
+      if (this.participants) {
         const minToShow = Math.min(1, this.emptyPlaces)
-        const maxToShow = Math.max(
-          minToShow,
-          this.slotsPerRow - this.activity.participants.length - this.canJoinOrIsJoiningSlots - 1,
-        )
+        const maxToShow = Math.max(minToShow, this.slotsPerRow - this.participants.length - 1)
         return Math.min(this.emptyPlaces, maxToShow)
       }
       return 0
     },
-    canJoinOrIsJoiningSlots () {
-      // this is the potential slot the user can click into (or has already)
-      return this.isJoining || this.canJoin ? 1 : 0
-    },
-    noNotShownEmptySlots () {
+    notShownEmptySlotCount () {
       return this.emptyPlaces - this.emptySlots
     },
-    canJoin () {
-      const activity = this.activity
-      if (activity.isDisabled || this.isFull || this.isUserMember) {
-        return false
+    notShownEmptySlotSymbol () {
+      if (this.notShownEmptySlotCount > 99) {
+        return this.hasUnlimitedPlaces ? '+ ∞' : '...'
       }
-      if (this.isJoining || this.isLeaving) {
-        return false
-      }
-      return true
+      return `+ ${this.notShownEmptySlotCount}`
     },
   },
   methods: {
@@ -219,6 +181,7 @@ export default {
 
 .pic-wrapper
   margin-right: 3.8px
+  margin-bottom: 3.8px
 
 .newcomer-box
   position: absolute

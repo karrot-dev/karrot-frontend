@@ -92,6 +92,7 @@
       "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?",
       "DOWNLOAD_ICS": "Download ICS"
     },
+    "OPEN_FOR_ROLE": "Open for {role}",
     "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
     "NONE": "No upcoming activities",
     "NONE_DUE_TO_FILTER": "No activities match your filters",
@@ -114,11 +115,14 @@
     "ACTIVITY_DESCRIPTION_CHANGED": "'Additional information' has been changed",
     "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Max slots' has been changed",
+    "ACTIVITY_PARTICIPANT_TYPES_CHANGED": "Participant types have been changed",
     "SERIES": "Activity series",
     "SINGLE": "One-time activities",
     "TITLE": "Manage activities",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
-  },
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series",
+    "CHANGE_AFFECTS_USERS": "This change affects the future activities of {users}.",
+    "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
+},
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
@@ -308,6 +312,7 @@
     "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
+    "ADD_PARTICIPANT_TYPE": "Add participant type",
     "COMMENT": "Additional information",
     "COMMENT_HELPER": "What should people know when signing up to this?",
     "CUSTOM": "Custom",
@@ -321,6 +326,8 @@
     "FREQUENCY": "Frequency",
     "MAX_PARTICIPANTS": "Max Slots",
     "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
+    "REMOVE_PARTICIPANT_TYPE": "Remove participant type",
+    "REVERT_TO_SERIES_VALUES": "Revert to series values",
     "RRULE": "Recurrence rule",
     "RRULE_EXAMPLE": "last working day (Mo-Fr) every month",
     "RRULE_EXAMPLE2": "every second Monday",
@@ -328,7 +335,9 @@
     "RRULE_HELPER_URL": "iCalender rule",
     "STARTDATE_HELPER": "When should the series start?",
     "TIME_HELPER": "When should it take place?",
+    "OPEN_FOR": "Open for",
     "UNLIMITED": "unlimited",
+    "USE_PARTICIPANT_TYPES": "Use participant types",
     "WEEKDAYS": "Weekdays",
     "WEEKDAYS_HELPER": "On which days should it take place?",
     "WEEKLY": "Weekly"
@@ -506,7 +515,9 @@
     "STORE_CREATE": "created place {name}",
     "STORE_DELETE": "deleted place {name}",
     "STORE_MODIFY": "changed the settings of place {name}",
-    "USER_LOST_EDITOR_ROLE": "lost editing permissions"
+    "USER_LOST_EDITOR_ROLE": "lost editing permissions",
+    "PLACE_TYPE_CREATE": "created a place type",
+    "PLACE_TYPE_MODIFY": "modified a place type"
   },
   "INACTIVITY": {
     "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore.",
@@ -630,7 +641,8 @@
     "USER_BECAME_EDITOR": "{userName} gained editing permissions",
     "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!",
     "YOU_BECAME_EDITOR": "You gained editing permissions",
-    "MENTION": "{userName} mentioned you!"
+    "MENTION": "{userName} mentioned you!",
+    "PARTICIPANT_REMOVED": "{activityType} no longer available - {dateTime}"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "We currently don't have notifications for you.",
@@ -733,6 +745,14 @@
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(User inaccessible or deleted)"
+  },
+  "ROLES": {
+    "MEMBER": "Anyone",
+    "MEMBER_DESCRIPTION": "Anyone in the group",
+    "NEWCOMER": "Newcomer",
+    "NEWCOMER_DESCRIPTION": "People that haven't yet got any other roles",
+    "EDITOR": "Editor",
+    "EDITOR_DESCRIPTION": "People that have been trusted in the group as an editor"
   },
   "SETTINGS": {
     "TITLE": "Settings"
@@ -898,6 +918,7 @@
     "MINLENGTH": "Please enter more than {min} characters.",
     "REQUIRED": "This field is required.",
     "UNIQUE": "Name already exists, please choose another.",
+    "OPTIONAL": "optional",
     "VALID_EMAIL": "Enter a valid e-mail address.",
     "VALID_TIMEZONE": "Enter a valid timezone.",
     "VALID_USERNAME": "Enter a valid username.",

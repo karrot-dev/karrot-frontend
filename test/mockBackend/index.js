@@ -1,4 +1,5 @@
 import addDays from 'date-fns/addDays'
+import { sample as _sample } from 'lodash'
 
 import { createMockActivitiesBackend, generateActivity } from '>/mockBackend/activities'
 import { createMockActivityTypesBackend, generateActivityType } from '>/mockBackend/activityTypes'
@@ -90,6 +91,8 @@ export function setupMockBackend () {
   createMockMessagesBackend()
 
   get('/api/bootstrap/', () => [200, {}])
+
+  get('/api/bootstrap/', () => [200, {}], { requireAuth: false })
 
   get('/about.json', () => [200, {
     commitSHA: 'blah',
@@ -254,8 +257,16 @@ function createFinder (db, dbKey) {
     return entries[0]
   }
 
+  // Select at random one entry matching the params OR throw an error
+  function sample (params) {
+    const entries = filter(params)
+    if (entries.length === 0) throw new Error(`no entries found! ${dbKey} for ${JSON.stringify(params)}`)
+    return _sample(entries)
+  }
+
   return {
     filter,
     get,
+    sample,
   }
 }

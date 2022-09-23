@@ -16,7 +16,7 @@
           type="email"
           autocorrect="off"
           autocapitalize="off"
-          spellcheck="false"
+          :spellcheck="false"
           :class="{ shake: hasAnyError }"
         />
         <SplashInput
@@ -27,7 +27,7 @@
           type="password"
           autocorrect="off"
           autocapitalize="off"
-          spellcheck="false"
+          :spellcheck="false"
           :class="{ shake: hasAnyError }"
         />
         <div

@@ -4,6 +4,7 @@ import { db } from '>/mockBackend/index'
 import { get, post, patch } from '>/mockBackend/mockAxios'
 
 let nextId = 1
+let nextParticipantTypeId = 1
 export function generateActivitySeries (params = {}) {
   if (!params.place) throw new Error('must provide place')
   if (!params.activityType) {
@@ -14,7 +15,7 @@ export function generateActivitySeries (params = {}) {
   return {
     id: nextId++,
     activityType: null,
-    maxParticipants: 2,
+    participantTypes: [{ id: nextParticipantTypeId++, role: 'member', maxParticipants: 2 }],
     place: null,
     rule: {
       byDay: ['TU'],
@@ -37,6 +38,17 @@ export function createMockActivitySeriesBackend () {
   get(
     '/api/activity-series/',
     () => [200, db.activitySeries.map(toResponse)], // TODO add filters
+  )
+
+  patch(
+    '/api/activity-series/:id/check/',
+    ({ pathParams, data }) => {
+      // TODO implement properly
+      return [200, {
+        participants: [],
+        activities: [],
+      }]
+    },
   )
 
   post(

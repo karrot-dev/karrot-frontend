@@ -382,6 +382,7 @@
     "DESCRIPTION_VERBOSE": "Grupa preskribo, videbla por anoj",
     "EDIT": "Redakti grupon",
     "EDIT_ACTIVITY_TYPES": "Tipoj de aktivaĵoj",
+    "EDIT_PLACE_TYPES": "Place types",
     "EDIT_DETAILS": "Grupaj detaloj",
     "EMAIL_NOTIFICATIONS": "Retmesaĝaj sciigoj",
     "HEADINGS": {
@@ -505,7 +506,9 @@
     "STORE_CREATE": "loko kreita{name}",
     "STORE_DELETE": "forigita loko {name}",
     "STORE_MODIFY": "ŝanĝis la agordojn de la loko {name}",
-    "USER_LOST_EDITOR_ROLE": "Perditaj redaktpermesoj"
+    "USER_LOST_EDITOR_ROLE": "Perditaj redaktpermesoj",
+    "PLACE_TYPE_CREATE": "created a place type",
+    "PLACE_TYPE_MODIFY": "modified a place type"
   },
   "INACTIVITY": {
     "HELP": "Ĉiuj kiuj ne ensalutis en la grupo dum {dayCount}aŭ pli da tagoj sinsekve malaktiviĝas. Tiuj uzantoj ne plu ricevos sciigojn retmesaĝe.",
@@ -684,6 +687,32 @@
     "SUCCESS": "La peto sukcese sendiĝis. Kontrolu vian poŝtkeston!",
     "TITLE": "Pasvorta restarigo"
   },
+  "PLACE_TYPE_NAMES": {
+    "Unspecified": "Unspecified",
+    "Store": "Store",
+    "Sharing Point": "Sharing Point",
+    "Meeting Place": "Meeting Place",
+    "Restaurant": "Restaurant",
+    "Market": "Market"
+  },
+  "PLACE_TYPE_STATUS": {
+    "ACTIVE": "Active",
+    "ARCHIVED": "Archived"
+  },
+  "PLACE_TYPES": {
+    "ADD": "Add new place type",
+    "NAME": "Name",
+    "STATUS": "Status",
+    "STANDARD_NAME_HEADING": "Standard names",
+    "STANDARD_NAME_HINT": "Name will be available in other languages",
+    "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
+    "CUSTOM_NAME_USE": "Use custom name {name}",
+    "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
+    "MANAGE_TYPES": "Manage types...",
+    "SHOW_ARCHIVED": "Show archived",
+    "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
+    "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
+  },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count}homoj marki ĉi tiun lokon kiel preferatan",
     "SUBSCRIPTION": {
@@ -744,6 +773,7 @@
     "DEFAULT_VIEW": "Default View",
     "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
     "DESCRIPTION": "Priskribo",
+    "PLACE_TYPE": "Place type",
     "DIALOGS": {
       "ARCHIVE": {
         "CONFIRM": "Jes, enarkivigi lokon",

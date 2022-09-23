@@ -10,7 +10,7 @@ export function generatePlace (params = {}) {
   if (!params.group) throw new Error('must provide group')
   if (!params.placeType) {
     // Auto-choose one based on group
-    params.placeType = db.orm.placeTypes.get({ group: params.group }).id
+    params.placeType = db.orm.placeTypes.sample({ group: params.group }).id
   }
   return {
     id: nextId++,

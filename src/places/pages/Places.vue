@@ -112,92 +112,93 @@
         :key="place.id"
         class="col-md-4 col-6"
       >
-        <QCard
-          style="height: 240px"
-        >
-          <QItem
-            :to="{ name: placeRoute(place), params: { placeId: place.id } }"
-            class="bg-grey-3"
+        <RouterLink :to="{ name: placeRoute(place), params: { placeId: place.id } }">
+          <QCard
+            style="height: 240px"
           >
-            <QItemSection side>
+            <QItem
+              class="bg-grey-3"
+            >
+              <QItemSection side>
+                <QIcon
+                  v-bind="getPlaceIconProps(place)"
+                />
+              </QItemSection>
+              <QItemSection>
+                <QItemLabel
+                  class="ellipsis"
+                >
+                  {{ place.name }}
+                </QItemLabel>
+                <QItemLabel
+                  caption
+                  class="ellipsis"
+                >
+                  {{ getTranslatedName(getPlaceTypeById(place.placeType)) }}
+                </QItemLabel>
+              </QItemSection>
+            </QItem>
+
+            <div
+              class="row no-wrap q-gutter-xs q-ml-sm q-mr-sm"
+              style="height: 32px"
+            >
+              <RouterLink
+                v-if="getUnreadWallMessageCount(place) > 0"
+                :to="{ name: 'placeWall', params: { placeId: place.id }}"
+              >
+                <QChip
+                  square
+                  size="sm"
+                  color="secondary"
+                  text-color="white"
+                  icon="fas fa-comments"
+                  :title="$tc('CONVERSATION.UNREAD_MESSAGES', getUnreadWallMessageCount(place), { count: getUnreadWallMessageCount(place) })"
+                >
+                  <strong class="q-ml-sm">
+                    {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }}
+                  </strong>
+                </QChip>
+              </RouterLink>
+              <RouterLink
+                v-if="activityCountFor(place.id) > 0"
+                :to="{ name: 'placeActivities', params: { placeId: place.id }}"
+                :title="$tc('PLACE_LIST.UPCOMING_ACTIVITIES', activityCountFor(place.id), { count: activityCountFor(place.id) })"
+              >
+                <QChip
+                  square
+                  size="sm"
+                  color="secondary"
+                  text-color="white"
+                  icon="fas fa-asterisk"
+                >
+                  <strong class="q-ml-sm">
+                    {{ activityCountFor(place.id) }}
+                  </strong>
+                </QChip>
+              </RouterLink>
               <QIcon
-                v-bind="getPlaceIconProps(place)"
+                v-if="place.isSubscribed"
+                class="q-ml-sm self-center"
+                name="fas fa-star"
+                color="secondary"
+                :title="$t('PLACE_LIST.SUBSCRIBED')"
               />
-            </QItemSection>
-            <QItemSection>
-              <QItemLabel
-                class="ellipsis"
-              >
-                {{ place.name }}
-              </QItemLabel>
-              <QItemLabel
-                caption
-                class="ellipsis"
-              >
-                {{ getTranslatedName(getPlaceTypeById(place.placeType)) }}
-              </QItemLabel>
-            </QItemSection>
-          </QItem>
-
-          <div
-            class="row no-wrap q-gutter-xs q-ml-sm q-mr-sm"
-            style="height: 32px"
-          >
-            <RouterLink
-              v-if="getUnreadWallMessageCount(place) > 0"
-              :to="{ name: 'placeWall', params: { placeId: place.id }}"
-            >
-              <QChip
-                square
-                size="sm"
-                color="secondary"
-                text-color="white"
-                icon="fas fa-comments"
-                :title="$tc('CONVERSATION.UNREAD_MESSAGES', getUnreadWallMessageCount(place), { count: getUnreadWallMessageCount(place) })"
-              >
-                <strong class="q-ml-sm">
-                  {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }}
-                </strong>
-              </QChip>
-            </RouterLink>
-            <RouterLink
-              v-if="activityCountFor(place.id) > 0"
-              :to="{ name: 'placeActivities', params: { placeId: place.id }}"
-              :title="$tc('PLACE_LIST.UPCOMING_ACTIVITIES', activityCountFor(place.id), { count: activityCountFor(place.id) })"
-            >
-              <QChip
-                square
-                size="sm"
-                color="secondary"
-                text-color="white"
-                icon="fas fa-asterisk"
-              >
-                <strong class="q-ml-sm">
-                  {{ activityCountFor(place.id) }}
-                </strong>
-              </QChip>
-            </RouterLink>
-            <QIcon
-              v-if="place.isSubscribed"
-              class="q-ml-sm self-center"
-              name="fas fa-star"
-              color="secondary"
-              :title="$t('PLACE_LIST.SUBSCRIBED')"
-            />
-          </div>
-
-          <div class="q-ml-md q-mr-xs q-mt-xs limit-height text-grey-9">
-            <Markdown
-              v-if="place.description"
-              :source="place.description"
-            />
-            <div v-else>
-              <span class="text-italic">
-                {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
-              </span>
             </div>
-          </div>
-        </QCard>
+
+            <div class="q-ml-md q-mr-xs q-mt-xs limit-height text-grey-9">
+              <Markdown
+                v-if="place.description"
+                :source="place.description"
+              />
+              <div v-else>
+                <span class="text-italic">
+                  {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
+                </span>
+              </div>
+            </div>
+          </QCard>
+        </RouterLink>
       </div>
     </div>
 

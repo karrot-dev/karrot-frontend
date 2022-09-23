@@ -133,26 +133,30 @@
         :scroll-wheel-zoom="false"
       />
     </div>
-    <QSeparator />
-    <QCardSection class="q-pb-xl">
-      <div
-        v-if="groupImageURL"
-        class="q-my-lg text-center"
+    <template v-if="group.publicDescription">
+      <QSeparator />
+      <QCardSection
+        class="q-pb-xl"
       >
-        <QImg
-          :src="groupImageURL"
-          width="100px"
+        <div
+          v-if="groupImageURL"
+          class="q-my-lg text-center"
+        >
+          <QImg
+            :src="groupImageURL"
+            width="100px"
+          />
+        </div>
+        <div class="text-center text-h6 q-mb-md">
+          {{ group.name }}
+        </div>
+        <Markdown
+          :source="group.publicDescription"
+          style="max-width: 400px; margin: 0 auto;"
+          class="text-muted"
         />
-      </div>
-      <div class="text-center text-h6 q-mb-md">
-        {{ group.name }}
-      </div>
-      <Markdown
-        :source="group.publicDescription"
-        style="max-width: 400px; margin: 0 auto;"
-        class="text-muted"
-      />
-    </QCardSection>
+      </QCardSection>
+    </template>
   </QCard>
   <KSpinner v-else />
 </template>

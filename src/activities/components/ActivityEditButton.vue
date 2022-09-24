@@ -98,17 +98,10 @@ import addHours from 'date-fns/addHours'
 import addSeconds from 'date-fns/addSeconds'
 import startOfTomorrow from 'date-fns/startOfTomorrow'
 import {
-  QAvatar,
-  QField,
   QItem,
   QItemSection,
   QItemLabel,
   QIcon,
-  QList,
-  QBtn,
-  QMenu,
-  QSeparator,
-  QInnerLoading,
   QFab,
   QFabAction,
   QDialog,

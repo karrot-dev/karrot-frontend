@@ -166,7 +166,6 @@ const {
 } = useActivityTypeHelpers()
 
 const {
-  getActivityTypeById,
   getActivityTypesByGroup,
 } = useActivityTypeService()
 

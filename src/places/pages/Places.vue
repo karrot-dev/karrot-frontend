@@ -152,7 +152,7 @@
                 <QChip
                   square
                   size="sm"
-                  color="secondary"
+                  :color="getUnreadWallMessageCount(place) > 0 ? 'secondary' : 'grey'"
                   text-color="white"
                   icon="fas fa-comments"
                   :title="$tc('CONVERSATION.UNREAD_MESSAGES', getUnreadWallMessageCount(place), { count: getUnreadWallMessageCount(place) })"
@@ -169,12 +169,12 @@
                 <QChip
                   square
                   size="sm"
-                  color="secondary"
+                  :color="activityCountFor(place.id) > 0 ? 'secondary' : 'grey'"
                   text-color="white"
                   icon="fas fa-asterisk"
                 >
                   <strong class="q-ml-sm">
-                    {{ activityCountFor(place.id) }}
+                    {{ activityCountFor(place.id) || 0 }}
                   </strong>
                 </QChip>
               </RouterLink>

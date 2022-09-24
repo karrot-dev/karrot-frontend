@@ -725,14 +725,14 @@
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
   "PLACE_LIST": {
-    "ONLY_FAVORITES": "Only favorite",
+    "ONLY_FAVOURITES": "Only favourite",
     "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
     "SUBSCRIBED": "You have marked this place as favorite",
     "FAVORITE_PLACES": "Favorite places",
     "NONE_DUE_TO_FILTER": "No places match your filters",
     "ALL_TYPES": "All types",
     "ALL_STATUSES": "All statuses",
-    "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then open one and click { icon }."
+    "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then click { icon } on one of them."
   },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",

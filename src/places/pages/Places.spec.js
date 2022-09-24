@@ -10,7 +10,6 @@ import {
   createUser,
   createGroup,
   loginAs,
-  setPageSize,
   createPlace,
   createPlaceType,
 } from '>/mockBackend'
@@ -34,7 +33,6 @@ describe('Places', () => {
     const group = createGroup()
     addUserToGroup(user, group)
     user.currentGroup = group.id
-    setPageSize(3) // make it have to do pagination stuff too...
     placeType = createPlaceType({ group: group.id })
     places = times(3, () => createPlace({ group: group.id }))
     loginAs(user)

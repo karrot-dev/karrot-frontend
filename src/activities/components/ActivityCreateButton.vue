@@ -186,8 +186,8 @@ watch(placeId, id => {
 })
 
 function selectActivityTypeAndOpen (activityType) {
-  createNewActivity(activityType)
-  createNewSeries(activityType)
+  createNewActivity(activityType.id)
+  createNewSeries(activityType.id)
   resetNewSeries()
   resetNewActivity()
   isOpen.value = true

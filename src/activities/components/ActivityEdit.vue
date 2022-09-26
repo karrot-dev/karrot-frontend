@@ -287,6 +287,7 @@ import {
   QItemSection,
   QItemLabel,
 } from 'quasar'
+import { defineAsyncComponent } from 'vue'
 
 import activityAPI from '@/activities/api/activities'
 import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
@@ -298,10 +299,11 @@ import statusMixin from '@/utils/mixins/statusMixin'
 import reactiveNow from '@/utils/reactiveNow'
 import { objectDiff } from '@/utils/utils'
 
-import ActivityItem from '@/activities/components/ActivityItem'
 import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog'
 import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
 import MarkdownInput from '@/utils/components/MarkdownInput'
+
+const ActivityItem = defineAsyncComponent(() => import('@/activities/components/ActivityItem'))
 
 export default {
   name: 'ActivityEdit',

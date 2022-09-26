@@ -110,7 +110,7 @@ import {
   QSelect,
   QOptionGroup,
 } from 'quasar'
-import { ref, computed, watch, unref } from 'vue'
+import { ref, computed, watch, unref, defineAsyncComponent } from 'vue'
 
 import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useCreateActivityMutation, useCreateActivitySeriesMutation } from '@/activities/mutations'
@@ -119,8 +119,8 @@ import { defaultDuration } from '@/activities/settings'
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceService, usePlaceTypeService } from '@/places/services'
 
-import ActivityEdit from './ActivityEdit.vue'
-import ActivitySeriesEdit from './ActivitySeriesEdit.vue'
+const ActivityEdit = defineAsyncComponent(() => import('./ActivityEdit.vue'))
+const ActivitySeriesEdit = defineAsyncComponent(() => import('./ActivitySeriesEdit.vue'))
 
 const isOpen = ref(false)
 const placeId = ref(null)

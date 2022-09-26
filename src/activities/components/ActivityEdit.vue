@@ -208,7 +208,7 @@
         />
         <QSpace />
         <QBtn
-          v-if="isNew"
+          v-if="canCancel"
           type="button"
           @click="$emit('cancel')"
         >
@@ -332,6 +332,10 @@ export default {
     series: {
       type: Object,
       default: null,
+    },
+    canCancel: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: [

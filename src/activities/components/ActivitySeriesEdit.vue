@@ -287,13 +287,14 @@
         />
         <QSpace />
         <QBtn
-          v-if="isNew"
+          v-if="canCancel"
           type="button"
           @click="$emit('cancel')"
         >
           {{ $t('BUTTON.CANCEL') }}
         </QBtn>
         <QBtn
+          v-if="!isNew"
           type="button"
           :disable="!hasChanged"
           @click="reset"
@@ -351,6 +352,7 @@ import {
   date,
 } from 'quasar'
 import { rrulestr } from 'rrule' // TODO: only import this if preview needed? how big is it anyway?
+import { defineAsyncComponent } from 'vue'
 
 import activitySeriesAPI, { serializeRule } from '@/activities/api/activitySeries'
 import { useActivityTypeHelpers } from '@/activities/helpers'
@@ -362,10 +364,11 @@ import { useUserService } from '@/users/services'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import ActivityItem from '@/activities/components/ActivityItem'
 import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog'
 import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
 import MarkdownInput from '@/utils/components/MarkdownInput'
+
+const ActivityItem = defineAsyncComponent(() => import('@/activities/components/ActivityItem'))
 
 export default {
   components: {
@@ -391,6 +394,12 @@ export default {
     ParticipantTypesEdit,
   },
   mixins: [editMixin, statusMixin],
+  props: {
+    canCancel: {
+      type: Boolean,
+      default: false,
+    },
+  },
   emits: [
     'cancel',
     'destroy',

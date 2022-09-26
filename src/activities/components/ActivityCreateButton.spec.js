@@ -20,9 +20,9 @@ import {
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
-import ActivityEditButton from './ActivityEditButton'
+import ActivityCreateButton from './ActivityCreateButton'
 
-describe('ActivityEditButton', () => {
+describe('ActivityCreateButton', () => {
   let activityType
   let places
   useMockBackend()
@@ -47,7 +47,7 @@ describe('ActivityEditButton', () => {
   it('creates a new activity', async () => {
     const { click } = userEvent.setup()
 
-    const { findByText, findAllByText, getByText, findByRole, getByRole, getAllByRole } = render(ActivityEditButton, withDefaults())
+    const { findByText, findAllByText, getByText, findByRole, getByRole, getAllByRole } = render(ActivityCreateButton, withDefaults())
 
     await click(getByRole('button', { title: /create/i }))
     await click(getAllByRole('button', { name: activityType.name })[0])

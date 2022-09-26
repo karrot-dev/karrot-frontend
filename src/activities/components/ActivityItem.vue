@@ -26,6 +26,11 @@
               {{ $d(activity.date, 'dateLongWithDayName') }}
             </template>
           </div>
+          <ActivityEditButton
+            v-if="!preview && isEditor && !hasStarted"
+            class="activity-hover"
+            :activity="activity"
+          />
         </div>
         <div
           v-if="activity.isDisabled"
@@ -290,6 +295,7 @@ import { absoluteURL } from '@/utils/absoluteURL'
 import CustomDialog from '@/utils/components/CustomDialog'
 import Markdown from '@/utils/components/Markdown'
 
+import ActivityEditButton from './ActivityEditButton.vue'
 import ActivityUsers from './ActivityUsers'
 
 export default {
@@ -306,6 +312,7 @@ export default {
     QRadio,
     ActivityUsers,
     Markdown,
+    ActivityEditButton,
   },
   props: {
     activity: {
@@ -328,7 +335,10 @@ export default {
   setup (props) {
     const { activity } = toRefs(props)
 
-    const { roles } = useCurrentGroupService()
+    const {
+      roles,
+      isEditor,
+    } = useCurrentGroupService()
 
     const {
       getActivityTypeById,
@@ -375,6 +385,7 @@ export default {
     return {
       place,
       roles,
+      isEditor,
 
       activityTypeTranslatedName,
       activityTypeIconProps,

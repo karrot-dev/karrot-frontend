@@ -157,6 +157,15 @@
           style="max-width: 400px; margin: 0 auto;"
           class="text-muted"
         />
+        <div class="text-center q-py-lg">
+          <QBtn
+            color="secondary"
+            unelevated
+            :to="{ name: 'groupPreview', params: { groupPreviewId: group.id } }"
+          >
+            {{ $t('BUTTON.GO_TO_GROUP') }} &rarr;
+          </QBtn>
+        </div>
       </QCardSection>
     </template>
   </QCard>

@@ -255,7 +255,8 @@
     "UNSUBSCRIBE": "Unsubscribe",
     "WITHDRAW": "Withdraw",
     "YES": "Yes",
-    "READ_MORE": "Read more"
+    "READ_MORE": "Read more",
+    "GO_TO_GROUP": "Go to group"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",

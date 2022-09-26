@@ -45,7 +45,6 @@
           v-model="placeId"
           :options="places.map(({ name, id, placeType }) => ({ label: name, value: id, icon: getPlaceTypeById(placeType).icon }))"
           :label="$t('CREATEACTIVITY.PLACE')"
-          :placeholder="$t('CREATEACTIVITY.PLACE')"
           emit-value
           map-options
         >

@@ -28,7 +28,6 @@
           </div>
           <ActivityEditButton
             v-if="!preview && isEditor && !hasStarted"
-            class="activity-hover"
             :activity="activity"
             :place="place"
           />
@@ -471,14 +470,6 @@ export default {
 </script>
 
 <style scoped lang="sass">
-.activity-item
-  .activity-hover
-    opacity: 0.2
-
-  &:hover, &:active, &:focus
-    .activity-hover
-      opacity: 1
-
 .multiple-types
   padding: 8px 8px 2px 8px
   border-left: 4px solid rgba(0, 0, 0, 0.1)

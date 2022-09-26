@@ -2,7 +2,7 @@
   <QBtn
     icon="fas fa-pencil-alt"
     color="white"
-    text-color="grey-8"
+    text-color="grey-5"
     size="xs"
     round
     unelevated

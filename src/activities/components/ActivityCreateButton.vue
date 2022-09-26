@@ -27,7 +27,6 @@
   </QFab>
   <QDialog
     v-model="isOpen"
-    full-height
   >
     <div
       class="bg-white"

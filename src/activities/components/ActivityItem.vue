@@ -30,6 +30,7 @@
             v-if="!preview && isEditor && !hasStarted"
             class="activity-hover"
             :activity="activity"
+            :place="place"
           />
         </div>
         <div
@@ -472,11 +473,11 @@ export default {
 <style scoped lang="sass">
 .activity-item
   .activity-hover
-    visibility: hidden
+    opacity: 0.2
 
-  &:hover
+  &:hover, &:active, &:focus
     .activity-hover
-      visibility: visible
+      opacity: 1
 
 .multiple-types
   padding: 8px 8px 2px 8px

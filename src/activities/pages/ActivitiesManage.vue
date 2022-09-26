@@ -122,27 +122,29 @@
                     side
                     class="text-bold"
                   >
-                    <QIcon
-                      v-if="!matchesRule(series, activity)"
-                      class="text-warning"
-                      name="access_time"
-                      size="150%"
-                      :title="$t('ACTIVITYMANAGE.ACTIVITY_DOES_NOT_MATCH')"
-                    />
-                    <QIcon
-                      v-if="isDescriptionChanged(series, activity)"
-                      class="text-warning"
-                      name="info"
-                      size="150%"
-                      :title="$t('ACTIVITYMANAGE.ACTIVITY_DESCRIPTION_CHANGED')"
-                    />
-                    <QIcon
-                      v-if="isMaxParticipantsChanged(series, activity)"
-                      class="text-warning"
-                      name="group"
-                      size="150%"
-                      :title="$t('ACTIVITYMANAGE.ACTIVITY_MAX_PARTICIPANTS_CHANGED')"
-                    />
+                    <span>
+                      <QIcon
+                        v-if="!matchesRule(series, activity)"
+                        class="text-warning"
+                        name="access_time"
+                        size="150%"
+                        :title="$t('ACTIVITYMANAGE.ACTIVITY_DOES_NOT_MATCH')"
+                      />
+                      <QIcon
+                        v-if="isDescriptionChanged(series, activity)"
+                        class="text-warning"
+                        name="info"
+                        size="150%"
+                        :title="$t('ACTIVITYMANAGE.ACTIVITY_DESCRIPTION_CHANGED')"
+                      />
+                      <QIcon
+                        v-if="isParticipantTypesChanged(series, activity)"
+                        class="text-warning"
+                        name="group"
+                        size="150%"
+                        :title="$t('ACTIVITYMANAGE.ACTIVITY_PARTICIPANT_TYPES_CHANGED')"
+                      />
+                    </span>
                   </QItemSection>
                 </template>
                 <ActivityEdit
@@ -257,6 +259,7 @@
 import addHours from 'date-fns/addHours'
 import addSeconds from 'date-fns/addSeconds'
 import startOfTomorrow from 'date-fns/startOfTomorrow'
+import deepEqual from 'deep-equal'
 import {
   QCard,
   QCardSection,
@@ -272,7 +275,7 @@ import {
 } from 'quasar'
 import { ref, computed } from 'vue'
 
-import { useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
 import {
   useCreateActivityMutation,
   useCreateActivitySeriesMutation,
@@ -287,6 +290,7 @@ import i18n, { dayNameForKey, sortByDay } from '@/base/i18n'
 import { useCurrentGroupService } from '@/group/services'
 import { useActivePlaceService } from '@/places/services'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
+import { withoutKeys } from '@/utils/utils'
 
 import ActivityEdit from '@/activities/components/ActivityEdit'
 import ActivitySeriesEdit from '@/activities/components/ActivitySeriesEdit'
@@ -339,7 +343,7 @@ export default {
     } = useCreateActivityMutation()
 
     const {
-      mutate: saveActivity,
+      mutateAsync: saveActivity,
       status: saveActivityStatus,
       reset: resetActivity,
     } = useSaveActivityMutation()
@@ -360,19 +364,19 @@ export default {
     // Activity Series
 
     const {
-      mutate: createSeries,
+      mutateAsync: createSeries,
       reset: resetNewSeries,
       status: createSeriesStatus,
     } = useCreateActivitySeriesMutation()
 
     const {
-      mutate: saveSeriesMutate,
+      mutateAsync: saveSeriesMutate,
       reset: resetSeries,
       status: saveSeriesStatus,
     } = useSaveActivitySeriesMutation()
 
     const {
-      mutate: destroySeries,
+      mutateAsync: destroySeries,
     } = useDestroyActivitySeriesMutation()
 
     const {
@@ -382,6 +386,10 @@ export default {
       placeId,
     })
 
+    const {
+      getIsUpcoming,
+    } = useActivityHelpers()
+
     // Series currently visible in the accordian
     const visibleSeriesId = ref(null)
 
@@ -390,7 +398,7 @@ export default {
 
     // Activities for visible series
     const {
-      activities: activitySeriesActivities,
+      activities: activitySeriesActivitiesRaw,
       isLoading: isLoadingActivitySeriesActivities,
     } = useActivityListQuery({
       seriesId: visibleSeriesId,
@@ -399,6 +407,8 @@ export default {
     }, {
       enabled: computed(() => Boolean(visibleSeriesId) && showSeriesActivities.value),
     })
+
+    const activitySeriesActivities = computed(() => activitySeriesActivitiesRaw.value.filter(getIsUpcoming))
 
     // This is to avoid showing repetitive information about series activities, e.g. if they are all Saturday, don't need to show "Saturday"
     // We calculate which aspects of the activities are all the same, and only display relevant values where they are not uniform
@@ -414,9 +424,6 @@ export default {
     })
 
     function saveSeries (series) {
-      // Hiding these, as when we update a series it causes a volley of websocket updates for each activity, which then causes a load of reloads
-      // TODO: consider doing something better about that problem
-      showSeriesActivities.value = false
       saveSeriesMutate(series)
     }
 
@@ -439,8 +446,14 @@ export default {
 
     // Utils
     const isDescriptionChanged = (series, activity) => series.description !== activity.description
-    const isMaxParticipantsChanged = (series, activity) => series.maxParticipants !== activity.maxParticipants
     const matchesRule = (series, activity) => series.datesPreview && series.datesPreview.some(d => Math.abs(d - activity.date) < 1000)
+    const isParticipantTypesChanged = (series, activity) => {
+      if (!series) return false
+      const removeKeys = withoutKeys('id', 'seriesParticipantType')
+      const a = series.participantTypes.filter(pt => !pt._removed).map(removeKeys)
+      const b = activity.participantTypes.filter(pt => !pt._removed).map(removeKeys)
+      return !deepEqual(a, b)
+    }
 
     return {
       getActivityTypeById,
@@ -481,7 +494,7 @@ export default {
       destroySeries,
 
       isDescriptionChanged,
-      isMaxParticipantsChanged,
+      isParticipantTypesChanged,
       matchesRule,
     }
   },
@@ -529,8 +542,14 @@ export default {
     },
     createNewSeries (activityType) {
       this.newSeries = {
-        activityType,
-        maxParticipants: 2,
+        activityType: activityType.id,
+        participantTypes: [
+          {
+            role: 'member',
+            maxParticipants: 2,
+            description: '',
+          },
+        ],
         description: '',
         startDate: addHours(startOfTomorrow(), 10),
         duration: null,
@@ -544,9 +563,7 @@ export default {
     },
     async saveNewSeries (series) {
       await this.createSeries(series)
-      if (!this.createSeriesStatus.hasValidationErrors) {
-        this.newSeries = null
-      }
+      this.newSeries = null
     },
     cancelNewSeries () {
       this.newSeries = null
@@ -554,8 +571,14 @@ export default {
     createNewActivity (activityType) {
       const date = addHours(startOfTomorrow(), 10) // default to 10am tomorrow
       this.newActivity = {
-        activityType,
-        maxParticipants: 2,
+        activityType: activityType.id,
+        participantTypes: [
+          {
+            role: 'member',
+            maxParticipants: 2,
+            description: '',
+          },
+        ],
         description: '',
         date,
         dateEnd: addSeconds(date, defaultDuration),
@@ -565,9 +588,7 @@ export default {
     },
     async saveNewActivity (activity) {
       await this.createActivity(activity)
-      if (!this.createActivityStatus.hasValidationErrors) {
-        this.newActivity = null
-      }
+      this.newActivity = null
     },
     cancelNewActivity () {
       this.newActivity = null

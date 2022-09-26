@@ -10,8 +10,8 @@ import activitySeriesAPI from './api/activitySeries'
 import activityTypeAPI from './api/activityTypes'
 
 export const QUERY_KEY_BASE = 'activities'
-export const queryKeyActivityList = params => [QUERY_KEY_BASE, 'list', params].filter(Boolean)
-export const queryKeyActivityItem = activityId => [QUERY_KEY_BASE, 'item', activityId].filter(Boolean)
+export const queryKeyActivityList = params => [QUERY_KEY_BASE, 'activity', 'list', params].filter(Boolean)
+export const queryKeyActivityItem = activityId => [QUERY_KEY_BASE, 'activity', 'item', activityId].filter(Boolean)
 export const queryKeyActivityTypeListAll = () => [QUERY_KEY_BASE, 'types']
 export const queryKeyActivitySeriesList = placeId => [QUERY_KEY_BASE, 'series', 'list', placeId].filter(Boolean)
 export const queryKeyActivityIcsToken = () => [QUERY_KEY_BASE, 'ics-token']
@@ -63,7 +63,13 @@ export function useActivitySeriesUpdater () {
     ],
     async () => {
       // TODO: consider doing more refined updates
-      await queryClient.invalidateQueries(queryKeyActivitySeriesList())
+      await Promise.all([
+        // we invalidate all activity things, as they might have changed...
+        // (the server used to send individual activity updates after series change, but it would cause a storm of updates...)
+        queryClient.invalidateQueries([QUERY_KEY_BASE, 'activity']),
+        // invalidate the series list itself...
+        queryClient.invalidateQueries(queryKeyActivitySeriesList()),
+      ])
     },
   )
 }

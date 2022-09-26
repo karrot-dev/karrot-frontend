@@ -32,12 +32,12 @@ export default {
     },
   },
   methods: {
-    save (event) {
+    save (extraData = {}) {
       if (this.isNew) {
-        this.$emit('save', this.getCreateData(), event)
+        this.$emit('save', { ...this.getCreateData(), ...extraData })
       }
       else {
-        this.$emit('save', { ...this.getPatchData(), id: this.value.id }, event)
+        this.$emit('save', { ...this.getPatchData(), ...extraData, id: this.value.id })
       }
     },
     getCreateData () {
@@ -46,8 +46,8 @@ export default {
     getPatchData () {
       return objectDiff(this.value, this.edit)
     },
-    destroy (event) {
-      this.$emit('destroy', this.value.id, event)
+    destroy () {
+      this.$emit('destroy', this.value.id)
     },
     reset () {
       this.edit = cloneDeep(this.value)

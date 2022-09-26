@@ -5,8 +5,7 @@ import { sum, uniq } from 'lodash'
 
 import { toResponse as toConversationResponse } from '>/mockBackend/conversations'
 import { cursorPaginated, get, getById, post } from '>/mockBackend/mockAxios'
-
-import { sample } from './offers'
+import { realSample } from '>/mockBackend/utils'
 
 import { db, ctx, createIssue } from './index'
 
@@ -16,7 +15,7 @@ export function generateIssue (params = {}) {
   if (!params.affectedUser) {
     const group = db.groups.find(group => group.id === params.group)
     if (group.members.length === 0) throw new Error('no group members to pick from')
-    params.affectedUser = sample(group.members)
+    params.affectedUser = realSample(group.members)
   }
   if (!params.createdBy) params.createdBy = ctx.authUser?.id
   if (!params.createdBy) throw new Error('must be logged in or provide createdBy param')

@@ -284,7 +284,7 @@ export default {
     },
   },
   methods: {
-    maybeSave (event) {
+    maybeSave () {
       this.v$.edit.$touch()
       console.log('maybe save?', this.canSave)
       if (!this.canSave) return

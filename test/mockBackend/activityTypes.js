@@ -5,7 +5,7 @@ import en from '@/locales/locale-en.json'
 
 import { db } from '>/mockBackend/index'
 import { get, post, patch } from '>/mockBackend/mockAxios'
-import { sample } from '>/mockBackend/offers'
+import { realSample } from '>/mockBackend/utils'
 
 export const translatableActivityTypeNames = Object.keys(en.ACTIVITY_TYPE_NAMES)
 
@@ -14,7 +14,7 @@ export function generateActivityType (params = {}) {
   if (!params.group) throw new Error('must provide group')
   return {
     id: nextId++,
-    name: sample(translatableActivityTypeNames),
+    name: realSample(translatableActivityTypeNames),
     colour: 'AD1457',
     icon: 'fas fa-handshake',
     hasFeedback: true,

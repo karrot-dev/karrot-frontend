@@ -382,6 +382,7 @@
     "DESCRIPTION_VERBOSE": "Descripción del grupo, visible para los miembros",
     "EDIT": "Editar grupo",
     "EDIT_ACTIVITY_TYPES": "Tipos de actividades",
+    "EDIT_PLACE_TYPES": "Place types",
     "EDIT_DETAILS": "Detalles del grupo",
     "EMAIL_NOTIFICATIONS": "Notificaciones por correo electrónico",
     "HEADINGS": {
@@ -505,7 +506,9 @@
     "STORE_CREATE": "creó el lugar {name}",
     "STORE_DELETE": "eliminó el lugar{name}",
     "STORE_MODIFY": "cambió los ajustes del lugar {name}",
-    "USER_LOST_EDITOR_ROLE": "permisos de redacción perdidos"
+    "USER_LOST_EDITOR_ROLE": "permisos de redacción perdidos",
+    "PLACE_TYPE_CREATE": "created a place type",
+    "PLACE_TYPE_MODIFY": "modified a place type"
   },
   "INACTIVITY": {
     "HELP": "Toda persona que no se ha conectado a un grupo en {dayCount}días o más se considera como inactiva. Dichas cuentas pasa a no recibir notificaciones por correo electrónico.",
@@ -684,6 +687,32 @@
     "SUCCESS": "La solicitud fue enviada exitosamente. ¡Echa un vistazo a tu correo electrónico!",
     "TITLE": "Resetear contraseña"
   },
+  "PLACE_TYPE_NAMES": {
+    "Unspecified": "Unspecified",
+    "Store": "Store",
+    "Sharing Point": "Sharing Point",
+    "Meeting Place": "Meeting Place",
+    "Restaurant": "Restaurant",
+    "Market": "Market"
+  },
+  "PLACE_TYPE_STATUS": {
+    "ACTIVE": "Active",
+    "ARCHIVED": "Archived"
+  },
+  "PLACE_TYPES": {
+    "ADD": "Add new place type",
+    "NAME": "Name",
+    "STATUS": "Status",
+    "STANDARD_NAME_HEADING": "Standard names",
+    "STANDARD_NAME_HINT": "Name will be available in other languages",
+    "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
+    "CUSTOM_NAME_USE": "Use custom name {name}",
+    "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
+    "MANAGE_TYPES": "Manage types...",
+    "SHOW_ARCHIVED": "Show archived",
+    "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
+    "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
+  },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} personas han marcado este lugar como favorito",
     "SUBSCRIPTION": {
@@ -744,6 +773,7 @@
     "DEFAULT_VIEW": "Vista predeterminada",
     "DEFAULT_VIEW_HINT": "¿Qué debería aparecer por defecto al hacer clic en este lugar?",
     "DESCRIPTION": "Descripción",
+    "PLACE_TYPE": "Place type",
     "DIALOGS": {
       "ARCHIVE": {
         "CONFIRM": "Si, archivar lugar",

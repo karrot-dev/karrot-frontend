@@ -6,33 +6,73 @@ import reactiveNow from '@/utils/reactiveNow'
 
 export function useActivityHelpers () {
   const { userId } = useAuthService()
+  const { t } = useI18n()
 
-  function getIsUserMember (activity) {
-    return activity.participants.includes(userId.value)
+  function getIsUserParticipant (activity, participantType = null) {
+    if (participantType) {
+      return activity.participants.some(participant => participant.user === userId.value && participant.participantType === participantType.id)
+    }
+    else {
+      return activity.participants.some(participant => participant.user === userId.value)
+    }
   }
 
   function getIsEmpty (activity) {
     return activity.participants.length === 0
   }
 
-  function getIsFull (activity) {
-    return activity.maxParticipants > 0 && activity.participants.length >= activity.maxParticipants
+  function getIsFull (activity, participantType) {
+    if (!participantType) throw new Error('must specify participantType')
+    if (!participantType.maxParticipants) return false
+    const participantCount = activity.participants.filter(participant => participant.participantType === participantType.id).length
+    return participantCount >= participantType.maxParticipants
   }
 
   function getHasStarted (activity) {
     return activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value
   }
 
+  function getIsUpcoming (activity) {
+    return activity.date > reactiveNow.value
+  }
+
   function getIsStartedOrUpcoming (activity) {
     return activity.dateEnd > reactiveNow.value
   }
 
+  const roleOptions = [
+    {
+      label: t('ROLES.MEMBER'),
+      value: 'member',
+      description: t('ROLES.MEMBER_DESCRIPTION'),
+    },
+    {
+      label: t('ROLES.NEWCOMER'),
+      value: 'newcomer',
+      description: t('ROLES.NEWCOMER_DESCRIPTION'),
+    },
+    /* Not adding this role yet until we have a way to trust for a specific role...
+    {
+      label: t('ROLES.APPROVED'),
+      value: 'approved',
+      description: t('ROLES.NEWCOMER_DESCRIPTION'),,
+    },
+     */
+    {
+      label: t('ROLES.EDITOR'),
+      value: 'editor',
+      description: t('ROLES.EDITOR_DESCRIPTION'),
+    },
+  ]
+
   return {
-    getIsUserMember,
+    getIsUserParticipant,
     getIsEmpty,
     getIsFull,
     getHasStarted,
+    getIsUpcoming,
     getIsStartedOrUpcoming,
+    roleOptions,
   }
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3
-      v-t="{ path: 'MEMBERSHIP_REVIEW.SETUP_HEADER', args: { user: user.displayName } }"
+      v-t="{ path: 'CONFLICT.SETUP_HEADER', args: { user: user.displayName } }"
       class="q-pl-lg q-mb-sm"
     />
     <div>
@@ -17,8 +17,8 @@
           done-icon="fas fa-exclamation"
           :title="$t('ATTENTION')"
         >
-          <p><strong>{{ $t('MEMBERSHIP_REVIEW.STEPPER1a', { userName: user.displayName }) }}</strong></p>
-          <p>{{ $t('MEMBERSHIP_REVIEW.STEPPER1b') }}</p>
+          <p><strong>{{ $t('CONFLICT.STEPPER1a', { user: user.displayName }) }}</strong></p>
+          <p>{{ $t('CONFLICT.STEPPER1b') }}</p>
         </QStep>
         <QStep
           name="thanks"
@@ -26,8 +26,8 @@
           done-icon="fas fa-hand-holding-heart"
           :title="$t('THANKS')"
         >
-          <p><strong> {{ $t('MEMBERSHIP_REVIEW.STEPPER2a') }}</strong></p>
-          <p>{{ $t('MEMBERSHIP_REVIEW.STEPPER2b') }}</p>
+          <p><strong> {{ $t('CONFLICT.STEPPER2a') }}</strong></p>
+          <p>{{ $t('CONFLICT.STEPPER2b') }}</p>
         </QStep>
         <QStep
           name="consequences"
@@ -35,12 +35,12 @@
           done-icon="fas fa-info"
           :title="$t('INFO')"
         >
-          <p><strong> {{ $t('MEMBERSHIP_REVIEW.STEPPER3a') }} </strong></p>
-          <p>{{ $t('MEMBERSHIP_REVIEW.STEPPER3b') }}</p>
-          <p>{{ $t('MEMBERSHIP_REVIEW.STEPPER3c', { userName: user.displayName }) }}</p>
-          <p>{{ $t('MEMBERSHIP_REVIEW.STEPPER3d', { votingDuration: currentGroup && currentGroup.issueVotingDurationDays }) }}</p>
+          <p><strong> {{ $t('CONFLICT.STEPPER3a') }} </strong></p>
+          <p>{{ $t('CONFLICT.STEPPER3b') }}</p>
+          <p>{{ $t('CONFLICT.STEPPER3c', { userName: user.displayName }) }}</p>
+          <p>{{ $t('CONFLICT.STEPPER3d', { votingDuration: currentGroup && currentGroup.issueVotingDurationDays }) }}</p>
           <a
-            v-t="'MEMBERSHIP_REVIEW.FIND_OUT_MORE'"
+            v-t="'CONFLICT.FIND_OUT_MORE'"
             href="https://community.karrot.world/t/how-does-the-conflict-resolution-feature-work/254"
             target="_blank"
             rel="noopener"
@@ -51,10 +51,10 @@
           name="statement"
           icon="fas fa-pen-alt"
           done-icon="fas fa-pen-alt"
-          :title="$t('MEMBERSHIP_REVIEW.STATEMENT')"
+          :title="$t('CONFLICT.STATEMENT')"
         >
-          <p><strong> {{ $t('MEMBERSHIP_REVIEW.STEPPER4a') }} </strong></p>
-          <p>{{ $t('MEMBERSHIP_REVIEW.STEPPER4b', { userName: user.displayName }) }}</p>
+          <p><strong> {{ $t('CONFLICT.STEPPER4a') }} </strong></p>
+          <p>{{ $t('CONFLICT.STEPPER4b', { userName: user.displayName }) }}</p>
           <MarkdownInput
             v-model="initialStatement"
             data-testid="topic"

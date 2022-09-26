@@ -253,7 +253,7 @@ export default {
     },
     participants () {
       if (this.activity) {
-        return this.activity.participants.map(this.getUserById)
+        return this.activity.participants.map(({ user }) => this.getUserById(user))
       }
       if (this.conversation.thread && this.conversation.threadMeta) {
         return this.conversation.threadMeta.participants.map(this.getUserById)

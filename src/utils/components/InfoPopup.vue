@@ -12,7 +12,7 @@
       square
       dark
       max-width="280px"
-      class="q-pa-md text-center bg-primary"
+      :class="menuContentClass /* TODO: check if we need class or content-class */"
     >
       <p
         v-if="title"
@@ -20,7 +20,12 @@
       >
         {{ title }}
       </p>
-      <p>{{ description }}</p>
+      <p v-if="description">
+        {{ description }}
+      </p>
+      <div v-else>
+        <slot />
+      </div>
       <QBtn
         v-close-popup
         flat
@@ -67,6 +72,19 @@ export default {
     infoLink: {
       default: () => {},
       type: Object,
+    },
+    centered: {
+      default: true,
+      type: Boolean,
+    },
+  },
+  computed: {
+    menuContentClass () {
+      const classes = ['q-pa-md', 'bg-primary']
+      if (this.centered) {
+        classes.push('text-center')
+      }
+      return classes
     },
   },
 }

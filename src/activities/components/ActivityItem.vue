@@ -1,10 +1,8 @@
 <template>
-  <QCard
-    :class="{ full: isFull }"
-  >
+  <QCard class="activity-item">
     <QCardSection
       class="no-padding content"
-      :class="{ isUserMember, isDisabled: activity.isDisabled }"
+      :class="{ isUserParticipant, isDisabled: activity.isDisabled }"
     >
       <div class="content-inner">
         <div class="row no-wrap items-start justify-between">
@@ -28,18 +26,6 @@
               {{ $d(activity.date, 'dateLongWithDayName') }}
             </template>
           </div>
-          <QIcon
-            v-if="activity.activityType"
-            v-bind="activityTypeIconProps"
-            title=""
-            size="xs"
-            class="q-ml-sm"
-            style="top: 1px;"
-          >
-            <QTooltip v-if="activityTypeIconProps && activityTypeIconProps.title">
-              {{ activityTypeIconProps.title }}
-            </QTooltip>
-          </QIcon>
         </div>
         <div
           v-if="activity.isDisabled"
@@ -58,14 +44,35 @@
           :source="activity.description"
           mentions
         />
-        <div class="q-mt-sm q-mb-none full-width">
-          <ActivityUsers
-            :activity="activity"
-            :is-joining="isJoining"
-            :is-leaving="isLeaving"
-            @leave="leave"
-            @join="join"
-          />
+        <div class="q-mt-none q-mb-none full-width column q-gutter-y-md">
+          <div
+            v-for="participantType in participantTypes"
+            :key="participantType.id"
+            class="col"
+            :class="[participantTypes.length > 1 ? 'multiple-types' : '', getIsUserParticipant(activity, participantType) ? 'active' : '']"
+          >
+            <Markdown
+              v-if="participantType.description"
+              :source="participantType.description"
+            />
+            <ActivityUsers
+              :activity="activity"
+              :participant-type="participantType"
+            />
+            <div
+              v-if="participantTypes.length > 1 || participantType.role !== 'member'"
+              class="q-my-xs"
+            >
+              <i18n-t
+                keypath="ACTIVITYLIST.OPEN_FOR_ROLE"
+                tag="em"
+              >
+                <template #role>
+                  <strong>{{ roleName(participantType.role) }}</strong>
+                </template>
+              </i18n-t>
+            </div>
+          </div>
           <CustomDialog v-model="joinDialog">
             <template #title>
               <QIcon
@@ -76,6 +83,48 @@
               {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
             </template>
             <template #message>
+              <template v-if="participantTypes.length > 1">
+                <QItem
+                  v-for="participantType in participantTypes"
+                  :key="participantType.role"
+                  tag="label"
+                  :class="!roles.includes(participantType.role) || getIsFull(activity, participantType) ? 'text-grey-5' : ''"
+                >
+                  <QItemSection avatar>
+                    <QRadio
+                      v-model="joinParticipantTypeId"
+                      :val="participantType.id"
+                      color="orange"
+                      :disable="!roles.includes(participantType.role) || getIsFull(activity, participantType)"
+                    />
+                  </QItemSection>
+                  <QItemSection>
+                    <QItemLabel>
+                      <Markdown
+                        v-if="participantType.description"
+                        :source="participantType.description"
+                      />
+                    </QItemLabel>
+                    <QItemLabel>
+                      <i18n-t
+                        keypath="ACTIVITYLIST.OPEN_FOR_ROLE"
+                        tag="em"
+                      >
+                        <template #role>
+                          <strong>{{ roleName(participantType.role) }}</strong>
+                        </template>
+                      </i18n-t>
+                    </QItemLabel>
+                  </QItemSection>
+                </QItem>
+                <br>
+              </template>
+              <template v-else-if="onlyAvailableParticipantType">
+                <Markdown
+                  v-if="onlyAvailableParticipantType.description"
+                  :source="onlyAvailableParticipantType.description"
+                />
+              </template>
               {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_TEXT', { date: $d(activity.date, 'long') }) }}
             </template>
             <template #actions>
@@ -91,7 +140,7 @@
                 color="primary"
                 data-autofocus
                 :label="$t('BUTTON.OF_COURSE')"
-                @click="joinActivity(activity.id)"
+                @click="!preview && joinActivity({ activityId: activity.id, participantTypeId: joinParticipantTypeId })"
               />
             </template>
           </CustomDialog>
@@ -120,7 +169,7 @@
                 color="primary"
                 data-autofocus
                 :label="$t('BUTTON.YES')"
-                @click="leaveActivity(activity.id)"
+                @click="!preview && leaveActivity(activity.id)"
               />
             </template>
           </CustomDialog>
@@ -130,8 +179,56 @@
     <QCardSection
       class="row no-padding full-width justify-end bottom-actions"
     >
+      <!--
+        button can be in 4 states where user:
+        - has not already joined, and has a suitable role to join
+        - has not already joined, but does not have suitable role, so cannot join
+        - has joined, but it's already started, so can't leave
+        - has joined, and can leave
+      -->
       <QBtn
-        v-if="isUserMember"
+        v-if="isUserParticipant"
+        flat
+        no-caps
+        color="grey-9"
+        class="action-button"
+        :loading="isLeaving"
+        :disable="!canLeave"
+        @click="leave"
+      >
+        <QIcon
+          v-bind="activityTypeIconProps"
+          color="grey-9"
+          size="xs"
+          class="q-mr-sm"
+        />
+        <span class="block">
+          {{ $t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
+        </span>
+      </QBtn>
+      <QBtn
+        v-else
+        flat
+        no-caps
+        :color="canJoin ? activityTypeIconProps.color : 'grey-5'"
+        class="action-button"
+        :loading="isJoining"
+        :disable="!canJoin"
+        @click="join"
+      >
+        <QIcon
+          v-bind="activityTypeIconProps"
+          :color="canJoin ? activityTypeIconProps.color : 'grey-5'"
+          size="xs"
+          class="q-mr-sm"
+        />
+        <span class="block">
+          {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
+        </span>
+      </QBtn>
+      <QSpace />
+      <QBtn
+        v-if="isUserParticipant"
         :href="icsUrl"
         flat
         no-caps
@@ -174,13 +271,18 @@ import {
   QCardSection,
   QIcon,
   QBtn,
-  QTooltip,
+  QSpace,
+  QItem,
+  QItemSection,
+  QItemLabel,
+  QRadio,
 } from 'quasar'
 import { computed, toRefs } from 'vue'
 
 import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
 import { useJoinActivityMutation, useLeaveActivityMutation } from '@/activities/mutations'
 import { useActivityTypeService } from '@/activities/services'
+import { useCurrentGroupService } from '@/group/services'
 import { useDetailService } from '@/messages/services'
 import { usePlaceService } from '@/places/services'
 import { absoluteURL } from '@/utils/absoluteURL'
@@ -197,7 +299,11 @@ export default {
     QCardSection,
     QIcon,
     QBtn,
-    QTooltip,
+    QSpace,
+    QItem,
+    QItemSection,
+    QItemLabel,
+    QRadio,
     ActivityUsers,
     Markdown,
   },
@@ -214,9 +320,15 @@ export default {
       type: Boolean,
       default: false,
     },
+    preview: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup (props) {
     const { activity } = toRefs(props)
+
+    const { roles } = useCurrentGroupService()
 
     const {
       getActivityTypeById,
@@ -231,7 +343,7 @@ export default {
     } = useDetailService()
 
     const {
-      getIsUserMember,
+      getIsUserParticipant,
       getHasStarted,
       getIsFull,
     } = useActivityHelpers()
@@ -242,8 +354,7 @@ export default {
     } = useActivityTypeHelpers()
 
     const hasStarted = computed(() => getHasStarted(activity.value))
-    const isUserMember = computed(() => getIsUserMember(activity.value))
-    const isFull = computed(() => getIsFull(activity.value))
+    const isUserParticipant = computed(() => getIsUserParticipant(activity.value))
 
     const place = computed(() => getPlaceById(activity.value.place))
 
@@ -263,13 +374,15 @@ export default {
 
     return {
       place,
+      roles,
 
       activityTypeTranslatedName,
       activityTypeIconProps,
 
-      isUserMember,
+      getIsUserParticipant,
+      isUserParticipant,
       hasStarted,
-      isFull,
+      getIsFull,
 
       joinActivity,
       isJoining,
@@ -283,9 +396,33 @@ export default {
     return {
       joinDialog: false,
       leaveDialog: false,
+      joinParticipantTypeId: null,
     }
   },
   computed: {
+    canJoin () {
+      if (this.activity.isDisabled || this.isUserParticipant) {
+        return false
+      }
+      return this.availableParticipantTypes.length > 0
+    },
+    canLeave () {
+      return this.isUserParticipant && !this.hasStarted
+    },
+    participantTypes () {
+      return this.activity.participantTypes.filter(entry => !entry._removed)
+    },
+    availableParticipantTypes () {
+      return this.participantTypes.filter(participantType => {
+        return this.roles.includes(participantType.role) && !this.getIsFull(this.activity, participantType)
+      })
+    },
+    onlyAvailableParticipantType () {
+      if (this.availableParticipantTypes.length === 1) {
+        return this.availableParticipantTypes[0]
+      }
+      return null
+    },
     icsUrl () {
       // a relative URL would work fine in a browser but
       // not in Cordova so we always make it absolute for simplicity.
@@ -295,6 +432,12 @@ export default {
   },
   methods: {
     join () {
+      if (this.joinParticipantTypeId !== null && !this.availableParticipantTypes.find(t => t.id === this.joinParticipantTypeId)) {
+        this.joinParticipantTypeId = null
+      }
+      if (this.joinParticipantTypeId === null && this.availableParticipantTypes.length > 0) {
+        this.joinParticipantTypeId = this.availableParticipantTypes[0].id
+      }
       this.leaveDialog = false
       this.joinDialog = true
     },
@@ -306,18 +449,35 @@ export default {
     },
     detail (event) {
       if (event.target.closest('a')) return // ignore actual links
-      this.openActivity(this.activity)
+      !this.preview && this.openActivity(this.activity)
+    },
+    roleName (role) {
+      return role === 'member' ? 'anyone' : role // TODO: translation
     },
   },
 }
 </script>
 
 <style scoped lang="sass">
+.activity-item
+  .activity-hover
+    visibility: hidden
+
+  &:hover
+    .activity-hover
+      visibility: visible
+
+.multiple-types
+  padding: 8px 8px 2px 8px
+  border-left: 4px solid rgba(0, 0, 0, 0.1)
+  &.active
+   background-color: rgba(0, 0, 0, 0.1)
+
 .content
   width: 100%
   transition: background-color 2s ease
 
-  &.isUserMember
+  &.isUserParticipant
     &:not(.isDisabled)
       background: linear-gradient(to right, $lightGreen, $lighterGreen)
 

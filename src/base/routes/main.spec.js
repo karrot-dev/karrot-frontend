@@ -38,6 +38,7 @@ jest.mock('@/router', () => {
   })
 })
 
+/*
 jest.mock('@/groupInfo/components/GroupPreviewUI', () => ({
   name: 'GroupPreviewUI',
   props: ['group', 'isLoggedIn', 'user', 'application'],
@@ -51,6 +52,7 @@ jest.mock('@/groupInfo/components/GroupPreviewUI', () => ({
   },
   template: '<div>A mocked GroupPreviewUI</div>',
 }))
+*/
 
 function mountRouterViewWith ({ datastore, router }) {
   if (datastore) console.warn('IGNORING DATASTORE', datastore)

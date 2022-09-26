@@ -45,6 +45,7 @@
           v-model="placeId"
           :options="places.map(({ name, id, placeType }) => ({ label: name, value: id, icon: getPlaceTypeById(placeType).icon }))"
           :label="$t('CREATEACTIVITY.PLACE')"
+          :placeholder="$t('CREATEACTIVITY.PLACE')"
           emit-value
           map-options
         >
@@ -83,11 +84,12 @@
         <QOptionGroup
           v-model="isSeries"
           :options="[
-            { label: $t('ACTIVITYMANAGE.SINGLE'), value: false },
+            { label: $t('CREATEACTIVITY.ONE_TIME_ACTIVITY'), value: false },
             { label: $t('ACTIVITYMANAGE.SERIES'), value: true },
           ]"
           color="primary"
           inline
+          class="q-mb-md"
         />
       </Component>
     </div>

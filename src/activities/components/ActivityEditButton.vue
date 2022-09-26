@@ -11,7 +11,7 @@
     <QPopupProxy>
       <QList class="bg-white">
         <QItemLabel header>
-          What do you want to edit?
+          {{ $t('EDIT_ACTIVITY.TITLE') }}
         </QItemLabel>
         <QItem
           v-close-popup
@@ -19,7 +19,7 @@
           @click="editSeries = false; isOpen = true"
         >
           <QItemSection>
-            Only this activity
+            {{ $t('EDIT_ACTIVITY.ONLY_ACTIVITY') }}
           </QItemSection>
         </QItem>
         <QItem
@@ -29,7 +29,7 @@
           @click="editSeries = true; isOpen = true"
         >
           <QItemSection>
-            Activities in this series
+            {{ $t('EDIT_ACTIVITY.SERIES') }}
           </QItemSection>
         </QItem>
         <QItem
@@ -38,7 +38,11 @@
           :to="{ name: 'placeActivitiesManage', params: { placeId: place.id } }"
         >
           <QItemSection>
-            Manage all activities in <strong>{{ place.name }}</strong>
+            <i18n-t keypath="EDIT_ACTIVITY.MANAGE">
+              <template #place>
+                <strong>{{ place.name }}</strong>
+              </template>
+            </i18n-t>
           </QItemSection>
         </QItem>
       </QList>

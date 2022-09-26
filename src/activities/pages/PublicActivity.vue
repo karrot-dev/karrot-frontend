@@ -70,15 +70,16 @@
         <div
           class="activity-info col-12 col-sm-4 q-pl-md q-pb-md"
         >
-          <div
+          <RouterLink
             v-if="groupImageURL"
-            class="q-mb-sm text-center"
+            class="q-mb-md text-center block"
+            :to="{ name: 'groupPreview', params: { groupPreviewId: group.id } }"
           >
             <QImg
               :src="groupImageURL"
               width="100px"
             />
-          </div>
+          </RouterLink>
           <div>
             <div class="text-h6 q-mt-sm q-mb-sm">
               <QIcon
@@ -138,15 +139,16 @@
       <QCardSection
         class="q-pb-xl"
       >
-        <div
+        <RouterLink
           v-if="groupImageURL"
-          class="q-my-lg text-center"
+          class="q-my-lg text-center block"
+          :to="{ name: 'groupPreview', params: { groupPreviewId: group.id } }"
         >
           <QImg
             :src="groupImageURL"
             width="100px"
           />
-        </div>
+        </RouterLink>
         <div class="text-center text-h6 q-mb-md">
           {{ group.name }}
         </div>

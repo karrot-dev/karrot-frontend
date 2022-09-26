@@ -47,7 +47,7 @@ describe('ActivityCreateButton', () => {
   it('creates a new activity', async () => {
     const { click } = userEvent.setup()
 
-    const { findByText, findAllByText, getByText, findByRole, getByRole, getAllByRole } = render(ActivityCreateButton, withDefaults())
+    const { findByRole, getByRole, getAllByRole } = render(ActivityCreateButton, withDefaults())
 
     await click(getByRole('button', { title: /create/i }))
     await click(getAllByRole('button', { name: activityType.name })[0])

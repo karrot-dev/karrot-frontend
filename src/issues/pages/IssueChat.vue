@@ -10,7 +10,7 @@
     >
       <template #header>
         <QItemSection>
-          <b>{{ $t('MEMBERSHIP_REVIEW.INITIAL') }}</b>
+          <b>{{ $t('CONFLICT.INITIAL') }}</b>
         </QItemSection>
       </template>
       <div class="q-mx-sm q-mb-sm q-pa-sm row">
@@ -20,7 +20,7 @@
           class="q-mr-sm col-auto"
         />
         <span class="text-bold col">
-          {{ $t('MEMBERSHIP_REVIEW.WITH', { userName: affectedUser.displayName }) }}
+          {{ $t('CONFLICT.WITH', { userName: affectedUser.displayName }) }}
         </span>
       </div>
       <div

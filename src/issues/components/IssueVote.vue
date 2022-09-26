@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="text-bold">
-      {{ $t('MEMBERSHIP_REVIEW.VOTING.HEADLINE', { userName: affectedUser.displayName }) }}
+      {{ $t('CONFLICT.VOTING.HEADLINE', { userName: affectedUser.displayName }) }}
     </div>
     <div class="q-pb-md">
       <QBanner class="q-mt-sm q-mb-md bg-yellow-2">
@@ -11,9 +11,9 @@
             size="sm"
           />
         </template>
-        {{ $t('MEMBERSHIP_REVIEW.INFO.MESSAGE') }}
+        {{ $t('CONFLICT.INFO.MESSAGE') }}
         <a
-          v-t="'MEMBERSHIP_REVIEW.FIND_OUT_MORE'"
+          v-t="'CONFLICT.FIND_OUT_MORE'"
           href="https://community.karrot.world/t/how-does-the-conflict-resolution-feature-work/254/3"
           target="_blank"
           rel="noopener"

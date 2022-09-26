@@ -586,7 +586,7 @@
     "QUOTE": "quote",
     "STRIKE": "strike"
   },
-  "MEMBERSHIP_REVIEW": {
+  "CONFLICT": {
     "FIND_OUT_MORE": "Find out more!",
     "INFO": {
       "MESSAGE": "This is a score voting in which all group members can participate to determine someone's membership."

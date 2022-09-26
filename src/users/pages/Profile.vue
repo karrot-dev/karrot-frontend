@@ -82,7 +82,7 @@
             small
             round
             color="negative"
-            :title="$t('MEMBERSHIP_REVIEW.WITH', {userName: user.displayName})"
+            :title="$t('CONFLICT.WITH', {userName: user.displayName})"
           />
           <QBtn
             v-else-if="conflictResolutionPossible"
@@ -90,7 +90,7 @@
             small
             round
             :color="canStartConflictResolution ? 'grey-8' : 'grey-5'"
-            :title="$t('MEMBERSHIP_REVIEW.SETUP_HEADER', {user: user.displayName})"
+            :title="$t('CONFLICT.SETUP_HEADER', {user: user.displayName})"
             @click="toggleConflictSetup()"
           />
           <TrustButton
@@ -158,7 +158,7 @@
           class="generic-padding bg-white"
           style="max-width: 700px"
         >
-          <h3 v-t="{ path: 'MEMBERSHIP_REVIEW.SETUP_HEADER', args: { user: user.displayName } }" />
+          <h3 v-t="{ path: 'CONFLICT.SETUP_HEADER', args: { user: user.displayName } }" />
           <p
             v-for="(message, idx) in solvableConflictSetupRequirements"
             :key="idx"
@@ -167,7 +167,7 @@
           </p>
           <p>
             <a
-              v-t="'MEMBERSHIP_REVIEW.FIND_OUT_MORE'"
+              v-t="'CONFLICT.FIND_OUT_MORE'"
               href="https://community.karrot.world/t/how-does-the-conflict-resolution-feature-work/254"
               target="_blank"
               rel="noopener"
@@ -348,7 +348,7 @@ export default {
         return []
       }
       if (this.currentGroup && this.currentGroup.membership && !this.isEditor) {
-        return [this.$t('MEMBERSHIP_REVIEW.REQUIREMENTS.NEWCOMER')]
+        return [this.$t('CONFLICT.REQUIREMENTS.NEWCOMER')]
       }
       return []
     },

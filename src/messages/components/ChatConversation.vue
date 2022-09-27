@@ -297,6 +297,7 @@ export default {
   },
   methods: {
     markRead (messageId) {
+      if (!this.isParticipant) return // no marking as read if not part of it ...
       const isThreadReply = this.conversation.thread && this.messageId !== this.conversation.thread
       // TODO: check conversation.unreadMessageCount is available
       if (!isThreadReply && this.conversation.unreadMessageCount > 0) {

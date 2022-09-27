@@ -95,7 +95,7 @@
         rounded
         size="sm"
         unelevated
-        :title="$t('BUTTON.CREATE')"
+        :title="$t('CREATESTORE.TITLE')"
         :to="{ name: 'placeCreate', params: { groupId } }"
       />
     </div>

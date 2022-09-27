@@ -87,6 +87,17 @@
               </div>
             </div>
           </template>
+          <template #after>
+            <QBtn
+              color="secondary"
+              icon="fas fa-plus"
+              round
+              size="sm"
+              unelevated
+              :title="$t('CREATESTORE.TITLE')"
+              :to="{ name: 'placeCreate', params: { groupId } }"
+            />
+          </template>
         </QSelect>
         <QOptionGroup
           v-model="isSeries"
@@ -117,6 +128,7 @@ import {
   QDialog,
   QSelect,
   QOptionGroup,
+  QBtn,
 } from 'quasar'
 import { ref, computed, watch, unref, defineAsyncComponent } from 'vue'
 

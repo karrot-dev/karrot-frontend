@@ -331,6 +331,7 @@
     "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
     "EXCEPTIONS_TITLE": "Check your activities",
     "FREQUENCY": "Frequency",
+    "MAKE_IT_PUBLIC": "Make it public",
     "MAX_PARTICIPANTS": "Max Slots",
     "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
     "REMOVE_PARTICIPANT_TYPE": "Remove participant type",

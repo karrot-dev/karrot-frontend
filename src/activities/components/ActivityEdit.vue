@@ -195,7 +195,7 @@
         >
           <QToggle
             v-model="edit.isPublic"
-            label="Make it public"
+            :label="$t('CREATEACTIVITY.MAKE_IT_PUBLIC')"
           />
         </QField>
 

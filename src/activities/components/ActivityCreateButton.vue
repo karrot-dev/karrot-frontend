@@ -43,10 +43,15 @@
       >
         <QSelect
           v-model="placeId"
-          :options="places.map(({ name, id, placeType }) => ({ label: name, value: id, icon: getPlaceTypeById(placeType).icon }))"
+          :options="filteredPlaceOptions"
           :label="$t('CREATEACTIVITY.PLACE')"
           emit-value
           map-options
+          outlined
+          hide-bottom-space
+          use-input
+          input-debounce="250"
+          @filter="filterPlaceOptions"
         >
           <template #option="scope">
             <QItem
@@ -117,7 +122,7 @@ import { useCreateActivityMutation, useCreateActivitySeriesMutation } from '@/ac
 import { useActivityTypeService } from '@/activities/services'
 import { defaultDuration } from '@/activities/settings'
 import { useCurrentGroupService } from '@/group/services'
-import { usePlaceService, usePlaceTypeService } from '@/places/services'
+import { usePlaceTypeService } from '@/places/services'
 
 const ActivityEdit = defineAsyncComponent(() => import('./ActivityEdit.vue'))
 const ActivitySeriesEdit = defineAsyncComponent(() => import('./ActivitySeriesEdit.vue'))
@@ -131,17 +136,25 @@ const newSeries = ref({})
 
 const {
   groupId,
+  places,
 } = useCurrentGroupService()
-
-const {
-  getPlacesByGroup,
-} = usePlaceService()
 
 const {
   getPlaceTypeById,
 } = usePlaceTypeService()
 
-const places = computed(() => getPlacesByGroup(groupId).filter(place => place.status === 'active'))
+const placeOptions = computed(() => places.value
+  .filter(place => place.status === 'active')
+  .map(({ name, id, placeType }) => ({ label: name, value: id, icon: getPlaceTypeById(placeType).icon })))
+
+const placeFilter = ref('')
+
+const filteredPlaceOptions = computed(() => placeOptions.value.filter(({ label }) => label.toLowerCase().includes(placeFilter.value)))
+
+function filterPlaceOptions (val, update) {
+  placeFilter.value = val.toLowerCase()
+  update()
+}
 
 const {
   mutate: saveNewActivity,

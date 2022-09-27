@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 import { render } from '@testing-library/vue'
+import { flushPromises } from '@vue/test-utils'
 import { times } from 'lodash'
 
 import { resetServices } from '@/utils/datastore/helpers'
@@ -22,7 +23,6 @@ import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
 import ActivityCreateButton from './ActivityCreateButton'
-import { flushPromises } from '@vue/test-utils'
 
 // somehow showToast can't run Notify.create, possibly a problem with initializing Quasar
 // let's just mock it in the meantime

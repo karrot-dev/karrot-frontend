@@ -195,11 +195,11 @@ watch(placeId, id => {
   // replace object to trigger 'value' watcher in editMixin
   newActivity.value = {
     ...newActivity.value,
-    place: unref(id),
+    place: id,
   }
   newSeries.value = {
     ...newSeries.value,
-    place: unref(id),
+    place: id,
   }
 })
 

@@ -31,7 +31,7 @@
         />
       </QItemSection>
       <QItemSection
-        v-if="badge && badge.condition"
+        v-if="badge && badge.count > 0"
         side
       >
         <QBadge
@@ -39,7 +39,7 @@
           :text-color="badge.textColor"
           :title="badge.title"
         >
-          {{ badge.label }}
+          {{ badge.count }}
         </QBadge>
       </QItemSection>
     </QItem>

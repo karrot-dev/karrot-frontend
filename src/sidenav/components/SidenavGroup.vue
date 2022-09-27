@@ -6,6 +6,7 @@
     :wall-unread-count="status.unreadWallMessageCount"
     :feedback-possible-count="status.feedbackPossibleCount"
     :pending-application-count="status.pendingApplicationCount"
+    :ongoing-issue-count="status.ongoingIssueCount"
   />
 </template>
 

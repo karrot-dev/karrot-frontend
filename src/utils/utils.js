@@ -104,6 +104,7 @@ export async function toFormData (sourceEntry) {
   const data = new FormData()
   const entry = { ...sourceEntry } // (shallow) clone
 
+  // Multiple images
   if (entry.images) {
     const blobs = {}
     for (const idx of Object.keys(entry.images)) {
@@ -124,10 +125,24 @@ export async function toFormData (sourceEntry) {
     entry.images = entry.images.map(withoutKeys('toBlob', 'imageUrls'))
   }
 
+  // Check for other image fields
+  for (const key of Object.keys(entry)) {
+    const value = entry[key]
+    if (value && typeof value === 'object' && value.toBlob) {
+      const image = entry[key]
+      console.log('making blob from', image)
+      const blob = await image.toBlob(MIME_TYPE)
+      console.log('BLOB!', blob)
+      if (!blob) throw new Error('failed to make a blob for image')
+      data.append(underscorize(key), blob, `image.${EXTENSION}`)
+      delete entry[key]
+    }
+  }
+
   data.append(
     'document',
     new Blob(
-      [JSON.stringify(entry)],
+      [JSON.stringify(underscorizeKeys(entry))],
       { type: 'application/json' },
     ),
   )

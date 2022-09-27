@@ -93,6 +93,13 @@
       "DOWNLOAD_ICS": "Download ICS"
     },
     "OPEN_FOR_ROLE": "Open for {role}",
+    "PUBLIC": {
+      "WHAT": "What",
+      "WHEN": "When",
+      "WHERE": "Where",
+      "SHARE": "Public activity link",
+      "VIEW": "Public View"
+    },
     "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
     "NONE": "No upcoming activities",
     "NONE_DUE_TO_FILTER": "No activities match your filters",
@@ -100,7 +107,7 @@
     "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page.",
     "ICS_DIALOG": {
       "TITLE": "Add to calendar",
-      "INTRO": "Add your activities to your calendar by using one of the following options:",
+      "INTRO": "Add these activities to your calender:",
       "DOWNLOAD_TITLE": "Download",
       "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
       "DOWNLOAD_BUTTON_LABEL": "Download ICS",
@@ -255,7 +262,8 @@
     "UNSUBSCRIBE": "Unsubscribe",
     "WITHDRAW": "Withdraw",
     "YES": "Yes",
-    "READ_MORE": "Read more"
+    "READ_MORE": "Read more",
+    "GO_TO_GROUP": "Go to group"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
@@ -324,6 +332,7 @@
     "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
     "EXCEPTIONS_TITLE": "Check your activities",
     "FREQUENCY": "Frequency",
+    "MAKE_IT_PUBLIC": "Make it public",
     "MAX_PARTICIPANTS": "Max Slots",
     "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
     "REMOVE_PARTICIPANT_TYPE": "Remove participant type",
@@ -518,6 +527,10 @@
     "USER_LOST_EDITOR_ROLE": "lost editing permissions",
     "PLACE_TYPE_CREATE": "created a place type",
     "PLACE_TYPE_MODIFY": "modified a place type"
+  },
+  "IMAGE_UPLOAD": {
+    "SELECT": "Select image",
+    "CLEAR": "Clear image"
   },
   "INACTIVITY": {
     "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore.",

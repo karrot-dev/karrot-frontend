@@ -239,6 +239,11 @@
                 <template v-if="activity.hasDuration">
                   &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}
                 </template>
+                <QIcon
+                  v-if="activity.isPublic"
+                  name="fas fa-globe"
+                  class="q-px-xs"
+                />
               </QItemLabel>
             </QItemSection>
           </template>
@@ -584,6 +589,7 @@ export default {
         dateEnd: addSeconds(date, defaultDuration),
         place: this.placeId,
         hasDuration: false,
+        isPublic: false,
       }
     },
     async saveNewActivity (activity) {

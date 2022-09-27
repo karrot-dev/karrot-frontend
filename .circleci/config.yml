@@ -102,7 +102,7 @@ jobs:
             NODE_OPTIONS=--max-old-space-size=8192 yarn test \
               --ci \
               --coverage \
-              --runInBand \
+              --maxWorkers=4 \
               --reporters=default \
               --reporters=jest-junit \
               --verbose

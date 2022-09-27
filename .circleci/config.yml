@@ -99,7 +99,7 @@ jobs:
             JEST_JUNIT_OUTPUT_DIR: test-reports/junit.xml
           command: |
             mkdir -p test-reports
-            NODE_OPTIONS=--max-old-space-size=4096 yarn test \
+            NODE_OPTIONS=--max-old-space-size=8192 yarn test \
               --ci \
               --coverage \
               --runInBand \

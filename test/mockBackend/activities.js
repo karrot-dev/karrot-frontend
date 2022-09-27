@@ -116,5 +116,6 @@ export function createMockActivitiesBackend () {
   cursorPaginated(
     '/api/public-activities/',
     () => [],
+    { requireAuth: false },
   )
 }

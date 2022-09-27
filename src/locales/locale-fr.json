@@ -422,7 +422,7 @@
     "NONMEMBER_REDIRECT": "Tu n'es pas membre de ce groupe.",
     "NOTIFICATIONS_BY_GROUP": "Notifications par groupe",
     "NOTIFICATION_TYPES": {
-      "membership_review": {
+      "conflict_resolution": {
         "DESCRIPTION": "Vous informe lorsqu'un nouveau processus de résolution de conflits a été lancé dans votre groupe",
         "NAME": "Nouveaux processus de résolution des conflits"
       },
@@ -617,13 +617,13 @@
     "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
     "APPLICATION_ACCEPTED": "Votre candidature a été acceptée !",
     "APPLICATION_DECLINED": "Votre candidature a été refusée",
-    "CONFLICT_CONTINUED": "Le processus de résolution des conflits se poursuit avec {userName}",
-    "CONFLICT_CONTINUED_ABOUT_YOU": "Le processus de résolution de conflit avec vous se poursuit",
-    "CONFLICT_CREATED": "Rejoignez la discussion sur un conflit avec{userName}",
-    "CONFLICT_CREATED_ABOUT_YOU": "Un processus de résolution des conflits a été lancé avec vous",
-    "CONFLICT_DECIDED": "Le processus de résolution des conflits avec {userName} a été décidé",
-    "CONFLICT_DECIDED_ABOUT_YOU": "Le processus de résolution des conflits avec vous a été décidé",
-    "CONFLICT_YOU_WERE_REMOVED": "Vous avez été retiré du groupe",
+    "CONFLICT_RESOLUTION_CONTINUED": "Le processus de résolution des conflits se poursuit avec {userName}",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Le processus de résolution de conflit avec vous se poursuit",
+    "CONFLICT_RESOLUTION_CREATED": "Rejoignez la discussion sur un conflit avec{userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Un processus de résolution des conflits a été lancé avec vous",
+    "CONFLICT_RESOLUTION_DECIDED": "Le processus de résolution des conflits avec {userName} a été décidé",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Le processus de résolution des conflits avec vous a été décidé",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Vous avez été retiré du groupe",
     "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName}a accepté votre invitation",
     "NEW_APPLICANT": "{userName}a demandé à rejoindre votre groupe",

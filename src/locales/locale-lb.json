@@ -422,7 +422,7 @@
     "NONMEMBER_REDIRECT": "Du bass kee Member vun dëser Grupp.",
     "NOTIFICATIONS_BY_GROUP": "Benoriichtegungen no Grupp",
     "NOTIFICATION_TYPES": {
-      "membership_review": {
+      "conflict_resolution": {
         "DESCRIPTION": "Seet dir Bescheed wann een neie Konflikt-Léisungsprozess an denger Grupp gestart gouf",
         "NAME": "Neie Konflikt-Léisungsprozess"
       },
@@ -617,13 +617,13 @@
     "ACTIVITY_UPCOMING": "Erënnerung: {activityType} um {time}",
     "APPLICATION_ACCEPTED": "Deng Bewerbung gouf ugeholl!",
     "APPLICATION_DECLINED": "Deng Bewerbung gouf ofgeleent",
-    "CONFLICT_CONTINUED": "De Konflikt-Léisungsprozess mat {userName} geet weider",
-    "CONFLICT_CONTINUED_ABOUT_YOU": "De Konflikt-Léisungsprozess mat dir geet weider",
-    "CONFLICT_CREATED": "Triet der Diskussioun iwwert de Konflikt mat {userName} bäi",
-    "CONFLICT_CREATED_ABOUT_YOU": "Ee Konflikt-Léisungsprozess mat dir gouf gestart",
-    "CONFLICT_DECIDED": "De Konflikt-Léisungsprozess mat {userName} gouf entscheet",
-    "CONFLICT_DECIDED_ABOUT_YOU": "De Konflikt-Léisungsprozess mat dir gouf entscheet",
-    "CONFLICT_YOU_WERE_REMOVED": "Du goufs aus der Grupp geheit",
+    "CONFLICT_RESOLUTION_CONTINUED": "De Konflikt-Léisungsprozess mat {userName} geet weider",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "De Konflikt-Léisungsprozess mat dir geet weider",
+    "CONFLICT_RESOLUTION_CREATED": "Triet der Diskussioun iwwert de Konflikt mat {userName} bäi",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Ee Konflikt-Léisungsprozess mat dir gouf gestart",
+    "CONFLICT_RESOLUTION_DECIDED": "De Konflikt-Léisungsprozess mat {userName} gouf entscheet",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "De Konflikt-Léisungsprozess mat dir gouf entscheet",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du goufs aus der Grupp geheit",
     "FEEDBACK_POSSIBLE": "Du kanns Feedback ofginn - {activityType} den {date}",
     "INVITATION_ACCEPTED": "{userName} huet deng Aluedung ugeholl",
     "NEW_APPLICANT": "{userName} huet seng Bewerbung agereecht fir denger Grupp bäizetrieden",

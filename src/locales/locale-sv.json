@@ -422,7 +422,7 @@
     "NONMEMBER_REDIRECT": "Du är inte en medlem i denna grupp",
     "NOTIFICATIONS_BY_GROUP": "Aviseringar per grupp",
     "NOTIFICATION_TYPES": {
-      "membership_review": {
+      "conflict_resolution": {
         "DESCRIPTION": "Berättar när en ny konfliktlösningsprocess har startats i din grupp",
         "NAME": "Nya processer för konfliktlösning"
       },
@@ -617,13 +617,13 @@
     "ACTIVITY_UPCOMING": "Påminnelse: {activityType} {time}",
     "APPLICATION_ACCEPTED": "Din ansökan har beviljats!",
     "APPLICATION_DECLINED": "Din ansökan har avböjts",
-    "CONFLICT_CONTINUED": "Processen för konfliktlösning med {userName} fortsätter",
-    "CONFLICT_CONTINUED_ABOUT_YOU": "Processen för konfliktlösning med dig fortsätter",
-    "CONFLICT_CREATED": "Gå med i diskussionen om en konflikt med {userName}",
-    "CONFLICT_CREATED_ABOUT_YOU": "En konfliktlösningsprocess startades med dig",
-    "CONFLICT_DECIDED": "Processen för konfliktlösning med {userName} beslutades",
-    "CONFLICT_DECIDED_ABOUT_YOU": "Konfliktlösningsprocessen med dig beslutades",
-    "CONFLICT_YOU_WERE_REMOVED": "Du togs bort från gruppen",
+    "CONFLICT_RESOLUTION_CONTINUED": "Processen för konfliktlösning med {userName} fortsätter",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Processen för konfliktlösning med dig fortsätter",
+    "CONFLICT_RESOLUTION_CREATED": "Gå med i diskussionen om en konflikt med {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "En konfliktlösningsprocess startades med dig",
+    "CONFLICT_RESOLUTION_DECIDED": "Processen för konfliktlösning med {userName} beslutades",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Konfliktlösningsprocessen med dig beslutades",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du togs bort från gruppen",
     "FEEDBACK_POSSIBLE": "Du kan ge feedback - {activityType} den {date}",
     "INVITATION_ACCEPTED": "{userName} beviljade din ansökan",
     "NEW_APPLICANT": "{userName} ansökte om att gå med i din grupp",

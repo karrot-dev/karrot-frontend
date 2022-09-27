@@ -422,7 +422,7 @@
     "NONMEMBER_REDIRECT": "No eres un miembro de este grupo. ",
     "NOTIFICATIONS_BY_GROUP": "Notificaciones por grupo",
     "NOTIFICATION_TYPES": {
-      "membership_review": {
+      "conflict_resolution": {
         "DESCRIPTION": "Te informa cuándo un nuevo proceso de resolución de conflictos se ha iniciado en tu grupo",
         "NAME": "Nuevos procesos de resolución de conflictos"
       },
@@ -617,13 +617,13 @@
     "ACTIVITY_UPCOMING": "Recordatorio: {activityType} en la fecha {time}",
     "APPLICATION_ACCEPTED": "¡Tu solicitud ha sido aceptada!",
     "APPLICATION_DECLINED": "Tu solicitud ha sido rechazada",
-    "CONFLICT_CONTINUED": "El proceso de resolver problemas con {userName}continúa",
-    "CONFLICT_CONTINUED_ABOUT_YOU": "El proceso de resolver problemas contigo continúa",
-    "CONFLICT_CREATED": "Únete al debate sobre el problema con {userName}",
-    "CONFLICT_CREATED_ABOUT_YOU": "Empezaste un proceso de resolver problemas ",
-    "CONFLICT_DECIDED": "Se ha tomado una decisión sobre el proceso de resolver problemas con {userName}",
-    "CONFLICT_DECIDED_ABOUT_YOU": "Se ha tomado una decisión sobre el proceso de resolver problemas contigo",
-    "CONFLICT_YOU_WERE_REMOVED": "Has sido eliminada del grupo",
+    "CONFLICT_RESOLUTION_CONTINUED": "El proceso de resolver problemas con {userName}continúa",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "El proceso de resolver problemas contigo continúa",
+    "CONFLICT_RESOLUTION_CREATED": "Únete al debate sobre el problema con {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Empezaste un proceso de resolver problemas ",
+    "CONFLICT_RESOLUTION_DECIDED": "Se ha tomado una decisión sobre el proceso de resolver problemas con {userName}",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Se ha tomado una decisión sobre el proceso de resolver problemas contigo",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Has sido eliminada del grupo",
     "FEEDBACK_POSSIBLE": "Puedes dejar un comentario - {activityType} el {date}",
     "INVITATION_ACCEPTED": "{userName}ha aceptado tu solicitud",
     "NEW_APPLICANT": "{userName}ha solicitado unirse a este grupo",

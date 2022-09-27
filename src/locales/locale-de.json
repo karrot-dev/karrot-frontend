@@ -422,7 +422,7 @@
     "NONMEMBER_REDIRECT": "Du bist kein Mitglied dieser Gruppe.",
     "NOTIFICATIONS_BY_GROUP": "Gruppenbenachrichtigungen",
     "NOTIFICATION_TYPES": {
-      "membership_review": {
+      "conflict_resolution": {
         "DESCRIPTION": "Lässt dich wissen wenn ein neuer Konfliktresolutionsprozess in deiner Gruppe gestartet wurde",
         "NAME": "Neue Konfliktresolutionsprozesse"
       },
@@ -617,13 +617,13 @@
     "ACTIVITY_UPCOMING": "Erinnerung: {activityType} um {time}  ",
     "APPLICATION_ACCEPTED": "Deine Bewerbung wurde akzeptiert!",
     "APPLICATION_DECLINED": "Deine Bewerbung wurde abgelehnt",
-    "CONFLICT_CONTINUED": "Der Konfliktlösungsprozess mit {userName} geht weiter",
-    "CONFLICT_CONTINUED_ABOUT_YOU": "Der Konfliktlösungsprozess mit dir geht weiter",
-    "CONFLICT_CREATED": "Trete der Diskussion über den Konflikt mit {userName} bei",
-    "CONFLICT_CREATED_ABOUT_YOU": "Ein Konfliktlösungsprozess mit dir würde gestartet",
-    "CONFLICT_DECIDED": "Der Konfliktlösungsprozess mit {userName} wurde entschieden",
-    "CONFLICT_DECIDED_ABOUT_YOU": "Der Konfliktlösungsprozess mit dir wurde entschieden",
-    "CONFLICT_YOU_WERE_REMOVED": "Du wurdest von der Gruppe ausgeschlossen",
+    "CONFLICT_RESOLUTION_CONTINUED": "Der Konfliktlösungsprozess mit {userName} geht weiter",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Der Konfliktlösungsprozess mit dir geht weiter",
+    "CONFLICT_RESOLUTION_CREATED": "Trete der Diskussion über den Konflikt mit {userName} bei",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Ein Konfliktlösungsprozess mit dir würde gestartet",
+    "CONFLICT_RESOLUTION_DECIDED": "Der Konfliktlösungsprozess mit {userName} wurde entschieden",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Der Konfliktlösungsprozess mit dir wurde entschieden",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du wurdest von der Gruppe ausgeschlossen",
     "FEEDBACK_POSSIBLE": "Du kannst eine Rückmeldung zu {activityType} am {date} geben",
     "INVITATION_ACCEPTED": "{userName} hat deine Einladung angenommen",
     "NEW_APPLICANT": "{userName} bewarb sich, um deiner Gruppe beizutreten",

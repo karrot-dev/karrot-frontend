@@ -422,7 +422,7 @@
     "NONMEMBER_REDIRECT": "Vi ne anas en tiu ĉi grupo",
     "NOTIFICATIONS_BY_GROUP": "Sciigoj laŭ grupo",
     "NOTIFICATION_TYPES": {
-      "membership_review": {
+      "conflict_resolution": {
         "DESCRIPTION": "Ĝi rakontas kiam nova problemsolvada proceso komenciĝas en la grupo",
         "NAME": "Nova proceso de problemsolvado"
       },
@@ -617,13 +617,13 @@
     "ACTIVITY_UPCOMING": "Memorigo: {activityType} je {time}",
     "APPLICATION_ACCEPTED": "Kandidatiĝo akceptita!",
     "APPLICATION_DECLINED": "Kandidatiĝo malakceptita",
-    "CONFLICT_CONTINUED": "La problemsolvada proceso kun {userName}daŭras",
-    "CONFLICT_CONTINUED_ABOUT_YOU": "La problemsolvada proceso pri vi daŭras",
-    "CONFLICT_CREATED": "Aliĝu la konversacion pri problemo kun {userName}",
-    "CONFLICT_CREATED_ABOUT_YOU": "Nova problemsolvada procezo pri vi komenĉiĝis",
-    "CONFLICT_DECIDED": "La problemsolvada proceso kun {userName}finiĝis.",
-    "CONFLICT_DECIDED_ABOUT_YOU": "La problemsolvada proceso kun vi finiĝis",
-    "CONFLICT_YOU_WERE_REMOVED": "Vi estis forigita de la grupo",
+    "CONFLICT_RESOLUTION_CONTINUED": "La problemsolvada proceso kun {userName}daŭras",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "La problemsolvada proceso pri vi daŭras",
+    "CONFLICT_RESOLUTION_CREATED": "Aliĝu la konversacion pri problemo kun {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Nova problemsolvada procezo pri vi komenĉiĝis",
+    "CONFLICT_RESOLUTION_DECIDED": "La problemsolvada proceso kun {userName}finiĝis.",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "La problemsolvada proceso kun vi finiĝis",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Vi estis forigita de la grupo",
     "FEEDBACK_POSSIBLE": "Vi povas komenti la aktivaĵon - {activityType} je {date}",
     "INVITATION_ACCEPTED": "{userName}akceptis vian inviton",
     "NEW_APPLICANT": "{userName}kandidatiĝis al la grupo",

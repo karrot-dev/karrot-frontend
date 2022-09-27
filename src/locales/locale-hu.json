@@ -422,7 +422,7 @@
     "NONMEMBER_REDIRECT": "Nem vagy tagja ennek a csoportnak.",
     "NOTIFICATIONS_BY_GROUP": "Értesítések csoportonként",
     "NOTIFICATION_TYPES": {
-      "membership_review": {
+      "conflict_resolution": {
         "DESCRIPTION": "Értesít amikor egy új konfliktusmegoldási folyamat kezdődik a csoportodban",
         "NAME": "Új konfliktusmegoldási folyamatok"
       },
@@ -617,13 +617,13 @@
     "ACTIVITY_UPCOMING": "Emlékeztető: {activityType} {time}kor",
     "APPLICATION_ACCEPTED": "A jelentkezésedet elfogadták!",
     "APPLICATION_DECLINED": "A jelentkezésedet elutasították",
-    "CONFLICT_CONTINUED": "A konfliktusmegoldási folyamat {userName} felhasználóval folytatódik",
-    "CONFLICT_CONTINUED_ABOUT_YOU": "A veled való konfliktusmegoldási folyamat folytatódik",
-    "CONFLICT_CREATED": "Csatlakozz a vitához egy konfliktusról {userName} felhasználóval",
-    "CONFLICT_CREATED_ABOUT_YOU": "Konfliktusmegoldási folyamat indult veled",
-    "CONFLICT_DECIDED": "A konfliktusmegoldási folyamat {userName} felhasználóval eldőlt",
-    "CONFLICT_DECIDED_ABOUT_YOU": "A veled való konfliktusmegoldási folyamat el lett döntve",
-    "CONFLICT_YOU_WERE_REMOVED": "El lettél távolítva a csoportból",
+    "CONFLICT_RESOLUTION_CONTINUED": "A konfliktusmegoldási folyamat {userName} felhasználóval folytatódik",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "A veled való konfliktusmegoldási folyamat folytatódik",
+    "CONFLICT_RESOLUTION_CREATED": "Csatlakozz a vitához egy konfliktusról {userName} felhasználóval",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Konfliktusmegoldási folyamat indult veled",
+    "CONFLICT_RESOLUTION_DECIDED": "A konfliktusmegoldási folyamat {userName} felhasználóval eldőlt",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "A veled való konfliktusmegoldási folyamat el lett döntve",
+    "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "El lettél távolítva a csoportból",
     "FEEDBACK_POSSIBLE": "Visszajelzést küldhetsz - {activityType} ekkor: {date}",
     "INVITATION_ACCEPTED": "{userName} elfogadta a meghívásod",
     "NEW_APPLICANT": "{userName} jelentkezett a csoportodba",

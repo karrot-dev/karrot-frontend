@@ -97,7 +97,8 @@
       "WHAT": "What",
       "WHEN": "When",
       "WHERE": "Where",
-      "SHARE": "Public activity link"
+      "SHARE": "Public activity link",
+      "VIEW": "Public View"
     },
     "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
     "NONE": "No upcoming activities",

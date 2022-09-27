@@ -253,7 +253,7 @@
           size="xs"
           class="q-mr-sm"
         />
-        Public View
+        {{ $t('ACTIVITYLIST.PUBLIC.VIEW') }}
       </QBtn>
       <QSpace />
       <QBtn

@@ -70,7 +70,7 @@ export function useNotificationHelpers () {
         return 'fas fa-check'
       case 'activity_disabled':
       case 'application_declined':
-      case 'membership_review_you_were_removed':
+      case 'conflict_resolution_you_were_removed':
         return 'fas fa-times'
       case 'invitation_accepted':
       case 'new_member':
@@ -99,12 +99,12 @@ export function useNotificationHelpers () {
       case 'activity_moved':
       case 'voting_ends_soon':
         return 'far fa-clock'
-      case 'membership_review_created':
-      case 'membership_review_created_about_you':
-      case 'membership_review_continued':
-      case 'membership_review_continued_about_you':
-      case 'membership_review_decided':
-      case 'membership_review_decided_about_you':
+      case 'conflict_resolution_created':
+      case 'conflict_resolution_created_about_you':
+      case 'conflict_resolution_continued':
+      case 'conflict_resolution_continued_about_you':
+      case 'conflict_resolution_decided':
+      case 'conflict_resolution_decided_about_you':
         return 'far fa-frown-open'
       case 'mention':
         return 'alternate_email'
@@ -125,7 +125,7 @@ export function useNotificationHelpers () {
       case 'feedback_possible':
         return activity && { name: 'giveFeedback', params: { groupId, activityId: activity.id } }
       case 'application_declined':
-      case 'membership_review_you_were_removed':
+      case 'conflict_resolution_you_were_removed':
         return { name: 'groupPreview', params: { groupPreviewId: groupId } }
       case 'new_place':
         return { name: 'place', params: { groupId, placeId } }

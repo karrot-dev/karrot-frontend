@@ -24,7 +24,7 @@ export function generateIssue (params = {}) {
     createdAt: subDays(new Date(), 7 + 6),
     createdBy: null,
     status: 'ongoing',
-    type: 'membership_review',
+    type: 'conflict_resolution',
     topic: faker.lorem.paragraphs(3),
     votings: [
       generateVoting({

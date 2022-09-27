@@ -22,6 +22,7 @@ import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
 import ActivityCreateButton from './ActivityCreateButton'
+import { flushPromises } from '@vue/test-utils'
 
 // somehow showToast can't run Notify.create, possibly a problem with initializing Quasar
 // let's just mock it in the meantime
@@ -63,6 +64,7 @@ describe('ActivityCreateButton', () => {
 
     expect(db.activities.length).toEqual(0)
     await click(getByRole('button', { name: 'Create' }))
+    await flushPromises()
 
     expect(db.activities.length).toEqual(1)
     expect(db.activities[0].place).toEqual(places[0].id)

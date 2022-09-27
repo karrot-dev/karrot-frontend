@@ -83,7 +83,7 @@ describe('GroupActivities', () => {
 
     const activityType = realSample(activityTypes)
     await fireEvent.click(await findByText('All types'))
-    await fireEvent.click(await findByText(activityType.name))
+    await fireEvent.click(await findByText(activityType.name, {}, { timeout: 2000 }))
 
     await flushPromises() // give it a moment to update
 

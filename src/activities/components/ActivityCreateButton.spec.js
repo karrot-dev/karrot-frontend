@@ -4,6 +4,7 @@ import { render } from '@testing-library/vue'
 import { times } from 'lodash'
 
 import { resetServices } from '@/utils/datastore/helpers'
+import { showToast } from '@/utils/toasts'
 
 import { withDefaults } from '>/helpers'
 import {
@@ -21,6 +22,10 @@ import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
 import ActivityCreateButton from './ActivityCreateButton'
+
+// somehow showToast can't run Notify.create, possibly a problem with initializing Quasar
+// let's just mock it in the meantime
+jest.mock('@/utils/toasts')
 
 describe('ActivityCreateButton', () => {
   let activityType
@@ -57,10 +62,11 @@ describe('ActivityCreateButton', () => {
     await click(await findByRole('option', { name: places[0].name }))
 
     expect(db.activities.length).toEqual(0)
-    await click(getByRole('button', { name: /create/i }))
+    await click(getByRole('button', { name: 'Create' }))
 
     expect(db.activities.length).toEqual(1)
     expect(db.activities[0].place).toEqual(places[0].id)
     expect(db.activities[0].activityType).toEqual(activityType.id)
+    expect(showToast).toHaveBeenCalled()
   })
 })

@@ -32,6 +32,7 @@
     v-model="isOpen"
   >
     <div
+      v-if="isOpen"
       class="bg-white"
       style="width: 700px; overflow-x: hidden"
     >
@@ -136,12 +137,14 @@ import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useCreateActivityMutation, useCreateActivitySeriesMutation } from '@/activities/mutations'
 import { useActivityTypeService } from '@/activities/services'
 import { defaultDuration } from '@/activities/settings'
-import { useToastService } from '@/alerts/services'
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceTypeService } from '@/places/services'
+import { showToast } from '@/utils/toasts'
 
-const ActivityEdit = defineAsyncComponent(() => import('./ActivityEdit.vue'))
-const ActivitySeriesEdit = defineAsyncComponent(() => import('./ActivitySeriesEdit.vue'))
+// TODO this fails during testing, service can't getCurrentInstance() :(
+// const ActivityEdit = defineAsyncComponent(() => import('./ActivityEdit'))
+import ActivityEdit from './ActivityEdit'
+const ActivitySeriesEdit = defineAsyncComponent(() => import('./ActivitySeriesEdit'))
 
 const fabOpen = ref(false)
 const isOpen = ref(false)
@@ -159,8 +162,6 @@ const {
 const {
   getPlaceTypeById,
 } = usePlaceTypeService()
-
-const { showToast } = useToastService()
 
 const placeOptions = computed(() => places.value
   .filter(place => place.status === 'active')

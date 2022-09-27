@@ -37,6 +37,7 @@
         <ActivitySeriesEdit
           :value="newSeries"
           :status="createSeriesStatus"
+          can-cancel
           @save="saveNewSeries"
           @cancel="cancelNewSeries"
           @reset="resetNewSeries"
@@ -204,6 +205,7 @@
         <ActivityEdit
           :value="newActivity"
           :status="createActivityStatus"
+          can-cancel
           @save="saveNewActivity"
           @cancel="cancelNewActivity"
           @reset="resetNewActivity"

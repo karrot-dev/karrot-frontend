@@ -319,6 +319,8 @@
     "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
+    "CREATE_SUCCESS": "Activity successfully created!",
+    "ONE_TIME_ACTIVITY": "One-time activity",
     "ADD_PARTICIPANT_TYPE": "Add participant type",
     "COMMENT": "Additional information",
     "COMMENT_HELPER": "What should people know when signing up to this?",
@@ -348,7 +350,14 @@
     "USE_PARTICIPANT_TYPES": "Use participant types",
     "WEEKDAYS": "Weekdays",
     "WEEKDAYS_HELPER": "On which days should it take place?",
-    "WEEKLY": "Weekly"
+    "WEEKLY": "Weekly",
+    "PLACE": "Choose a place"
+  },
+  "EDIT_ACTIVITY": {
+    "TITLE": "What do you want to edit?",
+    "ONLY_ACTIVITY": "This activity",
+    "SERIES": "Activities in this series",
+    "MANAGE": "Manage activites in {place}"
   },
   "CREATESTORE": {
     "TITLE": "Create a new place"

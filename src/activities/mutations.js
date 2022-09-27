@@ -20,24 +20,24 @@ export function useDismissFeedbackMutation () {
   return withStatus(useMutation(activityId => api.dismissFeedback(activityId)))
 }
 
-export function useCreateActivityMutation () {
-  return withStatus(useMutation(activity => api.create(activity)))
+export function useCreateActivityMutation (params) {
+  return withStatus(useMutation(activity => api.create(activity), params))
 }
 
-export function useSaveActivityMutation () {
-  return withStatus(useMutation(activity => api.save(activity)))
+export function useSaveActivityMutation (params) {
+  return withStatus(useMutation(activity => api.save(activity), params))
 }
 
-export function useCreateActivitySeriesMutation () {
-  return withStatus(useMutation(activitySeries => activitySeriesAPI.create(activitySeries)))
+export function useCreateActivitySeriesMutation (params) {
+  return withStatus(useMutation(activitySeries => activitySeriesAPI.create(activitySeries), params))
 }
 
-export function useSaveActivitySeriesMutation () {
-  return withStatus(useMutation(activitySeries => activitySeriesAPI.save(activitySeries)))
+export function useSaveActivitySeriesMutation (params) {
+  return withStatus(useMutation(activitySeries => activitySeriesAPI.save(activitySeries), params))
 }
 
-export function useDestroyActivitySeriesMutation () {
-  return withStatus(useMutation(activitySeriesId => activitySeriesAPI.delete(activitySeriesId)))
+export function useDestroyActivitySeriesMutation (params) {
+  return withStatus(useMutation(activitySeriesId => activitySeriesAPI.delete(activitySeriesId), params))
 }
 
 export function useCreateActivityTypeMutation ({ groupId }) {

@@ -23,6 +23,7 @@
         />
         {{ activityTypeIconProps.title }}
       </h3>
+      <slot />
       <template v-if="canEditDate">
         <div class="row q-mt-xs">
           <QInput
@@ -237,7 +238,7 @@
         />
         <QSpace />
         <QBtn
-          v-if="isNew"
+          v-if="canCancel"
           type="button"
           @click="$emit('cancel')"
         >
@@ -318,6 +319,7 @@ import {
   QItemLabel,
   QField,
 } from 'quasar'
+import { defineAsyncComponent } from 'vue'
 
 import activityAPI from '@/activities/api/activities'
 import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
@@ -329,11 +331,12 @@ import statusMixin from '@/utils/mixins/statusMixin'
 import reactiveNow from '@/utils/reactiveNow'
 import { objectDiff } from '@/utils/utils'
 
-import ActivityItem from '@/activities/components/ActivityItem'
 import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog'
 import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
 import ImageUpload from '@/utils/components/ImageUpload'
 import MarkdownInput from '@/utils/components/MarkdownInput'
+
+const ActivityItem = defineAsyncComponent(() => import('@/activities/components/ActivityItem'))
 
 export default {
   name: 'ActivityEdit',
@@ -367,6 +370,10 @@ export default {
       type: Object,
       default: null,
     },
+    canCancel: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: [
     'cancel',
@@ -388,11 +395,6 @@ export default {
     }
   },
   computed: {
-    debug () {
-      return require('util').inspect({
-        bannerImage: this.edit.bannerImage,
-      })
-    },
     previewActivity () {
       return {
         ...this.edit,

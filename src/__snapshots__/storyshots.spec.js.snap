@@ -806,6 +806,7 @@ exports[`Storyshots activities/components/ActivityItem Normal 1`] = `
     <div class="content-inner">
       <div class="row no-wrap items-start justify-between">
         <div><strong class="featured-text">10:00 AM <!--v-if--></strong>Monday, December 25, 2017</div>
+        <!--v-if-->
       </div>
       <!--v-if-->
       <!--v-if-->

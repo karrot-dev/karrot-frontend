@@ -83,7 +83,7 @@ test('create issue', async () => {
   // TODO: add mock websockets, for now we need to manually invalidate...
   await require('@/base/queryClient').default.invalidateQueries()
 
-  await findByText(messageContent)
+  await findByText(messageContent, {}, { timeout: 2000 })
 
   // time to vote!
   await click(await findByRole('tab', { name: 'Vote' }))

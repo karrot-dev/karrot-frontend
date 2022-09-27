@@ -346,7 +346,7 @@
   },
   "EDIT_ACTIVITY": {
     "TITLE": "What do you want to edit?",
-    "ONLY_ACTIVITY": "Only this activity",
+    "ONLY_ACTIVITY": "This activity",
     "SERIES": "Activities in this series",
     "MANAGE": "Manage activites in {place}"
   },

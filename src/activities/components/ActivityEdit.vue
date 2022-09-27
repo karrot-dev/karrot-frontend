@@ -395,11 +395,6 @@ export default {
     }
   },
   computed: {
-    debug () {
-      return require('util').inspect({
-        bannerImage: this.edit.bannerImage,
-      })
-    },
     previewActivity () {
       return {
         ...this.edit,

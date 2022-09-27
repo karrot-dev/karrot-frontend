@@ -85,6 +85,10 @@ export function useActivityTypeHelpers () {
     return `activity-type-${id}`
   }
 
+  function getTextClass (activityType) {
+    return `text-${getColorName(activityType)}`
+  }
+
   function getTranslatedName (activityType) {
     if (!activityType) return
     const { name, nameIsTranslatable } = activityType
@@ -118,6 +122,7 @@ export function useActivityTypeHelpers () {
   }
 
   return {
+    getTextClass,
     getColorName,
     getTranslatedName,
     getIconProps,

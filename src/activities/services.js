@@ -1,8 +1,9 @@
 import { computed, unref, watch } from 'vue'
 
-import { useActivityTypeListQuery } from '@/activities/queries'
+import { useActivityTypeListQuery, usePublicActivityItemQuery } from '@/activities/queries'
 import { createActivityTypeStylesheet } from '@/activities/stylesheet'
 import { useAuthService } from '@/authuser/services'
+import { useRouteParam } from '@/utils/composables'
 import { defineService, indexById } from '@/utils/datastore/helpers'
 
 export const useActivityTypeService = defineService(() => {
@@ -32,5 +33,13 @@ export const useActivityTypeService = defineService(() => {
     activityTypes,
     getActivityTypeById,
     getActivityTypesByGroup,
+  }
+})
+
+export const useActivePublicActivityService = defineService(() => {
+  const activityPublicId = useRouteParam('activityPublicId')
+  const { publicActivity } = usePublicActivityItemQuery({ activityPublicId })
+  return {
+    publicActivity,
   }
 })

@@ -2,6 +2,7 @@ import { debounce } from 'quasar'
 import { unref, computed, watch } from 'vue'
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
+import { paginationHelpers } from '@/messages/queries'
 import { useSocketEvents } from '@/utils/composables'
 import { extractCursor, flattenPaginatedData, useQueryHelpers } from '@/utils/queryHelpers'
 
@@ -13,6 +14,7 @@ export const QUERY_KEY_BASE = 'activities'
 export const queryKeyActivityList = params => [QUERY_KEY_BASE, 'activity', 'list', params].filter(Boolean)
 export const queryKeyActivityCount = params => [QUERY_KEY_BASE, 'activity', 'count', params].filter(Boolean)
 export const queryKeyActivityItem = activityId => [QUERY_KEY_BASE, 'activity', 'item', activityId].filter(Boolean)
+export const queryKeyPublicActivityItem = activityPublicId => [QUERY_KEY_BASE, 'public-activity', 'item', activityPublicId].filter(Boolean)
 export const queryKeyActivityTypeListAll = () => [QUERY_KEY_BASE, 'types']
 export const queryKeyActivitySeriesList = placeId => [QUERY_KEY_BASE, 'series', 'list', placeId].filter(Boolean)
 export const queryKeyActivitySeriesItem = id => [QUERY_KEY_BASE, 'series', 'item', id].filter(Boolean)
@@ -256,5 +258,51 @@ export function useICSTokenQuery (queryOptions) {
   return {
     ...query,
     token: query.data,
+  }
+}
+
+export function usePublicActivityListQuery ({
+  groupId,
+  dateMin,
+  pageSize = 10,
+}, queryOptions = {}) {
+  const query = useInfiniteQuery(
+    queryKeyActivityList({ groupId, dateMin }),
+    ({ pageParam }) => api.listPublic({
+      group: unref(groupId),
+      dateMin: unref(dateMin),
+      cursor: pageParam,
+      pageSize,
+    }),
+    {
+      enabled: computed(() => Boolean(unref(groupId))),
+      getNextPageParam: page => extractCursor(page.next) || undefined,
+      select: ({ pages, pageParams }) => ({
+        pages: pages.map(page => page.results),
+        pageParams,
+      }),
+      ...queryOptions,
+    },
+  )
+
+  return {
+    ...query,
+    ...paginationHelpers(query),
+    publicActivities: flattenPaginatedData(query),
+  }
+}
+
+export function usePublicActivityItemQuery ({ activityPublicId }, queryOptions = {}) {
+  const query = useQuery(
+    queryKeyPublicActivityItem(activityPublicId),
+    () => api.getByPublicId(unref(activityPublicId)),
+    {
+      enabled: computed(() => Boolean(unref(activityPublicId))),
+      ...queryOptions,
+    },
+  )
+  return {
+    ...query,
+    publicActivity: query.data,
   }
 }

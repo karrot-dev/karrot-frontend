@@ -112,6 +112,13 @@ export function createMockActivitiesBackend () {
     return [200, {}]
   })
 
+  // just a placeholder endpoint
+  cursorPaginated(
+    '/api/public-activities/',
+    () => [],
+    { requireAuth: false },
+  )
+
   post('/api/activities/', ({ data }) => {
     if (!data.place) throw new Error('no place given for new activity, must specify one')
     const activity = generateActivity(data)

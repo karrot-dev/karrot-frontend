@@ -79,6 +79,10 @@
       <ICSBtn
         :group="groupId"
         :joined="true"
+        color="secondary"
+        padding="4px 13px"
+        rounded
+        size="sm"
       />
     </div>
     <QInfiniteScroll

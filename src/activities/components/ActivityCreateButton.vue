@@ -121,6 +121,7 @@ import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useCreateActivityMutation, useCreateActivitySeriesMutation } from '@/activities/mutations'
 import { useActivityTypeService } from '@/activities/services'
 import { defaultDuration } from '@/activities/settings'
+import { useToastService } from '@/alerts/services'
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceTypeService } from '@/places/services'
 
@@ -143,6 +144,8 @@ const {
   getPlaceTypeById,
 } = usePlaceTypeService()
 
+const { showToast } = useToastService()
+
 const placeOptions = computed(() => places.value
   .filter(place => place.status === 'active')
   .map(({ name, id, placeType }) => ({ label: name, value: id, icon: getPlaceTypeById(placeType).icon })))
@@ -163,6 +166,7 @@ const {
 } = useCreateActivityMutation({
   onSuccess () {
     isOpen.value = false
+    showToast({ message: 'CREATEACTIVITY.CREATE_SUCCESS' })
   },
 })
 
@@ -173,6 +177,7 @@ const {
 } = useCreateActivitySeriesMutation({
   onSuccess () {
     isOpen.value = false
+    showToast({ message: 'CREATEACTIVITY.CREATE_SUCCESS' })
   },
 })
 

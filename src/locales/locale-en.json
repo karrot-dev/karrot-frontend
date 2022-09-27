@@ -312,6 +312,7 @@
     "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
+    "CREATE_SUCCESS": "Activity successfully created!",
     "ONE_TIME_ACTIVITY": "One-time activity",
     "ADD_PARTICIPANT_TYPE": "Add participant type",
     "COMMENT": "Additional information",

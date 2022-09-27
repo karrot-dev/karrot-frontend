@@ -1,5 +1,6 @@
 <template>
   <QFab
+    v-model="fabOpen"
     class="fab-top-fix"
     vertical-actions-align="right"
     size="sm"
@@ -10,20 +11,22 @@
     padding="0px 13px"
     :title="$t('BUTTON.CREATE')"
   >
-    <QFabAction
-      v-for="activityType in activityTypes"
-      :key="activityType.id"
-      class="fab-action-fix"
-      label-position="left"
-      v-bind="getIconProps(activityType)"
-      @click="selectActivityTypeAndOpen(activityType)"
-    />
-    <QFabAction
-      class="fab-action-fix bg-white"
-      :label="$t('ACTIVITY_TYPES.MANAGE_TYPES')"
-      outline
-      :to="{ name: 'groupEditActivityTypes' }"
-    />
+    <template v-if="fabOpen">
+      <QFabAction
+        v-for="activityType in activityTypes"
+        :key="activityType.id"
+        class="fab-action-fix"
+        label-position="left"
+        v-bind="getIconProps(activityType)"
+        @click="selectActivityTypeAndOpen(activityType)"
+      />
+      <QFabAction
+        class="fab-action-fix bg-white"
+        :label="$t('ACTIVITY_TYPES.MANAGE_TYPES')"
+        outline
+        :to="{ name: 'groupEditActivityTypes' }"
+      />
+    </template>
   </QFab>
   <QDialog
     v-model="isOpen"
@@ -128,6 +131,7 @@ import { usePlaceTypeService } from '@/places/services'
 const ActivityEdit = defineAsyncComponent(() => import('./ActivityEdit.vue'))
 const ActivitySeriesEdit = defineAsyncComponent(() => import('./ActivitySeriesEdit.vue'))
 
+const fabOpen = ref(false)
 const isOpen = ref(false)
 const placeId = ref(null)
 const isSeries = ref(false)
@@ -254,3 +258,14 @@ function createNewSeries (activityType) {
   }
 }
 </script>
+
+<style lang="sass">
+// let the top fab (series) display over the top of the lower one (one-off activities)
+.fab-top-fix
+  z-index: $z-fab + 1
+
+// for some reason the font-awesome icons are displayed too big inside QFabAction
+.fab-action-fix
+  ::v-deep(.q-icon.fas)
+    font-size: 18px
+</style>

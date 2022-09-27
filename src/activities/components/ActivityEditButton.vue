@@ -8,8 +8,11 @@
     unelevated
     :title="$t('BUTTON.EDIT')"
   >
-    <QPopupProxy>
-      <QList class="bg-white">
+    <QPopupProxy v-model="menuOpen">
+      <QList
+        v-if="menuOpen"
+        class="bg-white"
+      >
         <QItemLabel header>
           {{ $t('EDIT_ACTIVITY.TITLE') }}
         </QItemLabel>
@@ -109,6 +112,7 @@ const props = defineProps({
   },
 })
 
+const menuOpen = ref(false)
 const isOpen = ref(false)
 const editSeries = ref(false)
 

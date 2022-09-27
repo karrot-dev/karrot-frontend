@@ -38,22 +38,6 @@ jest.mock('@/router', () => {
   })
 })
 
-/*
-jest.mock('@/groupInfo/components/GroupPreviewUI', () => ({
-  name: 'GroupPreviewUI',
-  props: ['group', 'isLoggedIn', 'user', 'application'],
-  methods: {
-    visit () {
-      this.$emit('go-visit', this.group.id)
-    },
-    join () {
-      this.$emit('join', this.group.id)
-    },
-  },
-  template: '<div>A mocked GroupPreviewUI</div>',
-}))
-*/
-
 function mountRouterViewWith ({ datastore, router }) {
   if (datastore) console.warn('IGNORING DATASTORE', datastore)
   const i18n = require('@/base/i18n')

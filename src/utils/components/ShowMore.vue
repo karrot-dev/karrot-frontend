@@ -15,7 +15,7 @@
           no-caps
           size="sm"
           color="primary"
-          :label="'Show less'"
+          :label="$t('BUTTON.SHOW_LESS')"
           @click="more = false"
         />
       </div>
@@ -34,7 +34,7 @@
         no-caps
         size="sm"
         color="primary"
-        :label="'Show more'"
+        :label="$t('BUTTON.SHOW_MORE')"
         @click="more = true"
       />
     </div>

@@ -10,12 +10,12 @@
           size="xs"
           class="q-mr-xs"
         />
-        Public activity link
+        {{ $t('ACTIVITYLIST.PUBLIC.SHARE') }}
       </QCardSection>
       <QCardSection
         class="q-dialog__message"
       >
-        <p>Copy the link and send it to the person you want to invite</p>
+        <p>{{ $t('GROUP.INVITATION_DIALOG.MESSAGE') }}</p>
         <QField filled>
           <template #append>
             <QBtn

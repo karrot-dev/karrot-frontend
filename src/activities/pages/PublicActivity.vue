@@ -87,7 +87,7 @@
                 color="grey"
                 class="q-pr-xs"
               />
-              What
+              {{ $t('ACTIVITYLIST.PUBLIC.WHAT') }}
             </div>
             <span>
               {{ getTranslatedName(activityType) }}
@@ -104,7 +104,7 @@
               color="grey"
               class="q-pr-xs"
             />
-            When
+            {{ $t('ACTIVITYLIST.PUBLIC.WHEN') }}
           </div>
           {{ $d(publicActivity.date, 'dateLongWithDayName') }}<br>
 
@@ -118,7 +118,7 @@
               color="grey"
               class="q-pr-xs"
             />
-            Where
+            {{ $t('ACTIVITYLIST.PUBLIC.WHERE') }}
           </div>
           {{ place.name }}<br>
           {{ place.address }}

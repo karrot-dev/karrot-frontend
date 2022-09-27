@@ -28,14 +28,14 @@
     />
     <QBtn
       v-else
-      label="Select image"
+      :label="$t('IMAGE_UPLOAD.SELECT')"
       unelevated
       color="primary"
       @click="addImage"
     />
     <QBtn
       v-if="canRemove"
-      label="Clear image"
+      :label="$t('IMAGE_UPLOAD.CLEAR')"
       unelevated
       color="primary"
       @click="removeImage"
@@ -48,14 +48,6 @@ import { nextTick, ref, computed } from '@vue/compat'
 import { QBtn, QImg } from 'quasar'
 import CroppaPlugin from 'vue-croppa'
 
-/*
-TODO:
-- click to change image
-- don't show crosshair/move cursor if cannot move (existing image)
-- show placeholder
-- don't show value as changed, unless we've actually got a changed image...
- */
-
 const Croppa = CroppaPlugin.component
 // Upgrade Croppa once it's compatible with Vue3: https://github.com/zhanziyang/vue-croppa/issues/235
 Croppa.compatConfig = { MODE: 2 }
@@ -66,9 +58,10 @@ const editing = ref(false)
 
 const props = defineProps({
   /*
-   * undefined = we are not modifying the value
-   * null = we want the image to be removed
-   * { toBlob } = we have image data to be saved
+   * Possible values:
+   *   undefined = we are not modifying the value
+   *   null = we want the image to be removed
+   *   { toBlob } = we have image data to be saved
    */
   modelValue: {
     type: Object,

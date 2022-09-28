@@ -6,7 +6,7 @@
     class="karrot-button"
     :class="!isEditor && 'small'"
     :title="tooltip"
-    @click="showing = true"
+    @click.stop.prevent="showing = true"
   >
     <CircleProgress
       v-if="!isEditor"

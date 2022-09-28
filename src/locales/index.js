@@ -28,12 +28,22 @@ const locales = {
   },
 
   en: {
-    name: 'English',
+    name: 'English (US)',
     locale: 'en',
     messages: () => import('@/locales/locale-en.json'),
-    intlLocale: () => import('intl/locale-data/jsonp/en'),
+    intlLocale: () => import('intl/locale-data/jsonp/en-US'),
     dateFnsLocale: () => import('date-fns/locale/en-US'),
     quasar: () => import('quasar/lang/en-US'),
+  },
+
+  'en-gb': {
+    name: 'English (GB)',
+    locale: 'en-gb',
+    usePercentageCompletionFromLocale: 'en',
+    messages: () => import('@/locales/locale-en.json'),
+    intlLocale: () => import('intl/locale-data/jsonp/en-GB'),
+    dateFnsLocale: () => import('date-fns/locale/en-GB'),
+    quasar: () => import('quasar/lang/en-GB'),
   },
 
   eo: {

@@ -127,11 +127,13 @@ export function sortByDay (a, b) {
   return DAY_INDEX[a] - DAY_INDEX[b]
 }
 
-export const localeOptions = Object.values(locales).map(({ name, locale }) => ({
-  label: name,
-  value: locale,
-  percentage: status[locale] / 100,
-})).sort((a, b) => b.percentage - a.percentage)
+export const localeOptions = Object.values(locales).map(
+  ({ name, locale, usePercentageCompletionFromLocale }) => ({
+    label: name,
+    value: locale,
+    percentage: status[usePercentageCompletionFromLocale || locale] / 100,
+  }),
+).sort((a, b) => b.percentage - a.percentage)
 
 // Does not work, pls fix
 /*

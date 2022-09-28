@@ -68,7 +68,7 @@
         :error="hasError('reviewAt')"
         size="9"
         hide-bottom-space
-        label="Review date (optional)"
+        :label="`${$t('AGREEMENT.REVIEW_DATE')} (${$t('VALIDATION.OPTIONAL')})`"
         outlined
         clearable
         class="q-mr-sm"
@@ -95,7 +95,7 @@
         v-model="edit.summary"
         :error="hasError('summary')"
         :error-message="firstError('summary')"
-        :label="$t('AGREEMENT.SUMMARY') + ' (optional)'"
+        :label="`${$t('AGREEMENT.SUMMARY')} (${$t('VALIDATION.OPTIONAL')})`"
         outlined
         class="q-mb-lg"
         @keyup.ctrl.enter="maybeSave"

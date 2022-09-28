@@ -112,6 +112,10 @@
           </QCard>
         </div>
       </template>
+      <template #no-data />
+      <template #loading>
+        <KSpinner />
+      </template>
     </QTable>
   </QInfiniteScroll>
 </template>
@@ -123,7 +127,6 @@ import {
   QSpace,
   QBtn,
   QBtnToggle,
-  QToggle,
   QCard,
   QCardSection,
   QSeparator,
@@ -144,6 +147,7 @@ import { useAgreementHelpers } from '@/agreements/helpers'
 import { useAgreementListQuery } from '@/agreements/queries'
 import { useCurrentGroupService } from '@/group/services'
 
+import KSpinner from '@/utils/components/KSpinner'
 import Markdown from '@/utils/components/Markdown.vue'
 
 const router = useRouter()

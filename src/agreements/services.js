@@ -4,6 +4,14 @@ import { defineService } from '@/utils/datastore/helpers'
 
 export const useActiveAgreementService = defineService(() => {
   const agreementId = useIntegerRouteParam('agreementId')
-  const { agreement } = useAgreementItemQuery({ agreementId })
-  return { agreement }
+
+  const {
+    agreement,
+    isLoading,
+  } = useAgreementItemQuery({ agreementId })
+
+  return {
+    agreement,
+    isLoading,
+  }
 })

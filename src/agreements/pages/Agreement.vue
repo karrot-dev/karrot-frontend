@@ -1,5 +1,6 @@
 <template>
-  <div v-if="agreement">
+  <KSpinner v-if="isLoading" />
+  <div v-else-if="agreement">
     <h1 class="q-px-lg">
       {{ agreement.title }}
     </h1>
@@ -142,9 +143,14 @@ import { useCurrentGroupService } from '@/group/services'
 import { useUserService } from '@/users/services'
 
 import ProfilePicture from '@/users/components/ProfilePicture'
+import KSpinner from '@/utils/components/KSpinner'
 import Markdown from '@/utils/components/Markdown'
 
-const { agreement } = useActiveAgreementService()
+const {
+  agreement,
+  isLoading,
+} = useActiveAgreementService()
+
 const { getUserById } = useUserService()
 
 const { getAgreementIsActive } = useAgreementHelpers()

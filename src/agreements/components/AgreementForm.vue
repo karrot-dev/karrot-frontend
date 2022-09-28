@@ -1,5 +1,5 @@
 <template>
-  <div
+  <QCard
     class="edit-box"
     :class="{ changed: hasChanged }"
   >
@@ -129,13 +129,14 @@
         </QBtn>
       </div>
     </form>
-  </div>
+  </QCard>
 </template>
 
 <script>
 import useVuelidate from '@vuelidate/core'
 import { maxLength, required } from '@vuelidate/validators'
 import {
+  QCard,
   QIcon,
   QInput,
   QBtn,
@@ -152,6 +153,7 @@ import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
   components: {
+    QCard,
     QIcon,
     QInput,
     QBtn,

@@ -2,20 +2,35 @@
   <div
     class="row items-center bg-white q-px-sm q-py-xs q-gutter-sm"
   >
-    <QToggle
+    <QCheckbox
       v-model="onlyActive"
       label="Only active"
     />
+    <QSpace />
     <QBtnToggle
       v-model="grid"
       :options="[
-        { value: true, label: 'Cards' },
-        { value: false, label: 'Table' },
+        {
+          value: true,
+          icon: 'fas fa-th-large',
+          attrs: {
+            'aria-label': 'Grid',
+          }
+        },
+        {
+          value: false,
+          icon: 'fas fa-list',
+          attrs: {
+            'aria-label': 'Table',
+          }
+        },
       ]"
-      unelevated
-      rounded
+      flat
+      size="sm"
+      color="grey-4"
+      toggle-color="grey"
+      class="on-left"
     />
-    <QSpace />
     <QBtn
       v-if="isEditor"
       color="secondary"
@@ -35,6 +50,7 @@
       :loading="isLoading"
       :columns="columns"
       :rows="agreements"
+      :pagination="{ rowsPerPage: 0 }"
       @row-click="(_, agreement) => open(agreement)"
     >
       <template #item="{ row: agreement }">
@@ -119,8 +135,9 @@ import {
   QCardActions,
   QChip,
   QInfiniteScroll,
+  QCheckbox,
 } from 'quasar'
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -134,12 +151,11 @@ const router = useRouter()
 
 const { d } = useI18n()
 
-// const grid = ref(true)
-// const active = ref(true)
-
 const grid = useSessionStorage('agreements/grid', true)
 const onlyActive = useSessionStorage('agreements/only-active', true)
 
+// We don't want to pass "false" to backend, as that means "not active"
+// null value means show all...
 const active = computed(() => onlyActive.value || null)
 
 const {

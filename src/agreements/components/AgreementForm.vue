@@ -70,8 +70,10 @@
         hide-bottom-space
         label="Review date (optional)"
         outlined
+        clearable
         class="q-mr-sm"
-        @focus="$refs.qReviewAtProxy.show()"
+        @focus="focusReviewAt"
+        @clear="() => $refs.qReviewAtProxy.hide()"
       >
         <Component
           :is="smallScreen ? 'QDialog' : 'QMenu'"
@@ -201,8 +203,10 @@ export default {
         return date.formatDate(this.edit.activeFrom, 'YYYY-MM-DD')
       },
       set (val) {
-        val = date.extractDate(val, 'YYYY-MM-DD')
-        val = date.adjustDate(this.edit.activeFrom, { year: val.getFullYear(), month: val.getMonth() + 1, date: val.getDate() })
+        if (val) {
+          val = date.extractDate(val, 'YYYY-MM-DD')
+          val = date.adjustDate(this.edit.activeFrom, { year: val.getFullYear(), month: val.getMonth() + 1, date: val.getDate() })
+        }
         this.edit.activeFrom = val
       },
     },
@@ -211,8 +215,10 @@ export default {
         return date.formatDate(this.edit.reviewAt, 'YYYY-MM-DD')
       },
       set (val) {
-        val = date.extractDate(val, 'YYYY-MM-DD')
-        val = date.adjustDate(this.edit.reviewAt, { year: val.getFullYear(), month: val.getMonth() + 1, date: val.getDate() })
+        if (val) {
+          val = date.extractDate(val, 'YYYY-MM-DD')
+          val = date.adjustDate(this.edit.reviewAt, { year: val.getFullYear(), month: val.getMonth() + 1, date: val.getDate() })
+        }
         this.edit.reviewAt = val
       },
     },
@@ -221,6 +227,13 @@ export default {
     maybeSave () {
       if (!this.canSave) return
       this.save()
+    },
+    focusReviewAt (evt) {
+      // If it's a button, it's the "clear" button
+      // so we don't want to pop open the calendar
+      if (evt.target.nodeName !== 'BUTTON') {
+        this.$refs.qReviewAtProxy.show()
+      }
     },
   },
   validations: {

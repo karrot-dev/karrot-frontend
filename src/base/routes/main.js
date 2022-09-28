@@ -174,7 +174,7 @@ export default [
           requireFeature: 'agreements',
           breadcrumbs: [
             { translation: 'GROUP.AGREEMENTS', route: { name: 'agreements' } },
-            { translation: 'AGREEMENTS.CREATE_TITLE', route: { name: 'agreementCreate' } },
+            { translation: 'AGREEMENTS.NEW', route: { name: 'agreementCreate' } },
           ],
         },
         components: {

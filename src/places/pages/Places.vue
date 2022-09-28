@@ -145,6 +145,7 @@
             <QSeparator />
             <QCardActions
               style="height: 42px"
+              class="row no-wrap"
             >
               <RouterLink
                 :to="{ name: 'placeWall', params: { placeId: place.id }}"

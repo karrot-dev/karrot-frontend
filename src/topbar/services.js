@@ -3,6 +3,7 @@ import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
 import { useActivePublicActivityService } from '@/activities/services'
+import { useActiveAgreementService } from '@/agreements/services'
 import { useCurrentGroupService } from '@/group/services'
 import { useActiveGroupPreviewService } from '@/groupInfo/services'
 import { useActiveIssueService } from '@/issues/services'
@@ -24,6 +25,7 @@ export const useBreadcrumbs = defineService(() => {
   const { user } = useActiveUserService()
   const { issue } = useActiveIssueService()
   const { group: activeGroupPreview } = useActiveGroupPreviewService()
+  const { agreement } = useActiveAgreementService()
   const { publicActivity } = useActivePublicActivityService()
 
   const breadcrumbs = computed(() => findBreadcrumbs(route.matched))
@@ -84,6 +86,14 @@ export const useBreadcrumbs = defineService(() => {
         return {
           name: user.value.displayName,
           route: { name: 'user', params: { userId: user.value.id } },
+        }
+      }
+    }
+    else if (breadcrumb.type === 'activeAgreement') {
+      if (agreement.value) {
+        return {
+          name: agreement.value.title,
+          route: { name: 'agreement', params: { agreementId: agreement.value.id } },
         }
       }
     }

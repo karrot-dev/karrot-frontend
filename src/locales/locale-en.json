@@ -534,7 +534,8 @@
     "STORE_MODIFY": "changed the settings of place {name}",
     "USER_LOST_EDITOR_ROLE": "lost editing permissions",
     "PLACE_TYPE_CREATE": "created a place type",
-    "PLACE_TYPE_MODIFY": "modified a place type"
+    "PLACE_TYPE_MODIFY": "modified a place type",
+    "MEMBER_GOT_ROLE": "got role '{role}'"
   },
   "IMAGE_UPLOAD": {
     "SELECT": "Select image",
@@ -662,6 +663,8 @@
     "NEW_MEMBER": "{userName} joined your group",
     "NEW_PLACE": "{placeName} has been created",
     "USER_BECAME_EDITOR": "{userName} gained editing permissions",
+    "USER_GOT_ROLE": "{userName} got role '{role}'",
+    "YOU_GOT_ROLE": "You got role '{role}'!",
     "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!",
     "YOU_BECAME_EDITOR": "You gained editing permissions",
     "MENTION": "{userName} mentioned you!",

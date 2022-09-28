@@ -2,7 +2,7 @@
   <QBtn
     round
     :color="hasRole ? 'secondary' : 'white'"
-    :text-color="hasRole ? 'green' : 'grey-8'"
+    :text-color="hasRole ? 'white' : 'grey-8'"
     :title="tooltip"
     icon="fas fa-leaf"
     @click="showing = true"
@@ -163,8 +163,8 @@ export default {
       return this.membership.trust.filter(trust => trust.role === 'approved').map(trust => this.getUserById(trust.givenBy))
     },
     tooltip () {
-      if (this.hasRole) return 'TODO'
-      return 'TODO'
+      if (this.hasRole) return 'User has "approved" role'
+      return 'User does not have "approved" role'
     },
   },
   methods: {

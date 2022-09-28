@@ -45,7 +45,6 @@
   <QInfiniteScroll v-bind="infiniteScroll">
     <QTable
       :grid="grid"
-      bordered
       hide-pagination
       :loading="isLoading"
       :columns="columns"

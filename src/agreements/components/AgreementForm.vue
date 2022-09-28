@@ -221,7 +221,7 @@ export default {
           val = date.extractDate(val, 'YYYY-MM-DD')
           val = date.adjustDate(this.edit.reviewAt, { year: val.getFullYear(), month: val.getMonth() + 1, date: val.getDate() })
         }
-        this.edit.reviewAt = val
+        this.edit.reviewAt = val || null
       },
     },
   },

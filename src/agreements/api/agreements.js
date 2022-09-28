@@ -34,7 +34,7 @@ export function convert (val) {
 
     const dateFields = [
       'activeFrom',
-      'activeUntil',
+      'activeTo',
       'reviewAt',
     ]
 

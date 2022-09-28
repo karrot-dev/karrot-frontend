@@ -190,7 +190,9 @@
     "SUMMARY_HELPER": "A short summary of the agreement",
     "CONTENT": "Agreement Text",
     "CONTENT_HELPER": "The main content of your agreement",
-    "REVIEW_DATE": "Review Date",
+    "ACTIVE_FROM": "Active From",
+    "ACTIVE_TO": "Active To",
+    "REVIEW_AT": "Review Date",
     "VIEW": "View agreement"
   },
   "APPLICATION": {

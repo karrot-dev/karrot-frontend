@@ -33,63 +33,26 @@
         @blur="v$.edit.title.$touch"
       />
 
-      <QInput
-        ref="qActiveFrom"
-        v-model="activeFrom"
-        mask="####-##-##"
-        :error="hasError('activeFrom')"
-        size="9"
-        hide-bottom-space
-        label="Active from"
-        outlined
-        class="q-mr-sm"
-        @focus="$refs.qActiveFromProxy.show()"
-      >
-        <Component
-          :is="smallScreen ? 'QDialog' : 'QMenu'"
-          ref="qActiveFromProxy"
-          no-focus
-          no-refocus
-          no-parent-event
-          @hide="$refs.qActiveFrom.blur()"
-        >
-          <QDate
-            v-model="activeFrom"
-            mask="YYYY-MM-DD"
-            @update:model-value="() => smallScreen && $refs.qActiveFromProxy.hide()"
-          />
-        </Component>
-      </QInput>
+      <div class="row">
+        <DateInput
+          v-model="edit.activeFrom"
+          :error="hasError('activeFrom')"
+          :label="$t('AGREEMENT.ACTIVE_FROM')"
+        />
+        <DateInput
+          v-model="edit.activeTo"
+          :error="hasError('activeTo')"
+          :label="$t('AGREEMENT.ACTIVE_TO')"
+          clearable
+        />
+      </div>
 
-      <QInput
-        ref="qReviewAt"
-        v-model="reviewAt"
-        mask="####-##-##"
+      <DateInput
+        v-model="edit.reviewAt"
         :error="hasError('reviewAt')"
-        size="9"
-        hide-bottom-space
-        :label="`${$t('AGREEMENT.REVIEW_DATE')} (${$t('VALIDATION.OPTIONAL')})`"
-        outlined
+        :label="`${$t('AGREEMENT.REVIEW_AT')} (${$t('VALIDATION.OPTIONAL')})`"
         clearable
-        class="q-mr-sm"
-        @focus="focusReviewAt"
-        @clear="() => $refs.qReviewAtProxy.hide()"
-      >
-        <Component
-          :is="smallScreen ? 'QDialog' : 'QMenu'"
-          ref="qReviewAtProxy"
-          no-focus
-          no-refocus
-          no-parent-event
-          @hide="$refs.qReviewAt.blur()"
-        >
-          <QDate
-            v-model="reviewAt"
-            mask="YYYY-MM-DD"
-            @update:model-value="() => smallScreen && $refs.qReviewAtProxy.hide()"
-          />
-        </Component>
-      </QInput>
+      />
 
       <MarkdownInput
         v-model="edit.summary"
@@ -149,10 +112,12 @@ import {
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
 
+import DateInput from '@/utils/components/DateInput'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 
 export default {
   components: {
+    DateInput,
     QCard,
     QIcon,
     QInput,

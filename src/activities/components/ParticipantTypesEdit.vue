@@ -34,9 +34,6 @@
         :bg-color="simple.changed.maxParticipants ? 'orange-1' : null"
         @update:model-value="val => (simple.participantType.maxParticipants = val ? parseInt(val) : null)"
       >
-        <template #before>
-          <QIcon name="group" />
-        </template>
         <QSlider
           v-if="simple.participantType.maxParticipants > 0 && simple.participantType.maxParticipants <= 10"
           v-model="simple.participantType.maxParticipants"
@@ -196,7 +193,6 @@ import {
   QSlider,
   QInput,
   QBtn,
-  QIcon,
   QToggle,
   QSelect,
   Dialog,
@@ -222,7 +218,6 @@ export default {
     QSlider,
     QInput,
     QBtn,
-    QIcon,
     QToggle,
     QSelect,
     QCard,

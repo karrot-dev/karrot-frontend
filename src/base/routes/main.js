@@ -36,6 +36,7 @@ const PlaceEdit = () => import('@/places/pages/Edit')
 const PlaceCreate = () => import('@/places/pages/Create')
 const PlaceList = () => import('@/places/pages/Places')
 const HistoryDetail = () => import('@/history/pages/HistoryDetail')
+const PublicActivity = () => import('@/activities/pages/PublicActivity')
 const Applications = () => import('@/applications/pages/Applications')
 const GroupDescription = () => import('@/group/pages/Description')
 const GroupMembers = () => import('@/users/pages/Members')
@@ -129,6 +130,15 @@ export default [
       ],
     },
     component: HistoryDetail,
+  },
+  {
+    name: 'publicActivity',
+    path: '/a/:activityPublicId',
+    meta: {
+      hideHeaderIfLoggedOut: true,
+      breadcrumbs: [{ type: 'publicActivity' }],
+    },
+    component: PublicActivity,
   },
   {
     path: '/group/:groupId',

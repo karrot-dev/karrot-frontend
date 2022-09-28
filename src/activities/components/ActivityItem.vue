@@ -1,5 +1,15 @@
 <template>
   <QCard class="activity-item">
+    <div
+      v-if="bannerImageURL"
+      style="height: 50px;"
+      class="relative-position overflow-hidden-y"
+    >
+      <QImg
+        :src="bannerImageURL"
+        class="absolute-center"
+      />
+    </div>
     <QCardSection
       class="no-padding content"
       :class="{ isUserParticipant, isDisabled: activity.isDisabled }"
@@ -26,6 +36,11 @@
               {{ $d(activity.date, 'dateLongWithDayName') }}
             </template>
           </div>
+          <ActivityEditButton
+            v-if="!preview && isEditor && !hasStarted"
+            :activity="activity"
+            :place="place"
+          />
         </div>
         <div
           v-if="activity.isDisabled"
@@ -39,11 +54,16 @@
         >
           <b class="text-orange">{{ $t('ACTIVITYLIST.ACTIVITY_STARTED') }}</b>
         </div>
-        <Markdown
-          v-if="activity.description"
-          :source="activity.description"
-          mentions
-        />
+        <ShowMore
+          :height="200"
+          :overlay-color="isUserParticipant ? '#E7FFE0' : 'white'"
+        >
+          <Markdown
+            v-if="activity.description"
+            :source="activity.description"
+            mentions
+          />
+        </ShowMore>
         <div class="q-mt-none q-mb-none full-width column q-gutter-y-md">
           <div
             v-for="participantType in participantTypes"
@@ -226,6 +246,20 @@
           {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
         </span>
       </QBtn>
+      <QBtn
+        v-if="activity.isPublic"
+        class="action-button"
+        flat
+        no-caps
+        :to="{ name: 'publicActivity', params: { activityPublicId: activity.publicId } }"
+      >
+        <QIcon
+          name="fas fa-globe"
+          size="xs"
+          class="q-mr-sm"
+        />
+        {{ $t('ACTIVITYLIST.PUBLIC.VIEW') }}
+      </QBtn>
       <QSpace />
       <QBtn
         v-if="isUserParticipant"
@@ -276,6 +310,7 @@ import {
   QItemSection,
   QItemLabel,
   QRadio,
+  QImg,
 } from 'quasar'
 import { computed, toRefs } from 'vue'
 
@@ -289,11 +324,14 @@ import { absoluteURL } from '@/utils/absoluteURL'
 
 import CustomDialog from '@/utils/components/CustomDialog'
 import Markdown from '@/utils/components/Markdown'
+import ShowMore from '@/utils/components/ShowMore'
 
+import ActivityEditButton from './ActivityEditButton.vue'
 import ActivityUsers from './ActivityUsers'
 
 export default {
   components: {
+    ShowMore,
     CustomDialog,
     QCard,
     QCardSection,
@@ -306,6 +344,8 @@ export default {
     QRadio,
     ActivityUsers,
     Markdown,
+    ActivityEditButton,
+    QImg,
   },
   props: {
     activity: {
@@ -328,7 +368,10 @@ export default {
   setup (props) {
     const { activity } = toRefs(props)
 
-    const { roles } = useCurrentGroupService()
+    const {
+      roles,
+      isEditor,
+    } = useCurrentGroupService()
 
     const {
       getActivityTypeById,
@@ -375,6 +418,7 @@ export default {
     return {
       place,
       roles,
+      isEditor,
 
       activityTypeTranslatedName,
       activityTypeIconProps,
@@ -429,6 +473,9 @@ export default {
       // see https://github.com/karrot-dev/karrot-frontend/issues/2400
       return absoluteURL(`/api/activities/${this.activity.id}/ics/`)
     },
+    bannerImageURL () {
+      return this.activity?.bannerImageUrls?.fullSize
+    },
   },
   methods: {
     join () {
@@ -459,14 +506,6 @@ export default {
 </script>
 
 <style scoped lang="sass">
-.activity-item
-  .activity-hover
-    visibility: hidden
-
-  &:hover
-    .activity-hover
-      visibility: visible
-
 .multiple-types
   padding: 8px 8px 2px 8px
   border-left: 4px solid rgba(0, 0, 0, 0.1)
@@ -475,11 +514,10 @@ export default {
 
 .content
   width: 100%
-  transition: background-color 2s ease
 
   &.isUserParticipant
     &:not(.isDisabled)
-      background: linear-gradient(to right, $lightGreen, $lighterGreen)
+      background-color: $lightGreen
 
   &.isDisabled
     background: $lightRed

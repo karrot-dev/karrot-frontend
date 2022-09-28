@@ -70,27 +70,6 @@ export default {
     &:hover
       opacity: 1
 
-      &.fas-after::after
-        opacity: 1
-
-    &.fas-after::after
-      display: inline-block
-      padding-left: 4px
-      font-family: 'Font Awesome 5 Free'
-      font-size: 80%
-      font-weight: 900
-      text-decoration: none
-      opacity: .7
-
-    &.fa-after-external-link::after
-      content: "\F35D"
-
-    &.fa-after-envelope::after
-      content: "\F0E0"
-
-    &.fa-after-phone::after
-      content: "\F095"
-
   p
     margin-bottom: 0.5rem
 

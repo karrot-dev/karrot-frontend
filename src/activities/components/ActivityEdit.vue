@@ -14,7 +14,6 @@
 
     <form
       class="q-gutter-y-lg"
-      style="max-width: 700px"
       @submit.prevent="maybeSave"
     >
       <h3 v-if="activityType && isNew">
@@ -24,6 +23,7 @@
         />
         {{ activityTypeIconProps.title }}
       </h3>
+      <slot />
       <template v-if="canEditDate">
         <div class="row q-mt-xs">
           <QInput
@@ -37,9 +37,6 @@
             class="q-mr-sm"
             @focus="$refs.qStartDateProxy.show()"
           >
-            <template #before>
-              <QIcon name="access_time" />
-            </template>
             <Component
               :is="smallScreen ? 'QDialog' : 'QMenu'"
               ref="qStartDateProxy"
@@ -138,7 +135,7 @@
               </template>
             </QInput>
           </template>
-          <div class="q-ml-lg col-12 q-field__bottom">
+          <div class="col-12 q-field__bottom">
             <div
               v-if="hasError('date')"
               class="text-negative"
@@ -160,8 +157,7 @@
         :error-message="firstError('description')"
         :label="$t('CREATEACTIVITY.COMMENT')"
         :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
-        icon="info"
-        maxlength="500"
+        maxlength="5000"
         :input-style="{ minHeight: 'auto' }"
         mentions
         outlined
@@ -193,6 +189,41 @@
         @maybe-save="maybeSave"
       />
 
+      <template v-if="!series">
+        <QField
+          borderless
+          hide-bottom-space
+        >
+          <QToggle
+            v-model="edit.isPublic"
+            :label="$t('CREATEACTIVITY.MAKE_IT_PUBLIC')"
+          />
+        </QField>
+
+        <QField
+          v-if="edit.isPublic"
+          borderless
+          stack-label
+          bottom-slots
+          label="Banner image"
+        >
+          <template #hint>
+            Tip: You can get free banners images from <a
+              rel="noopener nofollow noreferrer"
+              class="fas-after fa-after-external-link"
+              target="_blank"
+              href="https://www.pexels.com/search/banner/?orientation=landscape"
+            >pexels.com</a>
+          </template>
+          <ImageUpload
+            ref="imageUpload"
+            v-model="edit.bannerImage"
+            :urls="value.bannerImageUrls"
+            class="q-mt-sm"
+          />
+        </QField>
+      </template>
+
       <div
         v-if="hasNonFieldError"
         class="text-negative"
@@ -207,7 +238,7 @@
         />
         <QSpace />
         <QBtn
-          v-if="isNew"
+          v-if="canCancel"
           type="button"
           @click="$emit('cancel')"
         >
@@ -218,7 +249,7 @@
           v-if="!isNew"
           type="button"
           :disable="!hasChanged"
-          @click="reset"
+          @click="doReset"
         >
           {{ $t('BUTTON.RESET') }}
         </QBtn>
@@ -262,6 +293,7 @@
 </template>
 
 <script>
+
 import addDays from 'date-fns/addDays'
 import addSeconds from 'date-fns/addSeconds'
 import differenceInSeconds from 'date-fns/differenceInSeconds'
@@ -285,7 +317,9 @@ import {
   QItem,
   QItemSection,
   QItemLabel,
+  QField,
 } from 'quasar'
+import { defineAsyncComponent } from 'vue'
 
 import activityAPI from '@/activities/api/activities'
 import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
@@ -297,10 +331,12 @@ import statusMixin from '@/utils/mixins/statusMixin'
 import reactiveNow from '@/utils/reactiveNow'
 import { objectDiff } from '@/utils/utils'
 
-import ActivityItem from '@/activities/components/ActivityItem'
 import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog'
 import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
+import ImageUpload from '@/utils/components/ImageUpload'
 import MarkdownInput from '@/utils/components/MarkdownInput'
+
+const ActivityItem = defineAsyncComponent(() => import('@/activities/components/ActivityItem'))
 
 export default {
   name: 'ActivityEdit',
@@ -325,12 +361,18 @@ export default {
     QItem,
     QItemSection,
     QItemLabel,
+    QField,
+    ImageUpload,
   },
   mixins: [editMixin, statusMixin],
   props: {
     series: {
       type: Object,
       default: null,
+    },
+    canCancel: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: [
@@ -452,6 +494,12 @@ export default {
     },
   },
   methods: {
+    doReset () {
+      if (this.$refs.imageUpload) {
+        this.$refs.imageUpload.reset()
+      }
+      this.reset()
+    },
     futureDates (dateString) {
       return date.extractDate(`${dateString} 23:59`, 'YYYY/MM/DD HH:mm') > this.now
     },
@@ -471,20 +519,36 @@ export default {
             users,
           },
         })
-          .onOk(({ updatedMessage }) => {
+          .onOk(async ({ updatedMessage }) => {
             if (updatedMessage) {
-              this.save({ updatedMessage })
+              await this.save({ updatedMessage })
             }
             else {
-              this.save()
+              await this.save()
+            }
+            // reset
+            if (this.$refs.imageUpload) {
+              this.$refs.imageUpload.reset()
+            }
+            // remove any undefined props, otherwise our "is changed" logic will include them
+            // (edit.bannerImage can be set to undefined when it is not present on the original value)
+            for (const key of Object.keys(this.edit)) {
+              if (this.edit[key] === undefined) {
+                delete this.edit[key]
+              }
             }
           })
       }
     },
-    // Overrides mixin method to always provide start date if we have modified end date
+    // Overrides mixin method
     getPatchData () {
       const diff = objectDiff(this.value, this.edit)
+      // Always provide start date if we have modified end date
       if (diff.dateEnd && !diff.date) diff.date = this.edit.date
+      // Have to explicitly set this...
+      if (this.edit.bannerImage === null) {
+        diff.bannerImage = null
+      }
       return diff
     },
     disable () {

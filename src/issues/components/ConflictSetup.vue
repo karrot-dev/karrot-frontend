@@ -58,6 +58,7 @@
           <MarkdownInput
             v-model="initialStatement"
             data-testid="topic"
+            outlined
             @keyup.ctrl.enter="submit"
           />
         </QStep>

@@ -75,9 +75,14 @@
         </template>
       </QSelect>
       <QSpace />
+      <ActivityCreateButton v-if="isEditor" />
       <ICSBtn
         :group="groupId"
         :joined="true"
+        color="secondary"
+        padding="4px 13px"
+        rounded
+        size="sm"
       />
     </div>
     <QInfiniteScroll
@@ -104,17 +109,6 @@
           {{ $t('ACTIVITYLIST.NONE_HINT') }}
         </template>
       </KNotice>
-      <QCard v-if="places.length > 0 || isEditor">
-        <QCardSection>
-          <span v-t="'GROUP.PLACES'" />
-        </QCardSection>
-        <QCardSection>
-          <PlaceList
-            :places="places"
-            link-to="placeActivitiesManage"
-          />
-        </QCardSection>
-      </QCard>
     </template>
     <div
       v-if="hasNoActivitiesDueToFilters"
@@ -148,9 +142,7 @@
 
 <script>
 import {
-  QCard,
   QIcon,
-  QCardSection,
   QItem,
   QItemSection,
   QItemLabel,
@@ -169,18 +161,16 @@ import { usePlaceService } from '@/places/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 
+import ActivityCreateButton from '@/activities/components/ActivityCreateButton.vue'
 import ActivityList from '@/activities/components/ActivityList'
 import ICSBtn from '@/activities/components/ICSBtn'
-import PlaceList from '@/places/components/PlaceList'
 import KNotice from '@/utils/components/KNotice'
 import KSpinner from '@/utils/components/KSpinner'
 
 export default {
   components: {
     ICSBtn,
-    QCard,
     QIcon,
-    QCardSection,
     QInfiniteScroll,
     QSelect,
     QBanner,
@@ -191,7 +181,7 @@ export default {
     ActivityList,
     KNotice,
     KSpinner,
-    PlaceList,
+    ActivityCreateButton,
   },
   setup () {
     const {

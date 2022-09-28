@@ -111,8 +111,7 @@
     </div>
     <div
       v-if="place"
-      class="bg-white q-py-sm q-px-md limit-height cursor-pointer"
-      @click="toggleDetail"
+      class="bg-white q-py-sm q-px-md cursor-pointer"
     >
       <QBtn
         v-if="$q.platform.is.mobile"
@@ -122,59 +121,21 @@
         icon="fas fa-map-marker"
         class="float-right"
       />
-      <Markdown
+      <ShowMore
         v-if="place.description"
-        :source="place.description"
-        mentions
-      />
+        :height="200"
+      >
+        <Markdown
+          :source="place.description"
+          mentions
+        />
+      </ShowMore>
       <div v-else>
         <span class="text-italic">
           {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
         </span>
       </div>
     </div>
-    <QDialog
-      v-model="showDetail"
-    >
-      <QCard>
-        <QToolbar class="bg-primary text-white">
-          <QToolbarTitle v-if="place">
-            <QIcon
-              name="fas fa-info-circle"
-              class="on-left"
-            />
-            <span>{{ place.name }}</span>
-          </QToolbarTitle>
-          <QBtn
-            outline
-            @click="toggleDetail"
-          >
-            <span v-t="'BUTTON.CLOSE'" />
-          </QBtn>
-        </QToolbar>
-        <QCardSection
-          v-if="place"
-        >
-          <Markdown
-            v-if="place.description"
-            :source="place.description"
-            mentions
-          />
-          <div v-else>
-            <span class="text-italic">
-              {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
-            </span>
-          </div>
-          <template v-if="$q.platform.is.mobile">
-            <QSeparator class="q-my-sm" />
-            <StandardMap
-              :markers="markers"
-              class="map"
-            />
-          </template>
-        </QCardSection>
-      </QCard>
-    </QDialog>
   </div>
 </template>
 
@@ -189,11 +150,8 @@ import {
   QItem,
   QItemSection,
   QChip,
-  QDialog,
   QCard,
   QCardSection,
-  QToolbar,
-  QToolbarTitle,
   QIcon,
 } from 'quasar'
 import { computed } from 'vue'
@@ -211,9 +169,11 @@ import ProfilePicture from '@/users/components/ProfilePicture'
 import KSpinner from '@/utils/components/KSpinner'
 import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
+import ShowMore from '@/utils/components/ShowMore'
 
 export default {
   components: {
+    ShowMore,
     Markdown,
     StandardMap,
     RandomArt,
@@ -228,11 +188,8 @@ export default {
     QItem,
     QItemSection,
     QChip,
-    QDialog,
     QCard,
     QCardSection,
-    QToolbar,
-    QToolbarTitle,
     QIcon,
   },
   setup () {
@@ -253,11 +210,6 @@ export default {
       subscribers,
       subscribe,
       unsubscribe,
-    }
-  },
-  data () {
-    return {
-      showDetail: false,
     }
   },
   computed: {
@@ -312,9 +264,6 @@ export default {
       else {
         this.unsubscribe(this.placeId)
       }
-    },
-    toggleDetail () {
-      this.showDetail = !this.showDetail
     },
   },
 }

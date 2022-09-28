@@ -36,6 +36,7 @@ test('create issue', async () => {
     getByTestId,
     findByText,
     findByRole,
+    findAllByRole,
     findByTitle,
     findByTestId,
     getByRole,
@@ -49,7 +50,7 @@ test('create issue', async () => {
   await click(await findByText(otherUser.displayName))
 
   // click to start a conflict!
-  await click(await findByTitle(`Is there a conflict with ${otherUser.displayName}?`))
+  await click(await findByTitle('Start a membership review?'))
 
   // go through the conflict steps
   await click(await findByRole('button', { name: 'Next' })) // so...
@@ -61,7 +62,7 @@ test('create issue', async () => {
   await type(getByTestId('topic'), topic)
   await click(getByRole('button', { name: 'Submit' }))
 
-  await findByText('You successfully started a conflict resolution process')
+  await findByText('You successfully started a membership review')
 
   // then we should be on the issues page where we can discuss...
   expect(router.currentRoute.value.name).toEqual('issueChat')
@@ -82,13 +83,18 @@ test('create issue', async () => {
   // TODO: add mock websockets, for now we need to manually invalidate...
   await require('@/base/queryClient').default.invalidateQueries()
 
-  await findByText(messageContent)
+  await findByText(messageContent, {}, { timeout: 2000 })
 
   // time to vote!
   await click(await findByRole('tab', { name: 'Vote' }))
-  await click(await findByRole('button', { name: 'Vote now' }))
+  const voteNowButtons = await findAllByRole('button', { name: 'Vote now' })
+  const overlayButton = voteNowButtons.find(button => button.type !== 'submit')
+  const submitButton = voteNowButtons.find(button => button.type === 'submit')
+
+  await click(overlayButton)
   // TODO: move the sliders a bit...
-  await click(await findByRole('button', { name: 'Save' }))
+  // ... the second is the submit button
+  await click(submitButton)
 
   await findByText('Your vote was successfully submitted')
 })

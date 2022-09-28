@@ -41,6 +41,10 @@ export default {
       type: Array,
       default: null,
     },
+    scrollWheelZoom: {
+      type: Boolean,
+      default: true,
+    },
   },
   emits: [
     'contextmenu',
@@ -77,7 +81,7 @@ export default {
     },
   },
   mounted () {
-    const leafletMap = map(this.$refs.map)
+    const leafletMap = map(this.$refs.map, { scrollWheelZoom: this.scrollWheelZoom })
 
     tileLayer(this.url, {
       maxZoom: 19,
@@ -96,7 +100,6 @@ export default {
     })
 
     leafletMap.on('contextmenu', event => {
-      console.log('KMap contextmenu!')
       this.$emit('contextmenu', event)
     })
 

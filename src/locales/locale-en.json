@@ -56,7 +56,7 @@
         "TITLE": "Transparency"
       },
       "TRUST": {
-        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is a conflict, the group can enter a voting system to resolve it in a communal way.",
+        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is the need to review someone's membership, the group can enter a voting system to resolve it in a communal way.",
         "TITLE": "Democratic and trust-based group management"
       }
     },
@@ -93,6 +93,13 @@
       "DOWNLOAD_ICS": "Download ICS"
     },
     "OPEN_FOR_ROLE": "Open for {role}",
+    "PUBLIC": {
+      "WHAT": "What",
+      "WHEN": "When",
+      "WHERE": "Where",
+      "SHARE": "Public activity link",
+      "VIEW": "Public View"
+    },
     "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
     "NONE": "No upcoming activities",
     "NONE_DUE_TO_FILTER": "No activities match your filters",
@@ -100,7 +107,7 @@
     "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page.",
     "ICS_DIALOG": {
       "TITLE": "Add to calendar",
-      "INTRO": "Add your activities to your calendar by using one of the following options:",
+      "INTRO": "Add these activities to your calender:",
       "DOWNLOAD_TITLE": "Download",
       "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
       "DOWNLOAD_BUTTON_LABEL": "Download ICS",
@@ -255,7 +262,8 @@
     "UNSUBSCRIBE": "Unsubscribe",
     "WITHDRAW": "Withdraw",
     "YES": "Yes",
-    "READ_MORE": "Read more"
+    "READ_MORE": "Read more",
+    "GO_TO_GROUP": "Go to group"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Updates from the {community}",
@@ -266,29 +274,28 @@
   "CONFLICT": {
     "FIND_OUT_MORE": "Find out more!",
     "INFO": {
-      "MESSAGE": "This is a score voting in which group members can participate to determine how to deal with a social conflict that affects the whole group.",
-      "TITLE": "How does this process work?"
+      "MESSAGE": "This is a score voting in which all group members can participate to determine someone's membership."
     },
     "INITIAL": "Information",
     "REQUIREMENTS": {
-      "NEWCOMER": "Before you can start a conflict resolution process, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+      "NEWCOMER": "Before you can start a membership review, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
     },
-    "SETUP_HEADER": "Is there a conflict with {user}?",
+    "SETUP_HEADER": "Start a membership review?",
     "STATEMENT": "Statement",
-    "STEPPER1a": "You are about to start a group-wide conflict resolution process!",
-    "STEPPER1b": "This will involve all members to find the best way to proceed.",
+    "STEPPER1a": "You are about to start a group-wide membership review to decide whether {userName} should continue as a member of the group",
+    "STEPPER1b": "This will be open for all group members to participate.",
     "STEPPER2a": "Thank you for caring for your community!",
-    "STEPPER2b": "It is important to address social issues, although it can be unpleasant sometimes. Thank you for your courage!",
+    "STEPPER2b": "For a group it is important to practise honest communication and address any issues.",
     "STEPPER3a": "Here's what will happen:",
     "STEPPER3b": "This process will start a chat and a vote.",
-    "STEPPER3c": "The chat will be visible for members and includes {userName}.",
+    "STEPPER3c": "The chat will be visible for all group members and includes {userName}.",
     "STEPPER3d": "The voting is anonymous. It will go on for {votingDuration} days. During this time all voters can change their minds and vote differently as many times as they want.",
-    "STEPPER4a": "Please explain why you are starting this conflict resolution process!",
-    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members.",
+    "STEPPER4a": "Please explain why you are starting this process!",
+    "STEPPER4b": "Tell your group what made you think this is justified and needed. This statement will be visible to {userName} and group members.",
     "VOTING": {
-      "HEADLINE": "How do you want to proceed with the ongoing conflict with {userName}?"
+      "HEADLINE": "How do you want to proceed with the ongoing membership review of {userName}?"
     },
-    "WITH": "This process is to resolve a conflict with {userName}"
+    "WITH": "This process is to review the membership of {userName}"
   },
   "CONVERSATION": {
     "CLOSED": "This conversation has been closed automatically.",
@@ -312,6 +319,8 @@
     "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
+    "CREATE_SUCCESS": "Activity successfully created!",
+    "ONE_TIME_ACTIVITY": "One-time activity",
     "ADD_PARTICIPANT_TYPE": "Add participant type",
     "COMMENT": "Additional information",
     "COMMENT_HELPER": "What should people know when signing up to this?",
@@ -324,6 +333,7 @@
     "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
     "EXCEPTIONS_TITLE": "Check your activities",
     "FREQUENCY": "Frequency",
+    "MAKE_IT_PUBLIC": "Make it public",
     "MAX_PARTICIPANTS": "Max Slots",
     "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
     "REMOVE_PARTICIPANT_TYPE": "Remove participant type",
@@ -340,7 +350,14 @@
     "USE_PARTICIPANT_TYPES": "Use participant types",
     "WEEKDAYS": "Weekdays",
     "WEEKDAYS_HELPER": "On which days should it take place?",
-    "WEEKLY": "Weekly"
+    "WEEKLY": "Weekly",
+    "PLACE": "Choose a place"
+  },
+  "EDIT_ACTIVITY": {
+    "TITLE": "What do you want to edit?",
+    "ONLY_ACTIVITY": "This activity",
+    "SERIES": "Activities in this series",
+    "MANAGE": "Manage activites in {place}"
   },
   "CREATESTORE": {
     "TITLE": "Create a new place"
@@ -432,8 +449,8 @@
     "NOTIFICATIONS_BY_GROUP": "Notifications by group",
     "NOTIFICATION_TYPES": {
       "conflict_resolution": {
-        "DESCRIPTION": "Tells you when a new conflict resolution process has been started in your group",
-        "NAME": "New conflict resolution processes"
+        "DESCRIPTION": "Tells you when a new membership review has been started in your group",
+        "NAME": "New membership review"
       },
       "daily_activity_notification": {
         "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
@@ -519,6 +536,10 @@
     "PLACE_TYPE_CREATE": "created a place type",
     "PLACE_TYPE_MODIFY": "modified a place type"
   },
+  "IMAGE_UPLOAD": {
+    "SELECT": "Select image",
+    "CLEAR": "Clear image"
+  },
   "INACTIVITY": {
     "HELP": "Everyone who did not log into the group for {dayCount} days or more counts as inactive. These users will not receive notification emails anymore.",
     "WHAT": "What does it mean to be inactive?"
@@ -532,29 +553,31 @@
     },
     "CHAT": "Chat",
     "CREATION": {
-      "TOAST": "You successfully started a conflict resolution process"
+      "TOAST": "You successfully started a membership review"
     },
+    "NOTICE": "There is an ongoing issue! | There are {count} ongoing issues!",
     "NO_ONGOING": "No ongoing issues.",
-    "PARTICIPANTS": "{count} members have been added to this discussion.",
+    "PARTICIPANTS": "{count} members are in this discussion.",
     "PAST": "Past issues",
     "PREVIOUS_VOTINGS": "Previous votings in this issue",
     "TITLE": "Issues",
     "VOTE": "Vote",
     "VOTING": {
       "ANONYMOUS": "Your vote will be anonymous.",
+      "DECIDE": "Decide your level of support for each proposal.",
       "BTN_DELETE": "Delete vote",
       "BTN_START": "Vote now",
       "FURTHER_DISCUSSION": "Further discussion: extend time by starting another voting",
       "NO_CHANGE": "No change: {userName} stays in {groupName}",
-      "REMOVE_USER": "{userName} gets removed from {groupName}",
+      "REMOVE_USER": "Membership ends and {userName} gets removed from {groupName}",
       "RESULTS": {
         "ENDED_AT": "This voting round ended on {date}",
         "KEEP_DISCUSSING": "Your group voted to keep discussing",
         "PARTICIPANTS": "{number} members participated in the voting.",
         "TIME_UP": "Time is up!",
         "TOTAL_SCORE": "Total score",
-        "UNDECIDED": "Unfortunately this conflict could not be decided.",
-        "UNDECIDED_REASON_1": "the affected user left the group while the conflict resolution process was still ongoing",
+        "UNDECIDED": "Unfortunately this membership review could not be decided.",
+        "UNDECIDED_REASON_1": "the affected user left the group while the membership review was still ongoing",
         "UNDECIDED_REASON_2": "nobody voted on this issue",
         "UNDECIDED_WHY": "There are two possible reasons for that:"
       },
@@ -626,12 +649,12 @@
     "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
     "APPLICATION_ACCEPTED": "Your application was accepted!",
     "APPLICATION_DECLINED": "Your application was declined",
-    "CONFLICT_RESOLUTION_CONTINUED": "The conflict resolution process with {userName} continues",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "The conflict resolution process with you continues",
-    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a conflict with {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A conflict resolution process was started with you",
-    "CONFLICT_RESOLUTION_DECIDED": "The conflict resolution process with {userName} was decided",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "The conflict resolution process with you was decided",
+    "CONFLICT_RESOLUTION_CONTINUED": "The membership review of {userName} continues",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Your membership review continues",
+    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a membership review of {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A review of your membership was started",
+    "CONFLICT_RESOLUTION_DECIDED": "The membership review of {userName} was decided",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Your membership was decided",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "You were removed from the group",
     "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName} accepted your invitation",
@@ -723,6 +746,16 @@
     "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
+  "PLACE_LIST": {
+    "ONLY_FAVOURITES": "Only favourite",
+    "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
+    "SUBSCRIBED": "You have marked this place as favorite",
+    "FAVORITE_PLACES": "Favorite places",
+    "NONE_DUE_TO_FILTER": "No places match your filters",
+    "ALL_TYPES": "All types",
+    "ALL_STATUSES": "All statuses",
+    "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then click { icon } on one of them."
+  },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} people have marked this place as favourite",
     "SUBSCRIPTION": {
@@ -801,7 +834,6 @@
     },
     "NAME": "Name",
     "RESTORE": "Restore",
-    "SHOW_ACTIVE_ONLY": "Only show active places",
     "SHOW_ALL": "Show all places",
     "STATUS": "Status",
     "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",

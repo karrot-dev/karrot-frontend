@@ -3,6 +3,7 @@
     v-bind="mapProps"
     :show-attribution="showAttribution"
     :padding-top-left="paddingTopLeft"
+    :scroll-wheel-zoom="scrollWheelZoom"
     @moveend="event => $emit('map-move-end', event.target)"
     @update:zoom="updateZoom"
     @map-click="mapClick"
@@ -85,6 +86,10 @@ export default {
     paddingTopLeft: {
       type: Array,
       default: null,
+    },
+    scrollWheelZoom: {
+      type: Boolean,
+      default: true,
     },
   },
   emits: [

@@ -1,21 +1,35 @@
 import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertConversation } from '@/messages/api/conversations'
 import { absoluteURL } from '@/utils/absoluteURL'
-import { underscorizeKeys } from '@/utils/utils'
+import { toFormData, underscorizeKeys } from '@/utils/utils'
 
 export default {
 
   async create (activity) {
-    return convert((await axios.post('/api/activities/', convertDateToRange(activity))).data)
+    return convert((await axios.post('/api/activities/', await toFormData(convertDateToRange(activity)))).data)
   },
 
   async get (activityId) {
     return convert((await axios.get(`/api/activities/${activityId}/`)).data)
   },
 
+  async getByPublicId (activityPublicId) {
+    return convert((await axios.get(`/api/public-activities/${activityPublicId}/`)).data)
+  },
+
   async list (filter) {
     const params = filter || { dateMin: new Date() }
     const response = (await axios.get('/api/activities/', { params: underscorizeKeys(params) })).data
+    return {
+      ...response,
+      next: parseCursor(response.next),
+      results: convert(response.results),
+    }
+  },
+
+  async listPublic (filter) {
+    const params = filter || { dateMin: new Date() }
+    const response = (await axios.get('/api/public-activities/', { params: underscorizeKeys(params) })).data
     return {
       ...response,
       next: parseCursor(response.next),
@@ -46,6 +60,13 @@ export default {
     })
   },
 
+  publicIcsUrl (filter) {
+    return axios.getUri({
+      params: filter,
+      url: absoluteURL('/api/public-activities/ics/'),
+    })
+  },
+
   async getICSAuthToken () {
     return (await axios.get('/api/activities/ics_token/')).data
   },
@@ -55,7 +76,7 @@ export default {
   },
 
   async save (activity) {
-    return convert((await axios.patch(`/api/activities/${activity.id}/`, convertDateToRange(activity))).data)
+    return convert((await axios.patch(`/api/activities/${activity.id}/`, await toFormData(convertDateToRange(activity)))).data)
   },
 
   async checkSave (activity) {

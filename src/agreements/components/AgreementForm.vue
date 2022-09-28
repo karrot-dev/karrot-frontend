@@ -175,6 +175,10 @@ export default {
       }),
     },
   },
+  emits: [
+    'save',
+    'cancel',
+  ],
   setup () {
     return {
       v$: useVuelidate(),

@@ -49,7 +49,7 @@ export function placeMarker (place) {
   return {
     latLng: { lat: place.latitude, lng: place.longitude },
     id: 'place_' + place.id,
-    fontIcon: getPlaceTypeById(place.placeType).icon,
+    fontIcon: getPlaceTypeById(place.placeType)?.icon || 'fas fa-map-marker',
     color: optionsFor(place).color,
     popup: {
       component: markRaw(PlaceMarker),

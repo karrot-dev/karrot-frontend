@@ -17,6 +17,7 @@ export const queryKeyActivityItem = activityId => [QUERY_KEY_BASE, 'activity', '
 export const queryKeyPublicActivityItem = activityPublicId => [QUERY_KEY_BASE, 'public-activity', 'item', activityPublicId].filter(Boolean)
 export const queryKeyActivityTypeListAll = () => [QUERY_KEY_BASE, 'types']
 export const queryKeyActivitySeriesList = placeId => [QUERY_KEY_BASE, 'series', 'list', placeId].filter(Boolean)
+export const queryKeyActivitySeriesItem = id => [QUERY_KEY_BASE, 'series', 'item', id].filter(Boolean)
 export const queryKeyActivityIcsToken = () => [QUERY_KEY_BASE, 'ics-token']
 
 const invalidateActivityList = debounce(queryClient => queryClient.invalidateQueries(queryKeyActivityList()), 500)
@@ -210,6 +211,20 @@ export function useActivitySeriesListQuery ({ placeId }) {
     () => activitySeriesAPI.listByPlaceId(unref(placeId)),
     {
       enabled: computed(() => Boolean(unref(placeId))),
+    },
+  )
+  return {
+    ...query,
+    activitySeries: query.data,
+  }
+}
+
+export function useActivitySeriesItemQuery ({ id, enabled }) {
+  const query = useQuery(
+    queryKeyActivitySeriesItem(id),
+    () => activitySeriesAPI.get(unref(id)),
+    {
+      enabled: computed(() => Boolean(unref(id)) && unref(enabled)),
     },
   )
   return {

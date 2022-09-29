@@ -95,7 +95,7 @@
         rounded
         size="sm"
         unelevated
-        :title="$t('BUTTON.CREATE')"
+        :title="$t('CREATESTORE.TITLE')"
         :to="{ name: 'placeCreate', params: { groupId } }"
       />
     </div>
@@ -145,6 +145,7 @@
             <QSeparator />
             <QCardActions
               style="height: 42px"
+              class="row no-wrap"
             >
               <RouterLink
                 :to="{ name: 'placeWall', params: { placeId: place.id }}"

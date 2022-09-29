@@ -79,11 +79,11 @@ describe('GroupActivities', () => {
   })
 
   it('can filter by activity type', async () => {
-    const { findByText, queryByText } = render(GroupActivities, withDefaults())
+    const { findByText, queryByText, debug } = render(GroupActivities, withDefaults())
 
     const activityType = realSample(activityTypes)
     await fireEvent.click(await findByText('All types'))
-    await fireEvent.click(await findByText(activityType.name))
+    await fireEvent.click(await findByText(activityType.name, {}, { timeout: 2000 }))
 
     await flushPromises() // give it a moment to update
 
@@ -99,6 +99,10 @@ describe('GroupActivities', () => {
 
     for (const activity of otherActivities) {
       const re = new RegExp(activity.description.split('\n').join('.*'))
+      if (queryByText(re)) {
+        debug()
+        console.log(activity)
+      }
       expect(queryByText(re)).not.toBeInTheDocument()
     }
   })

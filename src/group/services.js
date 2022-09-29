@@ -68,6 +68,7 @@ export const useCurrentGroupService = defineService(() => {
   const isGeneralPurpose = computed(() => theme.value === 'general')
   const isBikeKitchen = computed(() => theme.value === 'bikekitchen')
   const isEditor = computed(() => getIsEditor(userId.value))
+  // TODO overlaps with group.roles, maybe rename to authUserRoles?
   const roles = computed(() => getUserRoles(userId.value))
 
   // methods

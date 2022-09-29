@@ -99,7 +99,7 @@
             :membership="currentGroupMembership"
           />
           <ApproveButton
-            v-if="currentGroupMembership && currentGroup.roles.includes('approved')"
+            v-if="currentGroupMembership && currentGroup.roles.approved"
             :user="user"
             :membership="currentGroupMembership"
           />

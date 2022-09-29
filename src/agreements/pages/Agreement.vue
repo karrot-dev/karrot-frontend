@@ -117,7 +117,19 @@
         <div class="text-caption q-mb-md">
           {{ $t('AGREEMENT.CONTENT') }}
         </div>
-        <Markdown :source="agreement.content" />
+        <Markdown
+          :source="agreement.content"
+        />
+      </QCardSection>
+    </QCard>
+    <QCard v-if="history.length > 0">
+      <QCardSection>
+        <div class="text-caption q-mb-md">
+          {{ $t('GROUP.HISTORY') }}
+        </div>
+        <HistoryList
+          :history="history"
+        />
       </QCardSection>
     </QCard>
   </div>
@@ -140,13 +152,16 @@ import { computed } from 'vue'
 import { useAgreementHelpers } from '@/agreements/helpers'
 import { useActiveAgreementService } from '@/agreements/services'
 import { useCurrentGroupService } from '@/group/services'
+import { useHistoryListQuery } from '@/history/queries'
 import { useUserService } from '@/users/services'
 
+import HistoryList from '@/history/components/HistoryList'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import KSpinner from '@/utils/components/KSpinner'
 import Markdown from '@/utils/components/Markdown'
 
 const {
+  agreementId,
   agreement,
   isLoading,
 } = useActiveAgreementService()
@@ -160,6 +175,8 @@ const isActive = computed(() => agreement.value && getAgreementIsActive(agreemen
 const { isEditor } = useCurrentGroupService()
 
 const lastChangedBy = computed(() => agreement.value?.lastChangedBy && getUserById(agreement.value.lastChangedBy))
+
+const { history } = useHistoryListQuery({ agreementId })
 
 </script>
 

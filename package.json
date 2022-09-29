@@ -55,6 +55,8 @@
     "date-fns": "^2.28.0",
     "deep-equal": "^2.0.5",
     "deepmerge": "^4.2.2",
+    "diff": "^5.1.0",
+    "diff2html": "^3.4.19",
     "element-closest": "^3.0.0",
     "firebase": "^9.9.0",
     "floating-vue": "^2.0.0-beta.17",

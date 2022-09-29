@@ -515,7 +515,9 @@
     "STORE_MODIFY": "changed the settings of place {name}",
     "USER_LOST_EDITOR_ROLE": "lost editing permissions",
     "PLACE_TYPE_CREATE": "created a place type",
-    "PLACE_TYPE_MODIFY": "modified a place type"
+    "PLACE_TYPE_MODIFY": "modified a place type",
+    "AGREEMENT_CREATE": "agreement created",
+    "AGREEMENT_MODIFY": "agreement modified"
   },
   "IMAGE_UPLOAD": {
     "SELECT": "Select image",

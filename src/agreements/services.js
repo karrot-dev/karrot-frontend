@@ -11,6 +11,7 @@ export const useActiveAgreementService = defineService(() => {
   } = useAgreementItemQuery({ agreementId })
 
   return {
+    agreementId,
     agreement,
     isLoading,
   }

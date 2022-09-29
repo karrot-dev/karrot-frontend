@@ -1,13 +1,26 @@
 import { computed, unref } from 'vue'
-import { useInfiniteQuery, useQuery } from 'vue-query'
+import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
 import api from '@/agreements/api/agreements'
 import { paginationHelpers } from '@/messages/queries'
+import { useSocketEvents } from '@/utils/composables'
 import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
 
 export const QUERY_KEY_BASE = 'agreements'
 export const queryKeyAgreementList = params => [QUERY_KEY_BASE, 'list', params].filter(Boolean)
 export const queryKeyAgreementItem = agreementId => [QUERY_KEY_BASE, 'item', agreementId].filter(Boolean)
+
+/**
+ * Handler for socket updates
+ */
+export function useAgreementsUpdater () {
+  const queryClient = useQueryClient()
+  const { on } = useSocketEvents()
+  on('agreements:agreement', async agreement => {
+    // TODO: slighty more optimal one would be directly update matching item query
+    await queryClient.invalidateQueries([QUERY_KEY_BASE])
+  })
+}
 
 export function useAgreementListQuery ({
   groupId,

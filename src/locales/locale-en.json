@@ -193,7 +193,13 @@
     "ACTIVE_FROM": "Active From",
     "ACTIVE_TO": "Active To",
     "REVIEW_AT": "Review Date",
-    "VIEW": "View agreement"
+    "VIEW": "View agreement",
+    "ONLY_ACTIVE": "Only active",
+    "ACTIVE": "Active",
+    "INACTIVE": "Inactive",
+    "REVIEW_DATE_INFO": "Review date {date}",
+    "SINCE_INFO": "Since {date}",
+    "BECOMES_ACTIVE_INFO": "Becomes active {date}"
   },
   "APPLICATION": {
     "ACCEPTED": "You accepted {userName} into this group!",
@@ -370,7 +376,8 @@
     "SEARCH_NOT_FOUND": "Not Found",
     "SEARCH_RESULTS": "Search results",
     "SERVER_ERROR": "Server error",
-    "CLEAR_FILTERS": "Clear filters"
+    "CLEAR_FILTERS": "Clear filters",
+    "LAST_CHANGED_BY": "Last changed by"
   },
   "GROUP": {
     "ACTIVITIES": "Activities",
@@ -497,6 +504,7 @@
     "CONFIRM_CHANGES": "Confirm changes?",
     "CONFIRM_CHANGES_HINT": "You can write a message here to explain your changes that will be displayed in the history",
     "DETAILS": "More information",
+    "CONTENT_CHANGES": "Content Changes",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
     "GROUP_CREATE": "created this group",
     "GROUP_DELETE_PHOTO": "deleted the group logo",

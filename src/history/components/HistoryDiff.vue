@@ -8,7 +8,7 @@
         />
       </QItemSection>
       <QItemSection>
-        Content Changes
+        {{ $t('HISTORY.CONTENT_CHANGES') }}
       </QItemSection>
     </QItem>
     <div

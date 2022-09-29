@@ -4,7 +4,7 @@
   >
     <QCheckbox
       v-model="onlyActive"
-      label="Only active"
+      :label="$t('AGREEMENT.ONLY_ACTIVE')"
     />
     <QSpace />
     <QBtnToggle
@@ -13,16 +13,10 @@
         {
           value: true,
           icon: 'fas fa-th-large',
-          attrs: {
-            'aria-label': 'Grid',
-          }
         },
         {
           value: false,
           icon: 'fas fa-list',
-          attrs: {
-            'aria-label': 'Table',
-          }
         },
       ]"
       flat
@@ -89,7 +83,7 @@
                 color="secondary"
                 text-color="white"
               >
-                Active
+                {{ $t('AGREEMENT.ACTIVE') }}
               </QChip>
               <QChip
                 v-else
@@ -98,7 +92,7 @@
                 color="grey"
                 text-color="white"
               >
-                Inactive
+                {{ $t('AGREEMENT.INACTIVE') }}
               </QChip>
               <QSpace />
               <QChip
@@ -106,7 +100,13 @@
                 square
                 size="sm"
               >
-                Review date <strong class="q-pl-xs">{{ $d(agreement.reviewAt, 'yearMonthDayNumeric') }}</strong>
+                <i18n-t
+                  keypath="AGREEMENT.REVIEW_DATE_INFO"
+                >
+                  <template #date>
+                    <strong class="q-pl-xs">{{ $d(agreement.reviewAt, 'yearMonthDayNumeric') }}</strong>
+                  </template>
+                </i18n-t>
               </QChip>
             </QCardActions>
           </QCard>
@@ -152,7 +152,7 @@ import Markdown from '@/utils/components/Markdown.vue'
 
 const router = useRouter()
 
-const { d } = useI18n()
+const { t, d } = useI18n()
 
 const grid = useSessionStorage('agreements/grid', true)
 const onlyActive = useSessionStorage('agreements/only-active', true)
@@ -184,32 +184,32 @@ const columns = computed(() => {
   return [
     {
       name: 'title',
-      label: 'Title',
+      label: t('AGREEMENT.TITLE'),
       field: 'title',
       align: 'left',
     },
     {
       name: 'summary',
-      label: 'Summary',
+      label: t('AGREEMENT.SUMMARY'),
       field: agreement => agreement.summary || agreement.content, // TODO: limit, either here or in style...
       align: 'left',
       style: 'max-width: 200px; text-overflow: ellipsis; overflow: hidden;',
     },
     {
       name: 'activeFrom',
-      label: 'Active From',
+      label: t('AGREEMENT.ACTIVE_FROM'),
       field: agreement => d(agreement.activeFrom, 'yearMonthDayNumeric'),
       align: 'left',
     },
     {
       name: 'activeTo',
-      label: 'Active To',
+      label: t('AGREEMENT.ACTIVE_TO'),
       field: agreement => agreement.activeTo && d(agreement.activeTo, 'yearMonthDayNumeric'),
       align: 'left',
     },
     {
       name: 'reviewAt',
-      label: 'Review Date',
+      label: t('AGREEMENT.REVIEW_AT'),
       field: agreement => agreement.reviewAt && d(agreement.reviewAt, 'yearMonthDayNumeric'),
       align: 'left',
     },

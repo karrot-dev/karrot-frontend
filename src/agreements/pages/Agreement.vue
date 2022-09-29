@@ -26,10 +26,10 @@
             </QItemSection>
             <QItemSection>
               <QItemLabel>
-                <strong>Active</strong>
+                <strong>{{ $t('AGREEMENT.ACTIVE') }}</strong>
               </QItemLabel>
               <QItemLabel caption>
-                since {{ $d(agreement.activeFrom, 'yearMonthDay') }}
+                {{ $t('AGREEMENT.SINCE_INFO', { date: $d(agreement.activeFrom, 'yearMonthDay') }) }}
               </QItemLabel>
             </QItemSection>
           </QItem>
@@ -46,9 +46,10 @@
               <QItemLabel caption>
                 <template v-if="agreement.activeTo && agreement.activeTo <= new Date()">
                   since {{ $d(agreement.activeTo, 'yearMonthDay') }}
+                  {{ $t('AGREEMENT.SINCE_INFO', { date: $d(agreement.activeTo, 'yearMonthDay') }) }}
                 </template>
                 <template v-else-if="agreement.activeFrom >= new Date()">
-                  becomes active {{ $d(agreement.activeFrom, 'yearMonthDay') }}
+                  {{ $t('AGREEMENT.BECOMES_ACTIVE_INFO', { date: $d(agreement.activeFrom, 'yearMonthDay') }) }}
                 </template>
               </QItemLabel>
             </QItemSection>
@@ -61,7 +62,7 @@
             </QItemSection>
             <QItemSection>
               <QItemLabel caption>
-                Review date
+                {{ $t('AGREEMENT.REVIEW_AT') }}
               </QItemLabel>
               <QItemLabel>
                 {{ $d(agreement.reviewAt, 'yearMonthDay') }}
@@ -76,7 +77,7 @@
             </QItemSection>
             <QItemSection>
               <QItemLabel caption>
-                Last changed by
+                {{ $t('GLOBAL.LAST_CHANGED_BY') }}
               </QItemLabel>
               <QItemLabel>
                 <RouterLink :to="{ name: 'user', params: { userId: lastChangedBy.id } }">
@@ -89,12 +90,6 @@
                     {{ lastChangedBy.displayName }}
                   </strong>
                 </RouterLink>
-                <!--
-                <ProfileChip
-                  :user="lastChangedBy"
-                  style="margin-left: -3px;"
-                />
-                -->
               </QItemLabel>
             </QItemSection>
           </QItem>

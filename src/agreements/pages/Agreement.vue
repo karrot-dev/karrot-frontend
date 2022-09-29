@@ -45,7 +45,6 @@
               </QItemLabel>
               <QItemLabel caption>
                 <template v-if="agreement.activeTo && agreement.activeTo <= new Date()">
-                  since {{ $d(agreement.activeTo, 'yearMonthDay') }}
                   {{ $t('AGREEMENT.SINCE_INFO', { date: $d(agreement.activeTo, 'yearMonthDay') }) }}
                 </template>
                 <template v-else-if="agreement.activeFrom >= new Date()">
@@ -109,11 +108,12 @@
     </QCard>
     <QCard>
       <QCardSection>
-        <div class="text-caption q-mb-md">
+        <div class="text-caption">
           {{ $t('AGREEMENT.CONTENT') }}
         </div>
         <Markdown
           :source="agreement.content"
+          class="q-pa-lg"
         />
       </QCardSection>
     </QCard>

@@ -72,4 +72,7 @@ const patches = computed(() => {
   ::v-deep(.d2h-file-header)
     display: none
 
+  ::v-deep(..d2h-file-wrapper)
+    border: none
+
 </style>

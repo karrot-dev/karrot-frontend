@@ -272,7 +272,10 @@ export default {
     visiblePayloadEntries () {
       const { payload } = this.entry
       if (!payload) return []
+      // If we have change data, don't also show it here...
+      const excludeKeys = this.entry.changes ? Object.keys(this.entry.changes) : []
       return Object.keys(payload)
+        .filter(key => !excludeKeys.includes(key))
         .map(key => ({ key, value: payload[key] }))
         .filter(({ key, value }) => (
           // Special handling for these in HistoryPayloadDetail

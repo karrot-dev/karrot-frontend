@@ -26,7 +26,9 @@
             {{ patch.field }}
           </template>
         </div>
+        <!-- eslint-disable vue/no-v-html -->
         <div v-html="patch.html" />
+        <!-- eslint-enable vue/no-v-html -->
       </div>
     </div>
   </QList>

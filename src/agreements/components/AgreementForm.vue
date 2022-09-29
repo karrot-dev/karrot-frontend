@@ -103,10 +103,7 @@ import {
   QIcon,
   QInput,
   QBtn,
-  QDialog,
   date,
-  QMenu,
-  QDate,
 } from 'quasar'
 
 import editMixin from '@/utils/mixins/editMixin'
@@ -122,9 +119,6 @@ export default {
     QIcon,
     QInput,
     QBtn,
-    QDialog,
-    QMenu,
-    QDate,
     MarkdownInput,
   },
   mixins: [editMixin, statusMixin],

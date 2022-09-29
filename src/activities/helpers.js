@@ -53,7 +53,7 @@ export function useActivityHelpers () {
       value: 'newcomer',
       description: t('ROLES.NEWCOMER_DESCRIPTION'),
     },
-    ...(group.value.roles.approved
+    ...(group.value?.roles.approved
       ? [{
           label: group.value.roles.approved.displayName,
           value: 'approved',

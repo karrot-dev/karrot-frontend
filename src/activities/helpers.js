@@ -2,10 +2,12 @@ import { useI18n } from 'vue-i18n'
 
 import { useAuthService } from '@/authuser/services'
 import icons from '@/base/icons'
+import { useCurrentGroupService } from '@/group/services'
 import reactiveNow from '@/utils/reactiveNow'
 
 export function useActivityHelpers () {
   const { userId } = useAuthService()
+  const { group } = useCurrentGroupService()
   const { t } = useI18n()
 
   function getIsUserParticipant (activity, participantType = null) {
@@ -51,13 +53,13 @@ export function useActivityHelpers () {
       value: 'newcomer',
       description: t('ROLES.NEWCOMER_DESCRIPTION'),
     },
-    /* Not adding this role yet until we have a way to trust for a specific role...
-    {
-      label: t('ROLES.APPROVED'),
-      value: 'approved',
-      description: t('ROLES.NEWCOMER_DESCRIPTION'),,
-    },
-     */
+    ...(group.value?.roles.approved
+      ? [{
+          label: group.value.roles.approved.displayName,
+          value: 'approved',
+          description: group.value.roles.approved.description,
+        }]
+      : []),
     {
       label: t('ROLES.EDITOR'),
       value: 'editor',

@@ -49,6 +49,9 @@ export function useHistoryHelpers () {
         applicantName: history.payload.applicantName,
       })
     }
+    else if (history.typus === 'MEMBER_GOT_ROLE') {
+      msgValues.role = history.payload.role.displayName || history.payload.role.name
+    }
 
     return t(`HISTORY.${history.typus}`, msgValues)
   }

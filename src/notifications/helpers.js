@@ -56,6 +56,12 @@ export function useNotificationHelpers () {
           activityType: getActivityTypeName(),
         }
       }
+      case 'user_got_role':
+      case 'you_got_role':
+        return {
+          role: context.role,
+          userName: getUserById(context.user).displayName,
+        }
     }
 
     return {
@@ -95,6 +101,8 @@ export function useNotificationHelpers () {
         return 'fas fa-address-card'
       case 'user_became_editor':
       case 'you_became_editor':
+      case 'user_got_role':
+      case 'you_got_role':
         return 'fas fa-angle-double-up'
       case 'activity_moved':
       case 'voting_ends_soon':
@@ -114,6 +122,8 @@ export function useNotificationHelpers () {
   function getRouteTo (type, { group: groupId, user: userId, place: placeId, activity, issue, history: historyId, url } = {}) {
     switch (type) {
       case 'user_became_editor':
+      case 'user_got_role':
+      case 'you_got_role':
       case 'invitation_accepted':
       case 'new_member':
         return { name: 'userInGroup', params: { userId, groupId } }

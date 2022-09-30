@@ -23,6 +23,7 @@ export function generateGroup (params = {}) {
     timezone: faker.address.timeZone(),
     status: 'active',
     theme: 'foodsaving',
+    roles: {},
     features: [
       'offers',
     ],

@@ -56,7 +56,7 @@
         class="profile-info relative-position q-pt-sm"
       >
         <div
-          class="user-actions z-max"
+          class="user-actions z-fab"
         >
           <QBtn
             v-if="isCurrentUser"
@@ -95,6 +95,11 @@
           />
           <TrustButton
             v-if="currentGroupMembership"
+            :user="user"
+            :membership="currentGroupMembership"
+          />
+          <ApproveButton
+            v-if="currentGroupMembership && currentGroup.roles.approved"
             :user="user"
             :membership="currentGroupMembership"
           />
@@ -229,6 +234,7 @@ import { useActiveUserService } from '@/users/services'
 
 import HistoryList from '@/history/components/HistoryList'
 import UserMapPreview from '@/maps/components/UserMapPreview'
+import ApproveButton from '@/users/components/ApproveButton.vue'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import SwitchGroupButton from '@/users/components/SwitchGroupButton'
 import TrustButton from '@/users/components/TrustButton'
@@ -245,6 +251,7 @@ export default {
     UserMapPreview,
     ProfilePicture,
     TrustButton,
+    ApproveButton,
     SwitchGroupButton,
     ConflictSetup,
     QCard,
@@ -263,6 +270,7 @@ export default {
       group,
       getMembership,
       isEditor,
+      authUserRoles,
     } = useCurrentGroupService()
     const { getGroupById } = useGroupInfoService()
 
@@ -302,6 +310,7 @@ export default {
     } = useCreateIssueMutation()
 
     return {
+      authUserRoles,
       ongoingIssues,
       isCurrentUser,
       currentGroup: group,
@@ -351,6 +360,16 @@ export default {
         return [this.$t('CONFLICT.REQUIREMENTS.NEWCOMER')]
       }
       return []
+    },
+    canApprove () {
+      const role = this.currentGroup.roles.approved
+      if (!role) return false
+      return (
+        // Either no requirement...
+        !role.roleRequiredForTrust ||
+        // ... or auth user meets the requirement
+        this.authUserRoles.includes(role.roleRequiredForTrust)
+      )
     },
   },
   methods: {

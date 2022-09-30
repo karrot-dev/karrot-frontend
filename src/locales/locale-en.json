@@ -533,6 +533,7 @@
     "USER_LOST_EDITOR_ROLE": "lost editing permissions",
     "PLACE_TYPE_CREATE": "created a place type",
     "PLACE_TYPE_MODIFY": "modified a place type",
+    "MEMBER_GOT_ROLE": "received role: {role}",
     "AGREEMENT_CREATE": "agreement created",
     "AGREEMENT_MODIFY": "agreement modified"
   },
@@ -662,6 +663,8 @@
     "NEW_MEMBER": "{userName} joined your group",
     "NEW_PLACE": "{placeName} has been created",
     "USER_BECAME_EDITOR": "{userName} gained editing permissions",
+    "USER_GOT_ROLE": "{userName} received role: {role}",
+    "YOU_GOT_ROLE": "You received role: {role}!",
     "VOTING_ENDS_SOON": "Voting ends soon, don't forget to participate!",
     "YOU_BECAME_EDITOR": "You gained editing permissions",
     "MENTION": "{userName} mentioned you!",
@@ -928,6 +931,24 @@
     "USERNAME": "Username",
     "WHERE_FROM": "Where you are from (not required)",
     "YOU_TRUST_USER": "You trust {userName} in {groupName}."
+  },
+  "TRUST_FOR_ROLE": {
+    "FIRST_TRUST": "Be the first one trust {userName} for {role} in {groupName}!",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} for {role} in {groupName}. | {count} people trust {userName} for {role} in {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you for {role} in {groupName}. | {count} people trust you for {role} in {groupName}.",
+    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} for {role} in {groupName}. | You and {count} other people trust {userName} for {role} in {groupName}.",
+    "YOU_TRUST_USER": "You trust {userName} for {role} in {groupName}.",
+    "NO_ROLE_INFO": "You currently don't have role {role} in {groupName}. As soon as {threshold} members expressed their trust for {role} in you, you will receive the {role} role.",
+    "NEED_ROLE": "You need {role} role",
+    "TRUST_PROGRESS": "{trustNeeded} more people need to express their trust in {userName} to grant the {role} role.",
+    "GIVE_DIALOG": {
+      "MESSAGE": "Do you trust {userName} for {role} in {groupName}?",
+      "TITLE": "Trust user for {role}"
+    },
+    "REVOKE_DIALOG": {
+      "MESSAGE": "Do you want to revoke the trust for {role} you have given to {userName} in {groupName}?",
+      "TITLE": "Revoke trust for {role}"
+    }
   },
   "USERDETAIL": {
     "DESCRIPTION": "About you",

@@ -11,7 +11,7 @@
     >
       <div class="logo">
         <img
-          v-if="currentGroup && currentGroup.hasPhoto"
+          v-if="currentGroup?.photoUrls?.thumbnail"
           :src="currentGroup.photoUrls.thumbnail"
           style="height: 95%"
         >

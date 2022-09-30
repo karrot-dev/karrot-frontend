@@ -25,7 +25,15 @@ export function convert (val) {
     if (payload) {
       // convert some known payload dates
       const dates = {};
-      ['date', 'startDate', 'invitedAt', 'feedbackDue'].forEach(k => {
+      [
+        'date',
+        'startDate',
+        'invitedAt',
+        'feedbackDue',
+        'activeTo',
+        'activeFrom',
+        'reviewAt',
+      ].forEach(k => {
         if (payload[k]) {
           if (Array.isArray(payload[k])) {
             dates[k] = payload[k].map(d => new Date(d))

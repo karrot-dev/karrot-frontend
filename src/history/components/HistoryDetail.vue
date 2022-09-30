@@ -126,6 +126,11 @@
         </QItemSection>
       </QItem>
     </QList>
+    <HistoryDiff
+      v-if="entry.changes"
+      :typus="entry.typus"
+      :changes="entry.changes"
+    />
     <QList
       v-if="visiblePayloadEntries.length > 0"
     >
@@ -172,7 +177,7 @@ import {
   QItemLabel,
   QIcon,
 } from 'quasar'
-import { toRefs, computed } from 'vue'
+import { toRefs, computed, defineAsyncComponent } from 'vue'
 
 import { convert as convertActivity } from '@/activities/api/activities'
 import { useActivityTypeHelpers } from '@/activities/helpers'
@@ -186,8 +191,11 @@ import HistoryPayloadDetail from '@/history/components/HistoryPayloadDetail'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import DateAsWords from '@/utils/components/DateAsWords'
 
+const HistoryDiff = defineAsyncComponent(() => import('@/history/components/HistoryDiff'))
+
 export default {
   components: {
+    HistoryDiff,
     QBtn,
     QCard,
     QList,
@@ -264,7 +272,10 @@ export default {
     visiblePayloadEntries () {
       const { payload } = this.entry
       if (!payload) return []
+      // If we have change data, don't also show it here...
+      const excludeKeys = this.entry.changes ? Object.keys(this.entry.changes) : []
       return Object.keys(payload)
+        .filter(key => !excludeKeys.includes(key))
         .map(key => ({ key, value: payload[key] }))
         .filter(({ key, value }) => (
           // Special handling for these in HistoryPayloadDetail

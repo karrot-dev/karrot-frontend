@@ -55,6 +55,10 @@ const IssueChat = () => import('@/issues/pages/IssueChat')
 const IssueCompose = () => import('@/issues/pages/IssueCompose')
 const IssueVoteAndHistory = () => import('@/issues/pages/IssueVoteAndHistory')
 const ActivityHistoryStatistics = () => import('@/statistics/pages/ActivityHistoryStatistics')
+const Agreements = () => import('@/agreements/pages/Agreements')
+const Agreement = () => import('@/agreements/pages/Agreement')
+const CreateAgreement = () => import('@/agreements/pages/CreateAgreement')
+const EditAgreement = () => import('@/agreements/pages/EditAgreement')
 
 const RouterViewSubheader = h(RouterView, { name: 'subheader' })
 RouterViewSubheader.displayName = 'RouterViewSubheader'
@@ -161,6 +165,57 @@ export default [
         name: 'group',
         path: 'wall',
         component: GroupWall,
+      },
+      {
+        name: 'agreementCreate',
+        path: 'agreements/create',
+        meta: {
+          requireLoggedIn: true,
+          requireFeature: 'agreements',
+          breadcrumbs: [
+            { translation: 'GROUP.AGREEMENTS', route: { name: 'agreements' } },
+            { translation: 'AGREEMENTS.NEW', route: { name: 'agreementCreate' } },
+          ],
+        },
+        components: {
+          default: CreateAgreement,
+        },
+      },
+      {
+        name: 'agreements',
+        path: 'agreements',
+        meta: {
+          requireLoggedIn: true,
+          requireFeature: 'agreements',
+          breadcrumbs: [
+            { translation: 'GROUP.AGREEMENTS', route: { name: 'agreements' } },
+          ],
+        },
+        component: Agreements,
+      },
+      {
+        name: 'agreement',
+        path: 'agreements/:agreementId',
+        meta: {
+          requireLoggedIn: true,
+          breadcrumbs: [
+            { translation: 'GROUP.AGREEMENTS', route: { name: 'agreements' } },
+            { type: 'activeAgreement' },
+          ],
+        },
+        component: Agreement,
+      },
+      {
+        name: 'agreementEdit',
+        path: 'agreements/:agreementId/edit',
+        meta: {
+          requireLoggedIn: true,
+          breadcrumbs: [
+            { translation: 'GROUP.AGREEMENTS', route: { name: 'agreements' } },
+            { type: 'activeAgreement' },
+          ],
+        },
+        component: EditAgreement,
       },
       {
         name: 'issueList',

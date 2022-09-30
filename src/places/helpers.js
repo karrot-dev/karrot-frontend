@@ -16,7 +16,14 @@ export function usePlaceHelpers () {
 
   function getPlaceIconProps (place) {
     const { color, label } = optionsFor(place)
-    const { icon } = getPlaceTypeById(place.placeType)
+    const placeType = getPlaceTypeById(place.placeType)
+    if (!placeType) {
+      return {
+        name: 'fas fa-map-marker',
+      }
+    }
+
+    const { icon } = placeType
 
     return {
       name: icon,

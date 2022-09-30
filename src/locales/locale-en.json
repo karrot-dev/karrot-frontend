@@ -182,29 +182,24 @@
     "SET_AS": "Set address as"
   },
   "AGREEMENT": {
-    "AGREE": "You must agree to {title}",
-    "BLURB1": "You don't have an agreement yet!",
-    "BLURB2": "If you add one then people will have to agree to it before they can do pickups.",
-    "CONTENT": "Content",
-    "CONTENT_HELPER": "The text of your agreement",
-    "DIALOGS": {
-      "REMOVE": {
-        "CONFIRM": "Yes, remove agreement",
-        "MESSAGE": "This means anyone will be able to do a pickup",
-        "TITLE": "Remove agreement?"
-      },
-      "REPLACE": {
-        "CONFIRM": "Yes, change agreement",
-        "MESSAGE": "Everyone will have to agree again before they can signup for pickups",
-        "TITLE": "Change agreement?"
-      }
-    },
-    "MINOR_EDIT": "Minor edit?",
-    "MINOR_EDIT_HELPER": "Typos, formatting, etc... people will not be asked to re-agree",
     "NEW": "New agreement",
-    "TITLE": "Title",
+    "EDIT": "Edit agreement",
+    "TITLE": "Agreement Title",
     "TITLE_HELPER": "Give your agreement a title, e.g. Community Rules",
-    "VIEW": "View agreement"
+    "SUMMARY": "Summary",
+    "SUMMARY_HELPER": "A short summary of the agreement",
+    "CONTENT": "Agreement Text",
+    "CONTENT_HELPER": "The main content of your agreement",
+    "ACTIVE_FROM": "Active From",
+    "ACTIVE_TO": "Active To",
+    "REVIEW_AT": "Review Date",
+    "VIEW": "View agreement",
+    "ONLY_ACTIVE": "Only active",
+    "ACTIVE": "Active",
+    "INACTIVE": "Inactive",
+    "REVIEW_DATE_INFO": "Review date {date}",
+    "SINCE_INFO": "Since {date}",
+    "BECOMES_ACTIVE_INFO": "Becomes active {date}"
   },
   "APPLICATION": {
     "ACCEPTED": "You accepted {userName} into this group!",
@@ -390,11 +385,13 @@
     "SEARCH_NOT_FOUND": "Not Found",
     "SEARCH_RESULTS": "Search results",
     "SERVER_ERROR": "Server error",
-    "CLEAR_FILTERS": "Clear filters"
+    "CLEAR_FILTERS": "Clear filters",
+    "LAST_CHANGED_BY": "Last changed by"
   },
   "GROUP": {
     "ACTIVITIES": "Activities",
     "ACTIVITY": "Activity",
+    "AGREEMENTS": "Agreements",
     "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
     "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
     "ADDED_BY": "added by {userName}",
@@ -516,6 +513,7 @@
     "CONFIRM_CHANGES": "Confirm changes?",
     "CONFIRM_CHANGES_HINT": "You can write a message here to explain your changes that will be displayed in the history",
     "DETAILS": "More information",
+    "CONTENT_CHANGES": "Content Changes",
     "GROUP_CHANGE_PHOTO": "changed the group logo",
     "GROUP_CREATE": "created this group",
     "GROUP_DELETE_PHOTO": "deleted the group logo",
@@ -534,7 +532,9 @@
     "STORE_MODIFY": "changed the settings of place {name}",
     "USER_LOST_EDITOR_ROLE": "lost editing permissions",
     "PLACE_TYPE_CREATE": "created a place type",
-    "PLACE_TYPE_MODIFY": "modified a place type"
+    "PLACE_TYPE_MODIFY": "modified a place type",
+    "AGREEMENT_CREATE": "agreement created",
+    "AGREEMENT_MODIFY": "agreement modified"
   },
   "IMAGE_UPLOAD": {
     "SELECT": "Select image",

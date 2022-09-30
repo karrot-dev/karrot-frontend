@@ -56,7 +56,7 @@
         class="profile-info relative-position q-pt-sm"
       >
         <div
-          class="user-actions"
+          class="user-actions z-max"
         >
           <QBtn
             v-if="isCurrentUser"

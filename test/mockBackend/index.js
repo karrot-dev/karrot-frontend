@@ -3,6 +3,7 @@ import { sample as _sample } from 'lodash'
 
 import { createMockActivitiesBackend, generateActivity } from '>/mockBackend/activities'
 import { createMockActivityTypesBackend, generateActivityType } from '>/mockBackend/activityTypes'
+import { createMockAgreementsBackend, generateAgreement } from '>/mockBackend/agreements'
 import { createMockCommunityBackend } from '>/mockBackend/community'
 import { createMockFeedbackBackend, generateFeedback } from '>/mockBackend/feedback'
 import { createMockHistoryBackend } from '>/mockBackend/history'
@@ -54,6 +55,8 @@ export function setupMockBackend () {
     issues: [],
     conversations: [],
     messages: [],
+    agreements: [],
+    history: [],
   }
   db.orm = {
     users: createFinder(db, 'users'),
@@ -65,6 +68,7 @@ export function setupMockBackend () {
     issues: createFinder(db, 'issues'),
     activities: createFinder(db, 'activities'),
     activityTypes: createFinder(db, 'activityTypes'),
+    agreements: createFinder(db, 'agreements'),
   }
   ctx = {
     authUser: null,
@@ -89,6 +93,7 @@ export function setupMockBackend () {
   createMockCommunityBackend()
   createMockNotificationsBackend()
   createMockMessagesBackend()
+  createMockAgreementsBackend()
 
   get('/api/bootstrap/', () => [200, {}])
 
@@ -179,6 +184,20 @@ export function createApplication (params) {
   const application = generateApplication(params)
   db.applications.push(application)
   return application
+}
+
+export function createAgreement (params) {
+  const agreement = generateAgreement(params)
+  db.agreements.push(agreement)
+  db.history.push({
+    // TODO: add more details!
+    typus: 'AGREEMENT_CREATE',
+    date: new Date(),
+    users: [ctx.authUser.id],
+    group: agreement.group,
+    agreement: agreement.id,
+  })
+  return agreement
 }
 
 export function createIssue (params) {

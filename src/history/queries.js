@@ -23,17 +23,18 @@ export function useHistoryDetailQuery ({ historyId }) {
   }
 }
 
-export function useHistoryListQuery ({ groupId, placeId, userId }, queryOptions = {}) {
+export function useHistoryListQuery ({ groupId, placeId, userId, agreementId }, queryOptions = {}) {
   const query = useInfiniteQuery(
     queryKeyHistoryList({ groupId, placeId, userId }),
     ({ pageParam }) => api.list({
       group: unref(groupId),
       place: unref(placeId),
       users: unref(userId),
+      agreement: unref(agreementId),
       cursor: pageParam,
     }),
     {
-      enabled: computed(() => Boolean(unref(groupId) || unref(placeId) || unref(userId))),
+      enabled: computed(() => [groupId, placeId, userId, agreementId].some(val => unref(val))),
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => page.results),

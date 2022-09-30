@@ -23,8 +23,9 @@ export const useI18nService = defineService(() => {
   }
 
   watch(() => user.value?.language, value => {
-    if (value && locale.value !== value) {
-      locale.value = value
+    // Only set if it's changed AND it's not a less specific version of existing value (e.g. en-gb -> en)
+    if (value && locale.value !== value && !locale.value.startsWith(value)) {
+      setLocale(value)
     }
   }, { immediate: true })
 

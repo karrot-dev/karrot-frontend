@@ -177,6 +177,11 @@ export default {
         icon: 'fas fa-users',
         to: { name: 'groupMembers', params: { groupId: this.groupId } },
       }, {
+        condition: this.hasFeature('agreements'),
+        label: this.$t('GROUP.AGREEMENTS'),
+        icon: 'fas fa-handshake',
+        to: { name: 'agreements', params: { groupId: this.groupId } },
+      }, {
         label: this.$t('GROUP.HISTORY'),
         icon: 'far fa-clock',
         to: { name: 'groupHistory', params: { groupId: this.groupId } },

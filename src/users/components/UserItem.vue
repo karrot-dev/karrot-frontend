@@ -1,5 +1,7 @@
 <template>
-  <QItem>
+  <QItem
+    :to="{name: 'user', params: { userId: user.id }}"
+  >
     <QItemSection side>
       <ProfilePicture
         :key="user.id"
@@ -11,12 +13,7 @@
     </QItemSection>
     <QItemSection>
       <QItemLabel>
-        <RouterLink
-          v-measure
-          :to="{name: 'user', params: { userId: user.id }}"
-        >
-          {{ user.displayName }}
-        </RouterLink>
+        {{ user.displayName }}
       </QItemLabel>
       <QItemLabel caption>
         <i18n-t

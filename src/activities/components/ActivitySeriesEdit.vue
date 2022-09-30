@@ -320,7 +320,10 @@
       </div>
 
       <div v-if="showPreview">
-        <ActivityItem :activity="previewActivity" />
+        <ActivityItem
+          preview
+          :activity="previewActivity"
+        />
       </div>
     </form>
   </div>

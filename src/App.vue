@@ -18,6 +18,7 @@ import { onErrorCaptured } from 'vue'
 import { useQueryClient } from 'vue-query'
 
 import { useActivitiesUpdater, useActivitySeriesUpdater, useActivityTypeUpdater } from '@/activities/queries'
+import { useAgreementsUpdater } from '@/agreements/queries'
 import { useApplicationsUpdater } from '@/applications/queries'
 import { useAuthUserUpdater } from '@/authuser/queries'
 import { useRoutingLogic, useCheckResponseAuthStatus } from '@/base/services'
@@ -53,6 +54,7 @@ export default {
     useCheckResponseAuthStatus()
 
     // Websocket updaters
+    useAgreementsUpdater()
     useAuthUserUpdater()
     useApplicationsUpdater()
     useUsersUpdater()

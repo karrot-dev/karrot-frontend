@@ -203,7 +203,7 @@ export default {
         return this.$t('TRUST_FOR_ROLE.NO_ROLE_INFO', {
           groupName: this.group.name,
           threshold: this.threshold,
-          role: this.role.displayName,
+          role: this.role.displayName || this.role.name,
         })
       }
       if (!this.hasRole) {
@@ -222,7 +222,7 @@ export default {
       if (this.hasRole) return this.headline
       return this.$t('TRUST_FOR_ROLE.TRUST_PROGRESS', {
         trustNeeded: this.trustNeeded,
-        role: this.role.displayName,
+        role: this.role.displayName || this.role.name,
         userName: this.user.displayName,
       })
     },
@@ -230,16 +230,28 @@ export default {
   methods: {
     showCreateTrustDialog () {
       Dialog.create({
-        title: this.$t('TRUST_FOR_ROLE.GIVE_DIALOG.TITLE', { role: this.role.displayName }),
-        message: this.$t('TRUST_FOR_ROLE.GIVE_DIALOG.MESSAGE', { userName: this.user.displayName, groupName: this.group.name, role: this.role.displayName }),
+        title: this.$t('TRUST_FOR_ROLE.GIVE_DIALOG.TITLE', {
+          role: this.role.displayName || this.role.name,
+        }),
+        message: this.$t('TRUST_FOR_ROLE.GIVE_DIALOG.MESSAGE', {
+          userName: this.user.displayName,
+          groupName: this.group.name,
+          role: this.role.displayName || this.role.name,
+        }),
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.OF_COURSE'),
       }).onOk(() => this.trustUser({ groupId: this.groupId, userId: this.user.id, role: 'approved' }))
     },
     showRevokeTrustDialog () {
       Dialog.create({
-        title: this.$t('TRUST_FOR_ROLE.REVOKE_DIALOG.TITLE', { role: this.role.displayName }),
-        message: this.$t('TRUST_FOR_ROLE.REVOKE_DIALOG.MESSAGE', { userName: this.user.displayName, groupName: this.group.name, role: this.role.displayName }),
+        title: this.$t('TRUST_FOR_ROLE.REVOKE_DIALOG.TITLE', {
+          role: this.role.displayName || this.role.name,
+        }),
+        message: this.$t('TRUST_FOR_ROLE.REVOKE_DIALOG.MESSAGE', {
+          userName: this.user.displayName,
+          groupName: this.group.name,
+          role: this.role.displayName || this.role.name,
+        }),
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('BUTTON.YES'),
       }).onOk(() => this.revokeTrust({ groupId: this.groupId, userId: this.user.id, role: 'approved' }))

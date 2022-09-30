@@ -50,7 +50,7 @@ export function useHistoryHelpers () {
       })
     }
     else if (history.typus === 'MEMBER_GOT_ROLE') {
-      msgValues.role = history.payload.role.displayName
+      msgValues.role = history.payload.role.displayName || history.payload.role.name
     }
 
     return t(`HISTORY.${history.typus}`, msgValues)

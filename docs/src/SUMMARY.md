@@ -18,6 +18,7 @@
   - [Pages and Routes](pages.md)
   - [Alerts](alerts.md)
   - [I18n](i18n.md)
+- [Self hosting](self-hosting.md)
 - [Backend introduction](backend-introduction.md)
 - [Notifications](notifications.md)
 - [Sparkpost](sparkpost.md)

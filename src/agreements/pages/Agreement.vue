@@ -5,7 +5,7 @@
       {{ agreement.title }}
     </h1>
     <QCard>
-      <div class="agreement-actions z-max">
+      <div class="agreement-actions z-fab">
         <QBtn
           v-if="isEditor"
           small

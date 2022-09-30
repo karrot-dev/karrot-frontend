@@ -942,7 +942,7 @@
     "NEED_ROLE": "You need {role} role",
     "TRUST_PROGRESS": "{trustNeeded} more people need to express their trust in {userName} to grant the {role} role.",
     "GIVE_DIALOG": {
-      "MESSAGE": "Do trust {userName} for {role} in {groupName}?",
+      "MESSAGE": "Do you trust {userName} for {role} in {groupName}?",
       "TITLE": "Trust user for {role}"
     },
     "REVOKE_DIALOG": {

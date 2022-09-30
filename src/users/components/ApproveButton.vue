@@ -3,8 +3,9 @@
     round
     :color="hasRole ? 'secondary' : 'white'"
     :text-color="hasRole ? 'white' : 'grey-8'"
-    :title="tooltip"
+    :title="canGiveTrust ? tooltip : $t('TRUST_FOR_ROLE.NEED_ROLE', { role: role.roleRequiredForTrust })"
     icon="fas fa-leaf"
+    :disable="!canGiveTrust"
     @click="showing = true"
   >
     <QDialog
@@ -110,6 +111,7 @@ export default {
     const {
       group,
       groupId,
+      roles: authUserRoles,
     } = useCurrentGroupService()
 
     const {
@@ -140,6 +142,7 @@ export default {
     } = useRevokeTrustMutation()
 
     return {
+      authUserRoles,
       group,
       groupId,
       isTrusted,
@@ -165,6 +168,9 @@ export default {
     trustedBy () {
       return this.membership.trust.filter(trust => trust.role === 'approved').map(trust => this.getUserById(trust.givenBy))
     },
+    canGiveTrust () {
+      return Boolean(!this.role.roleRequiredForTrust || this.authUserRoles.includes(this.role.roleRequiredForTrust))
+    },
     headline () {
       const otherTrust = this.trustedBy.filter(u => !this.getIsCurrentUser(u))
       const youTrust = this.trustedBy.find(u => this.getIsCurrentUser(u))
@@ -172,7 +178,7 @@ export default {
       const firstTrustMessage = () => this.$t('TRUST_FOR_ROLE.FIRST_TRUST', {
         groupName: this.group.name,
         userName: this.user.displayName,
-        role: this.role.displayName,
+        role: this.role.displayName || this.role.name,
       })
 
       const trustMessagePath = () => {
@@ -187,7 +193,7 @@ export default {
         groupName: this.group.name,
         userName: this.user.displayName,
         otherUser: otherTrust.length > 0 && otherTrust[0].displayName,
-        role: this.role.displayName,
+        role: this.role.displayName || this.role.name,
       })
 
       return (this.trustedBy.length > 0 || this.isCurrentUser) ? trustMessage() : firstTrustMessage()
@@ -204,7 +210,7 @@ export default {
         return this.$t('TRUST_FOR_ROLE.TRUST_PROGRESS', {
           userName: this.user.displayName,
           trustNeeded: this.trustNeeded,
-          role: this.role.displayName,
+          role: this.role.displayName || this.role.name,
         })
       }
       return ''

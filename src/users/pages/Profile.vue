@@ -270,6 +270,7 @@ export default {
       group,
       getMembership,
       isEditor,
+      authUserRoles,
     } = useCurrentGroupService()
     const { getGroupById } = useGroupInfoService()
 
@@ -309,6 +310,7 @@ export default {
     } = useCreateIssueMutation()
 
     return {
+      authUserRoles,
       ongoingIssues,
       isCurrentUser,
       currentGroup: group,
@@ -358,6 +360,16 @@ export default {
         return [this.$t('CONFLICT.REQUIREMENTS.NEWCOMER')]
       }
       return []
+    },
+    canApprove () {
+      const role = this.currentGroup.roles.approved
+      if (!role) return false
+      return (
+        // Either no requirement...
+        !role.roleRequiredForTrust ||
+        // ... or auth user meets the requirement
+        this.authUserRoles.includes(role.roleRequiredForTrust)
+      )
     },
   },
   methods: {

@@ -56,7 +56,7 @@
         "TITLE": "투명성"
       },
       "TRUST": {
-        "DESCRIPTION": "Karrot 그룹에는 관리자의 강력한 권한이 따로 없습니다. 동료로부터 충분한 신뢰의 당근을 받은 사람이라면 누구나 그룹 설정을 편집하고 변경할 수 있습니다. 만약에 새로운 사람이 그룹에 참여하고 싶다면 그룹에 지원하고 정해진 질문에 답변해야 하며, 편집 권한을 가진 사람이라면 누구나 이를 거절하거나 승인할 수 있습니다. 마찬가지로 갈등이 발생했을 땐 투표 시스템에 들어가 공용의 방법으로 해결할 수도 있습니다.",
+        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is the need to review someone's membership, the group can enter a voting system to resolve it in a communal way.",
         "TITLE": "민주적이고 신뢰기반인 그룹 관리"
       }
     },
@@ -92,6 +92,14 @@
       "LEAVE_CONFIRMATION_TEXT": "정말 다른 사람들이 당신 없이 수행할 수 있다고 확신하십니까?",
       "DOWNLOAD_ICS": "ICS 다운로드"
     },
+    "OPEN_FOR_ROLE": "Open for {role}",
+    "PUBLIC": {
+      "WHAT": "What",
+      "WHEN": "When",
+      "WHERE": "Where",
+      "SHARE": "Public activity link",
+      "VIEW": "Public View"
+    },
     "JOINEDNOTICE": "예정된 하나의 활동이 존재합니다 | 다가오는 {count}개의 활동이 존재합니다.",
     "NONE": "예정된 활동이 없습니다.",
     "NONE_DUE_TO_FILTER": "필터와 일치하는 활동이 없습니다",
@@ -99,7 +107,7 @@
     "STORE_NONE_HINT": "‘관리 활동’ 페이지에서 새 활동을 생성할 수 있습니다.",
     "ICS_DIALOG": {
       "TITLE": "캘린더에 추가하기",
-      "INTRO": "다음 옵션 중 하나를 사용해서 당신의 활동을 캘린더에 추가하세요:",
+      "INTRO": "Add these activities to your calender:",
       "DOWNLOAD_TITLE": "다운로드",
       "DOWNLOAD_TEXT": "ICS 파일을 다운로드하여 캘린더로 수동으로 가져오세요:",
       "DOWNLOAD_BUTTON_LABEL": "ICS 다운로드",
@@ -114,11 +122,14 @@
     "ACTIVITY_DESCRIPTION_CHANGED": "'추가 정보'가 변경되었습니다",
     "ACTIVITY_DOES_NOT_MATCH": "이 날짜는 반복 패턴과 일치하지 않습니다",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'최대 슬롯'이 변경되었습니다",
+    "ACTIVITY_PARTICIPANT_TYPES_CHANGED": "Participant types have been changed",
     "SERIES": "활동 시리즈",
     "SINGLE": "일회성 활동",
     "TITLE": "활동 관리",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "시리즈에 포함된 예정된 활동"
-  },
+    "UPCOMING_ACTIVITIES_IN_SERIES": "시리즈에 포함된 예정된 활동",
+    "CHANGE_AFFECTS_USERS": "This change affects the future activities of {users}.",
+    "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
+},
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "절약할 수 있었던 식량의 무게",
     "AMOUNT_INFO": "장소 통계의 경우, 모든 피드백의 무게를 한꺼번에 추가할 예정입니다.",
@@ -171,29 +182,24 @@
     "SET_AS": "여기로 주소를 설정합니다"
   },
   "AGREEMENT": {
-    "AGREE": "{title}에 동의해야 합니다",
-    "BLURB1": "아직 합의되지 않았습니다!",
-    "BLURB2": "사람들은 픽업하기 전에 추가된 사항에 동의를 해야 합니다.",
-    "CONTENT": "콘텐츠",
-    "CONTENT_HELPER": "합의에 대한 내용",
-    "DIALOGS": {
-      "REMOVE": {
-        "CONFIRM": "네, 합의를 삭제하겠습니다",
-        "MESSAGE": "누구나 픽업할 수 있게 될 것입니다",
-        "TITLE": "합의를 삭제하시겠습니까?"
-      },
-      "REPLACE": {
-        "CONFIRM": "네, 합의를 수정하겠습니다",
-        "MESSAGE": "모든 사람이 픽업에 참여하기 전에 다시 한번 동의가 필요하게 됩니다",
-        "TITLE": "합의를 수정하시겠습니까?"
-      }
-    },
-    "MINOR_EDIT": "일부 수정하시겠습니까?",
-    "MINOR_EDIT_HELPER": "사람들은 오타나 형식 지정 등에서 동의를 다시 요청받지 않을 것입니다",
     "NEW": "새 합의",
-    "TITLE": "제목",
+    "EDIT": "Edit agreement",
+    "TITLE": "Agreement Title",
     "TITLE_HELPER": "내 합의의 제목을 정합니다. 예시. 커뮤니티 규칙",
-    "VIEW": "합의 보기"
+    "SUMMARY": "Summary",
+    "SUMMARY_HELPER": "A short summary of the agreement",
+    "CONTENT": "Agreement Text",
+    "CONTENT_HELPER": "The main content of your agreement",
+    "ACTIVE_FROM": "Active From",
+    "ACTIVE_TO": "Active To",
+    "REVIEW_AT": "Review Date",
+    "VIEW": "합의 보기",
+    "ONLY_ACTIVE": "Only active",
+    "ACTIVE": "Active",
+    "INACTIVE": "Inactive",
+    "REVIEW_DATE_INFO": "Review date {date}",
+    "SINCE_INFO": "Since {date}",
+    "BECOMES_ACTIVE_INFO": "Becomes active {date}"
   },
   "APPLICATION": {
     "ACCEPTED": "{userName}을(를) 이 그룹에 승인했습니다!",
@@ -251,7 +257,8 @@
     "UNSUBSCRIBE": "구독취소",
     "WITHDRAW": "철회",
     "YES": "네",
-    "READ_MORE": "더 보기"
+    "READ_MORE": "더 보기",
+    "GO_TO_GROUP": "Go to group"
   },
   "COMMUNITY_FEED": {
     "HEADER": "{community}을(를) 업데이트",
@@ -262,29 +269,28 @@
   "CONFLICT": {
     "FIND_OUT_MORE": "더 자세히 알아보세요!",
     "INFO": {
-      "MESSAGE": "그룹 구성원이 참여하여 그룹 전체에 영향을 미치는 사회적 갈등에 어떻게 대처할지 결정하는 점수 투표입니다.",
-      "TITLE": "이 프로세스는 어떻게 이루어지나요?"
+      "MESSAGE": "This is a score voting in which all group members can participate to determine someone's membership."
     },
     "INITIAL": "정보",
     "REQUIREMENTS": {
-      "NEWCOMER": "갈등 해결 프로세스를 시작하려면 더 많은 신뢰를 받고 편집 권한을 먼저 얻어야 합니다. 그 동안 다른 그룹 구성원에게 프로세스를 시작하도록 요청하세요."
+      "NEWCOMER": "Before you can start a membership review, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
     },
-    "SETUP_HEADER": "{user}과(와) 갈등이 있으신가요?",
+    "SETUP_HEADER": "Start a membership review?",
     "STATEMENT": "진술",
-    "STEPPER1a": "그룹 공동의 갈등 해결 프로세스를 시작하셨습니다!",
-    "STEPPER1b": "최선의 방향으로 나아가기 위해 모든 구성원이 참여할 것입니다.",
+    "STEPPER1a": "You are about to start a group-wide membership review to decide whether {userName} should continue as a member of the group",
+    "STEPPER1b": "This will be open for all group members to participate.",
     "STEPPER2a": "커뮤니티를 돌보아 주셔서 감사합니다!",
-    "STEPPER2b": "때때로 불쾌할 수 있지만, 사회적 문제를 해결하는 것은 중요합니다. 당신의 용기에 감사드립니다!",
+    "STEPPER2b": "For a group it is important to practise honest communication and address any issues.",
     "STEPPER3a": "발생할 수 있는 일들:",
     "STEPPER3b": "프로세스가 채팅과 투표를 시작할 것입니다.",
-    "STEPPER3c": "채팅은 {userName}을(를) 포함한 구성원이 볼 수 있습니다.",
+    "STEPPER3c": "The chat will be visible for all group members and includes {userName}.",
     "STEPPER3d": "이 투표는 익명으로 진행됩니다. {votingDuration}일 동안 투표가 진행되며 이 기간동안 모든 투표자는 언제든 생각을 바꾸고 표를 옮길 수 있습니다.",
-    "STEPPER4a": "당신이 왜 이 갈등 해결 프로세스를 시작했는지 설명하세요!",
-    "STEPPER4b": "이 프로세스가 정당하고 필요하다고 생각하게 만든 이유를 그룹에게 설명하세요. 이 진술은 {userName} 및 그룹 구성원에게 표시됩니다.",
+    "STEPPER4a": "Please explain why you are starting this process!",
+    "STEPPER4b": "Tell your group what made you think this is justified and needed. This statement will be visible to {userName} and group members.",
     "VOTING": {
-      "HEADLINE": "현재 진행중인 {userName}과(와)의 갈등에 어떻게 하시길 원하시나요?"
+      "HEADLINE": "How do you want to proceed with the ongoing membership review of {userName}?"
     },
-    "WITH": "이 프로세스는 {userName}과(와)의 갈등을 해결하기 위한 것입니다."
+    "WITH": "This process is to review the membership of {userName}"
   },
   "CONVERSATION": {
     "CLOSED": "이 대화는 자동으로 닫힙니다.",
@@ -308,6 +314,9 @@
     "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
+    "CREATE_SUCCESS": "Activity successfully created!",
+    "ONE_TIME_ACTIVITY": "One-time activity",
+    "ADD_PARTICIPANT_TYPE": "Add participant type",
     "COMMENT": "추가 정보",
     "COMMENT_HELPER": "여기에 가입하려는 사람들이 무엇을 알아야 할까요?",
     "CUSTOM": "커스텀",
@@ -319,8 +328,11 @@
     "EXCEPTIONS_MESSAGE": "몇가지 예정된 활동들이 이 시리즈의 설정과 맞지 않습니다. 필요하시다면 아래의 {upcomingLabel}에서 수정하시거나 불가능으로 만드세요.",
     "EXCEPTIONS_TITLE": "당신의 활동을 확인하세요",
     "FREQUENCY": "빈도",
+    "MAKE_IT_PUBLIC": "Make it public",
     "MAX_PARTICIPANTS": "최대 슬롯",
     "MAX_PARTICIPANTS_HELPER": "몇 명이 참가해야 하나요?",
+    "REMOVE_PARTICIPANT_TYPE": "Remove participant type",
+    "REVERT_TO_SERIES_VALUES": "Revert to series values",
     "RRULE": "재귀 규칙",
     "RRULE_EXAMPLE": "매월 마지막 근무일 (월-금)",
     "RRULE_EXAMPLE2": "격주 월요일",
@@ -328,10 +340,19 @@
     "RRULE_HELPER_URL": "iCalender 규칙",
     "STARTDATE_HELPER": "언제 시리즈가 시작되야 하나요?",
     "TIME_HELPER": "언제 열립니까?",
+    "OPEN_FOR": "Open for",
     "UNLIMITED": "제한 없음",
+    "USE_PARTICIPANT_TYPES": "Use participant types",
     "WEEKDAYS": "평일",
     "WEEKDAYS_HELPER": "어느 날에 열립니까?",
-    "WEEKLY": "주간"
+    "WEEKLY": "주간",
+    "PLACE": "Choose a place"
+  },
+  "EDIT_ACTIVITY": {
+    "TITLE": "What do you want to edit?",
+    "ONLY_ACTIVITY": "This activity",
+    "SERIES": "Activities in this series",
+    "MANAGE": "Manage activites in {place}"
   },
   "CREATESTORE": {
     "TITLE": "새로운 장소 생성하기"
@@ -364,11 +385,13 @@
     "SEARCH_NOT_FOUND": "발견되지 않음",
     "SEARCH_RESULTS": "결과 검색하기",
     "SERVER_ERROR": "서버 오류",
-    "CLEAR_FILTERS": "필터 지우기"
+    "CLEAR_FILTERS": "필터 지우기",
+    "LAST_CHANGED_BY": "Last changed by"
   },
   "GROUP": {
     "ACTIVITIES": "활동",
     "ACTIVITY": "활동",
+    "AGREEMENTS": "Agreements",
     "PICKUPS_TO_ACTIVITIES": "픽업 이외의 것을 할 수 있습니다!",
     "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "픽업뿐만 아니라 모임, 행사, 분배와 같은 다른 활동도 추가하실 수 있습니다",
     "ADDED_BY": "{userName}에 의해 추가됨",
@@ -423,8 +446,8 @@
     "NOTIFICATIONS_BY_GROUP": "그룹의 알림",
     "NOTIFICATION_TYPES": {
       "conflict_resolution": {
-        "DESCRIPTION": "당신의 그룹에서 새로운 갈등 해결 프로세스가 시작되었음을 알립니다",
-        "NAME": "새로운 갈등 해결 프로세스"
+        "DESCRIPTION": "Tells you when a new membership review has been started in your group",
+        "NAME": "New membership review"
       },
       "daily_activity_notification": {
         "DESCRIPTION": "당신의 활동을 상기시키고 다음 날 좋아하는 장소의 비어 있거나 다 차지 않은 활동을 알립니다",
@@ -490,6 +513,7 @@
     "CONFIRM_CHANGES": "수정사항을 확인하셨습니까?",
     "CONFIRM_CHANGES_HINT": "여기서 역사에 표시될 수정사항에 대해 작성하실 수 있습니다",
     "DETAILS": "더 많은 정보",
+    "CONTENT_CHANGES": "Content Changes",
     "GROUP_CHANGE_PHOTO": "그룹 로고 수정됨",
     "GROUP_CREATE": "이 그룹을 생성함",
     "GROUP_DELETE_PHOTO": "그룹 로고 삭제됨",
@@ -508,7 +532,14 @@
     "STORE_MODIFY": "장소 {name}의 설정을 수정함",
     "USER_LOST_EDITOR_ROLE": "편집 허가를 잃음",
     "PLACE_TYPE_CREATE": "created a place type",
-    "PLACE_TYPE_MODIFY": "modified a place type"
+    "PLACE_TYPE_MODIFY": "modified a place type",
+    "MEMBER_GOT_ROLE": "received role: {role}",
+    "AGREEMENT_CREATE": "agreement created",
+    "AGREEMENT_MODIFY": "agreement modified"
+  },
+  "IMAGE_UPLOAD": {
+    "SELECT": "Select image",
+    "CLEAR": "Clear image"
   },
   "INACTIVITY": {
     "HELP": "{dayCount}일이나 그 이상 그룹에 로그인하지 않은 사람은 모두 비활성화 상태가 됩니다. 이 사용자들은 더이상 알림을 받지 않을 것입니다.",
@@ -523,29 +554,31 @@
     },
     "CHAT": "채팅",
     "CREATION": {
-      "TOAST": "갈등 해결 프로세스를 성공적으로 시작하셨습니다"
+      "TOAST": "You successfully started a membership review"
     },
+    "NOTICE": "There is an ongoing issue! | There are {count} ongoing issues!",
     "NO_ONGOING": "진행중인 쟁점이 없습니다",
-    "PARTICIPANTS": "{count}명의 구성원이 의논에 추가되었습니다.",
+    "PARTICIPANTS": "{count} members are in this discussion.",
     "PAST": "과거의 쟁점",
     "PREVIOUS_VOTINGS": "이 쟁점의 이전 투표들",
     "TITLE": "쟁점",
     "VOTE": "투표",
     "VOTING": {
       "ANONYMOUS": "투표의 익명성은 지켜집니다.",
+      "DECIDE": "Decide your level of support for each proposal.",
       "BTN_DELETE": "투표 삭제",
       "BTN_START": "지금 투표",
       "FURTHER_DISCUSSION": "추가적인 의논: 또다른 투표를 시작하여 시간 연장",
       "NO_CHANGE": "수정이 없습니다: {userName}가 {groupName}에 남습니다",
-      "REMOVE_USER": "{userName}를 {groupName}에서 제외합니다.",
+      "REMOVE_USER": "Membership ends and {userName} gets removed from {groupName}",
       "RESULTS": {
         "ENDED_AT": "이 투표는 {date}에 종료됩니다",
         "KEEP_DISCUSSING": "당신의 그룹이 의논을 지속하기 위해 투표했습니다",
         "PARTICIPANTS": "{number}명의 구성원이 투표에 참여했습니다.",
         "TIME_UP": "시간이 다 됐습니다!",
         "TOTAL_SCORE": "총 점수",
-        "UNDECIDED": "불행히도 이 갈등이 결론날 수 없습니다.",
-        "UNDECIDED_REASON_1": "갈등 해결 프로세스가 여전히 진행되는 사이 영향받은 사용자가 그룹을 떠났습니다",
+        "UNDECIDED": "Unfortunately this membership review could not be decided.",
+        "UNDECIDED_REASON_1": "the affected user left the group while the membership review was still ongoing",
         "UNDECIDED_REASON_2": "아무도 이 쟁점에 투표하지 않았습니다",
         "UNDECIDED_WHY": "여기엔 두가지 이유가 있습니다:"
       },
@@ -617,12 +650,12 @@
     "ACTIVITY_UPCOMING": "알림: {time}에 {activityType}",
     "APPLICATION_ACCEPTED": "당신의 지원서가 수락되었습니다!",
     "APPLICATION_DECLINED": "당신의 지원서가 거절되었습니다",
-    "CONFLICT_RESOLUTION_CONTINUED": "{userName}의 갈등 해결 프로세스가 계속됩니다",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "당신의 해결 프로세스가 계속됩니다",
-    "CONFLICT_RESOLUTION_CREATED": "{userName}의 갈등을 위한 의논에 참가하세요",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "갈등 해결 프로세스가 당신과 함께 시작되었습니다",
-    "CONFLICT_RESOLUTION_DECIDED": "{userName}의 갈등 해결 프로세스에 결론이 났습니다.",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "당신의 갈등 해결 프로세스가 결론났습니다",
+    "CONFLICT_RESOLUTION_CONTINUED": "The membership review of {userName} continues",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Your membership review continues",
+    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a membership review of {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A review of your membership was started",
+    "CONFLICT_RESOLUTION_DECIDED": "The membership review of {userName} was decided",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Your membership was decided",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "그룹에서 제외되셨습니다",
     "FEEDBACK_POSSIBLE": "당신은 {date}의 {activityType}에 피드백을 줄 수 있습니다",
     "INVITATION_ACCEPTED": "{userName}이(가) 당신의 초대를 수락했습니다",
@@ -630,9 +663,12 @@
     "NEW_MEMBER": "{userName}이(가) 그룹에 참가했습니다",
     "NEW_PLACE": "{placeName}이(가) 생성되었습니다",
     "USER_BECAME_EDITOR": "{userName}가 편집 허가를 얻었습니다",
+    "USER_GOT_ROLE": "{userName} received role: {role}",
+    "YOU_GOT_ROLE": "You received role: {role}!",
     "VOTING_ENDS_SOON": "투표가 곧 종료됩니다. 잊지마세요!",
     "YOU_BECAME_EDITOR": "편집 허가를 얻었습니다",
-    "MENTION": "{userName}가 당신을 불렀습니다!"
+    "MENTION": "{userName}가 당신을 불렀습니다!",
+    "PARTICIPANT_REMOVED": "{activityType} no longer available - {dateTime}"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "당신을 위한 알림이 없습니다.",
@@ -713,6 +749,16 @@
     "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
+  "PLACE_LIST": {
+    "ONLY_FAVOURITES": "Only favourite",
+    "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
+    "SUBSCRIBED": "You have marked this place as favorite",
+    "FAVORITE_PLACES": "Favorite places",
+    "NONE_DUE_TO_FILTER": "No places match your filters",
+    "ALL_TYPES": "All types",
+    "ALL_STATUSES": "All statuses",
+    "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then click { icon } on one of them."
+  },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count}명의 사람이 이곳을 좋아하는 장소로 표시했습니다",
     "SUBSCRIPTION": {
@@ -725,6 +771,14 @@
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(사용자에 액세스할 수 없거나 삭제됨)"
+  },
+  "ROLES": {
+    "MEMBER": "Anyone",
+    "MEMBER_DESCRIPTION": "Anyone in the group",
+    "NEWCOMER": "Newcomer",
+    "NEWCOMER_DESCRIPTION": "People that haven't yet got any other roles",
+    "EDITOR": "Editor",
+    "EDITOR_DESCRIPTION": "People that have been trusted in the group as an editor"
   },
   "SETTINGS": {
     "TITLE": "설정"
@@ -783,7 +837,6 @@
     },
     "NAME": "이름",
     "RESTORE": "복원하기",
-    "SHOW_ACTIVE_ONLY": "활성화된 장소만 보기",
     "SHOW_ALL": "모든 장소 보기",
     "STATUS": "상태",
     "WEEKS_IN_ADVANCE": "시리즈 활동은 몇 주 전에 만들어야하나요?",
@@ -879,6 +932,24 @@
     "WHERE_FROM": "어느 국가이신가요 (선택 사항)",
     "YOU_TRUST_USER": "당신은 {groupName}의 {userName}를 신뢰합니다."
   },
+  "TRUST_FOR_ROLE": {
+    "FIRST_TRUST": "Be the first one trust {userName} for {role} in {groupName}!",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} for {role} in {groupName}. | {count} people trust {userName} for {role} in {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you for {role} in {groupName}. | {count} people trust you for {role} in {groupName}.",
+    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} for {role} in {groupName}. | You and {count} other people trust {userName} for {role} in {groupName}.",
+    "YOU_TRUST_USER": "You trust {userName} for {role} in {groupName}.",
+    "NO_ROLE_INFO": "You currently don't have role {role} in {groupName}. As soon as {threshold} members expressed their trust for {role} in you, you will receive the {role} role.",
+    "NEED_ROLE": "You need {role} role",
+    "TRUST_PROGRESS": "{trustNeeded} more people need to express their trust in {userName} to grant the {role} role.",
+    "GIVE_DIALOG": {
+      "MESSAGE": "Do you trust {userName} for {role} in {groupName}?",
+      "TITLE": "Trust user for {role}"
+    },
+    "REVOKE_DIALOG": {
+      "MESSAGE": "Do you want to revoke the trust for {role} you have given to {userName} in {groupName}?",
+      "TITLE": "Revoke trust for {role}"
+    }
+  },
   "USERDETAIL": {
     "DESCRIPTION": "나에 대해",
     "DISPLAY_NAME": "이름",
@@ -891,6 +962,7 @@
     "MINLENGTH": "{min}자 이상을 입력해주세요.",
     "REQUIRED": "이런 분야가 요구됩니다.",
     "UNIQUE": "이미 존재하는 이름이니, 다른 것을 선택해주세요.",
+    "OPTIONAL": "optional",
     "VALID_EMAIL": "유효한 이메일 주소를 입력해주세요.",
     "VALID_TIMEZONE": "유효한 시간대를 입력해주세요.",
     "VALID_USERNAME": "유효한 사용자명 입력",

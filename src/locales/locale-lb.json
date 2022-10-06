@@ -31,12 +31,12 @@
         "TITLE": "Karten a Lëschten"
       },
       "NOTIFICATIONS": {
-        "DESCRIPTION": "Du gëss iwwert eidel Aktivitéiten, nei Noriichten an nei Leit, déi denger Grupp bäitriede wëllen, benoriichtegt. Awer du kanns och all Benoriichtegung ofbestelle wann's du méi Rou wëlls!",
+        "DESCRIPTION": "Du gëss iwwert eidel Aktivitéiten, nei Noriichten an nei Leit, déi denger Grupp bäitriede wëllen, benoriichtegt. Awer du kanns och all Benoriichtegung ofbestelle wann s du méi Rou wëlls!",
         "TITLE": "Benoriichtegungen"
       },
       "OFFERS": {
         "DESCRIPTION": "Offeren si siichtbar fir jiddereen an der Grupp a Leit kënnen hiren Interessi am Chat vun der Offer ausdrécken.",
-        "SUBTITLE": "Erstell eng Offer vu wat och ëmmer's du deelen oder ewechgi wëlls.",
+        "SUBTITLE": "Erstell eng Offer vu wat och ëmmer s du deelen oder ewechgi wëlls.",
         "TITLE": "Saachen deelen"
       },
       "OPENSOURCE": {
@@ -56,7 +56,7 @@
         "TITLE": "Transparenz"
       },
       "TRUST": {
-        "DESCRIPTION": "Et gi keng Admin-Superkräft an enger Karrot-Grupp. D'Leit déi genuch Vertrauensmuerte vun anere kritt hunn kënnen d'Astellungen an der Grupp änneren. Wann nei Leit der Grupp bäitriede wëllen, musse sinn sech bewerben an déi Froe beäntwerten, déi d'Grupp astelle kann, a jidderee mat Beaarbechtungsrechter ofleenen oder unhuele kann. Änlech ass et am Fall vun engem Konflikt: D'Grupp kann een Ofstëmmung-System benotze fir dësen zesummen ze léisen.",
+        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is the need to review someone's membership, the group can enter a voting system to resolve it in a communal way.",
         "TITLE": "Gruppen-Management baséierend op Demokratie a Vertrauen"
       }
     },
@@ -92,6 +92,14 @@
       "LEAVE_CONFIRMATION_TEXT": "Bass du sécher, dass déi aner dëst ouni dech maache kënnen?",
       "DOWNLOAD_ICS": "ICS eroflueden"
     },
+    "OPEN_FOR_ROLE": "Oppe fir {role}",
+    "PUBLIC": {
+      "WHAT": "Wat",
+      "WHEN": "Wéini",
+      "WHERE": "Wou",
+      "SHARE": "Public activity link",
+      "VIEW": "Ëffentlech Siicht"
+    },
     "JOINEDNOTICE": "Du hues eng zukünfteg Aktivitéit | Du hues {count} zukünfteg Aktivitéiten",
     "NONE": "Keng zukünfteg Aktivitéiten",
     "NONE_DUE_TO_FILTER": "Keng Aktivitéit passt op deng Filter",
@@ -99,7 +107,7 @@
     "STORE_NONE_HINT": "Du kanns eng nei Aktivitéit op der Säit \"Aktivitéite verwalten\" uleeën.",
     "ICS_DIALOG": {
       "TITLE": "An de Kalenner derbäi maachen",
-      "INTRO": "Maach deng Aktivitéiten an däi Kalenner derbäi mat enger vun de folgenden Optiounen:",
+      "INTRO": "Add these activities to your calender:",
       "DOWNLOAD_TITLE": "Eroflueden",
       "DOWNLOAD_TEXT": "Lued d'ICS-Datei erof fir se manuell an däi Kalenner ze importéieren",
       "DOWNLOAD_BUTTON_LABEL": "ICS eroflueden",
@@ -114,13 +122,16 @@
     "ACTIVITY_DESCRIPTION_CHANGED": "\"Zousätzlech Informatiounen\" gouf geännert",
     "ACTIVITY_DOES_NOT_MATCH": "Dësen Datum passt net zum Widderhuelungsmuster",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "\"Max. Plazen\" gouf geännert",
+    "ACTIVITY_PARTICIPANT_TYPES_CHANGED": "Typpe vu Participante goufe verännert",
     "SERIES": "Aktivitéitsserie",
     "SINGLE": "Eemoleg Aktivitéiten",
     "TITLE": "Aktivitéite verwalten",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Zukünfteg Aktivitéiten an dëser Serie"
-  },
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Zukünfteg Aktivitéiten an dëser Serie",
+    "CHANGE_AFFECTS_USERS": "Dës Ännerung betrëfft déi zukünfteg Aktivitéite vun {users}.",
+    "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
+},
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "Quantitéit vu Liewensmëttel déi's du rette konnts",
+    "AMOUNT": "Quantitéit vu Liewensmëttel déi s du rette konnts",
     "AMOUNT_INFO": "Fir Statistiken zur Plaz gëtt d'Quantitéit vun all Feedback zesummegerechent.",
     "COMMENT_PLACEHOLDER": "War alles gutt? War jidderee komm? Däi Kommentar hei...",
     "DELETE_AMOUNT": "Quantitéit läschen",
@@ -157,7 +168,7 @@
     "STATUS": "Status",
     "STANDARD_NAME_HEADING": "Standard-Nimm",
     "STANDARD_NAME_HINT": "Den Numm wäert an anere Sprooche verfügbar sinn",
-    "CUSTOM_NAME_HINT": "Den Numm wäert genausou benotzt ginn wéi's du e geschriwwen hues an e wäert net iwwersetzt ginn",
+    "CUSTOM_NAME_HINT": "Den Numm wäert genausou benotzt ginn wéi s du e geschriwwen hues an e wäert net iwwersetzt ginn",
     "CUSTOM_NAME_USE": "Eegenen Numm benotzen {name}",
     "CUSTOM_NAME_PROMPT": "Gëff een eegenen Numm an, oder wiel ee Standard-Numm",
     "MANAGE_TYPES": "Typpe verwalten",
@@ -171,29 +182,24 @@
     "SET_AS": "Adress setzen als"
   },
   "AGREEMENT": {
-    "AGREE": "Du muss {title} zoustëmmen",
-    "BLURB1": "Dir hutt nach keen Ofkommes!",
-    "BLURB2": "Wann's du een derbäi mëss, mussen d'Leit zoustëmmen ier si Ofhuelunge maachen duerfen.",
-    "CONTENT": "Inhalt",
-    "CONTENT_HELPER": "Den Text vun ärem Ofkommes",
-    "DIALOGS": {
-      "REMOVE": {
-        "CONFIRM": "Jo, Ofkommes läschen",
-        "MESSAGE": "Dat heescht, dass jiddereen eng Ofhuelung maachen duerf",
-        "TITLE": "Ofkommes läschen?"
-      },
-      "REPLACE": {
-        "CONFIRM": "Jo, Ofkommes änneren",
-        "MESSAGE": "Jidderee muss nees zoustëmmen ier si sech fir Ofhuelungen androen duerfen.",
-        "TITLE": "Ofkommes änneren?"
-      }
-    },
-    "MINOR_EDIT": "Kléng Ännerung?",
-    "MINOR_EDIT_HELPER": "Tippfeeler, Formatéierung, asw... Leit ginn net gefrot fir nees zouzestëmmen",
     "NEW": "Neit Ofkommes",
-    "TITLE": "Titel",
+    "EDIT": "Ofkommes änneren",
+    "TITLE": "Titel vum Ofkommes",
     "TITLE_HELPER": "Gëff dengem Ofkommes een Titel, z.B. Gemeinschaftsreegeln",
-    "VIEW": "Ofkommes weisen"
+    "SUMMARY": "Zesummefaassung",
+    "SUMMARY_HELPER": "Eng kuerz Zesummefaassung vum Ofkommes",
+    "CONTENT": "Text vum Ofkommes",
+    "CONTENT_HELPER": "Den Haaptcontenu vun dengem Ofkommes",
+    "ACTIVE_FROM": "Aktiv vun",
+    "ACTIVE_TO": "Aktiv bis",
+    "REVIEW_AT": "Evaluatiounsdatum",
+    "VIEW": "Ofkommes weisen",
+    "ONLY_ACTIVE": "Nëmmen aktiv",
+    "ACTIVE": "Aktiv",
+    "INACTIVE": "Inaktiv",
+    "REVIEW_DATE_INFO": "Evaluatiounsdatum {date}",
+    "SINCE_INFO": "Säit {date}",
+    "BECOMES_ACTIVE_INFO": "Gëtt aktiv {date}"
   },
   "APPLICATION": {
     "ACCEPTED": "Du hues {userName} an dëser Grupp ugeholl!",
@@ -251,7 +257,8 @@
     "UNSUBSCRIBE": "Desabonéieren",
     "WITHDRAW": "Zréckzéien",
     "YES": "Jo",
-    "READ_MORE": "Méi liesen"
+    "READ_MORE": "Méi liesen",
+    "GO_TO_GROUP": "An d'Grupp goen"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Neiegkeete vun der {community}",
@@ -262,29 +269,28 @@
   "CONFLICT": {
     "FIND_OUT_MORE": "Méi erausfannen!",
     "INFO": {
-      "MESSAGE": "Dëst ass eng Ofstëmmung mat Punkten, un där all Member aus der Grupp deelhuele kann fir mat ze bestëmme wéi mat engem soziale Konflikt, deen déi ganz Grupp betrëfft, ëmgaange gi soll.",
-      "TITLE": "Wéi funktionéiert dëse Prozess?"
+      "MESSAGE": "This is a score voting in which all group members can participate to determine someone's membership."
     },
     "INITIAL": "Informatiounen",
     "REQUIREMENTS": {
-      "NEWCOMER": "Iers du ee Konflikt-Léisungsprozess starten duerfs, muss du méi Vertraue kréien a beaarbechten duerfen. An der Tëschenzäit frees de am Beschten een anere Member aus der Grupp fir de Prozess fir dech ze starten."
+      "NEWCOMER": "Before you can start a membership review, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
     },
-    "SETUP_HEADER": "Gëtt et ee Konflikt mat {user}?",
+    "SETUP_HEADER": "Start a membership review?",
     "STATEMENT": "Ausso",
-    "STEPPER1a": "Du bass derbäi ee Konflikt-Léisungsprozess an der ganzer Grupp ze starten!",
-    "STEPPER1b": "Dëst wäert all d'Memberen involvéiere fir de beschte Wee fir weiderzemaachen ze fannen.",
+    "STEPPER1a": "You are about to start a group-wide membership review to decide whether {userName} should continue as a member of the group",
+    "STEPPER1b": "Dëst wäert fir all Member vun der Grupp op si fir matzemaachen.",
     "STEPPER2a": "Merci dofir dass du dech ëm d'Gemeinschaft këmmers!",
-    "STEPPER2b": "Et ass wichteg sozial Konflikter unzeschwätzen, obwuel et heiansdo onangeneem si kann. Merci fir däi Courage!",
+    "STEPPER2b": "For a group it is important to practise honest communication and address any issues.",
     "STEPPER3a": "Hei ass wat geschéie wäert:",
     "STEPPER3b": "Dëse Prozess wäert een Chat an eng Ofstëmmung starten.",
-    "STEPPER3c": "Den Chat wäert fir all d'Membere siichtbar sinn. {userName} ass och derbäi.",
+    "STEPPER3c": "The chat will be visible for all group members and includes {userName}.",
     "STEPPER3d": "D'Ofstëmmung ass anonym. Si wäert {votingDuration} Deeg daueren. Wärend dëser Zäit ka jiddereen seng Meenung änneren an anescht ofstëmmen esou oft wéi si wëllen.",
-    "STEPPER4a": "Erklär w.e.g. firwat's du dëse Konflikt-Léisungsprozess starts!",
-    "STEPPER4b": "Erklär denger Grupp firwat's du mengs, dass dëse Prozess justifizéiert ass a gebraucht gëtt. Dës Ausso wäert siichtbar si fir {userName} an all d'Memberen aus der Grupp.",
+    "STEPPER4a": "Erklär w.e.g. firwat s du dëse Prozess starts!",
+    "STEPPER4b": "Tell your group what made you think this is justified and needed. This statement will be visible to {userName} and group members.",
     "VOTING": {
-      "HEADLINE": "Wéi wëlls du mam aktuelle Konflikt mat {userName} weidermaachen?"
+      "HEADLINE": "How do you want to proceed with the ongoing membership review of {userName}?"
     },
-    "WITH": "Dëse Prozess ass dofir do fir ee Konflikt mat {userName} ze léisen"
+    "WITH": "This process is to review the membership of {userName}"
   },
   "CONVERSATION": {
     "CLOSED": "Dës Ënnerhalung gouf automatesch zougemaach.",
@@ -293,7 +299,7 @@
     "MARK_READ": "All als geliese markéieren.",
     "MESSAGE_NOT_FOUND": "Noriicht net fonnt",
     "MUTED": "Benoriichtegungen sinn desaktivéiert.",
-    "NOT_PARTICIPATED": "Andeem's du eng Noriicht schécks, wäerts du Benoriichtegungen iwwert dës Ënnerhalung abonéieren. ",
+    "NOT_PARTICIPATED": "Andeem s du eng Noriicht schécks, wäerts du Benoriichtegungen iwwert dës Ënnerhalung abonéieren. ",
     "NO_CONVERSATIONS": "Nach keng Ënnerhalungen.",
     "OPEN": "Chat opmaachen",
     "REACTIONS": {
@@ -308,6 +314,9 @@
     "LOAD_EARLIER_MESSAGES": "Méi fréi Noriichte lueden"
   },
   "CREATEACTIVITY": {
+    "CREATE_SUCCESS": "Aktivitéit erfollegräich erstallt",
+    "ONE_TIME_ACTIVITY": "Eemoleg Aktivitéit",
+    "ADD_PARTICIPANT_TYPE": "Typ vu Participant derbäimaachen",
     "COMMENT": "Zousätzlech Informatiounen",
     "COMMENT_HELPER": "Wat sollen d'Leit wësse wann si sech fir dës Aktivitéit androen?",
     "CUSTOM": "Ugepasst",
@@ -319,8 +328,11 @@
     "EXCEPTIONS_MESSAGE": "E puer zukünfteg Aktivitéite passen net zu den Astellunge vun dëser Serie. Kuck eng Kéier hei drënner op \"{upcomingLabel}\" fir se ze änneren oder ze desaktivéieren wann et néideg ass.",
     "EXCEPTIONS_TITLE": "Deng Aktivitéite kontrolléieren",
     "FREQUENCY": "Frequenz",
+    "MAKE_IT_PUBLIC": "Ëffentlech maachen",
     "MAX_PARTICIPANTS": "Max. Plazen",
     "MAX_PARTICIPANTS_HELPER": "Wéi vill Leit solle matmaachen?",
+    "REMOVE_PARTICIPANT_TYPE": "Typ vu Participant ewechmaachen",
+    "REVERT_TO_SERIES_VALUES": "Revert to series values",
     "RRULE": "Widderhuelungs-Reegel",
     "RRULE_EXAMPLE": "läscht Wochendeeg (Mé-Fr) all Mount",
     "RRULE_EXAMPLE2": "all zweete Méindeg",
@@ -328,10 +340,19 @@
     "RRULE_HELPER_URL": "Kalenner-Reegel",
     "STARTDATE_HELPER": "Wéini soll d'Serie ufänken?",
     "TIME_HELPER": "Wéini soll et sinn?",
+    "OPEN_FOR": "Oppe fir",
     "UNLIMITED": "onendlech",
+    "USE_PARTICIPANT_TYPES": "Use participant types",
     "WEEKDAYS": "All Wochendag",
     "WEEKDAYS_HELPER": "Op wéi engen Deeg soll et sinn?",
-    "WEEKLY": "All Woch"
+    "WEEKLY": "All Woch",
+    "PLACE": "Wiel eng Plaz"
+  },
+  "EDIT_ACTIVITY": {
+    "TITLE": "What do you want to edit?",
+    "ONLY_ACTIVITY": "Dës Aktivitéit",
+    "SERIES": "Aktivitéiten an dëser Serie",
+    "MANAGE": "Manage activites in {place}"
   },
   "CREATESTORE": {
     "TITLE": "Eng nei Plaz erstellen"
@@ -345,7 +366,7 @@
     "NONE": "Nach kee Feedback",
     "NONE_HINT": "Dës Säit wäert gefëllt sinn esoubal et méi Feedback gëtt",
     "NO_DONE_ACTIVITIES": "Alles fäerdeg!",
-    "NO_DONE_ACTIVITIES_HINT": "Du hues grad keng Aktivitéite fir déi's de Feedback kanns ginn. Firwat mëss net bei enger weiderer Aktivitéit mat?",
+    "NO_DONE_ACTIVITIES_HINT": "Du hues grad keng Aktivitéite fir déi s de Feedback kanns ginn. Firwat mëss net bei enger weiderer Aktivitéit mat?",
     "NUMBER_ACTIVITIES": "{count} Aktivitéite gemaach",
     "NUMBER_FEEDBACK": "{count} Feedbacke ginn",
     "SAVED_FOOD": "Mindestens 1 kg gouf hei gerett! Merci! | Leit hu Feedback fir {amount} kg gerette Liewensmëttel ofginn! Maach weider esou!",
@@ -356,7 +377,7 @@
     "APP_INSTALLED": "App erfollegräich installéiert",
     "GENERIC_ERROR": "Entschëlleg, iergendeppes ass falsch gaangen.",
     "GITHUB_NOTE": "Entwécklung",
-    "INVALID_LINK": "Entschëlleg, de Link deen's de opmaache wëlls ass ongülteg.",
+    "INVALID_LINK": "Entschëlleg, de Link deen s de opmaache wëlls ass ongülteg.",
     "LOGO_ALT": "Logo vu karrot",
     "NOT_CONNECTED": "Du bass net mam Server verbonn",
     "OFFLINE_RECONNECT": "Offline. Klick fir sech nees ze verbannen.",
@@ -364,11 +385,13 @@
     "SEARCH_NOT_FOUND": "Net fonnt",
     "SEARCH_RESULTS": "Sichresultater",
     "SERVER_ERROR": "Server-Feeler",
-    "CLEAR_FILTERS": "Filter läschen"
+    "CLEAR_FILTERS": "Filter läschen",
+    "LAST_CHANGED_BY": "Fir d'lescht geännert vum"
   },
   "GROUP": {
     "ACTIVITIES": "Aktivitéiten",
     "ACTIVITY": "Aktivitéit",
+    "AGREEMENTS": "Ofkommes",
     "PICKUPS_TO_ACTIVITIES": "Du kann elo méi wéi nëmmen Ofhuelungen organiséieren!",
     "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Aktivitéiten, déi Ofhuelungen heeschen, sinn nach ëmmer do, mä mir hunn nach aner Typpen, wéi Treffen, Veranstaltungen a Verdeelungen derbäi gemaach",
     "ADDED_BY": "derbäigemaach gi vum {userName}",
@@ -388,7 +411,7 @@
     "HEADINGS": {
       "GENERAL": "Generell",
       "LOCATION": "Plaz",
-      "LOCATION_HINT": "Wann's du d'Plaz vun denger Grupp op der ëffentlecher Kaart wëlls uweisen, gëff eng Adress an oder wiel eng Plaz op der Kaart hei drënner.",
+      "LOCATION_HINT": "Wann s du d'Plaz vun denger Grupp op der ëffentlecher Kaart wëlls uweisen, gëff eng Adress an oder wiel eng Plaz op der Kaart hei drënner.",
       "NEW_MEMBERS_SIGNUP": "Umeldung vun neie Memberen",
       "NEW_MEMBERS_SIGNUP_HINT": "Nei Membere mussen sech bewerben a vun denger Grupp ugeholl ginn. D'Noriichte fir d'Bewerbung a fir d'Begréissung fir nei Membere kënne spéider an den Astellunge vum Grupp geännert ginn."
     },
@@ -399,7 +422,7 @@
     "INVITATION_ACCEPT_ERROR": "Ups, d'Aluedung konnt net ugeholl ginn!",
     "INVITATION_ACCEPT_SUCCESS": "Wëllkomm! Du hues d'Aluedung erfollegräich ugeholl.",
     "INVITATION_DIALOG": {
-      "MESSAGE": "Kopéier de Link a schéck en un d'Persoun, déi's du aluede wëlls",
+      "MESSAGE": "Kopéier de Link a schéck en un d'Persoun, déi s du aluede wëlls",
       "TITLE": "Aluedungs-Link"
     },
     "INVITED_LIST": "Aluedungen si schonn u folgend E-Mail-Adresse verschéckt ginn:",
@@ -423,8 +446,8 @@
     "NOTIFICATIONS_BY_GROUP": "Benoriichtegungen no Grupp",
     "NOTIFICATION_TYPES": {
       "conflict_resolution": {
-        "DESCRIPTION": "Seet dir Bescheed wann een neie Konflikt-Léisungsprozess an denger Grupp gestart gouf",
-        "NAME": "Neie Konflikt-Léisungsprozess"
+        "DESCRIPTION": "Tells you when a new membership review has been started in your group",
+        "NAME": "New membership review"
       },
       "daily_activity_notification": {
         "DESCRIPTION": "Erënnert dech un deng Aktivitéiten, a seet dir Bescheed iwwert Aktivitéiten vun denge favoriséierte Plazen den nächsten Dag, un deenen nach keng oder net genuch Leit matmaachen",
@@ -490,6 +513,7 @@
     "CONFIRM_CHANGES": "Ännerunge bestätegen?",
     "CONFIRM_CHANGES_HINT": "Du kanns ee Message hei schreiwe fir deng Ännerungen ze erklären. Dëse wäert an der Vergaangenheet ugewise ginn.",
     "DETAILS": "Méi Informatiounen",
+    "CONTENT_CHANGES": "Ännerungen um Contenu",
     "GROUP_CHANGE_PHOTO": "huet de Logo vun der Grupp geännert",
     "GROUP_CREATE": "huet dës Grupp erstallt",
     "GROUP_DELETE_PHOTO": "huet de Logo vun der Grupp geläscht",
@@ -508,7 +532,14 @@
     "STORE_MODIFY": "huet d'Astellunge vun der Plaz {name} verännert",
     "USER_LOST_EDITOR_ROLE": "duerf elo net méi beaarbechten",
     "PLACE_TYPE_CREATE": "huet een Typ vu Plaz erstallt",
-    "PLACE_TYPE_MODIFY": "huet een Typ vu Plaz verännert"
+    "PLACE_TYPE_MODIFY": "huet een Typ vu Plaz verännert",
+    "MEMBER_GOT_ROLE": "krut d'Roll: {role}",
+    "AGREEMENT_CREATE": "Ofkommes erstallt",
+    "AGREEMENT_MODIFY": "Ofkommes geännert"
+  },
+  "IMAGE_UPLOAD": {
+    "SELECT": "Bild wielen",
+    "CLEAR": "Bild läschen"
   },
   "INACTIVITY": {
     "HELP": "All Persoun, déi sech wärend {dayCount} oder méi Deeg net an d'Grupp ageloggt huet, gëtt als inaktiv markéiert. Dës Notzer wäerte keng Benoriichtegunge via E-Mail méi kréien.",
@@ -523,29 +554,31 @@
     },
     "CHAT": "Chat",
     "CREATION": {
-      "TOAST": "Du hues erfollegräich ee Konflikt-Léisungsprozess gestart"
+      "TOAST": "You successfully started a membership review"
     },
+    "NOTICE": "There is an ongoing issue! | There are {count} ongoing issues!",
     "NO_ONGOING": "Grad ginn et keng Konflikter.",
-    "PARTICIPANTS": "{count} Membere goufen an dës Diskussioun dobäi gemaach.",
+    "PARTICIPANTS": "{count} Membere sinn an dëser Diskussioun",
     "PAST": "Vergaange Konflikter",
     "PREVIOUS_VOTINGS": "Vergaangen Ofstëmmungen an dësem Konflikt",
     "TITLE": "Konflikter",
     "VOTE": "Ofstëmmen",
     "VOTING": {
       "ANONYMOUS": "Deng Ofstëmmung wäert anonym sinn.",
+      "DECIDE": "Decide your level of support for each proposal.",
       "BTN_DELETE": "Ofstëmmung läschen",
       "BTN_START": "Elo ofstëmmen",
-      "FURTHER_DISCUSSION": "Weider Diskussiounen: Zäit verlängeren andeem's eng weider Ofstëmmung gestart gëtt",
+      "FURTHER_DISCUSSION": "Weider Diskussiounen: Zäit verlängeren andeem s eng weider Ofstëmmung gestart gëtt",
       "NO_CHANGE": "Keng Ännerung: {userName} bleift an {groupName}",
-      "REMOVE_USER": "{userName} gëtt aus {groupName} geheit",
+      "REMOVE_USER": "Membership ends and {userName} gets removed from {groupName}",
       "RESULTS": {
         "ENDED_AT": "Dës Ofstëmmungsronn ass den {date} eriwwer gaangen.",
         "KEEP_DISCUSSING": "Deng Grupp huet entscheet weider ze diskutéieren",
         "PARTICIPANTS": "{number} Memberen hunn un der Ofstëmmung deelgeholl.",
         "TIME_UP": "D'Zäit ass ëm!",
         "TOTAL_SCORE": "Endstand",
-        "UNDECIDED": "Leider konnt dëse Konflikt net entscheet ginn.",
-        "UNDECIDED_REASON_1": "de betraffene Benotzer huet d'Grupp verlooss wärend de Konflikt-Léisungsprozess nach am Gang war",
+        "UNDECIDED": "Unfortunately this membership review could not be decided.",
+        "UNDECIDED_REASON_1": "the affected user left the group while the membership review was still ongoing",
         "UNDECIDED_REASON_2": "keen huet iwwert dëse Konflikt ofgestëmmt",
         "UNDECIDED_WHY": "Et gëtt zwee méiglech Grënn fir dat:"
       },
@@ -568,7 +601,7 @@
     "APPLICATION_PENDING": "Deng Bewerbung leeft grad!",
     "APPLICATION_SUBMITTED": "Deng Bewerbung gouf erfollegräich agereecht!",
     "APPLICATION_WITHDRAWN": "Deng Bewerbung gouf erfollegräich zréckgezunn!",
-    "ARCHIVED_NOTE": "Dës Grupp huet keng Memberen. Wann's du se nees zum Liewen erwësche wëlls, kontaktéier d'Administrator*innen vun dëser Websäit!",
+    "ARCHIVED_NOTE": "Dës Grupp huet keng Memberen. Wann s du se nees zum Liewen erwësche wëlls, kontaktéier d'Administrator*innen vun dëser Websäit!",
     "BROWSE_GROUPS": "Existéierend Gruppen ukucken",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "Du bass grad ausgeloggt. {login}",
@@ -578,7 +611,7 @@
     "NO_PUBLIC_DESCRIPTION": "(Dës Grupp huet nach keng ëffentlech Beschreiwung.)",
     "NUM_MEMBERS": "Member | Memberen",
     "OR": "{joinGroup} oder {createGroup}",
-    "PROFILE_NOTE": "Andeem's du dëser Grupp bäitrëts, kann all anere Member aus der Grupp däi Profil kucken.",
+    "PROFILE_NOTE": "Andeem s du dëser Grupp bäitrëts, kann all anere Member aus der Grupp däi Profil kucken.",
     "SIGNUP_OR_LOGIN": "Logg dech an oder mellt dech un fir dëser Grupp bäizetrieden!",
     "VERIFY_EMAIL_ADDRESS": "Verifizéier deng E-Mail-Adress fir dech ze bewerben",
     "WHICHGROUP": "Wéi enger Grupp wëlls du bäitrieden?",
@@ -617,12 +650,12 @@
     "ACTIVITY_UPCOMING": "Erënnerung: {activityType} um {time}",
     "APPLICATION_ACCEPTED": "Deng Bewerbung gouf ugeholl!",
     "APPLICATION_DECLINED": "Deng Bewerbung gouf ofgeleent",
-    "CONFLICT_RESOLUTION_CONTINUED": "De Konflikt-Léisungsprozess mat {userName} geet weider",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "De Konflikt-Léisungsprozess mat dir geet weider",
-    "CONFLICT_RESOLUTION_CREATED": "Triet der Diskussioun iwwert de Konflikt mat {userName} bäi",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Ee Konflikt-Léisungsprozess mat dir gouf gestart",
-    "CONFLICT_RESOLUTION_DECIDED": "De Konflikt-Léisungsprozess mat {userName} gouf entscheet",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "De Konflikt-Léisungsprozess mat dir gouf entscheet",
+    "CONFLICT_RESOLUTION_CONTINUED": "The membership review of {userName} continues",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Your membership review continues",
+    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a membership review of {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A review of your membership was started",
+    "CONFLICT_RESOLUTION_DECIDED": "The membership review of {userName} was decided",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Iwwert deng Memberschaft gouf decidéiert",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du goufs aus der Grupp geheit",
     "FEEDBACK_POSSIBLE": "Du kanns Feedback ofginn - {activityType} den {date}",
     "INVITATION_ACCEPTED": "{userName} huet deng Aluedung ugeholl",
@@ -630,9 +663,12 @@
     "NEW_MEMBER": "{userName} ass denger Grupp bäigetrueden",
     "NEW_PLACE": "{placeName} ass erstallt ginn",
     "USER_BECAME_EDITOR": "{userName} duerf elo beaarbechten",
+    "USER_GOT_ROLE": "{userName} krut d'Roll: {role}",
+    "YOU_GOT_ROLE": "Du krus d'Roll: {role}!",
     "VOTING_ENDS_SOON": "D'Ofstëmmung ass geschwë eriwwer, vergiess net matzemaachen!",
     "YOU_BECAME_EDITOR": "Du duerfs elo beaarbechten",
-    "MENTION": "{userName} huet dech erwäänt!"
+    "MENTION": "{userName} huet dech erwäänt!",
+    "PARTICIPANT_REMOVED": "{activityType} net méi disponibel - {dateTime}"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "Mir hu grad keng Benoriichtegungen fir dech.",
@@ -663,7 +699,7 @@
     "MARK_AS_ARCHIVED": "Archivéieren",
     "MARK_AS_ARCHIVED_DESCRIPTION": "Markéier dës Offer als archivéiert fir se aus den aktuellen Offeren erauszehuelen.",
     "NAME": "Numm",
-    "NAME_HELPER": "Kuerzen Numm fir dat wat's de ubitts"
+    "NAME_HELPER": "Kuerzen Numm fir dat wat s de ubitts"
   },
   "OUTDATED_BROWSER": {
     "LINK": "Aktualiséier oder wiessel däi Browser w.e.g.",
@@ -681,7 +717,7 @@
   },
   "PASSWORDRESET": {
     "EMAIL": "E-Mail-Adress",
-    "INTRO": "Gëff deng E-Mail-Adress an a mir schécken dir ee Link fir een neit Passwuert erauszewielen (wann's du ee Konto hues).",
+    "INTRO": "Gëff deng E-Mail-Adress an a mir schécken dir ee Link fir een neit Passwuert erauszewielen (wann s du ee Konto hues).",
     "LOGIN": "Zréck op d'Säit mam Login",
     "SUBMIT": "Neit Passwuert kréien",
     "SUCCESS": "D'Ufro gouf erfollegräich geschéckt. Kuck an deng E-Mailen!",
@@ -705,13 +741,23 @@
     "STATUS": "Status",
     "STANDARD_NAME_HEADING": "Standard-Nimm",
     "STANDARD_NAME_HINT": "Den Numm wäert an anere Sprooche verfügbar sinn",
-    "CUSTOM_NAME_HINT": "Den Numm wäert genausou benotzt ginn wéi's du e geschriwwen hues an e wäert net iwwersetzt ginn",
+    "CUSTOM_NAME_HINT": "Den Numm wäert genausou benotzt ginn wéi s du e geschriwwen hues an e wäert net iwwersetzt ginn",
     "CUSTOM_NAME_USE": "Eegenen Numm benotzen {name}",
     "CUSTOM_NAME_PROMPT": "Gëff een eegenen Numm an, oder wiel ee Standard-Numm",
     "MANAGE_TYPES": "Typpe verwalten...",
     "SHOW_ARCHIVED": "Archivéiert uweisen",
     "STATUS_ACTIVE_HINT": "Du wäerts kënnen nei Plaze vun dësem Typ erstellen",
     "STATUS_ARCHIVED_HINT": "Et wäert net méiglech sinn nei Plaze vun dësem Typ ze erstellen, awer déi, déi et ginn, wäerte bleiwen"
+  },
+  "PLACE_LIST": {
+    "ONLY_FAVOURITES": "Just favoriséiert",
+    "UPCOMING_ACTIVITIES": "Eng zukünfteg Aktivitéit | { count } zukünfteg Aktivitéiten",
+    "SUBSCRIBED": "Du hues dës Plaz als Favorit markéiert",
+    "FAVORITE_PLACES": "Favoriséiert Plazen",
+    "NONE_DUE_TO_FILTER": "Keng Plaz passt op deng Filter",
+    "ALL_TYPES": "All d'Typpen",
+    "ALL_STATUSES": "All d'Statussen",
+    "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then click { icon } on one of them."
   },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} Leit hunn dës Plaz als Favorit markéiert",
@@ -725,6 +771,14 @@
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(Benotzer net accessibel oder geläscht)"
+  },
+  "ROLES": {
+    "MEMBER": "Iergendeen",
+    "MEMBER_DESCRIPTION": "Iergendeen an der Grupp",
+    "NEWCOMER": "Nei hei",
+    "NEWCOMER_DESCRIPTION": "Leit, déi nach keng aner Roll hunn",
+    "EDITOR": "Editor",
+    "EDITOR_DESCRIPTION": "People that have been trusted in the group as an editor"
   },
   "SETTINGS": {
     "TITLE": "Astellungen"
@@ -783,7 +837,6 @@
     },
     "NAME": "Numm",
     "RESTORE": "Réckgäng maachen",
-    "SHOW_ACTIVE_ONLY": "Just déi aktiv Plazen weisen",
     "SHOW_ALL": "All d'Plaze weisen",
     "STATUS": "Status",
     "WEEKS_IN_ADVANCE": "Wéi vill Wochen am Viraus sollen d'Aktivitéiten, déi ëmmer nees sinn, ugewise ginn?",
@@ -835,12 +888,12 @@
         "TITLE": "Benotzer vertrauen"
       },
       "REVOKE_TRUST": {
-        "MESSAGE": "Wëlls du wierklech d'Vertrauen, wat's du {userName} an {groupName} ginn hues, zréckhuelen? ",
+        "MESSAGE": "Wëlls du wierklech d'Vertrauen, wat s du {userName} an {groupName} ginn hues, zréckhuelen? ",
         "TITLE": "Vertrauen zréckhuelen"
       },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "Bestätegen",
-        "MESSAGE": "Bass du sécher? Däi Konto an deng perséinlech Date wäerte fir ëmmer geläscht ginn. Alles wat's du op dëser Plattform gemaach hues wäert anonymiséiert ginn. Wann's du zoustëmms, schécke mir dir eng E-Mail mat engem Link fir d'Läschen ofzeschléissen.",
+        "MESSAGE": "Bass du sécher? Däi Konto an deng perséinlech Date wäerte fir ëmmer geläscht ginn. Alles wat s du op dëser Plattform gemaach hues wäert anonymiséiert ginn. Wann s du zoustëmms, schécke mir dir eng E-Mail mat engem Link fir d'Läschen ofzeschléissen.",
         "TITLE": "Läsche vum Konto"
       }
     },
@@ -850,7 +903,7 @@
     "MOBILE_NUMBER": "Telefonsnummer",
     "NEWCOMER": "Nei hei",
     "NEWCOMER_GUIDANCE": "{userName} ass nei an denger Grupp a brauch vläicht e bëssen Hëllef.",
-    "NEWCOMER_INFO": "Du bass grad nei an {groupName} an du kanns aktiv ginn andeem's du Noriichte schreifs, aner Memberen trëffs, un Aktivitéiten deelhëls a Feedback gëss. Esoubal {threshold} Memberen dir hiert Vertrauen ausgedréckt hunn, duerfs eppes beaarbechte fir ze hëllefen d'Grupp ze administréieren.",
+    "NEWCOMER_INFO": "Du bass grad nei an {groupName} an du kanns aktiv ginn andeem s du Noriichte schreifs, aner Memberen trëffs, un Aktivitéiten deelhëls a Feedback gëss. Esoubal {threshold} Memberen dir hiert Vertrauen ausgedréckt hunn, duerfs eppes beaarbechte fir ze hëllefen d'Grupp ze administréieren.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} vertraut {userName} an {groupName}. | {count} Leit vertrauen {userName} an {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vertraut dir an {groupName}. | {count} Leit vertrauen dir an {groupName}.",
     "PASSWORD": "Passwuert",
@@ -879,6 +932,24 @@
     "WHERE_FROM": "Vu wou bass du (net erfuerderlech)",
     "YOU_TRUST_USER": "Du vertraus dem {userName} bei {groupName}."
   },
+  "TRUST_FOR_ROLE": {
+    "FIRST_TRUST": "Sief déi éischt Persoun, déi dem {userName} fir {role} bei {groupName} vertraut!",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} vertraut {userName} fir {role} bei {groupName}. | {count} Leit vertrauen {userName} fir {role} bei {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vertraut dir fir {role} bei {groupName}. | {count} Leit vertrauen dir fir {role} bei {groupName}.",
+    "PEOPLE_TRUST_USER": "Du an {otherUser} vertrauen {userName} fir {role} bei {groupName}. | Du an {count} aner Leit vertrauen {userName} fir {role} bei {groupName}.",
+    "YOU_TRUST_USER": "Du vertraus {userName} fir {role} bei {groupName}.",
+    "NO_ROLE_INFO": "You currently don't have role {role} in {groupName}. As soon as {threshold} members expressed their trust for {role} in you, you will receive the {role} role.",
+    "NEED_ROLE": "Du brauchs d'Roll {role}",
+    "TRUST_PROGRESS": "{trustNeeded} Leit méi mussen dem {userName} hiert Vertrauen ausdrécke fir dass hien d'Roll {role} kritt.",
+    "GIVE_DIALOG": {
+      "MESSAGE": "Vertraus du {userName} fir {role} bei {groupName}?",
+      "TITLE": "Trust user for {role}"
+    },
+    "REVOKE_DIALOG": {
+      "MESSAGE": "Wëlls du d'Vertrauen zréckhuele fir {role}, wat s du {userName} bei {groupName} ginn has? ",
+      "TITLE": "Vertrauen zréckhuele fir {role}"
+    }
+  },
   "USERDETAIL": {
     "DESCRIPTION": "Iwwert dech",
     "DISPLAY_NAME": "Numm",
@@ -891,6 +962,7 @@
     "MINLENGTH": "Gëff w.e.g. méi wéi {min} Zeechen an.",
     "REQUIRED": "Dëst Feld ass erfuerderlech.",
     "UNIQUE": "Dësen Numm gëtt et schonn. Wiel w.e.g. een aneren.",
+    "OPTIONAL": "optional",
     "VALID_EMAIL": "Gëff eng gülteg E-Mail-Adress an.",
     "VALID_TIMEZONE": "Gëff eng gülteg Zäitzone an.",
     "VALID_USERNAME": "Gëff ee gültege Benotzernumm an.",

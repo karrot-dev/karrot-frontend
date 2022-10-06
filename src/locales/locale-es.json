@@ -56,7 +56,7 @@
         "TITLE": "Transparencia"
       },
       "TRUST": {
-        "DESCRIPTION": "No hay poderes supremos en los grupos de Karrot. La persona que recibe suficiente confianza de sus iguales tiene derecho a modificar la configuración de su grupo. Cuando entra nueva gente, tienen que solicitar la entrada y responder a una serie de pregunta que decide el grupo. Todas las personas con derechos de edición pueden aprobar o rechazar la solicitud. Igualmente, si hay algún conflicto, el grupo puede crear una votación para resolver el problema de forma comunal.",
+        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is the need to review someone's membership, the group can enter a voting system to resolve it in a communal way.",
         "TITLE": "Gestión democrática y basada en confianza grupal"
       }
     },
@@ -92,6 +92,14 @@
       "LEAVE_CONFIRMATION_TEXT": "¿De verdad que las otras personas pueden hacer la recogida sin ti?",
       "DOWNLOAD_ICS": "Descargar ICS"
     },
+    "OPEN_FOR_ROLE": "Open for {role}",
+    "PUBLIC": {
+      "WHAT": "What",
+      "WHEN": "When",
+      "WHERE": "Where",
+      "SHARE": "Public activity link",
+      "VIEW": "Public View"
+    },
     "JOINEDNOTICE": "Tienes una actividad pendiente | Tienes {count} actividades pendientes",
     "NONE": "No hay actividades pendientes",
     "NONE_DUE_TO_FILTER": "Ninguna actividad coincide con tus filtros",
@@ -99,7 +107,7 @@
     "STORE_NONE_HINT": "Puedes crear una nueva actividad en la página «Gestionar actividades».",
     "ICS_DIALOG": {
       "TITLE": "Añadir al calendario",
-      "INTRO": "Añade tus actividades a tu calendario utilizando una de las siguientes opciones:",
+      "INTRO": "Add these activities to your calender:",
       "DOWNLOAD_TITLE": "Descargar",
       "DOWNLOAD_TEXT": "Descarga el archivo ICS para importarlo manualmente a tu calendario:",
       "DOWNLOAD_BUTTON_LABEL": "Descargar ICS",
@@ -114,11 +122,14 @@
     "ACTIVITY_DESCRIPTION_CHANGED": "«Información adicional» ha sido cambiada",
     "ACTIVITY_DOES_NOT_MATCH": "Esta fecha no coincide con el patrón",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "«Máximo de espacios» ha sido cambiado",
+    "ACTIVITY_PARTICIPANT_TYPES_CHANGED": "Participant types have been changed",
     "SERIES": "Series de actividades",
     "SINGLE": "Actividades únicas",
     "TITLE": "Gestionar actividades",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Próximas actividades en esta serie"
-  },
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Próximas actividades en esta serie",
+    "CHANGE_AFFECTS_USERS": "This change affects the future activities of {users}.",
+    "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
+},
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Cantidad de alimentos que has podido ahorrar",
     "AMOUNT_INFO": "Para las estadísticas de la página, añadiremos la cantidad total de comentarios.",
@@ -171,29 +182,24 @@
     "SET_AS": "Establecer dirección como"
   },
   "AGREEMENT": {
-    "AGREE": "Tienes que aceptar {title}",
-    "BLURB1": "¡Todavía no hay un acuerdo!",
-    "BLURB2": "Si añades un acuerdo la gente tendrá que aceptarlo antes de poder hacer recogidas. ",
-    "CONTENT": "Contenido",
-    "CONTENT_HELPER": "El texto para vuestro acuerdo",
-    "DIALOGS": {
-      "REMOVE": {
-        "CONFIRM": "Si, eliminar el acuerdo",
-        "MESSAGE": "Esto significa que cualquiera podrá hacer recogidas",
-        "TITLE": "¿Eliminar el acuerdo?"
-      },
-      "REPLACE": {
-        "CONFIRM": "Si, cambiar el acuerdo",
-        "MESSAGE": "Todo el mundo tendrán que aceptar el acuerdo de nuevo antes de poder apuntarse a las recogidas",
-        "TITLE": "¿Cambiar el acuerdo?"
-      }
-    },
-    "MINOR_EDIT": "¿Edición menor?",
-    "MINOR_EDIT_HELPER": "Errores ortográficos, formateo, etc... No se les pedirá a las personas que vuelvan a estar de acuerdo",
     "NEW": "Nuevo acuerdo",
-    "TITLE": "Título",
+    "EDIT": "Edit agreement",
+    "TITLE": "Agreement Title",
     "TITLE_HELPER": "Dále un título a tu acuerdo, p. ej. Reglas del Grupo",
-    "VIEW": "Ver acuerdo"
+    "SUMMARY": "Summary",
+    "SUMMARY_HELPER": "A short summary of the agreement",
+    "CONTENT": "Agreement Text",
+    "CONTENT_HELPER": "The main content of your agreement",
+    "ACTIVE_FROM": "Active From",
+    "ACTIVE_TO": "Active To",
+    "REVIEW_AT": "Review Date",
+    "VIEW": "Ver acuerdo",
+    "ONLY_ACTIVE": "Only active",
+    "ACTIVE": "Active",
+    "INACTIVE": "Inactive",
+    "REVIEW_DATE_INFO": "Review date {date}",
+    "SINCE_INFO": "Since {date}",
+    "BECOMES_ACTIVE_INFO": "Becomes active {date}"
   },
   "APPLICATION": {
     "ACCEPTED": "¡Has aceptado a {userName} en este grupo!",
@@ -251,7 +257,8 @@
     "UNSUBSCRIBE": "Darse de baja",
     "WITHDRAW": "Retirar",
     "YES": "Si",
-    "READ_MORE": "Más información"
+    "READ_MORE": "Más información",
+    "GO_TO_GROUP": "Go to group"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Actualizaciones de {community}",
@@ -262,29 +269,28 @@
   "CONFLICT": {
     "FIND_OUT_MORE": "¡Obtén más información!",
     "INFO": {
-      "MESSAGE": "Esta es una votación en la que miembros del grupo pueden participar para decidir como tratar con un problema social que afecta a todo el grupo.",
-      "TITLE": "¿Cómo funciona el proceso?"
+      "MESSAGE": "This is a score voting in which all group members can participate to determine someone's membership."
     },
     "INITIAL": "Información",
     "REQUIREMENTS": {
-      "NEWCOMER": "Antes de empezar el proceso de resolución de problemas, necesitas recibir más confianza y tener permisos de edición. Mientras tanto, por favor contacta a una persona del grupo para que empiece el proceso por ti."
+      "NEWCOMER": "Before you can start a membership review, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
     },
-    "SETUP_HEADER": "¿Hay algún problema con {user}?",
+    "SETUP_HEADER": "Start a membership review?",
     "STATEMENT": "Declaración",
-    "STEPPER1a": "Está a punto de empezar un proceso grupal de resolución de problemas ",
-    "STEPPER1b": "Esto involucrará a todas las personas en el grupo para encontrar la mejor forma de proceder.",
+    "STEPPER1a": "You are about to start a group-wide membership review to decide whether {userName} should continue as a member of the group",
+    "STEPPER1b": "This will be open for all group members to participate.",
     "STEPPER2a": "¡Gracias por preocuparte por tu comunidad!",
-    "STEPPER2b": "Es importante que tengas en cuenta las cuestiones sociales, aunque a veces pueda ser incómodo. ¡Gracias por tu valentía!",
+    "STEPPER2b": "For a group it is important to practise honest communication and address any issues.",
     "STEPPER3a": "Esto es lo que pasará:",
     "STEPPER3b": "Este proceso abrirá un chat y una votación.",
-    "STEPPER3c": "El chat será visible para miembros e incluye a {userName}.",
+    "STEPPER3c": "The chat will be visible for all group members and includes {userName}.",
     "STEPPER3d": "La votación es anónima. Durará {votingDuration}días. Durante este tiempo quienes voten pueden cambiar su opinión y cambiar de voto tantas veces como consideren necesario.",
-    "STEPPER4a": "Por favor explica porque has empezado este proceso de resolución de problemas.",
-    "STEPPER4b": "Cuenta al grupo la justificación y necesidad de este proceso. Esta declaración será visible para {userName}y quienes pertenezcan al grupo.",
+    "STEPPER4a": "Please explain why you are starting this process!",
+    "STEPPER4b": "Tell your group what made you think this is justified and needed. This statement will be visible to {userName} and group members.",
     "VOTING": {
-      "HEADLINE": "¿Cómo quieres proceder con el actual problema con {userName}?"
+      "HEADLINE": "How do you want to proceed with the ongoing membership review of {userName}?"
     },
-    "WITH": "Este proceso es para resolver el problema con {userName}"
+    "WITH": "This process is to review the membership of {userName}"
   },
   "CONVERSATION": {
     "CLOSED": "Esta conversación ha sido cerrada automáticamente",
@@ -308,6 +314,9 @@
     "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
+    "CREATE_SUCCESS": "Activity successfully created!",
+    "ONE_TIME_ACTIVITY": "One-time activity",
+    "ADD_PARTICIPANT_TYPE": "Add participant type",
     "COMMENT": "Información adicional",
     "COMMENT_HELPER": "¿Qué debería saber la gente cuando se registra en esta actividad?",
     "CUSTOM": "Personalizado",
@@ -319,8 +328,11 @@
     "EXCEPTIONS_MESSAGE": "Algunas próximas actividades no coinciden con la configuración de esta serie. Echa un vistazo a «{upcomingLabel}» para cambiarlas o deshabilitarlas si es necesario.",
     "EXCEPTIONS_TITLE": "Controla tus actividades",
     "FREQUENCY": "Frecuencia",
+    "MAKE_IT_PUBLIC": "Make it public",
     "MAX_PARTICIPANTS": "Máximo de espacios",
     "MAX_PARTICIPANTS_HELPER": "¿Cuántas personas deberían participar?",
+    "REMOVE_PARTICIPANT_TYPE": "Remove participant type",
+    "REVERT_TO_SERIES_VALUES": "Revert to series values",
     "RRULE": "Regla de recurrencia",
     "RRULE_EXAMPLE": "último día laborable (Lunes-Viernes) de cada mes",
     "RRULE_EXAMPLE2": "cada segundo lunes",
@@ -328,10 +340,19 @@
     "RRULE_HELPER_URL": "Regla iCalender",
     "STARTDATE_HELPER": "¿Cuándo debería comenzar la serie?",
     "TIME_HELPER": "¿Cuándo debe llevarse a cabo?",
+    "OPEN_FOR": "Open for",
     "UNLIMITED": "ilimitado",
+    "USE_PARTICIPANT_TYPES": "Use participant types",
     "WEEKDAYS": "Día de la semana",
     "WEEKDAYS_HELPER": "¿En qué días debe llevarse a cabo?",
-    "WEEKLY": "Semanal"
+    "WEEKLY": "Semanal",
+    "PLACE": "Choose a place"
+  },
+  "EDIT_ACTIVITY": {
+    "TITLE": "What do you want to edit?",
+    "ONLY_ACTIVITY": "This activity",
+    "SERIES": "Activities in this series",
+    "MANAGE": "Manage activites in {place}"
   },
   "CREATESTORE": {
     "TITLE": "Crea un nuevo lugar"
@@ -364,11 +385,13 @@
     "SEARCH_NOT_FOUND": "No encontrado",
     "SEARCH_RESULTS": "Buscar resultados",
     "SERVER_ERROR": "Error del servidor",
-    "CLEAR_FILTERS": "Eliminar filtros"
+    "CLEAR_FILTERS": "Eliminar filtros",
+    "LAST_CHANGED_BY": "Last changed by"
   },
   "GROUP": {
     "ACTIVITIES": "Actividades",
     "ACTIVITY": "Actividad",
+    "AGREEMENTS": "Agreements",
     "PICKUPS_TO_ACTIVITIES": "¡Ahora puedes organizar más cosas además de recogidas!",
     "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "La recogidas todavía están disponibles, pero además puedes añadir otros tipos como encuentros, eventos y distribuciones",
     "ADDED_BY": "Añadido por {userName}",
@@ -423,8 +446,8 @@
     "NOTIFICATIONS_BY_GROUP": "Notificaciones por grupo",
     "NOTIFICATION_TYPES": {
       "conflict_resolution": {
-        "DESCRIPTION": "Te informa cuándo un nuevo proceso de resolución de conflictos se ha iniciado en tu grupo",
-        "NAME": "Nuevos procesos de resolución de conflictos"
+        "DESCRIPTION": "Tells you when a new membership review has been started in your group",
+        "NAME": "New membership review"
       },
       "daily_activity_notification": {
         "DESCRIPTION": "Te recuerda tus actividades y te informa sobre las actividades disponibles en tus lugares favoritos al siguiente día",
@@ -490,6 +513,7 @@
     "CONFIRM_CHANGES": "¿Confirmar cambios?",
     "CONFIRM_CHANGES_HINT": "Puedes escribir un mensaje aquí para explicar los cambios que se mostrará en el historial",
     "DETAILS": "Más información ",
+    "CONTENT_CHANGES": "Content Changes",
     "GROUP_CHANGE_PHOTO": "cambió el logo del grupo",
     "GROUP_CREATE": "creó este grupo",
     "GROUP_DELETE_PHOTO": "eliminó el logo del grupo",
@@ -508,7 +532,14 @@
     "STORE_MODIFY": "cambió los ajustes del lugar {name}",
     "USER_LOST_EDITOR_ROLE": "permisos de redacción perdidos",
     "PLACE_TYPE_CREATE": "created a place type",
-    "PLACE_TYPE_MODIFY": "modified a place type"
+    "PLACE_TYPE_MODIFY": "modified a place type",
+    "MEMBER_GOT_ROLE": "received role: {role}",
+    "AGREEMENT_CREATE": "agreement created",
+    "AGREEMENT_MODIFY": "agreement modified"
+  },
+  "IMAGE_UPLOAD": {
+    "SELECT": "Select image",
+    "CLEAR": "Clear image"
   },
   "INACTIVITY": {
     "HELP": "Toda persona que no se ha conectado a un grupo en {dayCount}días o más se considera como inactiva. Dichas cuentas pasa a no recibir notificaciones por correo electrónico.",
@@ -523,29 +554,31 @@
     },
     "CHAT": "Chat",
     "CREATION": {
-      "TOAST": "Has iniciado exitosamente un proceso de resolución de problemas"
+      "TOAST": "You successfully started a membership review"
     },
+    "NOTICE": "There is an ongoing issue! | There are {count} ongoing issues!",
     "NO_ONGOING": "No hay conflictos actualmente.",
-    "PARTICIPANTS": "{count} miembros han sido añadidos a esta discusión.",
+    "PARTICIPANTS": "{count} members are in this discussion.",
     "PAST": "Conflictos pasados",
     "PREVIOUS_VOTINGS": "Votaciones previas sobre este conflicto",
     "TITLE": "Conflictos",
     "VOTE": "Votar",
     "VOTING": {
       "ANONYMOUS": "Tu voto será anónimo.",
+      "DECIDE": "Decide your level of support for each proposal.",
       "BTN_DELETE": "Eliminar voto",
       "BTN_START": "Vota ahora",
       "FURTHER_DISCUSSION": "Ampliación del debate: aumento del tiempo para empezar otra votación",
       "NO_CHANGE": "Sin cambios: {userName}se queda en {groupName}",
-      "REMOVE_USER": "{userName}ha sido expulsada de {groupName}",
+      "REMOVE_USER": "Membership ends and {userName} gets removed from {groupName}",
       "RESULTS": {
         "ENDED_AT": "Esta ronda de votación acaba el {date}",
         "KEEP_DISCUSSING": "Tu grupo ha votado para seguir discutiendo",
         "PARTICIPANTS": "{number} personas participaron en la votación.",
         "TIME_UP": "¡Se acabó el tiempo!",
         "TOTAL_SCORE": "Resultado final",
-        "UNDECIDED": "Desafortunadamente, no se pudo concluir este problema.",
-        "UNDECIDED_REASON_1": "la persona afectada ha dejado el grupo mientras el proceso de resolución de problemas esta en marcha",
+        "UNDECIDED": "Unfortunately this membership review could not be decided.",
+        "UNDECIDED_REASON_1": "the affected user left the group while the membership review was still ongoing",
         "UNDECIDED_REASON_2": "nadie votó sobre el conflicto",
         "UNDECIDED_WHY": "Hay dos posibles razones para ello:"
       },
@@ -617,12 +650,12 @@
     "ACTIVITY_UPCOMING": "Recordatorio: {activityType} en la fecha {time}",
     "APPLICATION_ACCEPTED": "¡Tu solicitud ha sido aceptada!",
     "APPLICATION_DECLINED": "Tu solicitud ha sido rechazada",
-    "CONFLICT_RESOLUTION_CONTINUED": "El proceso de resolver problemas con {userName}continúa",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "El proceso de resolver problemas contigo continúa",
-    "CONFLICT_RESOLUTION_CREATED": "Únete al debate sobre el problema con {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Empezaste un proceso de resolver problemas ",
-    "CONFLICT_RESOLUTION_DECIDED": "Se ha tomado una decisión sobre el proceso de resolver problemas con {userName}",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Se ha tomado una decisión sobre el proceso de resolver problemas contigo",
+    "CONFLICT_RESOLUTION_CONTINUED": "The membership review of {userName} continues",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Your membership review continues",
+    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a membership review of {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A review of your membership was started",
+    "CONFLICT_RESOLUTION_DECIDED": "The membership review of {userName} was decided",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Your membership was decided",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Has sido eliminada del grupo",
     "FEEDBACK_POSSIBLE": "Puedes dejar un comentario - {activityType} el {date}",
     "INVITATION_ACCEPTED": "{userName}ha aceptado tu solicitud",
@@ -630,9 +663,12 @@
     "NEW_MEMBER": "{userName}se ha unido al grupo",
     "NEW_PLACE": "{placeName}ha sido creado",
     "USER_BECAME_EDITOR": "{userName}obtuvo permisos de edición",
+    "USER_GOT_ROLE": "{userName} received role: {role}",
+    "YOU_GOT_ROLE": "You received role: {role}!",
     "VOTING_ENDS_SOON": "La votación terminará pronto, ¡no te olvides de participar!",
     "YOU_BECAME_EDITOR": "Conseguiste permiso de edición",
-    "MENTION": "¡{userName} te ha mencionado!"
+    "MENTION": "¡{userName} te ha mencionado!",
+    "PARTICIPANT_REMOVED": "{activityType} no longer available - {dateTime}"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "No tenemos notificaciones para ti ahora.",
@@ -713,6 +749,16 @@
     "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
+  "PLACE_LIST": {
+    "ONLY_FAVOURITES": "Only favourite",
+    "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
+    "SUBSCRIBED": "You have marked this place as favorite",
+    "FAVORITE_PLACES": "Favorite places",
+    "NONE_DUE_TO_FILTER": "No places match your filters",
+    "ALL_TYPES": "All types",
+    "ALL_STATUSES": "All statuses",
+    "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then click { icon } on one of them."
+  },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} personas han marcado este lugar como favorito",
     "SUBSCRIPTION": {
@@ -725,6 +771,14 @@
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(Usuario inaccesible o eliminado)"
+  },
+  "ROLES": {
+    "MEMBER": "Anyone",
+    "MEMBER_DESCRIPTION": "Anyone in the group",
+    "NEWCOMER": "Newcomer",
+    "NEWCOMER_DESCRIPTION": "People that haven't yet got any other roles",
+    "EDITOR": "Editor",
+    "EDITOR_DESCRIPTION": "People that have been trusted in the group as an editor"
   },
   "SETTINGS": {
     "TITLE": "Configuraciones"
@@ -783,7 +837,6 @@
     },
     "NAME": "Nombre",
     "RESTORE": "Restaurar",
-    "SHOW_ACTIVE_ONLY": "Mostrar solo lugares activos",
     "SHOW_ALL": "Mostrar todos los lugares archivados",
     "STATUS": "Estado",
     "WEEKS_IN_ADVANCE": "¿Con cuántas semanas de anticipación se deben crear las actividades de las series?",
@@ -879,6 +932,24 @@
     "WHERE_FROM": "De dónde eres (opcional)",
     "YOU_TRUST_USER": "Confias en {userName} en {groupName}"
   },
+  "TRUST_FOR_ROLE": {
+    "FIRST_TRUST": "Be the first one trust {userName} for {role} in {groupName}!",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} for {role} in {groupName}. | {count} people trust {userName} for {role} in {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you for {role} in {groupName}. | {count} people trust you for {role} in {groupName}.",
+    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} for {role} in {groupName}. | You and {count} other people trust {userName} for {role} in {groupName}.",
+    "YOU_TRUST_USER": "You trust {userName} for {role} in {groupName}.",
+    "NO_ROLE_INFO": "You currently don't have role {role} in {groupName}. As soon as {threshold} members expressed their trust for {role} in you, you will receive the {role} role.",
+    "NEED_ROLE": "You need {role} role",
+    "TRUST_PROGRESS": "{trustNeeded} more people need to express their trust in {userName} to grant the {role} role.",
+    "GIVE_DIALOG": {
+      "MESSAGE": "Do you trust {userName} for {role} in {groupName}?",
+      "TITLE": "Trust user for {role}"
+    },
+    "REVOKE_DIALOG": {
+      "MESSAGE": "Do you want to revoke the trust for {role} you have given to {userName} in {groupName}?",
+      "TITLE": "Revoke trust for {role}"
+    }
+  },
   "USERDETAIL": {
     "DESCRIPTION": "Sobre ti",
     "DISPLAY_NAME": "Nombre",
@@ -891,6 +962,7 @@
     "MINLENGTH": "Por favor, introduce más de {min} caracteres.",
     "REQUIRED": "Este campo es obligatorio. ",
     "UNIQUE": "Este nombre ya existe, por favor, elige otro. ",
+    "OPTIONAL": "optional",
     "VALID_EMAIL": "Introduce un correo electrónico válido.",
     "VALID_TIMEZONE": "Introduce una zona horaria válida.",
     "VALID_USERNAME": "Introduce un nombre de usuario válido.",

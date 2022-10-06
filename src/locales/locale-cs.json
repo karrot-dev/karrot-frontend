@@ -56,7 +56,7 @@
         "TITLE": "Transparentnost"
       },
       "TRUST": {
-        "DESCRIPTION": "Ve skupině Karrot nejsou žádní administrátoři. Lidé, kteří dostanou od svých vrstevníků dostatek důvěry, budou moci ve skupině upravovat a měnit nastavení. Když se do vaší skupiny chtějí přidat noví lidé, musí o to požádat a odpovědět na otázky, které může skupina nastavit.  Ty pak může odmítnout nebo schválit kdokoli s právy na úpravy. Podobně, pokud dojde ke konfliktu, skupina může vstoupit do hlasovacího systému, aby jej vyřešila komunitním způsobem.",
+        "DESCRIPTION": "Ve skupině Karrot neexistují žádné administrátorské superschopnosti. Lidé, kteří získají dostatečný počet mrkví důvěry od svých kolegů, budou moci upravovat a měnit nastavení skupiny. Když se do vaší skupiny chtějí připojit noví lidé, musí se přihlásit a odpovědět na otázky, které může vaše skupina nastavit a které může kdokoli s právy k úpravám odmítnout nebo schválit. Stejně tak v případě potřeby přezkoumat něčí členství může skupina vstoupit do systému hlasování a vyřešit to komunitním způsobem.",
         "TITLE": "Demokratické a na důvěře založené vedení skupiny"
       }
     },
@@ -92,6 +92,14 @@
       "LEAVE_CONFIRMATION_TEXT": "Co by lidé měli vědět, když to k tomu přihlásili?",
       "DOWNLOAD_ICS": "Stáhnout ICS"
     },
+    "OPEN_FOR_ROLE": "Otevřeno pro {role}",
+    "PUBLIC": {
+      "WHAT": "Co",
+      "WHEN": "Kdy",
+      "WHERE": "Kde",
+      "SHARE": "Odkaz na veřejné aktivity",
+      "VIEW": "Veřejné zobrazení"
+    },
     "JOINEDNOTICE": "Máte jednu nadcházející aktivitu | Máte {count} nadcházející aktivity",
     "NONE": "Žádné nadcházející aktivity",
     "NONE_DUE_TO_FILTER": "Vašim filtrům neodpovídají žádné aktivity",
@@ -99,7 +107,7 @@
     "STORE_NONE_HINT": "Na stránce „Správa aktivit“ můžete vytvořit novou aktivitu.",
     "ICS_DIALOG": {
       "TITLE": "Přidat do kalendáře",
-      "INTRO": "Přidejte své aktivity do kalendáře pomocí jedné z následujících možností:",
+      "INTRO": "Přidejte si tyto aktivity do kalendáře:",
       "DOWNLOAD_TITLE": "Stáhnout",
       "DOWNLOAD_TEXT": "Stáhněte si soubor ICS a importujte jej do kalendáře ručně:",
       "DOWNLOAD_BUTTON_LABEL": "Stáhnout ICS",
@@ -114,11 +122,14 @@
     "ACTIVITY_DESCRIPTION_CHANGED": "„Další informace“ byly změněny",
     "ACTIVITY_DOES_NOT_MATCH": "Toto datum neodpovídá vzoru opakování",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "Maximální počet slotů byl změněn",
+    "ACTIVITY_PARTICIPANT_TYPES_CHANGED": "Typy účastníků byly změněny",
     "SERIES": "Série aktivit",
     "SINGLE": "Jednorázové aktivity",
     "TITLE": "Spravovat aktivity",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Připravované aktivity v této sérii"
-  },
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Připravované aktivity v této sérii",
+    "CHANGE_AFFECTS_USERS": "Tato změna má vliv na budoucí činnost {users}.",
+    "CHANGE_AFFECTS_USERS_HINT": "Kromě historie jim bude vaše zpráva zaslána přímo. Dejte jim tedy vědět, co se mění, proč už pro ně není daná aktivita dostupná a jak se mohou zapojit místo ní."
+},
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Množství potravin, které se vám podařilo ušetřit",
     "AMOUNT_INFO": "Pro statistiku míst sečteme dohromady veškerou zpětnou vazbu.",
@@ -171,29 +182,24 @@
     "SET_AS": "Nastavit adresu jako"
   },
   "AGREEMENT": {
-    "AGREE": "Musíte souhlasit s {title}",
-    "BLURB1": "Dosud nemáte dohodu!",
-    "BLURB2": "Pokud přidáte jeden, pak s tím lidé budou muset souhlasit, než budou moci vyzvedávat.",
-    "CONTENT": "Obsah",
-    "CONTENT_HELPER": "Text vaší dohody",
-    "DIALOGS": {
-      "REMOVE": {
-        "CONFIRM": "Ano, odstranit dohodu",
-        "MESSAGE": "To znamená, že kdokoli bude moci provést vyzvednutí",
-        "TITLE": "Odebrat dohodu?"
-      },
-      "REPLACE": {
-        "CONFIRM": "Ano, změnit dohodu",
-        "MESSAGE": "Každý bude muset znovu souhlasit s dohodou, než se bude moci přihlásit k vyzvednutí",
-        "TITLE": "Změnit dohodu?"
-      }
-    },
-    "MINOR_EDIT": "Drobná úprava?",
-    "MINOR_EDIT_HELPER": "Překlepy, formátování atd. Lidé nebudou vyzváni k opětovnému souhlasu",
     "NEW": "Nová dohoda",
-    "TITLE": "Nadpis",
+    "EDIT": "Upravit smlouvu",
+    "TITLE": "Název smlouvy",
     "TITLE_HELPER": "Dejte své dohodě název, např. Pravidla Společenství",
-    "VIEW": "Zobrazit dohodu"
+    "SUMMARY": "Shrnutí",
+    "SUMMARY_HELPER": "Krátké shrnutí smlouvy",
+    "CONTENT": "Text smlouvy",
+    "CONTENT_HELPER": "Hlavní obsah vaší smlouvy",
+    "ACTIVE_FROM": "Aktivní od",
+    "ACTIVE_TO": "Aktivní do",
+    "REVIEW_AT": "Datum přezkoumání",
+    "VIEW": "Zobrazit dohodu",
+    "ONLY_ACTIVE": "Pouze aktivní",
+    "ACTIVE": "Aktivní",
+    "INACTIVE": "Neaktivní",
+    "REVIEW_DATE_INFO": "Datum revize {date}",
+    "SINCE_INFO": "Od {date}",
+    "BECOMES_ACTIVE_INFO": "Stane se aktivní {date}"
   },
   "APPLICATION": {
     "ACCEPTED": "Přijali jste {userName} do této skupiny!",
@@ -251,7 +257,8 @@
     "UNSUBSCRIBE": "Odhlásit odběr",
     "WITHDRAW": "Zrušit",
     "YES": "Ano",
-    "READ_MORE": "Přečtěte si více"
+    "READ_MORE": "Přečtěte si více",
+    "GO_TO_GROUP": "Přejít do skupiny"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Aktualizace z {community}",
@@ -262,29 +269,28 @@
   "CONFLICT": {
     "FIND_OUT_MORE": "Zjistit více!",
     "INFO": {
-      "MESSAGE": "Jedná se o bodovací hlasování, na kterém se mohou členové skupiny podílet, aby určili, jak řešit sociální konflikt, který ovlivňuje celou skupinu.",
-      "TITLE": "Jak tento proces funguje?"
+      "MESSAGE": "Jedná se o bodové hlasování, kterého se mohou zúčastnit všichni členové skupiny, aby určili něčí členství."
     },
     "INITIAL": "Informace",
     "REQUIREMENTS": {
-      "NEWCOMER": "Než budete moci zahájit proces řešení konfliktů, musíte získat větší důvěru a získat oprávnění k úpravám. Mezitím požádejte člena skupiny, aby zahájil proces za vás."
+      "NEWCOMER": "Než budete moci zahájit přezkum členství, musíte získat větší důvěru a oprávnění k úpravám. Do té doby požádejte některého člena skupiny, aby tento proces zahájil za vás."
     },
-    "SETUP_HEADER": "Je nějaký konflikt s uživatelem {user}?",
+    "SETUP_HEADER": "Zahájit přezkum členství?",
     "STATEMENT": "Stanovisko",
-    "STEPPER1a": "Chystáte se zahájit proces řešení konfliktů v celé skupině!",
-    "STEPPER1b": "To bude zahrnovat všechny členy, aby našli nejlepší způsob, jak postupovat.",
+    "STEPPER1a": "Chystáte se zahájit přezkum členství v celé skupině, abyste se rozhodli, zda {userName} má pokračovat jako člen skupiny.",
+    "STEPPER1b": "Zúčastnit se mohou všichni členové skupiny.",
     "STEPPER2a": "Děkujeme za péči o vaši komunitu!",
-    "STEPPER2b": "Je důležité řešit sociální otázky, i když to někdy může být nepříjemné. Děkujeme za odvahu!",
+    "STEPPER2b": "Pro skupinu je důležité praktikovat upřímnou komunikaci a řešit případné problémy.",
     "STEPPER3a": "Co se stane:",
     "STEPPER3b": "Tento proces zahájí chat a hlasování.",
-    "STEPPER3c": "Chat bude viditelný pro členy včetně {userName}.",
+    "STEPPER3c": "Chat bude viditelný pro všechny členy skupiny a zahrnuje {userName}.",
     "STEPPER3d": "Hlasování je anonymní. Bude trvat {votingDuration} dnů. Během této doby mohou všichni hlasující  změnit názor a hlasovat tolikrát, kolikrát chtějí.",
-    "STEPPER4a": "Vysvětlete prosím, proč začínáte tento proces řešení konfliktů!",
-    "STEPPER4b": "Řekněte své skupině, proč si myslíte, že je tento proces oprávněný a potřebný. Toto prohlášení bude viditelné {userName} a členům skupiny.",
+    "STEPPER4a": "Vysvětlete, proč tento proces zahajujete!",
+    "STEPPER4b": "Řekněte své skupině, proč si myslíte, že je to oprávněné a potřebné. Toto prohlášení bude viditelné pro {userName} a členy skupiny.",
     "VOTING": {
-      "HEADLINE": "Jak chcete pokračovat s probíhajícím konfliktem s {userName} ?"
+      "HEADLINE": "Jak chcete pokračovat v probíhajícím přezkumu členství {userName} ?"
     },
-    "WITH": "Tento proces má vyřešit konflikt s uživatelem {userName}"
+    "WITH": "Tento proces má za cíl přezkoumat členství {userName}"
   },
   "CONVERSATION": {
     "CLOSED": "Tato konverzace byla automaticky ukončena.",
@@ -308,6 +314,9 @@
     "LOAD_EARLIER_MESSAGES": "Načtení dřívějších zpráv"
   },
   "CREATEACTIVITY": {
+    "CREATE_SUCCESS": "Aktivita úspěšně vytvořena!",
+    "ONE_TIME_ACTIVITY": "Jednorázová aktivita",
+    "ADD_PARTICIPANT_TYPE": "Přidat typ účastníka",
     "COMMENT": "Dodatečné informace",
     "COMMENT_HELPER": "Co by lidé měli vědět, když se k tomu přihlásí?",
     "CUSTOM": "Vlastní",
@@ -319,8 +328,11 @@
     "EXCEPTIONS_MESSAGE": "Některé nadcházející aktivity neodpovídají nastavení této série. Podívejte se níže na '{upcomingLabel}' a v případě potřeby je změňte nebo deaktivujte.",
     "EXCEPTIONS_TITLE": "Zkontrolujte své aktivity",
     "FREQUENCY": "Frekvence",
+    "MAKE_IT_PUBLIC": "Zveřejněte ho",
     "MAX_PARTICIPANTS": "Maximum slotů",
     "MAX_PARTICIPANTS_HELPER": "Kolik lidí by se mělo zúčastnit?",
+    "REMOVE_PARTICIPANT_TYPE": "Odebrat typ účastníka",
+    "REVERT_TO_SERIES_VALUES": "Návrat k sériovým hodnotám",
     "RRULE": "Pravidlo opakování",
     "RRULE_EXAMPLE": "poslední pracovní den (Po-Pá) každý měsíc",
     "RRULE_EXAMPLE2": "každé druhé pondělí",
@@ -328,10 +340,19 @@
     "RRULE_HELPER_URL": "Pravidlo iCalendar",
     "STARTDATE_HELPER": "Kdy by měla série začít?",
     "TIME_HELPER": "Kdy by se to mělo uskutečnit?",
+    "OPEN_FOR": "Otevřít pro",
     "UNLIMITED": "neomezený",
+    "USE_PARTICIPANT_TYPES": "Použít typy účastníků",
     "WEEKDAYS": "Pracovní dny",
     "WEEKDAYS_HELPER": "Ve které dny by se to mělo konat?",
-    "WEEKLY": "Týdně"
+    "WEEKLY": "Týdně",
+    "PLACE": "Vyberte místo"
+  },
+  "EDIT_ACTIVITY": {
+    "TITLE": "Co chcete upravit?",
+    "ONLY_ACTIVITY": "Tuto aktivitu",
+    "SERIES": "Aktivity v této sérii",
+    "MANAGE": "Spravovat aktivity v {place}"
   },
   "CREATESTORE": {
     "TITLE": "Vytvořit nové místo"
@@ -364,11 +385,13 @@
     "SEARCH_NOT_FOUND": "Nenalezeno",
     "SEARCH_RESULTS": "Výsledky vyhledávání",
     "SERVER_ERROR": "Chyba serveru",
-    "CLEAR_FILTERS": "Vymazat filtry"
+    "CLEAR_FILTERS": "Vymazat filtry",
+    "LAST_CHANGED_BY": "Poslední změna od"
   },
   "GROUP": {
     "ACTIVITIES": "Aktivity",
     "ACTIVITY": "Aktivita",
+    "AGREEMENTS": "Smlouvy",
     "PICKUPS_TO_ACTIVITIES": "Nyní můžete uspořádat více než jen vyzvednutí!",
     "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Aktivity s názvem vyzvednutí jsou stále k dispozici, ale přidali jsme i další typy, například schůzky, události a distribuce",
     "ADDED_BY": "přidal {userName}",
@@ -382,7 +405,7 @@
     "DESCRIPTION_VERBOSE": "Popis skupiny, viditelný pro členy",
     "EDIT": "Upravit skupinu",
     "EDIT_ACTIVITY_TYPES": "Typy aktivit",
-    "EDIT_PLACE_TYPES": "Place types",
+    "EDIT_PLACE_TYPES": "Typy míst",
     "EDIT_DETAILS": "Podrobnosti o skupině",
     "EMAIL_NOTIFICATIONS": "E-mailová oznámení",
     "HEADINGS": {
@@ -423,8 +446,8 @@
     "NOTIFICATIONS_BY_GROUP": "Oznámení podle skupiny",
     "NOTIFICATION_TYPES": {
       "conflict_resolution": {
-        "DESCRIPTION": "Řekne vám, kdy byl ve vaší skupině zahájen nový proces řešení konfliktů",
-        "NAME": "Nové procesy řešení konfliktů"
+        "DESCRIPTION": "Informuje vás o tom, že ve vaší skupině bylo zahájeno nové přezkoumání členství.",
+        "NAME": "Přezkum nového členství"
       },
       "daily_activity_notification": {
         "DESCRIPTION": "Připomene vám vaše aktivity a řekne vám o prázdných nebo nenaplněných aktivitách vašich oblíbených míst příštího dne",
@@ -490,6 +513,7 @@
     "CONFIRM_CHANGES": "Potvrdit změny?",
     "CONFIRM_CHANGES_HINT": "Zde můžete napsat zprávu vysvětlující vaše změny, které se zobrazí v historii",
     "DETAILS": "Více informací",
+    "CONTENT_CHANGES": "Změny obsahu",
     "GROUP_CHANGE_PHOTO": "změněno logo skupiny",
     "GROUP_CREATE": "vytvořil tuto skupinu",
     "GROUP_DELETE_PHOTO": "smazáno logo skupiny",
@@ -507,8 +531,15 @@
     "STORE_DELETE": "smazané místo {name}",
     "STORE_MODIFY": "změněno nastavení místa {name}",
     "USER_LOST_EDITOR_ROLE": "ztracená oprávnění k úpravám",
-    "PLACE_TYPE_CREATE": "created a place type",
-    "PLACE_TYPE_MODIFY": "modified a place type"
+    "PLACE_TYPE_CREATE": "vytvořen typ místa",
+    "PLACE_TYPE_MODIFY": "změněný typ místa",
+    "MEMBER_GOT_ROLE": "obdržena role: {role}",
+    "AGREEMENT_CREATE": "smlouva vytvořena",
+    "AGREEMENT_MODIFY": "smlouva změněna"
+  },
+  "IMAGE_UPLOAD": {
+    "SELECT": "Vybrat obrázek",
+    "CLEAR": "Vymazat obrázek"
   },
   "INACTIVITY": {
     "HELP": "Každý, kdo se do skupiny nepřihlásil {dayCount} dní nebo déle, se považuje za neaktivní. Tito uživatelé již nebudou dostávat e-maily s oznámením.",
@@ -517,35 +548,37 @@
   "INFO": "Info",
   "ISSUE": {
     "STATUS": {
-      "ONGOING": "Ongoing",
-      "DECIDED": "Decided",
-      "CANCELLED": "Cancelled"
+      "ONGOING": "Probíhající",
+      "DECIDED": "Rozhodnuto",
+      "CANCELLED": "Zrušeno"
     },
     "CHAT": "Chat",
     "CREATION": {
-      "TOAST": "Úspěšně jste zahájili proces řešení konfliktů"
+      "TOAST": "Úspěšně jste zahájili přezkum členství"
     },
+    "NOTICE": "Problém stále trvá! | Stále se objevují {count} přetrvávající problémy!",
     "NO_ONGOING": "Žádné pokračující problémy.",
-    "PARTICIPANTS": "Do této diskuse bylo přidáno {count} členů.",
+    "PARTICIPANTS": "{count}členů je v této diskusi.",
     "PAST": "Minulé záležitosti",
     "PREVIOUS_VOTINGS": "Předchozí hlasování v této záležitosti",
     "TITLE": "Záležitosti",
     "VOTE": "Hlasovat",
     "VOTING": {
       "ANONYMOUS": "Váš hlas bude anonymní.",
+      "DECIDE": "Rozhodněte se, nakolik jednotlivé návrhy podpoříte.",
       "BTN_DELETE": "Smazat hlas",
       "BTN_START": "Hlasujte",
       "FURTHER_DISCUSSION": "Další diskuse: prodloužením času zahájením dalšího hlasování",
       "NO_CHANGE": "Žádná změna: {userName} zůstává ve skupině {groupName}",
-      "REMOVE_USER": "{userName} bude odstraněn ze skupiny {groupName} ",
+      "REMOVE_USER": "Členství {userName} končí a je odstraněno z {groupName}",
       "RESULTS": {
         "ENDED_AT": " Toto kolo hlasování skončilo {date}",
         "KEEP_DISCUSSING": "Vaše skupina hlasovala pro pokračování diskuse",
         "PARTICIPANTS": "{number} členů se zúčastnilo hlasování.",
         "TIME_UP": "Čas vypršel.",
         "TOTAL_SCORE": "Celkové skóre",
-        "UNDECIDED": "O tomto konfliktu bohužel nebylo možné rozhodnout.",
-        "UNDECIDED_REASON_1": "postižený uživatel opustil skupinu, zatímco proces řešení konfliktů stále pokračoval",
+        "UNDECIDED": "O této členské revizi bohužel nebylo možné rozhodnout.",
+        "UNDECIDED_REASON_1": "dotčený uživatel opustil skupinu v době, kdy ještě probíhala kontrola členství.",
         "UNDECIDED_REASON_2": "nikdo o této záležitosti nehlasoval",
         "UNDECIDED_WHY": "Existují dva možné důvody:"
       },
@@ -617,12 +650,12 @@
     "ACTIVITY_UPCOMING": "Připomenutí: {activityType} v {time}",
     "APPLICATION_ACCEPTED": "Vaše žádost  byla přijata!",
     "APPLICATION_DECLINED": "Vaše přihláška byla zamítnuta",
-    "CONFLICT_RESOLUTION_CONTINUED": "Proces řešení konfliktu s {userName} pokračuje",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Proces řešení konfliktů s vámi pokračuje",
-    "CONFLICT_RESOLUTION_CREATED": "Připojte se k diskusi o konfliktu s {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "S vámi byl zahájen proces řešení konfliktů",
-    "CONFLICT_RESOLUTION_DECIDED": "Proces řešení konfliktu s {userName} byl rozhodnut",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Bylo rozhodnuto v procesu řešení konfliktů s vámi",
+    "CONFLICT_RESOLUTION_CONTINUED": "Přezkum členství {userName} pokračuje",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Vaše kontrola členství pokračuje",
+    "CONFLICT_RESOLUTION_CREATED": "Připojte se k diskusi o přezkoumání členství {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Bylo zahájeno přezkoumání vašeho členství",
+    "CONFLICT_RESOLUTION_DECIDED": "Bylo rozhodnuto o přezkumu členství {userName}",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "O vašem členství bylo rozhodnuto",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Byl jste odstraněn ze skupiny",
     "FEEDBACK_POSSIBLE": "Můžete poskytnout zpětnou vazbu -{activityType} na {date}",
     "INVITATION_ACCEPTED": "{userName} přijal vaše pozvání",
@@ -630,9 +663,12 @@
     "NEW_MEMBER": "{userName} se připojil k vaší skupině",
     "NEW_PLACE": "Místo {placeName} bylo vytvořeno",
     "USER_BECAME_EDITOR": "{userName} získal oprávnění k úpravám",
+    "USER_GOT_ROLE": "{userName} obdržel roli: {role}",
+    "YOU_GOT_ROLE": "Obdržel jste roli: {role}!",
     "VOTING_ENDS_SOON": "Hlasování brzy skončí, nezapomeňte se zúčastnit!",
     "YOU_BECAME_EDITOR": "Získali jste oprávnění k úpravám",
-    "MENTION": "{userName} vás zmínil!"
+    "MENTION": "{userName} vás zmínil!",
+    "PARTICIPANT_REMOVED": "{activityType} již není k dispozici - {dateTime}"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "Momentálně pro vás nemáme oznámení.",
@@ -688,30 +724,40 @@
     "TITLE": "Resetovat heslo"
   },
   "PLACE_TYPE_NAMES": {
-    "Unspecified": "Unspecified",
-    "Store": "Store",
-    "Sharing Point": "Sharing Point",
-    "Meeting Place": "Meeting Place",
-    "Restaurant": "Restaurant",
-    "Market": "Market"
+    "Unspecified": "Neurčeno",
+    "Store": "Prodejna",
+    "Sharing Point": "Bod sdílení",
+    "Meeting Place": "Místo setkávání",
+    "Restaurant": "Restaurace",
+    "Market": "Tržiště"
   },
   "PLACE_TYPE_STATUS": {
-    "ACTIVE": "Active",
-    "ARCHIVED": "Archived"
+    "ACTIVE": "Aktivní",
+    "ARCHIVED": "Archivováno"
   },
   "PLACE_TYPES": {
-    "ADD": "Add new place type",
-    "NAME": "Name",
-    "STATUS": "Status",
-    "STANDARD_NAME_HEADING": "Standard names",
-    "STANDARD_NAME_HINT": "Name will be available in other languages",
-    "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
-    "CUSTOM_NAME_USE": "Use custom name {name}",
-    "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
-    "MANAGE_TYPES": "Manage types...",
-    "SHOW_ARCHIVED": "Show archived",
-    "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
-    "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
+    "ADD": "Přidat nový typ místa",
+    "NAME": "Název",
+    "STATUS": "Stav",
+    "STANDARD_NAME_HEADING": "Standardní názvy",
+    "STANDARD_NAME_HINT": "Název bude k dispozici v dalších jazycích",
+    "CUSTOM_NAME_HINT": "Jméno bude použito přesně tak, jak jste ho napsali, a nebude přeloženo.",
+    "CUSTOM_NAME_USE": "Použít vlastní název {name}",
+    "CUSTOM_NAME_PROMPT": "Zadejte vlastní název nebo vyberte standardní název.",
+    "MANAGE_TYPES": "Spravovat typy...",
+    "SHOW_ARCHIVED": "Zobrazit archivované",
+    "STATUS_ACTIVE_HINT": "Budete moci vytvářet nová místa tohoto typu.",
+    "STATUS_ARCHIVED_HINT": "Nebude možné vytvářet nová místa tohoto typu, ale stávající budou stále k dispozici."
+  },
+  "PLACE_LIST": {
+    "ONLY_FAVOURITES": "Pouze oblíbené",
+    "UPCOMING_ACTIVITIES": "Jedna nadcházející aktivita | { count } nadcházející aktivity",
+    "SUBSCRIBED": "Toto místo jste označili jako oblíbené",
+    "FAVORITE_PLACES": "Oblíbená místa",
+    "NONE_DUE_TO_FILTER": "Žádné místo neodpovídá vašim filtrům",
+    "ALL_TYPES": "Všechny typy",
+    "ALL_STATUSES": "Všechny stavy",
+    "SUBSCRIBE_HINT": "Když si místa označíte jako oblíbená, zobrazí se zde. Kliknutím níže zobrazíte všechna místa a poté kliknete na { icon } jednoho z nich."
   },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} lidí označilo toto místo jako oblíbené",
@@ -725,6 +771,14 @@
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(Uživatel nepřístupný nebo smazaný)"
+  },
+  "ROLES": {
+    "MEMBER": "Kdokoli",
+    "MEMBER_DESCRIPTION": "Kdokoli ve skupině",
+    "NEWCOMER": "Nováček",
+    "NEWCOMER_DESCRIPTION": "Lidé, kteří zatím nemají žádnou jinou roli.",
+    "EDITOR": "Editor",
+    "EDITOR_DESCRIPTION": "Lidé, kteří mají ve skupině důvěru jako editoři"
   },
   "SETTINGS": {
     "TITLE": "Nastavení"
@@ -773,7 +827,7 @@
     "DEFAULT_VIEW": "Výchozí zobrazení",
     "DEFAULT_VIEW_HINT": "Co by se mělo ve výchozím nastavení zobrazit po kliknutí na toto místo?",
     "DESCRIPTION": "Popis",
-    "PLACE_TYPE": "Place type",
+    "PLACE_TYPE": "Typ místa",
     "DIALOGS": {
       "ARCHIVE": {
         "CONFIRM": "Ano, archivujte místo",
@@ -783,7 +837,6 @@
     },
     "NAME": "Jméno",
     "RESTORE": "Obnovit",
-    "SHOW_ACTIVE_ONLY": "Zobrazit pouze aktivní místa",
     "SHOW_ALL": "Zobrazit všechna místa",
     "STATUS": "Stav",
     "WEEKS_IN_ADVANCE": "Kolik týdnů předem by měly být vytvořeny aktivity pro série?",
@@ -879,6 +932,24 @@
     "WHERE_FROM": "Odkud jste (není požadováno)",
     "YOU_TRUST_USER": "Důvěřujete {userName} ve skupině {groupName}."
   },
+  "TRUST_FOR_ROLE": {
+    "FIRST_TRUST": "Buďte první, kdo důvěřuje {userName} jako {role} v {groupName} !",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} důvěřuje {userName} jako {role} v {groupName}. | {count} lidí důvěřuje {userName} jako {role} v {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vám důvěřuje jako {role} v {groupName}. | {count} lidí vám důvěřuje jako {role} v {groupName}.",
+    "PEOPLE_TRUST_USER": "Vy a {otherUser} důvěřuje {userName} jako {role} v {groupName}. | Vy a {count} dalších lidí důvěřují {userName} jako {role} v {groupName}.",
+    "YOU_TRUST_USER": "Důvěřujete {userName} jako {role} v {groupName}.",
+    "NO_ROLE_INFO": "V současné době nemáte roli {role} v {groupName}. Jakmile vám nejméně {threshold} členů vyjádří důvěru pro roli {role} tak roli  {role} získáte.",
+    "NEED_ROLE": "Potřebujete roli {role}",
+    "TRUST_PROGRESS": "Je třeba, aby více než {trustNeeded} lidí vyjádřilo svou důvěru {userName} k udělení role {role}.",
+    "GIVE_DIALOG": {
+      "MESSAGE": "Důvěřujete {userName} jako {role} v {groupName}?",
+      "TITLE": "Důvěřujte uživateli {role}"
+    },
+    "REVOKE_DIALOG": {
+      "MESSAGE": "Chcete odvolat důvěru pro {role}, kterou jste poskytli {userName} v {groupName} ?",
+      "TITLE": "Zrušení důvěry pro {role}"
+    }
+  },
   "USERDETAIL": {
     "DESCRIPTION": "O vás",
     "DISPLAY_NAME": "Jméno",
@@ -891,6 +962,7 @@
     "MINLENGTH": "Zadejte více než {min} znaků.",
     "REQUIRED": "Toto pole je povinné.",
     "UNIQUE": "Jméno již existuje, vyberte jiné.",
+    "OPTIONAL": "volitelně",
     "VALID_EMAIL": "Zadejte platnou e-mailovou adresu.",
     "VALID_TIMEZONE": "Zadejte platné časové pásmo.",
     "VALID_USERNAME": "Zadejte platné uživatelské jméno.",

@@ -56,7 +56,7 @@
         "TITLE": "पारदर्शिता"
       },
       "TRUST": {
-        "DESCRIPTION": "Karrot समूह में कोई व्यवस्थापक सुपरपावर नहीं हैं। जो लोग अपने साथियों से पर्याप्त विश्वास प्राप्त करते हैं, वे समूह में सेटिंग्स को संपादित और बदल सकते हैं। जब नए लोग आपके समूह में शामिल होना चाहते हैं तो उन्हें आवेदन करने और आपके समूह द्वारा लागू किए जा सकने वाले प्रश्नों के उत्तर और उत्तर देने की आवश्यकता होती है, जिसे संपादन अधिकार वाले कोई भी अस्वीकार या स्वीकृत कर सकता है। इसी तरह, अगर कोई संघर्ष होता है, तो समूह इसे सांप्रदायिक तरीके से हल करने के लिए एक मतदान प्रणाली में प्रवेश कर सकता है।",
+        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is the need to review someone's membership, the group can enter a voting system to resolve it in a communal way.",
         "TITLE": "लोकतांत्रिक और विश्वास-आधारित समूह प्रबंधन"
       }
     },
@@ -92,6 +92,14 @@
       "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?",
       "DOWNLOAD_ICS": "Download ICS"
     },
+    "OPEN_FOR_ROLE": "Open for {role}",
+    "PUBLIC": {
+      "WHAT": "What",
+      "WHEN": "When",
+      "WHERE": "Where",
+      "SHARE": "Public activity link",
+      "VIEW": "Public View"
+    },
     "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
     "NONE": "No upcoming activities",
     "NONE_DUE_TO_FILTER": "No activities match your filters",
@@ -99,7 +107,7 @@
     "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page.",
     "ICS_DIALOG": {
       "TITLE": "Add to calendar",
-      "INTRO": "Add your activities to your calendar by using one of the following options:",
+      "INTRO": "Add these activities to your calender:",
       "DOWNLOAD_TITLE": "Download",
       "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
       "DOWNLOAD_BUTTON_LABEL": "Download ICS",
@@ -114,11 +122,14 @@
     "ACTIVITY_DESCRIPTION_CHANGED": "'अतिरिक्त जानकारी' बदल दी गई है",
     "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'अधिकतम स्लॉट' बदल दिए गए हैं",
+    "ACTIVITY_PARTICIPANT_TYPES_CHANGED": "Participant types have been changed",
     "SERIES": "Activity series",
     "SINGLE": "One-time activities",
     "TITLE": "Manage activities",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series"
-  },
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series",
+    "CHANGE_AFFECTS_USERS": "This change affects the future activities of {users}.",
+    "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
+},
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "स्थान आंकड़ों के लिए, हम सभी प्रतिक्रियाँओ की राशि को एक साथ जोड़ देंगे।",
@@ -171,29 +182,24 @@
     "SET_AS": "पते के रूप में सेट करें"
   },
   "AGREEMENT": {
-    "AGREE": "आपको {title} से सहमत होना होगा",
-    "BLURB1": "आपके पास अभी तक कोई अनुबंध नहीं है!",
-    "BLURB2": "यदि आप एक जोड़ते हैं तो लोगों को पिकअप से पहले ही इससे सहमत होना होगा।",
-    "CONTENT": "सामग्री",
-    "CONTENT_HELPER": "आपके अनुबंध  का पाठ",
-    "DIALOGS": {
-      "REMOVE": {
-        "CONFIRM": "हां, अनुबंध हटाएं",
-        "MESSAGE": "इसका मतलब है कि कोई भी पिकअप करने में सक्षम होगा",
-        "TITLE": "अनुबंध  हटाना"
-      },
-      "REPLACE": {
-        "CONFIRM": "अनुबंध प्रबंधित करें",
-        "MESSAGE": "पिकअप के लिए साइन अप करने से पहले प्रत्येक व्यक्ति को फिर से सहमत होना होगा",
-        "TITLE": "अनुबंध बदलें?"
-      }
-    },
-    "MINOR_EDIT": "छोटे संपादित करें?",
-    "MINOR_EDIT_HELPER": "टाइपो, स्वरूपण, आदि ... लोगों को फिर से सहमत होने के लिए नहीं कहा जाएगा",
     "NEW": "नया अनुबंध",
-    "TITLE": "शीर्षक",
+    "EDIT": "Edit agreement",
+    "TITLE": "Agreement Title",
     "TITLE_HELPER": "अपना अनुबंध एक शीर्षक दें, उदा। सामुदायिक नियम",
-    "VIEW": " अनुबंध देखें"
+    "SUMMARY": "Summary",
+    "SUMMARY_HELPER": "A short summary of the agreement",
+    "CONTENT": "Agreement Text",
+    "CONTENT_HELPER": "The main content of your agreement",
+    "ACTIVE_FROM": "Active From",
+    "ACTIVE_TO": "Active To",
+    "REVIEW_AT": "Review Date",
+    "VIEW": " अनुबंध देखें",
+    "ONLY_ACTIVE": "Only active",
+    "ACTIVE": "Active",
+    "INACTIVE": "Inactive",
+    "REVIEW_DATE_INFO": "Review date {date}",
+    "SINCE_INFO": "Since {date}",
+    "BECOMES_ACTIVE_INFO": "Becomes active {date}"
   },
   "APPLICATION": {
     "ACCEPTED": "आपने {userName} को इस समूह में स्वीकार कर लिया!",
@@ -251,7 +257,8 @@
     "UNSUBSCRIBE": "सदस्यता समाप्त",
     "WITHDRAW": "निकालना",
     "YES": "हाँ",
-    "READ_MORE": "Read more"
+    "READ_MORE": "Read more",
+    "GO_TO_GROUP": "Go to group"
   },
   "COMMUNITY_FEED": {
     "HEADER": "{community} से अपडेट",
@@ -262,29 +269,28 @@
   "CONFLICT": {
     "FIND_OUT_MORE": "और अधिक जानकारी प्राप्त करें!",
     "INFO": {
-      "MESSAGE": "This is a score voting in which group members can participate to determine how to deal with a social conflict that affects the whole group.",
-      "TITLE": "यह प्रक्रिया कैसे काम करती है?"
+      "MESSAGE": "This is a score voting in which all group members can participate to determine someone's membership."
     },
     "INITIAL": "जानकारी",
     "REQUIREMENTS": {
-      "NEWCOMER": "इससे पहले कि आप एक संघर्ष समाधान प्रक्रिया शुरू कर सकें, आपको अधिक विश्वास प्राप्त करने और संपादन अनुमतियाँ प्राप्त करने की आवश्यकता है। इस बीच, कृपया एक साथी समूह के सदस्य से आपके लिए प्रक्रिया शुरू करने के लिए कहें।"
+      "NEWCOMER": "Before you can start a membership review, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
     },
-    "SETUP_HEADER": "{user} के साथ कोई संघर्ष है?",
+    "SETUP_HEADER": "Start a membership review?",
     "STATEMENT": "बयान",
-    "STEPPER1a": "आप एक समूह-व्यापी संघर्ष समाधान प्रक्रिया शुरू करने वाले हैं!",
-    "STEPPER1b": "This will involve all members to find the best way to proceed.",
+    "STEPPER1a": "You are about to start a group-wide membership review to decide whether {userName} should continue as a member of the group",
+    "STEPPER1b": "This will be open for all group members to participate.",
     "STEPPER2a": "अपने समुदाय की देखभाल के लिए धन्यवाद!",
-    "STEPPER2b": "सामाजिक मुद्दों को संबोधित करना महत्वपूर्ण है, हालांकि यह कभी-कभी अप्रिय हो सकता है। आपके साहस के लिए धन्यवाद!",
+    "STEPPER2b": "For a group it is important to practise honest communication and address any issues.",
     "STEPPER3a": "यहाँ क्या होगा:",
     "STEPPER3b": "यह प्रक्रिया एक चैट और एक वोट शुरू करेगी।",
-    "STEPPER3c": "The chat will be visible for members and includes {userName}.",
+    "STEPPER3c": "The chat will be visible for all group members and includes {userName}.",
     "STEPPER3d": "मतदान गुमनाम है। यह {votingDuration} दिन तक चलेगा। इस समय के दौरान सभी मतदाता अपना मन बदल सकते हैं और अलग-अलग समय पर जितनी बार चाहें वोट दे सकते हैं।",
-    "STEPPER4a": "कृपया बताएं कि आप इस संघर्ष समाधान प्रक्रिया को क्यों शुरू कर रहे हैं!",
-    "STEPPER4b": "Tell your group what made you think this process is justified and needed. This statement will be visible to {userName} and group members.",
+    "STEPPER4a": "Please explain why you are starting this process!",
+    "STEPPER4b": "Tell your group what made you think this is justified and needed. This statement will be visible to {userName} and group members.",
     "VOTING": {
-      "HEADLINE": "आप {userName} के साथ चल रहे संघर्ष को कैसे आगे बढ़ाना चाहते हैं?"
+      "HEADLINE": "How do you want to proceed with the ongoing membership review of {userName}?"
     },
-    "WITH": "यह प्रक्रिया {userName} के साथ संघर्ष को हल करने के लिए है"
+    "WITH": "This process is to review the membership of {userName}"
   },
   "CONVERSATION": {
     "CLOSED": "यह बातचीत अपने आप बंद हो गई है।",
@@ -308,6 +314,9 @@
     "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
+    "CREATE_SUCCESS": "Activity successfully created!",
+    "ONE_TIME_ACTIVITY": "One-time activity",
+    "ADD_PARTICIPANT_TYPE": "Add participant type",
     "COMMENT": "अधिक जानकारी",
     "COMMENT_HELPER": "What should people know when signing up to this?",
     "CUSTOM": "स्वनिर्धारित",
@@ -319,8 +328,11 @@
     "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
     "EXCEPTIONS_TITLE": "Check your activities",
     "FREQUENCY": "आवृत्ति",
+    "MAKE_IT_PUBLIC": "Make it public",
     "MAX_PARTICIPANTS": "अधिकतम स्लॉट",
     "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
+    "REMOVE_PARTICIPANT_TYPE": "Remove participant type",
+    "REVERT_TO_SERIES_VALUES": "Revert to series values",
     "RRULE": "पुनरावृत्ति नियम",
     "RRULE_EXAMPLE": "हर महीने का आखरी कामकाजी दिन (सोम-शुक्र) ",
     "RRULE_EXAMPLE2": "प्रत्येक दूसरे सोमवार",
@@ -328,10 +340,19 @@
     "RRULE_HELPER_URL": "iCalender नियम",
     "STARTDATE_HELPER": "कब श्रृंखला शुरू होनी चाहिए?",
     "TIME_HELPER": "When should it take place?",
+    "OPEN_FOR": "Open for",
     "UNLIMITED": "असीमित",
+    "USE_PARTICIPANT_TYPES": "Use participant types",
     "WEEKDAYS": "सप्ताहांत",
     "WEEKDAYS_HELPER": "On which days should it take place?",
-    "WEEKLY": "साप्ताहिक"
+    "WEEKLY": "साप्ताहिक",
+    "PLACE": "Choose a place"
+  },
+  "EDIT_ACTIVITY": {
+    "TITLE": "What do you want to edit?",
+    "ONLY_ACTIVITY": "This activity",
+    "SERIES": "Activities in this series",
+    "MANAGE": "Manage activites in {place}"
   },
   "CREATESTORE": {
     "TITLE": "नया स्थान बनाएँ"
@@ -364,11 +385,13 @@
     "SEARCH_NOT_FOUND": "नहीं मिला",
     "SEARCH_RESULTS": "खोज परिणाम",
     "SERVER_ERROR": "सर्वर त्रुटि",
-    "CLEAR_FILTERS": "Clear filters"
+    "CLEAR_FILTERS": "Clear filters",
+    "LAST_CHANGED_BY": "Last changed by"
   },
   "GROUP": {
     "ACTIVITIES": "Activities",
     "ACTIVITY": "Activity",
+    "AGREEMENTS": "Agreements",
     "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
     "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
     "ADDED_BY": "{userName} द्वारा जोड़ा गया",
@@ -423,8 +446,8 @@
     "NOTIFICATIONS_BY_GROUP": "समूह द्वारा सूचनाएं",
     "NOTIFICATION_TYPES": {
       "conflict_resolution": {
-        "DESCRIPTION": "आपको बताता है जब आपके समूह में एक नई संघर्ष समाधान प्रक्रिया शुरू की जाती है",
-        "NAME": "नए संघर्ष समाधान प्रक्रियाँए"
+        "DESCRIPTION": "Tells you when a new membership review has been started in your group",
+        "NAME": "New membership review"
       },
       "daily_activity_notification": {
         "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
@@ -490,6 +513,7 @@
     "CONFIRM_CHANGES": "Confirm changes?",
     "CONFIRM_CHANGES_HINT": "You can write a message here to explain your changes that will be displayed in the history",
     "DETAILS": "अधिक जानकारी",
+    "CONTENT_CHANGES": "Content Changes",
     "GROUP_CHANGE_PHOTO": "समूह का प्रतीक चिन्ह बदल दिया गया",
     "GROUP_CREATE": "इस समूह को बनाया",
     "GROUP_DELETE_PHOTO": "समूह का प्रतीक चिन्ह हटा दिया गया",
@@ -508,7 +532,14 @@
     "STORE_MODIFY": "{name} स्थान की सेटिंग बदल दी",
     "USER_LOST_EDITOR_ROLE": "lost editing permissions",
     "PLACE_TYPE_CREATE": "created a place type",
-    "PLACE_TYPE_MODIFY": "modified a place type"
+    "PLACE_TYPE_MODIFY": "modified a place type",
+    "MEMBER_GOT_ROLE": "received role: {role}",
+    "AGREEMENT_CREATE": "agreement created",
+    "AGREEMENT_MODIFY": "agreement modified"
+  },
+  "IMAGE_UPLOAD": {
+    "SELECT": "Select image",
+    "CLEAR": "Clear image"
   },
   "INACTIVITY": {
     "HELP": "हर कोई जो {dayCount} या अधिक दिनों के लिए समूह में लॉग इन नहीं करता, उसे निष्क्रिय माना जाता हैं। इन उपयोगकर्ताओं को अब अधिसूचना ईमेल प्राप्त नहीं होंगे।",
@@ -523,29 +554,31 @@
     },
     "CHAT": "चैट",
     "CREATION": {
-      "TOAST": "आपने सफलतापूर्वक एक संकल्प समाधान प्रक्रिया शुरू की"
+      "TOAST": "You successfully started a membership review"
     },
+    "NOTICE": "There is an ongoing issue! | There are {count} ongoing issues!",
     "NO_ONGOING": "कोई समस्या नहीं है।",
-    "PARTICIPANTS": "इस चर्चा में {count} सदस्यों को जोड़ा गया है।",
+    "PARTICIPANTS": "{count} members are in this discussion.",
     "PAST": "पिछले मुद्दे",
     "PREVIOUS_VOTINGS": "इस मुद्दे में पिछला मतदान",
     "TITLE": "मुद्दे",
     "VOTE": "मत",
     "VOTING": {
       "ANONYMOUS": "आपका मत गुमनाम होगा।",
+      "DECIDE": "Decide your level of support for each proposal.",
       "BTN_DELETE": "मत हटाएँ",
       "BTN_START": "अभी मतदान करें",
       "FURTHER_DISCUSSION": "आगे की चर्चा: एक और मतदान शुरू करके समय बढ़ाएं",
       "NO_CHANGE": "कोई बदलाव नहीं: {userName} {groupName} में रहेगा",
-      "REMOVE_USER": "{userName} को {groupName} से हटा दिया जाता है ",
+      "REMOVE_USER": "Membership ends and {userName} gets removed from {groupName}",
       "RESULTS": {
         "ENDED_AT": "यह मतदान दौर {date} को समाप्त हुआ",
         "KEEP_DISCUSSING": "आपके समूह ने चर्चा जारी रखने के लिए मतदान किया",
         "PARTICIPANTS": "{number} सदस्यों ने मतदान में भाग लिया।",
         "TIME_UP": "समय समाप्त!",
         "TOTAL_SCORE": "कुल स्कोर",
-        "UNDECIDED": "दुर्भाग्य से यह संघर्ष तय नहीं किया जा सका।",
-        "UNDECIDED_REASON_1": "प्रभावित उपयोगकर्ता ने समूह छोड़ दिया जबकि संघर्ष समाधान प्रक्रिया अभी भी जारी थी",
+        "UNDECIDED": "Unfortunately this membership review could not be decided.",
+        "UNDECIDED_REASON_1": "the affected user left the group while the membership review was still ongoing",
         "UNDECIDED_REASON_2": "इस मुद्दे पर किसी ने मत नहीं दिया",
         "UNDECIDED_WHY": "उसके दो संभावित कारण हैं:"
       },
@@ -617,12 +650,12 @@
     "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
     "APPLICATION_ACCEPTED": "आपका आवेदन स्वीकार कर लिया गया था!",
     "APPLICATION_DECLINED": "आपके आवेदन को अस्वीकार कर दिया गया था",
-    "CONFLICT_RESOLUTION_CONTINUED": "{userName} के साथ संघर्ष समाधान प्रक्रिया जारी है",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "आपके साथ संघर्ष समाधान प्रक्रिया जारी है",
-    "CONFLICT_RESOLUTION_CREATED": "{userName} के साथ संघर्ष के बारे में चर्चा में शामिल हों",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "आपके साथ एक संघर्ष समाधान प्रक्रिया शुरू की गई थी",
-    "CONFLICT_RESOLUTION_DECIDED": "{userName} के साथ संघर्ष समाधान प्रक्रिया का निर्णय लिया गया",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "आपके साथ संघर्ष समाधान प्रक्रिया का निर्णय लिया गया",
+    "CONFLICT_RESOLUTION_CONTINUED": "The membership review of {userName} continues",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Your membership review continues",
+    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a membership review of {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A review of your membership was started",
+    "CONFLICT_RESOLUTION_DECIDED": "The membership review of {userName} was decided",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Your membership was decided",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "आपको समूह से निकाल दिया गया था",
     "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
     "INVITATION_ACCEPTED": "{userName} ने आपका निमंत्रण स्वीकार कर लिया",
@@ -630,9 +663,12 @@
     "NEW_MEMBER": "{userName} आपके ग्रुप में शामिल हो गया",
     "NEW_PLACE": "{placeName} बनाया गया है",
     "USER_BECAME_EDITOR": "{userName} ने संपादन अनुमति प्राप्त की",
+    "USER_GOT_ROLE": "{userName} received role: {role}",
+    "YOU_GOT_ROLE": "You received role: {role}!",
     "VOTING_ENDS_SOON": "मतदान जल्द ही समाप्त हो जाएगा, भाग लेना ना भूले!",
     "YOU_BECAME_EDITOR": "आपने संपादन अनुमति प्राप्त की",
-    "MENTION": "{userName} mentioned you!"
+    "MENTION": "{userName} mentioned you!",
+    "PARTICIPANT_REMOVED": "{activityType} no longer available - {dateTime}"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "वर्तमान में हमारे पास आपके लिए सूचनाएं नहीं हैं।",
@@ -713,6 +749,16 @@
     "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
+  "PLACE_LIST": {
+    "ONLY_FAVOURITES": "Only favourite",
+    "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
+    "SUBSCRIBED": "You have marked this place as favorite",
+    "FAVORITE_PLACES": "Favorite places",
+    "NONE_DUE_TO_FILTER": "No places match your filters",
+    "ALL_TYPES": "All types",
+    "ALL_STATUSES": "All statuses",
+    "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then click { icon } on one of them."
+  },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} लोगों ने इस स्थान को पसंदीदा के रूप में चिह्नित किया है",
     "SUBSCRIPTION": {
@@ -725,6 +771,14 @@
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(उपयोगकर्ता अनुपलब्ध या हटाया गया)"
+  },
+  "ROLES": {
+    "MEMBER": "Anyone",
+    "MEMBER_DESCRIPTION": "Anyone in the group",
+    "NEWCOMER": "Newcomer",
+    "NEWCOMER_DESCRIPTION": "People that haven't yet got any other roles",
+    "EDITOR": "Editor",
+    "EDITOR_DESCRIPTION": "People that have been trusted in the group as an editor"
   },
   "SETTINGS": {
     "TITLE": "सेटिंग्स"
@@ -783,7 +837,6 @@
     },
     "NAME": "नाम",
     "RESTORE": "बहाल",
-    "SHOW_ACTIVE_ONLY": "केवल सक्रिय स्थान दिखाएं",
     "SHOW_ALL": "सभी स्थानों को दिखाएँ",
     "STATUS": "स्थिति",
     "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
@@ -879,6 +932,24 @@
     "WHERE_FROM": "आप कहां से हैं (आवश्यक नहीं)",
     "YOU_TRUST_USER": "आप {groupName} में {userName} पे भरोसा करते है "
   },
+  "TRUST_FOR_ROLE": {
+    "FIRST_TRUST": "Be the first one trust {userName} for {role} in {groupName}!",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} for {role} in {groupName}. | {count} people trust {userName} for {role} in {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you for {role} in {groupName}. | {count} people trust you for {role} in {groupName}.",
+    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} for {role} in {groupName}. | You and {count} other people trust {userName} for {role} in {groupName}.",
+    "YOU_TRUST_USER": "You trust {userName} for {role} in {groupName}.",
+    "NO_ROLE_INFO": "You currently don't have role {role} in {groupName}. As soon as {threshold} members expressed their trust for {role} in you, you will receive the {role} role.",
+    "NEED_ROLE": "You need {role} role",
+    "TRUST_PROGRESS": "{trustNeeded} more people need to express their trust in {userName} to grant the {role} role.",
+    "GIVE_DIALOG": {
+      "MESSAGE": "Do you trust {userName} for {role} in {groupName}?",
+      "TITLE": "Trust user for {role}"
+    },
+    "REVOKE_DIALOG": {
+      "MESSAGE": "Do you want to revoke the trust for {role} you have given to {userName} in {groupName}?",
+      "TITLE": "Revoke trust for {role}"
+    }
+  },
   "USERDETAIL": {
     "DESCRIPTION": "आपके बारे में",
     "DISPLAY_NAME": "नाम",
@@ -891,6 +962,7 @@
     "MINLENGTH": "कृपया {min} वर्णों से अधिक दर्ज करें।",
     "REQUIRED": "यह स्थान आवश्यक है",
     "UNIQUE": "नाम पहले से मौजूद है, कृपया दूसरा चुनें",
+    "OPTIONAL": "optional",
     "VALID_EMAIL": "एक वैध ईमेल प्रविष्ट करें",
     "VALID_TIMEZONE": "एक मान्य समय क्षेत्र दर्ज करें",
     "VALID_USERNAME": "Enter a valid username.",

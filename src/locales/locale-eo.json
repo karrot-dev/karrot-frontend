@@ -56,7 +56,7 @@
         "TITLE": "Travidebleco"
       },
       "TRUST": {
-        "DESCRIPTION": "Ne estas administrantaj superpovoj en grupo de Karrot. Tiuj kiuj ricevas sufiĉe da fido de aliaj uzantoj povos difini agordojn en la grupo. Kiam novuloj volas aliĝi vian grupon, ili devas kandidatiĝi kaj respondi demandojn starigitajn el via grupo, kiujn ĉiuj kiuj havas redaktpermesojn povas aprobi aŭ male. Simile, se estas konflikto, la grupo povas uzi voĉdonan sistemon por solvi la situacion komune.",
+        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is the need to review someone's membership, the group can enter a voting system to resolve it in a communal way.",
         "TITLE": "Demokrata kaj fideca grupa-administrado"
       }
     },
@@ -92,6 +92,14 @@
       "LEAVE_CONFIRMATION_TEXT": "Ĉu vere la aliaj povas fari tion ĉi sen vi?",
       "DOWNLOAD_ICS": "Elŝuti ICSn"
     },
+    "OPEN_FOR_ROLE": "Open for {role}",
+    "PUBLIC": {
+      "WHAT": "What",
+      "WHEN": "When",
+      "WHERE": "Where",
+      "SHARE": "Public activity link",
+      "VIEW": "Public View"
+    },
     "JOINEDNOTICE": "Vi havas baldaŭan aktivaĵon | Vi havas {count}baldaŭajn aktivaĵojn",
     "NONE": "Ne estas venontaj aktivaĵoj",
     "NONE_DUE_TO_FILTER": "Ne estas aktivaĵo kun viaj kondiĉoj",
@@ -99,7 +107,7 @@
     "STORE_NONE_HINT": "Vi povas krei novan aktivaĵon en la \"Agordu aktivaĵojn\"-a paĝo.",
     "ICS_DIALOG": {
       "TITLE": "Add to calendar",
-      "INTRO": "Add your activities to your calendar by using one of the following options:",
+      "INTRO": "Add these activities to your calender:",
       "DOWNLOAD_TITLE": "Download",
       "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
       "DOWNLOAD_BUTTON_LABEL": "Download ICS",
@@ -114,11 +122,14 @@
     "ACTIVITY_DESCRIPTION_CHANGED": "'Aldona informo' ŝanĝiĝis",
     "ACTIVITY_DOES_NOT_MATCH": "La dato ne kongruas kun la perioda regulo",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "'Maks savlokoj' ŝanĝiĝis",
+    "ACTIVITY_PARTICIPANT_TYPES_CHANGED": "Participant types have been changed",
     "SERIES": "Periodaj aktivaĵoj",
     "SINGLE": "Unufojaj aktivaĵoj",
     "TITLE": "Agordi aktivaĵojn",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Venontaj aktivaĵoj en tiu ĉi aktivaĵo perioda"
-  },
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Venontaj aktivaĵoj en tiu ĉi aktivaĵo perioda",
+    "CHANGE_AFFECTS_USERS": "This change affects the future activities of {users}.",
+    "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
+},
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "Por la statistikoj de la retpaĝo, ni aldonos la kvanton de ĉiu retrokuplo",
@@ -171,29 +182,24 @@
     "SET_AS": "Agordi adreson kiel"
   },
   "AGREEMENT": {
-    "AGREE": "Vi devas konsenti kun {title}",
-    "BLURB1": "Vi ne havas akordon ankoraŭ!",
-    "BLURB2": "Se vi aldonas homon, homoj devos konsenti antaŭ ili povos iri savi",
-    "CONTENT": "Enhavo",
-    "CONTENT_HELPER": "La teksto de via akordo",
-    "DIALOGS": {
-      "REMOVE": {
-        "CONFIRM": "Jes, forigu akordon",
-        "MESSAGE": "Tio ĉi signifas ke ĉiuj povas aliĝi savadon",
-        "TITLE": "Ĉu forigi akordon?"
-      },
-      "REPLACE": {
-        "CONFIRM": "Jes, ŝanĝu la akordon",
-        "MESSAGE": "Ĉiuj devos konsenti denove antaŭ ili povas aliĝi al savadoj",
-        "TITLE": "Ĉu ŝanĝi akordon?"
-      }
-    },
-    "MINOR_EDIT": "Ĉu negrava ŝanĝo?",
-    "MINOR_EDIT_HELPER": "Vorteraroj, tekstaranĝado, ktp. Homoj ne devas konsenti denove",
     "NEW": "Nova akordo",
-    "TITLE": "Titolo",
+    "EDIT": "Edit agreement",
+    "TITLE": "Agreement Title",
     "TITLE_HELPER": "Nomigi vian akordon, ekzemple \"Komunaj Reguloj\"",
-    "VIEW": "Legi akordon"
+    "SUMMARY": "Summary",
+    "SUMMARY_HELPER": "A short summary of the agreement",
+    "CONTENT": "Agreement Text",
+    "CONTENT_HELPER": "The main content of your agreement",
+    "ACTIVE_FROM": "Active From",
+    "ACTIVE_TO": "Active To",
+    "REVIEW_AT": "Review Date",
+    "VIEW": "Legi akordon",
+    "ONLY_ACTIVE": "Only active",
+    "ACTIVE": "Active",
+    "INACTIVE": "Inactive",
+    "REVIEW_DATE_INFO": "Review date {date}",
+    "SINCE_INFO": "Since {date}",
+    "BECOMES_ACTIVE_INFO": "Becomes active {date}"
   },
   "APPLICATION": {
     "ACCEPTED": "Ni akceptis {userName}en la grupo!",
@@ -251,7 +257,8 @@
     "UNSUBSCRIBE": "Malaboni",
     "WITHDRAW": "Nuligi",
     "YES": "Jes",
-    "READ_MORE": "Legi pli"
+    "READ_MORE": "Legi pli",
+    "GO_TO_GROUP": "Go to group"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Ĝisdatigoj de {community}",
@@ -262,29 +269,28 @@
   "CONFLICT": {
     "FIND_OUT_MORE": "Malkovru pli!",
     "INFO": {
-      "MESSAGE": "Tiu ĉi estas voĉdonado en kiu grupanoj kun redaktpermesoj povas partopreni por decidi kiel agi rilate al socia problemo kiu damaĝas la grupon.",
-      "TITLE": "Kiel ĉi tiu proceso funkcias?"
+      "MESSAGE": "This is a score voting in which all group members can participate to determine someone's membership."
     },
     "INITIAL": "Informo",
     "REQUIREMENTS": {
-      "NEWCOMER": "Antaŭ komenci problemsolvadan proceson, vi bezonas ricevi plian fidon kaj ricevi redaktpermesojn. Dume, bonvolu peti al ano kun redaktpermesoj komenci la proceson nome de vi."
+      "NEWCOMER": "Before you can start a membership review, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
     },
-    "SETUP_HEADER": "Ĉu estas problemo kun {user}?",
+    "SETUP_HEADER": "Start a membership review?",
     "STATEMENT": "Deklaracio",
-    "STEPPER1a": "Vi preskaŭ komencis problemsolvadan proceson grupnivele!",
-    "STEPPER1b": "Ĉi tio inkludos ĉiujn anojn kun redaktipermesojn por trovi la plej bonan manieron por kunagi.",
+    "STEPPER1a": "You are about to start a group-wide membership review to decide whether {userName} should continue as a member of the group",
+    "STEPPER1b": "This will be open for all group members to participate.",
     "STEPPER2a": "Dankon ke vi zorgas pri la komunumo!",
-    "STEPPER2b": "Gravas paroli pri sociaj konfliktoj, kvankam kelkfoje malkomfortas. Dankon pro via kuraĝo!",
+    "STEPPER2b": "For a group it is important to practise honest communication and address any issues.",
     "STEPPER3a": "Jen kio okazos:",
     "STEPPER3b": "La proceso malfermos babilejon kaj voĉdonadon.",
-    "STEPPER3c": "La babilejo estos videbla por anoj kaj inkludas {userName}.",
+    "STEPPER3c": "The chat will be visible for all group members and includes {userName}.",
     "STEPPER3d": "La voĉdonado estas anonima. Ĝi daŭros {votingDuration}tagojn. Dum tiu ĉi tempo ĉiuj voĉdonantoj povas ŝanĝi siajn opinion kaj voĉdonon kiom multe ili volos.",
-    "STEPPER4a": "Bonvolu klarigi kial vi komencis la problemsolvadan proceson!",
-    "STEPPER4b": "Klarigu al la grupo kial komenci la proceson. Tiu ĉi deklaracio legeblos por {userName}kaj grupanoj.",
+    "STEPPER4a": "Please explain why you are starting this process!",
+    "STEPPER4b": "Tell your group what made you think this is justified and needed. This statement will be visible to {userName} and group members.",
     "VOTING": {
-      "HEADLINE": "Kiel vi volas daŭrigi kun la aktuala problemo kun {userName}?"
+      "HEADLINE": "How do you want to proceed with the ongoing membership review of {userName}?"
     },
-    "WITH": "La proceso celas solvi problemon kun {userName}"
+    "WITH": "This process is to review the membership of {userName}"
   },
   "CONVERSATION": {
     "CLOSED": "Ĉi tiu konversacio fermiĝis aŭtomate.",
@@ -308,6 +314,9 @@
     "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
+    "CREATE_SUCCESS": "Activity successfully created!",
+    "ONE_TIME_ACTIVITY": "One-time activity",
+    "ADD_PARTICIPANT_TYPE": "Add participant type",
     "COMMENT": "Aldona informo",
     "COMMENT_HELPER": "Kion devas la homoj scii antaŭ vi aliĝos por tiu ĉi?",
     "CUSTOM": "Personaligo",
@@ -319,8 +328,11 @@
     "EXCEPTIONS_MESSAGE": "Kelkaj venontaj aktivaĵoj ne kongruas kun la agordoj de tiu ĉi perioda aktivaĵo. Kontrolu sube je '{upcomingLabel}' por ŝanĝi aŭ nuligi savadojn, kaze de bezono.",
     "EXCEPTIONS_TITLE": "Kontroli aktivaĵojn",
     "FREQUENCY": "Ofteco",
+    "MAKE_IT_PUBLIC": "Make it public",
     "MAX_PARTICIPANTS": "Maks Savlokoj",
     "MAX_PARTICIPANTS_HELPER": "Kiom da homoj partoprenu?",
+    "REMOVE_PARTICIPANT_TYPE": "Remove participant type",
+    "REVERT_TO_SERIES_VALUES": "Revert to series values",
     "RRULE": "Rikura regulo",
     "RRULE_EXAMPLE": "lasta labortago (Lu-Ve) ĉiumonate",
     "RRULE_EXAMPLE2": "ĉiu dua lundo",
@@ -328,10 +340,19 @@
     "RRULE_HELPER_URL": "iCalender-a regulo",
     "STARTDATE_HELPER": "Kiam devas komenci la serion?",
     "TIME_HELPER": "Kiam ĝi okazu?",
+    "OPEN_FOR": "Open for",
     "UNLIMITED": "senlima",
+    "USE_PARTICIPANT_TYPES": "Use participant types",
     "WEEKDAYS": "Semajntagoj",
     "WEEKDAYS_HELPER": "En kiuj tagoj okazu?",
-    "WEEKLY": "Semajne"
+    "WEEKLY": "Semajne",
+    "PLACE": "Choose a place"
+  },
+  "EDIT_ACTIVITY": {
+    "TITLE": "What do you want to edit?",
+    "ONLY_ACTIVITY": "This activity",
+    "SERIES": "Activities in this series",
+    "MANAGE": "Manage activites in {place}"
   },
   "CREATESTORE": {
     "TITLE": "Krei novan lokon"
@@ -364,11 +385,13 @@
     "SEARCH_NOT_FOUND": "Netrovita",
     "SEARCH_RESULTS": "Serĉi rezultojn",
     "SERVER_ERROR": "Eraro servila",
-    "CLEAR_FILTERS": "Forigi filtrojn"
+    "CLEAR_FILTERS": "Forigi filtrojn",
+    "LAST_CHANGED_BY": "Last changed by"
   },
   "GROUP": {
     "ACTIVITIES": "Activivaĵoj",
     "ACTIVITY": "Activivaĵo",
+    "AGREEMENTS": "Agreements",
     "PICKUPS_TO_ACTIVITIES": "Nun vi povas organizi pli ol nur savadojn!",
     "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Aktivaĵoj nomitaj savadoj ankoraŭ realigeblas sed ni aldoni aliajn tipojn de aktivaĵojn kiel renkontiĝojn, eventojn kaj disdividojn",
     "ADDED_BY": "aldonita de {userName}",
@@ -423,8 +446,8 @@
     "NOTIFICATIONS_BY_GROUP": "Sciigoj laŭ grupo",
     "NOTIFICATION_TYPES": {
       "conflict_resolution": {
-        "DESCRIPTION": "Ĝi rakontas kiam nova problemsolvada proceso komenciĝas en la grupo",
-        "NAME": "Nova proceso de problemsolvado"
+        "DESCRIPTION": "Tells you when a new membership review has been started in your group",
+        "NAME": "New membership review"
       },
       "daily_activity_notification": {
         "DESCRIPTION": "Memorigas vin pri viaj aktivaĵoj kaj informas vin pri neplenaj aktivaĵoj en viaj preferataj lokoj en la venonta tago",
@@ -490,6 +513,7 @@
     "CONFIRM_CHANGES": "Konfirmin ŝanĝojn?",
     "CONFIRM_CHANGES_HINT": "Vi povas skribi mesaĝon ĉi tie por klarigi viajn ŝanĝojn, kiu estos montritaj en la historia raporto",
     "DETAILS": "Plia informo",
+    "CONTENT_CHANGES": "Content Changes",
     "GROUP_CHANGE_PHOTO": "ŝanĝis la grupan logotipon",
     "GROUP_CREATE": "kreis ĉi tiun grupon",
     "GROUP_DELETE_PHOTO": "forigis la grupan logotipon",
@@ -508,7 +532,14 @@
     "STORE_MODIFY": "ŝanĝis la agordojn de la loko {name}",
     "USER_LOST_EDITOR_ROLE": "Perditaj redaktpermesoj",
     "PLACE_TYPE_CREATE": "created a place type",
-    "PLACE_TYPE_MODIFY": "modified a place type"
+    "PLACE_TYPE_MODIFY": "modified a place type",
+    "MEMBER_GOT_ROLE": "received role: {role}",
+    "AGREEMENT_CREATE": "agreement created",
+    "AGREEMENT_MODIFY": "agreement modified"
+  },
+  "IMAGE_UPLOAD": {
+    "SELECT": "Select image",
+    "CLEAR": "Clear image"
   },
   "INACTIVITY": {
     "HELP": "Ĉiuj kiuj ne ensalutis en la grupo dum {dayCount}aŭ pli da tagoj sinsekve malaktiviĝas. Tiuj uzantoj ne plu ricevos sciigojn retmesaĝe.",
@@ -523,29 +554,31 @@
     },
     "CHAT": "Babilejo",
     "CREATION": {
-      "TOAST": "Vi sukcese komencis problemsolvadan proceson"
+      "TOAST": "You successfully started a membership review"
     },
+    "NOTICE": "There is an ongoing issue! | There are {count} ongoing issues!",
     "NO_ONGOING": "Ĉio enordas nuntempe.",
-    "PARTICIPANTS": "{count}anoj jam kontribuis al la diskuto",
+    "PARTICIPANTS": "{count} members are in this discussion.",
     "PAST": "Pasintaj konfliktoj",
     "PREVIOUS_VOTINGS": "Antaŭaj voĉdonadoj pri tiu ĉi konflikto",
     "TITLE": "Konfliktoj",
     "VOTE": "Voĉdoni",
     "VOTING": {
       "ANONYMOUS": "Via voĉdono estos anonima",
+      "DECIDE": "Decide your level of support for each proposal.",
       "BTN_DELETE": "Forigi voĉdonon",
       "BTN_START": "Voĉdoni nun",
       "FURTHER_DISCUSSION": "Plua diskutado: longigu la tempon per malfermo de nova voĉdonado",
       "NO_CHANGE": "Neniu ŝanĝo: {userName}restas en {groupName}",
-      "REMOVE_USER": "{userName} estos forigita de {groupName}",
+      "REMOVE_USER": "Membership ends and {userName} gets removed from {groupName}",
       "RESULTS": {
         "ENDED_AT": "La voĉdona rondo finis {date}",
         "KEEP_DISCUSSING": "Via grupo voĉdonis por daŭrigi la diskuton",
         "PARTICIPANTS": "{number}anoj partoprenis la voĉdonadon.",
         "TIME_UP": "Tempo pasis!",
         "TOTAL_SCORE": "Rezulto fina",
-        "UNDECIDED": "Bedaurinde tiu ĉi problemsolvado ankoraŭ ne solviĝis.",
-        "UNDECIDED_REASON_1": "La uzanto pri kiu temis la problemsolvado forlasis la grupon antaŭ la proceso finiĝis",
+        "UNDECIDED": "Unfortunately this membership review could not be decided.",
+        "UNDECIDED_REASON_1": "the affected user left the group while the membership review was still ongoing",
         "UNDECIDED_REASON_2": "neniu voĉdonis pri la temo",
         "UNDECIDED_WHY": "Estas du eblaj kialoj por tio:"
       },
@@ -617,12 +650,12 @@
     "ACTIVITY_UPCOMING": "Memorigo: {activityType} je {time}",
     "APPLICATION_ACCEPTED": "Kandidatiĝo akceptita!",
     "APPLICATION_DECLINED": "Kandidatiĝo malakceptita",
-    "CONFLICT_RESOLUTION_CONTINUED": "La problemsolvada proceso kun {userName}daŭras",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "La problemsolvada proceso pri vi daŭras",
-    "CONFLICT_RESOLUTION_CREATED": "Aliĝu la konversacion pri problemo kun {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Nova problemsolvada procezo pri vi komenĉiĝis",
-    "CONFLICT_RESOLUTION_DECIDED": "La problemsolvada proceso kun {userName}finiĝis.",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "La problemsolvada proceso kun vi finiĝis",
+    "CONFLICT_RESOLUTION_CONTINUED": "The membership review of {userName} continues",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Your membership review continues",
+    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a membership review of {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A review of your membership was started",
+    "CONFLICT_RESOLUTION_DECIDED": "The membership review of {userName} was decided",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Your membership was decided",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Vi estis forigita de la grupo",
     "FEEDBACK_POSSIBLE": "Vi povas komenti la aktivaĵon - {activityType} je {date}",
     "INVITATION_ACCEPTED": "{userName}akceptis vian inviton",
@@ -630,9 +663,12 @@
     "NEW_MEMBER": "{userName}aliĝis vian grupon",
     "NEW_PLACE": "{placeName}kreiĝis",
     "USER_BECAME_EDITOR": "{userName}ricevis redaktpermesojn",
+    "USER_GOT_ROLE": "{userName} received role: {role}",
+    "YOU_GOT_ROLE": "You received role: {role}!",
     "VOTING_ENDS_SOON": "Voĉdonadon baldaŭ finiĝos. Ne forgesu partopreni!",
     "YOU_BECAME_EDITOR": "Vi ricevis redaktpermesojn",
-    "MENTION": "{userName} mentioned you!"
+    "MENTION": "{userName} mentioned you!",
+    "PARTICIPANT_REMOVED": "{activityType} no longer available - {dateTime}"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "Ni ne havas sciigojn por vi nun.",
@@ -713,6 +749,16 @@
     "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
+  "PLACE_LIST": {
+    "ONLY_FAVOURITES": "Only favourite",
+    "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
+    "SUBSCRIBED": "You have marked this place as favorite",
+    "FAVORITE_PLACES": "Favorite places",
+    "NONE_DUE_TO_FILTER": "No places match your filters",
+    "ALL_TYPES": "All types",
+    "ALL_STATUSES": "All statuses",
+    "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then click { icon } on one of them."
+  },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count}homoj marki ĉi tiun lokon kiel preferatan",
     "SUBSCRIPTION": {
@@ -725,6 +771,14 @@
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(Nealirebla aŭ forigita uzanto)"
+  },
+  "ROLES": {
+    "MEMBER": "Anyone",
+    "MEMBER_DESCRIPTION": "Anyone in the group",
+    "NEWCOMER": "Newcomer",
+    "NEWCOMER_DESCRIPTION": "People that haven't yet got any other roles",
+    "EDITOR": "Editor",
+    "EDITOR_DESCRIPTION": "People that have been trusted in the group as an editor"
   },
   "SETTINGS": {
     "TITLE": "Agordoj"
@@ -783,7 +837,6 @@
     },
     "NAME": "Nomo",
     "RESTORE": "Restaŭri",
-    "SHOW_ACTIVE_ONLY": "Nur montri aktivajn lokojn",
     "SHOW_ALL": "Montri ĉiujn lokojn",
     "STATUS": "Stato",
     "WEEKS_IN_ADVANCE": "Antaŭ kiom da semajnoj oni montru periodajn aktivaĵojn?",
@@ -879,6 +932,24 @@
     "WHERE_FROM": "De kie vi venas? (ne nepra)",
     "YOU_TRUST_USER": "Vi fidas {userName}en {groupName}."
   },
+  "TRUST_FOR_ROLE": {
+    "FIRST_TRUST": "Be the first one trust {userName} for {role} in {groupName}!",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} for {role} in {groupName}. | {count} people trust {userName} for {role} in {groupName}.",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you for {role} in {groupName}. | {count} people trust you for {role} in {groupName}.",
+    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} for {role} in {groupName}. | You and {count} other people trust {userName} for {role} in {groupName}.",
+    "YOU_TRUST_USER": "You trust {userName} for {role} in {groupName}.",
+    "NO_ROLE_INFO": "You currently don't have role {role} in {groupName}. As soon as {threshold} members expressed their trust for {role} in you, you will receive the {role} role.",
+    "NEED_ROLE": "You need {role} role",
+    "TRUST_PROGRESS": "{trustNeeded} more people need to express their trust in {userName} to grant the {role} role.",
+    "GIVE_DIALOG": {
+      "MESSAGE": "Do you trust {userName} for {role} in {groupName}?",
+      "TITLE": "Trust user for {role}"
+    },
+    "REVOKE_DIALOG": {
+      "MESSAGE": "Do you want to revoke the trust for {role} you have given to {userName} in {groupName}?",
+      "TITLE": "Revoke trust for {role}"
+    }
+  },
   "USERDETAIL": {
     "DESCRIPTION": "Pri vi",
     "DISPLAY_NAME": "Nomo",
@@ -891,6 +962,7 @@
     "MINLENGTH": "Bonvolu enmetu pli ol {min}karaktrojn.",
     "REQUIRED": "Nepre plenigu la kampon",
     "UNIQUE": "Nomo jam ekzistas, bonvolu elekti alian.",
+    "OPTIONAL": "optional",
     "VALID_EMAIL": "Metu validan retadreson",
     "VALID_TIMEZONE": "Entajpu validan horzonon.",
     "VALID_USERNAME": "Enter a valid username.",

@@ -114,6 +114,7 @@ import {
   QImg,
   QInfiniteScroll,
 } from 'quasar'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
@@ -128,7 +129,7 @@ import KSpinner from '@/utils/components/KSpinner'
 
 const { t } = useI18n()
 
-const statusOptions = [
+const statusOptions = computed(() => [
   {
     label: t('OFFER.FILTER.STATUS.ACTIVE'),
     value: 'active',
@@ -137,7 +138,7 @@ const statusOptions = [
     label: t('OFFER.FILTER.STATUS.ARCHIVED'),
     value: 'archived',
   },
-]
+])
 
 const { groupId, getMembership } = useCurrentGroupService()
 

@@ -9,6 +9,9 @@ import ChangePhoto from './ChangePhoto'
 jest.mock('vue', () => jest.requireActual('@vue/compat'))
 configureCompat({ MODE: 3 })
 
+// disable misleading errors from vue/compat
+global.console.error = jest.fn()
+
 describe('ChangePhoto', () => {
   beforeEach(() => jest.resetModules())
   let wrapper

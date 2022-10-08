@@ -89,6 +89,7 @@ const i18n = createI18n({
   messages: {
     en: localeEn,
   },
+  allowComposition: true,
   datetimeFormats,
   numberFormats,
   fallbackLocale: 'en', // if you change this make sure to always load the locale too

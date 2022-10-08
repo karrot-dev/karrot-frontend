@@ -377,8 +377,6 @@ jobs:
             git branch --delete --force $BRANCH || true
             git checkout -b $BRANCH
             yarn upgrade --latest --ignore-engines
-            # holding back jest to 27 due to https://github.com/vuejs/vue-jest/issues/467
-            yarn upgrade --latest --ignore-engines jest@^28 babel-jest@^28 jest-environment-jsdom@^28
             tee pr.txt \<<EOL
             [CI] update dependencies
 

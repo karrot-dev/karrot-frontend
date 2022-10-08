@@ -38,13 +38,13 @@ exports[`Storyshots activities/components/ActivityEdit Disabled 1`] = `
           <!---->
           <div class="q-field__inner relative-position col self-stretch">
             <div class="q-field__control relative-position row no-wrap bg-orange-1" tabindex="-1">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: auto; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: auto;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
                 <!---->
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <transition-stub>
+              <transition-stub name="q-transition--field-message" appear="false" persisted="false" css="true">
                 <div class="q-field__messages col"></div>
               </transition-stub>
               <!---->
@@ -54,7 +54,7 @@ exports[`Storyshots activities/components/ActivityEdit Disabled 1`] = `
         </label><button class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable absolute-bottom-right bg-white" style="font-size: 8px; bottom: -10px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
           <!----></span>
         </button></div>
-      <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
+      <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
         <div></div>
       </div>
     </div>
@@ -92,7 +92,7 @@ exports[`Storyshots activities/components/ActivityEdit Disabled 1`] = `
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <transition-stub>
+            <transition-stub name="q-transition--field-message" appear="false" persisted="false" css="true">
               <div class="q-field__messages col">
                 <div>How many people should participate?</div>
               </div>
@@ -110,16 +110,16 @@ exports[`Storyshots activities/components/ActivityEdit Disabled 1`] = `
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
       <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
-        <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
+        <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy" aria-hidden="true"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
-        </div>
+        </div><span class="no-outline" tabindex="-1"></span>
         <div class="q-toggle__label q-anchor--skip">Preview</div>
       </div>
       <div class="q-space"></div>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-secondary text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Enable</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled" tabindex="-1" type="submit" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Save changes</span>
-        <transition-stub>
+        <transition-stub name="q-transition--fade" appear="false" persisted="false" css="true">
           <!---->
         </transition-stub>
       </button>
@@ -171,13 +171,13 @@ exports[`Storyshots activities/components/ActivityEdit Error 1`] = `
           <!---->
           <div class="q-field__inner relative-position col self-stretch">
             <div class="q-field__control relative-position row no-wrap bg-orange-1" tabindex="-1">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: auto; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: auto;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
                 <!---->
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <transition-stub>
+              <transition-stub name="q-transition--field-message" appear="false" persisted="false" css="true">
                 <div class="q-field__messages col"></div>
               </transition-stub>
               <!---->
@@ -187,7 +187,7 @@ exports[`Storyshots activities/components/ActivityEdit Error 1`] = `
         </label><button class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable absolute-bottom-right bg-white" style="font-size: 8px; bottom: -10px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
           <!----></span>
         </button></div>
-      <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
+      <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
         <div></div>
       </div>
     </div>
@@ -225,7 +225,7 @@ exports[`Storyshots activities/components/ActivityEdit Error 1`] = `
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <transition-stub>
+            <transition-stub name="q-transition--field-message" appear="false" persisted="false" css="true">
               <div class="q-field__messages col">
                 <div>How many people should participate?</div>
               </div>
@@ -243,16 +243,16 @@ exports[`Storyshots activities/components/ActivityEdit Error 1`] = `
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
       <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
-        <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
+        <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy" aria-hidden="true"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
-        </div>
+        </div><span class="no-outline" tabindex="-1"></span>
         <div class="q-toggle__label q-anchor--skip">Preview</div>
       </div>
       <div class="q-space"></div>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Disable</span></button>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled" tabindex="-1" type="submit" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Save changes</span>
-        <transition-stub>
+        <transition-stub name="q-transition--fade" appear="false" persisted="false" css="true">
           <!---->
         </transition-stub>
       </button>
@@ -302,13 +302,13 @@ exports[`Storyshots activities/components/ActivityEdit Normal 1`] = `
           <!---->
           <div class="q-field__inner relative-position col self-stretch">
             <div class="q-field__control relative-position row no-wrap bg-orange-1" tabindex="-1">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: auto; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: auto;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
                 <!---->
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <transition-stub>
+              <transition-stub name="q-transition--field-message" appear="false" persisted="false" css="true">
                 <div class="q-field__messages col"></div>
               </transition-stub>
               <!---->
@@ -318,7 +318,7 @@ exports[`Storyshots activities/components/ActivityEdit Normal 1`] = `
         </label><button class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable absolute-bottom-right bg-white" style="font-size: 8px; bottom: -10px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
           <!----></span>
         </button></div>
-      <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
+      <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
         <div></div>
       </div>
     </div>
@@ -356,7 +356,7 @@ exports[`Storyshots activities/components/ActivityEdit Normal 1`] = `
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <transition-stub>
+            <transition-stub name="q-transition--field-message" appear="false" persisted="false" css="true">
               <div class="q-field__messages col">
                 <div>How many people should participate?</div>
               </div>
@@ -374,16 +374,16 @@ exports[`Storyshots activities/components/ActivityEdit Normal 1`] = `
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
       <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
-        <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
+        <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy" aria-hidden="true"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
-        </div>
+        </div><span class="no-outline" tabindex="-1"></span>
         <div class="q-toggle__label q-anchor--skip">Preview</div>
       </div>
       <div class="q-space"></div>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Disable</span></button>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled" tabindex="-1" type="submit" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Save changes</span>
-        <transition-stub>
+        <transition-stub name="q-transition--fade" appear="false" persisted="false" css="true">
           <!---->
         </transition-stub>
       </button>
@@ -433,13 +433,13 @@ exports[`Storyshots activities/components/ActivityEdit Pending 1`] = `
           <!---->
           <div class="q-field__inner relative-position col self-stretch">
             <div class="q-field__control relative-position row no-wrap bg-orange-1" tabindex="-1">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: auto; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: auto;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
                 <!---->
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <transition-stub>
+              <transition-stub name="q-transition--field-message" appear="false" persisted="false" css="true">
                 <div class="q-field__messages col"></div>
               </transition-stub>
               <!---->
@@ -449,7 +449,7 @@ exports[`Storyshots activities/components/ActivityEdit Pending 1`] = `
         </label><button class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable absolute-bottom-right bg-white" style="font-size: 8px; bottom: -10px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
           <!----></span>
         </button></div>
-      <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
+      <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
         <div></div>
       </div>
     </div>
@@ -487,7 +487,7 @@ exports[`Storyshots activities/components/ActivityEdit Pending 1`] = `
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <transition-stub>
+            <transition-stub name="q-transition--field-message" appear="false" persisted="false" css="true">
               <div class="q-field__messages col">
                 <div>How many people should participate?</div>
               </div>
@@ -505,16 +505,16 @@ exports[`Storyshots activities/components/ActivityEdit Pending 1`] = `
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
       <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
-        <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
+        <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy" aria-hidden="true"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
-        </div>
+        </div><span class="no-outline" tabindex="-1"></span>
         <div class="q-toggle__label q-anchor--skip">Preview</div>
       </div>
       <div class="q-space"></div>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Disable</span></button>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled" tabindex="-1" type="submit" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row q-btn__content--hidden">Save changes</span>
-        <transition-stub><span class="absolute-full flex flex-center"><svg class="q-spinner q-spinner-mat" width="1em" height="1em" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10"></circle></svg></span></transition-stub>
+        <transition-stub name="q-transition--fade" appear="false" persisted="false" css="true"><span class="absolute-full flex flex-center"><svg class="q-spinner q-spinner-mat" width="1em" height="1em" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="5" stroke-miterlimit="10"></circle></svg></span></transition-stub>
       </button>
     </div>
     <!--v-if-->
@@ -562,13 +562,13 @@ exports[`Storyshots activities/components/ActivityEdit Series Changed 1`] = `
           <!---->
           <div class="q-field__inner relative-position col self-stretch">
             <div class="q-field__control relative-position row no-wrap bg-orange-1" tabindex="-1">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: auto; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: auto;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
                 <!---->
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <transition-stub>
+              <transition-stub name="q-transition--field-message" appear="false" persisted="false" css="true">
                 <div class="q-field__messages col"></div>
               </transition-stub>
               <!---->
@@ -578,7 +578,7 @@ exports[`Storyshots activities/components/ActivityEdit Series Changed 1`] = `
         </label><button class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable absolute-bottom-right bg-white" style="font-size: 8px; bottom: -10px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
           <!----></span>
         </button></div>
-      <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
+      <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
         <div></div>
       </div>
     </div>
@@ -616,7 +616,7 @@ exports[`Storyshots activities/components/ActivityEdit Series Changed 1`] = `
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <transition-stub>
+            <transition-stub name="q-transition--field-message" appear="false" persisted="false" css="true">
               <div class="q-field__messages col">
                 <div>How many people should participate?</div>
               </div>
@@ -634,16 +634,16 @@ exports[`Storyshots activities/components/ActivityEdit Series Changed 1`] = `
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
       <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
-        <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
+        <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy" aria-hidden="true"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
-        </div>
+        </div><span class="no-outline" tabindex="-1"></span>
         <div class="q-toggle__label q-anchor--skip">Preview</div>
       </div>
       <div class="q-space"></div>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Disable</span></button>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled" tabindex="-1" type="submit" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Save changes</span>
-        <transition-stub>
+        <transition-stub name="q-transition--fade" appear="false" persisted="false" css="true">
           <!---->
         </transition-stub>
       </button>
@@ -708,13 +708,13 @@ exports[`Storyshots activities/components/ActivityEdit With Duration 1`] = `
           <!---->
           <div class="q-field__inner relative-position col self-stretch">
             <div class="q-field__control relative-position row no-wrap bg-orange-1" tabindex="-1">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: auto; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea class="q-field__native q-placeholder" style="overflow: hidden; min-height: auto;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
                 <!---->
               </div>
             </div>
             <div class="q-field__bottom row items-start q-field__bottom--animated">
-              <transition-stub>
+              <transition-stub name="q-transition--field-message" appear="false" persisted="false" css="true">
                 <div class="q-field__messages col"></div>
               </transition-stub>
               <!---->
@@ -724,7 +724,7 @@ exports[`Storyshots activities/components/ActivityEdit With Duration 1`] = `
         </label><button class="q-btn q-btn-item non-selectable no-outline q-btn--outline q-btn--rectangle text-primary q-btn--actionable q-focusable q-hoverable absolute-bottom-right bg-white" style="font-size: 8px; bottom: -10px;" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><span class="block">Preview</span>
           <!----></span>
         </button></div>
-      <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
+      <div class="v-popper v-popper--theme-mentionable v-popper--theme-dropdown popper" offset="6" style="position: absolute;">
         <div></div>
       </div>
     </div>
@@ -762,7 +762,7 @@ exports[`Storyshots activities/components/ActivityEdit With Duration 1`] = `
             </div>
           </div>
           <div class="q-field__bottom row items-start q-field__bottom--animated">
-            <transition-stub>
+            <transition-stub name="q-transition--field-message" appear="false" persisted="false" css="true">
               <div class="q-field__messages col">
                 <div>How many people should participate?</div>
               </div>
@@ -780,16 +780,16 @@ exports[`Storyshots activities/components/ActivityEdit With Duration 1`] = `
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
       <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
-        <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
+        <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy" aria-hidden="true"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
-        </div>
+        </div><span class="no-outline" tabindex="-1"></span>
         <div class="q-toggle__label q-anchor--skip">Preview</div>
       </div>
       <div class="q-space"></div>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle disabled" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Reset</span></button><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-red text-white q-btn--actionable q-focusable q-hoverable" tabindex="0" type="button"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Disable</span></button>
       <!--v-if--><button class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--rectangle bg-primary text-white disabled" tabindex="-1" type="submit" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row">Save changes</span>
-        <transition-stub>
+        <transition-stub name="q-transition--fade" appear="false" persisted="false" css="true">
           <!---->
         </transition-stub>
       </button>
@@ -814,8 +814,8 @@ exports[`Storyshots activities/components/ActivityItem Normal 1`] = `
         <div>
           <!-- eslint-disable vue/no-v-html -->
           <div class="markdown">
-            <p>Incidunt sed et alias necessitatibus veniam dolore nihil. Dolorem blanditiis et ut molestiae magni quis ea. Ut odio quia dolore.<br>
-              Quia cum illo. Commodi adipisci eius vitae consequatur doloribus repudiandae qui est. Qui facere illo eos numquam qui dolore qui est nisi. Fugiat molestias nisi. Aliquam et non ad eos ab. Et in impedit et nostrum voluptatibus quo.</p>
+            <p>Cum illo assumenda commodi. Eius vitae consequatur doloribus. Qui est reiciendis qui facere illo eos numquam qui dolore.<br>
+              Nisi aspernatur fugiat molestias nisi rem aliquam. Non ad eos ab non et in impedit. Nostrum voluptatibus quo tenetur placeat molestiae non. Saepe numquam nihil debitis tempore harum perferendis aut.</p>
           </div><!-- eslint-enable -->
           <!--v-if-->
         </div>
@@ -849,7 +849,7 @@ exports[`Storyshots activities/components/ActivityItem Normal 1`] = `
         - has joined, but it's already started, so can't leave
         - has joined, and can leave
       --><button class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--rectangle text-grey-5 disabled q-btn--no-uppercase action-button" tabindex="-1" type="button" disabled="" aria-disabled="true"><span class="q-focus-helper"></span><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i class="q-icon text-grey-5 fas fa-fw fa-asterisk q-mr-sm" style="font-size: 18px;" aria-hidden="true" role="presentation"> </i><span class="block">Join </span></span>
-      <transition-stub>
+      <transition-stub name="q-transition--fade" appear="false" persisted="false" css="true">
         <!---->
       </transition-stub>
     </button>
@@ -880,14 +880,14 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
     <!--v-if-->
     <div class="q-item q-item-type row no-wrap isUnread">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
-        <div class="wrapper" style="width: 40px; height: 40px;"><a title="Georgia Hoeger">
-            <div text="Georgia Hoeger" seed="3" class="randomArt fill"></div>
+        <div class="wrapper" style="width: 40px; height: 40px;"><a title="Georgia Homenick">
+            <div text="Georgia Homenick" seed="3" class="randomArt fill"></div>
           </a></div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
-        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-angle-double-up q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Georgia Hoeger gained editing permissions</div>
+        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-angle-double-up q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Georgia Homenick gained editing permissions</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="May 15, 2017, 6:42 AM" style="display: inline;">7 months ago</div> · enable Corporate bypassing Bedfordshire Tuna
+          <div title="May 15, 2017, 6:42 AM" style="display: inline;">7 months ago</div> · Account gold Southeast Wooden Communications
           <!--v-if-->
         </div>
       </div>
@@ -897,21 +897,21 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-angle-double-up q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> You gained editing permissions</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Sep 16, 2017, 6:48 PM" style="display: inline;">3 months ago</div> · enable Corporate bypassing Bedfordshire Tuna
+          <div title="Sep 16, 2017, 6:48 PM" style="display: inline;">3 months ago</div> · Account gold Southeast Wooden Communications
           <!--v-if-->
         </div>
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap isUnread">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
-        <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kunze">
-            <div text="Connie Kunze" seed="2" class="randomArt fill"></div>
+        <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kuphal">
+            <div text="Connie Kuphal" seed="2" class="randomArt fill"></div>
           </a></div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-address-card q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> applied to join your group</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Nov 9, 2017, 6:54 AM" style="display: inline;">about 2 months ago</div> · enable Corporate bypassing Bedfordshire Tuna
+          <div title="Nov 9, 2017, 6:54 AM" style="display: inline;">about 2 months ago</div> · Account gold Southeast Wooden Communications
           <!--v-if-->
         </div>
       </div>
@@ -921,7 +921,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-check q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Your application was accepted!</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="May 28, 2017, 12:33 PM" style="display: inline;">7 months ago</div> · enable Corporate bypassing Bedfordshire Tuna
+          <div title="May 28, 2017, 12:33 PM" style="display: inline;">7 months ago</div> · Account gold Southeast Wooden Communications
           <!--v-if-->
         </div>
       </div>
@@ -931,7 +931,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-times q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Your application was declined</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Apr 15, 2017, 8:01 AM" style="display: inline;">8 months ago</div> · enable Corporate bypassing Bedfordshire Tuna
+          <div title="Apr 15, 2017, 8:01 AM" style="display: inline;">8 months ago</div> · Account gold Southeast Wooden Communications
           <!--v-if-->
         </div>
       </div>
@@ -941,43 +941,43 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-reply q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> You can give feedback - Task on Monday 10:00 AM</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Mar 11, 2017, 8:02 AM" style="display: inline;">10 months ago</div> · enable Corporate bypassing Bedfordshire Tuna · Automotive Jewelery Intelligent connecting Cambridgeshire
+          <div title="Mar 11, 2017, 8:02 AM" style="display: inline;">10 months ago</div> · Account gold Southeast Wooden Communications · Tulare Sanford Bedfordshire Bronze programming
         </div>
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap isUnread">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
-        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-circle q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Automotive Jewelery Intelligent connecting Cambridgeshire has been created</div>
+        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-circle q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Tulare Sanford Bedfordshire Bronze programming has been created</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Feb 19, 2017, 8:59 AM" style="display: inline;">10 months ago</div> · enable Corporate bypassing Bedfordshire Tuna · Automotive Jewelery Intelligent connecting Cambridgeshire
+          <div title="Feb 19, 2017, 8:59 AM" style="display: inline;">10 months ago</div> · Account gold Southeast Wooden Communications · Tulare Sanford Bedfordshire Bronze programming
         </div>
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap isUnread">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
-        <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kunze">
-            <div text="Connie Kunze" seed="2" class="randomArt fill"></div>
+        <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kuphal">
+            <div text="Connie Kuphal" seed="2" class="randomArt fill"></div>
           </a></div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
-        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-user-plus q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Connie Kunze joined your group</div>
+        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-user-plus q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Connie Kuphal joined your group</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Sep 21, 2017, 7:27 AM" style="display: inline;">3 months ago</div> · enable Corporate bypassing Bedfordshire Tuna
+          <div title="Sep 21, 2017, 7:27 AM" style="display: inline;">3 months ago</div> · Account gold Southeast Wooden Communications
           <!--v-if-->
         </div>
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap isUnread">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
-        <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kunze">
-            <div text="Connie Kunze" seed="2" class="randomArt fill"></div>
+        <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kuphal">
+            <div text="Connie Kuphal" seed="2" class="randomArt fill"></div>
           </a></div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
-        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-user-plus q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Connie Kunze accepted your invitation</div>
+        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-user-plus q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Connie Kuphal accepted your invitation</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Nov 4, 2017, 9:24 AM" style="display: inline;">about 2 months ago</div> · enable Corporate bypassing Bedfordshire Tuna
+          <div title="Nov 4, 2017, 9:24 AM" style="display: inline;">about 2 months ago</div> · Account gold Southeast Wooden Communications
           <!--v-if-->
         </div>
       </div>
@@ -989,7 +989,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
           <!--v-if--> Reminder: Task at 10:00 AM
         </div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Jun 23, 2018, 5:12 AM" style="display: inline;">in 6 months</div> · enable Corporate bypassing Bedfordshire Tuna · Automotive Jewelery Intelligent connecting Cambridgeshire
+          <div title="Mar 5, 2018, 11:30 PM" style="display: inline;">in 2 months</div> · Account gold Southeast Wooden Communications · Tulare Sanford Bedfordshire Bronze programming
         </div>
       </div>
     </div>
@@ -998,7 +998,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-times q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Task on Monday, December 25 at 10:00 AM was disabled</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Jun 20, 2017, 10:48 AM" style="display: inline;">6 months ago</div> · enable Corporate bypassing Bedfordshire Tuna · Automotive Jewelery Intelligent connecting Cambridgeshire
+          <div title="Jun 20, 2017, 10:48 AM" style="display: inline;">6 months ago</div> · Account gold Southeast Wooden Communications · Tulare Sanford Bedfordshire Bronze programming
         </div>
       </div>
     </div>
@@ -1007,7 +1007,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-check q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Task on Monday, December 25 at 10:00 AM was enabled again</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="May 13, 2017, 9:15 AM" style="display: inline;">8 months ago</div> · enable Corporate bypassing Bedfordshire Tuna · Automotive Jewelery Intelligent connecting Cambridgeshire
+          <div title="May 13, 2017, 9:15 AM" style="display: inline;">8 months ago</div> · Account gold Southeast Wooden Communications · Tulare Sanford Bedfordshire Bronze programming
         </div>
       </div>
     </div>
@@ -1016,20 +1016,20 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-clock q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Task was moved to Monday, December 25 at 10:00 AM</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Aug 20, 2017, 12:13 PM" style="display: inline;">4 months ago</div> · enable Corporate bypassing Bedfordshire Tuna · Automotive Jewelery Intelligent connecting Cambridgeshire
+          <div title="Aug 20, 2017, 12:13 PM" style="display: inline;">4 months ago</div> · Account gold Southeast Wooden Communications · Tulare Sanford Bedfordshire Bronze programming
         </div>
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap isUnread">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
-        <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kunze">
-            <div text="Connie Kunze" seed="2" class="randomArt fill"></div>
+        <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kuphal">
+            <div text="Connie Kuphal" seed="2" class="randomArt fill"></div>
           </a></div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
-        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-frown-open q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Join the discussion about a membership review of Connie Kunze</div>
+        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-frown-open q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Join the discussion about a membership review of Connie Kuphal</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Jul 11, 2017, 3:52 AM" style="display: inline;">6 months ago</div> · enable Corporate bypassing Bedfordshire Tuna
+          <div title="Jul 11, 2017, 3:52 AM" style="display: inline;">6 months ago</div> · Account gold Southeast Wooden Communications
           <!--v-if-->
         </div>
       </div>
@@ -1039,21 +1039,21 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-frown-open q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> A review of your membership was started</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Jun 22, 2017, 5:42 PM" style="display: inline;">6 months ago</div> · enable Corporate bypassing Bedfordshire Tuna
+          <div title="Jun 22, 2017, 5:42 PM" style="display: inline;">6 months ago</div> · Account gold Southeast Wooden Communications
           <!--v-if-->
         </div>
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap isUnread">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
-        <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kunze">
-            <div text="Connie Kunze" seed="2" class="randomArt fill"></div>
+        <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kuphal">
+            <div text="Connie Kuphal" seed="2" class="randomArt fill"></div>
           </a></div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
-        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-frown-open q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> The membership review of Connie Kunze continues</div>
+        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-frown-open q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> The membership review of Connie Kuphal continues</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="May 24, 2017, 9:28 PM" style="display: inline;">7 months ago</div> · enable Corporate bypassing Bedfordshire Tuna
+          <div title="May 24, 2017, 9:28 PM" style="display: inline;">7 months ago</div> · Account gold Southeast Wooden Communications
           <!--v-if-->
         </div>
       </div>
@@ -1063,21 +1063,21 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-frown-open q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Your membership review continues</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Aug 6, 2017, 1:12 AM" style="display: inline;">5 months ago</div> · enable Corporate bypassing Bedfordshire Tuna
+          <div title="Aug 6, 2017, 1:12 AM" style="display: inline;">5 months ago</div> · Account gold Southeast Wooden Communications
           <!--v-if-->
         </div>
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap isUnread">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
-        <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kunze">
-            <div text="Connie Kunze" seed="2" class="randomArt fill"></div>
+        <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kuphal">
+            <div text="Connie Kuphal" seed="2" class="randomArt fill"></div>
           </a></div>
       </div>
       <div class="q-item__section column q-item__section--main justify-center">
-        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-frown-open q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> The membership review of Connie Kunze was decided</div>
+        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-frown-open q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> The membership review of Connie Kuphal was decided</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="May 11, 2017, 5:48 AM" style="display: inline;">8 months ago</div> · enable Corporate bypassing Bedfordshire Tuna
+          <div title="May 11, 2017, 5:48 AM" style="display: inline;">8 months ago</div> · Account gold Southeast Wooden Communications
           <!--v-if-->
         </div>
       </div>
@@ -1087,7 +1087,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-frown-open q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Your membership was decided</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Nov 26, 2017, 2:16 PM" style="display: inline;">28 days ago</div> · enable Corporate bypassing Bedfordshire Tuna
+          <div title="Nov 26, 2017, 2:16 PM" style="display: inline;">28 days ago</div> · Account gold Southeast Wooden Communications
           <!--v-if-->
         </div>
       </div>
@@ -1097,7 +1097,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-times q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> You were removed from the group</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Nov 24, 2017, 2:34 PM" style="display: inline;">30 days ago</div> · enable Corporate bypassing Bedfordshire Tuna
+          <div title="Nov 24, 2017, 2:34 PM" style="display: inline;">30 days ago</div> · Account gold Southeast Wooden Communications
           <!--v-if-->
         </div>
       </div>
@@ -1107,7 +1107,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-clock q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Voting ends soon, don't forget to participate!</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Apr 7, 2018, 8:36 PM" style="display: inline;">in 3 months</div> · enable Corporate bypassing Bedfordshire Tuna
+          <div title="Apr 7, 2018, 8:36 PM" style="display: inline;">in 3 months</div> · Account gold Southeast Wooden Communications
           <!--v-if-->
         </div>
       </div>

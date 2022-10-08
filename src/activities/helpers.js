@@ -1,3 +1,4 @@
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import { useAuthService } from '@/authuser/services'
@@ -42,7 +43,7 @@ export function useActivityHelpers () {
     return activity.dateEnd > reactiveNow.value
   }
 
-  const roleOptions = [
+  const roleOptions = computed(() => [
     {
       label: t('ROLES.MEMBER'),
       value: 'member',
@@ -65,7 +66,7 @@ export function useActivityHelpers () {
       value: 'editor',
       description: t('ROLES.EDITOR_DESCRIPTION'),
     },
-  ]
+  ])
 
   return {
     getIsUserParticipant,

@@ -148,18 +148,19 @@
               class="row no-wrap"
             >
               <RouterLink
+                v-if="getUnreadWallMessageCount(place) > 0"
                 :to="{ name: 'placeWall', params: { placeId: place.id }}"
               >
                 <QChip
                   square
                   size="sm"
-                  :color="getUnreadWallMessageCount(place) > 0 ? 'secondary' : 'grey'"
+                  color="secondary"
                   text-color="white"
                   icon="fas fa-comments"
                   :title="$tc('CONVERSATION.UNREAD_MESSAGES', getUnreadWallMessageCount(place), { count: getUnreadWallMessageCount(place) })"
                 >
                   <strong class="q-ml-sm">
-                    {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) || 0 }}
+                    {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }}
                   </strong>
                 </QChip>
               </RouterLink>

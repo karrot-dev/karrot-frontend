@@ -164,7 +164,19 @@ module.exports = configure(function (ctx) {
             .use('url-loader')
               .loader('url-loader')
               .options(imagesRuleOptions)
+
+        chain.module
+        .rule('i18n-resource')
+          .test(/\.json$/)
+            .include.add(resolve(__dirname, './src/locales'))
+            .end()
+          .exclude.add(resolve(__dirname, './src/locales/translationStatus.json')).end()
+          .type('javascript/auto')
+          .use('i18n-resource')
+            .loader('@intlify/vue-i18n-loader')
         /* eslint-enable indent */
+
+        chain.resolve.alias.set('vue-i18n$', 'vue-i18n/dist/vue-i18n.runtime.esm-bundler.js')
       },
 
       // for compatibility with vue-croppa

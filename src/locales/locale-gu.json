@@ -137,7 +137,7 @@
     "DELETE_AMOUNT": "Delete amount",
     "EDIT": "પ્રતિસાદ સંપાદિત કરો",
     "HEADER": "Thank you for your participation!",
-    "PREVIOUS": "{દુકાન} માટે પાછલી પ્રતિસાદ",
+    "PREVIOUS": "{store} માટે પાછલી પ્રતિસાદ",
     "SET_AMOUNT": "Set amount",
     "TITLE": "પ્રતિસાદ",
     "TOGETHER_WITH": "You did this together with:",
@@ -310,7 +310,7 @@
     "REPLIES": "Replies",
     "REPLIES_COUNT": "1 reply | {count} replies",
     "REPLY_TO_MESSAGE": "Reply to message...",
-    "UNREAD_MESSAGES": "તમારી પાસે એક ન વાંચેલા સંદેશ છે | તમારી પાસે {ગણતરી} ન વાંચેલા સંદેશા છે",
+    "UNREAD_MESSAGES": "તમારી પાસે એક ન વાંચેલા સંદેશ છે | તમારી પાસે {count} ન વાંચેલા સંદેશા છે",
     "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
@@ -637,7 +637,7 @@
   },
   "NOTIFICATIONS": {
     "CHANGES_SAVED": "તમારા ફેરફારો સાચવવામાં આવ્યા છે.",
-    "CHECK_YOUR_MAILS": "કૃપા કરી તમારી ઇમેઇલ્સ તપાસો અથવા {ફરીથી મોકલો}",
+    "CHECK_YOUR_MAILS": "કૃપા કરી તમારી ઇમેઇલ્સ તપાસો અથવા {resend}",
     "EMAIL_NOT_DELIVERED": "An email could not be delivered to you | {count} emails could not be delivered to you",
     "NOT_VERIFIED": "{email} is not verified",
     "RESEND_VERIFICATION": "ચકાસણી ઇમેઇલ ફરીથી મોકલો",

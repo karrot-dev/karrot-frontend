@@ -45,7 +45,7 @@ export const useI18nService = defineService(() => {
       loadMessages(value),
       loadQuasarMessages(value),
     ])
-    i18n.setLocaleMessage(value, messages)
+    i18n.setLocaleMessage(value, messages.default || messages)
 
     // Prevent race condition when updating locales quickly
     // If the locale changed while loading messages from the server, don't continue

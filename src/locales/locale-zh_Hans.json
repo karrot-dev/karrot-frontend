@@ -137,7 +137,7 @@
     "DELETE_AMOUNT": "刪除數量",
     "EDIT": "編輯回饋",
     "HEADER": "Thank you for your participation!",
-    "PREVIOUS": "先前對於{商店名稱}的回饋",
+    "PREVIOUS": "先前對於{store}的回饋",
     "SET_AMOUNT": "設定數量",
     "TITLE": "回饋",
     "TOGETHER_WITH": "You did this together with:",
@@ -202,23 +202,23 @@
     "BECOMES_ACTIVE_INFO": "Becomes active {date}"
   },
   "APPLICATION": {
-    "ACCEPTED": "你要接受{使用者名稱}加入社團嗎?",
+    "ACCEPTED": "你要接受{userName}加入社團嗎?",
     "ACCEPT_CONFIRMATION_HEADER": "接受申請",
-    "ACCEPT_CONFIRMATION_TEXT": "你確定你要{使用者名稱}加入此社團?",
+    "ACCEPT_CONFIRMATION_TEXT": "你確定你要{userName}加入此社團?",
     "APPLICATION": "申請",
-    "DECLINED": "你拒絕了{使用者名稱}的申請",
+    "DECLINED": "你拒絕了{userName}的申請",
     "DECLINE_CONFIRMATION_HEADER": "拒絕申請",
-    "DECLINE_CONFIRMATION_TEXT": "你確定你要拒絕{使用者名稱}的申請嗎?",
+    "DECLINE_CONFIRMATION_TEXT": "你確定你要拒絕{userName}的申請嗎?",
     "FORM_HEADER": "申請",
-    "FORM_TITLE": "申請加入{團體名稱}",
+    "FORM_TITLE": "申請加入{groupName}",
     "GALLERY_TOOLTIP": "你已申請加入社團，申請尚未有結果",
-    "HELP": "這是所有現有{社團名稱}成員與新申請者{使用者名稱}間的對話。這是為了要在決定申請結果前更了解你一點。",
+    "HELP": "這是所有現有{groupName}成員與新申請者{userName}間的對話。這是為了要在決定申請結果前更了解你一點。",
     "INITIAL": "初步的問答",
     "PAST": "過去的申請",
-    "SUBMITTED_ON": "於{日期}提交",
-    "WALL_NOTICE": "有一個申請尚未有結果! 有{數目} 個申請尚未有結果",
+    "SUBMITTED_ON": "於{date}提交",
+    "WALL_NOTICE": "有一個申請尚未有結果! 有{count}個申請尚未有結果",
     "WHAT": "這個對話是關於甚麼?",
-    "WITHDRAWN": "撤銷{相對日期}"
+    "WITHDRAWN": "撤銷{relativeDate}"
   },
   "ATTENTION": "Attention!",
   "BUTTON": {
@@ -261,10 +261,10 @@
     "GO_TO_GROUP": "Go to group"
   },
   "COMMUNITY_FEED": {
-    "HEADER": "來自{社群}的更新",
+    "HEADER": "來自{community}的更新",
     "HEADER_LINK": "Karrot community",
     "KARROT_DISCUSSION": "Discussions about Karrot",
-    "LAST_UPDATED": "最近一次更新{相對日期}"
+    "LAST_UPDATED": "最近一次更新{relativeDate}"
   },
   "CONFLICT": {
     "FIND_OUT_MORE": "Find out more!",
@@ -304,13 +304,13 @@
     "OPEN": "開放對話",
     "REACTIONS": {
       "AND": "以及",
-      "REACTED_WITH": "{使用者}反應了{反應}",
+      "REACTED_WITH": "{users}反應了{reaction}",
       "YOU": "你"
     },
     "REPLIES": "回覆",
-    "REPLIES_COUNT": "1則回覆 | {數量} 則回覆 ",
+    "REPLIES_COUNT": "1則回覆 | {count} 則回覆 ",
     "REPLY_TO_MESSAGE": "回覆訊息",
-    "UNREAD_MESSAGES": "你有一則未讀訊息。| 你有{數目}則未讀訊息。",
+    "UNREAD_MESSAGES": "你有一則未讀訊息。| 你有{count}則未讀訊息。",
     "LOAD_EARLIER_MESSAGES": "Load earlier messages"
   },
   "CREATEACTIVITY": {
@@ -336,7 +336,7 @@
     "RRULE": "循環規則",
     "RRULE_EXAMPLE": "每個月的最後一個工作天(星期一到五)",
     "RRULE_EXAMPLE2": "每個月第二個星期一",
-    "RRULE_HELPER": "輸入有效的{規則幫手}, 例如: {規則範例} 或是 {規則範例2}",
+    "RRULE_HELPER": "輸入有效的{ruleHelper}, 例如: {ruleExample} 或是 {ruleExample2}",
     "RRULE_HELPER_URL": "iCalender規則",
     "STARTDATE_HELPER": "此系列活動從甚麼時候開始?",
     "TIME_HELPER": "When should it take place?",
@@ -361,16 +361,16 @@
     "SUCCESS": "你的帳戶已成功刪除",
     "TITLE": "帳戶刪除"
   },
-  "ENTRY": "1則輸入 | {數目}則輸入",
+  "ENTRY": "1則輸入 | {count}則輸入",
   "FEEDBACKLIST": {
     "NONE": "尚未有回饋",
     "NONE_HINT": "當有更多回饋時，它們就會填入這個頁面",
     "NO_DONE_ACTIVITIES": "都完成了",
     "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
     "NUMBER_ACTIVITIES": "{count} activities done",
-    "NUMBER_FEEDBACK": "有{數目} 項領取回饋 ",
-    "SAVED_FOOD": "至少有 1 公斤的食物不會被浪費掉了，| 謝謝你 ! 大家已經給  {數量}公斤的食物領取回饋了。繼續加油 !    ",
-    "WEIGHT_SUM": "{總數} 公斤的食物已被領取"
+    "NUMBER_FEEDBACK": "有{count}項領取回饋 ",
+    "SAVED_FOOD": "至少有 1 公斤的食物不會被浪費掉了，| 謝謝你 ! 大家已經給  {amount}公斤的食物領取回饋了。繼續加油 !    ",
+    "WEIGHT_SUM": "{sum} 公斤的食物已被領取"
   },
   "GLOBAL": {
     "ABOUT_KARROT": "About Karrot",
@@ -394,13 +394,13 @@
     "AGREEMENTS": "Agreements",
     "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
     "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
-    "ADDED_BY": "由{使用者名稱}加入",
+    "ADDED_BY": "由{userName}加入",
     "ADDRESS": "地址",
     "APPLICATIONS": "申請",
     "APPLICATION_QUESTIONS": "給要加入社團者的問題",
     "CREATE_TITLE": "創建新社團",
-    "DECLINED": "拒絕 {相對日期}",
-    "DECLINED_BY": "由{ 使用者名稱} 拒絕",
+    "DECLINED": "拒絕{relativeDate}",
+    "DECLINED_BY": "由{userName}拒絕",
     "DESCRIPTION": "敘述",
     "DESCRIPTION_VERBOSE": "社團敘述（僅社團成員可見）",
     "EDIT": "編輯社團",
@@ -435,7 +435,7 @@
     "JOIN_ANOTHER_GROUP": "加入另一個社團",
     "JOIN_PLAYGROUND": "加入遊樂區社團來探索karrot吧!",
     "LEAVE": "離開社團...",
-    "LEAVE_CONFIRMATION": "你已經退出 {社團名稱}",
+    "LEAVE_CONFIRMATION": "你已經退出{groupName}",
     "LEAVE_TEXT": "您是否確定要離開這個社團？",
     "LOGO": "Group logo",
     "MANAGE_AGREEMENT": "管理協議",
@@ -604,7 +604,7 @@
     "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!",
     "BROWSE_GROUPS": "Browse existing groups",
     "LOGOUT_MESSAGE": {
-      "LOGGED_OUT": "你已經登出。 {登入}",
+      "LOGGED_OUT": "你已經登出。 {login}",
       "LOG_IN": "請登入檢視你的社團！"
     },
     "MY_GROUPS": "我的社團",
@@ -616,7 +616,7 @@
     "VERIFY_EMAIL_ADDRESS": "驗證你的電子郵件地址以利申請",
     "WHICHGROUP": "你想要加入哪一個社團？",
     "WITHDRAW_CONFIRMATION_HEADER": "撤銷申請",
-    "WITHDRAW_CONFIRMATION_TEXT": "你確定你要撤銷加入{ 社團名稱} 的申請?"
+    "WITHDRAW_CONFIRMATION_TEXT": "你確定你要撤銷加入{groupName}的申請?"
   },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "幫忙翻譯",
@@ -637,9 +637,9 @@
   },
   "NOTIFICATIONS": {
     "CHANGES_SAVED": "你的修改已被保存.",
-    "CHECK_YOUR_MAILS": "請查看你的電子信箱或 {重新寄送}",
-    "EMAIL_NOT_DELIVERED": "無法傳送郵件給你 | 有 {數目} 封郵件無法傳送給你",
-    "NOT_VERIFIED": "{電子郵件} 尚未認證",
+    "CHECK_YOUR_MAILS": "請查看你的電子信箱或{resend}",
+    "EMAIL_NOT_DELIVERED": "無法傳送郵件給你 | 有 {count}封郵件無法傳送給你",
+    "NOT_VERIFIED": "{email}尚未認證",
     "RESEND_VERIFICATION": "重新寄送驗證信",
     "VERIFICATION_EMAIL_SENT": "我們已經寄給你一封新的認證信。請檢查您的電子信箱。"
   },
@@ -703,7 +703,7 @@
   },
   "OUTDATED_BROWSER": {
     "LINK": "請更新或是換一個瀏覽器",
-    "MESSAGE": "你目前使用的瀏覽器並不支援這些功能，{更新瀏覽器} 以便使用新功能"
+    "MESSAGE": "你目前使用的瀏覽器並不支援這些功能，{upgradeBrowser} 以便使用新功能"
   },
   "PASSWORD": {
     "CHANGE": {
@@ -884,7 +884,7 @@
     "CONFIRM_PASSWORD": "認證你的密碼",
     "DIALOGS": {
       "GIVE_TRUST": {
-        "MESSAGE": "你信任{社團名稱}裡的{使用者名稱}嗎?",
+        "MESSAGE": "你信任{userName}裡的{groupName}嗎?",
         "TITLE": "信任的使用者"
       },
       "REVOKE_TRUST": {
@@ -898,16 +898,16 @@
       }
     },
     "EMAIL": "電子郵件",
-    "FIRST_TRUST": "成為{社團名稱}裡第一個信任{使用者名稱}的人!",
+    "FIRST_TRUST": "成為{userName}裡第一個信任{groupName}的人!",
     "LOGOUT_SUCCESS": "你已經登出",
     "MOBILE_NUMBER": "電話號碼",
     "NEWCOMER": "新加入成員",
     "NEWCOMER_GUIDANCE": "{userName} is new to your group and might need some guidance.",
     "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
-    "OTHER_PEOPLE_TRUST_USER": "{其他使用者}信任{社團名稱}裡的{使用者名稱}。| {數目}個人信任{社團名稱}裡的{使用者名稱}。",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} in {groupName}. | {count} people trust {userName} in {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you in {groupName}. | {count} people trust you in {groupName}.",
     "PASSWORD": "密碼",
-    "PEOPLE_TRUST_USER": "你及{其他使用者}信任{社團名稱}裡的{使用者名稱}。| 你和{數目}個人信任{社團名稱}裡的{使用者名稱}。",
+    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} in {groupName}. | You and {count} other people trust {userName} in {groupName}.",
     "PHOTO": "大頭貼照",
     "PRIVATE_MESSAGE": "Send a private message to {userName}",
     "PROFILE_TITLE": "個人資料",
@@ -930,7 +930,7 @@
     "DISPLAY_NAME": "Display Name",
     "USERNAME": "Username",
     "WHERE_FROM": "請問你來自哪裡(選填)",
-    "YOU_TRUST_USER": "你信任{社團名稱}裡的{使用者名稱}"
+    "YOU_TRUST_USER": "You trust {userName} in {groupName}."
   },
   "TRUST_FOR_ROLE": {
     "FIRST_TRUST": "Be the first one trust {userName} for {role} in {groupName}!",
@@ -958,8 +958,8 @@
   },
   "VALIDATION": {
     "IMAGE_REQUIRED": "You must add an image",
-    "MAXLENGTH": "太長囉！請勿超過 {最多} 個字。",
-    "MINLENGTH": "請輸入至少 {最少} 個字。",
+    "MAXLENGTH": "Too long, please use less than {max} characters.",
+    "MINLENGTH": "Please enter more than {min} characters.",
     "REQUIRED": "此欄必須填寫。",
     "UNIQUE": "此名稱已經存在，請選擇另一個。",
     "OPTIONAL": "optional",

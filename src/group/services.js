@@ -197,13 +197,13 @@ function useLocaleMessagesSetter ({ isBikeKitchen, isGeneralPurpose }) {
         const messages = await loadMessages(locale.value)
         if (!useGeneralPurposeMessages.value) return
         const mergedMessages = extend(true, {}, messages, generalPurposeMessages)
-        i18n.setLocaleMessage(locale.value, mergedMessages)
+        i18n.setLocaleMessage(locale.value, mergedMessages.default || mergedMessages)
       }
       else {
         const messages = await loadMessages(locale.value)
         if (useGeneralPurposeMessages.value) return
 
-        i18n.setLocaleMessage(locale.value, messages)
+        i18n.setLocaleMessage(locale.value, messages.default || messages)
       }
     },
     {

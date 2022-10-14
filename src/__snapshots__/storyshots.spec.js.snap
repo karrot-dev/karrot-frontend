@@ -814,8 +814,8 @@ exports[`Storyshots activities/components/ActivityItem Normal 1`] = `
         <div>
           <!-- eslint-disable vue/no-v-html -->
           <div class="markdown">
-            <p>Cum illo assumenda commodi. Eius vitae consequatur doloribus. Qui est reiciendis qui facere illo eos numquam qui dolore.<br>
-              Nisi aspernatur fugiat molestias nisi rem aliquam. Non ad eos ab non et in impedit. Nostrum voluptatibus quo tenetur placeat molestiae non. Saepe numquam nihil debitis tempore harum perferendis aut.</p>
+            <p>Laborum eaque cumque nemo. Ipsum veritatis ipsam asperiores. Cupiditate nam voluptatibus cupiditate nobis eaque pariatur dolorem libero velit.<br>
+              Nostrum quasi repellendus praesentium nostrum nihil numquam. Dolorem incidunt nulla eaque voluptatum velit aliquid facilis. Dolore maiores temporibus a soluta recusandae dolorem. Debitis ipsum facilis vero laborum similique aut voluptatibus.</p>
           </div><!-- eslint-enable -->
           <!--v-if-->
         </div>
@@ -941,16 +941,16 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-reply q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> You can give feedback - Task on Monday 10:00 AM</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Mar 11, 2017, 8:02 AM" style="display: inline;">10 months ago</div> · Account gold Southeast Wooden Communications · Tulare Sanford Bedfordshire Bronze programming
+          <div title="Mar 11, 2017, 8:02 AM" style="display: inline;">10 months ago</div> · Account gold Southeast Wooden Communications · Turlock Santa Computers North Gasoline
         </div>
       </div>
     </div>
     <div class="q-item q-item-type row no-wrap isUnread">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
-        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-circle q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Tulare Sanford Bedfordshire Bronze programming has been created</div>
+        <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-circle q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Turlock Santa Computers North Gasoline has been created</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Feb 19, 2017, 8:59 AM" style="display: inline;">10 months ago</div> · Account gold Southeast Wooden Communications · Tulare Sanford Bedfordshire Bronze programming
+          <div title="Feb 19, 2017, 8:59 AM" style="display: inline;">10 months ago</div> · Account gold Southeast Wooden Communications · Turlock Santa Computers North Gasoline
         </div>
       </div>
     </div>
@@ -989,7 +989,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
           <!--v-if--> Reminder: Task at 10:00 AM
         </div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Mar 5, 2018, 11:30 PM" style="display: inline;">in 2 months</div> · Account gold Southeast Wooden Communications · Tulare Sanford Bedfordshire Bronze programming
+          <div title="Mar 5, 2018, 11:30 PM" style="display: inline;">in 2 months</div> · Account gold Southeast Wooden Communications · Turlock Santa Computers North Gasoline
         </div>
       </div>
     </div>
@@ -998,7 +998,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-times q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Task on Monday, December 25 at 10:00 AM was disabled</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Jun 20, 2017, 10:48 AM" style="display: inline;">6 months ago</div> · Account gold Southeast Wooden Communications · Tulare Sanford Bedfordshire Bronze programming
+          <div title="Jun 20, 2017, 10:48 AM" style="display: inline;">6 months ago</div> · Account gold Southeast Wooden Communications · Turlock Santa Computers North Gasoline
         </div>
       </div>
     </div>
@@ -1007,7 +1007,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-check q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Task on Monday, December 25 at 10:00 AM was enabled again</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="May 13, 2017, 9:15 AM" style="display: inline;">8 months ago</div> · Account gold Southeast Wooden Communications · Tulare Sanford Bedfordshire Bronze programming
+          <div title="May 13, 2017, 9:15 AM" style="display: inline;">8 months ago</div> · Account gold Southeast Wooden Communications · Turlock Santa Computers North Gasoline
         </div>
       </div>
     </div>
@@ -1016,7 +1016,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-clock q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Task was moved to Monday, December 25 at 10:00 AM</div>
         <div class="q-item__label q-item__label--caption text-caption">
-          <div title="Aug 20, 2017, 12:13 PM" style="display: inline;">4 months ago</div> · Account gold Southeast Wooden Communications · Tulare Sanford Bedfordshire Bronze programming
+          <div title="Aug 20, 2017, 12:13 PM" style="display: inline;">4 months ago</div> · Account gold Southeast Wooden Communications · Turlock Santa Computers North Gasoline
         </div>
       </div>
     </div>

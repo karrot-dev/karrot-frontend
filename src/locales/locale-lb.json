@@ -97,7 +97,7 @@
       "WHAT": "Wat",
       "WHEN": "Wéini",
       "WHERE": "Wou",
-      "SHARE": "Public activity link",
+      "SHARE": "Ëffentleche Link zur Aktivitéit",
       "VIEW": "Ëffentlech Siicht"
     },
     "JOINEDNOTICE": "Du hues eng zukünfteg Aktivitéit | Du hues {count} zukünfteg Aktivitéiten",
@@ -280,10 +280,10 @@
     "STEPPER1a": "You are about to start a group-wide membership review to decide whether {userName} should continue as a member of the group",
     "STEPPER1b": "Dëst wäert fir all Member vun der Grupp op si fir matzemaachen.",
     "STEPPER2a": "Merci dofir dass du dech ëm d'Gemeinschaft këmmers!",
-    "STEPPER2b": "For a group it is important to practise honest communication and address any issues.",
+    "STEPPER2b": "Fir e Grupp ass et wichteg, dass jiddereen éierlech kommunizéiert an all Problem adresséiert.",
     "STEPPER3a": "Hei ass wat geschéie wäert:",
     "STEPPER3b": "Dëse Prozess wäert een Chat an eng Ofstëmmung starten.",
-    "STEPPER3c": "The chat will be visible for all group members and includes {userName}.",
+    "STEPPER3c": "Den Chat wäert fir all d'Membere siichtbar sinn. {userName} ass och derbäi.",
     "STEPPER3d": "D'Ofstëmmung ass anonym. Si wäert {votingDuration} Deeg daueren. Wärend dëser Zäit ka jiddereen seng Meenung änneren an anescht ofstëmmen esou oft wéi si wëllen.",
     "STEPPER4a": "Erklär w.e.g. firwat s du dëse Prozess starts!",
     "STEPPER4b": "Tell your group what made you think this is justified and needed. This statement will be visible to {userName} and group members.",
@@ -310,7 +310,7 @@
     "REPLIES": "Äntwerten",
     "REPLIES_COUNT": "1 Äntwert | {count} Äntwerten",
     "REPLY_TO_MESSAGE": "Op Noriicht äntwerten...",
-    "UNREAD_MESSAGES": "Du hues eng ongeliesen Noriicht. | Du hues {count}ongeliesen Noriichten.",
+    "UNREAD_MESSAGES": "Du hues eng ongeliesen Noriicht. | Du hues {count} ongeliesen Noriichten.",
     "LOAD_EARLIER_MESSAGES": "Méi fréi Noriichte lueden"
   },
   "CREATEACTIVITY": {
@@ -349,7 +349,7 @@
     "PLACE": "Wiel eng Plaz"
   },
   "EDIT_ACTIVITY": {
-    "TITLE": "What do you want to edit?",
+    "TITLE": "Wat wëlls du editéieren?",
     "ONLY_ACTIVITY": "Dës Aktivitéit",
     "SERIES": "Aktivitéiten an dëser Serie",
     "MANAGE": "Manage activites in {place}"
@@ -943,7 +943,7 @@
     "TRUST_PROGRESS": "{trustNeeded} Leit méi mussen dem {userName} hiert Vertrauen ausdrécke fir dass hien d'Roll {role} kritt.",
     "GIVE_DIALOG": {
       "MESSAGE": "Vertraus du {userName} fir {role} bei {groupName}?",
-      "TITLE": "Trust user for {role}"
+      "TITLE": "Vertrau dem Benotzer fir {role}"
     },
     "REVOKE_DIALOG": {
       "MESSAGE": "Wëlls du d'Vertrauen zréckhuele fir {role}, wat s du {userName} bei {groupName} ginn has? ",

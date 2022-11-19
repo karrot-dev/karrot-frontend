@@ -22,9 +22,21 @@ Please document your changes in this format:
 
 ## [Unreleased]
 ### Added
-- switch to vue-query for offers @nicksellen #2560
+- Places types @nicksellen @tiltec #2577 [karrot-backend#1159](https://github.com/karrot-dev/karrot-backend/pull/1159)
+- Place gallery view @tiltec #2581
+- Participant types for activities @nicksellen #2421 [karrot-backend#1199](https://github.com/karrot-dev/karrot-backend/pull/1199)
+- Public activities @nicksellen #2584 [karrot-backend#1241](https://github.com/karrot-dev/karrot-backend/pull/1241)
+- Quick activity creation and editing @tiltec #2585
+- Agreements @nicksellen #2493 [karrot-backend#1244](https://github.com/karrot-dev/karrot-backend/pull/1244)
+- Trust for "approved" role @nicksellen @tiltec #2589 [karrot-backend#1167](https://github.com/karrot-dev/karrot-backend/pull/1167)
+- completely rewritten data layer with vue-query @nicksellen @tiltec #2560 #2567
 - password-less ICS subscription links, to support Google Calender #2555 @tiltec
 - Korean and Greek translations
+
+### Changed
+- Sidenav now only contains favorite places @tiltec #2581
+- Rename "Conflict Resolution" to "Membership Review", only add initial users to chat @brnsolikyl @nicksellen #2581 [karrot-backend#1243](https://github.com/karrot-dev/karrot-backend/pull/1243)
+- Remove votes for ongoing issues when user leaves group @nicksellen [karrot-backend#1233](https://github.com/karrot-dev/karrot-backend/pull/1233)
 
 ### Fixed
 - show archived types in filter if activities of that type exist @nitishvijai @yatharthchhabra [#2506](https://github.com/karrot-dev/karrot-frontend/issues/2506)

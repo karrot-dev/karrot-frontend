@@ -32,7 +32,7 @@ Please document your changes in this format:
 - Agreements @nicksellen [#2493] [karrot-backend#1244](https://github.com/karrot-dev/karrot-backend/pull/1244)
 - Trust for "approved" role @nicksellen @tiltec [#2589] [karrot-backend#1167](https://github.com/karrot-dev/karrot-backend/pull/1167)
 - completely rewritten data layer with vue-query @nicksellen @tiltec [#2560] [#2567]
-- password-less ICS subscription links, to support Google Calender [#2555] @tiltec
+- password-less ICS subscription links, to support Google Calender @tiltec [#2555]
 - Korean and Greek translations
 
 ### Changed

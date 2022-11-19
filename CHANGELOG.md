@@ -21,21 +21,23 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [10.0.0] - 2022-11-26
 ### Added
-- Places types @nicksellen @tiltec #2577 [karrot-backend#1159](https://github.com/karrot-dev/karrot-backend/pull/1159)
-- Place gallery view @tiltec #2581
-- Participant types for activities @nicksellen #2421 [karrot-backend#1199](https://github.com/karrot-dev/karrot-backend/pull/1199)
-- Public activities @nicksellen #2584 [karrot-backend#1241](https://github.com/karrot-dev/karrot-backend/pull/1241)
-- Quick activity creation and editing @tiltec #2585
-- Agreements @nicksellen #2493 [karrot-backend#1244](https://github.com/karrot-dev/karrot-backend/pull/1244)
-- Trust for "approved" role @nicksellen @tiltec #2589 [karrot-backend#1167](https://github.com/karrot-dev/karrot-backend/pull/1167)
-- completely rewritten data layer with vue-query @nicksellen @tiltec #2560 #2567
-- password-less ICS subscription links, to support Google Calender #2555 @tiltec
+- Places types @nicksellen @tiltec [#2577] [karrot-backend#1159](https://github.com/karrot-dev/karrot-backend/pull/1159)
+- Place gallery view @tiltec [#2581]
+- Participant types for activities @nicksellen [#2421] [karrot-backend#1199](https://github.com/karrot-dev/karrot-backend/pull/1199)
+- Public activities @nicksellen [#2584] [karrot-backend#1241](https://github.com/karrot-dev/karrot-backend/pull/1241)
+- Quick activity creation and editing @tiltec [#2585]
+- Agreements @nicksellen [#2493] [karrot-backend#1244](https://github.com/karrot-dev/karrot-backend/pull/1244)
+- Trust for "approved" role @nicksellen @tiltec [#2589] [karrot-backend#1167](https://github.com/karrot-dev/karrot-backend/pull/1167)
+- completely rewritten data layer with vue-query @nicksellen @tiltec [#2560] [#2567]
+- password-less ICS subscription links, to support Google Calender [#2555] @tiltec
 - Korean and Greek translations
 
 ### Changed
-- Sidenav now only contains favorite places @tiltec #2581
-- Rename "Conflict Resolution" to "Membership Review", only add initial users to chat @brnsolikyl @nicksellen #2581 [karrot-backend#1243](https://github.com/karrot-dev/karrot-backend/pull/1243)
+- Sidenav now only contains favorite places @tiltec [#2581]
+- Rename "Conflict Resolution" to "Membership Review", only add initial users to chat @brnsolikyl @nicksellen [#2581] [karrot-backend#1243](https://github.com/karrot-dev/karrot-backend/pull/1243)
 - Remove votes for ongoing issues when user leaves group @nicksellen [karrot-backend#1233](https://github.com/karrot-dev/karrot-backend/pull/1233)
 
 ### Fixed
@@ -793,6 +795,7 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2406]: https://github.com/karrot-dev/karrot-frontend/issues/2406
 [#2407]: https://github.com/karrot-dev/karrot-frontend/issues/2407
 [#2417]: https://github.com/karrot-dev/karrot-frontend/issues/2417
+[#2421]: https://github.com/karrot-dev/karrot-frontend/issues/2421
 [#2428]: https://github.com/karrot-dev/karrot-frontend/issues/2428
 [#2444]: https://github.com/karrot-dev/karrot-frontend/issues/2444
 [#2445]: https://github.com/karrot-dev/karrot-frontend/issues/2445
@@ -807,10 +810,20 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2482]: https://github.com/karrot-dev/karrot-frontend/issues/2482
 [#2483]: https://github.com/karrot-dev/karrot-frontend/issues/2483
 [#2486]: https://github.com/karrot-dev/karrot-frontend/issues/2486
+[#2493]: https://github.com/karrot-dev/karrot-frontend/issues/2493
 [#2516]: https://github.com/karrot-dev/karrot-frontend/issues/2516
 [#2520]: https://github.com/karrot-dev/karrot-frontend/issues/2520
+[#2555]: https://github.com/karrot-dev/karrot-frontend/issues/2555
+[#2560]: https://github.com/karrot-dev/karrot-frontend/issues/2560
+[#2567]: https://github.com/karrot-dev/karrot-frontend/issues/2567
+[#2577]: https://github.com/karrot-dev/karrot-frontend/issues/2577
+[#2581]: https://github.com/karrot-dev/karrot-frontend/issues/2581
+[#2584]: https://github.com/karrot-dev/karrot-frontend/issues/2584
+[#2585]: https://github.com/karrot-dev/karrot-frontend/issues/2585
+[#2589]: https://github.com/karrot-dev/karrot-frontend/issues/2589
 
-[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v9.8.1...HEAD
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.0...HEAD
+[10.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.8.1...v10.0.0
 [9.8.1]: https://github.com/karrot-dev/karrot-frontend/compare/v9.8.0...v9.8.1
 [9.8.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.7.0...v9.8.0
 [9.7.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.6.1...v9.7.0

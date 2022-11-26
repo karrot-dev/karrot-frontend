@@ -56,7 +56,7 @@
         "TITLE": "Transparenz"
       },
       "TRUST": {
-        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is the need to review someone's membership, the group can enter a voting system to resolve it in a communal way.",
+        "DESCRIPTION": "Et gi keng Admin-Superkräft an enger Karrot-Grupp. D'Leit, déi genuch Vertrauensmuerte vun anere kritt hunn, kënnen d'Astellungen an der Grupp änneren. Wann nei Leit der Grupp bäitriede wëllen, mussen si sech bewerben an déi Froe beäntwerten, déi d'Grupp astelle kann, a jidderee mat Beaarbechtungsrechter ofleenen oder unhuele kann. Änlech kann d'Grupp am Fall vun der Revisioun vun enger Memberschaft een Ofstëmmung-System benotze fir dësen zesummen ze entscheeden.",
         "TITLE": "Gruppen-Management baséierend op Demokratie a Vertrauen"
       }
     },
@@ -107,7 +107,7 @@
     "STORE_NONE_HINT": "Du kanns eng nei Aktivitéit op der Säit \"Aktivitéite verwalten\" uleeën.",
     "ICS_DIALOG": {
       "TITLE": "An de Kalenner derbäi maachen",
-      "INTRO": "Add these activities to your calender:",
+      "INTRO": "Maach dës Aktivitéiten an däi Kalenner derbäi:",
       "DOWNLOAD_TITLE": "Eroflueden",
       "DOWNLOAD_TEXT": "Lued d'ICS-Datei erof fir se manuell an däi Kalenner ze importéieren",
       "DOWNLOAD_BUTTON_LABEL": "ICS eroflueden",
@@ -125,10 +125,10 @@
     "ACTIVITY_PARTICIPANT_TYPES_CHANGED": "Typpe vu Participante goufe verännert",
     "SERIES": "Aktivitéitsserie",
     "SINGLE": "Eemoleg Aktivitéiten",
-    "TITLE": "Aktivitéite verwalten",
+    "TITLE": "Manage activities",
     "UPCOMING_ACTIVITIES_IN_SERIES": "Zukünfteg Aktivitéiten an dëser Serie",
     "CHANGE_AFFECTS_USERS": "Dës Ännerung betrëfft déi zukünfteg Aktivitéite vun {users}.",
-    "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
+    "CHANGE_AFFECTS_USERS_HINT": "Zousätzlech zum Uweisen an der Vergaangenheet wäert deng Noriicht direkt u si verschéckt ginn. Also looss si wësse wat ännert, firwat d'Aktivitéit net méi disponibel fir si ass, a wéi si am Plaze matmaache kënnen."
 },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Quantitéit vu Liewensmëttel déi s du rette konnts",
@@ -269,15 +269,15 @@
   "CONFLICT": {
     "FIND_OUT_MORE": "Méi erausfannen!",
     "INFO": {
-      "MESSAGE": "This is a score voting in which all group members can participate to determine someone's membership."
+      "MESSAGE": "Dëst ass eng Ofstëmmung, un där all d'Membere vun der Grupp deelhuele kënne fir iwwert engem seng Memberschaft ze entscheeden."
     },
     "INITIAL": "Informatiounen",
     "REQUIREMENTS": {
-      "NEWCOMER": "Before you can start a membership review, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+      "NEWCOMER": "Ier s du eng Revisioun vun enger Memberschaft starten duerfs, muss du méi Vertraue kréien a beaarbechten duerfen. An der Tëschenzäit frees de am Beschten een anere Member aus der Grupp fir de Prozess fir dech ze starten."
     },
-    "SETUP_HEADER": "Start a membership review?",
+    "SETUP_HEADER": "Start eng Revisioun vun enger Memberschaft?",
     "STATEMENT": "Ausso",
-    "STEPPER1a": "You are about to start a group-wide membership review to decide whether {userName} should continue as a member of the group",
+    "STEPPER1a": "Du bass derbäi fir eng gruppewäit Revisioun vun der Memberschaft ze starte fir ze decidéieren ob {userName} als Member vum Grupp bleiwen duerf oder net",
     "STEPPER1b": "Dëst wäert fir all Member vun der Grupp op si fir matzemaachen.",
     "STEPPER2a": "Merci dofir dass du dech ëm d'Gemeinschaft këmmers!",
     "STEPPER2b": "Fir e Grupp ass et wichteg, dass jiddereen éierlech kommunizéiert an all Problem adresséiert.",
@@ -286,11 +286,11 @@
     "STEPPER3c": "Den Chat wäert fir all d'Membere siichtbar sinn. {userName} ass och derbäi.",
     "STEPPER3d": "D'Ofstëmmung ass anonym. Si wäert {votingDuration} Deeg daueren. Wärend dëser Zäit ka jiddereen seng Meenung änneren an anescht ofstëmmen esou oft wéi si wëllen.",
     "STEPPER4a": "Erklär w.e.g. firwat s du dëse Prozess starts!",
-    "STEPPER4b": "Tell your group what made you think this is justified and needed. This statement will be visible to {userName} and group members.",
+    "STEPPER4b": "Erklär denger Grupp firwat's du mengs, dass dëst justifizéiert ass a gebraucht gëtt. Dës Ausso wäert siichtbar si fir {userName} an all d'Memberen aus der Grupp.",
     "VOTING": {
-      "HEADLINE": "How do you want to proceed with the ongoing membership review of {userName}?"
+      "HEADLINE": "Wéi wëlls du mat der aktueller Revisioun vun der Memberschaft vum {userName} weidermaachen?"
     },
-    "WITH": "This process is to review the membership of {userName}"
+    "WITH": "Dës Prozess ass dofir do fir d'Memberschaft vum {userName} ze reviséieren"
   },
   "CONVERSATION": {
     "CLOSED": "Dës Ënnerhalung gouf automatesch zougemaach.",
@@ -332,7 +332,7 @@
     "MAX_PARTICIPANTS": "Max. Plazen",
     "MAX_PARTICIPANTS_HELPER": "Wéi vill Leit solle matmaachen?",
     "REMOVE_PARTICIPANT_TYPE": "Typ vu Participant ewechmaachen",
-    "REVERT_TO_SERIES_VALUES": "Revert to series values",
+    "REVERT_TO_SERIES_VALUES": "Zrécksetzen op Serie-Wäerter",
     "RRULE": "Widderhuelungs-Reegel",
     "RRULE_EXAMPLE": "läscht Wochendeeg (Mé-Fr) all Mount",
     "RRULE_EXAMPLE2": "all zweete Méindeg",
@@ -342,7 +342,7 @@
     "TIME_HELPER": "Wéini soll et sinn?",
     "OPEN_FOR": "Oppe fir",
     "UNLIMITED": "onendlech",
-    "USE_PARTICIPANT_TYPES": "Use participant types",
+    "USE_PARTICIPANT_TYPES": "Typpe vu Participanten benotzen",
     "WEEKDAYS": "All Wochendag",
     "WEEKDAYS_HELPER": "Op wéi engen Deeg soll et sinn?",
     "WEEKLY": "All Woch",
@@ -352,7 +352,7 @@
     "TITLE": "Wat wëlls du editéieren?",
     "ONLY_ACTIVITY": "Dës Aktivitéit",
     "SERIES": "Aktivitéiten an dëser Serie",
-    "MANAGE": "Manage activites in {place}"
+    "MANAGE": "Aktivitéite verwalten @ {place}"
   },
   "CREATESTORE": {
     "TITLE": "Eng nei Plaz erstellen"
@@ -446,8 +446,8 @@
     "NOTIFICATIONS_BY_GROUP": "Benoriichtegungen no Grupp",
     "NOTIFICATION_TYPES": {
       "conflict_resolution": {
-        "DESCRIPTION": "Tells you when a new membership review has been started in your group",
-        "NAME": "New membership review"
+        "DESCRIPTION": "Seet dir Bescheed wann een nei Revisioun vun enger Memberschaft an denger Grupp gestart gouf",
+        "NAME": "Nei Revisioun vun enger Memberschaft"
       },
       "daily_activity_notification": {
         "DESCRIPTION": "Erënnert dech un deng Aktivitéiten, a seet dir Bescheed iwwert Aktivitéiten vun denge favoriséierte Plazen den nächsten Dag, un deenen nach keng oder net genuch Leit matmaachen",
@@ -554,9 +554,9 @@
     },
     "CHAT": "Chat",
     "CREATION": {
-      "TOAST": "You successfully started a membership review"
+      "TOAST": "Du hues erfollegräich eng Revisioun vun enger Memberschaft gestart"
     },
-    "NOTICE": "There is an ongoing issue! | There are {count} ongoing issues!",
+    "NOTICE": "Et geet een aktuelle Fall! | Et gëtt {count} aktuell Fäll!",
     "NO_ONGOING": "Grad ginn et keng Konflikter.",
     "PARTICIPANTS": "{count} Membere sinn an dëser Diskussioun",
     "PAST": "Vergaange Konflikter",
@@ -565,20 +565,20 @@
     "VOTE": "Ofstëmmen",
     "VOTING": {
       "ANONYMOUS": "Deng Ofstëmmung wäert anonym sinn.",
-      "DECIDE": "Decide your level of support for each proposal.",
+      "DECIDE": "Wiel däi Grad vun Ënnerstëtzung fir all Propose",
       "BTN_DELETE": "Ofstëmmung läschen",
       "BTN_START": "Elo ofstëmmen",
       "FURTHER_DISCUSSION": "Weider Diskussiounen: Zäit verlängeren andeem s eng weider Ofstëmmung gestart gëtt",
       "NO_CHANGE": "Keng Ännerung: {userName} bleift an {groupName}",
-      "REMOVE_USER": "Membership ends and {userName} gets removed from {groupName}",
+      "REMOVE_USER": "D'Memberschaft ass eriwwer an {userName} gëtt aus {groupName} geheit.",
       "RESULTS": {
         "ENDED_AT": "Dës Ofstëmmungsronn ass den {date} eriwwer gaangen.",
         "KEEP_DISCUSSING": "Deng Grupp huet entscheet weider ze diskutéieren",
         "PARTICIPANTS": "{number} Memberen hunn un der Ofstëmmung deelgeholl.",
         "TIME_UP": "D'Zäit ass ëm!",
         "TOTAL_SCORE": "Endstand",
-        "UNDECIDED": "Unfortunately this membership review could not be decided.",
-        "UNDECIDED_REASON_1": "the affected user left the group while the membership review was still ongoing",
+        "UNDECIDED": "Leider konnt dës Revisioun vun der Memberschaft net entscheet ginn.",
+        "UNDECIDED_REASON_1": "de betraffene Benotzer huet d'Grupp verlooss wärend d'Revisioun vu senger Memberschaft nach am Gang war",
         "UNDECIDED_REASON_2": "keen huet iwwert dëse Konflikt ofgestëmmt",
         "UNDECIDED_WHY": "Et gëtt zwee méiglech Grënn fir dat:"
       },
@@ -650,11 +650,11 @@
     "ACTIVITY_UPCOMING": "Erënnerung: {activityType} um {time}",
     "APPLICATION_ACCEPTED": "Deng Bewerbung gouf ugeholl!",
     "APPLICATION_DECLINED": "Deng Bewerbung gouf ofgeleent",
-    "CONFLICT_RESOLUTION_CONTINUED": "The membership review of {userName} continues",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Your membership review continues",
-    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a membership review of {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A review of your membership was started",
-    "CONFLICT_RESOLUTION_DECIDED": "The membership review of {userName} was decided",
+    "CONFLICT_RESOLUTION_CONTINUED": "D'Revisioun vun der Memberschaft vum {userName} geet weider",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Deng Revisioun vun der Memberschaft geet weider",
+    "CONFLICT_RESOLUTION_CREATED": "Triet der Diskussioun iwwert d'Revisioun vun der Memberschaft mat {userName} bäi",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Eng Revisioun vun denger Memberschaft gouf gestart",
+    "CONFLICT_RESOLUTION_DECIDED": "D'Revisioun vun der Memberschaft vum {userName} gouf entscheet",
     "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Iwwert deng Memberschaft gouf decidéiert",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Du goufs aus der Grupp geheit",
     "FEEDBACK_POSSIBLE": "Du kanns Feedback ofginn - {activityType} den {date}",
@@ -757,7 +757,7 @@
     "NONE_DUE_TO_FILTER": "Keng Plaz passt op deng Filter",
     "ALL_TYPES": "All d'Typpen",
     "ALL_STATUSES": "All d'Statussen",
-    "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then click { icon } on one of them."
+    "SUBSCRIBE_HINT": "Wann s du Plazen als Favorit markéiers, tauchen se hei op. Klick ënnendrënner fir all d'Plazen ze gesinn, an dann { icon } op enger vun hinnen."
   },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count} Leit hunn dës Plaz als Favorit markéiert",
@@ -777,8 +777,8 @@
     "MEMBER_DESCRIPTION": "Iergendeen an der Grupp",
     "NEWCOMER": "Nei hei",
     "NEWCOMER_DESCRIPTION": "Leit, déi nach keng aner Roll hunn",
-    "EDITOR": "Editor",
-    "EDITOR_DESCRIPTION": "People that have been trusted in the group as an editor"
+    "EDITOR": "Redakter",
+    "EDITOR_DESCRIPTION": "Leit, deenen an der Grupp als Redakter vertraut gëtt"
   },
   "SETTINGS": {
     "TITLE": "Astellungen"
@@ -938,7 +938,7 @@
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vertraut dir fir {role} bei {groupName}. | {count} Leit vertrauen dir fir {role} bei {groupName}.",
     "PEOPLE_TRUST_USER": "Du an {otherUser} vertrauen {userName} fir {role} bei {groupName}. | Du an {count} aner Leit vertrauen {userName} fir {role} bei {groupName}.",
     "YOU_TRUST_USER": "Du vertraus {userName} fir {role} bei {groupName}.",
-    "NO_ROLE_INFO": "You currently don't have role {role} in {groupName}. As soon as {threshold} members expressed their trust for {role} in you, you will receive the {role} role.",
+    "NO_ROLE_INFO": "Du hues grad net d'Roll {role} an der Grupp {groupName}. Esoubal {threshold} Memberen dir hiert Vertraue fir d'Roll {role} ausgedréckt hunn, kriss du d'Roll {role}.",
     "NEED_ROLE": "Du brauchs d'Roll {role}",
     "TRUST_PROGRESS": "{trustNeeded} Leit méi mussen dem {userName} hiert Vertrauen ausdrécke fir dass hien d'Roll {role} kritt.",
     "GIVE_DIALOG": {

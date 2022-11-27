@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="world.karrot.dev" version="10.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="43310" id="world.karrot.dev" version="10.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Karrot Dev</name>
     <description>Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.</description>
     <author email="info@karrot.world" href="https://karrot.world">
@@ -22,7 +22,7 @@
         <resource-file src="icon_push.png" target="app/src/main/res/drawable/icon_push.png" />
         <allow-intent href="market:*" />
         <preference name="android-minSdkVersion" value="23" />
-        <preference name="android-targetSdkVersion" value="30" />
+        <preference name="android-targetSdkVersion" value="32" />
         <preference name="AndroidLaunchMode" value="singleInstance" />
         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
             <application android:usesCleartextTraffic="true" />
@@ -46,6 +46,6 @@
     <plugin name="cordova-plugin-network-information" spec="^3.0.0" />
     <plugin name="cordova-plugin-fcm-with-dependecy-updated" spec="^2.3.0" />
     <plugin name="cordova-plugin-deeplinks" spec="^1.1.0" />
-    <engine name="android" spec="^8.0.0" />
+    <engine name="android" spec="^11.0.0" />
     <allow-navigation href="about:*" />
 </widget>

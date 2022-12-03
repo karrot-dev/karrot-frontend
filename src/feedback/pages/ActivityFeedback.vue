@@ -80,7 +80,7 @@
           :has-multiple-participants="fellowParticipants.length > 0"
           :has-weight="activityType.hasFeedbackWeight"
           @save="feedback => save(feedback)"
-          @dimiss="activityId => dismiss(activityId)"
+          @dismiss-feedback="activityId => dismiss(activityId)"
         />
       </div>
     </QCard>

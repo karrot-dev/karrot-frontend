@@ -183,22 +183,22 @@
   },
   "AGREEMENT": {
     "NEW": "Neue Vereinbarung",
-    "EDIT": "Edit agreement",
-    "TITLE": "Agreement Title",
+    "EDIT": "Vereinbarung bearbeiten",
+    "TITLE": "Bezeichnung der Vereinbarung",
     "TITLE_HELPER": "Gib eurer Vereinbarung einen Titel, z.B. Gruppenregeln",
-    "SUMMARY": "Summary",
-    "SUMMARY_HELPER": "A short summary of the agreement",
-    "CONTENT": "Agreement Text",
+    "SUMMARY": "Zusammenfassung",
+    "SUMMARY_HELPER": "Kurze Zusammenfassung der Vereinbarung",
+    "CONTENT": "Inhalt der Vereinbarung",
     "CONTENT_HELPER": "The main content of your agreement",
-    "ACTIVE_FROM": "Active From",
-    "ACTIVE_TO": "Active To",
+    "ACTIVE_FROM": "Aktiv ab",
+    "ACTIVE_TO": "Aktiv bis",
     "REVIEW_AT": "Review Date",
     "VIEW": "Vereinbarung ansehen",
     "ONLY_ACTIVE": "Only active",
     "ACTIVE": "Active",
     "INACTIVE": "Inactive",
     "REVIEW_DATE_INFO": "Review date {date}",
-    "SINCE_INFO": "Since {date}",
+    "SINCE_INFO": "Seit {date}",
     "BECOMES_ACTIVE_INFO": "Becomes active {date}"
   },
   "APPLICATION": {
@@ -285,7 +285,7 @@
     "STEPPER3b": "Dieser Prozess wird eine Unterhaltung und eine Abstimmung starten.",
     "STEPPER3c": "The chat will be visible for all group members and includes {userName}.",
     "STEPPER3d": "Die Abstimmung ist anonym. Sie wird für {votingDuration} geöffnet sein. Während dieser Zeit können alle Wählenden ihre Meinung ändern und unterschiedlich wählen, sooft sie wollen.",
-    "STEPPER4a": "Please explain why you are starting this process!",
+    "STEPPER4a": "Bitte erkläre, warum du diesen Konfliktlösungsprozess startest!",
     "STEPPER4b": "Tell your group what made you think this is justified and needed. This statement will be visible to {userName} and group members.",
     "VOTING": {
       "HEADLINE": "How do you want to proceed with the ongoing membership review of {userName}?"
@@ -391,7 +391,7 @@
   "GROUP": {
     "ACTIVITIES": "Aktivitäten",
     "ACTIVITY": "Aktivität",
-    "AGREEMENTS": "Agreements",
+    "AGREEMENTS": "Vereinbarungen",
     "PICKUPS_TO_ACTIVITIES": "Du kannst jetzt mehr als Abholungen organisieren!",
     "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Der Aktivitätstyp Abholung ist weiter verfügbar, aber wir haben auch andere Typen wie Treffen, Veranstaltungen und Verteilungen hinzugefügt.",
     "ADDED_BY": "hinzugefügt von {userName}",

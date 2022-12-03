@@ -9,7 +9,7 @@
         v-bind="$attrs"
         :model-value="modelValue"
         type="textarea"
-        :input-style="{ overflow: 'hidden', minHeight: '100px', ...$attrs['input-style'] }"
+        :input-style="{ minHeight: '100px', ...$attrs['input-style'] }"
         autogrow
         bottom-slots
         hide-hint

@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Fixed
+- scroll issue with input textarea @tiltec #2609
 
 ## [10.0.0] - 2022-11-26
 ### Added

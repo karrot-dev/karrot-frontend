@@ -2,14 +2,15 @@
   <QToolbar
     v-if="$q.platform.is.mobile"
     class="bg-primary text-white"
-    @click="$emit('click')"
   >
     <img
       v-if="currentGroup && currentGroup.hasPhoto"
       :src="currentGroup.photoUrls.thumbnail"
       style="height: 1.5em"
     >
-    <QToolbarTitle>
+    <QToolbarTitle
+      @click="$emit('click')"
+    >
       {{ currentGroup && currentGroup.name }}
     </QToolbarTitle>
     <LatestMessageButton

@@ -25,6 +25,7 @@ Please document your changes in this format:
 - scroll issue with input textarea @tiltec #2609
 - fix mobile place header, by removing the map marker icon @tiltec #2610
 - feedback can be dismissed again @tiltec #2612
+- mobile sidenav now closes more reliably on click @tiltec
 
 ## [10.0.0] - 2022-11-26
 ### Added

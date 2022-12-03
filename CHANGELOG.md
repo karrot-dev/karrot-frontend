@@ -23,6 +23,7 @@ Please document your changes in this format:
 ## [Unreleased]
 ### Fixed
 - scroll issue with input textarea @tiltec #2609
+- fix mobile place header, by removing the map marker icon @tiltec #2610
 
 ## [10.0.0] - 2022-11-26
 ### Added

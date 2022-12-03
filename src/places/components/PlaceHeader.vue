@@ -113,14 +113,6 @@
       v-if="place"
       class="bg-white q-py-sm q-px-md cursor-pointer"
     >
-      <QBtn
-        v-if="$q.platform.is.mobile"
-        round
-        flat
-        size="md"
-        icon="fas fa-map-marker"
-        class="float-right"
-      />
       <ShowMore
         v-if="place.description"
         :height="200"

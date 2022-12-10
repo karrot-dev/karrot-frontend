@@ -358,8 +358,8 @@ jobs:
             git checkout -b $BRANCH
             yarn locales:push
             yarn locales:pull
-            # Workaround: escape '@', currently only used in 'es' locale
-            sed -i "s/@/{'@'}/g" src/locales/locale-es.json
+            # Workaround: escape '@'
+            grep -l @ src/locales/*.json | xargs sed -i "s/@/{'@'}/g"
             git add src/locales
             git commit -m "[CI] update locales" || exit 0
             git push --force origin $BRANCH

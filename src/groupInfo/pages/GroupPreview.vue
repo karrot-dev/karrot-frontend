@@ -196,7 +196,7 @@
                       v-bind="getIconProps(publicActivity.activityType)"
                       class="q-pr-xs"
                     />
-                    {{ publicActivity.activityType.name }}
+                    {{ getTranslatedName(publicActivity.activityType) }}
                   </div>
                   <div>
                     <QIcon
@@ -255,7 +255,7 @@ import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
 
 const { openApplication } = useDetailService()
-const { getIconProps } = useActivityTypeHelpers()
+const { getIconProps, getTranslatedName } = useActivityTypeHelpers()
 
 const { t } = useI18n()
 

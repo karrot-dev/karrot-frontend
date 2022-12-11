@@ -162,6 +162,9 @@
       </QCardActions>
       <template v-if="publicActivities.length > 0">
         <QSeparator />
+        <div class="text-subtitle1 q-pl-lg q-pt-lg">
+          {{ $t('ACTIVITYLIST.PUBLIC.UPCOMING_ACTIVITIES') }}
+        </div>
         <QInfiniteScroll v-bind="infiniteScroll">
           <QCardSection
             class="row public-activities"
@@ -185,16 +188,30 @@
                   style="max-height: 80px;"
                 />
                 <QCardSection>
-                  <span
+                  <div
+                    class="text-subtitle1"
                     :style="{ color: '#' + publicActivity.activityType.colour }"
                   >
                     <QIcon
                       v-bind="getIconProps(publicActivity.activityType)"
                       class="q-pr-xs"
                     />
-                  </span>
-                  {{ $d(publicActivity.date, 'shortDateAndTime') }}
-                  <Markdown :source="publicActivity.description" />
+                    {{ publicActivity.activityType.name }}
+                  </div>
+                  <div>
+                    <QIcon
+                      name="fas fa-calendar-alt"
+                      color="grey-6"
+                    />
+                    {{ $d(publicActivity.date, 'shortDateAndTime') }}
+                  </div>
+                  <hr
+                    class="bg-grey-4"
+                    style="height: 1px; border: none;"
+                  >
+                  <Markdown
+                    :source="publicActivity.description"
+                  />
                 </QCardSection>
               </QCard>
             </div>
@@ -294,6 +311,9 @@ async function withdraw () {
 
 ::v-deep(.q-banner__content)
   min-width: 200px
+
+.q-card:hover
+  border-color: $primary
 
 .q-card *
   overflow: hidden

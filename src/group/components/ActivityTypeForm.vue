@@ -403,8 +403,8 @@ export default {
     nameError () {
       if (this.v$.edit.name.$error) {
         const m = this.v$.edit.name
-        if (!m.required) return this.$t('VALIDATION.REQUIRED')
-        if (!m.isUnique) return this.$t('VALIDATION.UNIQUE')
+        if (m.required.$invalid) return this.$t('VALIDATION.REQUIRED')
+        if (m.isUnique.$invalid) return this.$t('VALIDATION.UNIQUE')
       }
       return this.firstError('name')
     },

@@ -129,9 +129,9 @@ export default {
     displayNameError () {
       if (this.v$.user.displayName.$error) {
         const m = this.v$.user.displayName
-        if (!m.required) return this.$t('VALIDATION.REQUIRED')
-        if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', { min: 2 })
-        if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
+        if (m.required.$invalid) return this.$t('VALIDATION.REQUIRED')
+        if (m.minLength.$invalid) return this.$t('VALIDATION.MINLENGTH', { min: 2 })
+        if (m.maxLength.$invalid) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
       }
       return this.firstError('displayName')
     },
@@ -141,8 +141,8 @@ export default {
     usernameError () {
       if (this.v$.user.username.$error) {
         const m = this.v$.user.username
-        if (!m.required) return this.$t('VALIDATION.REQUIRED')
-        if (!m.valid) return this.$t('VALIDATION.VALID_USERNAME')
+        if (m.required.$invalid) return this.$t('VALIDATION.REQUIRED')
+        if (m.valid.$invalid) return this.$t('VALIDATION.VALID_USERNAME')
       }
       const error = this.firstError('username')
       if (error === 'username_invalid') return this.$t('VALIDATION.VALID_USERNAME')

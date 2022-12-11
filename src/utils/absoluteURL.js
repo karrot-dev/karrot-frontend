@@ -8,5 +8,6 @@
 
 export const absoluteURL = path => {
   const origin = process.env.MODE === 'cordova' ? process.env.KARROT.BACKEND : window.location.origin
+  if (!path.startsWith('/')) path = '/' + path
   return `${origin}${path}`
 }

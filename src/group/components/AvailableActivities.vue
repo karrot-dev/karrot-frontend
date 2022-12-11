@@ -21,7 +21,7 @@ const { groupId } = useCurrentGroupService()
 const router = useRouter()
 
 function go () {
-  router.push({ name: 'groupActivities', params: { groupId: groupId.value }, query: { place: 'subscribed' } })
+  router.push({ name: 'groupActivities', params: { groupId: groupId.value }, query: { place: 'subscribed', slots: 'free' } })
 }
 
 </script>

@@ -107,7 +107,7 @@
       </template>
       <QCardActions
         v-if="!application"
-        class="items-start q-gutter-sm"
+        class="items-start"
       >
         <template v-if="isLoggedIn">
           <template v-if="!group.isMember">
@@ -162,6 +162,9 @@
       </QCardActions>
       <template v-if="publicActivities.length > 0">
         <QSeparator />
+        <div class="text-subtitle1 q-pl-lg q-pt-lg">
+          {{ $t('ACTIVITYLIST.PUBLIC.UPCOMING_ACTIVITIES') }}
+        </div>
         <QInfiniteScroll v-bind="infiniteScroll">
           <QCardSection
             class="row public-activities"
@@ -184,17 +187,33 @@
                   class="full-width"
                   style="max-height: 80px;"
                 />
-                <QCardSection>
-                  <span
-                    :style="{ color: '#' + publicActivity.activityType.colour }"
+                <QItem>
+                  <QItemSection
+                    avatar
+                    style="min-width: unset;"
                   >
                     <QIcon
                       v-bind="getIconProps(publicActivity.activityType)"
                       class="q-pr-xs"
+                      :style="{ color: '#' + publicActivity.activityType.colour }"
                     />
-                  </span>
-                  {{ $d(publicActivity.date, 'shortDateAndTime') }}
-                  <Markdown :source="publicActivity.description" />
+                  </QItemSection>
+                  <QItemSection>
+                    <QItemLabel
+                      :style="{ color: '#' + publicActivity.activityType.colour }"
+                    >
+                      {{ getTranslatedName(publicActivity.activityType) }}
+                    </QItemLabel>
+                    <QItemLabel>
+                      {{ $d(publicActivity.date, 'shortDateAndTime') }}
+                    </QItemLabel>
+                  </QItemSection>
+                </QItem>
+                <QSeparator />
+                <QCardSection>
+                  <Markdown
+                    :source="publicActivity.description"
+                  />
                 </QCardSection>
               </QCard>
             </div>
@@ -219,6 +238,9 @@ import {
   QImg,
   QInfiniteScroll,
   QSpace,
+  QItem,
+  QItemSection,
+  QItemLabel,
 } from 'quasar'
 import { computed, unref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -238,7 +260,7 @@ import Markdown from '@/utils/components/Markdown'
 import RandomArt from '@/utils/components/RandomArt'
 
 const { openApplication } = useDetailService()
-const { getIconProps } = useActivityTypeHelpers()
+const { getIconProps, getTranslatedName } = useActivityTypeHelpers()
 
 const { t } = useI18n()
 
@@ -295,8 +317,10 @@ async function withdraw () {
 ::v-deep(.q-banner__content)
   min-width: 200px
 
-.q-card *
+.q-card
   overflow: hidden
+  &:hover
+    border-color: $primary
 
 .photo
   &.hasPhoto

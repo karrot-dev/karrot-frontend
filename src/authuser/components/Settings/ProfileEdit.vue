@@ -138,9 +138,9 @@ export default {
     displayNameError () {
       if (this.v$.edit.displayName.$error) {
         const m = this.v$.edit.displayName
-        if (!m.required) return this.$t('VALIDATION.REQUIRED')
-        if (!m.minLength) return this.$t('VALIDATION.MINLENGTH', { min: 2 })
-        if (!m.maxLength) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
+        if (m.required.$invalid) return this.$t('VALIDATION.REQUIRED')
+        if (m.minLength.$invalid) return this.$t('VALIDATION.MINLENGTH', { min: 2 })
+        if (m.maxLength.$invalid) return this.$t('VALIDATION.MAXLENGTH', { max: 81 })
       }
       return this.firstError('displayName')
     },

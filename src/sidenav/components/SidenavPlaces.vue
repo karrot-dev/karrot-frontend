@@ -118,7 +118,7 @@ function getUnreadWallMessageCount (place) {
   return getPlaceStatus(place.id).unreadWallMessageCount
 }
 
-const subscribedPlaces = computed(() => places.value.filter(place => place.isSubscribed))
+const subscribedPlaces = computed(() => places.value.filter(place => place.isSubscribed && place.status !== 'archived'))
 const activePlaceCount = computed(() => places.value.filter(place => place.status === 'active').length)
 </script>
 

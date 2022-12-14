@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Fixed
+- don't show archived place is sidebar favourites list @nicksellen #2629
 
 ## [10.0.1] - 2022-12-04
 ### Fixed

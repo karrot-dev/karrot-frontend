@@ -1,75 +1,69 @@
 <template>
   <div
-    ref="scroll"
-    class="bg-white"
-    :class="inline && 'absolute-full scroll'"
+    class="column no-wrap"
+    :class="inline && 'absolute-full'"
   >
-    <slot name="before-chat-messages" />
-    <KSpinner v-show="newestFirst && !hasNextPage && isFetchingNextPage" />
-    <!-- explicit pagination for loading older messages -->
-    <QBtn
-      v-if="newestFirst && hasNextPage"
-      :loading="isFetchingNextPage"
-      flat
-      no-caps
-      class="full-width"
-      @click="fetchNextPage()"
-    >
-      {{ $t('CONVERSATION.LOAD_EARLIER_MESSAGES') }}
-    </QBtn>
-    <QInfiniteScroll
-      :disable="newestFirst || !hasNextPage"
-      @load="maybeFetchNext"
-    >
-      <QList
+    <div class="col-grow column no-wrap">
+      <div
+        ref="scroll"
         class="bg-white"
+        :class="inline && 'scroll'"
+        style="flex-grow: 1;"
       >
-        <ConversationMessage
-          v-for="message in orderedMessages"
-          :key="message.id"
-          :message="message"
-          :continuation="getIsContinuation(message.id)"
-          :is-unread="getIsUnread(message.id)"
-          slim
-        />
-        <slot name="before-chat-compose" />
+        <slot name="before-chat-messages" />
+        <KSpinner v-show="newestFirst && !hasNextPage && isFetchingNextPage" />
+        <!-- explicit pagination for loading older messages -->
+        <QBtn
+          v-if="newestFirst && hasNextPage"
+          :loading="isFetchingNextPage"
+          flat
+          no-caps
+          class="full-width"
+          @click="fetchNextPage()"
+        >
+          {{ $t('CONVERSATION.LOAD_EARLIER_MESSAGES') }}
+        </QBtn>
+        <QInfiniteScroll
+          :disable="newestFirst || !hasNextPage"
+          @load="maybeFetchNext"
+        >
+          <QList
+            class="bg-white"
+          >
+            <ConversationMessage
+              v-for="message in orderedMessages"
+              :key="message.id"
+              :message="message"
+              :continuation="getIsContinuation(message.id)"
+              :is-unread="getIsUnread(message.id)"
+              slim
+            />
+            <slot name="before-chat-compose" />
+          </QList>
+          <template #loading>
+            <KSpinner v-if="oldestFirst" />
+          </template>
+        </QInfiniteScroll>
+        <slot name="after-chat-messages" />
+        <QScrollObserver @scroll="onScroll" />
+      </div>
+      <div>
         <ConversationCompose
           v-if="compose && !(oldestFirst && hasNextPage) && !conversation.isClosed"
           ref="compose"
           :status="sendStatus"
           slim
-          filled
+          outlined
           square
           :draft-key="conversation.id"
           :placeholder="messagePrompt"
           :is-participant="isParticipant"
+          :input-style="{ maxHeight: '120px' }"
           class="q-pb-md"
           @submit="sendMessage"
         />
-        <QItem
-          v-if="conversation.isClosed"
-          class="q-mt-md"
-        >
-          <QItemSection avatar>
-            <QAvatar
-              color="grey-5"
-              text-color="white"
-              icon="fas fa-lock"
-            />
-          </QItemSection>
-          <QItemSection>
-            <QItemLabel class="text-body2">
-              {{ $t('CONVERSATION.CLOSED') }}
-            </QItemLabel>
-          </QItemSection>
-        </QItem>
-      </QList>
-      <template #loading>
-        <KSpinner v-if="oldestFirst" />
-      </template>
-    </QInfiniteScroll>
-    <slot name="after-chat-messages" />
-    <QScrollObserver @scroll="onScroll" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -85,6 +79,7 @@ import {
   QScrollObserver,
   QInfiniteScroll,
   QBtn,
+  QInput,
 } from 'quasar'
 import { computed, toRefs } from 'vue'
 
@@ -121,6 +116,7 @@ export default {
     QScrollObserver,
     QInfiniteScroll,
     QBtn,
+    QInput,
   },
   props: {
     conversation: { type: Object, default: null },
@@ -230,6 +226,7 @@ export default {
   },
   data () {
     return {
+      boop: '',
       scrollContainer: null,
       newestMessageId: -1,
       oldestMessageId: -1,
@@ -382,3 +379,39 @@ export default {
   },
 }
 </script>
+<style scoped lang="sass">
+.container
+  background: #3F51B5
+
+  /* give the outermost container a predefined size */
+  position: absolute
+  inset: 0
+
+  display: flex
+  flex-direction: column
+
+.section
+  margin: 10px
+  background: #2196F3
+  flex-grow: 1
+
+  display: flex
+  flex-direction: column
+
+  /* for Firefox */
+  min-height: 0
+
+.content
+  margin: 10px
+  background: #BBDEFB
+
+.scrollable-content
+  background: white
+  flex-grow: 1
+
+  overflow: auto
+
+  /* for Firefox */
+  min-height: 0
+
+</style>

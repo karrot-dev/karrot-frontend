@@ -1,7 +1,6 @@
 <template>
   <QBtn
     icon="fas fa-pencil-alt"
-    color="white"
     text-color="grey-5"
     size="xs"
     round

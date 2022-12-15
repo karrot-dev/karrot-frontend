@@ -21,6 +21,7 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+- minor improvements to activity item ui @nicksellen #2630
 
 ## [10.0.1] - 2022-12-04
 ### Fixed

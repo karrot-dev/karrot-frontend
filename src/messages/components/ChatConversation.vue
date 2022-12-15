@@ -38,6 +38,23 @@
               :is-unread="getIsUnread(message.id)"
               slim
             />
+            <QItem
+          v-if="conversation.isClosed"
+          class="q-mt-md"
+        >
+          <QItemSection avatar>
+            <QAvatar
+              color="grey-5"
+              text-color="white"
+              icon="fas fa-lock"
+            />
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel class="text-body2">
+              {{ $t('CONVERSATION.CLOSED') }}
+            </QItemLabel>
+          </QItemSection>
+        </QItem>
             <slot name="before-chat-compose" />
           </QList>
           <template #loading>

@@ -396,39 +396,3 @@ export default {
   },
 }
 </script>
-<style scoped lang="sass">
-.container
-  background: #3F51B5
-
-  /* give the outermost container a predefined size */
-  position: absolute
-  inset: 0
-
-  display: flex
-  flex-direction: column
-
-.section
-  margin: 10px
-  background: #2196F3
-  flex-grow: 1
-
-  display: flex
-  flex-direction: column
-
-  /* for Firefox */
-  min-height: 0
-
-.content
-  margin: 10px
-  background: #BBDEFB
-
-.scrollable-content
-  background: white
-  flex-grow: 1
-
-  overflow: auto
-
-  /* for Firefox */
-  min-height: 0
-
-</style>

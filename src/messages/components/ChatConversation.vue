@@ -241,7 +241,6 @@ export default {
   },
   data () {
     return {
-      boop: '',
       scrollContainer: null,
       newestMessageId: -1,
       oldestMessageId: -1,

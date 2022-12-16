@@ -39,22 +39,22 @@
               slim
             />
             <QItem
-          v-if="conversation.isClosed"
-          class="q-mt-md"
-        >
-          <QItemSection avatar>
-            <QAvatar
-              color="grey-5"
-              text-color="white"
-              icon="fas fa-lock"
-            />
-          </QItemSection>
-          <QItemSection>
-            <QItemLabel class="text-body2">
-              {{ $t('CONVERSATION.CLOSED') }}
-            </QItemLabel>
-          </QItemSection>
-        </QItem>
+              v-if="conversation.isClosed"
+              class="q-mt-md"
+            >
+              <QItemSection avatar>
+                <QAvatar
+                  color="grey-5"
+                  text-color="white"
+                  icon="fas fa-lock"
+                />
+              </QItemSection>
+              <QItemSection>
+                <QItemLabel class="text-body2">
+                  {{ $t('CONVERSATION.CLOSED') }}
+                </QItemLabel>
+              </QItemSection>
+            </QItem>
             <slot name="before-chat-compose" />
           </QList>
           <template #loading>
@@ -96,7 +96,6 @@ import {
   QScrollObserver,
   QInfiniteScroll,
   QBtn,
-  QInput,
 } from 'quasar'
 import { computed, toRefs } from 'vue'
 
@@ -133,7 +132,6 @@ export default {
     QScrollObserver,
     QInfiniteScroll,
     QBtn,
-    QInput,
   },
   props: {
     conversation: { type: Object, default: null },

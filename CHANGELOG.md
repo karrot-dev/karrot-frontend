@@ -21,15 +21,17 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [10.0.2] - 2022-12-19
 ### Changed
-- minor improvements to activity item ui @nicksellen #2630
-- improve public activity listing UI @nicksellen #2602 #2621
+- minor improvements to activity item ui @nicksellen [#2630]
+- improve public activity listing UI @nicksellen [#2602] [#2621]
 
 ### Fixed
-- don't show archived place is sidebar favourites list @nicksellen #2631
-- available activities link to show activitie with free slots @nicksellen #2620 #2622
-- ensure absolute URL, e.g. share public activity link, starts with / @nicksellen #2618 #2623
-- fix bug where validation for some forms was not being run @nicksellen #2614 #2624
+- don't show archived place is sidebar favourites list @nicksellen [#2631]
+- available activities link to show activitie with free slots @nicksellen [#2620] [#2622]
+- ensure absolute URL, e.g. share public activity link, starts with / @nicksellen [#2618] [#2623]
+- fix bug where validation for some forms was not being run @nicksellen [#2614] [#2624]
 
 ## [10.0.1] - 2022-12-04
 ### Fixed
@@ -837,11 +839,22 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2584]: https://github.com/karrot-dev/karrot-frontend/issues/2584
 [#2585]: https://github.com/karrot-dev/karrot-frontend/issues/2585
 [#2589]: https://github.com/karrot-dev/karrot-frontend/issues/2589
+[#2602]: https://github.com/karrot-dev/karrot-frontend/issues/2602
 [#2609]: https://github.com/karrot-dev/karrot-frontend/issues/2609
 [#2610]: https://github.com/karrot-dev/karrot-frontend/issues/2610
 [#2612]: https://github.com/karrot-dev/karrot-frontend/issues/2612
+[#2614]: https://github.com/karrot-dev/karrot-frontend/issues/2614
+[#2618]: https://github.com/karrot-dev/karrot-frontend/issues/2618
+[#2620]: https://github.com/karrot-dev/karrot-frontend/issues/2620
+[#2621]: https://github.com/karrot-dev/karrot-frontend/issues/2621
+[#2622]: https://github.com/karrot-dev/karrot-frontend/issues/2622
+[#2623]: https://github.com/karrot-dev/karrot-frontend/issues/2623
+[#2624]: https://github.com/karrot-dev/karrot-frontend/issues/2624
+[#2630]: https://github.com/karrot-dev/karrot-frontend/issues/2630
+[#2631]: https://github.com/karrot-dev/karrot-frontend/issues/2631
 
-[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.1...HEAD
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.2...HEAD
+[10.0.2]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.1...v10.0.2
 [10.0.1]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.0...v10.0.1
 [10.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v9.8.1...v10.0.0
 [9.8.1]: https://github.com/karrot-dev/karrot-frontend/compare/v9.8.0...v9.8.1

@@ -21,7 +21,11 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
 - minor improvements to activity item ui @nicksellen #2630
+
+### Fixed
+- don't show archived place is sidebar favourites list @nicksellen #2629
 
 ## [10.0.1] - 2022-12-04
 ### Fixed

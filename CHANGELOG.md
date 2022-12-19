@@ -23,9 +23,13 @@ Please document your changes in this format:
 ## [Unreleased]
 ### Changed
 - minor improvements to activity item ui @nicksellen #2630
+- improve public activity listing UI @nicksellen #2602 #2621
 
 ### Fixed
-- don't show archived place is sidebar favourites list @nicksellen #2629
+- don't show archived place is sidebar favourites list @nicksellen #2631
+- available activities link to show activitie with free slots @nicksellen #2620 #2622
+- ensure absolute URL, e.g. share public activity link, starts with / @nicksellen #2618 #2623
+- fix bug where validation for some forms was not being run @nicksellen #2614 #2624
 
 ## [10.0.1] - 2022-12-04
 ### Fixed

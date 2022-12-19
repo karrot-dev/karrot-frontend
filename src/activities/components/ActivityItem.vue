@@ -252,13 +252,14 @@
         flat
         no-caps
         :to="{ name: 'publicActivity', params: { activityPublicId: activity.publicId } }"
+        :padding="$q.platform.is.mobile ? '4px' : undefined"
       >
         <QIcon
           name="fas fa-globe"
           size="xs"
           class="q-mr-sm"
         />
-        {{ $t('ACTIVITYLIST.PUBLIC.VIEW') }}
+        <span v-if="!$q.platform.is.mobile">{{ $t('ACTIVITYLIST.PUBLIC.VIEW') }}</span>
       </QBtn>
       <QSpace />
       <QBtn
@@ -269,6 +270,7 @@
         type="a"
         color="secondary"
         class="action-button"
+        :padding="$q.platform.is.mobile ? '4px' : undefined"
       >
         <template #default>
           <QIcon
@@ -276,7 +278,7 @@
             size="xs"
             class="q-mr-xs"
           />
-          <span>{{ $t('ACTIVITYLIST.ITEM.DOWNLOAD_ICS') }}</span>
+          <span v-if="!$q.platform.is.mobile">{{ $t('ACTIVITYLIST.ITEM.DOWNLOAD_ICS') }}</span>
         </template>
       </QBtn>
       <QBtn

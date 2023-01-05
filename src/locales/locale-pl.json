@@ -98,7 +98,8 @@
       "WHEN": "Kiedy",
       "WHERE": "Gdzie",
       "SHARE": "Publiczny link do aktywności",
-      "VIEW": "Widok publiczny"
+      "VIEW": "Widok publiczny",
+      "UPCOMING_ACTIVITIES": "Upcoming activities"
     },
     "JOINEDNOTICE": "Masz jedną nadchodzącą aktywność | Masz {count} nadchodzących aktywności",
     "NONE": "Brak nadchodzących aktywności",

@@ -4,12 +4,12 @@
     "EXISTING_GROUPS": "Quelques groupes qui utilisent déjà Karrot",
     "LINKS": {
       "CHAT": "tchat de l'équipe karrot",
-      "FORUM": "community forum"
+      "FORUM": "forum de la communauté"
     },
     "SECTIONS": {
       "ACTIVITIES": {
         "DESCRIPTION": "Chaque activité a un nombre déterminé de places où les membres du groupes peuvent s'inscrire – comme ça, tout le monde sait qui fait quoi et à quel moment. Ensuite, les membres participants peuvent remplir un compte-rendu d'activité.",
-        "SUBTITLE": "Activities with a specific time and place, like meetings, food pickups, community events, or whatever your group needs can be entered in the software.",
+        "SUBTITLE": "Des activités avec un endroit et une date spécifiques, comme des réunions, des distributions de nourriture, ou quoi que ce soit qui soit nécessaire pour votre groupe peut être entré dans le logiciel.",
         "TITLE": "Distribution d'activités"
       },
       "COMMUNICATION": {
@@ -17,13 +17,13 @@
         "TITLE": "Différents modes de communication pour différents contextes"
       },
       "DEMOCRATIC": {
-        "DESCRIPTION": "Karrot is made by its users: a free and open-source software developed with the feedback and participation of the people who use it. It is mainly developed by a small core team that is constantly in contact with people in different groups, in order to make sense of their diverging and converging needs and thus guide the development. We abide by the ethics of integrity and non-commercialization of data.",
-        "DESCRIPTION2": "Developers and designers are obviously welcome to participate in its development.",
+        "DESCRIPTION": "Karrot est façonné par ses utilisateurs : un logiciel libre et open-source développé avec les retours et la participation des gens qui l'utilisent. Il est principalement développé par une petite équipe, constamment en contact avec des utilisateurs dans différents groupes, dans le but de guider le développement basé sur leur besoins. Nous respectons la morale d'intégrité et non-commercialisation des données.",
+        "DESCRIPTION2": "Les développeurs et designers sont bien sûrs les bienvenus pour participer à son développement.",
         "TITLE": "Programmation démocratique et participative"
       },
       "GROUPS": {
         "DESCRIPTION": "Mais tous sont réunis sur une carte, pour permettre aux enthousiastes de trouver un groupe près de chez eux.",
-        "SUBTITLE": "Every group on Karrot is completely independent and can have their own logo, processes, rules and agreements.",
+        "SUBTITLE": "Chaque groupe sur Karrot est complètement indépendant et peut avoir leurs propres logos, procédés, règles et accords.",
         "TITLE": "Groupes indépendants"
       },
       "MAPS": {
@@ -36,7 +36,7 @@
       },
       "OFFERS": {
         "DESCRIPTION": "Les offres sont visibles par tous les membres du groupe, qui peuvent montrer leur intérêt via la conversation de l'offre.",
-        "SUBTITLE": "Create an offer of whatever you want to share or give away.",
+        "SUBTITLE": "Créez une offre de ce que vous voulez partager ou donner.",
         "TITLE": "Partage directement"
       },
       "OPENSOURCE": {
@@ -56,125 +56,126 @@
         "TITLE": "Transparence"
       },
       "TRUST": {
-        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is the need to review someone's membership, the group can enter a voting system to resolve it in a communal way.",
+        "DESCRIPTION": "Il n'y a pas de super-pouvoirs d'administrateur dans un groupe Karrot. Les personnes qui reçoivent assez de Karrots de confiance de leur pairs peuvent éditer et changer les paramètres du groupe. Quand de nouvelles personnes souhaitent rejoindre le groupe, elles doivent postuler et répondre à des questions écrites par les membres qui seront approuvées (ou non) par les membres possédant les droits d'édition. De même, si il faut trancher sur la candidature de quelqu'un, le groupe peut voter pour décider ensemble.",
         "TITLE": "Gestion de groupe démocratique et basée sur la confiance"
       }
     },
-    "SUBTITLE1": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
-    "SUBTITLE2": "It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.",
-    "TITLE": "Start a group, become a community",
-    "VISION_INTRO": "Whether you are saving and sharing food, running a free shop or a makerspace, keeping a community garden or a bike-kitchen..."
+    "SUBTITLE1": "Karrot est un outil libre et open source pour des initiatives communautaires et les groupes de personnes qui souhaitent se coordonner pour des activités en face-à-face sur une base locale, autonome et volontaire.",
+    "SUBTITLE2": "Il est conçu pour faciliter la construction d'une communauté et pour supporter une gestion de votre groupe plus transparente, démocratique et participative.",
+    "TITLE": "Créez un groupe, devenez une communauté",
+    "VISION_INTRO": "Que vous fassiez de la récupération et distribution de nourriture, que vous fassiez tourner un commerce gratuit ou un atelier public, un jardin communautaire ou une cuisine à vélo..."
   },
   "ACTIVITYDELETE": {
-    "DELETE_SERIES_TEXT": "Do you really want to delete this series? This will also delete all activities that belong to this series (except where people joined already).",
-    "DELETE_SERIES_TITLE": "Delete series"
+    "DELETE_SERIES_TEXT": "Voulez-vous vraiment supprimer cette série ? Cela supprimera aussi toutes les activités qui lui appartienne (sauf celles possédant déjà des participants).",
+    "DELETE_SERIES_TITLE": "Supprimer la série"
   },
   "ACTIVITYLIST": {
-    "ACTIVITY_DISABLED": "This is disabled.",
-    "ACTIVITY_STARTED": "This has already started.",
-    "AVAILABLE": "There are activities in your favorite places waiting for you!",
-    "AVAILABLE_FEEDBACK": "You can give feedback | {count} activities await your feedback",
+    "ACTIVITY_DISABLED": "Ceci est désactivé.",
+    "ACTIVITY_STARTED": "Ceci a déjà commencé.",
+    "AVAILABLE": "Il y a des activités à vos endroits favoris qui vous attendent !",
+    "AVAILABLE_FEEDBACK": "Vous pouvez donner un retour | {count} activités attendent un retour",
     "FILTER": {
       "ALL": "Tous",
-      "ALL_TYPES": "All types",
-      "ALL_PLACES": "All places",
-      "ALL_FAVOURITE_PLACES": "All favourite places",
+      "ALL_TYPES": "Tous les types",
+      "ALL_PLACES": "Tous les lieux de récup",
+      "ALL_FAVOURITE_PLACES": "Tout les lieux de récup favoris",
       "EMPTY": "Seulement les vides",
       "FREE": "Ceux avec des créneaux libres",
-      "JOINED": "Joined"
+      "JOINED": "Rejoint"
     },
     "ITEM": {
       "JOIN": "Rejoindre",
-      "JOIN_CONFIRMATION_HEADER": "Join {activityType}",
-      "JOIN_CONFIRMATION_TEXT": "Are you sure you have time on {date}?",
+      "JOIN_CONFIRMATION_HEADER": "Rejoindre {activityType}",
+      "JOIN_CONFIRMATION_TEXT": "Vous êtes sûr(e) d'avoir du temps libre le {date} ?",
       "LEAVE": "Quitter",
-      "LEAVE_CONFIRMATION_HEADER": "Leave {activityType}",
-      "LEAVE_CONFIRMATION_TEXT": "Are you really sure the others can do this without you?",
-      "DOWNLOAD_ICS": "Download ICS"
+      "LEAVE_CONFIRMATION_HEADER": "Quitter {activityType}",
+      "LEAVE_CONFIRMATION_TEXT": "Vous êtes vraiment sûr(e) que les autres pourront s'en sortir sans vous ?",
+      "DOWNLOAD_ICS": "Télécharger ICS"
     },
-    "OPEN_FOR_ROLE": "Open for {role}",
+    "OPEN_FOR_ROLE": "Ouvert pour {role}",
     "PUBLIC": {
-      "WHAT": "What",
-      "WHEN": "When",
-      "WHERE": "Where",
-      "SHARE": "Public activity link",
-      "VIEW": "Public View"
+      "WHAT": "Quoi",
+      "WHEN": "Quand",
+      "WHERE": "Où",
+      "SHARE": "Lien public de l'activité",
+      "VIEW": "Vue publique",
+      "UPCOMING_ACTIVITIES": "Activités à venir"
     },
-    "JOINEDNOTICE": "You have one upcoming activity | You have {count} upcoming activities",
-    "NONE": "No upcoming activities",
-    "NONE_DUE_TO_FILTER": "No activities match your filters",
-    "NONE_HINT": "You can create a new activity on the place page.",
-    "STORE_NONE_HINT": "You can create a new activity on the 'Manage Activities' page.",
+    "JOINEDNOTICE": "Vous avez une activité à venir | Vous avez {count} activités à venir",
+    "NONE": "Pas d'activités à venir",
+    "NONE_DUE_TO_FILTER": "Aucune activité ne correspond à vos filtres",
+    "NONE_HINT": "Vous pouvez créer une nouvelle activité sur la page du lieu.",
+    "STORE_NONE_HINT": "Vous pouvez créer une nouvelle activité sur la page \"Gérer les activités\"  du lieu.",
     "ICS_DIALOG": {
-      "TITLE": "Add to calendar",
-      "INTRO": "Add these activities to your calender:",
-      "DOWNLOAD_TITLE": "Download",
-      "DOWNLOAD_TEXT": "Download the ICS-file to manually import it into your calendar:",
-      "DOWNLOAD_BUTTON_LABEL": "Download ICS",
-      "SUBSCRIBE_TITLE": "Subscribe",
-      "SUBSCRIBE_TEXT": "Use this URL to subscribe as an ICS calendar:",
-      "MORE_INFOS": "More info about ICS",
-      "TOKEN_NOTICE": "Anyone who has the secret link can access. No sign-in required.",
-      "RESET_TOKEN": "Reset secret link"
+      "TITLE": "Ajouter au calendrier",
+      "INTRO": "Ajoutez ces activités à votre calendrier :",
+      "DOWNLOAD_TITLE": "Télécharger",
+      "DOWNLOAD_TEXT": "Téléchargez le fichier ICS pour l'importer manuellement dans votre calendrier :",
+      "DOWNLOAD_BUTTON_LABEL": "Télécharger ICS",
+      "SUBSCRIBE_TITLE": "S'abonner",
+      "SUBSCRIBE_TEXT": "Utilisez cette URL pour vous abonnez au calendrier ICS :",
+      "MORE_INFOS": "Plus d'infos sur ICS",
+      "TOKEN_NOTICE": "N'importe qui possédant le lien secret peut accéder. Pas de connexion requise.",
+      "RESET_TOKEN": "Réinitialiser le lien secret"
     }
   },
   "ACTIVITYMANAGE": {
     "ACTIVITY_DESCRIPTION_CHANGED": "'Une information additionnelle' a été modifiée.",
-    "ACTIVITY_DOES_NOT_MATCH": "This date doesn't match the recurrence pattern",
+    "ACTIVITY_DOES_NOT_MATCH": "Cette date de correspond pas au modèle de récurrence",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "' le nombre maximum de places' a été modifié.",
-    "ACTIVITY_PARTICIPANT_TYPES_CHANGED": "Participant types have been changed",
-    "SERIES": "Activity series",
-    "SINGLE": "One-time activities",
-    "TITLE": "Manage activities",
-    "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series",
-    "CHANGE_AFFECTS_USERS": "This change affects the future activities of {users}.",
-    "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
+    "ACTIVITY_PARTICIPANT_TYPES_CHANGED": "Les types de participant ont changé",
+    "SERIES": "Série d'activités",
+    "SINGLE": "Activités uniques",
+    "TITLE": "Gérer les activités",
+    "UPCOMING_ACTIVITIES_IN_SERIES": "Activités à venir dans cette série",
+    "CHANGE_AFFECTS_USERS": "Ce changement affecte les activités futurues de {users}.",
+    "CHANGE_AFFECTS_USERS_HINT": "En plus de l'historique, votre message leur sera envoyé directement. Indiquez-leur qu'est-ce qui change, pourquoi l'activité n'est plus disponible et comment ils peuvent s'engager à la place."
 },
   "ACTIVITY_FEEDBACK": {
-    "AMOUNT": "Amount of food you were able to save",
+    "AMOUNT": "Quantité de nourriture non gaspillée",
     "AMOUNT_INFO": "Pour les statistiques des lieux de récoltes, nous additionnerons les quantités de tous les compte-rendu de récolte.",
     "COMMENT_PLACEHOLDER": "Tout s'est bien passé ? Tout les participants sont venus ? Ton commentaire ici...",
     "DELETE_AMOUNT": "Supprimer la quantité",
     "EDIT": "Édite ton compte-rendu de récolte",
-    "HEADER": "Thank you for your participation!",
+    "HEADER": "Merci de votre participation !",
     "PREVIOUS": "Dernier feedback à propos de {store}",
     "SET_AMOUNT": "Établir la quantité",
     "TITLE": "compte-rendu de récolte",
-    "TOGETHER_WITH": "You did this together with:",
-    "DISMISS_LABEL": "Dismiss",
-    "DISMISS_TITLE": "Dismiss feedback",
-    "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
+    "TOGETHER_WITH": "Vous avez accompli ceci avec :",
+    "DISMISS_LABEL": "Ignorer",
+    "DISMISS_TITLE": "Ignorer le retour",
+    "DISMISS_MESSAGE": "Voulez-vous vraiment ignorer ce retour ? Vous ne serez pas capable de donner un retour à cette activité ultérieurement."
   },
   "ACTIVITY_TYPE_NAMES": {
-    "Meeting": "Meeting",
-    "Pickup": "Pickup",
+    "Meeting": "Réunion",
+    "Pickup": "Récolte",
     "Distribution": "Distribution",
-    "Event": "Event",
-    "Activity": "Activity",
-    "Task": "Task"
+    "Event": "Événement",
+    "Activity": "Activité",
+    "Task": "Tâche"
   },
   "ACTIVITY_TYPE_STATUS": {
-    "ACTIVE": "Active",
-    "ARCHIVED": "Archived"
+    "ACTIVE": "Actif",
+    "ARCHIVED": "Archivé"
   },
   "ACTIVITY_TYPES": {
-    "ADD": "Add new activity type",
-    "FEEDBACK_YES_HINT": "The participants will be asked for feedback about the activity",
-    "FEEDBACK_NO_HINT": "No feedback will be requested",
-    "FEEDBACK_WEIGHT_LABEL": "Ask for weight?",
-    "NAME": "Name",
-    "FEEDBACK": "Feedback",
-    "FEEDBACK_WEIGHT": "Feedback weight",
-    "STATUS": "Status",
-    "STANDARD_NAME_HEADING": "Standard names",
-    "STANDARD_NAME_HINT": "Name will be available in other languages",
-    "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
-    "CUSTOM_NAME_USE": "Use custom name {name}",
-    "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
-    "MANAGE_TYPES": "Manage types...",
-    "SHOW_ARCHIVED": "Show archived",
-    "STATUS_ACTIVE_HINT": "You will be able to create new activities and series of this type",
-    "STATUS_ARCHIVED_HINT": "It will not be possible to create new activities or series of this type, but existing ones will still be available"
+    "ADD": "Ajouter un nouveau type d'activité",
+    "FEEDBACK_YES_HINT": "Les participants seront sollicités pour fournir un retour à propos de l'activité",
+    "FEEDBACK_NO_HINT": "Aucun retour ne sera demandé",
+    "FEEDBACK_WEIGHT_LABEL": "Demander le poids ?",
+    "NAME": "Nom",
+    "FEEDBACK": "Retour",
+    "FEEDBACK_WEIGHT": "Poids du retour",
+    "STATUS": "Statut",
+    "STANDARD_NAME_HEADING": "Noms standard",
+    "STANDARD_NAME_HINT": "Le nom sera disponible dans d'autres langues",
+    "CUSTOM_NAME_HINT": "Le nom sera utilisé exactement comme vous l'avez écrit, et ne sera pas traduit",
+    "CUSTOM_NAME_USE": "Utilisé le nom personnalisé {name}",
+    "CUSTOM_NAME_PROMPT": "Tapez un nom personnalisé, ou choisissez un nom standard",
+    "MANAGE_TYPES": "Gérer les types...",
+    "SHOW_ARCHIVED": "Montrer archivés",
+    "STATUS_ACTIVE_HINT": "Vous serez capable de créer de nouvelles activités et séries de ce type",
+    "STATUS_ARCHIVED_HINT": "Il ne sera pas possible de créer des activités ou séries de ce type, mais les existants seront toujours disponible"
   },
   "ADDRESS_PICKER": {
     "CHOOSE_LOCATION": "choisissez l'emplacement sur la carte",
@@ -183,23 +184,23 @@
   },
   "AGREEMENT": {
     "NEW": "Nouvelle convention",
-    "EDIT": "Edit agreement",
-    "TITLE": "Agreement Title",
+    "EDIT": "Éditer la convention",
+    "TITLE": "Titre de l'accord",
     "TITLE_HELPER": "Donne un nom à la convention, par exemple Règles de la communauté",
-    "SUMMARY": "Summary",
-    "SUMMARY_HELPER": "A short summary of the agreement",
-    "CONTENT": "Agreement Text",
-    "CONTENT_HELPER": "The main content of your agreement",
-    "ACTIVE_FROM": "Active From",
-    "ACTIVE_TO": "Active To",
-    "REVIEW_AT": "Review Date",
+    "SUMMARY": "Résumé",
+    "SUMMARY_HELPER": "Un résumé rapide de la convention",
+    "CONTENT": "Texte de l'accord",
+    "CONTENT_HELPER": "Le contenu principal de votre accord",
+    "ACTIVE_FROM": "Actif à partir de",
+    "ACTIVE_TO": "Actif jusqu'à",
+    "REVIEW_AT": "Date de révision",
     "VIEW": "Voir la convention",
-    "ONLY_ACTIVE": "Only active",
-    "ACTIVE": "Active",
-    "INACTIVE": "Inactive",
-    "REVIEW_DATE_INFO": "Review date {date}",
-    "SINCE_INFO": "Since {date}",
-    "BECOMES_ACTIVE_INFO": "Becomes active {date}"
+    "ONLY_ACTIVE": "Seulement actif",
+    "ACTIVE": "Actif",
+    "INACTIVE": "Inactif",
+    "REVIEW_DATE_INFO": "Date de révision le {date}",
+    "SINCE_INFO": "Depuis le {date}",
+    "BECOMES_ACTIVE_INFO": "Devient actif le {date}"
   },
   "APPLICATION": {
     "ACCEPTED": "Tu as accepté {userName} dans ce groupe !",
@@ -228,9 +229,9 @@
     "ARCHIVE": "Archiver",
     "BACK": "Retour",
     "CANCEL": "Annuler",
-    "CHANGE_COLOUR": "Change colour",
+    "CHANGE_COLOUR": "Changer la couleur",
     "CHANGE_EMAIL": "Changer l'adresse e-mail",
-    "CHANGE_ICON": "Change icon",
+    "CHANGE_ICON": "Changer l'icône",
     "CHANGE_PASSWORD": "Changer le mot de passe",
     "CLOSE": "Fermer",
     "CREATE": "Créer",
@@ -251,46 +252,46 @@
     "SAVE_CHANGES": "Sauvegarder",
     "SEARCH": "Recherche",
     "SHOW": "Afficher",
-    "SHOW_LESS": "Show less",
+    "SHOW_LESS": "Montrer moins",
     "SHOW_MORE": "Afficher plus",
     "SUBMIT": "Envoyer",
     "UNSUBSCRIBE": "Désinscrire",
     "WITHDRAW": "Retirer",
     "YES": "Oui",
-    "READ_MORE": "Read more",
-    "GO_TO_GROUP": "Go to group"
+    "READ_MORE": "Lire plus",
+    "GO_TO_GROUP": "Voir le groupe"
   },
   "COMMUNITY_FEED": {
     "HEADER": "Nouvelles de la {community}",
-    "HEADER_LINK": "Karrot community",
+    "HEADER_LINK": "La communauté Karrot",
     "KARROT_DISCUSSION": "Discussions à propos de Karrot",
     "LAST_UPDATED": "Dernière mise à jour {relativeDate}"
   },
   "CONFLICT": {
     "FIND_OUT_MORE": "En savoir plus!",
     "INFO": {
-      "MESSAGE": "This is a score voting in which all group members can participate to determine someone's membership."
+      "MESSAGE": "C'est un vote à score, où chaque membre du groupe peut participer pour déterminer si une personne devrait devenir membre."
     },
     "INITIAL": "Information",
     "REQUIREMENTS": {
-      "NEWCOMER": "Before you can start a membership review, you need to receive more trust and gain editing permissions. In the meantime, please ask a fellow group member to start the process for you."
+      "NEWCOMER": "Avant que vous puissiez commencer une revue de candidature, vous devez gagner plus de confiance et obtenir les permissions d'édition. En attendant, veuillez demander à un autre membre du groupe de commencer le processus pour vous."
     },
-    "SETUP_HEADER": "Start a membership review?",
+    "SETUP_HEADER": "Commencer une revue de candidature ?",
     "STATEMENT": "Déclaration",
-    "STEPPER1a": "You are about to start a group-wide membership review to decide whether {userName} should continue as a member of the group",
-    "STEPPER1b": "This will be open for all group members to participate.",
+    "STEPPER1a": "Vous êtes sur le point de commencer une revue d'adhésion pour le groupe entier, afin de décider si {userName} devrait toujours êtes considéré comme un membre du groupe",
+    "STEPPER1b": "Ceci sera ouvert pour que tous les membres du groupe puissent participer.",
     "STEPPER2a": "Merci de prendre soin de votre communauté !",
-    "STEPPER2b": "For a group it is important to practise honest communication and address any issues.",
+    "STEPPER2b": "Pour un groupe, il est important de communiquer de manière honnête et de parler des problèmes.",
     "STEPPER3a": "Voici ce qui va se passer :",
     "STEPPER3b": "Ce processus lancera un chat et un vote.",
-    "STEPPER3c": "The chat will be visible for all group members and includes {userName}.",
+    "STEPPER3c": "Le chat sera visible pour tous les membres du groupe et inclus {userName}.",
     "STEPPER3d": "Le vote est anonyme. Cela durera {votingDuration} jours. Pendant ce temps, tous les électeurs peuvent changer d'avis et voter différemment autant de fois qu'ils le souhaitent.\n \n ",
-    "STEPPER4a": "Please explain why you are starting this process!",
-    "STEPPER4b": "Tell your group what made you think this is justified and needed. This statement will be visible to {userName} and group members.",
+    "STEPPER4a": "Veuillez expliquer pourquoi vous lancez ce processus !",
+    "STEPPER4b": "Dites à votre groupe pourquoi vous pensez que ceci est justifié et nécessaire. Cette déclaration sera visible par {userName} et aux membres du groupe.",
     "VOTING": {
-      "HEADLINE": "How do you want to proceed with the ongoing membership review of {userName}?"
+      "HEADLINE": "Comment voulez-vous procéder concernant la candidature en cours de {userName} ?"
     },
-    "WITH": "This process is to review the membership of {userName}"
+    "WITH": "Ce processus consiste à revoir l'adhésion de {userName}"
   },
   "CONVERSATION": {
     "CLOSED": "Cette conversation a été stoppée automatiquement.",
@@ -311,48 +312,48 @@
     "REPLIES_COUNT": "1 réponse | {count} réponses",
     "REPLY_TO_MESSAGE": "Répondre...",
     "UNREAD_MESSAGES": "Tu as un nouveau message. | Tu as {count} nouveaux messages.",
-    "LOAD_EARLIER_MESSAGES": "Load earlier messages"
+    "LOAD_EARLIER_MESSAGES": "Charger les messages précédents"
   },
   "CREATEACTIVITY": {
-    "CREATE_SUCCESS": "Activity successfully created!",
-    "ONE_TIME_ACTIVITY": "One-time activity",
-    "ADD_PARTICIPANT_TYPE": "Add participant type",
+    "CREATE_SUCCESS": "Activité créée !",
+    "ONE_TIME_ACTIVITY": "Activité unique",
+    "ADD_PARTICIPANT_TYPE": "Ajouter un type de participant",
     "COMMENT": "Informations supplémentaires",
-    "COMMENT_HELPER": "What should people know when signing up to this?",
+    "COMMENT_HELPER": "Que devraient savoir les personnes qui s'inscrivent à ça ?",
     "CUSTOM": "Personnalisée",
     "DATE": "Date",
     "DIFFERS_WARNING": "Cette valeur est différente de celle définie par défaut. Pour ne pas effectuer cette modification, clique sur le bouton en flèche et sauvegarde les changements.",
-    "DISABLE_TITLE": "Disable?",
-    "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
-    "ENABLE_TITLE": "Enable?",
-    "EXCEPTIONS_MESSAGE": "Some upcoming activities don't match the settings of this series. Have a look below at '{upcomingLabel}' to change or disable them, if needed.",
-    "EXCEPTIONS_TITLE": "Check your activities",
+    "DISABLE_TITLE": "Désactiver ?",
+    "ENABLE_DISABLE_MESSAGE": "Les utilisateurs qui ont rejoint recevrons une notification. Vous pouvez changer ce texte pour fournir une raison : ",
+    "ENABLE_TITLE": "Activer ?",
+    "EXCEPTIONS_MESSAGE": "Certaines activités ne correspondent pas aux paramètres de cette série. Regardez ci-dessous à la section \"{upcomingLabel}\" pour les changer ou les désactiver si besoin.",
+    "EXCEPTIONS_TITLE": "Consultez vos activités",
     "FREQUENCY": "Fréquence",
-    "MAKE_IT_PUBLIC": "Make it public",
+    "MAKE_IT_PUBLIC": "Rendre public",
     "MAX_PARTICIPANTS": "Nombre maximum de places",
-    "MAX_PARTICIPANTS_HELPER": "How many people should participate?",
-    "REMOVE_PARTICIPANT_TYPE": "Remove participant type",
-    "REVERT_TO_SERIES_VALUES": "Revert to series values",
+    "MAX_PARTICIPANTS_HELPER": "Combien de personnes devraient participer ?",
+    "REMOVE_PARTICIPANT_TYPE": "Retirer un type de participant",
+    "REVERT_TO_SERIES_VALUES": "Revenir aux valeurs de la série",
     "RRULE": "Paramètres de récurrence",
     "RRULE_EXAMPLE": "dernier jour ouvré de chaque mois",
     "RRULE_EXAMPLE2": "chaque second mardi du mois",
     "RRULE_HELPER": "Écris une règle valide {ruleHelper}, par exemple {ruleExample} ou {ruleExample2}",
     "RRULE_HELPER_URL": "Paramètres du iCalendar",
     "STARTDATE_HELPER": "Quand doivent commencer les récoltes?",
-    "TIME_HELPER": "When should it take place?",
-    "OPEN_FOR": "Open for",
+    "TIME_HELPER": "Quand devrait-elle avoir lieu ?",
+    "OPEN_FOR": "Ouvert pour",
     "UNLIMITED": "illimité",
-    "USE_PARTICIPANT_TYPES": "Use participant types",
+    "USE_PARTICIPANT_TYPES": "Utiliser les types de participant",
     "WEEKDAYS": "Jour de la semaine",
-    "WEEKDAYS_HELPER": "On which days should it take place?",
+    "WEEKDAYS_HELPER": "Lors de quels jours devrait-elle avoir lieu ?",
     "WEEKLY": "Hebdomadaire",
-    "PLACE": "Choose a place"
+    "PLACE": "Choisir un lieu"
   },
   "EDIT_ACTIVITY": {
-    "TITLE": "What do you want to edit?",
-    "ONLY_ACTIVITY": "This activity",
-    "SERIES": "Activities in this series",
-    "MANAGE": "Manage activites in {place}"
+    "TITLE": "Que voulez-vous éditer ?",
+    "ONLY_ACTIVITY": "Cette activité",
+    "SERIES": "Activités dans la série",
+    "MANAGE": "Gérer les activités à {place}"
   },
   "CREATESTORE": {
     "TITLE": "Créer un nouveau lieu de récolte"
@@ -366,34 +367,34 @@
     "NONE": "Pas de compte-rendu de récolte pour le moment ",
     "NONE_HINT": "Cette page sera remplie une fois quand plus de comptes-rendu de récoltes seront disponibles",
     "NO_DONE_ACTIVITIES": "Et voilà !",
-    "NO_DONE_ACTIVITIES_HINT": "You currently have nothing to give feedback to. Why not join an activity?",
-    "NUMBER_ACTIVITIES": "{count} activities done",
+    "NO_DONE_ACTIVITIES_HINT": "Vous n'avez aucune activité à laquelle fournir un retour. Pourquoi pas en rejoindre une ?",
+    "NUMBER_ACTIVITIES": "{count} activités finies",
     "NUMBER_FEEDBACK": "{count}compte-rendu de récolte donné",
     "SAVED_FOOD": "Au moins 1 kg a été sauvé. Merci ! Les autres participants ont déjà indiqué via leur compte-rendu de récolte que {amount} kg de nourriture ont été sauvés ! Continue, c'est génial !",
     "WEIGHT_SUM": "{sum} kg de nourriture sauvée"
   },
   "GLOBAL": {
     "ABOUT_KARROT": "A propos de Karrot",
-    "APP_INSTALLED": "App successfully installed!",
+    "APP_INSTALLED": "Application installée avec succès !",
     "GENERIC_ERROR": "Désolé quelque chose n'a pas fonctionné :-/ ",
     "GITHUB_NOTE": "Développement",
     "INVALID_LINK": "Désolé, le lien que tu as ouvert n'est pas valide.",
-    "LOGO_ALT": "karrot logo",
+    "LOGO_ALT": "logo karrot",
     "NOT_CONNECTED": "Vous n'êtes pas connecté au serveur.",
-    "OFFLINE_RECONNECT": "Offline. Press here to reconnect.",
-    "RECONNECTING": "Reconnecting...",
+    "OFFLINE_RECONNECT": "Hors ligne. Cliquez ici pour vous reconnecter.",
+    "RECONNECTING": "Reconnexion...",
     "SEARCH_NOT_FOUND": "Pas trouvé",
     "SEARCH_RESULTS": "Recherche de résultats",
     "SERVER_ERROR": "Erreur de serveur",
-    "CLEAR_FILTERS": "Clear filters",
-    "LAST_CHANGED_BY": "Last changed by"
+    "CLEAR_FILTERS": "Supprimer les filtres",
+    "LAST_CHANGED_BY": "Changé en dernier par"
   },
   "GROUP": {
-    "ACTIVITIES": "Activities",
-    "ACTIVITY": "Activity",
-    "AGREEMENTS": "Agreements",
-    "PICKUPS_TO_ACTIVITIES": "You can organise more than just pickups now!",
-    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Activities named pickups are still available but we added other types too, like Meetings, Events and Distributions",
+    "ACTIVITIES": "Activités",
+    "ACTIVITY": "Activité",
+    "AGREEMENTS": "Conventions",
+    "PICKUPS_TO_ACTIVITIES": "Vous pouvez organiser plus que des récoltes maintenant !",
+    "PICKUPS_TO_ACTIVITIES_DESCRIPTION": "Les activités de récoltes sont toujours disponibles mais nous en avons ajouté d'autres types, comme les réunions, évènements et distributions",
     "ADDED_BY": "acceptée par {userName}",
     "ADDRESS": "Adresse",
     "APPLICATIONS": "Candidatures",
@@ -404,16 +405,16 @@
     "DESCRIPTION": "Description",
     "DESCRIPTION_VERBOSE": "Description du groupe, visible par les membres",
     "EDIT": "Éditer le groupe",
-    "EDIT_ACTIVITY_TYPES": "Activity types",
-    "EDIT_PLACE_TYPES": "Place types",
-    "EDIT_DETAILS": "Group details",
+    "EDIT_ACTIVITY_TYPES": "Types d'activités",
+    "EDIT_PLACE_TYPES": "Types d'endroits",
+    "EDIT_DETAILS": "Détails du groupe",
     "EMAIL_NOTIFICATIONS": "Notifications par email",
     "HEADINGS": {
-      "GENERAL": "General",
-      "LOCATION": "Location",
-      "LOCATION_HINT": "If you want your group's location to be made visible on a public map, enter an adress or pick a location on the map below.",
-      "NEW_MEMBERS_SIGNUP": "New Members Signup",
-      "NEW_MEMBERS_SIGNUP_HINT": "New members will have to apply and get accepted to your group. You can always change the application and welcome message later in the group settings."
+      "GENERAL": "Général",
+      "LOCATION": "Localisation",
+      "LOCATION_HINT": "Si vous souhaitez que la localisation de votre groupe soit visible sur une carte, entrez une adresse ou choisissez un endroit sur la carte ci-dessous.",
+      "NEW_MEMBERS_SIGNUP": "Inscription de nouveaux membres",
+      "NEW_MEMBERS_SIGNUP_HINT": "Les nouveaux membres devront postuler et être acceptés dans votre groupe. Vous pouvez toujoours changer les messages de candidature et de bienvenue plus tard dans les paramètres du groupe."
     },
     "HISTORY": "Historique",
     "HOME": "Page d'accueil",
@@ -422,8 +423,8 @@
     "INVITATION_ACCEPT_ERROR": "Oups, l'invitation ne peut pas être acceptée !",
     "INVITATION_ACCEPT_SUCCESS": "Bienvenue ! Tu as bien accepté l'invitation.",
     "INVITATION_DIALOG": {
-      "MESSAGE": "Copy the link and send it to the person you want to invite.",
-      "TITLE": "Invitation link"
+      "MESSAGE": "Copiez le lien et envoyez-le à la personne que vous voulez inviter.",
+      "TITLE": "Lien d'invitation"
     },
     "INVITED_LIST": "Des invitations ont déjà été envoyées à cette adresse e-mail :",
     "INVITE_EMAIL": "Entre une adresse e-mail",
@@ -439,19 +440,19 @@
     "LEAVE_TEXT": "Es-tu sûr(e) que tu veux quitter ce groupe?",
     "LOGO": "Groupe logo",
     "MANAGE_AGREEMENT": "Gérer la convention",
-    "MEMBERLIST": "Your group has {total} members in total.",
+    "MEMBERLIST": "Votre groupe a {total} membres au total.",
     "MEMBERS": "Membres",
     "MESSAGES": "Messages",
     "NONMEMBER_REDIRECT": "Tu n'es pas membre de ce groupe.",
     "NOTIFICATIONS_BY_GROUP": "Notifications par groupe",
     "NOTIFICATION_TYPES": {
       "conflict_resolution": {
-        "DESCRIPTION": "Tells you when a new membership review has been started in your group",
-        "NAME": "New membership review"
+        "DESCRIPTION": "Vous indique quand une nouvelle revue de candidature a commencé dans votre groupe",
+        "NAME": "Nouvelle étude de candidature"
       },
       "daily_activity_notification": {
-        "DESCRIPTION": "Reminds you of your activities, and tells you about empty or not-full activities of your favorite places in the next day",
-        "NAME": "Activity notifications"
+        "DESCRIPTION": "Vous rappelle vos activités et vous informe des activités vides ou non-remplies dans vos lieux préférés le lendemain",
+        "NAME": "Notifications d'activité"
       },
       "new_application": {
         "DESCRIPTION": "T'indique quand quelqu'un souhaite rejoindre ton groupe",
@@ -473,7 +474,7 @@
     "SHOW_INACTIVE": "Afficher les groupes inactifs",
     "SORT_JOINDATE": "Trier par date d'adhésion",
     "SORT_NAME": "Trier par nom",
-    "STATISTICS": "Statistics",
+    "STATISTICS": "Statistiques",
     "TIMEZONE": "Fuseau horaire du groupe",
     "TITLE": "Nom du groupe",
     "WALL": "Mur",
@@ -497,23 +498,23 @@
     "TITLE": "Carte"
   },
   "HISTORY": {
-    "ACTIVITY_CREATE": "{activityType} created",
-    "ACTIVITY_DELETE": "{activityType} deleted",
-    "ACTIVITY_DISABLE": "{activityType} disabled",
-    "ACTIVITY_DONE": "did {activityType} at {placeName}",
-    "ACTIVITY_ENABLE": "{activityType} enabled",
-    "ACTIVITY_JOIN": "signed up for {activityType} at {placeName}",
-    "ACTIVITY_LEAVE": "stepped back from {activityType} at {placeName}",
-    "ACTIVITY_LEAVE_DISTANCE": "{distance} before scheduled time",
-    "ACTIVITY_MISSED": "{activityType} at {placeName} had no participants!",
-    "ACTIVITY_MODIFY": "changed the settings of an activity",
-    "ACTIVITY_TYPE_CREATE": "{activityType} type created",
-    "ACTIVITY_TYPE_MODIFY": "{activityType} type modified",
+    "ACTIVITY_CREATE": "{activityType} créé",
+    "ACTIVITY_DELETE": "{activityType} supprimé",
+    "ACTIVITY_DISABLE": "{activityType} désactivé",
+    "ACTIVITY_DONE": "fait {activityType} à {placeName}",
+    "ACTIVITY_ENABLE": "{activityType} activé",
+    "ACTIVITY_JOIN": "inscrit pour {activityType} situé à {placeName}",
+    "ACTIVITY_LEAVE": "ne sera pas présent pour {activityType} à {placeName}",
+    "ACTIVITY_LEAVE_DISTANCE": "{distance} avant la date prévue",
+    "ACTIVITY_MISSED": "{activityType} à {placeName} n'a eu aucun participant !",
+    "ACTIVITY_MODIFY": "a changé les paramètres d'une activité",
+    "ACTIVITY_TYPE_CREATE": "Type {activityType} créé",
+    "ACTIVITY_TYPE_MODIFY": "type {activityType} modifié",
     "APPLICATION_DECLINED": "a refusé la candidature de {userName} ",
-    "CONFIRM_CHANGES": "Confirm changes?",
-    "CONFIRM_CHANGES_HINT": "You can write a message here to explain your changes that will be displayed in the history",
+    "CONFIRM_CHANGES": "Confirmer les changements ?",
+    "CONFIRM_CHANGES_HINT": "Vous pouvez écrire un message ici pour expliquer vos changements qui seront affichés dans l'historique",
     "DETAILS": "Plus d'information",
-    "CONTENT_CHANGES": "Content Changes",
+    "CONTENT_CHANGES": "Changements de contenu",
     "GROUP_CHANGE_PHOTO": "modifier le logo",
     "GROUP_CREATE": "a créé ce groupe",
     "GROUP_DELETE_PHOTO": "supprimer le logo",
@@ -524,22 +525,22 @@
     "MEMBER_BECAME_EDITOR": "a obtenu des droits d'admin",
     "MEMBER_REMOVED": "a été supprimé en raison d'une décision de groupe",
     "NOTHING_HAPPENEND": "Il ne se passe pas grand chose par ici...",
-    "SERIES_CREATE": "{activityType} series created",
-    "SERIES_DELETE": "{activityType} series deleted",
-    "SERIES_MODIFY": "changed the settings of a series",
+    "SERIES_CREATE": "Série {activityType}créée",
+    "SERIES_DELETE": "Série {activityType} supprimée",
+    "SERIES_MODIFY": "a changé les détails d'une série",
     "STORE_CREATE": "Lieu de récolte créé {name}",
     "STORE_DELETE": "Lieu de récolte supprimé {name}",
     "STORE_MODIFY": "les paramètres de lieu de récolte {name} ont été changé.",
-    "USER_LOST_EDITOR_ROLE": "lost editing permissions",
-    "PLACE_TYPE_CREATE": "created a place type",
-    "PLACE_TYPE_MODIFY": "modified a place type",
-    "MEMBER_GOT_ROLE": "received role: {role}",
-    "AGREEMENT_CREATE": "agreement created",
-    "AGREEMENT_MODIFY": "agreement modified"
+    "USER_LOST_EDITOR_ROLE": "a perdu les droits d'édition",
+    "PLACE_TYPE_CREATE": "créé un type de lieu",
+    "PLACE_TYPE_MODIFY": "modifié un type de lieu",
+    "MEMBER_GOT_ROLE": "reçu le rôle : {role}",
+    "AGREEMENT_CREATE": "convention créée",
+    "AGREEMENT_MODIFY": "convention modifiée"
   },
   "IMAGE_UPLOAD": {
-    "SELECT": "Select image",
-    "CLEAR": "Clear image"
+    "SELECT": "Choisissez l'image",
+    "CLEAR": "Supprimer l'image"
   },
   "INACTIVITY": {
     "HELP": "Toutes les personnes ne se connectant pas au groupe pendant {dayCount} jours ou plus seront considérés comme inactifs. Ces utilisateurs ne recevront plus de notifications par email.",
@@ -548,37 +549,37 @@
   "INFO": "Info",
   "ISSUE": {
     "STATUS": {
-      "ONGOING": "Ongoing",
-      "DECIDED": "Decided",
-      "CANCELLED": "Cancelled"
+      "ONGOING": "En cours",
+      "DECIDED": "Décidé",
+      "CANCELLED": "Annulé"
     },
     "CHAT": "Chat",
     "CREATION": {
-      "TOAST": "You successfully started a membership review"
+      "TOAST": "Vous venez de commencer une revue d'adhésion"
     },
-    "NOTICE": "There is an ongoing issue! | There are {count} ongoing issues!",
+    "NOTICE": "Il y a un problème en cours ! Il y a {count} problèmes en cours !",
     "NO_ONGOING": "Aucun problème en cours.",
-    "PARTICIPANTS": "{count} members are in this discussion.",
+    "PARTICIPANTS": "{count} membres sont dans la discussion.",
     "PAST": "Problèmes antérieurs",
     "PREVIOUS_VOTINGS": "Votes précédents pour ce problème",
     "TITLE": "Problèmes\n ",
     "VOTE": "Vote",
     "VOTING": {
       "ANONYMOUS": "Votre vote sera anonyme.",
-      "DECIDE": "Decide your level of support for each proposal.",
+      "DECIDE": "Décidez de votre niveau de support pour chaque proposition.",
       "BTN_DELETE": "Supprimer le vote",
       "BTN_START": "Votez maintenant\n ",
       "FURTHER_DISCUSSION": "Discussion supplémentaire : prolonger le délai en commençant un autre vote",
       "NO_CHANGE": "Pas de changement : {userName} reste dans {groupName}",
-      "REMOVE_USER": "Membership ends and {userName} gets removed from {groupName}",
+      "REMOVE_USER": "L'adhésion de {userName} a expiré, qui a été expulsé(e) de {groupName}",
       "RESULTS": {
         "ENDED_AT": "Ce tour de scrutin s'est terminé le {date}",
         "KEEP_DISCUSSING": "Votre groupe a voté pour continuer à discuter",
         "PARTICIPANTS": "{number} des membres ont participé au vote.",
         "TIME_UP": "Le temps est écoulé !",
         "TOTAL_SCORE": "Score total",
-        "UNDECIDED": "Unfortunately this membership review could not be decided.",
-        "UNDECIDED_REASON_1": "the affected user left the group while the membership review was still ongoing",
+        "UNDECIDED": "Malheureusement, cette candidature n'a pas pu recevoir de verdict.",
+        "UNDECIDED_REASON_1": "l'utilisateur affecté a quitté le groupe alors que la candidature était toujours en cours",
         "UNDECIDED_REASON_2": "personne n'a voté sur cette question",
         "UNDECIDED_WHY": "Il y a deux raisons possibles à cela :"
       },
@@ -601,7 +602,7 @@
     "APPLICATION_PENDING": "Ta candidature est en attente !",
     "APPLICATION_SUBMITTED": "Ta candidature a été envoyée !",
     "APPLICATION_WITHDRAWN": "Ta candidature a bien été retirée !",
-    "ARCHIVED_NOTE": "This group doesn't have any members. If you would like to revive it, contact the site administrators!",
+    "ARCHIVED_NOTE": "Ce groupe n'a aucun membre. Si vous souhaitez le ressusciter, contactez les administrateurs du site !",
     "BROWSE_GROUPS": "Voir les groupes actuels",
     "LOGOUT_MESSAGE": {
       "LOGGED_OUT": "Tu es en ce moment déconnecté. {login}",
@@ -644,31 +645,31 @@
     "VERIFICATION_EMAIL_SENT": "Nous t'envoyons un autre email de vérification.\nVa voir dans tes mails."
   },
   "NOTIFICATION_BELLS": {
-    "ACTIVITY_DISABLED": "{activityType} on {dateTime} was disabled",
-    "ACTIVITY_ENABLED": "{activityType} on {dateTime} was enabled again",
-    "ACTIVITY_MOVED": "{activityType} was moved to {dateTime}",
-    "ACTIVITY_UPCOMING": "Reminder: {activityType} at {time}",
+    "ACTIVITY_DISABLED": "{activityType} le {dateTime} a été désactivé",
+    "ACTIVITY_ENABLED": "{activityType} le {dateTime} a été activée à nouveau",
+    "ACTIVITY_MOVED": "{activityType} a été déplacée au {dateTime}",
+    "ACTIVITY_UPCOMING": "Rappel : {activityType} à {time}",
     "APPLICATION_ACCEPTED": "Votre candidature a été acceptée !",
     "APPLICATION_DECLINED": "Votre candidature a été refusée",
-    "CONFLICT_RESOLUTION_CONTINUED": "The membership review of {userName} continues",
-    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Your membership review continues",
-    "CONFLICT_RESOLUTION_CREATED": "Join the discussion about a membership review of {userName}",
-    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "A review of your membership was started",
-    "CONFLICT_RESOLUTION_DECIDED": "The membership review of {userName} was decided",
-    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Your membership was decided",
+    "CONFLICT_RESOLUTION_CONTINUED": "La candidature de {userName} continue",
+    "CONFLICT_RESOLUTION_CONTINUED_ABOUT_YOU": "Votre revue de candidature continue",
+    "CONFLICT_RESOLUTION_CREATED": "Rejoignez la discussion pour la revue de candidature de {userName}",
+    "CONFLICT_RESOLUTION_CREATED_ABOUT_YOU": "Une revue de votre candidature a commencé",
+    "CONFLICT_RESOLUTION_DECIDED": "La candidature de {userName} a reçu un verdict",
+    "CONFLICT_RESOLUTION_DECIDED_ABOUT_YOU": "Votre adhésion a été décidée",
     "CONFLICT_RESOLUTION_YOU_WERE_REMOVED": "Vous avez été retiré du groupe",
-    "FEEDBACK_POSSIBLE": "You can give feedback - {activityType} on {date}",
+    "FEEDBACK_POSSIBLE": "Vous pouvez donner un avis - {activityType} le {date}",
     "INVITATION_ACCEPTED": "{userName}a accepté votre invitation",
     "NEW_APPLICANT": "{userName}a demandé à rejoindre votre groupe",
     "NEW_MEMBER": "{userName} a rejoint le groupe",
     "NEW_PLACE": "{placeName} a été créé",
     "USER_BECAME_EDITOR": "{userName}a obtenu les permissions pour éditer.",
-    "USER_GOT_ROLE": "{userName} received role: {role}",
-    "YOU_GOT_ROLE": "You received role: {role}!",
+    "USER_GOT_ROLE": "{userName} a reçu le rôle : {role}",
+    "YOU_GOT_ROLE": "Vous avez reçu le rôle : {role} !",
     "VOTING_ENDS_SOON": "Le vote se termine bientôt, n'oubliez pas de participer !\n ",
     "YOU_BECAME_EDITOR": "Tu as obtenus les permissions pour éditer.",
-    "MENTION": "{userName} mentioned you!",
-    "PARTICIPANT_REMOVED": "{activityType} no longer available - {dateTime}"
+    "MENTION": "{userName} vous a mentionné !",
+    "PARTICIPANT_REMOVED": "{activityType} n'est plus disponible - {dateTime}"
   },
   "NOTIFICATION_BELLS_LIST": {
     "NO_ITEMS": "Nous n'avons actuellement pas de notifications à té transmettre.",
@@ -724,61 +725,61 @@
     "TITLE": "Réinitialiser le mot de passe"
   },
   "PLACE_TYPE_NAMES": {
-    "Unspecified": "Unspecified",
-    "Store": "Store",
-    "Sharing Point": "Sharing Point",
-    "Meeting Place": "Meeting Place",
+    "Unspecified": "Non spécifié",
+    "Store": "Magasin",
+    "Sharing Point": "Point de partage",
+    "Meeting Place": "Point de rencontre",
     "Restaurant": "Restaurant",
-    "Market": "Market"
+    "Market": "Marché"
   },
   "PLACE_TYPE_STATUS": {
-    "ACTIVE": "Active",
-    "ARCHIVED": "Archived"
+    "ACTIVE": "Actif",
+    "ARCHIVED": "Archivé"
   },
   "PLACE_TYPES": {
-    "ADD": "Add new place type",
-    "NAME": "Name",
-    "STATUS": "Status",
-    "STANDARD_NAME_HEADING": "Standard names",
-    "STANDARD_NAME_HINT": "Name will be available in other languages",
-    "CUSTOM_NAME_HINT": "Name will be used exactly as you write it and not translated",
-    "CUSTOM_NAME_USE": "Use custom name {name}",
-    "CUSTOM_NAME_PROMPT": "Type a custom name, or choose a standard name",
-    "MANAGE_TYPES": "Manage types...",
-    "SHOW_ARCHIVED": "Show archived",
-    "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
-    "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
+    "ADD": "Ajouter un nouveau type d'endroit",
+    "NAME": "Nom",
+    "STATUS": "Statut",
+    "STANDARD_NAME_HEADING": "Noms standard",
+    "STANDARD_NAME_HINT": "Le nom sera disponible dans d'autres langues",
+    "CUSTOM_NAME_HINT": "Le nom sera utilisé exactement comme vous l'avez écrit, et ne sera pas traduit",
+    "CUSTOM_NAME_USE": "Utilisé le nom personnalisé {name}",
+    "CUSTOM_NAME_PROMPT": "Tapez un nom personnalisé, ou choisissez un nom standard",
+    "MANAGE_TYPES": "Gérer les types...",
+    "SHOW_ARCHIVED": "Montrer archivés",
+    "STATUS_ACTIVE_HINT": "Vous serez capable de créer de nouveaux endroits de ce type",
+    "STATUS_ARCHIVED_HINT": "Il ne sera pas possible de créer un nouvel endroit de ce type, mais les existants seront toujours disponible"
   },
   "PLACE_LIST": {
-    "ONLY_FAVOURITES": "Only favourite",
-    "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
-    "SUBSCRIBED": "You have marked this place as favorite",
-    "FAVORITE_PLACES": "Favorite places",
-    "NONE_DUE_TO_FILTER": "No places match your filters",
-    "ALL_TYPES": "All types",
-    "ALL_STATUSES": "All statuses",
-    "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then click { icon } on one of them."
+    "ONLY_FAVOURITES": "Seulement favoris",
+    "UPCOMING_ACTIVITIES": "Une activité à venir | { count } activités à venir",
+    "SUBSCRIBED": "Vous avez ajouté cet endroit à vos favoris",
+    "FAVORITE_PLACES": "Lieux favoris",
+    "NONE_DUE_TO_FILTER": "Aucun lieu ne correspond à vos filtres",
+    "ALL_TYPES": "Tous les types",
+    "ALL_STATUSES": "Tous les statuts",
+    "SUBSCRIBE_HINT": "Quand vous marquez un lieu comme un favori, ils apparaitront ici. Cliquez ci-dessous pour voir tous les lieux, puis cliquer { icon } sur l'un d'entre eux."
   },
   "PLACEWALL": {
     "SUBSCRIBED_USERS": "{count}quelqu'un a marqué ce lieu de récolte en tant que favoris",
     "SUBSCRIPTION": {
       "HEADER": "Veux tu indiquer ce lieu de récolte en tant que favoris ?",
       "NO": "non",
-      "NO_TEXT": "None of the above. You can still sign up for activities though.",
+      "NO_TEXT": "Aucune des options. Néanmoins, vous pouvez quand même vous inscrire à des activités.",
       "YES": "oui",
-      "YES_TEXT": "Shows available activities on the group wall and sends emails about upcoming activities."
+      "YES_TEXT": "Montre les activités disponibles sur le mur du  groupe, et envoie des emails à propos des activités à venir."
     }
   },
   "PROFILE": {
     "INACCESSIBLE_OR_DELETED": "(Utilisateur inaccessible ou supprimé)"
   },
   "ROLES": {
-    "MEMBER": "Anyone",
-    "MEMBER_DESCRIPTION": "Anyone in the group",
-    "NEWCOMER": "Newcomer",
-    "NEWCOMER_DESCRIPTION": "People that haven't yet got any other roles",
-    "EDITOR": "Editor",
-    "EDITOR_DESCRIPTION": "People that have been trusted in the group as an editor"
+    "MEMBER": "N'importe qui",
+    "MEMBER_DESCRIPTION": "N'importe quel membre du groupe",
+    "NEWCOMER": "Nouveau membre",
+    "NEWCOMER_DESCRIPTION": "Les personnes qui n'ont pas encore d'autre rôle",
+    "EDITOR": "Éditeur",
+    "EDITOR_DESCRIPTION": "Les membres qui ont reçu les droits d'édition"
   },
   "SETTINGS": {
     "TITLE": "Paramètres"
@@ -793,26 +794,26 @@
     "TITLE": "S'enregistrer"
   },
   "STATISTICS": {
-    "ACTIVITY_HISTORY": "Activity statistics",
-    "FILTER_USER_LABEL": "User",
-    "FILTER_ALL_USERS": "All users",
-    "FILTER_TIME_LABEL": "Time period",
-    "FILTER_TIME_YEARS_LABEL": "Years",
-    "FILTER_TIME_PREVIOUS_DAYS": "Previous {count} days",
-    "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
-    "FILTER_TIME_FOREVER": "Forever",
-    "COLUMN_PLACE": "Place",
-    "COLUMN_ACTIVITY_DONE": "Done",
-    "COLUMN_ACTIVITY_MISSED": "Missed",
-    "COLUMN_ACTIVITY_LEFT": "Withdrew",
-    "COLUMN_FEEDBACK": "Feedback",
-    "COLUMN_FEEDBACK_WEIGHT": "Weight",
+    "ACTIVITY_HISTORY": "Statistiques des activités",
+    "FILTER_USER_LABEL": "Utilisateur",
+    "FILTER_ALL_USERS": "Tous les utilisateurs",
+    "FILTER_TIME_LABEL": "Période de temps",
+    "FILTER_TIME_YEARS_LABEL": "Années",
+    "FILTER_TIME_PREVIOUS_DAYS": "{count}jours précédents",
+    "FILTER_TIME_PREVIOUS_MONTHS": "{count}mois précédents",
+    "FILTER_TIME_FOREVER": "Pour toujours",
+    "COLUMN_PLACE": "Endroit",
+    "COLUMN_ACTIVITY_DONE": "Fini",
+    "COLUMN_ACTIVITY_MISSED": "Manqué",
+    "COLUMN_ACTIVITY_LEFT": "Partis",
+    "COLUMN_FEEDBACK": "Retour",
+    "COLUMN_FEEDBACK_WEIGHT": "Poids",
     "TOTAL_LABEL": "Total",
-    "OPTIONS_ANY": "Any",
-    "OPTIONS_MISSED_LABEL": "Missed",
-    "OPTIONS_MISSED_DESCRIPTION": "Only if the activity was missed",
-    "OPTIONS_LATE_LABEL": "Late",
-    "OPTIONS_LATE_DESCRIPTION": "Only if less than 24 hours before"
+    "OPTIONS_ANY": "N'importe",
+    "OPTIONS_MISSED_LABEL": "Manqué",
+    "OPTIONS_MISSED_DESCRIPTION": "Seulement si l'activité a été manquée",
+    "OPTIONS_LATE_LABEL": "Tard",
+    "OPTIONS_LATE_DESCRIPTION": "Seulement si moins de 24 heures avant"
   },
   "STOREDETAIL": {
     "ARCHIVED": "Ce lieu de récolte a été archivé",
@@ -824,10 +825,10 @@
   },
   "STOREEDIT": {
     "ADDRESS": "Adresse",
-    "DEFAULT_VIEW": "Default View",
-    "DEFAULT_VIEW_HINT": "What should be displayed by default when clicking onto this place?",
+    "DEFAULT_VIEW": "Vue par défaut",
+    "DEFAULT_VIEW_HINT": "Qu'est-ce qui devrait être affiché par défaut quand on clique sur cet endroit ?",
     "DESCRIPTION": "Description",
-    "PLACE_TYPE": "Place type",
+    "PLACE_TYPE": "Type d'endroit",
     "DIALOGS": {
       "ARCHIVE": {
         "CONFIRM": "Oui, archiver le lieu de récolte",
@@ -839,8 +840,8 @@
     "RESTORE": "Restaurer",
     "SHOW_ALL": "Montrer tous les lieux de récup",
     "STATUS": "Statut",
-    "WEEKS_IN_ADVANCE": "How many weeks in advance should activities for series be created?",
-    "WEEKS_IN_ADVANCE_WARNING": "You are about to reduce the number of activities created. Existing ones will be deleted if nobody has joined them. You can disable others manually, if needed."
+    "WEEKS_IN_ADVANCE": "Combien de semaines en avance devrions-nous créer les activités pour cette série ?",
+    "WEEKS_IN_ADVANCE_WARNING": "Vous êtes sur le point de réduire le nombre d'activités créées. Les activités existantes seront supprimées si personne n'y participe. Vous pouvez désactiver les autres manuellement si vous le souhaitez."
   },
   "STORESTATUS": {
     "ACTIVE": "En coopération",
@@ -860,7 +861,7 @@
   "TOPBAR": {
     "CHANGE_GROUP": "Change de groupe",
     "LOGOUT": "Déconnexion",
-    "SHOW_ALL_GROUPS": "Show all groups",
+    "SHOW_ALL_GROUPS": "Montrer tous les groupes",
     "USERPROFILE": "Visite ton profile"
   },
   "UNSUBSCRIBE": {
@@ -875,10 +876,10 @@
   },
   "UPDATE_AVAILABLE": {
     "DETAIL": "Une nouvelle version de karrot est disponible.",
-    "RELOAD": "Reload"
+    "RELOAD": "Recharger"
   },
-  "URL_CLICK_TO_COPY": "Click to copy",
-  "URL_COPIED_TOAST": "The URL was successfully copied to your clipboard",
+  "URL_CLICK_TO_COPY": "Cliquez pour copier",
+  "URL_COPIED_TOAST": "L'URL a été copiée dans votre presse-papier",
   "USERDATA": {
     "ACCOUNT": "Compte",
     "CONFIRM_PASSWORD": "Confirme ton mot de passe",
@@ -888,8 +889,8 @@
         "TITLE": "Lui faire confiance"
       },
       "REVOKE_TRUST": {
-        "MESSAGE": "Do you want to revoke the trust you have given to {userName} in {groupName}?",
-        "TITLE": "Revoke trust"
+        "MESSAGE": "Voulez-vous révoquer la confiance que vous avez accordé à {userName} dans le groupe {groupName} ?",
+        "TITLE": "Révoquer la confiance"
       },
       "REQUEST_DELETE_ACCOUNT": {
         "CONFIRM": "Confirmer",
@@ -903,7 +904,7 @@
     "MOBILE_NUMBER": "Numéro de téléphone",
     "NEWCOMER": "Nouveau membre",
     "NEWCOMER_GUIDANCE": "{userName} est nouveau dans le groupe et a peut-être besoin d'aide.",
-    "NEWCOMER_INFO": "You are currently a newcomer in {groupName} and you can become active by writing messages, meeting fellow members, doing activities and giving feedback. As soon as {threshold} members expressed their trust in you, you will gain editing permissions to help with group administration.",
+    "NEWCOMER_INFO": "Vous êtes actuellement un nouveau dans {groupName}. Vous pouvez devenir plus actif en écrivant des messages, en rencontrant d'autres membres, en participant à des activités et en effectuant des retours. Dès que {threshold} membres auront confiance en vous, vous gagnerez les droits d'édition pour aider avec l'administration du groupe.",
     "OTHER_PEOPLE_TRUST_USER": "{otherUser} fait confiance à {userName} de {groupName}. | {count} personnes font confiance à {userName} de {groupName}.",
     "OTHER_PEOPLE_TRUST_YOU": "{otherUser} vous fait confiance dans le {groupName} . Je \n{count} personnes vous font confiance in {groupName}",
     "PASSWORD": "Mot de passe",
@@ -913,9 +914,9 @@
     "PROFILE_TITLE": "Profil",
     "PUSH": "Notifications",
     "PUSH_CURRENT_BROWSER": "Navigateur Web en cours",
-    "PUSH_BLOCKED": "Could not enable push notifications, maybe you didn't allow them?",
-    "APP": "App",
-    "INSTALL_APP": "Install Karrot app to your device",
+    "PUSH_BLOCKED": "Nous n'avons pas pu activer les notifications push, les avez-vous autorisées ?",
+    "APP": "Application",
+    "INSTALL_APP": "Installez l'application Karrot sur votre appareil",
     "REQUEST_DELETE_ACCOUNT": {
       "SUCCESS": "Nous t'avons envoyé un lien par e-mail pour confirmer la suppression. "
     },
@@ -927,27 +928,27 @@
     },
     "TRUST_PROGRESS_TEXT": "Besoin de {trustNeeded} points de confiance",
     "TRUST_PROGRESS_TEXT_LONG": "{trustNeeded} autres personnes doivent faire confiance à {userName} pour lui donner ses droits d'admin.",
-    "DISPLAY_NAME": "Display Name",
-    "USERNAME": "Username",
+    "DISPLAY_NAME": "Nom d'affichage",
+    "USERNAME": "Nom d'utilisateur",
     "WHERE_FROM": "D'où tu viens (optionnel)",
     "YOU_TRUST_USER": "Tu fais confiance à {userName} dans {groupName}."
   },
   "TRUST_FOR_ROLE": {
-    "FIRST_TRUST": "Be the first one trust {userName} for {role} in {groupName}!",
-    "OTHER_PEOPLE_TRUST_USER": "{otherUser} trusts {userName} for {role} in {groupName}. | {count} people trust {userName} for {role} in {groupName}.",
-    "OTHER_PEOPLE_TRUST_YOU": "{otherUser} trusts you for {role} in {groupName}. | {count} people trust you for {role} in {groupName}.",
-    "PEOPLE_TRUST_USER": "You and {otherUser} trust {userName} for {role} in {groupName}. | You and {count} other people trust {userName} for {role} in {groupName}.",
-    "YOU_TRUST_USER": "You trust {userName} for {role} in {groupName}.",
-    "NO_ROLE_INFO": "You currently don't have role {role} in {groupName}. As soon as {threshold} members expressed their trust for {role} in you, you will receive the {role} role.",
-    "NEED_ROLE": "You need {role} role",
-    "TRUST_PROGRESS": "{trustNeeded} more people need to express their trust in {userName} to grant the {role} role.",
+    "FIRST_TRUST": "Devenez le premier à donner votre confiance à {userName} pour {role} dans {groupName} !",
+    "OTHER_PEOPLE_TRUST_USER": "{otherUser} fait confiance à {userName} pour être {role} dans {groupName}. | {count} personnes font confiance à {userName} pour le rôle de {role} dans {groupName} .",
+    "OTHER_PEOPLE_TRUST_YOU": "{otherUser}vous fait confiance pour le rôle de {role} dans {groupName}. | {count} personnes vous font confiance pour être {role} dans {groupName}.",
+    "PEOPLE_TRUST_USER": "Vous et {otherUser} autres font confiance à {userName} pour le rôle de {role} dans {groupName}. | Vous et {count}autres personnes font confiance à {userName} pour être {role} dans {groupName}.",
+    "YOU_TRUST_USER": "Vous faites confiance à {userName} pour {role} dans {groupName}.",
+    "NO_ROLE_INFO": "Vous n'avez actuellement pas le rôle {role} dans {groupName}. Dès que {threshold} membres auront exprimé leur confiance pour que vous soyez {role}, vous deviendrez automatiquement {role}. ",
+    "NEED_ROLE": "Il vous faut le rôle {role}",
+    "TRUST_PROGRESS": "{trustNeeded} autres personnes doivent faire confiance à {userName} pour lui donner le rôle {role}.",
     "GIVE_DIALOG": {
-      "MESSAGE": "Do you trust {userName} for {role} in {groupName}?",
-      "TITLE": "Trust user for {role}"
+      "MESSAGE": "Faites-vous confiance à {userName} pour {role} dans {groupName} ?",
+      "TITLE": "Faire confiance à l'utilisateur pour {role}"
     },
     "REVOKE_DIALOG": {
-      "MESSAGE": "Do you want to revoke the trust for {role} you have given to {userName} in {groupName}?",
-      "TITLE": "Revoke trust for {role}"
+      "MESSAGE": "Voulez-vous révoquer la confiance pour {role} que vous avez donné à {userName} dans {groupName} ?",
+      "TITLE": "Révoquer la confiance pour {role}"
     }
   },
   "USERDETAIL": {
@@ -962,11 +963,11 @@
     "MINLENGTH": "S'il te plaît, entre plus de {min} caractères",
     "REQUIRED": "Ce champ est requis.",
     "UNIQUE": "Ce nom existe déjà, choisis-en un autre.",
-    "OPTIONAL": "optional",
+    "OPTIONAL": "optionnel",
     "VALID_EMAIL": "Entre une adresse e-mail valide.",
     "VALID_TIMEZONE": "Entre un fuseau horaire valide.",
-    "VALID_USERNAME": "Enter a valid username.",
-    "TAKEN": "Already taken."
+    "VALID_USERNAME": "Entrez un nom d'utilisateur valide.",
+    "TAKEN": "Déjà pris."
   },
   "VERIFYMAIL": {
     "SUCCESS": "Ton adresse e-mail a été correctement vérifiée !",

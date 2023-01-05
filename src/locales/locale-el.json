@@ -98,7 +98,8 @@
       "WHEN": "When",
       "WHERE": "Where",
       "SHARE": "Public activity link",
-      "VIEW": "Public View"
+      "VIEW": "Public View",
+      "UPCOMING_ACTIVITIES": "Upcoming activities"
     },
     "JOINEDNOTICE": "Υπάρχει μια δραστηριότητα που συμβαίνει σύντομα | Έχεις {count}  δράσεις/δραστηριότητες που συμβαίνουν σύντομα ",
     "NONE": "Δεν υπάρχουν δραστηριότητες που συμβαίνουν σύντομα ",

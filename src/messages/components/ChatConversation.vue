@@ -1,75 +1,86 @@
 <template>
   <div
-    ref="scroll"
-    class="bg-white"
-    :class="inline && 'absolute-full scroll'"
+    class="column no-wrap"
+    :class="inline && 'absolute-full'"
   >
-    <slot name="before-chat-messages" />
-    <KSpinner v-show="newestFirst && !hasNextPage && isFetchingNextPage" />
-    <!-- explicit pagination for loading older messages -->
-    <QBtn
-      v-if="newestFirst && hasNextPage"
-      :loading="isFetchingNextPage"
-      flat
-      no-caps
-      class="full-width"
-      @click="fetchNextPage()"
-    >
-      {{ $t('CONVERSATION.LOAD_EARLIER_MESSAGES') }}
-    </QBtn>
-    <QInfiniteScroll
-      :disable="newestFirst || !hasNextPage"
-      @load="maybeFetchNext"
-    >
-      <QList
+    <div class="col-grow column no-wrap">
+      <div
+        ref="scroll"
         class="bg-white"
+        :class="inline && 'scroll'"
+        style="flex-grow: 1;"
       >
-        <ConversationMessage
-          v-for="message in orderedMessages"
-          :key="message.id"
-          :message="message"
-          :continuation="getIsContinuation(message.id)"
-          :is-unread="getIsUnread(message.id)"
-          slim
-        />
-        <slot name="before-chat-compose" />
+        <slot name="before-chat-messages" />
+        <KSpinner v-show="newestFirst && !hasNextPage && isFetchingNextPage" />
+        <!-- explicit pagination for loading older messages -->
+        <QBtn
+          v-if="newestFirst && hasNextPage"
+          :loading="isFetchingNextPage"
+          flat
+          no-caps
+          class="full-width"
+          @click="fetchNextPage()"
+        >
+          {{ $t('CONVERSATION.LOAD_EARLIER_MESSAGES') }}
+        </QBtn>
+        <QInfiniteScroll
+          :disable="newestFirst || !hasNextPage"
+          @load="maybeFetchNext"
+        >
+          <QList
+            class="bg-white"
+          >
+            <ConversationMessage
+              v-for="message in orderedMessages"
+              :key="message.id"
+              :message="message"
+              :continuation="getIsContinuation(message.id)"
+              :is-unread="getIsUnread(message.id)"
+              slim
+            />
+            <QItem
+              v-if="conversation.isClosed"
+              class="q-mt-md"
+            >
+              <QItemSection avatar>
+                <QAvatar
+                  color="grey-5"
+                  text-color="white"
+                  icon="fas fa-lock"
+                />
+              </QItemSection>
+              <QItemSection>
+                <QItemLabel class="text-body2">
+                  {{ $t('CONVERSATION.CLOSED') }}
+                </QItemLabel>
+              </QItemSection>
+            </QItem>
+            <slot name="before-chat-compose" />
+          </QList>
+          <template #loading>
+            <KSpinner v-if="oldestFirst" />
+          </template>
+        </QInfiniteScroll>
+        <slot name="after-chat-messages" />
+        <QScrollObserver @scroll="onScroll" />
+      </div>
+      <div>
         <ConversationCompose
           v-if="compose && !(oldestFirst && hasNextPage) && !conversation.isClosed"
           ref="compose"
           :status="sendStatus"
           slim
-          filled
+          outlined
           square
           :draft-key="conversation.id"
           :placeholder="messagePrompt"
           :is-participant="isParticipant"
+          :input-style="{ maxHeight: '120px' }"
           class="q-pb-md"
           @submit="sendMessage"
         />
-        <QItem
-          v-if="conversation.isClosed"
-          class="q-mt-md"
-        >
-          <QItemSection avatar>
-            <QAvatar
-              color="grey-5"
-              text-color="white"
-              icon="fas fa-lock"
-            />
-          </QItemSection>
-          <QItemSection>
-            <QItemLabel class="text-body2">
-              {{ $t('CONVERSATION.CLOSED') }}
-            </QItemLabel>
-          </QItemSection>
-        </QItem>
-      </QList>
-      <template #loading>
-        <KSpinner v-if="oldestFirst" />
-      </template>
-    </QInfiniteScroll>
-    <slot name="after-chat-messages" />
-    <QScrollObserver @scroll="onScroll" />
+      </div>
+    </div>
   </div>
 </template>
 

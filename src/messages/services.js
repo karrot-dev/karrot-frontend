@@ -16,6 +16,7 @@ import {
 } from '@/messages/queries'
 import { useUserService } from '@/users/services'
 import { defineService } from '@/utils/datastore/helpers'
+import { isNil } from '@/utils/utils'
 
 export function useThreadDetail (messageId) {
   const order = 'oldest-first'
@@ -100,7 +101,13 @@ export function useConversationAndMessages (conversationQueryParams, { order } =
     { keepPreviousData: true },
   )
 
-  const conversationId = computed(() => conversation.value?.id)
+  const hasParam = computed(() => Object.keys(conversationQueryParams).some(param => !isNil(unref(conversationQueryParams[param]))))
+
+  // We only pass through the conversationId if we actually have a param set, otherwise because we use keepPreviousData (I think) we leave
+  // the conversationId hanging around, and then vue-query can't do the re-fetching needed for the messages as it doesn't see it needs refreshing
+  // if you re-open the same conversation
+  // See https://github.com/karrot-dev/karrot-frontend/issues/2613
+  const conversationId = computed(() => hasParam.value && conversation.value?.id)
 
   const {
     messages,

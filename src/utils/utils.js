@@ -58,6 +58,11 @@ export function isObject (x) {
     !(x instanceof Date)
 }
 
+// True if it's undefined or null, otherwise false
+export function isNil (val) {
+  return typeof val === 'undefined' || val === null
+}
+
 // Just enough to support the keys we get back from the Django API
 export function camelize (val) {
   return val.replace(/_(.)/g, (_, s) => s.toUpperCase())

@@ -23,14 +23,15 @@ export function useHistoryDetailQuery ({ historyId }) {
   }
 }
 
-export function useHistoryListQuery ({ groupId, placeId, userId, agreementId }, queryOptions = {}) {
+export function useHistoryListQuery ({ groupId, placeId, userId, agreementId, typus }, queryOptions = {}) {
   const query = useInfiniteQuery(
-    queryKeyHistoryList({ groupId, placeId, userId }),
+    queryKeyHistoryList({ groupId, placeId, userId, typus }),
     ({ pageParam }) => api.list({
       group: unref(groupId),
       place: unref(placeId),
       users: unref(userId),
       agreement: unref(agreementId),
+      typus: unref(typus),
       cursor: pageParam,
     }),
     {

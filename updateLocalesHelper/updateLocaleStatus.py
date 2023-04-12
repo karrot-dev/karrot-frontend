@@ -1,7 +1,5 @@
 #! /bin/env python
 import json
-from txclib import utils
-from txclib import config
 import requests
 import os
 import sys
@@ -17,16 +15,14 @@ def get_token():
     if token:
         return token
 
-    txrc_file = utils.get_transifex_file()
-    txrc = config.OrderedRawConfigParser()
-    txrc.read((txrc_file,))
-    return txrc.get('https://www.transifex.com', 'token')
-
 token = get_token()
 
-r = requests.get('https://api.transifex.com/organizations/yunity-1/projects/karrot/',
-  auth=('api', token)
-)
+headers = {
+    "accept": "application/vnd.api+json",
+    "authorization": "Bearer 1/3e9a53a82627ec70dcc6ab1472e84246f572be82"
+}
+
+r = requests.get('https://rest.api.transifex.com/resource_language_stats?filter[project]=o%3Ayunity-1%3Ap%3Akarrot', headers=headers)
 
 if r.status_code != 200:
     print('Failed to get translation status!')
@@ -34,8 +30,16 @@ if r.status_code != 200:
     print(r.json())
     sys.exit(1)
 
-stats = r.json()['stats']
-percentage_dict = {lang: round(v['translated']['percentage']*100) for lang, v in stats.items()}
+progress_dict = {}
+for resource in r.json()['data']:
+    lang = resource['id'].split(':')[-1]
+    progress = progress_dict.get(lang, {'translated': 0, 'total': 0})
+    progress['total'] += resource['attributes']['total_strings']
+    progress['translated'] += resource['attributes']['translated_strings']
+    progress_dict[lang] = progress
+
+print(progress_dict)
+percentage_dict = {lang: round((progress['translated']/progress['total'])*100) for lang, progress in progress_dict.items()}
 percentage_dict['en'] = 100
 
 config = configparser.ConfigParser()

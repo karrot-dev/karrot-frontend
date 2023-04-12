@@ -36,8 +36,8 @@
     "fix:style": "npm run lint:style -- --fix",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "locales:pull": "updateLocalesHelper/env/bin/python updateLocalesHelper/updateLocaleStatus.py && updateLocalesHelper/env/bin/tx pull -a --force --no-interactive",
-    "locales:push": "updateLocalesHelper/env/bin/tx push -s",
+    "locales:pull": "tx pull -a --force --workers 20",
+    "locales:push": "tx push -s",
     "docs": "cd docs && mdbook serve",
     "build-docs": "cd docs && mdbook build --dest-dir ../docs-dist",
     "generate-landing-images": "node src/base/generate-images.mjs"

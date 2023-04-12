@@ -418,10 +418,10 @@
     },
     "HISTORY": "Historia",
     "HOME": "Hogar",
-    "INACTIVE": "Inactiv@",
+    "INACTIVE": "Inactiv{'@'}",
     "INVITATIONS": "Invitaciones",
     "INVITATION_ACCEPT_ERROR": "Ooops, no se ha podido aceptar la invitación!",
-    "INVITATION_ACCEPT_SUCCESS": "Bienvenid@! Has acceptado la invitación. ",
+    "INVITATION_ACCEPT_SUCCESS": "Bienvenid{'@'}! Has acceptado la invitación. ",
     "INVITATION_DIALOG": {
       "MESSAGE": "Copia el enlace y envíaselo a la persona que quieres invitar.",
       "TITLE": "Enlace de invitación"
@@ -718,7 +718,7 @@
   },
   "PASSWORDRESET": {
     "EMAIL": "Correo electrónico",
-    "INTRO": "Escribe tu dirección de correo electrónico y te enviaremos un enlace para establecer una nueva contraseña (si ya estás registrad@).",
+    "INTRO": "Escribe tu dirección de correo electrónico y te enviaremos un enlace para establecer una nueva contraseña (si ya estás registrad{'@'}).",
     "LOGIN": "Volver a la página de inicio",
     "SUBMIT": "Conseguir nueva contraseña",
     "SUCCESS": "La solicitud fue enviada exitosamente. ¡Echa un vistazo a tu correo electrónico!",

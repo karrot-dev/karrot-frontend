@@ -353,7 +353,7 @@
     "TITLE": "Wat wëlls du editéieren?",
     "ONLY_ACTIVITY": "Dës Aktivitéit",
     "SERIES": "Aktivitéiten an dëser Serie",
-    "MANAGE": "Aktivitéite verwalten @ {place}"
+    "MANAGE": "Aktivitéite verwalten {'@'} {place}"
   },
   "CREATESTORE": {
     "TITLE": "Eng nei Plaz erstellen"

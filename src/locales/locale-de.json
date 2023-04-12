@@ -98,7 +98,8 @@
       "WHEN": "When",
       "WHERE": "Where",
       "SHARE": "Public activity link",
-      "VIEW": "Public View"
+      "VIEW": "Public View",
+      "UPCOMING_ACTIVITIES": "Upcoming activities"
     },
     "JOINEDNOTICE": "Du hast dich für eine Aktivität gemeldet | Du hast dich für {count} Aktivitäten gemeldet",
     "NONE": "Es stehen keine Aktivitäten an.",

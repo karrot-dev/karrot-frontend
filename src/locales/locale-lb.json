@@ -98,7 +98,8 @@
       "WHEN": "Wéini",
       "WHERE": "Wou",
       "SHARE": "Ëffentleche Link zur Aktivitéit",
-      "VIEW": "Ëffentlech Siicht"
+      "VIEW": "Ëffentlech Siicht",
+      "UPCOMING_ACTIVITIES": "Upcoming activities"
     },
     "JOINEDNOTICE": "Du hues eng zukünfteg Aktivitéit | Du hues {count} zukünfteg Aktivitéiten",
     "NONE": "Keng zukünfteg Aktivitéiten",
@@ -352,7 +353,7 @@
     "TITLE": "Wat wëlls du editéieren?",
     "ONLY_ACTIVITY": "Dës Aktivitéit",
     "SERIES": "Aktivitéiten an dëser Serie",
-    "MANAGE": "Aktivitéite verwalten {'@'} {place}"
+    "MANAGE": "Aktivitéite verwalten @ {place}"
   },
   "CREATESTORE": {
     "TITLE": "Eng nei Plaz erstellen"

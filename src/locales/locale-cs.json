@@ -98,7 +98,8 @@
       "WHEN": "Kdy",
       "WHERE": "Kde",
       "SHARE": "Odkaz na veřejné aktivity",
-      "VIEW": "Veřejné zobrazení"
+      "VIEW": "Veřejné zobrazení",
+      "UPCOMING_ACTIVITIES": "Nadcházející aktivity"
     },
     "JOINEDNOTICE": "Máte jednu nadcházející aktivitu | Máte {count} nadcházející aktivity",
     "NONE": "Žádné nadcházející aktivity",

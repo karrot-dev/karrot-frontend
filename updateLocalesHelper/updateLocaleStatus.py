@@ -19,7 +19,7 @@ token = get_token()
 
 headers = {
     "accept": "application/vnd.api+json",
-    "authorization": "Bearer 1/3e9a53a82627ec70dcc6ab1472e84246f572be82"
+    "authorization": f"Bearer {token}"
 }
 
 r = requests.get('https://rest.api.transifex.com/resource_language_stats?filter[project]=o%3Ayunity-1%3Ap%3Akarrot', headers=headers)

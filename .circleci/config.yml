@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: karrot/python:2.12
+    - image: karrot/python:3
 
 android-defaults: &android-defaults
   working_directory: ~/repo
@@ -337,10 +337,6 @@ jobs:
             env/bin/pip install --upgrade pip
             env/bin/pip install --upgrade pip-tools
             env/bin/pip-sync requirements.txt
-            wget https://github.com/transifex/cli/releases/download/v1.6.7/tx-linux-amd64.tar.gz
-            tar -xzf tx-linux-amd64.tar.gz
-            mv tx /usr/bin/
-            rm tx-linux-amd64.tar.gz
       - save_cache:
           paths:
             - env

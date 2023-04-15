@@ -345,9 +345,9 @@ jobs:
           paths:
             - env
           key: v2-dependencies-localeshelper-{{ checksum "updateLocalesHelper/requirements.txt" }}
-      - run:
-          name: set git remote to include token
-          command: git remote set-url origin https://${GITHUB_TOKEN}@github.com/karrot-dev/karrot-frontend.git
+      - add_ssh_keys:
+          fingerprints:
+            - "19:10:29:b2:4c:d3:eb:94:db:e5:7c:ae:3f:73:1c:e6"
       - run:
           name: update locales and make pull request
           # needs TX_TOKEN and GITHUB_TOKEN

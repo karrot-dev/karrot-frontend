@@ -58,6 +58,7 @@ module.exports = configure(function (ctx) {
       THEME: process.env.KARROT_THEME,
       GIT_SHA1: process.env.GIT_SHA1 || process.env.CIRCLE_SHA1,
     },
+    NODE_DEBUG: 'false', // workaround for node-util
   }
 
   return {

@@ -109,7 +109,7 @@ exports[`Storyshots activities/components/ActivityEdit Disabled 1`] = `
     <!--v-if-->
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
+      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="switch" aria-label="Preview" aria-checked="false">
         <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy" aria-hidden="true"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
@@ -171,7 +171,7 @@ exports[`Storyshots activities/components/ActivityEdit Error 1`] = `
           <!---->
           <div class="q-field__inner relative-position col self-stretch">
             <div class="q-field__control relative-position row no-wrap bg-orange-1" tabindex="-1">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea class="q-field__native q-placeholder" style="min-height: auto;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="min-height: auto; overflow-y: hidden; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
                 <!---->
               </div>
@@ -242,7 +242,7 @@ exports[`Storyshots activities/components/ActivityEdit Error 1`] = `
     <!--v-if-->
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
+      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="switch" aria-label="Preview" aria-checked="false">
         <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy" aria-hidden="true"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
@@ -373,7 +373,7 @@ exports[`Storyshots activities/components/ActivityEdit Normal 1`] = `
     <!--v-if-->
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
+      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="switch" aria-label="Preview" aria-checked="false">
         <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy" aria-hidden="true"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
@@ -433,7 +433,7 @@ exports[`Storyshots activities/components/ActivityEdit Pending 1`] = `
           <!---->
           <div class="q-field__inner relative-position col self-stretch">
             <div class="q-field__control relative-position row no-wrap bg-orange-1" tabindex="-1">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea class="q-field__native q-placeholder" style="min-height: auto;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="min-height: auto; overflow-y: hidden; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
                 <!---->
               </div>
@@ -504,7 +504,7 @@ exports[`Storyshots activities/components/ActivityEdit Pending 1`] = `
     <!--v-if-->
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
+      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="switch" aria-label="Preview" aria-checked="false">
         <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy" aria-hidden="true"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
@@ -633,7 +633,7 @@ exports[`Storyshots activities/components/ActivityEdit Series Changed 1`] = `
     <!--v-if-->
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
+      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="switch" aria-label="Preview" aria-checked="false">
         <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy" aria-hidden="true"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
@@ -708,7 +708,7 @@ exports[`Storyshots activities/components/ActivityEdit With Duration 1`] = `
           <!---->
           <div class="q-field__inner relative-position col self-stretch">
             <div class="q-field__control relative-position row no-wrap bg-orange-1" tabindex="-1">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip"><textarea class="q-field__native q-placeholder" style="min-height: auto;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="min-height: auto; overflow-y: hidden; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
                 <!---->
               </div>
@@ -779,7 +779,7 @@ exports[`Storyshots activities/components/ActivityEdit With Duration 1`] = `
     <!--v-if-->
     <!--v-if-->
     <div class="row justify-end q-gutter-sm q-mt-lg">
-      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="checkbox" aria-label="Preview" aria-checked="false">
+      <div class="q-toggle cursor-pointer no-outline row inline no-wrap items-center" tabindex="0" role="switch" aria-label="Preview" aria-checked="false">
         <div class="q-toggle__inner relative-position non-selectable q-toggle__inner--falsy" aria-hidden="true"><input class="hidden q-toggle__native absolute q-ma-none q-pa-none" type="checkbox">
           <div class="q-toggle__track"></div>
           <div class="q-toggle__thumb absolute flex flex-center no-wrap"></div>
@@ -878,7 +878,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
     </svg></div>
   <div class="q-list">
     <!--v-if-->
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
         <div class="wrapper" style="width: 40px; height: 40px;"><a title="Georgia Homenick">
             <div text="Georgia Homenick" seed="3" class="randomArt fill"></div>
@@ -892,7 +892,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-angle-double-up q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> You gained editing permissions</div>
@@ -902,7 +902,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
         <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kuphal">
             <div text="Connie Kuphal" seed="2" class="randomArt fill"></div>
@@ -916,7 +916,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-check q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Your application was accepted!</div>
@@ -926,7 +926,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-times q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Your application was declined</div>
@@ -936,7 +936,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-reply q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> You can give feedback - Task on Monday 10:00 AM</div>
@@ -945,7 +945,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-circle q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Turlock Santa Computers North Gasoline has been created</div>
@@ -954,7 +954,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
         <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kuphal">
             <div text="Connie Kuphal" seed="2" class="randomArt fill"></div>
@@ -968,7 +968,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
         <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kuphal">
             <div text="Connie Kuphal" seed="2" class="randomArt fill"></div>
@@ -982,7 +982,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label">
@@ -993,7 +993,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-times q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Task on Monday, December 25 at 10:00 AM was disabled</div>
@@ -1002,7 +1002,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-check q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Task on Monday, December 25 at 10:00 AM was enabled again</div>
@@ -1011,7 +1011,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-clock q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Task was moved to Monday, December 25 at 10:00 AM</div>
@@ -1020,7 +1020,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
         <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kuphal">
             <div text="Connie Kuphal" seed="2" class="randomArt fill"></div>
@@ -1034,7 +1034,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-frown-open q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> A review of your membership was started</div>
@@ -1044,7 +1044,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
         <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kuphal">
             <div text="Connie Kuphal" seed="2" class="randomArt fill"></div>
@@ -1058,7 +1058,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-frown-open q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Your membership review continues</div>
@@ -1068,7 +1068,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <div class="q-item__section column q-item__section--side justify-center q-pr-sm">
         <div class="wrapper" style="width: 40px; height: 40px;"><a title="Connie Kuphal">
             <div text="Connie Kuphal" seed="2" class="randomArt fill"></div>
@@ -1082,7 +1082,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-frown-open q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Your membership was decided</div>
@@ -1092,7 +1092,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon fas fa-times q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> You were removed from the group</div>
@@ -1102,7 +1102,7 @@ exports[`Storyshots notifications/Notifications All Notifications 1`] = `
         </div>
       </div>
     </div>
-    <div class="q-item q-item-type row no-wrap isUnread">
+    <div class="q-item q-item-type row no-wrap isUnread" role="listitem">
       <!--v-if-->
       <div class="q-item__section column q-item__section--main justify-center">
         <div style="overflow: hidden; display: -webkit-box;" class="q-item__label"><i class="q-icon far fa-clock q-mx-xs vertical-baseline" aria-hidden="true" role="presentation"> </i> Voting ends soon, don't forget to participate!</div>

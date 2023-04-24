@@ -1,5 +1,9 @@
 <template>
   <div>
+    <HistoryFilter
+      v-model="typus"
+      for="place"
+    />
     <QCard
       class="no-shadow grey-border"
     >
@@ -18,13 +22,17 @@
 
 <script setup>
 import { QCard } from 'quasar'
+import { ref } from 'vue'
 
 import { useHistoryListQuery } from '@/history/queries'
 import { useActivePlaceService } from '@/places/services'
 
+import HistoryFilter from '@/history/components/HistoryFilter'
 import HistoryList from '@/history/components/HistoryList'
 
 const { placeId } = useActivePlaceService()
+
+const typus = ref(null)
 
 const {
   history,
@@ -33,6 +41,7 @@ const {
   fetchNextPage,
 } = useHistoryListQuery({
   placeId,
+  typus,
 })
 </script>
 

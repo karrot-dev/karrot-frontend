@@ -1,5 +1,8 @@
 <template>
   <div>
+    <HistoryFilter
+      v-model="typus"
+    />
     <QCard
       class="no-mobile-margin no-shadow grey-border"
     >
@@ -22,12 +25,16 @@
 
 <script setup>
 import { QCard } from 'quasar'
+import { ref } from 'vue'
 
 import { useCurrentGroupService } from '@/group/services'
 import { useHistoryListQuery } from '@/history/queries'
 
+import HistoryFilter from '@/history/components/HistoryFilter'
 import HistoryList from '@/history/components/HistoryList'
 import RandomArt from '@/utils/components/RandomArt'
+
+const typus = ref(null)
 
 const { groupId } = useCurrentGroupService()
 const {
@@ -37,6 +44,7 @@ const {
   fetchNextPage,
 } = useHistoryListQuery({
   groupId,
+  typus,
 })
 </script>
 

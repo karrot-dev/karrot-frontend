@@ -21,6 +21,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Changed
+- Add history type filter @nicksellen #2635 #2643
 
 ## [10.0.3] - 2023-03-20
 ### Fixed

@@ -24,6 +24,9 @@ Please document your changes in this format:
 ### Changed
 - Add history type filter @nicksellen #2635 #2643
 
+### Fixed
+- Issue list did not keep filter status when opening issues @tiltec
+
 ## [10.0.3] - 2023-03-20
 ### Fixed
 - Fix scrolling whilst typing long messages @nicksellen [#2631] [#2609]

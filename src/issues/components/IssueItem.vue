@@ -1,6 +1,6 @@
 <template>
   <QItem
-    :to="{name: issue.status === 'ongoing' ? 'issueChat' : 'issueVote', params: { issueId: issue.id }}"
+    :to="{name: issue.status === 'ongoing' ? 'issueChat' : 'issueVote', params: { issueId: issue.id }, query: $route.query }"
     :active="issue.id === selectedIssueId"
   >
     <QItemSection side>

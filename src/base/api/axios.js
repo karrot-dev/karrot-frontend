@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-named-as-default
 import Axios from 'axios'
 import qs from 'qs'
 import { Notify, throttle } from 'quasar'

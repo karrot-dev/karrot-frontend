@@ -21,7 +21,11 @@ describe('Signup', () => {
         hasGroupToJoin: false,
       },
     })
-    Object.assign(wrapper.vm.user, userData)
+    wrapper.vm.user = {
+      ...wrapper.vm.user,
+      ...userData,
+    }
+
     const checkboxes = wrapper.findAllComponents(QCheckbox)
     expect(checkboxes.length).toBe(0)
     wrapper.vm.submit()

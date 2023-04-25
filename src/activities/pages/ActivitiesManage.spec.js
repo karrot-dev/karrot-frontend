@@ -100,7 +100,6 @@ describe('ActivitiesManage', () => {
     // add Wednesday
     // somehow we need to click two times to activate the option
     await click(await findByRole('option', { name: 'Wednesday' }))
-    await click(await findByRole('option', { name: 'Wednesday' }))
 
     await click(getByRole('button', { name: /save changes/i }))
 

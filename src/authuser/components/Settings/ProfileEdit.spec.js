@@ -33,7 +33,10 @@ describe('ProfileEdit', () => {
 
   it('detects if you have changed something', () => {
     expect(wrapper.vm.hasChanged).toBe(false)
-    wrapper.vm.edit.displayName = 'a new name'
+    wrapper.vm.edit = {
+      ...wrapper.vm.edit,
+      displayName: 'a new name',
+    }
     expect(wrapper.vm.hasChanged).toBe(true)
     return nextTick().then(() => {
       expect(wrapper.classes()).toContain('changed')

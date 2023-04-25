@@ -11,12 +11,13 @@ export const queryKeyCommunityTopic = topicId => [QUERY_KEY_BASE, 'topic', topic
 export function useCommunityFeedQuery (queryOptions = {}) {
   const query = useQuery(
     queryKeyCommunityFeed(),
-    () => api.latestTopics(),
+    () => api.latestTopics().catch(() => ([])),
     {
       placeholderData: () => [],
       ...queryOptions,
     },
   )
+
   return {
     ...query,
     latestTopics: query.data,

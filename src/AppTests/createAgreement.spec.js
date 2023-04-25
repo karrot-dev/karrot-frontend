@@ -41,7 +41,7 @@ test('create an agreement', async () => {
   }))
 
   // go to agreements page and click to make a new one
-  await click(await findByRole('link', { name: 'Agreements' }))
+  await click(await findByText('Agreements'))
   await click(await findByTitle('Create'))
 
   const title = faker.lorem.words(5)

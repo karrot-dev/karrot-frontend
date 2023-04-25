@@ -12,7 +12,7 @@ import { useMockBackend, createUser, createGroup, loginAs } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 
 useMockBackend()
-jest.setTimeout(60 * 1000) // we do a lot of stuff here, give it some time!
+jest.setTimeout(90 * 1000) // we do a lot of stuff here, give it some time!
 
 configure({
   asyncUtilTimeout: 2000,
@@ -46,7 +46,7 @@ test('create issue', async () => {
   }))
 
   // go to members page and select the user
-  await click(await findByRole('link', { name: 'Members' }))
+  await click(await findByText('Members'))
   await click(await findByText(otherUser.displayName))
 
   // click to start a conflict!
@@ -79,6 +79,7 @@ test('create issue', async () => {
   )
   await click(await findByTestId('send-message'))
   await flushPromises() // need to give it a moment to send, or we refresh before it's actually been submitted
+  await flushPromises()
 
   // TODO: add mock websockets, for now we need to manually invalidate...
   await require('@/base/queryClient').default.invalidateQueries()

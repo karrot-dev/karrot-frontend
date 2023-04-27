@@ -370,6 +370,7 @@ jobs:
     environment:
       BRANCH: circleci-update-dependencies
     steps:
+      - checkout
       - attach_workspace:
           at: ~/repo
       - add_ssh_keys:

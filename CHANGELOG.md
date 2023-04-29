@@ -1,5 +1,4 @@
 # Change Log
-
 All notable changes to _Karrot_ will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
@@ -22,7 +21,7 @@ Please document your changes in this format:
 
 ## [Unreleased]
 ### Changed
-- Add history type filter @nicksellen #2635 #2643
+- Add history type filter @nicksellen [#2635] [#2643]
 
 ### Fixed
 - Issue list did not keep filter status when opening issues @tiltec
@@ -862,6 +861,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2624]: https://github.com/karrot-dev/karrot-frontend/issues/2624
 [#2630]: https://github.com/karrot-dev/karrot-frontend/issues/2630
 [#2631]: https://github.com/karrot-dev/karrot-frontend/issues/2631
+[#2635]: https://github.com/karrot-dev/karrot-frontend/issues/2635
+[#2643]: https://github.com/karrot-dev/karrot-frontend/issues/2643
 
 [Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.3...HEAD
 [10.0.3]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.2...v10.0.3

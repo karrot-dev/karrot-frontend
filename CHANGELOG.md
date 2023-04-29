@@ -26,6 +26,7 @@ Please document your changes in this format:
 
 ### Fixed
 - Issue list did not keep filter status when opening issues @tiltec
+- Updates from the community forum did not show @tiltec
 
 ## [10.0.3] - 2023-03-20
 ### Fixed

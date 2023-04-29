@@ -13,7 +13,7 @@ export default {
     return (await axios.post('/api/community-feed/mark_seen/')).data
   },
   async latestTopics () {
-    const data = (await axios.get('/community_proxy/c/karrot/7.json')).data
+    const data = (await axios.get('/community_proxy/latest.json')).data
     const users = data.users
     const topics = data.topicList.topics
     return topics.map(topic => {

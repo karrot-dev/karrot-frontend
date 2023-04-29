@@ -20,8 +20,11 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [10.0.4] - 2023-04-29
 ### Changed
 - Add history type filter @nicksellen [#2635] [#2643]
+- Updates translations
 
 ### Fixed
 - Issue list did not keep filter status when opening issues @tiltec
@@ -864,7 +867,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2635]: https://github.com/karrot-dev/karrot-frontend/issues/2635
 [#2643]: https://github.com/karrot-dev/karrot-frontend/issues/2643
 
-[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.3...HEAD
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.4...HEAD
+[10.0.4]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.3...v10.0.4
 [10.0.3]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.2...v10.0.3
 [10.0.2]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.1...v10.0.2
 [10.0.1]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.0...v10.0.1

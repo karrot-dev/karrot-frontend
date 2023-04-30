@@ -171,7 +171,7 @@ exports[`Storyshots activities/components/ActivityEdit Error 1`] = `
           <!---->
           <div class="q-field__inner relative-position col self-stretch">
             <div class="q-field__control relative-position row no-wrap bg-orange-1" tabindex="-1">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="min-height: auto; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="min-height: auto; overflow-y: hidden; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
                 <!---->
               </div>
@@ -433,7 +433,7 @@ exports[`Storyshots activities/components/ActivityEdit Pending 1`] = `
           <!---->
           <div class="q-field__inner relative-position col self-stretch">
             <div class="q-field__control relative-position row no-wrap bg-orange-1" tabindex="-1">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="min-height: auto; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="min-height: auto; overflow-y: hidden; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
                 <!---->
               </div>
@@ -708,7 +708,7 @@ exports[`Storyshots activities/components/ActivityEdit With Duration 1`] = `
           <!---->
           <div class="q-field__inner relative-position col self-stretch">
             <div class="q-field__control relative-position row no-wrap bg-orange-1" tabindex="-1">
-              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="min-height: auto; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
+              <div class="q-field__control-container col relative-position row no-wrap q-anchor--skip" style="margin-bottom: -1px;"><textarea class="q-field__native q-placeholder" style="min-height: auto; overflow-y: hidden; height: 0px;" tabindex="0" rows="1" aria-label="Additional information" id="f_01010101-0101-4101-8101-010101010101" maxlength="5000"></textarea>
                 <div class="q-field__label no-pointer-events absolute ellipsis">Additional information</div>
                 <!---->
               </div>

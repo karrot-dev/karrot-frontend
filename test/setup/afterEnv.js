@@ -24,3 +24,7 @@ global._vue = require('vue')
 //   "We can't really implemented it since we don't do layout."
 // See https://github.com/jsdom/jsdom/issues/1695
 Element.prototype.scrollIntoView = jest.fn()
+
+// Quasar calls (un)pauseAnimations on SVG elements, but jsdom doesn't support it
+Element.prototype.unpauseAnimations = jest.fn()
+Element.prototype.pauseAnimations = jest.fn()

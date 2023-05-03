@@ -5,11 +5,12 @@
       @load="infiniteScrollLoad"
     >
       <QList
-        ref="messagesList"
-        class="bg-white desktop-margin relative-position q-pb-md"
+        v-if="hasLoaded"
+        class="bg-white desktop-margin relative-position q-mb-lg rounded-borders"
+        style="margin-bottom: 12px;"
         bordered
       >
-        <template v-if="hasLoaded">
+        <QItem>
           <NotificationToggle
             class="actionButton"
             :muted="isMuted"
@@ -24,8 +25,17 @@
             :slim="$q.platform.is.mobile"
             :is-participant="isParticipant"
             :draft-key="conversation.id"
+            multiple
             @submit="message => send({ id: conversation.id, ...message })"
           />
+        </QItem>
+      </QList>
+      <QList
+        ref="messagesList"
+        class="bg-white desktop-margin relative-position q-pb-md rounded-borders"
+        bordered
+      >
+        <template v-if="hasLoaded">
           <QBanner
             v-if="isParticipant && unreadMessageCount > 0"
             class="bg-secondary text-white q-mt-sm"

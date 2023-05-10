@@ -144,6 +144,28 @@ export async function toFormData (sourceEntry) {
     }
   }
 
+  if (entry.attachments) {
+    console.log('converting attachments', entry.attachments)
+    const blobs = {}
+    for (const idx of Object.keys(entry.attachments)) {
+      const attachment = entry.attachments[idx]
+      if (attachment.toBlob) {
+        const blob = await attachment.toBlob()
+        if (!blob) throw new Error('failed to make a blob for image')
+        blobs[`attachments.${idx}.file`] = blob
+      }
+      else if (attachment._new) {
+        throw new Error('new attachment did not have a toBlob method')
+      }
+    }
+    for (const key of Object.keys(blobs)) {
+      const blob = blobs[key]
+      data.append(key, blob, blob.name)
+    }
+    // we need to leave our original images intact, but only send the required properties to the server
+    entry.attachments = entry.attachments.map(withoutKeys('toBlob'))
+  }
+
   data.append(
     'document',
     new Blob(

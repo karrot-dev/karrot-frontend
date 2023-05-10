@@ -98,6 +98,21 @@
           @click="openImageGallery(image.id)"
         />
       </div>
+      <div
+        v-if="attachmentsForDisplay.length > 0"
+        class="attachments"
+      >
+        <ul>
+          <li
+            v-for="attachment in attachmentsForDisplay"
+            :key="attachment.id"
+          >
+            <a :href="attachment.downloadUrl">
+              {{ attachment.filename }} ({{ humanStorageSize(attachment.size) }})
+            </a>
+          </li>
+        </ul>
+      </div>
       <ConversationReactions
         v-if="hasReactions"
         :reactions="message.reactions"
@@ -155,6 +170,7 @@ import {
   QItemSection,
   QItemLabel,
   QIcon,
+  format,
 } from 'quasar'
 import { computed } from 'vue'
 
@@ -176,6 +192,8 @@ import DateAsWords from '@/utils/components/DateAsWords'
 import Markdown from '@/utils/components/Markdown'
 
 import ConversationAddReaction from './ConversationAddReaction'
+
+const { humanStorageSize } = format
 
 export default {
   name: 'ConversationMessage',
@@ -242,6 +260,8 @@ export default {
     }
 
     return {
+      humanStorageSize,
+
       author,
       threadParticipants,
 
@@ -274,6 +294,9 @@ export default {
     },
     imagesForDisplay () {
       return this.message?.images?.filter(image => image.id && !image._removed) || []
+    },
+    attachmentsForDisplay () {
+      return this.message?.attachments?.filter(attachment => attachment.id && !attachment._removed) || []
     },
   },
   methods: {

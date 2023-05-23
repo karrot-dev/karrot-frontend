@@ -8,19 +8,19 @@ cachetools==4.2.2
     # via google-auth
 certifi==2021.5.30
     # via requests
-chardet==4.0.0
+charset-normalizer==3.1.0
     # via requests
 google-api-core==1.30.0
     # via google-api-python-client
 google-api-python-client==2.8.0
     # via -r requirements.in
-google-auth-httplib2==0.1.0
-    # via google-api-python-client
 google-auth==1.31.0
     # via
     #   google-api-core
     #   google-api-python-client
     #   google-auth-httplib2
+google-auth-httplib2==0.1.0
+    # via google-api-python-client
 googleapis-common-protos==1.53.0
     # via google-api-core
 httplib2==0.19.1
@@ -38,22 +38,22 @@ protobuf==3.17.3
     # via
     #   google-api-core
     #   googleapis-common-protos
-pyasn1-modules==0.2.8
-    # via
-    #   google-auth
-    #   oauth2client
 pyasn1==0.4.8
     # via
     #   oauth2client
     #   pyasn1-modules
     #   rsa
+pyasn1-modules==0.2.8
+    # via
+    #   google-auth
+    #   oauth2client
 pyparsing==2.4.7
     # via
     #   httplib2
     #   packaging
 pytz==2021.1
     # via google-api-core
-requests==2.25.1
+requests==2.31.0
     # via google-api-core
 rsa==4.7.2
     # via

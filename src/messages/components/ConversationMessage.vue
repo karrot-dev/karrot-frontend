@@ -110,6 +110,10 @@
             <a :href="attachment.downloadUrl">
               {{ attachment.filename }} ({{ humanStorageSize(attachment.size) }})
             </a>
+            <img
+              v-if="attachment.urls.thumbnail"
+              :src="attachment.urls.thumbnail"
+            >
           </li>
         </ul>
       </div>

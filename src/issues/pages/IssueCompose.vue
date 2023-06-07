@@ -59,11 +59,12 @@ const isClosed = computed(() => {
 
 const isParticipant = computed(() => Boolean(conversation.value && getIsParticipant(conversation.value)))
 
-function sendMessage ({ content, images }) {
+function sendMessage ({ content, images, attachments }) {
   send({
     id: conversation.value.id,
     content,
     images,
+    attachments,
   })
 }
 

@@ -124,6 +124,7 @@
       :slim="slim"
       multiple
       capture="environment"
+      edit
     />
     <QItem v-if="showImages">
       <QItemSection
@@ -303,11 +304,3 @@ export default {
   },
 }
 </script>
-
-<style lang="sass">
-.attachment--actions
-  visibility: hidden
-.attachment:hover
-  .attachment--actions
-    visibility: visible
-</style>

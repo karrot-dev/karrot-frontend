@@ -98,8 +98,12 @@
           @click="openImageGallery(image.id)"
         />
       </div>
+      <Attachments
+        :model-value="message.attachments"
+        :slim="slim"
+      />
       <div
-        v-if="attachmentsForDisplay.length > 0"
+        v-if="false && attachmentsForDisplay.length > 0"
         class="attachments"
       >
         <ul>
@@ -196,12 +200,14 @@ import DateAsWords from '@/utils/components/DateAsWords'
 import Markdown from '@/utils/components/Markdown'
 
 import ConversationAddReaction from './ConversationAddReaction'
+import Attachments from "@/messages/components/Attachments.vue";
 
 const { humanStorageSize } = format
 
 export default {
   name: 'ConversationMessage',
   components: {
+    Attachments,
     ConversationReactions,
     ConversationAddReaction,
     ConversationCompose,
@@ -317,11 +323,12 @@ export default {
         parent: this,
       })
     },
-    async save ({ content, images }) {
+    async save ({ content, images, attachments }) {
       await this.saveMessage({
         id: this.message.id,
         content,
         images,
+        attachments,
       })
       this.toggleEdit()
     },

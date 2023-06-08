@@ -12,12 +12,14 @@
     control-color="white"
     infinite
     padding
+    :class="Platform.is.mobile ? '' : 'q-pa-xl'"
+    @click="event => closeIfOverlay(event)"
   >
     <QCarouselSlide
       v-for="image in images"
       :key="image.id"
       :name="image.id"
-      :img-src="image.urls.preview"
+      :img-src="image.urls.preview || image.urls.original"
     />
     <template #control>
       <QCarouselControl
@@ -52,9 +54,11 @@ import {
   QCarouselSlide,
   QCarouselControl,
   QBtn,
+  Platform,
 } from 'quasar'
 import { computed, ref } from 'vue'
 import { useEvent } from 'vue-composable'
+import {isViewableImageContentType} from "@/utils/utils";
 
 const props = defineProps({
   attachments: {
@@ -73,8 +77,7 @@ const emit = defineEmits([
 ])
 
 const images = computed(() => {
-  return props.attachments
-    .filter(attachment => attachment.contentType?.toUpperCase().startsWith('IMAGE'))
+  return props.attachments.filter(attachment => isViewableImageContentType(attachment.contentType))
 })
 
 const currentId = ref(props.selectedAttachmentId ?? images.value?.[0].id)
@@ -98,6 +101,13 @@ useEvent(document, 'keyup', event => {
     emit('close')
   }
 })
+
+function closeIfOverlay (event) {
+  // The background of the carousel has a role "tabpanel" we can check...
+  if (event.target.attributes.role?.value === 'tabpanel') {
+    emit('close')
+  }
+}
 
 function nextImage () {
   carouselRef.value.next()

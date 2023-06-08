@@ -18,43 +18,10 @@
           :bordered="!Boolean(attachment._img)"
           flat
           class="q-ma-xs attachment"
-          style="height: 70px; max-width: 220px; overflow: hidden;"
+          :tag="props.edit ? 'div' : 'a'"
+          :href="!props.edit && attachment.urls.original"
+          :target="!props.edit && '_blank'"
         >
-          <QCardActions
-            v-if="props.edit && false"
-            align="right"
-            class="absolute-top z-top attachment--action q-pa-xs"
-          >
-            <QBtn
-              icon="fas fa-times"
-              flat
-              round
-              size="sm"
-              color="red"
-              class="bg-white"
-              :title="$t('BUTTON.DELETE')"
-              @click="removeAttachment(attachment)"
-            />
-          </QCardActions>
-          <QCardActions
-            v-if="!props.edit && false"
-            align="right"
-            class="absolute-bottom z-top attachment--action q-pa-xs"
-          >
-            <QBtn
-              v-if="attachment.urls.download"
-              icon="fas fa-download"
-              flat
-              round
-              size="sm"
-              color="white"
-              text-color="primary"
-              class="bg-white"
-              :href="attachment.urls.download"
-              :title="$t('BUTTON.DOWNLOAD')"
-            />
-          </QCardActions>
-
           <QBtn
             v-if="props.edit"
             icon="fas fa-times"
@@ -90,7 +57,7 @@
             >
             <a
               v-else
-              :href="attachment.urls.download"
+              :href="attachment.urls.original"
             >
               <img
                 :src="attachment._img.src"
@@ -99,18 +66,36 @@
               >
             </a>
           </template>
-          <QCardSection
-            v-else
-            class="q-pa-sm"
-            :title="attachment.filename"
-          >
-            <div class="text-subtitle1 ellipsis">
-              {{ attachment.filename }}
-            </div>
-            <div class="text-caption ellipsis">
-              {{ attachment._sizeLabel }}
-            </div>
-          </QCardSection>
+          <template v-else>
+            <QItem
+              class="q-pa-sm"
+              :title="attachment.filename"
+            >
+              <QItemSection
+                v-if="attachment._contentTypeInfo.icon"
+                avatar
+                class="q-pr-sm"
+                style="min-width: auto;"
+              >
+                <QIcon
+                  :name="attachment._contentTypeInfo.icon"
+                  size="md"
+                  color="grey"
+                />
+              </QItemSection>
+              <QItemSection>
+                <div class="text-subtitle1 ellipsis">
+                  {{ attachment.filename }}
+                </div>
+                <div class="text-caption ellipsis">
+                  <span v-if="attachment._contentTypeInfo.name">
+                    {{ attachment._contentTypeInfo.name }}
+                  </span>
+                  {{ attachment._sizeLabel }}
+                </div>
+              </QItemSection>
+            </QItem>
+          </template>
         </QCard>
       </div>
     </QItemSection>
@@ -131,11 +116,14 @@ import {
   QCard,
   QCardSection,
   QCardActions,
+  QIcon,
   format,
 } from 'quasar'
 // naughty! using a "private" module... but it's useful!
 import useFile, { useFileProps } from 'quasar/src/composables/private/use-file'
 import { onMounted, onUnmounted, ref, computed } from 'vue'
+
+import { isViewableImageContentType } from '@/utils/utils'
 
 import AttachmentGallery from '@/messages/components/AttachmentGallery.vue'
 
@@ -264,6 +252,7 @@ function withAttachmentMeta (attachment) {
     _key: getKey(attachment),
     _sizeLabel: getSizeLabel(attachment),
     _img: getImage(attachment),
+    _contentTypeInfo: getContentTypeInfo(attachment),
   }
 }
 
@@ -297,7 +286,7 @@ function getImage (attachment) {
   if (attachment._img) {
     return attachment._img
   }
-  else if (attachment.contentType?.toUpperCase().startsWith('IMAGE')) {
+  else if (isViewableImageContentType(attachment.contentType)) {
     if (attachment._file) {
       const img = new Image()
       img.src = window.URL.createObjectURL(attachment._file)
@@ -305,10 +294,93 @@ function getImage (attachment) {
     }
     else if (attachment.urls) {
       const img = new Image()
-      img.src = attachment.urls.preview
+      img.src = attachment.urls.preview || attachment.urls.original
       return img
     }
   }
+}
+
+function getContentTypeInfo (attachment) {
+  if (attachment._contentTypeInfo) {
+    return attachment._contentTypeInfo
+  }
+  const contentType = attachment.contentType.toLowerCase()
+  switch (contentType) {
+    case 'application/pdf': return {
+      name: 'PDF',
+      icon: 'fas fa-file-pdf',
+    }
+    case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+    case 'application/msword':
+      return {
+        name: 'MS Word',
+        icon: 'fas fa-file-word',
+      }
+    case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+      return {
+        name: 'MS Excel',
+        icon: 'fas fa-file-excel',
+      }
+    case 'text/calendar':
+      return {
+        name: 'iCal',
+      }
+    case 'application/vnd.apple.keynote':
+      return {
+        name: 'Apple Keynote',
+        icon: 'fas fa-file',
+      }
+    case 'application/vnd.apple.pages':
+      return {
+        name: 'Apple Pages',
+        icon: 'fas fa-file',
+      }
+    case 'application/zip':
+      return {
+        name: 'ZIP',
+        icon: 'fas fa-file-archive',
+      }
+    case 'application/gzip':
+      return {
+        name: 'GZIP',
+        icon: 'fas fa-file-archive',
+      }
+    case 'text/markdown':
+      return {
+        name: 'Markdown',
+        icon: 'fas fa-file-code',
+      }
+    case 'application/json':
+      return {
+        name: 'JSON',
+        icon: 'fas fa-file-code',
+      }
+    case 'text/plain':
+      return {
+        name: 'Text',
+        icon: 'fas fa-file-alt',
+      }
+  }
+  if (contentType.startsWith('image/')) {
+    return {
+      name: 'Image',
+      icon: 'fas fa-file-image',
+    }
+  }
+  if (contentType.startsWith('video/')) {
+    return {
+      name: 'Video',
+      icon: 'fas fa-file-video',
+    }
+  }
+  else if (contentType.startsWith('audio/')) {
+    return {
+      name: 'Audio',
+      icon: 'fas fa-file-audio',
+    }
+  }
+  console.log('unmatched contentType', contentType)
+  return {}
 }
 
 function removeAttachment (attachmentToRemove) {
@@ -337,11 +409,14 @@ function openGallery (selectedAttachmentId) {
 </script>
 
 <style scoped lang="sass">
-.image
+.image,
+.attachment
   height: 70px
   min-width: 100px
-  max-width: 220px
+  max-width: 260px
   overflow: hidden
+
+.image
   object-fit: cover
 </style>
 

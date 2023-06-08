@@ -87,13 +87,15 @@ export function filterTruthy (obj) {
 }
 
 export function withoutKeys (...keys) {
-  return obj => {
-    const copy = { ...obj }
-    for (const key of keys) {
-      delete copy[key]
-    }
-    return copy
+  return obj => removeKeys(obj, keys)
+}
+
+export function removeKeys (obj, keys) {
+  const copy = { ...obj }
+  for (const key of keys) {
+    delete copy[key]
   }
+  return copy
 }
 
 export function debounceAndFlushOnUnload (fn, ms, options = {}) {
@@ -145,17 +147,14 @@ export async function toFormData (sourceEntry) {
   }
 
   if (entry.attachments) {
-    console.log('converting attachments', entry.attachments)
     const blobs = {}
     for (const idx of Object.keys(entry.attachments)) {
       const attachment = entry.attachments[idx]
-      if (attachment.toBlob) {
-        const blob = await attachment.toBlob()
-        if (!blob) throw new Error('failed to make a blob for image')
-        blobs[`attachments.${idx}.file`] = blob
+      if (attachment._file) {
+        blobs[`attachments.${idx}.file`] = attachment._file
       }
       else if (attachment._new) {
-        throw new Error('new attachment did not have a toBlob method')
+        throw new Error('new attachment did not have a file')
       }
     }
     for (const key of Object.keys(blobs)) {
@@ -163,7 +162,7 @@ export async function toFormData (sourceEntry) {
       data.append(key, blob, blob.name)
     }
     // we need to leave our original images intact, but only send the required properties to the server
-    entry.attachments = entry.attachments.map(withoutKeys('toBlob'))
+    entry.attachments = entry.attachments.map(removeAttachmentMetaKeys)
   }
 
   data.append(
@@ -175,6 +174,16 @@ export async function toFormData (sourceEntry) {
   )
 
   return data
+}
+
+function removeAttachmentMetaKeys (obj) {
+  // Get rid of all the keys that start with _, except _removed
+  // Also get rid of stuff we don't want to send to the server
+  const keysToRemove = [
+    ...Object.keys(obj).filter(key => key.startsWith('_') && key !== '_removed'),
+    'urls',
+  ]
+  return removeKeys(obj, keysToRemove)
 }
 
 /**
@@ -216,4 +225,18 @@ if (process.env.DEV) {
 
 export function sleep (ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+export function isViewableImageContentType (contentType) {
+  // List from https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#image_types
+  // Which says: The following image types are used commonly enough to be considered safe for use on web pages:
+  return contentType && [
+    'image/apng',
+    'image/avif',
+    'image/gif',
+    'image/jpeg',
+    'image/png',
+    'image/svg+xml',
+    'image/webp',
+  ].includes(contentType.toLowerCase())
 }

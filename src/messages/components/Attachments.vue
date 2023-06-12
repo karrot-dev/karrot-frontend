@@ -3,13 +3,6 @@
     v-if="attachments.length > 0"
     class="q-pa-none"
   >
-    <QItemSection
-      v-if="props.edit && !slim"
-      side
-      top
-      class="q-pr-sm"
-      style="width: 40px;"
-    />
     <QItemSection>
       <div class="row q-pb-sm">
         <QCard
@@ -114,8 +107,6 @@ import {
   QItemSection,
   QBtn,
   QCard,
-  QCardSection,
-  QCardActions,
   QIcon,
   format,
 } from 'quasar'
@@ -133,10 +124,6 @@ const props = defineProps({
   modelValue: {
     type: Array,
     required: true,
-  },
-  slim: {
-    type: Boolean,
-    default: false,
   },
   edit: {
     type: Boolean,
@@ -230,7 +217,7 @@ function addFilesToQueue (e, filesToProcess) {
   attachments.value = attachments.value.concat(fileList.map((file, index) => withAttachmentMeta({
     _file: file,
     filename: file.name,
-    contentType: file.type,
+    contentType: file.type || 'application/octet-stream',
     toBlob () {
       return file
     },
@@ -249,61 +236,68 @@ function withAttachmentMeta (attachment) {
   return {
     ...attachment,
     _new: !attachment.id,
-    _key: getKey(attachment),
-    _sizeLabel: getSizeLabel(attachment),
-    _img: getImage(attachment),
-    _contentTypeInfo: getContentTypeInfo(attachment),
+    _key: attachment._key ?? getKey(attachment),
+    _sizeLabel: attachment._sizeLabel ?? getSizeLabel(attachment),
+    _img: attachment._img ?? getImage(attachment),
+    _contentTypeInfo: attachment._contentTypeInfo ?? getContentTypeInfo(attachment),
   }
 }
 
 function getSizeLabel (attachment) {
-  if (attachment._sizeLabel) {
-    return attachment._sizeLabel
+  if (attachment._file) {
+    return humanStorageSize(attachment._file.size)
   }
   else if (attachment.size) {
     return humanStorageSize(attachment.size)
   }
-  else if (attachment._file) {
-    return humanStorageSize(attachment._file.size)
-  }
 }
 
 function getKey (attachment) {
-  if (attachment._key) {
-    return attachment._key
-  }
-  else if (attachment._file) {
+  if (attachment._file) {
     const file = attachment._file
     // borrowed from quasars use-file inside processFiles()
     return file.webkitRelativePath + file.lastModified + file.name + file.size
   }
-  else {
-    return attachment.id
-  }
+  return attachment.id
 }
 
 function getImage (attachment) {
-  if (attachment._img) {
-    return attachment._img
-  }
-  else if (isViewableImageContentType(attachment.contentType)) {
-    if (attachment._file) {
-      const img = new Image()
-      img.src = window.URL.createObjectURL(attachment._file)
-      return img
+  if (attachment._file) {
+    // This means it's a new one we're about to upload
+    // If it's something we would later view, then show it!
+    if (isViewableImageContentType(attachment.contentType)) {
+      return fileToImage(attachment._file)
     }
-    else if (attachment.urls) {
-      const img = new Image()
-      img.src = attachment.urls.preview || attachment.urls.original
-      return img
+    // If *could* be a type that we would later render as a preview
+    // ... but we can't create that preview on the client, so no img to show...
+  }
+  else if (attachment.urls) {
+    const { preview, original } = attachment.urls
+    if (preview) {
+      // We have a preview, show it!
+      return urlToImage(preview)
+    }
+    else if (original && isViewableImageContentType(attachment.contentType)) {
+      // We don't have a preview, but the original is a viewable type, so just show that
+      // This would be used for formats we don't support previews for on the backend, e.g. svg
+      return urlToImage(original)
     }
   }
 }
 
+function fileToImage(file) {
+  const img = new Image()
+  img.src = window.URL.createObjectURL(file)
+  return img
+}
+
+function urlToImage (url) {
+  const img = new Image()
+  img.src = url
+  return img
+}
+
 function getContentTypeInfo (attachment) {
-  if (attachment._contentTypeInfo) {
-    return attachment._contentTypeInfo
-  }
   const contentType = attachment.contentType.toLowerCase()
   switch (contentType) {
     case 'application/pdf': return {
@@ -379,7 +373,6 @@ function getContentTypeInfo (attachment) {
       icon: 'fas fa-file-audio',
     }
   }
-  console.log('unmatched contentType', contentType)
   return {}
 }
 

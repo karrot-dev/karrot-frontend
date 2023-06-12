@@ -35,60 +35,19 @@
           >
             <template #append>
               <QBtn
-                v-if="false"
+                round
+                dense
+                flat
+                icon="fas fa-paperclip"
+                @click="addAttachment"
+              />
+              <QBtn
                 round
                 dense
                 flat
                 icon="fas fa-image"
                 @click="addImage"
               />
-              <QBtn
-                round
-                dense
-                flat
-                icon="fas fa-paperclip"
-              >
-                <QMenu>
-                  <QList>
-                    <QItem
-                      clickable
-                      @click="addImage"
-                    >
-                      <QItemSection
-                        avatar
-                        side
-                      >
-                        <QAvatar
-                          color="primary"
-                          text-color="white"
-                          icon="fas fa-image"
-                        />
-                      </QItemSection>
-                      <QItemSection>
-                        Add image
-                      </QItemSection>
-                    </QItem>
-                    <QItem
-                      clickable
-                      @click="addAttachment"
-                    >
-                      <QItemSection
-                        avatar
-                        side
-                      >
-                        <QAvatar
-                          color="primary"
-                          text-color="white"
-                          icon="fas fa-file"
-                        />
-                      </QItemSection>
-                      <QItemSection>
-                        Add file
-                      </QItemSection>
-                    </QItem>
-                  </QList>
-                </QMenu>
-              </QBtn>
               <QBtn
                 v-if="hasContent && !isPending"
                 round
@@ -116,16 +75,15 @@
         >
           <span v-t="'CONVERSATION.NOT_PARTICIPATED'" />
         </QItemLabel>
+        <Attachments
+          ref="attachments"
+          v-model="message.attachments"
+          multiple
+          capture="environment"
+          edit
+        />
       </QItemSection>
     </QItem>
-    <Attachments
-      ref="attachments"
-      v-model="message.attachments"
-      :slim="slim"
-      multiple
-      capture="environment"
-      edit
-    />
     <QItem v-if="showImages">
       <QItemSection
         v-if="!slim"
@@ -152,11 +110,8 @@ import deepEqual from 'deep-equal'
 import {
   QItem,
   QItemSection,
-  QList,
-  QAvatar,
   QItemLabel,
   QBtn,
-  QMenu,
 } from 'quasar'
 
 import { deleteDraft, fetchDraft, saveDraft } from '@/messages/utils'
@@ -173,10 +128,7 @@ export default {
     QItem,
     QItemSection,
     QItemLabel,
-    QList,
-    QAvatar,
     QBtn,
-    QMenu,
     ProfilePicture,
     MarkdownInput,
     MultiCroppa,

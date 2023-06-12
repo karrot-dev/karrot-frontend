@@ -34,43 +34,42 @@
         ref="messagesList"
         class="bg-white desktop-margin relative-position q-pb-md rounded-borders"
         bordered
+        v-if="hasLoaded && messages.length > 0"
       >
-        <template v-if="hasLoaded">
-          <QBanner
-            v-if="isParticipant && unreadMessageCount > 0"
-            class="bg-secondary text-white q-mt-sm"
-            style="min-height: unset"
-          >
-            <template #avatar>
-              <QIcon
-                name="star"
-                color="white"
-                size="1.5em"
-              />
-            </template>
-            <div class="row justify-between items-center">
-              <small>
-                {{ $tc('CONVERSATION.UNREAD_MESSAGES', unreadMessageCount, {
-                  count: unreadMessageCount > 99 ? '99+' : unreadMessageCount,
-                }) }}
-              </small>
-              <QBtn
-                no-caps
-                outline
-                size="sm"
-                @click="() => markAllRead()"
-              >
-                <span v-t="'CONVERSATION.MARK_READ'" />
-              </QBtn>
-            </div>
-          </QBanner>
-          <ConversationMessage
-            v-for="message in messages"
-            :key="message.id"
-            :message="message"
-            :is-unread="conversation.seenUpTo && message.id > conversation.seenUpTo"
-          />
-        </template>
+        <QBanner
+          v-if="isParticipant && unreadMessageCount > 0"
+          class="bg-secondary text-white q-mt-sm"
+          style="min-height: unset"
+        >
+          <template #avatar>
+            <QIcon
+              name="star"
+              color="white"
+              size="1.5em"
+            />
+          </template>
+          <div class="row justify-between items-center">
+            <small>
+              {{ $tc('CONVERSATION.UNREAD_MESSAGES', unreadMessageCount, {
+                count: unreadMessageCount > 99 ? '99+' : unreadMessageCount,
+              }) }}
+            </small>
+            <QBtn
+              no-caps
+              outline
+              size="sm"
+              @click="() => markAllRead()"
+            >
+              <span v-t="'CONVERSATION.MARK_READ'" />
+            </QBtn>
+          </div>
+        </QBanner>
+        <ConversationMessage
+          v-for="message in messages"
+          :key="message.id"
+          :message="message"
+          :is-unread="conversation.seenUpTo && message.id > conversation.seenUpTo"
+        />
         <KSpinner v-show="isLoadingMessages || isFetchingNextPage" />
       </QList>
     </QInfiniteScroll>

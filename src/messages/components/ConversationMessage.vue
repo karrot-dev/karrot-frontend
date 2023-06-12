@@ -86,6 +86,7 @@
         />
         )
       </QItemLabel>
+      <Attachments :model-value="message.attachments" />
       <div
         v-if="imagesForDisplay.length > 0"
         class="images"
@@ -97,29 +98,6 @@
           class="q-mr-sm q-mb-sm"
           @click="openImageGallery(image.id)"
         />
-      </div>
-      <Attachments
-        :model-value="message.attachments"
-        :slim="slim"
-      />
-      <div
-        v-if="false && attachmentsForDisplay.length > 0"
-        class="attachments"
-      >
-        <ul>
-          <li
-            v-for="attachment in attachmentsForDisplay"
-            :key="attachment.id"
-          >
-            <a :href="attachment.downloadUrl">
-              {{ attachment.filename }} ({{ humanStorageSize(attachment.size) }})
-            </a>
-            <img
-              v-if="attachment.urls.thumbnail"
-              :src="attachment.urls.thumbnail"
-            >
-          </li>
-        </ul>
       </div>
       <ConversationReactions
         v-if="hasReactions"
@@ -192,6 +170,7 @@ import {
 import { useDetailService } from '@/messages/services'
 import { useUserService } from '@/users/services'
 
+import Attachments from '@/messages/components/Attachments.vue'
 import ConversationCompose from '@/messages/components/ConversationCompose'
 import ConversationReactions from '@/messages/components/ConversationReactions'
 import ImageGalleryDialog from '@/messages/components/ImageGalleryDialog'
@@ -200,7 +179,6 @@ import DateAsWords from '@/utils/components/DateAsWords'
 import Markdown from '@/utils/components/Markdown'
 
 import ConversationAddReaction from './ConversationAddReaction'
-import Attachments from "@/messages/components/Attachments.vue";
 
 const { humanStorageSize } = format
 

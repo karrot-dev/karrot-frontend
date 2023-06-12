@@ -137,9 +137,7 @@ export async function toFormData (sourceEntry) {
     const value = entry[key]
     if (value && typeof value === 'object' && value.toBlob) {
       const image = entry[key]
-      console.log('making blob from', image)
       const blob = await image.toBlob(MIME_TYPE)
-      console.log('BLOB!', blob)
       if (!blob) throw new Error('failed to make a blob for image')
       data.append(underscorize(key), blob, `image.${EXTENSION}`)
       delete entry[key]
@@ -174,6 +172,12 @@ export async function toFormData (sourceEntry) {
   )
 
   return data
+}
+
+export function getFormDataSize (formData) {
+  return Array
+    .from(formData.values(), data => data instanceof Blob ? data.size : data.length)
+    .reduce((sum, size) => sum + size, 0)
 }
 
 function removeAttachmentMetaKeys (obj) {
@@ -230,7 +234,8 @@ export function sleep (ms) {
 export function isViewableImageContentType (contentType) {
   // List from https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#image_types
   // Which says: The following image types are used commonly enough to be considered safe for use on web pages:
-  return contentType && [
+  if (!contentType) return false
+  return [
     'image/apng',
     'image/avif',
     'image/gif',

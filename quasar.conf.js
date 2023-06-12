@@ -134,50 +134,12 @@ module.exports = configure(function (ctx) {
 
       sourceMap: true,
 
-      // https://quasar.dev/quasar-cli/handling-webpack
-      chainWebpack (chain) {
-        const imagesRule = chain.module.rule('images')
-        // save loader options from quasar - returns an object like this:
-        /*
-        {
-          esModule: false,
-          limit: 10000,
-          name: 'img/[name].[ext]',
-        }
-        */
-        const imagesRuleOptions = imagesRule.uses.entries()['url-loader'].store.get('options')
-
-        // clear all existing loaders.
-        // if you don't do this, the loader below will be appended to
-        // existing loaders of the rule.
-        imagesRule.uses.clear()
-
-        /* eslint-disable indent */
-        imagesRule
-          .oneOf('disableinline')
-            .resourceQuery(/disableinline/)
-            .use('url-loader')
-              .loader('url-loader')
-              .options({ ...imagesRuleOptions, limit: -1 })
-              .end()
-            .end()
-          .oneOf('inline') // aka default from quasar
-            .use('url-loader')
-              .loader('url-loader')
-              .options(imagesRuleOptions)
-
-        chain.module
-        .rule('i18n-resource')
-          .test(/\.json$/)
-            .include.add(resolve(__dirname, './src/locales'))
-            .end()
-          .exclude.add(resolve(__dirname, './src/locales/translationStatus.json')).end()
-          .type('javascript/auto')
-          .use('i18n-resource')
-            .loader('@intlify/vue-i18n-loader')
-        /* eslint-enable indent */
-
-        chain.resolve.alias.set('vue-i18n$', 'vue-i18n/dist/vue-i18n.runtime.esm-bundler.js')
+      alias: {
+        '@': resolve(__dirname, './src'),
+        '>': resolve(__dirname, './test'),
+        variables: resolve(__dirname, './src/css/quasar.variables.sass'),
+        editbox: resolve(__dirname, './src/css/karrot.editbox.sass'),
+        vue: '@vue/compat',
       },
 
       // for compatibility with vue-croppa
@@ -190,68 +152,6 @@ module.exports = configure(function (ctx) {
             MODE: 3,
           },
         },
-      },
-
-      extendWebpack (cfg) {
-        cfg.plugins.push(new ESLintPlugin())
-
-        cfg.resolve.alias = {
-          ...cfg.resolve.alias, // This adds the existing alias
-          ...webpackAliases, // from webpack.aliases.js
-        }
-
-        // We're ignore the quasar-ui-qiconpicker icon sets as we don't need them all
-        // They are quite big, so can make some savings
-        // We load what we want explicitly in src/pickerIcons.js
-
-        // Check we actually ignored some, as perhaps the config breaks one day...
-        const ignoredIconSetResources = new Set()
-
-        cfg.plugins.push(
-          new webpack.IgnorePlugin({
-            checkResource (resource, context) {
-              if (context.endsWith('@quasar/quasar-ui-qiconpicker/src/components/icon-set')) {
-                ignoredIconSetResources.add(resource)
-                return true
-              }
-              return false
-            },
-          }),
-        )
-
-        cfg.plugins.push({
-          apply (compiler) {
-            compiler.hooks.done.tap(
-              'KarrotPlugin',
-              () => {
-                if (ignoredIconSetResources.size === 0) {
-                  throw new Error('expected to ignore some icon-sets... maybe something about the library changed?')
-                }
-              },
-            )
-          },
-        })
-
-        cfg.plugins.push(
-          new PreloadWebpackPlugin({
-            fileWhitelist: [/\.woff?$/],
-            include: 'allAssets',
-            rel: 'prefetch',
-          }),
-        )
-
-        if (!dev) {
-          cfg.plugins.push(new BundleAnalyzerPlugin({
-            analyzerMode: ctx.mode.cordova ? 'disabled' : 'static',
-            reportFilename: 'bundlesize.html',
-            defaultSizes: 'gzip',
-            openAnalyzer: false,
-            generateStatsFile: false,
-            statsFilename: 'stats.json',
-            statsOptions: null,
-            logLevel: 'info',
-          }))
-        }
       },
     },
 
@@ -300,12 +200,6 @@ module.exports = configure(function (ctx) {
           // See https://github.com/karrot-dev/karrot-frontend/issues/2209
           'index.html',
         ],
-      },
-      extendWebpackCustomSW (cfg) {
-        cfg.resolve.alias = {
-          ...cfg.resolve.alias,
-          '@': resolve(__dirname, './src'),
-        }
       },
       manifest: {
         name: process.env.PWA_APP_NAME || 'Karrot local dev',

@@ -209,8 +209,8 @@ import { useUserService } from '@/users/services'
 import statusMixin from '@/utils/mixins/statusMixin'
 import { withoutKeys } from '@/utils/utils'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
-import MarkdownInput from '@/utils/components/MarkdownInput'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
 export default {
   components: {

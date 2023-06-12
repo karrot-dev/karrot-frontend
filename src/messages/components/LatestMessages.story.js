@@ -6,7 +6,7 @@ import * as factories from '>/enrichedFactories'
 import { storybookDefaults as defaults } from '>/helpers'
 import { messagesMock, usersMock, activitiesMock, groupsMock } from '>/mockdata'
 
-import LatestMessageItem from './LatestMessageItem'
+import LatestMessageItem from './LatestMessageItem.vue'
 
 const on = {
   onOpen: action('open'),

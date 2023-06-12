@@ -156,8 +156,8 @@ import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
 import dateFnsHelper from '@/utils/dateFnsHelper'
 
-import NotificationToggle from '@/messages/components/NotificationToggle'
-import ProfilePicture from '@/users/components/ProfilePicture'
+import NotificationToggle from '@/messages/components/NotificationToggle.vue'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
 
 export default {
   components: {

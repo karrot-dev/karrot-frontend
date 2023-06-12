@@ -155,13 +155,13 @@ import { usePlaceSubscribeMutation, usePlaceUnsubscribeMutation } from '@/places
 import { useActivePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
 
-import StandardMap from '@/maps/components/StandardMap'
+import StandardMap from '@/maps/components/StandardMap.vue'
 import { placeMarker } from '@/maps/components/markers'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import KSpinner from '@/utils/components/KSpinner'
-import Markdown from '@/utils/components/Markdown'
-import RandomArt from '@/utils/components/RandomArt'
-import ShowMore from '@/utils/components/ShowMore'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
+import Markdown from '@/utils/components/Markdown.vue'
+import RandomArt from '@/utils/components/RandomArt.vue'
+import ShowMore from '@/utils/components/ShowMore.vue'
 
 export default {
   components: {

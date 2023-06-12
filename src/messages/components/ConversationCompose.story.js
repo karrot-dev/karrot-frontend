@@ -4,7 +4,7 @@ import { h } from 'vue'
 import * as factories from '>/enrichedFactories'
 import { createDatastore, storybookDefaults as defaults, statusMocks } from '>/helpers'
 
-import ConversationCompose from './ConversationCompose'
+import ConversationCompose from './ConversationCompose.vue'
 
 const user = factories.makeCurrentUser()
 

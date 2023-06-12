@@ -142,9 +142,9 @@ import { usePlaceTypeService } from '@/places/services'
 import { showToast } from '@/utils/toasts'
 
 // TODO this fails during testing, service can't getCurrentInstance() :(
-// const ActivityEdit = defineAsyncComponent(() => import('./ActivityEdit'))
-import ActivityEdit from './ActivityEdit'
-const ActivitySeriesEdit = defineAsyncComponent(() => import('./ActivitySeriesEdit'))
+// const ActivityEdit = defineAsyncComponent(() => import('./ActivityEdit.vue'))
+import ActivityEdit from './ActivityEdit.vue'
+const ActivitySeriesEdit = defineAsyncComponent(() => import('./ActivitySeriesEdit.vue'))
 
 const fabOpen = ref(false)
 const isOpen = ref(false)

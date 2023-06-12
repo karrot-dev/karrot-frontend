@@ -16,7 +16,7 @@ import { useFeedbackListQuery } from '@/feedback/queries'
 import { useCurrentGroupService } from '@/group/services'
 import { useStatusService } from '@/status/services'
 
-import FeedbackList from '@/feedback/components/FeedbackList'
+import FeedbackList from '@/feedback/components/FeedbackList.vue'
 
 const { groupId } = useCurrentGroupService()
 const { getGroupStatus } = useStatusService()

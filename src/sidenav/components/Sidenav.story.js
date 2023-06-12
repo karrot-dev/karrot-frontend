@@ -4,11 +4,11 @@ import { h } from 'vue'
 import * as factories from '>/enrichedFactories'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 
-import GroupOptions from './GroupOptionsUI'
-import MobileSidenavUI from './MobileSidenavUI'
-import SidenavGroupUI from './SidenavGroupUI'
-import SidenavMap from './SidenavMap'
-import SidenavPlacesUI from './SidenavPlacesUI'
+import GroupOptions from './GroupOptionsUI.vue'
+import MobileSidenavUI from './MobileSidenavUI.vue'
+import SidenavGroupUI from './SidenavGroupUI.vue'
+import SidenavMap from './SidenavMap.vue'
+import SidenavPlacesUI from './SidenavPlacesUI.vue'
 
 const range = n => [...Array(n).keys()]
 

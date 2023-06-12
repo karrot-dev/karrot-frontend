@@ -55,7 +55,7 @@ import {
 
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import VerificationWarning from '@/authuser/components/Settings/VerificationWarning'
+import VerificationWarning from '@/authuser/components/Settings/VerificationWarning.vue'
 
 export default {
   components: {

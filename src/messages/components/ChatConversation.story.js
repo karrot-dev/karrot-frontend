@@ -5,7 +5,7 @@ import * as factories from '>/enrichedFactories'
 import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 import { messagesMock } from '>/mockdata'
 
-import ChatConversation from './ChatConversation'
+import ChatConversation from './ChatConversation.vue'
 
 const conversation = factories.makeConversation()
 const thread = factories.makeThread()

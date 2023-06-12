@@ -22,7 +22,7 @@ import {
   QItemLabel,
 } from 'quasar'
 
-import IssueHistoryItem from '@/issues/components/IssueHistoryItem'
+import IssueHistoryItem from '@/issues/components/IssueHistoryItem.vue'
 
 export default {
   components: {

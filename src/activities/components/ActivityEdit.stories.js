@@ -10,7 +10,7 @@ import {
   createActivitySeries,
 } from '>/mockBackend'
 
-import ActivityEdit from './ActivityEdit'
+import ActivityEdit from './ActivityEdit.vue'
 
 const group = createGroup()
 createPlaceType({ group: group.id })

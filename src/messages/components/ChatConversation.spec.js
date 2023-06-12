@@ -6,8 +6,8 @@ import { nextTick } from 'vue'
 import * as factories from '>/enrichedFactories'
 import { createDatastore, mountWithDefaults } from '>/helpers'
 
-import ChatConversation from './ChatConversation'
-import ConversationCompose from './ConversationCompose'
+import ChatConversation from './ChatConversation.vue'
+import ConversationCompose from './ConversationCompose.vue'
 
 const defaultProps = data => ({
   currentUser: factories.makeCurrentUser(),

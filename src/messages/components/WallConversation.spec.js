@@ -19,7 +19,7 @@ import { addUserToConversation } from '>/mockBackend/conversations'
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
-import WallConversation from './WallConversation'
+import WallConversation from './WallConversation.vue'
 
 describe('WallConversation', () => {
   let group

@@ -9,7 +9,7 @@ import { useMockBackend, createUser, createGroup, createOffer, loginAs, db, setP
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
-import GroupOffers from './GroupOffers'
+import GroupOffers from './GroupOffers.vue'
 
 describe('GroupOffers', () => {
   useMockBackend()

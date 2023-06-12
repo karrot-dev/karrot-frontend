@@ -331,12 +331,12 @@ import statusMixin from '@/utils/mixins/statusMixin'
 import reactiveNow from '@/utils/reactiveNow'
 import { objectDiff } from '@/utils/utils'
 
-import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog'
-import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
-import ImageUpload from '@/utils/components/ImageUpload'
-import MarkdownInput from '@/utils/components/MarkdownInput'
+import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog.vue'
+import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit.vue'
+import ImageUpload from '@/utils/components/ImageUpload.vue'
+import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
-const ActivityItem = defineAsyncComponent(() => import('@/activities/components/ActivityItem'))
+const ActivityItem = defineAsyncComponent(() => import('@/activities/components/ActivityItem.vue'))
 
 export default {
   name: 'ActivityEdit',

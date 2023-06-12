@@ -2,8 +2,8 @@ import { QBtn } from 'quasar'
 
 import { mountWithDefaults, nextTicks } from '>/helpers'
 
-import ConversationAddReactionInner from './ConversationAddReactionInner'
-import EmojiButton from './EmojiButton'
+import ConversationAddReactionInner from './ConversationAddReactionInner.vue'
+import EmojiButton from './EmojiButton.vue'
 
 describe.skip('Conversation message reactions', () => {
   beforeEach(() => jest.resetModules())

@@ -90,7 +90,7 @@ import {
 
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import SplashInput from '@/utils/components/SplashInput'
+import SplashInput from '@/utils/components/SplashInput.vue'
 
 export default {
   components: {

@@ -51,7 +51,7 @@ import {
 
 import paginationMixin from '@/utils/mixins/paginationMixin'
 
-import ApplicationItem from './ApplicationItem'
+import ApplicationItem from './ApplicationItem.vue'
 
 export default {
   components: {

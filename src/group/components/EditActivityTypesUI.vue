@@ -117,7 +117,7 @@ import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useCreateActivityTypeMutation, useSaveActivityTypeMutation } from '@/activities/mutations'
 import { useCurrentGroupService } from '@/group/services'
 
-import ActivityTypeForm from '@/group/components/ActivityTypeForm'
+import ActivityTypeForm from '@/group/components/ActivityTypeForm.vue'
 
 export default {
   components: {

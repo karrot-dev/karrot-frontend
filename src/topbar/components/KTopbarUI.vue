@@ -209,11 +209,11 @@ import {
 } from 'quasar'
 import { ref } from 'vue'
 
-import KarrotLogo from '@/logo/components/KarrotLogo'
-import LatestMessageButton from '@/messages/components/LatestMessageButton'
-import NotificationButton from '@/notifications/components/NotificationButton'
-import KBreadcrumb from '@/topbar/components/KBreadcrumb'
-import Search from '@/topbar/components/Search'
+import KarrotLogo from '@/logo/components/KarrotLogo.vue'
+import LatestMessageButton from '@/messages/components/LatestMessageButton.vue'
+import NotificationButton from '@/notifications/components/NotificationButton.vue'
+import KBreadcrumb from '@/topbar/components/KBreadcrumb.vue'
+import Search from '@/topbar/components/Search.vue'
 
 export default {
   components: {

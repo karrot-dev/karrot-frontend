@@ -13,7 +13,7 @@ import { useRouter } from 'vue-router'
 import { useCreateAgreementMutation } from '@/agreements/mutations'
 import { useCurrentGroupService } from '@/group/services'
 
-import AgreementForm from '@/agreements/components/AgreementForm'
+import AgreementForm from '@/agreements/components/AgreementForm.vue'
 
 const router = useRouter()
 

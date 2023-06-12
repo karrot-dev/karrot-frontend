@@ -8,7 +8,7 @@ import { withDefaults } from '>/helpers'
 import { createGroup, createIssue, createUser, db, loginAs, setPageSize, useMockBackend } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 
-import IssueList from './IssueList'
+import IssueList from './IssueList.vue'
 
 describe('IssueList', () => {
   let issues

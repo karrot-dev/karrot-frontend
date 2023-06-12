@@ -29,7 +29,7 @@
 <script>
 import { QCard } from 'quasar'
 
-import ActivityList from '@/activities/components/ActivityList'
+import ActivityList from '@/activities/components/ActivityList.vue'
 
 export default {
   components: {

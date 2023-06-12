@@ -187,11 +187,11 @@ import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
 import dateFnsHelper from '@/utils/dateFnsHelper'
 
-import HistoryPayloadDetail from '@/history/components/HistoryPayloadDetail'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import DateAsWords from '@/utils/components/DateAsWords'
+import HistoryPayloadDetail from '@/history/components/HistoryPayloadDetail.vue'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import DateAsWords from '@/utils/components/DateAsWords.vue'
 
-const HistoryDiff = defineAsyncComponent(() => import('@/history/components/HistoryDiff'))
+const HistoryDiff = defineAsyncComponent(() => import('@/history/components/HistoryDiff.vue'))
 
 export default {
   components: {

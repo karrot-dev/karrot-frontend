@@ -92,7 +92,7 @@ import {
 import geocoding from '@/maps/api/geocoding'
 import { filterTruthy } from '@/utils/utils'
 
-import StandardMap from '@/maps/components/StandardMap'
+import StandardMap from '@/maps/components/StandardMap.vue'
 
 export default {
   components: {

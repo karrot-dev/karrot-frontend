@@ -95,9 +95,9 @@ import { usePlaceHelpers } from '@/places/helpers'
 import { placeRoute } from '@/places/utils'
 import { useStatusService } from '@/status/services'
 
-import KSpinner from '@/utils/components/KSpinner'
+import KSpinner from '@/utils/components/KSpinner.vue'
 
-import SidenavBox from './SidenavBox'
+import SidenavBox from './SidenavBox.vue'
 
 const {
   getIsActivePlace,

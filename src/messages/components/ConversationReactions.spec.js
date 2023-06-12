@@ -3,8 +3,8 @@ import { QBtn } from 'quasar'
 import { mountWithDefaults } from '>/helpers'
 import { currentUserMock, usersMockWithoutCurrent } from '>/mockdata'
 
-import MessageReactions from './ConversationReactions'
-import EmojiButton from './EmojiButton'
+import MessageReactions from './ConversationReactions.vue'
+import EmojiButton from './EmojiButton.vue'
 
 describe.skip('Conversation message reactions', () => {
   let wrapper

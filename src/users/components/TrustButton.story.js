@@ -4,7 +4,7 @@ import { h } from 'vue'
 
 import { createDatastore, statusMocks } from '>/helpers'
 
-import TrustButton from './TrustButton'
+import TrustButton from './TrustButton.vue'
 
 const datastore = createDatastore({
   users: { getters: { get: () => id => id } },

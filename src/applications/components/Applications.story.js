@@ -5,8 +5,8 @@ import { h } from 'vue'
 import * as factories from '>/enrichedFactories'
 import { storybookDefaults as defaults, statusMocks, range } from '>/helpers'
 
-import ApplicationFormUI from './ApplicationFormUI'
-import ApplicationList from './ApplicationList'
+import ApplicationFormUI from './ApplicationFormUI.vue'
+import ApplicationList from './ApplicationList.vue'
 
 const group = factories.makeGroup()
 const pending = range(3).map(() => factories.makeApplication())

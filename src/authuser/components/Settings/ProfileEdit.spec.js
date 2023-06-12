@@ -4,7 +4,7 @@ import { mountWithDefaults, statusMocks } from '>/helpers'
 import '>/routerMocks'
 import { useMockBackend, createUser, loginAs } from '>/mockBackend'
 
-import ProfileEdit from './ProfileEdit'
+import ProfileEdit from './ProfileEdit.vue'
 
 describe('ProfileEdit', () => {
   useMockBackend()

@@ -65,8 +65,8 @@ import { useCurrentGroupService } from '@/group/services'
 import { useDetailService } from '@/messages/services'
 import { useUserService } from '@/users/services'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
-import DateAsWords from '@/utils/components/DateAsWords'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import DateAsWords from '@/utils/components/DateAsWords.vue'
 
 export default {
   components: {

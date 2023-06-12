@@ -7,11 +7,11 @@ import { feedbackMock, activitiesMock } from '>/mockdata'
 
 import ActivityFeedback from '../pages/ActivityFeedback'
 
-import AmountBox from './AmountBox'
-import AmountPicker from './AmountPicker'
-import FeedbackItem from './FeedbackItem'
-import FeedbackList from './FeedbackList'
-import PlaceFeedback from './PlaceFeedback'
+import AmountBox from './AmountBox.vue'
+import AmountPicker from './AmountPicker.vue'
+import FeedbackItem from './FeedbackItem.vue'
+import FeedbackList from './FeedbackList.vue'
+import PlaceFeedback from './PlaceFeedback.vue'
 
 const range = n => [...Array(n).keys()]
 

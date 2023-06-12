@@ -19,7 +19,7 @@ import { computed } from 'vue'
 
 import { useCurrentGroupService } from '@/group/services'
 
-import StandardMap from '@/maps/components/StandardMap'
+import StandardMap from '@/maps/components/StandardMap.vue'
 import { userMarker } from '@/maps/components/markers'
 
 const props = defineProps({

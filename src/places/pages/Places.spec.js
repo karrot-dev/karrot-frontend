@@ -16,7 +16,7 @@ import {
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
-import Places from './Places'
+import Places from './Places.vue'
 
 describe('Places', () => {
   let places

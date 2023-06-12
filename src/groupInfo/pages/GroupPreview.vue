@@ -255,9 +255,9 @@ import { useDetailService } from '@/messages/services'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 import { showToast } from '@/utils/toasts'
 
-import ICSBtn from '@/activities/components/ICSBtn'
-import Markdown from '@/utils/components/Markdown'
-import RandomArt from '@/utils/components/RandomArt'
+import ICSBtn from '@/activities/components/ICSBtn.vue'
+import Markdown from '@/utils/components/Markdown.vue'
+import RandomArt from '@/utils/components/RandomArt.vue'
 
 const { openApplication } = useDetailService()
 const { getIconProps, getTranslatedName } = useActivityTypeHelpers()

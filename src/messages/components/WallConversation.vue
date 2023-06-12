@@ -86,11 +86,11 @@ import {
 } from '@/messages/mutations'
 import { useConversationQuery, useMessageListQuery } from '@/messages/queries'
 
-import KSpinner from '@/utils/components/KSpinner'
+import KSpinner from '@/utils/components/KSpinner.vue'
 
-import ConversationCompose from './ConversationCompose'
-import ConversationMessage from './ConversationMessage'
-import NotificationToggle from './NotificationToggle'
+import ConversationCompose from './ConversationCompose.vue'
+import ConversationMessage from './ConversationMessage.vue'
+import NotificationToggle from './NotificationToggle.vue'
 
 export default {
   name: 'WallConversation',

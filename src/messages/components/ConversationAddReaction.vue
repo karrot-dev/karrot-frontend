@@ -28,7 +28,7 @@ import {
 } from 'quasar'
 import { defineAsyncComponent } from 'vue'
 
-const ConversationAddReactionInner = defineAsyncComponent(() => import('./ConversationAddReactionInner'))
+const ConversationAddReactionInner = defineAsyncComponent(() => import('./ConversationAddReactionInner.vue'))
 
 export default {
   components: {

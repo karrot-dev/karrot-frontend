@@ -232,16 +232,16 @@ import { useIssueListQuery } from '@/issues/queries'
 import { useDetailService } from '@/messages/services'
 import { useActiveUserService } from '@/users/services'
 
-import HistoryList from '@/history/components/HistoryList'
-import UserMapPreview from '@/maps/components/UserMapPreview'
+import HistoryList from '@/history/components/HistoryList.vue'
+import UserMapPreview from '@/maps/components/UserMapPreview.vue'
 import ApproveButton from '@/users/components/ApproveButton.vue'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import SwitchGroupButton from '@/users/components/SwitchGroupButton'
-import TrustButton from '@/users/components/TrustButton'
-import KSpinner from '@/utils/components/KSpinner'
-import Markdown from '@/utils/components/Markdown'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import SwitchGroupButton from '@/users/components/SwitchGroupButton.vue'
+import TrustButton from '@/users/components/TrustButton.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
+import Markdown from '@/utils/components/Markdown.vue'
 
-const ConflictSetup = defineAsyncComponent(() => import('@/issues/components/ConflictSetup'))
+const ConflictSetup = defineAsyncComponent(() => import('@/issues/components/ConflictSetup.vue'))
 
 export default {
   components: {

@@ -18,7 +18,7 @@ import {
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
-import Settings from './Settings'
+import Settings from './Settings.vue'
 
 // somehow showToast can't run Notify.create, possibly a problem with initializing Quasar
 // let's just mock it in the meantime

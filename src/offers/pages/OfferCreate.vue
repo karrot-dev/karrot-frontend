@@ -10,7 +10,7 @@
 import { useCurrentGroupService } from '@/group/services'
 import { useCreateOfferMutation } from '@/offers/mutations'
 
-import OfferForm from '@/offers/components/OfferForm'
+import OfferForm from '@/offers/components/OfferForm.vue'
 
 const { groupId } = useCurrentGroupService()
 const {

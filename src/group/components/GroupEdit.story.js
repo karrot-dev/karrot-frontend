@@ -5,7 +5,7 @@ import { h } from 'vue'
 import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
 import { groupsMock, timezones } from '>/mockdata'
 
-import GroupEdit from './GroupEdit'
+import GroupEdit from './GroupEdit.vue'
 
 const methods = {
   save: action('save group'),

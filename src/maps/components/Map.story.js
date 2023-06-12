@@ -5,9 +5,9 @@ import { h } from 'vue'
 import { storybookDefaults as defaults } from '>/helpers'
 import { usersMock, placesMock, placeWithoutLocation } from '>/mockdata'
 
-import GroupMap from './GroupMap'
-import StandardMap from './StandardMap'
-import UserMapPreview from './UserMapPreview'
+import GroupMap from './GroupMap.vue'
+import StandardMap from './StandardMap.vue'
+import UserMapPreview from './UserMapPreview.vue'
 
 const style = {
   height: '200px',

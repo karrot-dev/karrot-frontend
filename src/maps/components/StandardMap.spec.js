@@ -1,13 +1,13 @@
 import { flushPromises } from '@vue/test-utils'
 
-import GroupMarker from '@/maps/components/GroupMarker'
-import KMap from '@/maps/components/KMap'
-import KMarker from '@/maps/components/KMarker'
+import GroupMarker from '@/maps/components/GroupMarker.vue'
+import KMap from '@/maps/components/KMap.vue'
+import KMarker from '@/maps/components/KMarker.vue'
 
 import { makeGroup } from '>/enrichedFactories'
 import { mountWithDefaults } from '>/helpers'
 
-import StandardMap from './StandardMap'
+import StandardMap from './StandardMap.vue'
 import { groupMarker } from './markers'
 
 const markers = [...Array(20).keys()].map(e => groupMarker(makeGroup()))

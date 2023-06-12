@@ -15,7 +15,7 @@ import {
   QChip,
 } from 'quasar'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
 defineProps({
   user: {
     type: Object,

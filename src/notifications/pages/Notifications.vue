@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Notifications from '@/notifications/components/Notifications'
+import Notifications from '@/notifications/components/Notifications.vue'
 
 import { useMarkSeenMutation } from '../mutations'
 

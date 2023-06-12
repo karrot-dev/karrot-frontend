@@ -3,7 +3,7 @@ import locales from '@/locales'
 
 import { createDatastore, mountWithDefaults } from '>/helpers'
 
-import LocaleSelectInner from './LocaleSelectInner'
+import LocaleSelectInner from './LocaleSelectInner.vue'
 
 describe.skip('LocaleSelect', () => {
   beforeEach(() => jest.resetModules())

@@ -17,7 +17,7 @@ import {
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
-import EditActivityTypes from './EditActivityTypes'
+import EditActivityTypes from './EditActivityTypes.vue'
 
 Dialog.create = jest.fn(() => {
   return { onOk (fn) { fn('') } }

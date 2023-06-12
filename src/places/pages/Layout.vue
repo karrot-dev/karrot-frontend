@@ -46,8 +46,8 @@ import { useSavePlaceMutation } from '@/places/mutations'
 import { useActivePlaceService } from '@/places/services'
 import { placeRoute } from '@/places/utils'
 
-import PlaceHeader from '@/places/components/PlaceHeader'
-import PlaceTabs from '@/places/components/PlaceTabs'
+import PlaceHeader from '@/places/components/PlaceHeader.vue'
+import PlaceTabs from '@/places/components/PlaceTabs.vue'
 
 const route = useRoute()
 const router = useRouter()

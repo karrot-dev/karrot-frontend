@@ -3,7 +3,7 @@ import { h } from 'vue'
 
 import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
-import VerifyMail from './VerifyMail'
+import VerifyMail from './VerifyMail.vue'
 
 storiesOf('VerifyMail', module)
   .add('pending', () => defaults({

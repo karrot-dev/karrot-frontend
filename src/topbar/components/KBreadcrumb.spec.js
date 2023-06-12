@@ -2,7 +2,7 @@ import { RouterLinkStub } from '@vue/test-utils'
 
 import { mountWithDefaults } from '>/helpers'
 
-import KBreadcrumb from './KBreadcrumb'
+import KBreadcrumb from './KBreadcrumb.vue'
 import '>/routerMocks' // sets up the mock router
 
 describe.skip('KBreadcrumb', () => {

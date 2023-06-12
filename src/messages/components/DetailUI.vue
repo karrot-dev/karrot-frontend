@@ -112,10 +112,10 @@ import { useCurrentGroupService } from '@/group/services'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { showToast } from '@/utils/toasts'
 
-import ChatConversation from '@/messages/components/ChatConversation'
-import DateAsWords from '@/utils/components/DateAsWords'
-import KSpinner from '@/utils/components/KSpinner'
-import Markdown from '@/utils/components/Markdown'
+import ChatConversation from '@/messages/components/ChatConversation.vue'
+import DateAsWords from '@/utils/components/DateAsWords.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
+import Markdown from '@/utils/components/Markdown.vue'
 
 import { useDetailService } from '../services'
 

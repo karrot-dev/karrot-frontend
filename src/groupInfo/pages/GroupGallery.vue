@@ -18,7 +18,7 @@ import { useAuthService } from '@/authuser/services'
 import { useGeoService } from '@/base/services/geo'
 import { useGroupInfoService } from '@/groupInfo/services'
 
-import GroupGalleryUI from '@/groupInfo/components/GroupGalleryUI'
+import GroupGalleryUI from '@/groupInfo/components/GroupGalleryUI.vue'
 
 const {
   userId,

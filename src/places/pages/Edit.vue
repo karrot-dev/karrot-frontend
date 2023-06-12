@@ -14,7 +14,7 @@ import { useCurrentGroupService } from '@/group/services'
 import { useSavePlaceMutation } from '@/places/mutations'
 import { useActivePlaceService, usePlaceService } from '@/places/services'
 
-import PlaceEdit from '@/places/components/PlaceEdit'
+import PlaceEdit from '@/places/components/PlaceEdit.vue'
 
 const { groupId } = useCurrentGroupService()
 const { getPlacesByGroup } = usePlaceService()

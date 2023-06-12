@@ -2,7 +2,7 @@ import { QCheckbox } from 'quasar'
 
 import { mountWithDefaults, statusMocks } from '>/helpers'
 
-import Signup from './Signup'
+import Signup from './Signup.vue'
 
 const userData = {
   displayName: 'my name',

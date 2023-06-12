@@ -4,9 +4,9 @@ import { h } from 'vue'
 import { makePlace, makeGroup, makeUser } from '>/enrichedFactories'
 import { statusMocks, storybookDefaults as defaults, createDatastore } from '>/helpers'
 
-import PlaceEdit from './PlaceEdit'
-import PlaceHeader from './PlaceHeader'
-import PlaceList from './PlaceList'
+import PlaceEdit from './PlaceEdit.vue'
+import PlaceHeader from './PlaceHeader.vue'
+import PlaceList from './PlaceList.vue'
 
 const group = makeGroup()
 const place = makePlace({

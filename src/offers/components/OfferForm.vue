@@ -70,10 +70,10 @@ import { QBtn, QField, QIcon, QInput } from 'quasar'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
 
-import KFormContainer from '@/base/components/KFormContainer'
-import KSpinner from '@/utils/components/KSpinner'
-import MarkdownInput from '@/utils/components/MarkdownInput'
-import MultiCroppa from '@/utils/components/MultiCroppa'
+import KFormContainer from '@/base/components/KFormContainer.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
+import MarkdownInput from '@/utils/components/MarkdownInput.vue'
+import MultiCroppa from '@/utils/components/MultiCroppa.vue'
 
 const NAME_MIN_LENGTH = 5
 const NAME_MAX_LENGTH = 80

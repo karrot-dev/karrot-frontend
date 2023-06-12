@@ -107,9 +107,9 @@ import {
 } from '@/messages/mutations'
 import { useMessageContinuations } from '@/utils/mixins/groupedMessagesMixin'
 
-import ConversationCompose from '@/messages/components/ConversationCompose'
-import ConversationMessage from '@/messages/components/ConversationMessage'
-import KSpinner from '@/utils/components/KSpinner'
+import ConversationCompose from '@/messages/components/ConversationCompose.vue'
+import ConversationMessage from '@/messages/components/ConversationMessage.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
 
 const { getScrollHeight, getVerticalScrollPosition, setVerticalScrollPosition, getScrollTarget } = scroll
 const { height } = dom

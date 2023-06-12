@@ -104,8 +104,8 @@ import { useCurrentGroupService } from '@/group/services'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { useStatusHelpers } from '@/utils/mixins/statusMixin'
 
-import KFormContainer from '@/base/components/KFormContainer'
-import SwitchGroupButton from '@/users/components/SwitchGroupButton'
+import KFormContainer from '@/base/components/KFormContainer.vue'
+import SwitchGroupButton from '@/users/components/SwitchGroupButton.vue'
 
 export default {
   name: 'GroupSettings',

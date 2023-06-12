@@ -11,7 +11,7 @@ import { useRoute } from 'vue-router'
 
 import { usePasswordResetMutation } from '@/authuser/mutations'
 
-import PasswordReset from '@/authuser/components/PasswordReset'
+import PasswordReset from '@/authuser/components/PasswordReset.vue'
 
 const route = useRoute()
 

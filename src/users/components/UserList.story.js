@@ -5,7 +5,7 @@ import { h } from 'vue'
 import * as factories from '>/enrichedFactories'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 
-import UserList from './UserList'
+import UserList from './UserList.vue'
 
 const datastore = createDatastore({
   users: { getters: { get: () => id => id } },

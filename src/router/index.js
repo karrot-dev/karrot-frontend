@@ -3,10 +3,10 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import mainRoutes from '@/base/routes/main'
 import splashRoutes from '@/base/routes/splash'
 
-const MainLayout = () => import('@/base/pages/MainLayout')
-const SplashLayout = () => import('@/base/pages/SplashLayout')
+const MainLayout = () => import('@/base/pages/MainLayout.vue')
+const SplashLayout = () => import('@/base/pages/SplashLayout.vue')
 
-const RouteError = () => import('@/base/components/RouteError')
+const RouteError = () => import('@/base/components/RouteError.vue')
 
 export default createRouter({
   routes: [

@@ -23,7 +23,7 @@ import { addUserToGroup } from '>/mockBackend/groups'
 import { realSample } from '>/mockBackend/utils'
 import '>/routerMocks'
 
-import GroupActivities from './GroupActivities'
+import GroupActivities from './GroupActivities.vue'
 
 describe('GroupActivities', () => {
   let user, group, places, activities, activityTypes

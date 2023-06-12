@@ -324,12 +324,12 @@ import { useDetailService } from '@/messages/services'
 import { usePlaceService } from '@/places/services'
 import { absoluteURL } from '@/utils/absoluteURL'
 
-import CustomDialog from '@/utils/components/CustomDialog'
-import Markdown from '@/utils/components/Markdown'
-import ShowMore from '@/utils/components/ShowMore'
+import CustomDialog from '@/utils/components/CustomDialog.vue'
+import Markdown from '@/utils/components/Markdown.vue'
+import ShowMore from '@/utils/components/ShowMore.vue'
 
 import ActivityEditButton from './ActivityEditButton.vue'
-import ActivityUsers from './ActivityUsers'
+import ActivityUsers from './ActivityUsers.vue'
 
 export default {
   components: {

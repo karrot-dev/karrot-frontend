@@ -36,7 +36,7 @@ import { useStatusUpdater } from '@/status/queries'
 import { useUsersUpdater } from '@/users/queries'
 import { useClearDataOnLogout, useTitleStatus } from '@/utils/composables'
 
-import LoadingProgress from '@/topbar/components/LoadingProgress'
+import LoadingProgress from '@/topbar/components/LoadingProgress.vue'
 
 export default {
   components: {

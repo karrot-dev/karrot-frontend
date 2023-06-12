@@ -100,9 +100,9 @@ import {
 import { deleteDraft, fetchDraft, saveDraft } from '@/messages/utils'
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
-import MarkdownInput from '@/utils/components/MarkdownInput'
-import MultiCroppa from '@/utils/components/MultiCroppa'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import MarkdownInput from '@/utils/components/MarkdownInput.vue'
+import MultiCroppa from '@/utils/components/MultiCroppa.vue'
 
 export default {
   name: 'ConversationCompose',

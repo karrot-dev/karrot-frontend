@@ -3,7 +3,7 @@ import { h } from 'vue'
 
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 
-import CommunityFeed from './CommunityFeed'
+import CommunityFeed from './CommunityFeed.vue'
 
 const range = n => [...Array(n).keys()]
 

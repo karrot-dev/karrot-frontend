@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import RandomArt from '@/utils/components/RandomArt'
+import RandomArt from '@/utils/components/RandomArt.vue'
 
 export default {
   components: {

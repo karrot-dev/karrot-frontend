@@ -87,9 +87,9 @@ import { useArchiveOfferMutation } from '@/offers/mutations'
 import { DEFAULT_STATUS } from '@/offers/queries'
 import { useActiveOfferService } from '@/offers/services'
 
-import ChatConversation from '@/messages/components/ChatConversation'
-import KSpinner from '@/utils/components/KSpinner'
-import Markdown from '@/utils/components/Markdown'
+import ChatConversation from '@/messages/components/ChatConversation.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
+import Markdown from '@/utils/components/Markdown.vue'
 
 export default {
   components: {

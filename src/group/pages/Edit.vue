@@ -17,7 +17,7 @@ import { useTimezonesQuery } from '@/group/queries'
 import { useCurrentGroupService } from '@/group/services'
 import { useGroupInfoService } from '@/groupInfo/services'
 
-import GroupEdit from '@/group/components/GroupEdit'
+import GroupEdit from '@/group/components/GroupEdit.vue'
 
 const { timezones } = useTimezonesQuery()
 const { myCoordinates } = useGeoService()

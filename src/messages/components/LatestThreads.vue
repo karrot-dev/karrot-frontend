@@ -60,13 +60,13 @@ import {
 
 import { useStatusService } from '@/status/services'
 
-import KSpinner from '@/utils/components/KSpinner'
+import KSpinner from '@/utils/components/KSpinner.vue'
 
 import { useMyThreadsMarkSeenMutation } from '../mutations'
 import { useMyThreadListQuery } from '../queries'
 import { useDetailService } from '../services'
 
-import LatestMessageItem from './LatestMessageItem'
+import LatestMessageItem from './LatestMessageItem.vue'
 
 export default {
   components: {

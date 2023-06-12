@@ -149,10 +149,10 @@ import {
   QResizeObserver,
 } from 'quasar'
 
-import KSpinner from '@/utils/components/KSpinner'
+import KSpinner from '@/utils/components/KSpinner.vue'
 
-import GroupGalleryCards from './GroupGalleryCards'
-import GroupGalleryMap from './GroupGalleryMap'
+import GroupGalleryCards from './GroupGalleryCards.vue'
+import GroupGalleryMap from './GroupGalleryMap.vue'
 
 export default {
   components: {

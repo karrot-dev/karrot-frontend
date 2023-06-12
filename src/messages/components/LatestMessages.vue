@@ -57,8 +57,8 @@ import {
 
 import { useStatusService } from '@/status/services'
 
-import LatestConversations from './LatestConversations'
-import LatestThreads from './LatestThreads'
+import LatestConversations from './LatestConversations.vue'
+import LatestThreads from './LatestThreads.vue'
 
 export default {
   components: {

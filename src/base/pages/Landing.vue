@@ -27,6 +27,7 @@
               <div class="traffic-light" />
             </div>
             <QImg
+              v-if="false"
               :sizes="images.browser.sizes"
               :srcset="images.browser.srcset"
               :src="images.browser.src"
@@ -45,6 +46,7 @@
             <div class="device-outer">
               <div class="device-content">
                 <QImg
+                  v-if="false"
                   :sizes="images.phone.sizes"
                   :srcset="images.phone.srcset"
                   :src="images.phone.src"
@@ -203,9 +205,9 @@ import generatedImages from '@/base/images.json'
 import { useGroupInfoService } from '@/groupInfo/services'
 import logo from '@/logo/assets/carrot-logo.svg'
 
-import KAbout from '@/base/components/KAbout'
-import KLandingButtons from '@/base/components/KLandingButtons'
-import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
+import KAbout from '@/base/components/KAbout.vue'
+import KLandingButtons from '@/base/components/KLandingButtons.vue'
+import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards.vue'
 
 // Prefer active non-playground groups with a photo
 function groupSortScore (group) {
@@ -252,7 +254,8 @@ export default {
   },
   created () {
     this.logo = logo
-    this.images = this.getImages()
+    // this.images = this.getImages()
+    this.images = {}
     this.more = [
       'COMMUNICATION',
       'TRUST',
@@ -269,9 +272,9 @@ export default {
       this.showAbout = !this.showAbout
     },
     getImages () {
-      Object.values(dirNames).forEach(dirName => {
+      for (const dirName of Object.values(dirNames)) {
         generatedImages[dirName] = this.enrichImages(dirName)
-      })
+      }
 
       return {
         browser: generatedImages[dirNames.APP_SCREENSHOTS_BROWSER][0],
@@ -280,9 +283,12 @@ export default {
         randomImgs: generatedImages[dirNames.RANDOM_IMGS],
       }
     },
-    enrichImages (dirName) {
+    async enrichImages (dirName) {
       const widths = dirs[dirName].widths
+      const images = []
+      /*
       const images = generatedImages[dirName].map(img => {
+
         const srcset = widths.reduce((acc, curr, index) => {
           const divider = index < widths.length - 1 ? ', ' : ''
           const currWidth = curr.toString()
@@ -359,13 +365,15 @@ export default {
           }
         })
       }
+      */
 
       return images
     },
-    requireImage ({ fileName, ext, width, dirName } = {}) {
+    async requireImage ({ fileName, ext, width, dirName } = {}) {
       // use "?disableinline" to disable inlining of small images as base64 which would result in a huge js-chunk
       // see: https://github.com/karrot-dev/karrot-frontend/issues/2370
-      return require(`@/base/pages/images/${dirName}/${fileName}-${width}${ext}?disableinline`)
+      // return require(`@/base/pages/images/${dirName}/${fileName}-${width}${ext}?disableinline`)
+      return import(`@/base/pages/images/${dirName}/${fileName}-${width}${ext}?disableinline`)
     },
   },
 }

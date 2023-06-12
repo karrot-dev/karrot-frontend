@@ -130,7 +130,7 @@ import { useAuthService } from '@/authuser/services'
 import { useMarkCommunityFeedMutation } from '@/communityFeed/mutations'
 import { useCommunityFeedService } from '@/communityFeed/services'
 
-import DateAsWords from '@/utils/components/DateAsWords'
+import DateAsWords from '@/utils/components/DateAsWords.vue'
 
 const showing = ref(false)
 

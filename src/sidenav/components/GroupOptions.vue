@@ -8,7 +8,7 @@
 <script setup>
 import { useCurrentGroupService } from '@/group/services'
 
-import GroupOptionsUI from './GroupOptionsUI'
+import GroupOptionsUI from './GroupOptionsUI.vue'
 
 const { group, roles } = useCurrentGroupService()
 </script>

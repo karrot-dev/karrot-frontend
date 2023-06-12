@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import ProfilePicture from '@/users/components/ProfilePicture'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
 
 export default {
   components: { ProfilePicture },

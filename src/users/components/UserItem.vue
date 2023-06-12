@@ -55,10 +55,10 @@
 <script setup>
 import { QItem, QItemLabel, QItemSection } from 'quasar'
 
-import TrustButton from '@/users/components/TrustButton'
-import DateAsWords from '@/utils/components/DateAsWords'
+import TrustButton from '@/users/components/TrustButton.vue'
+import DateAsWords from '@/utils/components/DateAsWords.vue'
 
-import ProfilePicture from './ProfilePicture'
+import ProfilePicture from './ProfilePicture.vue'
 
 defineProps({
   user: {

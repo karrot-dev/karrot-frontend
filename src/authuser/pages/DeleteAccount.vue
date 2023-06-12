@@ -10,7 +10,7 @@ import { useRoute } from 'vue-router'
 
 import { useDeleteAccountMutation } from '@/authuser/mutations'
 
-import DeleteAccount from '@/authuser/components/Settings/DeleteAccount'
+import DeleteAccount from '@/authuser/components/Settings/DeleteAccount.vue'
 
 const route = useRoute()
 

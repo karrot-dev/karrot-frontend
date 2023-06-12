@@ -5,7 +5,7 @@ import { h } from 'vue'
 import { makeGroupInfo } from '>/enrichedFactories'
 import { storybookDefaults as defaults } from '>/helpers'
 
-import GroupGalleryCard from './GroupGalleryCard'
+import GroupGalleryCard from './GroupGalleryCard.vue'
 
 const on = {
   onPreview: action('view group preview'),

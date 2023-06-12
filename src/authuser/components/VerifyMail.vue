@@ -25,7 +25,7 @@ import { QBtn } from 'quasar'
 
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import KSpinner from '@/utils/components/KSpinner'
+import KSpinner from '@/utils/components/KSpinner.vue'
 
 export default {
   components: {

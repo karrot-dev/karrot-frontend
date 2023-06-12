@@ -4,7 +4,7 @@ import { nextTick } from 'vue'
 import { createDatastore, mountWithDefaults, statusMocks } from '>/helpers'
 import { activitiesMock } from '>/mockdata'
 
-import ActivityEdit from './ActivityEdit'
+import ActivityEdit from './ActivityEdit.vue'
 
 const datastore = createDatastore({
   users: {

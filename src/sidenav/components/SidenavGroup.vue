@@ -16,7 +16,7 @@ import { computed } from 'vue'
 import { useCurrentGroupService } from '@/group/services'
 import { useStatusService } from '@/status/services'
 
-import SidenavGroupUI from './SidenavGroupUI'
+import SidenavGroupUI from './SidenavGroupUI.vue'
 
 const {
   groupId,

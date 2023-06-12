@@ -13,7 +13,7 @@
 import api from '@/unsubscribe/api/unsubscribe'
 import { parseToken } from '@/unsubscribe/utils'
 
-import Unsubscribe from '@/unsubscribe/components/Unsubscribe'
+import Unsubscribe from '@/unsubscribe/components/Unsubscribe.vue'
 
 export default {
   components: {

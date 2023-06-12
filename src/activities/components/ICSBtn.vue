@@ -174,7 +174,7 @@ import { useICSRefreshTokenMutation } from '@/activities/mutations'
 import { useICSTokenQuery } from '@/activities/queries'
 import { useToastService } from '@/alerts/services'
 
-import CustomDialog from '@/utils/components/CustomDialog'
+import CustomDialog from '@/utils/components/CustomDialog.vue'
 
 const props = defineProps({
   group: {

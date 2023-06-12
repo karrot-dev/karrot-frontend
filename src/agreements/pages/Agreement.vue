@@ -150,10 +150,10 @@ import { useCurrentGroupService } from '@/group/services'
 import { useHistoryListQuery } from '@/history/queries'
 import { useUserService } from '@/users/services'
 
-import HistoryList from '@/history/components/HistoryList'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import KSpinner from '@/utils/components/KSpinner'
-import Markdown from '@/utils/components/Markdown'
+import HistoryList from '@/history/components/HistoryList.vue'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
+import Markdown from '@/utils/components/Markdown.vue'
 
 const {
   agreementId,

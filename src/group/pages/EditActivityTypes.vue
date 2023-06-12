@@ -9,7 +9,7 @@ import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useActivityTypeService } from '@/activities/services'
 import { useCurrentGroupService } from '@/group/services'
 
-import EditActivityTypesUI from '@/group/components/EditActivityTypesUI'
+import EditActivityTypesUI from '@/group/components/EditActivityTypesUI.vue'
 
 const { groupId } = useCurrentGroupService()
 const { getActivityTypesByGroup } = useActivityTypeService()

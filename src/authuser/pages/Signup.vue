@@ -11,7 +11,7 @@ import { useRoute } from 'vue-router'
 
 import { useLoginMutation, useSignupMutation } from '@/authuser/mutations'
 
-import Signup from '@/authuser/components/Signup'
+import Signup from '@/authuser/components/Signup.vue'
 
 const route = useRoute()
 

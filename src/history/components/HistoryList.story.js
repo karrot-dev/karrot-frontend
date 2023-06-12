@@ -4,7 +4,7 @@ import { h } from 'vue'
 import { storybookDefaults as defaults } from '>/helpers'
 import { historyMock } from '>/mockdata'
 
-import HistoryList from './HistoryList'
+import HistoryList from './HistoryList.vue'
 
 storiesOf('History List', module)
   .add('Default', () => defaults({

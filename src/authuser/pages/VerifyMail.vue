@@ -10,7 +10,7 @@ import { useRoute } from 'vue-router'
 
 import { useVerifyEmailMutation } from '@/authuser/mutations'
 
-import VerifyMail from '@/authuser/components/VerifyMail'
+import VerifyMail from '@/authuser/components/VerifyMail.vue'
 
 const route = useRoute()
 

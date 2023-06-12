@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/vue3'
 
 import { storybookDefaults as defaults } from '>/helpers'
 
-import AddressPicker from './AddressPicker'
+import AddressPicker from './AddressPicker.vue'
 
 storiesOf('AddressPicker', module)
   .add('Default', () => defaults({

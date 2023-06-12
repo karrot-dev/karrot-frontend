@@ -55,7 +55,7 @@ import {
   QBadge,
 } from 'quasar'
 
-import InfoPopup from '@/utils/components/InfoPopup'
+import InfoPopup from '@/utils/components/InfoPopup.vue'
 
 export default {
   components: {

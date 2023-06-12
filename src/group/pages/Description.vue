@@ -46,8 +46,8 @@ import {
 
 import { useCurrentGroupService } from '@/group/services'
 
-import Markdown from '@/utils/components/Markdown'
-import RandomArt from '@/utils/components/RandomArt'
+import Markdown from '@/utils/components/Markdown.vue'
+import RandomArt from '@/utils/components/RandomArt.vue'
 
 const {
   group,

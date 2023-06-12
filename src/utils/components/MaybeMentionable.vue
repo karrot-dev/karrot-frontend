@@ -49,7 +49,7 @@ import 'floating-vue/dist/style.css'
 
 import { useCurrentGroupService } from '@/group/services'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
 
 defineProps({
   disable: {

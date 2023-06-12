@@ -192,10 +192,10 @@ import { useActivePublicActivityService } from '@/activities/services'
 import { createActivityTypeStylesheet } from '@/activities/stylesheet'
 import { absoluteURL } from '@/utils/absoluteURL'
 
-import ShareDialog from '@/activities/components/ShareDialog'
-import StandardMap from '@/maps/components/StandardMap'
-import KSpinner from '@/utils/components/KSpinner'
-import Markdown from '@/utils/components/Markdown'
+import ShareDialog from '@/activities/components/ShareDialog.vue'
+import StandardMap from '@/maps/components/StandardMap.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
+import Markdown from '@/utils/components/Markdown.vue'
 
 const router = useRouter()
 

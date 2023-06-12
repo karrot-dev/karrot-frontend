@@ -112,11 +112,11 @@ import { useConversationHelpers } from '@/messages/helpers'
 import { useSaveConversationMutation } from '@/messages/mutations'
 import { useUserService } from '@/users/services'
 
-import ChatConversation from '@/messages/components/ChatConversation'
-import NotificationToggle from '@/messages/components/NotificationToggle'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import DateAsWords from '@/utils/components/DateAsWords'
-import Markdown from '@/utils/components/Markdown'
+import ChatConversation from '@/messages/components/ChatConversation.vue'
+import NotificationToggle from '@/messages/components/NotificationToggle.vue'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import DateAsWords from '@/utils/components/DateAsWords.vue'
+import Markdown from '@/utils/components/Markdown.vue'
 
 const {
   issue,

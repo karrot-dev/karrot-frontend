@@ -181,10 +181,10 @@ import {
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
 
-import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
-import AddressPicker from '@/maps/components/AddressPicker'
-import InfoPopup from '@/utils/components/InfoPopup'
-import MarkdownInput from '@/utils/components/MarkdownInput'
+import ChangePhoto from '@/authuser/components/Settings/ChangePhoto.vue'
+import AddressPicker from '@/maps/components/AddressPicker.vue'
+import InfoPopup from '@/utils/components/InfoPopup.vue'
+import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
 export default {
   name: 'GroupEdit',

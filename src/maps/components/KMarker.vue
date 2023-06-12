@@ -118,6 +118,9 @@ export default {
     },
   },
   mounted () {
+    if (!this.leafletMap) {
+      console.log('mounted but not leafletMap :(')
+    }
     this.leafletMarker = markRaw(marker(this.latLng, {
       icon: this.icon,
       draggable: this.draggable,

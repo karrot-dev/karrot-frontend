@@ -5,7 +5,7 @@ import { h } from 'vue'
 import { makeGroupInfo } from '>/enrichedFactories'
 import { storybookDefaults as defaults } from '>/helpers'
 
-import GroupGallery from './GroupGalleryUI'
+import GroupGallery from './GroupGalleryUI.vue'
 
 const groups = [
   makeGroupInfo({ memberCount: 20 }),

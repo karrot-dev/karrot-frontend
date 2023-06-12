@@ -22,7 +22,7 @@ import {
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
-import ActivityCreateButton from './ActivityCreateButton'
+import ActivityCreateButton from './ActivityCreateButton.vue'
 
 // somehow showToast can't run Notify.create, possibly a problem with initializing Quasar
 // let's just mock it in the meantime

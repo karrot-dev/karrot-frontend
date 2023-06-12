@@ -299,10 +299,10 @@ import { useActivePlaceService } from '@/places/services'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 import { withoutKeys } from '@/utils/utils'
 
-import ActivityEdit from '@/activities/components/ActivityEdit'
-import ActivitySeriesEdit from '@/activities/components/ActivitySeriesEdit'
-import KSpinner from '@/utils/components/KSpinner'
-import RandomArt from '@/utils/components/RandomArt'
+import ActivityEdit from '@/activities/components/ActivityEdit.vue'
+import ActivitySeriesEdit from '@/activities/components/ActivitySeriesEdit.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
+import RandomArt from '@/utils/components/RandomArt.vue'
 
 export default {
   components: {

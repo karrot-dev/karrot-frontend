@@ -46,7 +46,7 @@ import { useStatusService } from '@/status/services'
 
 import { useMarkSeenMutation } from '../mutations'
 
-const Notifications = defineAsyncComponent(() => import('@/notifications/components/Notifications'))
+const Notifications = defineAsyncComponent(() => import('@/notifications/components/Notifications.vue'))
 
 export default {
   components: {

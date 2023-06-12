@@ -1,14 +1,14 @@
 import { flushPromises } from '@vue/test-utils'
 
-import KMap from '@/maps/components/KMap'
-import KMarker from '@/maps/components/KMarker'
-import PlaceMarker from '@/maps/components/PlaceMarker'
-import UserMarker from '@/maps/components/UserMarker'
+import KMap from '@/maps/components/KMap.vue'
+import KMarker from '@/maps/components/KMarker.vue'
+import PlaceMarker from '@/maps/components/PlaceMarker.vue'
+import UserMarker from '@/maps/components/UserMarker.vue'
 
 import { mountWithDefaults } from '>/helpers'
 import { placesMock, usersMock } from '>/mockdata'
 
-import GroupMap from './GroupMap'
+import GroupMap from './GroupMap.vue'
 
 const defaultProps = {
   users: usersMock,

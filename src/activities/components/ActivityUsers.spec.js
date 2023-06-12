@@ -4,7 +4,7 @@ import { makeUser } from '>/enrichedFactories'
 import { mountWithDefaults, createDatastore } from '>/helpers'
 import { participantType, joinableActivity, currentUserMock } from '>/mockdata'
 
-import ActivityUsers from './ActivityUsers'
+import ActivityUsers from './ActivityUsers.vue'
 
 describe.skip('ActivityUsers', () => {
   beforeEach(() => jest.resetModules())

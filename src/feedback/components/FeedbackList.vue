@@ -39,11 +39,11 @@
 import { QInfiniteScroll, QIcon } from 'quasar'
 import { toRefs } from 'vue'
 
-import FeedbackNotice from '@/group/components/FeedbackNotice'
-import KNotice from '@/utils/components/KNotice'
-import KSpinner from '@/utils/components/KSpinner'
+import FeedbackNotice from '@/group/components/FeedbackNotice.vue'
+import KNotice from '@/utils/components/KNotice.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
 
-import FeedbackItem from './FeedbackItem'
+import FeedbackItem from './FeedbackItem.vue'
 
 export default {
   components: {

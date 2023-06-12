@@ -4,8 +4,8 @@ import { h } from 'vue'
 import * as factories from '>/enrichedFactories'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 
-import DetailHeader from './DetailHeaderUI'
-import DetailUI from './DetailUI'
+import DetailHeader from './DetailHeaderUI.vue'
+import DetailUI from './DetailUI.vue'
 
 const detailStory = props => defaults({
   store: createDatastore({

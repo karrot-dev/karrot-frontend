@@ -5,7 +5,7 @@ import * as factories from '>/enrichedFactories'
 import { storybookDefaults as defaults } from '>/helpers'
 import { groupsMock } from '>/mockdata'
 
-import ConflictSetup from './ConflictSetup'
+import ConflictSetup from './ConflictSetup.vue'
 
 storiesOf('ConflictSetup', module)
   .add('create', () => defaults({

@@ -148,7 +148,7 @@ import { useAgreementHelpers } from '@/agreements/helpers'
 import { useAgreementListQuery } from '@/agreements/queries'
 import { useCurrentGroupService } from '@/group/services'
 
-import KSpinner from '@/utils/components/KSpinner'
+import KSpinner from '@/utils/components/KSpinner.vue'
 import Markdown from '@/utils/components/Markdown.vue'
 
 const router = useRouter()

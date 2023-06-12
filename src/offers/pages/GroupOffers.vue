@@ -123,9 +123,9 @@ import { DEFAULT_STATUS, useOfferListQuery } from '@/offers/queries'
 import { useUserService } from '@/users/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
-import DateAsWords from '@/utils/components/DateAsWords'
-import KSpinner from '@/utils/components/KSpinner'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import DateAsWords from '@/utils/components/DateAsWords.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
 
 const { t } = useI18n()
 

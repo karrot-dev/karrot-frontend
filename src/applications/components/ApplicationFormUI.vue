@@ -69,8 +69,8 @@ import { useCreateApplicationMutation } from '@/applications/mutations'
 import statusMixin from '@/utils/mixins/statusMixin'
 import { showToast } from '@/utils/toasts'
 
-import Markdown from '@/utils/components/Markdown'
-import MarkdownInput from '@/utils/components/MarkdownInput'
+import Markdown from '@/utils/components/Markdown.vue'
+import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
 export default {
   components: {

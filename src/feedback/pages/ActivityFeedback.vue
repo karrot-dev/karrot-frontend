@@ -143,9 +143,9 @@ import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
 import { useIntegerRouteParam } from '@/utils/composables'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
-import KNotice from '@/utils/components/KNotice'
-import RandomArt from '@/utils/components/RandomArt'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import KNotice from '@/utils/components/KNotice.vue'
+import RandomArt from '@/utils/components/RandomArt.vue'
 
 import FeedbackForm from '../components/FeedbackForm'
 import FeedbackList from '../components/FeedbackList'

@@ -23,5 +23,5 @@ function install () {
 </script>
 
 <style scoped lang="sass">
-@import '~editbox'
+@import 'editbox'
 </style>

@@ -166,7 +166,7 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import '~editbox'
+@import 'editbox'
 
 .q-field
   margin: 3em 0

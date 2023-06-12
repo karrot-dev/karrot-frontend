@@ -161,6 +161,6 @@ async function saveUser (data) {
 </script>
 
 <style scoped lang="sass">
-@import '~editbox'
+@import 'editbox'
 
 </style>

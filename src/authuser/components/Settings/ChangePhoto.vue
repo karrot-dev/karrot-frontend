@@ -209,7 +209,7 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import '~editbox'
+@import 'editbox'
 
 .croppa-container.croppa--has-target
   cursor: move

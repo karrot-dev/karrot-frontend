@@ -487,7 +487,7 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import '~editbox'
+@import 'editbox'
 </style>
 
 <style src="@quasar/quasar-ui-qiconpicker/dist/index.css"></style>

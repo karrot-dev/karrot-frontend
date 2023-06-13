@@ -123,7 +123,7 @@ const { humanStorageSize } = format
 const props = defineProps({
   modelValue: {
     type: Array,
-    required: true,
+    default: () => [],
   },
   edit: {
     type: Boolean,

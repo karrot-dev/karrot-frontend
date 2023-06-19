@@ -3,6 +3,7 @@ import Axios from 'axios'
 import qs from 'qs'
 import { Notify, throttle } from 'quasar'
 
+import { configureAxiosProgress } from '@/base/api/progress'
 import i18n from '@/base/i18n'
 import { isServerError } from '@/utils/datastore/helpers'
 import { camelizeKeys, devSleep, underscorizeKeys } from '@/utils/utils'
@@ -22,6 +23,8 @@ const axios = Axios.create({
     skipNulls: true,
   }),
 })
+
+configureAxiosProgress(axios)
 
 const makeThrottledWarner = (message) =>
   throttle(() =>

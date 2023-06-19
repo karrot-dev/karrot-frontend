@@ -1,4 +1,3 @@
-import { Dialog, format } from 'quasar'
 import { useMutation } from 'vue-query'
 
 import conversationsAPI from '@/messages/api/conversations'
@@ -6,46 +5,14 @@ import messagesAPI from '@/messages/api/messages'
 import reactionsAPI from '@/messages/api/reactions'
 import { withStatus } from '@/utils/queryHelpers'
 
-const { humanStorageSize } = format
-
 export function useSendMessageMutation () {
-  return withStatus(useMutation(
-    async ({ id, content, images, attachments, threadId }) => {
-      const dialog = Dialog.create({
-        message: 'Uploading',
-        progress: true,
-        seamless: true,
-        position: 'bottom',
-        persistent: true,
-      })
-
-      try {
-        return await messagesAPI.create({
-          conversation: id,
-          thread: threadId, // optional
-          content,
-          images,
-          attachments,
-        }, {
-          onUploadProgress (progress) {
-            dialog.update({
-              message: `Uploading ${humanStorageSize(progress.loaded)} / ${humanStorageSize(progress.total)}`,
-            })
-            console.log('UPLOADING', progress.total, progress)
-            if (progress.progress === 1) {
-              dialog.update({
-                message: `Processing ${humanStorageSize(progress.total)}`,
-              })
-            }
-          },
-        })
-      }
-      finally {
-        dialog.hide()
-      }
-    },
-    // relies on websockets to update data
-  ))
+  return withStatus(useMutation(({ id, content, images, attachments, threadId }) => messagesAPI.create({
+    conversation: id,
+    thread: threadId, // optional
+    content,
+    images,
+    attachments,
+  })))
 }
 
 export function useSaveMesssageMutation () {

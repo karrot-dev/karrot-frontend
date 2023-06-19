@@ -59,6 +59,7 @@ module.exports = configure(function (ctx) {
       GIT_SHA1: process.env.GIT_SHA1 || process.env.CIRCLE_SHA1,
     },
     NODE_DEBUG: 'false', // workaround for node-util
+    ENABLE_DEV_SENTRY: process.env.ENABLE_DEV_SENTRY,
   }
 
   return {

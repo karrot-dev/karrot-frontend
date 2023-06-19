@@ -1,4 +1,3 @@
-import * as Sentry from '@sentry/vue'
 import { extend } from 'quasar'
 import { computed, watch, ref, readonly } from 'vue'
 import { useRouter } from 'vue-router'
@@ -15,6 +14,7 @@ import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
 import { useIntegerRouteParam } from '@/utils/composables'
 import { defineService } from '@/utils/datastore/helpers'
+import { captureException } from "@/utils/sentry"
 
 export const useCurrentGroupService = defineService(() => {
   // services
@@ -224,7 +224,7 @@ function useMarkUserActive ({ groupId }) {
       if (groupId.value) await groups.throttledMarkUserActive(groupId.value)
     }
     catch (err) {
-      Sentry.captureException(err)
+      captureException(err)
     }
   })
 }

@@ -92,6 +92,7 @@
     "@mapbox/appropriate-images": "^6.0.0",
     "@octokit/rest": "^19.0.7",
     "@quasar/app-vite": "^1.4.3",
+    "@quasar/babel-preset-app": "^2.0.2",
     "@quasar/quasar-ui-qiconpicker": "^2.0.6",
     "@sentry/cli": "^2.17.5",
     "@sinonjs/fake-timers": "^10.0.2",

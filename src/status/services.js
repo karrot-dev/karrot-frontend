@@ -14,10 +14,10 @@ export const useStatusService = defineService(() => {
   })
 
   // computed
-  const unseenConversationCount = computed(() => status.value.unseenConversationCount)
-  const unseenThreadCount = computed(() => status.value.unseenThreadCount)
-  const hasUnreadConversationsOrThreads = computed(() => status.value.hasUnreadConversationsOrThreads)
-  const unseenNotificationCount = computed(() => status.value.unseenNotificationCount)
+  const unseenConversationCount = computed(() => status.value?.unseenConversationCount || 0)
+  const unseenThreadCount = computed(() => status.value?.unseenThreadCount || 0)
+  const hasUnreadConversationsOrThreads = computed(() => status.value?.hasUnreadConversationsOrThreads || 0)
+  const unseenNotificationCount = computed(() => status.value?.unseenNotificationCount || 0)
   const unseenCount = computed(() => unseenConversationCount.value + unseenThreadCount.value)
 
   // methods

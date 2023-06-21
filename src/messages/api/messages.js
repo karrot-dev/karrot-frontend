@@ -1,15 +1,10 @@
 import axios, { parseCursor } from '@/base/api/axios'
-import { toFormData, getFormDataSize } from '@/utils/utils'
+import { toFormData } from '@/utils/utils'
 
 export default {
 
   async create (data, { onUploadProgress } = {}) {
-    const formData = await toFormData(data)
-    const size = getFormDataSize(formData)
-    console.log('data size is', size)
-    return convert((await axios.post('/api/messages/', formData, {
-      onUploadProgress,
-    })).data)
+    return convert((await axios.post('/api/messages/', await toFormData(data))).data)
   },
 
   async save (data) {

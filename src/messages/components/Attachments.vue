@@ -111,14 +111,18 @@ import {
   format,
 } from 'quasar'
 // naughty! using a "private" module... but it's useful!
-import useFile, { useFileProps } from 'quasar/src/composables/private/use-file'
+import useFile from 'quasar/src/composables/private/use-file'
 import { onMounted, onUnmounted, ref, computed } from 'vue'
 
+import { showToast } from '@/utils/toasts'
 import { isViewableImageContentType } from '@/utils/utils'
 
 import AttachmentGallery from '@/messages/components/AttachmentGallery.vue'
 
 const { humanStorageSize } = format
+
+const MAX_ATTACHMENT_COUNT = 5
+const MAX_ATTACHMENT_SIZE = 10 * 1024 * 1024
 
 const props = defineProps({
   modelValue: {
@@ -129,10 +133,6 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  // Need to use these, as the useFile thing extracts props from
-  // our "current instance" (i.e. the thing with these props)
-  // TODO: now I'm not using processFiles() from use-file, check I still need to do this
-  ...useFileProps,
 })
 
 const emit = defineEmits([
@@ -165,19 +165,20 @@ let input
  * We just create one programmatically and stick it
  * to the body element and remove it after
  */
-function initializeInput () {
-  if (input) return
+function getFileInput () {
+  if (input) return input
   input = document.createElement('input')
-  input.type = 'file'
-  input.style.display = 'none'
-  if (props.multiple) {
-    input.multiple = true
-  }
-  if (props.capture) {
-    input.capture = props.capture
-  }
+  Object.assign(input, {
+    type: 'file',
+    style: {
+      display: 'none',
+    },
+    multiple: true,
+    capture: 'environment',
+  })
   input.addEventListener('change', addFilesToQueue)
   document.body.appendChild(input)
+  return input
 }
 
 function removeInput () {
@@ -188,41 +189,86 @@ function removeInput () {
   }
 }
 
-onMounted(() => {
-  initializeInput()
-})
-
 onUnmounted(() => {
   removeInput()
 })
 
 defineExpose({
   pickFiles () {
-    pickFiles()
+    if (attachments.value.filter(attachment => !attachment._removed).length < MAX_ATTACHMENT_COUNT) {
+      pickFiles()
+    }
+    else {
+      showMaxAttachmentCountReachedToast()
+    }
   },
 })
+
+function showMaxAttachmentCountReachedToast () {
+  showToast({
+    message: 'ATTACHMENTS.MAX_ATTACHMENT_COUNT',
+    messageParams: {
+      count: MAX_ATTACHMENT_COUNT,
+    },
+    config: {
+      icon: 'priority_high',
+      color: 'warning',
+    },
+  })
+}
+
+function showMaxAttachmentSizeReachedToast () {
+  showToast({
+    message: 'ATTACHMENTS.MAX_ATTACHMENT_SIZE',
+    messageParams: {
+      size: humanStorageSize(MAX_ATTACHMENT_SIZE),
+    },
+    config: {
+      icon: 'priority_high',
+      color: 'warning',
+    },
+  })
+}
 
 const { pickFiles } = useFile({
   editable: ref(true),
   dnd: ref(false),
   addFilesToQueue,
-  getFileInput () {
-    return input
-  },
+  getFileInput,
 })
 
 function addFilesToQueue (e, filesToProcess) {
-  const fileList = Array.from(filesToProcess || e.target.files)
+  const inputFiles = Array.from(filesToProcess || e.target.files)
+
+  const acceptedFiles = []
+  let EXCEEDED_MAX_ATTACHMENT_SIZE = false
+
+  for (const file of inputFiles) {
+    if (file.size > MAX_ATTACHMENT_SIZE) {
+      EXCEEDED_MAX_ATTACHMENT_SIZE = true
+    }
+    else {
+      acceptedFiles.push(file)
+    }
+  }
+
+  // Next position is the biggest one in the existing list + 1, or 0 if no items
   let nextPosition = attachments.value.length > 0 ? Math.max(...attachments.value.map(attachment => attachment.position)) + 1 : 0
-  attachments.value = attachments.value.concat(fileList.map((file, index) => withAttachmentMeta({
+
+  const attachmentsNext = attachments.value.concat(acceptedFiles.map(file => withAttachmentMeta({
     _file: file,
     filename: file.name,
     contentType: file.type || 'application/octet-stream',
-    toBlob () {
-      return file
-    },
     position: nextPosition++,
   })))
+  const EXCEEDED_MAX_ATTACHMENT_COUNT = attachmentsNext.filter(attachment => !attachment._removed).length > MAX_ATTACHMENT_COUNT
+  if (EXCEEDED_MAX_ATTACHMENT_SIZE) {
+    showMaxAttachmentSizeReachedToast()
+  }
+  if (EXCEEDED_MAX_ATTACHMENT_COUNT) {
+    showMaxAttachmentCountReachedToast()
+  }
+  attachments.value = attachmentsNext.slice(0, MAX_ATTACHMENT_COUNT)
 }
 
 /**
@@ -285,7 +331,7 @@ function getImage (attachment) {
   }
 }
 
-function fileToImage(file) {
+function fileToImage (file) {
   const img = new Image()
   img.src = window.URL.createObjectURL(file)
   return img

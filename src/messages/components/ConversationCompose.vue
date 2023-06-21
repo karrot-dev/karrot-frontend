@@ -19,14 +19,12 @@
           <MarkdownInput
             ref="input"
             v-model="message.content"
-            v-bind="$attrs"
+            v-bind="{ ...$attrs, ...contentError }"
             dense
             mentions
             :placeholder="placeholder"
             :loading="isPending"
             :disable="isPending"
-            :error="hasAnyError"
-            :error-message="anyFirstError"
             :input-style="{ minHeight: 'unset', maxHeight: '320px', ...$attrs['input-style'] }"
             @keyup.ctrl.enter="submit"
             @keyup.esc="leaveEdit"
@@ -40,13 +38,6 @@
                 flat
                 icon="fas fa-paperclip"
                 @click="addAttachment"
-              />
-              <QBtn
-                round
-                dense
-                flat
-                icon="fas fa-image"
-                @click="addImage"
               />
               <QBtn
                 v-if="hasContent && !isPending"
@@ -78,8 +69,6 @@
         <Attachments
           ref="attachments"
           v-model="message.attachments"
-          multiple
-          capture="environment"
           edit
         />
       </QItemSection>
@@ -106,6 +95,8 @@
 </template>
 
 <script>
+import useVuelidate from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
 import deepEqual from 'deep-equal'
 import {
   QItem,
@@ -115,7 +106,7 @@ import {
 } from 'quasar'
 
 import { deleteDraft, fetchDraft, saveDraft } from '@/messages/utils'
-import statusMixin from '@/utils/mixins/statusMixin'
+import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
 
 import Attachments from '@/messages/components/Attachments'
 import ProfilePicture from '@/users/components/ProfilePicture'
@@ -166,6 +157,11 @@ export default {
     'submit',
     'leave-edit',
   ],
+  setup () {
+    return {
+      v$: useVuelidate(),
+    }
+  },
   data () {
     return {
       message: this.value
@@ -180,6 +176,11 @@ export default {
     }
   },
   computed: {
+    ...mapErrors({
+      content: [
+        ['required', 'VALIDATION.REQUIRED'],
+      ],
+    }, 'message'),
     hasExistingContent () {
       if (!this.value) return false
       return (
@@ -233,6 +234,9 @@ export default {
   },
   methods: {
     submit () {
+      this.v$.message.$touch()
+      if (this.v$.message.$error) return
+      this.v$.message.$reset()
       this.$emit('submit', this.message)
     },
     addImage () {
@@ -252,6 +256,13 @@ export default {
     },
     onBlur () {
       this.hasFocus = false
+    },
+  },
+  validations: {
+    message: {
+      content: {
+        required,
+      },
     },
   },
 }

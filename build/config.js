@@ -15,11 +15,16 @@ const backendProxy = {
   ws: true,
   // This is needed if using https in local dev, so we give image URLS the right host
   xfwd: true,
+  // The proxy thing inside vite needs this way to configure the events
   configure (proxy) {
     proxy.on('proxyReq', onProxyReq)
     proxy.on('proxyReqWs', onProxyReqWs)
     proxy.on('proxyRes', onProxyRes)
   },
+  // Where http-proxy-middleware (used in our yarn serve command), wants it like this
+  onProxyReq,
+  onProxyReqWs,
+  onProxyRes,
 }
 
 module.exports = {

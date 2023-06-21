@@ -147,8 +147,8 @@ import ProfilePicture from '@/users/components/ProfilePicture.vue'
 import KNotice from '@/utils/components/KNotice.vue'
 import RandomArt from '@/utils/components/RandomArt.vue'
 
-import FeedbackForm from '../components/FeedbackForm'
-import FeedbackList from '../components/FeedbackList'
+import FeedbackForm from '../components/FeedbackForm.vue'
+import FeedbackList from '../components/FeedbackList.vue'
 
 const router = useRouter()
 const { d } = useI18n()

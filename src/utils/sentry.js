@@ -8,7 +8,9 @@ export function configureSentry (app, { dsn, environment }) {
     environment = 'dev'
   }
   // Async, import so we only load sentry lib if actually using it
-  SentryPromise = import('@sentry/vue').then(Sentry => {
+  SentryPromise = import('@sentry/vue')
+
+  SentryPromise.then(Sentry => {
     Sentry.init({
       app,
       dsn,
@@ -27,12 +29,12 @@ export function configureSentry (app, { dsn, environment }) {
   })
 }
 
-export function captureException(...args) {
+export function captureException (...args) {
   if (!SentryPromise) return
   SentryPromise.then(Sentry => Sentry.captureException(...args))
 }
 
-export function captureMessage(...args) {
+export function captureMessage (...args) {
   if (!SentryPromise) return
   SentryPromise.then(Sentry => Sentry.captureMessage(...args))
 }

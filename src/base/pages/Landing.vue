@@ -254,8 +254,7 @@ export default {
   },
   created () {
     this.logo = logo
-    // this.images = this.getImages()
-    this.images = {}
+    this.images = this.getImages()
     this.more = [
       'COMMUNICATION',
       'TRUST',
@@ -272,6 +271,9 @@ export default {
       this.showAbout = !this.showAbout
     },
     getImages () {
+      const modules = import.meta.glob('@/src/base/pages/images/**/*.png')
+      console.log('modules!', modules)
+
       for (const dirName of Object.values(dirNames)) {
         generatedImages[dirName] = this.enrichImages(dirName)
       }
@@ -285,10 +287,7 @@ export default {
     },
     async enrichImages (dirName) {
       const widths = dirs[dirName].widths
-      const images = []
-      /*
       const images = generatedImages[dirName].map(img => {
-
         const srcset = widths.reduce((acc, curr, index) => {
           const divider = index < widths.length - 1 ? ', ' : ''
           const currWidth = curr.toString()
@@ -365,7 +364,6 @@ export default {
           }
         })
       }
-      */
 
       return images
     },

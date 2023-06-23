@@ -57,14 +57,18 @@ describe('WallConversation', () => {
 
   it('can send a message', async () => {
     const { type, click } = userEvent.setup()
-    const { findByText, findByPlaceholderText, findByTestId } = render(WallConversation, withDefaults({ props: { groupId: group.id } }))
+    const {
+      findByText,
+      findByPlaceholderText,
+      findByTitle,
+    } = render(WallConversation, withDefaults({ props: { groupId: group.id } }))
     await flushPromises()
 
     await type(
       await findByPlaceholderText('Write a message...'),
       'my new message',
     )
-    await click(await findByTestId('send-message'))
+    await click(await findByTitle('Send message'))
     await flushPromises()
     await flushPromises() // shouldn't be necessary, but somehow still makes the test work !?
 

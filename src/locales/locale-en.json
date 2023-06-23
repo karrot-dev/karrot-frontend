@@ -222,6 +222,7 @@
     "WITHDRAWN": "withdrawn {relativeDate}"
   },
   "ATTACHMENTS": {
+    "ADD": "Add attachment",
     "MAX_ATTACHMENT_SIZE": "Maximum attachment size is {size}",
     "MAX_ATTACHMENT_COUNT": "You can have up to {count} attachments"
   },
@@ -256,6 +257,7 @@
     "RESET": "Reset",
     "SAVE_CHANGES": "Save changes",
     "SEARCH": "Search",
+    "SEND_MESSAGE": "Send message",
     "SHOW": "Show",
     "SHOW_LESS": "Show less",
     "SHOW_MORE": "Show more",

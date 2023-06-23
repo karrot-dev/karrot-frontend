@@ -1,5 +1,5 @@
 import MockAdapter from 'axios-mock-adapter'
-import { isPlainObject } from 'lodash'
+import {isPlainObject, merge, set} from 'lodash'
 import { pathToRegexp } from 'path-to-regexp'
 import 'blob-polyfill'
 
@@ -77,8 +77,7 @@ function on (method, path, handler, options = {}) {
     }
     if (['post', 'patch', 'put'].includes(config.method)) {
       if (config.data instanceof FormData) {
-        // This is the reverse of toFormData (but ignoring the images)
-        data = camelizeKeys(JSON.parse(await config.data.get('document').text()))
+        data = await parseFormData(config.data)
       }
       else if (
         typeof config.data === 'string' &&
@@ -93,6 +92,22 @@ function on (method, path, handler, options = {}) {
     if (typeof statusCode !== 'number') throw new Error('mock handler array must have numeric status code as first arg')
     return [statusCode, formatResponseData(body)]
   })
+}
+
+async function parseFormData (formData) {
+  // JS version of our python JSONWithFilesMultiPartParser
+  const data = {}
+  for (const key of formData.keys()) {
+    const value = formData.get(key)
+    if (key === 'document') {
+      const document = JSON.parse(await value.text())
+      merge(data, document)
+    }
+    else {
+      set(data, key.split('.'), value)
+    }
+  }
+  return camelizeKeys(data)
 }
 
 export function cursorPaginated (path, getEntries, options = {}) {

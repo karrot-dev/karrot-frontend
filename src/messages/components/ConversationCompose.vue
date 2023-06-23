@@ -37,6 +37,7 @@
                 dense
                 flat
                 icon="fas fa-paperclip"
+                :title="$t('ATTACHMENTS.ADD')"
                 @click="addAttachment"
               />
               <QBtn
@@ -45,7 +46,7 @@
                 dense
                 flat
                 icon="fas fa-arrow-right"
-                data-testid="send-message"
+                :title="$t('BUTTON.SEND_MESSAGE')"
                 @click="submit"
               />
               <QBtn

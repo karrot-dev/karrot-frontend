@@ -77,7 +77,7 @@ test('create issue', async () => {
     await findByPlaceholderText('Write the first message...'),
     messageContent,
   )
-  await click(await findByTestId('send-message'))
+  await click(await findByTitle('Send message'))
   await flushPromises() // need to give it a moment to send, or we refresh before it's actually been submitted
   await flushPromises()
 

@@ -1,8 +1,10 @@
 import { faker } from '@faker-js/faker'
 
-import { cursorPaginated, post } from './mockAxios'
+import {cursorPaginated, getById, post} from './mockAxios'
 
 import { ctx, db } from './index'
+
+let nextAttachmentId = 1
 
 let nextId = 1
 export function generateMessage (params = {}) {
@@ -20,7 +22,28 @@ export function generateMessage (params = {}) {
     thread: null,
     threadMeta: null,
     images: [],
+    attachments: [],
     ...params,
+  }
+}
+
+function generateAttachment (params = {}) {
+  return {
+    id: nextAttachmentId++,
+    ...params,
+  }
+}
+
+function toResponse (message) {
+  return {
+    ...message,
+    attachments: (message.attachments ?? []).map(attachment => ({
+      ...attachment,
+      urls: {
+        download: `/api/attachments/${attachment.id}/download/`,
+        original: `/api/attachments/${attachment.id}/original/`,
+      },
+    })),
   }
 }
 
@@ -32,8 +55,18 @@ export function createMockMessagesBackend () {
       */
 
       return true
-    }),
+    }).map(toResponse),
   )
+
+  function allAttachmentFiles () {
+    return db.messages
+      .map(message => message.attachments)
+      .flat()
+      .map(attachment => attachment.file)
+  }
+
+  getById('/api/attachments/:id/download/', allAttachmentFiles)
+  getById('/api/attachments/:id/original/', allAttachmentFiles)
 
   post(
     '/api/messages/',
@@ -44,10 +77,11 @@ export function createMockMessagesBackend () {
         author: ctx.authUser.id,
         content: data.content,
         conversation: data.conversation,
+        attachments: (data.attachments ?? []).map(generateAttachment),
         // TODO handle threads and images
       })
       db.messages.push(message)
-      return [200, message]
+      return [200, toResponse(message)]
     },
   )
 }

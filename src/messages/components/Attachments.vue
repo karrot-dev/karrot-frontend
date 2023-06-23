@@ -14,6 +14,7 @@
           :tag="props.edit ? 'div' : 'a'"
           :href="!props.edit && attachment.urls.original"
           :target="!props.edit && '_blank'"
+          :title="attachment.filename"
         >
           <QBtn
             v-if="props.edit"
@@ -62,7 +63,6 @@
           <template v-else>
             <QItem
               class="q-pa-sm"
-              :title="attachment.filename"
             >
               <QItemSection
                 v-if="attachment._contentTypeInfo.icon"
@@ -110,9 +110,7 @@ import {
   QIcon,
   format,
 } from 'quasar'
-// naughty! using a "private" module... but it's useful!
-import useFile from 'quasar/src/composables/private/use-file'
-import { onMounted, onUnmounted, ref, computed } from 'vue'
+import { onUnmounted, ref, computed } from 'vue'
 
 import { showToast } from '@/utils/toasts'
 import { isViewableImageContentType } from '@/utils/utils'
@@ -168,6 +166,7 @@ let input
 function getFileInput () {
   if (input) return input
   input = document.createElement('input')
+  input.dataset.testid = 'attachment-input'
   Object.assign(input, {
     type: 'file',
     style: {
@@ -196,7 +195,7 @@ onUnmounted(() => {
 defineExpose({
   pickFiles () {
     if (attachments.value.filter(attachment => !attachment._removed).length < MAX_ATTACHMENT_COUNT) {
-      pickFiles()
+      getFileInput().click()
     }
     else {
       showMaxAttachmentCountReachedToast()
@@ -230,15 +229,8 @@ function showMaxAttachmentSizeReachedToast () {
   })
 }
 
-const { pickFiles } = useFile({
-  editable: ref(true),
-  dnd: ref(false),
-  addFilesToQueue,
-  getFileInput,
-})
-
-function addFilesToQueue (e, filesToProcess) {
-  const inputFiles = Array.from(filesToProcess || e.target.files)
+function addFilesToQueue (event) {
+  const inputFiles = Array.from(event.target.files)
 
   const acceptedFiles = []
   let EXCEEDED_MAX_ATTACHMENT_SIZE = false

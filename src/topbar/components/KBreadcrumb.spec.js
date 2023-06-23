@@ -6,9 +6,9 @@ import KBreadcrumb from './KBreadcrumb.vue'
 import '>/routerMocks' // sets up the mock router
 
 describe.skip('KBreadcrumb', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => vi.resetModules())
   it('renders', () => {
-    const wrapper = mountWithDefaults(KBreadcrumb, {
+    const wrapper = await mountWithDefaults(KBreadcrumb, {
       propsData: {
         breadcrumbs: [],
       },
@@ -17,7 +17,7 @@ describe.skip('KBreadcrumb', () => {
   })
 
   it('renders links if provided with a route', () => {
-    const wrapper = mountWithDefaults(KBreadcrumb, {
+    const wrapper = await mountWithDefaults(KBreadcrumb, {
       propsData: {
         breadcrumbs: [{ name: 'Some Name', route: { name: 'foo', params: { yay: 1 } } }, { name: 'Last Name' }],
       },
@@ -28,7 +28,7 @@ describe.skip('KBreadcrumb', () => {
   })
 
   it('does not render a link for the last item', () => {
-    const wrapper = mountWithDefaults(KBreadcrumb, {
+    const wrapper = await mountWithDefaults(KBreadcrumb, {
       propsData: {
         breadcrumbs: [{ name: 'Some Name', route: { name: 'foo', params: { yay: 1 } } }],
       },

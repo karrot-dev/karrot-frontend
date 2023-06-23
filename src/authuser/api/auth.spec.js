@@ -1,4 +1,5 @@
 import MockAdapter from 'axios-mock-adapter'
+import { describe, beforeEach, it, vi } from 'vitest'
 
 describe('authuser/api/auth', () => {
   describe('in cordova', () => {
@@ -13,18 +14,15 @@ describe('authuser/api/auth', () => {
       return config
     }
 
-    beforeEach(() => {
-      jest.resetModules()
-      axios = require('@/base/api/axios').default
+    beforeEach(async () => {
+      vi.resetModules()
+      axios = (await import('@/base/api/axios')).default
       axios.interceptors.request.use(requestInterceptor)
-    })
-
-    beforeEach(() => {
       lastRequest = null
       mock = new MockAdapter(axios)
       global.process.env.MODE = 'cordova'
       global.location.reload.mockReset()
-      auth = require('@/authuser/api/auth').default
+      auth = (await import('@/authuser/api/auth')).default
       mock.onGet('/api/auth/user/').reply(200, { email })
     })
 

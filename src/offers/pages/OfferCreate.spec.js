@@ -2,6 +2,7 @@ import '@testing-library/jest-dom'
 import { faker } from '@faker-js/faker'
 import { fireEvent, render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
+import { describe, beforeEach, it, vi } from 'vitest'
 
 import { resetServices } from '@/utils/datastore/helpers'
 
@@ -17,7 +18,7 @@ describe('OfferCreate', () => {
   useMockBackend()
 
   beforeEach(() => {
-    jest.resetModules()
+    vi.resetModules()
     resetServices()
   })
 
@@ -30,7 +31,7 @@ describe('OfferCreate', () => {
   })
 
   it('can create an offer and see it listed', async () => {
-    const { getByLabelText, getByRole, unmount } = render(OfferCreate, withDefaults({
+    const { getByLabelText, getByRole, unmount } = render(OfferCreate, await withDefaults({
       // Stub Croppa as it doesn't seem to work otherwise...
       // TODO: maybe could work if enabled configureCompat mode for testing?
       global: { stubs: { Croppa: true } },
@@ -48,7 +49,7 @@ describe('OfferCreate', () => {
 
     unmount() // get rid of the create form first...
 
-    const { findByText } = render(GroupOffers, withDefaults())
+    const { findByText } = render(GroupOffers, await withDefaults())
     expect(await findByText(offerParams.name)).toBeInTheDocument()
   })
 })

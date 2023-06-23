@@ -10,8 +10,8 @@ describe.skip('Conversation message reactions', () => {
   let wrapper
 
   beforeEach(() => {
-    jest.resetModules()
-    wrapper = mountWithDefaults(MessageReactions, {
+    vi.resetModules()
+    wrapper = await mountWithDefaults(MessageReactions, {
       propsData: {
         messageId: 5,
         reactions: [

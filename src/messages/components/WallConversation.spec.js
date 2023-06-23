@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
 import { times } from 'lodash'
+import { vi } from 'vitest'
 
 import { resetServices } from '@/utils/datastore/helpers'
 
@@ -27,7 +28,7 @@ describe('WallConversation', () => {
   useMockBackend()
 
   beforeEach(() => {
-    jest.resetModules()
+    vi.resetModules()
     resetServices()
   })
 
@@ -46,7 +47,7 @@ describe('WallConversation', () => {
     loginAs(user)
   })
   it('renders messages', async () => {
-    const { findByText } = render(WallConversation, withDefaults({ props: { groupId: group.id } }))
+    const { findByText } = render(WallConversation, await withDefaults({ props: { groupId: group.id } }))
     await flushPromises()
 
     // can see all messages
@@ -57,7 +58,7 @@ describe('WallConversation', () => {
 
   it('can send a message', async () => {
     const { type, click } = userEvent.setup()
-    const { findByText, findByPlaceholderText, findByTestId } = render(WallConversation, withDefaults({ props: { groupId: group.id } }))
+    const { findByText, findByPlaceholderText, findByTestId } = render(WallConversation, await withDefaults({ props: { groupId: group.id } }))
     await flushPromises()
 
     await type(
@@ -69,7 +70,7 @@ describe('WallConversation', () => {
     await flushPromises() // shouldn't be necessary, but somehow still makes the test work !?
 
     // TODO: add mock websockets, for now we need to manually invalidate...
-    await require('@/base/queryClient').default.invalidateQueries()
+    await (await import('@/base/queryClient')).default.invalidateQueries()
 
     await findByText('my new message')
   })

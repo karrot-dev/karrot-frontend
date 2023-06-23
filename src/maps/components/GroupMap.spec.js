@@ -1,4 +1,5 @@
 import { flushPromises } from '@vue/test-utils'
+import { vi } from 'vitest'
 
 import KMap from '@/maps/components/KMap.vue'
 import KMarker from '@/maps/components/KMarker.vue'
@@ -23,9 +24,9 @@ const defaultProps = {
 }
 
 describe.skip('GroupMap', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => vi.resetModules())
   it('renders users and places', async () => {
-    const wrapper = mountWithDefaults(GroupMap, {
+    const wrapper = await mountWithDefaults(GroupMap, {
       propsData: defaultProps,
     })
     await flushPromises()
@@ -39,7 +40,7 @@ describe.skip('GroupMap', () => {
   })
 
   it('renders just users', async () => {
-    const wrapper = mountWithDefaults(GroupMap, {
+    const wrapper = await mountWithDefaults(GroupMap, {
       propsData: {
         ...defaultProps,
         showPlaces: false,
@@ -51,7 +52,7 @@ describe.skip('GroupMap', () => {
   })
 
   it('renders just places', async () => {
-    const wrapper = mountWithDefaults(GroupMap, {
+    const wrapper = await mountWithDefaults(GroupMap, {
       propsData: {
         ...defaultProps,
         showUsers: false,

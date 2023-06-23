@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
 import { Dialog } from 'quasar'
+import { vi } from 'vitest'
 
 import { resetServices } from '@/utils/datastore/helpers'
 
@@ -19,7 +20,7 @@ import '>/routerMocks'
 
 import EditPlaceTypes from './EditPlaceTypes.vue'
 
-Dialog.create = jest.fn(() => {
+Dialog.create = vi.fn(() => {
   return { onOk (fn) { fn('') } }
 })
 
@@ -28,7 +29,7 @@ describe('EditPlaceTypes', () => {
   let group
 
   beforeEach(() => {
-    jest.resetModules()
+    vi.resetModules()
     resetServices()
   })
 
@@ -41,7 +42,7 @@ describe('EditPlaceTypes', () => {
   })
 
   it('renders place types edit form', async () => {
-    const { findByText } = render(EditPlaceTypes, withDefaults())
+    const { findByText } = render(EditPlaceTypes, await withDefaults())
     await flushPromises()
 
     await findByText('Name')
@@ -50,7 +51,7 @@ describe('EditPlaceTypes', () => {
   it('adds new place type', async () => {
     const { click, type } = userEvent.setup()
 
-    const { queryByRole, findByTitle, findByRole, findByText } = render(EditPlaceTypes, withDefaults())
+    const { queryByRole, findByTitle, findByRole, findByText } = render(EditPlaceTypes, await withDefaults())
     await flushPromises()
 
     await click(await findByTitle('Add new place type'))
@@ -70,7 +71,7 @@ describe('EditPlaceTypes', () => {
     const placeType = createPlaceType({ group: group.id })
     const { click, type, clear } = userEvent.setup()
 
-    const { queryByRole, findByRole, findByText } = render(EditPlaceTypes, withDefaults())
+    const { queryByRole, findByRole, findByText } = render(EditPlaceTypes, await withDefaults())
     await flushPromises()
 
     await click(await findByText(placeType.name))

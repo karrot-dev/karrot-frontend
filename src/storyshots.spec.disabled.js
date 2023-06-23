@@ -27,7 +27,7 @@ beforeEach(() => {
 
 afterEach(() => {
   resetMockBackend()
-  jest.resetModules()
+  vi.resetModules()
   resetServices()
 })
 

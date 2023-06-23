@@ -16,7 +16,7 @@ const datastore = createDatastore({
 })
 
 describe.skip('Detail', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => vi.resetModules())
 
   let mountWithDefaults
   beforeEach(() => {
@@ -26,7 +26,7 @@ describe.skip('Detail', () => {
   })
 
   it('can be closed', () => {
-    const wrapper = mountWithDefaults(require('./DetailHeaderUI').default, { datastore, propsData })
+    const wrapper = await mountWithDefaults((await import('./DetailHeaderUI')).default, { datastore, propsData })
     const closeButton = [...wrapper.findAllComponents(QBtn)].find(btn => btn.vm.$props.icon === 'close')
     closeButton.trigger('click')
     expect(wrapper.emitted().close).toEqual([[]])
@@ -34,20 +34,20 @@ describe.skip('Detail', () => {
 
   it('cannot be closed on mobile', () => {
     useMobileUserAgent()
-    const wrapper = mountWithDefaults(require('./DetailHeaderUI').default, { datastore, propsData })
+    const wrapper = await mountWithDefaults((await import('./DetailHeaderUI')).default, { datastore, propsData })
     const closeButton = [...wrapper.findAllComponents(QBtn)].find(btn => btn.vm.$props.icon === 'close')
     expect(closeButton).toBeUndefined()
   })
 
   it('reverses messages if conversation is not a thread', () => {
-    const wrapper = mountWithDefaults(require('./DetailUI').default, { datastore, propsData })
+    const wrapper = await mountWithDefaults((await import('./DetailUI')).default, { datastore, propsData })
     const reversedMessageIds = [...propsData.conversation.messages.map(({ id }) => id)].reverse()
     const renderedMessageIds = [...wrapper.vm.conversationWithMaybeReversedMessages.messages].map(({ id }) => id)
     expect(renderedMessageIds).toEqual(reversedMessageIds)
   })
 
   it('keeps message order if conversation is a thread', () => {
-    const wrapper = mountWithDefaults(require('./DetailUI').default, {
+    const wrapper = await mountWithDefaults((await import('./DetailUI')).default, {
       datastore,
       propsData: {
         ...propsData,

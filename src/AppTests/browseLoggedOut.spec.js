@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 import { fireEvent, render } from '@testing-library/vue'
 import { times } from 'lodash'
 
-import App from '@/App'
+import App from '@/App.vue'
 import router from '@/router'
 
 import { withDefaults } from '>/helpers'
@@ -20,7 +20,7 @@ test('browse the site whilst logged out', async () => {
     }
   })
 
-  const { findByText, findAllByRole } = render(App, withDefaults({
+  const { findByText, findAllByRole } = render(App, await withDefaults({
     global: { plugins: [router], stubs: { RouterLink: false } },
   }))
 

@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
 import { times } from 'lodash'
+import { vi } from 'vitest'
 
 import { resetServices } from '@/utils/datastore/helpers'
 import { showToast } from '@/utils/toasts'
@@ -26,7 +27,7 @@ import ActivityCreateButton from './ActivityCreateButton.vue'
 
 // somehow showToast can't run Notify.create, possibly a problem with initializing Quasar
 // let's just mock it in the meantime
-jest.mock('@/utils/toasts')
+vi.mock('@/utils/toasts')
 
 describe('ActivityCreateButton', () => {
   let activityType
@@ -34,7 +35,7 @@ describe('ActivityCreateButton', () => {
   useMockBackend()
 
   beforeEach(() => {
-    jest.resetModules()
+    vi.resetModules()
     resetServices()
   })
 
@@ -53,7 +54,7 @@ describe('ActivityCreateButton', () => {
   it('creates a new activity', async () => {
     const { click } = userEvent.setup()
 
-    const { findByRole, getByRole, getAllByRole } = render(ActivityCreateButton, withDefaults())
+    const { findByRole, getByRole, getAllByRole } = render(ActivityCreateButton, await withDefaults())
 
     await click(getByRole('button', { title: /create/i }))
     await click(getAllByRole('button', { name: activityType.name })[0])

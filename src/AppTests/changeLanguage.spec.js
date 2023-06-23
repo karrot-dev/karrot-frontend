@@ -1,8 +1,9 @@
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 import { render } from '@testing-library/vue'
+import { test } from 'vitest'
 
-import App from '@/App'
+import App from '@/App.vue'
 import locales from '@/locales/index'
 import router from '@/router'
 
@@ -10,13 +11,11 @@ import { withDefaults } from '>/helpers'
 import { useMockBackend } from '>/mockBackend'
 
 useMockBackend()
-// this test might be a bit slow, let's give it more time
-jest.setTimeout(45 * 1000)
 
 test('change language whilst logged out', async () => {
   const user = userEvent.setup()
 
-  const { findByText, findByTitle } = render(App, withDefaults({
+  const { findByText, findByTitle } = render(App, await withDefaults({
     global: { plugins: [router], stubs: { RouterLink: false } },
   }))
 
@@ -28,4 +27,7 @@ test('change language whilst logged out', async () => {
     const messages = await getMessages()
     await user.click(await findByTitle(messages.LANGUAGECHOOSER.SWITCH))
   }
+}, {
+  // this test might be a bit slow, let's give it more time
+  timeout: 45 * 1000,
 })

@@ -12,9 +12,9 @@ const userData = {
 }
 
 describe('Signup', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => vi.resetModules())
   it('submits', () => {
-    const wrapper = mountWithDefaults(Signup, {
+    const wrapper = await mountWithDefaults(Signup, {
       propsData: {
         status: statusMocks.default(),
         prefillEmail: '',

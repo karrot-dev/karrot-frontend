@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker'
 import userEvent from '@testing-library/user-event'
 import { render, configure } from '@testing-library/vue'
 
-import App from '@/App'
+import App from '@/App.vue'
 import router from '@/router'
 
 import { withDefaults } from '>/helpers'
@@ -11,7 +11,7 @@ import { useMockBackend, createUser, createGroup, loginAs, db } from '>/mockBack
 import { addUserToGroup } from '>/mockBackend/groups'
 
 useMockBackend()
-jest.setTimeout(60 * 1000) // we do a lot of stuff here, give it some time!
+vi.setTimeout(60 * 1000) // we do a lot of stuff here, give it some time!
 
 configure({
   asyncUtilTimeout: 2000,
@@ -36,7 +36,7 @@ test('create an agreement', async () => {
     findAllByText,
     findByRole,
     findByTitle,
-  } = render(App, withDefaults({
+  } = render(App, await withDefaults({
     global: { plugins: [router], stubs: { RouterLink: false } },
   }))
 

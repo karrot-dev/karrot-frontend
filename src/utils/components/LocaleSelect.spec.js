@@ -6,12 +6,12 @@ import { createDatastore, mountWithDefaults } from '>/helpers'
 import LocaleSelectInner from './LocaleSelectInner.vue'
 
 describe.skip('LocaleSelect', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => vi.resetModules())
   let datastore
 
   const i18n = {
-    actions: { setLocale: jest.fn() },
-    getters: { locale: jest.fn() },
+    actions: { setLocale: vi.fn() },
+    getters: { locale: vi.fn() },
   }
 
   beforeEach(() => {
@@ -21,7 +21,7 @@ describe.skip('LocaleSelect', () => {
   })
 
   it('renders all the available locales', () => {
-    const wrapper = mountWithDefaults(LocaleSelectInner, { datastore })
+    const wrapper = await mountWithDefaults(LocaleSelectInner, { datastore })
     expect(wrapper.findAll('.q-item').length - 1).toBe(Object.keys(locales).length)
     for (const locale of Object.values(locales)) {
       expect(wrapper.html()).toContain(locale.name)
@@ -29,7 +29,7 @@ describe.skip('LocaleSelect', () => {
   })
 
   it('can select a locale', () => {
-    const wrapper = mountWithDefaults(LocaleSelectInner, { datastore })
+    const wrapper = await mountWithDefaults(LocaleSelectInner, { datastore })
     const idx = Math.floor(Math.random() * localeOptions.length) // pick a random locale
     wrapper.findAll('.q-item')[idx + 1].trigger('click')
     expect(i18n.actions.setLocale).toHaveBeenCalled()

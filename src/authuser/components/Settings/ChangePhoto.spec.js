@@ -6,20 +6,20 @@ import { usersMock } from '>/mockdata'
 
 import ChangePhoto from './ChangePhoto.vue'
 
-jest.mock('vue', () => jest.requireActual('@vue/compat'))
+vi.mock('vue', () => jest.requireActual('@vue/compat'))
 configureCompat({ MODE: 3 })
 
 // disable misleading errors from vue/compat
-global.console.error = jest.fn()
+global.console.error = vi.fn()
 
 describe('ChangePhoto', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => vi.resetModules())
   let wrapper
   let user
 
   beforeEach(() => {
     user = cloneDeep(usersMock[0])
-    wrapper = mountWithDefaults(ChangePhoto, { propsData: { value: user, status: statusMocks.default() } })
+    wrapper = await mountWithDefaults(ChangePhoto, { propsData: { value: user, status: statusMocks.default() } })
   })
 
   it('renders', () => {

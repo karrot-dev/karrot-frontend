@@ -8,7 +8,7 @@ import ProfileEdit from './ProfileEdit.vue'
 
 describe('ProfileEdit', () => {
   useMockBackend()
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => vi.resetModules())
   let wrapper
   let user
 
@@ -18,7 +18,7 @@ describe('ProfileEdit', () => {
   })
 
   beforeEach(() => {
-    wrapper = mountWithDefaults(ProfileEdit, { propsData: { value: user, status: statusMocks.default() } })
+    wrapper = await mountWithDefaults(ProfileEdit, { propsData: { value: user, status: statusMocks.default() } })
   })
 
   it('renders', () => {

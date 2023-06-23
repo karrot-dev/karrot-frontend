@@ -1,5 +1,5 @@
 describe('activities/api/activities', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => vi.resetModules())
 
   it('converts date range into date and dateEnd', () => {
     const { convert } = require('./activities')

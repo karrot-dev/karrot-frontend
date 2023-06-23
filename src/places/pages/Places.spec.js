@@ -24,7 +24,7 @@ describe('Places', () => {
   useMockBackend()
 
   beforeEach(() => {
-    jest.resetModules()
+    vi.resetModules()
     resetServices()
   })
 
@@ -39,7 +39,7 @@ describe('Places', () => {
   })
 
   it('renders a list of places', async () => {
-    const { findByText, findAllByText } = render(Places, withDefaults())
+    const { findByText, findAllByText } = render(Places, await withDefaults())
 
     // place name will be there
     for (const place of places) {

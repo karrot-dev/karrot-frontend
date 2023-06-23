@@ -1,3 +1,5 @@
+import { describe, beforeEach, afterEach, it, vi } from 'vitest'
+
 import { underscorize, objectDiff, debounceAndFlushOnUnload } from './utils'
 
 describe('utils', () => {
@@ -16,19 +18,19 @@ describe('debounceAndFlushBeforeUnload', () => {
   let listeners
   beforeEach(() => {
     listeners = {}
-    jest.spyOn(window, 'addEventListener').mockImplementation((event, fn) => {
+    vi.spyOn(window, 'addEventListener').mockImplementation((event, fn) => {
       listeners[event] = fn
     })
   })
-  afterEach(() => jest.restoreAllMocks())
+  afterEach(() => vi.restoreAllMocks())
   it('calls handler if triggered', () => {
-    const mock = jest.fn()
+    const mock = vi.fn()
     debounceAndFlushOnUnload(mock, 1000)()
     listeners.unload()
     expect(mock).toBeCalled()
   })
   it('does not call handler if not triggered', () => {
-    const mock = jest.fn()
+    const mock = vi.fn()
     debounceAndFlushOnUnload(mock, 1000)
     listeners.unload()
     expect(mock).not.toBeCalled()

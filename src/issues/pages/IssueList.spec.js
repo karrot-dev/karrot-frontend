@@ -15,7 +15,7 @@ describe('IssueList', () => {
   useMockBackend()
 
   beforeEach(() => {
-    jest.resetModules()
+    vi.resetModules()
     resetServices()
   })
   beforeEach(() => {
@@ -44,7 +44,7 @@ describe('IssueList', () => {
   })
 
   it('lists activities', async () => {
-    const { findByText } = render(IssueList, withDefaults())
+    const { findByText } = render(IssueList, await withDefaults())
     for (const issue of issues) {
       const affectedUser = db.orm.users.get({ id: issue.affectedUser })
       await findByText(affectedUser.displayName)

@@ -1,4 +1,5 @@
 import { flushPromises } from '@vue/test-utils'
+import { vi } from 'vitest'
 
 import GroupMarker from '@/maps/components/GroupMarker.vue'
 import KMap from '@/maps/components/KMap.vue'
@@ -13,9 +14,9 @@ import { groupMarker } from './markers'
 const markers = [...Array(20).keys()].map(e => groupMarker(makeGroup()))
 
 describe('StandardMap', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => vi.resetModules())
   it('renders markers with popups', async () => {
-    const wrapper = mountWithDefaults(StandardMap, {
+    const wrapper = await mountWithDefaults(StandardMap, {
       propsData: {
         markers,
       },

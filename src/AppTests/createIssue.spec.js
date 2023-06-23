@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { render, configure } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
 
-import App from '@/App'
+import App from '@/App.vue'
 import router from '@/router'
 
 import { withDefaults } from '>/helpers'
@@ -12,7 +12,7 @@ import { useMockBackend, createUser, createGroup, loginAs } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 
 useMockBackend()
-jest.setTimeout(90 * 1000) // we do a lot of stuff here, give it some time!
+vi.setTimeout(90 * 1000) // we do a lot of stuff here, give it some time!
 
 configure({
   asyncUtilTimeout: 2000,
@@ -41,7 +41,7 @@ test('create issue', async () => {
     findByTestId,
     getByRole,
     findByPlaceholderText,
-  } = render(App, withDefaults({
+  } = render(App, await withDefaults({
     global: { plugins: [router], stubs: { RouterLink: false } },
   }))
 
@@ -82,7 +82,7 @@ test('create issue', async () => {
   await flushPromises()
 
   // TODO: add mock websockets, for now we need to manually invalidate...
-  await require('@/base/queryClient').default.invalidateQueries()
+  await (await import('@/base/queryClient')).default.invalidateQueries()
 
   await findByText(messageContent, {}, { timeout: 2000 })
 

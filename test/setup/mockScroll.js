@@ -1,1 +1,3 @@
-global.scrollTo = jest.fn()
+import { vi } from 'vitest'
+
+global.scrollTo = vi.fn()

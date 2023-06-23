@@ -1,12 +1,13 @@
 // Setup a mock router
 // See https://github.com/posva/vue-router-mock
 
-const { config } = require('@vue/test-utils')
-const {
+import { config } from '@vue/test-utils'
+import { vi } from 'vitest'
+import {
   VueRouterMock,
   createRouterMock,
   injectRouterMock,
-} = require('vue-router-mock')
+} from 'vue-router-mock'
 
 export const router = createRouterMock()
 beforeEach(() => {
@@ -25,7 +26,7 @@ config.plugins.VueWrapper.install(VueRouterMock)
 const mockRouterPush = router.push
 const mockRouterReplace = router.replace
 
-jest.mock('@/router', () => ({
+vi.mock('@/router', () => ({
   push: mockRouterPush,
   replace: mockRouterReplace,
 }))

@@ -4,7 +4,7 @@ import { fireEvent, render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
 import { times } from 'lodash'
 
-import App from '@/App'
+import App from '@/App.vue'
 import router from '@/router'
 
 import { withDefaults } from '>/helpers'
@@ -23,15 +23,17 @@ test('join group', async () => {
 
   loginAs(user)
 
+  const config = await withDefaults({
+    global: { plugins: [router], stubs: { RouterLink: false } },
+  })
+
   const {
     findByText,
     findByRole,
     getByRole,
     findByPlaceholderText,
     queryByText,
-  } = render(App, withDefaults({
-    global: { plugins: [router], stubs: { RouterLink: false } },
-  }))
+  } = render(App, config)
 
   // We're on the group preview page with a link to the group :)
   const groupLink = await findByRole('link', { name: group.name })
@@ -55,7 +57,7 @@ test('join group', async () => {
   acceptApplication(user, group)
 
   // TODO: add mock websockets, for now we need to manually invalidate...
-  await require('@/base/queryClient').default.invalidateQueries()
+  await (await import('@/base/queryClient')).default.invalidateQueries()
 
   expect(queryByText('Your application is pending!')).not.toBeInTheDocument()
 

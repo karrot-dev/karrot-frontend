@@ -19,7 +19,7 @@ import '>/routerMocks'
 
 import EditActivityTypes from './EditActivityTypes.vue'
 
-Dialog.create = jest.fn(() => {
+Dialog.create = vi.fn(() => {
   return { onOk (fn) { fn('') } }
 })
 
@@ -28,7 +28,7 @@ describe('EditActivityTypes', () => {
   let group
 
   beforeEach(() => {
-    jest.resetModules()
+    vi.resetModules()
     resetServices()
   })
 
@@ -41,7 +41,7 @@ describe('EditActivityTypes', () => {
   })
 
   it('renders activity types edit form', async () => {
-    const { findByText } = render(EditActivityTypes, withDefaults())
+    const { findByText } = render(EditActivityTypes, await withDefaults())
     await flushPromises()
 
     await findByText('Name')
@@ -51,7 +51,7 @@ describe('EditActivityTypes', () => {
   it('adds new activity type', async () => {
     const { click, type } = userEvent.setup()
 
-    const { queryByRole, findByTitle, findByRole, findByText } = render(EditActivityTypes, withDefaults())
+    const { queryByRole, findByTitle, findByRole, findByText } = render(EditActivityTypes, await withDefaults())
     await flushPromises()
 
     await click(await findByTitle('Add new activity type'))
@@ -72,7 +72,7 @@ describe('EditActivityTypes', () => {
     const activityType = createActivityType({ group: group.id })
     const { click, type, clear } = userEvent.setup()
 
-    const { queryByRole, findByRole, findByText } = render(EditActivityTypes, withDefaults())
+    const { queryByRole, findByRole, findByText } = render(EditActivityTypes, await withDefaults())
     await flushPromises()
 
     await click(await findByText(activityType.name))

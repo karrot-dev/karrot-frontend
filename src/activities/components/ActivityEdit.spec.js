@@ -1,4 +1,5 @@
 import cloneDeep from 'clone-deep'
+import { vi } from 'vitest'
 import { nextTick } from 'vue'
 
 import { createDatastore, mountWithDefaults, statusMocks } from '>/helpers'
@@ -15,13 +16,13 @@ const datastore = createDatastore({
 })
 
 describe.skip('ActivityEdit', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => vi.resetModules())
   let wrapper, activity, unenriched
 
-  beforeEach(() => {
+  beforeEach(async () => {
     activity = cloneDeep(activitiesMock[0])
     unenriched = cloneDeep(activitiesMock[0])
-    wrapper = mountWithDefaults(ActivityEdit, {
+    wrapper = await mountWithDefaults(ActivityEdit, {
       datastore,
       propsData: { value: activity, status: statusMocks.default() },
     })

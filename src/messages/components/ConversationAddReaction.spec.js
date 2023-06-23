@@ -6,11 +6,11 @@ import ConversationAddReactionInner from './ConversationAddReactionInner.vue'
 import EmojiButton from './EmojiButton.vue'
 
 describe.skip('Conversation message reactions', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => vi.resetModules())
   let wrapper
 
   beforeEach(() => {
-    wrapper = mountWithDefaults(ConversationAddReactionInner, {
+    wrapper = await mountWithDefaults(ConversationAddReactionInner, {
       propsData: {
         reacted: ['thumbsup'],
       },

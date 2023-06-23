@@ -1,6 +1,7 @@
 import { mount, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
 import { isArray, mergeWith } from 'lodash'
+import { vi } from 'vitest'
 import { nextTick } from 'vue'
 import { VueQueryPlugin } from 'vue-query'
 
@@ -60,13 +61,14 @@ export function makefindAllComponentsIterable (wrapper) {
   return wrapper
 }
 
-export function withDefaults (options = {}) {
-  // jest.resetModules() can only provide isolation when we require() a module
+export async function withDefaults (options = {}) {
+  // TODO: update the next comment for vite!
+  // vi.resetModules() can only provide isolation when we require() a module
   // We want a fresh Quasar for every test
-  const Quasar = require('quasar').Quasar
-  const quasarConfig = require('>/quasarConfig').default
+  const { Quasar } = await import('quasar/dist/quasar.esm')
+  const quasarConfig = (await import('>/quasarConfig')).default
   // Use a fresh queryClient each time or we end up with data sharing between tests
-  const queryClient = require('@/base/queryClient').default
+  const queryClient = (await import('@/base/queryClient')).default
   // For some reason StandardMap.spec.js fails if propsData comes after global
   const { propsData } = options
   delete options.propsData
@@ -105,11 +107,11 @@ export function withDefaults (options = {}) {
   )
 }
 
-export function mountWithDefaults (Component, options = {}) {
+export async function mountWithDefaults (Component, options = {}) {
   // const i18n = require('@/base/i18n').default
   i18n.locale = 'en'
 
-  const mergedOptions = withDefaults(options)
+  const mergedOptions = await withDefaults(options)
 
   if (options.datastore) mergedOptions.global.plugins.unshift(options.datastore)
 
@@ -145,7 +147,7 @@ export function createRequestError () {
 export function mockActionOnce (datastore, actionName) {
   const originalValue = datastore._actions[actionName]
   const restore = () => { datastore._actions[actionName] = originalValue }
-  const mockFn = jest.fn()
+  const mockFn = vi.fn()
   datastore._actions[actionName] = [async () => {
     try {
       return await mockFn()

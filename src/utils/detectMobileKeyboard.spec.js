@@ -1,8 +1,9 @@
 import { dom } from 'quasar'
+import { vi } from 'vitest'
 const { height } = dom
 const mockPlatform = { is: { } }
 
-jest.mock('quasar', () => {
+vi.mock('quasar', () => {
   const original = jest.requireActual('quasar')
 
   return {
@@ -14,13 +15,13 @@ jest.mock('quasar', () => {
 describe('detectMobileKeyboard', () => {
   let originalWindowAddEventListener, detectMobileKeyboard
 
-  beforeEach(() => {
-    jest.resetModules()
+  beforeEach(async () => {
+    vi.resetModules()
     originalWindowAddEventListener = window.addEventListener
-    window.addEventListener = jest.fn().mockImplementation(function () {
+    window.addEventListener = vi.fn().mockImplementation(function () {
       originalWindowAddEventListener.apply(window, arguments)
     })
-    detectMobileKeyboard = require('./detectMobileKeyboard').default
+    detectMobileKeyboard = (await import('./detectMobileKeyboard')).default
   })
 
   afterEach(() => {

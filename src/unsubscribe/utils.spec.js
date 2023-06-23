@@ -6,7 +6,7 @@ const validToken = `
 `.replace(/\s/g, '')
 
 describe('spec', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => vi.resetModules())
 
   it('can parse tokens', () => {
     const { parseToken } = require('./utils')

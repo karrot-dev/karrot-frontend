@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { render } from '@testing-library/vue'
 import subDays from 'date-fns/subDays'
 
-import App from '@/App'
+import App from '@/App.vue'
 import router from '@/router'
 
 import { withDefaults } from '>/helpers'
@@ -22,7 +22,7 @@ import { joinActivity } from '>/mockBackend/activities'
 import { addUserToGroup } from '>/mockBackend/groups'
 
 useMockBackend()
-jest.setTimeout(30 * 1000) // we do a lot of stuff here, give it some time!
+vi.setTimeout(30 * 1000) // we do a lot of stuff here, give it some time!
 
 test('give activity feedback', async () => {
   const { type, click } = userEvent.setup()
@@ -55,7 +55,7 @@ test('give activity feedback', async () => {
     findByRole,
     getByRole,
     findByLabelText,
-  } = render(App, withDefaults({
+  } = render(App, await withDefaults({
     global: { plugins: [router], stubs: { RouterLink: false } },
   }))
 

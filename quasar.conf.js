@@ -17,7 +17,7 @@ const { configure } = require('quasar/wrappers')
 const webpack = require('webpack')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-const webpackAliases = require('./webpack.aliases').resolve.alias
+const aliases = require('./aliases').resolve.alias
 
 function getHttpsOptions () {
   /* Try to set up https with your own cert for usage with mkcert
@@ -116,18 +116,14 @@ module.exports = configure(function (ctx) {
       disable: true,
     },
 
-    // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
+    // Full list of options: https://quasar.dev/quasar-cli-vite/quasar-config-js#build
     build: {
       env: appEnv,
 
       sourceMap: true,
 
       alias: {
-        '@': resolve(__dirname, './src'),
-        '>': resolve(__dirname, './test'),
-        variables: resolve(__dirname, './src/css/quasar.variables.sass'),
-        editbox: resolve(__dirname, './src/css/karrot.editbox.sass'),
-        vue: '@vue/compat',
+        ...aliases,
       },
 
       // for compatibility with vue-croppa

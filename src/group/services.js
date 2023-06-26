@@ -14,7 +14,7 @@ import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
 import { useIntegerRouteParam } from '@/utils/composables'
 import { defineService } from '@/utils/datastore/helpers'
-import { captureException } from "@/utils/sentry"
+import { captureException } from '@/utils/sentry'
 
 export const useCurrentGroupService = defineService(() => {
   // services

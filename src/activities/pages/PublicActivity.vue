@@ -173,7 +173,7 @@
 </template>
 
 <script setup>
-import { onUnmounted, computed, watch } from '@vue/compat'
+import { onUnmounted, computed, watch } from '@vue'
 import {
   QCard,
   QCardSection,

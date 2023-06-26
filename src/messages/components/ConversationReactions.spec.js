@@ -1,4 +1,5 @@
 import { QBtn } from 'quasar'
+import { vi } from 'vitest'
 
 import { mountWithDefaults } from '>/helpers'
 import { currentUserMock, usersMockWithoutCurrent } from '>/mockdata'
@@ -9,7 +10,7 @@ import EmojiButton from './EmojiButton.vue'
 describe.skip('Conversation message reactions', () => {
   let wrapper
 
-  beforeEach(() => {
+  beforeEach(async () => {
     vi.resetModules()
     wrapper = await mountWithDefaults(MessageReactions, {
       propsData: {

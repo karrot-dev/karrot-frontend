@@ -14,7 +14,6 @@ module.exports = {
       '>': resolve(__dirname, './test'),
       variables: resolve(__dirname, './src/css/quasar.variables.sass'),
       editbox: resolve(__dirname, './src/css/karrot.editbox.sass'),
-      vue: '@vue/compat',
     },
   },
 }

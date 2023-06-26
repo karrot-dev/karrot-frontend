@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom'
 import { fireEvent, render } from '@testing-library/vue'
 import { partition, times } from 'lodash'
+import { vi } from 'vitest'
 
 import { resetServices } from '@/utils/datastore/helpers'
 

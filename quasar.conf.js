@@ -7,10 +7,10 @@
 // https://quasar.dev/quasar-cli/quasar-conf-js
 /* eslint-env node */
 
+const { readFileSync, existsSync } = require('fs')
 const { resolve } = require('path')
 
 const ESLintPlugin = require('eslint-webpack-plugin')
-const { readFileSync, existsSync } = require('fs')
 // const StyleLintPlugin = require('stylelint-webpack-plugin') TODO?
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const { configure } = require('quasar/wrappers')
@@ -77,7 +77,6 @@ module.exports = configure(function (ctx) {
     // app boot file (/src/boot)
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
-      'compat',
       'vueQuery',
       'loglevel',
       'pwa',
@@ -124,18 +123,6 @@ module.exports = configure(function (ctx) {
 
       alias: {
         ...aliases,
-      },
-
-      // for compatibility with vue-croppa
-      // can be deleted once vue-croppa supports vue 3 or we don't use it anymore
-      // see https://github.com/zhanziyang/vue-croppa/issues/235
-      // also check src/boot/compat.js
-      vueLoaderOptions: {
-        compilerOptions: {
-          compatConfig: {
-            MODE: 3,
-          },
-        },
       },
     },
 

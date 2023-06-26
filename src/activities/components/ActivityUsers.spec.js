@@ -1,4 +1,5 @@
 import cloneDeep from 'clone-deep'
+import { vi } from 'vitest'
 
 import { makeUser } from '>/enrichedFactories'
 import { mountWithDefaults, createDatastore } from '>/helpers'

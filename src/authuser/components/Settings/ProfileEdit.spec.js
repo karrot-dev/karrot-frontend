@@ -1,3 +1,4 @@
+import { vi } from 'vitest'
 import { nextTick } from 'vue'
 
 import { mountWithDefaults, statusMocks } from '>/helpers'
@@ -17,7 +18,7 @@ describe('ProfileEdit', () => {
     loginAs(user)
   })
 
-  beforeEach(() => {
+  beforeEach(async () => {
     wrapper = await mountWithDefaults(ProfileEdit, { propsData: { value: user, status: statusMocks.default() } })
   })
 

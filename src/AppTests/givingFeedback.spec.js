@@ -22,7 +22,6 @@ import { joinActivity } from '>/mockBackend/activities'
 import { addUserToGroup } from '>/mockBackend/groups'
 
 useMockBackend()
-vi.setTimeout(30 * 1000) // we do a lot of stuff here, give it some time!
 
 test('give activity feedback', async () => {
   const { type, click } = userEvent.setup()

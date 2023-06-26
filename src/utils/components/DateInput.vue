@@ -43,7 +43,7 @@ const smallScreen = computed(() => Screen.width < 450 || Screen.height < 450)
 
 const props = defineProps({
   modelValue: {
-    type: String,
+    type: Date,
     default: null,
   },
 })

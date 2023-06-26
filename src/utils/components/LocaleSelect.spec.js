@@ -1,3 +1,5 @@
+import { vi } from 'vitest'
+
 import { localeOptions } from '@/base/i18n'
 import locales from '@/locales'
 
@@ -20,7 +22,7 @@ describe.skip('LocaleSelect', () => {
     })
   })
 
-  it('renders all the available locales', () => {
+  it('renders all the available locales', async () => {
     const wrapper = await mountWithDefaults(LocaleSelectInner, { datastore })
     expect(wrapper.findAll('.q-item').length - 1).toBe(Object.keys(locales).length)
     for (const locale of Object.values(locales)) {
@@ -28,7 +30,7 @@ describe.skip('LocaleSelect', () => {
     }
   })
 
-  it('can select a locale', () => {
+  it('can select a locale', async () => {
     const wrapper = await mountWithDefaults(LocaleSelectInner, { datastore })
     const idx = Math.floor(Math.random() * localeOptions.length) // pick a random locale
     wrapper.findAll('.q-item')[idx + 1].trigger('click')

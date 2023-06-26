@@ -1,4 +1,5 @@
 import { QCheckbox } from 'quasar'
+import { vi } from 'vitest'
 
 import { mountWithDefaults, statusMocks } from '>/helpers'
 
@@ -13,7 +14,7 @@ const userData = {
 
 describe('Signup', () => {
   beforeEach(() => vi.resetModules())
-  it('submits', () => {
+  it('submits', async () => {
     const wrapper = await mountWithDefaults(Signup, {
       propsData: {
         status: statusMocks.default(),

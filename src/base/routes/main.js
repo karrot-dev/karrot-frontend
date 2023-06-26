@@ -85,7 +85,7 @@ export default [
     meta: {
       fullpage: true,
       breadcrumbs: [
-        { translation: 'KARROT' },
+        { name: 'KARROT' },
       ],
     },
     component: Landing,

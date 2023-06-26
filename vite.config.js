@@ -6,6 +6,7 @@ const aliases = require('./aliases').resolve.alias
 
 export default defineConfig({
   test: {
+    testTimeout: 90 * 1000,
     globals: true,
     environment: 'jsdom',
     setupFiles: [

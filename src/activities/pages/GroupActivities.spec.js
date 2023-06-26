@@ -2,10 +2,11 @@ import '@testing-library/jest-dom'
 import { fireEvent, render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
 import { partition, times } from 'lodash'
+import { vi } from 'vitest'
 
 import { resetServices } from '@/utils/datastore/helpers'
 
-import { withDefaults } from '>/helpers'
+import { withDefaults, invalidateQueries } from '>/helpers'
 import {
   useMockBackend,
   createUser,
@@ -121,7 +122,7 @@ describe('GroupActivities', () => {
     await fireEvent.click(getByRole('button', { name: 'Yes, of course!' }))
 
     // TODO: add mock websockets, for now we need to manually invalidate...
-    await (await import('@/base/queryClient')).default.invalidateQueries()
+    await invalidateQueries()
 
     // when we're signed up we get a nice Download ICS link
     await findByRole('link', { name: 'Download ICS' })

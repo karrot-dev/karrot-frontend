@@ -3,11 +3,12 @@ import { faker } from '@faker-js/faker'
 import userEvent from '@testing-library/user-event'
 import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
+import { vi } from 'vitest'
 
 import { resetServices } from '@/utils/datastore/helpers'
 import { showToast } from '@/utils/toasts'
 
-import { withDefaults } from '>/helpers'
+import { withDefaults, invalidateQueries } from '>/helpers'
 import {
   useMockBackend,
   createUser,
@@ -140,8 +141,8 @@ describe('User Settings', () => {
     expect(showToast.mock.calls[0][0].message).toBe('NOTIFICATIONS.CHANGES_SAVED')
 
     // TODO: add mock websockets, for now we need to manually invalidate...
-    await (await import('@/base/queryClient')).default.invalidateQueries()
-    await flushPromises()
+    await invalidateQueries()
+
     await findByRole('checkbox', { name: 'New applications', checked: true })
 
     // let's disable it again
@@ -152,8 +153,8 @@ describe('User Settings', () => {
     expect(showToast.mock.calls[0][0].message).toBe('NOTIFICATIONS.CHANGES_SAVED')
 
     // TODO: add mock websockets, for now we need to manually invalidate...
-    await (await import('@/base/queryClient')).default.invalidateQueries()
-    await flushPromises()
+    await invalidateQueries()
+
     await findByRole('checkbox', { name: 'New applications', checked: false })
   })
 })

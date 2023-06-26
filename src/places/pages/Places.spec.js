@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/vue'
 import { times } from 'lodash'
+import { vi } from 'vitest'
 
 import { resetServices } from '@/utils/datastore/helpers'
 

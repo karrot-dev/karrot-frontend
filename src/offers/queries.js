@@ -1,4 +1,4 @@
-import { computed, getCurrentInstance, unref } from 'vue'
+import { computed, unref } from 'vue'
 import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
 import { isMutating } from '@/offers/mutations'

@@ -1,12 +1,12 @@
+import { waitFor } from '@testing-library/vue'
 import { flushPromises, mount } from '@vue/test-utils'
 import { times } from 'lodash'
-import {getCurrentInstance, ref} from 'vue'
+import { getCurrentInstance, ref } from 'vue'
 import { VueQueryPlugin } from 'vue-query'
 
 import { useOfferDetailQuery, useOfferListQuery } from '@/offers/queries'
 import { camelizeKeys } from '@/utils/utils'
 
-import { sleep } from '>/helpers'
 import { createOffer, useMockBackend, setPageSize, createUser, createGroup, loginAs } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 
@@ -24,31 +24,32 @@ describe('offer queries', () => {
 
       const offerId = ref(null)
       const wrapper = mount({
-        setup: () => {
-          console.log('instance', getCurrentInstance())
-          useOfferDetailQuery({ offerId })
-        },
+        setup: () => useOfferDetailQuery({ offerId }),
       }, {
         global: { plugins: [VueQueryPlugin] },
       })
       // undefined as id is not set
-      await flushPromises()
-      expect(wrapper.vm.offer).toBeUndefined()
+      await waitFor(() => {
+        expect(wrapper.vm.offer).toBeUndefined()
+      })
 
       // switch to offer1
       offerId.value = offer1.id
-      await flushPromises()
-      expect(wrapper.vm.offer).toEqual(camelizeKeys(offer1))
+      await waitFor(() => {
+        expect(wrapper.vm.offer).toEqual(camelizeKeys(offer1))
+      })
 
       // switch to offer2
       offerId.value = offer2.id
-      await flushPromises()
-      expect(wrapper.vm.offer).toEqual(camelizeKeys(offer2))
+      await waitFor(() => {
+        expect(wrapper.vm.offer).toEqual(camelizeKeys(offer2))
+      })
 
       // and back to nothing again!
       offerId.value = null
-      await flushPromises()
-      expect(wrapper.vm.offer).toBeUndefined()
+      await waitFor(() => {
+        expect(wrapper.vm.offer).toBeUndefined()
+      })
     })
   })
 

@@ -1,4 +1,5 @@
-import { mount, RouterLinkStub } from '@vue/test-utils'
+import { configure } from '@testing-library/vue'
+import { flushPromises, mount, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
 import { isArray, mergeWith } from 'lodash'
 import { vi } from 'vitest'
@@ -9,6 +10,10 @@ import i18n, { i18nPlugin } from '@/base/i18n'
 
 const desktopUserAgent = 'Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0'
 const mobileUserAgent = 'Mozilla/5.0 (Android 9; Mobile; rv:68.0) Gecko/68.0 Firefox/68.0'
+
+configure({
+  asyncUtilTimeout: 60 * 1000,
+})
 
 export function useDesktopUserAgent () {
   window.navigator.userAgent = desktopUserAgent
@@ -75,10 +80,6 @@ export async function withDefaults (options = {}) {
   const defaults = {
     propsData,
     global: {
-      config: {
-        // TODO: should be able to remove this with vue v3.3.x
-        unwrapInjectedRef: true,
-      },
       plugins: [
         [Quasar, quasarConfig],
         [VueQueryPlugin, { queryClient }],
@@ -214,6 +215,15 @@ export const statusMocks = {
       validationErrors: { nonFieldErrors: [message] },
     })
   },
+}
+
+export async function invalidateQueries () {
+  await flushPromises()
+  await flushPromises()
+  // TODO: add mock websockets, for now we need to manually invalidate...
+  await (await import('@/base/queryClient')).default.invalidateQueries()
+  await flushPromises()
+  await flushPromises()
 }
 
 export const range = n => [...Array(n).keys()]

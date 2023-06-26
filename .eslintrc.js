@@ -107,7 +107,7 @@ module.exports = {
     // uses 'eslint-import-resolver-webpack':
     'import/resolver': {
       webpack: {
-        config: './webpack.aliases.js',
+        config: './aliases.js',
       },
     },
   },

@@ -44,8 +44,8 @@
 </template>
 
 <script setup>
-import { nextTick, ref, computed } from '@vue/compat'
 import { QBtn, QImg } from 'quasar'
+import { nextTick, ref, computed } from 'vue'
 import CroppaPlugin from 'vue-croppa'
 
 const Croppa = CroppaPlugin.component

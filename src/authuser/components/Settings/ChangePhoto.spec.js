@@ -1,23 +1,19 @@
-import { configureCompat } from '@vue/compat'
 import cloneDeep from 'clone-deep'
+import { vi } from 'vitest'
 
 import { mountWithDefaults, statusMocks, nextTicks } from '>/helpers'
 import { usersMock } from '>/mockdata'
 
 import ChangePhoto from './ChangePhoto.vue'
 
-vi.mock('vue', () => jest.requireActual('@vue/compat'))
-configureCompat({ MODE: 3 })
-
-// disable misleading errors from vue/compat
-global.console.error = vi.fn()
+// TODO: I've removed @vue/compat stuff, and so a bunch of stuff will need to change... no more vue-croppa...
 
 describe('ChangePhoto', () => {
   beforeEach(() => vi.resetModules())
   let wrapper
   let user
 
-  beforeEach(() => {
+  beforeEach(async () => {
     user = cloneDeep(usersMock[0])
     wrapper = await mountWithDefaults(ChangePhoto, { propsData: { value: user, status: statusMocks.default() } })
   })

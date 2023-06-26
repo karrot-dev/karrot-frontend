@@ -45,7 +45,6 @@
   "dependencies": {
     "@quasar/extras": "^1.16.3",
     "@sentry/vue": "^7.50.0",
-    "@vue/compat": "^3.2.47",
     "@vuelidate/core": "^2.0.2",
     "@vuelidate/validators": "^2.0.2",
     "@vueuse/core": "^10.1.0",

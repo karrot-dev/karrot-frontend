@@ -6,7 +6,6 @@
  * Obviously it does not handle dynamically composed translation keys, so expect some false positives.
  */
 const { exec } = require('child_process')
-
 const { readFileSync } = require('fs')
 
 const data = readFileSync('./src/locales/locale-en.json', 'utf8')

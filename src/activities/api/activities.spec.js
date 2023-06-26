@@ -1,3 +1,5 @@
+import { vi } from 'vitest'
+
 describe('activities/api/activities', () => {
   beforeEach(() => vi.resetModules())
 

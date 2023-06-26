@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
 import { Dialog } from 'quasar'
+import { vi } from 'vitest'
 
 import { resetServices } from '@/utils/datastore/helpers'
 

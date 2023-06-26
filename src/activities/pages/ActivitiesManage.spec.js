@@ -3,11 +3,12 @@ import userEvent from '@testing-library/user-event'
 import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
 import { Dialog } from 'quasar'
+import { vi } from 'vitest'
 import { getRouter } from 'vue-router-mock'
 
 import { resetServices } from '@/utils/datastore/helpers'
 
-import { withDefaults } from '>/helpers'
+import { withDefaults, invalidateQueries } from '>/helpers'
 import {
   useMockBackend,
   createUser,
@@ -81,7 +82,7 @@ describe('ActivitiesManage', () => {
     await flushPromises()
 
     // TODO: add mock websockets, for now we need to manually invalidate...
-    await (await import('@/base/queryClient')).default.invalidateQueries()
+    await invalidateQueries()
 
     await findByText('Monday')
   })
@@ -104,7 +105,7 @@ describe('ActivitiesManage', () => {
     await click(getByRole('button', { name: /save changes/i }))
 
     // TODO: add mock websockets, for now we need to manually invalidate...
-    await (await import('@/base/queryClient')).default.invalidateQueries()
+    await invalidateQueries()
     await flushPromises()
 
     expect(queryByRole('button', { name: /save changes/i })).toBeDisabled()

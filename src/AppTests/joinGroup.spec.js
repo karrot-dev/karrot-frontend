@@ -1,13 +1,12 @@
 import '@testing-library/jest-dom'
 import { faker } from '@faker-js/faker'
-import { fireEvent, render } from '@testing-library/vue'
-import { flushPromises } from '@vue/test-utils'
+import { fireEvent, render, waitFor } from '@testing-library/vue'
 import { times } from 'lodash'
 
 import App from '@/App.vue'
 import router from '@/router'
 
-import { withDefaults } from '>/helpers'
+import { invalidateQueries, withDefaults } from '>/helpers'
 import { useMockBackend, createUser, createGroup, loginAs } from '>/mockBackend'
 import { acceptApplication } from '>/mockBackend/applications'
 import { addUserToGroup } from '>/mockBackend/groups'
@@ -37,13 +36,17 @@ test('join group', async () => {
 
   // We're on the group preview page with a link to the group :)
   const groupLink = await findByRole('link', { name: group.name })
-  expect(router.currentRoute.value.path).toEqual('/groupPreview')
+  await waitFor(() => {
+    expect(router.currentRoute.value.path).toEqual('/groupPreview')
+  })
 
   // Open the group preview page
   await fireEvent.click(groupLink)
 
   const applyLink = await findByRole('link', { name: 'Apply' })
-  expect(router.currentRoute.value.path).toEqual(`/groupPreview/${group.id}`)
+  await waitFor(() => {
+    expect(router.currentRoute.value.path).toEqual(`/groupPreview/${group.id}`)
+  })
 
   // Let's apply!
   await fireEvent.click(applyLink)
@@ -56,17 +59,17 @@ test('join group', async () => {
 
   acceptApplication(user, group)
 
-  // TODO: add mock websockets, for now we need to manually invalidate...
-  await (await import('@/base/queryClient')).default.invalidateQueries()
+  await invalidateQueries()
 
   expect(queryByText('Your application is pending!')).not.toBeInTheDocument()
 
   // Open the group!
   await fireEvent.click(getByRole('link', { name: 'Open' }))
-  await flushPromises()
 
   // Ooh on the wall page :)
-  expect(router.currentRoute.value.path).toEqual(`/group/${group.id}/wall`)
+  await waitFor(() => {
+    expect(router.currentRoute.value.path).toEqual(`/group/${group.id}/wall`)
+  })
 
   // TODO: write a message! (Haven't implemented enough mockBackend to get the conversation yet...)
 })

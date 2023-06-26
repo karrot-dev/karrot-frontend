@@ -1,4 +1,5 @@
 import { QBtn } from 'quasar'
+import { vi } from 'vitest'
 
 import { mountWithDefaults, nextTicks } from '>/helpers'
 
@@ -9,7 +10,7 @@ describe.skip('Conversation message reactions', () => {
   beforeEach(() => vi.resetModules())
   let wrapper
 
-  beforeEach(() => {
+  beforeEach(async () => {
     wrapper = await mountWithDefaults(ConversationAddReactionInner, {
       propsData: {
         reacted: ['thumbsup'],

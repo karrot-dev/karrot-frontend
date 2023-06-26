@@ -1,3 +1,5 @@
+import { vi } from 'vitest'
+
 const validToken = `
   eyJ1IjoxLCJnIjoxLCJnbiI6Ikdyb3V
   wIEpvZGlib3JvdWdoIiwiYyI6MSwibi
@@ -8,8 +10,8 @@ const validToken = `
 describe('spec', () => {
   beforeEach(() => vi.resetModules())
 
-  it('can parse tokens', () => {
-    const { parseToken } = require('./utils')
+  it('can parse tokens', async () => {
+    const { parseToken } = await import('./utils')
     expect(parseToken(validToken)).toEqual({
       conversationId: 1,
       groupId: 1,
@@ -19,8 +21,8 @@ describe('spec', () => {
     })
   })
 
-  it('errors with invalid tokens', () => {
-    const { parseToken } = require('./utils')
+  it('errors with invalid tokens', async () => {
+    const { parseToken } = await import('./utils')
     expect(() => parseToken('totallynotavalidtoken')).toThrow()
   })
 })

@@ -1,8 +1,8 @@
 import { flushPromises } from '@vue/test-utils'
 import cloneDeep from 'clone-deep'
 import { QInput } from 'quasar'
-import { nextTick } from 'vue'
 import { vi } from 'vitest'
+import { nextTick } from 'vue'
 
 import * as factories from '>/enrichedFactories'
 import { createDatastore, mountWithDefaults } from '>/helpers'

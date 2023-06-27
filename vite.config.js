@@ -1,3 +1,6 @@
+import path from 'path'
+
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vitest/config'
@@ -29,5 +32,8 @@ export default defineConfig({
       template: { transformAssetUrls },
     }),
     quasar({}),
+    VueI18nPlugin({
+      include: [path.resolve(__dirname, './src/locales/locale-*.json')],
+    }),
   ],
 })

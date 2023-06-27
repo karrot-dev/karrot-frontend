@@ -40,6 +40,12 @@ export function useMockBackend () {
   afterEach(resetMockBackend)
 }
 
+// I encounter a scenario in testing where the bare imported ctx was always undefined
+// Whereas this worked...
+export function getMockBackendContext () {
+  return ctx
+}
+
 export function setupMockBackend () {
   db = {
     users: [],

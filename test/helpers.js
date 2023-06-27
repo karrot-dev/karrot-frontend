@@ -5,6 +5,7 @@ import { isArray, mergeWith } from 'lodash'
 import { vi } from 'vitest'
 import { nextTick } from 'vue'
 import { VueQueryPlugin } from 'vue-query'
+import { getRouter } from 'vue-router-mock'
 
 import i18n, { i18nPlugin } from '@/base/i18n'
 
@@ -77,10 +78,14 @@ export async function withDefaults (options = {}) {
   // For some reason StandardMap.spec.js fails if propsData comes after global
   const { propsData } = options
   delete options.propsData
+
+  const router = getRouter()
+
   const defaults = {
     propsData,
     global: {
       plugins: [
+        router,
         [Quasar, quasarConfig],
         [VueQueryPlugin, { queryClient }],
         i18nPlugin,

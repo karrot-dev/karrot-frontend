@@ -14,7 +14,7 @@ import {
   createUser,
   createGroup,
   loginAs,
-  ctx,
+  getMockBackendContext,
 } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
@@ -31,7 +31,7 @@ describe('User Settings', () => {
 
   beforeEach(() => {
     vi.resetModules()
-    jest.clearAllMocks()
+    vi.clearAllMocks()
     resetServices()
   })
 
@@ -96,7 +96,7 @@ describe('User Settings', () => {
     await click(submitButton)
     await flushPromises()
 
-    expect(ctx.authUser.unverifiedEmail).toBe(newEmail)
+    expect(getMockBackendContext().authUser.unverifiedEmail).toBe(newEmail)
   })
 
   it('changes password', async () => {

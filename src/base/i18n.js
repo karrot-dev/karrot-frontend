@@ -3,6 +3,7 @@ import { createI18n } from 'vue-i18n'
 import locales from '@/locales/index'
 import localeEn from '@/locales/locale-en.json'
 import status from '@/locales/translationStatus.json'
+import { detectLocale } from '@/utils/utils'
 
 const defaultDateTimeFormat = {
   hourMinute: {
@@ -86,6 +87,7 @@ for (const locale of Object.values(locales)) {
 const i18n = createI18n({
   // Just need to include 'en' here as it is the fallback locale
   // All other locales are loaded on demand in base/datastore/i18nPlugin
+  locale: detectLocale(),
   messages: {
     en: localeEn,
   },

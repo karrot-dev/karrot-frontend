@@ -1,6 +1,8 @@
 import deepEqual from 'deep-equal'
 import debounce from 'lodash/debounce'
 
+import locales from '@/locales'
+
 // Quasar's ready() is broken until https://github.com/quasarframework/quasar/pull/2199
 export function ready (fn) {
   if (typeof fn !== 'function') {
@@ -194,4 +196,40 @@ if (process.env.DEV) {
 
 export function sleep (ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+export function detectLocale () {
+  let requested = []
+  if (navigator.languages) {
+    navigator.languages.forEach(e => {
+      requested.push(e.toLowerCase())
+      // detect similar languages with slightly less priority
+      if (e.includes('-')) {
+        requested.push(e.replace(/-.*$/, '').toLowerCase())
+      }
+      // alias definitions
+      else if (e === 'zh') {
+        requested.push('zh-hans', 'zh-hant')
+      }
+      else if (e === 'zh_TW') {
+        requested.push('zh-hant')
+      }
+      else if (e === 'zh_CN') {
+        requested.push('zh-hans')
+      }
+    })
+  }
+  else {
+    const val =
+      navigator.language ||
+      navigator.browserLanguage ||
+      navigator.systemLanguage ||
+      navigator.userLanguage
+    if (val) {
+      requested = [val.toLowerCase()]
+    }
+  }
+  if (requested) {
+    return requested.find(e => locales[e])
+  }
 }

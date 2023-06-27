@@ -10,7 +10,6 @@ import { showToast } from '@/utils/toasts'
 
 import { withDefaults } from '>/helpers'
 import {
-  db,
   useMockBackend,
   createUser,
   createGroup,
@@ -18,7 +17,7 @@ import {
   setPageSize,
   createPlace,
   createPlaceType,
-  createActivityType,
+  createActivityType, getMockBackendDatabase,
 } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
@@ -61,6 +60,8 @@ describe('ActivityCreateButton', () => {
 
     await click(getByRole('combobox', { name: 'Choose a place' }))
     await click(await findByRole('option', { name: places[0].name }))
+
+    const db = getMockBackendDatabase()
 
     expect(db.activities.length).toEqual(0)
     await click(getByRole('button', { name: 'Create' }))

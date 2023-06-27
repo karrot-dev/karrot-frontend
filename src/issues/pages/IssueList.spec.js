@@ -26,11 +26,11 @@ describe('IssueList', () => {
     addUserToGroup(authUser, group)
     authUser.currentGroup = group.id
 
-    const users = times(10, () => {
-      const user = createUser()
+    const users = times(10, () => createUser())
+
+    for (const user of users) {
       addUserToGroup(user, group)
-      return user
-    })
+    }
 
     // our trouble making auth user creates an issue for everyone in the group
     issues = users.map(user => createIssue({
@@ -44,7 +44,7 @@ describe('IssueList', () => {
     loginAs(authUser)
   })
 
-  it('lists activities', async () => {
+  it('lists issues with pagination', async () => {
     const { findByText } = render(IssueList, await withDefaults())
     for (const issue of issues) {
       const affectedUser = db.orm.users.get({ id: issue.affectedUser })

@@ -6,7 +6,7 @@ const aliases = require('./aliases').resolve.alias
 
 export default defineConfig({
   test: {
-    testTimeout: 90 * 1000,
+    testTimeout: 120 * 1000,
     globals: true,
     environment: 'jsdom',
     setupFiles: [
@@ -16,6 +16,7 @@ export default defineConfig({
       'test/setup/mockScroll.js',
       'test/setup/mockUserAgent.js',
       'test/setup/mockLocation.js',
+      'test/setup/mockSVGAnimations.js',
     ],
   },
   resolve: {

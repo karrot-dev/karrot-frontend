@@ -25,13 +25,13 @@ import { createMockPlacesBackend, generatePlace } from './places'
 import { createMockStatusBackend } from './status'
 import { createMockUsersBackend, generateUser } from './users'
 
-export let db
-export let ctx
+export const db = createDatabase()
+export const ctx = createContext()
 
 /**
  * Creates a fake backend that can be used in tests.
  *
- * Internally holds a mini database of entries that each backend
+ * Internally holds a mini db of entries that each backend
  * module can use how it wishes, so things that cross-reference each
  * other can work.
  */
@@ -40,14 +40,16 @@ export function useMockBackend () {
   afterEach(resetMockBackend)
 }
 
-// I encounter a scenario in testing where the bare imported ctx was always undefined
-// Whereas this worked...
 export function getMockBackendContext () {
   return ctx
 }
 
-export function setupMockBackend () {
-  db = {
+export function getMockBackendDatabase () {
+  return db
+}
+
+function createDatabase () {
+  const newDB = {
     users: [],
     places: [],
     placeTypes: [],
@@ -65,21 +67,44 @@ export function setupMockBackend () {
     agreements: [],
     history: [],
   }
-  db.orm = {
-    users: createFinder(db, 'users'),
-    feedback: createFinder(db, 'feedback'),
-    groups: createFinder(db, 'groups'),
-    places: createFinder(db, 'places'),
-    placeTypes: createFinder(db, 'placeTypes'),
-    conversations: createFinder(db, 'conversations'),
-    issues: createFinder(db, 'issues'),
-    activities: createFinder(db, 'activities'),
-    activityTypes: createFinder(db, 'activityTypes'),
-    agreements: createFinder(db, 'agreements'),
+  newDB.orm = {
+    users: createFinder(newDB, 'users'),
+    feedback: createFinder(newDB, 'feedback'),
+    groups: createFinder(newDB, 'groups'),
+    places: createFinder(newDB, 'places'),
+    placeTypes: createFinder(newDB, 'placeTypes'),
+    conversations: createFinder(newDB, 'conversations'),
+    issues: createFinder(newDB, 'issues'),
+    activities: createFinder(newDB, 'activities'),
+    activityTypes: createFinder(newDB, 'activityTypes'),
+    agreements: createFinder(newDB, 'agreements'),
   }
-  ctx = {
+  return newDB
+}
+
+function resetDatabase () {
+  for (const key of Object.keys(db)) {
+    if (key !== 'orm') {
+      db[key] = []
+    }
+  }
+}
+
+function resetContext () {
+  Object.assign(ctx, {
+    authUser: null,
+  })
+}
+
+function createContext () {
+  return {
     authUser: null,
   }
+}
+
+export function setupMockBackend () {
+  resetDatabase()
+  resetContext()
   initializeMockAxios()
 
   createAuthUserBackend()
@@ -119,8 +144,8 @@ export function setupMockBackend () {
 }
 
 export function resetMockBackend () {
-  db = null
-  ctx = null
+  resetDatabase()
+  resetContext()
   resetMockAxios()
 }
 

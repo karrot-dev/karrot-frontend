@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-import {cursorPaginated, getById, post} from './mockAxios'
+import { cursorPaginated, getById, post } from './mockAxios'
 
 import { ctx, db } from './index'
 

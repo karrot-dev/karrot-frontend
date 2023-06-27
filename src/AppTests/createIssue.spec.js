@@ -38,7 +38,6 @@ test('create issue', async () => {
     findByRole,
     findAllByRole,
     findByTitle,
-    findByTestId,
     getByRole,
     findByPlaceholderText,
   } = render(App, withDefaults({

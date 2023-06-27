@@ -1,5 +1,5 @@
 import MockAdapter from 'axios-mock-adapter'
-import {isPlainObject, merge, set} from 'lodash'
+import { isPlainObject, merge, set } from 'lodash'
 import { pathToRegexp } from 'path-to-regexp'
 import 'blob-polyfill'
 

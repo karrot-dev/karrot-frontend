@@ -31,10 +31,10 @@
         </QItem>
       </QList>
       <QList
+        v-if="hasLoaded && messages.length > 0"
         ref="messagesList"
         class="bg-white desktop-margin relative-position q-pb-md rounded-borders"
         bordered
-        v-if="hasLoaded && messages.length > 0"
       >
         <QBanner
           v-if="isParticipant && unreadMessageCount > 0"

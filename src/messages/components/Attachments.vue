@@ -233,11 +233,11 @@ function addFilesToQueue (event) {
   const inputFiles = Array.from(event.target.files)
 
   const acceptedFiles = []
-  let EXCEEDED_MAX_ATTACHMENT_SIZE = false
+  let exceededMaxAttachmentSize = false
 
   for (const file of inputFiles) {
     if (file.size > MAX_ATTACHMENT_SIZE) {
-      EXCEEDED_MAX_ATTACHMENT_SIZE = true
+      exceededMaxAttachmentSize = true
     }
     else {
       acceptedFiles.push(file)
@@ -253,11 +253,11 @@ function addFilesToQueue (event) {
     contentType: file.type || 'application/octet-stream',
     position: nextPosition++,
   })))
-  const EXCEEDED_MAX_ATTACHMENT_COUNT = attachmentsNext.filter(attachment => !attachment._removed).length > MAX_ATTACHMENT_COUNT
-  if (EXCEEDED_MAX_ATTACHMENT_SIZE) {
+  const exceededMaxAttachmentCount = attachmentsNext.filter(attachment => !attachment._removed).length > MAX_ATTACHMENT_COUNT
+  if (exceededMaxAttachmentSize) {
     showMaxAttachmentSizeReachedToast()
   }
-  if (EXCEEDED_MAX_ATTACHMENT_COUNT) {
+  if (exceededMaxAttachmentCount) {
     showMaxAttachmentCountReachedToast()
   }
   attachments.value = attachmentsNext.slice(0, MAX_ATTACHMENT_COUNT)

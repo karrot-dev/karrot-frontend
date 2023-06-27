@@ -1,35 +1,22 @@
 import { dom } from 'quasar'
 import { vi } from 'vitest'
+
+import { useDesktopUserAgent, useMobileUserAgent } from '>/helpers'
 const { height } = dom
-const mockPlatform = { is: { } }
-
-vi.mock('quasar', () => {
-  const original = jest.requireActual('quasar')
-
-  return {
-    ...original,
-    Platform: mockPlatform,
-  }
-})
 
 describe('detectMobileKeyboard', () => {
-  let originalWindowAddEventListener, detectMobileKeyboard
+  let detectMobileKeyboard
 
   beforeEach(async () => {
     vi.resetModules()
-    originalWindowAddEventListener = window.addEventListener
-    window.addEventListener = vi.fn().mockImplementation(function () {
-      originalWindowAddEventListener.apply(window, arguments)
-    })
-    detectMobileKeyboard = (await import('./detectMobileKeyboard')).default
-  })
-
-  afterEach(() => {
-    window.addEventListener = originalWindowAddEventListener
+    vi.spyOn(window, 'addEventListener')
   })
 
   describe('desktop', () => {
-    beforeEach(() => { mockPlatform.is.mobile = false })
+    beforeEach(async () => {
+      useDesktopUserAgent()
+      detectMobileKeyboard = (await import('./detectMobileKeyboard')).default
+    })
     it('defaults to closed', () => {
       expect(detectMobileKeyboard.is.open).toBe(false)
     })
@@ -45,7 +32,11 @@ describe('detectMobileKeyboard', () => {
   })
 
   describe('mobile', () => {
-    beforeEach(() => { mockPlatform.is.mobile = true })
+    // beforeEach(() => { mockPlatform.is.mobile = true })
+    beforeEach(async () => {
+      useMobileUserAgent()
+      detectMobileKeyboard = (await import('./detectMobileKeyboard')).default
+    })
     it('defaults to closed', () => {
       expect(detectMobileKeyboard.is.open).toBe(false)
     })

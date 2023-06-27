@@ -4,32 +4,30 @@
       :disable="conversation && !hasNextPage"
       @load="infiniteScrollLoad"
     >
-      <QList
+      <QCard
         v-if="hasLoaded"
-        class="bg-white desktop-margin relative-position q-mb-lg rounded-borders"
-        style="margin-bottom: 12px;"
+        flat
         bordered
+        class="desktop-margin"
       >
-        <QItem>
-          <NotificationToggle
-            class="actionButton"
-            :muted="isMuted"
-            :is-participant="isParticipant"
-            :user="user"
-            @set="setNotifications"
-          />
-          <ConversationCompose
-            :status="sendStatus"
-            :placeholder="messagePrompt"
-            :user="user"
-            :slim="$q.platform.is.mobile"
-            :is-participant="isParticipant"
-            :draft-key="conversation.id"
-            multiple
-            @submit="message => send({ id: conversation.id, ...message })"
-          />
-        </QItem>
-      </QList>
+        <NotificationToggle
+          class="actionButton"
+          :muted="isMuted"
+          :is-participant="isParticipant"
+          :user="user"
+          @set="setNotifications"
+        />
+        <ConversationCompose
+          :status="sendStatus"
+          :placeholder="messagePrompt"
+          :user="user"
+          :slim="$q.platform.is.mobile"
+          :is-participant="isParticipant"
+          :draft-key="conversation.id"
+          multiple
+          @submit="message => send({ id: conversation.id, ...message })"
+        />
+      </QCard>
       <QList
         v-if="hasLoaded && messages.length > 0"
         ref="messagesList"
@@ -81,6 +79,7 @@ import {
   QBtn,
   QInfiniteScroll,
   QList,
+  QCard,
   QBanner,
   QIcon,
 } from 'quasar'
@@ -111,6 +110,7 @@ export default {
     QBtn,
     QInfiniteScroll,
     QList,
+    QCard,
     QBanner,
     QIcon,
   },

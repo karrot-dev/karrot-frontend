@@ -119,7 +119,7 @@ import AttachmentGallery from '@/messages/components/AttachmentGallery.vue'
 
 const { humanStorageSize } = format
 
-const MAX_ATTACHMENT_COUNT = 5
+const MAX_ATTACHMENT_COUNT = 6
 const MAX_ATTACHMENT_SIZE = 10 * 1024 * 1024
 
 const props = defineProps({

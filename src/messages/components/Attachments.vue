@@ -310,8 +310,12 @@ function getImage (attachment) {
     // ... but we can't create that preview on the client, so no img to show...
   }
   else if (attachment.urls) {
-    const { preview, original } = attachment.urls
-    if (preview) {
+    const { thumbnail, preview, original } = attachment.urls
+    if (thumbnail) {
+      // We have a thumbnail, show it!
+      return urlToImage(thumbnail)
+    }
+    else if (preview) {
       // We have a preview, show it!
       return urlToImage(preview)
     }

@@ -16,11 +16,21 @@
         flat
         dense
         round
+        :title="$t('TOPBAR.USERPROFILE')"
+      >
+        <QIcon
+          name="fas fa-user fa-fw"
+        />
+      </QBtn>
+      <QBtn
+        flat
+        dense
+        round
+        :title="$t('SETTINGS.TITLE')"
         :to="{name: 'settings'}"
       >
         <QIcon
           name="fas fa-cog fa-fw"
-          label="$t('SETTINGS.TITLE')"
         />
       </QBtn>
     </QToolbar>

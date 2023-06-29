@@ -16,13 +16,7 @@
         flat
         dense
         round
-      >
-        <QIcon name="fas fa-fw fa-user-circle" />
-      </QBtn>
-      <QBtn
-        flat
-        dense
-        round
+        :to="{name: 'settings'}"
       >
         <QIcon
           name="fas fa-cog fa-fw"
@@ -35,7 +29,6 @@
         <img
           v-if="currentGroup && currentGroup.photoUrls"
           :src="currentGroup.photoUrls.thumbnail"
-          style="height: 1.5em"
         >
       </QAvatar>
       <QToolbarTitle>

@@ -1,9 +1,9 @@
 <template>
   <div
-    class="wrapper"
+    class="profile-picture inline-block relative-position"
     :style="pictureStyle"
   >
-    <template v-if="user && user.id">
+    <template v-if="user?.id">
       <RouterLink
         v-if="isLink"
         :to="{name:'user', params: {userId: user.id}}"
@@ -13,83 +13,99 @@
         <img
           v-if="hasPhoto"
           :src="photo"
-          class="fill"
+          class="fit"
         >
         <RandomArt
           v-else
           :text="user.displayName"
           :seed="user.id"
-          class="randomArt fill"
+          class="block overflow-hidden fit"
         />
       </RouterLink>
-      <img
-        v-else-if="hasPhoto"
-        :src="photo"
-        class="fill"
-      >
-      <RandomArt
+      <template
         v-else
-        :text="user.displayName"
-        :seed="user.id"
-        class="randomArt fill"
-      />
+      >
+        <a
+          v-if="editable"
+          class="text-white text-bold absolute-full change-photo cursor-pointer column flex-center rounded-borders"
+          @click="chooseProfilePhoto"
+        >
+          <QIcon
+            name="fas fa-camera"
+            size="xl"
+          />
+          {{ t('USERDATA.SET_PHOTO') }}
+        </a>
+        <img
+          v-if="hasPhoto"
+          :src="photo"
+          class="fit"
+        >
+        <RandomArt
+          v-else
+          :text="user.displayName"
+          :seed="user.id"
+          class="block overflow-hidden fit"
+        />
+      </template>
     </template>
   </div>
 </template>
 
-<script>
+<script setup>
+import { QIcon } from 'quasar'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+import { useSetProfilePhoto } from '@/authuser/composables'
+
 import RandomArt from '@/utils/components/RandomArt.vue'
 
-export default {
-  components: {
-    RandomArt,
-  },
-  props: {
-    user: { default: null, type: Object },
-    membership: { default: null, type: Object },
-    size: { default: 20, type: Number },
-    isLink: { default: true, type: Boolean },
-  },
-  computed: {
-    tooltip () {
-      if (this.user.displayName === '?') {
-        return this.$t('PROFILE.INACCESSIBLE_OR_DELETED')
-      }
-      if (!this.membership || this.membership.roles.includes('editor')) {
-        return this.user.displayName
-      }
-      const role = this.$t('USERDATA.NEWCOMER')
-      return `${this.user.displayName} (${role})`
-    },
-    pictureStyle () {
-      return {
-        width: this.size + 'px',
-        height: this.size + 'px',
-      }
-    },
-    hasPhoto () {
-      return !!this.photo
-    },
-    photo () {
-      if (this.user && this.user.photoUrls) {
-        const p = this.user.photoUrls
-        return this.size > 120 ? p['600'] : p.thumbnail
-      }
-      return null
-    },
-  },
-}
+const { t } = useI18n()
+
+const { chooseProfilePhoto } = useSetProfilePhoto()
+
+const props = defineProps({
+  user: { default: null, type: Object },
+  membership: { default: null, type: Object },
+  size: { default: 20, type: Number },
+  isLink: { default: true, type: Boolean },
+  editable: { default: false, type: Boolean },
+})
+
+const tooltip = computed(() => {
+  if (props.user.displayName === '?') {
+    return t('PROFILE.INACCESSIBLE_OR_DELETED')
+  }
+  if (!props.membership || props.membership.roles.includes('editor')) {
+    return props.user.displayName
+  }
+  const role = t('USERDATA.NEWCOMER')
+  return `${props.user.displayName} (${role})`
+})
+
+const pictureStyle = computed(() => ({
+  width: props.size + 'px',
+  height: props.size + 'px',
+}))
+
+const hasPhoto = computed(() => Boolean(photo.value))
+
+const photo = computed(() => {
+  if (props.user?.photoUrls) {
+    const p = props.user.photoUrls
+    return props.size > 120 ? p['600'] : p.thumbnail
+  }
+  return null
+})
 </script>
 
 <style scoped lang="sass">
-.wrapper
-  display: inline-block
+.change-photo
+  visibility: hidden
+  background-color: rgba(100, 100, 100, 0.8)
+  gap: 12px
 
-.randomArt
-  display: block
-  overflow: hidden
-
-.fill
-  width: 100%
-  height: 100%
+.profile-picture:hover .change-photo
+  visibility: visible
 </style>

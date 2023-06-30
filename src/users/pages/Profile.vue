@@ -34,11 +34,12 @@
           name="turn-in"
           appear
         >
-          <div class="photo q-pa-sm q-ma-md bg-white shadow-4">
+          <div class="photo q-pa-sm q-ma-md bg-white shadow-4 rounded-borders">
             <ProfilePicture
               :is-link="false"
               :user="user"
               :size="profilePictureSize"
+              :editable="isCurrentUser"
             />
           </div>
         </Transition>

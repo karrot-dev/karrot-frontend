@@ -12,6 +12,7 @@
         <QIcon name="fas fa-camera" />
       </template>
       <template #control>
+        <!--
         <Croppa
           ref="croppaPhoto"
           class="q-mt-sm"
@@ -41,6 +42,7 @@
             >
           </template>
         </Croppa>
+        -->
         <QResizeObserver @resize="onResize" />
       </template>
     </QField>
@@ -87,12 +89,12 @@ import {
   QIcon,
   QResizeObserver,
 } from 'quasar'
-import CroppaPlugin from 'vue-croppa'
+// import CroppaPlugin from 'vue-croppa'
 
 import statusMixin from '@/utils/mixins/statusMixin'
-const Croppa = CroppaPlugin.component
+// const Croppa = CroppaPlugin.component
 // Upgrade Croppa once it's compatible with Vue3: https://github.com/zhanziyang/vue-croppa/issues/235
-Croppa.compatConfig = { MODE: 2 }
+// Croppa.compatConfig = { MODE: 2 }
 
 export default {
   components: {
@@ -100,7 +102,7 @@ export default {
     QBtn,
     QIcon,
     QResizeObserver,
-    Croppa,
+    // Croppa,
   },
   mixins: [statusMixin],
   props: {

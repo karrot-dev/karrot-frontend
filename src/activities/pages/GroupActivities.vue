@@ -142,6 +142,7 @@
 
 <script>
 import {
+  QBtn,
   QIcon,
   QItem,
   QItemSection,
@@ -169,6 +170,7 @@ import KSpinner from '@/utils/components/KSpinner.vue'
 
 export default {
   components: {
+    QBtn,
     ICSBtn,
     QIcon,
     QInfiniteScroll,

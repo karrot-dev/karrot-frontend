@@ -4,6 +4,7 @@ import { render } from '@testing-library/vue'
 import { test } from 'vitest'
 
 import App from '@/App.vue'
+import i18n from '@/base/i18n'
 import locales from '@/locales/index'
 import router from '@/router'
 
@@ -22,12 +23,8 @@ test('change language whilst logged out', async () => {
   await user.click(await findByTitle('Switch language'))
 
   // try switching to all languages available
-  for (const { name, messages: getMessages } of Object.values(locales)) {
+  for (const { name } of Object.values(locales)) {
     await user.click(await findByText(name))
-    const messages = await getMessages()
-    await user.click(await findByTitle(messages.LANGUAGECHOOSER.SWITCH))
+    await user.click(await findByTitle(i18n.t('LANGUAGECHOOSER.SWITCH')))
   }
-}, {
-  // this test might be a bit slow, let's give it more time
-  timeout: 45 * 1000,
 })

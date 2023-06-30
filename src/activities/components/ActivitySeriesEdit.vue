@@ -223,7 +223,10 @@
           <QIcon name="code" />
         </template>
         <template #hint>
-          <i18n-t keypath="CREATEACTIVITY.RRULE_HELPER">
+          <i18n-t
+            scope="global"
+            keypath="CREATEACTIVITY.RRULE_HELPER"
+          >
             <template #ruleHelper>
               <a
                 v-t="'CREATEACTIVITY.RRULE_HELPER_URL'"

@@ -52,7 +52,10 @@
           class="bg-info q-mx-md q-mb-xs"
           rounded
         >
-          <i18n-t keypath="PLACE_LIST.SUBSCRIBE_HINT">
+          <i18n-t
+            scope="global"
+            keypath="PLACE_LIST.SUBSCRIBE_HINT"
+          >
             <template #icon>
               <QIcon name="fas fa-star" />
             </template>

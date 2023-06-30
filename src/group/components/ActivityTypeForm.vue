@@ -132,6 +132,7 @@
               <QItemLabel v-if="useCustomName">
                 <i18n-t
                   v-if="itemLabel && !edit.nameIsTranslatable"
+                  scope="global"
                   keypath="ACTIVITY_TYPES.CUSTOM_NAME_USE"
                 >
                   <template #name>

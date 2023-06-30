@@ -17,6 +17,7 @@
       </QItemLabel>
       <QItemLabel caption>
         <i18n-t
+          scope="global"
           keypath="GROUP.JOINED"
         >
           <template #relativeDate>
@@ -29,6 +30,7 @@
         <template v-if="addedBy">
           ·
           <i18n-t
+            scope="global"
             keypath="GROUP.ADDED_BY"
           >
             <template #userName>

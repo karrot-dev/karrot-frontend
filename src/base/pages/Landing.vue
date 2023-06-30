@@ -156,6 +156,7 @@
           <p>
             <strong v-t="`ABOUT_KARROT.SECTIONS.${item}.TITLE`" />:
             <i18n-t
+              scope="global"
               :keypath="`ABOUT_KARROT.SECTIONS.${item}.DESCRIPTION`"
               tag="span"
             >

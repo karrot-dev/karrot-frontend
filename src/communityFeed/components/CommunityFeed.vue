@@ -40,7 +40,10 @@
               />
             </QItemSection>
             <QItemSection>
-              <i18n-t keypath="COMMUNITY_FEED.HEADER">
+              <i18n-t
+                scope="global"
+                keypath="COMMUNITY_FEED.HEADER"
+              >
                 <template #community>
                   <a
                     href="https://community.karrot.world"
@@ -92,6 +95,7 @@
                 lines="1"
               >
                 <i18n-t
+                  scope="global"
                   keypath="COMMUNITY_FEED.LAST_UPDATED"
                   tag="div"
                 >

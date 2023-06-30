@@ -24,6 +24,7 @@
         caption
       >
         <i18n-t
+          scope="global"
           :keypath="decision"
         >
           <template #relativeDate>
@@ -37,6 +38,7 @@
         <template v-if="application.status !== 'withdrawn'">
           <br>
           <i18n-t
+            scope="global"
             :keypath="personDeciding"
           >
             <template #userName>

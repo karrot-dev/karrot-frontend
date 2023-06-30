@@ -40,7 +40,10 @@
           :to="{ name: 'placeActivitiesManage', params: { placeId: place.id } }"
         >
           <QItemSection>
-            <i18n-t keypath="EDIT_ACTIVITY.MANAGE">
+            <i18n-t
+              scope="global"
+              keypath="EDIT_ACTIVITY.MANAGE"
+            >
               <template #place>
                 <strong>{{ place.name }}</strong>
               </template>

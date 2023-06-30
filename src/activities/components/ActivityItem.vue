@@ -84,6 +84,7 @@
               class="q-my-xs"
             >
               <i18n-t
+                scope="global"
                 keypath="ACTIVITYLIST.OPEN_FOR_ROLE"
                 tag="em"
               >
@@ -127,6 +128,7 @@
                     </QItemLabel>
                     <QItemLabel>
                       <i18n-t
+                        scope="global"
                         keypath="ACTIVITYLIST.OPEN_FOR_ROLE"
                         tag="em"
                       >

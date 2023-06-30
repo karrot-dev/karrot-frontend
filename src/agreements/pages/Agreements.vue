@@ -102,6 +102,7 @@
                 size="sm"
               >
                 <i18n-t
+                  scope="global"
                   keypath="AGREEMENT.REVIEW_DATE_INFO"
                 >
                   <template #date>

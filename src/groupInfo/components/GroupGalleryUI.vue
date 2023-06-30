@@ -31,7 +31,10 @@
             style="font-size: 24px"
           />
         </template>
-        <i18n-t keypath="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT">
+        <i18n-t
+          scope="global"
+          keypath="JOINGROUP.LOGOUT_MESSAGE.LOGGED_OUT"
+        >
           <template #login>
             <RouterLink
               :to="{ name: 'login' }"
@@ -46,7 +49,10 @@
         v-if="!hasJoinedGroups"
         class="text-primary header"
       >
-        <i18n-t keypath="JOINGROUP.OR">
+        <i18n-t
+          scope="global"
+          keypath="JOINGROUP.OR"
+        >
           <template #joinGroup>
             {{ $t('JOINGROUP.WHICHGROUP') }}
           </template>
@@ -114,7 +120,10 @@
         v-if="hasJoinedGroups && hasOtherGroupsToShow"
         class="text-primary header"
       >
-        <i18n-t keypath="JOINGROUP.OR">
+        <i18n-t
+          scope="global"
+          keypath="JOINGROUP.OR"
+        >
           <template #joinGroup>
             {{ $t('JOINGROUP.WHICHGROUP') }}
           </template>

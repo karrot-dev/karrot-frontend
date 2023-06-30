@@ -21,7 +21,10 @@
           class="q-dialog__message"
         >
           <QBanner class="bg-orange-2">
-            <i18n-t keypath="ACTIVITYMANAGE.CHANGE_AFFECTS_USERS">
+            <i18n-t
+              scope="global"
+              keypath="ACTIVITYMANAGE.CHANGE_AFFECTS_USERS"
+            >
               <template #users>
                 <span
                   v-for="(user, idx) in users"

@@ -27,7 +27,6 @@
               <div class="traffic-light" />
             </div>
             <QImg
-              v-if="false"
               :sizes="images.browser.sizes"
               :srcset="images.browser.srcset"
               :src="images.browser.src"
@@ -46,7 +45,6 @@
             <div class="device-outer">
               <div class="device-content">
                 <QImg
-                  v-if="false"
                   :sizes="images.phone.sizes"
                   :srcset="images.phone.srcset"
                   :src="images.phone.src"
@@ -210,6 +208,11 @@ import KAbout from '@/base/components/KAbout.vue'
 import KLandingButtons from '@/base/components/KLandingButtons.vue'
 import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards.vue'
 
+const importedImages = import.meta.glob('@/base/pages/images/**/*', {
+  as: 'url', // specify as I _think_ it'll disable base64-ing them
+  eager: true,
+})
+
 // Prefer active non-playground groups with a photo
 function groupSortScore (group) {
   let score = 0
@@ -229,7 +232,6 @@ export default {
     KLandingButtons,
   },
   setup () {
-    // TODO: this used to show groups/other, but all seems ok...?
     const { groups } = useGroupInfoService()
     return { groups }
   },
@@ -272,9 +274,6 @@ export default {
       this.showAbout = !this.showAbout
     },
     getImages () {
-      const modules = import.meta.glob('@/src/base/pages/images/**/*.png')
-      console.log('modules!', modules)
-
       for (const dirName of Object.values(dirNames)) {
         generatedImages[dirName] = this.enrichImages(dirName)
       }
@@ -286,13 +285,13 @@ export default {
         randomImgs: generatedImages[dirNames.RANDOM_IMGS],
       }
     },
-    async enrichImages (dirName) {
+    enrichImages (dirName) {
       const widths = dirs[dirName].widths
       const images = generatedImages[dirName].map(img => {
         const srcset = widths.reduce((acc, curr, index) => {
           const divider = index < widths.length - 1 ? ', ' : ''
           const currWidth = curr.toString()
-          const entry = this.requireImage({
+          const entry = this.imageUrl({
             fileName: img.baseFileName,
             ext: img.ext,
             width: currWidth,
@@ -306,7 +305,7 @@ export default {
           alt: img.baseFileName.replace(/-/g, ' '),
           sizes: dirs[dirName].sizes.replace(/\s+/g, ''), // remove whitespaces and line-breaks
           srcset,
-          src: this.requireImage({
+          src: this.imageUrl({
             fileName: img.baseFileName,
             ext: img.ext,
             width: dirs[dirName].maxWidth.toString(),
@@ -368,11 +367,8 @@ export default {
 
       return images
     },
-    async requireImage ({ fileName, ext, width, dirName } = {}) {
-      // use "?disableinline" to disable inlining of small images as base64 which would result in a huge js-chunk
-      // see: https://github.com/karrot-dev/karrot-frontend/issues/2370
-      // return require(`@/base/pages/images/${dirName}/${fileName}-${width}${ext}?disableinline`)
-      return import(`@/base/pages/images/${dirName}/${fileName}-${width}${ext}?disableinline`)
+    imageUrl ({ fileName, ext, width, dirName } = {}) {
+      return importedImages[`/src/base/pages/images/${dirName}/${fileName}-${width}${ext}`]
     },
   },
 }

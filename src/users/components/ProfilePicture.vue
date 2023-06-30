@@ -1,6 +1,6 @@
 <template>
   <div
-    class="profile-picture inline-block relative-position"
+    class="profile-picture block relative-position rounded-borders overflow-hidden"
     :style="pictureStyle"
   >
     <template v-if="user?.id">
@@ -27,7 +27,7 @@
       >
         <a
           v-if="editable"
-          class="text-white text-bold absolute-full change-photo cursor-pointer column flex-center rounded-borders"
+          class="text-white text-bold absolute-full change-photo cursor-pointer column flex-center"
           @click="chooseProfilePhoto"
         >
           <QIcon

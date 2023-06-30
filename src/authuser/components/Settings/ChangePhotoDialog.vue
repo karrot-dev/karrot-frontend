@@ -7,7 +7,7 @@
     <QCard class="q-dialog-plugin">
       <QCardSection>
         <div class="text-h6">
-          Change photo
+          {{ t('USERDATA.SET_PHOTO') }}
         </div>
       </QCardSection>
       <QCardSection class="flex-center flex">
@@ -70,8 +70,7 @@ import { useFileDialog, useObjectUrl } from '@vueuse/core'
 import { useDialogPluginComponent, QBtn, QCard, QCardActions, QCardSection, QDialog, QIcon } from 'quasar'
 import { computed, ref } from 'vue'
 import { Cropper } from 'vue-advanced-cropper'
-import 'vue-advanced-cropper/dist/style.css'
-import 'vue-advanced-cropper/dist/theme.bubble.css'
+import '@/css/vue-advanced-cropper.scss'
 import { useI18n } from 'vue-i18n'
 
 import { useSaveUserMutation } from '@/authuser/mutations'

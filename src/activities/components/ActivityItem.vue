@@ -69,7 +69,7 @@
             v-for="participantType in participantTypes"
             :key="participantType.id"
             class="col"
-            :class="[participantTypes.length > 1 ? 'multiple-types' : '', getIsUserParticipant(activity, participantType) ? 'active' : '']"
+            :class="[participantTypes.length > 1 ? 'multiple-types' : '', getIsUserParticipant(activity, participantType) ? 'active rounded-borders' : '']"
           >
             <Markdown
               v-if="participantType.description"

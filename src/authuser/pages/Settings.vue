@@ -7,15 +7,6 @@
         </div>
       </QCardSection>
       <QCardSection>
-        <ChangePhoto
-          :value="user"
-          :status="profileEditStatus"
-          :label="$t('USERDATA.PHOTO')"
-          :hint="$t('USERDATA.SET_PHOTO')"
-          mime-type="image/jpeg"
-          @save="photo => saveUser({ photo })"
-        />
-        <QSeparator />
         <ProfileEdit
           :value="user"
           :status="profileEditStatus"
@@ -116,6 +107,7 @@ import Push from '@/authuser/components/Settings/Push.vue'
 import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAccount.vue'
 import KFormContainer from '@/base/components/KFormContainer.vue'
 import GroupSettings from '@/group/components/GroupSettings.vue'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
 import LocaleSelect from '@/utils/components/LocaleSelect.vue'
 
 const { user } = useAuthService()

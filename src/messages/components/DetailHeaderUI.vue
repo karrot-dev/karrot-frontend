@@ -122,15 +122,12 @@
       v-if="activity || conversation.thread"
       class="k-participant-list row"
     >
-      <div class="col">
-        <ProfilePicture
-          v-for="participant in participants"
-          :key="participant.id"
-          class="k-participant"
-          :user="participant"
-          :size="$q.platform.is.mobile ? 20 : 35"
-        />
-      </div>
+      <ProfilePicture
+        v-for="participant in participants"
+        :key="participant.id"
+        :user="participant"
+        :size="$q.platform.is.mobile ? 20 : 35"
+      />
     </div>
   </div>
 </template>
@@ -320,14 +317,9 @@ export default {
 <style scoped lang="sass">
 .DetailHeader
   .k-participant-list
-    padding: 0.3em
-    padding-bottom: 0
     background-color: #f5f5f5
-
-  .k-participant
-    display: inline-block
-    margin-right: 0.3em
-    margin-bottom: 0.3em
+    gap: 0.3em
+    padding: 0.3em
 
   .q-toolbar-title
     font-size: 16px

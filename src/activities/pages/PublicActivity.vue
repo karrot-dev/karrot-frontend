@@ -173,7 +173,6 @@
 </template>
 
 <script setup>
-import { onUnmounted, computed, watch } from '@vue'
 import {
   QCard,
   QCardSection,
@@ -185,6 +184,7 @@ import {
   QSpace,
   Dialog,
 } from 'quasar'
+import { onUnmounted, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 import { useActivityTypeHelpers } from '@/activities/helpers'

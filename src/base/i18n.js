@@ -92,6 +92,10 @@ const i18n = createI18n({
     en: localeEn,
   },
   allowComposition: true,
+  // At some point we can/should switch to these options
+  // Right now it causes $t etc. to not be available
+  // legacy: false,
+  // globalInjection: true,
   datetimeFormats,
   numberFormats,
   fallbackLocale: 'en', // if you change this make sure to always load the locale too

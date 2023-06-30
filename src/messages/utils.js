@@ -1,4 +1,4 @@
-import debounce from 'lodash/debounce'
+import { debounce } from 'quasar'
 
 const DRAFT_DEBOUNCE = 300
 

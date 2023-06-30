@@ -10,12 +10,7 @@
 const { readFileSync, existsSync } = require('fs')
 const { resolve } = require('path')
 
-const ESLintPlugin = require('eslint-webpack-plugin')
-// const StyleLintPlugin = require('stylelint-webpack-plugin') TODO?
-const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const { configure } = require('quasar/wrappers')
-const webpack = require('webpack')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const aliases = require('./aliases').resolve.alias
 
@@ -124,6 +119,18 @@ module.exports = configure(function (ctx) {
       alias: {
         ...aliases,
       },
+
+      vitePlugins: [
+        ['@intlify/unplugin-vue-i18n/vite', {
+          compositionOnly: false,
+          include: [resolve(__dirname, './src/locales/locale-*.json')],
+        }],
+        ['rollup-plugin-visualizer', {
+          emitFile: true,
+          gzipSize: true,
+          filename: 'bundlesize.html',
+        }],
+      ],
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer

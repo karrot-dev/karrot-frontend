@@ -32,8 +32,5 @@ export default defineConfig({
       template: { transformAssetUrls },
     }),
     quasar({}),
-    VueI18nPlugin({
-      include: [path.resolve(__dirname, './src/locales/locale-*.json')],
-    }),
   ],
 })

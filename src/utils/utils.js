@@ -1,5 +1,5 @@
 import deepEqual from 'deep-equal'
-import debounce from 'lodash/debounce'
+import { debounce } from 'quasar'
 
 import locales from '@/locales'
 

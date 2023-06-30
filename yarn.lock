@@ -14778,7 +14778,7 @@ rollup-plugin-terser@^7.0.0:
     serialize-javascript "^4.0.0"
     terser "^5.0.0"
 
-rollup-plugin-visualizer@^5.5.4:
+rollup-plugin-visualizer@^5.5.4, rollup-plugin-visualizer@^5.9.0, rollup-plugin-visualizer@^5.9.2:
   version "5.9.2"
   resolved "https://registry.yarnpkg.com/rollup-plugin-visualizer/-/rollup-plugin-visualizer-5.9.2.tgz#f1aa2d9b1be8ebd6869223c742324897464d8891"
   integrity sha512-waHktD5mlWrYFrhOLbti4YgQCn1uR24nYsNuXxg7LkPH8KdTXVWR9DNY1WU0QqokyMixVXJS4J04HNrVTMP01A==
@@ -16736,6 +16736,14 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
+
+vite-bundle-visualizer@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/vite-bundle-visualizer/-/vite-bundle-visualizer-0.8.0.tgz#9642f80aa7fcd5aba0db043c2cb91c16315308ae"
+  integrity sha512-Z3RHuiqgxtNrCof1uINFel7VzESRYp3s9HK8Tg5JHXvcyVjIVIz6keUntna7CWtoNUIWUjaBwhmMCML9GM5qiw==
+  dependencies:
+    cac "^6.7.14"
+    rollup-plugin-visualizer "^5.9.0"
 
 vite-node@0.32.2:
   version "0.32.2"

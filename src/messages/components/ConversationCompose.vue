@@ -7,7 +7,7 @@
         v-if="!slim"
         side
         top
-        class="q-mt-xs q-pr-sm"
+        class="q-pr-sm"
       >
         <ProfilePicture
           :user="user"

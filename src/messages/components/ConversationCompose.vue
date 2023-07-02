@@ -1,11 +1,13 @@
 <template>
-  <div>
+  <div
+    class="q-pt-sm"
+  >
     <QItem>
       <QItemSection
         v-if="!slim"
         side
         top
-        class="q-mt-xs q-pr-sm"
+        class="q-pr-sm"
       >
         <ProfilePicture
           :user="user"
@@ -17,14 +19,12 @@
           <MarkdownInput
             ref="input"
             v-model="message.content"
-            v-bind="$attrs"
+            v-bind="{ ...$attrs, ...contentError }"
             dense
             mentions
             :placeholder="placeholder"
             :loading="isPending"
             :disable="isPending"
-            :error="hasAnyError"
-            :error-message="anyFirstError"
             :input-style="{ minHeight: 'unset', maxHeight: '320px', ...$attrs['input-style'] }"
             @keyup.ctrl.enter="submit"
             @keyup.esc="leaveEdit"
@@ -36,8 +36,9 @@
                 round
                 dense
                 flat
-                icon="fas fa-image"
-                @click="addImage"
+                icon="fas fa-paperclip"
+                :title="$t('ATTACHMENTS.ADD')"
+                @click="addAttachment"
               />
               <QBtn
                 v-if="hasContent && !isPending"
@@ -45,7 +46,7 @@
                 dense
                 flat
                 icon="fas fa-arrow-right"
-                data-testid="send-message"
+                :title="$t('BUTTON.SEND_MESSAGE')"
                 @click="submit"
               />
               <QBtn
@@ -66,6 +67,11 @@
         >
           <span v-t="'CONVERSATION.NOT_PARTICIPATED'" />
         </QItemLabel>
+        <Attachments
+          ref="attachments"
+          v-model="message.attachments"
+          edit
+        />
       </QItemSection>
     </QItem>
     <QItem v-if="showImages">
@@ -89,6 +95,8 @@
 </template>
 
 <script>
+import useVuelidate from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
 import deepEqual from 'deep-equal'
 import {
   QItem,
@@ -98,8 +106,9 @@ import {
 } from 'quasar'
 
 import { deleteDraft, fetchDraft, saveDraft } from '@/messages/utils'
-import statusMixin from '@/utils/mixins/statusMixin'
+import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
 
+import Attachments from '@/messages/components/Attachments'
 import ProfilePicture from '@/users/components/ProfilePicture'
 import MarkdownInput from '@/utils/components/MarkdownInput'
 import MultiCroppa from '@/utils/components/MultiCroppa'
@@ -114,6 +123,7 @@ export default {
     ProfilePicture,
     MarkdownInput,
     MultiCroppa,
+    Attachments,
   },
   mixins: [statusMixin],
   props: {
@@ -147,6 +157,11 @@ export default {
     'submit',
     'leave-edit',
   ],
+  setup () {
+    return {
+      v$: useVuelidate(),
+    }
+  },
   data () {
     return {
       message: this.value
@@ -154,19 +169,33 @@ export default {
         : {
             content: fetchDraft(this.draftKey, ''),
             images: [],
+            attachments: [],
           },
       hasFocus: false,
       showImages: this.value && this.value.images.length > 0,
     }
   },
   computed: {
+    ...mapErrors({
+      content: [
+        ['required', 'VALIDATION.REQUIRED'],
+      ],
+    }, 'message'),
     hasExistingContent () {
       if (!this.value) return false
-      return this.value.content || (this.value.images && this.value.images.filter(image => !image._removed).length > 0)
+      return (
+        this.value.content ||
+        (this.value.images && this.value.images.filter(image => !image._removed).length > 0) ||
+        (this.value.attachments && this.value.attachments.filter(attachment => !attachment._removed).length > 0)
+      )
     },
     hasContent () {
       if (!this.message) return false
-      return this.message.content || (this.message.images && this.message.images.filter(image => !image._removed).length > 0)
+      return (
+        this.message.content ||
+        (this.message.images && this.message.images.filter(image => !image._removed).length > 0) ||
+        (this.message.attachments && this.message.attachments.filter(attachment => !attachment._removed).length > 0)
+      )
     },
   },
   watch: {
@@ -180,7 +209,7 @@ export default {
       if (!val && !this.hasAnyError) {
         // We have gone from pending -> not pending and there are no errors
         // Effectively means it was successful! So we can reset all the things.
-        this.message = { content: '', images: [] }
+        this.message = { content: '', images: [], attachments: [] }
         deleteDraft(this.draftKey)
       }
     },
@@ -205,6 +234,9 @@ export default {
   },
   methods: {
     submit () {
+      this.v$.message.$touch()
+      if (this.v$.message.$error) return
+      this.v$.message.$reset()
       this.$emit('submit', this.message)
     },
     addImage () {
@@ -212,6 +244,9 @@ export default {
       this.$nextTick(() => {
         this.$refs.multiCroppa.open()
       })
+    },
+    addAttachment () {
+      this.$refs.attachments.pickFiles()
     },
     leaveEdit () {
       this.$emit('leave-edit')
@@ -221,6 +256,13 @@ export default {
     },
     onBlur () {
       this.hasFocus = false
+    },
+  },
+  validations: {
+    message: {
+      content: {
+        required,
+      },
     },
   },
 }

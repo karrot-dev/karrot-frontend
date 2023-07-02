@@ -13,6 +13,7 @@
         autogrow
         bottom-slots
         hide-hint
+        filled
       >
         <template
           v-if="icon"

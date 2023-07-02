@@ -23,11 +23,11 @@ export const useStatusService = defineService(() => {
   // methods
 
   function getGroupStatus (groupId) {
-    return status.value.groups[groupId] || {}
+    return status.value?.groups[groupId] || {}
   }
 
   function getPlaceStatus (placeId) {
-    return status.value.places[placeId] || {}
+    return status.value?.places[placeId] || {}
   }
 
   return {

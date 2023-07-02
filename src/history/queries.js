@@ -35,7 +35,7 @@ export function useHistoryListQuery ({ groupId, placeId, userId, agreementId, ty
       cursor: pageParam,
     }),
     {
-      enabled: computed(() => [groupId, placeId, userId, agreementId].some(val => unref(val))),
+      enabled: computed(() => [groupId, placeId, userId, agreementId].every(val => !val || unref(val))),
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => page.results),

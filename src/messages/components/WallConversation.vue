@@ -4,63 +4,70 @@
       :disable="conversation && !hasNextPage"
       @load="infiniteScrollLoad"
     >
+      <QCard
+        v-if="hasLoaded"
+        flat
+        bordered
+        class="desktop-margin"
+      >
+        <NotificationToggle
+          class="actionButton"
+          :muted="isMuted"
+          :is-participant="isParticipant"
+          :user="user"
+          @set="setNotifications"
+        />
+        <ConversationCompose
+          :status="sendStatus"
+          :placeholder="messagePrompt"
+          :user="user"
+          :slim="$q.platform.is.mobile"
+          :is-participant="isParticipant"
+          :draft-key="conversation.id"
+          multiple
+          @submit="message => send({ id: conversation.id, ...message })"
+        />
+      </QCard>
       <QList
+        v-if="hasLoaded && messages.length > 0"
         ref="messagesList"
-        class="bg-white desktop-margin relative-position q-pb-md"
+        class="bg-white desktop-margin relative-position q-pb-md rounded-borders"
         bordered
       >
-        <template v-if="hasLoaded">
-          <NotificationToggle
-            class="actionButton"
-            :muted="isMuted"
-            :is-participant="isParticipant"
-            :user="user"
-            @set="setNotifications"
-          />
-          <ConversationCompose
-            :status="sendStatus"
-            :placeholder="messagePrompt"
-            :user="user"
-            :slim="$q.platform.is.mobile"
-            :is-participant="isParticipant"
-            :draft-key="conversation.id"
-            @submit="message => send({ id: conversation.id, ...message })"
-          />
-          <QBanner
-            v-if="isParticipant && unreadMessageCount > 0"
-            class="bg-secondary text-white q-mt-sm"
-            style="min-height: unset"
-          >
-            <template #avatar>
-              <QIcon
-                name="star"
-                color="white"
-                size="1.5em"
-              />
-            </template>
-            <div class="row justify-between items-center">
-              <small>
-                {{ $tc('CONVERSATION.UNREAD_MESSAGES', unreadMessageCount, {
-                  count: unreadMessageCount > 99 ? '99+' : unreadMessageCount,
-                }) }}
-              </small>
-              <QBtn
-                no-caps
-                outline
-                size="sm"
-                @click="() => markAllRead()"
-              >
-                <span v-t="'CONVERSATION.MARK_READ'" />
-              </QBtn>
-            </div>
-          </QBanner>
-          <ConversationMessage
-            v-for="message in messages"
-            :key="message.id"
-            :message="message"
-            :is-unread="conversation.seenUpTo && message.id > conversation.seenUpTo"
-          />
-        </template>
+        <QBanner
+          v-if="isParticipant && unreadMessageCount > 0"
+          class="bg-secondary text-white q-mt-sm"
+          style="min-height: unset"
+        >
+          <template #avatar>
+            <QIcon
+              name="star"
+              color="white"
+              size="1.5em"
+            />
+          </template>
+          <div class="row justify-between items-center">
+            <small>
+              {{ $tc('CONVERSATION.UNREAD_MESSAGES', unreadMessageCount, {
+                count: unreadMessageCount > 99 ? '99+' : unreadMessageCount,
+              }) }}
+            </small>
+            <QBtn
+              no-caps
+              outline
+              size="sm"
+              @click="() => markAllRead()"
+            >
+              <span v-t="'CONVERSATION.MARK_READ'" />
+            </QBtn>
+          </div>
+        </QBanner>
+        <ConversationMessage
+          v-for="message in messages"
+          :key="message.id"
+          :message="message"
+          :is-unread="conversation.seenUpTo && message.id > conversation.seenUpTo"
+        />
         <KSpinner v-show="isLoadingMessages || isFetchingNextPage" />
       </QList>
     </QInfiniteScroll>
@@ -72,6 +79,7 @@ import {
   QBtn,
   QInfiniteScroll,
   QList,
+  QCard,
   QBanner,
   QIcon,
 } from 'quasar'
@@ -102,6 +110,7 @@ export default {
     QBtn,
     QInfiniteScroll,
     QList,
+    QCard,
     QBanner,
     QIcon,
   },

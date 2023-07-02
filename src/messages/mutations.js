@@ -6,15 +6,13 @@ import reactionsAPI from '@/messages/api/reactions'
 import { withStatus } from '@/utils/queryHelpers'
 
 export function useSendMessageMutation () {
-  return withStatus(useMutation(
-    ({ id, content, images, threadId }) => messagesAPI.create({
-      conversation: id,
-      thread: threadId, // optional
-      content,
-      images,
-    }),
-    // relies on websockets to update data
-  ))
+  return withStatus(useMutation(({ id, content, images, attachments, threadId }) => messagesAPI.create({
+    conversation: id,
+    thread: threadId, // optional
+    content,
+    images,
+    attachments,
+  })))
 }
 
 export function useSaveMesssageMutation () {

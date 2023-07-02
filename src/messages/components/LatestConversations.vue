@@ -160,7 +160,6 @@ export default {
         }
         case 'application': return this.openApplication(target)
         case 'issue': {
-          console.log('opening issue chat', targetId, target)
           return this.$router.push({ name: 'issueChat', params: { groupId: target.group, issueId: targetId } })
         }
         case 'offer': return this.$router.push({

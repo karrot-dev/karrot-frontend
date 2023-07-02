@@ -1,7 +1,7 @@
 <template>
   <QItem
     v-if="attachments.length > 0"
-    class="q-pa-none"
+    class="q-pa-none q-my-xs"
   >
     <QItemSection>
       <div
@@ -120,6 +120,7 @@ import {
 } from 'quasar'
 import { onUnmounted, ref, computed } from 'vue'
 
+import { useConfigQuery } from '@/base/queries'
 import { showToast } from '@/utils/toasts'
 import { isViewableImageContentType } from '@/utils/utils'
 
@@ -128,7 +129,12 @@ import AttachmentGallery from '@/messages/components/AttachmentGallery.vue'
 const { humanStorageSize } = format
 
 const MAX_ATTACHMENT_COUNT = 6
-const MAX_ATTACHMENT_SIZE = 10 * 1024 * 1024
+// we fetch it from backend config, but if not available use this
+const DEFAULT_MAX_ATTACHMENT_SIZE = 10 * 1024 * 1024
+
+const { config } = useConfigQuery()
+
+const maxAttachmentSize = computed(() => config.value?.upload?.maxSize ?? DEFAULT_MAX_ATTACHMENT_SIZE)
 
 const props = defineProps({
   modelValue: {
@@ -228,7 +234,7 @@ function showMaxAttachmentSizeReachedToast () {
   showToast({
     message: 'ATTACHMENTS.MAX_ATTACHMENT_SIZE',
     messageParams: {
-      size: humanStorageSize(MAX_ATTACHMENT_SIZE),
+      size: humanStorageSize(maxAttachmentSize.value),
     },
     config: {
       icon: 'priority_high',
@@ -244,7 +250,7 @@ function addFilesToQueue (event) {
   let exceededMaxAttachmentSize = false
 
   for (const file of inputFiles) {
-    if (file.size > MAX_ATTACHMENT_SIZE) {
+    if (file.size > maxAttachmentSize.value) {
       exceededMaxAttachmentSize = true
     }
     else {
@@ -453,7 +459,7 @@ function openGallery (selectedAttachmentId) {
 
 <style scoped lang="sass">
 .attachments
-  gap: 8px
+  gap: 12px
 
 .attachment
   margin: 0
@@ -461,7 +467,7 @@ function openGallery (selectedAttachmentId) {
 .attachment,
 .attachment--image
   height: 70px
-  min-width: 100px
+  min-width: 70px
   max-width: 260px
 
 .attachment--image

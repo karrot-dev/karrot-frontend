@@ -1,6 +1,7 @@
 import { queryKeyActivityTypeListAll } from '@/activities/queries'
 import { queryKeys } from '@/authuser/queries'
 import bootstrap from '@/base/api/bootstrap'
+import { queryKeyConfig } from '@/base/queries'
 import queryClient from '@/base/queryClient'
 import { setGeoipCoordinates } from '@/base/services/geo'
 import { queryKeyGroupInfoListAll } from '@/groupInfo/queries'
@@ -34,6 +35,7 @@ export default async function ({ app }) {
     if (config.sentry) {
       configureSentry(app, config.sentry)
     }
+    queryClient.setQueryData(queryKeyConfig(), config)
   }
   if (groups) {
     queryClient.setQueryData(queryKeyGroupInfoListAll(), groups)

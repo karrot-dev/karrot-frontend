@@ -394,7 +394,9 @@
     "SEARCH_RESULTS": "Search results",
     "SERVER_ERROR": "Server error",
     "CLEAR_FILTERS": "Clear filters",
-    "LAST_CHANGED_BY": "Last changed by"
+    "LAST_CHANGED_BY": "Last changed by",
+    "UPLOADING": "Uploading",
+    "PROCESSING": "Processing"
   },
   "GROUP": {
     "ACTIVITIES": "Activities",

@@ -4,13 +4,15 @@
     class="q-pa-none"
   >
     <QItemSection>
-      <div class="row q-pb-sm">
+      <div
+        class="attachments row q-pb-sm"
+      >
         <QCard
           v-for="attachment of attachmentsToDisplay"
           :key="attachment._key"
           :bordered="!Boolean(attachment._img)"
           flat
-          class="q-ma-xs attachment"
+          class="attachment"
           :tag="props.edit ? 'div' : 'a'"
           :href="!props.edit && attachment.urls.original"
           :target="!props.edit && '_blank'"
@@ -47,7 +49,7 @@
             <img
               v-if="props.edit"
               :src="attachment._img.src"
-              class="rounded-borders image"
+              class="rounded-borders attachment--image"
             >
             <a
               v-else
@@ -55,14 +57,16 @@
             >
               <img
                 :src="attachment._img.src"
-                class="rounded-borders image cursor-pointer"
+                class="rounded-borders attachment--image cursor-pointer"
                 @click.stop.prevent="openGallery(attachment.id)"
               >
             </a>
           </template>
-          <template v-else>
+          <template
+            v-else
+          >
             <QItem
-              class="q-pa-sm"
+              class="q-pa-sm q-my-sm"
             >
               <QItemSection
                 v-if="attachment._contentTypeInfo.icon"
@@ -77,15 +81,18 @@
                 />
               </QItemSection>
               <QItemSection>
-                <div class="text-subtitle1 ellipsis">
+                <QItemLabel lines="1">
                   {{ attachment.filename }}
-                </div>
-                <div class="text-caption ellipsis">
+                </QItemLabel>
+                <QItemLabel
+                  caption
+                  lines="1"
+                >
                   <span v-if="attachment._contentTypeInfo.name">
                     {{ attachment._contentTypeInfo.name }}
                   </span>
                   {{ attachment._sizeLabel }}
-                </div>
+                </QItemLabel>
               </QItemSection>
             </QItem>
           </template>
@@ -109,6 +116,7 @@ import {
   QCard,
   QIcon,
   format,
+  QItemLabel,
 } from 'quasar'
 import { onUnmounted, ref, computed } from 'vue'
 
@@ -444,14 +452,19 @@ function openGallery (selectedAttachmentId) {
 </script>
 
 <style scoped lang="sass">
-.image,
+.attachments
+  gap: 8px
+
 .attachment
+  margin: 0
+
+.attachment,
+.attachment--image
   height: 70px
   min-width: 100px
   max-width: 260px
-  overflow: hidden
 
-.image
+.attachment--image
   object-fit: cover
 </style>
 

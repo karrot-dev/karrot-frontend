@@ -52,6 +52,7 @@
 </template>
 
 <script setup>
+import { useEventListener } from '@vueuse/core'
 import {
   QCarousel,
   QCarouselSlide,
@@ -60,7 +61,6 @@ import {
   Platform,
 } from 'quasar'
 import { computed, ref } from 'vue'
-import { useEvent } from 'vue-composable'
 
 import { isViewableImageContentType } from '@/utils/utils'
 
@@ -93,7 +93,7 @@ const moreThanOneImage = computed(() => images.value.length > 1)
 const carouselRef = ref(null)
 
 // Support keyboard navigation
-useEvent(document, 'keyup', event => {
+useEventListener(document, 'keyup', event => {
   if (event.code === 'ArrowRight') {
     nextImage()
   }

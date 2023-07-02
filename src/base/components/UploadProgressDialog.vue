@@ -7,17 +7,25 @@
     @hide="onDialogHide"
   >
     <QCard
-      class="q-dialog-plugin"
+      v-if="progress"
+      class="q-dialog-plugin bg-orange-1"
       style="width: 300px; margin-bottom: 0;"
       square
     >
       <QLinearProgress
-        v-if="progress"
         :value="progress.progress"
-        color="pink"
+        color="orange"
       />
-      <QCardSection v-if="progress">
-        Uploading {{ humanStorageSize(progress.loaded) }} / {{ humanStorageSize(progress.total) }}
+      <QCardSection
+        class="row"
+      >
+        <div class="col text-subtitle2">
+          {{ progress.progress < 1 ? t('GLOBAL.UPLOADING') : t('GLOBAL.PROCESSING') }}
+        </div>
+        <QSpace />
+        <div class="col text-right text-caption">
+          {{ humanStorageSize(progress.loaded) }} / {{ humanStorageSize(progress.total) }}
+        </div>
       </QCardSection>
     </QCard>
   </QDialog>
@@ -30,8 +38,11 @@ import {
   QCardSection,
   QLinearProgress,
   useDialogPluginComponent,
-  format,
+  format, QSpace,
 } from 'quasar'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const { humanStorageSize } = format
 

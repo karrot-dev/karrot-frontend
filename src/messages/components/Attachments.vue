@@ -46,19 +46,22 @@
           <template
             v-if="attachment._img"
           >
-            <img
+            <div
               v-if="props.edit"
-              :src="attachment._img.src"
-              class="rounded-borders attachment--image"
             >
+              <img
+                :src="attachment._img.src"
+                class="rounded-borders attachment--image"
+              >
+            </div>
             <a
               v-else
               :href="attachment.urls.original"
+              @click.stop.prevent="openGallery(attachment.id)"
             >
               <img
                 :src="attachment._img.src"
                 class="rounded-borders attachment--image cursor-pointer"
-                @click.stop.prevent="openGallery(attachment.id)"
               >
             </a>
           </template>

@@ -79,6 +79,7 @@ export function useIntegerRouteParam (name) {
   const param = useRouteParam(name)
   return computed({
     get () {
+      if (!param.value) return undefined
       return parseInt(param.value, 10)
     },
     set (val) {

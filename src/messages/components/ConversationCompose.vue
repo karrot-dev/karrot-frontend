@@ -89,7 +89,6 @@
           :prevent-white-space="false"
           small
         />
-        <pre>images: {{ message.images }}</pre>
       </QItemSection>
     </QItem>
   </div>

@@ -224,7 +224,12 @@
   "ATTACHMENTS": {
     "ADD": "Add attachment",
     "MAX_ATTACHMENT_SIZE": "Maximum attachment size is {size}",
-    "MAX_ATTACHMENT_COUNT": "You can have up to {count} attachments"
+    "MAX_ATTACHMENT_COUNT": "You can have up to {count} attachments",
+    "TYPE": {
+      "AUDIO": "Audio",
+      "VIDEO": "Video",
+      "IMAGE": "Image"
+    }
   },
   "ATTENTION": "Attention!",
   "BUTTON": {

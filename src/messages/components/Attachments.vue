@@ -69,15 +69,14 @@
               class="q-pa-sm q-my-sm"
             >
               <QItemSection
-                v-if="attachment._contentTypeInfo.icon"
                 avatar
                 class="q-pr-sm"
                 style="min-width: auto;"
               >
                 <QIcon
-                  :name="attachment._contentTypeInfo.icon"
+                  :name="attachment._contentTypeInfo.icon ?? 'fas fa-file'"
                   size="md"
-                  color="grey"
+                  :color="attachment._contentTypeInfo.colour ?? 'blue-grey'"
                 />
               </QItemSection>
               <QItemSection>
@@ -88,8 +87,10 @@
                   caption
                   lines="1"
                 >
-                  <span v-if="attachment._contentTypeInfo.name">
-                    {{ attachment._contentTypeInfo.name }}
+                  <span
+                    v-if="attachment._contentTypeInfo.name"
+                  >
+                    {{ attachment._contentTypeInfo.name }} &bull;
                   </span>
                   {{ attachment._sizeLabel }}
                 </QItemLabel>
@@ -119,6 +120,7 @@ import {
   QItemLabel,
 } from 'quasar'
 import { onUnmounted, ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import { useConfigQuery } from '@/base/queries'
 import { showToast } from '@/utils/toasts'
@@ -127,6 +129,8 @@ import { isViewableImageContentType } from '@/utils/utils'
 import AttachmentGallery from '@/messages/components/AttachmentGallery.vue'
 
 const { humanStorageSize } = format
+
+const { t } = useI18n()
 
 const MAX_ATTACHMENT_COUNT = 6
 // we fetch it from backend config, but if not available use this
@@ -359,6 +363,7 @@ function getContentTypeInfo (attachment) {
     case 'application/pdf': return {
       name: 'PDF',
       icon: 'fas fa-file-pdf',
+      colour: 'red-5',
     }
     case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
     case 'application/msword':
@@ -374,6 +379,7 @@ function getContentTypeInfo (attachment) {
     case 'text/calendar':
       return {
         name: 'iCal',
+        icon: 'fas fa-file',
       }
     case 'application/vnd.apple.keynote':
       return {
@@ -413,23 +419,32 @@ function getContentTypeInfo (attachment) {
   }
   if (contentType.startsWith('image/')) {
     return {
-      name: 'Image',
+      name: t('ATTACHMENTS.TYPE.IMAGE'),
       icon: 'fas fa-file-image',
     }
   }
   if (contentType.startsWith('video/')) {
     return {
-      name: 'Video',
+      name: t('ATTACHMENTS.TYPE.VIDEO'),
       icon: 'fas fa-file-video',
     }
   }
   else if (contentType.startsWith('audio/')) {
     return {
-      name: 'Audio',
+      name: t('ATTACHMENTS.TYPE.AUDIO'),
       icon: 'fas fa-file-audio',
+      colour: 'blue-5',
     }
   }
-  return {}
+  return {
+    name: getFileExtension(attachment.filename).toUpperCase(),
+    icon: 'fas fa-file',
+  }
+}
+
+function getFileExtension (filename) {
+  // See https://stackoverflow.com/a/12900504
+  return filename.slice((filename.lastIndexOf('.') - 1 >>> 0) + 2)
 }
 
 function removeAttachment (attachmentToRemove) {
@@ -463,6 +478,8 @@ function openGallery (selectedAttachmentId) {
 
 .attachment
   margin: 0
+  &:hover
+    border-color: $grey-5
 
 .attachment,
 .attachment--image

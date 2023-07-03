@@ -4,6 +4,8 @@ import { defineConfig } from 'vitest/config'
 
 const aliases = require('./aliases').resolve.alias
 
+// I *think* this config file is only used during testing
+
 export default defineConfig({
   test: {
     testTimeout: 120 * 1000,
@@ -18,6 +20,26 @@ export default defineConfig({
       'test/setup/mockLocation.js',
       'test/setup/mockSVGAnimations.js',
     ],
+    coverage: {
+      all: true,
+      include: [
+        'src/**/*',
+      ],
+      extension: [
+        '.js',
+        '.vue',
+      ],
+      reporter: [
+        'json',
+        'lcov',
+        'text',
+      ],
+      exclude: [
+        '**/*.story.js',
+        '**/*.spec.js',
+        '**/*.d.ts',
+      ],
+    },
   },
   resolve: {
     alias: aliases,

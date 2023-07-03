@@ -1,6 +1,6 @@
 import authUser from '@/authuser/api/authUser'
 import axios from '@/base/api/axios'
-import { captureMessage } from '@/utils/sentry'
+import { captureMessage } from '@/utils/errors'
 
 let KEY, updateToken, clearToken
 

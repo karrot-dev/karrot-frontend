@@ -190,7 +190,8 @@
   "resolutions": {
     "colors": "1.4.0",
     "vite": "^4.0.0",
-    "@vitejs/plugin-vue": "^4.0.0"
+    "@vitejs/plugin-vue": "^4.0.0",
+    "rollup": "^3.0.0"
   },
   "majestic": {
     "jestScriptPath": "./test/jestUTC.js"

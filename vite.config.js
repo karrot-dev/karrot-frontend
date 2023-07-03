@@ -1,6 +1,3 @@
-import path from 'path'
-
-import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vitest/config'

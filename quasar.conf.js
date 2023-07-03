@@ -44,7 +44,6 @@ function getHttpsOptions () {
 
 module.exports = configure(function (ctx) {
   const { backend, proxyTable } = require('./build/config')
-  const dev = ctx.dev
 
   const appEnv = {
     // define the karrot environment

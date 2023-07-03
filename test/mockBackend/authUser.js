@@ -2,7 +2,7 @@ import { get, patch, put, cursorPaginated } from './mockAxios'
 
 import { ctx } from './index'
 
-export function createAuthUserBackend () {
+export function createMockAuthUserBackend () {
   get('/api/auth/user/', () => [200, ctx.authUser])
 
   cursorPaginated('/api/auth/user/failed_email_deliveries/', () => [

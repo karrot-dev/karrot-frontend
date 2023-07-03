@@ -90,7 +90,8 @@ import {
 import {
   useChangeEmailMutation,
   useChangePasswordMutation,
-  useRequestDeleteAccountMutation, useSaveUserMutation,
+  useRequestDeleteAccountMutation,
+  useSaveUserMutation,
 } from '@/authuser/mutations'
 import { useAuthService } from '@/authuser/services'
 import { useGeoService } from '@/base/services/geo'
@@ -100,14 +101,12 @@ import { showToast } from '@/utils/toasts'
 
 import ChangeEmail from '@/authuser/components/Settings/ChangeEmail.vue'
 import ChangePassword from '@/authuser/components/Settings/ChangePassword.vue'
-import ChangePhoto from '@/authuser/components/Settings/ChangePhoto.vue'
 import InstallPwa from '@/authuser/components/Settings/InstallPwa.vue'
 import ProfileEdit from '@/authuser/components/Settings/ProfileEdit.vue'
 import Push from '@/authuser/components/Settings/Push.vue'
 import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAccount.vue'
 import KFormContainer from '@/base/components/KFormContainer.vue'
 import GroupSettings from '@/group/components/GroupSettings.vue'
-import ProfilePicture from '@/users/components/ProfilePicture.vue'
 import LocaleSelect from '@/utils/components/LocaleSelect.vue'
 
 const { user } = useAuthService()

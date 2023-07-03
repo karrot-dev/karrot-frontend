@@ -1,7 +1,7 @@
 import { waitFor } from '@testing-library/vue'
 import { flushPromises, mount } from '@vue/test-utils'
 import { times } from 'lodash'
-import { getCurrentInstance, ref } from 'vue'
+import { ref } from 'vue'
 import { VueQueryPlugin } from 'vue-query'
 
 import { useOfferDetailQuery, useOfferListQuery } from '@/offers/queries'

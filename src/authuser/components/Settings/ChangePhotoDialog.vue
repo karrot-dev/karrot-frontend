@@ -79,7 +79,7 @@ import { showToast } from '@/utils/toasts'
 const props = defineProps({
   file: {
     type: File,
-    required: false,
+    default: null,
   },
 })
 

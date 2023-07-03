@@ -11,7 +11,8 @@ import { createMockHistoryBackend } from '>/mockBackend/history'
 
 import { createMockActivitySeriesBackend, generateActivitySeries } from './activitySeries'
 import { createMockApplicationsBackend, generateApplication } from './applications'
-import { createAuthUserBackend } from './authUser'
+import { createMockAuthUserBackend } from './authUser'
+import { createMockConfigBackend } from './config'
 import { addUserToConversation, generateConversation } from './conversations'
 import { createMockGroupDetailBackend, generateGroup } from './groups'
 import { createMockGroupsInfoBackend } from './groupsInfo'
@@ -107,7 +108,8 @@ export function setupMockBackend () {
   resetContext()
   initializeMockAxios()
 
-  createAuthUserBackend()
+  createMockConfigBackend()
+  createMockAuthUserBackend()
   createMockApplicationsBackend()
   createMockActivitiesBackend()
   createMockActivitySeriesBackend()

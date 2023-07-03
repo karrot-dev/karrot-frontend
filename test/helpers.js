@@ -1,11 +1,11 @@
 import { configure } from '@testing-library/vue'
-import { flushPromises, mount, RouterLinkStub, config } from '@vue/test-utils'
+import { flushPromises, mount, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
 import { isArray, mergeWith } from 'lodash'
 import { vi } from 'vitest'
 import { nextTick } from 'vue'
 import { VueQueryPlugin } from 'vue-query'
-import { getRouter, VueRouterMock } from 'vue-router-mock'
+import { getRouter } from 'vue-router-mock'
 
 import i18n, { i18nPlugin } from '@/base/i18n'
 

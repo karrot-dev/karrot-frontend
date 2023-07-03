@@ -2,7 +2,7 @@
 // See https://github.com/posva/vue-router-mock
 
 import { config } from '@vue/test-utils'
-import { vi, beforeAll } from 'vitest'
+import { vi } from 'vitest'
 import {
   VueRouterMock,
   createRouterMock,

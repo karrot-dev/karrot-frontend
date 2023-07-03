@@ -4,9 +4,16 @@ import { defineConfig } from 'vitest/config'
 
 const aliases = require('./aliases').resolve.alias
 
-// I *think* this config file is only used during testing
-
 export default defineConfig({
+  resolve: {
+    alias: aliases,
+  },
+  plugins: [
+    vue({
+      template: { transformAssetUrls },
+    }),
+    quasar({}),
+  ],
   test: {
     testTimeout: 120 * 1000,
     globals: true,
@@ -41,13 +48,4 @@ export default defineConfig({
       ],
     },
   },
-  resolve: {
-    alias: aliases,
-  },
-  plugins: [
-    vue({
-      template: { transformAssetUrls },
-    }),
-    quasar({}),
-  ],
 })

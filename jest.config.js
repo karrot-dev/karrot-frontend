@@ -64,6 +64,7 @@ module.exports = {
     '<rootDir>/test/setup/mockScroll.js',
     '<rootDir>/test/setup/mockUserAgent.js',
     '<rootDir>/test/setup/mockLocation.js',
+    '<rootDir>/test/setup/mockObjectURL.js',
     'jest-canvas-mock',
   ],
   setupFilesAfterEnv: [

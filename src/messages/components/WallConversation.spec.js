@@ -57,13 +57,17 @@ describe('WallConversation', () => {
 
   it('can send a message', async () => {
     const { type, click } = userEvent.setup()
-    const { findByText, findByPlaceholderText, findByTestId } = render(WallConversation, await withDefaults({ props: { groupId: group.id } }))
+    const {
+      findByText,
+      findByPlaceholderText,
+      findByTitle,
+    } = render(WallConversation, await withDefaults({ props: { groupId: group.id } }))
 
     await type(
       await findByPlaceholderText('Write a message...'),
       'my new message',
     )
-    await click(await findByTestId('send-message'))
+    await click(await findByTitle('Send message'))
     await flushPromises() // shouldn't be necessary, but somehow still makes the test work !?
 
     // TODO: add mock websockets, for now we need to manually invalidate...

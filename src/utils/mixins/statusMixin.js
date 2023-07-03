@@ -81,7 +81,7 @@ const NO_ERROR = {
   errorMessage: '',
 }
 
-export function mapErrors (config) {
+export function mapErrors (config, objectField = 'edit') {
   const computed = {}
   for (const property of Object.keys(config)) {
     const rules = config[property]
@@ -94,7 +94,7 @@ export function mapErrors (config) {
           errorMessage: firstServerError,
         }
       }
-      const vuelidate = this.v$.edit[property]
+      const vuelidate = this.v$[objectField][property]
       if (vuelidate === undefined || !vuelidate.$error) return checkServerErrors()
       const ruleWithError = rules.find(([ruleName]) => vuelidate[ruleName].$invalid)
       if (!ruleWithError) return checkServerErrors()

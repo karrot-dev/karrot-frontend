@@ -89,13 +89,15 @@ export function filterTruthy (obj) {
 }
 
 export function withoutKeys (...keys) {
-  return obj => {
-    const copy = { ...obj }
-    for (const key of keys) {
-      delete copy[key]
-    }
-    return copy
+  return obj => removeKeys(obj, keys)
+}
+
+export function removeKeys (obj, keys) {
+  const copy = { ...obj }
+  for (const key of keys) {
+    delete copy[key]
   }
+  return copy
 }
 
 export function debounceAndFlushOnUnload (fn, ms, options = {}) {
@@ -137,13 +139,30 @@ export async function toFormData (sourceEntry) {
     const value = entry[key]
     if (value && typeof value === 'object' && value.toBlob) {
       const image = entry[key]
-      console.log('making blob from', image)
       const blob = await image.toBlob(MIME_TYPE)
-      console.log('BLOB!', blob)
       if (!blob) throw new Error('failed to make a blob for image')
       data.append(underscorize(key), blob, `image.${EXTENSION}`)
       delete entry[key]
     }
+  }
+
+  if (entry.attachments) {
+    const blobs = {}
+    for (const idx of Object.keys(entry.attachments)) {
+      const attachment = entry.attachments[idx]
+      if (attachment._file) {
+        blobs[`attachments.${idx}.file`] = attachment._file
+      }
+      else if (attachment._new) {
+        throw new Error('new attachment did not have a file')
+      }
+    }
+    for (const key of Object.keys(blobs)) {
+      const blob = blobs[key]
+      data.append(key, blob, blob.name)
+    }
+    // we need to leave our original images intact, but only send the required properties to the server
+    entry.attachments = entry.attachments.map(removeAttachmentMetaKeys)
   }
 
   data.append(
@@ -155,6 +174,22 @@ export async function toFormData (sourceEntry) {
   )
 
   return data
+}
+
+export function getFormDataSize (formData) {
+  return Array
+    .from(formData.values(), data => data instanceof Blob ? data.size : data.length)
+    .reduce((sum, size) => sum + size, 0)
+}
+
+function removeAttachmentMetaKeys (obj) {
+  // Get rid of all the keys that start with _, except _removed
+  // Also get rid of stuff we don't want to send to the server
+  const keysToRemove = [
+    ...Object.keys(obj).filter(key => key.startsWith('_') && key !== '_removed'),
+    'urls',
+  ]
+  return removeKeys(obj, keysToRemove)
 }
 
 /**
@@ -232,4 +267,19 @@ export function detectLocale () {
   if (requested) {
     return requested.find(e => locales[e])
   }
+}
+
+export function isViewableImageContentType (contentType) {
+  // List from https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#image_types
+  // Which says: The following image types are used commonly enough to be considered safe for use on web pages:
+  if (!contentType) return false
+  return [
+    'image/apng',
+    'image/avif',
+    'image/gif',
+    'image/jpeg',
+    'image/png',
+    'image/svg+xml',
+    'image/webp',
+  ].includes(contentType.toLowerCase())
 }

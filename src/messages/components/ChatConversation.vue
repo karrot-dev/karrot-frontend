@@ -325,18 +325,20 @@ export default {
         })
       }
     },
-    sendMessage ({ content, images }) {
+    sendMessage ({ content, images, attachments }) {
       const data = this.conversation.thread
         ? {
             id: this.conversation.conversation,
             content,
             images,
+            attachments,
             threadId: this.conversation.id,
           }
         : {
             id: this.conversation.id,
             content,
             images,
+            attachments,
           }
       this.send(data)
     },

@@ -86,6 +86,7 @@
         />
         )
       </QItemLabel>
+      <Attachments :model-value="message.attachments" />
       <div
         v-if="imagesForDisplay.length > 0"
         class="images"
@@ -155,6 +156,7 @@ import {
   QItemSection,
   QItemLabel,
   QIcon,
+  format,
 } from 'quasar'
 import { computed } from 'vue'
 
@@ -168,6 +170,7 @@ import {
 import { useDetailService } from '@/messages/services'
 import { useUserService } from '@/users/services'
 
+import Attachments from '@/messages/components/Attachments.vue'
 import ConversationCompose from '@/messages/components/ConversationCompose.vue'
 import ConversationReactions from '@/messages/components/ConversationReactions.vue'
 import ImageGalleryDialog from '@/messages/components/ImageGalleryDialog.vue'
@@ -177,9 +180,12 @@ import Markdown from '@/utils/components/Markdown.vue'
 
 import ConversationAddReaction from './ConversationAddReaction.vue'
 
+const { humanStorageSize } = format
+
 export default {
   name: 'ConversationMessage',
   components: {
+    Attachments,
     ConversationReactions,
     ConversationAddReaction,
     ConversationCompose,
@@ -242,6 +248,8 @@ export default {
     }
 
     return {
+      humanStorageSize,
+
       author,
       threadParticipants,
 
@@ -275,6 +283,9 @@ export default {
     imagesForDisplay () {
       return this.message?.images?.filter(image => image.id && !image._removed) || []
     },
+    attachmentsForDisplay () {
+      return this.message?.attachments?.filter(attachment => attachment.id && !attachment._removed) || []
+    },
   },
   methods: {
     toggleEdit () {
@@ -290,11 +301,12 @@ export default {
         parent: this,
       })
     },
-    async save ({ content, images }) {
+    async save ({ content, images, attachments }) {
       await this.saveMessage({
         id: this.message.id,
         content,
         images,
+        attachments,
       })
       this.toggleEdit()
     },

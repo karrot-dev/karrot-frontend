@@ -52,6 +52,8 @@ function getLocalAboutJSON () {
 }
 
 function onProxyRes (proxyRes, req, res) {
+  // We generate a local one on the fly
+  // Have a look at https://dev.karrot.world/about.json to see what it should contain
   if (req.url === '/about.json' && proxyRes.statusCode !== 200) {
     res.writeHead(200, {
       'Content-Type': 'application/json',
@@ -62,8 +64,6 @@ function onProxyRes (proxyRes, req, res) {
 
 function onProxyReq (proxyReq) {
   proxyReq.setHeader('origin', backend)
-  // We generate a local one on the fly
-  // Have a look at https://dev.karrot.world/about.json to see what it should contain
   if (/^https:/.test(backend)) {
     // For secure backends we must set the referer to make django happy
     // https://github.com/django/django/blob/master/django/middleware/csrf.py#L226

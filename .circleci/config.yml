@@ -95,8 +95,11 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
+          environment:
+            DEBUG_PRINT_LIMIT: "1000000"
+            NODE_OPTIONS: "--max-old-space-size=8192"
           command: |
-            NODE_OPTIONS=--max-old-space-size=8192 yarn test \
+            yarn test \
               --coverage \
               --reporter verbose \
               --reporter junit \

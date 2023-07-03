@@ -66,7 +66,7 @@ test('add a message attachment', async () => {
   // TODO: add mock websockets, for now we need to manually invalidate...
   await invalidateQueries()
 
-  await findByText(messageContent, {}, { timeout: 2000 })
+  await findByText(messageContent)
 
   // There is an attachment preview thing
   for (const file of files) {

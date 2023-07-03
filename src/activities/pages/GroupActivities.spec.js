@@ -81,10 +81,11 @@ describe('GroupActivities', () => {
 
   it('can filter by activity type', async () => {
     const { findByText, queryByText, debug } = render(GroupActivities, await withDefaults())
+    await flushPromises()
 
     const activityType = realSample(activityTypes)
     await fireEvent.click(await findByText('All types'))
-    await fireEvent.click(await findByText(activityType.name, {}, { timeout: 2000 }))
+    await fireEvent.click(await findByText(activityType.name))
 
     await flushPromises() // give it a moment to update
 

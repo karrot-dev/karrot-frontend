@@ -82,8 +82,6 @@ module.exports = configure(function (ctx) {
       iconSet: 'material-icons',
       lang: 'en-US',
       config: {},
-
-      // Quasar plugins
       plugins: [
         'Dialog',
         'AppVisibility',
@@ -111,21 +109,25 @@ module.exports = configure(function (ctx) {
           ]
         }
       },
-      workboxPluginMode: 'InjectManifest',
-      workboxOptions: {
-        // All the paths that already have file hashes in them
-        // other files will have a ?__WB_REVISION__=<revision> parameter added to them.
-        // Some people say that in theory workbox can already detect the ones with the hash, but doesn't seem so.
-        // if you want to see the entries in the cache you can put this in a service worker debugging console:
-        //
-        //     urls = (await (await caches.open((await caches.keys())[0])).keys()).map(e => e.url)
-        //
-        dontCacheBustURLsMatching: /^(css|js|img|fonts)\//,
-        exclude: [
-          // A partial solution to a more complex issue
-          // See https://github.com/karrot-dev/karrot-frontend/issues/2209
-          'index.html',
-        ],
+      workboxMode: 'injectManifest',
+      extendInjectManifestOptions (injectManifestOptions) {
+        // I'm not totally sure which options are the best to use here, but should be OK for now :)
+        // https://developer.chrome.com/docs/workbox/reference/workbox-build/#method-injectManifest
+        Object.assign(injectManifestOptions, {
+          // Workbox is passed the directory of all the built files, then globs for which ones should be precached
+          // using these patterns... by default it's *everything* minus a few service worker things
+          // That means it would load ALL our built files up front...
+          // ... change it to not precache anything
+          globPatterns: [],
+          globIgnores: [
+            ...injectManifestOptions.globIgnores,
+            // A partial solution to a more complex issue
+            // See https://github.com/karrot-dev/karrot-frontend/issues/2209
+            'index.html',
+          ],
+          // Everything in here has already got hashed path names, so don't need to add more
+          dontCacheBustURLsMatching: /^assets\//,
+        })
       },
     },
   }

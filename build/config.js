@@ -61,6 +61,7 @@ function onProxyRes (proxyRes, req, res) {
 }
 
 function onProxyReq (proxyReq) {
+  console.log('Proxy', proxyReq.path)
   proxyReq.setHeader('origin', backend)
   // We generate a local one on the fly
   // Have a look at https://dev.karrot.world/about.json to see what it should contain

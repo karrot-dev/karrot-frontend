@@ -1,25 +1,30 @@
-import { useFileDialog } from '@vueuse/core'
+import { useFileDialog, createEventHook } from '@vueuse/core'
 import { Dialog } from 'quasar'
 
-import ChangePhotoDialog from '@/authuser/components/Settings/ChangePhotoDialog.vue'
+import ChooseImageDialog from '@/authuser/components/Settings/ChooseImageDialog.vue'
 
-export function useSetProfilePhoto () {
+export function useChooseImage ({
+  aspectRatio,
+  outputFormat,
+} = {}) {
   const { open, onChange } = useFileDialog({
     multiple: false,
     accept: '.jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp',
   })
-  function chooseProfilePhoto () {
-    open()
-  }
+  const onChooseImageHook = createEventHook()
   onChange(files => {
     Dialog.create({
-      component: ChangePhotoDialog,
+      component: ChooseImageDialog,
       componentProps: {
         file: files[0],
+        aspectRatio,
+        outputFormat,
+        onChooseImage: onChooseImageHook.trigger,
       },
     })
   })
   return {
-    chooseProfilePhoto,
+    chooseImage: open,
+    onChooseImage: onChooseImageHook.on,
   }
 }

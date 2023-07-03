@@ -3,6 +3,11 @@
     :is="$q.platform.is.mobile ? 'div' : 'QCard'"
     v-if="v$.edit"
   >
+    <GroupEditPhoto
+      v-if="!isNew"
+      :group="value"
+    />
+    <!--
     <ChangePhoto
       v-if="!isNew"
       :hint="$t('GROUP.SET_LOGO')"
@@ -11,6 +16,7 @@
       :value="value"
       @save="photo => $emit('save', { id: value.id, photo })"
     />
+    -->
     <div
       class="edit-box"
       :class="{ changed: hasChanged }"
@@ -182,6 +188,7 @@ import editMixin from '@/utils/mixins/editMixin'
 import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
 
 import ChangePhoto from '@/authuser/components/Settings/ChangePhoto.vue'
+import GroupEditPhoto from '@/group/components/GroupEditPhoto.vue'
 import AddressPicker from '@/maps/components/AddressPicker.vue'
 import InfoPopup from '@/utils/components/InfoPopup.vue'
 import MarkdownInput from '@/utils/components/MarkdownInput.vue'
@@ -189,6 +196,7 @@ import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 export default {
   name: 'GroupEdit',
   components: {
+    GroupEditPhoto,
     QCard,
     QInput,
     QBtn,

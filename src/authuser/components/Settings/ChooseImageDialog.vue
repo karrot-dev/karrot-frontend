@@ -11,8 +11,17 @@
         </div>
       </QCardSection>
       <QCardSection class="flex-center flex">
+        <Cropper
+          v-if="imageUrl"
+          ref="cropperRef"
+          :src="imageUrl"
+          :stencil-props="{
+            aspectRatio,
+          }"
+          :default-size="defaultSize"
+        />
         <QBtn
-          v-if="!imageUrl"
+          v-else
           size="xl"
           class="q-pa-lg"
           flat
@@ -27,15 +36,6 @@
             {{ t('IMAGE_UPLOAD.SELECT') }}
           </div>
         </QBtn>
-        <Cropper
-          v-if="imageUrl"
-          ref="cropperRef"
-          :src="imageUrl"
-          :stencil-props="{
-            aspectRatio: 1,
-          }"
-          :default-size="defaultSize"
-        />
       </QCardSection>
       <QCardActions align="right">
         <QBtn
@@ -73,13 +73,26 @@ import { Cropper } from 'vue-advanced-cropper'
 import '@/css/vue-advanced-cropper.scss'
 import { useI18n } from 'vue-i18n'
 
-import { useSaveUserMutation } from '@/authuser/mutations'
-import { showToast } from '@/utils/toasts'
-
 const props = defineProps({
+  // Optionally can pass an initial file in
   file: {
     type: File,
     default: null,
+  },
+  aspectRatio: {
+    type: Number,
+    default: undefined,
+  },
+  outputFormat: {
+    type: String,
+    default: 'image/jpeg',
+  },
+  // A function prop rather than an emit
+  // so we can await the result and keep the dialog open
+  // until the action has completed
+  onChooseImage: {
+    type: Function,
+    default: () => {},
   },
 })
 
@@ -103,10 +116,6 @@ defineEmits([
   ...useDialogPluginComponent.emits,
 ])
 
-const {
-  mutateAsync: saveUser,
-} = useSaveUserMutation()
-
 const { dialogRef, onDialogHide, onDialogOK, onDialogCancel } = useDialogPluginComponent()
 
 async function canvasToBlob (canvas, type, quality) {
@@ -116,27 +125,20 @@ async function canvasToBlob (canvas, type, quality) {
 const isSaving = ref(false)
 
 async function onOKClick () {
-  isSaving.value = true
   try {
+    isSaving.value = true
     if (cropperRef.value) {
       const { canvas } = cropperRef.value.getResult()
       if (canvas) {
-        const blob = await canvasToBlob(canvas, 'image/jpeg', 0.9)
-        await saveUser({ photo: blob })
-        showToast({
-          message: 'NOTIFICATIONS.CHANGES_SAVED',
-          config: {
-            timeout: 2000,
-            icon: 'thumb_up',
-          },
-        })
+        const image = await canvasToBlob(canvas, props.outputFormat, 0.9)
+        await props.onChooseImage?.({ image })
       }
     }
   }
   finally {
     isSaving.value = false
+    onDialogOK()
   }
-  onDialogOK()
 }
 
 const image = computed(() => files.value?.[0] ?? props.file)

@@ -6,7 +6,7 @@
     <template v-if="user?.id">
       <RouterLink
         v-if="isLink"
-        :to="{name:'user', params: {userId: user.id}}"
+        :to="{ name: 'user', params: { userId: user.id } }"
         :title="tooltip"
         @click.stop=""
       >
@@ -28,7 +28,7 @@
         <a
           v-if="editable"
           class="text-white text-bold absolute-full change-photo cursor-pointer column flex-center"
-          @click="chooseProfilePhoto"
+          @click="chooseImage"
         >
           <QIcon
             name="fas fa-camera"
@@ -57,13 +57,32 @@ import { QIcon } from 'quasar'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-import { useSetProfilePhoto } from '@/authuser/composables'
+import { useChooseImage } from '@/authuser/composables'
+import { useSaveUserMutation } from '@/authuser/mutations'
+import { showToast } from '@/utils/toasts'
 
 import RandomArt from '@/utils/components/RandomArt.vue'
 
+const {
+  mutateAsync: saveUser,
+} = useSaveUserMutation()
+
 const { t } = useI18n()
 
-const { chooseProfilePhoto } = useSetProfilePhoto()
+const { chooseImage, onChooseImage } = useChooseImage({
+  aspectRatio: 1,
+})
+
+onChooseImage(async ({ image }) => {
+  await saveUser({ photo: image })
+  showToast({
+    message: 'NOTIFICATIONS.CHANGES_SAVED',
+    config: {
+      timeout: 2000,
+      icon: 'thumb_up',
+    },
+  })
+})
 
 const props = defineProps({
   user: { default: null, type: Object },

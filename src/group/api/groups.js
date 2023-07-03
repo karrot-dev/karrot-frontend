@@ -37,7 +37,16 @@ export default {
     let data = group
     if (group.photo) {
       data = new FormData()
-      data.append('photo', group.photo, 'photo.png')
+      const getFilename = () => {
+        switch (group.photo.type) {
+          case 'image/jpeg': return 'photo.jpg'
+          case 'image/png': return 'photo.png'
+          default: {
+            throw new Error('must be jpg or png')
+          }
+        }
+      }
+      data.append('photo', group.photo, getFilename())
     }
 
     const groupId = group.id

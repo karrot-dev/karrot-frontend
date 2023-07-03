@@ -20,9 +20,7 @@ export default defineConfig({
     ],
   },
   resolve: {
-    alias: {
-      ...aliases,
-    },
+    alias: aliases,
   },
   plugins: [
     vue({

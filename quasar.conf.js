@@ -57,9 +57,7 @@ module.exports = configure(function (ctx) {
     build: {
       env: appEnv,
       sourceMap: true,
-      alias: {
-        ...aliases,
-      },
+      alias: aliases,
       vitePlugins: [
         ['@intlify/unplugin-vue-i18n/vite', {
           compositionOnly: false,

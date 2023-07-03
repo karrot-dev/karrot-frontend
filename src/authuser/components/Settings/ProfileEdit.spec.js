@@ -1,5 +1,5 @@
-import { vi } from 'vitest'
-import { nextTick } from 'vue'
+import { flushPromises } from '@vue/test-utils'
+import { vi, describe, it, beforeEach } from 'vitest'
 
 import { mountWithDefaults, statusMocks } from '>/helpers'
 import '>/routerMocks'
@@ -9,7 +9,7 @@ import ProfileEdit from './ProfileEdit.vue'
 
 describe('ProfileEdit', () => {
   useMockBackend()
-  beforeEach(() => vi.resetModules())
+  beforeEach(() => { vi.resetModules() })
   let wrapper
   let user
 
@@ -32,16 +32,15 @@ describe('ProfileEdit', () => {
     expect(wrapper.vm.edit).toEqual(user)
   })
 
-  it('detects if you have changed something', () => {
+  it('detects if you have changed something', async () => {
     expect(wrapper.vm.hasChanged).toBe(false)
     wrapper.vm.edit = {
       ...wrapper.vm.edit,
       displayName: 'a new name',
     }
     expect(wrapper.vm.hasChanged).toBe(true)
-    return nextTick().then(() => {
-      expect(wrapper.classes()).toContain('changed')
-    })
+    await flushPromises()
+    expect(wrapper.classes()).toContain('changed')
   })
 
   it('emits a save event with a diff of changes', () => {

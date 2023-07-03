@@ -13,7 +13,7 @@ const userData = {
 }
 
 describe('Signup', () => {
-  beforeEach(() => vi.resetModules())
+  beforeEach(() => { vi.resetModules() })
   it('submits', async () => {
     const wrapper = await mountWithDefaults(Signup, {
       propsData: {

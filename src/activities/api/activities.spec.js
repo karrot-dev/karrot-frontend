@@ -1,7 +1,7 @@
-import { vi } from 'vitest'
+import { vi, beforeEach } from 'vitest'
 
 describe('activities/api/activities', () => {
-  beforeEach(() => vi.resetModules())
+  beforeEach(() => { vi.resetModules() })
 
   it('converts date range into date and dateEnd', async () => {
     const { convert } = await import('./activities')

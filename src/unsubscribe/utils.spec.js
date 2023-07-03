@@ -8,7 +8,7 @@ const validToken = `
 `.replace(/\s/g, '')
 
 describe('spec', () => {
-  beforeEach(() => vi.resetModules())
+  beforeEach(() => { vi.resetModules() })
 
   it('can parse tokens', async () => {
     const { parseToken } = await import('./utils')

@@ -1,3 +1,4 @@
+import { flushPromises } from '@vue/test-utils'
 import addDays from 'date-fns/addDays'
 import { sample as _sample } from 'lodash'
 import { beforeEach, afterEach } from 'vitest'
@@ -145,7 +146,9 @@ export function setupMockBackend () {
   })
 }
 
-export function resetMockBackend () {
+export async function resetMockBackend () {
+  // ensures lingering requests don't end up being made
+  await flushPromises()
   resetDatabase()
   resetContext()
   resetMockAxios()

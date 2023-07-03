@@ -8,7 +8,7 @@ import { participantType, joinableActivity, currentUserMock } from '>/mockdata'
 import ActivityUsers from './ActivityUsers.vue'
 
 describe.skip('ActivityUsers', () => {
-  beforeEach(() => vi.resetModules())
+  beforeEach(() => { vi.resetModules() })
   let wrapper, activity, datastore
 
   beforeEach(() => {

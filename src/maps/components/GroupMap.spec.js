@@ -24,7 +24,7 @@ const defaultProps = {
 }
 
 describe.skip('GroupMap', () => {
-  beforeEach(() => vi.resetModules())
+  beforeEach(() => { vi.resetModules() })
   it('renders users and places', async () => {
     const wrapper = await mountWithDefaults(GroupMap, {
       propsData: defaultProps,

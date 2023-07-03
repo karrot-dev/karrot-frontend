@@ -8,7 +8,7 @@ import { createDatastore, mountWithDefaults } from '>/helpers'
 import LocaleSelectInner from './LocaleSelectInner.vue'
 
 describe.skip('LocaleSelect', () => {
-  beforeEach(() => vi.resetModules())
+  beforeEach(() => { vi.resetModules() })
   let datastore
 
   const i18n = {

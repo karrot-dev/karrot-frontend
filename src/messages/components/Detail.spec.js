@@ -17,7 +17,7 @@ const datastore = createDatastore({
 })
 
 describe.skip('Detail', () => {
-  beforeEach(() => vi.resetModules())
+  beforeEach(() => { vi.resetModules() })
 
   let mountWithDefaults
   beforeEach(() => {

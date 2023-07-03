@@ -1,11 +1,11 @@
 import { configure } from '@testing-library/vue'
-import { flushPromises, mount, RouterLinkStub } from '@vue/test-utils'
+import { flushPromises, mount, RouterLinkStub, config } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
 import { isArray, mergeWith } from 'lodash'
 import { vi } from 'vitest'
 import { nextTick } from 'vue'
 import { VueQueryPlugin } from 'vue-query'
-import { getRouter } from 'vue-router-mock'
+import { getRouter, VueRouterMock } from 'vue-router-mock'
 
 import i18n, { i18nPlugin } from '@/base/i18n'
 
@@ -68,8 +68,7 @@ export function makefindAllComponentsIterable (wrapper) {
 }
 
 export async function withDefaults (options = {}) {
-  // TODO: update the next comment for vite!
-  // vi.resetModules() can only provide isolation when we require() a module
+  // vi.resetModules() can only provide isolation when we await import() a module
   // We want a fresh Quasar for every test
   const { Quasar } = await import('quasar/dist/quasar.esm')
   const quasarConfig = (await import('>/quasarConfig')).default
@@ -81,29 +80,34 @@ export async function withDefaults (options = {}) {
 
   const router = getRouter()
 
-  const defaults = {
-    propsData,
-    global: {
-      plugins: [
-        router,
-        [Quasar, quasarConfig],
-        [VueQueryPlugin, { queryClient }],
-        i18nPlugin,
-      ],
-      stubs: {
-        RouterLink: RouterLinkStub,
-      },
-      directives: {
-        measure: {},
-      },
-      mocks: {
-        $icon: () => '',
-      },
+  const defaultGlobal = {
+    plugins: [
+      // TODO: investigate this oddity:
+      // for some reason I have to include the router here or some tests don't
+      // have access to routes, etc...
+      // It causes a warning for other tests though: "App already provides property with key "Symbol(router)"
+      router,
+      [Quasar, quasarConfig],
+      [VueQueryPlugin, { queryClient }],
+      i18nPlugin,
+    ],
+    stubs: {
+      RouterLink: RouterLinkStub,
+    },
+    directives: {
+      measure: {},
+    },
+    mocks: {
+      $icon: () => '',
     },
   }
+
   // Performs a deep merge
   return mergeWith(
-    defaults,
+    {
+      propsData,
+      global: defaultGlobal,
+    },
     options,
     (objValue, srcValue) => {
       if (isArray(objValue)) {

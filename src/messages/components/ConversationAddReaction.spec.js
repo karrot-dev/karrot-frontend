@@ -7,7 +7,7 @@ import ConversationAddReactionInner from './ConversationAddReactionInner.vue'
 import EmojiButton from './EmojiButton.vue'
 
 describe.skip('Conversation message reactions', () => {
-  beforeEach(() => vi.resetModules())
+  beforeEach(() => { vi.resetModules() })
   let wrapper
 
   beforeEach(async () => {

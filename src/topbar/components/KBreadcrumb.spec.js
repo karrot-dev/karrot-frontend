@@ -7,7 +7,7 @@ import KBreadcrumb from './KBreadcrumb.vue'
 import '>/routerMocks' // sets up the mock router
 
 describe.skip('KBreadcrumb', () => {
-  beforeEach(() => vi.resetModules())
+  beforeEach(() => { vi.resetModules() })
   it('renders', async () => {
     const wrapper = await mountWithDefaults(KBreadcrumb, {
       propsData: {

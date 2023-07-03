@@ -44,11 +44,7 @@ describe('User Settings', () => {
   })
 
   it('renders settings page', async () => {
-    const { findAllByText } = render(Settings, await withDefaults({
-      global: { stubs: { Croppa: true } },
-    }))
-    await flushPromises()
-
+    const { findAllByText } = render(Settings, await withDefaults())
     await findAllByText('Profile')
   })
 

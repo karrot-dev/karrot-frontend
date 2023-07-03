@@ -16,7 +16,7 @@ const datastore = createDatastore({
 })
 
 describe.skip('ActivityEdit', () => {
-  beforeEach(() => vi.resetModules())
+  beforeEach(() => { vi.resetModules() })
   let wrapper, activity, unenriched
 
   beforeEach(async () => {

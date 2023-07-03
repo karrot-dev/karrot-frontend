@@ -14,7 +14,7 @@ import { groupMarker } from './markers'
 const markers = [...Array(20).keys()].map(e => groupMarker(makeGroup()))
 
 describe('StandardMap', () => {
-  beforeEach(() => vi.resetModules())
+  beforeEach(() => { vi.resetModules() })
   it('renders markers with popups', async () => {
     const wrapper = await mountWithDefaults(StandardMap, {
       propsData: {

@@ -28,7 +28,7 @@ const datastore = createDatastore({
 })
 
 describe.skip('ChatConversation', () => {
-  beforeEach(() => vi.resetModules())
+  beforeEach(() => { vi.resetModules() })
   it('can send a message', async () => {
     const propsData = defaultProps({
       compose: true,

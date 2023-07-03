@@ -144,6 +144,7 @@
     "jest-transform-stub": "^2.0.0",
     "jstoxml": "^3.2.7",
     "keep-a-changelog": "^2.2.1",
+    "lodash": "^4.17.21",
     "path-to-regexp": "^6.2.1",
     "postcss": "^8.4.23",
     "postcss-html": "^1.5.0",

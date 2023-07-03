@@ -100,10 +100,28 @@ export function removeKeys (obj, keys) {
   return copy
 }
 
+/**
+ * If there is a pending save (meaning the debounce function has been called at least once)
+ * then ensure we call our function before unload, so we don't miss out.
+ */
 export function debounceAndFlushOnUnload (fn, ms, options = {}) {
+  // It would be nicer to trigger the actual invocation that is waiting, but that is internal state.
+  // The lodash debounce() function has a flush method for this
+  // The quasar implementation is lacking that.
+  // This is our simple implementation of it.
+
+  let calledAtLeastOnce = false
   const debounced = debounce(fn, ms, options)
-  window.addEventListener('unload', debounced.flush)
-  return debounced
+  window.addEventListener('unload', () => {
+    if (calledAtLeastOnce) fn()
+  })
+
+  function wrapper () {
+    calledAtLeastOnce = true
+    return debounced.apply(this, arguments)
+  }
+
+  return wrapper
 }
 
 const MIME_TYPE = 'image/jpeg'

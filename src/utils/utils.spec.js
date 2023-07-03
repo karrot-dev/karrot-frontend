@@ -14,7 +14,7 @@ describe('objectDiff', () => {
   })
 })
 
-describe('debounceAndFlushBeforeUnload', () => {
+describe('debounceAndFlushOnUnload', () => {
   let listeners
   beforeEach(() => {
     listeners = {}

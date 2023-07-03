@@ -1,7 +1,7 @@
 {
   "name": "Karrot",
   "short_name": "Karrot",
-  "description": "Modern website for organization of foodsaving groups worldwide",
+  "description": "Karrot is a free and open-source tool for grassroots initiatives and groups of people that want to coordinate face-to-face activities on a local, autonomous and voluntary basis.",
   "display": "standalone",
   "start_url": ".",
   "icons": [

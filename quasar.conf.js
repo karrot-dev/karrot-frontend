@@ -92,10 +92,25 @@ module.exports = configure(function (ctx) {
       ],
     },
     animations: [],
-    sourceFiles: {
-      pwaManifestFile: process.env.KARROT_THEME === 'dev' ? 'src-pwa/manifest.dev-theme.json' : 'src-pwa/manifest.json',
-    },
     pwa: {
+      extendManifestJson (manifest) {
+        if (process.env.PWA_APP_NAME) {
+          manifest.name = process.env.PWA_APP_NAME
+          manifest.short_name = process.env.PWA_APP_NAME
+        }
+        if (process.env.KARROT_THEME) {
+          manifest.icons = [
+            {
+              src: 'icons/dev.png',
+              sizes: '512x512',
+              type: 'image/png',
+            },
+            {
+              src: 'icons/dev.svg',
+            },
+          ]
+        }
+      },
       workboxPluginMode: 'InjectManifest',
       workboxOptions: {
         // All the paths that already have file hashes in them

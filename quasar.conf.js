@@ -4,49 +4,20 @@
  */
 
 // Configuration for your app
-// https://quasar.dev/quasar-cli/quasar-conf-js
+// https://quasar.dev/quasar-cli-vite/quasar-config-js
 /* eslint-env node */
 
-const { readFileSync, existsSync } = require('fs')
 const { resolve } = require('path')
 
 const { configure } = require('quasar/wrappers')
 
 const aliases = require('./aliases').resolve.alias
-
-function getHttpsOptions () {
-  /* Try to set up https with your own cert for usage with mkcert
-  Define your cert path and filenames in a file called .env (this uses dotenv)
-
-  KEY=key.pem
-  CERT=cert.pem
-  CA=/home/tic/.local/share/mkcert/rootCA.pem
-
-  More info: https://github.com/FiloSottile/mkcert
-  If these are not available, fall back to making our own cert
-  */
-  const keyFilename = process.env.KEY || resolve(__dirname, './build/dev-certs/key.pem')
-  const certFilename = process.env.CERT || resolve(__dirname, './build/dev-certs/cert.pem')
-  const caFilename = process.env.CA || resolve(__dirname, './build/dev-certs/ca.pem')
-  const all = [keyFilename, certFilename, caFilename]
-  const missing = all.filter(filename => !existsSync(filename))
-  if (missing.length > 0) {
-    console.log(`Could not find key/cert/ca files ${missing.join(', ')}, falling back to our own...`)
-    return true
-  }
-  console.log('Using key/cert/ca files', all.join(', '))
-  return {
-    key: readFileSync(keyFilename),
-    cert: readFileSync(certFilename),
-    ca: readFileSync(caFilename),
-  }
-}
+const { getHttpsOptions } = require('./build/https')
 
 module.exports = configure(function (ctx) {
   const { backend, proxyTable } = require('./build/config')
 
   const appEnv = {
-    // define the karrot environment
     KARROT: {
       BACKEND: backend,
       THEME: process.env.KARROT_THEME,
@@ -57,19 +28,10 @@ module.exports = configure(function (ctx) {
   }
 
   return {
-    // https://quasar.dev/quasar-cli/supporting-ts
     supportTS: false,
-
-    // https://quasar.dev/quasar-cli/quasar-conf-js#property-htmlvariables
     htmlVariables: {
       title: 'Karrot - Start a group, become a community',
     },
-
-    // https://quasar.dev/quasar-cli/prefetch-feature
-    // preFetch: true,
-
-    // app boot file (/src/boot)
-    // https://quasar.dev/quasar-cli/boot-files
     boot: [
       'vueQuery',
       'loglevel',
@@ -84,41 +46,20 @@ module.exports = configure(function (ctx) {
       'detectMobileKeyboard',
       'performance',
     ],
-
-    // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
     css: [
       'app.sass',
     ],
-
-    // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
-      // 'ionicons-v4',
-      // 'mdi-v5',
       'fontawesome-v5',
-      // 'eva-icons',
-      // 'themify',
-      // 'line-awesome',
       'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
-
-      // 'roboto-font', // optional, you are not bound to it
-      'material-icons', // optional, you are not bound to it
+      'material-icons',
     ],
-
-    // disable vendor chunk
-    vendor: {
-      disable: true,
-    },
-
-    // Full list of options: https://quasar.dev/quasar-cli-vite/quasar-config-js#build
     build: {
       env: appEnv,
-
       sourceMap: true,
-
       alias: {
         ...aliases,
       },
-
       vitePlugins: [
         ['@intlify/unplugin-vue-i18n/vite', {
           compositionOnly: false,
@@ -131,20 +72,15 @@ module.exports = configure(function (ctx) {
         }],
       ],
     },
-
-    // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
     devServer: {
-      // PWA needs https to load the service worker
-      https: (ctx.dev && ctx.mode.pwa) ? getHttpsOptions() : false,
-      port: 8080,
+      https: ctx.dev && ctx.mode.pwa ? getHttpsOptions() : false,
+      port: ctx.mode.pwa ? 8082 : 8080, // different port is recommended to avoid caching issues between modes
       open: !process.env.NO_OPEN_BROWSER, // opens browser window automatically
       proxy: proxyTable,
     },
-
-    // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
     framework: {
-      iconSet: 'material-icons', // Quasar icon set
-      lang: 'en-US', // Quasar language pack
+      iconSet: 'material-icons',
+      lang: 'en-US',
       config: {},
 
       // Quasar plugins
@@ -155,12 +91,10 @@ module.exports = configure(function (ctx) {
         'AddressbarColor',
       ],
     },
-
-    // animations: 'all', // --- includes all animations
-    // https://quasar.dev/options/animations
     animations: [],
-
-    // https://quasar.dev/quasar-cli/developing-pwa/configuring-pwa
+    sourceFiles: {
+      pwaManifestFile: process.env.KARROT_THEME === 'dev' ? 'src-pwa/manifest.dev-theme.json' : 'src-pwa/manifest.json',
+    },
     pwa: {
       workboxPluginMode: 'InjectManifest',
       workboxOptions: {
@@ -178,58 +112,6 @@ module.exports = configure(function (ctx) {
           'index.html',
         ],
       },
-      manifest: {
-        name: process.env.PWA_APP_NAME || 'Karrot local dev',
-        short_name: process.env.PWA_APP_NAME || 'Karrot local dev',
-        description: 'Modern website for organization of foodsaving groups worldwide',
-        display: 'standalone',
-        orientation: 'portrait',
-        background_color: '#ffffff',
-        theme_color: '#4a3520',
-        icons: process.env.KARROT_THEME === 'dev'
-          ? [
-              {
-                src: 'icons/dev.png',
-                sizes: '512x512',
-                type: 'image/png',
-              },
-              {
-                src: 'icons/dev.svg',
-              },
-            ]
-          : [
-              {
-                src: 'icons/icon-128x128.png',
-                sizes: '128x128',
-                type: 'image/png',
-              },
-              {
-                src: 'icons/icon-192x192.png',
-                sizes: '192x192',
-                type: 'image/png',
-              },
-              {
-                src: 'icons/icon-256x256.png',
-                sizes: '256x256',
-                type: 'image/png',
-              },
-              {
-                src: 'icons/icon-384x384.png',
-                sizes: '384x384',
-                type: 'image/png',
-              },
-              {
-                src: 'icons/icon-512x512.png',
-                sizes: '512x512',
-                type: 'image/png',
-              },
-            ],
-      },
-    },
-
-    // Full list of options: https://quasar.dev/quasar-cli/developing-cordova-apps/configuring-cordova
-    cordova: {
-      // noIosLegacyBuildFlag: true, // uncomment only if you know what you are doing
     },
   }
 })

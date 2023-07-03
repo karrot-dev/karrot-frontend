@@ -1,0 +1,20 @@
+{
+  "name": "Karrot Dev",
+  "short_name": "Karrot Dev",
+  "description": "Modern website for organization of foodsaving groups worldwide",
+  "display": "standalone",
+  "start_url": ".",
+  "icons": [
+    {
+      "src": "icons/dev.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/dev.svg"
+    }
+  ],
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#4a3520"
+}

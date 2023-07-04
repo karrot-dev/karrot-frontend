@@ -217,8 +217,10 @@ function getFileInput () {
       display: 'none',
     },
     multiple: true,
-    accept: props.accept,
   })
+  if (props.accept) {
+    input.accept = props.accept
+  }
   input.addEventListener('change', addFilesToQueue)
   document.body.appendChild(input)
   return input

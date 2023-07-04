@@ -56,7 +56,7 @@
         v-if="conversation && isParticipant"
         class="q-ml-sm q-pt-sm q-pl-sm"
       >
-        <div>
+        <div class="row">
           <ProfilePicture
             v-for="user in participants"
             :key="user.id"

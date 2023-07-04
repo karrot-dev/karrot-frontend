@@ -61,19 +61,21 @@
             >
               <Markdown :source="feedback.comment" />
             </div>
-            <div class="q-mt-sm">
+            <div class="q-mt-sm row">
               <ProfilePicture
                 :user="givenBy"
                 :size="22"
               />
-              <span v-if="membersWithoutGiver.length > 0">
+              <template
+                v-if="membersWithoutGiver.length > 0"
+              >
                 <ProfilePicture
                   v-for="member in membersWithoutGiver"
                   :key="member.id"
                   :user="member"
                   :size="15"
                 />
-              </span>
+              </template>
             </div>
           </div>
         </div>

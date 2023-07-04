@@ -27,7 +27,7 @@
             v-close-popup
             class="q-pa-md"
           >
-            <div>
+            <div class="row">
               <ProfilePicture
                 v-for="user in subscribers"
                 :key="user.id"

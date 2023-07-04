@@ -35,7 +35,7 @@
         >
           {{ info }}
         </QCardSection>
-        <QCardSection>
+        <QCardSection class="row">
           <ProfilePicture
             v-for="u in trustedBy"
             :key="u.id"

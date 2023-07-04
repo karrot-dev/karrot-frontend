@@ -63,7 +63,7 @@
           class="q-mx-sm q-mt-md"
         >
           <div v-t="'ACTIVITY_FEEDBACK.TOGETHER_WITH'" />
-          <div class="q-mt-sm">
+          <div class="q-mt-sm row">
             <ProfilePicture
               v-for="user in fellowParticipants"
               :key="user.id"

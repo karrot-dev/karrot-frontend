@@ -139,12 +139,14 @@ export default {
         return this.edit.images.map(image => {
           const fullSizeUrl = image.imageUrls?.fullSize
           const previewUrl = image.imageUrls?.[600]
+          const thumbnailUrl = image.imageUrls?.[200]
           return {
             ...image,
             contentType: filenameToContentType(fullSizeUrl) ?? 'image/jpeg',
             urls: {
               original: fullSizeUrl,
               preview: previewUrl,
+              thumbnail: thumbnailUrl,
             },
           }
         })

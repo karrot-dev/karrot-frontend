@@ -126,6 +126,14 @@ export default {
     }
   },
   computed: {
+    /*
+      We're borrowing the <Attachments> component because it's nice
+      ... but these are offer images, not message attachments, but the
+      data is quite similar, and we can map from one to the other :)
+
+      This is based on the premise we might switch the offer images
+      to be more like the attachments in the future anyway...
+     */
     imagesAsAttachments: {
       get () {
         return this.edit.images.map(image => {

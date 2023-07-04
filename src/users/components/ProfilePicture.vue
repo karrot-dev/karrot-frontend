@@ -1,66 +1,62 @@
 <template>
+  <ChooseImage
+    v-if="user?.id && editable"
+    :title="t('USERDATA.SET_PHOTO')"
+    :dialog-title="t('USERDATA.SET_PHOTO')"
+    :image-url="photo"
+    :on-change="savePhoto"
+    :enabled="editable"
+    :aspect-ratio="1"
+  >
+    <img
+      v-if="hasPhoto"
+      :src="photo"
+      class="fit"
+    >
+    <RandomArt
+      v-else
+      :text="user.displayName"
+      :seed="user.id"
+      class="block overflow-hidden fit"
+    />
+  </ChooseImage>
   <div
-    class="profile-picture block relative-position rounded-borders overflow-hidden"
+    v-else-if="user?.id"
+    class="profile-picture relative-position rounded-borders overflow-hidden"
     :style="pictureStyle"
   >
-    <template v-if="user?.id">
-      <RouterLink
-        v-if="isLink"
-        :to="{ name: 'user', params: { userId: user.id } }"
-        :title="tooltip"
-        @click.stop=""
+    <component
+      :is="isLink ? RouterLink : 'span'"
+      v-bind="isLink ? {
+        to: { name: 'user', params: { userId: user.id } },
+        title: tooltip,
+      } : {}"
+      @click.stop=""
+    >
+      <img
+        v-if="hasPhoto"
+        :src="photo"
+        class="fit"
       >
-        <img
-          v-if="hasPhoto"
-          :src="photo"
-          class="fit"
-        >
-        <RandomArt
-          v-else
-          :text="user.displayName"
-          :seed="user.id"
-          class="block overflow-hidden fit"
-        />
-      </RouterLink>
-      <template
+      <RandomArt
         v-else
-      >
-        <a
-          v-if="editable"
-          class="change-photo text-white text-bold absolute-full cursor-pointer column flex-center"
-          @click="chooseImage"
-        >
-          <QIcon
-            name="fas fa-camera"
-            size="xl"
-          />
-          {{ t('USERDATA.SET_PHOTO') }}
-        </a>
-        <img
-          v-if="hasPhoto"
-          :src="photo"
-          class="fit"
-        >
-        <RandomArt
-          v-else
-          :text="user.displayName"
-          :seed="user.id"
-          class="block overflow-hidden fit"
-        />
-      </template>
-    </template>
+        :text="user.displayName"
+        :seed="user.id"
+        class="block overflow-hidden fit"
+      />
+    </component>
   </div>
 </template>
 
 <script setup>
-import { QIcon } from 'quasar'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { RouterLink } from 'vue-router'
 
 import { useSaveUserMutation } from '@/authuser/mutations'
-import { useChooseImage } from '@/utils/composables'
 import { showToast } from '@/utils/toasts'
 
+import ChooseImage from '@/utils/components/ChooseImage.vue'
 import RandomArt from '@/utils/components/RandomArt.vue'
 
 const {
@@ -69,11 +65,7 @@ const {
 
 const { t } = useI18n()
 
-const { chooseImage, onChooseImage } = useChooseImage({
-  aspectRatio: 1,
-})
-
-onChooseImage(async ({ image }) => {
+async function savePhoto ({ image }) {
   await saveUser({ photo: image })
   showToast({
     message: 'NOTIFICATIONS.CHANGES_SAVED',
@@ -82,7 +74,7 @@ onChooseImage(async ({ image }) => {
       icon: 'thumb_up',
     },
   })
-})
+}
 
 const props = defineProps({
   user: { default: null, type: Object },

@@ -1,9 +1,11 @@
 <template>
   <div
     class="choose-image relative-position rounded-borders overflow-hidden"
-    :class="imageUrl ? 'has-image' : ''"
+    :class="imageUrl || slots.default ? 'has-image' : ''"
+    :style="style"
   >
     <a
+      v-if="enabled"
       class="action text-white text-bold absolute-full change-photo cursor-pointer column flex-center"
       @click="chooseImage"
     >
@@ -26,20 +28,29 @@
         {{ title }}
       </span>
     </a>
-    <img
-      v-if="imageUrl"
-      :src="imageUrl"
-      class="image fit"
-    >
+    <slot>
+      <img
+        v-if="imageUrl"
+        :src="imageUrl"
+        class="image fit"
+      >
+    </slot>
   </div>
 </template>
 
 <script setup>
 import { QBtn, QIcon } from 'quasar'
+import { computed, useSlots } from 'vue'
 
 import { useChooseImage } from '@/utils/composables'
 
+const slots = useSlots()
+
 const props = defineProps({
+  enabled: {
+    type: Boolean,
+    default: true,
+  },
   title: {
     type: String,
     default: null,
@@ -51,6 +62,10 @@ const props = defineProps({
   imageUrl: {
     type: String,
     default: null,
+  },
+  width: {
+    type: Number,
+    default: 180,
   },
   aspectRatio: {
     type: Number,
@@ -80,16 +95,22 @@ onChooseImage(async ({ image }) => {
   await props.onChange?.({ image })
 })
 
+const style = computed(() => ({
+  width: `${props.width}px`,
+  height: `${props.width / props.aspectRatio}px`,
+}))
+
 </script>
 <style scoped lang="sass">
 
 .choose-image
-  width: 200px
-  height: 200px
+  width: 180px
+  height: 180px
 
   .action
     background: rgba(0, 0, 0, 0.5)
     gap: 12px
+    z-index: 1
 
   // If we have an image, only show on hover
   &.has-image

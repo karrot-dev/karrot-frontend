@@ -305,7 +305,7 @@ export function isViewableImageContentType (contentType) {
 /**
  * To be used for various purposes:
  * - the "accept" attribute for inputs used for image uploads
- * - detirmining the file extension for a mime type
+ * - determining the file extension for a mime type
  */
 const uploadImageTypes = {
   'image/jpeg': ['.jpg', '.jpeg'],

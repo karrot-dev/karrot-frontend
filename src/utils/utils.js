@@ -141,6 +141,9 @@ export async function toFormData (sourceEntry) {
         if (!blob) throw new Error('failed to make a blob for image')
         blobs[`images.${idx}.image`] = blob
       }
+      else if (image._file) {
+        blobs[`images.${idx}.image`] = image._file
+      }
       else if (image._new) {
         throw new Error('new image did not have a toBlob method')
       }
@@ -149,7 +152,7 @@ export async function toFormData (sourceEntry) {
       data.append(key, blobs[key], `${key}${EXTENSION}`)
     }
     // we need to leave our original images intact, but only send the required properties to the server
-    entry.images = entry.images.map(withoutKeys('toBlob', 'imageUrls'))
+    entry.images = entry.images.map(withoutKeys('toBlob', 'imageUrls')).map(removeAttachmentMetaKeys)
   }
 
   // Check for other image fields
@@ -318,6 +321,14 @@ const uploadImageTypes = {
   'image/webp': ['.webp'],
 }
 
+const extensionMap = {}
+for (const type of Object.keys(uploadImageTypes)) {
+  const extensions = uploadImageTypes[type]
+  for (const extension of extensions) {
+    extensionMap[extension] = type
+  }
+}
+
 export const imageUploadAccept = [
   ...Object.values(uploadImageTypes).flat(),
   ...Object.keys(uploadImageTypes),
@@ -328,4 +339,10 @@ export function imageTypeToExtension (mimeType) {
     return uploadImageTypes[mimeType][0]
   }
   throw new Error(`Image type must be one of ${Object.keys(uploadImageTypes).join(', ')}`)
+}
+
+export function filenameToContentType (filename) {
+  if (!filename) return
+  const extension = '.' + filename.split('.').pop().toLowerCase()
+  return extensionMap[extension]
 }

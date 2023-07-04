@@ -14,6 +14,8 @@
           v-bind="nameError"
           :autofocus="!$q.platform.has.touch"
           autocomplete="off"
+          outlined
+          class="q-mb-lg"
           @blur="v$.edit.name.$touch"
         >
           <template #before>
@@ -26,18 +28,28 @@
           icon="fas fa-fw fa-address-card"
           :label="$t('OFFER.DESCRIPTION')"
           v-bind="descriptionError"
+          outlined
+          class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
         />
 
-        <QField v-bind="imagesError">
+        <QField
+          v-bind="imagesError"
+          borderless
+        >
           <template #before>
             <QIcon name="fas fa-fw fa-star" />
           </template>
           <template #control>
-            <MultiCroppa v-model="edit.images" />
+            <Attachments
+              ref="images"
+              v-model="imagesAsAttachments"
+              :accept="imageUploadAccept"
+              edit
+              add
+            />
           </template>
         </QField>
-
         <div class="row justify-end q-gutter-sm q-mt-sm">
           <QBtn
             v-if="!isNew"
@@ -69,19 +81,20 @@ import { QBtn, QField, QIcon, QInput } from 'quasar'
 
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
+import { filenameToContentType, imageUploadAccept } from '@/utils/utils'
 
 import KFormContainer from '@/base/components/KFormContainer.vue'
+import Attachments from '@/messages/components/Attachments.vue'
 import KSpinner from '@/utils/components/KSpinner.vue'
 import MarkdownInput from '@/utils/components/MarkdownInput.vue'
-import MultiCroppa from '@/utils/components/MultiCroppa.vue'
 
 const NAME_MIN_LENGTH = 5
 const NAME_MAX_LENGTH = 80
 
 export default {
   components: {
+    Attachments,
     MarkdownInput,
-    MultiCroppa,
     KFormContainer,
     QBtn,
     QField,
@@ -108,10 +121,30 @@ export default {
   },
   setup () {
     return {
+      imageUploadAccept,
       v$: useVuelidate(),
     }
   },
   computed: {
+    imagesAsAttachments: {
+      get () {
+        return this.edit.images.map(image => {
+          const fullSizeUrl = image.imageUrls?.fullSize
+          const previewUrl = image.imageUrls?.[600]
+          return {
+            ...image,
+            contentType: filenameToContentType(fullSizeUrl) ?? 'image/jpeg',
+            urls: {
+              original: fullSizeUrl,
+              preview: previewUrl,
+            },
+          }
+        })
+      },
+      set (attachments) {
+        this.edit.images = attachments // no adapting needed, have changed the upload methods
+      },
+    },
     canSave () {
       if (this.v$.edit.$error) {
         return false

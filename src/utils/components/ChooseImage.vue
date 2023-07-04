@@ -41,7 +41,7 @@
 <script setup>
 import { useObjectUrl } from '@vueuse/core'
 import { QBtn, QIcon } from 'quasar'
-import { computed, toRef, useSlots } from 'vue'
+import { computed, useSlots } from 'vue'
 
 import { useChooseImage } from '@/utils/composables'
 

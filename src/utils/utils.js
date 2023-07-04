@@ -162,6 +162,11 @@ export async function toFormData (sourceEntry) {
       data.append(underscorize(key), blob, `image.${EXTENSION}`)
       delete entry[key]
     }
+    else if (value && value instanceof Blob) {
+      const filename = ['image', imageTypeToExtension(value.type)].join()
+      data.append(underscorize(key), value, filename)
+      delete entry[key]
+    }
   }
 
   if (entry.attachments) {

@@ -245,6 +245,7 @@ function createNewActivity (activityType) {
     date,
     dateEnd: addSeconds(date, defaultDuration),
     hasDuration: false,
+    isPublic: false,
   }
 }
 

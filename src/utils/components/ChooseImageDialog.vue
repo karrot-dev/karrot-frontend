@@ -137,11 +137,6 @@ async function onOKClick () {
       const { canvas } = cropperRef.value.getResult()
       if (canvas) {
         // By default keep output format same as original file
-        console.log('choosing output format', {
-          prop: props.outputFormat,
-          imageType: image.value.type,
-          defaultType: 'image/jpeg',
-        })
         const outputFormat = props.outputFormat ?? image.value.type ?? 'image/jpeg'
         const imageBlob = await canvasToBlob(canvas, outputFormat, 0.9)
         await props.onChooseImage?.({ image: imageBlob })

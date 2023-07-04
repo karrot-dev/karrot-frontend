@@ -1,7 +1,7 @@
 <template>
   <div
     class="choose-image relative-position rounded-borders overflow-hidden"
-    :class="imageUrl || slots.default ? 'has-image' : ''"
+    :class="url || slots.default ? 'has-image' : ''"
     :style="style"
   >
     <a
@@ -10,7 +10,7 @@
       @click="chooseImage"
     >
       <QBtn
-        v-if="imageUrl"
+        v-if="url"
         icon="fas fa-times"
         flat
         round
@@ -30,8 +30,8 @@
     </a>
     <slot>
       <img
-        v-if="imageUrl"
-        :src="imageUrl"
+        v-if="url"
+        :src="url"
         class="image fit"
       >
     </slot>
@@ -39,8 +39,9 @@
 </template>
 
 <script setup>
+import { useObjectUrl } from '@vueuse/core'
 import { QBtn, QIcon } from 'quasar'
-import { computed, useSlots } from 'vue'
+import { computed, toRef, useSlots } from 'vue'
 
 import { useChooseImage } from '@/utils/composables'
 
@@ -63,6 +64,13 @@ const props = defineProps({
     type: String,
     default: null,
   },
+  // An image!
+  // undefined means: don't use the field
+  // null means: we don't have an image
+  modelValue: {
+    type: Blob,
+    default: undefined,
+  },
   width: {
     type: Number,
     default: 180,
@@ -81,6 +89,15 @@ const props = defineProps({
   },
 })
 
+const emit = defineEmits([
+  'update:modelValue',
+])
+
+const modelValueUrl = useObjectUrl(computed(() => props.modelValue))
+
+// If modelValue is undefined it means use the props image url, otherwise use our derived model value url
+const url = computed(() => props.modelValue !== undefined ? modelValueUrl.value : props.imageUrl)
+
 const { chooseImage, onChooseImage } = useChooseImage({
   aspectRatio: props.aspectRatio,
   outputFormat: props.outputFormat,
@@ -88,25 +105,25 @@ const { chooseImage, onChooseImage } = useChooseImage({
 })
 
 function removeImage () {
+  emit('update:modelValue', null)
   props.onChange?.({ image: null })
 }
 
 onChooseImage(async ({ image }) => {
+  emit('update:modelValue', image)
   await props.onChange?.({ image })
 })
 
 const style = computed(() => ({
-  width: `${props.width}px`,
-  height: `${props.width / props.aspectRatio}px`,
+  width: typeof props.width === 'number' ? `${props.width}px` : props.width,
+  // height: `${props.width / props.aspectRatio}px`,
+  aspectRatio: props.aspectRatio,
 }))
 
 </script>
 <style scoped lang="sass">
 
 .choose-image
-  width: 180px
-  height: 180px
-
   .action
     background: rgba(0, 0, 0, 0.5)
     gap: 12px

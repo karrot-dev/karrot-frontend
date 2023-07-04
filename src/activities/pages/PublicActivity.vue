@@ -218,7 +218,7 @@ const icsUrl = computed(() => {
 // Need this as we might not be signed in, so might not have any activity type stylesheet loaded
 // (This enables the custom activity type colour names)
 const { updateActivityTypes, removeStylesheet } = createActivityTypeStylesheet()
-watch(activityType, value => updateActivityTypes([value]), { immediate: true })
+watch(activityType, value => updateActivityTypes(value ? [value] : []), { immediate: true })
 
 onUnmounted(() => removeStylesheet())
 

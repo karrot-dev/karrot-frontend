@@ -74,7 +74,6 @@
     "v-tooltip": "^2.1.3",
     "vue": "^3.2.47",
     "vue-advanced-cropper": "^2.8.8",
-    "vue-croppa": "^1.3.8",
     "vue-i18n": "^9.2.2",
     "vue-mention": "^2.0.0-alpha.3",
     "vue-query": "^2.0.0-beta.1",

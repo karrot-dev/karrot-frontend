@@ -32,7 +32,6 @@ export function createActivityTypeStylesheet (suffix = '') {
   function getStylesheet () {
     if (!stylesheet) {
       stylesheet = document.createElement('style')
-      stylesheet.type = 'text/css'
       stylesheet.innerText = ''
       document.head.appendChild(stylesheet)
     }

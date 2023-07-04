@@ -1,5 +1,7 @@
 <template>
-  <QCard class="activity-item">
+  <QCard
+    class="activity-item"
+  >
     <div
       v-if="bannerImageURL"
       style="height: 50px;"

@@ -21,13 +21,15 @@ export function useCreateGroupMutation () {
   ))
 }
 
-export function useSaveGroupMutation () {
+export function useSaveGroupMutation ({ redirectAfterSave = true } = {}) {
   const router = useRouter()
   return withStatus(useMutation(
-    group => api.save(group),
+    async group => api.save(group),
     {
       onSuccess (updatedGroup) {
-        router.push({ name: 'group', params: { groupId: updatedGroup.id } })
+        if (redirectAfterSave) {
+          router.push({ name: 'group', params: { groupId: updatedGroup.id } })
+        }
       },
     },
   ))

@@ -21,6 +21,7 @@
             v-model="message.content"
             v-bind="{ ...$attrs, ...contentError }"
             dense
+            filled
             mentions
             :placeholder="placeholder"
             :loading="isPending"

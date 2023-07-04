@@ -27,7 +27,7 @@
       >
         <a
           v-if="editable"
-          class="text-white text-bold absolute-full change-photo cursor-pointer column flex-center"
+          class="change-photo text-white text-bold absolute-full cursor-pointer column flex-center"
           @click="chooseImage"
         >
           <QIcon
@@ -57,8 +57,8 @@ import { QIcon } from 'quasar'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-import { useChooseImage } from '@/authuser/composables'
 import { useSaveUserMutation } from '@/authuser/mutations'
+import { useChooseImage } from '@/utils/composables'
 import { showToast } from '@/utils/toasts'
 
 import RandomArt from '@/utils/components/RandomArt.vue'
@@ -124,6 +124,7 @@ const photo = computed(() => {
   visibility: hidden
   background-color: rgba(100, 100, 100, 0.8)
   gap: 12px
+  z-index: 1
 
 .profile-picture:hover .change-photo
   visibility: visible

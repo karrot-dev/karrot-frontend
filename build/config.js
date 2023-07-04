@@ -63,13 +63,13 @@ function onProxyRes (proxyRes, req, res) {
 }
 
 function onProxyReq (proxyReq) {
-  proxyReq.setHeader('origin', backend)
   if (/^https:/.test(backend)) {
     // For secure backends we must set the referer to make django happy
     // https://github.com/django/django/blob/master/django/middleware/csrf.py#L226
     // If the backend tries to use this referer for anything useful it will break
     // as it is a blatant lie, but I don't think it does...
     proxyReq.setHeader('referer', backend)
+    proxyReq.setHeader('origin', backend)
   }
   if (process.env.FAKE_IP_FOR_BACKEND) {
     // This let's you set an IP address that will be used for geoip in the backend

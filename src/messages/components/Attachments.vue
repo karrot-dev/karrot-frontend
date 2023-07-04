@@ -38,7 +38,7 @@
             size="sm"
             color="white"
             text-color="primary"
-            class="bg-white z-top absolute-bottom-right attachment--action q-ma-xs"
+            class="bg-white absolute-bottom-right attachment--action q-ma-xs"
             :href="attachment.urls.download"
             :title="$t('BUTTON.DOWNLOAD')"
           />

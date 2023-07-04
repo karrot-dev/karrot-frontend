@@ -5,9 +5,9 @@
     @hide="onDialogHide"
   >
     <QCard class="q-dialog-plugin">
-      <QCardSection>
+      <QCardSection v-if="title">
         <div class="text-h6">
-          {{ t('USERDATA.SET_PHOTO') }}
+          {{ title }}
         </div>
       </QCardSection>
       <QCardSection class="flex-center flex">
@@ -73,10 +73,16 @@ import { Cropper } from 'vue-advanced-cropper'
 import '@/css/vue-advanced-cropper.scss'
 import { useI18n } from 'vue-i18n'
 
+import { imageUploadAccept } from '@/utils/utils'
+
 const props = defineProps({
   // Optionally can pass an initial file in
   file: {
     type: File,
+    default: null,
+  },
+  title: {
+    type: String,
     default: null,
   },
   aspectRatio: {
@@ -85,7 +91,7 @@ const props = defineProps({
   },
   outputFormat: {
     type: String,
-    default: 'image/jpeg',
+    default: null,
   },
   // A function prop rather than an emit
   // so we can await the result and keep the dialog open
@@ -102,7 +108,7 @@ const cropperRef = ref(null)
 
 const { open, files } = useFileDialog({
   multiple: false,
-  accept: '.jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp',
+  accept: imageUploadAccept,
 })
 
 function defaultSize ({ imageSize, visibleArea }) {
@@ -130,8 +136,15 @@ async function onOKClick () {
     if (cropperRef.value) {
       const { canvas } = cropperRef.value.getResult()
       if (canvas) {
-        const image = await canvasToBlob(canvas, props.outputFormat, 0.9)
-        await props.onChooseImage?.({ image })
+        // By default keep output format same as original file
+        console.log('choosing output format', {
+          prop: props.outputFormat,
+          imageType: image.value.type,
+          defaultType: 'image/jpeg',
+        })
+        const outputFormat = props.outputFormat ?? image.value.type ?? 'image/jpeg'
+        const imageBlob = await canvasToBlob(canvas, outputFormat, 0.9)
+        await props.onChooseImage?.({ image: imageBlob })
       }
     }
   }

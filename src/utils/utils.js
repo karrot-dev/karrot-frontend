@@ -301,3 +301,26 @@ export function isViewableImageContentType (contentType) {
     'image/webp',
   ].includes(contentType.toLowerCase())
 }
+
+/**
+ * To be used for various purposes:
+ * - the "accept" attribute for inputs used for image uploads
+ * - detirmining the file extension for a mime type
+ */
+const uploadImageTypes = {
+  'image/jpeg': ['.jpg', '.jpeg'],
+  'image/png': ['.png'],
+  'image/webp': ['.webp'],
+}
+
+export const imageUploadAccept = [
+  ...Object.values(uploadImageTypes).flat(),
+  ...Object.keys(uploadImageTypes),
+].join(',')
+
+export function imageTypeToExtension (mimeType) {
+  if (uploadImageTypes[mimeType]) {
+    return uploadImageTypes[mimeType][0]
+  }
+  throw new Error(`Image type must be one of ${Object.keys(uploadImageTypes).join(', ')}`)
+}

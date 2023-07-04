@@ -6,8 +6,6 @@ import { usersMock } from '>/mockdata'
 
 import ChangePhoto from './ChangePhoto.vue'
 
-// TODO: I've removed @vue/compat stuff, and so a bunch of stuff will need to change... no more vue-croppa...
-
 describe.skip('ChangePhoto', () => {
   beforeEach(() => { vi.resetModules() })
   let wrapper

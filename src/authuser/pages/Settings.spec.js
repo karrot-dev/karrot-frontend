@@ -51,9 +51,7 @@ describe('User Settings', () => {
   it('changes name', async () => {
     const { type, click, clear } = userEvent.setup()
 
-    const { findByTestId, findByRole, findByDisplayValue } = render(Settings, await withDefaults({
-      global: { stubs: { Croppa: true } },
-    }))
+    const { findByTestId, findByRole, findByDisplayValue } = render(Settings, await withDefaults())
     await flushPromises()
 
     // set a new name
@@ -73,9 +71,7 @@ describe('User Settings', () => {
   it('changes email', async () => {
     const { type, click, clear } = userEvent.setup()
 
-    const { findByTestId, findByRole } = render(Settings, await withDefaults({
-      global: { stubs: { Croppa: true } },
-    }))
+    const { findByTestId, findByRole } = render(Settings, await withDefaults())
     await flushPromises()
 
     // set a new email address
@@ -98,9 +94,7 @@ describe('User Settings', () => {
   it('changes password', async () => {
     const { type, click } = userEvent.setup()
 
-    const { findByRole, findByTestId } = render(Settings, await withDefaults({
-      global: { stubs: { Croppa: true } },
-    }))
+    const { findByRole, findByTestId } = render(Settings, await withDefaults())
     await flushPromises()
 
     // set a new password
@@ -123,9 +117,7 @@ describe('User Settings', () => {
   it('changes notifications', async () => {
     const { click } = userEvent.setup()
 
-    const { findByText, findByRole } = render(Settings, await withDefaults({
-      global: { stubs: { Croppa: true } },
-    }))
+    const { findByText, findByRole } = render(Settings, await withDefaults())
     await flushPromises()
     await findByRole('checkbox', { name: 'New applications', checked: false })
 

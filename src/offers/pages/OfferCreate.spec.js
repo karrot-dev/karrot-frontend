@@ -31,11 +31,7 @@ describe('OfferCreate', () => {
   })
 
   it('can create an offer and see it listed', async () => {
-    const { getByLabelText, getByRole, unmount } = render(OfferCreate, await withDefaults({
-      // Stub Croppa as it doesn't seem to work otherwise...
-      // TODO: maybe could work if enabled configureCompat mode for testing?
-      global: { stubs: { Croppa: true } },
-    }))
+    const { getByLabelText, getByRole, unmount } = render(OfferCreate, await withDefaults())
     await flushPromises()
     const offerParams = {
       name: faker.random.words(5),

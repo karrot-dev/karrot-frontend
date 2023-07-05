@@ -163,10 +163,7 @@ export function useConversationListQuery () {
           const activitiesById = indexById(activities)
           const issuesById = indexById(issues)
           const offersById = indexById(offers)
-          // const usersById = indexById(usersInfo)
-          console.log('what TODO with users_info', usersInfo)
           const applicationsById = indexById(applications)
-          console.log('what TODO with meta', meta)
 
           function getTarget (conversation) {
             const { targetId } = conversation

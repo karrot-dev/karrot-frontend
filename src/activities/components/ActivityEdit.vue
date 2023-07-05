@@ -225,7 +225,7 @@
           <ChooseImage
             v-model="edit.bannerImage"
             :image-url="value.bannerImageUrls?.fullSize"
-            :aspect-ratio="21/9"
+            :aspect-ratio="26/9"
             width="100%"
             :title="$t('CREATEACTIVITY.BANNER_IMAGE')"
             :dialog-title="$t('CREATEACTIVITY.SELECT_BANNER_IMAGE')"

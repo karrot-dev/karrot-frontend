@@ -9,9 +9,11 @@ export function configureSentry (app, { dsn, environment }) {
   }
 
   // Async, import so we only load sentry lib if actually using it
-  import('./sentry').then(({ init, captureMessage, captureException }) => {
-    Sentry = { captureMessage, captureException }
-    init({
+  // The imported one here only has the functions we want to ensure
+  // treeshaking works
+  import('./sentry').then(imported => {
+    Sentry = imported
+    Sentry.init({
       app,
       dsn,
       environment,

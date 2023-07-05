@@ -63,12 +63,12 @@ describe('ActivityCreateButton', () => {
 
     const db = getMockBackendDatabase()
 
-    expect(db.activities.length).toEqual(0)
+    expect(db.activities.length).toBe(0)
     await click(getByRole('button', { name: 'Create' }))
     await flushPromises()
     await flushPromises() // shouldn't be necessary, but somehow still makes the test work !?
 
-    expect(db.activities.length).toEqual(1)
+    expect(db.activities.length).toBe(1)
     expect(db.activities[0].place).toEqual(places[0].id)
     expect(db.activities[0].activityType).toEqual(activityType.id)
     expect(showToast).toHaveBeenCalled()

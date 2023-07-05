@@ -60,7 +60,7 @@ test('create issue', async () => {
 
   // then we should be on the issues page where we can discuss...
   await waitFor(() => {
-    expect(router.currentRoute.value.name).toEqual('issueChat')
+    expect(router.currentRoute.value.name).toBe('issueChat')
   })
 
   // this gets turned into markdown, so swap newlines for .* regexp...

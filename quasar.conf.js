@@ -58,6 +58,11 @@ module.exports = configure(function (ctx) {
       env: appEnv,
       sourceMap: true,
       alias: aliases,
+      target: {
+        // https://esbuild.github.io/api/#target
+        // Trying to make the most compatible version possible :)
+        browser: ['es2015', 'edge18', 'firefox60', 'chrome55', 'opera2017', 'ios12'],
+      },
       vitePlugins: [
         ['@intlify/unplugin-vue-i18n/vite', {
           compositionOnly: false,

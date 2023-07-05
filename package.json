@@ -104,14 +104,11 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/user-event": "^14.4.3",
     "@testing-library/vue": "^7.0.0",
-    "@types/jest": "^29.5.1",
     "@vitest/coverage-v8": "^0.32.3",
     "@vue/test-utils": "^2.3.2",
-    "@vue/vue3-jest": "^29.2.4",
     "autoprefixer": "^10.4.14",
     "axios-mock-adapter": "^1.21.4",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^29.5.0",
     "babel-loader": "^9.1.2",
     "babel-plugin-dynamic-import-node": "^2.3.0",
     "blob-polyfill": "^7.0.20220408",
@@ -124,23 +121,18 @@
     "eslint-config-standard": "^17.0.0",
     "eslint-import-resolver-webpack": "^0.13.2",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-quasar": "^1.1.0",
     "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-vitest": "^0.2.6",
     "eslint-plugin-vue": "^9.11.0",
     "eslint-webpack-plugin": "^4.0.1",
     "express": "^4.18.2",
     "file-saver": "^2.0.5",
     "glob": "^10.2.2",
     "http-proxy-middleware": "^2.0.6",
-    "jest": "^29.5.0",
-    "jest-canvas-mock": "^2.5.0",
-    "jest-environment-jsdom": "^29.5.0",
-    "jest-junit": "^16.0.0",
-    "jest-serializer-vue": "^3.1.0",
-    "jest-transform-stub": "^2.0.0",
+    "jsdom": "^22.1.0",
     "jstoxml": "^3.2.7",
     "keep-a-changelog": "^2.2.1",
     "lodash": "^4.17.21",
@@ -169,18 +161,6 @@
     "webpack-bundle-analyzer": "^4.8.0",
     "workbox-webpack-plugin": "^6.5.4"
   },
-  "browserslist": [
-    "ie >= 11",
-    "last 10 Chrome versions",
-    "last 10 Firefox versions",
-    "last 4 Edge versions",
-    "last 7 Safari versions",
-    "last 8 Android versions",
-    "last 8 ChromeAndroid versions",
-    "last 8 FirefoxAndroid versions",
-    "last 10 iOS versions",
-    "last 5 Opera versions"
-  ],
   "engines": {
     "node": ">= 16",
     "npm": ">= 6.13.4",
@@ -191,8 +171,5 @@
     "vite": "^4.0.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "rollup": "^3.0.0"
-  },
-  "majestic": {
-    "jestScriptPath": "./test/jestUTC.js"
   }
 }

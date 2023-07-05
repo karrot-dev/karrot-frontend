@@ -11,10 +11,12 @@ module.exports = {
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:import/recommended',
+    'plugin:vitest/recommended',
     'standard',
   ],
   plugins: [
     'vue',
+    'vitest',
   ],
   globals: {
     cordova: true,
@@ -82,6 +84,10 @@ module.exports = {
     'vue/component-name-in-template-casing': ['error', 'PascalCase', { ignores: ['i18n'] }],
     // allow single word component names, see https://github.com/karrot-dev/karrot-frontend/issues/2463
     'vue/multi-word-component-names': 'off',
+
+    // allow tests without expect()
+    // often something like findByTitle() is enough
+    'vitest/expect-expect': 'off',
   },
 
   settings: {

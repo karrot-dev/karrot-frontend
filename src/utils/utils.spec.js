@@ -4,7 +4,7 @@ import { underscorize, objectDiff, debounceAndFlushOnUnload } from './utils'
 
 describe('utils', () => {
   it('underscorizes', () => {
-    expect(underscorize('displayName')).toEqual('display_name')
+    expect(underscorize('displayName')).toBe('display_name')
   })
 })
 

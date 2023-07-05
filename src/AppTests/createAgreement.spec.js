@@ -59,7 +59,7 @@ test('create an agreement', async () => {
   await findByText(re)
 
   await waitFor(() => {
-    expect(router.currentRoute.value.name).toEqual('agreement')
+    expect(router.currentRoute.value.name).toBe('agreement')
   })
 
   // make sure the data ended up in the db

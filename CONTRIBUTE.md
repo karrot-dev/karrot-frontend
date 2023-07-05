@@ -37,14 +37,14 @@ yarn lint
 You can use `yarn test` to disable the restarting the tests after a file changed. Also, if you use an IDE that supports [code style plugins](#code-style), you can usually skip the `lint` step.
 
 ```sh
-git checkout -b newBranchForIssue
+git switch -c fix/newBranchForIssue
 git diff
 git add .
 git commit
 git push
 ```
 
-If you now visit github.com/karrot-dev/karrot-frontend, there should be a message that you can open a Pull Request for your recently pushed branch.
+If you now visit https://github.com/karrot-dev/karrot-frontend, there should be a message that you can open a Pull Request for your recently pushed branch.
 
 ### Backend connection
 
@@ -62,7 +62,7 @@ Be careful to adapt your coding style to the already existing one. That makes it
 * We use [editorconfig](http://editorconfig.org/). Plugins are available for many editors, e.g. for Atom:`editorconfig`)
 * check your code style with `yarn lint`, or better: install an `eslint` plugin in your IDE
 * use `yarn fix` to automatically fix some kinds of code style errors
-* Use ES6/7 features (including async/await)
+* Use ES module features (including async/await)
 * Avoid global components, import them where needed
 
 ### Translating and updating
@@ -77,7 +77,6 @@ Have a look at the file `scripts/prepare-release.js`.
 
 To make it easier to look for documentation and help on the internet, here's a list of our tools and libraries. It's roughly sorted by importance to developers.
 
-* JS framework: [VueJS](https://vuejs.org/v2/guide/)
-* UI framework: [Quasar](http://quasar.dev/guide/)
-* State management: [Vuex](https://vuex.vuejs.org/en/)
-* Test framework: [Jest](https://facebook.github.io/jest/docs/en/getting-started.html)
+* JS framework: [VueJS](https://vuejs.org/)
+* UI framework: [Quasar](http://quasar.dev/)
+* Test framework: [Vitest](https://vitest.dev/)

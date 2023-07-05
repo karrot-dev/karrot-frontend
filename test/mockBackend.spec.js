@@ -42,13 +42,13 @@ describe('mock backend', () => {
     const group = createGroup()
     addUserToGroup(user, group)
     const groupRes = (await groupsInfoAPI.list())[0]
-    expect(groupRes.memberCount).toEqual(1)
-    expect(groupRes.isMember).toEqual(false)
+    expect(groupRes.memberCount).toBe(1)
+    expect(groupRes.isMember).toBe(false)
 
     // make sure it shows as member if we're logged in
     loginAs(user)
     const groupRes2 = (await groupsInfoAPI.list())[0]
-    expect(groupRes2.isMember).toEqual(true)
+    expect(groupRes2.isMember).toBe(true)
   })
 
   it('can create and retrieve an offer', async () => {

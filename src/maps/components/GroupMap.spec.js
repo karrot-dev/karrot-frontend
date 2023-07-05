@@ -33,7 +33,7 @@ describe.skip('GroupMap', () => {
     expect(wrapper.findAllComponents(KMap).length).toBe(1)
     expect(wrapper.findAllComponents(KMarker).length).toBe(usersMock.length + placesMock.length)
     for (const marker of wrapper.findAllComponents(KMarker)) {
-      expect(marker.props().opacity).toEqual(1)
+      expect(marker.props().opacity).toBe(1)
     }
     expect(wrapper.findAllComponents(UserMarker).length).toBe(usersMock.length)
     expect(wrapper.findAllComponents(PlaceMarker).length).toBe(placesMock.length)

@@ -24,7 +24,7 @@ describe.skip('Conversation message reactions', () => {
   })
 
   it('renders reactions', () => {
-    expect(wrapper.findAllComponents(EmojiButton).length).toEqual(2)
+    expect(wrapper.findAllComponents(EmojiButton).length).toBe(2)
   })
 
   it('click reaction adds own reaction (when reaction not present)', () => {

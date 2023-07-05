@@ -37,7 +37,7 @@ test('join group', async () => {
   // We're on the group preview page with a link to the group :)
   const groupLink = await findByRole('link', { name: group.name })
   await waitFor(() => {
-    expect(router.currentRoute.value.path).toEqual('/groupPreview')
+    expect(router.currentRoute.value.path).toBe('/groupPreview')
   })
 
   // Open the group preview page
@@ -45,7 +45,7 @@ test('join group', async () => {
 
   const applyLink = await findByRole('link', { name: 'Apply' })
   await waitFor(() => {
-    expect(router.currentRoute.value.path).toEqual(`/groupPreview/${group.id}`)
+    expect(router.currentRoute.value.path).toBe(`/groupPreview/${group.id}`)
   })
 
   // Let's apply!
@@ -68,7 +68,7 @@ test('join group', async () => {
 
   // Ooh on the wall page :)
   await waitFor(() => {
-    expect(router.currentRoute.value.path).toEqual(`/group/${group.id}/wall`)
+    expect(router.currentRoute.value.path).toBe(`/group/${group.id}/wall`)
   })
 
   // TODO: write a message! (Haven't implemented enough mockBackend to get the conversation yet...)

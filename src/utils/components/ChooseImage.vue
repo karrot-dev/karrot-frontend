@@ -24,9 +24,9 @@
         name="fas fa-camera"
         size="xl"
       />
-      <span class="q-px-lg text-center">
+      <div class="text-center q-px-md">
         {{ title }}
-      </span>
+      </div>
     </a>
     <slot>
       <img
@@ -116,13 +116,11 @@ onChooseImage(async ({ image }) => {
 
 const style = computed(() => ({
   width: typeof props.width === 'number' ? `${props.width}px` : props.width,
-  // height: `${props.width / props.aspectRatio}px`,
   aspectRatio: props.aspectRatio,
 }))
 
 </script>
 <style scoped lang="sass">
-
 .choose-image
   .action
     background: rgba(0, 0, 0, 0.5)

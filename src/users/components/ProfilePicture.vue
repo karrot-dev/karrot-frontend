@@ -7,7 +7,7 @@
     :on-change="savePhoto"
     :enabled="editable"
     :aspect-ratio="1"
-    :width="props.size"
+    :width="size"
   >
     <img
       v-if="hasPhoto"

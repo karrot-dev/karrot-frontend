@@ -29,7 +29,7 @@
           :groups="groups"
         />
       </div>
-      <div class="photoAndName row no-wrap ellipsis">
+      <div class="photoAndName row no-wrap">
         <Transition
           name="turn-in"
           appear
@@ -49,7 +49,7 @@
           style="overflow: hidden"
           class="self-center"
         >
-          <h1>
+          <h1 class="ellipsis">
             {{ user.displayName }}
           </h1>
         </div>

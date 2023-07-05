@@ -1,114 +1,104 @@
 <template>
-  <div v-if="user">
-    <KFormContainer>
-      <QCardSection>
-        <div class="text-h6">
+  <component
+    :is="$q.platform.is.mobile ? 'div' : QCard"
+    class="bg-grey-1"
+  >
+    <template
+      v-if="user"
+    >
+      <div class="edit-box">
+        <div class="text-h5 text-primary q-mb-lg">
           {{ $t('USERDATA.PHOTO') }}
         </div>
-      </QCardSection>
-      <QCardSection>
-        <div class="edit-box">
-          <QField borderless>
-            <template #before>
-              <QIcon name="fas fa-camera" />
-            </template>
-            <template #control>
-              <ChooseImage
-                :image-url="user?.photoUrls?.fullSize"
-                :on-change="({ image }) => saveUser({ id: user.id, photo: image })"
-                :title="$t('USERDATA.SET_PHOTO')"
-                :dialog-title="$t('USERDATA.SET_PHOTO')"
-              />
-            </template>
-          </QField>
-        </div>
-      </QCardSection>
-    </KFormContainer>
-    <KFormContainer>
-      <QCardSection>
-        <div class="text-h6">
-          {{ $t('USERDATA.PROFILE_TITLE') }}
-        </div>
-      </QCardSection>
-      <QCardSection>
-        <ProfileEdit
-          :value="user"
-          :status="profileEditStatus"
-          :default-map-center="defaultMapCenter"
-          @save="saveUser"
-        />
-      </QCardSection>
-    </KFormContainer>
-    <KFormContainer>
-      <QCardSection>
-        <div class="text-h6">
+        <QField borderless>
+          <template #before>
+            <QIcon name="fas fa-camera" />
+          </template>
+          <template #control>
+            <ChooseImage
+              :image-url="user?.photoUrls?.fullSize"
+              :on-change="({ image }) => saveUser({ id: user.id, photo: image })"
+              :title="$t('USERDATA.SET_PHOTO')"
+              :dialog-title="$t('USERDATA.SET_PHOTO')"
+            />
+          </template>
+        </QField>
+      </div>
+      <QSeparator />
+      <ProfileEdit
+        :value="user"
+        :status="profileEditStatus"
+        :default-map-center="defaultMapCenter"
+        @save="saveUser"
+      />
+      <QSeparator />
+      <div class="edit-box">
+        <div class="text-h5 text-primary q-mb-lg">
           {{ $t('LANGUAGECHOOSER.SWITCH') }}
         </div>
-      </QCardSection>
-      <QCardSection>
-        <div class="edit-box row justify-end">
-          <LocaleSelect />
+        <div class="row justify-end">
+          <LocaleSelect class="q-my-lg" />
         </div>
-      </QCardSection>
-    </KFormContainer>
-    <KFormContainer>
-      <QCardSection>
-        <div class="text-h6">
+      </div>
+      <QSeparator />
+      <ChangeEmail
+        :user="user"
+        :status="changeEmailStatus"
+        @save="changeEmail"
+      />
+      <QSeparator />
+      <ChangePassword
+        :status="changePasswordStatus"
+        @save="changePassword"
+      />
+      <QSeparator />
+      <div class="edit-box">
+        <div class="text-h5 text-primary q-mb-lg">
           {{ $t('USERDATA.ACCOUNT') }}
         </div>
-      </QCardSection>
-      <QCardSection>
-        <ChangeEmail
-          :user="user"
-          :status="changeEmailStatus"
-          @save="changeEmail"
-        />
-        <QSeparator />
-        <ChangePassword
-          :status="changePasswordStatus"
-          @save="changePassword"
-        />
-        <QCardActions>
+        <div class="row justify-end">
           <RequestDeleteAccount
             :status="requestDeleteAccountStatus"
             @request-delete-account="requestDeleteAccount"
           />
-        </QCardActions>
-      </QCardSection>
-    </KFormContainer>
-    <GroupSettings />
-    <KFormContainer
-      v-if="!$q.platform.is.cordova && pushIsSupported"
-    >
-      <QCardSection>
-        <div class="text-h6">
-          {{ $t('USERDATA.PUSH') }}
         </div>
-      </QCardSection>
-      <QCardSection>
-        <Push />
-      </QCardSection>
-    </KFormContainer>
-    <KFormContainer
-      v-if="!$q.platform.is.cordova && hasPwaInstallPrompt()"
-    >
-      <QCardSection>
-        <div class="text-h6">
-          {{ $t('USERDATA.APP') }}
+      </div>
+      <QSeparator />
+      <GroupSettings />
+      <template v-if="pushIsSupported">
+        <QSeparator />
+        <div
+          class="edit-box"
+        >
+          <div class="text-h5 text-primary q-mb-lg">
+            {{ $t('USERDATA.PUSH') }}
+          </div>
+          <Push class="q-ma-lg" />
         </div>
-      </QCardSection>
-      <QCardSection>
-        <InstallPwa />
-      </QCardSection>
-    </KFormContainer>
-  </div>
+      </template>
+      <template
+        v-if="hasPwaInstallPrompt()"
+      >
+        <QSeparator />
+        <div class="edit-box">
+          <div class="text-h5 text-primary q-mb-lg">
+            {{ $t('USERDATA.APP') }}
+          </div>
+          <InstallPwa class="q-ma-lg" />
+        </div>
+      </template>
+    </template>
+  </component>
 </template>
 
 <script setup>
 import {
   QCardSection,
   QSeparator,
-  QCardActions, QField, QIcon,
+  QCardActions,
+  QField,
+  QIcon,
+  QCard,
 } from 'quasar'
 
 import {
@@ -178,5 +168,4 @@ async function saveUser (data) {
 
 <style scoped lang="sass">
 @import 'editbox'
-
 </style>

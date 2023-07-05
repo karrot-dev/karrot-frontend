@@ -4,6 +4,9 @@
     class="edit-box"
     :class="{ changed: hasChanged }"
   >
+    <div class="text-h5 text-primary">
+      {{ $t('USERDATA.PROFILE_TITLE') }}
+    </div>
     <form @submit.prevent="maybeSave">
       <QInput
         v-model="edit.displayName"
@@ -60,7 +63,7 @@
         {{ firstNonFieldError }}
       </div>
 
-      <div class="row justify-end q-gutter-sm q-mt-sm">
+      <div class="row justify-end q-gutter-sm q-my-lg">
         <QBtn
           type="button"
           :disable="!hasChanged"

@@ -3,7 +3,10 @@
     id="change-email"
     class="edit-box"
   >
-    <VerificationWarning />
+    <div class="text-h5 text-primary q-mb-lg">
+      {{ $t('USERDATA.EMAIL') }}
+    </div>
+    <VerificationWarning class="q-mb-lg" />
     <QInput
       v-model="newEmail"
       type="email"

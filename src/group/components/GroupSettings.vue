@@ -1,13 +1,12 @@
 <template>
-  <KFormContainer
+  <div
     v-if="group"
     id="notifications"
+    class="edit-box"
   >
-    <QCardSection>
-      <div class="text-h6">
-        {{ $t('GROUP.NOTIFICATIONS_BY_GROUP') }}
-      </div>
-    </QCardSection>
+    <div class="text-h5 text-primary q-mb-lg">
+      {{ $t('GROUP.NOTIFICATIONS_BY_GROUP') }}
+    </div>
     <template v-if="groups.length > 1">
       <div class="row q-pl-md">
         <div
@@ -22,71 +21,68 @@
         />
       </div>
     </template>
-    <QCardSection>
-      <QList>
-        <QItemLabel header>
-          <div class="text-weight-medium">
-            {{ $t('GROUP.EMAIL_NOTIFICATIONS') }}
-          </div>
-        </QItemLabel>
-        <QItem
-          v-for="type in availableNotificationTypes"
-          :key="type"
-          tag="label"
-        >
-          <QItemSection side>
-            <QCheckbox
-              :model-value="notificationIsEnabled(type)"
-              :disable="notificationIsPending(type)"
-              :title="$t('GROUP.NOTIFICATION_TYPES.' + type + '.NAME')"
-              @update:model-value="value => change(type, value)"
-            />
-          </QItemSection>
-          <QItemSection>
-            <QItemLabel>
-              {{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.NAME') }}
-            </QItemLabel>
-            <QItemLabel caption>
-              {{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.DESCRIPTION') }}
-            </QItemLabel>
-          </QItemSection>
-          <QItemSection side>
-            <QSpinner
-              :class="{ invisible: !notificationIsPending(type) }"
-              size="xs"
-            />
-          </QItemSection>
-        </QItem>
-        <div
-          class="q-pt-md q-pl-md"
-        >
-          <QBtn
-            color="primary"
-            :label="$t('UNSUBSCRIBE.ALL')"
-            :loading="unsubscribeIsPending"
-            @click="unsubscribeAll(group.id)"
+    <QList class="q-mb-lg">
+      <QItemLabel header>
+        <div class="text-weight-medium">
+          {{ $t('GROUP.EMAIL_NOTIFICATIONS') }}
+        </div>
+      </QItemLabel>
+      <QItem
+        v-for="type in availableNotificationTypes"
+        :key="type"
+        tag="label"
+      >
+        <QItemSection side>
+          <QCheckbox
+            :model-value="notificationIsEnabled(type)"
+            :disable="notificationIsPending(type)"
+            :title="$t('GROUP.NOTIFICATION_TYPES.' + type + '.NAME')"
+            @update:model-value="value => change(type, value)"
           />
-          <div
-            class="q-pt-sm k-caption-opacity"
-          >
-            {{ $t('UNSUBSCRIBE.FROM_GROUP', { groupName: group.name }) }}
-          </div>
-        </div>
+        </QItemSection>
+        <QItemSection>
+          <QItemLabel>
+            {{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.NAME') }}
+          </QItemLabel>
+          <QItemLabel caption>
+            {{ $t('GROUP.NOTIFICATION_TYPES.' + type + '.DESCRIPTION') }}
+          </QItemLabel>
+        </QItemSection>
+        <QItemSection side>
+          <QSpinner
+            :class="{ invisible: !notificationIsPending(type) }"
+            size="xs"
+          />
+        </QItemSection>
+      </QItem>
+      <div
+        class="q-pt-md q-pl-md"
+      >
+        <QBtn
+          color="primary"
+          :label="$t('UNSUBSCRIBE.ALL')"
+          :loading="unsubscribeIsPending"
+          @click="unsubscribeAll(group.id)"
+        />
         <div
-          v-if="unsubscribeHasAnyError"
-          class="text-negative q-mt-md"
+          class="q-pt-sm k-caption-opacity"
         >
-          <i class="fas fa-exclamation-triangle" />
-          {{ unsubscribeAnyFirstError }}
+          {{ $t('UNSUBSCRIBE.FROM_GROUP', { groupName: group.name }) }}
         </div>
-      </QList>
-    </QCardSection>
-  </KFormContainer>
+      </div>
+      <div
+        v-if="unsubscribeHasAnyError"
+        class="text-negative q-mt-md"
+      >
+        <i class="fas fa-exclamation-triangle" />
+        {{ unsubscribeAnyFirstError }}
+      </div>
+    </QList>
+  </div>
 </template>
 
 <script>
 import {
-  QCardSection,
   QCheckbox,
   QList,
   QItem,
@@ -104,13 +100,11 @@ import { useCurrentGroupService } from '@/group/services'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { useStatusHelpers } from '@/utils/mixins/statusMixin'
 
-import KFormContainer from '@/base/components/KFormContainer.vue'
 import SwitchGroupButton from '@/users/components/SwitchGroupButton.vue'
 
 export default {
   name: 'GroupSettings',
   components: {
-    QCardSection,
     QCheckbox,
     QList,
     QItem,
@@ -118,7 +112,6 @@ export default {
     QItemLabel,
     QBtn,
     QSpinner,
-    KFormContainer,
     SwitchGroupButton,
   },
   setup () {

@@ -3,178 +3,176 @@
     :is="$q.platform.is.mobile ? 'div' : 'QCard'"
     v-if="v$.edit"
   >
-    <div>
-      <div
-        class="edit-box"
-      >
+    <div
+      class="edit-box"
+    >
+      <h4 class="text-primary q-mt-none q-mb-lg">
+        {{ $t('GROUP.LOGO') }}
+      </h4>
+      <QField borderless>
+        <template #before>
+          <QIcon name="fas fa-camera" />
+        </template>
+        <template #control>
+          <ChooseImage
+            :image-url="value?.photoUrls?.fullSize"
+            :on-change="saveImage"
+            :title="$t('GROUP.SET_LOGO')"
+            :dialog-title="$t('GROUP.LOGO')"
+          />
+        </template>
+      </QField>
+    </div>
+    <div
+      class="edit-box"
+      :class="{ changed: hasChanged }"
+    >
+      <form @submit.prevent="maybeSave">
         <h4 class="text-primary q-mt-none q-mb-lg">
-          {{ $t('GROUP.LOGO') }}
+          {{ $t('GROUP.HEADINGS.GENERAL') }}
         </h4>
-        <QField borderless>
+
+        <QInput
+          v-if="edit.status !== 'playground'"
+          id="group-title"
+          v-model="edit.name"
+          :autofocus="!$q.platform.has.touch"
+          v-bind="nameError"
+          :label="$t('GROUP.TITLE')"
+          autocomplete="off"
+          outlined
+          class="q-mb-lg"
+          @blur="v$.edit.name.$touch"
+        >
           <template #before>
-            <QIcon name="fas fa-camera" />
+            <QIcon name="fas fa-fw fa-star" />
           </template>
-          <template #control>
-            <ChooseImage
-              :image-url="value?.photoUrls?.fullSize"
-              :on-change="saveImage"
-              :title="$t('GROUP.SET_LOGO')"
-              :dialog-title="$t('GROUP.LOGO')"
-            />
+        </QInput>
+
+        <MarkdownInput
+          v-if="edit.status !== 'playground'"
+          v-model="edit.publicDescription"
+          :error="hasError('publicDescription')"
+          :error-message="firstError('publicDescription')"
+          :label="$t('GROUPINFO.TITLE')"
+          icon="fas fa-fw fa-question"
+          outlined
+          class="q-mb-lg"
+          @keyup.ctrl.enter="maybeSave"
+        />
+
+        <MarkdownInput
+          v-model="edit.description"
+          :error="hasError('description')"
+          :error-message="firstError('description')"
+          :label="$t('GROUP.DESCRIPTION_VERBOSE')"
+          icon="fas fa-fw fa-address-card"
+          outlined
+          mentions
+          class="q-mb-lg"
+          @keyup.ctrl.enter="maybeSave"
+        />
+
+        <h4 class="text-primary q-mt-xl q-mb-lg">
+          {{ $t('GROUP.HEADINGS.LOCATION') }}
+          <InfoPopup
+            :title="$t('INFO')"
+            :description="$t('GROUP.HEADINGS.LOCATION_HINT')"
+          />
+        </h4>
+
+        <AddressPicker
+          v-model="edit"
+          :color="isNew ? 'blue' : 'positive'"
+          :error="hasAddressError"
+          :error-message="addressError"
+          :label="$t('GROUP.ADDRESS')"
+          :default-map-center="defaultMapCenter"
+          font-icon="fas fa-home"
+          icon="fas fa-fw fa-map-marker"
+          outlined
+          class="q-mb-lg"
+        />
+
+        <QSelect
+          v-model="edit.timezone"
+          v-bind="timezoneError"
+          :label="$t('GROUP.TIMEZONE')"
+          :options="filteredTimezones"
+          fill-input
+          hide-selected
+          input-debounce="0"
+          outlined
+          use-input
+          class="q-mb-lg"
+          @filter="timezoneFilter"
+          @blur="v$.edit.timezone.$touch"
+        >
+          <template #before>
+            <QIcon name="fas fa-fw fa-globe" />
           </template>
-        </QField>
-      </div>
-      <div
-        class="edit-box"
-        :class="{ changed: hasChanged }"
-      >
-        <form @submit.prevent="maybeSave">
-          <h4 class="text-primary q-mt-none q-mb-lg">
-            {{ $t('GROUP.HEADINGS.GENERAL') }}
-          </h4>
+        </QSelect>
 
-          <QInput
-            v-if="edit.status !== 'playground'"
-            id="group-title"
-            v-model="edit.name"
-            :autofocus="!$q.platform.has.touch"
-            v-bind="nameError"
-            :label="$t('GROUP.TITLE')"
-            autocomplete="off"
-            outlined
-            class="q-mb-lg"
-            @blur="v$.edit.name.$touch"
+        <h4 class="text-primary q-mt-xl q-mb-lg">
+          {{ $t('GROUP.HEADINGS.NEW_MEMBERS_SIGNUP') }}
+          <InfoPopup
+            :title="$t('INFO')"
+            :description="$t('GROUP.HEADINGS.NEW_MEMBERS_SIGNUP_HINT')"
+          />
+        </h4>
+
+        <MarkdownInput
+          v-if="!edit.isOpen"
+          :error="hasError('applicationQuestions')"
+          :error-message="firstError('applicationQuestions')"
+          :label="$t('GROUP.APPLICATION_QUESTIONS')"
+          :model-value="applicationQuestionsOrDefault"
+          icon="fas fa-fw fa-question"
+          outlined
+          class="q-mb-lg"
+          @update:model-value="applicationQuestionsInput"
+          @keyup.ctrl.enter="maybeSave"
+        />
+
+        <MarkdownInput
+          v-if="!edit.isOpen"
+          v-model="edit.welcomeMessage"
+          :error="hasError('welcomeMessage')"
+          :error-message="firstError('welcomeMessage')"
+          :label="$t('GROUP.WELCOMEMESSAGE_VERBOSE')"
+          icon="fas fa-fw fa-address-card"
+          outlined
+          class="q-mb-lg"
+          @keyup.ctrl.enter="maybeSave"
+        />
+
+        <div
+          v-if="hasNonFieldError"
+          class="text-negative"
+        >
+          {{ firstNonFieldError }}
+        </div>
+
+        <div class="row justify-end q-gutter-sm q-mt-sm">
+          <QBtn
+            v-if="!isNew"
+            type="button"
+            :disable="!hasChanged"
+            @click="reset"
           >
-            <template #before>
-              <QIcon name="fas fa-fw fa-star" />
-            </template>
-          </QInput>
+            {{ $t('BUTTON.RESET') }}
+          </QBtn>
 
-          <MarkdownInput
-            v-if="edit.status !== 'playground'"
-            v-model="edit.publicDescription"
-            :error="hasError('publicDescription')"
-            :error-message="firstError('publicDescription')"
-            :label="$t('GROUPINFO.TITLE')"
-            icon="fas fa-fw fa-question"
-            outlined
-            class="q-mb-lg"
-            @keyup.ctrl.enter="maybeSave"
-          />
-
-          <MarkdownInput
-            v-model="edit.description"
-            :error="hasError('description')"
-            :error-message="firstError('description')"
-            :label="$t('GROUP.DESCRIPTION_VERBOSE')"
-            icon="fas fa-fw fa-address-card"
-            outlined
-            mentions
-            class="q-mb-lg"
-            @keyup.ctrl.enter="maybeSave"
-          />
-
-          <h4 class="text-primary q-mt-xl q-mb-lg">
-            {{ $t('GROUP.HEADINGS.LOCATION') }}
-            <InfoPopup
-              :title="$t('INFO')"
-              :description="$t('GROUP.HEADINGS.LOCATION_HINT')"
-            />
-          </h4>
-
-          <AddressPicker
-            v-model="edit"
-            :color="isNew ? 'blue' : 'positive'"
-            :error="hasAddressError"
-            :error-message="addressError"
-            :label="$t('GROUP.ADDRESS')"
-            :default-map-center="defaultMapCenter"
-            font-icon="fas fa-home"
-            icon="fas fa-fw fa-map-marker"
-            outlined
-            class="q-mb-lg"
-          />
-
-          <QSelect
-            v-model="edit.timezone"
-            v-bind="timezoneError"
-            :label="$t('GROUP.TIMEZONE')"
-            :options="filteredTimezones"
-            fill-input
-            hide-selected
-            input-debounce="0"
-            outlined
-            use-input
-            class="q-mb-lg"
-            @filter="timezoneFilter"
-            @blur="v$.edit.timezone.$touch"
+          <QBtn
+            type="submit"
+            color="primary"
+            :disable="!canSave"
+            :loading="isPending"
           >
-            <template #before>
-              <QIcon name="fas fa-fw fa-globe" />
-            </template>
-          </QSelect>
-
-          <h4 class="text-primary q-mt-xl q-mb-lg">
-            {{ $t('GROUP.HEADINGS.NEW_MEMBERS_SIGNUP') }}
-            <InfoPopup
-              :title="$t('INFO')"
-              :description="$t('GROUP.HEADINGS.NEW_MEMBERS_SIGNUP_HINT')"
-            />
-          </h4>
-
-          <MarkdownInput
-            v-if="!edit.isOpen"
-            :error="hasError('applicationQuestions')"
-            :error-message="firstError('applicationQuestions')"
-            :label="$t('GROUP.APPLICATION_QUESTIONS')"
-            :model-value="applicationQuestionsOrDefault"
-            icon="fas fa-fw fa-question"
-            outlined
-            class="q-mb-lg"
-            @update:model-value="applicationQuestionsInput"
-            @keyup.ctrl.enter="maybeSave"
-          />
-
-          <MarkdownInput
-            v-if="!edit.isOpen"
-            v-model="edit.welcomeMessage"
-            :error="hasError('welcomeMessage')"
-            :error-message="firstError('welcomeMessage')"
-            :label="$t('GROUP.WELCOMEMESSAGE_VERBOSE')"
-            icon="fas fa-fw fa-address-card"
-            outlined
-            class="q-mb-lg"
-            @keyup.ctrl.enter="maybeSave"
-          />
-
-          <div
-            v-if="hasNonFieldError"
-            class="text-negative"
-          >
-            {{ firstNonFieldError }}
-          </div>
-
-          <div class="row justify-end q-gutter-sm q-mt-sm">
-            <QBtn
-              v-if="!isNew"
-              type="button"
-              :disable="!hasChanged"
-              @click="reset"
-            >
-              {{ $t('BUTTON.RESET') }}
-            </QBtn>
-
-            <QBtn
-              type="submit"
-              color="primary"
-              :disable="!canSave"
-              :loading="isPending"
-            >
-              {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
-            </QBtn>
-          </div>
-        </form>
-      </div>
+            {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
+          </QBtn>
+        </div>
+      </form>
     </div>
   </component>
 </template>

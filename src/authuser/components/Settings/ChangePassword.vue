@@ -1,5 +1,8 @@
 <template>
   <div class="edit-box">
+    <div class="text-h5 text-primary q-mb-lg">
+      {{ $t('USERDATA.PASSWORD') }}
+    </div>
     <QInput
       v-model="newPassword"
       type="password"

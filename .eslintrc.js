@@ -1,37 +1,21 @@
 module.exports = {
-  // https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
-  // This option interrupts the configuration hierarchy at this file
-  // Remove this if you have an higher level ESLint config file (it usually happens into a monorepos)
   root: true,
-
   parserOptions: {
-    parser: '@babel/eslint-parser',
-    ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
-    sourceType: 'module', // Allows for the use of imports
+    ecmaVersion: 2021,
   },
-
   env: {
     browser: true,
     jest: true,
+    'vue/setup-compiler-macros': true,
   },
-
-  // Rules order is important, please avoid shuffling them
   extends: [
-    // Uncomment any of the lines below to choose desired strictness,
-    // but leave only one uncommented!
-    // See https://eslint.vuejs.org/rules/#available-rules
-    'plugin:vue/vue3-recommended', // Priority C: Recommended (Minimizing Arbitrary Choices and Cognitive Overhead)
+    'plugin:vue/vue3-recommended',
     'plugin:import/recommended',
     'standard',
-
   ],
-
   plugins: [
-    // https://eslint.vuejs.org/user-guide/#why-doesn-t-it-work-on-vue-file
-    // required to lint *.vue files
     'vue',
   ],
-
   globals: {
     cordova: true,
     __statics: true,
@@ -39,15 +23,12 @@ module.exports = {
     Capacitor: true,
     chrome: true,
   },
-
-  // add your custom rules here
   rules: {
     // allow async-await
     'generator-star-spacing': 'off',
     // allow paren-less arrow functions
     'arrow-parens': 'off',
     'one-var': 'off',
-
     'import/no-unresolved': 'off',
     'import/order': ['error', {
       groups: [

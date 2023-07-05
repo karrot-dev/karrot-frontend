@@ -10,6 +10,7 @@
       :label="$t('USERDATA.EMAIL')"
       :error="hasError('newEmail')"
       :error-message="firstError('newEmail')"
+      outlined
     >
       <template #before>
         <QIcon name="fas fa-envelope" />
@@ -22,6 +23,7 @@
       :error="hasError('password')"
       :error-message="firstError('password')"
       data-testid="change-email-confirm-password"
+      outlined
     >
       <template #before>
         <QIcon name="fas fa-unlock" />

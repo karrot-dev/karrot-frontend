@@ -10,6 +10,7 @@
         :label="$t('USERDETAIL.DISPLAY_NAME')"
         :error="hasDisplayNameError"
         :error-message="displayNameError"
+        outlined
         @blur="v$.edit.displayName.$touch"
       >
         <template #before>
@@ -23,6 +24,7 @@
         :label="$t('USERDETAIL.DESCRIPTION')"
         :error="hasError('description')"
         :error-message="firstError('description')"
+        outlined
         @keyup.ctrl.enter="maybeSave"
       />
 
@@ -32,6 +34,7 @@
         :label="$t('USERDATA.MOBILE_NUMBER')"
         :error="hasError('mobileNumber')"
         :error-message="firstError('mobileNumber')"
+        outlined
       >
         <template #before>
           <QIcon name="fas fa-phone" />
@@ -47,6 +50,7 @@
         :error="hasAddressError"
         :error-message="addressError"
         icon="fas fa-map-marker"
+        outlined
       />
 
       <div

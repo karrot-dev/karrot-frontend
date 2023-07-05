@@ -3,6 +3,30 @@
     <KFormContainer>
       <QCardSection>
         <div class="text-h6">
+          {{ $t('USERDATA.PHOTO') }}
+        </div>
+      </QCardSection>
+      <QCardSection>
+        <div class="edit-box">
+          <QField borderless>
+            <template #before>
+              <QIcon name="fas fa-camera" />
+            </template>
+            <template #control>
+              <ChooseImage
+                :image-url="user?.photoUrls?.fullSize"
+                :on-change="({ image }) => saveUser({ id: user.id, photo: image })"
+                :title="$t('USERDATA.SET_PHOTO')"
+                :dialog-title="$t('USERDATA.SET_PHOTO')"
+              />
+            </template>
+          </QField>
+        </div>
+      </QCardSection>
+    </KFormContainer>
+    <KFormContainer>
+      <QCardSection>
+        <div class="text-h6">
           {{ $t('USERDATA.PROFILE_TITLE') }}
         </div>
       </QCardSection>
@@ -84,7 +108,7 @@
 import {
   QCardSection,
   QSeparator,
-  QCardActions,
+  QCardActions, QField, QIcon,
 } from 'quasar'
 
 import {
@@ -107,6 +131,7 @@ import Push from '@/authuser/components/Settings/Push.vue'
 import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAccount.vue'
 import KFormContainer from '@/base/components/KFormContainer.vue'
 import GroupSettings from '@/group/components/GroupSettings.vue'
+import ChooseImage from '@/utils/components/ChooseImage.vue'
 import LocaleSelect from '@/utils/components/LocaleSelect.vue'
 
 const { user } = useAuthService()

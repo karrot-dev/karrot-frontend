@@ -79,13 +79,15 @@
                 {{ $t('GLOBAL.LAST_CHANGED_BY') }}
               </QItemLabel>
               <QItemLabel>
-                <RouterLink :to="{ name: 'user', params: { userId: lastChangedBy.id } }">
+                <RouterLink
+                  :to="{ name: 'user', params: { userId: lastChangedBy.id } }"
+                  class="row q-mt-xs"
+                >
                   <ProfilePicture
                     :user="lastChangedBy"
                     :size="16"
-                    style="position: relative; top: 2px;"
                   />
-                  <strong class="q-pl-xs">
+                  <strong class="q-pl-sm">
                     {{ lastChangedBy.displayName }}
                   </strong>
                 </RouterLink>

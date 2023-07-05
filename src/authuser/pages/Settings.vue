@@ -93,9 +93,7 @@
 
 <script setup>
 import {
-  QCardSection,
   QSeparator,
-  QCardActions,
   QField,
   QIcon,
   QCard,
@@ -119,7 +117,6 @@ import InstallPwa from '@/authuser/components/Settings/InstallPwa.vue'
 import ProfileEdit from '@/authuser/components/Settings/ProfileEdit.vue'
 import Push from '@/authuser/components/Settings/Push.vue'
 import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAccount.vue'
-import KFormContainer from '@/base/components/KFormContainer.vue'
 import GroupSettings from '@/group/components/GroupSettings.vue'
 import ChooseImage from '@/utils/components/ChooseImage.vue'
 import LocaleSelect from '@/utils/components/LocaleSelect.vue'

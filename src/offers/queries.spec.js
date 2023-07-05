@@ -25,6 +25,7 @@ describe('offer queries', () => {
       const offerId = ref(null)
       const wrapper = mount({
         setup: () => useOfferDetailQuery({ offerId }),
+        render () {}, // don't need to render anything, avoids warning
       }, {
         global: { plugins: [VueQueryPlugin] },
       })
@@ -67,6 +68,7 @@ describe('offer queries', () => {
       const status = ref('active')
       const wrapper = mount({
         setup: () => useOfferListQuery({ groupId, status }),
+        render () {}, // don't need to render anything, avoids warning
       }, {
         global: { plugins: [VueQueryPlugin] },
       })

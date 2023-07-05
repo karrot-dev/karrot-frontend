@@ -29,6 +29,7 @@
           :label="$t('OFFER.DESCRIPTION')"
           v-bind="descriptionError"
           outlined
+          mentions
           class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
         />

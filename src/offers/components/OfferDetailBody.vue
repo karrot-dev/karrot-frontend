@@ -65,6 +65,7 @@
         <Markdown
           v-measure
           :source="offer.description"
+          mentions
         />
       </div>
     </template>

@@ -93,6 +93,10 @@ export default {
       return Boolean(firstMatched.components.default)
     },
   },
+  mounted () {
+    const el = document.querySelector('.root-splash-first')
+    if (el) el.remove()
+  },
 }
 </script>
 

@@ -210,19 +210,19 @@ let input
 function getFileInput () {
   if (input) return input
   input = document.createElement('input')
-  input.dataset.testid = 'attachment-input'
-  Object.assign(input, {
-    type: 'file',
-    style: {
-      display: 'none',
-    },
-    multiple: true,
-  })
+  input.type = 'file'
+  input.multiple = true
+  input.style.display = 'none'
   if (props.accept) {
     input.accept = props.accept
   }
   input.addEventListener('change', addFilesToQueue)
+
+  // This is so we can get the input element during testing
+  // Maybe there is another way
+  input.dataset.testid = 'attachment-input'
   document.body.appendChild(input)
+
   return input
 }
 

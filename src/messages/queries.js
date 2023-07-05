@@ -158,7 +158,7 @@ export function useConversationListQuery () {
       getNextPageParam: page => extractCursor(page.next) || undefined,
       select: ({ pages, pageParams }) => ({
         pages: pages.map(page => {
-          const { conversations, messages, activities, applications, issues, offers, usersInfo, meta } = page.results
+          const { conversations, messages, activities, applications, issues, offers } = page.results
           const messagesByConversationId = indexBy(messages, 'conversation')
           const activitiesById = indexById(activities)
           const issuesById = indexById(issues)

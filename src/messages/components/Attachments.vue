@@ -31,7 +31,7 @@
           />
 
           <QBtn
-            v-if="!props.edit && attachment.urls.download"
+            v-if="Platform.is.desktop && !props.edit && attachment.urls.download"
             icon="fas fa-download"
             flat
             round
@@ -136,6 +136,7 @@ import {
   QIcon,
   format,
   QItemLabel,
+  Platform,
 } from 'quasar'
 import { onUnmounted, ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'

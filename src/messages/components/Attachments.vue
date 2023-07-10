@@ -520,11 +520,10 @@ function openGallery (selectedAttachmentId) {
 
 .attachment--image
   object-fit: cover
-</style>
 
-<style lang="sass">
 .attachment--action
   visibility: hidden
+  z-index: 1
 
 .attachment:hover
   .attachment--action

@@ -118,12 +118,6 @@
         </QCard>
       </div>
     </QItemSection>
-    <AttachmentGallery
-      v-if="galleryOpenId"
-      :attachments="attachments"
-      :selected-attachment-id="galleryOpenId"
-      @close="galleryOpenId = null"
-    />
   </QItem>
 </template>
 
@@ -137,6 +131,7 @@ import {
   format,
   QItemLabel,
   Platform,
+  Dialog,
 } from 'quasar'
 import { onUnmounted, ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -145,7 +140,7 @@ import { useConfigQuery } from '@/base/queries'
 import { showToast } from '@/utils/toasts'
 import { isViewableImageContentType } from '@/utils/utils'
 
-import AttachmentGallery from '@/messages/components/AttachmentGallery.vue'
+import AttachmentGalleryDialog from '@/messages/components/AttachmentGalleryDialog.vue'
 
 const { humanStorageSize } = format
 
@@ -190,8 +185,6 @@ const attachments = computed({
     emit('update:modelValue', value)
   },
 })
-
-const galleryOpenId = ref(null)
 
 function sortByPosition (a, b) {
   return a.position - b.position
@@ -498,7 +491,13 @@ function removeAttachment (attachmentToRemove) {
 }
 
 function openGallery (selectedAttachmentId) {
-  galleryOpenId.value = selectedAttachmentId
+  Dialog.create({
+    component: AttachmentGalleryDialog,
+    componentProps: {
+      attachments: attachments.value,
+      selectedAttachmentId,
+    },
+  })
 }
 
 </script>

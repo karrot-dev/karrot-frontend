@@ -133,7 +133,7 @@ import {
   Platform,
   Dialog,
 } from 'quasar'
-import { onUnmounted, ref, computed } from 'vue'
+import { onUnmounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import { useConfigQuery } from '@/base/queries'

@@ -1,13 +1,14 @@
 import cloneDeep from 'clone-deep'
+import { vi } from 'vitest'
 
 import { makeUser } from '>/enrichedFactories'
 import { mountWithDefaults, createDatastore } from '>/helpers'
 import { participantType, joinableActivity, currentUserMock } from '>/mockdata'
 
-import ActivityUsers from './ActivityUsers'
+import ActivityUsers from './ActivityUsers.vue'
 
 describe.skip('ActivityUsers', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => { vi.resetModules() })
   let wrapper, activity, datastore
 
   beforeEach(() => {
@@ -17,8 +18,8 @@ describe.skip('ActivityUsers', () => {
     })
   })
 
-  it('renders', () => {
-    wrapper = mountWithDefaults(ActivityUsers, {
+  it('renders', async () => {
+    wrapper = await mountWithDefaults(ActivityUsers, {
       propsData: {
         activity,
         participantType,
@@ -29,7 +30,7 @@ describe.skip('ActivityUsers', () => {
     expect(wrapper.vm.emptySlots).toBe(1)
   })
 
-  it('shows more participants than slots', () => {
+  it('shows more participants than slots', async () => {
     activity.participants = [
       { user: makeUser(), participantType },
       { user: makeUser(), participantType },
@@ -38,7 +39,7 @@ describe.skip('ActivityUsers', () => {
       { user: makeUser(), participantType },
     ]
     activity.maxParticipants = 4
-    wrapper = mountWithDefaults(ActivityUsers, {
+    wrapper = await mountWithDefaults(ActivityUsers, {
       propsData: {
         activity,
         participantType,

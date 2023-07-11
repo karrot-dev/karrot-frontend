@@ -24,10 +24,10 @@ import { useCurrentGroupService } from '@/group/services'
 import { useStatusService } from '@/status/services'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 
-import AvailableActivities from '@/group/components/AvailableActivities'
-import FeedbackNotice from '@/group/components/FeedbackNotice'
-import JoinedActivities from '@/group/components/JoinedActivities'
-import WallConversation from '@/messages/components/WallConversation'
+import AvailableActivities from '@/group/components/AvailableActivities.vue'
+import FeedbackNotice from '@/group/components/FeedbackNotice.vue'
+import JoinedActivities from '@/group/components/JoinedActivities.vue'
+import WallConversation from '@/messages/components/WallConversation.vue'
 
 export default {
   components: {

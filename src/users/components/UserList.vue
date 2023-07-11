@@ -99,9 +99,9 @@ import { computed, toRefs } from 'vue'
 import { useCurrentGroupService } from '@/group/services'
 import { useUserService } from '@/users/services'
 
-import KSpinner from '@/utils/components/KSpinner'
+import KSpinner from '@/utils/components/KSpinner.vue'
 
-import UserItem from './UserItem'
+import UserItem from './UserItem.vue'
 
 export default {
   components: {

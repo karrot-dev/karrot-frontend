@@ -28,9 +28,9 @@ import {
   QExpansionItem,
 } from 'quasar'
 
-import DateAsWords from '@/utils/components/DateAsWords'
+import DateAsWords from '@/utils/components/DateAsWords.vue'
 
-import VotingResults from './VotingResults'
+import VotingResults from './VotingResults.vue'
 
 export default {
   components: {

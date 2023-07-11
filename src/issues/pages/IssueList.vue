@@ -56,9 +56,9 @@ import { useCurrentGroupService } from '@/group/services'
 import { useIssueListQuery } from '@/issues/queries'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 
-import IssueItem from '@/issues/components/IssueItem'
-import KNotice from '@/utils/components/KNotice'
-import KSpinner from '@/utils/components/KSpinner'
+import IssueItem from '@/issues/components/IssueItem.vue'
+import KNotice from '@/utils/components/KNotice.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
 
 const { t } = useI18n()
 

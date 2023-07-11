@@ -24,6 +24,7 @@
         caption
       >
         <i18n-t
+          scope="global"
           :keypath="decision"
         >
           <template #relativeDate>
@@ -37,6 +38,7 @@
         <template v-if="application.status !== 'withdrawn'">
           <br>
           <i18n-t
+            scope="global"
             :keypath="personDeciding"
           >
             <template #userName>
@@ -65,8 +67,8 @@ import { useCurrentGroupService } from '@/group/services'
 import { useDetailService } from '@/messages/services'
 import { useUserService } from '@/users/services'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
-import DateAsWords from '@/utils/components/DateAsWords'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import DateAsWords from '@/utils/components/DateAsWords.vue'
 
 export default {
   components: {

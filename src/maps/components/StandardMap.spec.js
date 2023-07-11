@@ -1,21 +1,22 @@
 import { flushPromises } from '@vue/test-utils'
+import { vi } from 'vitest'
 
-import GroupMarker from '@/maps/components/GroupMarker'
-import KMap from '@/maps/components/KMap'
-import KMarker from '@/maps/components/KMarker'
+import GroupMarker from '@/maps/components/GroupMarker.vue'
+import KMap from '@/maps/components/KMap.vue'
+import KMarker from '@/maps/components/KMarker.vue'
 
 import { makeGroup } from '>/enrichedFactories'
 import { mountWithDefaults } from '>/helpers'
 
-import StandardMap from './StandardMap'
+import StandardMap from './StandardMap.vue'
 import { groupMarker } from './markers'
 
 const markers = [...Array(20).keys()].map(e => groupMarker(makeGroup()))
 
 describe('StandardMap', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => { vi.resetModules() })
   it('renders markers with popups', async () => {
-    const wrapper = mountWithDefaults(StandardMap, {
+    const wrapper = await mountWithDefaults(StandardMap, {
       propsData: {
         markers,
       },

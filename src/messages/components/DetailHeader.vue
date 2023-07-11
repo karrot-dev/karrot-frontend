@@ -13,7 +13,7 @@
 import { useAuthService } from '@/authuser/services'
 import { useDetailService } from '@/messages/services'
 
-import DetailHeaderUI from './DetailHeaderUI'
+import DetailHeaderUI from './DetailHeaderUI.vue'
 
 const {
   user: currentUser,

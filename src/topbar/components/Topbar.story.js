@@ -4,8 +4,8 @@ import { h } from 'vue'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import { groupsMock, placesMock, usersMock } from '>/mockdata'
 
-import KBreadcrumb from './KBreadcrumb'
-import Search from './Search'
+import KBreadcrumb from './KBreadcrumb.vue'
+import Search from './Search.vue'
 
 const datastore = createDatastore({
   groups: { getters: { all: () => groupsMock } },

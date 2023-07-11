@@ -8,5 +8,5 @@
 </template>
 
 <script setup>
-import GroupMap from '@/maps/components/GroupMap'
+import GroupMap from '@/maps/components/GroupMap.vue'
 </script>

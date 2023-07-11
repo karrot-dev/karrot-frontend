@@ -30,9 +30,9 @@ import { ref } from 'vue'
 import { useCurrentGroupService } from '@/group/services'
 import { useHistoryListQuery } from '@/history/queries'
 
-import HistoryFilter from '@/history/components/HistoryFilter'
-import HistoryList from '@/history/components/HistoryList'
-import RandomArt from '@/utils/components/RandomArt'
+import HistoryFilter from '@/history/components/HistoryFilter.vue'
+import HistoryList from '@/history/components/HistoryList.vue'
+import RandomArt from '@/utils/components/RandomArt.vue'
 
 const typus = ref(null)
 

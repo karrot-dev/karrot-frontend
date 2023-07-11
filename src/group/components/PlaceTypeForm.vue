@@ -109,6 +109,7 @@
               <QItemLabel v-if="useCustomName">
                 <i18n-t
                   v-if="itemLabel && !edit.nameIsTranslatable"
+                  scope="global"
                   keypath="PLACE_TYPES.CUSTOM_NAME_USE"
                 >
                   <template #name>
@@ -316,7 +317,7 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import '~editbox'
+@import 'editbox'
 </style>
 
 <style src="@quasar/quasar-ui-qiconpicker/dist/index.css"></style>

@@ -1,6 +1,6 @@
 <template>
   <QItem
-    v-if="attachments.length > 0"
+    v-if="attachments.length > 0 || (edit && add)"
     class="q-pa-none q-my-xs"
   >
     <QItemSection>
@@ -38,7 +38,7 @@
             size="sm"
             color="white"
             text-color="primary"
-            class="bg-white z-top absolute-bottom-right attachment--action q-ma-xs"
+            class="bg-white absolute-bottom-right attachment--action q-ma-xs"
             :href="attachment.urls.download"
             :title="$t('BUTTON.DOWNLOAD')"
           />
@@ -101,6 +101,21 @@
             </QItem>
           </template>
         </QCard>
+        <QCard
+          v-if="edit && add"
+          class="attachment column flex-center bg-transparent"
+          flat
+        >
+          <QBtn
+            icon="fas fa-image"
+            size="md"
+            class="fit"
+            flat
+            style="background-color: rgba(0, 0, 0, 0.1)"
+            :title="t('IMAGE_UPLOAD.SELECT')"
+            @click="pickFiles"
+          />
+        </QCard>
       </div>
     </QItemSection>
     <AttachmentGallery
@@ -148,7 +163,15 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  accept: {
+    type: String,
+    default: undefined,
+  },
   edit: {
+    type: Boolean,
+    default: false,
+  },
+  add: {
     type: Boolean,
     default: false,
   },
@@ -187,17 +210,19 @@ let input
 function getFileInput () {
   if (input) return input
   input = document.createElement('input')
-  input.dataset.testid = 'attachment-input'
-  Object.assign(input, {
-    type: 'file',
-    style: {
-      display: 'none',
-    },
-    multiple: true,
-    capture: 'environment',
-  })
+  input.type = 'file'
+  input.multiple = true
+  input.style.display = 'none'
+  if (props.accept) {
+    input.accept = props.accept
+  }
   input.addEventListener('change', addFilesToQueue)
+
+  // This is so we can get the input element during testing
+  // Maybe there is another way
+  input.dataset.testid = 'attachment-input'
   document.body.appendChild(input)
+
   return input
 }
 
@@ -213,15 +238,17 @@ onUnmounted(() => {
   removeInput()
 })
 
+function pickFiles () {
+  if (attachments.value.filter(attachment => !attachment._removed).length < MAX_ATTACHMENT_COUNT) {
+    getFileInput().click()
+  }
+  else {
+    showMaxAttachmentCountReachedToast()
+  }
+}
+
 defineExpose({
-  pickFiles () {
-    if (attachments.value.filter(attachment => !attachment._removed).length < MAX_ATTACHMENT_COUNT) {
-      getFileInput().click()
-    }
-    else {
-      showMaxAttachmentCountReachedToast()
-    }
-  },
+  pickFiles,
 })
 
 function showMaxAttachmentCountReachedToast () {

@@ -52,12 +52,12 @@ import {
   QBtn,
 } from 'quasar'
 
-import KSpinner from '@/utils/components/KSpinner'
+import KSpinner from '@/utils/components/KSpinner.vue'
 
 import { useMarkClickedMutation, useMarkSeenMutation } from '../mutations'
 import { useNotificationListQuery } from '../queries'
 
-import NotificationItem from './NotificationItem'
+import NotificationItem from './NotificationItem.vue'
 
 export default {
   components: {

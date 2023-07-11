@@ -1,3 +1,4 @@
+import { waitFor } from '@testing-library/vue'
 import { flushPromises, mount } from '@vue/test-utils'
 import { times } from 'lodash'
 import { ref } from 'vue'
@@ -24,27 +25,32 @@ describe('offer queries', () => {
       const offerId = ref(null)
       const wrapper = mount({
         setup: () => useOfferDetailQuery({ offerId }),
+        render () {}, // don't need to render anything, avoids warning
       }, {
         global: { plugins: [VueQueryPlugin] },
       })
       // undefined as id is not set
-      await flushPromises()
-      expect(wrapper.vm.offer).toBeUndefined()
+      await waitFor(() => {
+        expect(wrapper.vm.offer).toBeUndefined()
+      })
 
       // switch to offer1
       offerId.value = offer1.id
-      await flushPromises()
-      expect(wrapper.vm.offer).toEqual(camelizeKeys(offer1))
+      await waitFor(() => {
+        expect(wrapper.vm.offer).toEqual(camelizeKeys(offer1))
+      })
 
       // switch to offer2
       offerId.value = offer2.id
-      await flushPromises()
-      expect(wrapper.vm.offer).toEqual(camelizeKeys(offer2))
+      await waitFor(() => {
+        expect(wrapper.vm.offer).toEqual(camelizeKeys(offer2))
+      })
 
       // and back to nothing again!
       offerId.value = null
-      await flushPromises()
-      expect(wrapper.vm.offer).toBeUndefined()
+      await waitFor(() => {
+        expect(wrapper.vm.offer).toBeUndefined()
+      })
     })
   })
 
@@ -62,6 +68,7 @@ describe('offer queries', () => {
       const status = ref('active')
       const wrapper = mount({
         setup: () => useOfferListQuery({ groupId, status }),
+        render () {}, // don't need to render anything, avoids warning
       }, {
         global: { plugins: [VueQueryPlugin] },
       })

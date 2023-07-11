@@ -1,7 +1,9 @@
+import { vi } from 'vitest'
+
 const oldLocation = global.location
 
 delete global.location
 global.location = {
   ...oldLocation,
-  reload: jest.fn(),
+  reload: vi.fn(),
 }

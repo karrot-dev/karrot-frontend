@@ -4,79 +4,35 @@
  */
 
 // Configuration for your app
-// https://quasar.dev/quasar-cli/quasar-conf-js
+// https://quasar.dev/quasar-cli-vite/quasar-config-js
 /* eslint-env node */
 
 const { resolve } = require('path')
 
-const ESLintPlugin = require('eslint-webpack-plugin')
-const { readFileSync, existsSync } = require('fs')
-// const StyleLintPlugin = require('stylelint-webpack-plugin') TODO?
-const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const { configure } = require('quasar/wrappers')
-const webpack = require('webpack')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-const webpackAliases = require('./webpack.aliases').resolve.alias
-
-function getHttpsOptions () {
-  /* Try to set up https with your own cert for usage with mkcert
-  Define your cert path and filenames in a file called .env (this uses dotenv)
-
-  KEY=key.pem
-  CERT=cert.pem
-  CA=/home/tic/.local/share/mkcert/rootCA.pem
-
-  More info: https://github.com/FiloSottile/mkcert
-  If these are not available, fall back to making our own cert
-  */
-  const keyFilename = process.env.KEY || resolve(__dirname, './build/dev-certs/key.pem')
-  const certFilename = process.env.CERT || resolve(__dirname, './build/dev-certs/cert.pem')
-  const caFilename = process.env.CA || resolve(__dirname, './build/dev-certs/ca.pem')
-  const all = [keyFilename, certFilename, caFilename]
-  const missing = all.filter(filename => !existsSync(filename))
-  if (missing.length > 0) {
-    console.log(`Could not find key/cert/ca files ${missing.join(', ')}, falling back to our own...`)
-    return true
-  }
-  console.log('Using key/cert/ca files', all.join(', '))
-  return {
-    key: readFileSync(keyFilename),
-    cert: readFileSync(certFilename),
-    ca: readFileSync(caFilename),
-  }
-}
+const aliases = require('./aliases').resolve.alias
+const { getHttpsOptions } = require('./build/https')
 
 module.exports = configure(function (ctx) {
   const { backend, proxyTable } = require('./build/config')
-  const dev = ctx.dev
 
   const appEnv = {
-    // define the karrot environment
     KARROT: {
       BACKEND: backend,
       THEME: process.env.KARROT_THEME,
       GIT_SHA1: process.env.GIT_SHA1 || process.env.CIRCLE_SHA1,
     },
     NODE_DEBUG: 'false', // workaround for node-util
+    ENABLE_DEV_SENTRY: process.env.ENABLE_DEV_SENTRY,
   }
 
   return {
-    // https://quasar.dev/quasar-cli/supporting-ts
     supportTS: false,
-
-    // https://quasar.dev/quasar-cli/quasar-conf-js#property-htmlvariables
     htmlVariables: {
       title: 'Karrot - Start a group, become a community',
     },
-
-    // https://quasar.dev/quasar-cli/prefetch-feature
-    // preFetch: true,
-
-    // app boot file (/src/boot)
-    // https://quasar.dev/quasar-cli/boot-files
     boot: [
-      'compat',
       'vueQuery',
       'loglevel',
       'pwa',
@@ -90,187 +46,45 @@ module.exports = configure(function (ctx) {
       'detectMobileKeyboard',
       'performance',
     ],
-
-    // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
     css: [
       'app.sass',
     ],
-
-    // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
-      // 'ionicons-v4',
-      // 'mdi-v5',
       'fontawesome-v5',
-      // 'eva-icons',
-      // 'themify',
-      // 'line-awesome',
       'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
-
-      // 'roboto-font', // optional, you are not bound to it
-      'material-icons', // optional, you are not bound to it
+      'material-icons',
     ],
-
-    // disable vendor chunk
-    vendor: {
-      disable: true,
-    },
-
-    // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
-      // transpile: false,
-
-      // Add dependencies for transpiling with Babel (Array of string/regex)
-      // (from node_modules, which are by default not transpiled).
-      // Applies only if "transpile" is set to true.
-      // transpileDependencies: [],
-
-      // rtl: false, // https://quasar.dev/options/rtl-support
-      // preloadChunks: true,
-      // showProgress: false,
-      // gzip: true,
-      // analyze: true,
-
       env: appEnv,
-
       sourceMap: true,
-
-      // https://quasar.dev/quasar-cli/handling-webpack
-      chainWebpack (chain) {
-        const imagesRule = chain.module.rule('images')
-        // save loader options from quasar - returns an object like this:
-        /*
-        {
-          esModule: false,
-          limit: 10000,
-          name: 'img/[name].[ext]',
-        }
-        */
-        const imagesRuleOptions = imagesRule.uses.entries()['url-loader'].store.get('options')
-
-        // clear all existing loaders.
-        // if you don't do this, the loader below will be appended to
-        // existing loaders of the rule.
-        imagesRule.uses.clear()
-
-        /* eslint-disable indent */
-        imagesRule
-          .oneOf('disableinline')
-            .resourceQuery(/disableinline/)
-            .use('url-loader')
-              .loader('url-loader')
-              .options({ ...imagesRuleOptions, limit: -1 })
-              .end()
-            .end()
-          .oneOf('inline') // aka default from quasar
-            .use('url-loader')
-              .loader('url-loader')
-              .options(imagesRuleOptions)
-
-        chain.module
-        .rule('i18n-resource')
-          .test(/\.json$/)
-            .include.add(resolve(__dirname, './src/locales'))
-            .end()
-          .exclude.add(resolve(__dirname, './src/locales/translationStatus.json')).end()
-          .type('javascript/auto')
-          .use('i18n-resource')
-            .loader('@intlify/vue-i18n-loader')
-        /* eslint-enable indent */
-
-        chain.resolve.alias.set('vue-i18n$', 'vue-i18n/dist/vue-i18n.runtime.esm-bundler.js')
+      alias: aliases,
+      target: {
+        // https://esbuild.github.io/api/#target
+        // Trying to make the most compatible version possible :)
+        browser: ['es2015', 'edge18', 'firefox60', 'chrome55', 'opera2017', 'ios12'],
       },
-
-      // for compatibility with vue-croppa
-      // can be deleted once vue-croppa supports vue 3 or we don't use it anymore
-      // see https://github.com/zhanziyang/vue-croppa/issues/235
-      // also check src/boot/compat.js
-      vueLoaderOptions: {
-        compilerOptions: {
-          compatConfig: {
-            MODE: 3,
-          },
-        },
-      },
-
-      extendWebpack (cfg) {
-        cfg.plugins.push(new ESLintPlugin())
-
-        cfg.resolve.alias = {
-          ...cfg.resolve.alias, // This adds the existing alias
-          ...webpackAliases, // from webpack.aliases.js
-        }
-
-        // We're ignore the quasar-ui-qiconpicker icon sets as we don't need them all
-        // They are quite big, so can make some savings
-        // We load what we want explicitly in src/pickerIcons.js
-
-        // Check we actually ignored some, as perhaps the config breaks one day...
-        const ignoredIconSetResources = new Set()
-
-        cfg.plugins.push(
-          new webpack.IgnorePlugin({
-            checkResource (resource, context) {
-              if (context.endsWith('@quasar/quasar-ui-qiconpicker/src/components/icon-set')) {
-                ignoredIconSetResources.add(resource)
-                return true
-              }
-              return false
-            },
-          }),
-        )
-
-        cfg.plugins.push({
-          apply (compiler) {
-            compiler.hooks.done.tap(
-              'KarrotPlugin',
-              () => {
-                if (ignoredIconSetResources.size === 0) {
-                  throw new Error('expected to ignore some icon-sets... maybe something about the library changed?')
-                }
-              },
-            )
-          },
-        })
-
-        cfg.plugins.push(
-          new PreloadWebpackPlugin({
-            fileWhitelist: [/\.woff?$/],
-            include: 'allAssets',
-            rel: 'prefetch',
-          }),
-        )
-
-        if (!dev) {
-          cfg.plugins.push(new BundleAnalyzerPlugin({
-            analyzerMode: ctx.mode.cordova ? 'disabled' : 'static',
-            reportFilename: 'bundlesize.html',
-            defaultSizes: 'gzip',
-            openAnalyzer: false,
-            generateStatsFile: false,
-            statsFilename: 'stats.json',
-            statsOptions: null,
-            logLevel: 'info',
-          }))
-        }
-      },
+      vitePlugins: [
+        ['@intlify/unplugin-vue-i18n/vite', {
+          compositionOnly: false,
+          include: [resolve(__dirname, './src/locales/locale-*.json')],
+        }],
+        ['rollup-plugin-visualizer', {
+          emitFile: true,
+          gzipSize: true,
+          filename: 'bundlesize.html',
+        }],
+      ],
     },
-
-    // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
     devServer: {
-      // PWA needs https to load the service worker
-      https: (ctx.dev && ctx.mode.pwa) ? getHttpsOptions() : false,
-      port: 8080,
+      https: ctx.dev && ctx.mode.pwa ? getHttpsOptions() : false,
+      port: ctx.mode.pwa ? 8082 : 8080, // different port is recommended to avoid caching issues between modes
       open: !process.env.NO_OPEN_BROWSER, // opens browser window automatically
       proxy: proxyTable,
     },
-
-    // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-framework
     framework: {
-      iconSet: 'material-icons', // Quasar icon set
-      lang: 'en-US', // Quasar language pack
+      iconSet: 'material-icons',
+      lang: 'en-US',
       config: {},
-
-      // Quasar plugins
       plugins: [
         'Dialog',
         'AppVisibility',
@@ -278,87 +92,46 @@ module.exports = configure(function (ctx) {
         'AddressbarColor',
       ],
     },
-
-    // animations: 'all', // --- includes all animations
-    // https://quasar.dev/options/animations
     animations: [],
-
-    // https://quasar.dev/quasar-cli/developing-pwa/configuring-pwa
     pwa: {
-      workboxPluginMode: 'InjectManifest',
-      workboxOptions: {
-        // All the paths that already have file hashes in them
-        // other files will have a ?__WB_REVISION__=<revision> parameter added to them.
-        // Some people say that in theory workbox can already detect the ones with the hash, but doesn't seem so.
-        // if you want to see the entries in the cache you can put this in a service worker debugging console:
-        //
-        //     urls = (await (await caches.open((await caches.keys())[0])).keys()).map(e => e.url)
-        //
-        dontCacheBustURLsMatching: /^(css|js|img|fonts)\//,
-        exclude: [
-          // A partial solution to a more complex issue
-          // See https://github.com/karrot-dev/karrot-frontend/issues/2209
-          'index.html',
-        ],
-      },
-      extendWebpackCustomSW (cfg) {
-        cfg.resolve.alias = {
-          ...cfg.resolve.alias,
-          '@': resolve(__dirname, './src'),
+      extendManifestJson (manifest) {
+        if (process.env.PWA_APP_NAME) {
+          manifest.name = process.env.PWA_APP_NAME
+          manifest.short_name = process.env.PWA_APP_NAME
+        }
+        if (process.env.KARROT_THEME) {
+          manifest.icons = [
+            {
+              src: 'icons/dev.png',
+              sizes: '512x512',
+              type: 'image/png',
+            },
+            {
+              src: 'icons/dev.svg',
+            },
+          ]
         }
       },
-      manifest: {
-        name: process.env.PWA_APP_NAME || 'Karrot local dev',
-        short_name: process.env.PWA_APP_NAME || 'Karrot local dev',
-        description: 'Modern website for organization of foodsaving groups worldwide',
-        display: 'standalone',
-        orientation: 'portrait',
-        background_color: '#ffffff',
-        theme_color: '#4a3520',
-        icons: process.env.KARROT_THEME === 'dev'
-          ? [
-              {
-                src: 'icons/dev.png',
-                sizes: '512x512',
-                type: 'image/png',
-              },
-              {
-                src: 'icons/dev.svg',
-              },
-            ]
-          : [
-              {
-                src: 'icons/icon-128x128.png',
-                sizes: '128x128',
-                type: 'image/png',
-              },
-              {
-                src: 'icons/icon-192x192.png',
-                sizes: '192x192',
-                type: 'image/png',
-              },
-              {
-                src: 'icons/icon-256x256.png',
-                sizes: '256x256',
-                type: 'image/png',
-              },
-              {
-                src: 'icons/icon-384x384.png',
-                sizes: '384x384',
-                type: 'image/png',
-              },
-              {
-                src: 'icons/icon-512x512.png',
-                sizes: '512x512',
-                type: 'image/png',
-              },
-            ],
+      workboxMode: 'injectManifest',
+      extendInjectManifestOptions (injectManifestOptions) {
+        // I'm not totally sure which options are the best to use here, but should be OK for now :)
+        // https://developer.chrome.com/docs/workbox/reference/workbox-build/#method-injectManifest
+        Object.assign(injectManifestOptions, {
+          // Workbox is passed the directory of all the built files, then globs for which ones should be precached
+          // using these patterns... by default it's *everything* minus a few service worker things
+          // That means it would load ALL our built files up front...
+          // ... change it to not precache anything
+          globPatterns: [],
+          globIgnores: [
+            ...injectManifestOptions.globIgnores,
+            // A partial solution to a more complex issue
+            // See https://github.com/karrot-dev/karrot-frontend/issues/2209
+            'index.html',
+          ],
+          // Everything in here has already got hashed path names, so don't need to add more
+          dontCacheBustURLsMatching: /^assets\//,
+        })
       },
-    },
-
-    // Full list of options: https://quasar.dev/quasar-cli/developing-cordova-apps/configuring-cordova
-    cordova: {
-      // noIosLegacyBuildFlag: true, // uncomment only if you know what you are doing
     },
   }
 })

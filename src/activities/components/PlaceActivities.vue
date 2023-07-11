@@ -54,9 +54,9 @@ import { useCurrentGroupService } from '@/group/services'
 import { useActivePlaceService } from '@/places/services'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 
-import ActivityList from '@/activities/components/ActivityList'
-import KNotice from '@/utils/components/KNotice'
-import KSpinner from '@/utils/components/KSpinner'
+import ActivityList from '@/activities/components/ActivityList.vue'
+import KNotice from '@/utils/components/KNotice.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
 
 export default {
   components: {

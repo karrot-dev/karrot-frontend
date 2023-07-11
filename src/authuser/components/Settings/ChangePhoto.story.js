@@ -6,7 +6,7 @@ import logo from '@/../public/statics/carrot_logo.png'
 
 import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
-import ChangePhoto from './ChangePhoto'
+import ChangePhoto from './ChangePhoto.vue'
 
 const on = {
   onSave: action('save'),

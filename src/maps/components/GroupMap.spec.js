@@ -1,14 +1,15 @@
 import { flushPromises } from '@vue/test-utils'
+import { vi } from 'vitest'
 
-import KMap from '@/maps/components/KMap'
-import KMarker from '@/maps/components/KMarker'
-import PlaceMarker from '@/maps/components/PlaceMarker'
-import UserMarker from '@/maps/components/UserMarker'
+import KMap from '@/maps/components/KMap.vue'
+import KMarker from '@/maps/components/KMarker.vue'
+import PlaceMarker from '@/maps/components/PlaceMarker.vue'
+import UserMarker from '@/maps/components/UserMarker.vue'
 
 import { mountWithDefaults } from '>/helpers'
 import { placesMock, usersMock } from '>/mockdata'
 
-import GroupMap from './GroupMap'
+import GroupMap from './GroupMap.vue'
 
 const defaultProps = {
   users: usersMock,
@@ -23,23 +24,23 @@ const defaultProps = {
 }
 
 describe.skip('GroupMap', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => { vi.resetModules() })
   it('renders users and places', async () => {
-    const wrapper = mountWithDefaults(GroupMap, {
+    const wrapper = await mountWithDefaults(GroupMap, {
       propsData: defaultProps,
     })
     await flushPromises()
     expect(wrapper.findAllComponents(KMap).length).toBe(1)
     expect(wrapper.findAllComponents(KMarker).length).toBe(usersMock.length + placesMock.length)
     for (const marker of wrapper.findAllComponents(KMarker)) {
-      expect(marker.props().opacity).toEqual(1)
+      expect(marker.props().opacity).toBe(1)
     }
     expect(wrapper.findAllComponents(UserMarker).length).toBe(usersMock.length)
     expect(wrapper.findAllComponents(PlaceMarker).length).toBe(placesMock.length)
   })
 
   it('renders just users', async () => {
-    const wrapper = mountWithDefaults(GroupMap, {
+    const wrapper = await mountWithDefaults(GroupMap, {
       propsData: {
         ...defaultProps,
         showPlaces: false,
@@ -51,7 +52,7 @@ describe.skip('GroupMap', () => {
   })
 
   it('renders just places', async () => {
-    const wrapper = mountWithDefaults(GroupMap, {
+    const wrapper = await mountWithDefaults(GroupMap, {
       propsData: {
         ...defaultProps,
         showUsers: false,

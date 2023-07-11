@@ -4,12 +4,16 @@
     class="edit-box"
     :class="{ changed: hasChanged }"
   >
+    <div class="text-h5 text-primary">
+      {{ $t('USERDATA.PROFILE_TITLE') }}
+    </div>
     <form @submit.prevent="maybeSave">
       <QInput
         v-model="edit.displayName"
         :label="$t('USERDETAIL.DISPLAY_NAME')"
         :error="hasDisplayNameError"
         :error-message="displayNameError"
+        outlined
         @blur="v$.edit.displayName.$touch"
       >
         <template #before>
@@ -23,6 +27,7 @@
         :label="$t('USERDETAIL.DESCRIPTION')"
         :error="hasError('description')"
         :error-message="firstError('description')"
+        outlined
         @keyup.ctrl.enter="maybeSave"
       />
 
@@ -32,6 +37,7 @@
         :label="$t('USERDATA.MOBILE_NUMBER')"
         :error="hasError('mobileNumber')"
         :error-message="firstError('mobileNumber')"
+        outlined
       >
         <template #before>
           <QIcon name="fas fa-phone" />
@@ -47,6 +53,7 @@
         :error="hasAddressError"
         :error-message="addressError"
         icon="fas fa-map-marker"
+        outlined
       />
 
       <div
@@ -56,7 +63,7 @@
         {{ firstNonFieldError }}
       </div>
 
-      <div class="row justify-end q-gutter-sm q-mt-sm">
+      <div class="row justify-end q-gutter-sm q-my-lg">
         <QBtn
           type="button"
           :disable="!hasChanged"
@@ -90,8 +97,8 @@ import {
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import AddressPicker from '@/maps/components/AddressPicker'
-import MarkdownInput from '@/utils/components/MarkdownInput'
+import AddressPicker from '@/maps/components/AddressPicker.vue'
+import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
 export default {
   components: {
@@ -166,7 +173,7 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import '~editbox'
+@import 'editbox'
 
 .q-field
   margin: 3em 0

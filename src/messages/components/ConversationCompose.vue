@@ -21,6 +21,7 @@
             v-model="message.content"
             v-bind="{ ...$attrs, ...contentError }"
             dense
+            filled
             mentions
             :placeholder="placeholder"
             :loading="isPending"
@@ -74,23 +75,6 @@
         />
       </QItemSection>
     </QItem>
-    <QItem v-if="showImages">
-      <QItemSection
-        v-if="!slim"
-        side
-        top
-        class="q-mt-xs q-pr-sm"
-        style="width: 40px;"
-      />
-      <QItemSection>
-        <MultiCroppa
-          ref="multiCroppa"
-          v-model="message.images"
-          :prevent-white-space="false"
-          small
-        />
-      </QItemSection>
-    </QItem>
   </div>
 </template>
 
@@ -108,10 +92,9 @@ import {
 import { deleteDraft, fetchDraft, saveDraft } from '@/messages/utils'
 import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
 
-import Attachments from '@/messages/components/Attachments'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import MarkdownInput from '@/utils/components/MarkdownInput'
-import MultiCroppa from '@/utils/components/MultiCroppa'
+import Attachments from '@/messages/components/Attachments.vue'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
 export default {
   name: 'ConversationCompose',
@@ -122,7 +105,6 @@ export default {
     QBtn,
     ProfilePicture,
     MarkdownInput,
-    MultiCroppa,
     Attachments,
   },
   mixins: [statusMixin],
@@ -172,7 +154,6 @@ export default {
             attachments: [],
           },
       hasFocus: false,
-      showImages: this.value && this.value.images.length > 0,
     }
   },
   computed: {
@@ -185,7 +166,6 @@ export default {
       if (!this.value) return false
       return (
         this.value.content ||
-        (this.value.images && this.value.images.filter(image => !image._removed).length > 0) ||
         (this.value.attachments && this.value.attachments.filter(attachment => !attachment._removed).length > 0)
       )
     },
@@ -193,7 +173,6 @@ export default {
       if (!this.message) return false
       return (
         this.message.content ||
-        (this.message.images && this.message.images.filter(image => !image._removed).length > 0) ||
         (this.message.attachments && this.message.attachments.filter(attachment => !attachment._removed).length > 0)
       )
     },
@@ -225,12 +204,6 @@ export default {
       if (this.draftKey === null) return
       saveDraft(this.draftKey, content)
     },
-    'message.images' (val) {
-      // if the last image is removed, hide the image bar
-      if (!val || val.length === 0) {
-        this.showImages = false
-      }
-    },
   },
   methods: {
     submit () {
@@ -238,12 +211,6 @@ export default {
       if (this.v$.message.$error) return
       this.v$.message.$reset()
       this.$emit('submit', this.message)
-    },
-    addImage () {
-      this.showImages = true
-      this.$nextTick(() => {
-        this.$refs.multiCroppa.open()
-      })
     },
     addAttachment () {
       this.$refs.attachments.pickFiles()

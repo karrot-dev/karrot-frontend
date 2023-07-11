@@ -8,7 +8,7 @@
 <script setup>
 import { useActivePlaceService } from '@/places/services'
 
-import WallConversation from '@/messages/components/WallConversation'
+import WallConversation from '@/messages/components/WallConversation.vue'
 
 const { placeId } = useActivePlaceService()
 </script>

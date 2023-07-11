@@ -35,7 +35,7 @@ import { defineAsyncComponent } from 'vue'
 import { useI18nService } from '@/base/services/i18n'
 import locales from '@/locales/index'
 
-const LocaleSelectInner = defineAsyncComponent(() => import('./LocaleSelectInner'))
+const LocaleSelectInner = defineAsyncComponent(() => import('./LocaleSelectInner.vue'))
 
 export default {
   name: 'LocaleSelect',

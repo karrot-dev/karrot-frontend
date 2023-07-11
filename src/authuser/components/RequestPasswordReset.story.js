@@ -4,7 +4,7 @@ import { h } from 'vue'
 
 import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
-import PasswordReset from './RequestPasswordReset'
+import PasswordReset from './RequestPasswordReset.vue'
 
 const on = {
   onSubmit: action('send reset request'),

@@ -6,7 +6,7 @@ import 'blob-polyfill'
 import axios from '@/base/api/axios'
 import { camelizeKeys, underscorize } from '@/utils/utils'
 
-import { ctx } from './index'
+import { getMockBackendContext } from './index'
 
 // holds the current context for the mock axios
 /**
@@ -69,7 +69,7 @@ function on (method, path, handler, options = {}) {
   // They are available to the handler as pathParams
   const matcher = path.includes(':') ? createPathMatcher(path) : null
   onRequest(matcher || path).reply(async config => {
-    if (!ctx.authUser && requireAuth) return notAuthenticated()
+    if (!getMockBackendContext().authUser && requireAuth) return notAuthenticated()
     let data = config.data
     let pathParams
     if (matcher) {
@@ -112,7 +112,7 @@ async function parseFormData (formData) {
 
 export function cursorPaginated (path, getEntries, options = {}) {
   get(path, config => {
-    const pageSize = ctx.pageSize || 30
+    const pageSize = getMockBackendContext().pageSize || 30
     const cursor = parseInt(config.params?.cursor || '0')
     const entries = getEntries({ ...config, params: camelizeKeys(config.params) })
     const paginatedEntries = entries.slice(cursor, cursor + pageSize)
@@ -145,7 +145,7 @@ export function getById (path, getEntries, options = {}) {
   } = options
   if (!path.includes(':id')) throw new Error('path must contain :id')
   get(path, ({ pathParams }) => {
-    if (!ctx.authUser && requireAuth) return notAuthenticated()
+    if (!getMockBackendContext().authUser && requireAuth) return notAuthenticated()
     const id = parseInt(pathParams.id)
     const entry = getEntries().find(entry => entry.id === id)
     if (!entry) return [404]

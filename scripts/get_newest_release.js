@@ -4,9 +4,9 @@
  * Returns details about newest release from CHANGELOG.md
  */
 
+const fs = require('fs')
 const { resolve } = require('path')
 
-const fs = require('fs')
 const { parser } = require('keep-a-changelog')
 
 const changelogFilePath = resolve(__dirname, '../CHANGELOG.md')

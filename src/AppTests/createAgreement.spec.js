@@ -1,9 +1,10 @@
 import '@testing-library/jest-dom'
 import { faker } from '@faker-js/faker'
 import userEvent from '@testing-library/user-event'
-import { render, configure } from '@testing-library/vue'
+import { render, waitFor } from '@testing-library/vue'
+import { test } from 'vitest'
 
-import App from '@/App'
+import App from '@/App.vue'
 import router from '@/router'
 
 import { withDefaults } from '>/helpers'
@@ -11,11 +12,6 @@ import { useMockBackend, createUser, createGroup, loginAs, db } from '>/mockBack
 import { addUserToGroup } from '>/mockBackend/groups'
 
 useMockBackend()
-jest.setTimeout(60 * 1000) // we do a lot of stuff here, give it some time!
-
-configure({
-  asyncUtilTimeout: 2000,
-})
 
 test('create an agreement', async () => {
   const { type, click } = userEvent.setup()
@@ -36,7 +32,7 @@ test('create an agreement', async () => {
     findAllByText,
     findByRole,
     findByTitle,
-  } = render(App, withDefaults({
+  } = render(App, await withDefaults({
     global: { plugins: [router], stubs: { RouterLink: false } },
   }))
 
@@ -52,7 +48,6 @@ test('create an agreement', async () => {
   await type(await findByRole('textbox', { name: 'Agreement Title' }), title)
   await type(await findByRole('textbox', { name: 'Summary (optional)' }), summary)
   await type(await findByRole('textbox', { name: 'Agreement Text' }), content)
-
   await click(await findByRole('button', { name: 'Create' }))
 
   // see it on the page!
@@ -63,7 +58,9 @@ test('create an agreement', async () => {
   const re = new RegExp(content.split('\n').join('.*'))
   await findByText(re)
 
-  expect(router.currentRoute.value.name).toEqual('agreement')
+  await waitFor(() => {
+    expect(router.currentRoute.value.name).toBe('agreement')
+  })
 
   // make sure the data ended up in the db
   const agreement = db.agreements[0]

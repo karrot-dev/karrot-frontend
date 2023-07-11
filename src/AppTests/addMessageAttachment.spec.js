@@ -1,23 +1,19 @@
 import '@testing-library/jest-dom'
 import { faker } from '@faker-js/faker'
 import userEvent from '@testing-library/user-event'
-import { render, configure } from '@testing-library/vue'
+import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
 import { times } from 'lodash'
+import { test, expect } from 'vitest'
 
-import App from '@/App'
+import App from '@/App.vue'
 import router from '@/router'
 
-import { withDefaults } from '>/helpers'
+import { withDefaults, invalidateQueries } from '>/helpers'
 import { useMockBackend, createUser, createGroup, loginAs } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 
 useMockBackend()
-jest.setTimeout(60 * 1000) // we do a lot of stuff here, give it some time!
-
-configure({
-  asyncUtilTimeout: 2000,
-})
 
 test('add a message attachment', async () => {
   const { type, click, upload } = userEvent.setup()
@@ -35,7 +31,7 @@ test('add a message attachment', async () => {
     findByPlaceholderText,
     findByTestId,
     findAllByTitle,
-  } = render(App, withDefaults({
+  } = render(App, await withDefaults({
     global: { plugins: [router], stubs: { RouterLink: false } },
   }))
 
@@ -68,9 +64,9 @@ test('add a message attachment', async () => {
   await flushPromises()
 
   // TODO: add mock websockets, for now we need to manually invalidate...
-  await require('@/base/queryClient').default.invalidateQueries()
+  await invalidateQueries()
 
-  await findByText(messageContent, {}, { timeout: 2000 })
+  await findByText(messageContent)
 
   // There is an attachment preview thing
   for (const file of files) {

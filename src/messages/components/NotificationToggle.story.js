@@ -4,7 +4,7 @@ import { h } from 'vue'
 import * as factories from '>/enrichedFactories'
 import { storybookDefaults as defaults } from '>/helpers'
 
-import NotificationToggle from './NotificationToggle'
+import NotificationToggle from './NotificationToggle.vue'
 
 const user = factories.makeCurrentUser()
 const unverifiedUser = factories.makeCurrentUser({ mailVerified: false })

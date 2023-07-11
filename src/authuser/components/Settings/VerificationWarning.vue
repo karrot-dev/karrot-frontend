@@ -16,6 +16,7 @@
       <p>{{ $t('WALL.VERIFY_EMAIL_FOR_NOTIFICATIONS') }}</p>
       <i18n-t
         v-if="!success"
+        scope="global"
         keypath="NOTIFICATIONS.CHECK_YOUR_MAILS"
         tag="span"
       >

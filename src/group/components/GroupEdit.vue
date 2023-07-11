@@ -3,14 +3,26 @@
     :is="$q.platform.is.mobile ? 'div' : 'QCard'"
     v-if="v$.edit"
   >
-    <ChangePhoto
-      v-if="!isNew"
-      :hint="$t('GROUP.SET_LOGO')"
-      :label="$t('GROUP.LOGO')"
-      :status="status"
-      :value="value"
-      @save="photo => $emit('save', { id: value.id, photo })"
-    />
+    <div
+      class="edit-box"
+    >
+      <h4 class="text-primary q-mt-none q-mb-lg">
+        {{ $t('GROUP.LOGO') }}
+      </h4>
+      <QField borderless>
+        <template #before>
+          <QIcon name="fas fa-camera" />
+        </template>
+        <template #control>
+          <ChooseImage
+            :image-url="value?.photoUrls?.fullSize"
+            :on-change="saveImage"
+            :title="$t('GROUP.SET_LOGO')"
+            :dialog-title="$t('GROUP.LOGO')"
+          />
+        </template>
+      </QField>
+    </div>
     <div
       class="edit-box"
       :class="{ changed: hasChanged }"
@@ -175,20 +187,24 @@ import {
   QBtn,
   QMenu,
   QSelect,
-  QIcon,
+  QIcon, QField,
 } from 'quasar'
 
+import { useSaveGroupMutation } from '@/group/mutations'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
+import { showToast } from '@/utils/toasts'
 
-import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
-import AddressPicker from '@/maps/components/AddressPicker'
-import InfoPopup from '@/utils/components/InfoPopup'
-import MarkdownInput from '@/utils/components/MarkdownInput'
+import AddressPicker from '@/maps/components/AddressPicker.vue'
+import ChooseImage from '@/utils/components/ChooseImage.vue'
+import InfoPopup from '@/utils/components/InfoPopup.vue'
+import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
 export default {
   name: 'GroupEdit',
   components: {
+    QField,
+    ChooseImage,
     QCard,
     QInput,
     QBtn,
@@ -197,7 +213,6 @@ export default {
     QIcon,
     AddressPicker,
     MarkdownInput,
-    ChangePhoto,
     InfoPopup,
   },
   mixins: [editMixin, statusMixin],
@@ -232,8 +247,22 @@ export default {
   emits: [
     'save',
   ],
-  setup () {
+  setup (props) {
+    const { mutateAsync: saveGroup } = useSaveGroupMutation({ redirectAfterSave: false })
+
+    async function saveImage ({ image }) {
+      await saveGroup({ id: props.value.id, photo: image })
+      showToast({
+        message: 'NOTIFICATIONS.CHANGES_SAVED',
+        config: {
+          timeout: 2000,
+          icon: 'thumb_up',
+        },
+      })
+    }
+
     return {
+      saveImage,
       v$: useVuelidate(),
     }
   },
@@ -329,5 +358,5 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import '~editbox'
+@import 'editbox'
 </style>

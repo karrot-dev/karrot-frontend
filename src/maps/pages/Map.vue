@@ -13,7 +13,7 @@
 <script>
 import { throttle } from 'quasar'
 
-import GroupMap from '@/maps/components/GroupMap'
+import GroupMap from '@/maps/components/GroupMap.vue'
 
 export default {
   components: { GroupMap },

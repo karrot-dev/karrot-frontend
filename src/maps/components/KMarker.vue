@@ -18,7 +18,7 @@ import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png'
 import iconUrl from 'leaflet/dist/images/marker-icon.png'
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png'
 import { marker, Icon, popup } from 'leaflet/dist/leaflet-src.esm'
-import { markRaw } from 'vue'
+import { inject, markRaw } from 'vue'
 
 // fix default marker icon
 // https://github.com/Leaflet/Leaflet/issues/4968
@@ -38,7 +38,6 @@ function markerHtml (color) {
 }
 
 export default {
-  inject: ['leafletMap'],
   props: {
     color: {
       type: String,
@@ -68,6 +67,10 @@ export default {
   emits: [
     'dragend',
   ],
+  setup () {
+    const leafletMap = inject('leafletMap')
+    return { leafletMap }
+  },
   data () {
     return {
       leafletMarker: null,
@@ -118,6 +121,9 @@ export default {
     },
   },
   mounted () {
+    if (!this.leafletMap) {
+      console.log('mounted but not leafletMap :(')
+    }
     this.leafletMarker = markRaw(marker(this.latLng, {
       icon: this.icon,
       draggable: this.draggable,

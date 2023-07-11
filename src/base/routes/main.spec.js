@@ -1,14 +1,15 @@
 import { mount } from '@vue/test-utils'
+import { vi } from 'vitest'
 
 import { nextTicks } from '>/helpers'
 
-const mockJoin = jest.fn()
+const mockJoin = vi.fn()
 
-jest.mock('@/group/api/groups', () => ({
+vi.mock('@/group/api/groups', () => ({
   join: mockJoin,
 }))
 
-jest.mock('@/router', () => {
+vi.mock('@/router', () => {
   const { createRouter, createMemoryHistory } = require('vue-router')
   return createRouter({
     history: createMemoryHistory(),
@@ -57,8 +58,8 @@ function mountRouterViewWith ({ datastore, router }) {
   })
 }
 
-function loadMainRoute (name) {
-  const routes = require('./main').default
+async function loadMainRoute (name) {
+  const routes = (await import('./main')).default
   return routes.find(route => route.name === name)
 }
 
@@ -86,8 +87,8 @@ describe.skip('main routes', () => {
   describe('groupPreview', () => {
     let group
 
-    beforeEach(() => {
-      router.addRoute(loadMainRoute('groupPreview'))
+    beforeEach(async () => {
+      router.addRoute(await loadMainRoute('groupPreview'))
       router.addRoute({
         name: 'group',
         path: '/group/:groupId',

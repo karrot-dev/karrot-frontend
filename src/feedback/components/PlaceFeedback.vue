@@ -66,8 +66,8 @@ import { useFeedbackListQuery } from '@/feedback/queries'
 import { usePlaceStatisticsQuery } from '@/places/queries'
 import { useActivePlaceService } from '@/places/services'
 
-import FeedbackList from '@/feedback/components/FeedbackList'
-import KSpinner from '@/utils/components/KSpinner'
+import FeedbackList from '@/feedback/components/FeedbackList.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
 
 const route = useRoute()
 const {

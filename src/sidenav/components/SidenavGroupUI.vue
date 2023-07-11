@@ -82,9 +82,9 @@ import {
   QBadge,
 } from 'quasar'
 
-import GroupOptions from './GroupOptions'
-import SidenavBox from './SidenavBox'
-import SidenavMenu from './SidenavMenu'
+import GroupOptions from './GroupOptions.vue'
+import SidenavBox from './SidenavBox.vue'
+import SidenavMenu from './SidenavMenu.vue'
 
 export default {
   components: {

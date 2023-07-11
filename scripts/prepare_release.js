@@ -11,10 +11,10 @@
  */
 
 const { execSync } = require('child_process')
+const fs = require('fs')
 const { resolve } = require('path')
 
 const CordovaConfig = require('cordova-config')
-const fs = require('fs')
 const { parser, Release } = require('keep-a-changelog')
 
 const changelogFilePath = resolve(__dirname, '../CHANGELOG.md')

@@ -4,7 +4,7 @@ import { h } from 'vue'
 
 import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
-import Signup from './Signup'
+import Signup from './Signup.vue'
 
 const defaultProps = {
   prefillEmail: 'default@example.com',

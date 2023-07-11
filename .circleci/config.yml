@@ -96,16 +96,14 @@ jobs:
           at: ~/repo
       - run:
           environment:
-            JEST_JUNIT_OUTPUT_DIR: test-reports/junit.xml
+            DEBUG_PRINT_LIMIT: "1000000"
+            NODE_OPTIONS: "--max-old-space-size=8192"
           command: |
-            mkdir -p test-reports
-            NODE_OPTIONS=--max-old-space-size=8192 yarn test \
-              --ci \
+            yarn test \
               --coverage \
-              --maxWorkers=4 \
-              --reporters=default \
-              --reporters=jest-junit \
-              --verbose
+              --reporter verbose \
+              --reporter junit \
+              --outputFile test-reports/junit.xml
       - run: bash <(curl -s https://codecov.io/bash) || true
       - store_test_results:
           path: test-reports
@@ -396,8 +394,11 @@ jobs:
             EOL
             git add package.json yarn.lock
             git commit -m "[CI] Update dependencies" || exit 0
-            yarn test -u storyshots
-            git commit -a -m "[CI] Update snapshots" || true
+
+            # 2023-07-03 (ns): disabling as storyshots are disabled
+            # yarn test -u storyshots
+            # git commit -a -m "[CI] Update snapshots" || true
+
             git push --force origin $BRANCH
             hub pull-request -F pr.txt || hub issue update $(hub pr list -h $BRANCH -f %I) -F pr.txt
 

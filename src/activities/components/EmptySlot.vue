@@ -1,6 +1,6 @@
 <template>
   <div
-    class="user-slot-wrapper greyedOut"
+    class="user-slot-wrapper greyedOut rounded-borders"
     :style="{ width: size + 'px', height: size + 'px' }"
     @click.stop
   >
@@ -37,7 +37,6 @@ export default {
   margin-bottom: 3.8px
   background-color: rgba(255, 255, 255, 0.7)
   border: 2px dashed
-  border-radius: 0
 
   span
     font-weight: 600

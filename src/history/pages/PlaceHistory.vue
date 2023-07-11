@@ -27,8 +27,8 @@ import { ref } from 'vue'
 import { useHistoryListQuery } from '@/history/queries'
 import { useActivePlaceService } from '@/places/services'
 
-import HistoryFilter from '@/history/components/HistoryFilter'
-import HistoryList from '@/history/components/HistoryList'
+import HistoryFilter from '@/history/components/HistoryFilter.vue'
+import HistoryList from '@/history/components/HistoryList.vue'
 
 const { placeId } = useActivePlaceService()
 

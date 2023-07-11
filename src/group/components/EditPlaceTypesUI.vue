@@ -104,7 +104,7 @@ import { useCurrentGroupService } from '@/group/services'
 import { usePlaceTypeHelpers } from '@/places/helpers'
 import { useCreatePlaceTypeMutation, useSavePlaceTypeMutation } from '@/places/mutations'
 
-import PlaceTypeForm from '@/group/components/PlaceTypeForm'
+import PlaceTypeForm from '@/group/components/PlaceTypeForm.vue'
 
 export default {
   components: {

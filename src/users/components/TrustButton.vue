@@ -35,7 +35,7 @@
         >
           {{ info }}
         </QCardSection>
-        <QCardSection>
+        <QCardSection class="row">
           <ProfilePicture
             v-for="u in trustedBy"
             :key="u.id"
@@ -98,9 +98,9 @@ import { useRevokeTrustMutation, useTrustUserMutation } from '@/group/mutations'
 import { useCurrentGroupService } from '@/group/services'
 import { useUserService } from '@/users/services'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
-import TrustInfo from '@/users/components/TrustInfo'
-import CircleProgress from '@/utils/components/CircleProgress'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import TrustInfo from '@/users/components/TrustInfo.vue'
+import CircleProgress from '@/utils/components/CircleProgress.vue'
 
 import twemojiCarrot from './twemoji-carrot.png'
 

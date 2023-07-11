@@ -1,7 +1,6 @@
-import * as Sentry from '@sentry/vue'
-
 import authUser from '@/authuser/api/authUser'
 import axios from '@/base/api/axios'
+import { captureMessage } from '@/utils/errors'
 
 let KEY, updateToken, clearToken
 
@@ -48,7 +47,7 @@ if (process.env.MODE === 'cordova') {
 
   axios.interceptors.response.use(response => response, async error => {
     if (isInvalidTokenError(error)) {
-      Sentry.captureMessage('Invalid auth token')
+      captureMessage('Invalid auth token')
       clearToken()
       location.reload() // this is a bit of a heavy thing to do, a full page refresh, but it should be rare
     }

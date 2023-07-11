@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom'
 import { fireEvent, render } from '@testing-library/vue'
 import { partition, times } from 'lodash'
+import { vi } from 'vitest'
 
 import { resetServices } from '@/utils/datastore/helpers'
 
@@ -9,13 +10,13 @@ import { useMockBackend, createUser, createGroup, createOffer, loginAs, db, setP
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
-import GroupOffers from './GroupOffers'
+import GroupOffers from './GroupOffers.vue'
 
 describe('GroupOffers', () => {
   useMockBackend()
 
   beforeEach(() => {
-    jest.resetModules()
+    vi.resetModules()
     resetServices()
   })
 
@@ -31,7 +32,7 @@ describe('GroupOffers', () => {
   })
 
   it('renders a list of active offers', async () => {
-    const { findByText, queryByText, queryByTitle } = render(GroupOffers, withDefaults())
+    const { findByText, queryByText, queryByTitle } = render(GroupOffers, await withDefaults())
 
     const [expectedOffers, otherOffers] = partition(db.offers, offer => offer.status === 'active')
 
@@ -50,7 +51,7 @@ describe('GroupOffers', () => {
   })
 
   it('can also select archived offers', async () => {
-    const { findByText, findByRole, queryByTitle } = render(GroupOffers, withDefaults())
+    const { findByText, findByRole, queryByTitle } = render(GroupOffers, await withDefaults())
 
     // select the archived ones
     await fireEvent.click(await findByRole('combobox'))

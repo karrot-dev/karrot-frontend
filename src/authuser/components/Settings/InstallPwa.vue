@@ -1,11 +1,9 @@
 <template>
-  <div class="edit-box">
-    <QBtn
-      @click="install"
-    >
-      {{ $t('USERDATA.INSTALL_APP') }}
-    </QBtn>
-  </div>
+  <QBtn
+    @click="install"
+  >
+    {{ $t('USERDATA.INSTALL_APP') }}
+  </QBtn>
 </template>
 
 <script setup>
@@ -21,7 +19,3 @@ function install () {
   pwaInstallPrompt.prompt()
 }
 </script>
-
-<style scoped lang="sass">
-@import '~editbox'
-</style>

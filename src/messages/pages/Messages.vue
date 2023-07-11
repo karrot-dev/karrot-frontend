@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import LatestMessages from '@/messages/components/LatestMessages'
+import LatestMessages from '@/messages/components/LatestMessages.vue'
 
 export default {
   components: {

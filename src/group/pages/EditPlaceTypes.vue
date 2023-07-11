@@ -9,7 +9,7 @@ import { useCurrentGroupService } from '@/group/services'
 import { usePlaceTypeHelpers } from '@/places/helpers'
 import { usePlaceTypeService } from '@/places/services'
 
-import EditPlaceTypesUI from '@/group/components/EditPlaceTypesUI'
+import EditPlaceTypesUI from '@/group/components/EditPlaceTypesUI.vue'
 
 const { groupId } = useCurrentGroupService()
 const { getPlaceTypesByGroup } = usePlaceTypeService()

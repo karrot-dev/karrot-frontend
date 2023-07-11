@@ -53,9 +53,9 @@ import { useAuthService } from '@/authuser/services'
 import { useCurrentGroupService } from '@/group/services'
 import { useUserService } from '@/users/services'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
 
-import EmptySlot from './EmptySlot'
+import EmptySlot from './EmptySlot.vue'
 
 export default {
   components: {

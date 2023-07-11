@@ -171,14 +171,14 @@ import { useDetailService } from '@/messages/services'
 import { useUserService } from '@/users/services'
 
 import Attachments from '@/messages/components/Attachments.vue'
-import ConversationCompose from '@/messages/components/ConversationCompose'
-import ConversationReactions from '@/messages/components/ConversationReactions'
-import ImageGalleryDialog from '@/messages/components/ImageGalleryDialog'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import DateAsWords from '@/utils/components/DateAsWords'
-import Markdown from '@/utils/components/Markdown'
+import ConversationCompose from '@/messages/components/ConversationCompose.vue'
+import ConversationReactions from '@/messages/components/ConversationReactions.vue'
+import ImageGalleryDialog from '@/messages/components/ImageGalleryDialog.vue'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import DateAsWords from '@/utils/components/DateAsWords.vue'
+import Markdown from '@/utils/components/Markdown.vue'
 
-import ConversationAddReaction from './ConversationAddReaction'
+import ConversationAddReaction from './ConversationAddReaction.vue'
 
 const { humanStorageSize } = format
 

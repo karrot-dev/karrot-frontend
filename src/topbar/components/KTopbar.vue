@@ -24,7 +24,7 @@ import { useCurrentGroupService } from '@/group/services'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { useConnectivity } from '@/utils/services'
 
-import KTopbarUI from './KTopbarUI'
+import KTopbarUI from './KTopbarUI.vue'
 
 defineEmits(['toggle-sidenav'])
 

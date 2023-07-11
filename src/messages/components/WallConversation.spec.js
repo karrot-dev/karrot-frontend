@@ -3,10 +3,11 @@ import userEvent from '@testing-library/user-event'
 import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
 import { times } from 'lodash'
+import { vi } from 'vitest'
 
 import { resetServices } from '@/utils/datastore/helpers'
 
-import { withDefaults } from '>/helpers'
+import { withDefaults, invalidateQueries } from '>/helpers'
 import {
   useMockBackend,
   createUser,
@@ -19,7 +20,7 @@ import { addUserToConversation } from '>/mockBackend/conversations'
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
-import WallConversation from './WallConversation'
+import WallConversation from './WallConversation.vue'
 
 describe('WallConversation', () => {
   let group
@@ -27,7 +28,7 @@ describe('WallConversation', () => {
   useMockBackend()
 
   beforeEach(() => {
-    jest.resetModules()
+    vi.resetModules()
     resetServices()
   })
 
@@ -46,8 +47,7 @@ describe('WallConversation', () => {
     loginAs(user)
   })
   it('renders messages', async () => {
-    const { findByText } = render(WallConversation, withDefaults({ props: { groupId: group.id } }))
-    await flushPromises()
+    const { findByText } = render(WallConversation, await withDefaults({ props: { groupId: group.id } }))
 
     // can see all messages
     for (const message of messages) {
@@ -61,19 +61,17 @@ describe('WallConversation', () => {
       findByText,
       findByPlaceholderText,
       findByTitle,
-    } = render(WallConversation, withDefaults({ props: { groupId: group.id } }))
-    await flushPromises()
+    } = render(WallConversation, await withDefaults({ props: { groupId: group.id } }))
 
     await type(
       await findByPlaceholderText('Write a message...'),
       'my new message',
     )
     await click(await findByTitle('Send message'))
-    await flushPromises()
     await flushPromises() // shouldn't be necessary, but somehow still makes the test work !?
 
     // TODO: add mock websockets, for now we need to manually invalidate...
-    await require('@/base/queryClient').default.invalidateQueries()
+    await invalidateQueries()
 
     await findByText('my new message')
   })

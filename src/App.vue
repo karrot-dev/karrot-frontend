@@ -36,7 +36,7 @@ import { useStatusUpdater } from '@/status/queries'
 import { useUsersUpdater } from '@/users/queries'
 import { useClearDataOnLogout, useTitleStatus } from '@/utils/composables'
 
-import LoadingProgress from '@/topbar/components/LoadingProgress'
+import LoadingProgress from '@/topbar/components/LoadingProgress.vue'
 
 export default {
   components: {
@@ -92,6 +92,10 @@ export default {
       if (!firstMatched) return
       return Boolean(firstMatched.components.default)
     },
+  },
+  mounted () {
+    const el = document.querySelector('.root-splash-first')
+    if (el) el.remove()
   },
 }
 </script>

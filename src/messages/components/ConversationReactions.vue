@@ -68,8 +68,8 @@ import { computed } from 'vue'
 
 import { useMessageHelpers } from '@/messages/helpers'
 
-import ConversationAddReaction from './ConversationAddReaction'
-import EmojiButton from './EmojiButton'
+import ConversationAddReaction from './ConversationAddReaction.vue'
+import EmojiButton from './EmojiButton.vue'
 
 export default {
   name: 'ConversationReactions',

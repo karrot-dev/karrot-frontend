@@ -173,7 +173,6 @@
 </template>
 
 <script setup>
-import { onUnmounted, computed, watch } from '@vue/compat'
 import {
   QCard,
   QCardSection,
@@ -185,6 +184,7 @@ import {
   QSpace,
   Dialog,
 } from 'quasar'
+import { onUnmounted, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 import { useActivityTypeHelpers } from '@/activities/helpers'
@@ -192,10 +192,10 @@ import { useActivePublicActivityService } from '@/activities/services'
 import { createActivityTypeStylesheet } from '@/activities/stylesheet'
 import { absoluteURL } from '@/utils/absoluteURL'
 
-import ShareDialog from '@/activities/components/ShareDialog'
-import StandardMap from '@/maps/components/StandardMap'
-import KSpinner from '@/utils/components/KSpinner'
-import Markdown from '@/utils/components/Markdown'
+import ShareDialog from '@/activities/components/ShareDialog.vue'
+import StandardMap from '@/maps/components/StandardMap.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
+import Markdown from '@/utils/components/Markdown.vue'
 
 const router = useRouter()
 
@@ -218,7 +218,7 @@ const icsUrl = computed(() => {
 // Need this as we might not be signed in, so might not have any activity type stylesheet loaded
 // (This enables the custom activity type colour names)
 const { updateActivityTypes, removeStylesheet } = createActivityTypeStylesheet()
-watch(activityType, value => updateActivityTypes([value]), { immediate: true })
+watch(activityType, value => updateActivityTypes(value ? [value] : []), { immediate: true })
 
 onUnmounted(() => removeStylesheet())
 

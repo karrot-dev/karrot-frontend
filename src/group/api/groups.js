@@ -2,6 +2,7 @@ import { throttle } from 'quasar'
 
 import axios from '@/base/api/axios'
 import { convert as convertConversation } from '@/messages/api/conversations'
+import { imageTypeToExtension } from '@/utils/utils'
 
 async function markUserActive (groupId) {
   return axios.post(`/api/groups/${groupId}/mark_user_active/`)
@@ -37,7 +38,8 @@ export default {
     let data = group
     if (group.photo) {
       data = new FormData()
-      data.append('photo', group.photo, 'photo.png')
+      const filename = ['photo', imageTypeToExtension(group.photo.type)].join('')
+      data.append('photo', group.photo, filename)
     }
 
     const groupId = group.id

@@ -122,15 +122,12 @@
       v-if="activity || conversation.thread"
       class="k-participant-list row"
     >
-      <div class="col">
-        <ProfilePicture
-          v-for="participant in participants"
-          :key="participant.id"
-          class="k-participant"
-          :user="participant"
-          :size="$q.platform.is.mobile ? 20 : 35"
-        />
-      </div>
+      <ProfilePicture
+        v-for="participant in participants"
+        :key="participant.id"
+        :user="participant"
+        :size="$q.platform.is.mobile ? 20 : 35"
+      />
     </div>
   </div>
 </template>
@@ -156,8 +153,8 @@ import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
 import dateFnsHelper from '@/utils/dateFnsHelper'
 
-import NotificationToggle from '@/messages/components/NotificationToggle'
-import ProfilePicture from '@/users/components/ProfilePicture'
+import NotificationToggle from '@/messages/components/NotificationToggle.vue'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
 
 export default {
   components: {
@@ -320,14 +317,9 @@ export default {
 <style scoped lang="sass">
 .DetailHeader
   .k-participant-list
-    padding: 0.3em
-    padding-bottom: 0
     background-color: #f5f5f5
-
-  .k-participant
-    display: inline-block
-    margin-right: 0.3em
-    margin-bottom: 0.3em
+    gap: 0.3em
+    padding: 0.3em
 
   .q-toolbar-title
     font-size: 16px

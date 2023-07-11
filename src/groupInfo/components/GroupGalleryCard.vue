@@ -118,8 +118,8 @@ import { useRouter } from 'vue-router'
 import { useApplicationHelpers } from '@/applications/helpers'
 import { useGroupHelpers } from '@/group/helpers'
 
-import Markdown from '@/utils/components/Markdown'
-import RandomArt from '@/utils/components/RandomArt'
+import Markdown from '@/utils/components/Markdown.vue'
+import RandomArt from '@/utils/components/RandomArt.vue'
 
 export default {
   components: {

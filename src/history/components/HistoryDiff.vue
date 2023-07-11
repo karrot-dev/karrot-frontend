@@ -34,7 +34,6 @@
   </QList>
 </template>
 <script setup>
-import { computed } from '@vue/compat'
 import { createPatch } from 'diff'
 import * as Diff2html from 'diff2html'
 import {
@@ -43,6 +42,7 @@ import {
   QItemSection,
   QIcon,
 } from 'quasar'
+import { computed } from 'vue'
 import 'diff2html/bundles/css/diff2html.min.css'
 
 const props = defineProps({
@@ -74,7 +74,7 @@ const patches = computed(() => {
   ::v-deep(.d2h-file-header)
     display: none
 
-  ::v-deep(..d2h-file-wrapper)
+  ::v-deep(.d2h-file-wrapper)
     border: none
 
 </style>

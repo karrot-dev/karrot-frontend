@@ -3,7 +3,7 @@ import { h } from 'vue'
 
 import { storybookDefaults as defaults } from '>/helpers'
 
-import Unsubscribe from './Unsubscribe'
+import Unsubscribe from './Unsubscribe.vue'
 
 storiesOf('Unsubscribe', module)
   .add('conversation', () => defaults({

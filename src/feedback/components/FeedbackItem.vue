@@ -61,19 +61,21 @@
             >
               <Markdown :source="feedback.comment" />
             </div>
-            <div class="q-mt-sm">
+            <div class="q-mt-sm row">
               <ProfilePicture
                 :user="givenBy"
                 :size="22"
               />
-              <span v-if="membersWithoutGiver.length > 0">
+              <template
+                v-if="membersWithoutGiver.length > 0"
+              >
                 <ProfilePicture
                   v-for="member in membersWithoutGiver"
                   :key="member.id"
                   :user="member"
                   :size="15"
                 />
-              </span>
+              </template>
             </div>
           </div>
         </div>
@@ -95,11 +97,11 @@ import { useActivityTypeService } from '@/activities/services'
 import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
-import DateAsWords from '@/utils/components/DateAsWords'
-import Markdown from '@/utils/components/Markdown'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import DateAsWords from '@/utils/components/DateAsWords.vue'
+import Markdown from '@/utils/components/Markdown.vue'
 
-import AmountBox from './AmountBox'
+import AmountBox from './AmountBox.vue'
 
 const props = defineProps({
   feedback: {

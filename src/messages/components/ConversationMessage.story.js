@@ -4,7 +4,7 @@ import { h } from 'vue'
 import * as factories from '>/enrichedFactories'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 
-import ConversationMessage from './ConversationMessage'
+import ConversationMessage from './ConversationMessage.vue'
 
 const range = n => [...Array(n).keys()]
 

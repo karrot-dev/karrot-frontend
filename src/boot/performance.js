@@ -71,11 +71,21 @@ export function usePerformance () {
   function measure (name, qualifier) {
     if (!ENABLED || done) return
     const label = ['karrot', name, qualifier].join(' ').trim()
-    if (startMark) {
-      performance.measure(label, startMark)
+    try {
+      if (startMark) {
+        try {
+          performance.measure(label, startMark)
+        }
+        catch (error) {
+          performance.measure(label)
+        }
+      }
+      else {
+        performance.measure(label)
+      }
     }
-    else {
-      performance.measure(label)
+    catch (error) {
+      console.error(error)
     }
   }
 
@@ -172,6 +182,7 @@ export function usePerformance () {
    * @param stat
    */
   function updatePerformanceInfo (stat) {
+    if (!stat) return
     if (!performanceInfoElement) {
       performanceInfoElement = document.createElement('div')
       document.body.appendChild(performanceInfoElement)

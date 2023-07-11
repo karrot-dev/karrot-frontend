@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import OfferDetailBody from '@/offers/components/OfferDetailBody'
-import OfferDetailHeader from '@/offers/components/OfferDetailHeader'
+import OfferDetailBody from '@/offers/components/OfferDetailBody.vue'
+import OfferDetailHeader from '@/offers/components/OfferDetailHeader.vue'
 
 export default {
   components: {

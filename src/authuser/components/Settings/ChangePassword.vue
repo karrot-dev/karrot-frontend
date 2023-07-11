@@ -1,5 +1,8 @@
 <template>
   <div class="edit-box">
+    <div class="text-h5 text-primary q-mb-lg">
+      {{ $t('USERDATA.PASSWORD') }}
+    </div>
     <QInput
       v-model="newPassword"
       type="password"
@@ -7,6 +10,7 @@
       :error="hasError('newPassword')"
       :error-message="firstError('newPassword')"
       data-testid="change-password-new-password"
+      outlined
     >
       <template #before>
         <QIcon name="fas fa-lock" />
@@ -20,6 +24,7 @@
       :error="hasError('oldPassword')"
       :error-message="firstError('oldPassword')"
       data-testid="change-password-old-password"
+      outlined
     >
       <template #before>
         <QIcon name="fas fa-unlock" />
@@ -96,5 +101,5 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import '~editbox'
+@import 'editbox'
 </style>

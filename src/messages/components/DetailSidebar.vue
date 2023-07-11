@@ -11,6 +11,6 @@
 </template>
 
 <script setup>
-import Detail from './Detail'
-import DetailHeader from './DetailHeader'
+import Detail from './Detail.vue'
+import DetailHeader from './DetailHeader.vue'
 </script>

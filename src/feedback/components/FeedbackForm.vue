@@ -105,10 +105,10 @@ import {
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import CustomDialog from '@/utils/components/CustomDialog'
-import MarkdownInput from '@/utils/components/MarkdownInput'
+import CustomDialog from '@/utils/components/CustomDialog.vue'
+import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
-import AmountPicker from './AmountPicker'
+import AmountPicker from './AmountPicker.vue'
 
 export default {
   components: {

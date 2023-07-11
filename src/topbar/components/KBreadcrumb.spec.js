@@ -1,14 +1,15 @@
 import { RouterLinkStub } from '@vue/test-utils'
+import { vi } from 'vitest'
 
 import { mountWithDefaults } from '>/helpers'
 
-import KBreadcrumb from './KBreadcrumb'
+import KBreadcrumb from './KBreadcrumb.vue'
 import '>/routerMocks' // sets up the mock router
 
 describe.skip('KBreadcrumb', () => {
-  beforeEach(() => jest.resetModules())
-  it('renders', () => {
-    const wrapper = mountWithDefaults(KBreadcrumb, {
+  beforeEach(() => { vi.resetModules() })
+  it('renders', async () => {
+    const wrapper = await mountWithDefaults(KBreadcrumb, {
       propsData: {
         breadcrumbs: [],
       },
@@ -16,8 +17,8 @@ describe.skip('KBreadcrumb', () => {
     expect(wrapper.element.className).toBe('wrapper')
   })
 
-  it('renders links if provided with a route', () => {
-    const wrapper = mountWithDefaults(KBreadcrumb, {
+  it('renders links if provided with a route', async () => {
+    const wrapper = await mountWithDefaults(KBreadcrumb, {
       propsData: {
         breadcrumbs: [{ name: 'Some Name', route: { name: 'foo', params: { yay: 1 } } }, { name: 'Last Name' }],
       },
@@ -27,8 +28,8 @@ describe.skip('KBreadcrumb', () => {
     expect(wrapper.findAllComponents(RouterLinkStub).length).toBe(2)
   })
 
-  it('does not render a link for the last item', () => {
-    const wrapper = mountWithDefaults(KBreadcrumb, {
+  it('does not render a link for the last item', async () => {
+    const wrapper = await mountWithDefaults(KBreadcrumb, {
       propsData: {
         breadcrumbs: [{ name: 'Some Name', route: { name: 'foo', params: { yay: 1 } } }],
       },

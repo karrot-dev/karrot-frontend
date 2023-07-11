@@ -61,9 +61,9 @@ import { computed, toRefs } from 'vue'
 import { useHistoryHelpers } from '@/history/helpers'
 import { useUserService } from '@/users/services'
 
-import HistoryDetail from '@/history/components/HistoryDetail'
-import HistoryProfilePictures from '@/history/components/HistoryProfilePictures'
-import DateAsWords from '@/utils/components/DateAsWords'
+import HistoryDetail from '@/history/components/HistoryDetail.vue'
+import HistoryProfilePictures from '@/history/components/HistoryProfilePictures.vue'
+import DateAsWords from '@/utils/components/DateAsWords.vue'
 
 export default {
   components: {

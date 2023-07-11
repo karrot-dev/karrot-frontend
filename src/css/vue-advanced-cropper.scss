@@ -1,0 +1,11 @@
+$base-color: #F2C037;
+@import 'vue-advanced-cropper/dist/style.css';
+@import 'vue-advanced-cropper/dist/theme.bubble.scss';
+
+.vue-advanced-cropper {
+  &__foreground,
+  &__background,
+  &__image-wrapper {
+    border-radius: 4px;
+  }
+}

@@ -1,13 +1,14 @@
 import { flushPromises } from '@vue/test-utils'
 import cloneDeep from 'clone-deep'
 import { QInput } from 'quasar'
+import { vi } from 'vitest'
 import { nextTick } from 'vue'
 
 import * as factories from '>/enrichedFactories'
 import { createDatastore, mountWithDefaults } from '>/helpers'
 
-import ChatConversation from './ChatConversation'
-import ConversationCompose from './ConversationCompose'
+import ChatConversation from './ChatConversation.vue'
+import ConversationCompose from './ConversationCompose.vue'
 
 const defaultProps = data => ({
   currentUser: factories.makeCurrentUser(),
@@ -27,12 +28,12 @@ const datastore = createDatastore({
 })
 
 describe.skip('ChatConversation', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => { vi.resetModules() })
   it('can send a message', async () => {
     const propsData = defaultProps({
       compose: true,
     })
-    const wrapper = mountWithDefaults(ChatConversation, { datastore, propsData })
+    const wrapper = await mountWithDefaults(ChatConversation, { datastore, propsData })
     // let the mounted() hook run
     await nextTick()
 
@@ -53,7 +54,7 @@ describe.skip('ChatConversation', () => {
     const propsData = defaultProps()
     const { conversation } = propsData
     conversation.unreadMessageCount = 0
-    const wrapper = mountWithDefaults(ChatConversation, { datastore, propsData })
+    const wrapper = await mountWithDefaults(ChatConversation, { datastore, propsData })
     await flushPromises()
 
     const { id } = conversation
@@ -67,7 +68,7 @@ describe.skip('ChatConversation', () => {
 
   it('does not mark new messages as read when away', async () => {
     const propsData = { ...defaultProps(), away: true }
-    const wrapper = mountWithDefaults(ChatConversation, { datastore, propsData })
+    const wrapper = await mountWithDefaults(ChatConversation, { datastore, propsData })
     await nextTick()
 
     const { id, messages } = propsData.conversation
@@ -77,7 +78,7 @@ describe.skip('ChatConversation', () => {
 
   it('marks messages as read when returning from away', async () => {
     const propsData = { ...defaultProps(), away: true }
-    const wrapper = mountWithDefaults(ChatConversation, { datastore, propsData })
+    const wrapper = await mountWithDefaults(ChatConversation, { datastore, propsData })
     await flushPromises()
 
     const { conversation } = propsData

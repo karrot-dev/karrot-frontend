@@ -13,7 +13,7 @@
 <script>
 import { latLngBounds } from 'leaflet/dist/leaflet-src.esm'
 
-import StandardMap from '@/maps/components/StandardMap'
+import StandardMap from '@/maps/components/StandardMap.vue'
 import { groupMarker } from '@/maps/components/markers'
 
 export default {

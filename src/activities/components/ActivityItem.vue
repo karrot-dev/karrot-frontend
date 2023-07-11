@@ -1,5 +1,7 @@
 <template>
-  <QCard class="activity-item">
+  <QCard
+    class="activity-item"
+  >
     <div
       v-if="bannerImageURL"
       style="height: 50px;"
@@ -69,7 +71,7 @@
             v-for="participantType in participantTypes"
             :key="participantType.id"
             class="col"
-            :class="[participantTypes.length > 1 ? 'multiple-types' : '', getIsUserParticipant(activity, participantType) ? 'active' : '']"
+            :class="[participantTypes.length > 1 ? 'multiple-types' : '', getIsUserParticipant(activity, participantType) ? 'active rounded-borders' : '']"
           >
             <Markdown
               v-if="participantType.description"
@@ -84,6 +86,7 @@
               class="q-my-xs"
             >
               <i18n-t
+                scope="global"
                 keypath="ACTIVITYLIST.OPEN_FOR_ROLE"
                 tag="em"
               >
@@ -127,6 +130,7 @@
                     </QItemLabel>
                     <QItemLabel>
                       <i18n-t
+                        scope="global"
                         keypath="ACTIVITYLIST.OPEN_FOR_ROLE"
                         tag="em"
                       >
@@ -324,12 +328,12 @@ import { useDetailService } from '@/messages/services'
 import { usePlaceService } from '@/places/services'
 import { absoluteURL } from '@/utils/absoluteURL'
 
-import CustomDialog from '@/utils/components/CustomDialog'
-import Markdown from '@/utils/components/Markdown'
-import ShowMore from '@/utils/components/ShowMore'
+import CustomDialog from '@/utils/components/CustomDialog.vue'
+import Markdown from '@/utils/components/Markdown.vue'
+import ShowMore from '@/utils/components/ShowMore.vue'
 
 import ActivityEditButton from './ActivityEditButton.vue'
-import ActivityUsers from './ActivityUsers'
+import ActivityUsers from './ActivityUsers.vue'
 
 export default {
   components: {

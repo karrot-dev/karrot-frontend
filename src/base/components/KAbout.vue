@@ -150,7 +150,7 @@ import {
 
 import { useAboutService } from '@/utils/services'
 
-import KarrotLogo from '@/logo/components/KarrotLogo'
+import KarrotLogo from '@/logo/components/KarrotLogo.vue'
 
 export default {
   components: {

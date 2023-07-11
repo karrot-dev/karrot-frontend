@@ -33,7 +33,7 @@ import {
   QIcon,
 } from 'quasar'
 
-import EmojiButton from './EmojiButton'
+import EmojiButton from './EmojiButton.vue'
 
 function searchEmoji (search) {
   // Remove colons and set to lowercase to normalize search

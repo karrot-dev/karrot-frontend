@@ -144,6 +144,6 @@ export default {
 </script>
 
 <style scoped lang="sass">
-  .edit-box
-    color: #0c0c0c
+.edit-box
+  color: #0c0c0c
 </style>

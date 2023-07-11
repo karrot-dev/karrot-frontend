@@ -15,7 +15,7 @@ import { computed } from 'vue'
 import { useApplicationListQuery } from '@/applications/queries'
 import { useCurrentGroupService } from '@/group/services'
 
-import ApplicationList from '@/applications/components/ApplicationList'
+import ApplicationList from '@/applications/components/ApplicationList.vue'
 
 const { groupId } = useCurrentGroupService()
 const {

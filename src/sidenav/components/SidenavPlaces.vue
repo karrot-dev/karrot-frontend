@@ -52,7 +52,10 @@
           class="bg-info q-mx-md q-mb-xs"
           rounded
         >
-          <i18n-t keypath="PLACE_LIST.SUBSCRIBE_HINT">
+          <i18n-t
+            scope="global"
+            keypath="PLACE_LIST.SUBSCRIBE_HINT"
+          >
             <template #icon>
               <QIcon name="fas fa-star" />
             </template>
@@ -95,9 +98,9 @@ import { usePlaceHelpers } from '@/places/helpers'
 import { placeRoute } from '@/places/utils'
 import { useStatusService } from '@/status/services'
 
-import KSpinner from '@/utils/components/KSpinner'
+import KSpinner from '@/utils/components/KSpinner.vue'
 
-import SidenavBox from './SidenavBox'
+import SidenavBox from './SidenavBox.vue'
 
 const {
   getIsActivePlace,

@@ -154,6 +154,7 @@
           <p>
             <strong v-t="`ABOUT_KARROT.SECTIONS.${item}.TITLE`" />:
             <i18n-t
+              scope="global"
               :keypath="`ABOUT_KARROT.SECTIONS.${item}.DESCRIPTION`"
               tag="span"
             >
@@ -203,9 +204,14 @@ import generatedImages from '@/base/images.json'
 import { useGroupInfoService } from '@/groupInfo/services'
 import logo from '@/logo/assets/carrot-logo.svg'
 
-import KAbout from '@/base/components/KAbout'
-import KLandingButtons from '@/base/components/KLandingButtons'
-import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards'
+import KAbout from '@/base/components/KAbout.vue'
+import KLandingButtons from '@/base/components/KLandingButtons.vue'
+import GroupGalleryCards from '@/groupInfo/components/GroupGalleryCards.vue'
+
+const importedImages = import.meta.glob('@/base/pages/images/**/*', {
+  as: 'url', // specify as I _think_ it'll disable base64-ing them
+  eager: true,
+})
 
 // Prefer active non-playground groups with a photo
 function groupSortScore (group) {
@@ -226,7 +232,6 @@ export default {
     KLandingButtons,
   },
   setup () {
-    // TODO: this used to show groups/other, but all seems ok...?
     const { groups } = useGroupInfoService()
     return { groups }
   },
@@ -269,9 +274,9 @@ export default {
       this.showAbout = !this.showAbout
     },
     getImages () {
-      Object.values(dirNames).forEach(dirName => {
+      for (const dirName of Object.values(dirNames)) {
         generatedImages[dirName] = this.enrichImages(dirName)
-      })
+      }
 
       return {
         browser: generatedImages[dirNames.APP_SCREENSHOTS_BROWSER][0],
@@ -286,7 +291,7 @@ export default {
         const srcset = widths.reduce((acc, curr, index) => {
           const divider = index < widths.length - 1 ? ', ' : ''
           const currWidth = curr.toString()
-          const entry = this.requireImage({
+          const entry = this.imageUrl({
             fileName: img.baseFileName,
             ext: img.ext,
             width: currWidth,
@@ -300,7 +305,7 @@ export default {
           alt: img.baseFileName.replace(/-/g, ' '),
           sizes: dirs[dirName].sizes.replace(/\s+/g, ''), // remove whitespaces and line-breaks
           srcset,
-          src: this.requireImage({
+          src: this.imageUrl({
             fileName: img.baseFileName,
             ext: img.ext,
             width: dirs[dirName].maxWidth.toString(),
@@ -362,10 +367,8 @@ export default {
 
       return images
     },
-    requireImage ({ fileName, ext, width, dirName } = {}) {
-      // use "?disableinline" to disable inlining of small images as base64 which would result in a huge js-chunk
-      // see: https://github.com/karrot-dev/karrot-frontend/issues/2370
-      return require(`@/base/pages/images/${dirName}/${fileName}-${width}${ext}?disableinline`)
+    imageUrl ({ fileName, ext, width, dirName } = {}) {
+      return importedImages[`/src/base/pages/images/${dirName}/${fileName}-${width}${ext}`]
     },
   },
 }

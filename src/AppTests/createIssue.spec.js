@@ -1,22 +1,18 @@
 import '@testing-library/jest-dom'
 import { faker } from '@faker-js/faker'
 import userEvent from '@testing-library/user-event'
-import { render, configure } from '@testing-library/vue'
+import { render, waitFor } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
+import { test } from 'vitest'
 
-import App from '@/App'
+import App from '@/App.vue'
 import router from '@/router'
 
-import { withDefaults } from '>/helpers'
+import { withDefaults, invalidateQueries } from '>/helpers'
 import { useMockBackend, createUser, createGroup, loginAs } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 
 useMockBackend()
-jest.setTimeout(90 * 1000) // we do a lot of stuff here, give it some time!
-
-configure({
-  asyncUtilTimeout: 2000,
-})
 
 test('create issue', async () => {
   const { type, click } = userEvent.setup()
@@ -32,7 +28,6 @@ test('create issue', async () => {
   loginAs(user)
 
   const {
-    getByText,
     getByTestId,
     findByText,
     findByRole,
@@ -40,7 +35,7 @@ test('create issue', async () => {
     findByTitle,
     getByRole,
     findByPlaceholderText,
-  } = render(App, withDefaults({
+  } = render(App, await withDefaults({
     global: { plugins: [router], stubs: { RouterLink: false } },
   }))
 
@@ -64,11 +59,13 @@ test('create issue', async () => {
   await findByText('You successfully started a membership review')
 
   // then we should be on the issues page where we can discuss...
-  expect(router.currentRoute.value.name).toEqual('issueChat')
+  await waitFor(() => {
+    expect(router.currentRoute.value.name).toBe('issueChat')
+  })
 
   // this gets turned into markdown, so swap newlines for .* regexp...
   const re = new RegExp(topic.split('\n').join('.*'))
-  expect(getByText(re)).toBeInTheDocument()
+  await findByText(re)
 
   // let's add more thoughts...
   const messageContent = faker.lorem.paragraph(2)
@@ -78,12 +75,10 @@ test('create issue', async () => {
   )
   await click(await findByTitle('Send message'))
   await flushPromises() // need to give it a moment to send, or we refresh before it's actually been submitted
-  await flushPromises()
 
-  // TODO: add mock websockets, for now we need to manually invalidate...
-  await require('@/base/queryClient').default.invalidateQueries()
+  await invalidateQueries()
 
-  await findByText(messageContent, {}, { timeout: 2000 })
+  await findByText(messageContent)
 
   // time to vote!
   await click(await findByRole('tab', { name: 'Vote' }))

@@ -5,7 +5,7 @@ import { h, reactive } from 'vue'
 import { storybookDefaults as defaults } from '>/helpers'
 import { groupsMock } from '>/mockdata'
 
-import GroupSettings from './GroupSettings'
+import GroupSettings from './GroupSettings.vue'
 
 const changeNotificationType = action('changeNotificationType')
 

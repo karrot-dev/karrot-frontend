@@ -24,7 +24,7 @@ import { useActiveIssueService } from '@/issues/services'
 import { useConversationHelpers } from '@/messages/helpers'
 import { useSendMessageMutation } from '@/messages/mutations'
 
-import ConversationCompose from '@/messages/components/ConversationCompose'
+import ConversationCompose from '@/messages/components/ConversationCompose.vue'
 
 const { t } = useI18n()
 

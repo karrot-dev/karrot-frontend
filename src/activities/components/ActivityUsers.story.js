@@ -12,7 +12,7 @@ import {
   participantType,
 } from '>/mockdata'
 
-const ActivityUsers = () => import('./ActivityUsers')
+const ActivityUsers = () => import('./ActivityUsers.vue')
 
 const datastore = createDatastore({
   auth: {

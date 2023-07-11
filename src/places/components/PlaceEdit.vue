@@ -257,8 +257,8 @@ import { usePlaceTypeService } from '@/places/services'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import AddressPicker from '@/maps/components/AddressPicker'
-import MarkdownInput from '@/utils/components/MarkdownInput'
+import AddressPicker from '@/maps/components/AddressPicker.vue'
+import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
 export default {
   name: 'PlaceEdit',
@@ -449,5 +449,5 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import '~editbox'
+@import 'editbox'
 </style>

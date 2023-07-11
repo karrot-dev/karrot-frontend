@@ -5,7 +5,7 @@ import * as factories from '>/enrichedFactories'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import { currentUserMock } from '>/mockdata'
 
-import WallConversation from './WallConversation'
+import WallConversation from './WallConversation.vue'
 
 const conversation = factories.makeConversation()
 

@@ -8,7 +8,7 @@ import { queryKeyGroupInfoListAll } from '@/groupInfo/queries'
 import { queryKeyPlaceListAll } from '@/places/queries'
 import { queryKeyStatus } from '@/status/queries'
 import { queryKeyUserListAll } from '@/users/queries'
-import { configureSentry } from '@/utils/sentry'
+import { configureSentry } from '@/utils/errors'
 
 export default async function ({ app }) {
   const {

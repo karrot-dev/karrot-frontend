@@ -57,9 +57,9 @@ import { useActiveIssueService } from '@/issues/services'
 import { useUserService } from '@/users/services'
 import reactiveNow from '@/utils/reactiveNow'
 
-import IssueVote from '@/issues/components/IssueVote'
-import PreviousVotingList from '@/issues/components/PreviousVotingList'
-import VotingResults from '@/issues/components/VotingResults'
+import IssueVote from '@/issues/components/IssueVote.vue'
+import PreviousVotingList from '@/issues/components/PreviousVotingList.vue'
+import VotingResults from '@/issues/components/VotingResults.vue'
 
 export default {
   components: {

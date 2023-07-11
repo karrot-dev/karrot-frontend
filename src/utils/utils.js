@@ -1,5 +1,7 @@
 import deepEqual from 'deep-equal'
-import debounce from 'lodash/debounce'
+import { debounce } from 'quasar'
+
+import locales from '@/locales'
 
 // Quasar's ready() is broken until https://github.com/quasarframework/quasar/pull/2199
 export function ready (fn) {
@@ -98,10 +100,28 @@ export function removeKeys (obj, keys) {
   return copy
 }
 
+/**
+ * If there is a pending save (meaning the debounce function has been called at least once)
+ * then ensure we call our function before unload, so we don't miss out.
+ */
 export function debounceAndFlushOnUnload (fn, ms, options = {}) {
+  // It would be nicer to trigger the actual invocation that is waiting, but that is internal state.
+  // The lodash debounce() function has a flush method for this
+  // The quasar implementation is lacking that.
+  // This is our simple implementation of it.
+
+  let calledAtLeastOnce = false
   const debounced = debounce(fn, ms, options)
-  window.addEventListener('unload', debounced.flush)
-  return debounced
+  window.addEventListener('unload', () => {
+    if (calledAtLeastOnce) fn()
+  })
+
+  function wrapper () {
+    calledAtLeastOnce = true
+    return debounced.apply(this, arguments)
+  }
+
+  return wrapper
 }
 
 const MIME_TYPE = 'image/jpeg'
@@ -121,6 +141,9 @@ export async function toFormData (sourceEntry) {
         if (!blob) throw new Error('failed to make a blob for image')
         blobs[`images.${idx}.image`] = blob
       }
+      else if (image._file) {
+        blobs[`images.${idx}.image`] = image._file
+      }
       else if (image._new) {
         throw new Error('new image did not have a toBlob method')
       }
@@ -129,7 +152,7 @@ export async function toFormData (sourceEntry) {
       data.append(key, blobs[key], `${key}${EXTENSION}`)
     }
     // we need to leave our original images intact, but only send the required properties to the server
-    entry.images = entry.images.map(withoutKeys('toBlob', 'imageUrls'))
+    entry.images = entry.images.map(withoutKeys('toBlob', 'imageUrls')).map(removeAttachmentMetaKeys)
   }
 
   // Check for other image fields
@@ -140,6 +163,11 @@ export async function toFormData (sourceEntry) {
       const blob = await image.toBlob(MIME_TYPE)
       if (!blob) throw new Error('failed to make a blob for image')
       data.append(underscorize(key), blob, `image.${EXTENSION}`)
+      delete entry[key]
+    }
+    else if (value && value instanceof Blob) {
+      const filename = ['image', imageTypeToExtension(value.type)].join()
+      data.append(underscorize(key), value, filename)
       delete entry[key]
     }
   }
@@ -231,6 +259,42 @@ export function sleep (ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
+export function detectLocale () {
+  let requested = []
+  if (navigator.languages) {
+    navigator.languages.forEach(e => {
+      requested.push(e.toLowerCase())
+      // detect similar languages with slightly less priority
+      if (e.includes('-')) {
+        requested.push(e.replace(/-.*$/, '').toLowerCase())
+      }
+      // alias definitions
+      else if (e === 'zh') {
+        requested.push('zh-hans', 'zh-hant')
+      }
+      else if (e === 'zh_TW') {
+        requested.push('zh-hant')
+      }
+      else if (e === 'zh_CN') {
+        requested.push('zh-hans')
+      }
+    })
+  }
+  else {
+    const val =
+      navigator.language ||
+      navigator.browserLanguage ||
+      navigator.systemLanguage ||
+      navigator.userLanguage
+    if (val) {
+      requested = [val.toLowerCase()]
+    }
+  }
+  if (requested) {
+    return requested.find(e => locales[e])
+  }
+}
+
 export function isViewableImageContentType (contentType) {
   // List from https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#image_types
   // Which says: The following image types are used commonly enough to be considered safe for use on web pages:
@@ -244,4 +308,41 @@ export function isViewableImageContentType (contentType) {
     'image/svg+xml',
     'image/webp',
   ].includes(contentType.toLowerCase())
+}
+
+/**
+ * To be used for various purposes:
+ * - the "accept" attribute for inputs used for image uploads
+ * - determining the file extension for a mime type
+ */
+const uploadImageTypes = {
+  'image/jpeg': ['.jpg', '.jpeg'],
+  'image/png': ['.png'],
+  'image/webp': ['.webp'],
+}
+
+const extensionMap = {}
+for (const type of Object.keys(uploadImageTypes)) {
+  const extensions = uploadImageTypes[type]
+  for (const extension of extensions) {
+    extensionMap[extension] = type
+  }
+}
+
+export const imageUploadAccept = [
+  ...Object.values(uploadImageTypes).flat(),
+  ...Object.keys(uploadImageTypes),
+].join(',')
+
+export function imageTypeToExtension (mimeType) {
+  if (uploadImageTypes[mimeType]) {
+    return uploadImageTypes[mimeType][0]
+  }
+  throw new Error(`Image type must be one of ${Object.keys(uploadImageTypes).join(', ')}`)
+}
+
+export function filenameToContentType (filename) {
+  if (!filename) return
+  const extension = '.' + filename.split('.').pop().toLowerCase()
+  return extensionMap[extension]
 }

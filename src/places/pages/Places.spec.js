@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom'
 import { render } from '@testing-library/vue'
 import { times } from 'lodash'
+import { vi } from 'vitest'
 
 import { resetServices } from '@/utils/datastore/helpers'
 
@@ -16,7 +17,7 @@ import {
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
-import Places from './Places'
+import Places from './Places.vue'
 
 describe('Places', () => {
   let places
@@ -24,7 +25,7 @@ describe('Places', () => {
   useMockBackend()
 
   beforeEach(() => {
-    jest.resetModules()
+    vi.resetModules()
     resetServices()
   })
 
@@ -39,7 +40,7 @@ describe('Places', () => {
   })
 
   it('renders a list of places', async () => {
-    const { findByText, findAllByText } = render(Places, withDefaults())
+    const { findByText, findAllByText } = render(Places, await withDefaults())
 
     // place name will be there
     for (const place of places) {

@@ -90,10 +90,10 @@ import { useCurrentGroupService } from '@/group/services'
 import { absoluteURL } from '@/utils/absoluteURL'
 import { showToast } from '@/utils/toasts'
 
-import UserList from '@/users/components/UserList'
-import CustomDialog from '@/utils/components/CustomDialog'
-import KSpinner from '@/utils/components/KSpinner'
-import RandomArt from '@/utils/components/RandomArt'
+import UserList from '@/users/components/UserList.vue'
+import CustomDialog from '@/utils/components/CustomDialog.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
+import RandomArt from '@/utils/components/RandomArt.vue'
 
 export default {
   components: {

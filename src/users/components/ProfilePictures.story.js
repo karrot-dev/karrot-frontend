@@ -4,7 +4,7 @@ import { h } from 'vue'
 import { storybookDefaults as defaults } from '>/helpers'
 import { usersMock } from '>/mockdata'
 
-import ProfilePicture from './ProfilePicture'
+import ProfilePicture from './ProfilePicture.vue'
 
 storiesOf('ProfilePicture', module)
   .add('with user', () => defaults({

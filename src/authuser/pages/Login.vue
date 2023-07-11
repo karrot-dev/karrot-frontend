@@ -8,7 +8,7 @@
 <script setup>
 import { useLoginMutation } from '@/authuser/mutations'
 
-import Login from '@/authuser/components/Login'
+import Login from '@/authuser/components/Login.vue'
 
 const {
   mutate: login,

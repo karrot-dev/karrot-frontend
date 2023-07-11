@@ -64,7 +64,7 @@ import {
   QIcon,
 } from 'quasar'
 
-import AmountViewer from './AmountViewer'
+import AmountViewer from './AmountViewer.vue'
 
 export default {
   components: {

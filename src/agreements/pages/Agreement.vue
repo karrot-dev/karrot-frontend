@@ -79,13 +79,15 @@
                 {{ $t('GLOBAL.LAST_CHANGED_BY') }}
               </QItemLabel>
               <QItemLabel>
-                <RouterLink :to="{ name: 'user', params: { userId: lastChangedBy.id } }">
+                <RouterLink
+                  :to="{ name: 'user', params: { userId: lastChangedBy.id } }"
+                  class="row q-mt-xs"
+                >
                   <ProfilePicture
                     :user="lastChangedBy"
                     :size="16"
-                    style="position: relative; top: 2px;"
                   />
-                  <strong class="q-pl-xs">
+                  <strong class="q-pl-sm">
                     {{ lastChangedBy.displayName }}
                   </strong>
                 </RouterLink>
@@ -150,10 +152,10 @@ import { useCurrentGroupService } from '@/group/services'
 import { useHistoryListQuery } from '@/history/queries'
 import { useUserService } from '@/users/services'
 
-import HistoryList from '@/history/components/HistoryList'
-import ProfilePicture from '@/users/components/ProfilePicture'
-import KSpinner from '@/utils/components/KSpinner'
-import Markdown from '@/utils/components/Markdown'
+import HistoryList from '@/history/components/HistoryList.vue'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
+import Markdown from '@/utils/components/Markdown.vue'
 
 const {
   agreementId,

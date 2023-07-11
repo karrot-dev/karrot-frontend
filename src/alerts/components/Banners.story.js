@@ -3,7 +3,7 @@ import { h } from 'vue'
 
 import { storybookDefaults as defaults } from '>/helpers'
 
-import Banners from './Banners'
+import Banners from './Banners.vue'
 
 storiesOf('Banners', module)
   .add('Banners', () => defaults({

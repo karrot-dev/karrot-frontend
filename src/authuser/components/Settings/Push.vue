@@ -1,12 +1,10 @@
 <template>
-  <div class="edit-box">
-    <QToggle
-      :label="$t('USERDATA.PUSH_CURRENT_BROWSER')"
-      :disable="isPending"
-      :model-value="isEnabled"
-      @update:model-value="update"
-    />
-  </div>
+  <QToggle
+    :label="$t('USERDATA.PUSH_CURRENT_BROWSER')"
+    :disable="isPending"
+    :model-value="isEnabled"
+    @update:model-value="update"
+  />
 </template>
 
 <script setup>
@@ -33,7 +31,3 @@ function update (value) {
 }
 
 </script>
-
-<style scoped lang="sass">
-@import '~editbox'
-</style>

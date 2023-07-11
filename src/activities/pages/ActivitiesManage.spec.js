@@ -3,11 +3,12 @@ import userEvent from '@testing-library/user-event'
 import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
 import { Dialog } from 'quasar'
+import { vi } from 'vitest'
 import { getRouter } from 'vue-router-mock'
 
 import { resetServices } from '@/utils/datastore/helpers'
 
-import { withDefaults } from '>/helpers'
+import { withDefaults, invalidateQueries } from '>/helpers'
 import {
   useMockBackend,
   createUser,
@@ -22,9 +23,9 @@ import {
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
-import ActivitiesManage from './ActivitiesManage'
+import ActivitiesManage from './ActivitiesManage.vue'
 
-Dialog.create = jest.fn(() => {
+Dialog.create = vi.fn(() => {
   return { onOk (fn) { fn('') } }
 })
 
@@ -33,7 +34,7 @@ describe('ActivitiesManage', () => {
   let activityType
 
   beforeEach(() => {
-    jest.resetModules()
+    vi.resetModules()
     resetServices()
   })
 
@@ -55,7 +56,7 @@ describe('ActivitiesManage', () => {
   })
 
   it('renders activities manage page', async () => {
-    const { findByText } = render(ActivitiesManage, withDefaults())
+    const { findByText } = render(ActivitiesManage, await withDefaults())
     await flushPromises()
 
     await findByText('Activity series')
@@ -68,7 +69,7 @@ describe('ActivitiesManage', () => {
   it('creates activity series', async () => {
     const { click } = userEvent.setup()
 
-    const { findByText, getAllByRole, getByRole } = render(ActivitiesManage, withDefaults())
+    const { findByText, getAllByRole, getByRole } = render(ActivitiesManage, await withDefaults())
     await flushPromises()
 
     await click(getAllByRole('button')[0]) // the first big plus button, hard to match more specific
@@ -81,7 +82,7 @@ describe('ActivitiesManage', () => {
     await flushPromises()
 
     // TODO: add mock websockets, for now we need to manually invalidate...
-    await require('@/base/queryClient').default.invalidateQueries()
+    await invalidateQueries()
 
     await findByText('Monday')
   })
@@ -89,7 +90,7 @@ describe('ActivitiesManage', () => {
   it('edits activity series', async () => {
     const { click } = userEvent.setup()
 
-    const { queryByRole, findAllByText, getByText, getByRole, findByRole } = render(ActivitiesManage, withDefaults())
+    const { queryByRole, findAllByText, getByText, getByRole, findByRole } = render(ActivitiesManage, await withDefaults())
     await flushPromises()
 
     expect(queryByRole('button', { name: /save changes/i })).not.toBeInTheDocument()
@@ -104,7 +105,7 @@ describe('ActivitiesManage', () => {
     await click(getByRole('button', { name: /save changes/i }))
 
     // TODO: add mock websockets, for now we need to manually invalidate...
-    await require('@/base/queryClient').default.invalidateQueries()
+    await invalidateQueries()
     await flushPromises()
 
     expect(queryByRole('button', { name: /save changes/i })).toBeDisabled()

@@ -38,9 +38,9 @@
 <script>
 import { QToolbar, QToolbarTitle, QBtn } from 'quasar'
 
-import KarrotLogo from '@/logo/components/KarrotLogo'
-import KBreadcrumb from '@/topbar/components/KBreadcrumb'
-import LocaleSelect from '@/utils/components/LocaleSelect'
+import KarrotLogo from '@/logo/components/KarrotLogo.vue'
+import KBreadcrumb from '@/topbar/components/KBreadcrumb.vue'
+import LocaleSelect from '@/utils/components/LocaleSelect.vue'
 
 export default {
   components: {

@@ -13,7 +13,7 @@ import {
 } from '>/mockBackend'
 import { toResponse } from '>/mockBackend/activities'
 
-import ActivityItem from './ActivityItem'
+import ActivityItem from './ActivityItem.vue'
 
 const group = createGroup()
 createPlaceType({ group: group.id })

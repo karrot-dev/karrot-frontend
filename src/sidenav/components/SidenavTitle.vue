@@ -50,8 +50,8 @@ import {
 import { useAuthService } from '@/authuser/services'
 import { useCurrentGroupService } from '@/group/services'
 
-import LatestMessageButton from '@/messages/components/LatestMessageButton'
-import NotificationButton from '@/notifications/components/NotificationButton'
+import LatestMessageButton from '@/messages/components/LatestMessageButton.vue'
+import NotificationButton from '@/notifications/components/NotificationButton.vue'
 
 defineEmits(['click'])
 

@@ -121,7 +121,7 @@ import {
 
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import MarkdownInput from '@/utils/components/MarkdownInput'
+import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
 export default {
   components: {

@@ -3,9 +3,9 @@ import { markRaw } from 'vue'
 import { optionsFor } from '@/places/placeStatus'
 import { usePlaceTypeService } from '@/places/services'
 
-import GroupMarker from './GroupMarker'
-import PlaceMarker from './PlaceMarker'
-import UserMarker from './UserMarker'
+import GroupMarker from './GroupMarker.vue'
+import PlaceMarker from './PlaceMarker.vue'
+import UserMarker from './UserMarker.vue'
 
 // eslint-disable-next-line no-unused-vars
 

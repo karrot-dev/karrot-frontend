@@ -1,8 +1,9 @@
 import { QCheckbox } from 'quasar'
+import { vi } from 'vitest'
 
 import { mountWithDefaults, statusMocks } from '>/helpers'
 
-import Signup from './Signup'
+import Signup from './Signup.vue'
 
 const userData = {
   displayName: 'my name',
@@ -12,9 +13,9 @@ const userData = {
 }
 
 describe('Signup', () => {
-  beforeEach(() => jest.resetModules())
-  it('submits', () => {
-    const wrapper = mountWithDefaults(Signup, {
+  beforeEach(() => { vi.resetModules() })
+  it('submits', async () => {
+    const wrapper = await mountWithDefaults(Signup, {
       propsData: {
         status: statusMocks.default(),
         prefillEmail: '',

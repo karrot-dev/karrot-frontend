@@ -38,8 +38,8 @@
 import { latLngBounds } from 'leaflet/dist/leaflet-src.esm'
 import { QMenu } from 'quasar'
 
-import KMap from './KMap'
-import KMarker from './KMarker'
+import KMap from './KMap.vue'
+import KMarker from './KMarker.vue'
 
 const SELECTED_OPACITY = 1
 const UNSELECTED_OPACITY = 0.5

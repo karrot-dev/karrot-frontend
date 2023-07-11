@@ -13,7 +13,6 @@
         autogrow
         bottom-slots
         hide-hint
-        filled
       >
         <template
           v-if="icon"
@@ -99,8 +98,8 @@ import {
   QCardActions,
 } from 'quasar'
 
-import Markdown from '@/utils/components/Markdown'
-import MaybeMentionable from '@/utils/components/MaybeMentionable'
+import Markdown from '@/utils/components/Markdown.vue'
+import MaybeMentionable from '@/utils/components/MaybeMentionable.vue'
 
 export default {
   components: {

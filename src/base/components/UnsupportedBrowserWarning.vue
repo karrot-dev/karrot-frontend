@@ -4,6 +4,7 @@
     class="browser-warning bg-warning text-white"
   >
     <i18n-t
+      scope="global"
       tag="span"
       keypath="OUTDATED_BROWSER.MESSAGE"
     >

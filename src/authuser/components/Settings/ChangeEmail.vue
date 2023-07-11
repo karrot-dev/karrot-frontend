@@ -3,13 +3,17 @@
     id="change-email"
     class="edit-box"
   >
-    <VerificationWarning />
+    <div class="text-h5 text-primary q-mb-lg">
+      {{ $t('USERDATA.EMAIL') }}
+    </div>
+    <VerificationWarning class="q-mb-lg" />
     <QInput
       v-model="newEmail"
       type="email"
       :label="$t('USERDATA.EMAIL')"
       :error="hasError('newEmail')"
       :error-message="firstError('newEmail')"
+      outlined
     >
       <template #before>
         <QIcon name="fas fa-envelope" />
@@ -22,6 +26,7 @@
       :error="hasError('password')"
       :error-message="firstError('password')"
       data-testid="change-email-confirm-password"
+      outlined
     >
       <template #before>
         <QIcon name="fas fa-unlock" />
@@ -55,7 +60,7 @@ import {
 
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import VerificationWarning from '@/authuser/components/Settings/VerificationWarning'
+import VerificationWarning from '@/authuser/components/Settings/VerificationWarning.vue'
 
 export default {
   components: {
@@ -113,5 +118,5 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import '~editbox'
+@import 'editbox'
 </style>

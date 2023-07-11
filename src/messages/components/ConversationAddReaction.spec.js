@@ -1,16 +1,17 @@
 import { QBtn } from 'quasar'
+import { vi } from 'vitest'
 
 import { mountWithDefaults, nextTicks } from '>/helpers'
 
-import ConversationAddReactionInner from './ConversationAddReactionInner'
-import EmojiButton from './EmojiButton'
+import ConversationAddReactionInner from './ConversationAddReactionInner.vue'
+import EmojiButton from './EmojiButton.vue'
 
 describe.skip('Conversation message reactions', () => {
-  beforeEach(() => jest.resetModules())
+  beforeEach(() => { vi.resetModules() })
   let wrapper
 
-  beforeEach(() => {
-    wrapper = mountWithDefaults(ConversationAddReactionInner, {
+  beforeEach(async () => {
+    wrapper = await mountWithDefaults(ConversationAddReactionInner, {
       propsData: {
         reacted: ['thumbsup'],
       },

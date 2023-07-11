@@ -1,8 +1,10 @@
-describe('activities/api/activities', () => {
-  beforeEach(() => jest.resetModules())
+import { vi, beforeEach } from 'vitest'
 
-  it('converts date range into date and dateEnd', () => {
-    const { convert } = require('./activities')
+describe('activities/api/activities', () => {
+  beforeEach(() => { vi.resetModules() })
+
+  it('converts date range into date and dateEnd', async () => {
+    const { convert } = await import('./activities')
     const date = new Date()
     const dateEnd = new Date()
     expect(convert({
@@ -10,8 +12,8 @@ describe('activities/api/activities', () => {
     })).toEqual({ date, dateEnd })
   })
 
-  it('converts date into date range', () => {
-    const { convertDateToRange } = require('./activities')
+  it('converts date into date range', async () => {
+    const { convertDateToRange } = await import('./activities')
     const date = new Date()
     expect(convertDateToRange({
       date,

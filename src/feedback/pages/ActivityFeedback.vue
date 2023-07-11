@@ -63,7 +63,7 @@
           class="q-mx-sm q-mt-md"
         >
           <div v-t="'ACTIVITY_FEEDBACK.TOGETHER_WITH'" />
-          <div class="q-mt-sm">
+          <div class="q-mt-sm row">
             <ProfilePicture
               v-for="user in fellowParticipants"
               :key="user.id"
@@ -143,12 +143,12 @@ import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
 import { useIntegerRouteParam } from '@/utils/composables'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
-import KNotice from '@/utils/components/KNotice'
-import RandomArt from '@/utils/components/RandomArt'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import KNotice from '@/utils/components/KNotice.vue'
+import RandomArt from '@/utils/components/RandomArt.vue'
 
-import FeedbackForm from '../components/FeedbackForm'
-import FeedbackList from '../components/FeedbackList'
+import FeedbackForm from '../components/FeedbackForm.vue'
+import FeedbackList from '../components/FeedbackList.vue'
 
 const router = useRouter()
 const { d } = useI18n()

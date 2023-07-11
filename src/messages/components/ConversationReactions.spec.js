@@ -1,17 +1,18 @@
 import { QBtn } from 'quasar'
+import { vi } from 'vitest'
 
 import { mountWithDefaults } from '>/helpers'
 import { currentUserMock, usersMockWithoutCurrent } from '>/mockdata'
 
-import MessageReactions from './ConversationReactions'
-import EmojiButton from './EmojiButton'
+import MessageReactions from './ConversationReactions.vue'
+import EmojiButton from './EmojiButton.vue'
 
 describe.skip('Conversation message reactions', () => {
   let wrapper
 
-  beforeEach(() => {
-    jest.resetModules()
-    wrapper = mountWithDefaults(MessageReactions, {
+  beforeEach(async () => {
+    vi.resetModules()
+    wrapper = await mountWithDefaults(MessageReactions, {
       propsData: {
         messageId: 5,
         reactions: [
@@ -23,7 +24,7 @@ describe.skip('Conversation message reactions', () => {
   })
 
   it('renders reactions', () => {
-    expect(wrapper.findAllComponents(EmojiButton).length).toEqual(2)
+    expect(wrapper.findAllComponents(EmojiButton).length).toBe(2)
   })
 
   it('click reaction adds own reaction (when reaction not present)', () => {

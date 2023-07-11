@@ -5,5 +5,5 @@
 </template>
 
 <script setup>
-import KTopbarUI from './KTopbarUI'
+import KTopbarUI from './KTopbarUI.vue'
 </script>

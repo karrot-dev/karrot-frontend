@@ -24,7 +24,7 @@
           v-for="(image, idx) in offer.images"
           :key="image.id"
           :name="idx"
-          :img-src="image.imageUrls['600']"
+          :img-src="image.imageUrls[600]"
         />
       </QCarousel>
       <div
@@ -65,6 +65,7 @@
         <Markdown
           v-measure
           :source="offer.description"
+          mentions
         />
       </div>
     </template>
@@ -87,9 +88,9 @@ import { useArchiveOfferMutation } from '@/offers/mutations'
 import { DEFAULT_STATUS } from '@/offers/queries'
 import { useActiveOfferService } from '@/offers/services'
 
-import ChatConversation from '@/messages/components/ChatConversation'
-import KSpinner from '@/utils/components/KSpinner'
-import Markdown from '@/utils/components/Markdown'
+import ChatConversation from '@/messages/components/ChatConversation.vue'
+import KSpinner from '@/utils/components/KSpinner.vue'
+import Markdown from '@/utils/components/Markdown.vue'
 
 export default {
   components: {

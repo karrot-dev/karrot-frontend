@@ -6,10 +6,10 @@ import { h } from 'vue'
 import * as factories from '>/enrichedFactories'
 import { storybookDefaults as defaults, statusMocks } from '>/helpers'
 
-import IssueHistoryItem from './IssueHistoryItem'
-import IssueList from './IssueListUI'
-import IssueVote from './IssueVote'
-import VotingResults from './VotingResults'
+import IssueHistoryItem from './IssueHistoryItem.vue'
+import IssueList from './IssueList.vue'
+import IssueVote from './IssueVote.vue'
+import VotingResults from './VotingResults.vue'
 
 const range = n => [...Array(n).keys()]
 

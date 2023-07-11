@@ -60,7 +60,7 @@ import {
   QBtn,
   Platform,
 } from 'quasar'
-import { computed, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 import { isViewableImageContentType } from '@/utils/utils'
 
@@ -118,6 +118,15 @@ function nextImage () {
 function previousImage () {
   carouselRef.value.previous()
 }
+
+onMounted(() => {
+  document.body.style.overflow = 'hidden'
+})
+
+onUnmounted(() => {
+  document.body.style.overflow = null
+})
+
 </script>
 
 <style scoped lang="sass">

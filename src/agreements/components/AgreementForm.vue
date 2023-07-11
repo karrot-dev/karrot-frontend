@@ -109,8 +109,8 @@ import {
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin, { mapErrors } from '@/utils/mixins/statusMixin'
 
-import DateInput from '@/utils/components/DateInput'
-import MarkdownInput from '@/utils/components/MarkdownInput'
+import DateInput from '@/utils/components/DateInput.vue'
+import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
 export default {
   components: {
@@ -216,5 +216,5 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import '~editbox'
+@import 'editbox'
 </style>

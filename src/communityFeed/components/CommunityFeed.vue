@@ -40,7 +40,10 @@
               />
             </QItemSection>
             <QItemSection>
-              <i18n-t keypath="COMMUNITY_FEED.HEADER">
+              <i18n-t
+                scope="global"
+                keypath="COMMUNITY_FEED.HEADER"
+              >
                 <template #community>
                   <a
                     href="https://community.karrot.world"
@@ -92,6 +95,7 @@
                 lines="1"
               >
                 <i18n-t
+                  scope="global"
                   keypath="COMMUNITY_FEED.LAST_UPDATED"
                   tag="div"
                 >
@@ -130,7 +134,7 @@ import { useAuthService } from '@/authuser/services'
 import { useMarkCommunityFeedMutation } from '@/communityFeed/mutations'
 import { useCommunityFeedService } from '@/communityFeed/services'
 
-import DateAsWords from '@/utils/components/DateAsWords'
+import DateAsWords from '@/utils/components/DateAsWords.vue'
 
 const showing = ref(false)
 

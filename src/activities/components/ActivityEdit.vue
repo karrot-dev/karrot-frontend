@@ -205,20 +205,30 @@
           borderless
           stack-label
           bottom-slots
-          label="Banner image"
+          :label="$t('CREATEACTIVITY.BANNER_IMAGE')"
         >
           <template #hint>
-            Tip: You can get free banners images from <a
-              rel="noopener nofollow noreferrer"
-              class="fas-after fa-after-external-link"
-              target="_blank"
-              href="https://www.pexels.com/search/banner/?orientation=landscape"
-            >pexels.com</a>
+            <i18n-t
+              scope="global"
+              keypath="CREATEACTIVITY.BANNER_IMAGE_TIP"
+            >
+              <template #website>
+                <a
+                  rel="noopener nofollow noreferrer"
+                  class="fas-after fa-after-external-link"
+                  target="_blank"
+                  href="https://www.pexels.com/search/banner/?orientation=landscape"
+                >pexels.com</a>
+              </template>
+            </i18n-t>
           </template>
-          <ImageUpload
-            ref="imageUpload"
+          <ChooseImage
             v-model="edit.bannerImage"
-            :urls="value.bannerImageUrls"
+            :image-url="value.bannerImageUrls?.fullSize"
+            :aspect-ratio="26/9"
+            width="100%"
+            :title="$t('CREATEACTIVITY.BANNER_IMAGE')"
+            :dialog-title="$t('CREATEACTIVITY.SELECT_BANNER_IMAGE')"
             class="q-mt-sm"
           />
         </QField>
@@ -249,7 +259,7 @@
           v-if="!isNew"
           type="button"
           :disable="!hasChanged"
-          @click="doReset"
+          @click="reset"
         >
           {{ $t('BUTTON.RESET') }}
         </QBtn>
@@ -331,16 +341,17 @@ import statusMixin from '@/utils/mixins/statusMixin'
 import reactiveNow from '@/utils/reactiveNow'
 import { objectDiff } from '@/utils/utils'
 
-import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog'
-import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
-import ImageUpload from '@/utils/components/ImageUpload'
-import MarkdownInput from '@/utils/components/MarkdownInput'
+import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog.vue'
+import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit.vue'
+import ChooseImage from '@/utils/components/ChooseImage.vue'
+import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
-const ActivityItem = defineAsyncComponent(() => import('@/activities/components/ActivityItem'))
+const ActivityItem = defineAsyncComponent(() => import('@/activities/components/ActivityItem.vue'))
 
 export default {
   name: 'ActivityEdit',
   components: {
+    ChooseImage,
     ParticipantTypesEdit,
     ActivityItem,
     QDate,
@@ -362,7 +373,6 @@ export default {
     QItemSection,
     QItemLabel,
     QField,
-    ImageUpload,
   },
   mixins: [editMixin, statusMixin],
   props: {
@@ -494,12 +504,6 @@ export default {
     },
   },
   methods: {
-    doReset () {
-      if (this.$refs.imageUpload) {
-        this.$refs.imageUpload.reset()
-      }
-      this.reset()
-    },
     futureDates (dateString) {
       return date.extractDate(`${dateString} 23:59`, 'YYYY/MM/DD HH:mm') > this.now
     },
@@ -527,9 +531,6 @@ export default {
               await this.save()
             }
             // reset
-            if (this.$refs.imageUpload) {
-              this.$refs.imageUpload.reset()
-            }
             // remove any undefined props, otherwise our "is changed" logic will include them
             // (edit.bannerImage can be set to undefined when it is not present on the original value)
             for (const key of Object.keys(this.edit)) {
@@ -599,5 +600,5 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import '~editbox'
+@import 'editbox'
 </style>

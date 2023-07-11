@@ -87,8 +87,8 @@ import { useMapToggles } from '@/maps/services'
 import { useActivePlaceService } from '@/places/services'
 import { useActiveUserService } from '@/users/services'
 
-import GroupMapControls from '@/maps/components/GroupMapControls'
-import StandardMap from '@/maps/components/StandardMap'
+import GroupMapControls from '@/maps/components/GroupMapControls.vue'
+import StandardMap from '@/maps/components/StandardMap.vue'
 import { groupMarker, placeMarker, userMarker } from '@/maps/components/markers'
 
 export default {

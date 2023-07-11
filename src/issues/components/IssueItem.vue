@@ -36,8 +36,8 @@ import { computed } from 'vue'
 import { useActiveIssueService } from '@/issues/services'
 import { useUserService } from '@/users/services'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
-import DateAsWords from '@/utils/components/DateAsWords'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+import DateAsWords from '@/utils/components/DateAsWords.vue'
 
 const props = defineProps({
   issue: {

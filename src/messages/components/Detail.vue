@@ -18,7 +18,7 @@
 import { usePresenceService } from '@/base/services/presence'
 import { useDetailService } from '@/messages/services'
 
-import DetailUI from './DetailUI'
+import DetailUI from './DetailUI.vue'
 
 const { isAway } = usePresenceService()
 

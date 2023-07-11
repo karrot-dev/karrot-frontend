@@ -15,7 +15,7 @@ import { useSaveAgreementMutation } from '@/agreements/mutations'
 import { useAgreementItemQuery } from '@/agreements/queries'
 import { useIntegerRouteParam } from '@/utils/composables'
 
-import AgreementForm from '@/agreements/components/AgreementForm'
+import AgreementForm from '@/agreements/components/AgreementForm.vue'
 
 const router = useRouter()
 

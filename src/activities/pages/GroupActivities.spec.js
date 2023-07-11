@@ -2,10 +2,11 @@ import '@testing-library/jest-dom'
 import { fireEvent, render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
 import { partition, times } from 'lodash'
+import { vi } from 'vitest'
 
 import { resetServices } from '@/utils/datastore/helpers'
 
-import { withDefaults } from '>/helpers'
+import { withDefaults, invalidateQueries } from '>/helpers'
 import {
   useMockBackend,
   createUser,
@@ -23,14 +24,14 @@ import { addUserToGroup } from '>/mockBackend/groups'
 import { realSample } from '>/mockBackend/utils'
 import '>/routerMocks'
 
-import GroupActivities from './GroupActivities'
+import GroupActivities from './GroupActivities.vue'
 
 describe('GroupActivities', () => {
   let user, group, places, activities, activityTypes
   useMockBackend()
 
   beforeEach(() => {
-    jest.resetModules()
+    vi.resetModules()
     resetServices()
   })
 
@@ -62,7 +63,7 @@ describe('GroupActivities', () => {
   })
 
   it('renders a list of activities', async () => {
-    const { findByText, findAllByText } = render(GroupActivities, withDefaults())
+    const { findByText, findAllByText } = render(GroupActivities, await withDefaults())
 
     // place name will be there (maybe multiple times)
     for (const place of places) {
@@ -79,11 +80,12 @@ describe('GroupActivities', () => {
   })
 
   it('can filter by activity type', async () => {
-    const { findByText, queryByText, debug } = render(GroupActivities, withDefaults())
+    const { findByText, queryByText, debug } = render(GroupActivities, await withDefaults())
+    await flushPromises()
 
     const activityType = realSample(activityTypes)
     await fireEvent.click(await findByText('All types'))
-    await fireEvent.click(await findByText(activityType.name, {}, { timeout: 2000 }))
+    await fireEvent.click(await findByText(activityType.name))
 
     await flushPromises() // give it a moment to update
 
@@ -109,7 +111,7 @@ describe('GroupActivities', () => {
 
   it('can sign up for activity', async () => {
     setPageSize(100) // don't want to deal with pagination here
-    const { findByText, getByRole, findByRole, findAllByRole } = render(GroupActivities, withDefaults())
+    const { findByText, getByRole, findByRole, findAllByRole } = render(GroupActivities, await withDefaults())
 
     // find a slot we can sign into and click it!
     const activityType = realSample(activityTypes)
@@ -121,7 +123,7 @@ describe('GroupActivities', () => {
     await fireEvent.click(getByRole('button', { name: 'Yes, of course!' }))
 
     // TODO: add mock websockets, for now we need to manually invalidate...
-    await require('@/base/queryClient').default.invalidateQueries()
+    await invalidateQueries()
 
     // when we're signed up we get a nice Download ICS link
     await findByRole('link', { name: 'Download ICS' })

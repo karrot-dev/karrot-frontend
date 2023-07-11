@@ -4,7 +4,7 @@ import { h } from 'vue'
 
 import { statusMocks, storybookDefaults as defaults } from '>/helpers'
 
-import Login from './Login'
+import Login from './Login.vue'
 
 storiesOf('Login', module)
   .add('empty', () => defaults({

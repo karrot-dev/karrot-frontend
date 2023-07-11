@@ -2,6 +2,7 @@ import FakeTimers from '@sinonjs/fake-timers'
 import initStoryshots from '@storybook/addon-storyshots'
 import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
+import { vi } from 'vitest'
 
 import i18n from '@/base/i18n'
 import { resetServices } from '@/utils/datastore/helpers'
@@ -27,7 +28,7 @@ beforeEach(() => {
 
 afterEach(() => {
   resetMockBackend()
-  jest.resetModules()
+  vi.resetModules()
   resetServices()
 })
 

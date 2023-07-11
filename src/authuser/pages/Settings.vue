@@ -1,105 +1,109 @@
 <template>
-  <div v-if="user">
-    <KFormContainer>
-      <QCardSection>
-        <div class="text-h6">
-          {{ $t('USERDATA.PROFILE_TITLE') }}
+  <component
+    :is="$q.platform.is.mobile ? 'div' : QCard"
+    class="bg-grey-1"
+  >
+    <template
+      v-if="user"
+    >
+      <div class="edit-box">
+        <div class="text-h5 text-primary q-mb-lg">
+          {{ $t('USERDATA.PHOTO') }}
         </div>
-      </QCardSection>
-      <QCardSection>
-        <ChangePhoto
-          :value="user"
-          :status="profileEditStatus"
-          :label="$t('USERDATA.PHOTO')"
-          :hint="$t('USERDATA.SET_PHOTO')"
-          mime-type="image/jpeg"
-          @save="photo => saveUser({ photo })"
-        />
-        <QSeparator />
-        <ProfileEdit
-          :value="user"
-          :status="profileEditStatus"
-          :default-map-center="defaultMapCenter"
-          @save="saveUser"
-        />
-      </QCardSection>
-    </KFormContainer>
-    <KFormContainer>
-      <QCardSection>
-        <div class="text-h6">
+        <QField borderless>
+          <template #before>
+            <QIcon name="fas fa-camera" />
+          </template>
+          <template #control>
+            <ChooseImage
+              :image-url="user?.photoUrls?.fullSize"
+              :on-change="({ image }) => saveUser({ id: user.id, photo: image })"
+              :title="$t('USERDATA.SET_PHOTO')"
+              :dialog-title="$t('USERDATA.SET_PHOTO')"
+            />
+          </template>
+        </QField>
+      </div>
+      <QSeparator />
+      <ProfileEdit
+        :value="user"
+        :status="profileEditStatus"
+        :default-map-center="defaultMapCenter"
+        @save="saveUser"
+      />
+      <QSeparator />
+      <div class="edit-box">
+        <div class="text-h5 text-primary q-mb-lg">
           {{ $t('LANGUAGECHOOSER.SWITCH') }}
         </div>
-      </QCardSection>
-      <QCardSection>
-        <div class="edit-box row justify-end">
-          <LocaleSelect />
+        <div class="row justify-end">
+          <LocaleSelect class="q-my-lg" />
         </div>
-      </QCardSection>
-    </KFormContainer>
-    <KFormContainer>
-      <QCardSection>
-        <div class="text-h6">
+      </div>
+      <QSeparator />
+      <ChangeEmail
+        :user="user"
+        :status="changeEmailStatus"
+        @save="changeEmail"
+      />
+      <QSeparator />
+      <ChangePassword
+        :status="changePasswordStatus"
+        @save="changePassword"
+      />
+      <QSeparator />
+      <div class="edit-box">
+        <div class="text-h5 text-primary q-mb-lg">
           {{ $t('USERDATA.ACCOUNT') }}
         </div>
-      </QCardSection>
-      <QCardSection>
-        <ChangeEmail
-          :user="user"
-          :status="changeEmailStatus"
-          @save="changeEmail"
-        />
-        <QSeparator />
-        <ChangePassword
-          :status="changePasswordStatus"
-          @save="changePassword"
-        />
-        <QCardActions>
+        <div class="row justify-end">
           <RequestDeleteAccount
             :status="requestDeleteAccountStatus"
             @request-delete-account="requestDeleteAccount"
           />
-        </QCardActions>
-      </QCardSection>
-    </KFormContainer>
-    <GroupSettings />
-    <KFormContainer
-      v-if="!$q.platform.is.cordova && pushIsSupported"
-    >
-      <QCardSection>
-        <div class="text-h6">
-          {{ $t('USERDATA.PUSH') }}
         </div>
-      </QCardSection>
-      <QCardSection>
-        <Push />
-      </QCardSection>
-    </KFormContainer>
-    <KFormContainer
-      v-if="!$q.platform.is.cordova && hasPwaInstallPrompt()"
-    >
-      <QCardSection>
-        <div class="text-h6">
-          {{ $t('USERDATA.APP') }}
+      </div>
+      <QSeparator />
+      <GroupSettings />
+      <template v-if="pushIsSupported">
+        <QSeparator />
+        <div
+          class="edit-box"
+        >
+          <div class="text-h5 text-primary q-mb-lg">
+            {{ $t('USERDATA.PUSH') }}
+          </div>
+          <Push class="q-ma-lg" />
         </div>
-      </QCardSection>
-      <QCardSection>
-        <InstallPwa />
-      </QCardSection>
-    </KFormContainer>
-  </div>
+      </template>
+      <template
+        v-if="hasPwaInstallPrompt()"
+      >
+        <QSeparator />
+        <div class="edit-box">
+          <div class="text-h5 text-primary q-mb-lg">
+            {{ $t('USERDATA.APP') }}
+          </div>
+          <InstallPwa class="q-ma-lg" />
+        </div>
+      </template>
+    </template>
+  </component>
 </template>
 
 <script setup>
 import {
-  QCardSection,
   QSeparator,
-  QCardActions,
+  QField,
+  QIcon,
+  QCard,
 } from 'quasar'
 
 import {
   useChangeEmailMutation,
   useChangePasswordMutation,
-  useRequestDeleteAccountMutation, useSaveUserMutation,
+  useRequestDeleteAccountMutation,
+  useSaveUserMutation,
 } from '@/authuser/mutations'
 import { useAuthService } from '@/authuser/services'
 import { useGeoService } from '@/base/services/geo'
@@ -107,16 +111,15 @@ import { hasPwaInstallPrompt } from '@/base/services/pwa'
 import { usePushService } from '@/subscriptions/services/push'
 import { showToast } from '@/utils/toasts'
 
-import ChangeEmail from '@/authuser/components/Settings/ChangeEmail'
-import ChangePassword from '@/authuser/components/Settings/ChangePassword'
-import ChangePhoto from '@/authuser/components/Settings/ChangePhoto'
-import InstallPwa from '@/authuser/components/Settings/InstallPwa'
-import ProfileEdit from '@/authuser/components/Settings/ProfileEdit'
-import Push from '@/authuser/components/Settings/Push'
-import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAccount'
-import KFormContainer from '@/base/components/KFormContainer'
-import GroupSettings from '@/group/components/GroupSettings'
-import LocaleSelect from '@/utils/components/LocaleSelect'
+import ChangeEmail from '@/authuser/components/Settings/ChangeEmail.vue'
+import ChangePassword from '@/authuser/components/Settings/ChangePassword.vue'
+import InstallPwa from '@/authuser/components/Settings/InstallPwa.vue'
+import ProfileEdit from '@/authuser/components/Settings/ProfileEdit.vue'
+import Push from '@/authuser/components/Settings/Push.vue'
+import RequestDeleteAccount from '@/authuser/components/Settings/RequestDeleteAccount.vue'
+import GroupSettings from '@/group/components/GroupSettings.vue'
+import ChooseImage from '@/utils/components/ChooseImage.vue'
+import LocaleSelect from '@/utils/components/LocaleSelect.vue'
 
 const { user } = useAuthService()
 
@@ -161,6 +164,5 @@ async function saveUser (data) {
 </script>
 
 <style scoped lang="sass">
-@import '~editbox'
-
+@import 'editbox'
 </style>

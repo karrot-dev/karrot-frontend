@@ -83,7 +83,7 @@ import { optionsFor } from '@/places/placeStatus'
 import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
 
-import ProfilePicture from '@/users/components/ProfilePicture'
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
 
 const emit = defineEmits(['close'])
 

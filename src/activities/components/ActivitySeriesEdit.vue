@@ -223,7 +223,10 @@
           <QIcon name="code" />
         </template>
         <template #hint>
-          <i18n-t keypath="CREATEACTIVITY.RRULE_HELPER">
+          <i18n-t
+            scope="global"
+            keypath="CREATEACTIVITY.RRULE_HELPER"
+          >
             <template #ruleHelper>
               <a
                 v-t="'CREATEACTIVITY.RRULE_HELPER_URL'"
@@ -367,11 +370,11 @@ import { useUserService } from '@/users/services'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog'
-import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit'
-import MarkdownInput from '@/utils/components/MarkdownInput'
+import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog.vue'
+import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit.vue'
+import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
-const ActivityItem = defineAsyncComponent(() => import('@/activities/components/ActivityItem'))
+const ActivityItem = defineAsyncComponent(() => import('@/activities/components/ActivityItem.vue'))
 
 export default {
   components: {
@@ -595,5 +598,5 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import '~editbox'
+@import 'editbox'
 </style>

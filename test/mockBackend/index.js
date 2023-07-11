@@ -1,5 +1,7 @@
+import { flushPromises } from '@vue/test-utils'
 import addDays from 'date-fns/addDays'
 import { sample as _sample } from 'lodash'
+import { beforeEach, afterEach } from 'vitest'
 
 import { createMockActivitiesBackend, generateActivity } from '>/mockBackend/activities'
 import { createMockActivityTypesBackend, generateActivityType } from '>/mockBackend/activityTypes'
@@ -10,7 +12,8 @@ import { createMockHistoryBackend } from '>/mockBackend/history'
 
 import { createMockActivitySeriesBackend, generateActivitySeries } from './activitySeries'
 import { createMockApplicationsBackend, generateApplication } from './applications'
-import { createAuthUserBackend } from './authUser'
+import { createMockAuthUserBackend } from './authUser'
+import { createMockConfigBackend } from './config'
 import { addUserToConversation, generateConversation } from './conversations'
 import { createMockGroupDetailBackend, generateGroup } from './groups'
 import { createMockGroupsInfoBackend } from './groupsInfo'
@@ -24,13 +27,13 @@ import { createMockPlacesBackend, generatePlace } from './places'
 import { createMockStatusBackend } from './status'
 import { createMockUsersBackend, generateUser } from './users'
 
-export let db
-export let ctx
+export const db = createDatabase()
+export const ctx = createContext()
 
 /**
  * Creates a fake backend that can be used in tests.
  *
- * Internally holds a mini database of entries that each backend
+ * Internally holds a mini db of entries that each backend
  * module can use how it wishes, so things that cross-reference each
  * other can work.
  */
@@ -39,8 +42,16 @@ export function useMockBackend () {
   afterEach(resetMockBackend)
 }
 
-export function setupMockBackend () {
-  db = {
+export function getMockBackendContext () {
+  return ctx
+}
+
+export function getMockBackendDatabase () {
+  return db
+}
+
+function createDatabase () {
+  const newDB = {
     users: [],
     places: [],
     placeTypes: [],
@@ -58,24 +69,48 @@ export function setupMockBackend () {
     agreements: [],
     history: [],
   }
-  db.orm = {
-    users: createFinder(db, 'users'),
-    feedback: createFinder(db, 'feedback'),
-    groups: createFinder(db, 'groups'),
-    places: createFinder(db, 'places'),
-    placeTypes: createFinder(db, 'placeTypes'),
-    conversations: createFinder(db, 'conversations'),
-    issues: createFinder(db, 'issues'),
-    activities: createFinder(db, 'activities'),
-    activityTypes: createFinder(db, 'activityTypes'),
-    agreements: createFinder(db, 'agreements'),
+  newDB.orm = {
+    users: createFinder(newDB, 'users'),
+    feedback: createFinder(newDB, 'feedback'),
+    groups: createFinder(newDB, 'groups'),
+    places: createFinder(newDB, 'places'),
+    placeTypes: createFinder(newDB, 'placeTypes'),
+    conversations: createFinder(newDB, 'conversations'),
+    issues: createFinder(newDB, 'issues'),
+    activities: createFinder(newDB, 'activities'),
+    activityTypes: createFinder(newDB, 'activityTypes'),
+    agreements: createFinder(newDB, 'agreements'),
   }
-  ctx = {
+  return newDB
+}
+
+function resetDatabase () {
+  for (const key of Object.keys(db)) {
+    if (key !== 'orm') {
+      db[key] = []
+    }
+  }
+}
+
+function resetContext () {
+  Object.assign(ctx, {
+    authUser: null,
+  })
+}
+
+function createContext () {
+  return {
     authUser: null,
   }
+}
+
+export function setupMockBackend () {
+  resetDatabase()
+  resetContext()
   initializeMockAxios()
 
-  createAuthUserBackend()
+  createMockConfigBackend()
+  createMockAuthUserBackend()
   createMockApplicationsBackend()
   createMockActivitiesBackend()
   createMockActivitySeriesBackend()
@@ -111,9 +146,11 @@ export function setupMockBackend () {
   })
 }
 
-export function resetMockBackend () {
-  db = null
-  ctx = null
+export async function resetMockBackend () {
+  // ensures lingering requests don't end up being made
+  await flushPromises()
+  resetDatabase()
+  resetContext()
   resetMockAxios()
 }
 

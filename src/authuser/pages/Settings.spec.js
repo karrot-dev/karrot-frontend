@@ -3,34 +3,35 @@ import { faker } from '@faker-js/faker'
 import userEvent from '@testing-library/user-event'
 import { render } from '@testing-library/vue'
 import { flushPromises } from '@vue/test-utils'
+import { vi } from 'vitest'
 
 import { resetServices } from '@/utils/datastore/helpers'
 import { showToast } from '@/utils/toasts'
 
-import { withDefaults } from '>/helpers'
+import { withDefaults, invalidateQueries } from '>/helpers'
 import {
   useMockBackend,
   createUser,
   createGroup,
   loginAs,
-  ctx,
+  getMockBackendContext,
 } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
 
-import Settings from './Settings'
+import Settings from './Settings.vue'
 
 // somehow showToast can't run Notify.create, possibly a problem with initializing Quasar
 // let's just mock it in the meantime
-jest.mock('@/utils/toasts')
+vi.mock('@/utils/toasts')
 
 describe('User Settings', () => {
   useMockBackend()
   let user
 
   beforeEach(() => {
-    jest.resetModules()
-    jest.clearAllMocks()
+    vi.resetModules()
+    vi.clearAllMocks()
     resetServices()
   })
 
@@ -43,24 +44,18 @@ describe('User Settings', () => {
   })
 
   it('renders settings page', async () => {
-    const { findAllByText } = render(Settings, withDefaults({
-      global: { stubs: { Croppa: true } },
-    }))
-    await flushPromises()
-
+    const { findAllByText } = render(Settings, await withDefaults())
     await findAllByText('Profile')
   })
 
   it('changes name', async () => {
     const { type, click, clear } = userEvent.setup()
 
-    const { findByTestId, findByRole, findByDisplayValue } = render(Settings, withDefaults({
-      global: { stubs: { Croppa: true } },
-    }))
+    const { findByTestId, findByRole, findByDisplayValue } = render(Settings, await withDefaults())
     await flushPromises()
 
     // set a new name
-    const newDisplayName = faker.name.findName()
+    const newDisplayName = faker.name.fullName()
     const textbox = await findByRole('textbox', { name: 'Name' })
     await clear(textbox)
     await type(textbox, newDisplayName)
@@ -76,9 +71,7 @@ describe('User Settings', () => {
   it('changes email', async () => {
     const { type, click, clear } = userEvent.setup()
 
-    const { findByTestId, findByRole } = render(Settings, withDefaults({
-      global: { stubs: { Croppa: true } },
-    }))
+    const { findByTestId, findByRole } = render(Settings, await withDefaults())
     await flushPromises()
 
     // set a new email address
@@ -95,15 +88,13 @@ describe('User Settings', () => {
     await click(submitButton)
     await flushPromises()
 
-    expect(ctx.authUser.unverifiedEmail).toBe(newEmail)
+    expect(getMockBackendContext().authUser.unverifiedEmail).toBe(newEmail)
   })
 
   it('changes password', async () => {
     const { type, click } = userEvent.setup()
 
-    const { findByRole, findByTestId } = render(Settings, withDefaults({
-      global: { stubs: { Croppa: true } },
-    }))
+    const { findByRole, findByTestId } = render(Settings, await withDefaults())
     await flushPromises()
 
     // set a new password
@@ -126,9 +117,7 @@ describe('User Settings', () => {
   it('changes notifications', async () => {
     const { click } = userEvent.setup()
 
-    const { findByText, findByRole } = render(Settings, withDefaults({
-      global: { stubs: { Croppa: true } },
-    }))
+    const { findByText, findByRole } = render(Settings, await withDefaults())
     await flushPromises()
     await findByRole('checkbox', { name: 'New applications', checked: false })
 
@@ -140,8 +129,8 @@ describe('User Settings', () => {
     expect(showToast.mock.calls[0][0].message).toBe('NOTIFICATIONS.CHANGES_SAVED')
 
     // TODO: add mock websockets, for now we need to manually invalidate...
-    await require('@/base/queryClient').default.invalidateQueries()
-    await flushPromises()
+    await invalidateQueries()
+
     await findByRole('checkbox', { name: 'New applications', checked: true })
 
     // let's disable it again
@@ -152,8 +141,8 @@ describe('User Settings', () => {
     expect(showToast.mock.calls[0][0].message).toBe('NOTIFICATIONS.CHANGES_SAVED')
 
     // TODO: add mock websockets, for now we need to manually invalidate...
-    await require('@/base/queryClient').default.invalidateQueries()
-    await flushPromises()
+    await invalidateQueries()
+
     await findByRole('checkbox', { name: 'New applications', checked: false })
   })
 })

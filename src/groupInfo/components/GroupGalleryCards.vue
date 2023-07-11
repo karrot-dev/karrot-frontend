@@ -16,7 +16,7 @@
 <script>
 import { QResizeObserver } from 'quasar'
 
-import GroupGalleryCard from './GroupGalleryCard'
+import GroupGalleryCard from './GroupGalleryCard.vue'
 
 export default {
   components: {

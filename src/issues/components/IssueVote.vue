@@ -120,7 +120,7 @@ import {
 import statusMixin from '@/utils/mixins/statusMixin'
 import reactiveNow from '@/utils/reactiveNow'
 
-import DateAsWords from '@/utils/components/DateAsWords'
+import DateAsWords from '@/utils/components/DateAsWords.vue'
 
 export default {
   components: {

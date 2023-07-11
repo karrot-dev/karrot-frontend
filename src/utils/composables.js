@@ -1,4 +1,6 @@
-import { computed, watch, onScopeDispose } from 'vue'
+import { createEventHook, useFileDialog } from '@vueuse/core'
+import { Dialog } from 'quasar'
+import { computed, onScopeDispose, watch } from 'vue'
 import { useQueryClient } from 'vue-query'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -6,6 +8,9 @@ import { useAuthService } from '@/authuser/services'
 import { socketEvents } from '@/base/services/websocket'
 import { useStatusService } from '@/status/services'
 import { useBreadcrumbs } from '@/topbar/services'
+import { imageUploadAccept } from '@/utils/utils'
+
+import ChooseImageDialog from '@/utils/components/ChooseImageDialog.vue'
 
 export function useClearDataOnLogout () {
   const queryClient = useQueryClient()
@@ -86,4 +91,32 @@ export function useIntegerRouteParam (name) {
       param.value = val
     },
   })
+}
+
+export function useChooseImage ({
+  title,
+  aspectRatio,
+  outputFormat,
+} = {}) {
+  const { open, onChange } = useFileDialog({
+    multiple: false,
+    accept: imageUploadAccept,
+  })
+  const onChooseImageHook = createEventHook()
+  onChange(files => {
+    Dialog.create({
+      component: ChooseImageDialog,
+      componentProps: {
+        title,
+        file: files[0],
+        aspectRatio,
+        outputFormat,
+        onChooseImage: onChooseImageHook.trigger,
+      },
+    })
+  })
+  return {
+    chooseImage: open,
+    onChooseImage: onChooseImageHook.on,
+  }
 }

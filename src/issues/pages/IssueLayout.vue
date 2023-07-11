@@ -30,7 +30,7 @@ import {
   QPage,
 } from 'quasar'
 
-import IssueTabs from '@/issues/components/IssueTabs'
+import IssueTabs from '@/issues/components/IssueTabs.vue'
 
 export default {
   components: {

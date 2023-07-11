@@ -148,7 +148,7 @@
     "rollup-plugin-visualizer": "^5.9.2",
     "shx": "^0.3.4",
     "storybook": "^7.0.7",
-    "stylelint": "^15.6.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-recess-order": "^4.0.0",
     "stylelint-config-recommended-scss": "^11.0.0",
     "stylelint-config-sass-guidelines": "^10.0.0",

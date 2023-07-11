@@ -1,6 +1,16 @@
 <template>
-  <Teleport to="body">
-    <div class="gallery">
+  <QDialog
+    ref="dialogRef"
+    maximized
+    @hide="onDialogHide"
+    @keyup.left="previousImage"
+    @keyup.right="nextImage"
+  >
+    <QCard
+      flat
+      class="q-dialog-plugin bg-transparent no-margin"
+      @click="maybeClose"
+    >
       <QCarousel
         ref="carouselRef"
         v-model="currentId"
@@ -13,8 +23,8 @@
         control-color="white"
         infinite
         padding
-        :class="Platform.is.mobile ? '' : 'q-pa-xl'"
-        @click="event => closeIfOverlay(event)"
+        class="bg-transparent"
+        :class="Platform.is.desktop ? 'q-pa-xl' : ''"
       >
         <QCarouselSlide
           v-for="image in images"
@@ -42,25 +52,27 @@
               text-color="primary"
               class="q-ml-sm"
               :label="$t('BUTTON.CLOSE')"
-              @click="emit('close')"
+              @click.stop.prevent="onDialogOK"
             />
           </QCarouselControl>
         </template>
       </QCarousel>
-    </div>
-  </Teleport>
+    </QCard>
+  </QDialog>
 </template>
 
 <script setup>
-import { useEventListener } from '@vueuse/core'
 import {
+  QDialog,
   QCarousel,
   QCarouselSlide,
   QCarouselControl,
   QBtn,
   Platform,
+  QCard,
+  useDialogPluginComponent,
 } from 'quasar'
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, ref } from 'vue'
 
 import { isViewableImageContentType } from '@/utils/utils'
 
@@ -76,9 +88,11 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits([
-  'close',
+defineEmits([
+  ...useDialogPluginComponent.emits,
 ])
+
+const { dialogRef, onDialogHide, onDialogOK } = useDialogPluginComponent()
 
 const images = computed(() => {
   return props.attachments.filter(attachment => isViewableImageContentType(attachment.contentType))
@@ -92,23 +106,12 @@ const moreThanOneImage = computed(() => images.value.length > 1)
 
 const carouselRef = ref(null)
 
-// Support keyboard navigation
-useEventListener(document, 'keyup', event => {
-  if (event.code === 'ArrowRight') {
-    nextImage()
-  }
-  else if (event.code === 'ArrowLeft') {
-    previousImage()
-  }
-  else if (event.code === 'Escape') {
-    emit('close')
-  }
-})
-
-function closeIfOverlay (event) {
-  // The background of the carousel has a role "tabpanel" we can check...
-  if (event.target.attributes.role?.value === 'tabpanel') {
-    emit('close')
+function maybeClose (event) {
+  if ([
+    'q-carousel__slide', // The slide itself
+    'q-panel', // The overlay
+  ].some(className => event.target.classList.contains(className))) {
+    onDialogOK()
   }
 }
 
@@ -119,31 +122,10 @@ function previousImage () {
   carouselRef.value.previous()
 }
 
-onMounted(() => {
-  document.body.style.overflow = 'hidden'
-})
-
-onUnmounted(() => {
-  document.body.style.overflow = null
-})
-
 </script>
 
 <style scoped lang="sass">
-.gallery
-  // make it full screen
-  // the carousel does have a fullscreen mode
-  // but it sets the whole body to position: fixed
-  // which causes it to scroll upwards
-  position: fixed
-  inset: 0
-  z-index: 10000
-  width: 100vw
-  height: 100vh
-
 .q-carousel
-  // a nice dimmed semi-transparent background
-  background-color: rgba(0, 0, 0, 0.5)
   // full screen
   height: 100vh
 

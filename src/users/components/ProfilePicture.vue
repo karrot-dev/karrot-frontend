@@ -32,7 +32,6 @@
         to: { name: 'user', params: { userId: user.id } },
         title: tooltip,
       } : {}"
-      @click.stop=""
     >
       <img
         v-if="hasPhoto"

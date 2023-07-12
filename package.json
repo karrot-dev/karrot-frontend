@@ -144,7 +144,10 @@
     "stylelint-config-standard": "^34.0.0",
     "stylelint-scss": "^5.0.1",
     "vitest": "^0.33.0",
-    "vue-loader": "^17.2.2"
+    "vue-loader": "^17.2.2",
+    "workbox-build": "^7.0.0",
+    "workbox-core": "^7.0.0",
+    "workbox-precaching": "^7.0.0"
   },
   "engines": {
     "node": ">= 16",

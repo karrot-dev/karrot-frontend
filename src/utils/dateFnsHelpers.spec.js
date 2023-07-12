@@ -1,8 +1,5 @@
 import FakeTimers from '@sinonjs/fake-timers'
-import { flushPromises } from '@vue/test-utils'
 import { vi } from 'vitest'
-
-import { sleep } from '>/helpers'
 
 describe('dateFnsHelper', () => {
   const now = new Date('2017-08-12T12:00:00Z')
@@ -22,8 +19,7 @@ describe('dateFnsHelper', () => {
   })
 
   it('handles other locales', async () => {
-    dateFnsHelper.setLocale('de')
-    await flushPromises()
+    await dateFnsHelper.setLocale('de')
     expect(dateFnsHelper.formatDistanceToNow(date, { addSuffix: true })).toBe('vor 1 Tag')
   })
 })

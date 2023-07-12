@@ -1,4 +1,4 @@
-import { useMutation } from 'vue-query'
+import { useMutation } from '@tanstack/vue-query'
 
 import conversationsAPI from '@/messages/api/conversations'
 import messagesAPI from '@/messages/api/messages'

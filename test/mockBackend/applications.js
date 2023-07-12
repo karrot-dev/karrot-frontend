@@ -15,7 +15,7 @@ export function generateApplication (params) {
     user: ctx.authUser.id,
     createdAt: new Date(),
     questions: group.applicationQuestions,
-    answers: faker.random.words(10),
+    answers: faker.lorem.words(10),
     status: 'pending',
     decidedBy: null,
     decidedAt: null,

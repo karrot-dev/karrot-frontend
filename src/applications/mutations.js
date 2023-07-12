@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from 'vue-query'
+import { useMutation, useQueryClient } from '@tanstack/vue-query'
 
 import api from '@/applications/api/applications'
 import { QUERY_KEY_BASE } from '@/applications/queries'

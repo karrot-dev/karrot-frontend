@@ -1,5 +1,5 @@
+import { useQuery } from '@tanstack/vue-query'
 import { unref, computed } from 'vue'
-import { useQuery } from 'vue-query'
 
 import api from '@/communityFeed/api/communityFeed'
 

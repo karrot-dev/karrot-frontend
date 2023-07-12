@@ -11,7 +11,7 @@ export function generateMessage (params = {}) {
   return {
     id: nextId++,
     author: null,
-    content: faker.random.words(20),
+    content: faker.lorem.words(20),
     conversation: null,
     createdAt: new Date(),
     updatedAt: new Date(),

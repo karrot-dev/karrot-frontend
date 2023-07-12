@@ -11,7 +11,7 @@ let nextId = 1
 export function generateOffer (params = {}) {
   return {
     id: nextId++,
-    name: faker.random.words(5),
+    name: faker.lorem.words(5),
     description: faker.lorem.paragraphs(2),
     status: realSample(['active', 'archived']),
     createdAt: faker.date.past(),

@@ -1,5 +1,5 @@
+import { useMutation, useQueryClient } from '@tanstack/vue-query'
 import { throttle } from 'quasar'
-import { useMutation, useQueryClient } from 'vue-query'
 import { useRoute, useRouter } from 'vue-router'
 
 import { useSetAuthUser } from '@/authuser/queries'

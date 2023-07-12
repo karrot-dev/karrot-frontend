@@ -1,5 +1,5 @@
+import { useInfiniteQuery, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, unref } from 'vue'
-import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
 import { isMutating } from '@/offers/mutations'
 import { useSocketEvents } from '@/utils/composables'

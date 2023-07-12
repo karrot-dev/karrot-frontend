@@ -63,7 +63,7 @@ test('give activity feedback', async () => {
 
   // write a nice comment and put some weight in
   const feedbackComment = faker.lorem.paragraph(2)
-  const feedbackWeight = faker.datatype.number({ min: 1, max: 150 })
+  const feedbackWeight = faker.number.int({ min: 1, max: 150 })
   await type(
     await findByLabelText('Was everything fine? Did everyone show up? Your comment here...', { selector: 'textarea' }),
     feedbackComment,

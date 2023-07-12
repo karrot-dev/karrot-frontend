@@ -39,12 +39,12 @@ export const useI18nService = defineService(() => {
 
     axios.defaults.headers.common['Accept-Language'] = value
     document.documentElement.setAttribute('lang', value)
-    dateFnsHelper.setLocale(value)
     polyfill.setLocale(value)
 
     const [messages, { default: quasarMessages }] = await Promise.all([
       loadMessages(value),
       loadQuasarMessages(value),
+      dateFnsHelper.setLocale(value),
     ])
     i18n.setLocaleMessage(value, messages.default || messages)
 

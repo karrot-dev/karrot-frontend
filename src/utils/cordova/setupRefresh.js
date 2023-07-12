@@ -1,4 +1,4 @@
-import { onlineManager, focusManager } from 'vue-query'
+import { onlineManager, focusManager } from '@tanstack/vue-query'
 
 export function useCordovaOnlineAndFocusState () {
   // Hook vue-query up to cordova online state

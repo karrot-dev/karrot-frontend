@@ -34,7 +34,7 @@ describe('OfferCreate', () => {
     const { getByLabelText, getByRole, unmount } = render(OfferCreate, await withDefaults())
     await flushPromises()
     const offerParams = {
-      name: faker.random.words(5),
+      name: faker.lorem.words(5),
       description: faker.lorem.paragraphs(2),
     }
     await fireEvent.update(getByLabelText('Name'), offerParams.name)

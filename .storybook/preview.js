@@ -3,7 +3,7 @@ import 'quasar/dist/quasar.css'
 import '@/css/app.sass'
 
 import VueRouter from 'vue-router'
-import { VueQueryPlugin } from 'vue-query'
+import { VueQueryPlugin } from '@tanstack/vue-query'
 import { i18nPlugin } from '@/base/i18n'
 import { Quasar } from 'quasar'
 import quasarConfig from '>/quasarConfig'

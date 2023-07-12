@@ -7,8 +7,8 @@
 </template>
 
 <script setup>
+import { useIsFetching } from '@tanstack/vue-query'
 import { computed } from 'vue'
-import { useIsFetching } from 'vue-query'
 
 import carrotLogo from '@/logo/assets/carrot-logo.svg'
 

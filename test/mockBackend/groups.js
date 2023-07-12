@@ -9,7 +9,7 @@ let nextId = 1
 export function generateGroup (params = {}) {
   return {
     id: nextId++,
-    name: faker.random.words(5),
+    name: faker.lorem.words(5),
     description: faker.lorem.paragraphs(2),
     welcomeMessage: faker.lorem.paragraphs(2),
     publicDescription: faker.lorem.paragraphs(2),
@@ -17,10 +17,10 @@ export function generateGroup (params = {}) {
     applicationQuestionsDefault: faker.lorem.paragraphs(2),
     members: [],
     memberships: {},
-    address: faker.address.streetAddress(true),
-    latitude: faker.address.latitude(),
-    longitude: faker.address.longitude(),
-    timezone: faker.address.timeZone(),
+    address: faker.location.streetAddress(true),
+    latitude: faker.location.latitude(),
+    longitude: faker.location.longitude(),
+    timezone: faker.location.timeZone(),
     status: 'active',
     theme: 'foodsaving',
     roles: {},

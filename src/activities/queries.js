@@ -1,6 +1,6 @@
+import { useInfiniteQuery, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { debounce } from 'quasar'
 import { unref, computed, watch } from 'vue'
-import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
 import { paginationHelpers } from '@/messages/queries'
 import { useSocketEvents } from '@/utils/composables'

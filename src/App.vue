@@ -14,8 +14,8 @@
  * Root component
  */
 
+import { useQueryClient } from '@tanstack/vue-query'
 import { onErrorCaptured } from 'vue'
-import { useQueryClient } from 'vue-query'
 
 import { useActivitiesUpdater, useActivitySeriesUpdater, useActivityTypeUpdater } from '@/activities/queries'
 import { useAgreementsUpdater } from '@/agreements/queries'

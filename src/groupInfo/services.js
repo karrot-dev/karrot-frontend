@@ -1,5 +1,5 @@
+import { useQueryClient } from '@tanstack/vue-query'
 import { computed, watch } from 'vue'
-import { useQueryClient } from 'vue-query'
 
 import { useGroupInfoListQuery } from '@/groupInfo/queries'
 import { queryKeyPlaceListAll } from '@/places/queries'

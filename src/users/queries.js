@@ -1,5 +1,5 @@
+import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, unref } from 'vue'
-import { useQuery, useQueryClient } from 'vue-query'
 
 import { useSocketEvents } from '@/utils/composables'
 import { useQueryHelpers } from '@/utils/queryHelpers'

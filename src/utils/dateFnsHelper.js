@@ -1,9 +1,9 @@
 import formatDistance from 'date-fns/formatDistance'
 import formatDistanceStrict from 'date-fns/formatDistanceStrict'
 import en from 'date-fns/locale/en-US'
-import { reactive, watch } from 'vue'
+import { reactive } from 'vue'
 
-import { dateFnsLocale } from '@/locales/index'
+import { dateFnsLocale } from '@/locales'
 import reactiveNow from '@/utils/reactiveNow'
 
 const state = reactive({
@@ -11,15 +11,12 @@ const state = reactive({
   localeData: en,
 })
 
-watch(() => state.locale, async locale => {
-  const localeData = (await dateFnsLocale(locale)).default
-  if (state.locale !== locale) return
-  state.localeData = localeData
-})
-
 export default {
-  setLocale (newLocale) {
-    state.locale = newLocale
+  async setLocale (locale) {
+    state.locale = locale
+    const localeData = (await dateFnsLocale(locale)).default
+    if (state.locale !== locale) return
+    state.localeData = localeData
   },
   formatDistanceStrict (dateA, dateB) {
     return formatDistanceStrict(dateA, dateB, {

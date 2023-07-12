@@ -1,5 +1,5 @@
+import { useMutation } from '@tanstack/vue-query'
 import { unref } from 'vue'
-import { useMutation } from 'vue-query'
 import { useRouter } from 'vue-router'
 
 import api from '@/group/api/groups'

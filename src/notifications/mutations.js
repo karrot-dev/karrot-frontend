@@ -1,4 +1,4 @@
-import { useMutation } from 'vue-query'
+import { useMutation } from '@tanstack/vue-query'
 
 import api from '@/notifications/api/notifications'
 import { withStatus } from '@/utils/queryHelpers'

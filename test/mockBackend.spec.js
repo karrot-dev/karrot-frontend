@@ -57,7 +57,7 @@ describe('mock backend', () => {
     addUserToGroup(user, group)
     loginAs(user)
     const offerData = {
-      name: faker.random.words(5),
+      name: faker.lorem.words(5),
       description: faker.lorem.paragraphs(2),
       group: group.id,
     }

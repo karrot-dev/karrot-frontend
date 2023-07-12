@@ -1,5 +1,5 @@
+import { useInfiniteQuery, useQuery } from '@tanstack/vue-query'
 import { computed, unref } from 'vue'
-import { useInfiniteQuery, useQuery } from 'vue-query'
 
 import { indexById } from '@/utils/datastore/helpers'
 import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'

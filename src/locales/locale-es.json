@@ -130,7 +130,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Próximas actividades en esta serie",
     "CHANGE_AFFECTS_USERS": "This change affects the future activities of {users}.",
     "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
-},
+  },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Cantidad de alimentos que has podido ahorrar",
     "AMOUNT_INFO": "Para las estadísticas de la página, añadiremos la cantidad total de comentarios.",
@@ -221,6 +221,16 @@
     "WHAT": "¿De qué trata este chat?",
     "WITHDRAWN": "retirada el {relativeDate}"
   },
+  "ATTACHMENTS": {
+    "ADD": "Add attachment",
+    "MAX_ATTACHMENT_SIZE": "Maximum attachment size is {size}",
+    "MAX_ATTACHMENT_COUNT": "You can have up to {count} attachments",
+    "TYPE": {
+      "AUDIO": "Audio",
+      "VIDEO": "Video",
+      "IMAGE": "Image"
+    }
+  },
   "ATTENTION": "¡Atención!",
   "BUTTON": {
     "ACCEPT": "Aceptar",
@@ -239,6 +249,7 @@
     "DELETE": "Eliminar",
     "DELETE_ACCOUNT": "Eliminar cuenta",
     "DISABLE": "Deshabilitar",
+    "DOWNLOAD": "Download",
     "EDIT": "Editar",
     "ENABLE": "Habilitar",
     "HIDE": "Ocultar",
@@ -251,6 +262,7 @@
     "RESET": "Reiniciar",
     "SAVE_CHANGES": "Guardar cambios",
     "SEARCH": "Buscar",
+    "SEND_MESSAGE": "Send message",
     "SHOW": "Mostrar",
     "SHOW_LESS": "Mostrar menos",
     "SHOW_MORE": "Mostrar más",
@@ -322,6 +334,9 @@
     "COMMENT_HELPER": "¿Qué debería saber la gente cuando se registra en esta actividad?",
     "CUSTOM": "Personalizado",
     "DATE": "Fecha",
+    "BANNER_IMAGE": "Banner image",
+    "BANNER_IMAGE_TIP": "Tip: You can get free banners images from {website}",
+    "SELECT_BANNER_IMAGE": "Select banner image",
     "DIFFERS_WARNING": "Este valor difiere del predeterminado. Para deshacer este cambio, haz clic en la flecha y guarda los cambios.",
     "DISABLE_TITLE": "¿Deshabilitar?",
     "ENABLE_DISABLE_MESSAGE": "Las personas que se unieron a esta actividad recibirán una notificación. Puedes cambiar este texto para proporcionar una razón:",
@@ -387,7 +402,9 @@
     "SEARCH_RESULTS": "Buscar resultados",
     "SERVER_ERROR": "Error del servidor",
     "CLEAR_FILTERS": "Eliminar filtros",
-    "LAST_CHANGED_BY": "Last changed by"
+    "LAST_CHANGED_BY": "Last changed by",
+    "UPLOADING": "Uploading",
+    "PROCESSING": "Processing"
   },
   "GROUP": {
     "ACTIVITIES": "Actividades",

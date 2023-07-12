@@ -130,7 +130,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series",
     "CHANGE_AFFECTS_USERS": "This change affects the future activities of {users}.",
     "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
-},
+  },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
@@ -221,6 +221,16 @@
     "WHAT": "О чём этот чат?",
     "WITHDRAWN": "withdrawn {relativeDate}"
   },
+  "ATTACHMENTS": {
+    "ADD": "Add attachment",
+    "MAX_ATTACHMENT_SIZE": "Maximum attachment size is {size}",
+    "MAX_ATTACHMENT_COUNT": "You can have up to {count} attachments",
+    "TYPE": {
+      "AUDIO": "Audio",
+      "VIDEO": "Video",
+      "IMAGE": "Image"
+    }
+  },
   "ATTENTION": "Внимание!",
   "BUTTON": {
     "ACCEPT": "Принять",
@@ -239,6 +249,7 @@
     "DELETE": "Удалить",
     "DELETE_ACCOUNT": "Удалить аккаунт",
     "DISABLE": "Выключить",
+    "DOWNLOAD": "Download",
     "EDIT": "Редактировать",
     "ENABLE": "Включить",
     "HIDE": "Скрыть",
@@ -251,6 +262,7 @@
     "RESET": "Сброс",
     "SAVE_CHANGES": "Сохранить изменения",
     "SEARCH": "Искать",
+    "SEND_MESSAGE": "Send message",
     "SHOW": "Показать",
     "SHOW_LESS": "Скрыть подробности",
     "SHOW_MORE": "Показать больше",
@@ -322,6 +334,9 @@
     "COMMENT_HELPER": "What should people know when signing up to this?",
     "CUSTOM": "Custom",
     "DATE": "Date",
+    "BANNER_IMAGE": "Banner image",
+    "BANNER_IMAGE_TIP": "Tip: You can get free banners images from {website}",
+    "SELECT_BANNER_IMAGE": "Select banner image",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
     "DISABLE_TITLE": "Disable?",
     "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
@@ -387,7 +402,9 @@
     "SEARCH_RESULTS": "Search results",
     "SERVER_ERROR": "Ошибка на сервере",
     "CLEAR_FILTERS": "Clear filters",
-    "LAST_CHANGED_BY": "Last changed by"
+    "LAST_CHANGED_BY": "Last changed by",
+    "UPLOADING": "Uploading",
+    "PROCESSING": "Processing"
   },
   "GROUP": {
     "ACTIVITIES": "Activities",

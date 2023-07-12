@@ -130,7 +130,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Activités à venir dans cette série",
     "CHANGE_AFFECTS_USERS": "Ce changement affecte les activités futurues de {users}.",
     "CHANGE_AFFECTS_USERS_HINT": "En plus de l'historique, votre message leur sera envoyé directement. Indiquez-leur qu'est-ce qui change, pourquoi l'activité n'est plus disponible et comment ils peuvent s'engager à la place."
-},
+  },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Quantité de nourriture non gaspillée",
     "AMOUNT_INFO": "Pour les statistiques des lieux de récoltes, nous additionnerons les quantités de tous les compte-rendu de récolte.",
@@ -221,6 +221,16 @@
     "WHAT": "C'est quoi ce chat, là ?",
     "WITHDRAWN": "retirée {relativeDate}"
   },
+  "ATTACHMENTS": {
+    "ADD": "Add attachment",
+    "MAX_ATTACHMENT_SIZE": "Maximum attachment size is {size}",
+    "MAX_ATTACHMENT_COUNT": "You can have up to {count} attachments",
+    "TYPE": {
+      "AUDIO": "Audio",
+      "VIDEO": "Video",
+      "IMAGE": "Image"
+    }
+  },
   "ATTENTION": "Attention !",
   "BUTTON": {
     "ACCEPT": "Accepter",
@@ -239,6 +249,7 @@
     "DELETE": "Effacer",
     "DELETE_ACCOUNT": "Supprimer le compte",
     "DISABLE": "Désactiver",
+    "DOWNLOAD": "Download",
     "EDIT": "Éditer",
     "ENABLE": "activer",
     "HIDE": "Cacher",
@@ -251,6 +262,7 @@
     "RESET": "Réinitialiser",
     "SAVE_CHANGES": "Sauvegarder",
     "SEARCH": "Recherche",
+    "SEND_MESSAGE": "Send message",
     "SHOW": "Afficher",
     "SHOW_LESS": "Montrer moins",
     "SHOW_MORE": "Afficher plus",
@@ -322,6 +334,9 @@
     "COMMENT_HELPER": "Que devraient savoir les personnes qui s'inscrivent à ça ?",
     "CUSTOM": "Personnalisée",
     "DATE": "Date",
+    "BANNER_IMAGE": "Banner image",
+    "BANNER_IMAGE_TIP": "Tip: You can get free banners images from {website}",
+    "SELECT_BANNER_IMAGE": "Select banner image",
     "DIFFERS_WARNING": "Cette valeur est différente de celle définie par défaut. Pour ne pas effectuer cette modification, clique sur le bouton en flèche et sauvegarde les changements.",
     "DISABLE_TITLE": "Désactiver ?",
     "ENABLE_DISABLE_MESSAGE": "Les utilisateurs qui ont rejoint recevrons une notification. Vous pouvez changer ce texte pour fournir une raison : ",
@@ -387,7 +402,9 @@
     "SEARCH_RESULTS": "Recherche de résultats",
     "SERVER_ERROR": "Erreur de serveur",
     "CLEAR_FILTERS": "Supprimer les filtres",
-    "LAST_CHANGED_BY": "Changé en dernier par"
+    "LAST_CHANGED_BY": "Changé en dernier par",
+    "UPLOADING": "Uploading",
+    "PROCESSING": "Processing"
   },
   "GROUP": {
     "ACTIVITIES": "Activités",

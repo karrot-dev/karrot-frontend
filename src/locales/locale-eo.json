@@ -130,7 +130,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Venontaj aktivaĵoj en tiu ĉi aktivaĵo perioda",
     "CHANGE_AFFECTS_USERS": "This change affects the future activities of {users}.",
     "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
-},
+  },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "Por la statistikoj de la retpaĝo, ni aldonos la kvanton de ĉiu retrokuplo",
@@ -221,6 +221,16 @@
     "WHAT": "Pri kio temas ĉi tiun babilejon?",
     "WITHDRAWN": "nuligis{relativeDate}"
   },
+  "ATTACHMENTS": {
+    "ADD": "Add attachment",
+    "MAX_ATTACHMENT_SIZE": "Maximum attachment size is {size}",
+    "MAX_ATTACHMENT_COUNT": "You can have up to {count} attachments",
+    "TYPE": {
+      "AUDIO": "Audio",
+      "VIDEO": "Video",
+      "IMAGE": "Image"
+    }
+  },
   "ATTENTION": "Atentu!",
   "BUTTON": {
     "ACCEPT": "Akcepti",
@@ -239,6 +249,7 @@
     "DELETE": "Forigi",
     "DELETE_ACCOUNT": "Forigi konton",
     "DISABLE": "Malebligi",
+    "DOWNLOAD": "Download",
     "EDIT": "Redakti",
     "ENABLE": "Ebligi",
     "HIDE": "Kaŝi",
@@ -251,6 +262,7 @@
     "RESET": "Restarigi",
     "SAVE_CHANGES": "Konservi ŝanĝojn",
     "SEARCH": "Serĉi",
+    "SEND_MESSAGE": "Send message",
     "SHOW": "Montri",
     "SHOW_LESS": "Montri malpli",
     "SHOW_MORE": "Montri pli",
@@ -322,6 +334,9 @@
     "COMMENT_HELPER": "Kion devas la homoj scii antaŭ vi aliĝos por tiu ĉi?",
     "CUSTOM": "Personaligo",
     "DATE": "Dato",
+    "BANNER_IMAGE": "Banner image",
+    "BANNER_IMAGE_TIP": "Tip: You can get free banners images from {website}",
+    "SELECT_BANNER_IMAGE": "Select banner image",
     "DIFFERS_WARNING": "Ĉi karaktero kaj la dekomenca nesamas. Por nuligi la ŝanĝon alklaku la sagan butonon kaj konservu la ŝanĝojn.",
     "DISABLE_TITLE": "Ĉu malebligi?",
     "ENABLE_DISABLE_MESSAGE": "Uzantoj kiuj aliĝis ricevos sciigon. Vi povas ŝanĝi tiu ĉi tekston por prezenti kialon:",
@@ -387,7 +402,9 @@
     "SEARCH_RESULTS": "Serĉi rezultojn",
     "SERVER_ERROR": "Eraro servila",
     "CLEAR_FILTERS": "Forigi filtrojn",
-    "LAST_CHANGED_BY": "Last changed by"
+    "LAST_CHANGED_BY": "Last changed by",
+    "UPLOADING": "Uploading",
+    "PROCESSING": "Processing"
   },
   "GROUP": {
     "ACTIVITIES": "Activivaĵoj",

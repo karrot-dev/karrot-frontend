@@ -1,14 +1,17 @@
 import { ref, computed } from 'vue'
 
 import { useAuthService } from '@/authuser/services'
+import { useConfigQuery } from '@/base/queries'
 import { useCommunityFeedMetaQuery, useCommunityFeedQuery, useCommunityTopicQuery } from '@/communityFeed/queries'
 import { defineService } from '@/utils/datastore/helpers'
 
 export const useCommunityFeedService = defineService(() => {
   const { isLoggedIn } = useAuthService()
+  const { config } = useConfigQuery()
+  const discussionsFeed = computed(() => isLoggedIn.value && config.value?.forum?.discussionsFeed)
   const {
     latestTopics,
-  } = useCommunityFeedQuery({ enabled: isLoggedIn })
+  } = useCommunityFeedQuery({ feed: discussionsFeed })
 
   const {
     meta,
@@ -33,10 +36,11 @@ export const useCommunityFeedService = defineService(() => {
 })
 
 export const useCommunityBannerService = defineService(() => {
-// Magic topics on community.karrot.world forum that we use for banner updates
-  const topicId = process.env.KARROT.BACKEND === 'https://karrot.world' ? 933 : 930
+  const { config } = useConfigQuery()
 
-  const { topic } = useCommunityTopicQuery({ topicId })
+  const bannerTopicId = computed(() => config.value?.forum?.bannerTopicId)
+
+  const { topic } = useCommunityTopicQuery({ topicId: bannerTopicId })
 
   const dismissedBannerId = ref(getDismissedBannerIdFromLocalStorage())
 

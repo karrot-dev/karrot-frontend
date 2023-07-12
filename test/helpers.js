@@ -86,7 +86,7 @@ export async function withDefaults (options = {}) {
       // for some reason I have to include the router here or some tests don't
       // have access to routes, etc...
       // It causes a warning for other tests though: "App already provides property with key "Symbol(router)"
-      router,
+      ...(router ? [router] : []),
       [Quasar, quasarConfig],
       [VueQueryPlugin, { queryClient }],
       i18nPlugin,

@@ -281,30 +281,18 @@ export default {
       if (!messages || messages.length === 0) return
       // Jump to bottom when new messages added
       const newNewestMessage = messages[messages.length - 1]
-
       if (this.newestMessageId !== newNewestMessage.id) {
-        const scrollPosition = this.getScrollPositionFromBottom()
         this.newestMessageId = newNewestMessage.id
-        if (scrollPosition < 100 && !this.away && !this.hasNextPage) {
+        if (this.maybeMarkRead()) {
           this.scrollToBottom()
-          this.markRead(this.newestMessageId)
         }
       }
-      // TODO: I think we don't need this any more... now we have explicit previous message loaded, we *do* want it to jump
-      // Retain position when old message added
-      // const newOldestMessageId = messages[0].id
-      // if (this.newestFirst && this.oldestMessageId !== newOldestMessageId) {
-      //   this.saveScrollPosition()
-      //   this.oldestMessageId = newOldestMessageId
-      //   this.$nextTick(() => {
-      //     this.restoreScrollPosition()
-      //   })
-      // }
     },
   },
   mounted () {
     // TODO: I removed a nextTick call here, seems to work... check?
     this.scrollContainer = this.inline ? this.$refs.scroll : getScrollTarget(this.$el)
+    this.maybeMarkRead()
   },
   methods: {
     markRead (messageId) {
@@ -324,6 +312,18 @@ export default {
           messageId,
         })
       }
+    },
+    maybeMarkRead () {
+      // if user is at the bottom and no more messages can be loaded, mark messages as read
+      const isAtBottom = () => this.getScrollPositionFromBottom() < 100
+      const hasMessages = () => this.conversation && this.orderedMessages && this.orderedMessages.length > 0
+      if (!this.away && !this.hasNextPage && hasMessages() && isAtBottom()) {
+        const messages = this.orderedMessages
+        const newestMessageId = messages[messages.length - 1].id
+        this.markRead(newestMessageId)
+        return true
+      }
+      return false
     },
     sendMessage ({ content, images, attachments }) {
       const data = this.conversation.thread
@@ -383,14 +383,7 @@ export default {
         // TODO: await?
         this.fetchPreviousPage()
       }
-      // if user scrolls to bottom and no more messages can be loaded, mark messages as read
-      const isAtBottom = () => this.getScrollPositionFromBottom() < 100
-      const hasMessages = () => this.conversation && this.orderedMessages && this.orderedMessages.length > 0
-      if (!this.away && !this.hasNextPage && hasMessages() && isAtBottom()) {
-        const messages = this.orderedMessages
-        const newestMessageId = messages[messages.length - 1].id
-        this.markRead(newestMessageId)
-      }
+      this.maybeMarkRead()
     },
   },
 }

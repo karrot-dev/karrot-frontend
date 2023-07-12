@@ -12,8 +12,8 @@ export default {
   async markSeen () {
     return (await axios.post('/api/community-feed/mark_seen/')).data
   },
-  async latestTopics () {
-    const data = (await axios.get('/community_proxy/latest.json')).data
+  async latestTopics (feed) {
+    const data = (await axios.get(`/community_proxy/${feed}`)).data
     const users = data.users
     const topics = data.topicList.topics
     return topics.map(topic => {

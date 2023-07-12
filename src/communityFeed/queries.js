@@ -4,17 +4,17 @@ import { useQuery } from 'vue-query'
 import api from '@/communityFeed/api/communityFeed'
 
 export const QUERY_KEY_BASE = 'communityFeed'
-export const queryKeyCommunityFeed = () => [QUERY_KEY_BASE, 'feed']
+export const queryKeyCommunityFeed = feed => [QUERY_KEY_BASE, 'feed', feed]
 export const queryKeyCommunityFeedMeta = () => [QUERY_KEY_BASE, 'feed-meta']
 export const queryKeyCommunityTopic = topicId => [QUERY_KEY_BASE, 'topic', topicId]
 
-export function useCommunityFeedQuery (queryOptions = {}) {
+export function useCommunityFeedQuery ({ feed }) {
   const query = useQuery(
-    queryKeyCommunityFeed(),
-    () => api.latestTopics().catch(() => ([])),
+    queryKeyCommunityFeed(feed),
+    () => api.latestTopics(unref(feed)).catch(() => ([])),
     {
       placeholderData: () => [],
-      ...queryOptions,
+      enabled: computed(() => Boolean(unref(feed))),
     },
   )
 

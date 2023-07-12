@@ -1,5 +1,5 @@
+import { useInfiniteQuery, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, unref } from 'vue'
-import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
 import api from '@/agreements/api/agreements'
 import { paginationHelpers } from '@/messages/queries'

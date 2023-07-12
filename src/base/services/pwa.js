@@ -1,4 +1,3 @@
-
 let pwaInstallPrompt = null
 
 export function setPwaInstallPrompt (value) {

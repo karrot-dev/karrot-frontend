@@ -1,4 +1,4 @@
-import { useQuery } from 'vue-query'
+import { useQuery } from '@tanstack/vue-query'
 
 import configAPI from '@/base/api/config'
 

@@ -55,7 +55,7 @@ describe('User Settings', () => {
     await flushPromises()
 
     // set a new name
-    const newDisplayName = faker.name.fullName()
+    const newDisplayName = faker.person.fullName()
     const textbox = await findByRole('textbox', { name: 'Name' })
     await clear(textbox)
     await type(textbox, newDisplayName)

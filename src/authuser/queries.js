@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from 'vue-query'
+import { useQuery, useQueryClient } from '@tanstack/vue-query'
 
 import { useSocketEvents } from '@/utils/composables'
 import { isValidationError } from '@/utils/datastore/helpers'

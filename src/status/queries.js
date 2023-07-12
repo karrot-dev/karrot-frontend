@@ -1,5 +1,5 @@
+import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import deepmerge from 'deepmerge'
-import { useQuery, useQueryClient } from 'vue-query'
 
 import { useSocketEvents } from '@/utils/composables'
 

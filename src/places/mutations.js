@@ -1,5 +1,5 @@
+import { useMutation, useQueryClient } from '@tanstack/vue-query'
 import { unref } from 'vue'
-import { useMutation, useQueryClient } from 'vue-query'
 import { useRouter } from 'vue-router'
 
 import { placeRoute } from '@/places/utils'

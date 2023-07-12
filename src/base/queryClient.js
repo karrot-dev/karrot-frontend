@@ -1,4 +1,4 @@
-import { QueryCache, QueryClient } from 'vue-query'
+import { QueryCache, QueryClient } from '@tanstack/vue-query'
 
 const queryCache = new QueryCache({
   onError (error, query) {

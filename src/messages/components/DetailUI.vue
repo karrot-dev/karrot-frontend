@@ -93,6 +93,7 @@
 </template>
 
 <script>
+import { useQueryClient } from '@tanstack/vue-query'
 import {
   QExpansionItem,
   QList,
@@ -105,7 +106,6 @@ import {
 } from 'quasar'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useQueryClient } from 'vue-query'
 
 import { useAcceptApplicationMutation, useDeclineApplicationMutation } from '@/applications/mutations'
 import { useCurrentGroupService } from '@/group/services'

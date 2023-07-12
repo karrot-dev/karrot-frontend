@@ -1,4 +1,4 @@
-import { useInfiniteQuery, useQueryClient } from 'vue-query'
+import { useInfiniteQuery, useQueryClient } from '@tanstack/vue-query'
 
 import { useSocketEvents } from '@/utils/composables'
 import { indexById } from '@/utils/datastore/helpers'

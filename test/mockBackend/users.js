@@ -18,7 +18,7 @@ export function generateUser (params) {
   return {
     id: nextId++,
     username: faker.internet.userName(),
-    displayName: faker.name.fullName(),
+    displayName: faker.person.fullName(),
     email,
     unverifiedEmail: email,
     mobileNumber: '',

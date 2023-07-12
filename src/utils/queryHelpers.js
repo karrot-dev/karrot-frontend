@@ -1,5 +1,5 @@
+import { useQueryClient } from '@tanstack/vue-query'
 import { computed, unref } from 'vue'
-import { useQueryClient } from 'vue-query'
 
 import { isNetworkError, isServerError, isValidationError } from '@/utils/datastore/helpers'
 

@@ -10,7 +10,7 @@ let nextId = 1
 export function generateAgreement (params = {}) {
   return {
     id: nextId++,
-    title: faker.random.words(5),
+    title: faker.lorem.words(5),
     summary: faker.lorem.paragraphs(2),
     content: faker.lorem.paragraphs(10),
     activeFrom: faker.date.past(),

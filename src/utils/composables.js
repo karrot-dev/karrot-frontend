@@ -1,7 +1,7 @@
+import { useQueryClient } from '@tanstack/vue-query'
 import { createEventHook, useFileDialog } from '@vueuse/core'
 import { Dialog } from 'quasar'
 import { computed, onScopeDispose, watch } from 'vue'
-import { useQueryClient } from 'vue-query'
 import { useRoute, useRouter } from 'vue-router'
 
 import { useAuthService } from '@/authuser/services'

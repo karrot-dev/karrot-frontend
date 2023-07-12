@@ -1,10 +1,10 @@
+import { VueQueryPlugin } from '@tanstack/vue-query'
 import { configure } from '@testing-library/vue'
 import { flushPromises, mount, RouterLinkStub } from '@vue/test-utils'
 import deepmerge from 'deepmerge'
 import { isArray, mergeWith } from 'lodash'
 import { vi } from 'vitest'
 import { nextTick } from 'vue'
-import { VueQueryPlugin } from 'vue-query'
 import { getRouter } from 'vue-router-mock'
 
 import i18n, { i18nPlugin } from '@/base/i18n'

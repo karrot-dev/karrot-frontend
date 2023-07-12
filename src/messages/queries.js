@@ -1,5 +1,5 @@
+import { useInfiniteQuery, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { unref, computed } from 'vue'
-import { useInfiniteQuery, useQuery, useQueryClient } from 'vue-query'
 
 import activitiesAPI from '@/activities/api/activities'
 import applicationsAPI from '@/applications/api/applications'

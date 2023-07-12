@@ -1,4 +1,3 @@
-
 import { faker } from '@faker-js/faker'
 
 import en from '@/locales/locale-en.json'

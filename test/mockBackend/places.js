@@ -14,7 +14,7 @@ export function generatePlace (params = {}) {
   }
   return {
     id: nextId++,
-    name: faker.random.words(5),
+    name: faker.lorem.words(5),
     description: faker.lorem.paragraphs(2),
     group: null,
     address: null,

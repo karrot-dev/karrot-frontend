@@ -1,5 +1,5 @@
+import { useMutation, useQueryClient } from '@tanstack/vue-query'
 import { unref } from 'vue'
-import { useMutation, useQueryClient } from 'vue-query'
 
 import { queryKeyActivityIcsToken, queryKeyActivityTypeListAll } from '@/activities/queries'
 import { withStatus } from '@/utils/queryHelpers'

@@ -1,4 +1,4 @@
-import { VueQueryPlugin } from 'vue-query'
+import { VueQueryPlugin } from '@tanstack/vue-query'
 
 import queryClient from '@/base/queryClient'
 

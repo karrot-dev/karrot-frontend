@@ -130,7 +130,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Připravované aktivity v této sérii",
     "CHANGE_AFFECTS_USERS": "Tato změna má vliv na budoucí činnost {users}.",
     "CHANGE_AFFECTS_USERS_HINT": "Kromě historie jim bude vaše zpráva zaslána přímo. Dejte jim tedy vědět, co se mění, proč už pro ně není daná aktivita dostupná a jak se mohou zapojit místo ní."
-},
+  },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Množství potravin, které se vám podařilo ušetřit",
     "AMOUNT_INFO": "Pro statistiku míst sečteme dohromady veškerou zpětnou vazbu.",
@@ -221,6 +221,16 @@
     "WHAT": "O čem je tento chat?",
     "WITHDRAWN": "staženo {relativeDate}"
   },
+  "ATTACHMENTS": {
+    "ADD": "Add attachment",
+    "MAX_ATTACHMENT_SIZE": "Maximum attachment size is {size}",
+    "MAX_ATTACHMENT_COUNT": "You can have up to {count} attachments",
+    "TYPE": {
+      "AUDIO": "Audio",
+      "VIDEO": "Video",
+      "IMAGE": "Image"
+    }
+  },
   "ATTENTION": "Pozor!",
   "BUTTON": {
     "ACCEPT": "Přijmout",
@@ -239,6 +249,7 @@
     "DELETE": "Smazat",
     "DELETE_ACCOUNT": "Smazat účet",
     "DISABLE": "Deaktivovat",
+    "DOWNLOAD": "Download",
     "EDIT": "Upravit",
     "ENABLE": "Povolit",
     "HIDE": "Skrýt",
@@ -251,6 +262,7 @@
     "RESET": "Reset",
     "SAVE_CHANGES": "Uložit změny",
     "SEARCH": "Hledat",
+    "SEND_MESSAGE": "Send message",
     "SHOW": "Zobrazit",
     "SHOW_LESS": "Zobrazit méně",
     "SHOW_MORE": "Zobrazit více",
@@ -322,6 +334,9 @@
     "COMMENT_HELPER": "Co by lidé měli vědět, když se k tomu přihlásí?",
     "CUSTOM": "Vlastní",
     "DATE": "Datum",
+    "BANNER_IMAGE": "Banner image",
+    "BANNER_IMAGE_TIP": "Tip: You can get free banners images from {website}",
+    "SELECT_BANNER_IMAGE": "Select banner image",
     "DIFFERS_WARNING": "Tato hodnota se liší od výchozí hodnoty. Chcete-li tuto změnu vrátit zpět, klikněte na tlačítko se šipkou a uložte změny.",
     "DISABLE_TITLE": "Zakázat?",
     "ENABLE_DISABLE_MESSAGE": "Uživatelé, kteří se připojili, obdrží oznámení. Tento text můžete změnit a uvést důvod:",
@@ -387,7 +402,9 @@
     "SEARCH_RESULTS": "Výsledky vyhledávání",
     "SERVER_ERROR": "Chyba serveru",
     "CLEAR_FILTERS": "Vymazat filtry",
-    "LAST_CHANGED_BY": "Poslední změna od"
+    "LAST_CHANGED_BY": "Poslední změna od",
+    "UPLOADING": "Uploading",
+    "PROCESSING": "Processing"
   },
   "GROUP": {
     "ACTIVITIES": "Aktivity",

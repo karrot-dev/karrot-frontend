@@ -130,7 +130,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Nadchodzące aktywności z tej serii",
     "CHANGE_AFFECTS_USERS": "Ta zmiana wpłynie na przyszłe aktywności {users}.",
     "CHANGE_AFFECTS_USERS_HINT": "Twoja wiadomość będzie nie tylko widoczna w historii, ale również zostanie wysłana bezpośrednio do nich. Daj im znać, co się zmienia, dlaczego aktywność nie jest już dostępna oraz czy mogą jakoś inaczej się zaangażować."
-},
+  },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Ilość jedzenia, które uratowałaś/-eś",
     "AMOUNT_INFO": "Statystyki danego punktu przedstawiają sumę ilości wprowadzonych w indywidualnych komentarzach.",
@@ -221,6 +221,16 @@
     "WHAT": "Do czego służy ten czat?",
     "WITHDRAWN": "wycofano {relativeDate}"
   },
+  "ATTACHMENTS": {
+    "ADD": "Add attachment",
+    "MAX_ATTACHMENT_SIZE": "Maximum attachment size is {size}",
+    "MAX_ATTACHMENT_COUNT": "You can have up to {count} attachments",
+    "TYPE": {
+      "AUDIO": "Audio",
+      "VIDEO": "Video",
+      "IMAGE": "Image"
+    }
+  },
   "ATTENTION": "Uwaga!",
   "BUTTON": {
     "ACCEPT": "Zaakceptuj",
@@ -239,6 +249,7 @@
     "DELETE": "Usuń",
     "DELETE_ACCOUNT": "Usuń konto",
     "DISABLE": "Odwołaj",
+    "DOWNLOAD": "Download",
     "EDIT": "Edytuj",
     "ENABLE": "Aktywuj",
     "HIDE": "Ukryj",
@@ -251,6 +262,7 @@
     "RESET": "Resetuj",
     "SAVE_CHANGES": "Zapisz zmiany",
     "SEARCH": "Szukaj",
+    "SEND_MESSAGE": "Send message",
     "SHOW": "Pokaż",
     "SHOW_LESS": "Pokaż mniej",
     "SHOW_MORE": "Pokaż więcej",
@@ -322,6 +334,9 @@
     "COMMENT_HELPER": "Co powinni wiedzieć użytkownicy, którzy się zapisują?",
     "CUSTOM": "Inne",
     "DATE": "Data",
+    "BANNER_IMAGE": "Banner image",
+    "BANNER_IMAGE_TIP": "Tip: You can get free banners images from {website}",
+    "SELECT_BANNER_IMAGE": "Select banner image",
     "DIFFERS_WARNING": "Ta wartość różni się od domyślnej. Aby cofnąć, kliknij przycisk ze strzałką i zapisz zmiany.",
     "DISABLE_TITLE": "Odwołać?",
     "ENABLE_DISABLE_MESSAGE": "Użytkownicy, którzy dołączyli, otrzymają powiadomienie. W tym miejscu możesz podać przyczynę:",
@@ -387,7 +402,9 @@
     "SEARCH_RESULTS": "Wyniki wyszukiwania",
     "SERVER_ERROR": "Błąd serwera",
     "CLEAR_FILTERS": "Wyczyść filtry",
-    "LAST_CHANGED_BY": "Ostatnio zmieniono przez"
+    "LAST_CHANGED_BY": "Ostatnio zmieniono przez",
+    "UPLOADING": "Uploading",
+    "PROCESSING": "Processing"
   },
   "GROUP": {
     "ACTIVITIES": "Aktywności",

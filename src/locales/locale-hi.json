@@ -130,7 +130,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Upcoming activities in this series",
     "CHANGE_AFFECTS_USERS": "This change affects the future activities of {users}.",
     "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
-},
+  },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "स्थान आंकड़ों के लिए, हम सभी प्रतिक्रियाँओ की राशि को एक साथ जोड़ देंगे।",
@@ -221,6 +221,16 @@
     "WHAT": "यह कैसी चैट है?",
     "WITHDRAWN": "{relativeDate} को वापस ले लिया गया"
   },
+  "ATTACHMENTS": {
+    "ADD": "Add attachment",
+    "MAX_ATTACHMENT_SIZE": "Maximum attachment size is {size}",
+    "MAX_ATTACHMENT_COUNT": "You can have up to {count} attachments",
+    "TYPE": {
+      "AUDIO": "Audio",
+      "VIDEO": "Video",
+      "IMAGE": "Image"
+    }
+  },
   "ATTENTION": "ध्यान दें!",
   "BUTTON": {
     "ACCEPT": "स्वीकार करे",
@@ -239,6 +249,7 @@
     "DELETE": "हटाना",
     "DELETE_ACCOUNT": "अकाउंट हटाए",
     "DISABLE": "अक्षम",
+    "DOWNLOAD": "Download",
     "EDIT": "संपादित करें",
     "ENABLE": "सक्षम",
     "HIDE": "छिपाये ",
@@ -251,6 +262,7 @@
     "RESET": "रीसेट",
     "SAVE_CHANGES": "परिवर्तनों को सुरक्षित करें",
     "SEARCH": "खोज",
+    "SEND_MESSAGE": "Send message",
     "SHOW": "दिखाए",
     "SHOW_LESS": "कम दिखाएं",
     "SHOW_MORE": "और दिखाए",
@@ -322,6 +334,9 @@
     "COMMENT_HELPER": "What should people know when signing up to this?",
     "CUSTOM": "स्वनिर्धारित",
     "DATE": "तारीख",
+    "BANNER_IMAGE": "Banner image",
+    "BANNER_IMAGE_TIP": "Tip: You can get free banners images from {website}",
+    "SELECT_BANNER_IMAGE": "Select banner image",
     "DIFFERS_WARNING": "यह मुल्य डिफ़ॉल्ट मुल्य से भिन्न है। इस परिवर्तन को पूर्ववत करने के लिए, तीर बटन पर क्लिक करें और परिवर्तनों को सहेजें।",
     "DISABLE_TITLE": "Disable?",
     "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
@@ -387,7 +402,9 @@
     "SEARCH_RESULTS": "खोज परिणाम",
     "SERVER_ERROR": "सर्वर त्रुटि",
     "CLEAR_FILTERS": "Clear filters",
-    "LAST_CHANGED_BY": "Last changed by"
+    "LAST_CHANGED_BY": "Last changed by",
+    "UPLOADING": "Uploading",
+    "PROCESSING": "Processing"
   },
   "GROUP": {
     "ACTIVITIES": "Activities",

@@ -130,7 +130,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Közelgő tevékenységek ebben az sorozatban",
     "CHANGE_AFFECTS_USERS": "This change affects the future activities of {users}.",
     "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
-},
+  },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "A helystatisztikához összeadjuk az összes visszajelzést.",
@@ -221,6 +221,16 @@
     "WHAT": "Minek van ez a beszélgetés?",
     "WITHDRAWN": "{relativeDate} visszavonva"
   },
+  "ATTACHMENTS": {
+    "ADD": "Add attachment",
+    "MAX_ATTACHMENT_SIZE": "Maximum attachment size is {size}",
+    "MAX_ATTACHMENT_COUNT": "You can have up to {count} attachments",
+    "TYPE": {
+      "AUDIO": "Audio",
+      "VIDEO": "Video",
+      "IMAGE": "Image"
+    }
+  },
   "ATTENTION": "Figyelem!",
   "BUTTON": {
     "ACCEPT": "Elfogadás",
@@ -239,6 +249,7 @@
     "DELETE": "Törlés",
     "DELETE_ACCOUNT": "Fiók törlése",
     "DISABLE": "Letiltás",
+    "DOWNLOAD": "Download",
     "EDIT": "Szerkesztés",
     "ENABLE": "Engedélyezés",
     "HIDE": "Elrejtés",
@@ -251,6 +262,7 @@
     "RESET": "Visszaállítás",
     "SAVE_CHANGES": "Változtatások mentése",
     "SEARCH": "Keresés",
+    "SEND_MESSAGE": "Send message",
     "SHOW": "Mutatás",
     "SHOW_LESS": "Kevesebb mutatása",
     "SHOW_MORE": "Több mutatása",
@@ -322,6 +334,9 @@
     "COMMENT_HELPER": "Mit kell, hogy tudjanak akik erre jelentkeznek?",
     "CUSTOM": "Egyéni",
     "DATE": "Dátum",
+    "BANNER_IMAGE": "Banner image",
+    "BANNER_IMAGE_TIP": "Tip: You can get free banners images from {website}",
+    "SELECT_BANNER_IMAGE": "Select banner image",
     "DIFFERS_WARNING": "Ez az érték különbözik az alapértelmezettől. Hogy visszavond ezt a változtatást, kattints a nyíl gombra és mentsd el a változtatásokat.",
     "DISABLE_TITLE": "Letiltás?",
     "ENABLE_DISABLE_MESSAGE": "A csatlakozott felhasználók értesítést kapnak. Ezt a szöveget megváltoztathatod, hogy megadj egy okot:",
@@ -387,7 +402,9 @@
     "SEARCH_RESULTS": "Keresési eredmények",
     "SERVER_ERROR": "Szerverhiba",
     "CLEAR_FILTERS": "Filterek törlése",
-    "LAST_CHANGED_BY": "Last changed by"
+    "LAST_CHANGED_BY": "Last changed by",
+    "UPLOADING": "Uploading",
+    "PROCESSING": "Processing"
   },
   "GROUP": {
     "ACTIVITIES": "Tevékenységek",

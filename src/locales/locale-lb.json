@@ -130,7 +130,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "Zukünfteg Aktivitéiten an dëser Serie",
     "CHANGE_AFFECTS_USERS": "Dës Ännerung betrëfft déi zukünfteg Aktivitéite vun {users}.",
     "CHANGE_AFFECTS_USERS_HINT": "Zousätzlech zum Uweisen an der Vergaangenheet wäert deng Noriicht direkt u si verschéckt ginn. Also looss si wësse wat ännert, firwat d'Aktivitéit net méi disponibel fir si ass, a wéi si am Plaze matmaache kënnen."
-},
+  },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Quantitéit vu Liewensmëttel déi s du rette konnts",
     "AMOUNT_INFO": "Fir Statistiken zur Plaz gëtt d'Quantitéit vun all Feedback zesummegerechent.",
@@ -221,6 +221,16 @@
     "WHAT": "Iwwert wat geet et an dësem Chat?",
     "WITHDRAWN": "{relativeDate} zréckgezunn"
   },
+  "ATTACHMENTS": {
+    "ADD": "Add attachment",
+    "MAX_ATTACHMENT_SIZE": "Maximum attachment size is {size}",
+    "MAX_ATTACHMENT_COUNT": "You can have up to {count} attachments",
+    "TYPE": {
+      "AUDIO": "Audio",
+      "VIDEO": "Video",
+      "IMAGE": "Image"
+    }
+  },
   "ATTENTION": "Pass op!",
   "BUTTON": {
     "ACCEPT": "Unhuelen",
@@ -239,6 +249,7 @@
     "DELETE": "Läschen",
     "DELETE_ACCOUNT": "Konto läschen",
     "DISABLE": "Desaktivéieren",
+    "DOWNLOAD": "Download",
     "EDIT": "Beaarbechten",
     "ENABLE": "Aktivéieren",
     "HIDE": "Verstoppen",
@@ -251,6 +262,7 @@
     "RESET": "Zrécksetzen",
     "SAVE_CHANGES": "Ännerunge späicheren",
     "SEARCH": "Sichen",
+    "SEND_MESSAGE": "Send message",
     "SHOW": "Weisen",
     "SHOW_LESS": "Manner weisen",
     "SHOW_MORE": "Méi weisen",
@@ -322,6 +334,9 @@
     "COMMENT_HELPER": "Wat sollen d'Leit wësse wann si sech fir dës Aktivitéit androen?",
     "CUSTOM": "Ugepasst",
     "DATE": "Datum",
+    "BANNER_IMAGE": "Banner image",
+    "BANNER_IMAGE_TIP": "Tip: You can get free banners images from {website}",
+    "SELECT_BANNER_IMAGE": "Select banner image",
     "DIFFERS_WARNING": "Dëse Wäert ass anescht wéi de Standard. Fir dës Ännerung réckgängeg ze maachen, klicks de op de Feil an dann op Späicheren.",
     "DISABLE_TITLE": "Desaktivéieren?",
     "ENABLE_DISABLE_MESSAGE": "Benotzer, déi matmaachen, kréien eng Benoriichtegung. Du kanns dësen Text ännere fir ee Grond unzeginn:",
@@ -387,7 +402,9 @@
     "SEARCH_RESULTS": "Sichresultater",
     "SERVER_ERROR": "Server-Feeler",
     "CLEAR_FILTERS": "Filter läschen",
-    "LAST_CHANGED_BY": "Fir d'lescht geännert vum"
+    "LAST_CHANGED_BY": "Fir d'lescht geännert vum",
+    "UPLOADING": "Uploading",
+    "PROCESSING": "Processing"
   },
   "GROUP": {
     "ACTIVITIES": "Aktivitéiten",

@@ -130,7 +130,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "このシリーズでの次のアクティビティ",
     "CHANGE_AFFECTS_USERS": "This change affects the future activities of {users}.",
     "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
-},
+  },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "Amount of food you were able to save",
     "AMOUNT_INFO": "For place statistics, we will add together the amount of all feedback.",
@@ -221,6 +221,16 @@
     "WHAT": "チャットとは何ですか？",
     "WITHDRAWN": "withdrawn {relativeDate}"
   },
+  "ATTACHMENTS": {
+    "ADD": "Add attachment",
+    "MAX_ATTACHMENT_SIZE": "Maximum attachment size is {size}",
+    "MAX_ATTACHMENT_COUNT": "You can have up to {count} attachments",
+    "TYPE": {
+      "AUDIO": "Audio",
+      "VIDEO": "Video",
+      "IMAGE": "Image"
+    }
+  },
   "ATTENTION": "注意！",
   "BUTTON": {
     "ACCEPT": "受理",
@@ -239,6 +249,7 @@
     "DELETE": "削除",
     "DELETE_ACCOUNT": "アカウントを削除",
     "DISABLE": "無効",
+    "DOWNLOAD": "Download",
     "EDIT": "編集",
     "ENABLE": "有効",
     "HIDE": "隠す",
@@ -251,6 +262,7 @@
     "RESET": "リセット",
     "SAVE_CHANGES": "変更を保存",
     "SEARCH": "検索",
+    "SEND_MESSAGE": "Send message",
     "SHOW": "表示",
     "SHOW_LESS": "折りたたむ",
     "SHOW_MORE": "さらに表示",
@@ -322,6 +334,9 @@
     "COMMENT_HELPER": "What should people know when signing up to this?",
     "CUSTOM": "カスタム",
     "DATE": "日付",
+    "BANNER_IMAGE": "Banner image",
+    "BANNER_IMAGE_TIP": "Tip: You can get free banners images from {website}",
+    "SELECT_BANNER_IMAGE": "Select banner image",
     "DIFFERS_WARNING": "This value differs from the default. To undo this change, click on the arrow button and save the changes.",
     "DISABLE_TITLE": "Disable?",
     "ENABLE_DISABLE_MESSAGE": "Users who joined will get a notification. You can change this text to provide a reason:",
@@ -387,7 +402,9 @@
     "SEARCH_RESULTS": "検索結果",
     "SERVER_ERROR": "サーバーエラー",
     "CLEAR_FILTERS": "フィルターのクリア",
-    "LAST_CHANGED_BY": "Last changed by"
+    "LAST_CHANGED_BY": "Last changed by",
+    "UPLOADING": "Uploading",
+    "PROCESSING": "Processing"
   },
   "GROUP": {
     "ACTIVITIES": "アクティビティ",

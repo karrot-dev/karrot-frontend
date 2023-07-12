@@ -130,7 +130,7 @@
     "UPCOMING_ACTIVITIES_IN_SERIES": "시리즈에 포함된 예정된 활동",
     "CHANGE_AFFECTS_USERS": "This change affects the future activities of {users}.",
     "CHANGE_AFFECTS_USERS_HINT": "Additionally to the history, your message will be sent to them directly. So let them know what is changing, why the activity is no longer available for them and how they can get involved instead."
-},
+  },
   "ACTIVITY_FEEDBACK": {
     "AMOUNT": "절약할 수 있었던 식량의 무게",
     "AMOUNT_INFO": "장소 통계의 경우, 모든 피드백의 무게를 한꺼번에 추가할 예정입니다.",
@@ -221,6 +221,16 @@
     "WHAT": "이 채팅은 무엇에 관한 것입니까?",
     "WITHDRAWN": "{relativeDate}에 철회되었습니다"
   },
+  "ATTACHMENTS": {
+    "ADD": "Add attachment",
+    "MAX_ATTACHMENT_SIZE": "Maximum attachment size is {size}",
+    "MAX_ATTACHMENT_COUNT": "You can have up to {count} attachments",
+    "TYPE": {
+      "AUDIO": "Audio",
+      "VIDEO": "Video",
+      "IMAGE": "Image"
+    }
+  },
   "ATTENTION": "주목하세요!",
   "BUTTON": {
     "ACCEPT": "승인",
@@ -239,6 +249,7 @@
     "DELETE": "삭제",
     "DELETE_ACCOUNT": "계정 삭제",
     "DISABLE": "불가능",
+    "DOWNLOAD": "Download",
     "EDIT": "편집",
     "ENABLE": "가능",
     "HIDE": "숨기기",
@@ -251,6 +262,7 @@
     "RESET": "재설정",
     "SAVE_CHANGES": "수정사항 저장",
     "SEARCH": "검색",
+    "SEND_MESSAGE": "Send message",
     "SHOW": "보기",
     "SHOW_LESS": "접기",
     "SHOW_MORE": "더 보기",
@@ -322,6 +334,9 @@
     "COMMENT_HELPER": "여기에 가입하려는 사람들이 무엇을 알아야 할까요?",
     "CUSTOM": "커스텀",
     "DATE": "날짜",
+    "BANNER_IMAGE": "Banner image",
+    "BANNER_IMAGE_TIP": "Tip: You can get free banners images from {website}",
+    "SELECT_BANNER_IMAGE": "Select banner image",
     "DIFFERS_WARNING": "이 값은 기본 설정에서 변경됩니다. 변경사항을 되돌리고 싶다면 화살표 버튼을 클릭하고 변경사항을 저장하세요.",
     "DISABLE_TITLE": "불가능한가요?",
     "ENABLE_DISABLE_MESSAGE": "참가한 사용자들은 알림을 받게 됩니다. 당신은 그 이유를 제공하기 위해 글을 수정할 수 있습니다.",
@@ -387,7 +402,9 @@
     "SEARCH_RESULTS": "결과 검색하기",
     "SERVER_ERROR": "서버 오류",
     "CLEAR_FILTERS": "필터 지우기",
-    "LAST_CHANGED_BY": "Last changed by"
+    "LAST_CHANGED_BY": "Last changed by",
+    "UPLOADING": "Uploading",
+    "PROCESSING": "Processing"
   },
   "GROUP": {
     "ACTIVITIES": "활동",

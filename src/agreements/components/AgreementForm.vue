@@ -98,6 +98,7 @@
 <script>
 import useVuelidate from '@vuelidate/core'
 import { maxLength, required } from '@vuelidate/validators'
+import { startOfDay } from 'date-fns'
 import {
   QCard,
   QIcon,
@@ -129,7 +130,7 @@ export default {
         title: undefined,
         summary: undefined,
         content: undefined,
-        activeFrom: new Date(),
+        activeFrom: startOfDay(new Date()),
         reviewAt: undefined,
       }),
     },

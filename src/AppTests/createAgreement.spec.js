@@ -42,7 +42,7 @@ test('create an agreement', async () => {
 
   const title = faker.lorem.words(5)
   const summary = faker.lorem.paragraph()
-  const content = faker.lorem.paragraphs(10)
+  const content = faker.lorem.paragraphs(1)
 
   // fill in the form
   await type(await findByRole('textbox', { name: 'Agreement Title' }), title)

@@ -5,14 +5,12 @@ import * as factories from '>/enrichedFactories'
 import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 
 import GroupOptions from './GroupOptionsUI.vue'
-import MobileSidenavUI from './MobileSidenavUI.vue'
 import SidenavGroupUI from './SidenavGroupUI.vue'
 import SidenavMap from './SidenavMap.vue'
 import SidenavPlacesUI from './SidenavPlacesUI.vue'
 
 const range = n => [...Array(n).keys()]
 
-const user = factories.makeUser()
 const group = factories.makeGroup()
 const users = range(5).map(() => factories.makeUser())
 const places = range(5).map(() => factories.makePlace({
@@ -77,11 +75,5 @@ storiesOf('Sidenav', module)
     render: () => h(SidenavPlacesUI, {
       places,
       groupId: 1,
-    }),
-  }))
-
-  .add('Mobile', () => defaults({
-    render: () => h(MobileSidenavUI, {
-      currentUserId: user.id,
     }),
   }))

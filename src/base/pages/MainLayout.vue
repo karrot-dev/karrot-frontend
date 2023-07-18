@@ -48,7 +48,6 @@
         >
           <SidenavTitle @click="toggleSidenav" />
           <RouterView name="sidenav" />
-          <MobileSidenav />
           <QItem
             clickable
             @click="toggleAbout"
@@ -64,6 +63,20 @@
             </QItemSection>
           </QItem>
           <CommunityFeed />
+          <QItem
+            clickable
+            @click="logout()"
+          >
+            <QItemSection side>
+              <QIcon
+                size="1em"
+                name="fas fa-sign-out-alt fa-fw"
+              />
+            </QItemSection>
+            <QItemSection>
+              {{ $t('TOPBAR.LOGOUT') }}
+            </QItemSection>
+          </QItem>
         </QDrawer>
 
         <!-- desktop sidenav -->
@@ -151,12 +164,14 @@ import {
   QPageContainer,
   QPage,
   QItem,
+  QIcon,
   QItemSection,
   QBtn,
 } from 'quasar'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
+import { useLogoutMutation } from '@/authuser/mutations'
 import { useAuthService } from '@/authuser/services'
 import { useRouteErrorService } from '@/base/services'
 import { useCurrentGroupService } from '@/group/services'
@@ -170,7 +185,6 @@ import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarni
 import CommunityFeed from '@/communityFeed/components/CommunityFeed.vue'
 import KarrotLogo from '@/logo/components/KarrotLogo.vue'
 import DetailSidebar from '@/messages/components/DetailSidebar.vue'
-import MobileSidenav from '@/sidenav/components/MobileSidenav.vue'
 import SidenavTitle from '@/sidenav/components/SidenavTitle.vue'
 import KTopbar from '@/topbar/components/KTopbar.vue'
 import KTopbarLoggedOut from '@/topbar/components/LoggedOut/KTopbar.vue'
@@ -184,7 +198,6 @@ export default {
     KTopbar,
     KTopbarLoggedOut,
     SidenavTitle,
-    MobileSidenav,
     QLayout,
     QHeader,
     QDrawer,
@@ -192,6 +205,7 @@ export default {
     QPageContainer,
     QPage,
     QBtn,
+    QIcon,
     QItem,
     QItemSection,
     Banners,
@@ -202,6 +216,7 @@ export default {
   setup () {
     const { isLoggedIn } = useAuthService()
     const { isDetailActive } = useDetailService()
+    const { mutate: logout } = useLogoutMutation()
 
     const { hasError } = useRouteErrorService()
 
@@ -225,6 +240,7 @@ export default {
     const isGroupWall = computed(() => route.name === 'group')
 
     return {
+      logout,
       hasError,
       isGroupWall,
       isDetailActive,

@@ -10,24 +10,18 @@
         flat
         dense
         round
-        :title="$t('TOPBAR.USERPROFILE')"
+        icon="fas fa-user fa-fw"
         :to="{ name: 'user', params: { userId } }"
-      >
-        <QIcon
-          name="fas fa-user fa-fw"
-        />
-      </QBtn>
+        :title="$t('TOPBAR.USERPROFILE')"
+      />
       <QBtn
         flat
         dense
         round
+        icon="fas fa-cog fa-fw"
         :title="$t('SETTINGS.TITLE')"
         :to="{ name: 'settings' }"
-      >
-        <QIcon
-          name="fas fa-cog fa-fw"
-        />
-      </QBtn>
+      />
     </QToolbar>
     <QToolbar>
       <QAvatar>

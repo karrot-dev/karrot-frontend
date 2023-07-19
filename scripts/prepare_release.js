@@ -14,14 +14,9 @@ const { execSync } = require('child_process')
 const fs = require('fs')
 const { resolve } = require('path')
 
-const CordovaConfig = require('cordova-config')
 const { parser, Release } = require('keep-a-changelog')
 
 const changelogFilePath = resolve(__dirname, '../CHANGELOG.md')
-const cordovaConfigPaths = [
-  resolve(__dirname, '../src-cordova/config/dev/config.xml'),
-  resolve(__dirname, '../src-cordova/config/prod/config.xml'),
-]
 
 // Parse changelog file and get latest release
 const changelog = parser(fs.readFileSync(changelogFilePath, 'UTF-8'))
@@ -42,14 +37,6 @@ fs.writeFileSync(changelogFilePath, changelog.toString())
 console.log('Updating version in package.json')
 execSync(`yarn version --new-version ${latestVersion} --no-git-tag-version`, { stdio: 'inherit' })
 console.log()
-
-cordovaConfigPaths.forEach(path => {
-  console.log(`Updating version in ${path}`)
-
-  const config = new CordovaConfig(path)
-  config.setVersion(latestVersion.toString())
-  config.writeSync()
-})
 
 const tag = `v${latestVersion}`
 console.log('Committing all changes')

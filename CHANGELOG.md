@@ -19,21 +19,22 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
+## [Unreleased]
+
 ## [11.0.0] - 2023-07-19
 ### Added
-- Add message attachments @nicksellen #2651 karrot-backend#1256
+- Add message attachments @nicksellen [#2651] karrot-backend#1256
 
 ### Changed
-- Improved mobile sidenav @brnsolikyl #2663
-- Switch frontend tooling to vite @nicksellen #2655
-- New image cropping tool @nicksellen #2655
-- Disable sentry session tracking @nicksellen #2654
-- Get forum config from API @nicksellen #2662 [3a598e4](https://github.com/karrot-dev/karrot-backend/commit/3a598e4fb8f342b0aa38e51c70a1082b91be3afc)
+- Improved mobile sidenav @brnsolikyl [#2663]
+- Switch frontend tooling to vite @nicksellen [#2655]
+- New image cropping tool @nicksellen [#2655]
+- Disable sentry session tracking @nicksellen [#2654]
+- Get forum config from API @nicksellen [#2662] [3a598e4](https://github.com/karrot-dev/karrot-backend/commit/3a598e4fb8f342b0aa38e51c70a1082b91be3afc)
 
 ### Fixed
-- Fix message read marking in sidebar @nicksellen #2660
+- Fix message read marking in sidebar @nicksellen [#2660]
 - Fix versatileimagefield thumbnail settings to allow deletion @nicksellen karrot-backend#1261
-
 
 ## [10.0.4] - 2023-04-29
 ### Changed
@@ -880,8 +881,15 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2631]: https://github.com/karrot-dev/karrot-frontend/issues/2631
 [#2635]: https://github.com/karrot-dev/karrot-frontend/issues/2635
 [#2643]: https://github.com/karrot-dev/karrot-frontend/issues/2643
+[#2651]: https://github.com/karrot-dev/karrot-frontend/issues/2651
+[#2654]: https://github.com/karrot-dev/karrot-frontend/issues/2654
+[#2655]: https://github.com/karrot-dev/karrot-frontend/issues/2655
+[#2660]: https://github.com/karrot-dev/karrot-frontend/issues/2660
+[#2662]: https://github.com/karrot-dev/karrot-frontend/issues/2662
+[#2663]: https://github.com/karrot-dev/karrot-frontend/issues/2663
 
-[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.4...HEAD
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v11.0.0...HEAD
+[11.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.4...v11.0.0
 [10.0.4]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.3...v10.0.4
 [10.0.3]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.2...v10.0.3
 [10.0.2]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.1...v10.0.2

@@ -19,7 +19,21 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
-## [Unreleased]
+## [11.0.0] - 2023-07-19
+### Added
+- Add message attachments @nicksellen #2651 karrot-backend#1256
+
+### Changed
+- Improved mobile sidenav @brnsolikyl #2663
+- Switch frontend tooling to vite @nicksellen #2655
+- New image cropping tool @nicksellen #2655
+- Disable sentry session tracking @nicksellen #2654
+- Get forum config from API @nicksellen #2662 [3a598e4](https://github.com/karrot-dev/karrot-backend/commit/3a598e4fb8f342b0aa38e51c70a1082b91be3afc)
+
+### Fixed
+- Fix message read marking in sidebar @nicksellen #2660
+- Fix versatileimagefield thumbnail settings to allow deletion @nicksellen karrot-backend#1261
+
 
 ## [10.0.4] - 2023-04-29
 ### Changed

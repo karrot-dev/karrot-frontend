@@ -4,6 +4,7 @@
     v-if="v$.edit"
   >
     <div
+      v-if="!isNew"
       class="edit-box"
     >
       <h4 class="text-primary q-mt-none q-mb-lg">

@@ -21,6 +21,10 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+## [11.0.1] - 2023-07-24
+### Fixed
+- Don't show group edit logo until group is created @nicksellen [20531ac](https://github.com/karrot-dev/karrot-backend/commit/20531ac6e1476526d1455806677adac0b358a54c)
+
 ## [11.0.0] - 2023-07-19
 ### Added
 - Add message attachments @nicksellen [#2651] karrot-backend#1256
@@ -888,7 +892,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2662]: https://github.com/karrot-dev/karrot-frontend/issues/2662
 [#2663]: https://github.com/karrot-dev/karrot-frontend/issues/2663
 
-[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v11.0.0...HEAD
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v11.0.1...HEAD
+[11.0.1]: https://github.com/karrot-dev/karrot-frontend/compare/v11.0.0...v11.0.1
 [11.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.4...v11.0.0
 [10.0.4]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.3...v10.0.4
 [10.0.3]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.2...v10.0.3

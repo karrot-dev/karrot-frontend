@@ -45,7 +45,10 @@
             <span
               class="message-date q-ml-xs"
             >
-              <DateAsWords :date="feedback.createdAt" />
+              <DateAsWords
+                :date="feedback.createdAt"
+                :future="false"
+              />
             </span>
           </small>
           <div>

@@ -1,4 +1,5 @@
 import axios, { parseCursor } from '@/base/api/axios'
+import { convert as convertFeedback } from '@/feedback/api/feedback'
 import { convert as convertConversation } from '@/messages/api/conversations'
 import { absoluteURL } from '@/utils/absoluteURL'
 import { toFormData, underscorizeKeys } from '@/utils/utils'
@@ -116,6 +117,10 @@ export function convert (val) {
     if (val.date) {
       result.date = new Date(val.date[0])
       result.dateEnd = new Date(val.date[1])
+    }
+
+    if (val.feedback) {
+      result.feedback = convertFeedback(val.feedback)
     }
 
     return result

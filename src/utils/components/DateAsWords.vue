@@ -15,7 +15,7 @@ export default {
     },
     future: {
       type: Boolean,
-      default: false,
+      default: undefined,
     },
     strict: {
       type: Boolean,

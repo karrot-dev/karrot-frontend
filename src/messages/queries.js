@@ -279,8 +279,7 @@ export function useConversationQuery ({
   }
 }
 
-// TODO: move to other place
-export function paginationHelpers (query) {
+export function infiniteScroll (query) {
   const {
     isFetchingNextPage,
     hasNextPage,
@@ -295,17 +294,12 @@ export function paginationHelpers (query) {
   }
 
   // For --> <QInfiniteScroll v-bind="infiniteScroll" />
-  const infiniteScroll = computed(() => {
+  return computed(() => {
     return {
       onLoad: infiniteScrollLoad,
       disable: !hasNextPage.value,
     }
   })
-
-  return {
-    infiniteScrollLoad,
-    infiniteScroll,
-  }
 }
 
 export function useMessageListQuery ({ conversationId }, { order, pageSize = 20 } = {}) {
@@ -336,7 +330,7 @@ export function useMessageListQuery ({ conversationId }, { order, pageSize = 20 
   )
   return {
     ...query,
-    ...paginationHelpers(query),
+    infiniteScroll: infiniteScroll(query),
     messages: flattenPaginatedData(query),
   }
 }
@@ -378,7 +372,7 @@ export function useMessageThreadListQuery ({ messageId }, { order, pageSize } = 
   )
   return {
     ...query,
-    ...paginationHelpers(query),
+    infiniteScroll: infiniteScroll(query),
     messages: flattenPaginatedData(query),
   }
 }

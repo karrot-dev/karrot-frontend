@@ -1,8 +1,8 @@
 <template>
   <div>
     <QInfiniteScroll
+      v-bind="infiniteScroll"
       :disable="conversation && !hasNextPage"
-      @load="infiniteScrollLoad"
     >
       <QCard
         v-if="hasLoaded"
@@ -151,7 +151,7 @@ export default {
       hasNextPage,
       fetchNextPage,
       isFetchingNextPage,
-      infiniteScrollLoad,
+      infiniteScroll,
     } = useMessageListQuery(
       { conversationId },
       { order: 'newest-first' },
@@ -188,7 +188,7 @@ export default {
       isMuted: computed(() => getIsMuted(conversation.value)),
 
       messages,
-      infiniteScrollLoad,
+      infiniteScroll,
       isLoadingMessages,
       hasNextPage,
       fetchNextPage,

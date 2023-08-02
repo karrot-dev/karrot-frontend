@@ -24,6 +24,7 @@
             <DateAsWords
               style="display: inline"
               :date="membership.createdAt"
+              :future="false"
             />
           </template>
         </i18n-t>

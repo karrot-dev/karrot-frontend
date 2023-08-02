@@ -2,7 +2,7 @@ import { useInfiniteQuery, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, unref } from 'vue'
 
 import api from '@/agreements/api/agreements'
-import { paginationHelpers } from '@/messages/queries'
+import { infiniteScroll } from '@/messages/queries'
 import { useSocketEvents } from '@/utils/composables'
 import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
 
@@ -52,7 +52,7 @@ export function useAgreementListQuery ({
 
   return {
     ...query,
-    ...paginationHelpers(query),
+    infiniteScroll: infiniteScroll(query),
     agreements: flattenPaginatedData(query),
   }
 }

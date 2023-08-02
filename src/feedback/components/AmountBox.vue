@@ -39,6 +39,7 @@
 
 import scaleImg from '@/feedback/assets/scale_body.svg'
 import scalePointerImg from '@/feedback/assets/scale_pointer.svg'
+import { useFeedbackHelpers } from '@/feedback/helpers'
 
 export default {
   props: {
@@ -50,6 +51,10 @@ export default {
       default: 100,
       type: Number,
     },
+  },
+  setup () {
+    const { formatFeedbackWeight } = useFeedbackHelpers()
+    return { formatFeedbackWeight }
   },
   data () {
     return {
@@ -88,16 +93,7 @@ export default {
       return Math.floor(this.size / 7) + 'px'
     },
     amountNumber () {
-      if (this.amountValue >= 1000000) {
-        return ['999+', 't']
-      }
-      if (this.amountValue >= 1000) {
-        return [Number(this.amountValue / 1000.0).toFixed(1), 't']
-      }
-      if (this.amountValue >= 1) {
-        return [Number(this.amountValue).toFixed(1), 'kg']
-      }
-      return [Number(this.amountValue * 1000).toFixed(0), 'g']
+      return this.formatFeedbackWeight(this.amountValue)
     },
   },
 }

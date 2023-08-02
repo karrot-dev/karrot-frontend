@@ -19,6 +19,7 @@
       >
         <DateAsWords
           :date="issue.createdAt"
+          :future="false"
         />
       </QItemLabel>
     </QItemSection>

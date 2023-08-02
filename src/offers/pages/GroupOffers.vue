@@ -91,6 +91,7 @@
                     <DateAsWords
                       :date="offer.createdAt"
                       class="text-caption"
+                      :future="false"
                     />
                   </QItemLabel>
                 </QItemSection>

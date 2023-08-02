@@ -2,7 +2,7 @@ import { useInfiniteQuery, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, unref } from 'vue'
 
 import api from '@/issues/api/issues'
-import { paginationHelpers } from '@/messages/queries'
+import { infiniteScroll } from '@/messages/queries'
 import { useSocketEvents } from '@/utils/composables'
 import { extractCursor, flattenPaginatedData, useQueryHelpers } from '@/utils/queryHelpers'
 
@@ -55,7 +55,7 @@ export function useIssueListQuery ({ groupId, status }) {
   )
   return {
     ...query,
-    ...paginationHelpers(query),
+    infiniteScroll: infiniteScroll(query),
     issues: flattenPaginatedData(query),
   }
 }

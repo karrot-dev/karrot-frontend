@@ -57,7 +57,7 @@ const events = mitt()
  */
 export function resetServices () {
   events.emit('reset')
-  if (process.env.DEV) {
+  if (import.meta.env.DEV) {
     window.karrot.services.length = 0
   }
 }
@@ -91,7 +91,7 @@ export function resetServices () {
  * @returns {function(): T}
  */
 export function defineService (serviceSetup) {
-  if (process.env.DEV) {
+  if (import.meta.env.DEV) {
     if (typeof serviceSetup !== 'function') {
       throw new Error('must pass a serviceSetup function to defineService')
     }
@@ -102,7 +102,7 @@ export function defineService (serviceSetup) {
 
   events.on('reset', () => {
     if (service) {
-      if (process.env.DEV) {
+      if (import.meta.env.DEV) {
         const idx = window.karrot.services.indexOf(service)
         if (idx !== -1) window.karrot.services.splice(idx, 1)
       }
@@ -112,7 +112,7 @@ export function defineService (serviceSetup) {
   })
 
   return (...args) => {
-    if (process.env.DEV) {
+    if (import.meta.env.DEV) {
       if (args.length > 0) {
         throw new Error('you cannot pass args to a service as if it already existed they would be silently ignored...')
       }
@@ -131,7 +131,7 @@ export function defineService (serviceSetup) {
     service = scope.run(() => serviceSetup()) || {}
     service.$scope = scope
 
-    if (process.env.DEV) {
+    if (import.meta.env.DEV) {
       if (service) {
         // some services won't return anything, they just do some effects...
         window.karrot.services.push(service)
@@ -142,7 +142,7 @@ export function defineService (serviceSetup) {
   }
 }
 
-if (process.env.DEV) {
+if (import.meta.env.DEV) {
   if (!window.karrot) window.karrot = {}
   window.karrot.services = []
   window.karrot.walkServices = walkServices

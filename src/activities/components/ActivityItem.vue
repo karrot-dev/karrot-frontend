@@ -512,6 +512,8 @@ export default {
 </script>
 
 <style scoped lang="sass">
+@import "@/css/quasar.variables"
+
 .multiple-types
   padding: 8px 8px 2px 8px
   border-left: 4px solid rgba(0, 0, 0, 0.1)

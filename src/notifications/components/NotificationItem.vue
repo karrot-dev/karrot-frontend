@@ -154,6 +154,7 @@ export default {
 
 <style scoped lang="sass">
 @use "sass:color"
+@import "@/css/quasar.variables"
 
 .isUnread
   background: linear-gradient(to right, $lightGreen, $lighterGreen)

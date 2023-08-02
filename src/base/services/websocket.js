@@ -41,7 +41,7 @@ export const useWebsocket = defineService(() => {
 
   const { isAway } = usePresenceService()
 
-  if (process.env.MODE === 'cordova') {
+  if (import.meta.env.MODE === 'cordova') {
     WEBSOCKET_ENDPOINT = [
       process.env.KARROT.BACKEND.replace(/^http/, 'ws'),
       '/api/ws',
@@ -136,7 +136,7 @@ export const useWebsocket = defineService(() => {
 
         if (data.topic) {
           // add artificial delay for dev env
-          if (process.env.DEV) {
+          if (import.meta.env.DEV) {
             devSleep().then(() => receiveMessage(data))
           }
           else {
@@ -234,7 +234,7 @@ export const useWebsocket = defineService(() => {
 
   watch(isLoggedIn, value => {
     if (value) {
-      if (process.env.MODE === 'cordova') {
+      if (import.meta.env.MODE === 'cordova') {
         // TODO: check cordova login works...
         const token = auth.getToken()
         socket.connect([

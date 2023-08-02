@@ -1,7 +1,7 @@
 import { flushPromises } from '@vue/test-utils'
 import addDays from 'date-fns/addDays'
 import { sample as _sample } from 'lodash'
-import { beforeEach, afterEach } from 'vitest'
+// import { beforeEach, afterEach } from 'vitest'
 
 import { createMockActivitiesBackend, generateActivity } from '>/mockBackend/activities'
 import { createMockActivityTypesBackend, generateActivityType } from '>/mockBackend/activityTypes'
@@ -37,10 +37,10 @@ export const ctx = createContext()
  * module can use how it wishes, so things that cross-reference each
  * other can work.
  */
-export function useMockBackend () {
-  beforeEach(setupMockBackend)
-  afterEach(resetMockBackend)
-}
+// export function useMockBackend () {
+//   beforeEach(setupMockBackend)
+//   afterEach(resetMockBackend)
+// }
 
 export function getMockBackendContext () {
   return ctx

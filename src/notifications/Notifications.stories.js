@@ -15,7 +15,7 @@ import {
 } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 
-import Notifications from './components/Notifications'
+import Notifications from './components/Notifications.vue'
 
 export default {
   component: Notifications,

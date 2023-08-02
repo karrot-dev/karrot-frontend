@@ -128,8 +128,8 @@ export function usePerformance () {
       mobile: Boolean(Platform.is.mobile),
       browser: Platform.is.name,
       os: Platform.is.platform,
-      dev: Boolean(process.env.DEV),
-      app: Boolean(process.env.MODE === 'cordova'),
+      dev: Boolean(import.meta.env.DEV),
+      app: Boolean(import.meta.env.MODE === 'cordova'),
     }
     pendingStats.push(stat)
     debouncedSave()

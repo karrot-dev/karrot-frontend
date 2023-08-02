@@ -1,6 +1,6 @@
 import { h } from 'vue'
 
-import { statusMocks } from '>/helpers'
+// import { statusMocks } from '>/helpers'
 import {
   createGroup,
   createPlace,
@@ -34,7 +34,7 @@ export const Normal = Template.bind({})
 Normal.args = {
   value: activity,
   series,
-  status: statusMocks.default(),
+  // status: statusMocks.default(),
 }
 
 export const Disabled = Template.bind({})
@@ -45,7 +45,7 @@ Disabled.args = {
     isDisabled: true,
   },
   series,
-  status: statusMocks.default(),
+  // status: statusMocks.default(),
 }
 
 export const WithDuration = Template.bind({})
@@ -56,7 +56,7 @@ WithDuration.args = {
     hasDuration: true,
   },
   series,
-  status: statusMocks.default(),
+  // status: statusMocks.default(),
 }
 
 export const SeriesChanged = Template.bind({})
@@ -75,7 +75,7 @@ SeriesChanged.args = {
     description: 'other',
     maxParticipants: 1,
   },
-  status: statusMocks.default(),
+  // status: statusMocks.default(),
 }
 
 export const Pending = Template.bind({})
@@ -83,7 +83,7 @@ export const Pending = Template.bind({})
 Pending.args = {
   value: activity,
   series,
-  status: statusMocks.pending(),
+  // status: statusMocks.pending(),
 }
 
 export const Error = Template.bind({})
@@ -91,5 +91,5 @@ export const Error = Template.bind({})
 Error.args = {
   value: activity,
   series,
-  status: statusMocks.validationError('date', 'Wrong time'),
+  // status: statusMocks.validationError('date', 'Wrong time'),
 }

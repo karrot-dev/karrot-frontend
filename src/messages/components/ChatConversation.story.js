@@ -2,8 +2,9 @@ import { storiesOf } from '@storybook/vue3'
 import { h } from 'vue'
 
 import * as factories from '>/enrichedFactories'
-import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import { messagesMock } from '>/mockdata'
+import { statusMocks } from '>/statusMocks'
 
 import ChatConversation from './ChatConversation.vue'
 

@@ -10,7 +10,6 @@ import { showToast } from '@/utils/toasts'
 
 import { withDefaults } from '>/helpers'
 import {
-  useMockBackend,
   createUser,
   createGroup,
   loginAs,
@@ -21,6 +20,7 @@ import {
 } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
+import { useMockBackend } from '>/mockBackend/setup'
 
 import ActivityCreateButton from './ActivityCreateButton.vue'
 

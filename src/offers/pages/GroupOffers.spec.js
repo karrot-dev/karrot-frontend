@@ -6,8 +6,9 @@ import { vi } from 'vitest'
 import { resetServices } from '@/utils/datastore/helpers'
 
 import { withDefaults } from '>/helpers'
-import { useMockBackend, createUser, createGroup, createOffer, loginAs, db, setPageSize } from '>/mockBackend'
+import { createUser, createGroup, createOffer, loginAs, db, setPageSize } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
+import { useMockBackend } from '>/mockBackend/setup'
 import '>/routerMocks'
 
 import GroupOffers from './GroupOffers.vue'

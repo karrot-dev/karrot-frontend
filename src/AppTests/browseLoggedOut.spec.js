@@ -6,8 +6,9 @@ import App from '@/App.vue'
 import router from '@/router'
 
 import { withDefaults } from '>/helpers'
-import { createGroup, createUser, db, useMockBackend } from '>/mockBackend'
+import { createGroup, createUser, db } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
+import { useMockBackend } from '>/mockBackend/setup'
 
 useMockBackend()
 

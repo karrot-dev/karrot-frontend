@@ -1,4 +1,4 @@
-import { defaultActionStatusesFor } from '>/helpers'
+import { defaultActionStatusesFor } from '>/statusMocks'
 
 export function enrichGroup (group) {
   return {

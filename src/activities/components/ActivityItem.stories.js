@@ -1,5 +1,3 @@
-import { h } from 'vue'
-
 import { convert } from '@/activities/api/activities'
 
 import {
@@ -28,16 +26,10 @@ export default {
   component: ActivityItem,
 }
 
-const Template = (args) => ({
-  setup () {
-    return () => h(ActivityItem, args)
+export const Normal = {
+  args: {
+    activity: convert(toResponse(activity)),
   },
-})
-
-export const Normal = Template.bind({})
-
-Normal.args = {
-  activity: convert(toResponse(activity)),
 }
 
 /*

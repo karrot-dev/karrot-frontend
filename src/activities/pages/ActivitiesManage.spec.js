@@ -10,7 +10,6 @@ import { resetServices } from '@/utils/datastore/helpers'
 
 import { withDefaults, invalidateQueries } from '>/helpers'
 import {
-  useMockBackend,
   createUser,
   createGroup,
   createActivityType,
@@ -22,6 +21,7 @@ import {
 } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 import '>/routerMocks'
+import { useMockBackend } from '>/mockBackend/setup'
 
 import ActivitiesManage from './ActivitiesManage.vue'
 

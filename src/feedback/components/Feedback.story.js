@@ -2,8 +2,9 @@ import { storiesOf } from '@storybook/vue3'
 import { h } from 'vue'
 
 import * as factories from '>/enrichedFactories'
-import { storybookDefaults as defaults, statusMocks, createDatastore } from '>/helpers'
+import { storybookDefaults as defaults, createDatastore } from '>/helpers'
 import { feedbackMock, activitiesMock } from '>/mockdata'
+import { statusMocks } from '>/statusMocks'
 
 import ActivityFeedback from '../pages/ActivityFeedback'
 

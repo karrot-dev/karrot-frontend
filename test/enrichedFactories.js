@@ -26,7 +26,7 @@ import imageRandomB from '@/base/pages/images/random-imgs/oestersund-volunteers-
 import imageRandomD from '@/base/pages/images/random-imgs/solikyl-savers-200.jpg'
 import { optionsFor } from '@/places/placeStatus'
 
-import { statusMocks } from '>/helpers'
+import { statusMocks } from '>/statusMocks'
 
 let notificationIdCnt = 0
 export const makeNotification = data => {

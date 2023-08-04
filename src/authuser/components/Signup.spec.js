@@ -1,7 +1,8 @@
 import { QCheckbox } from 'quasar'
 import { vi } from 'vitest'
 
-import { mountWithDefaults, statusMocks } from '>/helpers'
+import { mountWithDefaults } from '>/helpers'
+import { statusMocks } from '>/statusMocks'
 
 import Signup from './Signup.vue'
 

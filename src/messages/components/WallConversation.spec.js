@@ -9,7 +9,6 @@ import { resetServices } from '@/utils/datastore/helpers'
 
 import { withDefaults, invalidateQueries } from '>/helpers'
 import {
-  useMockBackend,
   createUser,
   createGroup,
   createMessage,
@@ -18,6 +17,7 @@ import {
 } from '>/mockBackend'
 import { addUserToConversation } from '>/mockBackend/conversations'
 import { addUserToGroup } from '>/mockBackend/groups'
+import { useMockBackend } from '>/mockBackend/setup'
 import '>/routerMocks'
 
 import WallConversation from './WallConversation.vue'

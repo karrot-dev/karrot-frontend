@@ -9,7 +9,6 @@ import router from '@/router'
 
 import { withDefaults } from '>/helpers'
 import {
-  useMockBackend,
   createUser,
   createGroup,
   loginAs,
@@ -20,6 +19,7 @@ import {
 } from '>/mockBackend'
 import { joinActivity } from '>/mockBackend/activities'
 import { addUserToGroup } from '>/mockBackend/groups'
+import { useMockBackend } from '>/mockBackend/setup'
 
 useMockBackend()
 

@@ -12,7 +12,9 @@ export default defineConfig({
     vue({
       template: { transformAssetUrls },
     }),
-    quasar({}),
+    quasar({
+      sassVariables: '@/css/quasar.variables.sass',
+    }),
   ],
   test: {
     testTimeout: 120 * 1000,

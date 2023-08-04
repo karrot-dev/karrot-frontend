@@ -2,7 +2,8 @@ import { storiesOf } from '@storybook/vue3'
 import { h } from 'vue'
 
 import * as factories from '>/enrichedFactories'
-import { createDatastore, storybookDefaults as defaults, statusMocks } from '>/helpers'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
+import { statusMocks } from '>/statusMocks'
 
 import ConversationCompose from './ConversationCompose.vue'
 

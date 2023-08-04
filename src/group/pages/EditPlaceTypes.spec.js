@@ -9,13 +9,13 @@ import { resetServices } from '@/utils/datastore/helpers'
 
 import { withDefaults } from '>/helpers'
 import {
-  useMockBackend,
   createUser,
   createGroup,
   createPlaceType,
   loginAs,
 } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
+import { useMockBackend } from '>/mockBackend/setup'
 import '>/routerMocks'
 
 import EditPlaceTypes from './EditPlaceTypes.vue'

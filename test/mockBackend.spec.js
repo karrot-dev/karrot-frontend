@@ -9,7 +9,9 @@ import groupsInfoAPI from '@/groupInfo/api/groupsInfo'
 import offersAPI from '@/offers/api/offers'
 import userAPI from '@/users/api/users'
 
-import { loginAs, createUser, db, useMockBackend, createGroup, createOffer } from './mockBackend'
+import { useMockBackend } from '>/mockBackend/setup'
+
+import { loginAs, createUser, db, createGroup, createOffer } from './mockBackend'
 import { addUserToGroup } from './mockBackend/groups'
 
 describe('mock backend', () => {

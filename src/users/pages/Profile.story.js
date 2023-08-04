@@ -6,7 +6,8 @@ import Profile from '@/users/pages/Profile'
 import TrustInfo from '@/users/components/TrustInfo'
 
 import * as factories from '>/enrichedFactories'
-import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
+import { statusMocks } from '>/statusMocks'
 
 const group = factories.makeGroup({
   isCurrentGroup: true,

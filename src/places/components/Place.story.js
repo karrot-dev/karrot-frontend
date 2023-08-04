@@ -2,7 +2,8 @@ import { storiesOf } from '@storybook/vue3'
 import { h } from 'vue'
 
 import { makePlace, makeGroup, makeUser } from '>/enrichedFactories'
-import { statusMocks, storybookDefaults as defaults, createDatastore } from '>/helpers'
+import { storybookDefaults as defaults, createDatastore } from '>/helpers'
+import { statusMocks } from '>/statusMocks'
 
 import PlaceEdit from './PlaceEdit.vue'
 import PlaceHeader from './PlaceHeader.vue'

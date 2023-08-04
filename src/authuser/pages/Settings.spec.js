@@ -10,13 +10,13 @@ import { showToast } from '@/utils/toasts'
 
 import { withDefaults, invalidateQueries } from '>/helpers'
 import {
-  useMockBackend,
   createUser,
   createGroup,
   loginAs,
   getMockBackendContext,
 } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
+import { useMockBackend } from '>/mockBackend/setup'
 import '>/routerMocks'
 
 import Settings from './Settings.vue'

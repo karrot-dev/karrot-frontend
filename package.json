@@ -33,13 +33,13 @@
     "fix": "npm run lint -- --fix",
     "lint:style": "stylelint 'src/**/*.{vue,sass}'",
     "fix:style": "npm run lint:style -- --fix",
+    "storybook": "cross-env STORYBOOK_DISABLE_TELEMETRY=1 storybook dev -p 6006 --no-open",
+    "build-storybook": "cross-env STORYBOOK_DISABLE_TELEMETRY=1 storybook build",
     "locales:pull": "tx pull -a --force --workers 20",
     "locales:push": "tx push -s",
     "docs": "cd docs && mdbook serve",
     "build-docs": "cd docs && mdbook build --dest-dir ../docs-dist",
-    "generate-landing-images": "node src/base/generate-images.mjs",
-    "storybook": "cross-env STORYBOOK_DISABLE_TELEMETRY=1 storybook dev -p 6006 --no-open",
-    "build-storybook": "cross-env STORYBOOK_DISABLE_TELEMETRY=1 storybook build"
+    "generate-landing-images": "node src/base/generate-images.mjs"
   },
   "dependencies": {
     "@quasar/extras": "^1.16.5",

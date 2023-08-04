@@ -154,7 +154,6 @@ function mark () {
 </script>
 
 <style scoped lang="sass">
-@import "@/css/quasar.variables"
 .isUnread
   background: linear-gradient(to right, $lightGreen, $lighterGreen)
 </style>

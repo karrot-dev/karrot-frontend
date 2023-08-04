@@ -1,10 +1,5 @@
 import { vi } from 'vitest'
 
-// TODO: what to set here? maybe nothing
-// import.meta.env.MODE = 'spa'
-// process.env.mode = 'spa'
-// import.meta.env.DEV = true
-// process.env.DEV = true
 process.env.KARROT = {
   THEME: 'dev',
 }

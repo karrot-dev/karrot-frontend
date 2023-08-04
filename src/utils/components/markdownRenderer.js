@@ -20,9 +20,6 @@ const internalBaseURLs = []
 if (!window.location.href.startsWith('file:///')) {
   internalBaseURLs.push(window.location.href.split('/#')[0])
 }
-// if (process.env.KARROT.BACKEND) {
-//   internalBaseURLs.push(process.env.KARROT.BACKEND)
-// }
 
 const mentions = RegexPlugin(
   /@([a-zA-Z0-9_\-.]+)/, // needs to match backend

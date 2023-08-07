@@ -2,14 +2,15 @@ import { convert } from '@/activities/api/activities'
 
 import {
   createActivity,
-  createActivityType,
+  createActivityType, createFeedback,
   createGroup,
   createPlace,
   createPlaceType,
   createUser,
   loginAs,
 } from '>/mockBackend'
-import { toResponse } from '>/mockBackend/activities'
+import { joinActivity, toResponse } from '>/mockBackend/activities'
+import { addUserToGroup } from '>/mockBackend/groups'
 
 import ActivityItem from './ActivityItem.vue'
 
@@ -19,6 +20,15 @@ const place = createPlace({ group: group.id })
 createActivityType({ group: group.id })
 const activity = createActivity({ place: place.id })
 const user = createUser()
+addUserToGroup(user, group)
+
+const activityWithParticipants = createActivity({
+  place: place.id,
+  description: 'You can join this activity.',
+})
+const otherUser = createUser()
+addUserToGroup(otherUser, group)
+joinActivity(activityWithParticipants, otherUser)
 
 loginAs(user)
 
@@ -29,6 +39,28 @@ export default {
 export const Normal = {
   args: {
     activity: convert(toResponse(activity)),
+  },
+}
+
+export const ReadOnly = {
+  args: {
+    // give it some feedback too
+    activity: convert(toResponse({
+      ...activityWithParticipants,
+      feedback: [
+        createFeedback({
+          givenBy: otherUser.id,
+          weight: 25.4,
+          about: activityWithParticipants.id,
+        }),
+        createFeedback({
+          givenBy: user.id,
+          weight: 102.1,
+          about: activityWithParticipants.id,
+        }),
+      ],
+    })),
+    readOnly: true,
   },
 }
 

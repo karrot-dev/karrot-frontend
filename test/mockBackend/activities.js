@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker'
 import { addDays, addHours, addMinutes, startOfTomorrow } from 'date-fns'
 
+import { toFeedbackResponse } from '>/mockBackend/feedback'
 import { ctx, db } from '>/mockBackend/index'
 import { cursorPaginated, getById, post } from '>/mockBackend/mockAxios'
 
@@ -28,6 +29,7 @@ export function generateActivity (params = {}) {
     participants: [],
     feedbackDue: addDays(endDate, 30), // TODO: is this about right?
     feedbackGivenBy: [],
+    feedback: [],
     feedbackDismissedBy: [],
     isDisabled: false,
     hasDuration: false,
@@ -59,6 +61,7 @@ export function joinActivity (activity, user, params = {}) {
 export function toResponse (activity) {
   return {
     ...activity,
+    feedback: activity.feedback.map(toFeedbackResponse),
     isDone: activity.date[1] < new Date(), // TODO: is this the right definition?
   }
 }

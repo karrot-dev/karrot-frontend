@@ -1,48 +1,60 @@
 <template>
   <div class="row">
     <div class="col">
-      <QCard
+      <template
         v-for="{ feedback, user } in feedbackAndUsers"
         :key="feedback.id"
-        flat
-        class="bg-amber-1 no-margin"
       >
-        <QCardSection class="row q-gutter-sm q-pb-none items-center">
-          <ProfilePicture
-            :user="user"
-            :size="22"
-          />
-          <div>
-            <RouterLink :to="{name: 'user', params: { userId: user.id }}">
-              {{ user.displayName }}
-            </RouterLink>
-          </div>
-          <small class="text-weight-light">
-            <DateAsWords
-              :date="feedback.createdAt"
-              :future="false"
+        <QItem>
+          <QItemSection avatar>
+            <ProfilePicture
+              :user="user"
+              :size="32"
             />
-          </small>
-          <small v-if="feedback.weight > 0">
-            {{ formatFeedbackWeight(feedback.weight).join('') }}
-          </small>
-          <RouterLink
-            v-if="place && feedback.isEditable"
-            class="q-ml-auto edit-button"
-            :to="{ name: 'editFeedback', params: { groupId: place.group, feedbackId: feedback.id }}"
-          >
-            <QIcon
-              name="fas fa-pencil-alt"
-              :title="$t('BUTTON.EDIT')"
-            />
-          </RouterLink>
-        </QCardSection>
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel class="text-bold">
+              <RouterLink :to="{name: 'user', params: { userId: user.id }}">
+                {{ user.displayName }}
+              </RouterLink>
+            </QItemLabel>
+            <QItemLabel
+              caption
+            >
+              <div
+                class="row q-gutter-sm"
+              >
+                <small v-if="feedback.weight > 0">
+                  {{ formatFeedbackWeight(feedback.weight).join('') }}
+                </small>
+                <small class="text-weight-light">
+                  <DateAsWords
+                    :date="feedback.createdAt"
+                    :future="false"
+                  />
+                </small>
+                <small>
+                  <RouterLink
+                    v-if="place && feedback.isEditable"
+                    class="edit-button block"
+                    :to="{ name: 'editFeedback', params: { groupId: place.group, feedbackId: feedback.id }}"
+                  >
+                    <QIcon
+                      name="fas fa-pencil-alt"
+                      :title="$t('BUTTON.EDIT')"
+                    />
+                  </RouterLink>
+                </small>
+              </div>
+            </QItemLabel>
+          </QItemSection>
+        </QItem>
         <QCardSection v-if="feedback.comment">
           <div class="comment">
             <Markdown :source="feedback.comment" />
           </div>
         </QCardSection>
-      </QCard>
+      </template>
     </div>
     <div class="col-auto">
       <AmountBox
@@ -55,7 +67,7 @@
   </div>
 </template>
 <script setup>
-import { QCard, QCardSection, QIcon } from 'quasar'
+import { QCardSection, QIcon, QItem, QItemLabel, QItemSection } from 'quasar'
 import { computed, toRefs } from 'vue'
 
 import { useActivityTypeService } from '@/activities/services'

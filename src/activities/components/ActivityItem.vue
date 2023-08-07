@@ -13,6 +13,31 @@
       />
     </div>
     <QCardSection
+      v-if="readOnly"
+      :style="{ backgroundColor: lighten(activityType.colour, 80) }"
+    >
+      <div class="row">
+        <QIcon
+          v-bind="activityTypeIconProps"
+          :color="activityTypeIconProps.color"
+          size="xs"
+          class="q-mr-sm"
+        />
+        <div>
+          {{ activityTypeTranslatedName }}
+          at
+          <span v-if="place">
+            <RouterLink
+              :to="{ name: 'place', params: { groupId: place.group, placeId: place.id }}"
+              :class="`text-${activityTypeIconProps.color}`"
+            >
+              {{ place.name }}
+            </RouterLink>
+          </span>
+        </div>
+      </div>
+    </QCardSection>
+    <QCardSection
       class="no-padding content"
       :class="{ isUserParticipant, isDisabled: activity.isDisabled }"
     >
@@ -208,26 +233,7 @@
     <QCardSection
       class="row no-padding full-width justify-end bottom-actions"
     >
-      <template v-if="readOnly">
-        <QBtn
-          flat
-          no-caps
-          :color="activityTypeIconProps.color"
-          class="action-button"
-          :disable="true"
-        >
-          <QIcon
-            v-bind="activityTypeIconProps"
-            :color="activityTypeIconProps.color"
-            size="xs"
-            class="q-mr-sm"
-          />
-          <span class="block">
-            {{ activityTypeTranslatedName }}
-          </span>
-        </QBtn>
-      </template>
-      <template v-else>
+      <template v-if="!readOnly">
         <!--
           join/leave button can be in 4 states where user:
           - has not already joined, and has a suitable role to join
@@ -343,6 +349,7 @@ import {
   QItemLabel,
   QRadio,
   QImg,
+  colors,
 } from 'quasar'
 import { computed, ref, toRefs } from 'vue'
 
@@ -361,6 +368,8 @@ import ShowMore from '@/utils/components/ShowMore.vue'
 
 import ActivityEditButton from './ActivityEditButton.vue'
 import ActivityUsers from './ActivityUsers.vue'
+
+const { lighten } = colors
 
 const props = defineProps({
   activity: {

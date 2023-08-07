@@ -48,7 +48,7 @@ axios.interceptors.request.use(request => {
 })
 
 // add artificial delay for dev env
-if (process.env.DEV) {
+if (import.meta.env.DEV) {
   axios.interceptors.response.use(async response => {
     await devSleep()
     return response

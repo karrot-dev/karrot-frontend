@@ -1,5 +1,5 @@
 import log from '@/utils/log'
 
-if (process.env.DEV) {
+if (import.meta.env.DEV) {
   log.setLevel('debug')
 }

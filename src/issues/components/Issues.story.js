@@ -4,7 +4,8 @@ import subHours from 'date-fns/subHours'
 import { h } from 'vue'
 
 import * as factories from '>/enrichedFactories'
-import { storybookDefaults as defaults, statusMocks } from '>/helpers'
+import { storybookDefaults as defaults } from '>/helpers'
+import { statusMocks } from '>/statusMocks'
 
 import IssueHistoryItem from './IssueHistoryItem.vue'
 import IssueList from './IssueList.vue'

@@ -20,7 +20,7 @@ describe('authuser/api/auth', () => {
       axios.interceptors.request.use(requestInterceptor)
       lastRequest = null
       mock = new MockAdapter(axios)
-      global.process.env.MODE = 'cordova'
+      global.import.meta.env.MODE = 'cordova'
       global.location.reload.mockReset()
       auth = (await import('@/authuser/api/auth')).default
       mock.onGet('/api/auth/user/').reply(200, { email })

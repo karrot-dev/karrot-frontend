@@ -1,9 +1,11 @@
 import { flushPromises } from '@vue/test-utils'
 import { vi, describe, it, beforeEach } from 'vitest'
 
-import { mountWithDefaults, statusMocks } from '>/helpers'
+import { mountWithDefaults } from '>/helpers'
 import '>/routerMocks'
-import { useMockBackend, createUser, loginAs } from '>/mockBackend'
+import { createUser, loginAs } from '>/mockBackend'
+import { useMockBackend } from '>/mockBackend/setup'
+import { statusMocks } from '>/statusMocks'
 
 import ProfileEdit from './ProfileEdit.vue'
 

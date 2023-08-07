@@ -2,7 +2,8 @@ import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/vue3'
 import { h } from 'vue'
 
-import { createDatastore, statusMocks } from '>/helpers'
+import { createDatastore } from '>/helpers'
+import { statusMocks } from '>/statusMocks'
 
 import TrustButton from './TrustButton.vue'
 

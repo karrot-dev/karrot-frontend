@@ -4,7 +4,7 @@ import { captureMessage } from '@/utils/errors'
 
 let KEY, updateToken, clearToken
 
-if (process.env.MODE === 'cordova') {
+if (import.meta.env.MODE === 'cordova') {
   const { localStorage } = window
 
   KEY = 'token'
@@ -61,7 +61,7 @@ if (process.env.MODE === 'cordova') {
 
 export default {
   async login ({ email, password }) {
-    if (process.env.MODE === 'cordova') {
+    if (import.meta.env.MODE === 'cordova') {
       const { token } = (await axios.post('/api/auth/token/', { username: email, password })).data
       updateToken(token)
       return authUser.get() // return the user info to match what the /api/auth/ endpoints returns
@@ -72,12 +72,12 @@ export default {
   },
 
   async logout () {
-    if (process.env.MODE === 'cordova') clearToken()
+    if (import.meta.env.MODE === 'cordova') clearToken()
     return (await axios.post('/api/auth/logout/', {})).data
   },
 
   getToken () {
-    if (process.env.MODE === 'cordova') {
+    if (import.meta.env.MODE === 'cordova') {
       return localStorage.getItem(KEY)
     }
     else {

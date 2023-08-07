@@ -4,7 +4,8 @@ import { h } from 'vue'
 
 import logo from '@/../public/statics/carrot_logo.png'
 
-import { statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { storybookDefaults as defaults } from '>/helpers'
+import { statusMocks } from '>/statusMocks'
 
 import ChangePhoto from './ChangePhoto.vue'
 

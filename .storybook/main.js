@@ -1,43 +1,48 @@
-// require('@storybook/addon-postcss')
+import { quasar } from '@quasar/vite-plugin'
+import { mergeConfig } from 'vite'
 
-const QuasarConfFile = require('@quasar/app-webpack/lib/quasar-conf-file')
-const getQuasarCtx = require('@quasar/app-webpack/lib/helpers/get-quasar-ctx')
+const aliases = require('../aliases').resolve.alias
 
-module.exports = {
-  core: {
-    builder: 'webpack5',
-  },
-  stories: ['../src/**/*.stories.js'],
+/** @type { import('@storybook/vue3-vite').StorybookConfig } */
+const config = {
+  stories: [
+    '../src/**/*.mdx',
+    '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+  ],
   addons: [
-    '@storybook/addon-actions',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
   ],
-  webpackFinal: async (config, { configType }) => {
-    // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
-    // 'PRODUCTION' is used when building the static version of storybook.
-
-    const ctx = getQuasarCtx({
-      mode: 'spa',
-      dev: configType === 'DEVELOPMENT',
-      prod: configType === 'PRODUCTION'
+  framework: {
+    name: '@storybook/vue3-vite',
+    options: {},
+  },
+  docs: {
+    autodocs: false,
+  },
+  viteFinal (config) {
+    return mergeConfig(config, {
+      resolve: {
+        alias: aliases,
+      },
+      define: {
+        // TODO: think some more...
+        // this is a bit of a hack as should use import.meta.env now
+        // but some libraries break as they still use process.env
+        // I guess quasar handles this for us
+        'process.env': {},
+      },
+      plugins: [
+        // we're using the vue plugin as storybook injects it
+        // when we configure it in vitest.config.js we add in
+        // transformAssetUrls from quasar, so maybe this will
+        // break something, and we need to swap out the vue plugin
+        // for our own... let's see!
+        quasar({
+          sassVariables: '@/css/quasar.variables.sass',
+        }),
+      ],
     })
-    const quasarConfig = new QuasarConfFile(ctx)
-    await quasarConfig.prepare()
-    await quasarConfig.compile()
-    const webpackConfig = quasarConfig.webpackConf.renderer
-
-    // Manual merge with our webpack config
-    config.module.rules = webpackConfig.module.rules
-    config.resolve.modules.push(...webpackConfig.resolve.modules)
-    config.resolve.extensions = webpackConfig.resolve.extensions
-    Object.assign(config.resolve.alias, webpackConfig.resolve.alias)
-
-    config.plugins.push(
-      ...webpackConfig.plugins.filter(plugin => {
-        return ['DefinePlugin', 'MiniCssExtractPlugin'].includes(plugin.constructor.name)
-      }),
-    )
-    return config
   },
 }
+export default config

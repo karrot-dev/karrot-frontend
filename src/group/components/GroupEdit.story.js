@@ -2,8 +2,9 @@ import { action } from '@storybook/addon-actions'
 import { storiesOf } from '@storybook/vue3'
 import { h } from 'vue'
 
-import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import { groupsMock, timezones } from '>/mockdata'
+import { statusMocks } from '>/statusMocks'
 
 import GroupEdit from './GroupEdit.vue'
 

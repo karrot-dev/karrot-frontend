@@ -3,7 +3,8 @@ import { storiesOf } from '@storybook/vue3'
 import { h } from 'vue'
 
 import { makeGroupInfo } from '>/enrichedFactories'
-import { statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { storybookDefaults as defaults } from '>/helpers'
+import { statusMocks } from '>/statusMocks'
 
 import GroupPreviewUI from './GroupPreviewUI'
 

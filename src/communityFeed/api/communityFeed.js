@@ -1,6 +1,6 @@
 import axios from '@/base/api/axios'
 
-const backend = process.env.MODE === 'cordova' ? process.env.KARROT.BACKEND : ''
+const backend = import.meta.env.MODE === 'cordova' ? process.env.KARROT.BACKEND : ''
 
 export default {
   async getTopic (id) {

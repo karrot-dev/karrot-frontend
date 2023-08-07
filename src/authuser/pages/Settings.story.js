@@ -7,8 +7,9 @@ import Settings from '@/authuser/pages/Settings'
 import VerificationWarning from '@/authuser/components/Settings/VerificationWarning'
 
 import * as factories from '>/enrichedFactories'
-import { createDatastore, statusMocks, storybookDefaults as defaults } from '>/helpers'
+import { createDatastore, storybookDefaults as defaults } from '>/helpers'
 import { currentUserMock, groupsMock } from '>/mockdata'
+import { statusMocks } from '>/statusMocks'
 
 const datastore = createDatastore({
   auth: {

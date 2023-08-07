@@ -154,7 +154,6 @@ export default {
 
 <style scoped lang="sass">
 @use "sass:color"
-
 .isUnread
   background: linear-gradient(to right, $lightGreen, $lighterGreen)
 

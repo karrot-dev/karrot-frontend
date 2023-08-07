@@ -7,8 +7,9 @@ import { ref } from 'vue'
 import { useOfferDetailQuery, useOfferListQuery } from '@/offers/queries'
 import { camelizeKeys } from '@/utils/utils'
 
-import { createOffer, useMockBackend, setPageSize, createUser, createGroup, loginAs } from '>/mockBackend'
+import { createOffer, setPageSize, createUser, createGroup, loginAs } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
+import { useMockBackend } from '>/mockBackend/setup'
 
 describe('offer queries', () => {
   useMockBackend()

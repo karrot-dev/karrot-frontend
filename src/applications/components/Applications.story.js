@@ -3,7 +3,8 @@ import subDays from 'date-fns/subDays'
 import { h } from 'vue'
 
 import * as factories from '>/enrichedFactories'
-import { storybookDefaults as defaults, statusMocks, range } from '>/helpers'
+import { storybookDefaults as defaults, range } from '>/helpers'
+import { statusMocks } from '>/statusMocks'
 
 import ApplicationFormUI from './ApplicationFormUI.vue'
 import ApplicationList from './ApplicationList.vue'

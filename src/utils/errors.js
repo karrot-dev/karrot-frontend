@@ -1,7 +1,7 @@
 let Sentry
 
 export function configureSentry (app, { dsn, environment }) {
-  if (process.env.DEV) {
+  if (import.meta.env.DEV) {
     if (process.env.ENABLE_DEV_SENTRY !== 'true') {
       return
     }

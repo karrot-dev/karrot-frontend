@@ -1,7 +1,6 @@
 import { VueQueryPlugin } from '@tanstack/vue-query'
 import { configure } from '@testing-library/vue'
 import { flushPromises, mount, RouterLinkStub } from '@vue/test-utils'
-import deepmerge from 'deepmerge'
 import { isArray, mergeWith } from 'lodash'
 import { vi } from 'vitest'
 import { nextTick } from 'vue'
@@ -169,61 +168,8 @@ export function mockActionOnce (datastore, actionName) {
   return mockFn
 }
 
-export function defaultActionStatus () {
-  return {
-    pending: false,
-    validationErrors: {},
-    hasValidationErrors: false,
-    serverError: false,
-    networkError: false,
-    startedAt: null,
-  }
-}
-
-export function defaultActionStatusesFor (...actions) {
-  const result = {}
-  for (const action of actions) {
-    result[action + 'Status'] = defaultActionStatus()
-  }
-  return result
-}
-
 export function sleep (ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
-}
-
-/**
- * Helper for the interface of `withMeta` status and components (`statusMixin`)
- */
-function statusMock (override) {
-  const defaults = {
-    ...defaultActionStatus(),
-    firstNonFieldError: undefined,
-    firstValidationError: undefined,
-  }
-  return deepmerge(defaults, override || {})
-}
-
-export const statusMocks = {
-  default: statusMock,
-  pending () {
-    return statusMock({ pending: true })
-  },
-  validationError (field, message) {
-    return statusMock({
-      hasValidationErrors: true,
-      firstValidationError: message,
-      validationErrors: { [field]: [message] },
-    })
-  },
-  nonFieldError (message) {
-    return statusMock({
-      firstNonFieldError: message,
-      hasValidationErrors: true,
-      firstValidationError: message,
-      validationErrors: { nonFieldErrors: [message] },
-    })
-  },
 }
 
 export async function invalidateQueries () {

@@ -85,7 +85,7 @@ export default {
     'submit',
   ],
   data () {
-    if (process.env.DEV) {
+    if (import.meta.env.DEV) {
       return {
         email: 'foo@foo.com',
         password: 'foofoo',

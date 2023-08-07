@@ -1,60 +1,57 @@
-// Vue config
-import 'quasar/dist/quasar.css'
+import { setup } from '@storybook/vue3'
+import { VueQueryPlugin } from '@tanstack/vue-query'
+import { Quasar } from 'quasar'
+
+import { i18nPlugin } from '@/base/i18n'
+import icons from '@/base/icons'
+import queryClient from '@/base/queryClient'
+import router from '@/router'
+
+import { setupMockBackend } from '>/mockBackend'
+import quasarConfig from '>/quasarConfig'
+
+import karrotTheme from './karrot-theme'
+
+import 'quasar/dist/quasar.sass'
 import '@/css/app.sass'
 
-import VueRouter from 'vue-router'
-import { VueQueryPlugin } from '@tanstack/vue-query'
-import { i18nPlugin } from '@/base/i18n'
-import { Quasar } from 'quasar'
-import quasarConfig from '>/quasarConfig'
-import icons from '@/base/icons'
-import { setup } from '@storybook/vue3'
-import { h } from 'vue'
-import queryClient from '@/base/queryClient'
-import { setupMockBackend } from '>/mockBackend'
+// Would be nice to get quasar to load these
+// as it's from quasar config extras
+import '@quasar/extras/roboto-font-latin-ext/roboto-font-latin-ext.css'
+import '@quasar/extras/fontawesome-v5/fontawesome-v5.css'
+import '@quasar/extras/material-icons/material-icons.css'
 
+setupMockBackend()
 
 setup(app => {
-  app.use(i18nPlugin)
-  app.use(Quasar, quasarConfig)
-  app.use(VueQueryPlugin, { queryClient })
-  app.use(VueRouter)
   app.config.globalProperties.$icon = icons.get
+  app.use(i18nPlugin)
+  app.use(VueQueryPlugin, { queryClient })
+  app.use(router)
+  app.use(Quasar, quasarConfig)
 
-  // In theory the RouterLinkStub in @vue/test-utils would work, but I get
-  // call is not a function errors when using that...
-  const RouterLinkStub = {
-    compatConfig: { MODE: 3 },
-    render() {
-      return h('a', undefined, this.$slots.default && this.$slots.default())
-    }
-  }
-  app.component('RouterLink', RouterLinkStub)
-  app.directive('measure', {})
+  app.component('Measure', {})
+
   app.config.errorHandler = (err, vm, info) => {
     console.log(err, vm, info)
   }
 })
 
-import '@quasar/extras/roboto-font/roboto-font.css'
-import '@quasar/extras/material-icons/material-icons.css'
-import '@quasar/extras/fontawesome-v5/fontawesome-v5.css'
-
-setupMockBackend()
-
-// Storybook config
-import { create } from '@storybook/theming'
-import { faker } from '@faker-js/faker'
-
-faker.seed(500)
-
-export const parameters = {
-  options: {
-    theme: create({
-      base: 'light',
-      brandTitle: 'Karrot Storybook',
-      brandUrl: 'https://github.com/karrot-dev/karrot-frontend',
-    }),
-    storySort: (a, b) => a[1].kind.localeCompare(b[1].kind),
-  }
+/** @type { import('@storybook/vue3').Preview } */
+export default {
+  parameters: {
+    options: {
+      theme: karrotTheme,
+    },
+    docs: {
+      theme: karrotTheme,
+    },
+    actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
+    },
+  },
 }

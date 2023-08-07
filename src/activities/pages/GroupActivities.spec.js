@@ -8,7 +8,6 @@ import { resetServices } from '@/utils/datastore/helpers'
 
 import { withDefaults, invalidateQueries } from '>/helpers'
 import {
-  useMockBackend,
   createUser,
   createGroup,
   loginAs,
@@ -21,6 +20,7 @@ import {
 } from '>/mockBackend'
 import { translatableActivityTypeNames } from '>/mockBackend/activityTypes'
 import { addUserToGroup } from '>/mockBackend/groups'
+import { useMockBackend } from '>/mockBackend/setup'
 import { realSample } from '>/mockBackend/utils'
 import '>/routerMocks'
 

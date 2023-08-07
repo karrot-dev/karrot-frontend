@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker'
-import { h } from 'vue'
 
 import {
   createUser,
@@ -15,24 +14,18 @@ import {
 } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 
-import Notifications from './components/Notifications'
+import Notifications from './components/Notifications.vue'
+
+fillBackend()
 
 export default {
   component: Notifications,
 }
 
-const Template = (args) => ({
-  setup () {
-    fillBackend()
-    return () => h(Notifications, args)
+export const AllNotifications = {
+  args: {
+    asPage: true,
   },
-  // TODO reset backend!
-})
-
-export const AllNotifications = Template.bind({})
-
-AllNotifications.args = {
-  asPage: true,
 }
 
 function fillBackend () {

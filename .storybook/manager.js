@@ -1,13 +1,8 @@
-import { addons } from '@storybook/addons'
-import { create } from '@storybook/theming/create'
+import { addons } from '@storybook/manager-api'
 
-const theme = create({
-  base: 'light',
-  brandTitle: 'Karrot Storybook',
-  brandUrl: 'https://github.com/karrot-dev/karrot-frontend',
-})
+import karrotTheme from './karrot-theme'
 
 addons.setConfig({
   panelPosition: 'bottom',
-  theme,
+  theme: karrotTheme,
 })

@@ -1,9 +1,9 @@
-if (process.env.MODE === 'cordova') {
+if (import.meta.env.MODE === 'cordova') {
   require('@/utils/cordova/setBaseURL')
 }
 
 export default async function () {
-  if (process.env.MODE === 'cordova') {
+  if (import.meta.env.MODE === 'cordova') {
     // requires datastore and router
     require('@/utils/cordova')
   }

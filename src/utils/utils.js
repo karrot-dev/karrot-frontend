@@ -232,7 +232,7 @@ function removeAttachmentMetaKeys (obj) {
  *   setDevSleep()
  */
 export async function devSleep () {
-  if (process.env.DEV) {
+  if (import.meta.env.DEV) {
     const value = localStorage.getItem('DEV_SLEEP')
     if (value) {
       const [min, max] = value.split(',').map(n => parseInt(n, 10))
@@ -242,7 +242,7 @@ export async function devSleep () {
   }
 }
 
-if (process.env.DEV) {
+if (import.meta.env) {
   window.setDevSleep = function (min, max) {
     if (min && max) {
       localStorage.setItem('DEV_SLEEP', [min, max].join(','))

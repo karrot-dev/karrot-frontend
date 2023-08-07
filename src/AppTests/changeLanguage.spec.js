@@ -9,7 +9,7 @@ import locales from '@/locales/index'
 import router from '@/router'
 
 import { withDefaults } from '>/helpers'
-import { useMockBackend } from '>/mockBackend'
+import { useMockBackend } from '>/mockBackend/setup'
 
 useMockBackend()
 

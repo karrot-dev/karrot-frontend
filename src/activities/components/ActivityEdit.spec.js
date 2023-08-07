@@ -2,8 +2,9 @@ import cloneDeep from 'clone-deep'
 import { vi } from 'vitest'
 import { nextTick } from 'vue'
 
-import { createDatastore, mountWithDefaults, statusMocks } from '>/helpers'
+import { createDatastore, mountWithDefaults } from '>/helpers'
 import { activitiesMock } from '>/mockdata'
+import { statusMocks } from '>/statusMocks'
 
 import ActivityEdit from './ActivityEdit.vue'
 

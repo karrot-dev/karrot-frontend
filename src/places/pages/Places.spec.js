@@ -7,7 +7,6 @@ import { resetServices } from '@/utils/datastore/helpers'
 
 import { withDefaults } from '>/helpers'
 import {
-  useMockBackend,
   createUser,
   createGroup,
   loginAs,
@@ -15,6 +14,7 @@ import {
   createPlaceType,
 } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
+import { useMockBackend } from '>/mockBackend/setup'
 import '>/routerMocks'
 
 import Places from './Places.vue'

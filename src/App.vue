@@ -43,7 +43,7 @@ export default {
     LoadingProgress,
   },
   setup () {
-    if (process.env.MODE === 'cordova') {
+    if (import.meta.env.MODE === 'cordova') {
       // Only load the dependencies if actually in cordova mode
       const { useCordova } = require('@/utils/cordova')
       useCordova()

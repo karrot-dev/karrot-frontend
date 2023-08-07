@@ -1,7 +1,6 @@
 import { flushPromises } from '@vue/test-utils'
 import addDays from 'date-fns/addDays'
 import { sample as _sample } from 'lodash'
-import { beforeEach, afterEach } from 'vitest'
 
 import { createMockActivitiesBackend, generateActivity } from '>/mockBackend/activities'
 import { createMockActivityTypesBackend, generateActivityType } from '>/mockBackend/activityTypes'
@@ -19,8 +18,8 @@ import { createMockGroupDetailBackend, generateGroup } from './groups'
 import { createMockGroupsInfoBackend } from './groupsInfo'
 import { createMockIssuesBackend, generateIssue, generateVoting } from './issues'
 import { createMockMessagesBackend, generateMessage } from './messages'
-import { initializeMockAxios, resetMockAxios, get } from './mockAxios'
-import { generateNotification, createMockNotificationsBackend } from './notifications'
+import { get, initializeMockAxios, resetMockAxios } from './mockAxios'
+import { createMockNotificationsBackend, generateNotification } from './notifications'
 import { createMockOffersBackend, generateOffer } from './offers'
 import { createMockPlaceTypesBackend, generatePlaceType } from './placeTypes'
 import { createMockPlacesBackend, generatePlace } from './places'
@@ -29,18 +28,6 @@ import { createMockUsersBackend, generateUser } from './users'
 
 export const db = createDatabase()
 export const ctx = createContext()
-
-/**
- * Creates a fake backend that can be used in tests.
- *
- * Internally holds a mini db of entries that each backend
- * module can use how it wishes, so things that cross-reference each
- * other can work.
- */
-export function useMockBackend () {
-  beforeEach(setupMockBackend)
-  afterEach(resetMockBackend)
-}
 
 export function getMockBackendContext () {
   return ctx
@@ -105,6 +92,7 @@ function createContext () {
 }
 
 export function setupMockBackend () {
+  resetMockAxios()
   resetDatabase()
   resetContext()
   initializeMockAxios()

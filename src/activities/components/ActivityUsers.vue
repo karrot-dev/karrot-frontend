@@ -24,22 +24,20 @@
       />
     </div>
 
-    <template v-if="!readOnly">
-      <EmptySlot
-        v-for="n in emptySlots"
-        :key="n"
-        :size="size"
-      />
+    <EmptySlot
+      v-for="n in emptySlots"
+      :key="n"
+      :size="size"
+    />
 
-      <div
-        v-if="notShownEmptySlotCount > 0"
-        class="emptySlots"
-        :style="{ width: size + 'px', height: size + 'px' }"
-      >
-        <div />
-        {{ notShownEmptySlotSymbol }}
-      </div>
-    </template>
+    <div
+      v-if="notShownEmptySlotCount > 0"
+      class="emptySlots"
+      :style="{ width: size + 'px', height: size + 'px' }"
+    >
+      <div />
+      {{ notShownEmptySlotSymbol }}
+    </div>
   </div>
 </template>
 
@@ -83,10 +81,6 @@ export default {
       default: false,
     },
     isLeaving: {
-      type: Boolean,
-      default: false,
-    },
-    readOnly: {
       type: Boolean,
       default: false,
     },

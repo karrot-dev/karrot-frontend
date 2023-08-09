@@ -2,7 +2,7 @@ import { convert } from '@/activities/api/activities'
 
 import {
   createActivity,
-  createActivityType, createFeedback,
+  createActivityType,
   createGroup,
   createPlace,
   createPlaceType,
@@ -39,28 +39,6 @@ export default {
 export const Normal = {
   args: {
     activity: convert(toResponse(activity)),
-  },
-}
-
-export const ReadOnly = {
-  args: {
-    // give it some feedback too
-    activity: convert(toResponse({
-      ...activityWithParticipants,
-      feedback: [
-        createFeedback({
-          givenBy: otherUser.id,
-          weight: 25.4,
-          about: activityWithParticipants.id,
-        }),
-        createFeedback({
-          givenBy: user.id,
-          weight: 102.1,
-          about: activityWithParticipants.id,
-        }),
-      ],
-    })),
-    readOnly: true,
   },
 }
 

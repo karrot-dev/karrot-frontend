@@ -59,9 +59,17 @@ export function joinActivity (activity, user, params = {}) {
 }
 
 export function toResponse (activity) {
+  const feedback = db.orm.feedback.filter({ about: activity.id })
   return {
     ...activity,
-    feedback: activity.feedback.map(toFeedbackResponse),
+    participants: activity.participants.map(participant => ({
+      // Not all fields returned
+      user: participant.user,
+      participantType: participant.participantType,
+      createdAt: participant.createdAt,
+    })),
+    feedback: feedback.map(toFeedbackResponse),
+    feedbackDismissedBy: activity.participants.filter(participant => participant.feedbackDismissed).map(participant => participant.user),
     isDone: activity.date[1] < new Date(), // TODO: is this the right definition?
   }
 }

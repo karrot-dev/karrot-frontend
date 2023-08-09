@@ -11,13 +11,28 @@
       />
     </div>
     <QCardSection
+      v-if="canGiveFeedback"
+      class="bg-info no-padding"
+    >
+      <RouterLink
+        :to="{ name: 'giveFeedback', params: { groupId: place.group, activityId: activity.id }}"
+        class="block q-pa-md"
+      >
+        <QIcon
+          v-bind="activityTypeFeedbackIconProps"
+          color="black"
+          class="q-mr-sm"
+        />
+        You can give feedback to this activity!
+      </RouterLink>
+    </QCardSection>
+    <QCardSection
       v-if="activityType"
       :style="{ backgroundColor: lighten(activityType.colour, 80) }"
     >
-      <div class="row">
+      <div class="row no-wrap">
         <QIcon
           v-bind="activityTypeIconProps"
-          :color="activityTypeIconProps.color"
           size="xs"
           class="q-mr-sm"
         />
@@ -37,7 +52,6 @@
     </QCardSection>
     <QCardSection
       class="no-padding content"
-      :class="{ isUserParticipant, isDisabled: activity.isDisabled }"
     >
       <div class="content-inner">
         <div class="row no-wrap items-start justify-between">
@@ -46,36 +60,21 @@
               {{ $d(activity.date, 'hourMinute') }}
               <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>
             </strong>
-            <template v-if="placeLink">
-              <template v-if="dense">
-                <span>{{ $d(activity.date, 'dateWithDayName') }}</span>
-                <br>
-              </template>
-              <span v-if="place">
-                <RouterLink :to="{ name: 'place', params: { groupId: place.group, placeId: place.id }}">
-                  {{ place.name }}
-                </RouterLink>
-              </span>
-            </template>
-            <template v-else>
-              {{ $d(activity.date, 'dateLongWithDayName') }}
-            </template>
+            {{ $d(activity.date, 'dateLongWithDayName') }}
           </div>
         </div>
-        <ShowMore
-          :height="200"
-          :overlay-color="isUserParticipant ? '#E7FFE0' : 'white'"
-        >
-          <Markdown
-            v-if="activity.description"
-            :source="activity.description"
-            mentions
-          />
-        </ShowMore>
       </div>
     </QCardSection>
-    <QCardSection class="q-pa-none">
-      <div class="row">
+    <QCardSection class="no-padding">
+      <div class="column row-sm q-mb-md">
+        <div class="col-shrink order-sm-last">
+          <AmountBox
+            v-if="hasFeedbackWeight"
+            :size="80"
+            class="q-ma-md"
+            :amount="feedbackWeight"
+          />
+        </div>
         <div class="col">
           <template
             v-for="{ user, feedback } in feedbackAndUsers"
@@ -120,11 +119,26 @@
                   </div>
                 </QItemLabel>
                 <QItemLabel
+                  v-else-if="hasDismissedFeedback(user)"
+                  caption
+                  class="text-italic"
+                >
+                  Declined to give feedback
+                </QItemLabel>
+                <QItemLabel
+                  v-else-if="getIsCurrentUser(user) && canGiveFeedback"
+                  caption
+                >
+                  <RouterLink :to="{ name: 'giveFeedback', params: { groupId: place.group, activityId: activity.id }}">
+                    You have not given feedback
+                  </RouterLink>
+                </QItemLabel>
+                <QItemLabel
                   v-else
                   caption
                   class="text-italic"
                 >
-                  This participant has not posted feedback
+                  This participant has not given feedback yet
                 </QItemLabel>
               </QItemSection>
             </QItem>
@@ -134,14 +148,6 @@
               </div>
             </QCardSection>
           </template>
-        </div>
-        <div class="col-auto">
-          <AmountBox
-            v-if="hasFeedbackWeight"
-            :size="80"
-            class="q-ma-md"
-            :amount="feedbackWeight"
-          />
         </div>
       </div>
     </QCardSection>
@@ -199,24 +205,19 @@ import {
 } from 'quasar'
 import { computed, toRefs } from 'vue'
 
-import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
+import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useActivityTypeService } from '@/activities/services'
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useAuthService } from '@/authuser/services'
 import { useFeedbackHelpers } from '@/feedback/helpers'
 import { useDetailService } from '@/messages/services'
 import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
-import { absoluteURL } from '@/utils/absoluteURL'
 
-import ActivityItemFeedback from '@/activities/components/ActivityItemFeedback.vue'
 import AmountBox from '@/feedback/components/AmountBox.vue'
 import ProfilePicture from '@/users/components/ProfilePicture.vue'
-import CustomDialog from '@/utils/components/CustomDialog.vue'
 import DateAsWords from '@/utils/components/DateAsWords.vue'
 import Markdown from '@/utils/components/Markdown.vue'
-import ShowMore from '@/utils/components/ShowMore.vue'
-
-import ActivityEditButton from './ActivityEditButton.vue'
-import ActivityUsers from './ActivityUsers.vue'
 
 const { lighten } = colors
 
@@ -234,10 +235,6 @@ const props = defineProps({
     default: false,
   },
   preview: {
-    type: Boolean,
-    default: false,
-  },
-  readOnly: {
     type: Boolean,
     default: false,
   },
@@ -259,22 +256,22 @@ const {
 
 const { getUserById } = useUserService()
 
-const {
-  getIsUserParticipant,
-} = useActivityHelpers()
+const { userId: currentUserId } = useAuthService()
+
+const { getIsCurrentUser } = useAuthHelpers()
 
 const {
   getTranslatedName,
   getIconProps,
+  getFeedbackIconProps,
 } = useActivityTypeHelpers()
-
-const isUserParticipant = computed(() => getIsUserParticipant(activity.value))
 
 const place = computed(() => getPlaceById(activity.value.place))
 
 const activityType = computed(() => getActivityTypeById(activity.value.activityType))
 const activityTypeTranslatedName = computed(() => getTranslatedName(activityType.value))
 const activityTypeIconProps = computed(() => getIconProps(activityType.value))
+const activityTypeFeedbackIconProps = computed(() => getFeedbackIconProps(activityType.value))
 
 const bannerImageURL = computed(() => {
   return activity.value?.bannerImageUrls?.fullSize
@@ -303,7 +300,10 @@ const feedbackAndUsers = computed(() => {
   ]
 })
 
-const hasFeedbackWeight = computed(() => activityType.value?.hasFeedbackWeight)
+const hasFeedback = computed(() => activityType.value?.hasFeedback)
+
+const hasFeedbackWeight = computed(() => hasFeedback.value && activityType.value?.hasFeedbackWeight)
+
 const feedbackWeight = computed(() => {
   if (!hasFeedbackWeight.value) return 0
   return activity.value?.feedback.reduce((total, feedback) => total + feedback.weight, 0)
@@ -316,6 +316,15 @@ const usersThatHaveNotGivenFeedback = computed(() => {
     userIds.delete(feedback.givenBy)
   }
   return Array.from(userIds).map(getUserById)
+})
+
+function hasDismissedFeedback (user) {
+  return activity.value?.feedbackDismissedBy.includes(user.id)
+}
+
+const canGiveFeedback = computed(() => {
+  // TODO: needs to factor in the time...
+  return hasFeedback.value && usersThatHaveNotGivenFeedback?.value.some(user => user.id === currentUserId.value) && !activity.value?.feedbackDismissedBy.includes(currentUserId.value)
 })
 
 </script>
@@ -335,7 +344,7 @@ const usersThatHaveNotGivenFeedback = computed(() => {
     // quasar makes it "middle" which puts it a bit low here...
     vertical-align: baseline
 
-// TODO: the style from here below is duplicated from ActivityItem.vue
+// TODO: the style from here below is duplicated from ActivityItem.vue (with some removed)
 .multiple-types
   padding: 8px 8px 2px 8px
   border-left: 4px solid rgba(0, 0, 0, 0.1)
@@ -344,13 +353,6 @@ const usersThatHaveNotGivenFeedback = computed(() => {
 
 .content
   width: 100%
-
-  &.isUserParticipant
-    &:not(.isDisabled)
-      background-color: $lightGreen
-
-  &.isDisabled
-    background: $lightRed
 
   .content-inner
     width: 100%

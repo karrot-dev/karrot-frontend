@@ -1,7 +1,5 @@
 <template>
-  <QCard
-    class="activity-item"
-  >
+  <QCard>
     <div
       v-if="bannerImageURL"
       style="height: 50px;"
@@ -12,31 +10,6 @@
         class="absolute-center"
       />
     </div>
-    <QCardSection
-      v-if="readOnly"
-      :style="{ backgroundColor: lighten(activityType.colour, 80) }"
-    >
-      <div class="row">
-        <QIcon
-          v-bind="activityTypeIconProps"
-          :color="activityTypeIconProps.color"
-          size="xs"
-          class="q-mr-sm"
-        />
-        <div>
-          {{ activityTypeTranslatedName }}
-          at
-          <span v-if="place">
-            <RouterLink
-              :to="{ name: 'place', params: { groupId: place.group, placeId: place.id }}"
-              :class="`text-${activityTypeIconProps.color}`"
-            >
-              {{ place.name }}
-            </RouterLink>
-          </span>
-        </div>
-      </div>
-    </QCardSection>
     <QCardSection
       class="no-padding content"
       :class="{ isUserParticipant, isDisabled: activity.isDisabled }"
@@ -64,7 +37,7 @@
             </template>
           </div>
           <ActivityEditButton
-            v-if="!preview && isEditor && !hasStarted && !readOnly"
+            v-if="!preview && isEditor && !hasStarted"
             :activity="activity"
             :place="place"
           />
@@ -105,8 +78,6 @@
             <ActivityUsers
               :activity="activity"
               :participant-type="participantType"
-              :read-only="readOnly"
-              :size="readOnly ? 22 : 36"
             />
             <div
               v-if="participantTypes.length > 1 || participantType.role !== 'member'"
@@ -227,61 +198,56 @@
         </div>
       </div>
     </QCardSection>
-    <QCardSection v-if="readOnly && activity.feedback?.length > 0">
-      <ActivityItemFeedback :activity="activity" />
-    </QCardSection>
     <QCardSection
       class="row no-padding full-width justify-end bottom-actions"
     >
-      <template v-if="!readOnly">
-        <!--
-          join/leave button can be in 4 states where user:
-          - has not already joined, and has a suitable role to join
-          - has not already joined, but does not have suitable role, so cannot join
-          - has joined, but it's already started, so can't leave
-          - has joined, and can leave
-        -->
-        <QBtn
-          v-if="isUserParticipant"
-          flat
-          no-caps
+      <!--
+        join/leave button can be in 4 states where user:
+        - has not already joined, and has a suitable role to join
+        - has not already joined, but does not have suitable role, so cannot join
+        - has joined, but it's already started, so can't leave
+        - has joined, and can leave
+      -->
+      <QBtn
+        v-if="isUserParticipant"
+        flat
+        no-caps
+        color="grey-9"
+        class="action-button"
+        :loading="isLeaving"
+        :disable="!canLeave"
+        @click="leave"
+      >
+        <QIcon
+          v-bind="activityTypeIconProps"
           color="grey-9"
-          class="action-button"
-          :loading="isLeaving"
-          :disable="!canLeave"
-          @click="leave"
-        >
-          <QIcon
-            v-bind="activityTypeIconProps"
-            color="grey-9"
-            size="xs"
-            class="q-mr-sm"
-          />
-          <span class="block">
-            {{ $t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
-          </span>
-        </QBtn>
-        <QBtn
-          v-else
-          flat
-          no-caps
+          size="xs"
+          class="q-mr-sm"
+        />
+        <span class="block">
+          {{ $t('ACTIVITYLIST.ITEM.LEAVE_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
+        </span>
+      </QBtn>
+      <QBtn
+        v-else
+        flat
+        no-caps
+        :color="canJoin ? activityTypeIconProps.color : 'grey-5'"
+        class="action-button"
+        :loading="isJoining"
+        :disable="!canJoin"
+        @click="join"
+      >
+        <QIcon
+          v-bind="activityTypeIconProps"
           :color="canJoin ? activityTypeIconProps.color : 'grey-5'"
-          class="action-button"
-          :loading="isJoining"
-          :disable="!canJoin"
-          @click="join"
-        >
-          <QIcon
-            v-bind="activityTypeIconProps"
-            :color="canJoin ? activityTypeIconProps.color : 'grey-5'"
-            size="xs"
-            class="q-mr-sm"
-          />
-          <span class="block">
-            {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
-          </span>
-        </QBtn>
-      </template>
+          size="xs"
+          class="q-mr-sm"
+        />
+        <span class="block">
+          {{ $t('ACTIVITYLIST.ITEM.JOIN_CONFIRMATION_HEADER', { activityType: activityTypeTranslatedName }) }}
+        </span>
+      </QBtn>
       <QBtn
         v-if="activity.isPublic"
         class="action-button"
@@ -349,7 +315,6 @@ import {
   QItemLabel,
   QRadio,
   QImg,
-  colors,
 } from 'quasar'
 import { computed, ref, toRefs } from 'vue'
 
@@ -361,15 +326,12 @@ import { useDetailService } from '@/messages/services'
 import { usePlaceService } from '@/places/services'
 import { absoluteURL } from '@/utils/absoluteURL'
 
-import ActivityItemFeedback from '@/activities/components/ActivityItemFeedback.vue'
 import CustomDialog from '@/utils/components/CustomDialog.vue'
 import Markdown from '@/utils/components/Markdown.vue'
 import ShowMore from '@/utils/components/ShowMore.vue'
 
 import ActivityEditButton from './ActivityEditButton.vue'
 import ActivityUsers from './ActivityUsers.vue'
-
-const { lighten } = colors
 
 const props = defineProps({
   activity: {
@@ -385,10 +347,6 @@ const props = defineProps({
     default: false,
   },
   preview: {
-    type: Boolean,
-    default: false,
-  },
-  readOnly: {
     type: Boolean,
     default: false,
   },

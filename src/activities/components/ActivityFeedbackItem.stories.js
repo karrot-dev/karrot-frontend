@@ -21,8 +21,12 @@ createPlaceType({ group: group.id })
 const place = createPlace({ group: group.id })
 const activityType = createActivityType({ group: group.id, hasFeedbackWeight: true })
 const activity = createActivity({ place: place.id, activityType: activityType.id })
+const canGiveFeedbackActivity = createActivity({ place: place.id, activityType: activityType.id })
 const user = createUser()
 addUserToGroup(user, group)
+
+joinActivity(activity, user)
+joinActivity(canGiveFeedbackActivity, user)
 
 const otherUser = createUser()
 addUserToGroup(otherUser, group)
@@ -33,6 +37,24 @@ range(2).forEach(() => {
   const user = createUser()
   addUserToGroup(user, group)
   joinActivity(activity, user)
+  joinActivity(canGiveFeedbackActivity, user)
+})
+
+// and a dismissed feedback user
+const dismissedUser = createUser()
+addUserToGroup(dismissedUser, group)
+joinActivity(activity, dismissedUser, { feedbackDismissed: true })
+
+createFeedback({
+  givenBy: otherUser.id,
+  weight: 25.4,
+  about: activity.id,
+})
+
+createFeedback({
+  givenBy: user.id,
+  weight: 102.1,
+  about: activity.id,
 })
 
 loginAs(user)
@@ -43,21 +65,12 @@ export default {
 
 export const Normal = {
   args: {
-    activity: convert(toResponse({
-      ...activity,
-      // TODO: should not include it here, but just register feedback, and it should get picked up by "toResponse"
-      feedback: [
-        createFeedback({
-          givenBy: otherUser.id,
-          weight: 25.4,
-          about: activity.id,
-        }),
-        createFeedback({
-          givenBy: user.id,
-          weight: 102.1,
-          about: activity.id,
-        }),
-      ],
-    })),
+    activity: convert(toResponse(activity)),
+  },
+}
+
+export const CanGiveFeedback = {
+  args: {
+    activity: convert(toResponse(canGiveFeedbackActivity)),
   },
 }

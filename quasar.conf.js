@@ -82,6 +82,7 @@ module.exports = configure(function (ctx) {
       proxy: proxyTable,
     },
     framework: {
+      cssAddon: true,
       iconSet: 'material-icons',
       lang: 'en-US',
       config: {},

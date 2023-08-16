@@ -62,9 +62,11 @@
     </QCardSection>
     <QCardSection class="no-padding">
       <div class="column row-sm q-mb-md">
-        <div class="col-shrink order-sm-last">
+        <div
+          v-if="hasFeedbackWeight && feedbackWeight > 0"
+          class="col-shrink order-sm-last"
+        >
           <AmountBox
-            v-if="hasFeedbackWeight"
             :size="80"
             class="q-ma-md"
             :amount="feedbackWeight"

@@ -13,7 +13,7 @@ export function generateActivity (params = {}) {
     const place = db.orm.places.get({ id: params.place })
     params.activityType = db.orm.activityTypes.get({ group: place.group }).id
   }
-  const startDate = addHours(params.startDate || startOfTomorrow(), 10)
+  const startDate = params.startDate || addHours(startOfTomorrow(), 10)
   const endDate = addMinutes(startDate, 30)
   return {
     id: nextId++,
@@ -85,8 +85,8 @@ export function createMockActivitiesBackend () {
   cursorPaginated(
     '/api/activities/',
     ({ params }) => db.activities.filter(activity => {
-      if (params.feedbackPossible && !isFeedbackPossible(activity, ctx.authUser)) return false
-      if (!params.feedbackPossible && isFeedbackPossible(activity, ctx.authUser)) return false
+      if (params.feedbackPossible === true && !isFeedbackPossible(activity, ctx.authUser)) return false
+      if (params.feedbackPossible === false && isFeedbackPossible(activity, ctx.authUser)) return false
       if (params.group && db.orm.places.get({ id: activity.place }).group !== params.group) return false
       if (params.place && activity.place !== params.place) return false
       if (params.series && activity.series !== params.series) return false
@@ -101,7 +101,12 @@ export function createMockActivitiesBackend () {
         }
       }
       return true
-    }).map(toResponse),
+    }).map(toResponse).filter(activity => {
+      // Filtering after response, as we've already added in the feedback there
+      if (params.hasFeedback === true) return activity.feedback.length > 0
+      if (params.hasFeedback === false) return activity.feedback.length === 0
+      return true
+    }),
   )
 
   // TODO: add a few filters

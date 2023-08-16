@@ -1,3 +1,4 @@
+import { addHours, startOfYesterday } from 'date-fns'
 import { range } from 'lodash'
 
 import { convert } from '@/activities/api/activities'
@@ -20,8 +21,11 @@ const group = createGroup()
 createPlaceType({ group: group.id })
 const place = createPlace({ group: group.id })
 const activityType = createActivityType({ group: group.id, hasFeedbackWeight: true })
-const activity = createActivity({ place: place.id, activityType: activityType.id })
-const canGiveFeedbackActivity = createActivity({ place: place.id, activityType: activityType.id })
+
+const startDate = addHours(startOfYesterday(), 10)
+
+const activity = createActivity({ startDate, place: place.id, activityType: activityType.id })
+const canGiveFeedbackActivity = createActivity({ startDate, place: place.id, activityType: activityType.id })
 const user = createUser()
 addUserToGroup(user, group)
 

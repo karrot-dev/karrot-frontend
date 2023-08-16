@@ -8,6 +8,7 @@
         :key="activity.id"
         v-measure
         :activity="activity"
+        :highlight-feedback="highlightFeedback"
       />
     </template>
   </GroupedActivities>
@@ -21,6 +22,10 @@ defineProps({
   activities: {
     type: Array,
     required: true,
+  },
+  highlightFeedback: {
+    type: Number,
+    default: null,
   },
 })
 </script>

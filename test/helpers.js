@@ -12,6 +12,7 @@ const desktopUserAgent = 'Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/2010010
 const mobileUserAgent = 'Mozilla/5.0 (Android 9; Mobile; rv:68.0) Gecko/68.0 Firefox/68.0'
 
 configure({
+  // TODO: make this very long when doing a full test run esp. in CI.. and shorter for individual test?
   asyncUtilTimeout: 60 * 1000,
 })
 

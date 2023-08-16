@@ -1,5 +1,8 @@
 <template>
-  <QCard>
+  <QCard
+    ref="itemRef"
+    :class="{ highlight: isHighlighted }"
+  >
     <div
       v-if="bannerImageURL"
       style="height: 50px;"
@@ -23,7 +26,7 @@
           color="black"
           class="q-mr-sm"
         />
-        You can give feedback to this activity!
+        {{ t('ACTIVITY_FEEDBACK.YOU_CAN_GIVE_FEEDBACK') }}
       </RouterLink>
     </QCardSection>
     <QCardSection
@@ -50,20 +53,12 @@
         </div>
       </div>
     </QCardSection>
-    <QCardSection
-      class="no-padding content"
-    >
-      <div class="content-inner">
-        <div class="row no-wrap items-start justify-between">
-          <div>
-            <strong class="featured-text">
-              {{ $d(activity.date, 'hourMinute') }}
-              <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>
-            </strong>
-            {{ $d(activity.date, 'dateLongWithDayName') }}
-          </div>
-        </div>
-      </div>
+    <QCardSection>
+      <strong class="q-mr-xs">
+        {{ $d(activity.date, 'hourMinute') }}
+        <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>
+      </strong>
+      {{ $d(activity.date, 'dateLongWithDayName') }}
     </QCardSection>
     <QCardSection class="no-padding">
       <div class="column row-sm q-mb-md">
@@ -123,14 +118,14 @@
                   caption
                   class="text-italic"
                 >
-                  Declined to give feedback
+                  {{ t('ACTIVITY_FEEDBACK.DECLINED') }}
                 </QItemLabel>
                 <QItemLabel
                   v-else-if="getIsCurrentUser(user) && canGiveFeedback"
                   caption
                 >
                   <RouterLink :to="{ name: 'giveFeedback', params: { groupId: place.group, activityId: activity.id }}">
-                    You have not given feedback
+                    {{ t('ACTIVITY_FEEDBACK.NOT_GIVEN_YOU') }}
                   </RouterLink>
                 </QItemLabel>
                 <QItemLabel
@@ -138,7 +133,7 @@
                   caption
                   class="text-italic"
                 >
-                  This participant has not given feedback yet
+                  {{ t('ACTIVITY_FEEDBACK.NOT_GIVEN_YET') }}
                 </QItemLabel>
               </QItemSection>
             </QItem>
@@ -151,16 +146,15 @@
         </div>
       </div>
     </QCardSection>
-    <QCardSection
-      class="row no-padding full-width justify-end bottom-actions"
+    <QCardActions
+      class="no-padding actions"
     >
       <QBtn
         v-if="activity.isPublic"
-        class="action-button"
         flat
         no-caps
         :to="{ name: 'publicActivity', params: { activityPublicId: activity.publicId } }"
-        :padding="$q.platform.is.mobile ? '4px' : undefined"
+        :padding="$q.platform.is.mobile ? '4px' : '8px 16px'"
       >
         <QIcon
           name="fas fa-globe"
@@ -174,7 +168,7 @@
         flat
         no-caps
         color="secondary"
-        class="action-button"
+        :padding="$q.platform.is.mobile ? '4px' : '8px 16px'"
         @click.stop="detail"
       >
         <template #default>
@@ -186,11 +180,12 @@
           <span class="block">{{ $t('CONVERSATION.OPEN') }}</span>
         </template>
       </QBtn>
-    </QCardSection>
+    </QCardActions>
   </QCard>
 </template>
 
 <script setup>
+import addDays from 'date-fns/addDays'
 import {
   QCard,
   QCardSection,
@@ -201,18 +196,21 @@ import {
   QItemSection,
   QItemLabel,
   QImg,
-  colors,
+  colors, QCardActions,
 } from 'quasar'
-import { computed, toRefs } from 'vue'
+import { computed, nextTick, ref, toRefs, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useActivityTypeService } from '@/activities/services'
 import { useAuthHelpers } from '@/authuser/helpers'
 import { useAuthService } from '@/authuser/services'
+import { useConfigQuery } from '@/base/queries'
 import { useFeedbackHelpers } from '@/feedback/helpers'
 import { useDetailService } from '@/messages/services'
 import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
+import reactiveNow from '@/utils/reactiveNow'
 
 import AmountBox from '@/feedback/components/AmountBox.vue'
 import ProfilePicture from '@/users/components/ProfilePicture.vue'
@@ -220,6 +218,10 @@ import DateAsWords from '@/utils/components/DateAsWords.vue'
 import Markdown from '@/utils/components/Markdown.vue'
 
 const { lighten } = colors
+
+const itemRef = ref(null)
+
+const { t } = useI18n()
 
 const props = defineProps({
   activity: {
@@ -234,13 +236,13 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  preview: {
-    type: Boolean,
-    default: false,
+  highlightFeedback: {
+    type: Number,
+    default: null,
   },
 })
 
-const { activity } = toRefs(props)
+const { activity, highlightFeedback } = toRefs(props)
 
 const {
   getActivityTypeById,
@@ -253,6 +255,8 @@ const {
 const {
   openActivity,
 } = useDetailService()
+
+const { config } = useConfigQuery()
 
 const { getUserById } = useUserService()
 
@@ -278,7 +282,7 @@ const bannerImageURL = computed(() => {
 })
 function detail (event) {
   if (event.target.closest('a')) return // ignore actual links
-  !props.preview && openActivity(activity.value)
+  openActivity(activity.value)
 }
 
 const { formatFeedbackWeight } = useFeedbackHelpers()
@@ -323,13 +327,38 @@ function hasDismissedFeedback (user) {
 }
 
 const canGiveFeedback = computed(() => {
-  // TODO: needs to factor in the time...
-  return hasFeedback.value && usersThatHaveNotGivenFeedback?.value.some(user => user.id === currentUserId.value) && !activity.value?.feedbackDismissedBy.includes(currentUserId.value)
+  return (
+    // activity type supports feedback
+    hasFeedback.value &&
+    // they have not already given feedback
+    usersThatHaveNotGivenFeedback?.value.some(user => user.id === currentUserId.value) &&
+    // they haven't dismissed feedback
+    !activity.value?.feedbackDismissedBy.includes(currentUserId.value) &&
+    // it's within the correct range
+    reactiveNow.value <= addDays(activity.value.dateEnd, config.value?.feedbackPossibleDays ?? 0)
+  )
 })
+
+const isHighlighted = computed(() => {
+  if (!hasFeedback.value || !highlightFeedback.value) return false
+  return activity.value?.feedback.some(f => f.id === highlightFeedback.value)
+})
+
+watch(highlightFeedback, async value => {
+  if (!value) return
+  if (!(itemRef.value?.$el)) await nextTick() // wait for it be rendered if not available yet
+  if (!(itemRef.value?.$el)) return // still not there, give up
+  itemRef.value.$el.scrollIntoView()
+}, { immediate: true })
 
 </script>
 
 <style scoped lang="sass">
+@use 'sass:color'
+
+.highlight
+  border-color: $secondary
+  box-shadow: color.change($secondary, $alpha: 0.3) 0px 0px 0px 3px
 
 .caption-items
   > *
@@ -344,33 +373,7 @@ const canGiveFeedback = computed(() => {
     // quasar makes it "middle" which puts it a bit low here...
     vertical-align: baseline
 
-// TODO: the style from here below is duplicated from ActivityItem.vue (with some removed)
-.multiple-types
-  padding: 8px 8px 2px 8px
-  border-left: 4px solid rgba(0, 0, 0, 0.1)
-  &.active
-   background-color: rgba(0, 0, 0, 0.1)
-
-.content
-  width: 100%
-
-  .content-inner
-    width: 100%
-    padding: 12px
-
-    .featured-text
-      display: inline
-      margin-right: .3em
-
-.bottom-actions
-  font-weight: 500
+.actions
   color: $secondary
-  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.06)
-
-.q-btn.action-button
-  ::v-deep(.q-btn__wrapper)
-    padding: 10px 16px !important
-
-    .icon-chat
-      transform: rotateY(180deg)
+  border-top: 1px solid $grey-3
 </style>

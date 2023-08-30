@@ -1,3 +1,13 @@
+/*
+This vite configuration file is used duration testing.
+
+We could name it vitest.config.js and it would also be loaded.
+
+It's named vite.config.js as some editors can benefit from accessing it.
+The configuration should be equivalent to what quasar cli does, but
+it does not use this file itself.
+*/
+
 import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vitest/config'

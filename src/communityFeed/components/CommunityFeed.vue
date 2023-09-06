@@ -103,6 +103,7 @@
                     <DateAsWords
                       style="display: inline"
                       :date="topic.lastPostedAt"
+                      :future="false"
                     />
                   </template>
                 </i18n-t>

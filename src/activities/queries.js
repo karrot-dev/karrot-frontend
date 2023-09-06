@@ -2,7 +2,7 @@ import { useInfiniteQuery, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { debounce } from 'quasar'
 import { unref, computed, watch } from 'vue'
 
-import { paginationHelpers } from '@/messages/queries'
+import { infiniteScroll } from '@/messages/queries'
 import { useSocketEvents } from '@/utils/composables'
 import { extractCursor, flattenPaginatedData, useQueryHelpers } from '@/utils/queryHelpers'
 
@@ -102,10 +102,12 @@ export function useActivityListQuery ({
   slots,
   places,
   feedbackPossible,
+  hasFeedback,
+  ordering,
   pageSize = 10,
 }, queryOptions = {}) {
   const query = useInfiniteQuery(
-    queryKeyActivityList({ groupId, placeId, seriesId, activityTypeId, slots, feedbackPossible, places, dateMin }),
+    queryKeyActivityList({ groupId, placeId, seriesId, activityTypeId, slots, feedbackPossible, hasFeedback, places, ordering, dateMin }),
     ({ pageParam }) => api.list({
       group: unref(groupId),
       place: unref(placeId),
@@ -115,6 +117,8 @@ export function useActivityListQuery ({
       places: unref(places),
       dateMin: unref(dateMin),
       feedbackPossible: unref(feedbackPossible),
+      hasFeedback: unref(hasFeedback),
+      ordering: unref(ordering),
       cursor: pageParam,
       pageSize,
     }),
@@ -137,6 +141,7 @@ export function useActivityListQuery ({
   return {
     ...query,
     activities: flattenPaginatedData(query),
+    infiniteScroll: infiniteScroll(query),
   }
 }
 
@@ -287,7 +292,7 @@ export function usePublicActivityListQuery ({
 
   return {
     ...query,
-    ...paginationHelpers(query),
+    infiniteScroll: infiniteScroll(query),
     publicActivities: flattenPaginatedData(query),
   }
 }

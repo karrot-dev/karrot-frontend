@@ -7,7 +7,7 @@ import subDays from 'date-fns/subDays'
 import App from '@/App.vue'
 import router from '@/router'
 
-import { withDefaults } from '>/helpers'
+import { invalidateQueries, withDefaults } from '>/helpers'
 import {
   createUser,
   createGroup,
@@ -74,7 +74,10 @@ test('give activity feedback', async () => {
   // and send it off
   await click(await findByRole('button', { name: 'Create' }))
 
+  await invalidateQueries()
+
   // oh, yay it's on the page!
   await findByText(feedbackComment)
+
   await findByText(`People gave feedback for ${feedbackWeight} kg of saved food already! Keep up the great work!`)
 })

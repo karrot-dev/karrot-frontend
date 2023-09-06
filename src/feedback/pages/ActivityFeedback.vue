@@ -1,89 +1,100 @@
 <template>
   <div class="activity-feedback-wrapper">
-    <QCard
-      v-if="activities.length > 0 || editFeedbackId || isLoadingActivities"
-      class="no-mobile-margin no-shadow grey-border"
-    >
-      <RandomArt
-        :seed="groupId"
-        style="color: white"
-        type="circles"
+    <template v-if="activities.length > 0 || editFeedbackId || isLoadingActivities">
+      <QCard
+        class="no-mobile-margin"
       >
-        <div class="row no-wrap image-and-text">
-          <div class="image-and-text-left gt-sm">
-            <img
-              style="width: 100%;"
-              :src="cart"
-            >
-          </div>
-          <div class="image-and-text-right">
-            <h4>{{ $t(isEditing ? 'ACTIVITY_FEEDBACK.EDIT' : 'ACTIVITY_FEEDBACK.HEADER') }}</h4>
-            <p>
-              <QSelect
-                v-if="!isEditing"
-                v-model="activity"
-                :options="feedbackOptions"
-                dark
-                emit-value
-                map-options
-                class="grey-font"
-              >
-                <template #prepend>
-                  <QIcon
-                    v-if="activity && activityType"
-                    v-bind="getIconProps(activityType)"
-                  />
-                </template>
-                <!-- TODO lint "Variable 'activity' is already declared in the upper scope." -->
-                <template #option="{ index, opt: { value: activityOption }, itemProps }">
-                  <QItem
-                    :key="index"
-                    v-bind="itemProps"
-                  >
-                    <QItemSection avatar>
-                      <QIcon
-                        v-if="activityOption && activityOption.activityType"
-                        v-bind="getIconProps(getActivityTypeById(activityOption.activityType))"
-                      />
-                    </QItemSection>
-                    <QItemSection>{{ getDateWithPlace(activityOption) }}</QItemSection>
-                  </QItem>
-                </template>
-              </QSelect>
-              <span v-else-if="editFeedback">
-                {{ getDateWithPlace(activity) }}
-              </span>
-            </p>
-          </div>
-        </div>
-      </RandomArt>
-      <div>
-        <div
-          v-if="fellowParticipants.length > 0"
-          class="q-mx-sm q-mt-md"
+        <RandomArt
+          :seed="groupId"
+          style="color: white"
+          type="circles"
         >
-          <div v-t="'ACTIVITY_FEEDBACK.TOGETHER_WITH'" />
-          <div class="q-mt-sm row">
-            <ProfilePicture
-              v-for="user in fellowParticipants"
-              :key="user.id"
-              :user="user"
-              :size="35"
-              class="q-ml-xs"
-            />
+          <div class="row no-wrap image-and-text">
+            <div class="image-and-text-left gt-sm">
+              <img
+                style="width: 100%;"
+                :src="cart"
+              >
+            </div>
+            <div class="image-and-text-right">
+              <h4>{{ $t(isEditing ? 'ACTIVITY_FEEDBACK.EDIT' : 'ACTIVITY_FEEDBACK.HEADER') }}</h4>
+              <p>
+                <QSelect
+                  v-if="!isEditing"
+                  v-model="activity"
+                  :options="feedbackOptions"
+                  filled
+                  dark
+                  emit-value
+                  map-options
+                >
+                  <template #prepend>
+                    <QIcon
+                      v-if="activity && activityType"
+                      v-bind="getIconProps(activityType)"
+                    />
+                  </template>
+                  <template #option="{ index, opt: { value: activityOption }, itemProps }">
+                    <QItem
+                      :key="index"
+                      v-bind="itemProps"
+                    >
+                      <QItemSection avatar>
+                        <QIcon
+                          v-if="activityOption && activityOption.activityType"
+                          v-bind="getIconProps(getActivityTypeById(activityOption.activityType))"
+                        />
+                      </QItemSection>
+                      <QItemSection>{{ getDateWithPlace(activityOption) }}</QItemSection>
+                    </QItem>
+                  </template>
+                </QSelect>
+                <span v-else-if="editFeedback">
+                  {{ getDateWithPlace(activity) }}
+                </span>
+              </p>
+            </div>
           </div>
-        </div>
-        <FeedbackForm
-          v-if="activity && activityType"
-          :value="feedbackDefault"
-          :status="saveStatus"
-          :has-multiple-participants="fellowParticipants.length > 0"
-          :has-weight="activityType.hasFeedbackWeight"
-          @save="feedback => save(feedback)"
-          @dismiss-feedback="activityId => dismiss(activityId)"
-        />
-      </div>
-    </QCard>
+        </RandomArt>
+        <QCardSection>
+          <div
+            v-if="fellowParticipants.length > 0"
+            class="q-mx-sm q-mt-md"
+          >
+            <div v-t="'ACTIVITY_FEEDBACK.TOGETHER_WITH'" />
+            <div class="q-mt-sm row">
+              <ProfilePicture
+                v-for="user in fellowParticipants"
+                :key="user.id"
+                :user="user"
+                :size="35"
+                class="q-ml-xs"
+              />
+            </div>
+          </div>
+          <FeedbackForm
+            v-if="activity && activityType"
+            :value="feedbackDefault"
+            :status="saveStatus"
+            :has-multiple-participants="fellowParticipants.length > 0"
+            :has-weight="activityType.hasFeedbackWeight"
+            @save="feedback => save(feedback)"
+            @dismiss-feedback="activityId => dismiss(activityId)"
+          />
+        </QCardSection>
+      </QCard>
+      <PlaceFeedbackList
+        v-if="activity"
+        :place-id="place.id"
+      >
+        <template #header>
+          <h3
+            v-t="{ path: 'ACTIVITY_FEEDBACK.PREVIOUS', args: { store: place.name } }"
+            class="generic-padding"
+          />
+        </template>
+      </PlaceFeedbackList>
+    </template>
     <KNotice v-else>
       <template #icon>
         <QIcon class="fas fa-bed" />
@@ -93,27 +104,6 @@
         {{ $t('FEEDBACKLIST.NO_DONE_ACTIVITIES_HINT') }}
       </template>
     </KNotice>
-    <QCard
-      v-if="activity && feedback.length !== 0"
-      class="no-shadow grey-border place-feedback"
-    >
-      <RandomArt
-        class="randomBanner"
-        :seed="place.id"
-        type="banner"
-      />
-      <h4
-        v-t="{ path: 'ACTIVITY_FEEDBACK.PREVIOUS', args: { store: place.name } }"
-        class="generic-padding"
-      />
-      <FeedbackList
-        :feedback="feedback"
-        :is-loading="isLoading"
-        :has-next-page="hasNextPage"
-        :fetch-next-page="fetchNextPage"
-        :is-fetching-next-page="isFetchingNextPage"
-      />
-    </QCard>
   </div>
 </template>
 
@@ -124,7 +114,7 @@ import {
   QItem,
   QItemSection,
   QCard,
-  QSelect,
+  QSelect, QCardSection,
 } from 'quasar'
 import { computed, watchEffect, unref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -137,18 +127,18 @@ import { useActivityTypeService } from '@/activities/services'
 import { useAuthHelpers } from '@/authuser/helpers'
 import cart from '@/feedback/assets/cart.png'
 import { useFeedbackSaveMutation } from '@/feedback/mutations'
-import { useFeedbackListQuery, useFeedbackItemQuery } from '@/feedback/queries'
+import { useFeedbackItemQuery } from '@/feedback/queries'
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
 import { useIntegerRouteParam } from '@/utils/composables'
 
+import PlaceFeedbackList from '@/feedback/components/PlaceFeedbackList.vue'
 import ProfilePicture from '@/users/components/ProfilePicture.vue'
 import KNotice from '@/utils/components/KNotice.vue'
 import RandomArt from '@/utils/components/RandomArt.vue'
 
 import FeedbackForm from '../components/FeedbackForm.vue'
-import FeedbackList from '../components/FeedbackList.vue'
 
 const router = useRouter()
 const { d } = useI18n()
@@ -188,6 +178,7 @@ const activityId = computed(() => {
 const {
   activities,
   isLoading: isLoadingActivities,
+  refetch,
 } = useActivityListQuery({
   groupId,
   feedbackPossible: true,
@@ -217,14 +208,6 @@ const fellowParticipants = computed(() => activity.value
 const placeId = computed(() => activityRaw.value?.place)
 const place = computed(() => getPlaceById(placeId.value))
 
-const {
-  feedbackList: feedback,
-  isLoading,
-  hasNextPage,
-  fetchNextPage,
-  isFetchingNextPage,
-} = useFeedbackListQuery({ placeId })
-
 // If we're not editing, don't have an activity id param, and we have some activities...
 // ... then redirect to the first activity
 watchEffect(() => {
@@ -250,17 +233,27 @@ const feedbackOptions = computed(() => {
 })
 
 const {
-  mutate: save,
+  mutateAsync: saveAsync,
   status: saveStatus,
-} = useFeedbackSaveMutation({
-  onSuccess (feedback) {
-    router.push({ name: 'placeFeedback', params: { groupId: place.value.group, placeId: placeId.value }, query: { highlight: feedback.id } })
-  },
-})
+} = useFeedbackSaveMutation()
 
 const {
-  mutate: dismiss,
+  mutateAsync: dismissAsync,
 } = useDismissFeedbackMutation()
+
+async function save (feedback) {
+  const savedFeedback = await saveAsync(feedback)
+  router.push({ name: 'placeFeedback', params: { groupId: place.value.group, placeId: placeId.value }, query: { highlight: savedFeedback.id } })
+}
+
+async function dismiss (activityId) {
+  await dismissAsync(activityId)
+  await refetch() // recheck what we have to do
+  if (activities.value.length > 0) {
+    // can redirect to the next one
+    router.push({ params: { activityId: activities.value[0].id } })
+  }
+}
 
 </script>
 

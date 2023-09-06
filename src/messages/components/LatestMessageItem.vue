@@ -113,6 +113,7 @@
               class="q-pl-xs"
               style="white-space: nowrap"
               :date="message.createdAt"
+              :future="false"
             />
           </small>
         </span>

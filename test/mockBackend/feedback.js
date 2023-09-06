@@ -20,7 +20,7 @@ export function generateFeedback (params = {}) {
   }
 }
 
-function toFeedbackResponse (feedback) {
+export function toFeedbackResponse (feedback) {
   return {
     ...feedback,
     isEditable: feedback.givenBy === ctx.authUser?.id, // probably has a time limit too...

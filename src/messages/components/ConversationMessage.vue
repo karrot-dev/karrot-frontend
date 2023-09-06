@@ -57,6 +57,7 @@
             <DateAsWords
               :title="tooltipDate"
               :date="message.createdAt"
+              :future="false"
             />
           </small>
         </span>
@@ -83,6 +84,7 @@
         <DateAsWords
           :date="message.editedAt"
           style="display: inline; margin-right: -4px"
+          :future="false"
         />
         )
       </QItemLabel>

@@ -26,7 +26,10 @@
               <span class="text-bold text-uppercase">{{ getGroupById(application.group).name }}</span>
               <span class="message-date">
                 <small class="text-weight-light">
-                  <DateAsWords :date="application.createdAt" />
+                  <DateAsWords
+                    :date="application.createdAt"
+                    :future="false"
+                  />
                 </small>
               </span>
               <Markdown :source="application.questions" />

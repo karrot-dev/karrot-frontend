@@ -47,7 +47,10 @@
         </span>
         <span class="message-date">
           <small class="text-weight-light">
-            <DateAsWords :date="issue.createdAt" />
+            <DateAsWords
+              :date="issue.createdAt"
+              :future="false"
+            />
           </small>
         </span>
         <Markdown :source="issue.topic" />

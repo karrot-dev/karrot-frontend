@@ -26,6 +26,7 @@
             <DateAsWords
               :date="entry.date"
               style="display: inline"
+              :future="false"
             />
             <template v-if="entry.typus === 'ACTIVITY_LEAVE'">
               (<em

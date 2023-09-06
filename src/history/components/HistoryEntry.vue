@@ -24,14 +24,20 @@
           stamp
           class="mobile-only text-weight-light"
         >
-          <DateAsWords :date="entry.date" />
+          <DateAsWords
+            :date="entry.date"
+            :future="false"
+          />
         </QItemLabel>
       </QItemSection>
       <QItemSection
         class="desktop-only"
         side
       >
-        <DateAsWords :date="entry.date" />
+        <DateAsWords
+          :date="entry.date"
+          :future="false"
+        />
       </QItemSection>
     </QItem>
     <Transition name="slide-toggle">

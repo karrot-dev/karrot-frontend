@@ -29,7 +29,7 @@ export default {
     if (options.future) {
       if (date < now) date = now
     }
-    else {
+    else if (options.future === false) {
       if (date > now) date = now
     }
     const fn = options.strict ? formatDistanceStrict : formatDistance

@@ -89,6 +89,7 @@ export function useActivityTypeHelpers () {
   }
 
   function getTextClass (activityType) {
+    if (!activityType) return
     return `text-${getColorName(activityType)}`
   }
 

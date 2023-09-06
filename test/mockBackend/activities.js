@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker'
 import { addDays, addHours, addMinutes, startOfTomorrow } from 'date-fns'
 
+import { toFeedbackResponse } from '>/mockBackend/feedback'
 import { ctx, db } from '>/mockBackend/index'
 import { cursorPaginated, getById, post } from '>/mockBackend/mockAxios'
 
@@ -12,7 +13,7 @@ export function generateActivity (params = {}) {
     const place = db.orm.places.get({ id: params.place })
     params.activityType = db.orm.activityTypes.get({ group: place.group }).id
   }
-  const startDate = addHours(params.startDate || startOfTomorrow(), 10)
+  const startDate = params.startDate || addHours(startOfTomorrow(), 10)
   const endDate = addMinutes(startDate, 30)
   return {
     id: nextId++,
@@ -28,6 +29,7 @@ export function generateActivity (params = {}) {
     participants: [],
     feedbackDue: addDays(endDate, 30), // TODO: is this about right?
     feedbackGivenBy: [],
+    feedback: [],
     feedbackDismissedBy: [],
     isDisabled: false,
     hasDuration: false,
@@ -57,8 +59,17 @@ export function joinActivity (activity, user, params = {}) {
 }
 
 export function toResponse (activity) {
+  const feedback = db.orm.feedback.filter({ about: activity.id })
   return {
     ...activity,
+    participants: activity.participants.map(participant => ({
+      // Not all fields returned
+      user: participant.user,
+      participantType: participant.participantType,
+      createdAt: participant.createdAt,
+    })),
+    feedback: feedback.map(toFeedbackResponse),
+    feedbackDismissedBy: activity.participants.filter(participant => participant.feedbackDismissed).map(participant => participant.user),
     isDone: activity.date[1] < new Date(), // TODO: is this the right definition?
   }
 }
@@ -74,8 +85,8 @@ export function createMockActivitiesBackend () {
   cursorPaginated(
     '/api/activities/',
     ({ params }) => db.activities.filter(activity => {
-      if (params.feedbackPossible && !isFeedbackPossible(activity, ctx.authUser)) return false
-      if (!params.feedbackPossible && isFeedbackPossible(activity, ctx.authUser)) return false
+      if (params.feedbackPossible === true && !isFeedbackPossible(activity, ctx.authUser)) return false
+      if (params.feedbackPossible === false && isFeedbackPossible(activity, ctx.authUser)) return false
       if (params.group && db.orm.places.get({ id: activity.place }).group !== params.group) return false
       if (params.place && activity.place !== params.place) return false
       if (params.series && activity.series !== params.series) return false
@@ -90,7 +101,12 @@ export function createMockActivitiesBackend () {
         }
       }
       return true
-    }).map(toResponse),
+    }).map(toResponse).filter(activity => {
+      // Filtering after response, as we've already added in the feedback there
+      if (params.hasFeedback === true) return activity.feedback.length > 0
+      if (params.hasFeedback === false) return activity.feedback.length === 0
+      return true
+    }),
   )
 
   // TODO: add a few filters

@@ -9,7 +9,8 @@ import {
   createUser,
   loginAs,
 } from '>/mockBackend'
-import { toResponse } from '>/mockBackend/activities'
+import { joinActivity, toResponse } from '>/mockBackend/activities'
+import { addUserToGroup } from '>/mockBackend/groups'
 
 import ActivityItem from './ActivityItem.vue'
 
@@ -19,6 +20,15 @@ const place = createPlace({ group: group.id })
 createActivityType({ group: group.id })
 const activity = createActivity({ place: place.id })
 const user = createUser()
+addUserToGroup(user, group)
+
+const activityWithParticipants = createActivity({
+  place: place.id,
+  description: 'You can join this activity.',
+})
+const otherUser = createUser()
+addUserToGroup(otherUser, group)
+joinActivity(activityWithParticipants, otherUser)
 
 loginAs(user)
 

@@ -32,6 +32,7 @@
               v-if="application.decidedAt"
               style="display: inline"
               :date="application.decidedAt"
+              :future="false"
             />
           </template>
         </i18n-t>

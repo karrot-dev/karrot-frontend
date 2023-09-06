@@ -1,11 +1,14 @@
 <template>
   <div>
-    <QCard class="no-shadow grey-border">
-      <div class="generic-padding relative-position">
+    <QCard
+      flat
+      bordered
+    >
+      <QCardSection>
         <KSpinner v-show="!statistics" />
         <div
           v-if="statistics"
-          class="infoChips row no-wrap"
+          class="row no-wrap q-gutter-sm"
         >
           <QChip
             :icon="$icon('activity')"
@@ -14,7 +17,9 @@
             square
             :title="$t('FEEDBACKLIST.NUMBER_ACTIVITIES', { count: statistics.activitiesDone })"
           >
-            <strong class="q-ml-sm">{{ statistics.activitiesDone }}</strong>
+            <strong class="q-ml-sm">
+              {{ statistics.activitiesDone }}
+            </strong>
           </QChip>
           <QChip
             v-if="statistics.feedbackCount > 0"
@@ -37,19 +42,17 @@
             <strong class="q-ml-sm">{{ statistics.feedbackWeight }}&nbsp;kg</strong>
           </QChip>
         </div>
-        <span v-if="statistics && statistics.feedbackWeight > 0">
+        <div
+          v-if="statistics && statistics.feedbackWeight > 0"
+          class="q-mt-sm"
+        >
           {{ $tc('FEEDBACKLIST.SAVED_FOOD', 2, { amount: statistics.feedbackWeight }) }}
-        </span>
-      </div>
+        </div>
+      </QCardSection>
     </QCard>
-    <!-- TODO: I removed feedbackPossibleCount as we only have it in the status object per group, not per place -->
-    <FeedbackList
-      :feedback="feedbackList"
-      :is-loading="isLoading"
-      :has-next-page="hasNextPage"
-      :fetch-next-page="fetchNextPage"
-      :is-fetching-next-page="isFetchingNextPage"
-      :highlight="highlight"
+    <PlaceFeedbackList
+      :place-id="placeId"
+      :highlight-feedback="highlightFeedback"
     />
   </div>
 </template>
@@ -57,16 +60,16 @@
 <script setup>
 import {
   QCard,
+  QCardSection,
   QChip,
 } from 'quasar'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { useFeedbackListQuery } from '@/feedback/queries'
 import { usePlaceStatisticsQuery } from '@/places/queries'
 import { useActivePlaceService } from '@/places/services'
 
-import FeedbackList from '@/feedback/components/FeedbackList.vue'
+import PlaceFeedbackList from '@/feedback/components/PlaceFeedbackList.vue'
 import KSpinner from '@/utils/components/KSpinner.vue'
 
 const route = useRoute()
@@ -75,22 +78,5 @@ const {
 } = useActivePlaceService()
 const { statistics } = usePlaceStatisticsQuery({ placeId })
 
-const {
-  feedbackList,
-  isLoading,
-  hasNextPage,
-  fetchNextPage,
-  isFetchingNextPage,
-} = useFeedbackListQuery({ placeId })
-
-const highlight = computed(() => route.query.highlight && parseInt(route.query.highlight, 10))
+const highlightFeedback = computed(() => route.query.highlight && parseInt(route.query.highlight, 10))
 </script>
-
-<style scoped lang="sass">
-.infoChips
-  padding-bottom: 15px
-
-  .q-chip
-    padding: 2px 16px
-    margin-right: 8px
-</style>

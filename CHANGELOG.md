@@ -19,7 +19,27 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
-## [Unreleased]
+## [12.0.0] - 2023-09-08
+### Added
+- consolidated feedback view [hwojcik](https://community.karrot.world/u/hwojcik) and @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2668 https://github.com/karrot-dev/karrot-backend/pull/1267 [forum](https://community.karrot.world/t/feedback-feature-possibility-to-combine-comments-for-selected-activity-type/1044)
+
+### Fixed
+- don't create participant when notification settings aren't provided @tiltec https://github.com/karrot-dev/karrot-backend/pull/1270
+- improved slow activity statistics query @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1269
+- fix storybook @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2669
+
+### Changed
+- enable agreements and participant types features for all groups @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1265
+- use orjson for faster json rendering @nicksellen [1c41650](https://github.com/karrot-dev/karrot-backend/commit/1c41650c88eb9a576544a7c5c6736c7057d2ccf0)
+- use gunicorn preloading @nicksellen [21c5ee8](https://github.com/karrot-dev/karrot-backend/commit/21c5ee86983a8c706ad439daed1420420a19af0a) [e107e93](https://github.com/karrot-dev/karrot-backend/commit/e107e931a028036a490411b5c304dfbf403b357b)
+- switch to channels redis pubsub layer @nicksellen [7faaff5](https://github.com/karrot-dev/karrot-backend/commit/7faaff5bff75b7fa174903fb688b7b0b4e4fc0e5)
+- enable database connection pooling @nicksellen [de4be4f](https://github.com/karrot-dev/karrot-backend/commit/de4be4fc6bde8cc0310f93a3a799c560a4c9e184)
+- allow redis unix socket connection @nicksellen [1a5690b](https://github.com/karrot-dev/karrot-backend/commit/1a5690b6e15609b48be21f7e29fc49b55a356512)
+- upgrade to psycopg 3 @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1268
+- turn off on demand image creation @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1266
+
+### Security
+- remove from all conversations when leaving group @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1264
 
 ## [11.0.1] - 2023-07-24
 ### Fixed

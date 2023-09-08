@@ -19,14 +19,11 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
+## [Unreleased]
+
 ## [12.0.0] - 2023-09-08
 ### Added
 - consolidated feedback view [hwojcik](https://community.karrot.world/u/hwojcik) and @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2668 https://github.com/karrot-dev/karrot-backend/pull/1267 [forum](https://community.karrot.world/t/feedback-feature-possibility-to-combine-comments-for-selected-activity-type/1044)
-
-### Fixed
-- don't create participant when notification settings aren't provided @tiltec https://github.com/karrot-dev/karrot-backend/pull/1270
-- improved slow activity statistics query @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1269
-- fix storybook @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2669
 
 ### Changed
 - enable agreements and participant types features for all groups @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1265
@@ -37,6 +34,11 @@ Please document your changes in this format:
 - allow redis unix socket connection @nicksellen [1a5690b](https://github.com/karrot-dev/karrot-backend/commit/1a5690b6e15609b48be21f7e29fc49b55a356512)
 - upgrade to psycopg 3 @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1268
 - turn off on demand image creation @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1266
+
+### Fixed
+- don't create participant when notification settings aren't provided @tiltec https://github.com/karrot-dev/karrot-backend/pull/1270
+- improved slow activity statistics query @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1269
+- fix storybook @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2669
 
 ### Security
 - remove from all conversations when leaving group @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1264
@@ -912,7 +914,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2662]: https://github.com/karrot-dev/karrot-frontend/issues/2662
 [#2663]: https://github.com/karrot-dev/karrot-frontend/issues/2663
 
-[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v11.0.1...HEAD
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v12.0.0...HEAD
+[12.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v11.0.1...v12.0.0
 [11.0.1]: https://github.com/karrot-dev/karrot-frontend/compare/v11.0.0...v11.0.1
 [11.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.4...v11.0.0
 [10.0.4]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.3...v10.0.4

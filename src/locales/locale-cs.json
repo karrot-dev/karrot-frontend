@@ -141,6 +141,10 @@
     "PREVIOUS": "Předchozí zpětná vazba pro {store}",
     "SET_AMOUNT": "Nastavit množství",
     "TITLE": "Zpětná vazba",
+    "DECLINED": "Declined to give feedback",
+    "YOU_CAN_GIVE_FEEDBACK": "You can give feedback to this activity!",
+    "NOT_GIVEN_YOU": "You have not given feedback",
+    "NOT_GIVEN_YET": "This participant has not given feedback yet",
     "TOGETHER_WITH": "Udělali jste to společně s:",
     "DISMISS_LABEL": "Odmítnout",
     "DISMISS_TITLE": "Odmítnout zpětnou vazbu",
@@ -222,13 +226,13 @@
     "WITHDRAWN": "staženo {relativeDate}"
   },
   "ATTACHMENTS": {
-    "ADD": "Add attachment",
+    "ADD": "Přidat přílohu",
     "MAX_ATTACHMENT_SIZE": "Maximum attachment size is {size}",
     "MAX_ATTACHMENT_COUNT": "You can have up to {count} attachments",
     "TYPE": {
       "AUDIO": "Audio",
       "VIDEO": "Video",
-      "IMAGE": "Image"
+      "IMAGE": "Obrázek"
     }
   },
   "ATTENTION": "Pozor!",
@@ -249,7 +253,7 @@
     "DELETE": "Smazat",
     "DELETE_ACCOUNT": "Smazat účet",
     "DISABLE": "Deaktivovat",
-    "DOWNLOAD": "Download",
+    "DOWNLOAD": "Stáhnout",
     "EDIT": "Upravit",
     "ENABLE": "Povolit",
     "HIDE": "Skrýt",

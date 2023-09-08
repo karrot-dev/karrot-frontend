@@ -1,7 +1,7 @@
 {
   "ABOUT_KARROT": {
     "AND_MORE": "Und mehr…",
-    "EXISTING_GROUPS": "Einige der Gruppen, die Karrot schon nutzen",
+    "EXISTING_GROUPS": "Einige Gruppen, die Karrot schon nutzen",
     "LINKS": {
       "CHAT": "Team-Chat",
       "FORUM": "Forum"
@@ -56,7 +56,7 @@
         "TITLE": "Transparenz"
       },
       "TRUST": {
-        "DESCRIPTION": "There are no admin superpowers in a Karrot group. People who receive enough trust-carrots from their peers will be able to edit and change settings in the group. When new people want to join your group they need to apply and answer questions your group can set, which anyone with editing rights can decline or approve. Likewise, if there is the need to review someone's membership, the group can enter a voting system to resolve it in a communal way.",
+        "DESCRIPTION": "In einer Karrot-Gruppe gibt es keine Admin-Superkräfte. Personen, die genügend Vertrauens-Karotten von ihren Mitstreitern erhalten, können Einstellungen in der Gruppe bearbeiten und ändern. Wenn neue Personen Ihrer Gruppe beitreten wollen, müssen sie sich bewerben und Fragen beantworten, die von Ihrer Gruppe festgelegt werden können und die jeder mit Bearbeitungsrechten ablehnen oder genehmigen kann. Wenn die Mitgliedschaft einer Person überprüft werden muss, kann die Gruppe ein Abstimmungssystem einrichten, um diese Frage gemeinschaftlich zu lösen.",
         "TITLE": "Demokratische und vertrauensbasierte Gruppenverwaltung"
       }
     },
@@ -72,7 +72,7 @@
   "ACTIVITYLIST": {
     "ACTIVITY_DISABLED": "Aktivität wurde deaktiviert.",
     "ACTIVITY_STARTED": "Das hat bereits begonnen.",
-    "AVAILABLE": "There are activities in your favorite places waiting for you!",
+    "AVAILABLE": "Es warten Aktivitäten auf sie an Ihren Lieblingsorten!",
     "AVAILABLE_FEEDBACK": "Du kannst Feedback zu einer Aktivität geben | {count} Aktivitäten warten auf dein Feedback.",
     "FILTER": {
       "ALL": "Alle",
@@ -141,6 +141,10 @@
     "PREVIOUS": "Bisheriges Feedback für {store}",
     "SET_AMOUNT": "Gewicht eingeben",
     "TITLE": "Feedback",
+    "DECLINED": "Declined to give feedback",
+    "YOU_CAN_GIVE_FEEDBACK": "You can give feedback to this activity!",
+    "NOT_GIVEN_YOU": "You have not given feedback",
+    "NOT_GIVEN_YET": "This participant has not given feedback yet",
     "TOGETHER_WITH": "Du warst dabei mit:",
     "DISMISS_LABEL": "Verwerfen",
     "DISMISS_TITLE": "Feedback verwerfen",

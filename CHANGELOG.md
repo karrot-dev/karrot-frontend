@@ -20,8 +20,10 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+
+## [12.0.1] - 2023-09-12
 ### Fixed
-- fix rejoining activity @nicksellen #2677
+- fix rejoining activity @nicksellen [#2677]
 
 ## [12.0.0] - 2023-09-08
 ### Added
@@ -915,8 +917,10 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2660]: https://github.com/karrot-dev/karrot-frontend/issues/2660
 [#2662]: https://github.com/karrot-dev/karrot-frontend/issues/2662
 [#2663]: https://github.com/karrot-dev/karrot-frontend/issues/2663
+[#2677]: https://github.com/karrot-dev/karrot-frontend/issues/2677
 
-[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v12.0.0...HEAD
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v12.0.1...HEAD
+[12.0.1]: https://github.com/karrot-dev/karrot-frontend/compare/v12.0.0...v12.0.1
 [12.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v11.0.1...v12.0.0
 [11.0.1]: https://github.com/karrot-dev/karrot-frontend/compare/v11.0.0...v11.0.1
 [11.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v10.0.4...v11.0.0

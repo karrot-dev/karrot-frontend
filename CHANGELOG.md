@@ -20,6 +20,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Fixed
+- fix rejoining activity @nicksellen #2677
 
 ## [12.0.0] - 2023-09-08
 ### Added

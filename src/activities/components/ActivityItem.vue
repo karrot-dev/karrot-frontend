@@ -439,7 +439,7 @@ const bannerImageURL = computed(() => {
 })
 
 function join () {
-  if (joinParticipantTypeId.value !== null && !availableParticipantTypes.value.find(t => t.id === this.joinParticipantTypeId)) {
+  if (joinParticipantTypeId.value !== null && !availableParticipantTypes.value.find(t => t.id === joinParticipantTypeId.value)) {
     joinParticipantTypeId.value = null
   }
   if (joinParticipantTypeId.value === null && availableParticipantTypes.value.length > 0) {

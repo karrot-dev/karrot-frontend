@@ -52,7 +52,7 @@ After selecting your target language and choosing the resource file, go ahead to
 
 ## Setup
 
-- [Node.js](https://nodejs.org/) and [yarn](https://yarnpkg.com/en/docs/install)
+Make sure you have the following packages: [Node.js](https://nodejs.org/), [yarn](https://yarnpkg.com/en/docs/install) and npm
 
 To clone and install:
 

@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/vue-query'
 
 import configAPI from '@/base/api/config'
+import { useWait } from '@/utils/queryHelpers'
 
 export const queryKeyConfig = () => ['config']
 
@@ -15,6 +16,7 @@ export function useConfigQuery () {
   )
   return {
     ...query,
+    wait: useWait(query),
     config: query.data,
   }
 }

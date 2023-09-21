@@ -17,7 +17,33 @@ self.skipWaiting()
 // Take over all Karrot pages in the browser, even when they haven't been opened through the service worker
 clientsClaim()
 
-require('./firebase').init()
+self.addEventListener('push', event => {
+  console.log('got push event!', event)
+  const data = event.data?.json()
+  const { head, body, url } = data
+  event.waitUntil(
+    self.registration.showNotification(head, {
+      body,
+      data: { url },
+      actions: [
+        {
+          action: 'blah',
+          title: 'Do It!',
+        },
+      ],
+    }),
+  )
+})
+
+self.addEventListener('notificationclick', event => {
+  event.preventDefault()
+  event.waitUntil(
+    event.notification.close(),
+    self.clients.openWindow(event.notification.data.url),
+  )
+})
+
+// require('./firebase').init()
 
 // __WB_MANIFEST is used by injectManifest to set the files for caching
 precacheAndRoute(self.__WB_MANIFEST)

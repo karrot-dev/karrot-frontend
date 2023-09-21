@@ -1,7 +1,7 @@
 import { getFirebaseConfig } from '@/subscriptions/firebase.config'
 
 export function isSupported () {
-  return Boolean(navigator.serviceWorker)
+  return Boolean(navigator.serviceWorker) && ('PushManager' in window)
 }
 
 export async function getServiceWorkerRegistration () {

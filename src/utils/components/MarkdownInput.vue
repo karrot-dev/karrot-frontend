@@ -138,7 +138,7 @@ export default {
       // It loses focus when you click the mention menu without this
       const input = this.$refs.input
       if (!input) return
-      setImmediate(() => {
+      requestAnimationFrame(() => {
         input.focus()
       })
     },

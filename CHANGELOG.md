@@ -20,6 +20,8 @@ Please document your changes in this format:
 ```
 
 ## [Unreleased]
+### Fixed
+- replace use of setImmediate with requestAnimationFrame @nicksellen
 
 ## [12.0.1] - 2023-09-12
 ### Fixed

@@ -11,7 +11,11 @@ export const queryKeyCommunityTopic = topicId => [QUERY_KEY_BASE, 'topic', topic
 export function useCommunityFeedQuery ({ feed }) {
   const query = useQuery(
     queryKeyCommunityFeed(feed),
-    () => api.latestTopics(unref(feed)).catch(() => ([])),
+    () => {
+      const value = unref(feed)
+      if (!value) return []
+      return api.latestTopics(value)
+    },
     {
       placeholderData: () => [],
       enabled: computed(() => Boolean(unref(feed))),
@@ -42,7 +46,11 @@ export function useCommunityFeedMetaQuery (queryOptions = {}) {
 export function useCommunityTopicQuery ({ topicId }) {
   const query = useQuery(
     queryKeyCommunityTopic(topicId),
-    () => api.getTopic(unref(topicId)),
+    () => {
+      const value = unref(topicId)
+      if (!value) return {}
+      return api.getTopic(value)
+    },
     {
       enabled: computed(() => Boolean(unref(topicId))),
     },

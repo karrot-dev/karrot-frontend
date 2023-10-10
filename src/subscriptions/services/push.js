@@ -1,11 +1,9 @@
 import { Platform } from 'quasar'
-import { computed, ref, toRef, watch, reactive } from 'vue'
+import { computed, ref, watch, reactive } from 'vue'
 
 import { useAuthService } from '@/authuser/services'
 import { useConfigQuery } from '@/base/queries'
-import webPush from '@/subscriptions/api/webPush'
-import { getServiceWorkerRegistration, initializeMessaging, isSupported } from '@/subscriptions/firebase'
-import { useTokenService } from '@/subscriptions/services/token'
+import api from '@/subscriptions/api/subscriptions'
 import { defineService } from '@/utils/datastore/helpers'
 import { showToast } from '@/utils/toasts'
 
@@ -34,10 +32,13 @@ function setIntention (value) {
 export const usePushService = defineService(() => {
   const { trackPending, isPending } = createPendingTracker()
   const { isLoggedIn } = useAuthService()
-  const { syncToken } = useTokenService()
   const { config, wait: waitForConfig } = useConfigQuery()
 
   const vapidPublicKey = computed(() => config.value?.webPush?.vapidPublicKey)
+
+  function isSupported () {
+    return Boolean(navigator.serviceWorker && ('PushManager' in window))
+  }
 
   const state = reactive({
     // true (please notify me), false (please don't notify me), or null (don't notify me, but maybe pester me)
@@ -78,12 +79,40 @@ export const usePushService = defineService(() => {
     return await serviceWorkerRegistration.pushManager.getSubscription()
   }
 
+  async function saveSubscription (subscription) {
+    const { endpoint, keys } = subscription.toJSON()
+
+    const toSave = {
+
+      // subscription info
+      endpoint,
+      keys,
+
+      // extra meta info
+      mobile: Boolean(Platform.is.mobile),
+      browser: Platform.is.name,
+      version: Platform.is.version,
+      os: Platform.is.platform,
+    }
+
+    try {
+      await api.subscribe(toSave)
+    }
+    catch (err) {
+      // If we can't save it to the server important to remove it right away
+      // As we assume all subscriptions in the client are on the server
+      await subscription.unsubscribe()
+    }
+  }
+
   async function subscribe () {
     const serviceWorkerRegistration = await getServiceWorkerRegistration()
 
     await waitForConfig() // not sure if we need it, but heyho
+    if (!vapidPublicKey.value) return
 
     const subscription = await getExistingSubscription()
+
     if (subscription) {
       return subscription
     }
@@ -92,56 +121,20 @@ export const usePushService = defineService(() => {
         applicationServerKey: urlB64ToUint8Array(vapidPublicKey.value),
         userVisibleOnly: true,
       }
-      console.log('subscribing to push with', options)
       const newSubscription = await serviceWorkerRegistration.pushManager.subscribe(options)
-      console.log('we got a new subscription to save!', newSubscription, newSubscription.toJSON())
-      // let's just save it now, or unsubscribe immediately
-
-      const { endpoint, keys } = newSubscription.toJSON()
-
-      const toSave = {
-
-        // subscription info
-        endpoint,
-        keys,
-
-        // extra meta info
-        mobile: Boolean(Platform.is.mobile),
-        browser: Platform.is.name,
-        version: Platform.is.version,
-        os: Platform.is.platform,
-      }
-
-      console.log('saving', toSave)
-
-      try {
-        await webPush.subscribe(toSave)
-      }
-      catch (err) {
-        console.log('failed to save', err)
-        // get rid of it right away...
-        await newSubscription.unsubscribe()
-      }
+      await saveSubscription(newSubscription)
     }
     catch (err) {
-      console.log('failed to subscribe to push://', err)
       state.intention = null
-      showToast({
-        // TODO(PR): this is not the right error message
-        message: 'USERDATA.PUSH_BLOCKED',
-        config: {
-          icon: 'warning',
-          color: 'negative',
-        },
-      })
     }
   }
 
   async function unsubscribe () {
     const subscription = await getExistingSubscription()
     if (subscription) {
-      console.log('unsubscribing', subscription)
+      const { endpoint, keys } = subscription.toJSON()
       await subscription.unsubscribe()
+      await api.unsubscribe({ endpoint, keys })
     }
   }
 
@@ -150,11 +143,6 @@ export const usePushService = defineService(() => {
     state.intention = false
     await unsubscribe()
     state.token = null
-  }
-
-  async function deleteToken () {
-    if (!isSupported()) return
-    if (state.token) (await initializeMessaging()).deleteToken()
   }
 
   async function initialize () {
@@ -178,23 +166,20 @@ export const usePushService = defineService(() => {
     }
   }, { immediate: true })
 
-  // This keeps token synced on the server
-  syncToken(toRef(state, 'token'), { platform: 'web' })
-
   return {
     enable: trackPending(enable),
     disable: trackPending(disable),
+    unsubscribe,
     isEnabled,
     isPending,
     isSupported: isSupported(),
-    deleteToken,
   }
 })
 
 function urlB64ToUint8Array (base64String) {
   const padding = '='.repeat((4 - base64String.length % 4) % 4)
   const base64 = (base64String + padding)
-    .replace(/\-/g, '+')
+    .replace(/-/g, '+')
     .replace(/_/g, '/')
 
   const rawData = window.atob(base64)
@@ -237,4 +222,12 @@ function createPendingTracker () {
     trackPending,
     isPending,
   }
+}
+
+async function getServiceWorkerRegistration () {
+  // See also https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/ready
+  //
+  // It returns a Promise that will never reject, and which waits indefinitely until the
+  // ServiceWorkerRegistration associated with the current page has an active worker
+  return await navigator.serviceWorker.ready
 }

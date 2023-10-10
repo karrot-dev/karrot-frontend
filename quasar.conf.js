@@ -38,7 +38,6 @@ module.exports = configure(function (ctx) {
       'pwa',
       'helloDeveloper',
       'addressbar-color',
-      'cordova',
       'i18n',
       'bootstrapData',
       'polyfill',

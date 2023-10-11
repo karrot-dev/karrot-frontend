@@ -1,8 +1,9 @@
-import { computed, ref, toRef, watch, reactive } from 'vue'
+import { Platform } from 'quasar'
+import { computed, ref, watch, reactive } from 'vue'
 
 import { useAuthService } from '@/authuser/services'
-import { getServiceWorkerRegistration, initializeMessaging, isSupported } from '@/subscriptions/firebase'
-import { useTokenService } from '@/subscriptions/services/token'
+import { useConfigQuery } from '@/base/queries'
+import api from '@/subscriptions/api/subscriptions'
 import { defineService } from '@/utils/datastore/helpers'
 import { showToast } from '@/utils/toasts'
 
@@ -31,7 +32,13 @@ function setIntention (value) {
 export const usePushService = defineService(() => {
   const { trackPending, isPending } = createPendingTracker()
   const { isLoggedIn } = useAuthService()
-  const { syncToken } = useTokenService()
+  const { config, wait: waitForConfig } = useConfigQuery()
+
+  const vapidPublicKey = computed(() => config.value?.webPush?.vapidPublicKey)
+
+  function isSupported () {
+    return Boolean(navigator.serviceWorker && ('PushManager' in window))
+  }
 
   const state = reactive({
     // true (please notify me), false (please don't notify me), or null (don't notify me, but maybe pester me)
@@ -50,43 +57,92 @@ export const usePushService = defineService(() => {
 
     state.intention = true
 
-    const { getToken } = await initializeMessaging()
+    if (Notification.permission === 'denied') {
+      // nothing we can do!
+      console.log('notifications denied')
+      state.intention = false
+      showToast({
+        message: 'USERDATA.PUSH_BLOCKED',
+        config: {
+          icon: 'warning',
+          color: 'negative',
+        },
+      })
+      return
+    }
 
+    await subscribe()
+  }
+
+  async function getExistingSubscription () {
     const serviceWorkerRegistration = await getServiceWorkerRegistration()
+    return await serviceWorkerRegistration.pushManager.getSubscription()
+  }
+
+  async function saveSubscription (subscription) {
+    const { endpoint, keys } = subscription.toJSON()
+
+    const toSave = {
+
+      // subscription info
+      endpoint,
+      keys,
+
+      // extra meta info
+      mobile: Boolean(Platform.is.mobile),
+      browser: Platform.is.name,
+      version: Platform.is.version,
+      os: Platform.is.platform,
+    }
+
     try {
-      state.token = await getToken({ serviceWorkerRegistration })
+      await api.subscribe(toSave)
     }
     catch (err) {
-      state.token = null
-      if (err.code === 'messaging/notifications-blocked' || err.code === 'messaging/permission-blocked') {
-        state.intention = false
-        showToast({
-          message: 'USERDATA.PUSH_BLOCKED',
-          config: {
-            icon: 'warning',
-            color: 'negative',
-          },
-        })
+      // If we can't save it to the server important to remove it right away
+      // As we assume all subscriptions in the client are on the server
+      await subscription.unsubscribe()
+    }
+  }
+
+  async function subscribe () {
+    const serviceWorkerRegistration = await getServiceWorkerRegistration()
+
+    await waitForConfig() // not sure if we need it, but heyho
+    if (!vapidPublicKey.value) return
+
+    const subscription = await getExistingSubscription()
+
+    if (subscription) {
+      return subscription
+    }
+    try {
+      const options = {
+        applicationServerKey: urlB64ToUint8Array(vapidPublicKey.value),
+        userVisibleOnly: true,
       }
-      else if (err.code === 'messaging-permission-default') { // they clicked "Not Now" (at least in Firefox)
-        state.intention = null
-      }
-      else {
-        throw err
-      }
+      const newSubscription = await serviceWorkerRegistration.pushManager.subscribe(options)
+      await saveSubscription(newSubscription)
+    }
+    catch (err) {
+      state.intention = null
+    }
+  }
+
+  async function unsubscribe () {
+    const subscription = await getExistingSubscription()
+    if (subscription) {
+      const { endpoint, keys } = subscription.toJSON()
+      await subscription.unsubscribe()
+      await api.unsubscribe({ endpoint, keys })
     }
   }
 
   async function disable () {
     if (!isSupported()) return
     state.intention = false
-    await deleteToken()
+    await unsubscribe()
     state.token = null
-  }
-
-  async function deleteToken () {
-    if (!isSupported()) return
-    if (state.token) (await initializeMessaging()).deleteToken()
   }
 
   async function initialize () {
@@ -110,18 +166,30 @@ export const usePushService = defineService(() => {
     }
   }, { immediate: true })
 
-  // This keeps token synced on the server
-  syncToken(toRef(state, 'token'), { platform: 'web' })
-
   return {
     enable: trackPending(enable),
     disable: trackPending(disable),
+    unsubscribe,
     isEnabled,
     isPending,
     isSupported: isSupported(),
-    deleteToken,
   }
 })
+
+function urlB64ToUint8Array (base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4)
+  const base64 = (base64String + padding)
+    .replace(/-/g, '+')
+    .replace(/_/g, '/')
+
+  const rawData = window.atob(base64)
+  const outputArray = new Uint8Array(rawData.length)
+
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i)
+  }
+  return outputArray
+}
 
 /**
  * A utility you can wrap around async functions, which will tell you if any of them is still executing
@@ -154,4 +222,12 @@ function createPendingTracker () {
     trackPending,
     isPending,
   }
+}
+
+async function getServiceWorkerRegistration () {
+  // See also https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/ready
+  //
+  // It returns a Promise that will never reject, and which waits indefinitely until the
+  // ServiceWorkerRegistration associated with the current page has an active worker
+  return await navigator.serviceWorker.ready
 }

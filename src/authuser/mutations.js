@@ -4,7 +4,6 @@ import { useRoute, useRouter } from 'vue-router'
 
 import { useSetAuthUser } from '@/authuser/queries'
 import { usePushService } from '@/subscriptions/services/push'
-import { useTokenService } from '@/subscriptions/services/token'
 import unsubscribeAPI from '@/unsubscribe/api/unsubscribe'
 import usersAPI from '@/users/api/users'
 import { withStatus } from '@/utils/queryHelpers'
@@ -52,8 +51,7 @@ const showLogoutToast = throttle(() => showToast({
 export function useLogoutMutation () {
   const router = useRouter()
   const setAuthUser = useSetAuthUser()
-  const { deleteToken } = usePushService()
-  const { deleteToken: deleteTokenFromServer } = useTokenService()
+  const { unsubscribe } = usePushService()
 
   return withStatus(useMutation(
     () => api.logout(),
@@ -61,13 +59,7 @@ export function useLogoutMutation () {
       async onMutate () {
         // Before the logout...
         // We wait for the response as we need to be logged in still
-        await Promise.all([
-          // removes the token from browser and fcm
-          deleteToken(),
-          // removes the subscription from server
-          // TODO: would be better to have the subscriptions associated with sessions and clear them on the server
-          deleteTokenFromServer(),
-        ])
+        await unsubscribe()
       },
       async onSuccess () {
         await router.push({ name: 'groupsGallery' })

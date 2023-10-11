@@ -56,7 +56,6 @@
     "diff": "^5.1.0",
     "diff2html": "^3.4.35",
     "element-closest": "^3.0.0",
-    "firebase": "^10.0.0",
     "floating-vue": "^2.0.0-beta.24",
     "intl": "^1.2.5",
     "jstimezonedetect": "^1.0.7",

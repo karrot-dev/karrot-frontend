@@ -45,7 +45,7 @@ export const useCommunityBannerService = defineService(() => {
   const dismissedBannerId = ref(getDismissedBannerIdFromLocalStorage())
 
   const communityBanner = computed(() => {
-    if (topic.value) {
+    if (topic.value?.postStream?.posts) {
       const posts = [...topic.value.postStream.posts]
       // remove the first one, the first post in the topic is not an announcement (by our definition)
       posts.shift()

@@ -26,8 +26,11 @@ self.addEventListener('push', event => {
 
   // See stuff you can set here https://developer.mozilla.org/en-US/docs/Web/API/Notification
   const options = {
-    body,
     data: {},
+  }
+
+  if (body) {
+    options.body = body
   }
 
   if (tag) {

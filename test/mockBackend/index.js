@@ -137,9 +137,13 @@ export function setupMockBackend () {
 export async function resetMockBackend () {
   // ensures lingering requests don't end up being made
   await flushPromises()
+  clearMockBackend()
+  resetMockAxios()
+}
+
+export function clearMockBackend () {
   resetDatabase()
   resetContext()
-  resetMockAxios()
 }
 
 export function loginAs (user) {

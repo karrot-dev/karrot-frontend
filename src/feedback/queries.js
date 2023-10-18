@@ -46,9 +46,13 @@ export function useFeedbackListQuery ({ groupId, placeId }) {
 export function useFeedbackItemQuery ({ feedbackId }) {
   const query = useQuery(
     queryKeyFeedbackItem(feedbackId),
-    () => api.get(unref(feedbackId)),
+    () => {
+      const id = unref(feedbackId)
+      if (!id) return null
+      return api.get(id)
+    },
     {
-      enabled: computed(() => !!feedbackId.value),
+      enabled: computed(() => Boolean(unref(feedbackId))),
     },
   )
   return {

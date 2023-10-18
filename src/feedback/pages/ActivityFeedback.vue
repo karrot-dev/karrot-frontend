@@ -21,12 +21,10 @@
               <p>
                 <QSelect
                   v-if="!isEditing"
-                  v-model="activity"
-                  :options="feedbackOptions"
+                  v-model="selectedActivityOption"
+                  :options="activityOptions"
                   filled
                   dark
-                  emit-value
-                  map-options
                 >
                   <template #prepend>
                     <QIcon
@@ -84,7 +82,7 @@
         </QCardSection>
       </QCard>
       <PlaceFeedbackList
-        v-if="activity"
+        v-if="activity && place"
         :place-id="place.id"
       >
         <template #header>
@@ -185,17 +183,8 @@ const {
 })
 
 const {
-  activity: activityRaw,
+  activity,
 } = useActivityItemQuery({ activityId })
-
-const activity = computed({
-  get () {
-    return activityRaw.value
-  },
-  set (val) {
-    router.push({ params: { activityId: val.id } })
-  },
-})
 
 const activityType = computed(() => getActivityTypeById(activity.value.activityType))
 
@@ -205,7 +194,7 @@ const fellowParticipants = computed(() => activity.value
     .filter(u => !getIsCurrentUser(u))
   : [])
 
-const placeId = computed(() => activityRaw.value?.place)
+const placeId = computed(() => activity.value?.place)
 const place = computed(() => getPlaceById(placeId.value))
 
 // If we're not editing, don't have an activity id param, and we have some activities...
@@ -223,13 +212,23 @@ function getDateWithPlace (activity) {
   return `${d(activity.date, 'long')} (${name || ''})`
 }
 
-const feedbackOptions = computed(() => {
+const activityOptions = computed(() => {
   return activities.value.map(activity => {
     return {
       label: getDateWithPlace(activity),
       value: activity,
     }
   })
+})
+
+const selectedActivityOption = computed({
+  get () {
+    if (!activityIdRouteParam.value) return null
+    return activityOptions.value?.find(option => option.value.id === activityIdRouteParam.value)
+  },
+  set (option) {
+    router.push({ params: { activityId: option.value.id } })
+  },
 })
 
 const {

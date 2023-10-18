@@ -37,7 +37,11 @@ export const usePushService = defineService(() => {
   const vapidPublicKey = computed(() => config.value?.webPush?.vapidPublicKey)
 
   function isSupported () {
-    return Boolean(navigator.serviceWorker && ('PushManager' in window))
+    return Boolean(
+      navigator.serviceWorker &&
+      ('PushManager' in window) &&
+      location.protocol === 'https:',
+    )
   }
 
   const state = reactive({
@@ -75,8 +79,12 @@ export const usePushService = defineService(() => {
   }
 
   async function getExistingSubscription () {
+    console.log('get service worker')
     const serviceWorkerRegistration = await getServiceWorkerRegistration()
-    return await serviceWorkerRegistration.pushManager.getSubscription()
+    console.log('getting subscription')
+    const subscription = await serviceWorkerRegistration.pushManager.getSubscription()
+    console.log('got sub')
+    return subscription
   }
 
   async function saveSubscription (subscription) {
@@ -106,6 +114,8 @@ export const usePushService = defineService(() => {
   }
 
   async function subscribe () {
+    if (!isSupported()) return
+
     const serviceWorkerRegistration = await getServiceWorkerRegistration()
 
     await waitForConfig() // not sure if we need it, but heyho
@@ -130,6 +140,8 @@ export const usePushService = defineService(() => {
   }
 
   async function unsubscribe () {
+    if (!isSupported()) return
+
     const subscription = await getExistingSubscription()
     if (subscription) {
       const { endpoint, keys } = subscription.toJSON()

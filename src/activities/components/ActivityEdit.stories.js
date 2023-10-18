@@ -1,4 +1,5 @@
 import { convert } from '@/activities/api/activities'
+import { defineStory } from '@/utils/storybookUtils'
 
 import {
   createGroup,
@@ -13,50 +14,57 @@ import { statusMocks } from '>/statusMocks'
 
 import ActivityEdit from './ActivityEdit.vue'
 
-const group = createGroup()
-createPlaceType({ group: group.id })
-const place = createPlace({ group: group.id })
-createActivityType({ group: group.id })
-const activity = createActivity({ place: place.id })
-const series = createActivitySeries({ place: place.id })
+function generateMockData () {
+  const group = createGroup()
+  createPlaceType({ group: group.id })
+  const place = createPlace({ group: group.id })
+  createActivityType({ group: group.id })
+  const activity = createActivity({ place: place.id })
+  const disabledActivity = createActivity({ place: place.id, isDisabled: true })
+  const activityWithDuration = createActivity({ place: place.id, hasDuration: true })
+  const series = createActivitySeries({ place: place.id })
+  return {
+    activity,
+    disabledActivity,
+    activityWithDuration,
+    series,
+  }
+}
 
 export default {
   component: ActivityEdit,
 }
 
-export const Normal = {
-  // render,
-  args: {
+export const Normal = defineStory(() => {
+  const { activity, series } = generateMockData()
+  return {
     value: convert(toResponse(activity)),
     series,
     status: statusMocks.default(),
-  },
-}
+  }
+})
 
-export const Disabled = {
-  args: {
-    value: {
-      ...convert(toResponse(activity)),
-      isDisabled: true,
-    },
+export const Disabled = defineStory(() => {
+  const { disabledActivity, series } = generateMockData()
+  return {
+    value: convert(toResponse(disabledActivity)),
     series,
     status: statusMocks.default(),
-  },
-}
+  }
+})
 
-export const WithDuration = {
-  args: {
-    value: {
-      ...convert(toResponse(activity)),
-      hasDuration: true,
-    },
+export const WithDuration = defineStory(() => {
+  const { activityWithDuration, series } = generateMockData()
+  return {
+    value: convert(toResponse(activityWithDuration)),
     series,
     status: statusMocks.default(),
-  },
-}
+  }
+})
 
-export const SeriesChanged = {
-  args: {
+export const SeriesChanged = defineStory(() => {
+  const { activity, series } = generateMockData()
+  return {
     value: {
       ...convert(toResponse(activity)),
       // TODO seriesMeta does not exist on activity anymore - figure out some other solution
@@ -71,21 +79,23 @@ export const SeriesChanged = {
       maxParticipants: 1,
     },
     status: statusMocks.default(),
-  },
-}
+  }
+})
 
-export const Pending = {
-  args: {
+export const Pending = defineStory(() => {
+  const { activity, series } = generateMockData()
+  return {
     value: convert(toResponse(activity)),
     series,
     status: statusMocks.pending(),
-  },
-}
+  }
+})
 
-export const Error = {
-  args: {
+export const Error = defineStory(() => {
+  const { activity, series } = generateMockData()
+  return {
     value: convert(toResponse(activity)),
     series,
     status: statusMocks.validationError('date', 'Wrong time'),
-  },
-}
+  }
+})

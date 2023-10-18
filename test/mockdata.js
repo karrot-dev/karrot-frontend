@@ -97,7 +97,7 @@ const baseActivity = {
     { user: 2, participantType: 1 },
     { user: 3, participantType: 1 },
   ],
-  description: 'you can join this activity',
+  description: 'mockdata: you can join this activity',
   isFull: false,
   isUserMember: false,
   participantTypes,

@@ -1,5 +1,7 @@
 import { faker } from '@faker-js/faker'
 
+import { defineStory } from '@/utils/storybookUtils'
+
 import {
   createUser,
   createGroup,
@@ -16,19 +18,18 @@ import { addUserToGroup } from '>/mockBackend/groups'
 
 import Notifications from './components/Notifications.vue'
 
-fillBackend()
-
 export default {
   component: Notifications,
 }
 
-export const AllNotifications = {
-  args: {
+export const AllNotifications = defineStory(() => {
+  generateMockData()
+  return {
     asPage: true,
-  },
-}
+  }
+})
 
-function fillBackend () {
+function generateMockData () {
   const user = createUser()
   const group = createGroup()
   const currentUser = createUser()

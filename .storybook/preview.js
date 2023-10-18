@@ -1,6 +1,7 @@
 import { setup } from '@storybook/vue3'
 import { VueQueryPlugin } from '@tanstack/vue-query'
 import { Quasar } from 'quasar'
+import { createRouterMock, injectRouterMock } from 'vue-router-mock'
 
 import { i18nPlugin } from '@/base/i18n'
 import icons from '@/base/icons'
@@ -27,7 +28,23 @@ setup(app => {
   app.config.globalProperties.$icon = icons.get
   app.use(i18nPlugin)
   app.use(VueQueryPlugin, { queryClient })
-  app.use(router)
+
+  const mockRouter = createRouterMock({
+    routes: [
+      // Just avoids a few warnings, and is a common route...
+      {
+        name: 'user',
+        path: '/user/:userId',
+      },
+    ],
+    spy: {
+      create: fn => fn,
+      reset: () => {},
+    },
+  })
+  app.use(mockRouter)
+  injectRouterMock(mockRouter)
+
   app.use(Quasar, quasarConfig)
 
   app.component('Measure', {})

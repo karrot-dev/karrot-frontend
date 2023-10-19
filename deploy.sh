@@ -122,7 +122,8 @@ rsync -avz --delete dist/pwa/ "deploy@$HOST:karrot-frontend/$DIR/"
 # build a zipped version for next-gen deployment method :)
 ZIP_FILENAME="$BUNDLE_FILENAME_BASE.zip"
 (cd dist/pwa && zip -r "../../$ZIP_FILENAME" .)
-rsync -avz "$ZIP_FILENAME" "karrot-download@$HOST:www/"
+sha256sum "$ZIP_FILENAME" > "$ZIP_FILENAME.sha256"
+rsync -avz "$ZIP_FILENAME"* "karrot-download@$HOST:www/"
 
 if [ ! -z "$STORYBOOK_URL" ] && [ -d storybook-static ]; then
   echo "$about_json" > storybook-static/about.json

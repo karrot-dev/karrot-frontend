@@ -74,7 +74,7 @@
         </div>
         <div class="col">
           <template
-            v-for="{ user, feedback } in feedbackAndUsers"
+            v-for="{ user, feedback, markedAsNoShowBy } in feedbackAndUsers"
             :key="user.id"
           >
             <QItem>
@@ -82,6 +82,7 @@
                 <ProfilePicture
                   :user="user"
                   :size="32"
+                  :dimmed="markedAsNoShowBy.length > 0"
                 />
               </QItemSection>
               <QItemSection>
@@ -91,30 +92,70 @@
                   </RouterLink>
                 </QItemLabel>
                 <QItemLabel
-                  v-if="feedback"
                   caption
                 >
                   <div
                     class="caption-items"
                   >
-                    <strong v-if="feedback.weight > 0">
-                      {{ formatFeedbackWeight(feedback.weight).join('') }}
+                    <strong v-if="markedAsNoShowBy.length > 0">
+                      <a class="cursor-pointer">
+                        No show
+                        <QMenu>
+                          <div class="q-py-md">
+                            <em class="q-px-md">Marked as no show by:</em>
+                            <QList>
+                              <QItem
+                                v-for="otherUser in markedAsNoShowBy"
+                                :key="otherUser.id"
+                                :to="{name: 'user', params: { userId: otherUser.id }}"
+                              >
+                                <QItemSection side>
+                                  <ProfilePicture
+                                    :user="otherUser"
+                                    :size="35"
+                                  />
+                                </QItemSection>
+                                <QItemSection>
+                                  {{ otherUser.displayName }}
+                                </QItemSection>
+                              </QItem>
+                            </QList>
+                          </div>
+                        </QMenu>
+                      </a>
                     </strong>
-                    <DateAsWords
-                      :date="feedback.createdAt"
-                      :future="false"
-                    />
-                    <RouterLink
-                      v-if="place && feedback.isEditable"
-                      :to="{ name: 'editFeedback', params: { groupId: place.group, feedbackId: feedback.id }}"
-                    >
-                      <QIcon
-                        name="fas fa-pencil-alt"
-                        :title="$t('BUTTON.EDIT')"
+                    <template v-if="feedback">
+                      <strong v-if="feedback.weight > 0">
+                        {{ formatFeedbackWeight(feedback.weight).join('') }}
+                      </strong>
+                      <DateAsWords
+                        :date="feedback.createdAt"
+                        :future="false"
                       />
-                    </RouterLink>
+                      <RouterLink
+                        v-if="place && feedback.isEditable"
+                        :to="{ name: 'editFeedback', params: { groupId: place.group, feedbackId: feedback.id }}"
+                      >
+                        <QIcon
+                          name="fas fa-pencil-alt"
+                          :title="$t('BUTTON.EDIT')"
+                        />
+                      </RouterLink>
+                    </template>
+                    <template v-else-if="hasDismissedFeedback(user)">
+                      <span>{{ t('ACTIVITY_FEEDBACK.DECLINED') }}</span>
+                    </template>
+                    <template v-else-if="getIsCurrentUser(user) && canGiveFeedback">
+                      <RouterLink :to="{ name: 'giveFeedback', params: { groupId: place.group, activityId: activity.id }}">
+                        {{ t('ACTIVITY_FEEDBACK.NOT_GIVEN_YOU') }}
+                      </RouterLink>
+                    </template>
+                    <template v-else>
+                      <em>{{ t('ACTIVITY_FEEDBACK.NOT_GIVEN_YET') }}</em>
+                    </template>
                   </div>
                 </QItemLabel>
+                <!--
                 <QItemLabel
                   v-else-if="hasDismissedFeedback(user)"
                   caption
@@ -137,6 +178,7 @@
                 >
                   {{ t('ACTIVITY_FEEDBACK.NOT_GIVEN_YET') }}
                 </QItemLabel>
+                -->
               </QItemSection>
             </QItem>
             <QCardSection v-if="feedback?.comment">
@@ -198,7 +240,7 @@ import {
   QItemSection,
   QItemLabel,
   QImg,
-  colors, QCardActions,
+  colors, QCardActions, QMenu,
 } from 'quasar'
 import { computed, nextTick, ref, toRefs, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -295,13 +337,21 @@ const feedbackAndUsers = computed(() => {
   const entries = activity.value.feedback.map(feedback => ({
     feedback,
     user: getUserById(feedback.givenBy),
+    markedAsNoShowBy: getNoShows(feedback.givenBy),
   }))
+
+  function getNoShows (userId) {
+    return activity.value.feedback
+      .filter(feedback => feedback.noShows?.some(noShow => noShow.user === userId))
+      .map(feedback => getUserById(feedback.givenBy))
+  }
 
   return [
     ...entries,
     ...usersThatHaveNotGivenFeedback.value.map(user => ({
       feedback: null,
       user,
+      markedAsNoShowBy: getNoShows(user.id),
     })),
   ]
 })
@@ -339,6 +389,21 @@ const canGiveFeedback = computed(() => {
     // it's within the correct range
     reactiveNow.value <= addDays(activity.value.dateEnd, config.value?.feedbackPossibleDays ?? 0)
   )
+})
+
+// Gives us an object of {userId: boolean} of whether at least one person marked them as a no show
+const noShows = computed(() => {
+  const result = {}
+  if (activity.value?.feedback) {
+    for (const entry of activity.value.feedback) {
+      if (entry.noShows) {
+        for (const noShow of entry.noShows) {
+          result[noShow.user] = true
+        }
+      }
+    }
+  }
+  return result
 })
 
 const isHighlighted = computed(() => {

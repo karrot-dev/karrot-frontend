@@ -82,6 +82,7 @@ const props = defineProps({
   size: { default: 20, type: Number },
   isLink: { default: true, type: Boolean },
   editable: { default: false, type: Boolean },
+  dimmed: { default: false, type: Boolean },
 })
 
 const tooltip = computed(() => {
@@ -98,6 +99,12 @@ const tooltip = computed(() => {
 const pictureStyle = computed(() => ({
   width: props.size + 'px',
   height: props.size + 'px',
+  ...(props.dimmed
+    ? {
+        opacity: 0.5,
+        filter: 'grayscale(100%)',
+      }
+    : {}),
 }))
 
 const hasPhoto = computed(() => Boolean(photo.value))

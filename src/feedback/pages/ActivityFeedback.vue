@@ -55,26 +55,11 @@
           </div>
         </RandomArt>
         <QCardSection>
-          <div
-            v-if="fellowParticipants.length > 0"
-            class="q-mx-sm q-mt-md"
-          >
-            <div v-t="'ACTIVITY_FEEDBACK.TOGETHER_WITH'" />
-            <div class="q-mt-sm row">
-              <ProfilePicture
-                v-for="user in fellowParticipants"
-                :key="user.id"
-                :user="user"
-                :size="35"
-                class="q-ml-xs"
-              />
-            </div>
-          </div>
           <FeedbackForm
             v-if="activity && activityType"
             :value="feedbackDefault"
             :status="saveStatus"
-            :has-multiple-participants="fellowParticipants.length > 0"
+            :activity="activity"
             :has-weight="activityType.hasFeedbackWeight"
             @save="feedback => save(feedback)"
             @dismiss-feedback="activityId => dismiss(activityId)"
@@ -112,9 +97,9 @@ import {
   QItem,
   QItemSection,
   QCard,
-  QSelect, QCardSection,
+  QSelect, QCardSection, QBtn, QDialog, QItemLabel, QCheckbox, QCardActions,
 } from 'quasar'
-import { computed, watchEffect, unref } from 'vue'
+import { computed, watchEffect, unref, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -144,9 +129,7 @@ const { d } = useI18n()
 const { getPlaceById } = usePlaceService()
 const { groupId } = useCurrentGroupService()
 const { getActivityTypeById } = useActivityTypeService()
-const { getUserById } = useUserService()
 const { getIconProps } = useActivityTypeHelpers()
-const { getIsCurrentUser } = useAuthHelpers()
 
 const activityIdRouteParam = useIntegerRouteParam('activityId')
 const editFeedbackId = useIntegerRouteParam('feedbackId')
@@ -187,12 +170,6 @@ const {
 } = useActivityItemQuery({ activityId })
 
 const activityType = computed(() => getActivityTypeById(activity.value.activityType))
-
-const fellowParticipants = computed(() => activity.value
-  ? activity.value.participants
-    .map(({ user }) => getUserById(user))
-    .filter(u => !getIsCurrentUser(u))
-  : [])
 
 const placeId = computed(() => activity.value?.place)
 const place = computed(() => getPlaceById(placeId.value))

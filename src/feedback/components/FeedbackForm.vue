@@ -2,6 +2,30 @@
   <form
     @submit.prevent="maybeSave"
   >
+    <div
+      v-if="fellowParticipants.length > 0"
+      class="q-mx-sm q-mt-md"
+    >
+      <div v-t="'ACTIVITY_FEEDBACK.TOGETHER_WITH'" />
+      <div class="q-mt-sm row">
+        <ProfilePicture
+          v-for="user in fellowParticipants"
+          :key="user.id"
+          :user="user"
+          :size="35"
+          class="q-ml-xs"
+          :dimmed="isNoShow(user.id)"
+        />
+        <QBtn
+          flat
+          no-caps
+          class="q-ml-xs text-weight-regular"
+          @click="isNoShowDialogVisible = true"
+        >
+          Someone didn't show up?
+        </QBtn>
+      </div>
+    </div>
     <MarkdownInput
       v-model="edit.comment"
       outlined
@@ -93,18 +117,68 @@
         />
       </template>
     </CustomDialog>
+    <CustomDialog
+      v-model="isNoShowDialogVisible"
+      width="auto"
+    >
+      <template #title>
+        Who didn't show up?
+      </template>
+      <template #message>
+        <QList>
+          <QItem
+            v-for="user in fellowParticipants"
+            :key="user.id"
+            class="q-pl-none"
+            clickable
+            @click="toggleNoShow(user.id)"
+          >
+            <QItemSection side>
+              <QCheckbox
+                :model-value="isNoShow(user.id)"
+                @update:model-value="value => setNoShow(user.id, value)"
+              />
+            </QItemSection>
+            <QItemSection side>
+              <ProfilePicture
+                :user="user"
+                :size="35"
+                class="q-ml-xs"
+                :is-link="false"
+              />
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel>
+                {{ user.displayName }}
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+        </QList>
+      </template>
+      <template #actions>
+        <QBtn
+          v-close-popup
+          flat
+          label="OK"
+        />
+      </template>
+    </CustomDialog>
   </form>
 </template>
 
 <script>
 import {
-  QBtn,
-  QIcon,
+  QBtn, QCheckbox,
+  QIcon, QItem, QItemLabel, QItemSection, QList,
 } from 'quasar'
+import { computed } from 'vue'
 
+import { useAuthHelpers } from '@/authuser/helpers'
+import { useUserService } from '@/users/services'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
 import CustomDialog from '@/utils/components/CustomDialog.vue'
 import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
@@ -112,6 +186,12 @@ import AmountPicker from './AmountPicker.vue'
 
 export default {
   components: {
+    QItemLabel,
+    QCheckbox,
+    QItemSection,
+    QItem,
+    QList,
+    ProfilePicture,
     CustomDialog,
     QBtn,
     QIcon,
@@ -120,6 +200,10 @@ export default {
   },
   mixins: [statusMixin, editMixin],
   props: {
+    activity: {
+      type: Object,
+      default: null,
+    },
     hasMultipleParticipants: {
       type: Boolean,
       default: false,
@@ -132,9 +216,22 @@ export default {
   emits: [
     'dismissFeedback',
   ],
+  setup (props) {
+    const { getUserById } = useUserService()
+    const { getIsCurrentUser } = useAuthHelpers()
+    const fellowParticipants = computed(() => props.activity
+      ? props.activity.participants
+        .map(({ user }) => getUserById(user))
+        .filter(u => !getIsCurrentUser(u))
+      : [])
+    return {
+      fellowParticipants,
+    }
+  },
   data () {
     return {
       isDismissFeedbackDialogVisible: false,
+      isNoShowDialogVisible: false,
     }
   },
   computed: {
@@ -143,6 +240,25 @@ export default {
     },
   },
   methods: {
+    isNoShow (userId) {
+      return Boolean(this.edit.noShows?.some(noShow => noShow.user === userId))
+    },
+    setNoShow (userId, value) {
+      if (value) {
+        if (!this.isNoShow(userId)) {
+          if (!this.edit.noShows) this.edit.noShows = []
+          this.edit.noShows.push({ user: userId })
+        }
+      }
+      else {
+        if (this.edit.noShows) {
+          this.edit.noShows = this.edit.noShows.filter(noShow => noShow.user !== userId)
+        }
+      }
+    },
+    toggleNoShow (userId) {
+      this.setNoShow(userId, !this.isNoShow(userId))
+    },
     maybeSave () {
       if (this.canSave) {
         this.save()

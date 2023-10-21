@@ -1,9 +1,8 @@
 import { useQueryClient } from '@tanstack/vue-query'
-import { h, nextTick, ref } from 'vue'
+import { h, ref } from 'vue'
 import { getRouter } from 'vue-router-mock'
 
 import { resetServices } from '@/utils/datastore/helpers'
-import { sleep } from '@/utils/utils'
 
 import { clearMockBackend } from '>/mockBackend'
 

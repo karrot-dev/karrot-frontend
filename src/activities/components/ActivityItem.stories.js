@@ -1,5 +1,3 @@
-import { setup } from '@storybook/vue3'
-
 import { convert } from '@/activities/api/activities'
 import { defineStory } from '@/utils/storybookUtils'
 

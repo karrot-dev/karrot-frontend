@@ -1,5 +1,5 @@
 import { extend } from 'quasar'
-import { computed, watch, ref, readonly, watchEffect, unref } from 'vue'
+import { computed, watch, ref, readonly, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 
 import { useSaveUserMutation } from '@/authuser/mutations'

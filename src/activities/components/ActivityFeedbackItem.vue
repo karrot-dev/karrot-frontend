@@ -391,21 +391,6 @@ const canGiveFeedback = computed(() => {
   )
 })
 
-// Gives us an object of {userId: boolean} of whether at least one person marked them as a no show
-const noShows = computed(() => {
-  const result = {}
-  if (activity.value?.feedback) {
-    for (const entry of activity.value.feedback) {
-      if (entry.noShows) {
-        for (const noShow of entry.noShows) {
-          result[noShow.user] = true
-        }
-      }
-    }
-  }
-  return result
-})
-
 const isHighlighted = computed(() => {
   if (!hasFeedback.value || !highlightFeedback.value) return false
   return activity.value?.feedback.some(f => f.id === highlightFeedback.value)

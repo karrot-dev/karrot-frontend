@@ -97,9 +97,10 @@ import {
   QItem,
   QItemSection,
   QCard,
-  QSelect, QCardSection, QBtn, QDialog, QItemLabel, QCheckbox, QCardActions,
+  QSelect,
+  QCardSection,
 } from 'quasar'
-import { computed, watchEffect, unref, ref } from 'vue'
+import { computed, watchEffect, unref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -107,17 +108,14 @@ import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useDismissFeedbackMutation } from '@/activities/mutations'
 import { useActivityListQuery, useActivityItemQuery } from '@/activities/queries'
 import { useActivityTypeService } from '@/activities/services'
-import { useAuthHelpers } from '@/authuser/helpers'
 import cart from '@/feedback/assets/cart.png'
 import { useFeedbackSaveMutation } from '@/feedback/mutations'
 import { useFeedbackItemQuery } from '@/feedback/queries'
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceService } from '@/places/services'
-import { useUserService } from '@/users/services'
 import { useIntegerRouteParam } from '@/utils/composables'
 
 import PlaceFeedbackList from '@/feedback/components/PlaceFeedbackList.vue'
-import ProfilePicture from '@/users/components/ProfilePicture.vue'
 import KNotice from '@/utils/components/KNotice.vue'
 import RandomArt from '@/utils/components/RandomArt.vue'
 

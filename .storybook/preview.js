@@ -6,7 +6,6 @@ import { createRouterMock, injectRouterMock } from 'vue-router-mock'
 import { i18nPlugin } from '@/base/i18n'
 import icons from '@/base/icons'
 import queryClient from '@/base/queryClient'
-import router from '@/router'
 
 import { setupMockBackend } from '>/mockBackend'
 import quasarConfig from '>/quasarConfig'

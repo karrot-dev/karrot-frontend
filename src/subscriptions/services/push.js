@@ -63,7 +63,6 @@ export const usePushService = defineService(() => {
 
     if (Notification.permission === 'denied') {
       // nothing we can do!
-      console.log('notifications denied')
       state.intention = false
       showToast({
         message: 'USERDATA.PUSH_BLOCKED',
@@ -79,12 +78,8 @@ export const usePushService = defineService(() => {
   }
 
   async function getExistingSubscription () {
-    console.log('get service worker')
     const serviceWorkerRegistration = await getServiceWorkerRegistration()
-    console.log('getting subscription')
-    const subscription = await serviceWorkerRegistration.pushManager.getSubscription()
-    console.log('got sub')
-    return subscription
+    return await serviceWorkerRegistration.pushManager.getSubscription()
   }
 
   async function saveSubscription (subscription) {

@@ -1,5 +1,8 @@
 <template>
   <div class="wrapper">
+    <PluginSlot name="aboveGroupWall">
+      <h2>above group wall default slot</h2>
+    </PluginSlot>
     <div class="notices">
       <div v-if="joinedActivities.length > 0">
         <JoinedActivities :activities="joinedActivities" />
@@ -24,6 +27,7 @@ import { useCurrentGroupService } from '@/group/services'
 import { useStatusService } from '@/status/services'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 
+import PluginSlot from '@/base/components/PluginSlot.vue'
 import AvailableActivities from '@/group/components/AvailableActivities.vue'
 import FeedbackNotice from '@/group/components/FeedbackNotice.vue'
 import JoinedActivities from '@/group/components/JoinedActivities.vue'
@@ -31,6 +35,7 @@ import WallConversation from '@/messages/components/WallConversation.vue'
 
 export default {
   components: {
+    PluginSlot,
     JoinedActivities,
     AvailableActivities,
     WallConversation,

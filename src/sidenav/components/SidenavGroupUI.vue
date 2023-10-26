@@ -81,6 +81,9 @@ import {
   QItemSection,
   QBadge,
 } from 'quasar'
+import { computed } from 'vue'
+
+import { useSidenavMenuEntries } from '@/sidenav/use'
 
 import GroupOptions from './GroupOptions.vue'
 import SidenavBox from './SidenavBox.vue'
@@ -128,6 +131,12 @@ export default {
       type: Number,
     },
   },
+  setup () {
+    const allEntries = useSidenavMenuEntries()
+    const entries = computed(() => allEntries.value.filter(entry => !entry.more))
+    const entriesMore = computed(() => allEntries.value.filter(entry => entry.more))
+    return { entries, entriesMore }
+  },
   data () {
     return {
       showMore: false,
@@ -137,7 +146,7 @@ export default {
     cappedWallUnreadCount () {
       return this.wallUnreadCount > 99 ? '99+' : this.wallUnreadCount
     },
-    entries () {
+    entriesOFF () {
       return [{
         label: this.$t('GROUP.WALL'),
         icon: 'fas fa-bullhorn',
@@ -191,7 +200,7 @@ export default {
     showMoreBadgeCount () {
       return this.entriesMore.reduce((sum, entry) => sum + (entry.badge?.count || 0), 0)
     },
-    entriesMore () {
+    entriesMoreOFF () {
       return [{
         label: this.$t('GROUP.APPLICATIONS'),
         icon: 'fas fa-address-card',

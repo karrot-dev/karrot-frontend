@@ -24,6 +24,7 @@ import { useAuthUserUpdater } from '@/authuser/queries'
 import { useRoutingLogic, useCheckResponseAuthStatus } from '@/base/services'
 import { useWebsocket } from '@/base/services/websocket'
 import { usePerformance } from '@/boot/performance'
+import { karrotPlugins } from '@/boot/plugins'
 import { useGroupDetailUpdater } from '@/group/queries'
 import { useGroupInfoUpdater } from '@/groupInfo/queries'
 import { useIssuesUpdater } from '@/issues/queries'
@@ -85,6 +86,13 @@ export default {
 
     // TODO: remove at some point... just trying it out for now
     window.queryClient = useQueryClient()
+
+    for (const karrotPlugin of karrotPlugins) {
+      console.log('karrot plugin!', karrotPlugin)
+      if (karrotPlugin.setup) {
+        karrotPlugin.setup()
+      }
+    }
   },
   computed: {
     hasView () {

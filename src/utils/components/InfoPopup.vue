@@ -9,7 +9,6 @@
     @click.prevent
   >
     <QMenu
-      square
       dark
       max-width="280px"
       :class="menuContentClass /* TODO: check if we need class or content-class */"

@@ -48,21 +48,23 @@
         >
           <SidenavTitle @click="toggleSidenav" />
           <RouterView name="sidenav" />
-          <QItem
-            clickable
-            @click="toggleAbout"
-          >
-            <QItemSection
-              side
-              class="text-center"
+          <PluginSlot name="sidenavFooter">
+            <QItem
+              clickable
+              @click="toggleAbout"
             >
-              <KarrotLogo class="logo" />
-            </QItemSection>
-            <QItemSection>
-              {{ $t("GLOBAL.ABOUT_KARROT") }}
-            </QItemSection>
-          </QItem>
-          <CommunityFeed />
+              <QItemSection
+                side
+                class="text-center"
+              >
+                <KarrotLogo class="logo" />
+              </QItemSection>
+              <QItemSection>
+                {{ $t("GLOBAL.ABOUT_KARROT") }}
+              </QItemSection>
+            </QItem>
+            <CommunityFeed />
+          </PluginSlot>
           <QItem
             clickable
             @click="logout()"
@@ -91,21 +93,23 @@
           @click="toggleSidenav"
         >
           <RouterView name="sidenav" />
-          <QItem
-            clickable
-            @click="toggleAbout"
-          >
-            <QItemSection
-              side
-              class="text-center"
+          <PluginSlot name="sidenavFooter">
+            <QItem
+              clickable
+              @click="toggleAbout"
             >
-              <KarrotLogo class="logo" />
-            </QItemSection>
-            <QItemSection>
-              {{ $t("GLOBAL.ABOUT_KARROT") }}
-            </QItemSection>
-          </QItem>
-          <CommunityFeed />
+              <QItemSection
+                side
+                class="text-center"
+              >
+                <KarrotLogo class="logo" />
+              </QItemSection>
+              <QItemSection>
+                {{ $t("GLOBAL.ABOUT_KARROT") }}
+              </QItemSection>
+            </QItem>
+            <CommunityFeed />
+          </PluginSlot>
         </QDrawer>
 
         <QPageContainer>
@@ -180,6 +184,7 @@ import { useStatusService } from '@/status/services'
 
 import Banners from '@/alerts/components/Banners.vue'
 import KAbout from '@/base/components/KAbout.vue'
+import PluginSlot from '@/base/components/PluginSlot.vue'
 import RouteError from '@/base/components/RouteError.vue'
 import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarning.vue'
 import CommunityFeed from '@/communityFeed/components/CommunityFeed.vue'
@@ -191,6 +196,7 @@ import KTopbarLoggedOut from '@/topbar/components/LoggedOut/KTopbar.vue'
 
 export default {
   components: {
+    PluginSlot,
     KarrotLogo,
     QDialog,
     DetailSidebar,

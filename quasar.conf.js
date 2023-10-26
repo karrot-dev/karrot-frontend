@@ -14,6 +14,48 @@ const { configure } = require('quasar/wrappers')
 const aliases = require('./aliases').resolve.alias
 const { getHttpsOptions } = require('./build/https')
 
+function GenerateImportMap ({ imports: importsOption }) {
+  return {
+    name: 'karrot:generate-import-map',
+    enforce: 'post',
+    options (options) {
+      // We're just assuming it's a single string input
+      const index = options.input
+
+      Object.assign(options, {
+        // Need this to ensure we actually output stuff that will get
+        // consumed by the things that import stuff, otherwise it gets
+        // removed as it doesn't know it's used
+        preserveEntrySignatures: 'allow-extension',
+        input: {
+          index,
+          ...importsOption,
+        },
+      })
+    },
+    transformIndexHtml (_, { bundle }) {
+      const imports = { ...importsOption }
+      if (bundle) {
+        // Prod mode, convert to bundled name
+        for (const dep of Object.keys(imports)) {
+          const entry = Object
+            .values(bundle)
+            .find(entry => entry.type === 'chunk' && entry.name === dep)
+          if (!entry) throw new Error('missing bundle entry for ' + dep)
+          imports[dep] = './' + entry.fileName
+        }
+      }
+      return [{
+        tag: 'script',
+        attrs: {
+          type: 'importmap',
+        },
+        children: JSON.stringify({ imports }),
+      }]
+    },
+  }
+}
+
 module.exports = configure(function (ctx) {
   const { backend, proxyTable } = require('./build/config')
 
@@ -44,6 +86,7 @@ module.exports = configure(function (ctx) {
       'icons',
       'detectMobileKeyboard',
       'performance',
+      'plugins',
     ],
     css: [
       'app.sass',
@@ -71,6 +114,17 @@ module.exports = configure(function (ctx) {
           emitFile: true,
           gzipSize: true,
           filename: 'bundlesize.html',
+        }],
+        // This is to expose things that plugins can make use of
+        [GenerateImportMap, {
+          imports: {
+            vue: './src/plugin/vue.js',
+            'vue-router': './src/plugin/vue-router.js',
+            quasar: './src/plugin/quasar.js',
+            axios: './src/plugin/axios.js',
+            '@tanstack/vue-query': './src/plugin/@tanstack/vue-query.js',
+            '@karrot/plugin': './src/plugin/@karrot/plugin.js',
+          },
         }],
       ],
     },

@@ -145,8 +145,9 @@ export default [
     component: PublicActivity,
   },
   {
+    name: 'group',
     path: '/group/:groupId',
-    redirect: { name: 'group' },
+    redirect: { name: 'groupWall' },
     meta: {
       requireLoggedIn: true,
       breadcrumbs: [
@@ -162,7 +163,7 @@ export default [
     },
     children: [
       {
-        name: 'group',
+        name: 'groupWall',
         path: 'wall',
         component: GroupWall,
       },

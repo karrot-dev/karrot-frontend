@@ -794,6 +794,12 @@
     "Restaurant": "Restaurant",
     "Market": "Market"
   },
+  "PLACE_STATUS_NAMES": {
+    "Created": "Created",
+    "Negotiating": "Negotiating",
+    "Active": "Active",
+    "Declined": "Declined"
+  },
   "PLACE_TYPE_STATUS": {
     "ACTIVE": "Active",
     "ARCHIVED": "Archived"

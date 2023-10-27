@@ -2,23 +2,23 @@ import { unref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import icons from '@/base/icons'
-import { optionsFor } from '@/places/placeStatus'
-import { useActivePlaceService, usePlaceTypeService } from '@/places/services'
+import { useActivePlaceService, usePlaceStatusService, usePlaceTypeService } from '@/places/services'
 
 export function usePlaceHelpers () {
-  const { t } = useI18n()
   const { placeId: activePlaceId } = useActivePlaceService()
   const { getPlaceTypeById } = usePlaceTypeService()
+  const { getPlaceStatusById } = usePlaceStatusService()
   const { getTranslatedName } = usePlaceTypeHelpers()
+  const placeStatusHelpers = usePlaceStatusHelpers()
 
   function getIsActivePlace (place) {
     return activePlaceId.value === unref(place).id
   }
 
   function getPlaceIconProps (place) {
-    const { color, label } = optionsFor(place)
     const placeType = getPlaceTypeById(place.placeType)
-    if (!placeType) {
+    const placeStatus = getPlaceStatusById(place.status)
+    if (!placeType || !placeStatus) {
       return {
         name: 'fas fa-map-marker',
       }
@@ -26,10 +26,13 @@ export function usePlaceHelpers () {
 
     const { icon } = placeType
 
+    const placeTypeName = getTranslatedName(placeType)
+    const placeStatusName = placeStatusHelpers.getTranslatedName(placeStatus)
+
     return {
       name: icon,
-      color,
-      title: `${getTranslatedName(placeType)}: ${t(label)}`,
+      color: placeStatusHelpers.getColorName(placeStatus),
+      title: `${placeTypeName}: ${placeStatusName}`,
     }
   }
 
@@ -72,5 +75,30 @@ export function usePlaceTypeHelpers () {
     getTranslatedName,
     sortByTranslatedName,
     getIconProps,
+  }
+}
+
+export function usePlaceStatusHelpers () {
+  const { t } = useI18n()
+  function getTranslatedName (placeStatus) {
+    if (!placeStatus) return
+    const { name, nameIsTranslatable } = placeStatus
+    return nameIsTranslatable ? t(`PLACE_STATUS_NAMES.${name}`) : name
+  }
+
+  function sortByTranslatedName (a, b) {
+    return getTranslatedName(a).localeCompare(getTranslatedName(b))
+  }
+
+  function getColorName (placeStatus) {
+    if (!placeStatus) return
+    const { id } = placeStatus
+    return `place-status-${id}`
+  }
+
+  return {
+    getTranslatedName,
+    sortByTranslatedName,
+    getColorName,
   }
 }

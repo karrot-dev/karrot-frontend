@@ -41,34 +41,35 @@
         hide-bottom-space
         dense
       >
-        <template #option="scope">
+        <template #option="{ index, opt, itemProps }">
+          <QSeparator v-if="opt.value === 'archived'" />
           <QItem
-            :key="scope.index"
+            :key="index"
             dense
-            v-bind="scope.itemProps"
+            v-bind="itemProps"
           >
             <QItemSection avatar>
               <QIcon
-                :name="scope.opt.icon"
-                :color="scope.opt.color"
+                name="fas fa-circle"
+                :color="opt.color"
                 size="1.1em"
               />
             </QItemSection>
             <QItemSection>
-              <QItemLabel>{{ scope.opt.label }}</QItemLabel>
+              <QItemLabel>{{ opt.label }}</QItemLabel>
             </QItemSection>
           </QItem>
         </template>
-        <template #selected-item="scope">
+        <template #selected-item="{ opt }">
           <div class="row no-wrap ellipsis">
             <QIcon
-              :name="scope.opt.icon"
-              :color="scope.opt.color"
+              name="fas fa-circle"
+              :color="opt.color"
               size="1.1em"
               class="on-left q-ml-xs"
             />
             <div class="ellipsis">
-              {{ scope.opt.label }}
+              {{ opt.label }}
             </div>
           </div>
         </template>
@@ -252,7 +253,6 @@ import { useI18n } from 'vue-i18n'
 import { useActivityCountQuery } from '@/activities/queries'
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceSubscribeMutation, usePlaceUnsubscribeMutation } from '@/places/mutations'
-import { statusList } from '@/places/placeStatus'
 import { placeRoute } from '@/places/utils'
 import { useStatusService } from '@/status/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
@@ -260,8 +260,8 @@ import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 
 import Markdown from '@/utils/components/Markdown.vue'
 
-import { usePlaceHelpers, usePlaceTypeHelpers } from '../helpers'
-import { usePlaceTypeService } from '../services'
+import { usePlaceHelpers, usePlaceStatusHelpers, usePlaceTypeHelpers } from '../helpers'
+import { usePlaceStatusService, usePlaceTypeService } from '../services'
 
 const {
   groupId,
@@ -282,6 +282,8 @@ const {
   getIconProps,
   sortByTranslatedName,
 } = usePlaceTypeHelpers()
+
+const placeStatusHelpers = usePlaceStatusHelpers()
 
 const {
   getPlaceTypesByGroup,
@@ -308,7 +310,7 @@ const { t } = useI18n()
 
 const defaultQueryParams = {
   type: null,
-  status: 'active',
+  status: null,
   onlyFavourites: false,
   search: '',
 }
@@ -322,7 +324,7 @@ const {
 
 function showAll () {
   type.value = null
-  status.value = 'all'
+  status.value = null
   onlyFavourites.value = false
   search.value = ''
 }
@@ -346,22 +348,42 @@ const typeOptions = computed(() => ([
   }),
 ]))
 
+const { getPlaceStatusesByGroup } = usePlaceStatusService()
+const placeStatuses = computed(() => getPlaceStatusesByGroup(groupId.value))
+
 const statusOptions = computed(() => ([
   {
     label: t('PLACE_LIST.ALL_STATUSES'),
-    value: 'all',
+    value: null,
+    color: 'white',
   },
-  ...statusList.map(s => ({
-    value: s.key,
-    label: t(s.label),
-    color: s.color,
-    icon: 'fas fa-circle',
-  })),
+  ...placeStatuses.value.map(placeStatus => {
+    return {
+      label: placeStatusHelpers.getTranslatedName(placeStatus),
+      value: String(placeStatus.id),
+      color: placeStatusHelpers.getColorName(placeStatus),
+      placeStatus,
+    }
+  }),
+  {
+    label: 'Archived', // TODO: translate,
+    value: 'archived',
+    color: 'black',
+  },
+  // ...statusList.map(s => ({
+  //   value: s.key,
+  //   label: t(s.label),
+  //   color: s.color,
+  //   icon: 'fas fa-circle',
+  // })),
 ]))
 
 const filteredPlaces = computed(() => places.value.filter(place => (
   (!type.value || place.placeType === parseInt(type.value)) &&
-  (status.value === 'all' || place.status === status.value) &&
+  (
+    (status.value === 'archived' && place.archivedAt) ||
+    ((!status.value && !place.archivedAt) || place.status === parseInt(status.value))
+  ) &&
   (!onlyFavourites.value || place.isSubscribed) &&
   (!search || place.name.toLowerCase().includes(search.value.toLowerCase()))
 )))

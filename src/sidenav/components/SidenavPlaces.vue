@@ -74,7 +74,7 @@
           />
         </QItemSection>
         <QItemSection>
-          {{ $t('STOREEDIT.SHOW_ALL') }} ({{ activePlaceCount }})
+          {{ $t('STOREEDIT.SHOW_ALL') }} ({{ notArchivedPlaceCount }})
         </QItemSection>
       </QItem>
     </template>
@@ -122,7 +122,7 @@ function getUnreadWallMessageCount (place) {
 }
 
 const subscribedPlaces = computed(() => places.value.filter(place => place.isSubscribed && place.status !== 'archived'))
-const activePlaceCount = computed(() => places.value.filter(place => place.status === 'active').length)
+const notArchivedPlaceCount = computed(() => places.value.filter(place => !place.archivedAt).length)
 </script>
 
 <style scoped lang="sass">

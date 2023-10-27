@@ -1,6 +1,6 @@
 /**
- * This plugin is responsible for defining some custom colors for activity types that can be
- * used in quasar components that accept a quasar palette color name.
+ * This plugin is responsible for defining some custom colors for any entries that have
+ * a colour so they can be used in quasar components that accept a quasar palette color name.
  *
  * So, where you might put:
  *
@@ -8,17 +8,17 @@
  *
  * You can also now put:
  *
- *   color="activity-type-5"
+ *   color="my-suffix-5"
  *
- * The number is the database id of the activity type.
+ * The number is the database id of the entry.
  *
  */
 
 let nextId = 0
 
-function idFor (activityType) {
-  if (typeof activityType.id !== 'undefined') {
-    return activityType.id
+function idFor (entry) {
+  if (typeof entry.id !== 'undefined') {
+    return entry.id
   }
   else {
     return `new-${nextId++}`
@@ -26,6 +26,14 @@ function idFor (activityType) {
 }
 
 export function createActivityTypeStylesheet (suffix = '') {
+  return createStylesheet('activity-type-', suffix)
+}
+
+export function createPlaceStatusStylesheet (suffix = '') {
+  return createStylesheet('place-status-', suffix)
+}
+
+export function createStylesheet (prefix = '', suffix = '') {
   const defaultColour = '#FF0000'
   let stylesheet
 
@@ -42,12 +50,12 @@ export function createActivityTypeStylesheet (suffix = '') {
     getStylesheet().innerText = styles
   }
 
-  function updateActivityTypes (activityTypes = []) {
+  function updateEntries (entries = []) {
     const colorNames = []
-    const styles = activityTypes.map(activityType => {
-      let color = activityType.colour || defaultColour
+    const styles = entries.map(entry => {
+      let color = entry.colour || defaultColour
       if (color[0] !== '#') color = '#' + color
-      const colorName = `activity-type-${idFor(activityType)}${suffix}`
+      const colorName = `${prefix}${idFor(entry)}${suffix}`
       colorNames.push(colorName)
 
       // For how to define custom colors for quasar see:
@@ -67,8 +75,8 @@ export function createActivityTypeStylesheet (suffix = '') {
     return colorNames
   }
 
-  function updateActivityType (activityType) {
-    return updateActivityTypes([activityType])[0]
+  function updateEntry (entry) {
+    return updateEntries([entry])[0]
   }
 
   function removeStylesheet () {
@@ -78,8 +86,8 @@ export function createActivityTypeStylesheet (suffix = '') {
   }
 
   return {
-    updateActivityTypes,
-    updateActivityType,
+    updateEntries,
+    updateEntry,
     removeStylesheet,
   }
 }

@@ -863,6 +863,7 @@
     "FILTER_TIME_FOREVER": "Forever",
     "COLUMN_PLACE": "Place",
     "COLUMN_ACTIVITY_DONE": "Done",
+    "COLUMN_ACTIVITY_NO_SHOW": "No show",
     "COLUMN_ACTIVITY_MISSED": "Missed",
     "COLUMN_ACTIVITY_LEFT": "Withdrew",
     "COLUMN_FEEDBACK": "Feedback",

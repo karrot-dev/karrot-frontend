@@ -96,14 +96,15 @@
         <QTd :props="props">
           <RouterLink
             :to="{ name: 'place', params: { groupId: props.value.group, placeId: props.value.id }}"
-            class="block"
+            class="block ellipsis"
+            :title="props.value.name"
           >
             {{ props.value.name }}
           </RouterLink>
         </QTd>
       </template>
       <template #bottom-row>
-        <QTr>
+        <QTr v-if="!loading">
           <QTd
             v-for="col in columns"
             :key="col.name"
@@ -220,6 +221,7 @@ export default {
           field: row => row.place,
           classes: 'column-place',
           headerClasses: 'column-place',
+          // style: { maxWidth: '100px' },
           align: 'left',
           sortable: true,
           sort: (a, b, rowA, rowB) => nonLocaleCompare(rowA.place?.name, rowB.place?.name),
@@ -500,10 +502,18 @@ export default {
 ::v-deep(th.sortable:not(.sorted) .q-table__sort-icon)
   transform: rotate(180deg)
 
+::v-deep(.q-table th),
+::v-deep(.q-table td)
+  padding-left: 8px
+  padding-right: 8px
+  width: 24px
+
 ::v-deep(.column-type)
   padding-left: 4px
   padding-right: 8px
 
 ::v-deep(.column-place)
   padding-left: 8px
+  width: auto
+  max-width: 180px
 </style>

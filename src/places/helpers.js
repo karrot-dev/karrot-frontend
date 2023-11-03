@@ -9,6 +9,7 @@ export function usePlaceHelpers () {
   const { t } = useI18n()
   const { placeId: activePlaceId } = useActivePlaceService()
   const { getPlaceTypeById } = usePlaceTypeService()
+  const { getTranslatedName } = usePlaceTypeHelpers()
 
   function getIsActivePlace (place) {
     return activePlaceId.value === unref(place).id
@@ -28,7 +29,7 @@ export function usePlaceHelpers () {
     return {
       name: icon,
       color,
-      title: t(label),
+      title: `${getTranslatedName(placeType)}: ${t(label)}`,
     }
   }
 

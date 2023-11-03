@@ -104,7 +104,7 @@
         </QTd>
       </template>
       <template #bottom-row>
-        <QTr v-if="!loading">
+        <QTr v-if="data?.length > 0">
           <QTd
             v-for="col in columns"
             :key="col.name"

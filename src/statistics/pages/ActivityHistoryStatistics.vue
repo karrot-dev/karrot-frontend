@@ -509,11 +509,9 @@ export default {
   width: 24px
 
 ::v-deep(.column-type)
-  padding-left: 4px
-  padding-right: 8px
+  padding-left: 0 !important
 
 ::v-deep(.column-place)
-  padding-left: 8px
   width: auto
   max-width: 180px
 </style>

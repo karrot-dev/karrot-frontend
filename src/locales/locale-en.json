@@ -865,6 +865,7 @@
     "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
     "FILTER_TIME_FOREVER": "Forever",
     "COLUMN_PLACE": "Place",
+    "COLUMN_PLACE_TYPE": "Type",
     "COLUMN_ACTIVITY_DONE": "Done",
     "COLUMN_ACTIVITY_NO_SHOW": "No show",
     "COLUMN_ACTIVITY_MISSED": "Missed",

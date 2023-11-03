@@ -84,10 +84,19 @@
           </template>
         </QSelect>
       </template>
+      <template #body-cell-type="props">
+        <QTd :props="props">
+          <QIcon
+            v-bind="getPlaceIconProps(props.value)"
+            size="1.1em"
+          />
+        </QTd>
+      </template>
       <template #body-cell-place="props">
         <QTd :props="props">
           <RouterLink
             :to="{ name: 'place', params: { groupId: props.value.group, placeId: props.value.id }}"
+            class="block"
           >
             {{ props.value.name }}
           </RouterLink>
@@ -118,15 +127,17 @@
 import { endOfYear, getYear, startOfYear, subYears } from 'date-fns'
 import subDays from 'date-fns/subDays'
 import subMonths from 'date-fns/subMonths'
-import { QSelect, QTable, QToggle, QItem, QItemSection, QItemLabel, QSeparator, QTr, QTd } from 'quasar'
+import { QSelect, QTable, QToggle, QItem, QItemSection, QItemLabel, QSeparator, QTr, QTd, QIcon } from 'quasar'
 
 import { useCurrentGroupService } from '@/group/services'
+import { usePlaceHelpers } from '@/places/helpers'
 import { usePlaceService } from '@/places/services'
 import api from '@/statistics/api/statistics'
 import { indexById } from '@/utils/datastore/helpers'
 
 export default {
   components: {
+    QIcon,
     QTd,
     QTr,
     QSelect,
@@ -145,10 +156,14 @@ export default {
     const {
       getPlaceById,
     } = usePlaceService()
+    const {
+      getPlaceIconProps,
+    } = usePlaceHelpers()
     return {
       currentGroupId,
       users,
       getPlaceById,
+      getPlaceIconProps,
     }
   },
   data () {
@@ -180,7 +195,7 @@ export default {
     columns () {
       function fadedZeroValueClasses (key) {
         return row => {
-          return row[key] === 0 ? 'text-grey-6' : ''
+          return row[key] === 0 ? 'text-grey-5' : ''
         }
       }
       function nonLocaleCompare (a, b) {
@@ -188,10 +203,23 @@ export default {
       }
       return [
         {
+          name: 'type',
+          label: this.$t('STATISTICS.COLUMN_PLACE_TYPE'),
+          // Pass the whole place in, as we use a custom cell template
+          field: row => row.place,
+          classes: 'column-type',
+          headerClasses: 'column-type',
+          align: 'right',
+          sortable: true,
+          sort: (a, b, rowA, rowB) => rowA.place?.placeType - rowB.place?.placeType,
+        },
+        {
           name: 'place',
           label: this.$t('STATISTICS.COLUMN_PLACE'),
           // Pass the whole place in, as we use a custom cell template
           field: row => row.place,
+          classes: 'column-place',
+          headerClasses: 'column-place',
           align: 'left',
           sortable: true,
           sort: (a, b, rowA, rowB) => nonLocaleCompare(rowA.place?.name, rowB.place?.name),
@@ -471,4 +499,11 @@ export default {
 // See https://github.com/quasarframework/quasar/issues/8527#issuecomment-826952890
 ::v-deep(th.sortable:not(.sorted) .q-table__sort-icon)
   transform: rotate(180deg)
+
+::v-deep(.column-type)
+  padding-left: 4px
+  padding-right: 8px
+
+::v-deep(.column-place)
+  padding-left: 8px
 </style>

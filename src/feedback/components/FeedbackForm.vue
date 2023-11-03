@@ -22,7 +22,7 @@
           class="q-ml-xs text-weight-regular"
           @click="isNoShowDialogVisible = true"
         >
-          Someone didn't show up?
+          {{ $t('ACTIVITY_FEEDBACK.REPORT_NO_SHOW') }}
         </QBtn>
       </div>
     </div>

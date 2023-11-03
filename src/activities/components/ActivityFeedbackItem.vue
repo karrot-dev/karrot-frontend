@@ -99,10 +99,10 @@
                   >
                     <strong v-if="markedAsNoShowBy.length > 0">
                       <a class="cursor-pointer">
-                        No show
+                        {{ $t('ACTIVITY_FEEDBACK.NO_SHOW') }}
                         <QMenu>
                           <div class="q-py-md">
-                            <em class="q-px-md">Marked as no show by:</em>
+                            <em class="q-px-md">{{ $t('ACTIVITY_FEEDBACK.MARKED_NO_SHOW_BY') }}:</em>
                             <QList>
                               <QItem
                                 v-for="otherUser in markedAsNoShowBy"
@@ -155,30 +155,6 @@
                     </template>
                   </div>
                 </QItemLabel>
-                <!--
-                <QItemLabel
-                  v-else-if="hasDismissedFeedback(user)"
-                  caption
-                  class="text-italic"
-                >
-                  {{ t('ACTIVITY_FEEDBACK.DECLINED') }}
-                </QItemLabel>
-                <QItemLabel
-                  v-else-if="getIsCurrentUser(user) && canGiveFeedback"
-                  caption
-                >
-                  <RouterLink :to="{ name: 'giveFeedback', params: { groupId: place.group, activityId: activity.id }}">
-                    {{ t('ACTIVITY_FEEDBACK.NOT_GIVEN_YOU') }}
-                  </RouterLink>
-                </QItemLabel>
-                <QItemLabel
-                  v-else
-                  caption
-                  class="text-italic"
-                >
-                  {{ t('ACTIVITY_FEEDBACK.NOT_GIVEN_YET') }}
-                </QItemLabel>
-                -->
               </QItemSection>
             </QItem>
             <QCardSection v-if="feedback?.comment">

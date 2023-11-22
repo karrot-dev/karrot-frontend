@@ -19,9 +19,16 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
-## [Unreleased]
+## [12.1.0]
+### Added
+-  Allow to record no shows when giving feedback @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2680 https://github.com/karrot-dev/karrot-backend/pull/1272
+
+### Changed
+- Switch from FCM to WebPush @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2679 https://github.com/karrot-dev/karrot-backend/pull/1271
+- Stay logged in when actively using Karrot @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1273
+
 ### Fixed
-- replace use of setImmediate with requestAnimationFrame @nicksellen
+- replace use of setImmediate with requestAnimationFrame @nicksellen [d000307](https://github.com/karrot-dev/karrot-frontend/commit/d000307f4eecaa1f6b744e2c0c6136498dace8ed)
 
 ## [12.0.1] - 2023-09-12
 ### Fixed

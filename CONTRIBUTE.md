@@ -1,15 +1,70 @@
 # Contribution
-If you want to contribute code to the frontend repository, you should first read through these guidelines.
 
-## General
+If you want to contribute code to Karrot, you should first read through these guidelines to get an idea of what it will involve.
 
-Have a look through the issues. If there's something that is interesting to you, assign it to yourself. Usually you will need additional information, so feel free to comment on the issue before you start writing code. Even better: join our [group chat](https://chat.karrot.world/channel/karrot-dev) and get in direct contact with us!
+We have very limited time to guide inexperienced people through the process of contributing, and prefer to make connections where there is the potential for longer term collaboration, as individuals, or between projects.
 
-## Feature development
+It is ideal if you are already a user of Karrot, and if not you have taken the time to become familiar with the platform.
 
-If you have an idea about a feature or a change to an existing feature, just open an issue in the frontend repo and describe your idea briefly. Members of the development team will look into it and review the idea. Then write some code and stay in contact with us. If you need additional features in the backend, open an issue there (and reference the main frontend issue).
+## Contribution checklist
 
-The feature will get merged if there is no resistance from the development team.
+Here is a series of steps how we imagine it can work.
+
+### Assess if you have sufficient support to complete the work
+
+As we have very little time for our work on Karrot, we cannot provide extensive support. It can be very time-consuming to help inexperienced coders, and sadly we cannot provide this.
+
+So you will likely need to either be self-sufficient when it comes to contributing code, or have other support around you to help you with that.
+
+### If you are a student or in academia
+
+We have active connections within academia, and if you a student in a university, undergrad, or postgrad, please make contact with one of our connected academics first.
+
+They will help situated your work within their related fields of interest.
+
+You can find their profiles and contact information here ADD LINK TO FORUM POST.
+
+### Sign up and join the _Playground_ group
+
+Please visit the [Playground group](https://karrot.world/#/groupPreview/16) on our main instance. From there you can signup for an account and apply to join. You will usually be accepted within a few days.
+
+When in the group you can try out the features and get a sense of how the platform works.
+
+### Selecting a task to work on
+
+Finding a task to work on can be tricky, especially if you are looking for a simple task. We choose what to work on in our weekly meetings, and the GitHub issues might not be representative of what is useful to work on.
+
+Have a look at our [task board](https://community.karrot.world/c/32/l/latest?board=default) and look in the __Ready for development__ column. You can view the same tasks on the [Ready for development category](https://community.karrot.world/c/feedback-ideas/ready-for-development/33). We use our forum for this as it is more accessible for non-coders.
+
+Use this list as an idea for what you can work on, if you are a beginner it might be hard to assess the difficulty of each task.
+
+Another idea is to make use of Karrot in the [Playground group](https://karrot.world/#/groupPreview/16) and see if there are issues you can notice yourself.
+
+Try and be aware if the task will require frontend and/or backend work. It's usually easier to work on tasks that only require one or the other. It might be possible to collaborate if a task requires both.
+
+### Join the _Karrot Team & Feedback_ group
+
+If you are ready to proceed please join the [Karrot Team & Feedback group](https://karrot.world/#/groupPreview/191). This is the group we use to organise our work on Karrot.
+
+Please apply to join this group. When accepted please introduce yourself and share your intentions and ideas.
+
+We are not working fulltime on Karrot, so allow time for a reply, and don't be afraid to send a reminder. We might discuss it in our weekly meeting before replying too, as we work collaboratively.
+
+It is an option to join our weekly call, and can be beneficial, particularly if you are proposing a larger contribution.
+
+### Starting work
+
+If you have selected a task to work on that the team is interested in, you can start work!
+
+It's a good idea to announce that you have started, and create a Pull Request as soon as possible with your in-progress work, where the progress can be kept, and discussions relating to the code can be had.
+
+It's better to ask for input as you work if you are unsure, rather than wait until the end.
+
+### Accepting work
+
+Once you have a Pull Request that you think is ready, ask someone for a review. They may suggest changes are needed.
+
+If it is accepted, then the Pull Request will be merged. This will automatically then get deployed to [dev.karrot.world](https://dev.karrot.world).
 
 ## Development workflow
 

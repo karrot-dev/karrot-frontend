@@ -77,11 +77,11 @@
     "FILTER": {
       "ALL": "Todo",
       "ALL_TYPES": "Todos los tipos",
-      "ALL_PLACES": "All places",
-      "ALL_FAVOURITE_PLACES": "All favourite places",
+      "ALL_PLACES": "Todos los lugares",
+      "ALL_FAVOURITE_PLACES": "Todos los lugares favoritos",
       "EMPTY": "Solo vacios",
       "FREE": "Con espacios libres",
-      "JOINED": "Joined"
+      "JOINED": "Unido"
     },
     "ITEM": {
       "JOIN": "Unirse",
@@ -92,14 +92,14 @@
       "LEAVE_CONFIRMATION_TEXT": "¿De verdad que las otras personas pueden hacer la recogida sin ti?",
       "DOWNLOAD_ICS": "Descargar ICS"
     },
-    "OPEN_FOR_ROLE": "Open for {role}",
+    "OPEN_FOR_ROLE": "Abierto para {role}",
     "PUBLIC": {
-      "WHAT": "What",
-      "WHEN": "When",
-      "WHERE": "Where",
-      "SHARE": "Public activity link",
-      "VIEW": "Public View",
-      "UPCOMING_ACTIVITIES": "Upcoming activities"
+      "WHAT": "¿Qué?",
+      "WHEN": "¿Cuándo?",
+      "WHERE": "¿Dónde?",
+      "SHARE": "Enlace a actividad pública",
+      "VIEW": "Visión pública",
+      "UPCOMING_ACTIVITIES": "Próximas oportunidades"
     },
     "JOINEDNOTICE": "Tienes una actividad pendiente | Tienes {count} actividades pendientes",
     "NONE": "No hay actividades pendientes",
@@ -108,7 +108,7 @@
     "STORE_NONE_HINT": "Puedes crear una nueva actividad en la página «Gestionar actividades».",
     "ICS_DIALOG": {
       "TITLE": "Añadir al calendario",
-      "INTRO": "Add these activities to your calender:",
+      "INTRO": "Añadir estas actividades a tu calendario",
       "DOWNLOAD_TITLE": "Descargar",
       "DOWNLOAD_TEXT": "Descarga el archivo ICS para importarlo manualmente a tu calendario:",
       "DOWNLOAD_BUTTON_LABEL": "Descargar ICS",
@@ -123,7 +123,7 @@
     "ACTIVITY_DESCRIPTION_CHANGED": "«Información adicional» ha sido cambiada",
     "ACTIVITY_DOES_NOT_MATCH": "Esta fecha no coincide con el patrón",
     "ACTIVITY_MAX_PARTICIPANTS_CHANGED": "«Máximo de espacios» ha sido cambiado",
-    "ACTIVITY_PARTICIPANT_TYPES_CHANGED": "Participant types have been changed",
+    "ACTIVITY_PARTICIPANT_TYPES_CHANGED": "Los tipos de participante han sido cambiados",
     "SERIES": "Series de actividades",
     "SINGLE": "Actividades únicas",
     "TITLE": "Gestionar actividades",

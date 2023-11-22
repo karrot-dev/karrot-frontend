@@ -81,6 +81,7 @@ export default {
     } = useActivityListQuery({
       groupId,
       placeId,
+      placeStatus: 'active',
       dateMin: newDateRoundedTo5Minutes(),
     })
 

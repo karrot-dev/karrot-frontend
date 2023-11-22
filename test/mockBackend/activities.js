@@ -14,6 +14,7 @@ export function generateActivity (params = {}) {
     params.activityType = db.orm.activityTypes.get({ group: place.group }).id
   }
   const startDate = params.startDate || addHours(startOfTomorrow(), 10)
+  delete params.startDate
   const endDate = addMinutes(startDate, 30)
   return {
     id: nextId++,

@@ -7,7 +7,8 @@
       square
       :loading="loading"
       :columns="columns"
-      :rows="enrichedDataWithTotals"
+      :rows="enrichedData"
+      column-sort-order="da"
       row-key="id"
       hide-pagination
       :rows-per-page-options="[0]"
@@ -83,6 +84,42 @@
           </template>
         </QSelect>
       </template>
+      <template #body-cell-type="props">
+        <QTd :props="props">
+          <QIcon
+            v-bind="getPlaceIconProps(props.value)"
+            size="1.1em"
+          />
+        </QTd>
+      </template>
+      <template #body-cell-place="props">
+        <QTd :props="props">
+          <RouterLink
+            :to="{ name: 'place', params: { groupId: props.value.group, placeId: props.value.id }}"
+            class="block ellipsis"
+            :title="props.value.name"
+          >
+            {{ props.value.name }}
+          </RouterLink>
+        </QTd>
+      </template>
+      <template #bottom-row>
+        <QTr v-if="data?.length > 0">
+          <QTd
+            v-for="col in columns"
+            :key="col.name"
+            class="text-right text-bold"
+            :class="totals[col.name] === 0 ? 'text-grey-5' : ''"
+          >
+            <template v-if="col.name === 'feedbackWeight'">
+              {{ totals[col.name].toFixed(1) }} kg
+            </template>
+            <template v-else>
+              {{ totals[col.name] }}
+            </template>
+          </QTd>
+        </QTr>
+      </template>
     </QTable>
   </div>
 </template>
@@ -91,15 +128,19 @@
 import { endOfYear, getYear, startOfYear, subYears } from 'date-fns'
 import subDays from 'date-fns/subDays'
 import subMonths from 'date-fns/subMonths'
-import { QSelect, QTable, QToggle, QItem, QItemSection, QItemLabel, QSeparator } from 'quasar'
+import { QSelect, QTable, QToggle, QItem, QItemSection, QItemLabel, QSeparator, QTr, QTd, QIcon } from 'quasar'
 
 import { useCurrentGroupService } from '@/group/services'
+import { usePlaceHelpers } from '@/places/helpers'
 import { usePlaceService } from '@/places/services'
 import api from '@/statistics/api/statistics'
 import { indexById } from '@/utils/datastore/helpers'
 
 export default {
   components: {
+    QIcon,
+    QTd,
+    QTr,
     QSelect,
     QTable,
     QToggle,
@@ -116,10 +157,14 @@ export default {
     const {
       getPlaceById,
     } = usePlaceService()
+    const {
+      getPlaceIconProps,
+    } = usePlaceHelpers()
     return {
       currentGroupId,
       users,
       getPlaceById,
+      getPlaceIconProps,
     }
   },
   data () {
@@ -149,43 +194,87 @@ export default {
       return this.userFilter && this.userFilter.value !== null
     },
     columns () {
+      function fadedZeroValueClasses (key) {
+        return row => {
+          return row[key] === 0 ? 'text-grey-5' : ''
+        }
+      }
+      function nonLocaleCompare (a, b) {
+        return a < b ? -1 : (a > b ? 1 : 0)
+      }
       return [
+        {
+          name: 'type',
+          label: this.$t('STATISTICS.COLUMN_PLACE_TYPE'),
+          // Pass the whole place in, as we use a custom cell template
+          field: row => row.place,
+          classes: 'column-type',
+          headerClasses: 'column-type',
+          align: 'right',
+          sortable: true,
+          sort: (a, b, rowA, rowB) => rowA.place?.placeType - rowB.place?.placeType,
+        },
         {
           name: 'place',
           label: this.$t('STATISTICS.COLUMN_PLACE'),
-          field: row => row.place && row.place.name,
+          // Pass the whole place in, as we use a custom cell template
+          field: row => row.place,
+          classes: 'column-place',
+          headerClasses: 'column-place',
+          // style: { maxWidth: '100px' },
           align: 'left',
+          sortable: true,
+          sort: (a, b, rowA, rowB) => nonLocaleCompare(rowA.place?.name, rowB.place?.name),
         },
         {
           name: 'doneCount',
           label: this.$t('STATISTICS.COLUMN_ACTIVITY_DONE'),
           field: row => row.doneCount,
+          classes: fadedZeroValueClasses('doneCount'),
           align: 'right',
+          sortable: true,
         },
         {
           name: 'feedbackCount',
           label: this.$t('STATISTICS.COLUMN_FEEDBACK'),
           field: row => row.feedbackCount,
+          classes: fadedZeroValueClasses('feedbackCount'),
           align: 'right',
+          sortable: true,
+        },
+        {
+          name: 'noShowCount',
+          label: this.$t('STATISTICS.COLUMN_ACTIVITY_NO_SHOW'),
+          field: row => row.noShowCount,
+          classes: fadedZeroValueClasses('noShowCount'),
+          align: 'right',
+          sortable: true,
         },
         !this.hasUserFilter && {
           name: 'missedCount',
           label: this.$t('STATISTICS.COLUMN_ACTIVITY_MISSED'),
           field: row => row.missedCount,
+          classes: fadedZeroValueClasses('missedCount'),
           align: 'right',
+          sortable: true,
         },
         {
           name: 'leaveCount',
           label: this.$t('STATISTICS.COLUMN_ACTIVITY_LEFT'),
-          field: row => this.leaveCount(row),
+          field: row => row[this.leaveCountKey],
+          classes: fadedZeroValueClasses(this.leaveCountKey),
           align: 'right',
+          sortable: true,
         },
         {
           name: 'feedbackWeight',
           label: this.$t('STATISTICS.COLUMN_FEEDBACK_WEIGHT'),
           field: row => row.feedbackWeight.toFixed(1),
-          format: value => `${value} kg`,
+          classes: fadedZeroValueClasses('feedbackWeight'),
+          format: value => value > 0 ? `${value} kg` : '-',
           align: 'right',
+          sortable: true,
+          sort: (a, b, rowA, rowB) => rowA.feedbackWeight - rowB.feedbackWeight,
         },
       ].filter(Boolean)
     },
@@ -267,12 +356,12 @@ export default {
           },
         },
         {
-          label: getYear(now) - 2,
-          value: 'twoyearsago',
+          label: getYear(now),
+          value: 'thisyear',
           onlyAggregate: true,
           sectionLabel: this.$t('STATISTICS.FILTER_TIME_YEARS_LABEL'),
           dateQuery () {
-            const date = subYears(new Date(), 2)
+            const date = new Date()
             return {
               dateAfter: startOfYear(date),
               dateBefore: endOfYear(date),
@@ -292,11 +381,11 @@ export default {
           },
         },
         {
-          label: getYear(now),
-          value: 'thisyear',
+          label: getYear(now) - 2,
+          value: 'twoyearsago',
           onlyAggregate: true,
           dateQuery () {
-            const date = new Date()
+            const date = subYears(new Date(), 2)
             return {
               dateAfter: startOfYear(date),
               dateBefore: endOfYear(date),
@@ -314,6 +403,7 @@ export default {
       return [
         'doneCount',
         'feedbackCount',
+        'noShowCount',
         'missedCount',
         'leaveCount',
         'feedbackWeight',
@@ -332,16 +422,6 @@ export default {
           place: this.getPlaceById(entry.place) || {},
         }
       })
-    },
-    enrichedDataWithTotals () {
-      if (this.enrichedData.length === 0) return []
-      return [
-        ...this.enrichedData,
-        {
-          name: this.$t('STATISTICS.TOTAL_LABEL'),
-          ...this.totals,
-        },
-      ]
     },
     query () {
       return {
@@ -363,6 +443,16 @@ export default {
       }
       else {
         return this.$t('STATISTICS.OPTIONS_ANY')
+      }
+    },
+    leaveCountKey () {
+      const missed = this.leftOptionsValues.includes('missed')
+      const late = this.leftOptionsValues.includes('late')
+      if (late) {
+        return missed ? 'leaveMissedLateCount' : 'leaveLateCount'
+      }
+      else {
+        return missed ? 'leaveMissedCount' : 'leaveCount'
       }
     },
   },
@@ -402,22 +492,26 @@ export default {
       this.userFilterByName = val
       update()
     },
-    leaveCount (row) {
-      const missed = this.leftOptionsValues.includes('missed')
-      const late = this.leftOptionsValues.includes('late')
-      if (late) {
-        return missed ? row.leaveMissedLateCount : row.leaveLateCount
-      }
-      else {
-        return missed ? row.leaveMissedCount : row.leaveCount
-      }
-    },
   },
 }
 </script>
+<style lang="sass" scoped>
+// Ensure when you hover on a currently-unsorted header, the arrow will point
+// the way it will sort when you click it
+// See https://github.com/quasarframework/quasar/issues/8527#issuecomment-826952890
+::v-deep(th.sortable:not(.sorted) .q-table__sort-icon)
+  transform: rotate(180deg)
 
-<style scoped lang="sass">
-// the last row is our special totals row, so make it stand out
-::v-deep(tr:last-child td)
-  font-weight: 500
+::v-deep(.q-table th),
+::v-deep(.q-table td)
+  padding-left: 8px
+  padding-right: 8px
+  width: 24px
+
+::v-deep(.column-type)
+  padding-left: 0 !important
+
+::v-deep(.column-place)
+  width: auto
+  max-width: 180px
 </style>

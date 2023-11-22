@@ -21,12 +21,10 @@
               <p>
                 <QSelect
                   v-if="!isEditing"
-                  v-model="activity"
-                  :options="feedbackOptions"
+                  v-model="selectedActivityOption"
+                  :options="activityOptions"
                   filled
                   dark
-                  emit-value
-                  map-options
                 >
                   <template #prepend>
                     <QIcon
@@ -57,26 +55,11 @@
           </div>
         </RandomArt>
         <QCardSection>
-          <div
-            v-if="fellowParticipants.length > 0"
-            class="q-mx-sm q-mt-md"
-          >
-            <div v-t="'ACTIVITY_FEEDBACK.TOGETHER_WITH'" />
-            <div class="q-mt-sm row">
-              <ProfilePicture
-                v-for="user in fellowParticipants"
-                :key="user.id"
-                :user="user"
-                :size="35"
-                class="q-ml-xs"
-              />
-            </div>
-          </div>
           <FeedbackForm
             v-if="activity && activityType"
             :value="feedbackDefault"
             :status="saveStatus"
-            :has-multiple-participants="fellowParticipants.length > 0"
+            :activity="activity"
             :has-weight="activityType.hasFeedbackWeight"
             @save="feedback => save(feedback)"
             @dismiss-feedback="activityId => dismiss(activityId)"
@@ -84,7 +67,7 @@
         </QCardSection>
       </QCard>
       <PlaceFeedbackList
-        v-if="activity"
+        v-if="activity && place"
         :place-id="place.id"
       >
         <template #header>
@@ -114,7 +97,8 @@ import {
   QItem,
   QItemSection,
   QCard,
-  QSelect, QCardSection,
+  QSelect,
+  QCardSection,
 } from 'quasar'
 import { computed, watchEffect, unref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -124,17 +108,14 @@ import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useDismissFeedbackMutation } from '@/activities/mutations'
 import { useActivityListQuery, useActivityItemQuery } from '@/activities/queries'
 import { useActivityTypeService } from '@/activities/services'
-import { useAuthHelpers } from '@/authuser/helpers'
 import cart from '@/feedback/assets/cart.png'
 import { useFeedbackSaveMutation } from '@/feedback/mutations'
 import { useFeedbackItemQuery } from '@/feedback/queries'
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceService } from '@/places/services'
-import { useUserService } from '@/users/services'
 import { useIntegerRouteParam } from '@/utils/composables'
 
 import PlaceFeedbackList from '@/feedback/components/PlaceFeedbackList.vue'
-import ProfilePicture from '@/users/components/ProfilePicture.vue'
 import KNotice from '@/utils/components/KNotice.vue'
 import RandomArt from '@/utils/components/RandomArt.vue'
 
@@ -146,9 +127,7 @@ const { d } = useI18n()
 const { getPlaceById } = usePlaceService()
 const { groupId } = useCurrentGroupService()
 const { getActivityTypeById } = useActivityTypeService()
-const { getUserById } = useUserService()
 const { getIconProps } = useActivityTypeHelpers()
-const { getIsCurrentUser } = useAuthHelpers()
 
 const activityIdRouteParam = useIntegerRouteParam('activityId')
 const editFeedbackId = useIntegerRouteParam('feedbackId')
@@ -185,27 +164,12 @@ const {
 })
 
 const {
-  activity: activityRaw,
+  activity,
 } = useActivityItemQuery({ activityId })
-
-const activity = computed({
-  get () {
-    return activityRaw.value
-  },
-  set (val) {
-    router.push({ params: { activityId: val.id } })
-  },
-})
 
 const activityType = computed(() => getActivityTypeById(activity.value.activityType))
 
-const fellowParticipants = computed(() => activity.value
-  ? activity.value.participants
-    .map(({ user }) => getUserById(user))
-    .filter(u => !getIsCurrentUser(u))
-  : [])
-
-const placeId = computed(() => activityRaw.value?.place)
+const placeId = computed(() => activity.value?.place)
 const place = computed(() => getPlaceById(placeId.value))
 
 // If we're not editing, don't have an activity id param, and we have some activities...
@@ -223,13 +187,23 @@ function getDateWithPlace (activity) {
   return `${d(activity.date, 'long')} (${name || ''})`
 }
 
-const feedbackOptions = computed(() => {
+const activityOptions = computed(() => {
   return activities.value.map(activity => {
     return {
       label: getDateWithPlace(activity),
       value: activity,
     }
   })
+})
+
+const selectedActivityOption = computed({
+  get () {
+    if (!activityIdRouteParam.value) return null
+    return activityOptions.value?.find(option => option.value.id === activityIdRouteParam.value)
+  },
+  set (option) {
+    router.push({ params: { activityId: option.value.id } })
+  },
 })
 
 const {

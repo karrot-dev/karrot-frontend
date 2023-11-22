@@ -1,4 +1,5 @@
 import { convert } from '@/activities/api/activities'
+import { defineStory } from '@/utils/storybookUtils'
 
 import {
   createActivity,
@@ -14,33 +15,40 @@ import { addUserToGroup } from '>/mockBackend/groups'
 
 import ActivityItem from './ActivityItem.vue'
 
-const group = createGroup()
-createPlaceType({ group: group.id })
-const place = createPlace({ group: group.id })
-createActivityType({ group: group.id })
-const activity = createActivity({ place: place.id })
-const user = createUser()
-addUserToGroup(user, group)
+function generateMockData () {
+  const group = createGroup()
+  createPlaceType({ group: group.id })
+  const place = createPlace({ group: group.id })
+  createActivityType({ group: group.id })
+  const activity = createActivity({ place: place.id })
+  const user = createUser()
+  addUserToGroup(user, group)
 
-const activityWithParticipants = createActivity({
-  place: place.id,
-  description: 'You can join this activity.',
-})
-const otherUser = createUser()
-addUserToGroup(otherUser, group)
-joinActivity(activityWithParticipants, otherUser)
+  const activityWithParticipants = createActivity({
+    place: place.id,
+    description: 'You can join this activity.',
+  })
+  const otherUser = createUser()
+  addUserToGroup(otherUser, group)
+  joinActivity(activityWithParticipants, otherUser)
 
-loginAs(user)
+  loginAs(user)
+
+  return {
+    activity,
+  }
+}
 
 export default {
   component: ActivityItem,
 }
 
-export const Normal = {
-  args: {
+export const Normal = defineStory(() => {
+  const { activity } = generateMockData()
+  return {
     activity: convert(toResponse(activity)),
-  },
-}
+  }
+})
 
 /*
 

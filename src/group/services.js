@@ -1,5 +1,5 @@
 import { extend } from 'quasar'
-import { computed, watch, ref, readonly } from 'vue'
+import { computed, watch, ref, readonly, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 
 import { useSaveUserMutation } from '@/authuser/mutations'
@@ -141,29 +141,18 @@ function useCurrentGroupId () {
   // Do our best to ensure we have a group id set, if we don't have one, get it from the route, or current user
   const groupIdRouteParam = useIntegerRouteParam('groupId')
 
-  // Set a default if we don't already have a groupid
-  watch(groupId, value => {
-    if (!value && isLoggedIn.value) {
-      groupId.value = groupIdRouteParam.value || user.value?.currentGroup
-    }
-  }, { immediate: true })
-
-  // When route changes we want to change
-  watch(groupIdRouteParam, value => {
-    if (value) {
-      groupId.value = value
-    }
-  })
-
-  watch(isLoggedIn, value => {
-    if (value) {
-      // when use the current group if we don't have it already
+  watchEffect(() => {
+    if (isLoggedIn.value) {
+      // Route param takes priority
+      if (groupIdRouteParam.value) {
+        groupId.value = groupIdRouteParam.value
+      }
+      // Otherwise if we don't have a group set already, use the user default
       if (!groupId.value) {
-        groupId.value = user.value.currentGroup
+        groupId.value = user.value?.currentGroup
       }
     }
     else {
-      // When logging out, reset it
       groupId.value = null
     }
   })

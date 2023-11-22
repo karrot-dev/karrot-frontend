@@ -22,7 +22,11 @@ We have active connections within academia, and if you a student in a university
 
 They will help situated your work within their related fields of interest.
 
-You can find their profiles and contact information here ADD LINK TO FORUM POST.
+You can find their profiles and contact information via [How to get involved! Onboarding into the ‘Karrot team’](https://community.karrot.world/t/how-to-get-involved-onboarding-into-the-karrot-team/661).
+
+:karrot::karrot::karrot::karrot::karrot: How to contribute/participate in Karrot? :karrot::karrot::karrot::karrot::karrot:
+
+:eight_spoked_asterisk: Are you interested in ex
 
 ### Sign up and join the _Playground_ group
 

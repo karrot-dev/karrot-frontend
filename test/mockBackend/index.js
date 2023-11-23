@@ -122,8 +122,6 @@ export function setupMockBackend () {
   createMockMessagesBackend()
   createMockAgreementsBackend()
 
-  get('/api/bootstrap/', () => [200, {}])
-
   get('/api/bootstrap/', () => [200, {}], { requireAuth: false })
 
   get('/about.json', () => [200, {

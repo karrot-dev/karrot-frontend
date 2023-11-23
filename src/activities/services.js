@@ -16,8 +16,8 @@ export const useActivityTypeService = defineService(() => {
   const activityTypesById = computed(() => indexById(activityTypes.value))
 
   // utils
-  const { updateActivityTypes } = createActivityTypeStylesheet()
-  watch(activityTypes, updateActivityTypes, { immediate: true })
+  const { updateEntries } = createActivityTypeStylesheet()
+  watch(activityTypes, updateEntries, { immediate: true })
 
   // methods
   function getActivityTypeById (id) {

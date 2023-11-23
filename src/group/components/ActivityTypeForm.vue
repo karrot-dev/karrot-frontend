@@ -422,7 +422,7 @@ export default {
     'edit.colour': {
       handler () {
         // Keep our activity type class names up to date!
-        this.colorName = this.updateActivityType(this.edit)
+        this.colorName = this.updateEntry(this.edit)
       },
       immediate: true,
     },
@@ -437,9 +437,9 @@ export default {
     this.pickerTags = pickerTags
   },
   beforeCreate () {
-    const { updateActivityType, removeStylesheet } = createActivityTypeStylesheet('-edit')
+    const { updateEntry, removeStylesheet } = createActivityTypeStylesheet('-edit')
     Object.assign(this, {
-      updateActivityType,
+      updateEntry,
       removeStylesheet,
     })
   },

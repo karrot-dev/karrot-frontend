@@ -238,7 +238,7 @@ export default {
       // as these come from URL query they are strings otherwise
       activityTypeId: toInt(type),
       placeId: toInt(placeIdFilter),
-      placeStatus: 'active',
+      placeArchived: false,
       places: placesFilter,
       // so we can use cached query results for a while, otherwise it'll always be a fresh query
       dateMin: newDateRoundedTo5Minutes(),

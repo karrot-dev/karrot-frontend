@@ -183,7 +183,7 @@ export default {
       return { opacity: this.showOverlay ? 0.5 : 1 }
     },
     placesWithLocation () {
-      return this.places.filter(place => place.status === 'active').filter(hasLocation)
+      return this.places.filter(place => !place.isArchived).filter(hasLocation)
     },
     usersWithLocation () {
       return this.users.filter(hasLocation)

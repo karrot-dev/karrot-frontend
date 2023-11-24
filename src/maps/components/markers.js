@@ -1,5 +1,6 @@
-import { markRaw } from 'vue'
+import { markRaw, unref } from 'vue'
 
+import { usePlaceStatus, usePlaceStatusColourName, usePlaceStatusHelpers, usePlaceType } from '@/places/helpers'
 import { optionsFor } from '@/places/placeStatus'
 import { usePlaceTypeService } from '@/places/services'
 
@@ -44,13 +45,17 @@ export function userMarker (user) {
 }
 
 export function placeMarker (place) {
-  const { getPlaceTypeById } = usePlaceTypeService()
+  const placeType = usePlaceType(place.placeType)
+  const placeStatus = usePlaceStatus(place.status)
+  const colourName = usePlaceStatusColourName(placeStatus)
+
+  console.log('place marker for place', place.name, { placeType: unref(placeType), placeStatus: unref(placeStatus), colourName: unref(colourName), icon: unref(placeType)?.icon })
 
   return {
     latLng: { lat: place.latitude, lng: place.longitude },
     id: 'place_' + place.id,
-    fontIcon: getPlaceTypeById(place.placeType)?.icon || 'fas fa-map-marker',
-    color: optionsFor(place).color,
+    fontIcon: unref(placeType)?.icon || 'fas fa-map-marker',
+    color: unref(colourName),
     popup: {
       component: markRaw(PlaceMarker),
       props: { place },

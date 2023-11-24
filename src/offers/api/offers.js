@@ -1,6 +1,6 @@
 import axios, { parseCursor } from '@/base/api/axios'
 import { convert as convertConversation } from '@/messages/api/conversations'
-import { toFormData } from '@/utils/utils'
+import { toFormData, underscorizeKeys } from '@/utils/utils'
 
 export default {
 
@@ -14,7 +14,7 @@ export default {
 
   async list (filter) {
     const params = filter || {}
-    const response = (await axios.get('/api/offers/', { params })).data
+    const response = (await axios.get('/api/offers/', { params: underscorizeKeys(params) })).data
     return {
       ...response,
       next: parseCursor(response.next),

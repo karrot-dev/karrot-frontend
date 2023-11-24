@@ -370,12 +370,6 @@ const statusOptions = computed(() => ([
     value: 'archived',
     color: 'black',
   },
-  // ...statusList.map(s => ({
-  //   value: s.key,
-  //   label: t(s.label),
-  //   color: s.color,
-  //   icon: 'fas fa-circle',
-  // })),
 ]))
 
 const filteredPlaces = computed(() => places.value.filter(place => (

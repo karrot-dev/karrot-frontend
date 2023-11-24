@@ -8,7 +8,7 @@ import { extractCursor, flattenPaginatedData } from '@/utils/queryHelpers'
 import api from './api/offers'
 
 export const QUERY_KEY_BASE = 'offers'
-export const queryKeyOfferList = (group, status) => [QUERY_KEY_BASE, 'list', group, status].filter(Boolean)
+export const queryKeyOfferList = (group, isArchived) => [QUERY_KEY_BASE, 'list', group, isArchived].filter(Boolean)
 export const queryKeyOfferDetail = id => [QUERY_KEY_BASE, 'detail', id].filter(Boolean)
 
 export const DEFAULT_STATUS = 'active'
@@ -66,14 +66,14 @@ export function useOfferDetailQuery ({
  */
 export function useOfferListQuery ({
   groupId,
-  status = 'active',
+  isArchived = false,
 }) {
   const query = useInfiniteQuery(
-    queryKeyOfferList(groupId, status),
+    queryKeyOfferList(groupId, isArchived),
     ({ pageParam }) => {
       return api.list({
         group: unref(groupId),
-        status: unref(status),
+        isArchived: unref(isArchived),
         cursor: pageParam,
       })
     },

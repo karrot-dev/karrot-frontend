@@ -28,13 +28,13 @@
         />
       </QCarousel>
       <div
-        v-if="!isDefaultStatus"
+        v-if="offer.isArchived"
         class="q-pa-md text-center text-h6 text-white bg-negative"
       >
-        {{ offer.status }}
+        Archived
       </div>
       <div
-        v-if="canEdit && offer.status === 'active'"
+        v-if="canEdit && !offer.isArchived"
         class="row justify-end"
       >
         <QBtnDropdown
@@ -85,7 +85,6 @@ import { useAuthService } from '@/authuser/services'
 import { usePresenceService } from '@/base/services/presence'
 import { useConversationAndMessages } from '@/messages/services'
 import { useArchiveOfferMutation } from '@/offers/mutations'
-import { DEFAULT_STATUS } from '@/offers/queries'
 import { useActiveOfferService } from '@/offers/services'
 
 import ChatConversation from '@/messages/components/ChatConversation.vue'
@@ -156,9 +155,6 @@ export default {
         arrows: true,
         infinite: true,
       }
-    },
-    isDefaultStatus () {
-      return this.offer.status === DEFAULT_STATUS
     },
   },
   watch: {

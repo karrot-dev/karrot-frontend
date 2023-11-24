@@ -186,17 +186,10 @@ export default {
     },
     filteredActivityTypes () {
       if (this.showArchived) return this.activityTypes
-      return this.activityTypes.filter(activityType => activityType.status !== 'archived')
+      return this.activityTypes.filter(activityType => !activityType.isArchived)
     },
     columns () {
       return [
-        this.showArchived && { // don't need to see status unless we're viewing all ...
-          name: 'status',
-          label: this.$t('ACTIVITY_TYPES.STATUS'),
-          field: row => row.status,
-          align: 'left',
-          autoWidth: true,
-        },
         {
           name: 'icon',
           align: 'center',
@@ -222,6 +215,13 @@ export default {
           align: 'center',
           autoWidth: true,
           hideOnMobile: true,
+        },
+        this.showArchived && { // don't need to see status unless we're viewing all ...
+          name: 'status',
+          label: this.$t('ACTIVITY_TYPES.STATUS'),
+          field: row => row.isArchived ? 'archived' : 'active',
+          align: 'left',
+          autoWidth: true,
         },
       ].filter(Boolean).filter(col => !(this.$q.platform.is.mobile && col.hideOnMobile))
     },

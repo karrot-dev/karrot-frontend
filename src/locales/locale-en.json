@@ -887,10 +887,8 @@
   },
   "STOREDETAIL": {
     "ARCHIVED": "This place has been archived",
-    "CHANGE_STATUS": "You can change the status on the settings page.",
     "DIRECTIONS": "Show directions",
     "EDIT": "Edit place",
-    "INACTIVE": "This place is currently not cooperating.",
     "NO_DESCRIPTION": "This place does not have a description yet"
   },
   "STOREEDIT": {

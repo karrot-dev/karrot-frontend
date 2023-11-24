@@ -23,7 +23,7 @@
 
           <QSelect
             v-model="edit.placeType"
-            :options="placeTypeOptions.filter(({ status, value }) => status === 'active' || edit.placeType === value)"
+            :options="placeTypeOptions.filter(({ isArchived, value }) => !isArchived || edit.placeType === value)"
             map-options
             emit-value
             :label="$t('STOREEDIT.PLACE_TYPE')"
@@ -43,7 +43,7 @@
                   <QIcon
                     :name="scope.opt.icon"
                     size="1.1em"
-                    color="positive"
+                    :color="placeStatusColour"
                   />
                 </QItemSection>
                 <QItemSection>
@@ -57,7 +57,7 @@
                   :name="scope.opt.icon"
                   size="1.1em"
                   class="on-left q-ml-xs"
-                  color="positive"
+                  :color="placeStatusColour"
                 />
                 <div class="ellipsis">
                   {{ scope.opt.label }}
@@ -74,7 +74,7 @@
 
           <QSelect
             v-model="edit.status"
-            :options="statusOptions"
+            :options="placeStatusOptions"
             map-options
             emit-value
             :label="$t('STOREEDIT.STATUS')"
@@ -91,7 +91,7 @@
               >
                 <QItemSection side>
                   <QIcon
-                    :name="scope.opt.icon"
+                    :name="placeTypeIcon"
                     :color="scope.opt.color"
                     size="1.1em"
                   />
@@ -104,7 +104,7 @@
             <template #selected-item="scope">
               <div class="row no-wrap ellipsis">
                 <QIcon
-                  :name="scope.opt.icon"
+                  :name="placeTypeIcon"
                   :color="scope.opt.color"
                   size="1.1em"
                   class="on-left q-ml-xs"
@@ -251,9 +251,9 @@ import {
 import { computed } from 'vue'
 
 import { useCurrentGroupService } from '@/group/services'
-import { usePlaceTypeHelpers } from '@/places/helpers'
-import { statusList, optionsFor } from '@/places/placeStatus'
-import { usePlaceTypeService } from '@/places/services'
+import { usePlaceStatusHelpers, usePlaceTypeHelpers } from '@/places/helpers'
+import { optionsFor } from '@/places/placeStatus'
+import { usePlaceStatusService, usePlaceTypeService } from '@/places/services'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
@@ -307,25 +307,36 @@ export default {
     const { groupId } = useCurrentGroupService()
 
     const { getPlaceTypesByGroup, getPlaceTypeById } = usePlaceTypeService()
+    const { getPlaceStatusesByGroup, getPlaceStatusById } = usePlaceStatusService()
 
-    const {
-      getTranslatedName,
-      sortByTranslatedName,
-    } = usePlaceTypeHelpers()
+    const placeTypeHelpers = usePlaceTypeHelpers()
+    const placeStatusHelpers = usePlaceStatusHelpers()
 
-    const placeTypes = computed(() => getPlaceTypesByGroup(groupId).sort(sortByTranslatedName))
+    const placeTypes = computed(() => getPlaceTypesByGroup(groupId).sort(placeTypeHelpers.sortByTranslatedName))
 
     const placeTypeOptions = computed(() => placeTypes.value.map(placeType => ({
       value: placeType.id,
-      label: getTranslatedName(placeType),
+      label: placeTypeHelpers.getTranslatedName(placeType),
       icon: placeType.icon,
-      status: placeType.status,
+      isArchived: placeType.isArchived,
+    })))
+
+    const placeStatuses = computed(() => getPlaceStatusesByGroup(groupId).sort(placeStatusHelpers.sortByTranslatedName))
+
+    const placeStatusOptions = computed(() => placeStatuses.value.map(placeStatus => ({
+      value: placeStatus.id,
+      label: placeStatusHelpers.getTranslatedName(placeStatus),
+      color: placeStatusHelpers.getColorName(placeStatus),
+      icon: 'fas fa-circle',
     })))
 
     return {
       v$: useVuelidate(),
       placeTypeOptions,
       getPlaceTypeById,
+      placeStatusOptions,
+      getPlaceStatusById,
+      getPlaceStatusColorName: placeStatusHelpers.getColorName,
     }
   },
   computed: {
@@ -369,17 +380,27 @@ export default {
       }
       return null
     },
-    statusOptions () {
-      const { icon } = this.edit.placeType ? this.getPlaceTypeById(this.edit.placeType) : { icon: 'fas fa-circle' }
-      return statusList
-        .filter(s => s.selectable)
-        .map(s => ({
-          value: s.key,
-          label: this.$t(s.label),
-          color: s.color,
-          icon,
-        }))
+    placeTypeIcon () {
+      return this.edit.placeType ? this.getPlaceTypeById(this.edit.placeType)?.icon : 'fas fa-circle'
     },
+    placeStatusColour () {
+      return this.edit.status ? this.getPlaceStatusColorName(this.getPlaceStatusById(this.edit.status)) : 'grey'
+    },
+
+    // icon () {
+    //   this.edit.placeType ? this.getPlaceTypeById()
+    // },
+    // statusOptions () {
+    //   const { colour } = this.edit.placeStatus ? this.getPlaceStatusById(this.edit.placeStatus)
+    //   return statusList
+    //     .filter(s => s.selectable)
+    //     .map(s => ({
+    //       value: s.key,
+    //       label: this.$t(s.label),
+    //       color: s.color,
+    //       icon,
+    //     }))
+    // },
     markerColor () {
       if (this.edit) return optionsFor(this.edit).color
       return null
@@ -424,7 +445,7 @@ export default {
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('STOREEDIT.DIALOGS.ARCHIVE.CONFIRM'),
       })
-        .onOk(() => this.$emit('save', { id: this.value.id, status: 'archived' }))
+        .onOk(() => this.$emit('save', { id: this.value.id, isArchived: true }))
     },
   },
   validations: {

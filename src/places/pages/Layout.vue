@@ -1,5 +1,5 @@
 <template>
-  <div v-if="place && place.status === 'archived'">
+  <div v-if="place && place.isArchived">
     <QCard>
       <QBanner
         inline-actions
@@ -57,7 +57,7 @@ const { place } = useActivePlaceService()
 const { mutate: save } = useSavePlaceMutation()
 
 function restore () {
-  save({ id: place.value.id, status: 'created' })
+  save({ id: place.value.id, isArchived: false })
 }
 
 // if we are at the base place route redirect to the default view for this place

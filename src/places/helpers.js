@@ -1,4 +1,4 @@
-import { unref } from 'vue'
+import { computed, unref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import icons from '@/base/icons'
@@ -101,4 +101,19 @@ export function usePlaceStatusHelpers () {
     sortByTranslatedName,
     getColorName,
   }
+}
+
+export function usePlaceType (placeTypeId) {
+  const { getPlaceTypeById } = usePlaceTypeService()
+  return computed(() => getPlaceTypeById(unref(placeTypeId)))
+}
+
+export function usePlaceStatus (placeStatusId) {
+  const { getPlaceStatusById } = usePlaceStatusService()
+  return computed(() => getPlaceStatusById(unref(placeStatusId)))
+}
+
+export function usePlaceStatusColourName (placeStatus) {
+  const { getColorName } = usePlaceStatusHelpers()
+  return computed(() => getColorName(unref(placeStatus)))
 }

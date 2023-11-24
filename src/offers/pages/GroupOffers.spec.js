@@ -35,7 +35,7 @@ describe('GroupOffers', () => {
   it('renders a list of active offers', async () => {
     const { findByText, queryByText, queryByTitle } = render(GroupOffers, await withDefaults())
 
-    const [expectedOffers, otherOffers] = partition(db.offers, offer => offer.status === 'active')
+    const [expectedOffers, otherOffers] = partition(db.offers, offer => !offer.isArchived)
 
     // expect all the active ones to be on the page
     for (const offer of expectedOffers) {

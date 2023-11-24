@@ -8,25 +8,6 @@
       style="max-width: 700px"
       @submit.prevent="maybeSave"
     >
-      <h3 v-if="isNew">
-        {{ $t('ACTIVITY_TYPES.ADD') }}
-      </h3>
-      <QField
-        v-if="!isNew"
-        borderless
-        :hint="$t(`ACTIVITY_TYPES.STATUS_${edit.status.toUpperCase()}_HINT`)"
-      >
-        <template #control>
-          <QToggle
-            v-model="edit.status"
-            :label="$t(`ACTIVITY_TYPE_STATUS.${edit.status.toUpperCase()}`)"
-            true-value="active"
-            false-value="archived"
-            color="green"
-          />
-        </template>
-      </QField>
-
       <QField borderless>
         <template #before>
           <QIcon
@@ -233,6 +214,24 @@
           @click="$emit('cancel')"
         >
           {{ $t('BUTTON.CANCEL') }}
+        </QBtn>
+
+        <QBtn
+          v-if="!isNew && !value.isArchived"
+          type="button"
+          color="red"
+          @click="archive"
+        >
+          {{ $t('BUTTON.ARCHIVE') }}
+        </QBtn>
+
+        <QBtn
+          v-if="!isNew && value.isArchived"
+          type="button"
+          color="red"
+          @click="restore"
+        >
+          {{ $t('STOREEDIT.RESTORE') }}
         </QBtn>
 
         <QBtn
@@ -472,6 +471,12 @@ export default {
         this.edit.name = value
         this.edit.nameIsTranslatable = false
       }
+    },
+    archive () {
+      this.$emit('save', { id: this.value.id, isArchived: true })
+    },
+    restore () {
+      this.$emit('save', { id: this.value.id, isArchived: false })
     },
   },
   validations: {

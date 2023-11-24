@@ -4,8 +4,8 @@
       class="row no-wrap items-center justify-between bg-white q-px-sm q-py-xs"
     >
       <QSelect
-        v-model="status"
-        :options="statusOptions"
+        v-model="archivedFilter"
+        :options="archivedFilterOptions"
         emit-value
         map-options
         outlined
@@ -21,7 +21,7 @@
     >
       <div class="row">
         <div
-          v-if="status === 'active' && !isLoading"
+          v-if="!archivedFilter && !isLoading"
           class="col-md-4 col-6 new-offer"
         >
           <QCard>
@@ -120,7 +120,7 @@ import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
 import { useCurrentGroupService } from '@/group/services'
-import { DEFAULT_STATUS, useOfferListQuery } from '@/offers/queries'
+import { useOfferListQuery } from '@/offers/queries'
 import { useUserService } from '@/users/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 
@@ -130,14 +130,14 @@ import KSpinner from '@/utils/components/KSpinner.vue'
 
 const { t } = useI18n()
 
-const statusOptions = computed(() => [
+const archivedFilterOptions = computed(() => [
   {
     label: t('OFFER.FILTER.STATUS.ACTIVE'),
-    value: 'active',
+    value: false,
   },
   {
     label: t('OFFER.FILTER.STATUS.ARCHIVED'),
-    value: 'archived',
+    value: true,
   },
 ])
 
@@ -145,8 +145,8 @@ const { groupId, getMembership } = useCurrentGroupService()
 
 const { getUserById } = useUserService()
 
-const { status } = useQueryParams({
-  status: DEFAULT_STATUS,
+const { archived: archivedFilter } = useQueryParams({
+  archived: false,
 })
 
 const {
@@ -155,7 +155,7 @@ const {
   hasNextPage,
   fetchNextPage,
   offers,
-} = useOfferListQuery({ groupId, status })
+} = useOfferListQuery({ groupId, isArchived: archivedFilter })
 
 async function maybeFetchMore (index, done) {
   if (!isFetching.value && hasNextPage.value) await fetchNextPage()

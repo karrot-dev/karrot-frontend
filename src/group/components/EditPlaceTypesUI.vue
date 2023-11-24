@@ -171,17 +171,10 @@ export default {
     },
     filteredPlaceTypes () {
       if (this.showArchived) return this.placeTypes
-      return this.placeTypes.filter(placeType => placeType.status !== 'archived')
+      return this.placeTypes.filter(placeType => !placeType.isArchived)
     },
     columns () {
       return [
-        this.showArchived && { // don't need to see status unless we're viewing all ...
-          name: 'status',
-          label: this.$t('PLACE_TYPES.STATUS'),
-          field: row => row.status,
-          align: 'left',
-          autoWidth: true,
-        },
         {
           name: 'icon',
           align: 'center',
@@ -193,6 +186,13 @@ export default {
           field: row => this.getTranslatedName(row),
           align: 'left',
           classes: 'text-weight-bold',
+        },
+        this.showArchived && { // don't need to see status unless we're viewing all ...
+          name: 'status',
+          label: this.$t('PLACE_TYPES.STATUS'),
+          field: row => row.isArchived ? 'archived' : 'active',
+          align: 'left',
+          autoWidth: true,
         },
       ].filter(Boolean).filter(col => !(this.$q.platform.is.mobile && col.hideOnMobile))
     },
@@ -237,7 +237,6 @@ export default {
       this.newPlaceType = {
         name: '',
         nameIsTranslatable: true,
-        status: 'active',
         icon: 'fas fa-circle',
       }
     },

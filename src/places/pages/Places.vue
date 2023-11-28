@@ -357,7 +357,7 @@ const statusOptions = computed(() => ([
     value: null,
     color: 'white',
   },
-  ...placeStatuses.value.map(placeStatus => {
+  ...placeStatuses.value.filter(placeStatus => !placeStatus.isArchived).map(placeStatus => {
     return {
       label: placeStatusHelpers.getTranslatedName(placeStatus),
       value: String(placeStatus.id),

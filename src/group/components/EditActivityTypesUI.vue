@@ -1,103 +1,99 @@
 <template>
-  <div>
-    <component :is="$q.platform.is.mobile ? 'div' : 'QCard'">
-      <QTable
-        :columns="columns"
-        :rows="filteredActivityTypes"
-        hide-pagination
-        :pagination="{ rowsPerPage: 0 }"
-        flat
-      >
-        <template #top-left>
-          <QToggle
-            v-model="showArchived"
-            :label="$t('ACTIVITY_TYPES.SHOW_ARCHIVED')"
-          />
-        </template>
-        <template #top-right>
-          <QBtn
-            round
-            color="green"
-            icon="fas fa-plus"
-            :title="$t('ACTIVITY_TYPES.ADD')"
-            @click="createNewActivityType()"
-          />
-        </template>
-        <template #body="props">
-          <QTr
-            :key="props.key"
-            :props="props"
-            class="cursor-pointer"
-            @click="toggleEdit(props.row)"
-          >
-            <QTd
-              v-for="col in props.cols"
-              :key="col.name"
-              :props="props"
-              :auto-width="col.autoWidth"
-            >
-              <QIcon
-                v-if="col.name === 'icon'"
-                size="md"
-                v-bind="getIconProps(props.row)"
-              />
-              <QIcon
-                v-else-if="col.name === 'feedback'"
-                v-show="props.row.hasFeedback"
-                size="md"
-                v-bind="getFeedbackIconProps(props.row)"
-              />
-              <template v-else-if="col.name === 'feedbackWeight'">
-                <span v-show="props.row.hasFeedback && props.row.hasFeedbackWeight">
-                  <QIcon
-                    size="xs"
-                    name="fas fa-check"
-                  />
-                </span>
-              </template>
-              <QBadge
-                v-else-if="col.name === 'status'"
-                :color="colourForStatus(col.value)"
-              >
-                {{ col.value }}
-              </QBadge>
-              <template v-else>
-                {{ col.value }}
-              </template>
-            </QTd>
-          </QTr>
-          <QTr
-            v-if="props.row.id === editActivityTypeId"
-            :key="`${props.key}-expand`"
-            :props="props"
-          >
-            <QTd
-              colspan="100%"
-              style="padding: 0;"
-            >
-              <!-- TODO: maybe need to reset save status as we reuse this for different types? -->
-              <ActivityTypeForm
-                :value="editActivityType"
-                :activity-types="activityTypes"
-                :status="saveStatus"
-                @save="saveDialog"
-                @cancel="cancelActivityType"
-              />
-            </QTd>
-          </QTr>
-        </template>
-      </QTable>
-      <ActivityTypeForm
-        v-if="newActivityType"
-        :value="newActivityType"
-        :activity-types="activityTypes"
-        :status="createStatus"
-        :class="$q.platform.is.mobile ? '' : 'q-ma-md'"
-        @save="saveNewActivityType"
-        @cancel="cancelNewActivityType"
+  <QTable
+    :columns="columns"
+    :rows="filteredActivityTypes"
+    hide-pagination
+    :pagination="{ rowsPerPage: 0 }"
+    flat
+  >
+    <template #top-left>
+      <QToggle
+        v-model="showArchived"
+        :label="$t('ACTIVITY_TYPES.SHOW_ARCHIVED')"
       />
-    </component>
-  </div>
+    </template>
+    <template #top-right>
+      <QBtn
+        round
+        color="green"
+        icon="fas fa-plus"
+        :title="$t('ACTIVITY_TYPES.ADD')"
+        @click="createNewActivityType()"
+      />
+    </template>
+    <template #body="props">
+      <QTr
+        :key="props.key"
+        :props="props"
+        class="cursor-pointer"
+        @click="toggleEdit(props.row)"
+      >
+        <QTd
+          v-for="col in props.cols"
+          :key="col.name"
+          :props="props"
+          :auto-width="col.autoWidth"
+        >
+          <QIcon
+            v-if="col.name === 'icon'"
+            size="md"
+            v-bind="getIconProps(props.row)"
+          />
+          <QIcon
+            v-else-if="col.name === 'feedback'"
+            v-show="props.row.hasFeedback"
+            size="md"
+            v-bind="getFeedbackIconProps(props.row)"
+          />
+          <template v-else-if="col.name === 'feedbackWeight'">
+            <span v-show="props.row.hasFeedback && props.row.hasFeedbackWeight">
+              <QIcon
+                size="xs"
+                name="fas fa-check"
+              />
+            </span>
+          </template>
+          <QBadge
+            v-else-if="col.name === 'status'"
+            :color="colourForStatus(col.value)"
+          >
+            {{ col.value }}
+          </QBadge>
+          <template v-else>
+            {{ col.value }}
+          </template>
+        </QTd>
+      </QTr>
+      <QTr
+        v-if="props.row.id === editActivityTypeId"
+        :key="`${props.key}-expand`"
+        :props="props"
+      >
+        <QTd
+          colspan="100%"
+          style="padding: 0;"
+        >
+          <!-- TODO: maybe need to reset save status as we reuse this for different types? -->
+          <ActivityTypeForm
+            :value="editActivityType"
+            :activity-types="activityTypes"
+            :status="saveStatus"
+            @save="saveDialog"
+            @cancel="cancelActivityType"
+          />
+        </QTd>
+      </QTr>
+    </template>
+  </QTable>
+  <ActivityTypeForm
+    v-if="newActivityType"
+    :value="newActivityType"
+    :activity-types="activityTypes"
+    :status="createStatus"
+    :class="$q.platform.is.mobile ? '' : 'q-ma-md'"
+    @save="saveNewActivityType"
+    @cancel="cancelNewActivityType"
+  />
 </template>
 
 <script>

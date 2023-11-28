@@ -431,6 +431,7 @@
     "EDIT": "Edit group",
     "EDIT_ACTIVITY_TYPES": "Activity types",
     "EDIT_PLACE_TYPES": "Place types",
+    "EDIT_PLACE_STATUSES": "Place statuses",
     "EDIT_DETAILS": "Group details",
     "EMAIL_NOTIFICATIONS": "Email notifications",
     "HEADINGS": {
@@ -817,6 +818,9 @@
     "SHOW_ARCHIVED": "Show archived",
     "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
+  },
+  "PLACE_STATUSES": {
+    "ADD": "Add new place status",
   },
   "PLACE_LIST": {
     "ONLY_FAVOURITES": "Only favourite",

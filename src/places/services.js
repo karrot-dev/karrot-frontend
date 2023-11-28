@@ -62,9 +62,8 @@ export const usePlaceTypeService = defineService(() => {
     return placeTypesById.value[id]
   }
 
-  function getPlaceTypesByGroup (groupId, filters = {}) {
-    const entries = placeTypes.value.filter(entry => entry.group === unref(groupId))
-    return filters.status ? entries.filter(entry => entry.status === unref(filters.status)) : entries
+  function getPlaceTypesByGroup (groupId) {
+    return placeTypes.value.filter(entry => entry.group === unref(groupId))
   }
 
   return {
@@ -92,9 +91,8 @@ export const usePlaceStatusService = defineService(() => {
     return placeStatusesById.value[id]
   }
 
-  function getPlaceStatusesByGroup (groupId, filters = {}) {
-    const entries = placeStatuses.value.filter(entry => entry.group === unref(groupId))
-    return filters.status ? entries.filter(entry => entry.status === unref(filters.status)) : entries
+  function getPlaceStatusesByGroup (groupId) {
+    return placeStatuses.value.filter(entry => entry.group === unref(groupId))
   }
 
   return {

@@ -65,59 +65,14 @@
         </template>
       </QField>
 
-      <QSelect
-        ref="nameInput"
-        v-model="edit.name"
-        filled
-        emit-value
-        map-options
-        use-input
-        fill-input
-        hide-selected
-        :label="$t('PLACE_TYPES.NAME')"
-        :options="translatableNameOptions"
+      <TranslatableNameInput
+        v-model="edit"
+        :label="$t('ACTIVITY_TYPES.NAME')"
         :error="hasNameError"
         :error-message="nameError"
-        autocomplete="off"
-        type="input"
-        :hint="edit.nameIsTranslatable ? $t('PLACE_TYPES.STANDARD_NAME_HINT') : $t('PLACE_TYPES.CUSTOM_NAME_HINT')"
+        :options="translatableNameOptions"
         @blur="v$.edit.name.$touch"
-        @input-value="onNameInput"
-        @keyup.enter="() => $refs.nameInput.hidePopup()"
-      >
-        <template #option="{ index, itemProps, opt: { label: itemLabel, useCustomName } }">
-          <QItem
-            :key="index"
-            v-bind="itemProps"
-          >
-            <QItemSection>
-              <QItemLabel v-if="useCustomName">
-                <i18n-t
-                  v-if="itemLabel && !edit.nameIsTranslatable"
-                  scope="global"
-                  keypath="PLACE_TYPES.CUSTOM_NAME_USE"
-                >
-                  <template #name>
-                    <strong>{{ itemLabel }}</strong>
-                  </template>
-                </i18n-t>
-                <span v-else>
-                  {{ $t('PLACE_TYPES.CUSTOM_NAME_PROMPT') }}
-                </span>
-              </QItemLabel>
-              <QItemLabel v-else>
-                {{ itemLabel }}
-              </QItemLabel>
-            </QItemSection>
-          </QItem>
-          <template v-if="useCustomName">
-            <QSeparator />
-            <QItemLabel header>
-              {{ $t('PLACE_TYPES.STANDARD_NAME_HEADING') }}
-            </QItemLabel>
-          </template>
-        </template>
-      </QSelect>
+      />
 
       <div class="row justify-end q-gutter-sm q-mt-sm">
         <QBtn
@@ -167,34 +122,26 @@ import {
   QInput,
   QField,
   QBtn,
-  QToggle,
   QMenu,
   QIcon,
-  QItem,
-  QItemSection,
-  QItemLabel,
-  QSeparator,
-  Dialog,
 } from 'quasar'
 
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 import pickerIcons, { tags as pickerTags } from '@/utils/pickerIcons'
 
+import TranslatableNameInput from '@/utils/components/TranslatableNameInput.vue'
+
 export default {
   components: {
+    TranslatableNameInput,
     QSelect,
     QInput,
     QField,
     QBtn,
-    QToggle,
     QMenu,
     QIcon,
     QIconPicker,
-    QItem,
-    QItemSection,
-    QItemLabel,
-    QSeparator,
   },
   mixins: [editMixin, statusMixin],
   props: {
@@ -233,7 +180,7 @@ export default {
       }
       return true
     },
-    translatableNames () {
+    translatableNameOptions () {
       return [
         'Unspecified',
         'Store',
@@ -241,23 +188,11 @@ export default {
         'Meeting Place',
         'Restaurant',
         'Market',
-      ]
-    },
-    translatableNameOptions () {
-      return [
-        {
-          value: this.edit.name,
-          label: this.edit.name && this.edit.nameIsTranslatable ? this.$t(`PLACE_TYPE_NAMES.${this.edit.name}`) : this.edit.name,
-          useCustomName: true,
-          disable: this.edit.nameIsTranslatable,
-        },
-        ...this.translatableNames.map((value, idx) => ({
-          value,
-          label: this.$t(`PLACE_TYPE_NAMES.${value}`),
-          // prevent people from trying to choose a name that is already used (it's not allowed, and enforced by backend too)
-          disable: this.placeTypeNamesInUse.includes(value),
-        })),
-      ]
+      ].map(name => ({
+        name,
+        label: this.$t(`PLACE_TYPE_NAMES.${name}`),
+        disable: this.placeTypeNamesInUse.includes(name),
+      }))
     },
     placeTypeNamesInUse () {
       return this.placeTypes
@@ -283,28 +218,6 @@ export default {
     maybeSave () {
       if (!this.canSave) return
       this.save()
-    },
-    onNameInput (value) {
-      // See if the user typed in a standard name
-      const option = this.translatableNameOptions.find(option =>
-        // (ignore the "special" option)
-        !option.useCustomName && (
-          // check if it matches the translated value
-          option.label === value ||
-          // or the non-translated value
-          option.value === value
-        ),
-      )
-      if (option) {
-        // It is, therefore translatable!
-        this.edit.name = option.value
-        this.edit.nameIsTranslatable = true
-      }
-      else {
-        // Nope, it's a custom name
-        this.edit.name = value
-        this.edit.nameIsTranslatable = false
-      }
     },
     archive () {
       this.$emit('save', { id: this.value.id, isArchived: true })

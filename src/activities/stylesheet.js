@@ -13,6 +13,7 @@
  * The number is the database id of the entry.
  *
  */
+import { computed, onUnmounted, ref, unref } from 'vue'
 
 let nextId = 0
 
@@ -25,6 +26,24 @@ function idFor (entry) {
   }
 }
 
+function randomStyleSheetPrefix () {
+  return Math.random().toString(20).slice(2, 6) + '-'
+}
+
+/**
+ * Useful when editing something, and you want a one-off colour name
+ *
+ * @param entry something with a "colour" property
+ * @returns a quasar colour name
+ */
+export function useColourNameFor (entry) {
+  const { updateEntry, removeStylesheet } = createStylesheet(randomStyleSheetPrefix())
+
+  onUnmounted(() => removeStylesheet())
+
+  return computed(() => updateEntry(unref(entry)))
+}
+
 export function createActivityTypeStylesheet (suffix = '') {
   return createStylesheet('activity-type-', suffix)
 }
@@ -33,27 +52,29 @@ export function createPlaceStatusStylesheet (suffix = '') {
   return createStylesheet('place-status-', suffix)
 }
 
-export function createStylesheet (prefix = '', suffix = '') {
-  const defaultColour = '#FF0000'
+export function createStylesheet (prefix = '', suffix = '', defaultColour) {
   let stylesheet
 
   function getStylesheet () {
     if (!stylesheet) {
-      stylesheet = document.createElement('style')
-      stylesheet.innerText = ''
-      document.head.appendChild(stylesheet)
+      stylesheet = new CSSStyleSheet()
+      document.adoptedStyleSheets = [
+        ...document.adoptedStyleSheets,
+        stylesheet,
+      ]
     }
     return stylesheet
   }
 
   function updateStyles (styles) {
-    getStylesheet().innerText = styles
+    getStylesheet().replaceSync(styles)
   }
 
   function updateEntries (entries = []) {
     const colorNames = []
     const styles = entries.map(entry => {
       let color = entry.colour || defaultColour
+      if (!color) return ''
       if (color[0] !== '#') color = '#' + color
       const colorName = `${prefix}${idFor(entry)}${suffix}`
       colorNames.push(colorName)
@@ -81,7 +102,7 @@ export function createStylesheet (prefix = '', suffix = '') {
 
   function removeStylesheet () {
     if (stylesheet) {
-      stylesheet.remove()
+      document.adoptedStyleSheets = document.adoptedStyleSheets.filter(s => s !== stylesheet)
     }
   }
 

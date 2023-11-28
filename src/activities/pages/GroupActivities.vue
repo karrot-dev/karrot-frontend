@@ -262,8 +262,8 @@ export default {
     // TODO: allow filtering for activities where the type is archived?
     // before we would include archived activity types if we had some activities for that type
     // maybe we can just have an option somewhere to include archived types?
-    const activityTypes = computed(() => getActivityTypesByGroup(groupId, { status: 'active' }))
-    const places = computed(() => getPlacesByGroup(groupId, { status: 'active' }).sort(sortByFavouritesThenName))
+    const activityTypes = computed(() => getActivityTypesByGroup(groupId).filter(activityType => !activityType.isArchived))
+    const places = computed(() => getPlacesByGroup(groupId).filter(place => !place.isArchived).sort(sortByFavouritesThenName))
 
     return {
       isEditor,

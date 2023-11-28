@@ -42,3 +42,8 @@ export function useMembershipHelpers () {
     getTrustProgress,
   }
 }
+
+export function useCurrentGroupId () {
+  const { groupId } = useCurrentGroupService()
+  return groupId
+}

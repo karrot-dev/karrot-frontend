@@ -1,90 +1,86 @@
 <template>
-  <div>
-    <component :is="$q.platform.is.mobile ? 'div' : 'QCard'">
-      <QTable
-        :columns="columns"
-        :rows="filteredPlaceTypes"
-        hide-pagination
-        :pagination="{ rowsPerPage: 0 }"
-        flat
-      >
-        <template #top-left>
-          <QToggle
-            v-model="showArchived"
-            :label="$t('PLACE_TYPES.SHOW_ARCHIVED')"
-          />
-        </template>
-        <template #top-right>
-          <QBtn
-            round
-            color="green"
-            icon="fas fa-plus"
-            :title="$t('PLACE_TYPES.ADD')"
-            @click="createNewPlaceType()"
-          />
-        </template>
-        <template #body="props">
-          <QTr
-            :key="props.key"
-            :props="props"
-            class="cursor-pointer"
-            @click="toggleEdit(props.row)"
-          >
-            <QTd
-              v-for="col in props.cols"
-              :key="col.name"
-              :props="props"
-              :auto-width="col.autoWidth"
-            >
-              <QIcon
-                v-if="col.name === 'icon'"
-                size="md"
-                color="positive"
-                v-bind="getIconProps(props.row)"
-              />
-              <QBadge
-                v-else-if="col.name === 'status'"
-                :color="colourForStatus(col.value)"
-              >
-                {{ col.value }}
-              </QBadge>
-              <template v-else>
-                {{ col.value }}
-              </template>
-            </QTd>
-          </QTr>
-          <QTr
-            v-if="props.row.id === editPlaceTypeId"
-            :key="`${props.key}-expand`"
-            :props="props"
-          >
-            <QTd
-              colspan="100%"
-              style="padding: 0;"
-            >
-              <!-- TODO: maybe need to reset save status as we reuse this for different types? -->
-              <PlaceTypeForm
-                :value="editPlaceType"
-                :place-types="placeTypes"
-                :status="saveStatus"
-                @save="saveDialog"
-                @cancel="cancelPlaceType"
-              />
-            </QTd>
-          </QTr>
-        </template>
-      </QTable>
-      <PlaceTypeForm
-        v-if="newPlaceType"
-        :value="newPlaceType"
-        :place-types="placeTypes"
-        :status="createStatus"
-        :class="$q.platform.is.mobile ? '' : 'q-ma-md'"
-        @save="saveNewPlaceType"
-        @cancel="cancelNewPlaceType"
+  <QTable
+    :columns="columns"
+    :rows="filteredPlaceTypes"
+    hide-pagination
+    :pagination="{ rowsPerPage: 0 }"
+    flat
+  >
+    <template #top-left>
+      <QToggle
+        v-model="showArchived"
+        :label="$t('PLACE_TYPES.SHOW_ARCHIVED')"
       />
-    </component>
-  </div>
+    </template>
+    <template #top-right>
+      <QBtn
+        round
+        color="green"
+        icon="fas fa-plus"
+        :title="$t('PLACE_TYPES.ADD')"
+        @click="createNewPlaceType()"
+      />
+    </template>
+    <template #body="props">
+      <QTr
+        :key="props.key"
+        :props="props"
+        class="cursor-pointer"
+        @click="toggleEdit(props.row)"
+      >
+        <QTd
+          v-for="col in props.cols"
+          :key="col.name"
+          :props="props"
+          :auto-width="col.autoWidth"
+        >
+          <QIcon
+            v-if="col.name === 'icon'"
+            size="md"
+            color="positive"
+            v-bind="getIconProps(props.row)"
+          />
+          <QBadge
+            v-else-if="col.name === 'status'"
+            :color="colourForStatus(col.value)"
+          >
+            {{ col.value }}
+          </QBadge>
+          <template v-else>
+            {{ col.value }}
+          </template>
+        </QTd>
+      </QTr>
+      <QTr
+        v-if="props.row.id === editPlaceTypeId"
+        :key="`${props.key}-expand`"
+        :props="props"
+      >
+        <QTd
+          colspan="100%"
+          style="padding: 0;"
+        >
+          <!-- TODO: maybe need to reset save status as we reuse this for different types? -->
+          <PlaceTypeForm
+            :value="editPlaceType"
+            :place-types="placeTypes"
+            :status="saveStatus"
+            @save="saveDialog"
+            @cancel="cancelPlaceType"
+          />
+        </QTd>
+      </QTr>
+    </template>
+  </QTable>
+  <PlaceTypeForm
+    v-if="newPlaceType"
+    :value="newPlaceType"
+    :place-types="placeTypes"
+    :status="createStatus"
+    :class="$q.platform.is.mobile ? '' : 'q-ma-md'"
+    @save="saveNewPlaceType"
+    @cancel="cancelNewPlaceType"
+  />
 </template>
 
 <script>

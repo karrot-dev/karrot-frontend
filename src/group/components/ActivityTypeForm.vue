@@ -59,84 +59,18 @@
             </QMenu>
           </QBtn>
 
-          <QBtn
-            :label="$t('BUTTON.CHANGE_COLOUR')"
-            flat
-            color="primary"
-          >
-            <QMenu
-              auto-close
-              square
-            >
-              <QColor
-                v-model="colour"
-                style="width: 350px; max-width: 100%;"
-                format-model="hex"
-                no-footer
-                no-header
-                default-view="palette"
-                :palette="paletteColours"
-                square
-                flat
-              />
-            </QMenu>
-          </QBtn>
+          <ColourPicker v-model="edit.colour" />
         </template>
       </QField>
 
-      <QSelect
-        ref="nameInput"
-        v-model="edit.name"
-        filled
-        emit-value
-        map-options
-        use-input
-        fill-input
-        hide-selected
+      <TranslatableNameInput
+        v-model="edit"
         :label="$t('ACTIVITY_TYPES.NAME')"
-        :options="translatableNameOptions"
         :error="hasNameError"
         :error-message="nameError"
-        autocomplete="off"
-        type="input"
-        :hint="edit.nameIsTranslatable ? $t('ACTIVITY_TYPES.STANDARD_NAME_HINT') : $t('ACTIVITY_TYPES.CUSTOM_NAME_HINT')"
+        :options="translatableNameOptions"
         @blur="v$.edit.name.$touch"
-        @input-value="onNameInput"
-        @keyup.enter="() => $refs.nameInput.hidePopup()"
-      >
-        <template #option="{ index, itemProps, opt: { label: itemLabel, useCustomName } }">
-          <QItem
-            :key="index"
-            v-bind="itemProps"
-          >
-            <QItemSection>
-              <QItemLabel v-if="useCustomName">
-                <i18n-t
-                  v-if="itemLabel && !edit.nameIsTranslatable"
-                  scope="global"
-                  keypath="ACTIVITY_TYPES.CUSTOM_NAME_USE"
-                >
-                  <template #name>
-                    <strong>{{ itemLabel }}</strong>
-                  </template>
-                </i18n-t>
-                <span v-else>
-                  {{ $t('ACTIVITY_TYPES.CUSTOM_NAME_PROMPT') }}
-                </span>
-              </QItemLabel>
-              <QItemLabel v-else>
-                {{ itemLabel }}
-              </QItemLabel>
-            </QItemSection>
-          </QItem>
-          <template v-if="useCustomName">
-            <QSeparator />
-            <QItemLabel header>
-              {{ $t('ACTIVITY_TYPES.STANDARD_NAME_HEADING') }}
-            </QItemLabel>
-          </template>
-        </template>
-      </QSelect>
+      />
 
       <QField
         borderless
@@ -259,12 +193,6 @@ import {
   QToggle,
   QMenu,
   QIcon,
-  QColor,
-  QItem,
-  QItemSection,
-  QItemLabel,
-  QSeparator,
-  colors,
 } from 'quasar'
 
 import { createActivityTypeStylesheet } from '@/activities/stylesheet'
@@ -272,36 +200,13 @@ import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 import pickerIcons, { tags as pickerTags } from '@/utils/pickerIcons'
 
-const { getPaletteColor } = colors
-
-// We provide a limited palette of colours to choose from that we think will look nice
-// See https://quasar.dev/style/color-palette#Color-List
-const COLOUR_NAMES = [
-  'pink',
-  'purple',
-  'indigo',
-  'light-blue',
-  'cyan',
-  'teal',
-  'green',
-  'amber',
-  'deep-orange',
-  'blue-grey',
-]
-
-const COLOUR_SHADES = [
-  8,
-  9,
-  10,
-]
-
-// For the colour picker we need to provide a flat array with all the colours and shades
-// Quasar warns that "getPaletteColor" is quite expensive function to call, putting it here means it's only called
-// once for the whole module when it's first loaded (which would be async hopefully), not once per form
-const PALETTE_COLOURS = COLOUR_SHADES.flatMap(number => COLOUR_NAMES.map(name => getPaletteColor(`${name}-${number}`)))
+import ColourPicker from '@/utils/components/ColourPicker.vue'
+import TranslatableNameInput from '@/utils/components/TranslatableNameInput.vue'
 
 export default {
   components: {
+    TranslatableNameInput,
+    ColourPicker,
     QSelect,
     QInput,
     QField,
@@ -309,12 +214,7 @@ export default {
     QToggle,
     QMenu,
     QIcon,
-    QColor,
     QIconPicker,
-    QItem,
-    QItemSection,
-    QItemLabel,
-    QSeparator,
   },
   mixins: [editMixin, statusMixin],
   props: {
@@ -333,7 +233,6 @@ export default {
   },
   data () {
     return {
-      paletteColours: PALETTE_COLOURS,
       customName: '',
       colorName: null,
       iconTag: null,
@@ -365,7 +264,7 @@ export default {
       }
       return true
     },
-    translatableNames () {
+    translatableNameOptions () {
       return [
         // alphabetical
         'Activity',
@@ -374,23 +273,11 @@ export default {
         'Meeting',
         'Pickup',
         'Task',
-      ]
-    },
-    translatableNameOptions () {
-      return [
-        {
-          value: this.edit.name,
-          label: this.edit.name && this.edit.nameIsTranslatable ? this.$t(`ACTIVITY_TYPE_NAMES.${this.edit.name}`) : this.edit.name,
-          useCustomName: true,
-          disable: this.edit.nameIsTranslatable,
-        },
-        ...this.translatableNames.map((value, idx) => ({
-          value,
-          label: this.$t(`ACTIVITY_TYPE_NAMES.${value}`),
-          // prevent people from trying to choose a name that is already used (it's not allowed, and enforced by backend too)
-          disable: this.activityTypeNamesInUse.includes(value),
-        })),
-      ]
+      ].map(name => ({
+        name,
+        label: this.$t(`ACTIVITY_TYPE_NAMES.${name}`),
+        disable: this.activityTypeNamesInUse.includes(name),
+      }))
     },
     activityTypeNamesInUse () {
       return this.activityTypes
@@ -407,14 +294,6 @@ export default {
         if (m.isUnique.$invalid) return this.$t('VALIDATION.UNIQUE')
       }
       return this.firstError('name')
-    },
-    colour: {
-      get () {
-        return `#${this.edit.colour}`
-      },
-      set (val) {
-        this.edit.colour = val.substring(1)
-      },
     },
   },
   watch: {
@@ -449,28 +328,6 @@ export default {
     maybeSave () {
       if (!this.canSave) return
       this.save()
-    },
-    onNameInput (value) {
-      // See if the user typed in a standard name
-      const option = this.translatableNameOptions.find(option =>
-        // (ignore the "special" option)
-        !option.useCustomName && (
-          // check if it matches the translated value
-          option.label === value ||
-          // or the non-translated value
-          option.value === value
-        ),
-      )
-      if (option) {
-        // It is, therefore translatable!
-        this.edit.name = option.value
-        this.edit.nameIsTranslatable = true
-      }
-      else {
-        // Nope, it's a custom name
-        this.edit.name = value
-        this.edit.nameIsTranslatable = false
-      }
     },
     archive () {
       this.$emit('save', { id: this.value.id, isArchived: true })

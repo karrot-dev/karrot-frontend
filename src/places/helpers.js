@@ -103,6 +103,11 @@ export function usePlaceStatusHelpers () {
   }
 }
 
+export function usePlaceStatusTranslatedName (placeStatus) {
+  const { getTranslatedName } = usePlaceStatusHelpers()
+  return computed(() => getTranslatedName(unref(placeStatus)))
+}
+
 export function usePlaceType (placeTypeId) {
   const { getPlaceTypeById } = usePlaceTypeService()
   return computed(() => getPlaceTypeById(unref(placeTypeId)))
@@ -116,4 +121,15 @@ export function usePlaceStatus (placeStatusId) {
 export function usePlaceStatusColourName (placeStatus) {
   const { getColorName } = usePlaceStatusHelpers()
   return computed(() => getColorName(unref(placeStatus)))
+}
+
+export function usePlaceStatuses (groupId) {
+  const { placeStatuses } = usePlaceStatusService()
+  return computed(() => {
+    if (!placeStatuses?.value) return []
+    if (!groupId) return placeStatuses.value
+    if (!groupId.value) return []
+    const groupIdValue = unref(groupId)
+    return placeStatuses.value?.filter(placeStatus => placeStatus.group === groupIdValue)
+  })
 }

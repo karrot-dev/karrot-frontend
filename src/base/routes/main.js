@@ -23,6 +23,7 @@ const GroupEditLayout = () => import('@/group/pages/EditLayout.vue')
 const GroupEdit = () => import('@/group/pages/Edit.vue')
 const GroupEditActivityTypes = () => import('@/group/pages/EditActivityTypes.vue')
 const GroupEditPlaceTypes = () => import('@/group/pages/EditPlaceTypes.vue')
+const GroupEditPlaceStatuses = () => import('@/group/pages/EditPlaceStatuses.vue')
 const GroupCreate = () => import('@/group/pages/Create.vue')
 const GroupPreview = () => import('@/groupInfo/pages/GroupPreview.vue')
 const GroupGallery = () => import('@/groupInfo/pages/GroupGallery.vue')
@@ -429,6 +430,11 @@ export default [
             name: 'groupEditPlaceTypes',
             path: 'place-types',
             component: GroupEditPlaceTypes,
+          },
+          {
+            name: 'groupEditPlaceStatuses',
+            path: 'place-statuses',
+            component: GroupEditPlaceStatuses,
           },
         ],
       },

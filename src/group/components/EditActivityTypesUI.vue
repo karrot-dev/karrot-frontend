@@ -99,7 +99,6 @@
 <script>
 import {
   QBtn,
-  QCard,
   QTable,
   QTr,
   QTd,
@@ -119,7 +118,6 @@ export default {
   components: {
     ActivityTypeForm,
     QBtn,
-    QCard,
     QTr,
     QTable,
     QTd,

@@ -1,14 +1,10 @@
 import { markRaw, unref } from 'vue'
 
-import { usePlaceStatus, usePlaceStatusColourName, usePlaceStatusHelpers, usePlaceType } from '@/places/helpers'
-import { optionsFor } from '@/places/placeStatus'
-import { usePlaceTypeService } from '@/places/services'
+import { usePlaceStatus, usePlaceStatusColourName, usePlaceType } from '@/places/helpers'
 
 import GroupMarker from './GroupMarker.vue'
 import PlaceMarker from './PlaceMarker.vue'
 import UserMarker from './UserMarker.vue'
-
-// eslint-disable-next-line no-unused-vars
 
 export function groupMarker (group) {
   return {

@@ -13,7 +13,7 @@
  * The number is the database id of the entry.
  *
  */
-import { computed, onUnmounted, ref, unref } from 'vue'
+import { computed, onUnmounted, unref } from 'vue'
 
 let nextId = 0
 

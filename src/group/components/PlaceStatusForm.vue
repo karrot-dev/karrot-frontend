@@ -101,7 +101,7 @@ import { useCurrentGroupId } from '@/group/helpers'
 import { usePlaceStatuses, usePlaceStatusTranslatedName } from '@/places/helpers'
 import { useCreatePlaceStatusMutation, useSavePlaceStatusMutation } from '@/places/mutations'
 import { useEdit } from '@/utils/mixins/editMixin'
-import { isUnique, maxLength, required, useValidation } from '@/utils/validation'
+import { isUnique, required, useValidation } from '@/utils/validation'
 
 import ColourPicker from '@/utils/components/ColourPicker.vue'
 import TranslatableNameInput from '@/utils/components/TranslatableNameInput.vue'

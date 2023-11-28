@@ -224,6 +224,7 @@ export default {
     },
   },
   emits: [
+    'save',
     'cancel',
   ],
   setup () {

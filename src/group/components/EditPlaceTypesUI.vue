@@ -86,7 +86,6 @@
 <script>
 import {
   QBtn,
-  QCard,
   QTable,
   QTr,
   QTd,
@@ -106,7 +105,6 @@ export default {
   components: {
     PlaceTypeForm,
     QBtn,
-    QCard,
     QTr,
     QTable,
     QTd,

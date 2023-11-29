@@ -43,6 +43,18 @@
         />
       </QTd>
     </template>
+    <template #body-cell-visible="props">
+      <QTd
+        :props="props"
+        :auto-width="true"
+      >
+        <QIcon
+          v-if="props.value"
+          name="fas fa-check"
+          color="positive"
+        />
+      </QTd>
+    </template>
     <template #body-cell-status="props">
       <QTd
         :props="props"
@@ -95,6 +107,21 @@ const columns = computed(() => [
     field: row => getTranslatedName(row),
     align: 'left',
     classes: 'text-weight-bold',
+    autoWidth: true,
+  },
+  {
+    name: 'description',
+    label: 'Description',
+    field: row => row.description,
+    align: 'left',
+    style: 'max-width: 200px',
+    classes: 'ellipsis',
+  },
+  {
+    name: 'visible',
+    label: 'Visible',
+    field: row => row.isVisible,
+    align: 'center',
   },
   showArchived.value && {
     name: 'status',
@@ -111,6 +138,8 @@ function createNewPlaceStatus () {
       placeStatus: {
         name: undefined,
         colour: undefined,
+        description: undefined,
+        isVisible: true,
       },
     },
   })

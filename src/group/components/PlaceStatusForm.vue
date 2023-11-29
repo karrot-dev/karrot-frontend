@@ -15,8 +15,24 @@
         {{ translatedName }}
       </h3>
 
+      <TranslatableNameInput
+        v-model="edit"
+        :label="$t('ACTIVITY_TYPES.NAME')"
+        :error="Boolean(errors.name)"
+        :error-message="errors.name"
+        :options="translatableNameOptions"
+        @blur="v.name.$touch"
+      />
+
+      <QInput
+        v-model="edit.description"
+        label="Description"
+        outlined
+      />
+
       <QField
         borderless
+        hide-bottom-space
         :disable="isPending"
         :error="Boolean(errors.colour)"
         :error-message="errors.colour"
@@ -33,14 +49,17 @@
         </template>
       </QField>
 
-      <TranslatableNameInput
-        v-model="edit"
-        :label="$t('ACTIVITY_TYPES.NAME')"
-        :error="Boolean(errors.name)"
-        :error-message="errors.name"
-        :options="translatableNameOptions"
-        @blur="v.name.$touch"
-      />
+      <QField
+        borderless
+        hint="Whether to show places with this status on the map and in the list"
+      >
+        <template #control>
+          <QToggle
+            v-model="edit.isVisible"
+            label="Visible"
+          />
+        </template>
+      </QField>
 
       <div
         v-if="errors.nonFieldErrors"
@@ -92,8 +111,8 @@
   </div>
 </template>
 <script setup>
-import { QBtn, QField, QIcon } from 'quasar'
-import { computed, ref, toRef } from 'vue'
+import { QBtn, QField, QIcon, QInput, QToggle } from 'quasar'
+import { computed, toRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import { useColourNameFor } from '@/activities/stylesheet'
@@ -159,14 +178,14 @@ const rules = {
   },
 }
 
-const { v, validate, errors } = useValidation(rules, edit, computed(() => {
-  return isNew.value ? createStatus.value : updateStatus.value
-}))
+const status = computed(() => isNew.value ? createStatus.value : updateStatus.value)
+
+const { v, validate, errors } = useValidation(rules, edit, status)
 
 const colourName = useColourNameFor(edit)
 
 const canSave = computed(() => isNew.value || hasChanged.value)
-const isPending = ref(false)
+const isPending = computed(() => status.value.pending)
 
 async function archive () {
   if (isNew.value) return
@@ -185,19 +204,13 @@ async function save () {
   if (!await validate()) {
     return
   }
-  try {
-    isPending.value = true
-    if (isNew.value) {
-      await create(saveData.value)
-    }
-    else {
-      await update(saveData.value)
-    }
-    emit('done')
+  if (isNew.value) {
+    await create(saveData.value)
   }
-  finally {
-    isPending.value = false
+  else {
+    await update(saveData.value)
   }
+  emit('done')
 }
 
 </script>

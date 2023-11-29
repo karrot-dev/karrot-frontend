@@ -9,6 +9,129 @@
         :class="{ changed: hasChanged }"
       >
         <form @submit.prevent="maybeSave">
+          <div
+            class="row q-col-gutter-md items-center q-mb-lg "
+          >
+            <QIcon
+              :name="placeTypeIcon ?? 'fas fa-circle'"
+              size="lg"
+              class="q-pt-none"
+              :color="placeStatusColour ?? 'grey-4'"
+            />
+            <QSelect
+              v-model="edit.placeType"
+              :options="placeTypeOptions.filter(({ isArchived, value }) => !isArchived || edit.placeType === value)"
+              map-options
+              emit-value
+              :label="$t('STOREEDIT.PLACE_TYPE')"
+              :error="hasPlaceTypeError"
+              :error-message="placeTypeError"
+              outlined
+              class="col"
+              @blur="v$.edit.placeType.$touch"
+            >
+              <template #option="scope">
+                <QItem
+                  :key="scope.index"
+                  dense
+                  v-bind="scope.itemProps"
+                >
+                  <QItemSection side>
+                    <QIcon
+                      :name="scope.opt.icon"
+                      size="1.1em"
+                      :color="placeStatusColour"
+                    />
+                  </QItemSection>
+                  <QItemSection>
+                    <QItemLabel>{{ scope.opt.label }}</QItemLabel>
+                    <QItemLabel
+                      v-if="scope.opt.caption"
+                      caption
+                    >
+                      {{ scope.opt.caption }}
+                    </QItemLabel>
+                  </QItemSection>
+                </QItem>
+              </template>
+              <template #selected-item="scope">
+                <div class="ellipsis">
+                  {{ scope.opt.label }}
+                </div>
+              </template>
+              <template #afteroff>
+                <QBtn
+                  :label="$t('PLACE_TYPES.MANAGE_TYPES')"
+                  :to="{ name: 'groupEditPlaceTypes' }"
+                />
+              </template>
+            </QSelect>
+
+            <QSelect
+              v-model="edit.status"
+              :options="placeStatusOptions"
+              map-options
+              emit-value
+              :label="$t('STOREEDIT.STATUS')"
+              :error="hasError('status')"
+              :error-message="firstError('status')"
+              outlined
+              class="col"
+            >
+              <template #after-options>
+                <QItem
+                  clickable
+                  @click="createNewPlaceStatus"
+                >
+                  <QItemSection side>
+                    <QIcon
+                      name="fa fa-plus"
+                      color="positive"
+                      size="1.1em"
+                    />
+                  </QItemSection>
+                  <QItemSection>
+                    <QItemLabel class="text-italic">
+                      Add new status
+                    </QItemLabel>
+                  </QItemSection>
+                </QItem>
+              </template>
+              <template #option="scope">
+                <QItem
+                  :key="scope.index"
+                  dense
+                  v-bind="scope.itemProps"
+                >
+                  <QItemSection side>
+                    <QIcon
+                      :name="placeTypeIcon"
+                      :color="scope.opt.color"
+                      size="1.1em"
+                    />
+                  </QItemSection>
+                  <QItemSection>
+                    <QItemLabel>{{ scope.opt.label }}</QItemLabel>
+                    <QItemLabel
+                      v-if="scope.opt.caption"
+                      caption
+                      class="ellipsis"
+                      style="max-width: 200px;"
+                      :title="scope.opt.caption"
+                    >
+                      {{ scope.opt.caption }}
+                    </QItemLabel>
+                  </QItemSection>
+                </QItem>
+              </template>
+              <template #selected-item="scope">
+                <div class="ellipsis">
+                  {{ scope.opt.label }}
+                </div>
+              </template>
+            </QSelect>
+          </div>
+
           <QInput
             v-model="edit.name"
             :autofocus="!$q.platform.has.touch"
@@ -20,101 +143,6 @@
             class="q-mb-lg"
             @blur="v$.edit.name.$touch"
           />
-
-          <QSelect
-            v-model="edit.placeType"
-            :options="placeTypeOptions.filter(({ isArchived, value }) => !isArchived || edit.placeType === value)"
-            map-options
-            emit-value
-            :label="$t('STOREEDIT.PLACE_TYPE')"
-            :error="hasPlaceTypeError"
-            :error-message="placeTypeError"
-            outlined
-            class="q-mb-lg"
-            @blur="v$.edit.placeType.$touch"
-          >
-            <template #option="scope">
-              <QItem
-                :key="scope.index"
-                dense
-                v-bind="scope.itemProps"
-              >
-                <QItemSection side>
-                  <QIcon
-                    :name="scope.opt.icon"
-                    size="1.1em"
-                    :color="placeStatusColour"
-                  />
-                </QItemSection>
-                <QItemSection>
-                  <QItemLabel>{{ scope.opt.label }}</QItemLabel>
-                </QItemSection>
-              </QItem>
-            </template>
-            <template #selected-item="scope">
-              <div class="row no-wrap ellipsis">
-                <QIcon
-                  :name="scope.opt.icon"
-                  size="1.1em"
-                  class="on-left q-ml-xs"
-                  :color="placeStatusColour"
-                />
-                <div class="ellipsis">
-                  {{ scope.opt.label }}
-                </div>
-              </div>
-            </template>
-            <template #after>
-              <QBtn
-                :label="$t('PLACE_TYPES.MANAGE_TYPES')"
-                :to="{ name: 'groupEditPlaceTypes' }"
-              />
-            </template>
-          </QSelect>
-
-          <QSelect
-            v-model="edit.status"
-            :options="placeStatusOptions"
-            map-options
-            emit-value
-            :label="$t('STOREEDIT.STATUS')"
-            :error="hasError('status')"
-            :error-message="firstError('status')"
-            outlined
-            class="q-mb-lg"
-          >
-            <template #option="scope">
-              <QItem
-                :key="scope.index"
-                dense
-                v-bind="scope.itemProps"
-              >
-                <QItemSection side>
-                  <QIcon
-                    :name="placeTypeIcon"
-                    :color="scope.opt.color"
-                    size="1.1em"
-                  />
-                </QItemSection>
-                <QItemSection>
-                  <QItemLabel>{{ scope.opt.label }}</QItemLabel>
-                </QItemSection>
-              </QItem>
-            </template>
-            <template #selected-item="scope">
-              <div class="row no-wrap ellipsis">
-                <QIcon
-                  :name="placeTypeIcon"
-                  :color="scope.opt.color"
-                  size="1.1em"
-                  class="on-left q-ml-xs"
-                />
-                <div class="ellipsis">
-                  {{ scope.opt.label }}
-                </div>
-              </div>
-            </template>
-          </QSelect>
 
           <MarkdownInput
             v-model="edit.description"
@@ -143,8 +171,8 @@
 
           <AddressPicker
             v-model="edit"
-            :color="markerColor"
-            :font-icon="$icon('place')"
+            :color="placeStatusColour"
+            :font-icon="placeTypeIcon"
             :label="$t('STOREEDIT.ADDRESS')"
             :error="hasAddressError"
             :error-message="addressError"
@@ -257,6 +285,7 @@ import { usePlaceStatusService, usePlaceTypeService } from '@/places/services'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
+import EditPlaceStatusDialog from '@/group/components/EditPlaceStatusDialog.vue'
 import AddressPicker from '@/maps/components/AddressPicker.vue'
 import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
@@ -317,18 +346,32 @@ export default {
     const placeTypeOptions = computed(() => placeTypes.value.map(placeType => ({
       value: placeType.id,
       label: placeTypeHelpers.getTranslatedName(placeType),
+      caption: placeType.description,
       icon: placeType.icon,
       isArchived: placeType.isArchived,
     })))
 
     const placeStatuses = computed(() => getPlaceStatusesByGroup(groupId).sort(placeStatusHelpers.sortByTranslatedName))
 
-    const placeStatusOptions = computed(() => placeStatuses.value.map(placeStatus => ({
+    const placeStatusOptions = computed(() => placeStatuses.value.filter(placeStatus => !placeStatus.isArchived).map(placeStatus => ({
       value: placeStatus.id,
       label: placeStatusHelpers.getTranslatedName(placeStatus),
+      caption: placeStatus.description,
       color: placeStatusHelpers.getColorName(placeStatus),
       icon: 'fas fa-circle',
     })))
+
+    function createNewPlaceStatus () {
+      Dialog.create({
+        component: EditPlaceStatusDialog,
+        componentProps: {
+          placeStatus: {
+            name: undefined,
+            colour: undefined,
+          },
+        },
+      })
+    }
 
     return {
       v$: useVuelidate(),
@@ -337,6 +380,7 @@ export default {
       placeStatusOptions,
       getPlaceStatusById,
       getPlaceStatusColorName: placeStatusHelpers.getColorName,
+      createNewPlaceStatus,
     }
   },
   computed: {

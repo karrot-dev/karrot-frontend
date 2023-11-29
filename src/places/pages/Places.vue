@@ -48,8 +48,11 @@
             dense
             v-bind="itemProps"
           >
-            <QItemSection avatar>
+            <QItemSection
+              avatar
+            >
               <QIcon
+                v-if="opt.color"
                 name="fas fa-circle"
                 :color="opt.color"
                 size="1.1em"
@@ -57,12 +60,22 @@
             </QItemSection>
             <QItemSection>
               <QItemLabel>{{ opt.label }}</QItemLabel>
+              <QItemLabel
+                v-if="opt.caption"
+                caption
+                class="ellipsis"
+                style="max-width: 200px;"
+                :title="opt.caption"
+              >
+                {{ opt.caption }}
+              </QItemLabel>
             </QItemSection>
           </QItem>
         </template>
         <template #selected-item="{ opt }">
           <div class="row no-wrap ellipsis">
             <QIcon
+              v-if="opt.color"
               name="fas fa-circle"
               :color="opt.color"
               size="1.1em"
@@ -148,6 +161,14 @@
               style="height: 42px"
               class="row no-wrap"
             >
+              <QChip
+                text-color="white"
+                square
+                size="sm"
+                :color="placeStatusHelpers.getColorName(getPlaceStatusById(place.status))"
+              >
+                {{ placeStatusHelpers.getTranslatedName(getPlaceStatusById(place.status)) }}
+              </QChip>
               <RouterLink
                 v-if="getUnreadWallMessageCount(place) > 0"
                 :to="{ name: 'placeWall', params: { placeId: place.id }}"
@@ -348,23 +369,33 @@ const typeOptions = computed(() => ([
   }),
 ]))
 
-const { getPlaceStatusesByGroup } = usePlaceStatusService()
+const {
+  getPlaceStatusById,
+  getPlaceStatusesByGroup,
+} = usePlaceStatusService()
+
 const placeStatuses = computed(() => getPlaceStatusesByGroup(groupId.value))
 
 const statusOptions = computed(() => ([
   {
-    label: t('PLACE_LIST.ALL_STATUSES'),
+    label: t('PLACE_LIST.VISIBLE_STATUSES'),
     value: null,
-    color: 'white',
   },
-  ...placeStatuses.value.filter(placeStatus => !placeStatus.isArchived).map(placeStatus => {
-    return {
-      label: placeStatusHelpers.getTranslatedName(placeStatus),
-      value: String(placeStatus.id),
-      color: placeStatusHelpers.getColorName(placeStatus),
-      placeStatus,
-    }
-  }),
+  {
+    label: t('PLACE_LIST.ALL_STATUSES'),
+    value: 'all',
+  },
+  ...placeStatuses.value
+    .filter(placeStatus => !placeStatus.isArchived)
+    .map(placeStatus => {
+      return {
+        label: placeStatusHelpers.getTranslatedName(placeStatus),
+        caption: placeStatus.description,
+        value: String(placeStatus.id),
+        color: placeStatusHelpers.getColorName(placeStatus),
+        placeStatus,
+      }
+    }),
   {
     label: 'Archived', // TODO: translate,
     value: 'archived',
@@ -372,15 +403,52 @@ const statusOptions = computed(() => ([
   },
 ]))
 
-const filteredPlaces = computed(() => places.value.filter(place => (
-  (!type.value || place.placeType === parseInt(type.value)) &&
-  (
-    (status.value === 'archived' && place.archivedAt) ||
-    ((!status.value && !place.archivedAt) || place.status === parseInt(status.value))
-  ) &&
-  (!onlyFavourites.value || place.isSubscribed) &&
-  (!search || place.name.toLowerCase().includes(search.value.toLowerCase()))
-)))
+const visiblePlaceStatusIds = computed(() => {
+  // TODO: right now we are NOT filtering out the archived place statuses...
+  // as that does not imply the place itself is archived... have not resolved how to handle this...
+  return placeStatuses.value.filter(placeStatus => placeStatus.isVisible).map(placeStatus => placeStatus.id)
+})
+
+function filterType (place) {
+  return !type.value || place.placeType === parseInt(type.value)
+}
+
+function filterFavourites (place) {
+  return !onlyFavourites.value || place.isSubscribed
+}
+
+function filterSearch (place) {
+  return !search || place.name.toLowerCase().includes(search.value.toLowerCase())
+}
+
+function filterStatus (place) {
+  if (status.value === 'archived') {
+    return Boolean(place.archivedAt)
+  }
+  else if (place.archivedAt) {
+    // never show archived places unless explicit
+    return false
+  }
+  else if (status.value === 'all') {
+    return true
+  }
+  else if (status.value) {
+    // match status by id
+    return place.status === parseInt(status.value)
+  }
+  // Default, visible places
+  return visiblePlaceStatusIds.value.includes(place.status)
+}
+
+const filters = [
+  filterType,
+  filterFavourites,
+  filterSearch,
+  filterStatus,
+]
+const filteredPlaces = computed(
+  () => places.value.filter(place => filters.every(filter => filter(place))),
+)
 
 const hasNoPlacesDueToFilters = computed(() => {
   return type && filteredPlaces.value.length === 0

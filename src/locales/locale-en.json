@@ -830,6 +830,7 @@
     "NONE_DUE_TO_FILTER": "No places match your filters",
     "ALL_TYPES": "All types",
     "ALL_STATUSES": "All statuses",
+    "VISIBLE_STATUSES": "Visible",
     "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then click { icon } on one of them."
   },
   "PLACEWALL": {

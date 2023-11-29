@@ -84,7 +84,7 @@ import { useAuthHelpers } from '@/authuser/helpers'
 import { useCurrentGroupService } from '@/group/services'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { useMapToggles } from '@/maps/services'
-import { useActivePlaceService } from '@/places/services'
+import { useActivePlaceService, usePlaceStatusService } from '@/places/services'
 import { useActiveUserService } from '@/users/services'
 
 import GroupMapControls from '@/maps/components/GroupMapControls.vue'
@@ -133,6 +133,8 @@ export default {
       user: selectedUser,
     } = useActiveUserService()
 
+    const { getPlaceStatusById } = usePlaceStatusService()
+
     const {
       showPlaces,
       showUsers,
@@ -151,6 +153,7 @@ export default {
       users,
       places,
       getIsCurrentUser,
+      getPlaceStatusById,
     }
   },
   computed: {
@@ -158,7 +161,7 @@ export default {
       return this.selectedUser && this.getIsCurrentUser(this.selectedUser) && !hasLocation(this.selectedUser)
     },
     showPlaceLocationPrompt () {
-      return this.selectedPlace && !(this.placesWithLocation.findIndex(e => e.id === this.selectedPlace.id) >= 0)
+      return this.selectedPlace && !(this.visiblePlacesWithLocation.findIndex(e => e.id === this.selectedPlace.id) >= 0)
     },
     showGroupLocationPrompt () {
       if (!this.currentGroup) return
@@ -182,8 +185,8 @@ export default {
     style () {
       return { opacity: this.showOverlay ? 0.5 : 1 }
     },
-    placesWithLocation () {
-      return this.places.filter(place => !place.isArchived).filter(hasLocation)
+    visiblePlacesWithLocation () {
+      return this.places.filter(place => !place.isArchived && this.placeIsVisible(place)).filter(hasLocation)
     },
     usersWithLocation () {
       return this.users.filter(hasLocation)
@@ -215,7 +218,7 @@ export default {
     markers () {
       const items = []
       if (this.showPlaces) {
-        items.push(...this.placesWithLocation.map(placeMarker))
+        items.push(...this.visiblePlacesWithLocation.map(placeMarker))
       }
       if (this.showUsers) {
         items.push(...this.usersWithLocation.map(userMarker))
@@ -234,6 +237,11 @@ export default {
     },
   },
   methods: {
+    placeIsVisible (place) {
+      const placeStatus = this.getPlaceStatusById(place.status)
+      console.log('placeStatus!', placeStatus)
+      return placeStatus?.isVisible
+    },
     mapMoveEnd (target) {
       this.$emit('map-move-end', target)
     },

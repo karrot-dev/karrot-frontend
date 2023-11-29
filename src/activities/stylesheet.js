@@ -71,29 +71,31 @@ export function createStylesheet (prefix = '', suffix = '', defaultColour) {
   }
 
   function updateEntries (entries = []) {
-    const colorNames = []
-    const styles = entries.map(entry => {
-      let color = entry.colour || defaultColour
-      if (!color) return ''
-      if (color[0] !== '#') color = '#' + color
-      const colorName = `${prefix}${idFor(entry)}${suffix}`
-      colorNames.push(colorName)
+    const styles = []
+
+    const colourNames = entries.map(entry => {
+      let colour = entry.colour || defaultColour
+      if (!colour) return ''
+      if (colour[0] !== '#') colour = '#' + colour
+      const colourName = `${prefix}${idFor(entry)}${suffix}`
 
       // For how to define custom colors for quasar see:
       // https://quasar.dev/style/color-palette#Adding-Your-Own-Colors
-      return `
-          .text-${colorName} {
-            color: ${color};
-          }
-          .bg-${colorName} {
-            background: ${color};
-          }
-        `
-    }).join('\n')
+      styles.push(`
+        .text-${colourName} {
+          color: ${colour};
+        }
+        .bg-${colourName} {
+          background: ${colour};
+        }
+      `)
 
-    updateStyles(styles)
+      return colourName
+    })
 
-    return colorNames
+    updateStyles(styles.join('\n'))
+
+    return colourNames
   }
 
   function updateEntry (entry) {

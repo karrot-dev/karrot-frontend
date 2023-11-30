@@ -177,6 +177,10 @@ const columns = computed(() => [
   },
 ].filter(Boolean))
 
+function generateNextOrder () {
+  return generateKeyBetween(placeStatuses.value[placeStatuses.value.length - 1]?.order || null, null)
+}
+
 function createNewPlaceStatus () {
   Dialog.create({
     component: EditPlaceStatusDialog,
@@ -185,7 +189,7 @@ function createNewPlaceStatus () {
         name: undefined,
         colour: undefined,
         description: undefined,
-        order: generateKeyBetween(placeStatuses.value[placeStatuses.value.length - 1]?.order, null),
+        order: generateNextOrder(),
         isVisible: true,
       },
     },

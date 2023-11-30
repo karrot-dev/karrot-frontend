@@ -263,6 +263,7 @@
 <script>
 import useVuelidate from '@vuelidate/core'
 import { required, minLength, maxLength } from '@vuelidate/validators'
+import { generateKeyBetween } from 'fractional-indexing'
 import {
   QCard,
   QField,
@@ -279,7 +280,7 @@ import {
 import { computed } from 'vue'
 
 import { useCurrentGroupService } from '@/group/services'
-import { usePlaceStatusHelpers, usePlaceTypeHelpers } from '@/places/helpers'
+import { usePlaceStatuses, usePlaceStatusHelpers, usePlaceTypeHelpers } from '@/places/helpers'
 import { optionsFor } from '@/places/placeStatus'
 import { usePlaceStatusService, usePlaceTypeService } from '@/places/services'
 import editMixin from '@/utils/mixins/editMixin'
@@ -317,7 +318,7 @@ export default {
         latitude: undefined,
         longitude: undefined,
         address: undefined,
-        status: 'created',
+        status: undefined,
         defaultView: 'activities',
       }),
     },
@@ -336,7 +337,7 @@ export default {
     const { groupId } = useCurrentGroupService()
 
     const { getPlaceTypesByGroup, getPlaceTypeById } = usePlaceTypeService()
-    const { getPlaceStatusesByGroup, getPlaceStatusById } = usePlaceStatusService()
+    const { getPlaceStatusById } = usePlaceStatusService()
 
     const placeTypeHelpers = usePlaceTypeHelpers()
     const placeStatusHelpers = usePlaceStatusHelpers()
@@ -351,7 +352,7 @@ export default {
       isArchived: placeType.isArchived,
     })))
 
-    const placeStatuses = computed(() => getPlaceStatusesByGroup(groupId).sort(placeStatusHelpers.sortByTranslatedName))
+    const placeStatuses = usePlaceStatuses(groupId)
 
     const placeStatusOptions = computed(() => placeStatuses.value.filter(placeStatus => !placeStatus.isArchived).map(placeStatus => ({
       value: placeStatus.id,
@@ -361,6 +362,10 @@ export default {
       icon: 'fas fa-circle',
     })))
 
+    function generateNextOrder () {
+      return generateKeyBetween(placeStatuses.value[placeStatuses.value.length - 1]?.order || null, null)
+    }
+
     function createNewPlaceStatus () {
       Dialog.create({
         component: EditPlaceStatusDialog,
@@ -368,6 +373,9 @@ export default {
           placeStatus: {
             name: undefined,
             colour: undefined,
+            description: undefined,
+            order: generateNextOrder(),
+            isVisible: true,
           },
         },
       })
@@ -430,21 +438,6 @@ export default {
     placeStatusColour () {
       return this.edit.status ? this.getPlaceStatusColorName(this.getPlaceStatusById(this.edit.status)) : 'grey'
     },
-
-    // icon () {
-    //   this.edit.placeType ? this.getPlaceTypeById()
-    // },
-    // statusOptions () {
-    //   const { colour } = this.edit.placeStatus ? this.getPlaceStatusById(this.edit.placeStatus)
-    //   return statusList
-    //     .filter(s => s.selectable)
-    //     .map(s => ({
-    //       value: s.key,
-    //       label: this.$t(s.label),
-    //       color: s.color,
-    //       icon,
-    //     }))
-    // },
     markerColor () {
       if (this.edit) return optionsFor(this.edit).color
       return null

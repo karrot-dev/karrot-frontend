@@ -21,6 +21,7 @@
         :error="Boolean(errors.name)"
         :error-message="errors.name"
         :options="translatableNameOptions"
+        outlined
         @blur="v.name.$touch"
       />
 

@@ -42,8 +42,9 @@
         dense
       >
         <template #option="{ index, opt, itemProps }">
-          <QSeparator v-if="opt.value === 'archived'" />
+          <QSeparator v-if="opt.value === '$seperator'" />
           <QItem
+            v-else
             :key="index"
             dense
             v-bind="itemProps"
@@ -166,6 +167,7 @@
                 square
                 size="sm"
                 :color="placeStatusHelpers.getColorName(getPlaceStatusById(place.status))"
+                :title="getPlaceStatusById(place.status).description"
               >
                 {{ placeStatusHelpers.getTranslatedName(getPlaceStatusById(place.status)) }}
               </QChip>
@@ -376,32 +378,52 @@ const {
 
 const placeStatuses = computed(() => getPlaceStatusesByGroup(groupId.value))
 
-const statusOptions = computed(() => ([
-  {
-    label: t('PLACE_LIST.VISIBLE_STATUSES'),
-    value: null,
-  },
-  {
-    label: t('PLACE_LIST.ALL_STATUSES'),
-    value: 'all',
-  },
-  ...placeStatuses.value
-    .filter(placeStatus => !placeStatus.isArchived)
-    .map(placeStatus => {
-      return {
-        label: placeStatusHelpers.getTranslatedName(placeStatus),
-        caption: placeStatus.description,
-        value: String(placeStatus.id),
-        color: placeStatusHelpers.getColorName(placeStatus),
-        placeStatus,
-      }
-    }),
-  {
-    label: 'Archived', // TODO: translate,
-    value: 'archived',
-    color: 'black',
-  },
-]))
+const visiblePlaceStatuses = computed(() => placeStatuses.value.filter(placeStatus => !placeStatus.isArchived && placeStatus.isVisible))
+const otherPlaceStatuses = computed(() => placeStatuses.value.filter(placeStatus => !placeStatus.isArchived && !placeStatus.isVisible))
+
+function placeStatusToOption (placeStatus) {
+  return {
+    label: placeStatusHelpers.getTranslatedName(placeStatus),
+    caption: placeStatus.description,
+    value: String(placeStatus.id),
+    color: placeStatusHelpers.getColorName(placeStatus),
+    placeStatus,
+  }
+}
+
+const statusOptions = computed(() => {
+  const optionGroups = [
+    [
+      {
+        label: t('PLACE_LIST.VISIBLE_STATUSES'),
+        value: null,
+      },
+      {
+        label: t('PLACE_LIST.ALL_STATUSES'),
+        value: 'all',
+      },
+    ],
+    visiblePlaceStatuses.value.map(placeStatusToOption),
+    otherPlaceStatuses.value.map(placeStatusToOption),
+    [
+      {
+        label: 'Archived', // TODO: translate,
+        value: 'archived',
+        color: 'black',
+      },
+    ],
+  ]
+  const options = []
+  optionGroups.forEach((entries, idx) => {
+    options.push(...entries)
+    if (idx < optionGroups.length - 1) {
+      options.push({
+        value: '$seperator',
+      })
+    }
+  })
+  return options
+})
 
 const visiblePlaceStatusIds = computed(() => {
   // TODO: right now we are NOT filtering out the archived place statuses...

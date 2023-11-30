@@ -83,7 +83,7 @@
 import { generateKeyBetween } from 'fractional-indexing'
 import { sortBy } from 'lodash'
 import { Dialog, QBadge, QBtn, QIcon, QTable, QTd, QToggle } from 'quasar'
-import Sortable from 'sortablejs'
+import { Sortable } from 'sortablejs'
 import { computed, ref, watch } from 'vue'
 
 import { useCurrentGroupId } from '@/group/helpers'

@@ -45,8 +45,6 @@ export function placeMarker (place) {
   const placeStatus = usePlaceStatus(place.status)
   const colourName = usePlaceStatusColourName(placeStatus)
 
-  console.log('place marker for place', place.name, { placeType: unref(placeType), placeStatus: unref(placeStatus), colourName: unref(colourName), icon: unref(placeType)?.icon })
-
   return {
     latLng: { lat: place.latitude, lng: place.longitude },
     id: 'place_' + place.id,

@@ -238,9 +238,7 @@ export default {
   },
   methods: {
     placeIsVisible (place) {
-      const placeStatus = this.getPlaceStatusById(place.status)
-      console.log('placeStatus!', placeStatus)
-      return placeStatus?.isVisible
+      return this.getPlaceStatusById(place.status)?.isVisible
     },
     mapMoveEnd (target) {
       this.$emit('map-move-end', target)

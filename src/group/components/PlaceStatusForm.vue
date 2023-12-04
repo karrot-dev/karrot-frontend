@@ -28,6 +28,8 @@
       <QInput
         v-model="edit.description"
         label="Description"
+        :error="Boolean(errors.description)"
+        :error-message="errors.description"
         outlined
       />
 
@@ -120,8 +122,8 @@ import { useColourNameFor } from '@/activities/stylesheet'
 import { useCurrentGroupId } from '@/group/helpers'
 import { usePlaceStatuses, usePlaceStatusTranslatedName } from '@/places/helpers'
 import { useCreatePlaceStatusMutation, useSavePlaceStatusMutation } from '@/places/mutations'
-import { useEdit } from '@/utils/mixins/editMixin'
-import { isUnique, required, useValidation } from '@/utils/validation'
+import { useForm } from '@/utils/forms'
+import { isUnique, required } from '@/utils/validation'
 
 import ColourPicker from '@/utils/components/ColourPicker.vue'
 import TranslatableNameInput from '@/utils/components/TranslatableNameInput.vue'
@@ -143,8 +145,6 @@ const placeStatus = toRef(props, 'placeStatus')
 
 const translatedName = usePlaceStatusTranslatedName(placeStatus)
 
-const { edit, isNew, hasChanged, saveData } = useEdit(placeStatus)
-
 const groupId = useCurrentGroupId()
 const placeStatuses = usePlaceStatuses(groupId)
 const { mutateAsync: create, status: createStatus } = useCreatePlaceStatusMutation({ groupId })
@@ -154,6 +154,34 @@ const namesInUse = computed(() => {
   return placeStatuses.value
     .filter(entry => entry.id && entry.id !== placeStatus.value.id)
     .map(entry => entry.name)
+})
+
+const {
+  v,
+  isNew,
+  hasChanged,
+  isPending,
+  canSave,
+  errors,
+  edit,
+  save,
+} = useForm(placeStatus, {
+  rules: {
+    name: {
+      required,
+      isUnique: isUnique(value => !namesInUse.value.includes(value)),
+    },
+    colour: {
+      required,
+    },
+  },
+  create,
+  createStatus,
+  update,
+  updateStatus,
+  onSuccess () {
+    emit('done')
+  },
 })
 
 const translatableNameOptions = computed(() => [
@@ -167,26 +195,7 @@ const translatableNameOptions = computed(() => [
   disable: namesInUse.value.includes(name),
 })))
 
-const rules = {
-  colour: {
-    required,
-  },
-  name: {
-    required,
-    isUnique: isUnique(value => {
-      return !namesInUse.value.includes(value)
-    }),
-  },
-}
-
-const status = computed(() => isNew.value ? createStatus.value : updateStatus.value)
-
-const { v, validate, errors } = useValidation(rules, edit, status)
-
 const colourName = useColourNameFor(edit)
-
-const canSave = computed(() => isNew.value || hasChanged.value)
-const isPending = computed(() => status.value.pending)
 
 async function archive () {
   if (isNew.value) return
@@ -197,20 +206,6 @@ async function archive () {
 async function restore () {
   if (isNew.value) return
   await update({ id: placeStatus.value.id, isArchived: false })
-  emit('done')
-}
-
-async function save () {
-  if (!canSave.value || isPending.value) return
-  if (!await validate()) {
-    return
-  }
-  if (isNew.value) {
-    await create(saveData.value)
-  }
-  else {
-    await update(saveData.value)
-  }
   emit('done')
 }
 

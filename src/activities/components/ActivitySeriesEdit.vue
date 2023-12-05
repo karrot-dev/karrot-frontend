@@ -370,7 +370,7 @@ import { useUserService } from '@/users/services'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog.vue'
+import ConfirmUserChangesDialog from '@/activities/components/ConfirmUserChangesDialog.vue'
 import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit.vue'
 import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
@@ -569,7 +569,7 @@ export default {
         const uniqueUsers = Array.from(new Set(participants.map(participant => participant.user)))
 
         Dialog.create({
-          component: ConfirmChangesDialog,
+          component: ConfirmUserChangesDialog,
           componentProps: {
             users: uniqueUsers,
           },

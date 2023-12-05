@@ -21,7 +21,7 @@
         color="green"
         icon="fas fa-plus"
         :title="$t('PLACE_TYPES.ADD')"
-        @click="createNewPlaceStatus()"
+        @click="create()"
       />
     </template>
     <template #body-cell="props">
@@ -36,7 +36,6 @@
       <QTd
         :props="props"
         :auto-width="true"
-        :data-row="JSON.stringify({ id: props.row.id })"
       >
         <QIcon name="fa fa-bars" />
       </QTd>
@@ -82,46 +81,18 @@
 <script setup>
 import { generateKeyBetween } from 'fractional-indexing'
 import { sortBy } from 'lodash'
-import { Dialog, QBadge, QBtn, QIcon, QTable, QTd, QToggle } from 'quasar'
-import { Sortable } from 'sortablejs'
-import { computed, ref, watch } from 'vue'
+import { QBadge, QBtn, QIcon, QTable, QTd, QToggle } from 'quasar'
+import { computed, ref } from 'vue'
 
 import { useCurrentGroupId } from '@/group/helpers'
 import { usePlaceStatuses, usePlaceStatusHelpers } from '@/places/helpers'
 import { useSavePlaceStatusMutation } from '@/places/mutations'
+import { openEditDialog } from '@/utils/forms'
+import { useSortableTable } from '@/utils/sortable'
 
-import EditPlaceStatusDialog from '@/group/components/EditPlaceStatusDialog.vue'
-
-const tableRef = ref(null)
+import PlaceStatusForm from '@/group/components/PlaceStatusForm.vue'
 
 const { mutateAsync: save } = useSavePlaceStatusMutation()
-
-watch(() => tableRef.value?.$el.querySelector('tbody'), tbody => {
-  Sortable.create(tbody, {
-    animation: 150,
-    ghostClass: 'invisible',
-    handle: '.drag-handle',
-    async onEnd (event) {
-      const { oldIndex, newIndex } = event
-      // It is thinking we'll remove it first
-      // So if moving higher we need to counter this by adding 1
-      const maybeOneMore = newIndex > oldIndex ? 1 : 0
-      const prevIndex = newIndex - 1 + maybeOneMore
-      const nextIndex = newIndex + maybeOneMore
-      const placeStatus = placeStatuses.value[oldIndex]
-      const prev = placeStatuses.value[prevIndex]
-      const next = placeStatuses.value[nextIndex]
-      const prevOrder = prev?.order || null
-      let nextOrder = next?.order || null
-      if (prevOrder && nextOrder && prevOrder === nextOrder) {
-        // generateKeyBetween will throw an error if they are the same...
-        nextOrder = null
-      }
-      const order = generateKeyBetween(prevOrder, nextOrder)
-      await save({ id: placeStatus.id, order })
-    },
-  })
-})
 
 const { getTranslatedName, getColorName } = usePlaceStatusHelpers()
 
@@ -133,14 +104,15 @@ const placeStatuses = computed(() => {
   return sortBy(allPlaceStatuses.value.filter(placeStatus => showArchived.value || !placeStatus.isArchived), ['order', 'id'])
 })
 
+const { tableRef, handleColumn } = useSortableTable({
+  rows: placeStatuses,
+  onUpdate: save,
+})
+
 const showArchived = ref(false)
 
 const columns = computed(() => [
-  {
-    name: 'handle',
-    classes: 'drag-handle',
-    style: 'cursor: grab !important',
-  },
+  handleColumn,
   {
     name: 'colour',
     field: row => getColorName(row),
@@ -181,28 +153,19 @@ function generateNextOrder () {
   return generateKeyBetween(placeStatuses.value[placeStatuses.value.length - 1]?.order || null, null)
 }
 
-function createNewPlaceStatus () {
-  Dialog.create({
-    component: EditPlaceStatusDialog,
-    componentProps: {
-      placeStatus: {
-        name: undefined,
-        colour: undefined,
-        description: undefined,
-        order: generateNextOrder(),
-        isVisible: true,
-      },
+function create () {
+  openEditDialog(PlaceStatusForm, {
+    placeStatus: {
+      name: undefined,
+      colour: undefined,
+      description: undefined,
+      order: generateNextOrder(),
+      isVisible: true,
     },
   })
 }
 
-function edit (event, placeStatus) {
-  Dialog.create({
-    component: EditPlaceStatusDialog,
-    componentProps: {
-      placeStatus,
-    },
-  })
+function edit (_, placeStatus) {
+  openEditDialog(PlaceStatusForm, { placeStatus })
 }
-
 </script>

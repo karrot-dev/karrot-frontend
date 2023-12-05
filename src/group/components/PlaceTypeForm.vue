@@ -6,13 +6,38 @@
     <form
       class="q-gutter-y-lg"
       style="max-width: 700px"
-      @submit.prevent="maybeSave"
+      @submit.prevent="save"
     >
       <h3 v-if="isNew">
         {{ $t('PLACE_TYPES.ADD') }}
       </h3>
+      <h3 v-else>
+        {{ translatedName }}
+      </h3>
 
-      <QField borderless>
+      <TranslatableNameInput
+        v-model="edit"
+        :label="$t('ACTIVITY_TYPES.NAME')"
+        :error="Boolean(errors.name)"
+        :error-message="errors.name"
+        :options="translatableNameOptions"
+        @blur="v.name.$touch"
+      />
+
+      <QInput
+        v-model="edit.description"
+        label="Description"
+        :error="Boolean(errors.description)"
+        :error-message="errors.description"
+        outlined
+      />
+
+      <QField
+        borderless
+        hide-bottom-space
+        :error="Boolean(errors.icon)"
+        :error-message="errors.icon"
+      >
         <template #before>
           <QIcon
             :name="edit.icon"
@@ -65,25 +90,16 @@
         </template>
       </QField>
 
-      <TranslatableNameInput
-        v-model="edit"
-        :label="$t('ACTIVITY_TYPES.NAME')"
-        :error="hasNameError"
-        :error-message="nameError"
-        :options="translatableNameOptions"
-        @blur="v$.edit.name.$touch"
-      />
-
       <div class="row justify-end q-gutter-sm q-mt-sm">
         <QBtn
           type="button"
-          @click="$emit('cancel')"
+          @click="emit('cancel')"
         >
           {{ $t('BUTTON.CANCEL') }}
         </QBtn>
 
         <QBtn
-          v-if="!isNew && !value.isArchived"
+          v-if="!isNew && !placeType.isArchived"
           type="button"
           color="red"
           @click="archive"
@@ -92,7 +108,7 @@
         </QBtn>
 
         <QBtn
-          v-if="!isNew && value.isArchived"
+          v-if="!isNew && placeType.isArchived"
           type="button"
           color="red"
           @click="restore"
@@ -112,132 +128,122 @@
     </form>
   </div>
 </template>
-
-<script>
+<script setup>
 import { QIconPicker } from '@quasar/quasar-ui-qiconpicker'
-import useVuelidate from '@vuelidate/core'
-import { required } from '@vuelidate/validators'
-import {
-  QSelect,
-  QInput,
-  QField,
-  QBtn,
-  QMenu,
-  QIcon,
-} from 'quasar'
+import { QBtn, QField, QIcon, QInput, QMenu, QSelect } from 'quasar'
+import { computed, reactive, ref, toRef } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-import editMixin from '@/utils/mixins/editMixin'
-import statusMixin from '@/utils/mixins/statusMixin'
-import pickerIcons, { tags as pickerTags } from '@/utils/pickerIcons'
+import { useCurrentGroupId } from '@/group/helpers'
+import { usePlaceTypeTranslatedName, usePlaceTypes } from '@/places/helpers'
+import {
+  useCreatePlaceTypeMutation,
+  useSavePlaceTypeMutation,
+} from '@/places/mutations'
+import { confirmChanges, useForm } from '@/utils/forms'
+import allPickerIcons, { tags as pickerTags } from '@/utils/pickerIcons'
+import { isUnique, required } from '@/utils/validation'
 
 import TranslatableNameInput from '@/utils/components/TranslatableNameInput.vue'
 
-export default {
-  components: {
-    TranslatableNameInput,
-    QSelect,
-    QInput,
-    QField,
-    QBtn,
-    QMenu,
-    QIcon,
-    QIconPicker,
+const { t } = useI18n()
+
+const props = defineProps({
+  placeType: {
+    type: Object,
+    required: true,
   },
-  mixins: [editMixin, statusMixin],
-  props: {
-    placeTypes: {
-      type: Array,
-      required: true,
+})
+
+const emit = defineEmits([
+  'ok',
+  'cancel',
+])
+
+const iconFilter = ref('')
+const iconTag = ref(null)
+const iconPagination = reactive({
+  itemsPerPage: 20,
+  page: 0,
+})
+const pickerIcons = computed(() => {
+  if (!iconTag.value) return allPickerIcons
+  return allPickerIcons.filter(icon => icon.tags.includes(iconTag.value))
+})
+
+const placeType = toRef(props, 'placeType')
+
+const translatedName = usePlaceTypeTranslatedName(placeType)
+
+const groupId = useCurrentGroupId()
+const placeTypes = usePlaceTypes(groupId)
+const { mutateAsync: create, status: createStatus } = useCreatePlaceTypeMutation({ groupId })
+const { mutateAsync: update, status: updateStatus } = useSavePlaceTypeMutation()
+
+const namesInUse = computed(() => {
+  return placeTypes.value
+    .filter(entry => entry.id && entry.id !== placeType.value.id)
+    .map(entry => entry.name)
+})
+
+const {
+  v,
+  isNew,
+  hasChanged,
+  isPending,
+  canSave,
+  errors,
+  edit,
+  save,
+} = useForm(placeType, {
+  rules: {
+    name: {
+      required,
+      isUnique: isUnique(value => !namesInUse.value.includes(value)),
     },
-  },
-  emits: [
-    'save',
-    'cancel',
-  ],
-  setup () {
-    return {
-      v$: useVuelidate(),
-    }
-  },
-  data () {
-    return {
-      customName: '',
-      iconTag: null,
-      iconFilter: '',
-      iconPagination: {
-        itemsPerPage: 20,
-        page: 0,
-      },
-    }
-  },
-  computed: {
-    pickerIcons () {
-      if (!this.iconTag) return pickerIcons
-      return pickerIcons.filter(icon => icon.tags.includes(this.iconTag))
-    },
-    canSave () {
-      if (!this.isNew && !this.hasChanged) {
-        return false
-      }
-      return true
-    },
-    translatableNameOptions () {
-      return [
-        'Unspecified',
-        'Store',
-        'Sharing Point',
-        'Meeting Place',
-        'Restaurant',
-        'Market',
-      ].map(name => ({
-        name,
-        label: this.$t(`PLACE_TYPE_NAMES.${name}`),
-        disable: this.placeTypeNamesInUse.includes(name),
-      }))
-    },
-    placeTypeNamesInUse () {
-      return this.placeTypes
-        .filter(placeType => placeType.id && placeType.id !== this.edit.id)
-        .map(placeType => placeType.name)
-    },
-    hasNameError () {
-      return !!this.nameError
-    },
-    nameError () {
-      if (this.v$.edit.name.$error) {
-        const m = this.v$.edit.name
-        if (m.required.$invalid) return this.$t('VALIDATION.REQUIRED')
-        if (m.isUnique.$invalid) return this.$t('VALIDATION.UNIQUE')
-      }
-      return this.firstError('name')
+    icon: {
+      required,
     },
   },
-  created () {
-    this.pickerTags = pickerTags
+  create,
+  createStatus,
+  update,
+  updateStatus,
+  confirm: true,
+  onSuccess () {
+    emit('ok')
   },
-  methods: {
-    maybeSave () {
-      if (!this.canSave) return
-      this.save()
-    },
-    archive () {
-      this.$emit('save', { id: this.value.id, isArchived: true })
-    },
-    restore () {
-      this.$emit('save', { id: this.value.id, isArchived: false })
-    },
-  },
-  validations: {
-    edit: {
-      name: {
-        required,
-        isUnique (value) {
-          return !this.placeTypeNamesInUse.includes(value)
-        },
-      },
-    },
-  },
+})
+
+const translatableNameOptions = computed(() => [
+  'Unspecified',
+  'Store',
+  'Sharing Point',
+  'Meeting Place',
+  'Restaurant',
+  'Market',
+].map(name => ({
+  name,
+  label: t(`PLACE_TYPE_NAMES.${name}`),
+  disable: namesInUse.value.includes(name),
+})))
+
+async function archive () {
+  if (isNew.value) return
+  const { ok, updatedMessage } = await confirmChanges()
+  if (!ok) return
+  await update({ id: placeType.value.id, isArchived: true, updatedMessage })
+  emit('ok')
 }
+
+async function restore () {
+  if (isNew.value) return
+  const { ok, updatedMessage } = await confirmChanges()
+  if (!ok) return
+  await update({ id: placeType.value.id, isArchived: false, updatedMessage })
+  emit('ok')
+}
+
 </script>
 
 <style scoped lang="sass">

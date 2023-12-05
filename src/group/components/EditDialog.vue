@@ -7,9 +7,11 @@
     <QCard
       class="q-dialog-plugin full-width"
     >
-      <PlaceStatusForm
-        :place-status="placeStatus"
-        @done="onDialogHide"
+      <component
+        :is="form"
+        v-bind="formProps"
+        @ok="onDialogOK"
+        @cancel="onDialogCancel"
       />
     </QCard>
   </QDialog>
@@ -18,10 +20,12 @@
 <script setup>
 import { useDialogPluginComponent, QCard, QDialog } from 'quasar'
 
-import PlaceStatusForm from '@/group/components/PlaceStatusForm.vue'
-
 defineProps({
-  placeStatus: {
+  form: {
+    type: Object,
+    required: true,
+  },
+  formProps: {
     type: Object,
     required: true,
   },
@@ -31,5 +35,10 @@ defineEmits([
   ...useDialogPluginComponent.emits,
 ])
 
-const { dialogRef, onDialogHide } = useDialogPluginComponent()
+const {
+  dialogRef,
+  onDialogOK,
+  onDialogCancel,
+  onDialogHide,
+} = useDialogPluginComponent()
 </script>

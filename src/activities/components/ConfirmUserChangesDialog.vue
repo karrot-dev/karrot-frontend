@@ -10,7 +10,35 @@
         </QCardSection>
         <QCardSection class="q-dialog__message">
           {{ $t('HISTORY.CONFIRM_CHANGES_HINT') }}
-          ({{ $t('VALIDATION.OPTIONAL') }})
+          <span
+            v-if="!willRemoveUsers"
+          >
+            ({{ $t('VALIDATION.OPTIONAL') }})
+          </span>
+        </QCardSection>
+        <QCardSection
+          v-if="willRemoveUsers"
+          class="q-dialog__message"
+        >
+          <QBanner class="bg-orange-2">
+            <i18n-t
+              scope="global"
+              keypath="ACTIVITYMANAGE.CHANGE_AFFECTS_USERS"
+            >
+              <template #users>
+                <span
+                  v-for="(user, idx) in users"
+                  :key="user.id"
+                >
+                  <strong>{{ user.displayName }}</strong>
+                  <span v-if="idx < users.length - 2">, </span>
+                  <span v-else-if="idx < users.length - 1">&nbsp;{{ $t('CONVERSATION.REACTIONS.AND') }}&nbsp;</span>
+                </span>
+              </template>
+            </i18n-t>
+            <br><br>
+            {{ $t('ACTIVITYMANAGE.CHANGE_AFFECTS_USERS_HINT') }}
+          </QBanner>
         </QCardSection>
         <QCardSection class="q-dialog__message">
           <QInput
@@ -20,6 +48,7 @@
             outlined
             autofocus
             :placeholder="$t('WALL.WRITE_MESSAGE')"
+            :rules="[val => !willRemoveUsers || Boolean(val) || $t('VALIDATION.REQUIRED')]"
           />
         </QCardSection>
         <QCardSection align="right">
@@ -49,11 +78,21 @@ import {
   QCardSection,
   QBtn,
   QDialog,
+  QBanner,
 } from 'quasar'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+
+import { useUserService } from '@/users/services'
 
 const updatedMessageRef = ref(null)
 const updatedMessage = ref('')
+
+const props = defineProps({
+  users: {
+    type: Array,
+    required: true,
+  },
+})
 
 defineEmits(useDialogPluginComponent.emits)
 
@@ -69,4 +108,9 @@ function submit () {
   if (updatedMessageRef.value.hasError) return
   onDialogOK({ updatedMessage: updatedMessage.value })
 }
+
+const { getUserById } = useUserService()
+
+const willRemoveUsers = computed(() => props.users.length > 0)
+const users = computed(() => props.users.map(userId => getUserById(userId)))
 </script>

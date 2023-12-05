@@ -341,7 +341,7 @@ import statusMixin from '@/utils/mixins/statusMixin'
 import reactiveNow from '@/utils/reactiveNow'
 import { objectDiff } from '@/utils/utils'
 
-import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog.vue'
+import ConfirmUserChangesDialog from '@/activities/components/ConfirmUserChangesDialog.vue'
 import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit.vue'
 import ChooseImage from '@/utils/components/ChooseImage.vue'
 import MarkdownInput from '@/utils/components/MarkdownInput.vue'
@@ -518,7 +518,7 @@ export default {
       else {
         const { users } = await activityAPI.checkSave({ ...this.getPatchData(), id: this.value.id })
         Dialog.create({
-          component: ConfirmChangesDialog,
+          component: ConfirmUserChangesDialog,
           componentProps: {
             users,
           },

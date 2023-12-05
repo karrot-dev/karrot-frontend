@@ -76,7 +76,7 @@
         <QBtn
           type="button"
           :disable="isPending"
-          @click="emit('done')"
+          @click="emit('cancel')"
         >
           {{ t('BUTTON.CANCEL') }}
         </QBtn>
@@ -122,7 +122,7 @@ import { useColourNameFor } from '@/activities/stylesheet'
 import { useCurrentGroupId } from '@/group/helpers'
 import { usePlaceStatuses, usePlaceStatusTranslatedName } from '@/places/helpers'
 import { useCreatePlaceStatusMutation, useSavePlaceStatusMutation } from '@/places/mutations'
-import { useForm } from '@/utils/forms'
+import { confirmChanges, useForm } from '@/utils/forms'
 import { isUnique, required } from '@/utils/validation'
 
 import ColourPicker from '@/utils/components/ColourPicker.vue'
@@ -138,7 +138,8 @@ const props = defineProps({
 })
 
 const emit = defineEmits([
-  'done',
+  'ok',
+  'cancel',
 ])
 
 const placeStatus = toRef(props, 'placeStatus')
@@ -179,8 +180,9 @@ const {
   createStatus,
   update,
   updateStatus,
+  confirm: true,
   onSuccess () {
-    emit('done')
+    emit('ok')
   },
 })
 
@@ -199,14 +201,18 @@ const colourName = useColourNameFor(edit)
 
 async function archive () {
   if (isNew.value) return
-  await update({ id: placeStatus.value.id, isArchived: true })
-  emit('done')
+  const { ok, updatedMessage } = await confirmChanges()
+  if (!ok) return
+  await update({ id: placeStatus.value.id, isArchived: true, updatedMessage })
+  emit('ok')
 }
 
 async function restore () {
   if (isNew.value) return
-  await update({ id: placeStatus.value.id, isArchived: false })
-  emit('done')
+  const { ok, updatedMessage } = await confirmChanges()
+  if (!ok) return
+  await update({ id: placeStatus.value.id, isArchived: false, updatedMessage })
+  emit('ok')
 }
 
 </script>

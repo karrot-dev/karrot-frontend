@@ -1,11 +1,15 @@
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
+import { Dialog } from 'quasar'
 import { computed, ref, unref, watch } from 'vue'
 
 import { objectDiff } from '@/utils/utils'
 import { useValidation } from '@/utils/validation'
 
-export function useForm (initial, { rules, create, update, createStatus, updateStatus, onSuccess }) {
+import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog.vue'
+import EditDialog from '@/group/components/EditDialog.vue'
+
+export function useForm (initial, { rules, create, update, createStatus, updateStatus, confirm, onSuccess }) {
   const edit = ref(cloneDeep(unref(initial)))
 
   const isNew = computed(() => {
@@ -28,20 +32,27 @@ export function useForm (initial, { rules, create, update, createStatus, updateS
     edit.value = Object.assign(edit.value, cloneDeep(changes))
   })
 
-  const saveData = computed(() => {
-    return isNew.value ? edit.value : { id: initial.value.id, ...objectDiff(initial.value, edit.value) }
-  })
-
   async function save () {
     if (!canSave.value || isPending.value) return
     if (!await validate()) {
       return
     }
     if (isNew.value) {
-      await create(saveData.value)
+      await create(edit.value)
     }
     else {
-      await update(saveData.value)
+      const updateData = {
+        ...objectDiff(initial.value, edit.value),
+        id: initial.value.id,
+      }
+      if (confirm) {
+        const { ok, updatedMessage } = await confirmChanges()
+        if (!ok) return
+        if (updatedMessage) {
+          Object.assign(updateData, { updatedMessage })
+        }
+      }
+      await update(updateData)
     }
     onSuccess?.()
   }
@@ -54,7 +65,6 @@ export function useForm (initial, { rules, create, update, createStatus, updateS
 
   return {
     edit,
-    saveData,
     isNew,
     isPending,
     hasChanged,
@@ -64,4 +74,33 @@ export function useForm (initial, { rules, create, update, createStatus, updateS
     save,
     reset,
   }
+}
+
+export function confirmChanges () {
+  return new Promise(resolve => {
+    Dialog.create({
+      component: ConfirmChangesDialog,
+    })
+      .onOk(({ updatedMessage }) => {
+        if (updatedMessage) {
+          resolve({ ok: true, updatedMessage })
+        }
+        else {
+          resolve({ ok: true })
+        }
+      })
+      .onCancel(() => {
+        resolve({ ok: false })
+      })
+  })
+}
+
+export function openEditDialog (FormComponent, props) {
+  Dialog.create({
+    component: EditDialog,
+    componentProps: {
+      form: FormComponent,
+      formProps: props,
+    },
+  })
 }

@@ -108,9 +108,25 @@ export function usePlaceStatusTranslatedName (placeStatus) {
   return computed(() => getTranslatedName(unref(placeStatus)))
 }
 
+export function usePlaceTypeTranslatedName (placeType) {
+  const { getTranslatedName } = usePlaceTypeHelpers()
+  return computed(() => getTranslatedName(unref(placeType)))
+}
+
 export function usePlaceType (placeTypeId) {
   const { getPlaceTypeById } = usePlaceTypeService()
   return computed(() => getPlaceTypeById(unref(placeTypeId)))
+}
+
+export function usePlaceTypes (groupId) {
+  const { placeTypes } = usePlaceTypeService()
+  return computed(() => {
+    if (!placeTypes?.value) return []
+    if (!groupId) return placeTypes.value
+    if (!groupId.value) return []
+    const groupIdValue = unref(groupId)
+    return placeTypes.value?.filter(placeStatus => placeStatus.group === groupIdValue)
+  })
 }
 
 export function usePlaceStatus (placeStatusId) {

@@ -17,15 +17,42 @@
             :key="index"
             v-bind="itemProps"
           >
-            <QItemSection avatar>
+            <QItemSection side>
               <QIcon
                 v-if="opt.activityType"
                 v-bind="getIconProps(opt.activityType)"
+                size="1.1em"
+              />
+              <QIcon
+                v-else
+                color="transparent"
+                size="1.1em"
               />
             </QItemSection>
             <QItemSection>
               <QItemLabel>
                 {{ opt.label }}
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+          <QSeparator v-if="!opt.value" />
+        </template>
+        <template #after-options>
+          <QSeparator />
+          <QItem
+            clickable
+            :to="{ name: 'groupEditActivityTypes' }"
+          >
+            <QItemSection side>
+              <QIcon
+                name="fa fa-cog"
+                color="gray"
+                size="1.1em"
+              />
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel class="text-italic">
+                Manage types
               </QItemLabel>
             </QItemSection>
           </QItem>
@@ -150,7 +177,7 @@ import {
   QInfiniteScroll,
   QSelect,
   QBanner,
-  QSpace,
+  QSpace, QSeparator,
 } from 'quasar'
 import { computed } from 'vue'
 
@@ -170,6 +197,7 @@ import KSpinner from '@/utils/components/KSpinner.vue'
 
 export default {
   components: {
+    QSeparator,
     QBtn,
     ICSBtn,
     QIcon,

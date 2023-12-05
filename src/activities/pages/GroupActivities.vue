@@ -33,6 +33,15 @@
               <QItemLabel>
                 {{ opt.label }}
               </QItemLabel>
+              <QItemLabel
+                v-if="opt.caption"
+                caption
+                class="ellipsis"
+                style="max-width: 200px;"
+                :title="opt.caption"
+              >
+                {{ opt.caption }}
+              </QItemLabel>
             </QItemSection>
           </QItem>
           <QSeparator v-if="!opt.value" />
@@ -357,6 +366,7 @@ export default {
         ...this.activityTypes.map(activityType => {
           return {
             label: this.getTranslatedName(activityType),
+            caption: activityType.description,
             // convert to a String as it's also reflected in URL query which is always string
             value: String(activityType.id),
             activityType,

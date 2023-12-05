@@ -71,7 +71,7 @@ const { getTranslatedName, getIconProps, sortByTranslatedName } = usePlaceTypeHe
 const allPlaceTypes = usePlaceTypes(groupId)
 
 const placeTypes = computed(() => {
-  return allPlaceTypes.value.filter(placeStatus => showArchived.value || !placeStatus.isArchived).sort(sortByTranslatedName)
+  return allPlaceTypes.value.filter(placeType => showArchived.value || !placeType.isArchived).sort(sortByTranslatedName)
 })
 
 const columns = computed(() => [

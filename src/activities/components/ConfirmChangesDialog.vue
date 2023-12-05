@@ -20,9 +20,10 @@
             outlined
             autofocus
             :placeholder="$t('WALL.WRITE_MESSAGE')"
+            @keyup.ctrl.enter="submit"
           />
         </QCardSection>
-        <QCardSection align="right">
+        <QCardActions align="right">
           <QBtn
             flat
             color="primary"
@@ -35,7 +36,7 @@
             type="submit"
             :label="$t('BUTTON.SAVE_CHANGES')"
           />
-        </QCardSection>
+        </QCardActions>
       </form>
     </QCard>
   </QDialog>
@@ -49,6 +50,7 @@ import {
   QCardSection,
   QBtn,
   QDialog,
+  QCardActions,
 } from 'quasar'
 import { ref } from 'vue'
 

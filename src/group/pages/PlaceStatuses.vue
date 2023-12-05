@@ -12,7 +12,7 @@
     <template #top-left>
       <QToggle
         v-model="showArchived"
-        :label="$t('PLACE_TYPES.SHOW_ARCHIVED')"
+        :label="t('PLACE_TYPES.SHOW_ARCHIVED')"
       />
     </template>
     <template #top-right>
@@ -20,7 +20,7 @@
         round
         color="green"
         icon="fas fa-plus"
-        :title="$t('PLACE_TYPES.ADD')"
+        :title="t('PLACE_TYPES.ADD')"
         @click="create()"
       />
     </template>

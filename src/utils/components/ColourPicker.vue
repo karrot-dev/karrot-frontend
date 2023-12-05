@@ -36,7 +36,7 @@ import { defaultColour, rows } from '@/utils/paletteColours'
 const props = defineProps({
   modelValue: {
     type: String,
-    required: true,
+    default: null,
   },
 })
 

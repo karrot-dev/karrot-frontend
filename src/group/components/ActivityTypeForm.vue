@@ -6,85 +6,62 @@
     <form
       class="q-gutter-y-lg"
       style="max-width: 700px"
-      @submit.prevent="maybeSave"
+      @submit.prevent="save"
     >
+      <h3 v-if="isNew">
+        {{ $t('ACTIVITY_TYPES.ADD') }}
+      </h3>
+      <h3 v-else>
+        {{ translatedName }}
+      </h3>
+
+      <TranslatableNameInput
+        v-model="edit"
+        :label="t('ACTIVITY_TYPES.NAME')"
+        :error="Boolean(errors.name)"
+        :error-message="errors.name"
+        :options="translatableNameOptions"
+        @blur="v.name.$touch"
+      />
+
+      <QInput
+        v-model="edit.description"
+        label="Description"
+        :error="Boolean(errors.description)"
+        :error-message="errors.description"
+        outlined
+      />
+
       <QField borderless>
         <template #before>
           <QIcon
             :name="edit.icon"
             size="lg"
-            :color="colorName"
+            :color="colourName"
           />
         </template>
         <template #control>
-          <QBtn
-            :label="$t('BUTTON.CHANGE_ICON')"
-            flat
-            color="primary"
-            class="q-mr-sm"
-          >
-            <QMenu
-              ref="iconMenu"
-              square
-            >
-              <QSelect
-                v-model="iconTag"
-                label="Tag"
-                outlined
-                clearable
-                dense
-                class="q-ma-md"
-                :options="pickerTags"
-              />
-              <QInput
-                v-model="iconFilter"
-                :label="$t('BUTTON.SEARCH')"
-                outlined
-                dense
-                clearable
-                class="q-ma-md"
-                :autofocus="!$q.platform.has.touch"
-              />
-              <QIconPicker
-                v-model="edit.icon"
-                v-model:model-pagination="iconPagination"
-                :icons="pickerIcons"
-                :filter="iconFilter"
-                color="white"
-                :text-color="colorName"
-                :selected-color="colorName"
-                selected-text-color="white"
-                style="height: 220px;"
-              />
-            </QMenu>
-          </QBtn>
-
+          <IconPicker
+            v-model="edit.icon"
+            :color="colourName"
+          />
           <ColourPicker v-model="edit.colour" />
         </template>
       </QField>
 
-      <TranslatableNameInput
-        v-model="edit"
-        :label="$t('ACTIVITY_TYPES.NAME')"
-        :error="hasNameError"
-        :error-message="nameError"
-        :options="translatableNameOptions"
-        @blur="v$.edit.name.$touch"
-      />
-
       <QField
         borderless
         hide-bottom-space
-        :hint="edit.hasFeedback ? $t('ACTIVITY_TYPES.FEEDBACK_YES_HINT') : $t('ACTIVITY_TYPES.FEEDBACK_NO_HINT')"
+        :hint="edit.hasFeedback ? t('ACTIVITY_TYPES.FEEDBACK_YES_HINT') : t('ACTIVITY_TYPES.FEEDBACK_NO_HINT')"
       >
         <QToggle
           v-model="edit.hasFeedback"
-          :label="$t('ACTIVITY_TYPES.FEEDBACK')"
+          :label="t('ACTIVITY_TYPES.FEEDBACK')"
         />
         <QToggle
           v-if="edit.hasFeedback"
           v-model="edit.hasFeedbackWeight"
-          :label="$t('ACTIVITY_TYPES.FEEDBACK_WEIGHT_LABEL')"
+          :label="t('ACTIVITY_TYPES.FEEDBACK_WEIGHT_LABEL')"
           class="q-ml-lg"
         />
       </QField>
@@ -95,49 +72,14 @@
             <QIcon
               :name="edit.feedbackIcon"
               size="lg"
-              :color="colorName"
+              :color="colourName"
             />
           </template>
           <template #control>
-            <QBtn
-              :label="$t('BUTTON.CHANGE_ICON')"
-              flat
-              color="primary"
-            >
-              <QMenu
-                ref="feedbackIconMenu"
-              >
-                <QSelect
-                  v-model="feedbackIconTag"
-                  label="Tag"
-                  outlined
-                  clearable
-                  dense
-                  class="q-ma-md"
-                  :options="pickerTags"
-                />
-                <QInput
-                  v-model="feedbackIconFilter"
-                  :label="$t('BUTTON.SEARCH')"
-                  outlined
-                  dense
-                  clearable
-                  class="q-ma-md"
-                  :autofocus="!$q.platform.has.touch"
-                />
-                <QIconPicker
-                  v-model="edit.feedbackIcon"
-                  v-model:model-pagination="feedbackIconPagination"
-                  :icons="feedbackPickerIcons"
-                  :filter="feedbackIconFilter"
-                  color="white"
-                  :text-color="colorName"
-                  :selected-color="colorName"
-                  selected-text-color="white"
-                  style="height: 220px;"
-                />
-              </QMenu>
-            </QBtn>
+            <IconPicker
+              v-model="edit.feedbackIcon"
+              :color="edit.colour"
+            />
           </template>
         </QField>
       </template>
@@ -145,27 +87,27 @@
       <div class="row justify-end q-gutter-sm q-mt-sm">
         <QBtn
           type="button"
-          @click="$emit('cancel')"
+          @click="emit('cancel')"
         >
-          {{ $t('BUTTON.CANCEL') }}
+          {{ t('BUTTON.CANCEL') }}
         </QBtn>
 
         <QBtn
-          v-if="!isNew && !value.isArchived"
+          v-if="!isNew && !activityType.isArchived"
           type="button"
           color="red"
           @click="archive"
         >
-          {{ $t('BUTTON.ARCHIVE') }}
+          {{ t('BUTTON.ARCHIVE') }}
         </QBtn>
 
         <QBtn
-          v-if="!isNew && value.isArchived"
+          v-if="!isNew && activityType.isArchived"
           type="button"
           color="red"
           @click="restore"
         >
-          {{ $t('STOREEDIT.RESTORE') }}
+          {{ t('STOREEDIT.RESTORE') }}
         </QBtn>
 
         <QBtn
@@ -174,184 +116,121 @@
           :disable="!canSave"
           :loading="isPending"
         >
-          {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
+          {{ t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
         </QBtn>
       </div>
     </form>
   </div>
 </template>
 
-<script>
-import { QIconPicker } from '@quasar/quasar-ui-qiconpicker'
-import useVuelidate from '@vuelidate/core'
-import { required } from '@vuelidate/validators'
-import {
-  QSelect,
-  QInput,
-  QField,
-  QBtn,
-  QToggle,
-  QMenu,
-  QIcon,
-} from 'quasar'
+<script setup>
+import { QBtn, QField, QIcon, QInput, QToggle } from 'quasar'
+import { computed, toRef } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-import { createActivityTypeStylesheet } from '@/activities/stylesheet'
-import editMixin from '@/utils/mixins/editMixin'
-import statusMixin from '@/utils/mixins/statusMixin'
-import pickerIcons, { tags as pickerTags } from '@/utils/pickerIcons'
+import { useActivityTypes, useActivityTypeTranslatedName } from '@/activities/helpers'
+import { useCreateActivityTypeMutation, useSaveActivityTypeMutation } from '@/activities/mutations'
+import { useColourNameFor } from '@/activities/stylesheet'
+import { useCurrentGroupId } from '@/group/helpers'
+import { confirmChanges, useForm } from '@/utils/forms'
+import { isUnique, required } from '@/utils/validation'
 
 import ColourPicker from '@/utils/components/ColourPicker.vue'
+import IconPicker from '@/utils/components/IconPicker.vue'
 import TranslatableNameInput from '@/utils/components/TranslatableNameInput.vue'
 
-export default {
-  components: {
-    TranslatableNameInput,
-    ColourPicker,
-    QSelect,
-    QInput,
-    QField,
-    QBtn,
-    QToggle,
-    QMenu,
-    QIcon,
-    QIconPicker,
+const { t } = useI18n()
+
+const props = defineProps({
+  activityType: {
+    type: Object,
+    required: true,
   },
-  mixins: [editMixin, statusMixin],
-  props: {
-    activityTypes: {
-      type: Array,
-      required: true,
+})
+
+const emit = defineEmits([
+  'ok',
+  'cancel',
+])
+
+const activityType = toRef(props, 'activityType')
+
+const translatedName = useActivityTypeTranslatedName(activityType)
+
+const groupId = useCurrentGroupId()
+const activityTypes = useActivityTypes(groupId)
+const { mutateAsync: create, status: createStatus } = useCreateActivityTypeMutation({ groupId })
+const { mutateAsync: update, status: updateStatus } = useSaveActivityTypeMutation()
+
+const namesInUse = computed(() => {
+  return activityTypes.value
+    .filter(entry => entry.id && entry.id !== activityType.value.id)
+    .map(entry => entry.name)
+})
+
+const {
+  v,
+  isNew,
+  hasChanged,
+  isPending,
+  canSave,
+  errors,
+  edit,
+  save,
+} = useForm(activityType, {
+  rules: {
+    name: {
+      required,
+      isUnique: isUnique(value => !namesInUse.value.includes(value)),
     },
-  },
-  emits: [
-    'save',
-    'cancel',
-  ],
-  setup () {
-    return {
-      v$: useVuelidate(),
-    }
-  },
-  data () {
-    return {
-      customName: '',
-      colorName: null,
-      iconTag: null,
-      iconFilter: '',
-      iconPagination: {
-        itemsPerPage: 20,
-        page: 0,
-      },
-      feedbackIconTag: null,
-      feedbackIconFilter: '',
-      feedbackIconPagination: {
-        itemsPerPage: 20,
-        page: 0,
-      },
-    }
-  },
-  computed: {
-    pickerIcons () {
-      if (!this.iconTag) return pickerIcons
-      return pickerIcons.filter(icon => icon.tags.includes(this.iconTag))
-    },
-    feedbackPickerIcons () {
-      if (!this.feedbackIconTag) return pickerIcons
-      return pickerIcons.filter(icon => icon.tags.includes(this.iconTag))
-    },
-    canSave () {
-      if (!this.isNew && !this.hasChanged) {
-        return false
-      }
-      return true
-    },
-    translatableNameOptions () {
-      return [
-        // alphabetical
-        'Activity',
-        'Distribution',
-        'Event',
-        'Meeting',
-        'Pickup',
-        'Task',
-      ].map(name => ({
-        name,
-        label: this.$t(`ACTIVITY_TYPE_NAMES.${name}`),
-        disable: this.activityTypeNamesInUse.includes(name),
-      }))
-    },
-    activityTypeNamesInUse () {
-      return this.activityTypes
-        .filter(activityType => activityType.id && activityType.id !== this.edit.id)
-        .map(activityType => activityType.name)
-    },
-    hasNameError () {
-      return !!this.nameError
-    },
-    nameError () {
-      if (this.v$.edit.name.$error) {
-        const m = this.v$.edit.name
-        if (m.required.$invalid) return this.$t('VALIDATION.REQUIRED')
-        if (m.isUnique.$invalid) return this.$t('VALIDATION.UNIQUE')
-      }
-      return this.firstError('name')
+    icon: {
+      required,
     },
   },
-  watch: {
-    'edit.colour': {
-      handler () {
-        // Keep our activity type class names up to date!
-        this.colorName = this.updateEntry(this.edit)
-      },
-      immediate: true,
-    },
-    'edit.icon' () {
-      this.$refs.iconMenu.hide()
-    },
-    'edit.feedbackIcon' () {
-      this.$refs.feedbackIconMenu.hide()
-    },
+  create,
+  createStatus,
+  update,
+  updateStatus,
+  confirm: true,
+  onSuccess () {
+    emit('ok')
   },
-  created () {
-    this.pickerTags = pickerTags
-  },
-  beforeCreate () {
-    const { updateEntry, removeStylesheet } = createActivityTypeStylesheet('-edit')
-    Object.assign(this, {
-      updateEntry,
-      removeStylesheet,
-    })
-  },
-  beforeUnmount () {
-    this.removeStylesheet()
-  },
-  methods: {
-    maybeSave () {
-      if (!this.canSave) return
-      this.save()
-    },
-    archive () {
-      this.$emit('save', { id: this.value.id, isArchived: true })
-    },
-    restore () {
-      this.$emit('save', { id: this.value.id, isArchived: false })
-    },
-  },
-  validations: {
-    edit: {
-      name: {
-        required,
-        isUnique (value) {
-          return !this.activityTypeNamesInUse.includes(value)
-        },
-      },
-    },
-  },
+})
+
+const colourName = useColourNameFor(edit)
+
+const translatableNameOptions = computed(() => [
+  // alphabetical
+  'Activity',
+  'Distribution',
+  'Event',
+  'Meeting',
+  'Pickup',
+  'Task',
+].map(name => ({
+  name,
+  label: t(`ACTIVITY_TYPE_NAMES.${name}`),
+  disable: namesInUse.value.includes(name),
+})))
+
+async function archive () {
+  if (isNew.value) return
+  const { ok, updatedMessage } = await confirmChanges()
+  if (!ok) return
+  await update({ id: activityType.value.id, isArchived: true, updatedMessage })
+  emit('ok')
 }
+
+async function restore () {
+  if (isNew.value) return
+  const { ok, updatedMessage } = await confirmChanges()
+  if (!ok) return
+  await update({ id: activityType.value.id, isArchived: false, updatedMessage })
+  emit('ok')
+}
+
 </script>
 
 <style scoped lang="sass">
 @import 'editbox'
 </style>
-
-<style src="@quasar/quasar-ui-qiconpicker/dist/index.css"></style>

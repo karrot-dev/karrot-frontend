@@ -9,7 +9,7 @@
       @submit.prevent="save"
     >
       <h3 v-if="isNew">
-        {{ $t('PLACE_TYPES.ADD') }}
+        {{ t('PLACE_TYPES.ADD') }}
       </h3>
       <h3 v-else>
         {{ translatedName }}
@@ -17,7 +17,7 @@
 
       <TranslatableNameInput
         v-model="edit"
-        :label="$t('ACTIVITY_TYPES.NAME')"
+        :label="t('ACTIVITY_TYPES.NAME')"
         :error="Boolean(errors.name)"
         :error-message="errors.name"
         :options="translatableNameOptions"
@@ -46,47 +46,10 @@
           />
         </template>
         <template #control>
-          <QBtn
-            :label="$t('BUTTON.CHANGE_ICON')"
-            flat
-            color="primary"
-            class="q-mr-sm"
-          >
-            <QMenu
-              ref="iconMenu"
-              square
-            >
-              <QSelect
-                v-model="iconTag"
-                label="Tag"
-                outlined
-                clearable
-                dense
-                class="q-ma-md"
-                :options="pickerTags"
-              />
-              <QInput
-                v-model="iconFilter"
-                :label="$t('BUTTON.SEARCH')"
-                outlined
-                dense
-                clearable
-                class="q-ma-md"
-                :autofocus="!$q.platform.has.touch"
-              />
-              <QIconPicker
-                v-model="edit.icon"
-                v-model:model-pagination="iconPagination"
-                :icons="pickerIcons"
-                :filter="iconFilter"
-                color="white"
-                text-color="positive"
-                selected-color="positive"
-                selected-text-color="white"
-                style="height: 220px;"
-              />
-            </QMenu>
-          </QBtn>
+          <IconPicker
+            v-model="edit.icon"
+            color="positive"
+          />
         </template>
       </QField>
 
@@ -95,7 +58,7 @@
           type="button"
           @click="emit('cancel')"
         >
-          {{ $t('BUTTON.CANCEL') }}
+          {{ t('BUTTON.CANCEL') }}
         </QBtn>
 
         <QBtn
@@ -104,7 +67,7 @@
           color="red"
           @click="archive"
         >
-          {{ $t('BUTTON.ARCHIVE') }}
+          {{ t('BUTTON.ARCHIVE') }}
         </QBtn>
 
         <QBtn
@@ -113,7 +76,7 @@
           color="red"
           @click="restore"
         >
-          {{ $t('STOREEDIT.RESTORE') }}
+          {{ t('STOREEDIT.RESTORE') }}
         </QBtn>
 
         <QBtn
@@ -122,16 +85,15 @@
           :disable="!canSave"
           :loading="isPending"
         >
-          {{ $t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
+          {{ t(isNew ? 'BUTTON.CREATE' : 'BUTTON.SAVE_CHANGES') }}
         </QBtn>
       </div>
     </form>
   </div>
 </template>
 <script setup>
-import { QIconPicker } from '@quasar/quasar-ui-qiconpicker'
-import { QBtn, QField, QIcon, QInput, QMenu, QSelect } from 'quasar'
-import { computed, reactive, ref, toRef } from 'vue'
+import { QBtn, QField, QIcon, QInput } from 'quasar'
+import { computed, toRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import { useCurrentGroupId } from '@/group/helpers'
@@ -141,9 +103,9 @@ import {
   useSavePlaceTypeMutation,
 } from '@/places/mutations'
 import { confirmChanges, useForm } from '@/utils/forms'
-import allPickerIcons, { tags as pickerTags } from '@/utils/pickerIcons'
 import { isUnique, required } from '@/utils/validation'
 
+import IconPicker from '@/utils/components/IconPicker.vue'
 import TranslatableNameInput from '@/utils/components/TranslatableNameInput.vue'
 
 const { t } = useI18n()
@@ -159,17 +121,6 @@ const emit = defineEmits([
   'ok',
   'cancel',
 ])
-
-const iconFilter = ref('')
-const iconTag = ref(null)
-const iconPagination = reactive({
-  itemsPerPage: 20,
-  page: 0,
-})
-const pickerIcons = computed(() => {
-  if (!iconTag.value) return allPickerIcons
-  return allPickerIcons.filter(icon => icon.tags.includes(iconTag.value))
-})
 
 const placeType = toRef(props, 'placeType')
 
@@ -249,5 +200,3 @@ async function restore () {
 <style scoped lang="sass">
 @import 'editbox'
 </style>
-
-<style src="@quasar/quasar-ui-qiconpicker/dist/index.css"></style>

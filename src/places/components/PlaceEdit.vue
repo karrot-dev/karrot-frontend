@@ -33,7 +33,6 @@
               <template #option="scope">
                 <QItem
                   :key="scope.index"
-                  dense
                   v-bind="scope.itemProps"
                 >
                   <QItemSection side>
@@ -59,11 +58,24 @@
                   {{ scope.opt.label }}
                 </div>
               </template>
-              <template #afteroff>
-                <QBtn
-                  :label="$t('PLACE_TYPES.MANAGE_TYPES')"
-                  :to="{ name: 'groupEditPlaceTypes' }"
-                />
+              <template #after-options>
+                <QItem
+                  clickable
+                  @click="createNewPlaceType"
+                >
+                  <QItemSection side>
+                    <QIcon
+                      name="fa fa-plus"
+                      color="positive"
+                      size="1.1em"
+                    />
+                  </QItemSection>
+                  <QItemSection>
+                    <QItemLabel class="text-italic">
+                      Add new type
+                    </QItemLabel>
+                  </QItemSection>
+                </QItem>
               </template>
             </QSelect>
 
@@ -78,25 +90,6 @@
               outlined
               class="col"
             >
-              <template #after-options>
-                <QItem
-                  clickable
-                  @click="createNewPlaceStatus"
-                >
-                  <QItemSection side>
-                    <QIcon
-                      name="fa fa-plus"
-                      color="positive"
-                      size="1.1em"
-                    />
-                  </QItemSection>
-                  <QItemSection>
-                    <QItemLabel class="text-italic">
-                      Add new status
-                    </QItemLabel>
-                  </QItemSection>
-                </QItem>
-              </template>
               <template #option="scope">
                 <QItem
                   :key="scope.index"
@@ -128,6 +121,25 @@
                 <div class="ellipsis">
                   {{ scope.opt.label }}
                 </div>
+              </template>
+              <template #after-options>
+                <QItem
+                  clickable
+                  @click="createNewPlaceStatus"
+                >
+                  <QItemSection side>
+                    <QIcon
+                      name="fa fa-plus"
+                      color="positive"
+                      size="1.1em"
+                    />
+                  </QItemSection>
+                  <QItemSection>
+                    <QItemLabel class="text-italic">
+                      Add new status
+                    </QItemLabel>
+                  </QItemSection>
+                </QItem>
               </template>
             </QSelect>
           </div>
@@ -283,10 +295,12 @@ import { useCurrentGroupService } from '@/group/services'
 import { usePlaceStatuses, usePlaceStatusHelpers, usePlaceTypeHelpers } from '@/places/helpers'
 import { optionsFor } from '@/places/placeStatus'
 import { usePlaceStatusService, usePlaceTypeService } from '@/places/services'
+import { openEditDialog } from '@/utils/forms'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
-import EditPlaceStatusDialog from '@/group/components/EditPlaceStatusDialog.vue'
+import PlaceStatusForm from '@/group/components/PlaceStatusForm.vue'
+import PlaceTypeForm from '@/group/components/PlaceTypeForm.vue'
 import AddressPicker from '@/maps/components/AddressPicker.vue'
 import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
@@ -366,17 +380,25 @@ export default {
       return generateKeyBetween(placeStatuses.value[placeStatuses.value.length - 1]?.order || null, null)
     }
 
+    function createNewPlaceType () {
+      openEditDialog(PlaceTypeForm, {
+        placeType: {
+          name: undefined,
+          icon: 'fas fa-map-marker',
+          description: undefined,
+          isVisible: true,
+        },
+      })
+    }
+
     function createNewPlaceStatus () {
-      Dialog.create({
-        component: EditPlaceStatusDialog,
-        componentProps: {
-          placeStatus: {
-            name: undefined,
-            colour: undefined,
-            description: undefined,
-            order: generateNextOrder(),
-            isVisible: true,
-          },
+      openEditDialog(PlaceStatusForm, {
+        placeStatus: {
+          name: undefined,
+          colour: undefined,
+          description: undefined,
+          order: generateNextOrder(),
+          isVisible: true,
         },
       })
     }
@@ -388,6 +410,7 @@ export default {
       placeStatusOptions,
       getPlaceStatusById,
       getPlaceStatusColorName: placeStatusHelpers.getColorName,
+      createNewPlaceType,
       createNewPlaceStatus,
     }
   },

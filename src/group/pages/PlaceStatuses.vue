@@ -83,6 +83,7 @@ import { generateKeyBetween } from 'fractional-indexing'
 import { sortBy } from 'lodash'
 import { QBadge, QBtn, QIcon, QTable, QTd, QToggle } from 'quasar'
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import { useCurrentGroupId } from '@/group/helpers'
 import { usePlaceStatuses, usePlaceStatusHelpers } from '@/places/helpers'
@@ -91,6 +92,8 @@ import { openEditDialog } from '@/utils/forms'
 import { useSortableTable } from '@/utils/sortable'
 
 import PlaceStatusForm from '@/group/components/PlaceStatusForm.vue'
+
+const { t } = useI18n()
 
 const { mutateAsync: save } = useSavePlaceStatusMutation()
 

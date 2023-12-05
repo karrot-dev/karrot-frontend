@@ -15,18 +15,55 @@
         <template #option="{ index, opt, itemProps }">
           <QItem
             :key="index"
+            dense
             v-bind="itemProps"
           >
-            <QItemSection avatar>
+            <QItemSection side>
               <QIcon
                 v-if="opt.placeType"
                 v-bind="getIconProps(opt.placeType)"
                 color="positive"
+                size="1.1em"
+              />
+              <QIcon
+                v-else
+                color="transparent"
+                size="1.1em"
               />
             </QItemSection>
             <QItemSection>
               <QItemLabel>
                 {{ opt.label }}
+              </QItemLabel>
+              <QItemLabel
+                v-if="opt.caption"
+                caption
+                class="ellipsis"
+                style="max-width: 200px;"
+                :title="opt.caption"
+              >
+                {{ opt.caption }}
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+          <QSeparator v-if="!opt.value" />
+        </template>
+        <template #after-options>
+          <QSeparator />
+          <QItem
+            clickable
+            :to="{ name: 'groupEditPlaceTypes' }"
+          >
+            <QItemSection side>
+              <QIcon
+                name="fa fa-cog"
+                color="gray"
+                size="1.1em"
+              />
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel class="text-italic">
+                Manage types
               </QItemLabel>
             </QItemSection>
           </QItem>
@@ -49,13 +86,16 @@
             dense
             v-bind="itemProps"
           >
-            <QItemSection
-              avatar
-            >
+            <QItemSection side>
               <QIcon
                 v-if="opt.color"
                 name="fas fa-circle"
                 :color="opt.color"
+                size="1.1em"
+              />
+              <QIcon
+                v-else
+                color="transparent"
                 size="1.1em"
               />
             </QItemSection>
@@ -86,6 +126,26 @@
               {{ opt.label }}
             </div>
           </div>
+        </template>
+        <template #after-options>
+          <QSeparator />
+          <QItem
+            clickable
+            :to="{ name: 'groupEditPlaceStatuses' }"
+          >
+            <QItemSection side>
+              <QIcon
+                name="fa fa-cog"
+                color="gray"
+                size="1.1em"
+              />
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel class="text-italic">
+                Manage statuses
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
         </template>
       </QSelect>
       <QInput
@@ -364,6 +424,7 @@ const typeOptions = computed(() => ([
   ...placeTypes.value.map(placeType => {
     return {
       label: getTranslatedName(placeType),
+      caption: placeType.description,
       // convert to a String as it's also reflected in URL query which is always string
       value: String(placeType.id),
       placeType,

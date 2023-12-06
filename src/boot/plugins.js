@@ -30,7 +30,7 @@ export default async context => {
       }
 
       // Import and set up main entry
-      await setupPlugin(await import(entry))
+      await setupPlugin(await import(entry /* @vite-ignore */))
     }
     catch (err) {
       console.error(`failed to load plugin ${name}`, err)

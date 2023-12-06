@@ -1,5 +1,5 @@
 <template>
-  <PluginComponent
+  <KarrotComponent
     name="About"
     @close="$emit('close')"
   >
@@ -139,7 +139,7 @@
         />
       </div>
     </div>
-  </PluginComponent>
+  </KarrotComponent>
 </template>
 
 <script>
@@ -154,12 +154,12 @@ import {
 
 import { useAboutService } from '@/utils/services'
 
-import PluginComponent from '@/base/components/PluginComponent.vue'
+import KarrotComponent from '@/base/components/KarrotComponent.vue'
 import KarrotLogo from '@/logo/components/KarrotLogo.vue'
 
 export default {
   components: {
-    PluginComponent,
+    KarrotComponent,
     KarrotLogo,
     QBtn,
     QList,

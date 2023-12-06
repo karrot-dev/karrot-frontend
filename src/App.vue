@@ -87,10 +87,10 @@ export default {
     // TODO: remove at some point... just trying it out for now
     window.queryClient = useQueryClient()
 
-    for (const karrotPlugin of karrotPlugins) {
-      console.log('karrot plugin!', karrotPlugin)
-      if (karrotPlugin.setup) {
-        karrotPlugin.setup()
+    for (const plugin of karrotPlugins) {
+      if (plugin.setup) {
+        // TODO: await?
+        plugin.setup()
       }
     }
   },

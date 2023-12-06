@@ -28,6 +28,7 @@ export function useSidenavMenuEntries () {
   const entries = computed(() => {
     return [
       {
+        name: 'wall',
         label: t('GROUP.WALL'),
         icon: 'fas fa-bullhorn',
         to: { name: 'groupWall', params: { groupId: groupId.value } },
@@ -37,6 +38,7 @@ export function useSidenavMenuEntries () {
         },
       },
       {
+        name: 'activities',
         label: t('GROUP.ACTIVITIES'),
         info: theme.value === 'foodsaving' && {
           title: t('GROUP.PICKUPS_TO_ACTIVITIES'),
@@ -51,11 +53,13 @@ export function useSidenavMenuEntries () {
       },
       {
         condition: hasFeature('offers'),
+        name: 'offers',
         label: t('GROUP.OFFERS') + (new Date().getFullYear() < 2020 ? ' 🆕' : ''),
         icon: icons.get('offer'),
         to: { name: 'groupOffers', params: { groupId: groupId.value } },
       },
       {
+        name: 'feedback',
         label: t('ACTIVITY_FEEDBACK.TITLE'),
         icon: icons.get('feedback'),
         to: { name: 'groupFeedback', params: { groupId: groupId.value } },
@@ -66,22 +70,26 @@ export function useSidenavMenuEntries () {
         },
       },
       {
+        name: 'members',
         label: t('GROUP.MEMBERS'),
         icon: 'fas fa-users',
         to: { name: 'groupMembers', params: { groupId: groupId.value } },
       },
       {
         condition: hasFeature('agreements'),
+        name: 'agreements',
         label: t('GROUP.AGREEMENTS'),
         icon: 'fas fa-handshake',
         to: { name: 'agreements', params: { groupId: groupId.value } },
       },
       {
+        name: 'history',
         label: t('GROUP.HISTORY'),
         icon: 'far fa-clock',
         to: { name: 'groupHistory', params: { groupId: groupId.value } },
       },
       {
+        name: 'applications',
         label: t('GROUP.APPLICATIONS'),
         icon: 'fas fa-address-card',
         to: { name: 'applications', params: { groupId: groupId.value } },
@@ -93,6 +101,7 @@ export function useSidenavMenuEntries () {
         more: true,
       },
       {
+        name: 'issues',
         label: t('ISSUE.TITLE'),
         icon: 'fas fa-vote-yea',
         to: { name: 'issueList', params: { groupId: groupId.value } },
@@ -104,12 +113,14 @@ export function useSidenavMenuEntries () {
         more: true,
       },
       {
+        name: 'statistics',
         label: t('GROUP.STATISTICS'),
         icon: 'fas fa-chart-bar',
         to: { name: 'activityHistoryStatistics', params: { groupId: groupId.value } },
         more: true,
       },
       {
+        name: 'preview',
         label: t('GROUPINFO.META'),
         icon: 'fas fa-info-circle',
         to: { name: 'groupPreview', params: { groupPreviewId: groupId.value } },
@@ -117,6 +128,7 @@ export function useSidenavMenuEntries () {
       },
       {
         condition: Platform.is.mobile === true,
+        name: 'map',
         label: t('GROUPMAP.TITLE'),
         icon: 'fas fa-map',
         to: { name: 'map', params: { groupId: groupId.value } },

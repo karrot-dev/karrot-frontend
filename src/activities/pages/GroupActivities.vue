@@ -1,5 +1,6 @@
 <template>
   <div>
+    <PluginComponent name="ActivitiesHeader" />
     <div
       class="row items-center bg-white q-px-sm q-py-xs q-gutter-sm"
     >
@@ -165,11 +166,13 @@ import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 import ActivityCreateButton from '@/activities/components/ActivityCreateButton.vue'
 import ActivityList from '@/activities/components/ActivityList.vue'
 import ICSBtn from '@/activities/components/ICSBtn.vue'
+import PluginComponent from '@/base/components/PluginComponent.vue'
 import KNotice from '@/utils/components/KNotice.vue'
 import KSpinner from '@/utils/components/KSpinner.vue'
 
 export default {
   components: {
+    PluginComponent,
     QBtn,
     ICSBtn,
     QIcon,

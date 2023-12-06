@@ -48,7 +48,7 @@
         >
           <SidenavTitle @click="toggleSidenav" />
           <RouterView name="sidenav" />
-          <PluginSlot name="sidenavFooter">
+          <PluginComponent name="SidenavFooter">
             <QItem
               clickable
               @click="toggleAbout"
@@ -64,7 +64,7 @@
               </QItemSection>
             </QItem>
             <CommunityFeed />
-          </PluginSlot>
+          </PluginComponent>
           <QItem
             clickable
             @click="logout()"
@@ -93,7 +93,7 @@
           @click="toggleSidenav"
         >
           <RouterView name="sidenav" />
-          <PluginSlot name="sidenavFooter">
+          <PluginComponent name="SidenavFooter">
             <QItem
               clickable
               @click="toggleAbout"
@@ -109,7 +109,7 @@
               </QItemSection>
             </QItem>
             <CommunityFeed />
-          </PluginSlot>
+          </PluginComponent>
         </QDrawer>
 
         <QPageContainer>
@@ -184,7 +184,7 @@ import { useStatusService } from '@/status/services'
 
 import Banners from '@/alerts/components/Banners.vue'
 import KAbout from '@/base/components/KAbout.vue'
-import PluginSlot from '@/base/components/PluginSlot.vue'
+import PluginComponent from '@/base/components/PluginComponent.vue'
 import RouteError from '@/base/components/RouteError.vue'
 import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarning.vue'
 import CommunityFeed from '@/communityFeed/components/CommunityFeed.vue'
@@ -196,7 +196,7 @@ import KTopbarLoggedOut from '@/topbar/components/LoggedOut/KTopbar.vue'
 
 export default {
   components: {
-    PluginSlot,
+    PluginComponent,
     KarrotLogo,
     QDialog,
     DetailSidebar,

@@ -1,141 +1,145 @@
 <template>
-  <div
-    class="bg-white q-pa-md"
+  <PluginComponent
+    name="About"
+    @close="$emit('close')"
   >
-    <div class="k-logo-container row no-wrap items-center">
-      <RouterLink
-        :to="'/'"
-        class="logo self-start"
-      >
-        <KarrotLogo />
-      </RouterLink>
-      <h4
-        v-t="'GLOBAL.ABOUT_KARROT'"
-        class="col q-ma-none q-pl-md"
-      />
+    <div
+      class="bg-white q-pa-md"
+    >
+      <div class="k-logo-container row no-wrap items-center">
+        <RouterLink
+          :to="'/'"
+          class="logo self-start"
+        >
+          <KarrotLogo />
+        </RouterLink>
+        <h4
+          v-t="'GLOBAL.ABOUT_KARROT'"
+          class="col q-ma-none q-pl-md"
+        />
+      </div>
+      <QList class="q-mt-md">
+        <QItem
+          tag="a"
+          rel="noopener noreferrer"
+          href="https://community.karrot.world/t/how-to-get-involved-onboarding-into-the-karrot-team/661"
+          target="_blank"
+        >
+          <QItemSection side>
+            <QIcon name="fas fa-users" />
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel>
+              <!-- this is in English because so far people working on Karrot are communicating in English only-->
+              How to Get Involved
+            </QItemLabel>
+          </QItemSection>
+        </QItem>
+
+        <QItem
+          tag="a"
+          rel="noopener noreferrer"
+          href="https://github.com/karrot-dev/karrot-frontend"
+          target="_blank"
+        >
+          <QItemSection side>
+            <QIcon name="fab fa-fw fa-github" />
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel>
+              {{ $t('GLOBAL.GITHUB_NOTE') }}
+            </QItemLabel>
+            <QItemLabel caption>
+              {{ $t('SIDENAV.GIT_SUB') }}
+            </QItemLabel>
+          </QItemSection>
+        </QItem>
+
+        <QItem
+          tag="a"
+          rel="noopener noreferrer"
+          href="https://fosstodon.org/@karrot"
+          target="_blank"
+        >
+          <QItemSection side>
+            <QIcon name="fab fa-fw fa-mastodon" />
+          </QItemSection>
+          <QItemSection>
+            <QItemLabel>
+              Mastodon
+            </QItemLabel>
+          </QItemSection>
+        </QItem>
+
+        <QItem
+          tag="a"
+          rel="noopener noreferrer"
+          href="https://foodsaving.world"
+          target="_blank"
+        >
+          <QItemSection side>
+            <QIcon name="fas fa-fw fa-globe" />
+          </QItemSection>
+
+          <QItemSection>
+            <QItemLabel>
+              Info
+            </QItemLabel>
+            <QItemLabel caption>
+              {{ $t('SIDENAV.INFO_SUB') }}
+            </QItemLabel>
+          </QItemSection>
+        </QItem>
+
+        <QItem
+          tag="a"
+          rel="noopener noreferrer"
+          href="mailto:info@karrot.world"
+        >
+          <QItemSection side>
+            <QIcon name="fas fa-fw fa-envelope" />
+          </QItemSection>
+
+          <QItemSection>
+            <QItemLabel>
+              info@karrot.world
+            </QItemLabel>
+          </QItemSection>
+        </QItem>
+      </QList>
+
+      <div class="text-center k-about-footer">
+        karrot
+        <a
+          v-if="release"
+          :href="release.link"
+          target="_blank"
+          rel="noopener"
+        >
+          {{ release.name }}
+        </a>
+        <br><br>
+        made with
+        <i class="fas fa-heart text-red" />
+        by
+        <a
+          href="https://foodsaving.world"
+          target="_blank"
+          rel="noopener"
+        >
+          foodsaving worldwide
+        </a>
+      </div>
+
+      <div class="row justify-end q-mt-sm">
+        <QBtn
+          flat
+          :label="$t('BUTTON.CLOSE')"
+          @click="$emit('close')"
+        />
+      </div>
     </div>
-
-    <QList class="q-mt-md">
-      <QItem
-        tag="a"
-        rel="noopener noreferrer"
-        href="https://community.karrot.world/t/how-to-get-involved-onboarding-into-the-karrot-team/661"
-        target="_blank"
-      >
-        <QItemSection side>
-          <QIcon name="fas fa-users" />
-        </QItemSection>
-        <QItemSection>
-          <QItemLabel>
-            <!-- this is in English because so far people working on Karrot are communicating in English only-->
-            How to Get Involved
-          </QItemLabel>
-        </QItemSection>
-      </QItem>
-
-      <QItem
-        tag="a"
-        rel="noopener noreferrer"
-        href="https://github.com/karrot-dev/karrot-frontend"
-        target="_blank"
-      >
-        <QItemSection side>
-          <QIcon name="fab fa-fw fa-github" />
-        </QItemSection>
-        <QItemSection>
-          <QItemLabel>
-            {{ $t('GLOBAL.GITHUB_NOTE') }}
-          </QItemLabel>
-          <QItemLabel caption>
-            {{ $t('SIDENAV.GIT_SUB') }}
-          </QItemLabel>
-        </QItemSection>
-      </QItem>
-
-      <QItem
-        tag="a"
-        rel="noopener noreferrer"
-        href="https://fosstodon.org/@karrot"
-        target="_blank"
-      >
-        <QItemSection side>
-          <QIcon name="fab fa-fw fa-mastodon" />
-        </QItemSection>
-        <QItemSection>
-          <QItemLabel>
-            Mastodon
-          </QItemLabel>
-        </QItemSection>
-      </QItem>
-
-      <QItem
-        tag="a"
-        rel="noopener noreferrer"
-        href="https://foodsaving.world"
-        target="_blank"
-      >
-        <QItemSection side>
-          <QIcon name="fas fa-fw fa-globe" />
-        </QItemSection>
-
-        <QItemSection>
-          <QItemLabel>
-            Info
-          </QItemLabel>
-          <QItemLabel caption>
-            {{ $t('SIDENAV.INFO_SUB') }}
-          </QItemLabel>
-        </QItemSection>
-      </QItem>
-
-      <QItem
-        tag="a"
-        rel="noopener noreferrer"
-        href="mailto:info@karrot.world"
-      >
-        <QItemSection side>
-          <QIcon name="fas fa-fw fa-envelope" />
-        </QItemSection>
-
-        <QItemSection>
-          <QItemLabel>
-            info@karrot.world
-          </QItemLabel>
-        </QItemSection>
-      </QItem>
-    </QList>
-
-    <div class="text-center k-about-footer">
-      karrot
-      <a
-        v-if="release"
-        :href="release.link"
-        target="_blank"
-        rel="noopener"
-      >
-        {{ release.name }}
-      </a>
-      <br><br>
-      made with
-      <i class="fas fa-heart text-red" />
-      by
-      <a
-        href="https://foodsaving.world"
-        target="_blank"
-        rel="noopener"
-      >
-        foodsaving worldwide
-      </a>
-    </div>
-
-    <div class="row justify-end q-mt-sm">
-      <QBtn
-        flat
-        :label="$t('BUTTON.CLOSE')"
-        @click="$emit('close')"
-      />
-    </div>
-  </div>
+  </PluginComponent>
 </template>
 
 <script>
@@ -150,10 +154,12 @@ import {
 
 import { useAboutService } from '@/utils/services'
 
+import PluginComponent from '@/base/components/PluginComponent.vue'
 import KarrotLogo from '@/logo/components/KarrotLogo.vue'
 
 export default {
   components: {
+    PluginComponent,
     KarrotLogo,
     QBtn,
     QList,

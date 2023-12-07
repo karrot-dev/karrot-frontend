@@ -58,15 +58,15 @@
         </span>
       </QTd>
     </template>
-    <template #body-cell-status="props">
+    <template #body-cell-isArchived="props">
       <QTd
         :props="props"
         :auto-width="true"
       >
         <QBadge
-          :color="props.value === 'active' ? 'green' : 'grey'"
+          :color="props.value ? 'grey' : 'green'"
         >
-          {{ props.value }}
+          {{ props.value ? t('LABELS.ARCHIVED') : t('LABELS.ACTIVE') }}
         </QBadge>
       </QTd>
     </template>
@@ -80,7 +80,7 @@ import { useI18n } from 'vue-i18n'
 
 import { useActivityTypeHelpers, useActivityTypes } from '@/activities/helpers'
 import { useCurrentGroupService } from '@/group/services'
-import { openEditDialog } from '@/utils/forms'
+import { openDialog } from '@/utils/forms'
 
 import ActivityTypeForm from '@/group/components/ActivityTypeForm.vue'
 
@@ -113,7 +113,7 @@ const columns = computed(() => [
   },
   {
     name: 'description',
-    label: t('ACTIVITY_TYPES.DESCRIPTION'),
+    label: t('LABELS.DESCRIPTION'),
     field: row => row.description,
     align: 'left',
     style: 'max-width: 200px',
@@ -134,16 +134,16 @@ const columns = computed(() => [
     hideOnMobile: true,
   },
   showArchived.value && { // don't need to see status unless we're viewing all ...
-    name: 'status',
+    name: 'isArchived',
     label: t('ACTIVITY_TYPES.STATUS'),
-    field: row => row.isArchived ? 'archived' : 'active',
+    field: row => row.isArchived,
     align: 'left',
     autoWidth: true,
   },
 ].filter(Boolean).filter(col => !(Platform.is.mobile && col.hideOnMobile)))
 
 function create () {
-  openEditDialog(ActivityTypeForm, {
+  openDialog(ActivityTypeForm, {
     activityType: {
       name: '',
       nameIsTranslatable: true,
@@ -158,7 +158,7 @@ function create () {
 }
 
 function edit (_, activityType) {
-  openEditDialog(ActivityTypeForm, {
+  openDialog(ActivityTypeForm, {
     activityType,
   })
 }

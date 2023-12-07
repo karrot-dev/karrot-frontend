@@ -54,6 +54,7 @@
     </QPopupProxy>
     <QDialog
       v-model="isOpen"
+      :maximized="$q.platform.is.mobile"
     >
       <div
         class="bg-white relative-position"

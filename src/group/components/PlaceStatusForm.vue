@@ -22,6 +22,7 @@
         :error-message="errors.name"
         :options="translatableNameOptions"
         outlined
+        autofocus
         @blur="v.name.$touch"
       />
 

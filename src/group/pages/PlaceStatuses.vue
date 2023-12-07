@@ -64,15 +64,15 @@
         />
       </QTd>
     </template>
-    <template #body-cell-status="props">
+    <template #body-cell-isArchived="props">
       <QTd
         :props="props"
         :auto-width="true"
       >
         <QBadge
-          :color="props.value === 'active' ? 'green' : 'grey'"
+          :color="props.value ? 'grey' : 'green'"
         >
-          {{ props.value }}
+          {{ props.value ? t('LABELS.ARCHIVED') : t('LABELS.ACTIVE') }}
         </QBadge>
       </QTd>
     </template>
@@ -88,7 +88,7 @@ import { useI18n } from 'vue-i18n'
 import { useCurrentGroupId } from '@/group/helpers'
 import { usePlaceStatuses, usePlaceStatusHelpers } from '@/places/helpers'
 import { useSavePlaceStatusMutation } from '@/places/mutations'
-import { openEditDialog } from '@/utils/forms'
+import { openDialog } from '@/utils/forms'
 import { useSortableTable } from '@/utils/sortable'
 
 import PlaceStatusForm from '@/group/components/PlaceStatusForm.vue'
@@ -124,7 +124,7 @@ const columns = computed(() => [
   },
   {
     name: 'name',
-    label: 'Name',
+    label: t('LABELS.NAME'),
     field: row => getTranslatedName(row),
     align: 'left',
     classes: 'text-weight-bold',
@@ -132,7 +132,7 @@ const columns = computed(() => [
   },
   {
     name: 'description',
-    label: 'Description',
+    label: t('LABELS.DESCRIPTION'),
     field: row => row.description,
     align: 'left',
     style: 'max-width: 200px',
@@ -140,15 +140,16 @@ const columns = computed(() => [
   },
   {
     name: 'visible',
-    label: 'Visible',
+    label: t('LABELS.VISIBLE'),
     field: row => row.isVisible,
     align: 'center',
   },
   showArchived.value && {
-    name: 'status',
-    label: 'Status',
-    field: row => row.isArchived ? 'archived' : 'active',
+    name: 'isArchived',
+    label: t('LABELS.STATUS'),
+    field: row => row.isArchived,
     align: 'left',
+    autoWidth: true,
   },
 ].filter(Boolean))
 
@@ -157,7 +158,7 @@ function generateNextOrder () {
 }
 
 function create () {
-  openEditDialog(PlaceStatusForm, {
+  openDialog(PlaceStatusForm, {
     placeStatus: {
       name: undefined,
       colour: undefined,
@@ -169,6 +170,6 @@ function create () {
 }
 
 function edit (_, placeStatus) {
-  openEditDialog(PlaceStatusForm, { placeStatus })
+  openDialog(PlaceStatusForm, { placeStatus })
 }
 </script>

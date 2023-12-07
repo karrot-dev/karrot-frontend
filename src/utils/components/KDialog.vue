@@ -2,30 +2,32 @@
   <QDialog
     ref="dialogRef"
     persistent
+    :maximized="Platform.is.mobile"
     @hide="onDialogHide"
   >
     <QCard
       class="q-dialog-plugin full-width"
     >
       <component
-        :is="form"
-        v-bind="formProps"
+        :is="component"
+        v-bind="componentProps"
         @ok="onDialogOK"
         @cancel="onDialogCancel"
+        @hide="onDialogHide"
       />
     </QCard>
   </QDialog>
 </template>
 
 <script setup>
-import { useDialogPluginComponent, QCard, QDialog } from 'quasar'
+import { useDialogPluginComponent, QCard, QDialog, Platform } from 'quasar'
 
 defineProps({
-  form: {
+  component: {
     type: Object,
     required: true,
   },
-  formProps: {
+  componentProps: {
     type: Object,
     required: true,
   },

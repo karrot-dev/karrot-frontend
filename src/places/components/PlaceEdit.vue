@@ -20,7 +20,7 @@
             />
             <QSelect
               v-model="edit.placeType"
-              :options="placeTypeOptions.filter(({ isArchived, value }) => !isArchived || edit.placeType === value)"
+              :options="placeTypeOptions.filter(({ isArchived, value }) => !isArchived || edit.placeType === value || value === '$add')"
               map-options
               emit-value
               :label="$t('STOREEDIT.PLACE_TYPE')"
@@ -31,7 +31,30 @@
               @blur="v$.edit.placeType.$touch"
             >
               <template #option="scope">
+                <template v-if="scope.opt.value === '$add'">
+                  <QSeparator />
+                  <QItem
+                    :key="scope.index"
+                    clickable
+                    v-bind="scope.itemProps"
+                    @click="createNewPlaceType"
+                  >
+                    <QItemSection side>
+                      <QIcon
+                        name="fa fa-plus"
+                        color="positive"
+                        size="1.1em"
+                      />
+                    </QItemSection>
+                    <QItemSection>
+                      <QItemLabel class="text-italic">
+                        {{ $t('LABELS.ADD_NEW') }}
+                      </QItemLabel>
+                    </QItemSection>
+                  </QItem>
+                </template>
                 <QItem
+                  v-else
                   :key="scope.index"
                   v-bind="scope.itemProps"
                 >
@@ -58,42 +81,46 @@
                   {{ scope.opt.label }}
                 </div>
               </template>
-              <template #after-options>
-                <QItem
-                  clickable
-                  @click="createNewPlaceType"
-                >
-                  <QItemSection side>
-                    <QIcon
-                      name="fa fa-plus"
-                      color="positive"
-                      size="1.1em"
-                    />
-                  </QItemSection>
-                  <QItemSection>
-                    <QItemLabel class="text-italic">
-                      Add new type
-                    </QItemLabel>
-                  </QItemSection>
-                </QItem>
-              </template>
             </QSelect>
 
             <QSelect
               v-model="edit.status"
-              :options="placeStatusOptions"
+              :options="placeStatusOptions.filter(({ isArchived, value }) => !isArchived || edit.status === value || value === '$add')"
               map-options
               emit-value
               :label="$t('STOREEDIT.STATUS')"
-              :error="hasError('status')"
-              :error-message="firstError('status')"
+              :error="hasPlaceStatusError"
+              :error-message="placeStatusError"
               outlined
               class="col"
+              @blur="v$.edit.status.$touch"
             >
               <template #option="scope">
+                <template v-if="scope.opt.value === '$add'">
+                  <QSeparator />
+                  <QItem
+                    :key="scope.index"
+                    clickable
+                    v-bind="scope.itemProps"
+                    @click="createNewPlaceStatus"
+                  >
+                    <QItemSection side>
+                      <QIcon
+                        name="fa fa-plus"
+                        color="positive"
+                        size="1.1em"
+                      />
+                    </QItemSection>
+                    <QItemSection>
+                      <QItemLabel class="text-italic">
+                        {{ $t('LABELS.ADD_NEW') }}
+                      </QItemLabel>
+                    </QItemSection>
+                  </QItem>
+                </template>
                 <QItem
+                  v-else
                   :key="scope.index"
-                  dense
                   v-bind="scope.itemProps"
                 >
                   <QItemSection side>
@@ -121,25 +148,6 @@
                 <div class="ellipsis">
                   {{ scope.opt.label }}
                 </div>
-              </template>
-              <template #after-options>
-                <QItem
-                  clickable
-                  @click="createNewPlaceStatus"
-                >
-                  <QItemSection side>
-                    <QIcon
-                      name="fa fa-plus"
-                      color="positive"
-                      size="1.1em"
-                    />
-                  </QItemSection>
-                  <QItemSection>
-                    <QItemLabel class="text-italic">
-                      Add new status
-                    </QItemLabel>
-                  </QItemSection>
-                </QItem>
               </template>
             </QSelect>
           </div>
@@ -277,6 +285,7 @@ import useVuelidate from '@vuelidate/core'
 import { required, minLength, maxLength } from '@vuelidate/validators'
 import { generateKeyBetween } from 'fractional-indexing'
 import {
+  QSeparator,
   QCard,
   QField,
   QSlider,
@@ -291,11 +300,11 @@ import {
 } from 'quasar'
 import { computed } from 'vue'
 
-import { useCurrentGroupService } from '@/group/services'
+import { useCurrentGroupId, useIsEditor } from '@/group/helpers'
 import { usePlaceStatuses, usePlaceStatusHelpers, usePlaceTypeHelpers } from '@/places/helpers'
 import { optionsFor } from '@/places/placeStatus'
 import { usePlaceStatusService, usePlaceTypeService } from '@/places/services'
-import { openEditDialog } from '@/utils/forms'
+import { openDialog } from '@/utils/forms'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
@@ -307,6 +316,7 @@ import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 export default {
   name: 'PlaceEdit',
   components: {
+    QSeparator,
     QCard,
     QField,
     QSlider,
@@ -348,7 +358,8 @@ export default {
     'save',
   ],
   setup () {
-    const { groupId } = useCurrentGroupService()
+    const groupId = useCurrentGroupId()
+    const isEditor = useIsEditor()
 
     const { getPlaceTypesByGroup, getPlaceTypeById } = usePlaceTypeService()
     const { getPlaceStatusById } = usePlaceStatusService()
@@ -358,30 +369,41 @@ export default {
 
     const placeTypes = computed(() => getPlaceTypesByGroup(groupId).sort(placeTypeHelpers.sortByTranslatedName))
 
-    const placeTypeOptions = computed(() => placeTypes.value.map(placeType => ({
-      value: placeType.id,
-      label: placeTypeHelpers.getTranslatedName(placeType),
-      caption: placeType.description,
-      icon: placeType.icon,
-      isArchived: placeType.isArchived,
-    })))
+    const placeTypeOptions = computed(() => [
+      ...placeTypes.value.map(placeType => ({
+        value: placeType.id,
+        label: placeTypeHelpers.getTranslatedName(placeType),
+        caption: placeType.description,
+        icon: placeType.icon,
+        isArchived: placeType.isArchived,
+      })),
+      isEditor.value && {
+        value: '$add',
+      },
+    ].filter(Boolean))
 
     const placeStatuses = usePlaceStatuses(groupId)
 
-    const placeStatusOptions = computed(() => placeStatuses.value.filter(placeStatus => !placeStatus.isArchived).map(placeStatus => ({
-      value: placeStatus.id,
-      label: placeStatusHelpers.getTranslatedName(placeStatus),
-      caption: placeStatus.description,
-      color: placeStatusHelpers.getColorName(placeStatus),
-      icon: 'fas fa-circle',
-    })))
+    const placeStatusOptions = computed(() => [
+      ...placeStatuses.value.map(placeStatus => ({
+        value: placeStatus.id,
+        label: placeStatusHelpers.getTranslatedName(placeStatus),
+        caption: placeStatus.description,
+        color: placeStatusHelpers.getColorName(placeStatus),
+        icon: 'fas fa-circle',
+        isArchived: placeStatus.isArchived,
+      })),
+      isEditor.value && {
+        value: '$add',
+      },
+    ].filter(Boolean))
 
     function generateNextOrder () {
       return generateKeyBetween(placeStatuses.value[placeStatuses.value.length - 1]?.order || null, null)
     }
 
     function createNewPlaceType () {
-      openEditDialog(PlaceTypeForm, {
+      openDialog(PlaceTypeForm, {
         placeType: {
           name: undefined,
           icon: 'fas fa-map-marker',
@@ -392,7 +414,7 @@ export default {
     }
 
     function createNewPlaceStatus () {
-      openEditDialog(PlaceStatusForm, {
+      openDialog(PlaceStatusForm, {
         placeStatus: {
           name: undefined,
           colour: undefined,
@@ -405,6 +427,7 @@ export default {
 
     return {
       v$: useVuelidate(),
+      isEditor,
       placeTypeOptions,
       getPlaceTypeById,
       placeStatusOptions,
@@ -445,6 +468,15 @@ export default {
         if (this.v$.edit.placeType.required.$invalid) return this.$t('VALIDATION.REQUIRED')
       }
       return this.firstError('placeType')
+    },
+    hasPlaceStatusError () {
+      return !!this.placeStatusError
+    },
+    placeStatusError () {
+      if (this.v$.edit.status.$error) {
+        if (this.v$.edit.status.required.$invalid) return this.$t('VALIDATION.REQUIRED')
+      }
+      return this.firstError('status')
     },
     hasAddressError () {
       return !!this.addressError
@@ -522,6 +554,9 @@ export default {
         },
       },
       placeType: {
+        required,
+      },
+      status: {
         required,
       },
     },

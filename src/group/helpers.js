@@ -47,3 +47,8 @@ export function useCurrentGroupId () {
   const { groupId } = useCurrentGroupService()
   return groupId
 }
+
+export function useIsEditor () {
+  const { isEditor } = useCurrentGroupService()
+  return isEditor
+}

@@ -7,7 +7,7 @@ import { objectDiff } from '@/utils/utils'
 import { useValidation } from '@/utils/validation'
 
 import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog.vue'
-import EditDialog from '@/group/components/EditDialog.vue'
+import KDialog from '@/utils/components/KDialog.vue'
 
 export function useForm (initial, { rules, create, update, createStatus, updateStatus, confirm, onSuccess }) {
   const edit = ref(cloneDeep(unref(initial)))
@@ -95,12 +95,17 @@ export function confirmChanges () {
   })
 }
 
-export function openEditDialog (FormComponent, props) {
+/**
+ * Puts the passed in component inside our KDialog wrapper
+ * Avoids having to make the inner component implement
+ * the QDialog interface
+ */
+export function openDialog (Component, props) {
   Dialog.create({
-    component: EditDialog,
+    component: KDialog,
     componentProps: {
-      form: FormComponent,
-      formProps: props,
+      component: Component,
+      componentProps: props,
     },
   })
 }

@@ -13,7 +13,29 @@
         dense
       >
         <template #option="{ index, opt, itemProps }">
+          <template v-if="opt.value === '$manage'">
+            <QSeparator />
+            <QItem
+              :key="index"
+              clickable
+              :to="{ name: 'groupEditActivityTypes' }"
+            >
+              <QItemSection side>
+                <QIcon
+                  name="fa fa-cog"
+                  color="gray"
+                  size="1.1em"
+                />
+              </QItemSection>
+              <QItemSection>
+                <QItemLabel class="text-italic">
+                  {{ $t('LABELS.MANAGE_TYPES') }}
+                </QItemLabel>
+              </QItemSection>
+            </QItem>
+          </template>
           <QItem
+            v-else
             :key="index"
             v-bind="itemProps"
           >
@@ -45,26 +67,6 @@
             </QItemSection>
           </QItem>
           <QSeparator v-if="!opt.value" />
-        </template>
-        <template #after-options>
-          <QSeparator />
-          <QItem
-            clickable
-            :to="{ name: 'groupEditActivityTypes' }"
-          >
-            <QItemSection side>
-              <QIcon
-                name="fa fa-cog"
-                color="gray"
-                size="1.1em"
-              />
-            </QItemSection>
-            <QItemSection>
-              <QItemLabel class="text-italic">
-                Manage types
-              </QItemLabel>
-            </QItemSection>
-          </QItem>
         </template>
       </QSelect>
       <QSelect
@@ -193,7 +195,7 @@ import { computed } from 'vue'
 import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
 import { useActivityListQuery } from '@/activities/queries'
 import { useActivityTypeService } from '@/activities/services'
-import { useCurrentGroupService } from '@/group/services'
+import { useCurrentGroupId, useIsEditor } from '@/group/helpers'
 import { usePlaceService } from '@/places/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
@@ -223,10 +225,8 @@ export default {
     ActivityCreateButton,
   },
   setup () {
-    const {
-      groupId,
-      isEditor,
-    } = useCurrentGroupService()
+    const groupId = useCurrentGroupId()
+    const isEditor = useIsEditor()
     const { getActivityTypesByGroup } = useActivityTypeService()
     const { getPlacesByGroup } = usePlaceService()
     const { getIsStartedOrUpcoming } = useActivityHelpers()
@@ -372,7 +372,10 @@ export default {
             activityType,
           }
         }),
-      ]
+        this.isEditor && {
+          value: '$manage',
+        },
+      ].filter(Boolean)
     },
     placeOptions () {
       return [

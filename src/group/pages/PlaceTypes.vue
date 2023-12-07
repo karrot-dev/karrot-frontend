@@ -35,15 +35,15 @@
         />
       </QTd>
     </template>
-    <template #body-cell-status="props">
+    <template #body-cell-isArchived="props">
       <QTd
         :props="props"
         :auto-width="true"
       >
         <QBadge
-          :color="props.value === 'active' ? 'green' : 'grey'"
+          :color="props.value ? 'grey' : 'green'"
         >
-          {{ props.value }}
+          {{ props.value ? t('LABELS.ARCHIVED') : t('LABELS.ACTIVE') }}
         </QBadge>
       </QTd>
     </template>
@@ -57,7 +57,7 @@ import { useI18n } from 'vue-i18n'
 
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceTypeHelpers, usePlaceTypes } from '@/places/helpers'
-import { openEditDialog } from '@/utils/forms'
+import { openDialog } from '@/utils/forms'
 
 import PlaceTypeForm from '@/group/components/PlaceTypeForm.vue'
 
@@ -91,22 +91,23 @@ const columns = computed(() => [
   },
   {
     name: 'description',
-    label: t('PLACE_TYPES.DESCRIPTION'),
+    label: t('LABELS.DESCRIPTION'),
     field: row => row.description,
     align: 'left',
     style: 'max-width: 200px',
     classes: 'ellipsis',
   },
   showArchived.value && {
-    name: 'status',
+    name: 'isArchived',
     label: t('PLACE_TYPES.STATUS'),
-    field: row => row.isArchived ? 'archived' : 'active',
+    field: row => row.isArchived,
     align: 'left',
+    autoWidth: true,
   },
 ].filter(Boolean))
 
 function create () {
-  openEditDialog(PlaceTypeForm, {
+  openDialog(PlaceTypeForm, {
     placeType: {
       name: undefined,
       icon: 'fas fa-map-marker',
@@ -117,6 +118,6 @@ function create () {
 }
 
 function edit (_, placeType) {
-  openEditDialog(PlaceTypeForm, { placeType })
+  openDialog(PlaceTypeForm, { placeType })
 }
 </script>

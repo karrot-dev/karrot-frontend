@@ -2,7 +2,7 @@ import axios from '@/base/api/axios'
 import { camelizeKeys } from '@/utils/utils'
 
 export const karrotPlugins = []
-export const components = {}
+const slotComponents = {}
 
 async function listPlugins () {
   try {
@@ -45,10 +45,10 @@ export default async context => {
       plugin.boot(context)
     }
 
-    if (plugin.components) {
-      for (const name of Object.keys(plugin.components)) {
-        const entries = components[name] ?? (components[name] = [])
-        const component = plugin.components[name]
+    if (plugin.slots) {
+      for (const name of Object.keys(plugin.slots)) {
+        const entries = slotComponents[name] ?? (slotComponents[name] = [])
+        const component = plugin.slots[name]
         entries.push(resolvableComponent(component))
       }
     }
@@ -57,9 +57,9 @@ export default async context => {
   }
 }
 
-export async function getPluginComponents (name) {
-  if (name in components) {
-    const entries = await Promise.all(components[name].map(fn => fn()))
+export async function getPluginSlotComponents (name) {
+  if (name in slotComponents) {
+    const entries = await Promise.all(slotComponents[name].map(fn => fn()))
     return entries.filter(Boolean)
   }
   return []

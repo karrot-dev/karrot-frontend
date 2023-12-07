@@ -1,6 +1,6 @@
 <template>
-  <KarrotComponent
-    name="About"
+  <KarrotSlot
+    name="about"
     @close="$emit('close')"
   >
     <div
@@ -139,7 +139,7 @@
         />
       </div>
     </div>
-  </KarrotComponent>
+  </KarrotSlot>
 </template>
 
 <script>
@@ -154,12 +154,12 @@ import {
 
 import { useAboutService } from '@/utils/services'
 
-import KarrotComponent from '@/base/components/KarrotComponent.vue'
+import KarrotSlot from '@/base/components/KarrotSlot.vue'
 import KarrotLogo from '@/logo/components/KarrotLogo.vue'
 
 export default {
   components: {
-    KarrotComponent,
+    KarrotSlot,
     KarrotLogo,
     QBtn,
     QList,

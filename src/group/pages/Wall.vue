@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <KarrotComponent name="WallHeader" />
+    <KarrotSlot name="wallHeader" />
     <div class="notices">
       <div v-if="joinedActivities.length > 0">
         <JoinedActivities :activities="joinedActivities" />
@@ -25,7 +25,7 @@ import { useCurrentGroupService } from '@/group/services'
 import { useStatusService } from '@/status/services'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 
-import KarrotComponent from '@/base/components/KarrotComponent.vue'
+import KarrotSlot from '@/base/components/KarrotSlot.vue'
 import AvailableActivities from '@/group/components/AvailableActivities.vue'
 import FeedbackNotice from '@/group/components/FeedbackNotice.vue'
 import JoinedActivities from '@/group/components/JoinedActivities.vue'
@@ -33,7 +33,7 @@ import WallConversation from '@/messages/components/WallConversation.vue'
 
 export default {
   components: {
-    KarrotComponent,
+    KarrotSlot,
     JoinedActivities,
     AvailableActivities,
     WallConversation,

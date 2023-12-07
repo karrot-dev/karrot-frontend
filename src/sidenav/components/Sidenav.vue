@@ -1,13 +1,13 @@
 <template>
-  <KarrotComponent name="Sidenav">
+  <KarrotSlot name="sidenav">
     <SidenavMap v-if="!$q.platform.is.mobile" />
     <SidenavGroup />
     <SidenavPlaces />
-  </KarrotComponent>
+  </KarrotSlot>
 </template>
 
 <script setup>
-import KarrotComponent from '@/base/components/KarrotComponent.vue'
+import KarrotSlot from '@/base/components/KarrotSlot.vue'
 
 import SidenavGroup from './SidenavGroup.vue'
 import SidenavMap from './SidenavMap.vue'

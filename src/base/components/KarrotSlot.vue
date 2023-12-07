@@ -5,7 +5,7 @@
 <script setup>
 import { h, ref, useAttrs, useSlots, watchEffect } from 'vue'
 
-import { getPluginComponents } from '@/boot/plugins'
+import { getPluginSlotComponents } from '@/boot/plugins'
 
 const props = defineProps({
   name: {
@@ -24,7 +24,7 @@ const attrs = useAttrs()
 const components = ref([])
 
 watchEffect(async () => {
-  components.value = await getPluginComponents(props.name)
+  components.value = await getPluginSlotComponents(props.name)
 })
 
 function Root () {

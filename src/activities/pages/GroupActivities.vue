@@ -1,6 +1,6 @@
 <template>
   <div>
-    <KarrotComponent name="ActivitiesHeader" />
+    <KarrotSlot name="activitiesHeader" />
     <div
       class="row items-center bg-white q-px-sm q-py-xs q-gutter-sm"
     >
@@ -166,13 +166,13 @@ import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 import ActivityCreateButton from '@/activities/components/ActivityCreateButton.vue'
 import ActivityList from '@/activities/components/ActivityList.vue'
 import ICSBtn from '@/activities/components/ICSBtn.vue'
-import KarrotComponent from '@/base/components/KarrotComponent.vue'
+import KarrotSlot from '@/base/components/KarrotSlot.vue'
 import KNotice from '@/utils/components/KNotice.vue'
 import KSpinner from '@/utils/components/KSpinner.vue'
 
 export default {
   components: {
-    KarrotComponent,
+    KarrotSlot,
     QBtn,
     ICSBtn,
     QIcon,

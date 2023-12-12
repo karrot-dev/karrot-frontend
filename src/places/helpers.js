@@ -2,7 +2,7 @@ import { computed, unref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import icons from '@/base/icons'
-import { useActivePlaceService, usePlaceStatusService, usePlaceTypeService } from '@/places/services'
+import { useActivePlaceService, usePlaceService, usePlaceStatusService, usePlaceTypeService } from '@/places/services'
 
 export function usePlaceHelpers () {
   const { placeId: activePlaceId } = useActivePlaceService()
@@ -155,5 +155,14 @@ export function usePlaceStatuses (groupId) {
     if (!groupId.value) return []
     const groupIdValue = unref(groupId)
     return placeStatuses.value?.filter(placeStatus => placeStatus.group === groupIdValue)
+  })
+}
+
+export function usePlacesWithStatus (placeStatus) {
+  const { places } = usePlaceService()
+  return computed(() => {
+    const statusId = unref(placeStatus)?.id
+    if (!statusId) return []
+    return places.value.filter(place => !place.isArchived && place.status === statusId)
   })
 }

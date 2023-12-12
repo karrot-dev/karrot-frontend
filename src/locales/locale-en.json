@@ -559,6 +559,8 @@
     "USER_LOST_EDITOR_ROLE": "lost editing permissions",
     "PLACE_TYPE_CREATE": "created a place type",
     "PLACE_TYPE_MODIFY": "modified a place type",
+    "PLACE_STATUS_CREATE": "created a place status",
+    "PLACE_STATUS_MODIFY": "modified a place status",
     "MEMBER_GOT_ROLE": "received role: {role}",
     "AGREEMENT_CREATE": "agreement created",
     "AGREEMENT_MODIFY": "agreement modified"

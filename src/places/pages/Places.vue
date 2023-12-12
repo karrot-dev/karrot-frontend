@@ -202,7 +202,7 @@
                     size="xs"
                     class="q-my-none"
                     :color="placeStatusHelpers.getColorName(getPlaceStatusById(place.status))"
-                    :title="getPlaceStatusById(place.status).description"
+                    :title="getPlaceStatusById(place.status)?.description"
                   >
                     <span class="ellipsis">
                       {{ placeStatusHelpers.getTranslatedName(getPlaceStatusById(place.status)) }}

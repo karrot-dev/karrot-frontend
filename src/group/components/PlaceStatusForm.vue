@@ -121,11 +121,12 @@ import { useI18n } from 'vue-i18n'
 
 import { useColourNameFor } from '@/activities/stylesheet'
 import { useCurrentGroupId } from '@/group/helpers'
-import { usePlaceStatuses, usePlaceStatusTranslatedName } from '@/places/helpers'
+import { usePlaceStatuses, usePlaceStatusTranslatedName, usePlacesWithStatus } from '@/places/helpers'
 import { useCreatePlaceStatusMutation, useSavePlaceStatusMutation } from '@/places/mutations'
 import { confirmChanges, useForm } from '@/utils/forms'
 import { isUnique, required } from '@/utils/validation'
 
+import SetPlacesToStatus from '@/group/components/SetPlacesToStatus.vue'
 import ColourPicker from '@/utils/components/ColourPicker.vue'
 import TranslatableNameInput from '@/utils/components/TranslatableNameInput.vue'
 
@@ -146,6 +147,8 @@ const emit = defineEmits([
 const placeStatus = toRef(props, 'placeStatus')
 
 const translatedName = usePlaceStatusTranslatedName(placeStatus)
+
+const places = usePlacesWithStatus(placeStatus)
 
 const groupId = useCurrentGroupId()
 const placeStatuses = usePlaceStatuses(groupId)
@@ -202,9 +205,27 @@ const colourName = useColourNameFor(edit)
 
 async function archive () {
   if (isNew.value) return
-  const { ok, updatedMessage } = await confirmChanges()
+
+  const confirmChangesOptions = {}
+
+  if (places.value.length > 0) {
+    // If we have some places with this status, prompt the user to set a status to
+    // set them to after saving...
+    const otherStatuses = placeStatuses.value.filter(status => {
+      return !status.isArchived && status.id !== placeStatus.value.id
+    })
+    Object.assign(confirmChangesOptions, {
+      extraComponent: SetPlacesToStatus,
+      extraComponentProps: {
+        currentPlaceStatus: placeStatus.value,
+        placeStatuses: otherStatuses,
+      },
+    })
+  }
+
+  const { ok, ...data } = await confirmChanges(confirmChangesOptions)
   if (!ok) return
-  await update({ id: placeStatus.value.id, isArchived: true, updatedMessage })
+  await update({ id: placeStatus.value.id, isArchived: true, ...data })
   emit('ok')
 }
 

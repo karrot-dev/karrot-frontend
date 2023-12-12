@@ -12,6 +12,16 @@
           {{ $t('HISTORY.CONFIRM_CHANGES_HINT') }}
           ({{ $t('VALIDATION.OPTIONAL') }})
         </QCardSection>
+        <QCardSection
+          v-if="extraComponent"
+          class="q-dialog__message"
+        >
+          <component
+            :is="extraComponent"
+            v-bind="extraComponentProps"
+            @extra-data="data => extraData = data"
+          />
+        </QCardSection>
         <QCardSection class="q-dialog__message">
           <QInput
             ref="updatedMessageRef"
@@ -56,6 +66,18 @@ import { ref } from 'vue'
 
 const updatedMessageRef = ref(null)
 const updatedMessage = ref('')
+const extraData = ref(null)
+
+defineProps({
+  extraComponent: {
+    type: Object,
+    default: null,
+  },
+  extraComponentProps: {
+    type: Object,
+    default: null,
+  },
+})
 
 defineEmits(useDialogPluginComponent.emits)
 
@@ -69,6 +91,13 @@ const {
 function submit () {
   updatedMessageRef.value.validate()
   if (updatedMessageRef.value.hasError) return
-  onDialogOK({ updatedMessage: updatedMessage.value })
+  const data = {}
+  if (updatedMessage.value) {
+    Object.assign(data, { updatedMessage: updatedMessage.value })
+  }
+  if (extraData.value) {
+    Object.assign(data, extraData.value)
+  }
+  onDialogOK(data)
 }
 </script>

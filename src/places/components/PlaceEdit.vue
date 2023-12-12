@@ -70,6 +70,8 @@
                     <QItemLabel
                       v-if="scope.opt.caption"
                       caption
+                      class="ellipsis"
+                      style="max-width: 200px;"
                     >
                       {{ scope.opt.caption }}
                     </QItemLabel>

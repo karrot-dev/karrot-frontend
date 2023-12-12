@@ -6,10 +6,10 @@ import { computed, ref, unref, watch } from 'vue'
 import { objectDiff } from '@/utils/utils'
 import { useValidation } from '@/utils/validation'
 
-import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog.vue'
+import ConfirmChangesDialog from '@/utils/components/ConfirmChangesDialog.vue'
 import KDialog from '@/utils/components/KDialog.vue'
 
-export function useForm (initial, { rules, create, update, createStatus, updateStatus, confirm, onSuccess }) {
+export function useForm (initial, { rules, create, update, createStatus, updateStatus, confirm, confirmExtraComponent, onSuccess }) {
   const edit = ref(cloneDeep(unref(initial)))
 
   const isNew = computed(() => {
@@ -46,7 +46,7 @@ export function useForm (initial, { rules, create, update, createStatus, updateS
         id: initial.value.id,
       }
       if (confirm) {
-        const { ok, updatedMessage } = await confirmChanges()
+        const { ok, updatedMessage } = await confirmChanges({ extraComponent: confirmExtraComponent })
         if (!ok) return
         if (updatedMessage) {
           Object.assign(updateData, { updatedMessage })
@@ -76,18 +76,17 @@ export function useForm (initial, { rules, create, update, createStatus, updateS
   }
 }
 
-export function confirmChanges () {
+export function confirmChanges ({ extraComponent, extraComponentProps } = {}) {
   return new Promise(resolve => {
     Dialog.create({
       component: ConfirmChangesDialog,
+      componentProps: {
+        extraComponent,
+        extraComponentProps,
+      },
     })
-      .onOk(({ updatedMessage }) => {
-        if (updatedMessage) {
-          resolve({ ok: true, updatedMessage })
-        }
-        else {
-          resolve({ ok: true })
-        }
+      .onOk(data => {
+        resolve({ ok: true, ...data })
       })
       .onCancel(() => {
         resolve({ ok: false })

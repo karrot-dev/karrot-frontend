@@ -15,13 +15,16 @@ export function usePlaceHelpers () {
     return activePlaceId.value === unref(place).id
   }
 
+  const defaultPlaceIconProps = {
+    name: 'fas fa-map-marker',
+  }
+
   function getPlaceIconProps (place) {
+    if (!place) return defaultPlaceIconProps
     const placeType = getPlaceTypeById(place.placeType)
     const placeStatus = getPlaceStatusById(place.status)
     if (!placeType || !placeStatus) {
-      return {
-        name: 'fas fa-map-marker',
-      }
+      return defaultPlaceIconProps
     }
 
     const { icon } = placeType
@@ -101,6 +104,11 @@ export function usePlaceStatusHelpers () {
     sortByTranslatedName,
     getColorName,
   }
+}
+
+export function usePlaceIconProps (place) {
+  const { getPlaceIconProps } = usePlaceHelpers()
+  return computed(() => getPlaceIconProps(unref(place)))
 }
 
 export function usePlaceStatusTranslatedName (placeStatus) {

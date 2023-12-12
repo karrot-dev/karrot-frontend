@@ -182,13 +182,9 @@
       >
         <RouterLink :to="{ name: placeRoute(place), params: { placeId: place.id } }">
           <QCard>
-            <QItem
-              class="bg-grey-3"
-            >
+            <QItem class="bg-grey-3">
               <QItemSection side>
-                <QIcon
-                  v-bind="getPlaceIconProps(place)"
-                />
+                <PlaceIcon :place="place" />
               </QItemSection>
               <QItemSection>
                 <QItemLabel
@@ -198,9 +194,23 @@
                 </QItemLabel>
                 <QItemLabel
                   caption
-                  class="ellipsis"
+                  class="row no-wrap items-center q-gutter-x-xs"
                 >
-                  {{ getTranslatedName(getPlaceTypeById(place.placeType)) }}
+                  <QChip
+                    text-color="white"
+                    square
+                    size="xs"
+                    class="q-my-none"
+                    :color="placeStatusHelpers.getColorName(getPlaceStatusById(place.status))"
+                    :title="getPlaceStatusById(place.status).description"
+                  >
+                    <span class="ellipsis">
+                      {{ placeStatusHelpers.getTranslatedName(getPlaceStatusById(place.status)) }}
+                    </span>
+                  </QChip>
+                  <div class="ellipsis">
+                    {{ getTranslatedName(getPlaceTypeById(place.placeType)) }}
+                  </div>
                 </QItemLabel>
               </QItemSection>
             </QItem>
@@ -222,15 +232,6 @@
               style="height: 42px"
               class="row no-wrap"
             >
-              <QChip
-                text-color="white"
-                square
-                size="sm"
-                :color="placeStatusHelpers.getColorName(getPlaceStatusById(place.status))"
-                :title="getPlaceStatusById(place.status).description"
-              >
-                {{ placeStatusHelpers.getTranslatedName(getPlaceStatusById(place.status)) }}
-              </QChip>
               <RouterLink
                 v-if="getUnreadWallMessageCount(place) > 0"
                 :to="{ name: 'placeWall', params: { placeId: place.id }}"
@@ -277,6 +278,12 @@
                 @click.stop.prevent="place.isSubscribed ? unsubscribe(place.id) : subscribe(place.id)"
               />
             </QCardActions>
+            <template v-if="place.isArchived">
+              <div class="absolute-full dimmed" />
+              <div class="absolute-full flex flex-center text-h4 text-uppercase text-bold">
+                {{ t('LABELS.ARCHIVED') }}
+              </div>
+            </template>
           </QCard>
         </RouterLink>
       </div>
@@ -341,9 +348,10 @@ import { useStatusService } from '@/status/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 
+import PlaceIcon from '@/places/components/PlaceIcon.vue'
 import Markdown from '@/utils/components/Markdown.vue'
 
-import { usePlaceHelpers, usePlaceStatusHelpers, usePlaceTypeHelpers } from '../helpers'
+import { usePlaceStatusHelpers, usePlaceTypeHelpers } from '../helpers'
 import { usePlaceStatusService, usePlaceTypeService } from '../services'
 
 const {
@@ -355,10 +363,6 @@ const {
 const {
   getPlaceStatus,
 } = useStatusService()
-
-const {
-  getPlaceIconProps,
-} = usePlaceHelpers()
 
 const {
   getTranslatedName,
@@ -468,7 +472,7 @@ const statusOptions = computed(() => {
     otherPlaceStatuses.value.map(placeStatusToOption),
     [
       {
-        label: 'Archived', // TODO: translate,
+        label: t('LABELS.ARCHIVED'),
         value: 'archived',
         color: 'black',
       },

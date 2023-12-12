@@ -93,17 +93,38 @@
         @filter="filterPlaceOptions"
       >
         <template #option="{ index, itemProps, opt }">
+          <QSeparator v-if="opt.value === '$seperator'" />
           <QItem
+            v-else
             :key="index"
             dense
             v-bind="itemProps"
           >
+            <QItemSection side>
+              <PlaceIcon
+                v-if="opt.place"
+                :place="opt.place"
+                size="1.1em"
+              />
+              <QIcon
+                v-else-if="opt.value === 'subscribed'"
+                name="fas fa-fw fa-star"
+                color="green"
+                size="1.1em"
+              />
+              <QIcon
+                v-else
+                size="1.1em"
+              />
+            </QItemSection>
             <QItemSection>
               <QItemLabel>{{ opt.label }}</QItemLabel>
             </QItemSection>
-            <QItemSection side>
+            <QItemSection
+              v-if="opt.place?.isSubscribed"
+              side
+            >
               <QIcon
-                v-if="opt.place?.isSubscribed || opt.value === 'subscribed'"
                 name="fas fa-fw fa-star"
                 color="green"
                 size="1.1em"
@@ -203,11 +224,13 @@ import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 import ActivityCreateButton from '@/activities/components/ActivityCreateButton.vue'
 import ActivityList from '@/activities/components/ActivityList.vue'
 import ICSBtn from '@/activities/components/ICSBtn.vue'
+import PlaceIcon from '@/places/components/PlaceIcon.vue'
 import KNotice from '@/utils/components/KNotice.vue'
 import KSpinner from '@/utils/components/KSpinner.vue'
 
 export default {
   components: {
+    PlaceIcon,
     QSeparator,
     QBtn,
     ICSBtn,
@@ -388,6 +411,9 @@ export default {
           label: this.$t('ACTIVITYLIST.FILTER.ALL_FAVOURITE_PLACES'),
           value: 'subscribed',
         },
+        {
+          value: '$seperator',
+        },
         ...this.places.map(place => {
           return {
             label: place.name,
@@ -397,7 +423,7 @@ export default {
         }),
       ].filter(option => {
         if (!option) return false
-        return !this.placeOptionsFilter || option.label.toLowerCase().includes(this.placeOptionsFilter)
+        return !this.placeOptionsFilter || option.label?.toLowerCase().includes(this.placeOptionsFilter)
       })
     },
   },

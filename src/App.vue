@@ -7,6 +7,7 @@
   >
   <LoadingProgress />
   <RouterView />
+  <SvgFilters />
 </template>
 
 <script>
@@ -37,9 +38,11 @@ import { useUsersUpdater } from '@/users/queries'
 import { useClearDataOnLogout, useTitleStatus } from '@/utils/composables'
 
 import LoadingProgress from '@/topbar/components/LoadingProgress.vue'
+import SvgFilters from '@/utils/components/SvgFilters.vue'
 
 export default {
   components: {
+    SvgFilters,
     LoadingProgress,
   },
   setup () {

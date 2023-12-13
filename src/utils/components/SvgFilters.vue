@@ -48,9 +48,12 @@ import { raggedEdgeVariations } from '@/utils/svgUtils'
 
 const variants = Array.from({ length: raggedEdgeVariations }, (_, i) => i + 1)
 
-const styleSheet = new CSSStyleSheet()
-for (const variant of variants) {
-  styleSheet.insertRule(`.ragged-edges-${variant} { filter: url(#ragged-edges-${variant})}`)
+if (document.adoptedStyleSheets) {
+  // If adoptedStyleSheets is not supported it won't be enabled
+  const styleSheet = new CSSStyleSheet()
+  for (const variant of variants) {
+    styleSheet.insertRule(`.ragged-edges-${variant} { filter: url(#ragged-edges-${variant})}`)
+  }
+  document.adoptedStyleSheets.push(styleSheet)
 }
-document.adoptedStyleSheets.push(styleSheet)
 </script>

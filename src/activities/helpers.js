@@ -35,6 +35,10 @@ export function useActivityHelpers () {
     return activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value
   }
 
+  function getHasFinished (activity) {
+    return activity.dateEnd <= reactiveNow.value
+  }
+
   function getIsUpcoming (activity) {
     return activity.date > reactiveNow.value
   }
@@ -73,6 +77,7 @@ export function useActivityHelpers () {
     getIsEmpty,
     getIsFull,
     getHasStarted,
+    getHasFinished,
     getIsUpcoming,
     getIsStartedOrUpcoming,
     roleOptions,

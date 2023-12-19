@@ -374,6 +374,7 @@ const {
 const {
   getIsUserParticipant,
   getHasStarted,
+  getHasFinished,
   getIsFull,
 } = useActivityHelpers()
 
@@ -383,6 +384,7 @@ const {
 } = useActivityTypeHelpers()
 
 const hasStarted = computed(() => getHasStarted(activity.value))
+const hasFinished = computed(() => getHasFinished(activity.value))
 const isUserParticipant = computed(() => getIsUserParticipant(activity.value))
 
 const place = computed(() => getPlaceById(activity.value.place))
@@ -412,7 +414,7 @@ const canJoin = computed(() => {
   return availableParticipantTypes.value.length > 0
 })
 const canLeave = computed(() => {
-  return isUserParticipant.value && !hasStarted.value
+  return isUserParticipant.value && !hasFinished.value
 })
 const participantTypes = computed(() => {
   return activity.value.participantTypes.filter(entry => !entry._removed)
@@ -449,7 +451,7 @@ function join () {
   joinDialog.value = true
 }
 function leave () {
-  if (!hasStarted.value) {
+  if (!hasFinished.value) {
     joinDialog.value = false
     leaveDialog.value = true
   }

@@ -63,6 +63,8 @@ function onProxyRes (proxyRes, req, res) {
 }
 
 function onProxyReq (proxyReq) {
+  proxyReq.setHeader('referer', backend)
+  proxyReq.setHeader('origin', backend)
   if (/^https:/.test(backend)) {
     // For secure backends we must set the referer to make django happy
     // https://github.com/django/django/blob/master/django/middleware/csrf.py#L226

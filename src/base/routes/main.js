@@ -3,6 +3,7 @@ import { h } from 'vue'
 import { RouterView } from 'vue-router'
 const Empty = { render: () => null }
 const Landing = () => import('@/base/pages/Landing.vue')
+const Meet = () => import('@/meet/pages/Meet.vue')
 const GroupWall = () => import('@/group/pages/Wall.vue')
 const GroupActivities = () => import('@/activities/pages/GroupActivities.vue')
 const GroupOffers = () => import('@/offers/pages/GroupOffers.vue')
@@ -90,6 +91,17 @@ export default [
       ],
     },
     component: Landing,
+  },
+  {
+    name: 'meet',
+    path: '/meet',
+    meta: {
+      fullpage: true,
+      breadcrumbs: [
+        { name: 'Meet' },
+      ],
+    },
+    component: Meet,
   },
   {
     name: 'groupsGallery',

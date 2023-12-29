@@ -36,6 +36,7 @@ import { usePlacesUpdater } from '@/places/queries'
 import { useStatusUpdater } from '@/status/queries'
 import { useUsersUpdater } from '@/users/queries'
 import { useClearDataOnLogout, useTitleStatus } from '@/utils/composables'
+import { showToast } from '@/utils/toasts'
 
 import LoadingProgress from '@/topbar/components/LoadingProgress.vue'
 import SvgFilters from '@/utils/components/SvgFilters.vue'
@@ -84,6 +85,13 @@ export default {
     // It doesn't stop the error propagating elsewhere, it's just seeing it, so nice and neutral
     onErrorCaptured(error => {
       console.error(error)
+      showToast({
+        message: error.message,
+        config: {
+          icon: 'priority_high',
+          color: 'warning',
+        },
+      })
     })
 
     // TODO: remove at some point... just trying it out for now

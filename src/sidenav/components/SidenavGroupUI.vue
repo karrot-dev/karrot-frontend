@@ -147,6 +147,10 @@ export default {
           color: 'secondary',
         },
       }, {
+        label: 'Meet',
+        icon: 'fas fa-phone',
+        to: { name: 'meet' },
+      }, {
         label: this.$t('GROUP.ACTIVITIES'),
         info: this.theme === 'foodsaving' && {
           title: this.$t('GROUP.PICKUPS_TO_ACTIVITIES'),

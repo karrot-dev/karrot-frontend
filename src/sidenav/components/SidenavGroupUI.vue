@@ -148,7 +148,7 @@ export default {
         },
       }, {
         label: 'Meet',
-        icon: 'fas fa-phone',
+        icon: 'fas fa-phone-alt',
         to: { name: 'meet' },
       }, {
         label: this.$t('GROUP.ACTIVITIES'),

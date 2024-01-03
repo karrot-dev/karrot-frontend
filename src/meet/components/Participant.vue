@@ -4,7 +4,7 @@
   >
     <div
       v-if="isLocal"
-      class="absolute-top-left q-ma-xsoff q-pa-xs text-caption"
+      class="absolute-top-left q-pa-xs text-caption"
       style="background: #FFFFFF88; border-bottom-right-radius: 4px;"
     >
       It's you!
@@ -156,16 +156,9 @@ watch([isLocal, audioMediaStreamTrack, audioRef], ([isLocal, track, element]) =>
 
 <style scoped lang="sass">
 .room-participant
-  // 4x3 aspect ratio
-  //width: 175px
-  //width: 48%
-  //height: 165px
   aspect-ratio: 4/3
-
-  // circle style...
-  //width: 180px
-  //height: 180px
-  //border-radius: 100%
+  //max-height: 100%
+  //margin: 0 auto
 
 video
   object-fit: cover

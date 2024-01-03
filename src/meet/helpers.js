@@ -6,9 +6,10 @@ import {
 } from '@livekit/components-core'
 import { useEventListener, useStorage } from '@vueuse/core'
 import { attachToElement, detachTrack, LocalVideoTrack, Participant, Room, RoomEvent, Track } from 'livekit-client'
-import { computed, onMounted, reactive, ref, unref, watch, watchEffect } from 'vue'
+import { computed, onMounted, reactive, readonly, ref, unref, watch, watchEffect } from 'vue'
 
 import api from '@/meet/api/meet'
+import { defineService } from '@/utils/datastore/helpers'
 import { camelizeKeys, sleep, underscorizeKeys } from '@/utils/utils'
 
 /**
@@ -241,21 +242,27 @@ function useObservableState (observable, defaultValue = null) {
 export function useAudioMediaStreamVolume (audioMediaStream) {
   const audioVolume = ref(0)
   const audioIsSilent = ref(false)
-  watchEffect(onCleanup => {
-    const stream = unref(audioMediaStream)
+
+  watch(audioMediaStream, /** MediaStream */ stream => {
     audioVolume.value = 0
     audioIsSilent.value = false
     if (!stream || !stream.active) return
-    console.log('init audio stream', stream)
+    // let stop = false
     const audioContext = new AudioContext()
+    let silentOccurences = 0
+    console.log('init audio stream', stream)
     const source = audioContext.createMediaStreamSource(stream)
     const analyser = audioContext.createAnalyser()
     source.connect(analyser)
-    let stop = false
-    let silentOccurences = 0
     const pcmData = new Float32Array(analyser.fftSize)
-    function processFrame () {
-      if (stop) return
+    async function processFrame () {
+      // If the stream has changed, or gone, tidy up...
+      if (audioMediaStream.value !== stream) {
+        audioVolume.value = 0
+        audioIsSilent.value = false
+        await audioContext.close()
+        return
+      }
 
       analyser.getFloatTimeDomainData(pcmData)
       let sumSquares = 0.0
@@ -288,18 +295,11 @@ export function useAudioMediaStreamVolume (audioMediaStream) {
           audioIsSilent.value = true
         }
       }
-      if (!stop) requestAnimationFrame(processFrame)
+      requestAnimationFrame(processFrame)
     }
     requestAnimationFrame(processFrame)
+  }, { immediate: true })
 
-    onCleanup(async () => {
-      // TODO: is this suitable cleanup?
-      stop = true
-      audioVolume.value = 0
-      audioIsSilent.value = false
-      await audioContext.close()
-    })
-  })
   return {
     audioVolume,
     audioIsSilent,
@@ -310,17 +310,28 @@ function round2dp (num) {
   return Math.round(num * 100) / 100
 }
 
-export function useMediaDevices ({ enabled } = {}) {
+export const useMediaDeviceService = defineService(() => {
+  // Whether the whole thing is enabled or not
+  const enabled = ref(false)
+
+  function enable () {
+    enabled.value = true
+  }
+
+  function disable () {
+    enabled.value = false
+  }
+
   // Whether we want video and/or audio
   // Saved in local storage
   const videoEnabled = useStorage('video-enabled', true)
   const audioEnabled = useStorage('audio-enabled', true)
 
   // To be connected to a <video> element to preview the feed
-  const videoRef = ref(null)
+  // const videoRef = ref(null)
 
   // The stream(s), if audio/video requested together these might be the same
-  const videoMediaStream = ref(null)
+  // const videoMediaStream = ref(null)
   const audioMediaStream = ref(null)
 
   // The associated MediaStreamTracks
@@ -360,7 +371,7 @@ export function useMediaDevices ({ enabled } = {}) {
    * Main logic for requesting devices
    */
   watchEffect(async () => {
-    if (!(enabled && unref(enabled))) return
+    if (!(enabled.value && unref(enabled))) return
 
     const requestVideo = videoEnabled.value && (!videoDeviceId.value || videoDeviceId.value !== actualVideoDeviceId.value)
     const requestAudio = audioEnabled.value && (!audioDeviceId.value || audioDeviceId.value !== actualAudioDeviceId.value)
@@ -401,8 +412,9 @@ export function useMediaDevices ({ enabled } = {}) {
       const { deviceId } = track.getSettings()
       videoDeviceId.value = deviceId
       actualVideoDeviceId.value = deviceId
+      console.log('setting new videotrack')
       videoTrack.value = track
-      videoMediaStream.value = mediaStream
+      // videoMediaStream.value = mediaStream
     }
 
     if (requestAudio) {
@@ -418,27 +430,34 @@ export function useMediaDevices ({ enabled } = {}) {
   /**
    * Keep track of attaching and unattaching the <video> element
    */
-  watchEffect(async (onCleanup) => {
-    if (!videoRef.value || !videoTrack.value) return
-    const track = videoTrack.value
-    const element = videoRef.value
-    if (track) {
-      attachToElement(track, videoRef.value)
-    }
-    onCleanup(() => {
-      if (track !== videoTrack.value && videoTrack.value) {
-        detachTrack(track, element)
-      }
-    })
-  })
+  // watchEffect(async (onCleanup) => {
+  //   if (!videoRef.value || !videoTrack.value) return
+  //   const track = videoTrack.value
+  //   const element = videoRef.value
+  //   if (track) {
+  //     attachToElement(track, videoRef.value)
+  //   }
+  //   onCleanup(() => {
+  //     if (track !== videoTrack.value && videoTrack.value) {
+  //       detachTrack(track, element)
+  //     }
+  //   })
+  // })
 
   /**
    * Volume and silence detection
    */
-  const {
-    audioVolume,
-    audioIsSilent,
-  } = useAudioMediaStreamVolume(audioMediaStream)
+  // const {
+  //   audioVolume,
+  //   audioIsSilent,
+  // } = useAudioMediaStreamVolume(audioMediaStream)
+
+  watch(enabled, value => {
+    if (!value) {
+      console.log('resetting because not enabled')
+      reset()
+    }
+  })
 
   /**
    * Cleanup everything...
@@ -454,7 +473,7 @@ export function useMediaDevices ({ enabled } = {}) {
       audioTrack.value = null
     }
 
-    videoMediaStream.value = null
+    // videoMediaStream.value = null
     audioMediaStream.value = null
 
     actualVideoDeviceId.value = null
@@ -465,8 +484,9 @@ export function useMediaDevices ({ enabled } = {}) {
   }
 
   return {
-    enabled,
-    reset,
+    enabled: readonly(enabled),
+    enable,
+    disable,
 
     videoDevices,
     audioDevices,
@@ -483,31 +503,41 @@ export function useMediaDevices ({ enabled } = {}) {
     videoTrack,
     audioTrack,
 
-    videoRef,
+    audioMediaStream,
 
-    audioVolume,
-    audioIsSilent,
+    // videoRef,
+
+    // audioVolume,
+    // audioIsSilent,
   }
-}
+})
 
 // TODO: pass roomId in
 // TODO: maybe have a boolean ref for joined or not...
-export function useRoom () {
+export const useRoomService = defineService(() => {
+  const active = ref(false)
+  const roomIdRef = ref(null)
   const room = ref(null)
   const roomInfoRef = ref(null)
-  // const participants = ref(null)
 
   const participants = computed(() => {
     if (!roomInfoRef.value) return []
     return Object.values(roomInfoRef.value.participantsByIdentity)
   })
 
-  async function joinRoom () {
-    const token = await api.getToken()
+  async function joinRoom (roomId) {
+    if (!roomId) throw new Error('must provide roomId')
+    if (roomIdRef.value && roomIdRef.value !== roomId) throw new Error('already in another room!')
+    roomIdRef.value = roomId
+    active.value = true
+
+    // TODO: handle changing rooms!
+
+    const token = await api.getToken({ roomId })
     console.log('got a token!', token)
 
     // const wsURL = 'ws://192.168.1.176:7880'
-    const wsURL = 'wss://192.168.1.176:47880'
+    const wsURL = 'wss://192.168.1.175:47880'
     // const wsURL = 'ws://localhost:7880'
     const newRoom = new Room({ adaptiveStream: true })
 
@@ -580,12 +610,10 @@ export function useRoom () {
     })
 
     newRoom.on(RoomEvent.ActiveSpeakersChanged, (speakers) => {
-      console.log('speakers changed!', speakers)
       const speakersMap = {}
       for (const participant of speakers) {
         speakersMap[participant.identity] = participant.audioLevel
       }
-      console.log('speakersMap', speakersMap)
       for (const participantInfo of Object.values(roomInfo.participantsByIdentity)) {
         const audioLevel = speakersMap[participantInfo.identity]
         if (typeof audioLevel !== 'undefined') {
@@ -654,19 +682,23 @@ export function useRoom () {
   }
 
   async function leaveRoom () {
-    await room.value.disconnect(false)
+    active.value = false
+    await room.value?.disconnect(false)
     // TODO: could probably keep it around?
     room.value = null
     roomInfoRef.value = null
+    roomIdRef.value = null
   }
 
   return {
+    active: readonly(active),
+    roomId: readonly(roomIdRef),
     joinRoom,
     leaveRoom,
     room,
     participants,
   }
-}
+})
 
 /**
  *

@@ -1,12 +1,6 @@
 <template>
-  <h2>select devices</h2>
-
-  <div
-    style="max-width: 400px; border: 1px solid lightgrey;"
-    class="q-pa-md bg-white rounded-borders q-mx-auto"
-  >
-    <a href="https://192.168.1.176:47880">192.168.1.176:47880</a>
-    <div class="row">
+  <div>
+    <div class="row items-center">
       <div class="text-h6 q-mb-sm">
         Select device
       </div>
@@ -29,118 +23,31 @@
       <video
         v-if="videoEnabled"
         ref="videoRef"
-        class="rounded-borders full-width"
+        class="rounded-borders full-width bg-black"
       />
-      <QSelect
-        v-if="videoEnabled && videoDevices"
-        v-model="videoDeviceId"
-        label="Video"
-        outlined
-        :loading="videoLoading"
-        emit-value
-        map-options
-        class="bg-white"
-        :options="videoDevices.map(device => ({
-          value: device.deviceId,
-          label: device.label,
-        }))"
-      >
-        <template #prepend>
-          <QIcon name="videocam" />
-        </template>
-      </QSelect>
-      <QSelect
-        v-if="audioEnabled && audioDevices"
-        v-model="audioDeviceId"
-        label="Audio"
-        outlined
-        :loading="audioLoading"
-        emit-value
-        map-options
-        class="bg-white"
-        :error="!audioLoading && audioIsSilent"
-        error-message="No sound detected"
-        :options="audioDevices.map(device => ({
-          value: device.deviceId,
-          label: device.label,
-        }))"
-      >
-        <template #prepend>
-          <QIcon name="fas fa-microphone" />
-        </template>
-        <template
-          v-if="!audioIsSilent && !audioLoading"
-          #append
-        >
-          <div
-            style="width: 5px; top: 12px; bottom: 12px; margin-right: 10px;"
-            class="bg-grey-2 absolute rounded-borders"
-          >
-            <div
-              :style="{ height: `${audioVolume * 100}%` }"
-              class="absolute-bottom bg-green-4 full-width rounded-borders"
-            />
-          </div>
-          <!-- just a spacer -->
-          <div style="width: 6px;" />
-        </template>
-      </QSelect>
+      <VideoDeviceSelect />
+      <AudioDeviceSelect />
     </div>
-
-    <div class="q-my-sm">
-      <QBtn
-        v-if="room"
-        label="Leave room"
-        unelevated
-        outline
-        @click="leaveRoom"
-      />
-      <QBtn
-        v-else
-        label="Join room"
-        unelevated
-        outline
-        @click="joinRoom"
-      />
-    </div>
-
-    <div
-      class="row q-col-gutter-sm"
-    >
-      <div
-        v-for="participant in participants"
-        :key="participant.identity"
-        class="col-6 col-sm-4 col-lg-3"
-      >
-        <Participant
-          :participant="participant"
-        />
-      </div>
-    </div>
-    <pre>participants: {{ participants }}</pre>
-    <pre>cameraParticipants: {{ cameraParticipants }}</pre>
   </div>
 </template>
 
 <script setup>
-import { LocalVideoTrack } from 'livekit-client'
-import { QIcon, QBtn, QSelect, QToggle, QSpace } from 'quasar'
-import { onMounted, onUnmounted, watch, watchEffect } from 'vue'
+import { attachToElement } from 'livekit-client'
+import { QIcon, QSelect, QToggle, QSpace } from 'quasar'
+import { onMounted, ref, toRef, watch } from 'vue'
 
 import {
-  useCameraParticipants,
-  useMediaDevices,
-  useRemoteAudioTrackAttacher,
-  useRemoteAudioTracks,
-  useRoom,
-  useTrackPublisher,
+  useAudioMediaStreamVolume,
+  useMediaDeviceService,
 } from '@/meet/helpers'
 
-import Participant from '@/meet/components/Participant.vue'
-import RoomParticipant from '@/meet/components/RoomParticipant.vue'
+import AudioDeviceSelect from '@/meet/components/AudioDeviceSelect.vue'
+import VideoDeviceSelect from '@/meet/components/VideoDeviceSelect.vue'
+
+const videoRef = ref(null)
 
 const {
-  reset,
+  enable,
 
   videoDevices,
   audioDevices,
@@ -155,33 +62,34 @@ const {
   audioLoading,
 
   videoTrack,
-  audioTrack,
+  audioMediaStream,
+} = useMediaDeviceService()
 
-  videoRef,
-
+const {
   audioVolume,
   audioIsSilent,
-} = useMediaDevices({
-  enabled: true,
+} = useAudioMediaStreamVolume(audioMediaStream)
+
+onMounted(() => enable())
+
+watch([videoTrack, videoRef], ([track, element]) => {
+  if (!track || !element) return
+  attachToElement(track, element)
 })
 
-const { joinRoom, leaveRoom, room, participants } = useRoom()
-
-const cameraParticipants = useCameraParticipants(room)
-
-// onMounted(async () => {
-//   await joinRoom()
+// watchEffect(async (onCleanup) => {
+//   if (!videoRef.value || !videoTrack.value) return
+//   const track = videoTrack.value
+//   const element = videoRef.value
+//   if (track) {
+//     attachToElement(track, videoRef.value)
+//   }
+//   onCleanup(() => {
+//     if (track !== videoTrack.value && videoTrack.value) {
+//       detachTrack(track, element)
+//     }
+//   })
 // })
-
-useTrackPublisher(room, videoTrack, 'video')
-useTrackPublisher(room, audioTrack, 'audio')
-
-// useRemoteAudioTrackAttacher(room)
-
-onUnmounted(async () => {
-  await leaveRoom()
-  reset()
-})
 
 </script>
 

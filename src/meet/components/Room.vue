@@ -68,7 +68,7 @@ onMounted(async () => {
   console.log('got a token!', token.value)
 
   // const wsURL = 'ws://192.168.1.176:7880'
-  const wsURL = 'wss://192.168.1.176:47880'
+  const wsURL = 'wss://192.168.1.175:47880'
   // const wsURL = 'ws://localhost:7880'
   const room = new Room({ adaptiveStream: false })
 

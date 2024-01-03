@@ -249,6 +249,19 @@
         </span>
       </QBtn>
       <QBtn
+        flat
+        no-caps
+        @click="joinRoom(`activity:${activity.id}`)"
+      >
+        <QIcon
+          color="green"
+          size="xs"
+          name="fas fa-phone-alt"
+          class="q-mr-sm"
+        />
+        <div>Call</div>
+      </QBtn>
+      <QBtn
         v-if="activity.isPublic"
         class="action-button"
         flat
@@ -322,6 +335,7 @@ import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers
 import { useJoinActivityMutation, useLeaveActivityMutation } from '@/activities/mutations'
 import { useActivityTypeService } from '@/activities/services'
 import { useCurrentGroupService } from '@/group/services'
+import { useRoomService } from '@/meet/helpers'
 import { useDetailService } from '@/messages/services'
 import { usePlaceService } from '@/places/services'
 import { absoluteURL } from '@/utils/absoluteURL'
@@ -392,6 +406,8 @@ const place = computed(() => getPlaceById(activity.value.place))
 const activityType = computed(() => getActivityTypeById(activity.value.activityType))
 const activityTypeTranslatedName = computed(() => getTranslatedName(activityType.value))
 const activityTypeIconProps = computed(() => getIconProps(activityType.value))
+
+const { joinRoom } = useRoomService()
 
 const {
   mutate: joinActivity,

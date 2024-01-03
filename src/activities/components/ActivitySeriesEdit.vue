@@ -217,44 +217,58 @@
         autogrow
         outlined
         :input-style="{ overflow: 'hidden' }"
+        class="q-pb-xl"
+        clearable
         @keyup.ctrl.enter="maybeSave"
       >
         <template #before>
           <QIcon name="code" />
         </template>
         <template #hint>
-          <i18n-t
-            scope="global"
-            keypath="CREATEACTIVITY.RRULE_HELPER"
-          >
-            <template #ruleHelper>
-              <a
-                v-t="'CREATEACTIVITY.RRULE_HELPER_URL'"
-                href="https://www.kanzaki.com/docs/ical/rrule.html"
-                target="_blank"
-                rel="noopener nofollow noreferrer"
-                style="text-decoration: underline"
-              />
-            </template>
-            <template #ruleExample>
-              <a
-                v-t="'CREATEACTIVITY.RRULE_EXAMPLE'"
-                href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1"
-                target="_blank"
-                rel="noopener nofollow noreferrer"
-                style="text-decoration: underline"
-              />
-            </template>
-            <template #ruleExample2>
-              <a
-                v-t="'CREATEACTIVITY.RRULE_EXAMPLE2'"
-                href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO"
-                target="_blank"
-                rel="noopener nofollow noreferrer"
-                style="text-decoration: underline"
-              />
-            </template>
-          </i18n-t>
+          <div style="line-height: 220%; margin-top: -5px;">
+            <i18n-t
+              scope="global"
+              keypath="CREATEACTIVITY.RRULE_HELPER"
+            >
+              <template #ruleHelper>
+                <a
+                  v-t="'CREATEACTIVITY.RRULE_HELPER_URL'"
+                  href="https://icalendar.org/rrule-tool.html"
+                  target="_blank"
+                  rel="noopener nofollow noreferrer"
+                  style="text-decoration: underline"
+                  @click.stop
+                />&nbsp;
+                <QIcon
+                  name="fas fa-external-link-alt"
+                  class="q-mr-xs"
+                />
+              </template>
+              <template #ruleExample>
+                <br>
+                <QBtn
+                  :label="$t('CREATEACTIVITY.RRULE_EXAMPLE')"
+                  color="grey"
+                  size="sm"
+                  unelevated
+                  class="q-py-xs q-px-sm"
+                  no-caps
+                  @click.stop.prevent="edit.rule.custom = 'FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1'"
+                />
+              </template>
+              <template #ruleExample2>
+                <QBtn
+                  :label="$t('CREATEACTIVITY.RRULE_EXAMPLE2')"
+                  color="grey"
+                  size="sm"
+                  unelevated
+                  class="q-py-xs q-px-sm"
+                  no-caps
+                  @click.stop.prevent="edit.rule.custom = 'FREQ=WEEKLY;INTERVAL=2;BYDAY=MO'"
+                />
+              </template>
+            </i18n-t>
+          </div>
         </template>
       </QInput>
 

@@ -48,6 +48,8 @@
               <QDate
                 v-model="startDate"
                 :options="futureDates"
+                :default-year-month="dateNavigationMin"
+                :navigation-min-year-month="dateNavigationMin"
                 mask="YYYY-MM-DD"
                 @update:model-value="() => smallScreen && $refs.qStartDateProxy.hide()"
               />
@@ -485,6 +487,9 @@ export default {
 
         this.edit.dateEnd = val
       },
+    },
+    dateNavigationMin () {
+      return date.formatDate(new Date(), 'YYYY/MM')
     },
     formattedDuration () {
       return formatSeconds(differenceInSeconds(this.edit.dateEnd, this.edit.date))

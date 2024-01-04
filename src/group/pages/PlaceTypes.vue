@@ -57,9 +57,11 @@ import { useI18n } from 'vue-i18n'
 
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceTypeHelpers, usePlaceTypes } from '@/places/helpers'
-import { openDialog } from '@/utils/forms'
+import { useOpenDialog } from '@/utils/forms'
 
 import PlaceTypeForm from '@/group/components/PlaceTypeForm.vue'
+
+const openDialog = useOpenDialog()
 
 const { t } = useI18n()
 

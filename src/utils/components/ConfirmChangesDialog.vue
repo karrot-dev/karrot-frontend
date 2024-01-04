@@ -45,6 +45,7 @@
             color="primary"
             type="submit"
             :label="$t('BUTTON.SAVE_CHANGES')"
+            data-testid="confirmChanges"
           />
         </QCardActions>
       </form>

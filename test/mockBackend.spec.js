@@ -9,6 +9,8 @@ import groupsInfoAPI from '@/groupInfo/api/groupsInfo'
 import offersAPI from '@/offers/api/offers'
 import userAPI from '@/users/api/users'
 
+import { toActivityResponse } from '>/mockBackend/activities'
+import { toOfferResponse } from '>/mockBackend/offers'
 import { useMockBackend } from '>/mockBackend/setup'
 
 import { loginAs, createUser, db, createGroup, createOffer } from './mockBackend'
@@ -65,14 +67,14 @@ describe('mock backend', () => {
     }
     const createdOffer = await offersAPI.create(offerData)
     expect(db.offers).toHaveLength(1)
-    expect(createdOffer).toEqual(db.offers[0])
+    expect(createdOffer).toEqual(toOfferResponse(db.offers[0]))
     for (const key of Object.keys(offerData)) {
       expect(createdOffer[key]).toEqual(offerData[key])
       expect(db.offers[0][key]).toEqual(offerData[key])
     }
     const fetchedOffer = await offersAPI.get(createdOffer.id)
     expect(fetchedOffer).toEqual(createdOffer)
-    expect(fetchedOffer).toEqual(db.offers[0])
+    expect(fetchedOffer).toEqual(toOfferResponse(db.offers[0]))
   })
 
   it('does not show you offers for other groups', async () => {
@@ -83,6 +85,6 @@ describe('mock backend', () => {
     const offerA = createOffer({ group: groupA.id })
     createOffer({ group: groupB.id })
     loginAs(user)
-    expect((await offersAPI.list()).results).toEqual([offerA])
+    expect((await offersAPI.list()).results).toEqual([toOfferResponse(offerA)])
   })
 })

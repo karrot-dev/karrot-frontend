@@ -80,7 +80,7 @@ import { useI18n } from 'vue-i18n'
 
 import { useActivityTypeHelpers, useActivityTypes } from '@/activities/helpers'
 import { useCurrentGroupService } from '@/group/services'
-import { openDialog } from '@/utils/forms'
+import { useOpenDialog } from '@/utils/forms'
 
 import ActivityTypeForm from '@/group/components/ActivityTypeForm.vue'
 
@@ -97,6 +97,8 @@ const allActivityTypes = useActivityTypes(groupId)
 const activityTypes = computed(() => {
   return allActivityTypes.value.filter(activityType => showArchived.value || !activityType.isArchived).sort(sortByTranslatedName)
 })
+
+const openDialog = useOpenDialog()
 
 const columns = computed(() => [
   {

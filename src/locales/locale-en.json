@@ -832,7 +832,7 @@
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
   "PLACE_STATUSES": {
-    "ADD": "Add new place status",
+    "ADD": "Add new place status"
   },
   "PLACE_LIST": {
     "ONLY_FAVOURITES": "Only favourite",

@@ -11,20 +11,20 @@ import { withDefaults } from '>/helpers'
 import {
   createUser,
   createGroup,
-  createActivityType,
+  createPlaceType,
   loginAs,
 } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 import { useMockBackend } from '>/mockBackend/setup'
 import '>/routerMocks'
 
-import EditActivityTypes from './EditActivityTypes.vue'
+import PlaceTypes from './PlaceTypes.vue'
 
 Dialog.create = vi.fn(() => {
   return { onOk (fn) { fn('') } }
 })
 
-describe('EditActivityTypes', () => {
+describe('EditPlaceTypes', () => {
   useMockBackend()
   let group
 
@@ -41,47 +41,58 @@ describe('EditActivityTypes', () => {
     loginAs(user)
   })
 
-  it('renders activity types edit form', async () => {
-    const { findByText } = render(EditActivityTypes, await withDefaults())
+  it('renders place types edit form', async () => {
+    const { findByText } = render(PlaceTypes, await withDefaults())
     await flushPromises()
-
     await findByText('Name')
-    await findByText('Feedback')
   })
 
-  it('adds new activity type', async () => {
+  it('adds new place type', async () => {
     const { click, type } = userEvent.setup()
 
-    const { queryByRole, findByTitle, findByRole, findByText } = render(EditActivityTypes, await withDefaults())
+    const {
+      queryByRole,
+      findByTitle,
+      findByRole,
+      findByText,
+    } = render(PlaceTypes, await withDefaults())
     await flushPromises()
 
-    await click(await findByTitle('Add new activity type'))
+    await click(await findByTitle('Add new place type'))
     const textbox = await findByRole('combobox', { name: 'Name' })
-    // somehow we need to type the name before we can choose it
-    // seems like a problem between jsdom/testing-library and Quasar
-    await type(textbox, 'Pickup')
-    await click(await findByRole('option', { name: 'Pickup' }))
+
+    await type(textbox, 'Distribution Place')
+    await click(await findByRole('option', { name: /Distribution Place/i }))
     await click(await findByRole('button', { name: /create/i }))
     await flushPromises()
 
     expect(queryByRole('button', { name: /create/i })).not.toBeInTheDocument()
 
-    await findByText('Pickup')
+    await findByText('Distribution Place')
   })
 
-  it('edits activity type name', async () => {
-    const activityType = createActivityType({ group: group.id })
+  it('edits place type name', async () => {
+    const placeType = createPlaceType({ group: group.id })
     const { click, type, clear } = userEvent.setup()
 
-    const { queryByRole, findByRole, findByText } = render(EditActivityTypes, await withDefaults())
+    const {
+      queryByRole,
+      findByRole,
+      findByText,
+      findByTestId,
+    } = render(PlaceTypes, await withDefaults())
     await flushPromises()
 
-    await click(await findByText(activityType.name))
+    await click(await findByText(placeType.name))
     const textbox = await findByRole('combobox', { name: 'Name' })
     await clear(textbox)
     await type(textbox, 'Testtype')
     await click(await findByRole('option', { name: /Use custom name/i }))
     await click(await findByRole('button', { name: /save changes/i }))
+
+    // Now the inner dialog asking to write a message
+    await findByText('Confirm changes?')
+    await click(await findByTestId('confirmChanges'))
     await flushPromises()
 
     expect(queryByRole('button', { name: /save changes/i })).not.toBeInTheDocument()

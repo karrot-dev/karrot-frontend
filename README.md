@@ -77,6 +77,8 @@ yarn test
 
 If you want to use an eslint plugin for your editor, please keep in mind that you either have to install all eslint plugins listed in package.json globally or you run `yarn install`. Otherwise your eslint plugin may not work.
 
+Tip: use `DEBUG_PRINT_LIMIT=999999999 yarn test` to see ALL the output.
+
 ## Start contributing?
 
 We have a forum for Karrot developers and users at https://community.karrot.world.

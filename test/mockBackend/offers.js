@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 
 import { filterByAuthUserGroups } from '>/mockBackend/groups'
-import { realSample } from '>/mockBackend/utils'
+import { realSample, toAPIResponse } from '>/mockBackend/utils'
 
 import { cursorPaginated, getById, post } from './mockAxios'
 
@@ -13,7 +13,6 @@ export function generateOffer (params = {}) {
     id: nextId++,
     name: faker.lorem.words(5),
     description: faker.lorem.paragraphs(2),
-    status: realSample(['active', 'archived']),
     createdAt: faker.date.past(),
     user: null,
     group: null,
@@ -22,16 +21,22 @@ export function generateOffer (params = {}) {
   }
 }
 
+export function toOfferResponse (offer) {
+  return toAPIResponse({
+    ...offer,
+    isArchived: Boolean(offer.archivedAt),
+  })
+}
+
 export function createMockOffersBackend () {
   cursorPaginated(
     '/api/offers/',
     ({ params }) => db.offers
       .filter(filterByAuthUserGroups())
+      .map(toOfferResponse)
       .filter(offer => {
-        const status = params.status
-        if (status && offer.status !== status) return false
-        // Can only view your own archived offers
-        if (status === 'archived' && offer.user !== ctx.authUser.id) return false
+        if (params.isArchived === true && (!offer.isArchived || offer.user !== ctx.authUser.id)) return false
+        if (params.isArchived === false && offer.isArchived) return false
 
         const group = params.group ? parseInt(params.group) : null
         if (group && offer.group !== group) return false
@@ -42,7 +47,7 @@ export function createMockOffersBackend () {
 
   getById(
     '/api/offers/:id/',
-    () => db.offers.filter(filterByAuthUserGroups()),
+    () => db.offers.filter(filterByAuthUserGroups()).map(toOfferResponse),
   )
 
   post('/api/offers/', ({ data: offer }) => {
@@ -52,6 +57,6 @@ export function createMockOffersBackend () {
     offer.user = ctx.authUser.id
     offer.createdAt = new Date()
     db.offers.push(offer)
-    return [200, offer]
+    return [200, toOfferResponse(offer)]
   })
 }

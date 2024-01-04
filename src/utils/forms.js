@@ -1,6 +1,6 @@
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
-import { Dialog } from 'quasar'
+import { Dialog, useQuasar } from 'quasar'
 import { computed, ref, unref, watch } from 'vue'
 
 import { objectDiff } from '@/utils/utils'
@@ -11,6 +11,7 @@ import KDialog from '@/utils/components/KDialog.vue'
 
 export function useForm (initial, { rules, create, update, createStatus, updateStatus, confirm, confirmExtraComponent, onSuccess }) {
   const edit = ref(cloneDeep(unref(initial)))
+  const confirmChanges = useConfirmChanges()
 
   const isNew = computed(() => {
     return initial.value && !initial.value.id && initial.value.id !== 0
@@ -76,22 +77,25 @@ export function useForm (initial, { rules, create, update, createStatus, updateS
   }
 }
 
-export function confirmChanges ({ extraComponent, extraComponentProps } = {}) {
-  return new Promise(resolve => {
-    Dialog.create({
-      component: ConfirmChangesDialog,
-      componentProps: {
-        extraComponent,
-        extraComponentProps,
-      },
+export function useConfirmChanges () {
+  const $q = useQuasar()
+  return ({ extraComponent, extraComponentProps } = {}) => {
+    return new Promise(resolve => {
+      $q.dialog({
+        component: ConfirmChangesDialog,
+        componentProps: {
+          extraComponent,
+          extraComponentProps,
+        },
+      })
+        .onOk(data => {
+          resolve({ ok: true, ...data })
+        })
+        .onCancel(() => {
+          resolve({ ok: false })
+        })
     })
-      .onOk(data => {
-        resolve({ ok: true, ...data })
-      })
-      .onCancel(() => {
-        resolve({ ok: false })
-      })
-  })
+  }
 }
 
 /**
@@ -99,12 +103,15 @@ export function confirmChanges ({ extraComponent, extraComponentProps } = {}) {
  * Avoids having to make the inner component implement
  * the QDialog interface
  */
-export function openDialog (Component, props) {
-  Dialog.create({
-    component: KDialog,
-    componentProps: {
-      component: Component,
-      componentProps: props,
-    },
-  })
+export function useOpenDialog () {
+  const $q = useQuasar()
+  return (Component, props) => {
+    $q.dialog({
+      component: KDialog,
+      componentProps: {
+        component: Component,
+        componentProps: props,
+      },
+    })
+  }
 }

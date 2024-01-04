@@ -1,6 +1,6 @@
 import cloneDeep from 'clone-deep'
 import deepEqual from 'deep-equal'
-import { Dialog, useQuasar } from 'quasar'
+import { useQuasar } from 'quasar'
 import { computed, ref, unref, watch } from 'vue'
 
 import { objectDiff } from '@/utils/utils'

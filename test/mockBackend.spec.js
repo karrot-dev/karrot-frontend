@@ -9,7 +9,6 @@ import groupsInfoAPI from '@/groupInfo/api/groupsInfo'
 import offersAPI from '@/offers/api/offers'
 import userAPI from '@/users/api/users'
 
-import { toActivityResponse } from '>/mockBackend/activities'
 import { toOfferResponse } from '>/mockBackend/offers'
 import { useMockBackend } from '>/mockBackend/setup'
 

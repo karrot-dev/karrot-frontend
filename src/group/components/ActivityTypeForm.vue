@@ -132,7 +132,7 @@ import { useActivityTypes, useActivityTypeTranslatedName } from '@/activities/he
 import { useCreateActivityTypeMutation, useSaveActivityTypeMutation } from '@/activities/mutations'
 import { useColourNameFor } from '@/activities/stylesheet'
 import { useCurrentGroupId } from '@/group/helpers'
-import { confirmChanges, useForm } from '@/utils/forms'
+import { useConfirmChanges, useForm } from '@/utils/forms'
 import { isUnique, required } from '@/utils/validation'
 
 import ColourPicker from '@/utils/components/ColourPicker.vue'
@@ -161,6 +161,8 @@ const groupId = useCurrentGroupId()
 const activityTypes = useActivityTypes(groupId)
 const { mutateAsync: create, status: createStatus } = useCreateActivityTypeMutation({ groupId })
 const { mutateAsync: update, status: updateStatus } = useSaveActivityTypeMutation()
+
+const confirmChanges = useConfirmChanges()
 
 const namesInUse = computed(() => {
   return activityTypes.value

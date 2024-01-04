@@ -306,7 +306,7 @@ import { useCurrentGroupId, useIsEditor } from '@/group/helpers'
 import { usePlaceStatuses, usePlaceStatusHelpers, usePlaceTypeHelpers } from '@/places/helpers'
 import { optionsFor } from '@/places/placeStatus'
 import { usePlaceStatusService, usePlaceTypeService } from '@/places/services'
-import { openDialog } from '@/utils/forms'
+import { useOpenDialog } from '@/utils/forms'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
@@ -383,6 +383,8 @@ export default {
         value: '$add',
       },
     ].filter(Boolean))
+
+    const openDialog = useOpenDialog()
 
     const placeStatuses = usePlaceStatuses(groupId)
 

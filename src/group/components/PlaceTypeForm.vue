@@ -103,7 +103,7 @@ import {
   useCreatePlaceTypeMutation,
   useSavePlaceTypeMutation,
 } from '@/places/mutations'
-import { confirmChanges, useForm } from '@/utils/forms'
+import { useConfirmChanges, useForm } from '@/utils/forms'
 import { isUnique, required } from '@/utils/validation'
 
 import IconPicker from '@/utils/components/IconPicker.vue'
@@ -122,6 +122,8 @@ const emit = defineEmits([
   'ok',
   'cancel',
 ])
+
+const confirmChanges = useConfirmChanges()
 
 const placeType = toRef(props, 'placeType')
 

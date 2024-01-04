@@ -123,7 +123,7 @@ import { useColourNameFor } from '@/activities/stylesheet'
 import { useCurrentGroupId } from '@/group/helpers'
 import { usePlaceStatuses, usePlaceStatusTranslatedName, usePlacesWithStatus } from '@/places/helpers'
 import { useCreatePlaceStatusMutation, useSavePlaceStatusMutation } from '@/places/mutations'
-import { confirmChanges, useForm } from '@/utils/forms'
+import { useConfirmChanges, useForm } from '@/utils/forms'
 import { isUnique, required } from '@/utils/validation'
 
 import SetPlacesToStatus from '@/group/components/SetPlacesToStatus.vue'
@@ -143,6 +143,8 @@ const emit = defineEmits([
   'ok',
   'cancel',
 ])
+
+const confirmChanges = useConfirmChanges()
 
 const placeStatus = toRef(props, 'placeStatus')
 

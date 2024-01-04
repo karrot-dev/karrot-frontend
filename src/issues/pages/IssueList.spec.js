@@ -5,14 +5,12 @@ import { vi } from 'vitest'
 import { resetServices } from '@/utils/datastore/helpers'
 
 import '>/routerMocks'
-import { sleep, withDefaults } from '>/helpers'
+import { withDefaults } from '>/helpers'
 import { createGroup, createIssue, createUser, db, loginAs, setPageSize } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 import { useMockBackend } from '>/mockBackend/setup'
 
 import IssueList from './IssueList.vue'
-
-import { flushPromises } from '@vue/test-utils'
 
 describe('IssueList', () => {
   let issues

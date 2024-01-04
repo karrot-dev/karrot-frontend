@@ -88,7 +88,7 @@ import { useI18n } from 'vue-i18n'
 import { useCurrentGroupId } from '@/group/helpers'
 import { usePlaceStatuses, usePlaceStatusHelpers } from '@/places/helpers'
 import { useSavePlaceStatusMutation } from '@/places/mutations'
-import { openDialog } from '@/utils/forms'
+import { useOpenDialog } from '@/utils/forms'
 import { useSortableTable } from '@/utils/sortable'
 
 import PlaceStatusForm from '@/group/components/PlaceStatusForm.vue'
@@ -98,6 +98,8 @@ const { t } = useI18n()
 const { mutateAsync: save } = useSavePlaceStatusMutation()
 
 const { getTranslatedName, getColorName } = usePlaceStatusHelpers()
+
+const openDialog = useOpenDialog()
 
 const groupId = useCurrentGroupId()
 

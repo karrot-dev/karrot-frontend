@@ -13,7 +13,7 @@ const mobileUserAgent = 'Mozilla/5.0 (Android 9; Mobile; rv:68.0) Gecko/68.0 Fir
 
 configure({
   // TODO: make this very long when doing a full test run esp. in CI.. and shorter for individual test?
-  asyncUtilTimeout: 60 * 1000,
+  asyncUtilTimeout: 3 * 1000,
 })
 
 export function useDesktopUserAgent () {

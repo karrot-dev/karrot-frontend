@@ -1,7 +1,7 @@
 <template>
   <QBanner class="bg-orange-2">
     <div class="text-h6 flex items-center no-wrap">
-      <span class="text-no-wrap">You are archiving</span>
+      <span class="text-no-wrap">{{ t('PLACE_STATUSES.ARCHIVING') }}</span>
       <QChip
         square
         :label="getTranslatedName(currentPlaceStatus)"
@@ -11,7 +11,7 @@
       />
     </div>
     <p>
-      Update places with this status to:
+      {{ t('PLACE_STATUSES.UPDATE_TO') }}:
     </p>
     <QSelect
       v-model="selected"

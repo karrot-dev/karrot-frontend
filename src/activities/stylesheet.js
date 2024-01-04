@@ -57,17 +57,15 @@ export function createStylesheet (prefix = '', suffix = '', defaultColour) {
 
   function getStylesheet () {
     if (!stylesheet) {
-      stylesheet = new CSSStyleSheet()
-      document.adoptedStyleSheets = [
-        ...document.adoptedStyleSheets,
-        stylesheet,
-      ]
+      stylesheet = document.createElement('style')
+      stylesheet.innerText = ''
+      document.head.appendChild(stylesheet)
     }
     return stylesheet
   }
 
   function updateStyles (styles) {
-    getStylesheet().replaceSync(styles)
+    getStylesheet().innerText = styles
   }
 
   function updateEntries (entries = []) {
@@ -104,7 +102,7 @@ export function createStylesheet (prefix = '', suffix = '', defaultColour) {
 
   function removeStylesheet () {
     if (stylesheet) {
-      document.adoptedStyleSheets = document.adoptedStyleSheets.filter(s => s !== stylesheet)
+      stylesheet.remove()
     }
   }
 

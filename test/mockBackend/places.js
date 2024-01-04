@@ -21,7 +21,7 @@ export function generatePlace (params = {}) {
     latitude: null,
     longitude: null,
     weeksInAdvance: 4,
-    status: 'active',
+    archivedAt: null,
     isSubscribed: false,
     subscribers: [],
     placeType: null,

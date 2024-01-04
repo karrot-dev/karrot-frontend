@@ -832,7 +832,10 @@
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
   "PLACE_STATUSES": {
-    "ADD": "Add new place status"
+    "ADD": "Add new place status",
+    "ARCHIVING": "You are archiving",
+    "UPDATE_TO": "Update places with this status to",
+    "VISIBLE_HINT": "Whether to show places with this status on the map and in the list"
   },
   "PLACE_LIST": {
     "ONLY_FAVOURITES": "Only favourite",

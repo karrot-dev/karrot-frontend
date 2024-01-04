@@ -196,18 +196,6 @@
                   caption
                   class="row no-wrap items-center q-gutter-x-xs"
                 >
-                  <QChip
-                    text-color="white"
-                    square
-                    size="xs"
-                    class="q-my-none"
-                    :color="placeStatusHelpers.getColorName(getPlaceStatusById(place.status))"
-                    :title="getPlaceStatusById(place.status)?.description"
-                  >
-                    <span class="ellipsis">
-                      {{ placeStatusHelpers.getTranslatedName(getPlaceStatusById(place.status)) }}
-                    </span>
-                  </QChip>
                   <div class="ellipsis">
                     {{ getTranslatedName(getPlaceTypeById(place.placeType)) }}
                   </div>
@@ -436,10 +424,7 @@ const typeOptions = computed(() => ([
   }),
 ]))
 
-const {
-  getPlaceStatusById,
-  getPlaceStatusesByGroup,
-} = usePlaceStatusService()
+const { getPlaceStatusesByGroup } = usePlaceStatusService()
 
 const placeStatuses = computed(() => getPlaceStatusesByGroup(groupId.value))
 

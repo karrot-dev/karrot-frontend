@@ -11,7 +11,7 @@ import {
   createGroup,
   loginAs,
   createPlace,
-  createPlaceType,
+  createPlaceType, createPlaceStatus,
 } from '>/mockBackend'
 import { addUserToGroup } from '>/mockBackend/groups'
 import { useMockBackend } from '>/mockBackend/setup'
@@ -19,9 +19,10 @@ import '>/routerMocks'
 
 import Places from './Places.vue'
 
-describe.skip('Places', () => {
+describe('Places', () => {
   let places
   let placeType
+  let status
   useMockBackend()
 
   beforeEach(() => {
@@ -35,7 +36,8 @@ describe.skip('Places', () => {
     addUserToGroup(user, group)
     user.currentGroup = group.id
     placeType = createPlaceType({ group: group.id })
-    places = times(3, () => createPlace({ group: group.id }))
+    status = createPlaceStatus({ group: group.id, isVisible: true })
+    places = times(3, () => createPlace({ group: group.id, status }))
     loginAs(user)
   })
 

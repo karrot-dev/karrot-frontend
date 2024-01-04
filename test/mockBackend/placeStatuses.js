@@ -4,7 +4,7 @@ import en from '@/locales/locale-en.json'
 
 import { db } from '>/mockBackend/index'
 import { get, post, patch } from '>/mockBackend/mockAxios'
-import { realSample } from '>/mockBackend/utils'
+import { realSample, toAPIResponse } from '>/mockBackend/utils'
 
 export const translatablePlaceStatusNames = Object.keys(en.PLACE_STATUS_NAMES)
 
@@ -16,24 +16,26 @@ export function generatePlaceStatus (params = {}) {
     name: realSample(translatablePlaceStatusNames),
     colour: 'red',
     group: null,
+    isVisible: true,
+    archivedAt: null,
     createdAt: faker.date.past(),
     updatedAt: faker.date.recent(),
-    // TODO: maybe add isArchived/archivedAt?
     ...params,
   }
 }
 
-function toResponse (placeStatus) {
-  return {
+function toPlaceStatusResponse (placeStatus) {
+  return toAPIResponse({
     ...placeStatus,
+    isArchived: Boolean(placeStatus.archivedAt),
     nameIsTranslatable: translatablePlaceStatusNames.includes(placeStatus.name),
-  }
+  })
 }
 
 export function createMockPlaceStatusesBackend () {
   get(
     '/api/place-statuses/',
-    () => [200, db.placeStatuses.map(toResponse)],
+    () => [200, db.placeStatuses.map(toPlaceStatusResponse)],
   )
 
   post(
@@ -42,7 +44,7 @@ export function createMockPlaceStatusesBackend () {
       if (!data.name) return [400, { name: 'name should not be empty!' }]
       const placeStatus = generatePlaceStatus({ ...data })
       db.placeStatuses.push(placeStatus)
-      return [201, toResponse(placeStatus)]
+      return [201, toPlaceStatusResponse(placeStatus)]
     },
   )
 
@@ -52,7 +54,7 @@ export function createMockPlaceStatusesBackend () {
       const placeStatus = db.placeStatuses.find(({ id }) => id === parseInt(pathParams.id))
       if (!placeStatus) return [404, {}]
       Object.assign(placeStatus, data)
-      return [200, toResponse(placeStatus)]
+      return [200, toPlaceStatusResponse(placeStatus)]
     },
   )
 }

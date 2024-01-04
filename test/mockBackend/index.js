@@ -8,7 +8,7 @@ import { createMockAgreementsBackend, generateAgreement } from '>/mockBackend/ag
 import { createMockCommunityBackend } from '>/mockBackend/community'
 import { createMockFeedbackBackend, generateFeedback } from '>/mockBackend/feedback'
 import { createMockHistoryBackend } from '>/mockBackend/history'
-import { createMockPlaceStatusesBackend } from '>/mockBackend/placeStatuses'
+import { createMockPlaceStatusesBackend, generatePlaceStatus } from '>/mockBackend/placeStatuses'
 
 import { createMockActivitySeriesBackend, generateActivitySeries } from './activitySeries'
 import { createMockApplicationsBackend, generateApplication } from './applications'
@@ -182,9 +182,15 @@ export function createPlace (params) {
 }
 
 export function createPlaceType (params) {
-  const place = generatePlaceType(params)
-  db.placeTypes.push(place)
-  return place
+  const placeType = generatePlaceType(params)
+  db.placeTypes.push(placeType)
+  return placeType
+}
+
+export function createPlaceStatus (params) {
+  const placeStatus = generatePlaceStatus(params)
+  db.placeStatuses.push(placeStatus)
+  return placeStatus
 }
 
 export function createActivity (params) {

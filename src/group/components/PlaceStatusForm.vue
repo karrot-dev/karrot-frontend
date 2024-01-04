@@ -17,7 +17,7 @@
 
       <TranslatableNameInput
         v-model="edit"
-        :label="$t('ACTIVITY_TYPES.NAME')"
+        :label="$t('LABELS.NAME')"
         :error="Boolean(errors.name)"
         :error-message="errors.name"
         :options="translatableNameOptions"
@@ -28,7 +28,7 @@
 
       <QInput
         v-model="edit.description"
-        label="Description"
+        :label="$t('LABELS.DESCRIPTION')"
         :error="Boolean(errors.description)"
         :error-message="errors.description"
         outlined
@@ -55,12 +55,12 @@
 
       <QField
         borderless
-        hint="Whether to show places with this status on the map and in the list"
+        :hint="$t('PLACE_STATUSES.VISIBLE_HINT')"
       >
         <template #control>
           <QToggle
             v-model="edit.isVisible"
-            label="Visible"
+            :label="$t('LABELS.VISIBLE')"
           />
         </template>
       </QField>

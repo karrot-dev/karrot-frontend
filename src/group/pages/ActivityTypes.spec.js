@@ -19,10 +19,6 @@ import '>/routerMocks'
 
 import ActivityTypes from './ActivityTypes.vue'
 
-const appElement = document.createElement('div')
-appElement.setAttribute('id', 'app')
-document.body.appendChild(appElement)
-
 describe('ActivityTypes', () => {
   useMockBackend()
   let group
@@ -87,10 +83,7 @@ describe('ActivityTypes', () => {
       findByRole,
       findByText,
       findByTestId,
-    } = render(ActivityTypes, {
-      ...await withDefaults(),
-      // baseElement: appElement,
-    })
+    } = render(ActivityTypes, await withDefaults())
 
     await flushPromises()
 

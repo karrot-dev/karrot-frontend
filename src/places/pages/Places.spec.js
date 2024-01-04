@@ -37,7 +37,7 @@ describe('Places', () => {
     user.currentGroup = group.id
     placeType = createPlaceType({ group: group.id })
     status = createPlaceStatus({ group: group.id, isVisible: true })
-    places = times(3, () => createPlace({ group: group.id, status }))
+    places = times(3, () => createPlace({ group: group.id, status: status.id }))
     loginAs(user)
   })
 

@@ -1,3 +1,4 @@
+import { faker } from '@faker-js/faker'
 import '@testing-library/jest-dom'
 import { fireEvent, render } from '@testing-library/vue'
 import { partition, times } from 'lodash'
@@ -27,15 +28,15 @@ describe('GroupOffers', () => {
     addUserToGroup(user, group)
     user.currentGroup = group.id
     setPageSize(3)
-    times(8, () => createOffer({ status: 'active', user: user.id, group: group.id }))
-    times(4, () => createOffer({ status: 'archived', user: user.id, group: group.id }))
+    times(8, () => createOffer({ archivedAt: null, user: user.id, group: group.id }))
+    times(4, () => createOffer({ archivedAt: faker.date.past(), user: user.id, group: group.id }))
     loginAs(user)
   })
 
   it('renders a list of active offers', async () => {
     const { findByText, queryByText, queryByTitle } = render(GroupOffers, await withDefaults())
 
-    const [expectedOffers, otherOffers] = partition(db.offers, offer => offer.status === 'active')
+    const [expectedOffers, otherOffers] = partition(db.offers, offer => !offer.archivedAt)
 
     // expect all the active ones to be on the page
     for (const offer of expectedOffers) {
@@ -59,7 +60,7 @@ describe('GroupOffers', () => {
     await fireEvent.click(await findByText('My archived offers'))
 
     // expect all the archived ones to be on the page
-    for (const offer of db.offers.filter(offer => offer.status === 'archived')) {
+    for (const offer of db.offers.filter(offer => offer.archivedAt)) {
       expect(await findByText(offer.name)).toBeInTheDocument()
     }
 

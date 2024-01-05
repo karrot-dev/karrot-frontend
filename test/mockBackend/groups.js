@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-import { toResponse as toConversationResponse } from './conversations'
+import { toConversationResponse } from './conversations'
 import { getById, get, put, delete_ } from './mockAxios'
 
 import { db, ctx } from './index'

@@ -4,6 +4,7 @@ import { addDays, addHours, addMinutes, startOfTomorrow } from 'date-fns'
 import { toFeedbackResponse } from '>/mockBackend/feedback'
 import { ctx, db } from '>/mockBackend/index'
 import { cursorPaginated, getById, post } from '>/mockBackend/mockAxios'
+import { toAPIResponse } from '>/mockBackend/utils'
 
 let nextId = 1
 export function generateActivity (params = {}) {
@@ -59,9 +60,9 @@ export function joinActivity (activity, user, params = {}) {
   })
 }
 
-export function toResponse (activity) {
+export function toActivityResponse (activity) {
   const feedback = db.orm.feedback.filter({ about: activity.id })
-  return {
+  return toAPIResponse({
     ...activity,
     participants: activity.participants.map(participant => ({
       // Not all fields returned
@@ -72,7 +73,7 @@ export function toResponse (activity) {
     feedback: feedback.map(toFeedbackResponse),
     feedbackDismissedBy: activity.participants.filter(participant => participant.feedbackDismissed).map(participant => participant.user),
     isDone: activity.date[1] < new Date(), // TODO: is this the right definition?
-  }
+  })
 }
 
 function isFeedbackPossible (activity, user) {
@@ -102,7 +103,7 @@ export function createMockActivitiesBackend () {
         }
       }
       return true
-    }).map(toResponse).filter(activity => {
+    }).map(toActivityResponse).filter(activity => {
       // Filtering after response, as we've already added in the feedback there
       if (params.hasFeedback === true) return activity.feedback.length > 0
       if (params.hasFeedback === false) return activity.feedback.length === 0
@@ -140,6 +141,6 @@ export function createMockActivitiesBackend () {
     if (!data.place) throw new Error('no place given for new activity, must specify one')
     const activity = generateActivity(data)
     db.activities.push(activity)
-    return [201, toResponse(activity)]
+    return [201, toActivityResponse(activity)]
   })
 }

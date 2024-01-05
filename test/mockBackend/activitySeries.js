@@ -2,6 +2,7 @@ import { convert, serialize } from '@/activities/api/activitySeries'
 
 import { db } from '>/mockBackend/index'
 import { get, post, patch } from '>/mockBackend/mockAxios'
+import { toAPIResponse } from '>/mockBackend/utils'
 
 let nextId = 1
 let nextParticipantTypeId = 1
@@ -30,14 +31,14 @@ export function generateActivitySeries (params = {}) {
   }
 }
 
-function toResponse (activitySeries) {
-  return serialize(activitySeries)
+export function toActivitySeriesResponse (activitySeries) {
+  return toAPIResponse(serialize(activitySeries))
 }
 
 export function createMockActivitySeriesBackend () {
   get(
     '/api/activity-series/',
-    () => [200, db.activitySeries.map(toResponse)], // TODO add filters
+    () => [200, db.activitySeries.map(toActivitySeriesResponse)], // TODO add filters
   )
 
   patch(
@@ -56,7 +57,7 @@ export function createMockActivitySeriesBackend () {
     ({ data }) => {
       const series = generateActivitySeries({ ...convert(data) })
       db.activitySeries.push(series)
-      return [201, toResponse(series)]
+      return [201, toActivitySeriesResponse(series)]
     },
   )
 
@@ -69,7 +70,7 @@ export function createMockActivitySeriesBackend () {
         ...serialize(series),
         ...data,
       }))
-      return [200, toResponse(series)]
+      return [200, toActivitySeriesResponse(series)]
     },
   )
 }

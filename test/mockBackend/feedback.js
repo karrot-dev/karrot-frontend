@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 import { uniq } from 'lodash'
 
-import { toResponse as toActivityResponse } from '>/mockBackend/activities'
+import { toActivityResponse } from '>/mockBackend/activities'
 import { createFeedback, ctx, db } from '>/mockBackend/index'
 import { cursorPaginated, post } from '>/mockBackend/mockAxios'
 

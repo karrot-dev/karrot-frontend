@@ -21,8 +21,9 @@ const Notifications = () => import('@/notifications/pages/Notifications.vue')
 const GroupMap = () => import('@/maps/pages/Map.vue')
 const GroupEditLayout = () => import('@/group/pages/EditLayout.vue')
 const GroupEdit = () => import('@/group/pages/Edit.vue')
-const GroupEditActivityTypes = () => import('@/group/pages/EditActivityTypes.vue')
-const GroupEditPlaceTypes = () => import('@/group/pages/EditPlaceTypes.vue')
+const GroupActivityTypes = () => import('@/group/pages/ActivityTypes.vue')
+const GroupPlaceTypes = () => import('@/group/pages/PlaceTypes.vue')
+const GroupPlaceStatuses = () => import('@/group/pages/PlaceStatuses.vue')
 const GroupCreate = () => import('@/group/pages/Create.vue')
 const GroupPreview = () => import('@/groupInfo/pages/GroupPreview.vue')
 const GroupGallery = () => import('@/groupInfo/pages/GroupGallery.vue')
@@ -423,12 +424,17 @@ export default [
           {
             name: 'groupEditActivityTypes',
             path: 'activity-types',
-            component: GroupEditActivityTypes,
+            component: GroupActivityTypes,
           },
           {
             name: 'groupEditPlaceTypes',
             path: 'place-types',
-            component: GroupEditPlaceTypes,
+            component: GroupPlaceTypes,
+          },
+          {
+            name: 'groupEditPlaceStatuses',
+            path: 'place-statuses',
+            component: GroupPlaceStatuses,
           },
         ],
       },

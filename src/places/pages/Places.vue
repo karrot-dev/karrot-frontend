@@ -15,18 +15,55 @@
         <template #option="{ index, opt, itemProps }">
           <QItem
             :key="index"
+            dense
             v-bind="itemProps"
           >
-            <QItemSection avatar>
+            <QItemSection side>
               <QIcon
                 v-if="opt.placeType"
                 v-bind="getIconProps(opt.placeType)"
                 color="positive"
+                size="1.1em"
+              />
+              <QIcon
+                v-else
+                color="transparent"
+                size="1.1em"
               />
             </QItemSection>
             <QItemSection>
               <QItemLabel>
                 {{ opt.label }}
+              </QItemLabel>
+              <QItemLabel
+                v-if="opt.caption"
+                caption
+                class="ellipsis"
+                style="max-width: 200px;"
+                :title="opt.caption"
+              >
+                {{ opt.caption }}
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
+          <QSeparator v-if="!opt.value" />
+        </template>
+        <template #after-options>
+          <QSeparator />
+          <QItem
+            clickable
+            :to="{ name: 'groupEditPlaceTypes' }"
+          >
+            <QItemSection side>
+              <QIcon
+                name="fa fa-cog"
+                color="gray"
+                size="1.1em"
+              />
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel class="text-italic">
+                Manage types
               </QItemLabel>
             </QItemSection>
           </QItem>
@@ -41,36 +78,74 @@
         hide-bottom-space
         dense
       >
-        <template #option="scope">
+        <template #option="{ index, opt, itemProps }">
+          <QSeparator v-if="opt.value === '$seperator'" />
           <QItem
-            :key="scope.index"
+            v-else
+            :key="index"
             dense
-            v-bind="scope.itemProps"
+            v-bind="itemProps"
           >
-            <QItemSection avatar>
+            <QItemSection side>
               <QIcon
-                :name="scope.opt.icon"
-                :color="scope.opt.color"
+                v-if="opt.color"
+                name="fas fa-circle"
+                :color="opt.color"
+                size="1.1em"
+              />
+              <QIcon
+                v-else
+                color="transparent"
                 size="1.1em"
               />
             </QItemSection>
             <QItemSection>
-              <QItemLabel>{{ scope.opt.label }}</QItemLabel>
+              <QItemLabel>{{ opt.label }}</QItemLabel>
+              <QItemLabel
+                v-if="opt.caption"
+                caption
+                class="ellipsis"
+                style="max-width: 200px;"
+                :title="opt.caption"
+              >
+                {{ opt.caption }}
+              </QItemLabel>
             </QItemSection>
           </QItem>
         </template>
-        <template #selected-item="scope">
+        <template #selected-item="{ opt }">
           <div class="row no-wrap ellipsis">
             <QIcon
-              :name="scope.opt.icon"
-              :color="scope.opt.color"
+              v-if="opt.color"
+              name="fas fa-circle"
+              :color="opt.color"
               size="1.1em"
               class="on-left q-ml-xs"
             />
             <div class="ellipsis">
-              {{ scope.opt.label }}
+              {{ opt.label }}
             </div>
           </div>
+        </template>
+        <template #after-options>
+          <QSeparator />
+          <QItem
+            clickable
+            :to="{ name: 'groupEditPlaceStatuses' }"
+          >
+            <QItemSection side>
+              <QIcon
+                name="fa fa-cog"
+                color="gray"
+                size="1.1em"
+              />
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel class="text-italic">
+                Manage statuses
+              </QItemLabel>
+            </QItemSection>
+          </QItem>
         </template>
       </QSelect>
       <QInput
@@ -107,13 +182,9 @@
       >
         <RouterLink :to="{ name: placeRoute(place), params: { placeId: place.id } }">
           <QCard>
-            <QItem
-              class="bg-grey-3"
-            >
+            <QItem class="bg-grey-3">
               <QItemSection side>
-                <QIcon
-                  v-bind="getPlaceIconProps(place)"
-                />
+                <PlaceIcon :place="place" />
               </QItemSection>
               <QItemSection>
                 <QItemLabel
@@ -123,9 +194,11 @@
                 </QItemLabel>
                 <QItemLabel
                   caption
-                  class="ellipsis"
+                  class="row no-wrap items-center q-gutter-x-xs"
                 >
-                  {{ getTranslatedName(getPlaceTypeById(place.placeType)) }}
+                  <div class="ellipsis">
+                    {{ getTranslatedName(getPlaceTypeById(place.placeType)) }}
+                  </div>
                 </QItemLabel>
               </QItemSection>
             </QItem>
@@ -193,6 +266,12 @@
                 @click.stop.prevent="place.isSubscribed ? unsubscribe(place.id) : subscribe(place.id)"
               />
             </QCardActions>
+            <template v-if="place.isArchived">
+              <div class="absolute-full dimmed" />
+              <div class="absolute-full flex flex-center text-h4 text-uppercase text-bold">
+                {{ t('LABELS.ARCHIVED') }}
+              </div>
+            </template>
           </QCard>
         </RouterLink>
       </div>
@@ -252,16 +331,16 @@ import { useI18n } from 'vue-i18n'
 import { useActivityCountQuery } from '@/activities/queries'
 import { useCurrentGroupService } from '@/group/services'
 import { usePlaceSubscribeMutation, usePlaceUnsubscribeMutation } from '@/places/mutations'
-import { statusList } from '@/places/placeStatus'
 import { placeRoute } from '@/places/utils'
 import { useStatusService } from '@/status/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 
+import PlaceIcon from '@/places/components/PlaceIcon.vue'
 import Markdown from '@/utils/components/Markdown.vue'
 
-import { usePlaceHelpers, usePlaceTypeHelpers } from '../helpers'
-import { usePlaceTypeService } from '../services'
+import { usePlaceStatusHelpers, usePlaceTypeHelpers } from '../helpers'
+import { usePlaceStatusService, usePlaceTypeService } from '../services'
 
 const {
   groupId,
@@ -274,14 +353,12 @@ const {
 } = useStatusService()
 
 const {
-  getPlaceIconProps,
-} = usePlaceHelpers()
-
-const {
   getTranslatedName,
   getIconProps,
   sortByTranslatedName,
 } = usePlaceTypeHelpers()
+
+const placeStatusHelpers = usePlaceStatusHelpers()
 
 const {
   getPlaceTypesByGroup,
@@ -308,7 +385,7 @@ const { t } = useI18n()
 
 const defaultQueryParams = {
   type: null,
-  status: 'active',
+  status: null,
   onlyFavourites: false,
   search: '',
 }
@@ -322,7 +399,7 @@ const {
 
 function showAll () {
   type.value = null
-  status.value = 'all'
+  status.value = null
   onlyFavourites.value = false
   search.value = ''
 }
@@ -339,6 +416,7 @@ const typeOptions = computed(() => ([
   ...placeTypes.value.map(placeType => {
     return {
       label: getTranslatedName(placeType),
+      caption: placeType.description,
       // convert to a String as it's also reflected in URL query which is always string
       value: String(placeType.id),
       placeType,
@@ -346,25 +424,103 @@ const typeOptions = computed(() => ([
   }),
 ]))
 
-const statusOptions = computed(() => ([
-  {
-    label: t('PLACE_LIST.ALL_STATUSES'),
-    value: 'all',
-  },
-  ...statusList.map(s => ({
-    value: s.key,
-    label: t(s.label),
-    color: s.color,
-    icon: 'fas fa-circle',
-  })),
-]))
+const { getPlaceStatusesByGroup } = usePlaceStatusService()
 
-const filteredPlaces = computed(() => places.value.filter(place => (
-  (!type.value || place.placeType === parseInt(type.value)) &&
-  (status.value === 'all' || place.status === status.value) &&
-  (!onlyFavourites.value || place.isSubscribed) &&
-  (!search || place.name.toLowerCase().includes(search.value.toLowerCase()))
-)))
+const placeStatuses = computed(() => getPlaceStatusesByGroup(groupId.value))
+
+const visiblePlaceStatuses = computed(() => placeStatuses.value.filter(placeStatus => !placeStatus.isArchived && placeStatus.isVisible))
+const otherPlaceStatuses = computed(() => placeStatuses.value.filter(placeStatus => !placeStatus.isArchived && !placeStatus.isVisible))
+
+function placeStatusToOption (placeStatus) {
+  return {
+    label: placeStatusHelpers.getTranslatedName(placeStatus),
+    caption: placeStatus.description,
+    value: String(placeStatus.id),
+    color: placeStatusHelpers.getColorName(placeStatus),
+    placeStatus,
+  }
+}
+
+const statusOptions = computed(() => {
+  const optionGroups = [
+    [
+      {
+        label: t('PLACE_LIST.VISIBLE_STATUSES'),
+        value: null,
+      },
+      {
+        label: t('PLACE_LIST.ALL_STATUSES'),
+        value: 'all',
+      },
+    ],
+    visiblePlaceStatuses.value.map(placeStatusToOption),
+    otherPlaceStatuses.value.map(placeStatusToOption),
+    [
+      {
+        label: t('LABELS.ARCHIVED'),
+        value: 'archived',
+        color: 'black',
+      },
+    ],
+  ]
+  const options = []
+  optionGroups.forEach((entries, idx) => {
+    options.push(...entries)
+    if (idx < optionGroups.length - 1) {
+      options.push({
+        value: '$seperator',
+      })
+    }
+  })
+  return options
+})
+
+const visiblePlaceStatusIds = computed(() => {
+  // TODO: right now we are NOT filtering out the archived place statuses...
+  // as that does not imply the place itself is archived... have not resolved how to handle this...
+  return placeStatuses.value.filter(placeStatus => placeStatus.isVisible).map(placeStatus => placeStatus.id)
+})
+
+function filterType (place) {
+  return !type.value || place.placeType === parseInt(type.value)
+}
+
+function filterFavourites (place) {
+  return !onlyFavourites.value || place.isSubscribed
+}
+
+function filterSearch (place) {
+  return !search || place.name.toLowerCase().includes(search.value.toLowerCase())
+}
+
+function filterStatus (place) {
+  if (status.value === 'archived') {
+    return Boolean(place.archivedAt)
+  }
+  else if (place.archivedAt) {
+    // never show archived places unless explicit
+    return false
+  }
+  else if (status.value === 'all') {
+    return true
+  }
+  else if (status.value) {
+    // match status by id
+    return place.status === parseInt(status.value)
+  }
+  // Default, visible places
+  return visiblePlaceStatusIds.value.includes(place.status)
+}
+
+const filters = [
+  filterType,
+  filterFavourites,
+  filterSearch,
+  filterStatus,
+]
+const filteredPlaces = computed(
+  () => places.value.filter(place => filters.every(filter => filter(place))),
+)
 
 const hasNoPlacesDueToFilters = computed(() => {
   return type && filteredPlaces.value.length === 0

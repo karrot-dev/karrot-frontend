@@ -15,7 +15,7 @@ import {
   createUser,
   loginAs,
 } from '>/mockBackend'
-import { joinActivity, toResponse } from '>/mockBackend/activities'
+import { joinActivity, toActivityResponse } from '>/mockBackend/activities'
 import { addUserToGroup } from '>/mockBackend/groups'
 
 function generateMockData () {
@@ -77,10 +77,10 @@ export default {
 
 export const Normal = defineStory(() => {
   const { activity } = generateMockData()
-  return { activity: convert(toResponse(activity)) }
+  return { activity: convert(toActivityResponse(activity)) }
 })
 
 export const CanGiveFeedback = defineStory(() => {
   const { canGiveFeedbackActivity } = generateMockData()
-  return { activity: convert(toResponse(canGiveFeedbackActivity)) }
+  return { activity: convert(toActivityResponse(canGiveFeedbackActivity)) }
 })

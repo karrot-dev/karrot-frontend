@@ -53,6 +53,10 @@ const tabs = computed(() => {
       to: { name: 'groupEditPlaceTypes', params },
       label: t('GROUP.EDIT_PLACE_TYPES'),
     },
+    {
+      to: { name: 'groupEditPlaceStatuses', params },
+      label: t('GROUP.EDIT_PLACE_STATUSES'),
+    },
   ]
 })
 </script>

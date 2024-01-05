@@ -9,7 +9,7 @@ import {
   createActivityType,
   createActivitySeries,
 } from '>/mockBackend'
-import { toResponse } from '>/mockBackend/activities'
+import { toActivityResponse } from '>/mockBackend/activities'
 import { statusMocks } from '>/statusMocks'
 
 import ActivityEdit from './ActivityEdit.vue'
@@ -38,7 +38,7 @@ export default {
 export const Normal = defineStory(() => {
   const { activity, series } = generateMockData()
   return {
-    value: convert(toResponse(activity)),
+    value: convert(toActivityResponse(activity)),
     series,
     status: statusMocks.default(),
   }
@@ -47,7 +47,7 @@ export const Normal = defineStory(() => {
 export const Disabled = defineStory(() => {
   const { disabledActivity, series } = generateMockData()
   return {
-    value: convert(toResponse(disabledActivity)),
+    value: convert(toActivityResponse(disabledActivity)),
     series,
     status: statusMocks.default(),
   }
@@ -56,7 +56,7 @@ export const Disabled = defineStory(() => {
 export const WithDuration = defineStory(() => {
   const { activityWithDuration, series } = generateMockData()
   return {
-    value: convert(toResponse(activityWithDuration)),
+    value: convert(toActivityResponse(activityWithDuration)),
     series,
     status: statusMocks.default(),
   }
@@ -66,7 +66,7 @@ export const SeriesChanged = defineStory(() => {
   const { activity, series } = generateMockData()
   return {
     value: {
-      ...convert(toResponse(activity)),
+      ...convert(toActivityResponse(activity)),
       // TODO seriesMeta does not exist on activity anymore - figure out some other solution
       seriesMeta: {
         isMaxParticipantsChanged: true,
@@ -85,7 +85,7 @@ export const SeriesChanged = defineStory(() => {
 export const Pending = defineStory(() => {
   const { activity, series } = generateMockData()
   return {
-    value: convert(toResponse(activity)),
+    value: convert(toActivityResponse(activity)),
     series,
     status: statusMocks.pending(),
   }
@@ -94,7 +94,7 @@ export const Pending = defineStory(() => {
 export const Error = defineStory(() => {
   const { activity, series } = generateMockData()
   return {
-    value: convert(toResponse(activity)),
+    value: convert(toActivityResponse(activity)),
     series,
     status: statusMocks.validationError('date', 'Wrong time'),
   }

@@ -1,6 +1,5 @@
 <template>
-  <component
-    :is="$q.platform.is.mobile ? 'div' : 'QCard'"
+  <div
     v-if="v$.edit"
   >
     <div
@@ -175,7 +174,7 @@
         </div>
       </form>
     </div>
-  </component>
+  </div>
 </template>
 
 <script>
@@ -183,10 +182,8 @@ import useVuelidate from '@vuelidate/core'
 import { required, minLength, maxLength } from '@vuelidate/validators'
 import jstz from 'jstimezonedetect'
 import {
-  QCard,
   QInput,
   QBtn,
-  QMenu,
   QSelect,
   QIcon, QField,
 } from 'quasar'
@@ -206,10 +203,8 @@ export default {
   components: {
     QField,
     ChooseImage,
-    QCard,
     QInput,
     QBtn,
-    QMenu,
     QSelect,
     QIcon,
     AddressPicker,

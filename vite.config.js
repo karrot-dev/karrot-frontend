@@ -36,6 +36,7 @@ export default defineConfig({
       'test/setup/mockRandom.js',
       'test/setup/mockScroll.js',
       'test/setup/mockUserAgent.js',
+      'test/setup/mockStylesheets.js',
       'test/setup/mockLocation.js',
       'test/setup/mockSVGAnimations.js',
     ],

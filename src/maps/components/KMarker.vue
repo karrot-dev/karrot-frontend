@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="hidden">
     <div
       v-if="popup"
       ref="popup"
@@ -20,22 +20,12 @@ import shadowUrl from 'leaflet/dist/images/marker-shadow.png'
 import { marker, Icon, popup } from 'leaflet/dist/leaflet-src.esm'
 import { inject, markRaw } from 'vue'
 
+import vectorIcon from '@/maps/components/vectorIcon'
+
 // fix default marker icon
 // https://github.com/Leaflet/Leaflet/issues/4968
 delete Icon.Default.prototype._getIconUrl
 Icon.Default.mergeOptions({ iconRetinaUrl, iconUrl, shadowUrl })
-
-function markerHtml (color) {
-  return `
-      <svg viewBox="0 0 33 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <path
-          d="M 16.798304,1 C 8.0719527,1 1,8.7146969 1,16.923182 1,25.134394 16.798304,51 16.798304,51 c 0,0 15.798303,-25.865606 15.798303,-34.076818 C 32.596607,8.7146969 25.520547,1 16.798304,1 Z"
-          class="text-${color}"
-          style="fill: currentColor"
-        ></path>
-      </svg>
-    `
-}
 
 export default {
   props: {
@@ -78,35 +68,12 @@ export default {
   },
   computed: {
     icon () {
-      return {
-        createIcon: (oldIcon) => {
-          if (oldIcon) oldIcon.remove()
-          const div = document.createElement('div')
-          div.innerHTML = markerHtml(this.color)
-          div.className = 'vector-marker'
-
-          if (this.fontIcon) {
-            const i = document.createElement('i')
-            i.className = this.fontIcon + ' fa-fw'
-            div.appendChild(i)
-          }
-
-          return div
-        },
-        createShadow: (oldIcon) => {
-          if (oldIcon) oldIcon.remove()
-          const div = document.createElement('div')
-          const innerDiv = document.createElement('div')
-          innerDiv.className = 'vector-marker-shadow'
-          innerDiv.innerHTML = markerHtml('black')
-          div.appendChild(innerDiv)
-          return div
-        },
-        options: {
-          popupAnchor: [2, -40],
-          tooltipAnchor: [2, -40],
-        },
-      }
+      return vectorIcon({
+        fontIcon: this.fontIcon,
+        color: this.color,
+        popupAnchor: [2, -40],
+        tooltipAnchor: [2, -40],
+      })
     },
   },
   watch: {
@@ -122,7 +89,7 @@ export default {
   },
   mounted () {
     if (!this.leafletMap) {
-      console.log('mounted but not leafletMap :(')
+      console.log('mounted but no leafletMap :(')
     }
     this.leafletMarker = markRaw(marker(this.latLng, {
       icon: this.icon,

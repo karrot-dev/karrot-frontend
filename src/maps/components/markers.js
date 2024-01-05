@@ -1,13 +1,10 @@
-import { markRaw } from 'vue'
+import { markRaw, unref } from 'vue'
 
-import { optionsFor } from '@/places/placeStatus'
-import { usePlaceTypeService } from '@/places/services'
+import { usePlaceStatus, usePlaceStatusColourName, usePlaceType } from '@/places/helpers'
 
 import GroupMarker from './GroupMarker.vue'
 import PlaceMarker from './PlaceMarker.vue'
 import UserMarker from './UserMarker.vue'
-
-// eslint-disable-next-line no-unused-vars
 
 export function groupMarker (group) {
   return {
@@ -44,13 +41,15 @@ export function userMarker (user) {
 }
 
 export function placeMarker (place) {
-  const { getPlaceTypeById } = usePlaceTypeService()
+  const placeType = usePlaceType(place.placeType)
+  const placeStatus = usePlaceStatus(place.status)
+  const colourName = usePlaceStatusColourName(placeStatus)
 
   return {
     latLng: { lat: place.latitude, lng: place.longitude },
     id: 'place_' + place.id,
-    fontIcon: getPlaceTypeById(place.placeType)?.icon || 'fas fa-map-marker',
-    color: optionsFor(place).color,
+    fontIcon: unref(placeType)?.icon || 'fas fa-map-marker',
+    color: unref(colourName),
     popup: {
       component: markRaw(PlaceMarker),
       props: { place },

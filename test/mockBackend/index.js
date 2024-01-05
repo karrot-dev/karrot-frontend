@@ -8,6 +8,7 @@ import { createMockAgreementsBackend, generateAgreement } from '>/mockBackend/ag
 import { createMockCommunityBackend } from '>/mockBackend/community'
 import { createMockFeedbackBackend, generateFeedback } from '>/mockBackend/feedback'
 import { createMockHistoryBackend } from '>/mockBackend/history'
+import { createMockPlaceStatusesBackend, generatePlaceStatus } from '>/mockBackend/placeStatuses'
 
 import { createMockActivitySeriesBackend, generateActivitySeries } from './activitySeries'
 import { createMockApplicationsBackend, generateApplication } from './applications'
@@ -42,6 +43,7 @@ function createDatabase () {
     users: [],
     places: [],
     placeTypes: [],
+    placeStatuses: [],
     offers: [],
     groups: [],
     feedback: [],
@@ -62,6 +64,7 @@ function createDatabase () {
     groups: createFinder(newDB, 'groups'),
     places: createFinder(newDB, 'places'),
     placeTypes: createFinder(newDB, 'placeTypes'),
+    placeStatuses: createFinder(newDB, 'placeStatuses'),
     conversations: createFinder(newDB, 'conversations'),
     issues: createFinder(newDB, 'issues'),
     activities: createFinder(newDB, 'activities'),
@@ -108,6 +111,7 @@ export function setupMockBackend () {
   createMockGroupDetailBackend()
   createMockPlacesBackend()
   createMockPlaceTypesBackend()
+  createMockPlaceStatusesBackend()
   createMockFeedbackBackend()
   createMockHistoryBackend()
   createMockUsersBackend()
@@ -117,8 +121,6 @@ export function setupMockBackend () {
   createMockNotificationsBackend()
   createMockMessagesBackend()
   createMockAgreementsBackend()
-
-  get('/api/bootstrap/', () => [200, {}])
 
   get('/api/bootstrap/', () => [200, {}], { requireAuth: false })
 
@@ -180,9 +182,15 @@ export function createPlace (params) {
 }
 
 export function createPlaceType (params) {
-  const place = generatePlaceType(params)
-  db.placeTypes.push(place)
-  return place
+  const placeType = generatePlaceType(params)
+  db.placeTypes.push(placeType)
+  return placeType
+}
+
+export function createPlaceStatus (params) {
+  const placeStatus = generatePlaceStatus(params)
+  db.placeStatuses.push(placeStatus)
+  return placeStatus
 }
 
 export function createActivity (params) {

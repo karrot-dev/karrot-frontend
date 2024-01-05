@@ -249,19 +249,6 @@
         </span>
       </QBtn>
       <QBtn
-        flat
-        no-caps
-        @click="joinRoom(`activity:${activity.id}`)"
-      >
-        <QIcon
-          color="green"
-          size="xs"
-          name="fas fa-phone-alt"
-          class="q-mr-sm"
-        />
-        <div>Call</div>
-      </QBtn>
-      <QBtn
         v-if="activity.isPublic"
         class="action-button"
         flat
@@ -406,8 +393,6 @@ const place = computed(() => getPlaceById(activity.value.place))
 const activityType = computed(() => getActivityTypeById(activity.value.activityType))
 const activityTypeTranslatedName = computed(() => getTranslatedName(activityType.value))
 const activityTypeIconProps = computed(() => getIconProps(activityType.value))
-
-const { joinRoom } = useRoomService()
 
 const {
   mutate: joinActivity,

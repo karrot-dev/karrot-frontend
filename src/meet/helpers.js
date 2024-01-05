@@ -1,16 +1,16 @@
 import {
   isLocal,
   trackReferencesObservable,
-  createMediaDeviceObserver,
   setupDeviceSelector,
 } from '@livekit/components-core'
 import { useEventListener, useStorage } from '@vueuse/core'
-import { attachToElement, detachTrack, LocalVideoTrack, Participant, Room, RoomEvent, Track } from 'livekit-client'
-import { computed, onMounted, reactive, readonly, ref, unref, watch, watchEffect } from 'vue'
+import { Room, RoomEvent, Track } from 'livekit-client'
+import { computed, reactive, readonly, ref, unref, watch, watchEffect } from 'vue'
 
+import { useConfig } from '@/base/helpers'
 import api from '@/meet/api/meet'
 import { defineService } from '@/utils/datastore/helpers'
-import { camelizeKeys, sleep, underscorizeKeys } from '@/utils/utils'
+import { camelizeKeys, sleep } from '@/utils/utils'
 
 /**
  * @param {Room} roomRef
@@ -32,17 +32,6 @@ export function useRemoteAudioTracks (roomRef) {
     }
   }, { immediate: true })
 
-  /*
-  watchEffect(onCleanup => {
-    const room = roomRef.value
-    if (!room) return
-    const subscription = trackReferencesObservable(roomRef.value, [Track.Source.Microphone, Track.Source.ScreenShareAudio], {})
-      .subscribe(({ trackReferences, participants }) => {
-        audioTracksRef.value = trackReferences.filter(ref => !isLocal(ref.participant))
-      })
-    onCleanup(() => subscription.unsubscribe())
-  })
-   */
   return audioTracksRef
 }
 
@@ -327,9 +316,6 @@ export const useMediaDeviceService = defineService(() => {
   const videoEnabled = useStorage('video-enabled', true)
   const audioEnabled = useStorage('audio-enabled', true)
 
-  // To be connected to a <video> element to preview the feed
-  // const videoRef = ref(null)
-
   // The stream(s), if audio/video requested together these might be the same
   // const videoMediaStream = ref(null)
   const audioMediaStream = ref(null)
@@ -412,7 +398,6 @@ export const useMediaDeviceService = defineService(() => {
       const { deviceId } = track.getSettings()
       videoDeviceId.value = deviceId
       actualVideoDeviceId.value = deviceId
-      console.log('setting new videotrack')
       videoTrack.value = track
       // videoMediaStream.value = mediaStream
     }
@@ -426,31 +411,6 @@ export const useMediaDeviceService = defineService(() => {
       audioMediaStream.value = mediaStream
     }
   })
-
-  /**
-   * Keep track of attaching and unattaching the <video> element
-   */
-  // watchEffect(async (onCleanup) => {
-  //   if (!videoRef.value || !videoTrack.value) return
-  //   const track = videoTrack.value
-  //   const element = videoRef.value
-  //   if (track) {
-  //     attachToElement(track, videoRef.value)
-  //   }
-  //   onCleanup(() => {
-  //     if (track !== videoTrack.value && videoTrack.value) {
-  //       detachTrack(track, element)
-  //     }
-  //   })
-  // })
-
-  /**
-   * Volume and silence detection
-   */
-  // const {
-  //   audioVolume,
-  //   audioIsSilent,
-  // } = useAudioMediaStreamVolume(audioMediaStream)
 
   watch(enabled, value => {
     if (!value) {
@@ -504,16 +464,9 @@ export const useMediaDeviceService = defineService(() => {
     audioTrack,
 
     audioMediaStream,
-
-    // videoRef,
-
-    // audioVolume,
-    // audioIsSilent,
   }
 })
 
-// TODO: pass roomId in
-// TODO: maybe have a boolean ref for joined or not...
 export const useRoomService = defineService(() => {
   const active = ref(false)
   const roomIdRef = ref(null)
@@ -525,20 +478,19 @@ export const useRoomService = defineService(() => {
     return Object.values(roomInfoRef.value.participantsByIdentity)
   })
 
+  const livekitEndpoint = useConfig('meet.livekitEndpoint')
+
   async function joinRoom (roomId) {
     if (!roomId) throw new Error('must provide roomId')
+
+    // TODO: handle changing rooms!
     if (roomIdRef.value && roomIdRef.value !== roomId) throw new Error('already in another room!')
+
     roomIdRef.value = roomId
     active.value = true
 
-    // TODO: handle changing rooms!
-
     const token = await api.getToken({ roomId })
-    console.log('got a token!', token)
-
-    // const wsURL = 'ws://192.168.1.176:7880'
-    const wsURL = 'wss://192.168.1.175:47880'
-    // const wsURL = 'ws://localhost:7880'
+    const wsURL = livekitEndpoint.value
     const newRoom = new Room({ adaptiveStream: true })
 
     // ----------------- wire up sync stuff
@@ -578,7 +530,6 @@ export const useRoomService = defineService(() => {
       for (const participant of newRoom.participants.values()) {
         roomInfo.participantsByIdentity[participant.identity] = syncParticipant({}, participant)
       }
-      console.log('connected!', roomInfo)
     })
 
     newRoom.on(RoomEvent.Disconnected, () => {
@@ -665,26 +616,15 @@ export const useRoomService = defineService(() => {
 
     // ---------------
 
-    // await room.value.prepareConnection(wsURL, token)
-
-    newRoom.on(RoomEvent.Connected, () => {
-      console.log('connected!')
-      // console.log('participants', room.participants)
-      // console.log('localParticipant', room.localParticipant)
-    })
-
     await newRoom.connect(wsURL, token)
 
     room.value = newRoom // only set when ready and connected
     roomInfoRef.value = roomInfo
-
-    // await room.localParticipant.publishTrack()
   }
 
   async function leaveRoom () {
     active.value = false
     await room.value?.disconnect(false)
-    // TODO: could probably keep it around?
     room.value = null
     roomInfoRef.value = null
     roomIdRef.value = null
@@ -711,13 +651,16 @@ export function useTrackPublisher (roomRef, trackRef, kind) {
     console.log('publish?', room, track)
     if (!room) return
     const localParticipant = room.localParticipant
+
     // First unpublish any existing tracks of this kind
     const tracks = Array.from(localParticipant.tracks.values()).filter(t => t.kind === kind)
     await Promise.all(tracks.map((track) => localParticipant.unpublishTrack(track.track)))
+
     if (track) {
       // Then, if present, publish our new one
       console.log('publishing', kind, track)
       await localParticipant.publishTrack(track, {
+
         // TODO: could better get source from the device...
         // this kind is needed to enable the speaker detection...
         source: kind === 'audio' ? Track.Source.Microphone : Track.Source.Camera,
@@ -739,20 +682,4 @@ export function useRemoteAudioTrackAttacher (room) {
       // TODO: how to unpublish?
     }
   })
-}
-
-/**
- *
- * @param {Ref<Room>} roomRef
- */
-export function useParticipants (roomRef) {
-  const participants = ref([])
-
-  watch(roomRef, async /** Room */ room => {
-    if (!room) {
-      participants.value = []
-    }
-  }, { immediate: true })
-
-  return participants
 }

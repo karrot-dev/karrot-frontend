@@ -22,13 +22,6 @@
           transitionDuration: '0.3s',
         }"
       />
-      <QIcon
-        v-else
-        name="fas fa-microphone-slash"
-        class="absolute-top-right q-ma-sm"
-        color="white"
-        :style="{ opacity: 0.8 }"
-      />
     </template>
 
     <div
@@ -45,6 +38,13 @@
           :title="user.displayName"
         />
         <div class="text-white text-caption ellipsis">
+          <QIcon
+            v-if="!hasAudio"
+            name="fas fa-microphone-slash"
+            class="q-mx-xs"
+            color="red"
+            :style="{ opacity: 0.8 }"
+          />
           {{ user.displayName }}
         </div>
       </template>

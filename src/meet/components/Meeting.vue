@@ -124,8 +124,8 @@
 </template>
 
 <script setup>
-import { QBtn, QDialog, QCard, QCardSection, QSeparator, QToggle, QMenu, QResizeObserver } from 'quasar'
-import { computed, onMounted, ref, watch } from 'vue'
+import { QBtn, QDialog, QCard, QCardSection, QSeparator, QToggle, QMenu } from 'quasar'
+import { computed, onMounted, ref } from 'vue'
 
 import { useMediaDeviceService, useRoomService, useTrackPublisher } from '@/meet/helpers'
 
@@ -160,7 +160,6 @@ const emit = defineEmits([
 const { leaveRoom, room, participants } = useRoomService()
 
 const oneParticipant = computed(() => participants.value?.length === 1)
-const multipleParticipants = computed(() => participants.value?.length > 1)
 
 onMounted(() => enable())
 

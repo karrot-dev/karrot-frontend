@@ -7,34 +7,39 @@
       class="text-white"
       :class="activityType ? `bg-${getColorName(activityType)}` : 'bg-secondary'"
     >
-      <QToolbarTitle
-        v-if="activity"
-        class="column"
-      >
-        <div>
-          <span
-            v-if="!$q.platform.is.mobile && activityType"
-          >
-            <QIcon
-              v-bind="activityTypeIconProps"
-              color="white"
-              size="xs"
-              class="q-pr-sm"
-            />{{ activityTypeIconProps.title }}&nbsp;</span>
-          <strong>
-            {{ $d(activity.date, 'weekdayHourMinute') }}
-            <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>
-          </strong>
-        </div>
-        <div class="text-caption">
-          <strong v-if="place">
-            <RouterLink :to="{ name: 'place', params: { groupId: place.group, placeId: activity.place }}">
-              {{ place.name }}
-            </RouterLink>
-          </strong>
-          {{ $d(activity.date, 'yearMonthDay') }}
-        </div>
-      </QToolbarTitle>
+      <template v-if="activity">
+        <QToolbarTitle class="column">
+          <div>
+            <span
+              v-if="!$q.platform.is.mobile && activityType"
+            >
+              <QIcon
+                v-bind="activityTypeIconProps"
+                color="white"
+                size="xs"
+                class="q-pr-sm"
+              />{{ activityTypeIconProps.title }}&nbsp;</span>
+            <strong>
+              {{ $d(activity.date, 'weekdayHourMinute') }}
+              <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>
+            </strong>
+          </div>
+          <div class="text-caption">
+            <strong v-if="place">
+              <RouterLink :to="{ name: 'place', params: { groupId: place.group, placeId: activity.place }}">
+                {{ place.name }}
+              </RouterLink>
+            </strong>
+            {{ $d(activity.date, 'yearMonthDay') }}
+          </div>
+        </QToolbarTitle>
+        <MeetButton
+          flat
+          round
+          dense
+          :room="`activity:${activity.id}`"
+        />
+      </template>
       <template v-else-if="user">
         <ProfilePicture
           :user="conversationPartner"
@@ -153,11 +158,13 @@ import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
 import dateFnsHelper from '@/utils/dateFnsHelper'
 
+import MeetButton from '@/meet/components/MeetButton.vue'
 import NotificationToggle from '@/messages/components/NotificationToggle.vue'
 import ProfilePicture from '@/users/components/ProfilePicture.vue'
 
 export default {
   components: {
+    MeetButton,
     ProfilePicture,
     NotificationToggle,
     QBtn,

@@ -42,7 +42,6 @@
     "generate-landing-images": "node src/base/generate-images.mjs"
   },
   "dependencies": {
-    "@livekit/components-core": "^0.8.2",
     "@quasar/extras": "^1.16.5",
     "@sentry/vue": "^7.59.2",
     "@tanstack/vue-query": "^4.29.25",

@@ -1,8 +1,3 @@
-import {
-  isLocal,
-  trackReferencesObservable,
-  setupDeviceSelector,
-} from '@livekit/components-core'
 import { useEventListener, useStorage } from '@vueuse/core'
 import { Room, RoomEvent, Track } from 'livekit-client'
 import { computed, reactive, readonly, ref, unref, watch, watchEffect } from 'vue'
@@ -10,290 +5,7 @@ import { computed, reactive, readonly, ref, unref, watch, watchEffect } from 'vu
 import { useConfig } from '@/base/helpers'
 import api from '@/meet/api/meet'
 import { defineService } from '@/utils/datastore/helpers'
-import { camelizeKeys, sleep } from '@/utils/utils'
-
-/**
- * @param {Room} roomRef
- */
-export function useRemoteAudioTracks (roomRef) {
-  const audioTracksRef = ref([])
-  let subscription
-  watch(roomRef, room => {
-    if (room) {
-      subscription = trackReferencesObservable(room, [Track.Source.Unknown, Track.Source.Microphone, Track.Source.ScreenShareAudio], {})
-        .subscribe(({ trackReferences, participants }) => {
-          audioTracksRef.value = trackReferences.filter(ref => ref.publication.kind === 'audio' && !isLocal(ref.participant))
-        })
-    }
-    else if (subscription) {
-      subscription.unsubscribe()
-      subscription = null
-    }
-  }, { immediate: true })
-
-  return audioTracksRef
-}
-
-/**
- * @param {Room} roomRef
- */
-export function useCameraParticipants (roomRef) {
-  const participantsRef = ref([])
-  watchEffect(onCleanup => {
-    const room = roomRef.value
-    if (!room) return
-    const subscription = trackReferencesObservable(roomRef.value, [Track.Source.Camera], {})
-      .subscribe(({ trackReferences, participants }) => {
-        participantsRef.value = participants.map(participant => {
-          // this is a clone, otherwise vue reactive does not notice the changes to the inner
-          // properties
-          // TODO: maybe a better way!
-          // I did try making the things inside the room reactive, but there are too many things
-          return Object.assign(Object.create(Object.getPrototypeOf(participant)), participant)
-          // return participant
-        })
-      })
-    onCleanup(() => subscription.unsubscribe())
-  })
-  return participantsRef
-}
-
-/**
- *
- * @param {Ref<Room>} roomRef
- */
-export function useRoomParticipants (roomRef) {
-  /**
-   * @param {Room} room
-   */
-  function getParticipants (room) {
-    if (!room) return []
-    return [
-      room.localParticipant,
-      ...Array.from(room.participants.values()).map(participant => ({ ...participant })),
-    ]
-  }
-
-  const participants = ref(getParticipants(roomRef.value))
-
-  watch(roomRef, room => {
-    if (!room) return
-
-    for (const roomEvent of [
-      RoomEvent.ConnectionStateChanged,
-      RoomEvent.RoomMetadataChanged,
-
-      RoomEvent.ActiveSpeakersChanged,
-      RoomEvent.ConnectionQualityChanged,
-
-      RoomEvent.ParticipantConnected,
-      RoomEvent.ParticipantDisconnected,
-      RoomEvent.ParticipantPermissionsChanged,
-      RoomEvent.ParticipantMetadataChanged,
-
-      RoomEvent.TrackMuted,
-      RoomEvent.TrackUnmuted,
-      RoomEvent.TrackPublished,
-      RoomEvent.TrackUnpublished,
-      RoomEvent.TrackStreamStateChanged,
-      RoomEvent.TrackSubscriptionFailed,
-      RoomEvent.TrackSubscriptionPermissionChanged,
-      RoomEvent.TrackSubscriptionStatusChanged,
-
-      RoomEvent.LocalTrackPublished,
-      RoomEvent.LocalTrackUnpublished,
-    ]) {
-      // TODO: unsubscribe?
-      room.on(roomEvent, (...args) => {
-        participants.value = getParticipants(room)
-      })
-    }
-  }, { immediate: true })
-
-  return participants
-}
-
-export function useRoomParticipants2 (roomRef) {
-  /**
-   * @param Participant
-   */
-  function mapParticipant (participant) {
-    const {
-      name,
-      sid,
-      identity,
-    } = participant
-
-    const videoTracks = Array.from(participant.videoTracks.values())
-    const videoTrack = videoTracks?.[0]?.track
-
-    const tracks = Array.from(participant.tracks.values()).map(track => {
-      const {
-        kind,
-        trackSid,
-      } = track
-      return {
-        kind,
-        trackSid,
-        track,
-      }
-    })
-    return {
-      name,
-      sid,
-      identity,
-      tracks,
-      videoTrack,
-    }
-  }
-
-  /**
-   * @param {Room} room
-   */
-  function getParticipants (room) {
-    if (!room) return []
-    return [
-      room.localParticipant,
-      ...Array.from(room.participants.values()),
-    ].map(mapParticipant)
-  }
-
-  const participants = ref([])
-
-  watch(roomRef, room => {
-    if (!room) return
-
-    participants.value = getParticipants(roomRef.value)
-
-    for (const roomEvent of [
-      RoomEvent.ConnectionStateChanged,
-      RoomEvent.RoomMetadataChanged,
-
-      RoomEvent.ActiveSpeakersChanged,
-      RoomEvent.ConnectionQualityChanged,
-
-      RoomEvent.ParticipantConnected,
-      RoomEvent.ParticipantDisconnected,
-      RoomEvent.ParticipantPermissionsChanged,
-      RoomEvent.ParticipantMetadataChanged,
-
-      RoomEvent.TrackMuted,
-      RoomEvent.TrackUnmuted,
-      RoomEvent.TrackPublished,
-      RoomEvent.TrackUnpublished,
-      RoomEvent.TrackStreamStateChanged,
-      RoomEvent.TrackSubscriptionFailed,
-      RoomEvent.TrackSubscriptionPermissionChanged,
-      RoomEvent.TrackSubscriptionStatusChanged,
-
-      RoomEvent.LocalTrackPublished,
-      RoomEvent.LocalTrackUnpublished,
-    ]) {
-      // TODO: unsubscribe?
-      room.on(roomEvent, (...args) => {
-        participants.value = getParticipants(room)
-      })
-    }
-  }, { immediate: true })
-
-  return participants
-}
-
-// export function useMediaDevices ({ kind, requestPermissions = true }) {
-//   return useObservableState(createMediaDeviceObserver(kind, null, requestPermissions))
-// }
-
-export function useMediaDeviceSelect ({ kind, track }) {
-  // TODO: see about using these?
-  const room = null
-  const {
-    activeDeviceObservable,
-    setActiveMediaDevice,
-  } = setupDeviceSelector(kind, room, track)
-  const activeDeviceId = useObservableState(activeDeviceObservable)
-  return { activeDeviceId, setActiveMediaDevice }
-}
-
-function useObservableState (observable, defaultValue = null) {
-  const state = ref(defaultValue)
-  watchEffect(async (onCleanup) => {
-    const subscription = observable.subscribe(value => {
-      state.value = value
-    })
-    onCleanup(() => subscription.unsubscribe())
-  })
-  return state
-}
-
-export function useAudioMediaStreamVolume (audioMediaStream) {
-  const audioVolume = ref(0)
-  const audioIsSilent = ref(false)
-
-  watch(audioMediaStream, /** MediaStream */ stream => {
-    audioVolume.value = 0
-    audioIsSilent.value = false
-    if (!stream || !stream.active) return
-    // let stop = false
-    const audioContext = new AudioContext()
-    let silentOccurences = 0
-    const source = audioContext.createMediaStreamSource(stream)
-    const analyser = audioContext.createAnalyser()
-    source.connect(analyser)
-    const pcmData = new Float32Array(analyser.fftSize)
-    async function processFrame () {
-      // If the stream has changed, or gone, tidy up...
-      if (audioMediaStream.value !== stream) {
-        audioVolume.value = 0
-        audioIsSilent.value = false
-        await audioContext.close()
-        return
-      }
-
-      analyser.getFloatTimeDomainData(pcmData)
-      let sumSquares = 0.0
-      let sound = false
-      for (const amplitude of pcmData) {
-        sumSquares += amplitude * amplitude
-        if (amplitude > 0) {
-          sound = true
-        }
-      }
-      const rms = Math.sqrt(sumSquares / pcmData.length)
-      const ARBITARY_SCALING_NUMBER = 10
-      // random scaling + max value 1
-      const value = Math.min(rms * ARBITARY_SCALING_NUMBER, 1)
-
-      // make it fall slower, and round it to 2dp
-      const previousValue = audioVolume.value
-      audioVolume.value = round2dp(Math.max(value, previousValue * 0.95))
-
-      if (sound) {
-        if (audioIsSilent.value) {
-          audioIsSilent.value = false
-        }
-        silentOccurences = 0
-      }
-      else if (!audioIsSilent.value) {
-        silentOccurences++
-        // This prevents detecting silence when switching devices
-        if (silentOccurences > 20) {
-          audioIsSilent.value = true
-        }
-      }
-      requestAnimationFrame(processFrame)
-    }
-    requestAnimationFrame(processFrame)
-  }, { immediate: true })
-
-  return {
-    audioVolume,
-    audioIsSilent,
-  }
-}
-
-function round2dp (num) {
-  return Math.round(num * 100) / 100
-}
+import { camelizeKeys, round2dp, sleep } from '@/utils/utils'
 
 export const useMediaDeviceService = defineService(() => {
   // Whether the whole thing is enabled or not
@@ -496,6 +208,10 @@ export function useLivekitEndpoint () {
   return useConfig('meet.livekitEndpoint')
 }
 
+/**
+ * Manages the creation and cleanup of livekit rooms
+ * There is either 1 active room, or none. Never multiple.
+ */
 export const useRoomService = defineService(() => {
   const active = ref(false)
   const roomIdRef = ref(null)
@@ -676,6 +392,8 @@ export const useRoomService = defineService(() => {
 
 /**
  *
+ * Give it a room and a track+kind and it'll ensure it is published!
+ *
  * @param {Ref<Room>}roomRef
  * @param {Ref<MediaStreamTrack>} trackRef
  * @param kind
@@ -702,13 +420,71 @@ export function useTrackPublisher (roomRef, trackRef, kind) {
   }, { immediate: true })
 }
 
-export function useRemoteAudioTrackAttacher (room) {
-  const remoteAudioTracks = useRemoteAudioTracks(room)
+/**
+ * Processes an audio stream and tells you the volume and whether it is silent
+ */
+export function useAudioMediaStreamVolume (audioMediaStream) {
+  const audioVolume = ref(0)
+  const audioIsSilent = ref(false)
 
-  watch(remoteAudioTracks, tracks => {
-    for (const track of tracks) {
-      track.publication.track.attach()
-      // TODO: how to unpublish?
+  watch(audioMediaStream, /** MediaStream */ stream => {
+    audioVolume.value = 0
+    audioIsSilent.value = false
+    if (!stream || !stream.active) return
+    // let stop = false
+    const audioContext = new AudioContext()
+    let silentOccurences = 0
+    const source = audioContext.createMediaStreamSource(stream)
+    const analyser = audioContext.createAnalyser()
+    source.connect(analyser)
+    const pcmData = new Float32Array(analyser.fftSize)
+    async function processFrame () {
+      // If the stream has changed, or gone, tidy up...
+      if (audioMediaStream.value !== stream) {
+        audioVolume.value = 0
+        audioIsSilent.value = false
+        await audioContext.close()
+        return
+      }
+
+      analyser.getFloatTimeDomainData(pcmData)
+      let sumSquares = 0.0
+      let sound = false
+      for (const amplitude of pcmData) {
+        sumSquares += amplitude * amplitude
+        if (amplitude > 0) {
+          sound = true
+        }
+      }
+      const rms = Math.sqrt(sumSquares / pcmData.length)
+      const ARBITARY_SCALING_NUMBER = 10
+      // random scaling + max value 1
+      const value = Math.min(rms * ARBITARY_SCALING_NUMBER, 1)
+
+      // make it fall slower, and round it to 2dp
+      const previousValue = audioVolume.value
+      audioVolume.value = round2dp(Math.max(value, previousValue * 0.95))
+
+      if (sound) {
+        if (audioIsSilent.value) {
+          audioIsSilent.value = false
+        }
+        silentOccurences = 0
+      }
+      else if (!audioIsSilent.value) {
+        silentOccurences++
+        // This prevents detecting silence when switching devices
+        if (silentOccurences > 20) {
+          audioIsSilent.value = true
+        }
+      }
+      requestAnimationFrame(processFrame)
     }
-  })
+    requestAnimationFrame(processFrame)
+  }, { immediate: true })
+
+  return {
+    audioVolume,
+    audioIsSilent,
+  }
 }

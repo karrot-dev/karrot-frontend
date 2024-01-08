@@ -346,3 +346,7 @@ export function filenameToContentType (filename) {
   const extension = '.' + filename.split('.').pop().toLowerCase()
   return extensionMap[extension]
 }
+
+export function round2dp (num) {
+  return Math.round(num * 100) / 100
+}

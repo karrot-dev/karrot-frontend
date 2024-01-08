@@ -1,6 +1,6 @@
 import { useEventListener, useStorage } from '@vueuse/core'
 import { Room, RoomEvent, Track } from 'livekit-client'
-import { computed, reactive, readonly, ref, unref, watch, watchEffect } from 'vue'
+import { computed, readonly, ref, unref, watch, watchEffect } from 'vue'
 
 import { useConfig } from '@/base/helpers'
 import api from '@/meet/api/meet'
@@ -137,7 +137,6 @@ export const useMediaDeviceService = defineService(() => {
       videoDeviceId.value = deviceId
       actualVideoDeviceId.value = deviceId
       videoTrack.value = track
-      // videoMediaStream.value = mediaStream
     }
 
     if (requestAudio) {
@@ -216,11 +215,12 @@ export const useRoomService = defineService(() => {
   const active = ref(false)
   const roomIdRef = ref(null)
   const room = ref(null)
-  const roomInfoRef = ref(null)
+
+  const participantsByIdentity = ref({})
 
   const participants = computed(() => {
-    if (!roomInfoRef.value) return []
-    return Object.values(roomInfoRef.value.participantsByIdentity)
+    if (!participantsByIdentity.value) return []
+    return Object.values(participantsByIdentity.value)
   })
 
   const livekitEndpoint = useLivekitEndpoint()
@@ -233,6 +233,7 @@ export const useRoomService = defineService(() => {
     if (roomIdRef.value && roomIdRef.value !== roomId) throw new Error('already in another room!')
 
     roomIdRef.value = roomId
+    participantsByIdentity.value = {}
     active.value = true
 
     const token = await api.getToken({ roomId })
@@ -243,18 +244,17 @@ export const useRoomService = defineService(() => {
       dynacast: true,
     })
 
-    // ----------------- wire up sync stuff
-    const roomInfo = reactive({
-      participantsByIdentity: {},
-    })
-
     /**
      *
      * @param participantInfo
      * @param {Participant} participant
      */
-    function syncParticipant (participantInfo, participant) {
-      if (!participantInfo || !participant) return
+    function syncParticipant (participant) {
+      if (!participant) return
+      if (!participantsByIdentity.value[participant.identity]) {
+        participantsByIdentity.value[participant.identity] = {}
+      }
+      const participantInfo = participantsByIdentity.value[participant.identity]
       const { identity, isLocal, audioLevel = 0, isSpeaking, connectionQuality } = participant
       function getMediaStreamTrack (kind) {
         const track = participant.getTracks().find(track => track.kind === kind)
@@ -276,38 +276,37 @@ export const useRoomService = defineService(() => {
     }
 
     newRoom.on(RoomEvent.Connected, () => {
-      roomInfo.participantsByIdentity[newRoom.localParticipant.identity] = syncParticipant({}, newRoom.localParticipant)
+      syncParticipant(newRoom.localParticipant)
       for (const participant of newRoom.participants.values()) {
-        roomInfo.participantsByIdentity[participant.identity] = syncParticipant({}, participant)
+        syncParticipant(participant)
       }
     })
 
     newRoom.on(RoomEvent.Disconnected, () => {
-      delete roomInfo.participantsByIdentity[newRoom.localParticipant.identity]
+      // TODO: hmm, disconnected is maybe more like leaving the room entirely? or temp disconnection?
+      delete participantsByIdentity.value[newRoom.localParticipant.identity]
     })
 
     newRoom.on(RoomEvent.LocalTrackPublished, (publication, participant) => {
-      syncParticipant(roomInfo.participantsByIdentity[participant.identity], participant)
+      syncParticipant(participant)
     })
 
     newRoom.on(RoomEvent.LocalTrackUnpublished, (publication, participant) => {
-      syncParticipant(roomInfo.participantsByIdentity[participant.identity], participant)
+      syncParticipant(participant)
     })
 
     newRoom.on(RoomEvent.ConnectionQualityChanged, (quality, participant) => {
-      const participantInfo = roomInfo.participantsByIdentity[participant.identity]
+      const participantInfo = participantsByIdentity.value[participant.identity]
       if (!participantInfo) return
       participantInfo.connectionQuality = quality
     })
 
     newRoom.on(RoomEvent.ParticipantConnected, (participant) => {
-      if (!roomInfo.participantsByIdentity[participant.identity]) {
-        roomInfo.participantsByIdentity[participant.identity] = syncParticipant({}, participant)
-      }
+      syncParticipant(participant)
     })
 
     newRoom.on(RoomEvent.ParticipantDisconnected, (participant) => {
-      delete roomInfo.participantsByIdentity[participant.identity]
+      delete participantsByIdentity.value[participant.identity]
     })
 
     newRoom.on(RoomEvent.ActiveSpeakersChanged, (speakers) => {
@@ -315,7 +314,7 @@ export const useRoomService = defineService(() => {
       for (const participant of speakers) {
         speakersMap[participant.identity] = participant.audioLevel
       }
-      for (const participantInfo of Object.values(roomInfo.participantsByIdentity)) {
+      for (const participantInfo of Object.values(participantsByIdentity.value)) {
         const audioLevel = speakersMap[participantInfo.identity]
         if (typeof audioLevel !== 'undefined') {
           Object.assign(participantInfo, {
@@ -333,50 +332,47 @@ export const useRoomService = defineService(() => {
     })
 
     newRoom.on(RoomEvent.TrackPublished, (publication, participant) => {
-      syncParticipant(roomInfo.participantsByIdentity[participant.identity], participant)
+      syncParticipant(participant)
     })
 
     newRoom.on(RoomEvent.TrackUnpublished, (publication, participant) => {
-      syncParticipant(roomInfo.participantsByIdentity[participant.identity], participant)
+      syncParticipant(participant)
     })
 
     newRoom.on(RoomEvent.TrackMuted, (publication, participant) => {
-      syncParticipant(roomInfo.participantsByIdentity[participant.identity], participant)
+      syncParticipant(participant)
     })
 
     newRoom.on(RoomEvent.TrackUnmuted, (publication, participant) => {
-      syncParticipant(roomInfo.participantsByIdentity[participant.identity], participant)
+      syncParticipant(participant)
     })
 
     newRoom.on(RoomEvent.TrackSubscribed, (track, publication, participant) => {
-      syncParticipant(roomInfo.participantsByIdentity[participant.identity], participant)
+      syncParticipant(participant)
     })
 
     newRoom.on(RoomEvent.TrackSubscriptionFailed, (trackSid, participant, reason) => {
-      syncParticipant(roomInfo.participantsByIdentity[participant.identity], participant)
+      syncParticipant(participant)
     })
 
     newRoom.on(RoomEvent.TrackSubscriptionStatusChanged, (publication, status, participant) => {
-      syncParticipant(roomInfo.participantsByIdentity[participant.identity], participant)
+      syncParticipant(participant)
     })
 
     newRoom.on(RoomEvent.TrackSubscriptionStatusChanged, (publication, status, participant) => {
-      syncParticipant(roomInfo.participantsByIdentity[participant.identity], participant)
+      syncParticipant(participant)
     })
-
-    // ---------------
 
     await newRoom.connect(wsURL, token)
 
     room.value = newRoom // only set when ready and connected
-    roomInfoRef.value = roomInfo
   }
 
   async function leaveRoom () {
     active.value = false
     await room.value?.disconnect(false)
     room.value = null
-    roomInfoRef.value = null
+    participantsByIdentity.value = {}
     roomIdRef.value = null
   }
 

@@ -1,6 +1,6 @@
 <template>
   <QBtn
-    v-if="hasMeet && room"
+    v-if="hasMeet && endpoint && room"
     icon="videocam"
     no-caps
     @click="joinRoom(room)"
@@ -10,7 +10,7 @@
 import { QBtn } from 'quasar'
 
 import { useHasFeature } from '@/group/services'
-import { useRoomService } from '@/meet/helpers'
+import { useLivekitEndpoint, useRoomService } from '@/meet/helpers'
 
 defineProps({
   room: {
@@ -19,6 +19,7 @@ defineProps({
   },
 })
 
+const endpoint = useLivekitEndpoint()
 const hasMeet = useHasFeature('meet')
 const { joinRoom } = useRoomService()
 </script>

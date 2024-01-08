@@ -48,6 +48,12 @@
         <QToolbarTitle>
           {{ user.displayName }}
         </QToolbarTitle>
+        <MeetButton
+          flat
+          round
+          dense
+          :room="`user:${[user.id, currentUserId].join(',')}`"
+        />
       </template>
       <template v-else-if="conversation.thread">
         <QIcon name="fas fa-fw fa-comments" />
@@ -150,6 +156,7 @@ import { toRefs, computed } from 'vue'
 import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useActivityTypeService } from '@/activities/services'
 import { useAuthHelpers } from '@/authuser/helpers'
+import { useAuthService } from '@/authuser/services'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { useConversationHelpers } from '@/messages/helpers'
 import { useSaveConversationMutation, useSaveThreadMutedMutation } from '@/messages/mutations'
@@ -205,6 +212,7 @@ export default {
     const { getActivityTypeById } = useActivityTypeService()
     const { close } = useDetailService()
     const { getIsParticipant } = useConversationHelpers()
+    const { userId: currentUserId } = useAuthService()
     const { getIsCurrentUser } = useAuthHelpers()
     const { getGroupById } = useGroupInfoService()
     const { mutate: saveConversation } = useSaveConversationMutation()
@@ -227,6 +235,7 @@ export default {
       place,
       activityType,
       activityTypeIconProps,
+      currentUserId,
 
       getIsCurrentUser,
       getGroupById,

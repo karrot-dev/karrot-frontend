@@ -93,9 +93,8 @@
 <script setup>
 import { attachToElement } from 'livekit-client'
 import { QIcon, QSpace } from 'quasar'
-import { computed, ref, toRef, watch, watchEffect } from 'vue'
+import { computed, ref, toRef, watch } from 'vue'
 
-import { useIsCurrentUser } from '@/authuser/helpers'
 import { useUser } from '@/users/helpers'
 
 import ConnectionQuality from '@/meet/components/ConnectionQuality.vue'
@@ -114,23 +113,6 @@ const props = defineProps({
 const participant = toRef(props, 'participant')
 const userId = computed(() => participant.value?.userId)
 const user = useUser(userId)
-const isCurrentUser = useIsCurrentUser(userId)
-
-// const videoTrack = computed(() => {
-//   if (!videoRef.value || !participant.value) return
-//   return Array.from(participant.value.videoTracks.values())[0]
-// })
-//
-// const audioTrack = computed(() => {
-//   if (!videoRef.value || !participant.value) return
-//   return Array.from(participant.value.audioTracks.values())[0]
-// })
-
-// watchEffect(() => {
-//   if (!videoTrack.value) return
-//   // videoTrack.value.track?.attach(videoRef.value)
-//   attachToElement(participant.value.videoMediaStreamTrack, videoRef.value)
-// })
 
 const videoMediaStreamTrack = computed(() => participant.value?.videoMediaStreamTrack)
 const audioMediaStreamTrack = computed(() => participant.value?.audioMediaStreamTrack)

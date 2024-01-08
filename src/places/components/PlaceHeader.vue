@@ -155,9 +155,8 @@ import {
 import { computed } from 'vue'
 
 import { useAuthService } from '@/authuser/services'
-import { useCurrentGroupService, useHasFeature } from '@/group/services'
+import { useCurrentGroupService } from '@/group/services'
 import directions from '@/maps/directions'
-import { useRoomService } from '@/meet/helpers'
 import { usePlaceSubscribeMutation, usePlaceUnsubscribeMutation } from '@/places/mutations'
 import { useActivePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'

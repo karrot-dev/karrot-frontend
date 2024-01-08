@@ -22,7 +22,6 @@ export function useRemoteAudioTracks (roomRef) {
     if (room) {
       subscription = trackReferencesObservable(room, [Track.Source.Unknown, Track.Source.Microphone, Track.Source.ScreenShareAudio], {})
         .subscribe(({ trackReferences, participants }) => {
-          console.log('track refs!', trackReferences.length, trackReferences)
           audioTracksRef.value = trackReferences.filter(ref => ref.publication.kind === 'audio' && !isLocal(ref.participant))
         })
     }
@@ -106,7 +105,6 @@ export function useRoomParticipants (roomRef) {
     ]) {
       // TODO: unsubscribe?
       room.on(roomEvent, (...args) => {
-        console.log('event!', roomEvent, ...args)
         participants.value = getParticipants(room)
       })
     }
@@ -154,7 +152,6 @@ export function useRoomParticipants2 (roomRef) {
    */
   function getParticipants (room) {
     if (!room) return []
-    console.log('updating room participants!')
     return [
       room.localParticipant,
       ...Array.from(room.participants.values()),
@@ -239,7 +236,6 @@ export function useAudioMediaStreamVolume (audioMediaStream) {
     // let stop = false
     const audioContext = new AudioContext()
     let silentOccurences = 0
-    console.log('init audio stream', stream)
     const source = audioContext.createMediaStreamSource(stream)
     const analyser = audioContext.createAnalyser()
     source.connect(analyser)
@@ -384,9 +380,39 @@ export const useMediaDeviceService = defineService(() => {
       await sleep(300) // seems to help on firefox mobile when switching between cameras...
     }
 
+    let videoConstraints = false
+
+    if (requestVideo) {
+      if (videoDeviceId.value) {
+        videoConstraints = {
+          deviceId: videoDeviceId.value,
+        }
+      }
+      else {
+        videoConstraints = {
+          ideal: {
+            facingMode: 'user',
+          },
+        }
+      }
+    }
+
+    let audioConstraints = false
+
+    if (requestAudio) {
+      if (audioDeviceId.value) {
+        audioConstraints = {
+          deviceId: audioDeviceId.value,
+        }
+      }
+      else {
+        audioConstraints = {}
+      }
+    }
+
     const mediaStream = await navigator.mediaDevices.getUserMedia({
-      video: requestVideo ? { deviceId: videoDeviceId.value } : false,
-      audio: requestAudio ? { deviceId: audioDeviceId.value } : false,
+      video: videoConstraints,
+      audio: audioConstraints,
     })
 
     await refreshDevices()
@@ -414,7 +440,6 @@ export const useMediaDeviceService = defineService(() => {
 
   watch(enabled, value => {
     if (!value) {
-      console.log('resetting because not enabled')
       reset()
     }
   })
@@ -467,6 +492,10 @@ export const useMediaDeviceService = defineService(() => {
   }
 })
 
+export function useLivekitEndpoint () {
+  return useConfig('meet.livekitEndpoint')
+}
+
 export const useRoomService = defineService(() => {
   const active = ref(false)
   const roomIdRef = ref(null)
@@ -478,9 +507,10 @@ export const useRoomService = defineService(() => {
     return Object.values(roomInfoRef.value.participantsByIdentity)
   })
 
-  const livekitEndpoint = useConfig('meet.livekitEndpoint')
+  const livekitEndpoint = useLivekitEndpoint()
 
   async function joinRoom (roomId) {
+    if (!livekitEndpoint.value) throw new Error('missing livekit endpoint')
     if (!roomId) throw new Error('must provide roomId')
 
     // TODO: handle changing rooms!
@@ -491,7 +521,11 @@ export const useRoomService = defineService(() => {
 
     const token = await api.getToken({ roomId })
     const wsURL = livekitEndpoint.value
-    const newRoom = new Room({ adaptiveStream: true })
+    const newRoom = new Room({
+      // TODO: experiment with different settings here
+      adaptiveStream: false,
+      dynacast: true,
+    })
 
     // ----------------- wire up sync stuff
     const roomInfo = reactive({
@@ -648,7 +682,6 @@ export const useRoomService = defineService(() => {
  */
 export function useTrackPublisher (roomRef, trackRef, kind) {
   watch([roomRef, trackRef], async ([room, /** MediaStreamTrack */ track]) => {
-    console.log('publish?', room, track)
     if (!room) return
     const localParticipant = room.localParticipant
 
@@ -658,7 +691,6 @@ export function useTrackPublisher (roomRef, trackRef, kind) {
 
     if (track) {
       // Then, if present, publish our new one
-      console.log('publishing', kind, track)
       await localParticipant.publishTrack(track, {
 
         // TODO: could better get source from the device...
@@ -666,7 +698,6 @@ export function useTrackPublisher (roomRef, trackRef, kind) {
         source: kind === 'audio' ? Track.Source.Microphone : Track.Source.Camera,
         stream: 'stream-group', // causes to be in same stream group
       })
-      console.log('published', kind)
     }
   }, { immediate: true })
 }
@@ -675,9 +706,7 @@ export function useRemoteAudioTrackAttacher (room) {
   const remoteAudioTracks = useRemoteAudioTracks(room)
 
   watch(remoteAudioTracks, tracks => {
-    console.log('audio tracks updated!', tracks, tracks.length)
     for (const track of tracks) {
-      console.log('attaching audio!')
       track.publication.track.attach()
       // TODO: how to unpublish?
     }

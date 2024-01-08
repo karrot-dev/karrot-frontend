@@ -33,13 +33,10 @@
 
 <script setup>
 import { attachToElement } from 'livekit-client'
-import { QIcon, QSelect, QToggle, QSpace } from 'quasar'
-import { onMounted, ref, toRef, watch } from 'vue'
+import { QToggle, QSpace } from 'quasar'
+import { onMounted, ref, watch } from 'vue'
 
-import {
-  useAudioMediaStreamVolume,
-  useMediaDeviceService,
-} from '@/meet/helpers'
+import { useMediaDeviceService } from '@/meet/helpers'
 
 import AudioDeviceSelect from '@/meet/components/AudioDeviceSelect.vue'
 import VideoDeviceSelect from '@/meet/components/VideoDeviceSelect.vue'
@@ -48,27 +45,10 @@ const videoRef = ref(null)
 
 const {
   enable,
-
-  videoDevices,
-  audioDevices,
-
-  videoDeviceId,
-  audioDeviceId,
-
   videoEnabled,
   audioEnabled,
-
-  videoLoading,
-  audioLoading,
-
   videoTrack,
-  audioMediaStream,
 } = useMediaDeviceService()
-
-const {
-  audioVolume,
-  audioIsSilent,
-} = useAudioMediaStreamVolume(audioMediaStream)
 
 onMounted(() => enable())
 
@@ -76,21 +56,6 @@ watch([videoTrack, videoRef], ([track, element]) => {
   if (!track || !element) return
   attachToElement(track, element)
 })
-
-// watchEffect(async (onCleanup) => {
-//   if (!videoRef.value || !videoTrack.value) return
-//   const track = videoTrack.value
-//   const element = videoRef.value
-//   if (track) {
-//     attachToElement(track, videoRef.value)
-//   }
-//   onCleanup(() => {
-//     if (track !== videoTrack.value && videoTrack.value) {
-//       detachTrack(track, element)
-//     }
-//   })
-// })
-
 </script>
 
 <style scoped lang="sass">

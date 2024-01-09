@@ -691,6 +691,7 @@
     "DESCRIPTION": "Description",
     "NAME": "Name",
     "MANAGE_TYPES": "Manage types",
+    "MANAGE_STATUSES": "Manage statuses",
     "STATUS": "Status",
     "VISIBLE": "Visible"
   },

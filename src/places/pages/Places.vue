@@ -13,7 +13,29 @@
         dense
       >
         <template #option="{ index, opt, itemProps }">
+          <template v-if="opt.value === '$manage'">
+            <QSeparator />
+            <QItem
+              :key="index"
+              clickable
+              :to="{ name: 'groupEditPlaceTypes' }"
+            >
+              <QItemSection side>
+                <QIcon
+                  name="fa fa-cog"
+                  color="gray"
+                  size="1.1em"
+                />
+              </QItemSection>
+              <QItemSection>
+                <QItemLabel class="text-italic">
+                  {{ $t('LABELS.MANAGE_TYPES') }}
+                </QItemLabel>
+              </QItemSection>
+            </QItem>
+          </template>
           <QItem
+            v-else
             :key="index"
             dense
             v-bind="itemProps"
@@ -48,26 +70,6 @@
           </QItem>
           <QSeparator v-if="!opt.value" />
         </template>
-        <template #after-options>
-          <QSeparator />
-          <QItem
-            clickable
-            :to="{ name: 'groupEditPlaceTypes' }"
-          >
-            <QItemSection side>
-              <QIcon
-                name="fa fa-cog"
-                color="gray"
-                size="1.1em"
-              />
-            </QItemSection>
-            <QItemSection>
-              <QItemLabel class="text-italic">
-                Manage types
-              </QItemLabel>
-            </QItemSection>
-          </QItem>
-        </template>
       </QSelect>
       <QSelect
         v-model="status"
@@ -80,6 +82,26 @@
       >
         <template #option="{ index, opt, itemProps }">
           <QSeparator v-if="opt.value === '$seperator'" />
+          <template v-else-if="opt.value === '$manage'">
+            <QSeparator />
+            <QItem
+              clickable
+              :to="{ name: 'groupEditPlaceStatuses' }"
+            >
+              <QItemSection side>
+                <QIcon
+                  name="fa fa-cog"
+                  color="gray"
+                  size="1.1em"
+                />
+              </QItemSection>
+              <QItemSection>
+                <QItemLabel class="text-italic">
+                  {{ $t('LABELS.MANAGE_STATUSES') }}
+                </QItemLabel>
+              </QItemSection>
+            </QItem>
+          </template>
           <QItem
             v-else
             :key="index"
@@ -126,26 +148,6 @@
               {{ opt.label }}
             </div>
           </div>
-        </template>
-        <template #after-options>
-          <QSeparator />
-          <QItem
-            clickable
-            :to="{ name: 'groupEditPlaceStatuses' }"
-          >
-            <QItemSection side>
-              <QIcon
-                name="fa fa-cog"
-                color="gray"
-                size="1.1em"
-              />
-            </QItemSection>
-            <QItemSection>
-              <QItemLabel class="text-italic">
-                Manage statuses
-              </QItemLabel>
-            </QItemSection>
-          </QItem>
         </template>
       </QSelect>
       <QInput
@@ -408,7 +410,7 @@ function getUnreadWallMessageCount (place) {
   return getPlaceStatus(place.id)?.unreadWallMessageCount
 }
 
-const typeOptions = computed(() => ([
+const typeOptions = computed(() => [
   {
     label: t('PLACE_LIST.ALL_TYPES'),
     value: null,
@@ -422,7 +424,10 @@ const typeOptions = computed(() => ([
       placeType,
     }
   }),
-]))
+  isEditor.value && {
+    value: '$manage',
+  },
+].filter(Boolean))
 
 const { getPlaceStatusesByGroup } = usePlaceStatusService()
 
@@ -472,6 +477,13 @@ const statusOptions = computed(() => {
       })
     }
   })
+
+  if (isEditor.value) {
+    options.push({
+      value: '$manage',
+    })
+  }
+
   return options
 })
 

@@ -142,6 +142,7 @@ export default {
         label: this.$t('GROUP.WALL'),
         icon: 'fas fa-bullhorn',
         to: { name: 'group', params: { groupId: this.groupId } },
+        meet: `group:${this.groupId}`,
         badge: {
           count: this.cappedWallUnreadCount,
           color: 'secondary',

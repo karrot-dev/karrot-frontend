@@ -88,7 +88,7 @@
           small
           round
           color="secondary"
-          :room="`place:${place.id}`"
+          :subject="`place:${place.id}`"
         />
         <component
           :is="directionsURL ? 'a' : 'span'"

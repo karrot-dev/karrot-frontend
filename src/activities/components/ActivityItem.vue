@@ -284,10 +284,10 @@
         </template>
       </QBtn>
       <MeetButton
-        v-if="isUserParticipant"
+        :hide-when-inactive="!isUserParticipant"
         flat
         dense
-        :room="`activity:${activity.id}`"
+        :subject="`activity:${activity.id}`"
       />
       <QBtn
         flat

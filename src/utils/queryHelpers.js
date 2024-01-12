@@ -27,6 +27,19 @@ export function useQueryHelpers () {
     return updated
   }
 
+  function deleteListEntry (queryKey, deleteId) {
+    const updated = false
+    const data = queryClient.getQueryData(queryKey)
+    const hasEntry = data && data.some(entry => entry.id === deleteId)
+    if (hasEntry) {
+      queryClient.setQueryData(queryKey, data => {
+        if (data === undefined) return data
+        return data.filter(entry => entry.id !== deleteId)
+      })
+    }
+    return updated
+  }
+
   /**
    * A nice method that can handle updating:
    * - individual item entries
@@ -90,6 +103,7 @@ export function useQueryHelpers () {
   return {
     updateOrInvalidateListEntry,
     maybeUpdateDataWith,
+    deleteListEntry,
   }
 }
 

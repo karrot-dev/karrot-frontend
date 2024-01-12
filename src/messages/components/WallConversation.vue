@@ -18,7 +18,7 @@
             v-if="groupId"
             round
             color="secondary"
-            :room="`group:${groupId}`"
+            :subject="`group:${groupId}`"
           />
           <NotificationToggle
             :muted="isMuted"

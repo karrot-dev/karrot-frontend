@@ -28,6 +28,7 @@ import { usePerformance } from '@/boot/performance'
 import { useGroupDetailUpdater } from '@/group/queries'
 import { useGroupInfoUpdater } from '@/groupInfo/queries'
 import { useIssuesUpdater } from '@/issues/queries'
+import { useRoomListUpdater } from '@/meet/queries'
 import { useConversationUpdater, useMessageUpdater } from '@/messages/queries'
 import { useDetailService } from '@/messages/services'
 import { useNotificationsUpdater } from '@/notifications/queries'
@@ -74,6 +75,7 @@ export default {
     useGroupDetailUpdater()
     useNotificationsUpdater()
     useIssuesUpdater()
+    useRoomListUpdater()
 
     // Utilities
     usePerformance()

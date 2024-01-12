@@ -69,6 +69,13 @@
             color="secondary"
             :to="{ name: 'settings' }"
           />
+          <MeetButton
+            v-if="!isCurrentUser"
+            small
+            round
+            color="secondary"
+            :subject="`user:${[user.id, currentUserId].sort((a, b) => a - b).join(',')}`"
+          />
           <QBtn
             v-if="!isCurrentUser"
             small
@@ -227,6 +234,7 @@ import {
 import { defineAsyncComponent, computed } from 'vue'
 
 import { useAuthHelpers } from '@/authuser/helpers'
+import { useAuthService } from '@/authuser/services'
 import { useCurrentGroupService } from '@/group/services'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { useHistoryListQuery } from '@/history/queries'
@@ -237,6 +245,7 @@ import { useActiveUserService } from '@/users/services'
 
 import HistoryList from '@/history/components/HistoryList.vue'
 import UserMapPreview from '@/maps/components/UserMapPreview.vue'
+import MeetButton from '@/meet/components/MeetButton.vue'
 import ApproveButton from '@/users/components/ApproveButton.vue'
 import ProfilePicture from '@/users/components/ProfilePicture.vue'
 import SwitchGroupButton from '@/users/components/SwitchGroupButton.vue'
@@ -248,6 +257,7 @@ const ConflictSetup = defineAsyncComponent(() => import('@/issues/components/Con
 
 export default {
   components: {
+    MeetButton,
     HistoryList,
     KSpinner,
     Markdown,
@@ -285,6 +295,7 @@ export default {
       user,
     } = useActiveUserService()
 
+    const { userId: currentUserId } = useAuthService()
     const isCurrentUser = computed(() => getIsCurrentUser(user.value))
     const currentGroupMembership = computed(() => getMembership(userId.value))
 
@@ -313,6 +324,7 @@ export default {
     } = useCreateIssueMutation()
 
     return {
+      currentUserId,
       authUserRoles,
       ongoingIssues,
       isCurrentUser,

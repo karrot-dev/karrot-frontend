@@ -214,6 +214,7 @@ import {
   QIcon,
   QBtn,
   QSpace,
+  QList,
   QItem,
   QItemSection,
   QItemLabel,

@@ -34,11 +34,18 @@
               {{ place.name }}
             </QItemLabel>
           </QItemSection>
-          <QItemSection
-            v-if="getUnreadWallMessageCount(place) > 0"
-            side
-          >
+          <QItemSection side>
+            <MeetButton
+              hide-when-inactive
+              hide-badge
+              color="green"
+              flat
+              dense
+              size="sm"
+              :subject="`place:${place.id}`"
+            />
             <QBadge
+              v-if="getUnreadWallMessageCount(place) > 0"
               color="secondary"
             >
               {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }}
@@ -98,6 +105,7 @@ import { usePlaceHelpers } from '@/places/helpers'
 import { placeRoute } from '@/places/utils'
 import { useStatusService } from '@/status/services'
 
+import MeetButton from '@/meet/components/MeetButton.vue'
 import KSpinner from '@/utils/components/KSpinner.vue'
 
 import SidenavBox from './SidenavBox.vue'

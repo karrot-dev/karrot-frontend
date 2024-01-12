@@ -213,7 +213,7 @@ export function useLivekitEndpoint () {
  */
 export const useRoomService = defineService(() => {
   const active = ref(false)
-  const roomIdRef = ref(null)
+  const roomSubjectRef = ref(null)
   const room = ref(null)
 
   const participantsByIdentity = ref({})
@@ -225,18 +225,18 @@ export const useRoomService = defineService(() => {
 
   const livekitEndpoint = useLivekitEndpoint()
 
-  async function joinRoom (roomId) {
+  async function joinRoom (roomSubject) {
     if (!livekitEndpoint.value) throw new Error('missing livekit endpoint')
-    if (!roomId) throw new Error('must provide roomId')
+    if (!roomSubject) throw new Error('must provide room subject')
 
     // TODO: handle changing rooms!
-    if (roomIdRef.value && roomIdRef.value !== roomId) throw new Error('already in another room!')
+    if (roomSubjectRef.value && roomSubjectRef.value !== roomSubject) throw new Error('already in another room!')
 
-    roomIdRef.value = roomId
+    roomSubjectRef.value = roomSubject
     participantsByIdentity.value = {}
     active.value = true
 
-    const token = await api.getToken({ roomId })
+    const token = await api.getToken(roomSubject)
     const wsURL = livekitEndpoint.value
     const newRoom = new Room({
       // TODO: experiment with different settings here
@@ -373,12 +373,12 @@ export const useRoomService = defineService(() => {
     await room.value?.disconnect(false)
     room.value = null
     participantsByIdentity.value = {}
-    roomIdRef.value = null
+    roomSubjectRef.value = null
   }
 
   return {
     active: readonly(active),
-    roomId: readonly(roomIdRef),
+    roomId: readonly(roomSubjectRef),
     joinRoom,
     leaveRoom,
     room,
@@ -427,7 +427,6 @@ export function useAudioMediaStreamVolume (audioMediaStream) {
     audioVolume.value = 0
     audioIsSilent.value = false
     if (!stream || !stream.active) return
-    // let stop = false
     const audioContext = new AudioContext()
     let silentOccurences = 0
     const source = audioContext.createMediaStreamSource(stream)

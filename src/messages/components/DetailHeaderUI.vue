@@ -37,7 +37,7 @@
           flat
           round
           dense
-          :room="`activity:${activity.id}`"
+          :subject="`activity:${activity.id}`"
         />
       </template>
       <template v-else-if="user">
@@ -52,7 +52,7 @@
           flat
           round
           dense
-          :room="`user:${[user.id, currentUserId].join(',')}`"
+          :subject="`user:${[user.id, currentUserId].sort((a, b) => a - b).join(',')}`"
         />
       </template>
       <template v-else-if="conversation.thread">

@@ -146,6 +146,9 @@
     "NOT_GIVEN_YOU": "You have not given feedback",
     "NOT_GIVEN_YET": "This participant has not given feedback yet",
     "TOGETHER_WITH": "Vous avez accompli ceci avec :",
+    "REPORT_NO_SHOW": "Someone didn't show up?",
+    "NO_SHOW": "No show",
+    "MARKED_NO_SHOW_BY": "Marked as no show by",
     "DISMISS_LABEL": "Ignorer",
     "DISMISS_TITLE": "Ignorer le retour",
     "DISMISS_MESSAGE": "Voulez-vous vraiment ignorer ce retour ? Vous ne serez pas capable de donner un retour à cette activité ultérieurement."
@@ -428,6 +431,7 @@
     "EDIT": "Éditer le groupe",
     "EDIT_ACTIVITY_TYPES": "Types d'activités",
     "EDIT_PLACE_TYPES": "Types d'endroits",
+    "EDIT_PLACE_STATUSES": "Place statuses",
     "EDIT_DETAILS": "Détails du groupe",
     "EMAIL_NOTIFICATIONS": "Notifications par email",
     "HEADINGS": {
@@ -555,6 +559,8 @@
     "USER_LOST_EDITOR_ROLE": "a perdu les droits d'édition",
     "PLACE_TYPE_CREATE": "créé un type de lieu",
     "PLACE_TYPE_MODIFY": "modifié un type de lieu",
+    "PLACE_STATUS_CREATE": "created a place status",
+    "PLACE_STATUS_MODIFY": "modified a place status",
     "MEMBER_GOT_ROLE": "reçu le rôle : {role}",
     "AGREEMENT_CREATE": "convention créée",
     "AGREEMENT_MODIFY": "convention modifiée"
@@ -678,6 +684,17 @@
     "WITHDRAW_CONFIRMATION_HEADER": "Retirer ma candidature",
     "WITHDRAW_CONFIRMATION_TEXT": "Es-tu sûr(e) de vouloir retirer ta candidature à {groupName} ?"
   },
+  "LABELS": {
+    "ADD_NEW": "Add new",
+    "ACTIVE": "Active",
+    "ARCHIVED": "Archived",
+    "DESCRIPTION": "Description",
+    "NAME": "Name",
+    "MANAGE_TYPES": "Manage types",
+    "MANAGE_STATUSES": "Manage statuses",
+    "STATUS": "Status",
+    "VISIBLE": "Visible"
+  },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Aide-nous à traduire !",
     "SWITCH": "Changer de langue"
@@ -791,6 +808,12 @@
     "Restaurant": "Restaurant",
     "Market": "Marché"
   },
+  "PLACE_STATUS_NAMES": {
+    "Created": "Created",
+    "Negotiating": "Negotiating",
+    "Active": "Active",
+    "Declined": "Declined"
+  },
   "PLACE_TYPE_STATUS": {
     "ACTIVE": "Actif",
     "ARCHIVED": "Archivé"
@@ -809,6 +832,12 @@
     "STATUS_ACTIVE_HINT": "Vous serez capable de créer de nouveaux endroits de ce type",
     "STATUS_ARCHIVED_HINT": "Il ne sera pas possible de créer un nouvel endroit de ce type, mais les existants seront toujours disponible"
   },
+  "PLACE_STATUSES": {
+    "ADD": "Add new place status",
+    "ARCHIVING": "You are archiving",
+    "UPDATE_TO": "Update places with this status to",
+    "VISIBLE_HINT": "Whether to show places with this status on the map and in the list"
+  },
   "PLACE_LIST": {
     "ONLY_FAVOURITES": "Seulement favoris",
     "UPCOMING_ACTIVITIES": "Une activité à venir | { count } activités à venir",
@@ -817,6 +846,7 @@
     "NONE_DUE_TO_FILTER": "Aucun lieu ne correspond à vos filtres",
     "ALL_TYPES": "Tous les types",
     "ALL_STATUSES": "Tous les statuts",
+    "VISIBLE_STATUSES": "Visible",
     "SUBSCRIBE_HINT": "Quand vous marquez un lieu comme un favori, ils apparaitront ici. Cliquez ci-dessous pour voir tous les lieux, puis cliquer { icon } sur l'un d'entre eux."
   },
   "PLACEWALL": {
@@ -862,7 +892,9 @@
     "FILTER_TIME_PREVIOUS_MONTHS": "{count}mois précédents",
     "FILTER_TIME_FOREVER": "Pour toujours",
     "COLUMN_PLACE": "Endroit",
+    "COLUMN_PLACE_TYPE": "Type",
     "COLUMN_ACTIVITY_DONE": "Fini",
+    "COLUMN_ACTIVITY_NO_SHOW": "No show",
     "COLUMN_ACTIVITY_MISSED": "Manqué",
     "COLUMN_ACTIVITY_LEFT": "Partis",
     "COLUMN_FEEDBACK": "Retour",
@@ -876,10 +908,8 @@
   },
   "STOREDETAIL": {
     "ARCHIVED": "Ce lieu de récolte a été archivé",
-    "CHANGE_STATUS": "Tu peux changer le statut sur la page des paramètres.",
     "DIRECTIONS": "Afficher la direction",
     "EDIT": "Editer le lieux de récolte",
-    "INACTIVE": "Ce lieu de récolte n'est actuellement pas en coopération",
     "NO_DESCRIPTION": "Ce lieu n'a pas encore de description"
   },
   "STOREEDIT": {

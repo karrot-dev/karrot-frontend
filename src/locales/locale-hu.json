@@ -146,6 +146,9 @@
     "NOT_GIVEN_YOU": "You have not given feedback",
     "NOT_GIVEN_YET": "This participant has not given feedback yet",
     "TOGETHER_WITH": "Veled csinálta még:",
+    "REPORT_NO_SHOW": "Someone didn't show up?",
+    "NO_SHOW": "No show",
+    "MARKED_NO_SHOW_BY": "Marked as no show by",
     "DISMISS_LABEL": "Kihagyás",
     "DISMISS_TITLE": "Visszajelzés kihagyása",
     "DISMISS_MESSAGE": "Biztosan kihagyod a visszajelzést? Később már nem tudsz majd visszajelzést adni ezen a tevékenységen."
@@ -428,6 +431,7 @@
     "EDIT": "Csoport szerkesztése",
     "EDIT_ACTIVITY_TYPES": "Tevékenységtípusok",
     "EDIT_PLACE_TYPES": "Place types",
+    "EDIT_PLACE_STATUSES": "Place statuses",
     "EDIT_DETAILS": "Csoport részletei",
     "EMAIL_NOTIFICATIONS": "Email értesítések",
     "HEADINGS": {
@@ -555,6 +559,8 @@
     "USER_LOST_EDITOR_ROLE": "lost editing permissions",
     "PLACE_TYPE_CREATE": "created a place type",
     "PLACE_TYPE_MODIFY": "modified a place type",
+    "PLACE_STATUS_CREATE": "created a place status",
+    "PLACE_STATUS_MODIFY": "modified a place status",
     "MEMBER_GOT_ROLE": "received role: {role}",
     "AGREEMENT_CREATE": "agreement created",
     "AGREEMENT_MODIFY": "agreement modified"
@@ -678,6 +684,17 @@
     "WITHDRAW_CONFIRMATION_HEADER": "Jelentkezés visszavonása",
     "WITHDRAW_CONFIRMATION_TEXT": "Biztosan visszavonod a jelentkezésedet a(z) {groupName} csoportba?"
   },
+  "LABELS": {
+    "ADD_NEW": "Add new",
+    "ACTIVE": "Active",
+    "ARCHIVED": "Archived",
+    "DESCRIPTION": "Description",
+    "NAME": "Name",
+    "MANAGE_TYPES": "Manage types",
+    "MANAGE_STATUSES": "Manage statuses",
+    "STATUS": "Status",
+    "VISIBLE": "Visible"
+  },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Segíts fordítani!",
     "SWITCH": "Nyelv átállítása"
@@ -791,6 +808,12 @@
     "Restaurant": "Restaurant",
     "Market": "Market"
   },
+  "PLACE_STATUS_NAMES": {
+    "Created": "Created",
+    "Negotiating": "Negotiating",
+    "Active": "Active",
+    "Declined": "Declined"
+  },
   "PLACE_TYPE_STATUS": {
     "ACTIVE": "Active",
     "ARCHIVED": "Archived"
@@ -809,6 +832,12 @@
     "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
+  "PLACE_STATUSES": {
+    "ADD": "Add new place status",
+    "ARCHIVING": "You are archiving",
+    "UPDATE_TO": "Update places with this status to",
+    "VISIBLE_HINT": "Whether to show places with this status on the map and in the list"
+  },
   "PLACE_LIST": {
     "ONLY_FAVOURITES": "Only favourite",
     "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
@@ -817,6 +846,7 @@
     "NONE_DUE_TO_FILTER": "No places match your filters",
     "ALL_TYPES": "All types",
     "ALL_STATUSES": "All statuses",
+    "VISIBLE_STATUSES": "Visible",
     "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then click { icon } on one of them."
   },
   "PLACEWALL": {
@@ -862,7 +892,9 @@
     "FILTER_TIME_PREVIOUS_MONTHS": "Előző {count} hónap",
     "FILTER_TIME_FOREVER": "Mindenkori",
     "COLUMN_PLACE": "Hely",
+    "COLUMN_PLACE_TYPE": "Type",
     "COLUMN_ACTIVITY_DONE": "Teljesítette",
+    "COLUMN_ACTIVITY_NO_SHOW": "No show",
     "COLUMN_ACTIVITY_MISSED": "Missed",
     "COLUMN_ACTIVITY_LEFT": "Withdrew",
     "COLUMN_FEEDBACK": "Feedback",
@@ -876,10 +908,8 @@
   },
   "STOREDETAIL": {
     "ARCHIVED": "Ez a hely archiválva lett",
-    "CHANGE_STATUS": "A státuszt a beállítások oldalon tudod megváltoztatni.",
     "DIRECTIONS": "Útvonal mutatása",
     "EDIT": "Hely szerkesztése",
-    "INACTIVE": "Ez a hely jelenleg nem működik együtt.",
     "NO_DESCRIPTION": "Ennek a helynek még nincs leírása"
   },
   "STOREEDIT": {

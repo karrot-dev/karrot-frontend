@@ -146,6 +146,9 @@
     "NOT_GIVEN_YOU": "You have not given feedback",
     "NOT_GIVEN_YET": "This participant has not given feedback yet",
     "TOGETHER_WITH": "Du hues dëst zesumme gemaach mam:",
+    "REPORT_NO_SHOW": "Someone didn't show up?",
+    "NO_SHOW": "No show",
+    "MARKED_NO_SHOW_BY": "Marked as no show by",
     "DISMISS_LABEL": "Verwerfen",
     "DISMISS_TITLE": "Feedback verwerfen",
     "DISMISS_MESSAGE": "Wëlls du dëse Feedback wierklech verwerfen? Du kanns en duerno net méi ginn."
@@ -428,6 +431,7 @@
     "EDIT": "Grupp veränneren",
     "EDIT_ACTIVITY_TYPES": "Aktivitéitstyppen",
     "EDIT_PLACE_TYPES": "Typpe vu Plazen",
+    "EDIT_PLACE_STATUSES": "Place statuses",
     "EDIT_DETAILS": "Detailer vun der Grupp",
     "EMAIL_NOTIFICATIONS": "Benoriichtegungen via E-Mail",
     "HEADINGS": {
@@ -555,6 +559,8 @@
     "USER_LOST_EDITOR_ROLE": "duerf elo net méi beaarbechten",
     "PLACE_TYPE_CREATE": "huet een Typ vu Plaz erstallt",
     "PLACE_TYPE_MODIFY": "huet een Typ vu Plaz verännert",
+    "PLACE_STATUS_CREATE": "created a place status",
+    "PLACE_STATUS_MODIFY": "modified a place status",
     "MEMBER_GOT_ROLE": "krut d'Roll: {role}",
     "AGREEMENT_CREATE": "Ofkommes erstallt",
     "AGREEMENT_MODIFY": "Ofkommes geännert"
@@ -678,6 +684,17 @@
     "WITHDRAW_CONFIRMATION_HEADER": "Bewerbung zréckzéien",
     "WITHDRAW_CONFIRMATION_TEXT": "Bass du sécher, dass du deng Bewerbung fir {groupName} bäizetrieden zréckzéie wëlls?"
   },
+  "LABELS": {
+    "ADD_NEW": "Add new",
+    "ACTIVE": "Active",
+    "ARCHIVED": "Archived",
+    "DESCRIPTION": "Description",
+    "NAME": "Name",
+    "MANAGE_TYPES": "Manage types",
+    "MANAGE_STATUSES": "Manage statuses",
+    "STATUS": "Status",
+    "VISIBLE": "Visible"
+  },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Hëllef iwwersetzen!",
     "SWITCH": "Sprooch wiesselen"
@@ -791,6 +808,12 @@
     "Restaurant": "Restaurant",
     "Market": "Maart"
   },
+  "PLACE_STATUS_NAMES": {
+    "Created": "Created",
+    "Negotiating": "Negotiating",
+    "Active": "Active",
+    "Declined": "Declined"
+  },
   "PLACE_TYPE_STATUS": {
     "ACTIVE": "Aktiv",
     "ARCHIVED": "Archivéiert"
@@ -809,6 +832,12 @@
     "STATUS_ACTIVE_HINT": "Du wäerts kënnen nei Plaze vun dësem Typ erstellen",
     "STATUS_ARCHIVED_HINT": "Et wäert net méiglech sinn nei Plaze vun dësem Typ ze erstellen, awer déi, déi et ginn, wäerte bleiwen"
   },
+  "PLACE_STATUSES": {
+    "ADD": "Add new place status",
+    "ARCHIVING": "You are archiving",
+    "UPDATE_TO": "Update places with this status to",
+    "VISIBLE_HINT": "Whether to show places with this status on the map and in the list"
+  },
   "PLACE_LIST": {
     "ONLY_FAVOURITES": "Just favoriséiert",
     "UPCOMING_ACTIVITIES": "Eng zukünfteg Aktivitéit | { count } zukünfteg Aktivitéiten",
@@ -817,6 +846,7 @@
     "NONE_DUE_TO_FILTER": "Keng Plaz passt op deng Filter",
     "ALL_TYPES": "All d'Typpen",
     "ALL_STATUSES": "All d'Statussen",
+    "VISIBLE_STATUSES": "Visible",
     "SUBSCRIBE_HINT": "Wann s du Plazen als Favorit markéiers, tauchen se hei op. Klick ënnendrënner fir all d'Plazen ze gesinn, an dann { icon } op enger vun hinnen."
   },
   "PLACEWALL": {
@@ -862,7 +892,9 @@
     "FILTER_TIME_PREVIOUS_MONTHS": "Läscht {count} Méint",
     "FILTER_TIME_FOREVER": "Fir ëmmer",
     "COLUMN_PLACE": "Plaz",
+    "COLUMN_PLACE_TYPE": "Type",
     "COLUMN_ACTIVITY_DONE": "Gemaach",
+    "COLUMN_ACTIVITY_NO_SHOW": "No show",
     "COLUMN_ACTIVITY_MISSED": "Verpasst",
     "COLUMN_ACTIVITY_LEFT": "Zréckgetrueden",
     "COLUMN_FEEDBACK": "Feedback",
@@ -876,10 +908,8 @@
   },
   "STOREDETAIL": {
     "ARCHIVED": "Dës Plaz gouf archivéiert",
-    "CHANGE_STATUS": "Du kanns de Status op der Säit mat den Astellungen änneren.",
     "DIRECTIONS": "Weebeschreiwung weisen",
     "EDIT": "Plaz veränneren",
-    "INACTIVE": "Dës Plaz kooperéiert grad net.",
     "NO_DESCRIPTION": "Dës Plaz huet nach keng Beschreiwung."
   },
   "STOREEDIT": {

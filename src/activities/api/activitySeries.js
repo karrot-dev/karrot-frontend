@@ -1,9 +1,10 @@
 import axios from '@/base/api/axios'
+import { toFormData } from '@/utils/utils'
 
 export default {
 
   async create (series) {
-    return convert((await axios.post('/api/activity-series/', serialize(series))).data)
+    return convert((await axios.post('/api/activity-series/', await toFormData(serialize(series)))).data)
   },
 
   async get (seriesId) {
@@ -16,7 +17,7 @@ export default {
 
   async save (series) {
     const { id } = series
-    return convert((await axios.patch(`/api/activity-series/${id}/`, serialize(series))).data)
+    return convert((await axios.patch(`/api/activity-series/${id}/`, await toFormData(serialize(series)))).data)
   },
 
   async checkSave (series) {

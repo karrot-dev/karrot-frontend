@@ -182,8 +182,8 @@
                 @click="$router.push({ name: 'publicActivity', params: { activityPublicId: publicActivity.publicId } })"
               >
                 <QImg
-                  v-if="publicActivity.bannerImageUrls?.fullSize"
-                  :src="publicActivity.bannerImageUrls.fullSize"
+                  v-if="getBannerImageUrl(publicActivity)"
+                  :src="getBannerImageUrl(publicActivity)"
                   class="full-width"
                   style="max-height: 80px;"
                 />
@@ -293,6 +293,10 @@ const {
 } = useApplicationListQuery({ userId, status: 'pending', isLoggedIn }, { keepPreviousData: true })
 
 const application = computed(() => applications.value.find(a => a.group === unref(groupPreviewId)))
+
+function getBannerImageUrl (publicActivity) {
+  return publicActivity?.bannerImageUrls?.fullSize ?? publicActivity?.seriesBannerImageUrls?.fullSize
+}
 
 async function withdraw () {
   Dialog.create({

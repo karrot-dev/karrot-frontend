@@ -444,7 +444,7 @@ const icsUrl = computed(() => {
   return absoluteURL(`/api/activities/${activity.value.id}/ics/`)
 })
 const bannerImageURL = computed(() => {
-  return activity.value?.bannerImageUrls?.fullSize
+  return activity.value?.bannerImageUrls?.fullSize ?? activity.value?.seriesBannerImageUrls?.fullSize
 })
 
 function join () {

@@ -7,34 +7,39 @@
       class="text-white"
       :class="activityType ? `bg-${getColorName(activityType)}` : 'bg-secondary'"
     >
-      <QToolbarTitle
-        v-if="activity"
-        class="column"
-      >
-        <div>
-          <span
-            v-if="!$q.platform.is.mobile && activityType"
-          >
-            <QIcon
-              v-bind="activityTypeIconProps"
-              color="white"
-              size="xs"
-              class="q-pr-sm"
-            />{{ activityTypeIconProps.title }}&nbsp;</span>
-          <strong>
-            {{ $d(activity.date, 'weekdayHourMinute') }}
-            <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>
-          </strong>
-        </div>
-        <div class="text-caption">
-          <strong v-if="place">
-            <RouterLink :to="{ name: 'place', params: { groupId: place.group, placeId: activity.place }}">
-              {{ place.name }}
-            </RouterLink>
-          </strong>
-          {{ $d(activity.date, 'yearMonthDay') }}
-        </div>
-      </QToolbarTitle>
+      <template v-if="activity">
+        <QToolbarTitle class="column">
+          <div>
+            <span
+              v-if="!$q.platform.is.mobile && activityType"
+            >
+              <QIcon
+                v-bind="activityTypeIconProps"
+                color="white"
+                size="xs"
+                class="q-pr-sm"
+              />{{ activityTypeIconProps.title }}&nbsp;</span>
+            <strong>
+              {{ $d(activity.date, 'weekdayHourMinute') }}
+              <template v-if="activity.hasDuration"> &mdash; {{ $d(activity.dateEnd, 'hourMinute') }}</template>
+            </strong>
+          </div>
+          <div class="text-caption">
+            <strong v-if="place">
+              <RouterLink :to="{ name: 'place', params: { groupId: place.group, placeId: activity.place }}">
+                {{ place.name }}
+              </RouterLink>
+            </strong>
+            {{ $d(activity.date, 'yearMonthDay') }}
+          </div>
+        </QToolbarTitle>
+        <MeetButton
+          flat
+          round
+          dense
+          :subject="`activity:${activity.id}`"
+        />
+      </template>
       <template v-else-if="user">
         <ProfilePicture
           :user="conversationPartner"
@@ -43,6 +48,12 @@
         <QToolbarTitle>
           {{ user.displayName }}
         </QToolbarTitle>
+        <MeetButton
+          flat
+          round
+          dense
+          :subject="`user:${[user.id, currentUserId].sort((a, b) => a - b).join(',')}`"
+        />
       </template>
       <template v-else-if="conversation.thread">
         <QIcon name="fas fa-fw fa-comments" />
@@ -145,6 +156,7 @@ import { toRefs, computed } from 'vue'
 import { useActivityTypeHelpers } from '@/activities/helpers'
 import { useActivityTypeService } from '@/activities/services'
 import { useAuthHelpers } from '@/authuser/helpers'
+import { useAuthService } from '@/authuser/services'
 import { useGroupInfoService } from '@/groupInfo/services'
 import { useConversationHelpers } from '@/messages/helpers'
 import { useSaveConversationMutation, useSaveThreadMutedMutation } from '@/messages/mutations'
@@ -153,11 +165,13 @@ import { usePlaceService } from '@/places/services'
 import { useUserService } from '@/users/services'
 import dateFnsHelper from '@/utils/dateFnsHelper'
 
+import MeetButton from '@/meet/components/MeetButton.vue'
 import NotificationToggle from '@/messages/components/NotificationToggle.vue'
 import ProfilePicture from '@/users/components/ProfilePicture.vue'
 
 export default {
   components: {
+    MeetButton,
     ProfilePicture,
     NotificationToggle,
     QBtn,
@@ -198,6 +212,7 @@ export default {
     const { getActivityTypeById } = useActivityTypeService()
     const { close } = useDetailService()
     const { getIsParticipant } = useConversationHelpers()
+    const { userId: currentUserId } = useAuthService()
     const { getIsCurrentUser } = useAuthHelpers()
     const { getGroupById } = useGroupInfoService()
     const { mutate: saveConversation } = useSaveConversationMutation()
@@ -220,6 +235,7 @@ export default {
       place,
       activityType,
       activityTypeIconProps,
+      currentUserId,
 
       getIsCurrentUser,
       getGroupById,

@@ -10,13 +10,23 @@
         bordered
         class="desktop-margin"
       >
-        <NotificationToggle
-          class="actionButton"
-          :muted="isMuted"
-          :is-participant="isParticipant"
-          :user="user"
-          @set="setNotifications"
-        />
+        <div
+          class="actions row"
+          style="gap: 3px"
+        >
+          <MeetButton
+            v-if="groupId"
+            round
+            color="secondary"
+            :subject="`group:${groupId}`"
+          />
+          <NotificationToggle
+            :muted="isMuted"
+            :is-participant="isParticipant"
+            :user="user"
+            @set="setNotifications"
+          />
+        </div>
         <ConversationCompose
           :status="sendStatus"
           :placeholder="messagePrompt"
@@ -94,6 +104,7 @@ import {
 } from '@/messages/mutations'
 import { useConversationQuery, useMessageListQuery } from '@/messages/queries'
 
+import MeetButton from '@/meet/components/MeetButton.vue'
 import KSpinner from '@/utils/components/KSpinner.vue'
 
 import ConversationCompose from './ConversationCompose.vue'
@@ -103,6 +114,7 @@ import NotificationToggle from './NotificationToggle.vue'
 export default {
   name: 'WallConversation',
   components: {
+    MeetButton,
     ConversationMessage,
     ConversationCompose,
     NotificationToggle,
@@ -231,7 +243,7 @@ export default {
 </script>
 
 <style scoped lang="sass">
-.actionButton
+.actions
   position: absolute
   top: -32px
   right: 6px

@@ -283,6 +283,12 @@
           <span v-if="!$q.platform.is.mobile">{{ $t('ACTIVITYLIST.ITEM.DOWNLOAD_ICS') }}</span>
         </template>
       </QBtn>
+      <MeetButton
+        :hide-when-inactive="!isUserParticipant"
+        flat
+        dense
+        :subject="`activity:${activity.id}`"
+      />
       <QBtn
         flat
         no-caps
@@ -326,6 +332,7 @@ import { useDetailService } from '@/messages/services'
 import { usePlaceService } from '@/places/services'
 import { absoluteURL } from '@/utils/absoluteURL'
 
+import MeetButton from '@/meet/components/MeetButton.vue'
 import CustomDialog from '@/utils/components/CustomDialog.vue'
 import Markdown from '@/utils/components/Markdown.vue'
 import ShowMore from '@/utils/components/ShowMore.vue'

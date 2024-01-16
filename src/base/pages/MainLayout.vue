@@ -151,6 +151,8 @@
     <QDialog v-model="showAbout">
       <KAbout @close="toggleAbout" />
     </QDialog>
+
+    <Meeting v-if="roomActive" />
   </div>
 </template>
 
@@ -175,6 +177,7 @@ import { useLogoutMutation } from '@/authuser/mutations'
 import { useAuthService } from '@/authuser/services'
 import { useRouteErrorService } from '@/base/services'
 import { useCurrentGroupService } from '@/group/services'
+import { useRoomService } from '@/meet/helpers'
 import { useDetailService } from '@/messages/services'
 import { useStatusService } from '@/status/services'
 
@@ -184,6 +187,7 @@ import RouteError from '@/base/components/RouteError.vue'
 import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarning.vue'
 import CommunityFeed from '@/communityFeed/components/CommunityFeed.vue'
 import KarrotLogo from '@/logo/components/KarrotLogo.vue'
+import Meeting from '@/meet/components/Meeting.vue'
 import DetailSidebar from '@/messages/components/DetailSidebar.vue'
 import SidenavTitle from '@/sidenav/components/SidenavTitle.vue'
 import KTopbar from '@/topbar/components/KTopbar.vue'
@@ -191,6 +195,7 @@ import KTopbarLoggedOut from '@/topbar/components/LoggedOut/KTopbar.vue'
 
 export default {
   components: {
+    Meeting,
     KarrotLogo,
     QDialog,
     DetailSidebar,
@@ -239,6 +244,8 @@ export default {
 
     const isGroupWall = computed(() => route.name === 'group')
 
+    const { active: roomActive } = useRoomService()
+
     return {
       logout,
       hasError,
@@ -250,6 +257,7 @@ export default {
       isGeneralPurpose,
       hasUnseen,
       disableDesktopSidenav,
+      roomActive,
     }
   },
   data () {

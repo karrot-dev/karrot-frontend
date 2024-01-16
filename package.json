@@ -61,6 +61,7 @@
     "intl": "^1.2.5",
     "jstimezonedetect": "^1.0.7",
     "leaflet": "1.9.4",
+    "livekit-client": "^1.15.5",
     "loglevel": "^1.8.1",
     "markdown-it": "^13.0.1",
     "markdown-it-emoji": "^2.0.2",

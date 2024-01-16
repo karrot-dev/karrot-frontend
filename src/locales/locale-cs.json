@@ -146,6 +146,9 @@
     "NOT_GIVEN_YOU": "Neposkytli jste zpětnou vazbu",
     "NOT_GIVEN_YET": "Tento účastník zatím neposkytl zpětnou vazbu",
     "TOGETHER_WITH": "Udělali jste to společně s:",
+    "REPORT_NO_SHOW": "Někdo se neobjevil?",
+    "NO_SHOW": "No show",
+    "MARKED_NO_SHOW_BY": "Marked as no show by",
     "DISMISS_LABEL": "Odmítnout",
     "DISMISS_TITLE": "Odmítnout zpětnou vazbu",
     "DISMISS_MESSAGE": "Opravdu chcete tuto zpětnou vazbu odmítnout? Později k této aktivitě nebudete moci poskytnout zpětnou vazbu."
@@ -428,6 +431,7 @@
     "EDIT": "Upravit skupinu",
     "EDIT_ACTIVITY_TYPES": "Typy aktivit",
     "EDIT_PLACE_TYPES": "Typy míst",
+    "EDIT_PLACE_STATUSES": "Place statuses",
     "EDIT_DETAILS": "Podrobnosti o skupině",
     "EMAIL_NOTIFICATIONS": "E-mailová oznámení",
     "HEADINGS": {
@@ -555,6 +559,8 @@
     "USER_LOST_EDITOR_ROLE": "ztracená oprávnění k úpravám",
     "PLACE_TYPE_CREATE": "vytvořen typ místa",
     "PLACE_TYPE_MODIFY": "změněný typ místa",
+    "PLACE_STATUS_CREATE": "created a place status",
+    "PLACE_STATUS_MODIFY": "modified a place status",
     "MEMBER_GOT_ROLE": "obdržena role: {role}",
     "AGREEMENT_CREATE": "smlouva vytvořena",
     "AGREEMENT_MODIFY": "smlouva změněna"
@@ -678,6 +684,17 @@
     "WITHDRAW_CONFIRMATION_HEADER": "stáhnout žádost",
     "WITHDRAW_CONFIRMATION_TEXT": "Opravdu chcete stáhnout svou žádost k připojení se k {groupName}?"
   },
+  "LABELS": {
+    "ADD_NEW": "Add new",
+    "ACTIVE": "Active",
+    "ARCHIVED": "Archived",
+    "DESCRIPTION": "Description",
+    "NAME": "Name",
+    "MANAGE_TYPES": "Manage types",
+    "MANAGE_STATUSES": "Manage statuses",
+    "STATUS": "Status",
+    "VISIBLE": "Visible"
+  },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Pomozte přeložit!",
     "SWITCH": "Přepnout jazyk"
@@ -791,6 +808,12 @@
     "Restaurant": "Restaurace",
     "Market": "Tržiště"
   },
+  "PLACE_STATUS_NAMES": {
+    "Created": "Created",
+    "Negotiating": "Negotiating",
+    "Active": "Active",
+    "Declined": "Declined"
+  },
   "PLACE_TYPE_STATUS": {
     "ACTIVE": "Aktivní",
     "ARCHIVED": "Archivováno"
@@ -809,6 +832,12 @@
     "STATUS_ACTIVE_HINT": "Budete moci vytvářet nová místa tohoto typu.",
     "STATUS_ARCHIVED_HINT": "Nebude možné vytvářet nová místa tohoto typu, ale stávající budou stále k dispozici."
   },
+  "PLACE_STATUSES": {
+    "ADD": "Add new place status",
+    "ARCHIVING": "You are archiving",
+    "UPDATE_TO": "Update places with this status to",
+    "VISIBLE_HINT": "Whether to show places with this status on the map and in the list"
+  },
   "PLACE_LIST": {
     "ONLY_FAVOURITES": "Pouze oblíbené",
     "UPCOMING_ACTIVITIES": "Jedna nadcházející aktivita | { count } nadcházející aktivity",
@@ -817,6 +846,7 @@
     "NONE_DUE_TO_FILTER": "Žádné místo neodpovídá vašim filtrům",
     "ALL_TYPES": "Všechny typy",
     "ALL_STATUSES": "Všechny stavy",
+    "VISIBLE_STATUSES": "Visible",
     "SUBSCRIBE_HINT": "Když si místa označíte jako oblíbená, zobrazí se zde. Kliknutím níže zobrazíte všechna místa a poté kliknete na { icon } jednoho z nich."
   },
   "PLACEWALL": {
@@ -862,7 +892,9 @@
     "FILTER_TIME_PREVIOUS_MONTHS": "Předchozích {count} měsíců",
     "FILTER_TIME_FOREVER": "Navždy",
     "COLUMN_PLACE": "Místo",
+    "COLUMN_PLACE_TYPE": "Typ",
     "COLUMN_ACTIVITY_DONE": "Hotovo",
+    "COLUMN_ACTIVITY_NO_SHOW": "No show",
     "COLUMN_ACTIVITY_MISSED": "Zmeškáno",
     "COLUMN_ACTIVITY_LEFT": "Staženo",
     "COLUMN_FEEDBACK": "Zpětná vazba",
@@ -876,10 +908,8 @@
   },
   "STOREDETAIL": {
     "ARCHIVED": "Toto místo bylo archivováno",
-    "CHANGE_STATUS": "Stav můžete změnit na stránce nastavení.",
     "DIRECTIONS": "Zobrazit pokyny",
     "EDIT": "Upravit místo",
-    "INACTIVE": "Toto místo v současné době nespolupracuje.",
     "NO_DESCRIPTION": "Toto místo zatím nemá popis"
   },
   "STOREEDIT": {

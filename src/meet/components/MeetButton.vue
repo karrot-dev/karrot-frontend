@@ -4,9 +4,8 @@
     icon="videocam"
     no-caps
     v-bind="sidenav ? {flat: true, dense: true} : {}"
-    style="sidenav && 'padding-top: 0; padding-bottom: 0;'"
     :class="{ 'no-margin': sidenav, 'pulsate': roomActive }"
-    :style="{ opacity: roomActive ? 1 : 0.8 }"
+    :style="style"
     @click="joinRoom(subject)"
   >
     <template v-if="roomActive">
@@ -75,6 +74,19 @@ const roomUsers = computed(() => {
   return Object.keys(userIds).map(getUserById)
 })
 
+const style = computed(() => {
+  const styleObj = {
+    opacity: roomActive.value ? 1 : 0.8,
+  }
+  if (props.sidenav) {
+    Object.assign(styleObj, {
+      paddingTop: 0,
+      paddingBottom: 0,
+    })
+  }
+  return styleObj
+})
+
 </script>
 
 <style lang="sass" scoped>
@@ -82,12 +94,18 @@ const roomUsers = computed(() => {
   0%
     transform: scale(1, 1)
 
-  50%
-    transform: scale(1.05, 1.05)
+  5%
+    transform: scale(1, 1)
+
+  35%
+    transform: scale(1.07, 1.07) rotate(1deg)
+
+  65%
+    transform: scale(1.07, 1.07) rotate(-1deg)
 
   100%
     transform: scale(1, 1)
 
 .pulsate
-  animation: pulsating 1s linear infinite
+  animation: pulsating 1.6s ease-in-out infinite
 </style>

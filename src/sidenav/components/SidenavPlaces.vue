@@ -36,12 +36,8 @@
           </QItemSection>
           <QItemSection side>
             <MeetButton
-              hide-when-inactive
-              hide-badge
               color="green"
-              flat
-              dense
-              size="sm"
+              sidenav
               :subject="`place:${place.id}`"
             />
             <QBadge

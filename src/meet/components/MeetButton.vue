@@ -1,15 +1,16 @@
 <template>
   <QBtn
-    v-if="hasMeet && endpoint && subject && (roomActive || !hideWhenInactive)"
+    v-if="hasMeet && endpoint && subject && (roomActive || (!sidenav && !hideWhenInactive))"
     icon="videocam"
     no-caps
-    :class="roomActive && 'pulsate'"
+    v-bind="sidenav ? {flat: true, dense: true} : {}"
+    style="sidenav && 'padding-top: 0; padding-bottom: 0;'"
+    :class="{ 'no-margin': sidenav, 'pulsate': roomActive }"
     :style="{ opacity: roomActive ? 1 : 0.8 }"
     @click="joinRoom(subject)"
   >
     <template v-if="roomActive">
       <QTooltip>
-        <strong>Active call</strong>
         <div
           v-for="user in roomUsers"
           :key="user.id"
@@ -17,8 +18,11 @@
           {{ user.displayName }}
         </div>
       </QTooltip>
+      <template v-if="sidenav">
+        {{ room.participants.length }}
+      </template>
       <QBadge
-        v-if="!hideBadge"
+        v-else
         color="green"
         floating
         rounded
@@ -46,7 +50,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  hideBadge: {
+  sidenav: {
     type: Boolean,
     default: false,
   },

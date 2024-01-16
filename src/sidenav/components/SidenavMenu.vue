@@ -29,12 +29,8 @@
         />
         <MeetButton
           v-if="meet"
-          hide-when-inactive
-          hide-badge
           color="green"
-          flat
-          dense
-          size="sm"
+          sidenav
           :subject="meet"
         />
         <QBadge

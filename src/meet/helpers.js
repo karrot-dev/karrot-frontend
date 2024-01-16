@@ -385,7 +385,7 @@ export const useRoomService = defineService(() => {
 
   return {
     active: readonly(active),
-    roomId: readonly(roomSubjectRef),
+    roomSubject: readonly(roomSubjectRef),
     joinRoom: executor.wrap(joinRoom),
     leaveRoom: executor.wrap(leaveRoom),
     room,

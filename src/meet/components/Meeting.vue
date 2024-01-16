@@ -166,9 +166,9 @@ onMounted(() => enable())
 useTrackPublisher(room, videoTrack, 'video')
 useTrackPublisher(room, audioTrack, 'audio')
 
-function leave () {
-  leaveRoom()
+async function leave () {
   disable()
+  await leaveRoom()
   emit('leave')
 }
 

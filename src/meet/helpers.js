@@ -65,7 +65,7 @@ export const useMediaDeviceService = defineService(() => {
    * Main logic for requesting devices
    */
   watchEffect(async () => {
-    if (!(enabled.value && unref(enabled))) return
+    if (!unref(enabled)) return
 
     const requestVideo = videoEnabled.value && (!videoDeviceId.value || videoDeviceId.value !== actualVideoDeviceId.value)
     const requestAudio = audioEnabled.value && (!audioDeviceId.value || audioDeviceId.value !== actualAudioDeviceId.value)
@@ -146,6 +146,11 @@ export const useMediaDeviceService = defineService(() => {
       actualAudioDeviceId.value = deviceId
       audioTrack.value = track
       audioMediaStream.value = mediaStream
+    }
+
+    // An extra check at the end incase we disabled it whilst waiting for the devices...
+    if (!unref(enabled)) {
+      reset()
     }
   })
 
@@ -376,11 +381,13 @@ export const useRoomService = defineService(() => {
     roomSubjectRef.value = null
   }
 
+  const executor = createSerialAsyncExecutor()
+
   return {
     active: readonly(active),
     roomId: readonly(roomSubjectRef),
-    joinRoom,
-    leaveRoom,
+    joinRoom: executor.wrap(joinRoom),
+    leaveRoom: executor.wrap(leaveRoom),
     room,
     participants,
   }
@@ -481,5 +488,52 @@ export function useAudioMediaStreamVolume (audioMediaStream) {
   return {
     audioVolume,
     audioIsSilent,
+  }
+}
+
+/**
+ * Use to execute make async functions execute in series
+ *
+ * You can wrap unrelated functions, such that when they execute, only
+ * one executes at a time.
+ */
+function createSerialAsyncExecutor () {
+  let promise
+
+  /**
+   * Pass in the unwrapped function, get back a wrapped function!
+   *
+   * The returned function will work exactly as the original one would have
+   * It preserves "this", arguments, and return value
+   *
+   * It will just wait politely until a previous execution is complete.
+   *
+   * Errors should be unaffected, although haven't actually tried this out...
+   */
+  function wrap (fn) {
+    return async function () {
+      if (promise) {
+        try {
+          // wait for any previous execution to finish
+          await promise
+        }
+        catch {
+          // ignore, not for us...
+        }
+      }
+      try {
+        // run our function :)
+        promise = fn.apply(this, arguments)
+        return await promise
+      }
+      finally {
+        // tidy up...
+        promise = null
+      }
+    }
+  }
+
+  return {
+    wrap,
   }
 }

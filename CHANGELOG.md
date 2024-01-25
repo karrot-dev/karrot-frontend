@@ -19,9 +19,11 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
-## [13.0.0]
+## [Unreleased]
+
+## [13.0.0] - 2024-01-25
 ### Added
-- Video calls (behind "meet" group feature flag) @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2699 https://github.com/karrot-dev/karrot-backend/pull/1283 https://github.com/karrot-dev/karrot-backend/pull/1284
+- Video calls @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2699 https://github.com/karrot-dev/karrot-backend/pull/1283 https://github.com/karrot-dev/karrot-backend/pull/1284
 - Custom place statuses @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2688
 - Export/import group migration commands @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1281 https://github.com/karrot-dev/karrot-backend/pull/1287
 - Public activity series @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2701
@@ -35,9 +37,9 @@ Please document your changes in this format:
 - Allow to leave in-progress activities @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2698
 - Fix activity history when joining after start time @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1280
 
-## [12.1.0]
+## [12.1.0] - 2023-11-22
 ### Added
--  Allow to record no shows when giving feedback @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2680 https://github.com/karrot-dev/karrot-backend/pull/1272
+- Allow to record no shows when giving feedback @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2680 https://github.com/karrot-dev/karrot-backend/pull/1272
 
 ### Changed
 - Switch from FCM to WebPush @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2679 https://github.com/karrot-dev/karrot-backend/pull/1271
@@ -944,7 +946,9 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2663]: https://github.com/karrot-dev/karrot-frontend/issues/2663
 [#2677]: https://github.com/karrot-dev/karrot-frontend/issues/2677
 
-[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v12.0.1...HEAD
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v13.0.0...HEAD
+[13.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v12.1.0...v13.0.0
+[12.1.0]: https://github.com/karrot-dev/karrot-frontend/compare/v12.0.1...v12.1.0
 [12.0.1]: https://github.com/karrot-dev/karrot-frontend/compare/v12.0.0...v12.0.1
 [12.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v11.0.1...v12.0.0
 [11.0.1]: https://github.com/karrot-dev/karrot-frontend/compare/v11.0.0...v11.0.1

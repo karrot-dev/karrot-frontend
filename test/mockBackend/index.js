@@ -8,6 +8,7 @@ import { createMockAgreementsBackend, generateAgreement } from '>/mockBackend/ag
 import { createMockCommunityBackend } from '>/mockBackend/community'
 import { createMockFeedbackBackend, generateFeedback } from '>/mockBackend/feedback'
 import { createMockHistoryBackend } from '>/mockBackend/history'
+import { createMockMeetBackend } from '>/mockBackend/meet'
 import { createMockPlaceStatusesBackend, generatePlaceStatus } from '>/mockBackend/placeStatuses'
 
 import { createMockActivitySeriesBackend, generateActivitySeries } from './activitySeries'
@@ -121,6 +122,7 @@ export function setupMockBackend () {
   createMockNotificationsBackend()
   createMockMessagesBackend()
   createMockAgreementsBackend()
+  createMockMeetBackend()
 
   get('/api/bootstrap/', () => [200, {}], { requireAuth: false })
 

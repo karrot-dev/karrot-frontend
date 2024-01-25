@@ -426,6 +426,7 @@ import { dayOptions } from '@/base/i18n'
 import { useUserService } from '@/users/services'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
+import { objectDiff } from '@/utils/utils'
 
 import ConfirmUserChangesDialog from '@/activities/components/ConfirmUserChangesDialog.vue'
 import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit.vue'
@@ -640,8 +641,22 @@ export default {
             else {
               this.save()
             }
+
+            // we saved the image, so we rely on the bannerImageUrls now
+            // TODO: this causes a flickr as we don't wait for the save event to finish
+            // TODO: rewrite ActivityEdit (+ series) to use composition API + mutation then we can await save...
+            delete this.edit.bannerImage
           })
       }
+    },
+    // Overrides mixin method
+    getPatchData () {
+      const diff = objectDiff(this.value, this.edit)
+      // Have to explicitly set this...
+      if (this.edit.bannerImage === null) {
+        diff.bannerImage = null
+      }
+      return diff
     },
     destroy () {
       Dialog.create({

@@ -19,6 +19,22 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
+## [13.0.0]
+### Added
+- Video calls (behind "meet" group feature flag) @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2699 https://github.com/karrot-dev/karrot-backend/pull/1283 https://github.com/karrot-dev/karrot-backend/pull/1284
+- Custom place statuses @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2688
+- Export/import group migration commands @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1281 https://github.com/karrot-dev/karrot-backend/pull/1287
+- Public activity series @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2701
+
+### Changed
+- Switch to ruff linter/formatter @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1282
+
+### Fixed
+- Recurrence rule examples and links @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2698
+- Don't jump to 1900 @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2698
+- Allow to leave in-progress activities @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2698
+- Fix activity history when joining after start time @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1280
+
 ## [12.1.0]
 ### Added
 -  Allow to record no shows when giving feedback @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2680 https://github.com/karrot-dev/karrot-backend/pull/1272

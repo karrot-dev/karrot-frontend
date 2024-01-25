@@ -395,6 +395,7 @@ export default {
     const { roleOptions } = useActivityHelpers()
     const { getActivityTypeById } = useActivityTypeService()
     const { getIconProps } = useActivityTypeHelpers()
+
     return {
       roleOptions,
       getActivityTypeById,
@@ -528,21 +529,25 @@ export default {
             users,
           },
         })
-          .onOk(async ({ updatedMessage }) => {
+          .onOk(({ updatedMessage }) => {
             if (updatedMessage) {
-              await this.save({ updatedMessage })
+              this.save({ updatedMessage })
             }
             else {
-              await this.save()
+              this.save()
             }
+
             // reset
             // remove any undefined props, otherwise our "is changed" logic will include them
-            // (edit.bannerImage can be set to undefined when it is not present on the original value)
             for (const key of Object.keys(this.edit)) {
               if (this.edit[key] === undefined) {
                 delete this.edit[key]
               }
             }
+            // we saved the image, so we rely on the bannerImageUrls now
+            // TODO: this causes a flickr as we don't wait for the save event to finish
+            // TODO: rewrite ActivityEdit (+ series) to use composition API + mutation then we can await save...
+            delete this.edit.bannerImage
           })
       }
     },

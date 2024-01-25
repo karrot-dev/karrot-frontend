@@ -207,7 +207,7 @@ const activityType = computed(() => publicActivity.value?.activityType)
 const place = computed(() => publicActivity.value?.place)
 const group = computed(() => place.value?.group)
 
-const bannerImageURL = computed(() => publicActivity.value?.bannerImageUrls?.fullSize)
+const bannerImageURL = computed(() => publicActivity.value?.bannerImageUrls?.fullSize ?? publicActivity.value?.seriesBannerImageUrls?.fullSize)
 const groupImageURL = computed(() => group.value?.photoUrls?.[200])
 
 const icsUrl = computed(() => {

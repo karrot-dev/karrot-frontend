@@ -290,6 +290,49 @@
         @maybe-save="maybeSave"
       />
 
+      <QField
+        borderless
+        hide-bottom-space
+      >
+        <QToggle
+          v-model="edit.isPublic"
+          :label="$t('CREATEACTIVITY.MAKE_IT_PUBLIC')"
+        />
+      </QField>
+
+      <QField
+        v-if="edit.isPublic"
+        borderless
+        stack-label
+        bottom-slots
+        :label="$t('CREATEACTIVITY.BANNER_IMAGE')"
+      >
+        <template #hint>
+          <i18n-t
+            scope="global"
+            keypath="CREATEACTIVITY.BANNER_IMAGE_TIP"
+          >
+            <template #website>
+              <a
+                rel="noopener nofollow noreferrer"
+                class="fas-after fa-after-external-link"
+                target="_blank"
+                href="https://www.pexels.com/search/banner/?orientation=landscape"
+              >pexels.com</a>
+            </template>
+          </i18n-t>
+        </template>
+        <ChooseImage
+          v-model="edit.bannerImage"
+          :image-url="value.bannerImageUrls?.fullSize"
+          :aspect-ratio="26/9"
+          width="100%"
+          :title="$t('CREATEACTIVITY.BANNER_IMAGE')"
+          :dialog-title="$t('CREATEACTIVITY.SELECT_BANNER_IMAGE')"
+          class="q-mt-sm"
+        />
+      </QField>
+
       <div
         v-if="hasNonFieldError"
         class="text-negative"
@@ -383,15 +426,18 @@ import { dayOptions } from '@/base/i18n'
 import { useUserService } from '@/users/services'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
+import { objectDiff } from '@/utils/utils'
 
 import ConfirmUserChangesDialog from '@/activities/components/ConfirmUserChangesDialog.vue'
 import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit.vue'
+import ChooseImage from '@/utils/components/ChooseImage.vue'
 import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
 const ActivityItem = defineAsyncComponent(() => import('@/activities/components/ActivityItem.vue'))
 
 export default {
   components: {
+    ChooseImage,
     ActivityItem,
     QTime,
     QField,
@@ -595,8 +641,22 @@ export default {
             else {
               this.save()
             }
+
+            // we saved the image, so we rely on the bannerImageUrls now
+            // TODO: this causes a flickr as we don't wait for the save event to finish
+            // TODO: rewrite ActivityEdit (+ series) to use composition API + mutation then we can await save...
+            delete this.edit.bannerImage
           })
       }
+    },
+    // Overrides mixin method
+    getPatchData () {
+      const diff = objectDiff(this.value, this.edit)
+      // Have to explicitly set this...
+      if (this.edit.bannerImage === null) {
+        diff.bannerImage = null
+      }
+      return diff
     },
     destroy () {
       Dialog.create({

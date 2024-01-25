@@ -335,7 +335,6 @@ import { defineAsyncComponent } from 'vue'
 
 import activityAPI from '@/activities/api/activities'
 import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
-import { useSaveActivityMutation } from '@/activities/mutations'
 import { useActivityTypeService } from '@/activities/services'
 import { defaultDuration } from '@/activities/settings'
 import { formatSeconds } from '@/activities/utils'

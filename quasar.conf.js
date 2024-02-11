@@ -44,7 +44,6 @@ module.exports = configure(function (ctx) {
       'icons',
       'detectMobileKeyboard',
       'performance',
-      'directives',
     ],
     css: [
       'app.sass',

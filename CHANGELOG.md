@@ -19,6 +19,8 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
+## [Unreleased]
+
 ## [13.0.1] - 2024-02-11
 ### Fixed
 - removed ragged edges effect due to reported performance regression @nicksellen
@@ -948,7 +950,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2663]: https://github.com/karrot-dev/karrot-frontend/issues/2663
 [#2677]: https://github.com/karrot-dev/karrot-frontend/issues/2677
 
-[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v13.0.0...HEAD
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v13.0.1...HEAD
+[13.0.1]: https://github.com/karrot-dev/karrot-frontend/compare/v13.0.0...v13.0.1
 [13.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v12.1.0...v13.0.0
 [12.1.0]: https://github.com/karrot-dev/karrot-frontend/compare/v12.0.1...v12.1.0
 [12.0.1]: https://github.com/karrot-dev/karrot-frontend/compare/v12.0.0...v12.0.1

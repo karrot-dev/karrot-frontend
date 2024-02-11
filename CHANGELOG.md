@@ -19,7 +19,9 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
-## [Unreleased]
+## [13.0.1] - 2024-02-11
+### Fixed
+- removed ragged edges effect due to reported performance regression @nicksellen
 
 ## [13.0.0] - 2024-01-25
 ### Added

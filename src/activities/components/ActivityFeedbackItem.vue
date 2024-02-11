@@ -32,7 +32,6 @@
     </QCardSection>
     <QCardSection
       v-if="activityType"
-      v-ragged-edges
       :style="{ background: `linear-gradient(170deg, ${lighten(activityType.colour, 75)}, ${lighten(activityType.colour, 85)})` }"
     >
       <div class="row no-wrap">

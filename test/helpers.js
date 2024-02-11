@@ -97,7 +97,6 @@ export async function withDefaults (options = {}) {
     },
     directives: {
       measure: {},
-      'ragged-edges': {},
     },
     mocks: {
       $icon: () => '',

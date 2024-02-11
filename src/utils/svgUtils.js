@@ -199,19 +199,3 @@ function getRootDefs () {
 export function addDefinition (definition) {
   getRootDefs().appendChild(definition)
 }
-
-function randomInt (min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
-
-export const raggedEdgeVariations = 5
-
-function getRaggedEdgesClassName () {
-  return `ragged-edges-${randomInt(1, raggedEdgeVariations)}`
-}
-
-export const raggedEdgesDirective = {
-  mounted (el) {
-    el.classList.add(getRaggedEdgesClassName())
-  },
-}

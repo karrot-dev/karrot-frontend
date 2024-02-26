@@ -80,7 +80,6 @@
 </template>
 <script setup>
 import { generateKeyBetween } from 'fractional-indexing'
-import { sortBy } from 'lodash'
 import { QBadge, QBtn, QIcon, QTable, QTd, QToggle } from 'quasar'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -106,8 +105,20 @@ const groupId = useCurrentGroupId()
 const allPlaceStatuses = usePlaceStatuses(groupId)
 
 const placeStatuses = computed(() => {
-  return sortBy(allPlaceStatuses.value.filter(placeStatus => showArchived.value || !placeStatus.isArchived), ['order', 'id'])
+  return allPlaceStatuses.value
+    .filter(placeStatus => showArchived.value || !placeStatus.isArchived)
+    .sort(sortByOrderThenId)
 })
+
+function sortByOrderThenId (a, b) {
+  if (a.order > b.order) {
+    return 1
+  }
+  else if (a.order < b.order) {
+    return -1
+  }
+  return b.id - a.id
+}
 
 const { tableRef, handleColumn } = useSortableTable({
   rows: placeStatuses,

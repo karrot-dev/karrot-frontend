@@ -1,7 +1,10 @@
 <template>
+  <MiniParticipant v-if="mini" />
   <QDialog
     maximized
+    style="z-index: 10000"
     persistent
+    :class="mini ? 'hidden' : ''"
     :model-value="true"
     @hide.stop.prevent="leave()"
   >
@@ -11,6 +14,13 @@
         class="absolute-full text-white z-top flex flex-center"
       >
         <KSpinner />
+      </div>
+
+      <div
+        v-if="screenshareParticipant"
+        class="absolute-full z-top bg-red"
+      >
+        <ScreenShare :participant="screenshareParticipant" />
       </div>
       <QCardSection
         class="full-height overflow-hidden participants-section"
@@ -40,6 +50,7 @@
     </QCard>
   </QDialog>
   <QDialog
+    style="z-index: 20000"
     :model-value="true"
     seamless
     position="bottom"
@@ -60,38 +71,33 @@
         ref="toolbar"
         class="row items-center no-wrap justify-between"
       >
-        <template v-if="true">
-          <QBtn
-            :icon="videoEnabled ? 'videocam' : 'videocam_off'"
-            round
-            :color="videoEnabled ? 'green' : 'white'"
-            :text-color="videoEnabled ? 'white' : 'grey'"
-            @click="videoEnabled = !videoEnabled"
-          />
-          <QBtn
-            :icon="audioEnabled ? 'fas fa-microphone' : 'fas fa-microphone-slash'"
-            round
-            :color="audioEnabled ? 'green' : 'white'"
-            :text-color="audioEnabled ? 'white' : 'grey'"
-            @click="audioEnabled = !audioEnabled"
-          />
-        </template>
-        <template v-else>
-          <QToggle
-            v-model="videoEnabled"
-            icon="videocam"
-            size="lg"
-          />
-          <QToggle
-            v-model="audioEnabled"
-            icon="fas fa-microphone"
-            size="lg"
-          />
-        </template>
+        <QBtn
+          :icon="videoEnabled ? 'videocam' : 'videocam_off'"
+          round
+          :color="videoEnabled ? 'green' : 'white'"
+          :text-color="videoEnabled ? 'white' : 'grey'"
+          @click="videoEnabled = !videoEnabled"
+        />
+        <QBtn
+          :icon="audioEnabled ? 'fas fa-microphone' : 'fas fa-microphone-slash'"
+          round
+          :color="audioEnabled ? 'green' : 'white'"
+          :text-color="audioEnabled ? 'white' : 'grey'"
+          @click="audioEnabled = !audioEnabled"
+        />
+        <QBtn
+          size="md"
+          round
+          icon="screen_share"
+          :color="screenshare ? 'green' : 'white'"
+          :text-color="screenshare ? 'white' : 'grey'"
+          @click="screenshare = !screenshare"
+        />
         <QBtn
           flat
           size="md"
           icon="fas fa-cog"
+          round
           color="primary"
           :disable="!optionsEnabled"
           @click="showOptions = !showOptions"
@@ -118,19 +124,30 @@
             />
           </QMenu>
         </QBtn>
+        <QBtn
+          no-caps
+          dense
+          :icon="mini ? 'fas fa-expand-alt' : 'fas fa-compress-alt'"
+          text-color="grey"
+          unelevated
+          size="sm"
+          @click="mini = !mini"
+        />
       </QCardSection>
     </QCard>
   </QDialog>
 </template>
 
 <script setup>
-import { QBtn, QDialog, QCard, QCardSection, QSeparator, QToggle, QMenu } from 'quasar'
-import { computed, onMounted, ref } from 'vue'
+import { QBtn, QDialog, QCard, QCardSection, QSeparator, QMenu } from 'quasar'
+import { computed, onMounted, ref, watch } from 'vue'
 
 import { useMediaDeviceService, useRoomService, useTrackPublisher } from '@/meet/helpers'
 
 import AudioDeviceSelect from '@/meet/components/AudioDeviceSelect.vue'
+import MiniParticipant from '@/meet/components/MiniParticipant.vue'
 import Participant from '@/meet/components/Participant.vue'
+import ScreenShare from '@/meet/components/ScreenShare.vue'
 import VideoDeviceSelect from '@/meet/components/VideoDeviceSelect.vue'
 import KSpinner from '@/utils/components/KSpinner.vue'
 
@@ -141,6 +158,9 @@ const toolbarHeight = computed(() => toolbar.value?.$el?.offsetHeight ?? 0)
 
 const showOptions = ref(false)
 const optionsEnabled = computed(() => (videoEnabled.value && videoDevices.value?.length > 0) || (audioEnabled.value && audioDevices.value?.length > 0))
+
+const mini = ref(true)
+const screenshare = ref(false)
 
 const {
   enable,
@@ -159,7 +179,20 @@ const emit = defineEmits([
 
 const { leaveRoom, room, participants } = useRoomService()
 
+watch(screenshare, enabled => {
+  room.value.localParticipant.setScreenShareEnabled(enabled)
+})
+
 const oneParticipant = computed(() => participants.value?.length === 1)
+
+const screenshareParticipant = computed(() => participants.value.find(participant => participant.screenShareVideoMediaStreamTrack))
+
+watch(screenshareParticipant, value => {
+  if (value) {
+    // Auto-switch them into full view if we have a screensharer
+    mini.value = false
+  }
+})
 
 onMounted(() => enable())
 

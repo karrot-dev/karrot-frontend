@@ -1,0 +1,116 @@
+map $http_upgrade $connection_upgrade {
+    default upgrade;
+    '' close;
+}
+
+client_max_body_size ${FILE_UPLOAD_MAX_SIZE};
+
+server {
+
+    listen 80;
+    listen [::]:80;
+
+    root /usr/share/nginx/html;
+
+    location /assets {
+      expires max;
+    }
+
+    location /css {
+      expires max;
+    }
+
+    location /js {
+      expires max;
+    }
+
+    location /img {
+      expires max;
+    }
+
+    location /fonts {
+      expires max;
+    }
+
+    location / {
+
+        try_files $uri /index.html;
+
+        # security related headers
+        add_header Strict-Transport-Security "max-age=63072000; includeSubdomains; preload";
+        add_header X-Content-Type-Options nosniff;
+
+        # kill cache
+        add_header Last-Modified $date_gmt;
+        add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
+
+        add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-eval'; connect-src 'self' https://nominatim.openstreetmap.org https://sentry.io https://*.ingest.sentry.io ${CSP_CONNECT_SRC} blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' https: data: blob:;";
+
+        if_modified_since off;
+        expires off;
+        etag off;
+    }
+
+    # Special permissive policy for this page
+    #location /bundlesize.html {
+        #include /etc/nginx/snippets/{{ site }}/headers;
+        #{% if csp_config is defined %}
+        #add_header {{ csp_header }} "default-src 'self' 'unsafe-inline' data:;";
+        #{% endif %}
+    #}
+
+    location ~ ^\/(api(\-auth)?|docs|silk|static)\/ {
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+
+        resolver 127.0.0.11 valid=3s;
+        set $backend ${BACKEND};
+        proxy_pass http://$backend$request_uri;
+
+        proxy_redirect off;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+        proxy_set_header Sec-WebSocket-Extensions $http_sec_websocket_extensions;
+        proxy_set_header Sec-WebSocket-Key $http_sec_websocket_key;
+        proxy_set_header Sec-WebSocket-Protocol $http_sec_websocket_protocol;
+        proxy_set_header Sec-WebSocket-Version $http_sec_websocket_version;
+    }
+
+    location /media/ {
+        alias ${FILE_UPLOAD_DIR};
+        expires max;
+    }
+
+    # never serve up the tmp content
+    location /media/tmp/ {
+        deny all;
+        return 404;
+    }
+
+    # these are served via django
+    location ~ /media/conversation_message_attachment_(files|previews|thumbnails)/ {
+        deny all;
+        return 404;
+    }
+
+    # support for X-Accel-Redirect
+    location /uploads/ {
+        internal;
+        alias ${FILE_UPLOAD_DIR};
+	      etag on;
+    }
+
+    location /community_proxy/ {
+        proxy_pass https://community.karrot.world/;
+    }
+
+    error_page 503 @maintenance;
+
+    location @maintenance {
+      try_files /maintenance.html =503;
+    }
+
+}

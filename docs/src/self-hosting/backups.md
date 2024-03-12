@@ -41,7 +41,7 @@ Make sure to select the region you want, e.g. "EU Central"
 
 Then create a bucket to store the backups. You don't need to use the encryption or versioning as the backup will be encrypted and versioned by restic already.
 
-Create an application key that has "Read and Write" access to the bucket. Probably select the "Allow List All Bucket Names" option (not sure though).
+Create an application key that has "Read and Write" access to the bucket. You don't need to select the "Allow List All Bucket Names" option.
 
 You'll need to use two of the key values for the next step:
 
@@ -70,9 +70,11 @@ https://<endpoint>/<bucket-name>
 
 e.g. `https://s3.eu-central-003.backblazeb2.com/example-bucket-name`
 
+
 Then use this to configure the restic repo + include the S3 compose file:
 
 ```bash
+# Note the s3: prefix below! This is important
 RESTIC_REPOSITORY=s3:https://s3.eu-central-003.backblazeb2.com/example-bucket-name
 
 SECRET_AWS_SECRET_ACCESS_KEY_VERSION=v1

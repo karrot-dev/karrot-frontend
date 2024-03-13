@@ -14,22 +14,60 @@
         dense
       >
         <template #option="{ index, opt, itemProps }">
+          <template v-if="opt.value === '$manage'">
+            <QSeparator />
+            <QItem
+              :key="index"
+              clickable
+              :to="{ name: 'groupEditActivityTypes' }"
+            >
+              <QItemSection side>
+                <QIcon
+                  name="fa fa-cog"
+                  color="gray"
+                  size="1.1em"
+                />
+              </QItemSection>
+              <QItemSection>
+                <QItemLabel class="text-italic">
+                  {{ $t('LABELS.MANAGE_TYPES') }}
+                </QItemLabel>
+              </QItemSection>
+            </QItem>
+          </template>
           <QItem
+            v-else
             :key="index"
             v-bind="itemProps"
           >
-            <QItemSection avatar>
+            <QItemSection side>
               <QIcon
                 v-if="opt.activityType"
                 v-bind="getIconProps(opt.activityType)"
+                size="1.1em"
+              />
+              <QIcon
+                v-else
+                color="transparent"
+                size="1.1em"
               />
             </QItemSection>
             <QItemSection>
               <QItemLabel>
                 {{ opt.label }}
               </QItemLabel>
+              <QItemLabel
+                v-if="opt.caption"
+                caption
+                class="ellipsis"
+                style="max-width: 200px;"
+                :title="opt.caption"
+              >
+                {{ opt.caption }}
+              </QItemLabel>
             </QItemSection>
           </QItem>
+          <QSeparator v-if="!opt.value" />
         </template>
       </QSelect>
       <QSelect
@@ -56,17 +94,38 @@
         @filter="filterPlaceOptions"
       >
         <template #option="{ index, itemProps, opt }">
+          <QSeparator v-if="opt.value === '$seperator'" />
           <QItem
+            v-else
             :key="index"
             dense
             v-bind="itemProps"
           >
+            <QItemSection side>
+              <PlaceIcon
+                v-if="opt.place"
+                :place="opt.place"
+                size="1.1em"
+              />
+              <QIcon
+                v-else-if="opt.value === 'subscribed'"
+                name="fas fa-fw fa-star"
+                color="green"
+                size="1.1em"
+              />
+              <QIcon
+                v-else
+                size="1.1em"
+              />
+            </QItemSection>
             <QItemSection>
               <QItemLabel>{{ opt.label }}</QItemLabel>
             </QItemSection>
-            <QItemSection side>
+            <QItemSection
+              v-if="opt.place?.isSubscribed"
+              side
+            >
               <QIcon
-                v-if="opt.place?.isSubscribed || opt.value === 'subscribed'"
                 name="fas fa-fw fa-star"
                 color="green"
                 size="1.1em"
@@ -151,14 +210,14 @@ import {
   QInfiniteScroll,
   QSelect,
   QBanner,
-  QSpace,
+  QSpace, QSeparator,
 } from 'quasar'
 import { computed } from 'vue'
 
 import { useActivityHelpers, useActivityTypeHelpers } from '@/activities/helpers'
 import { useActivityListQuery } from '@/activities/queries'
 import { useActivityTypeService } from '@/activities/services'
-import { useCurrentGroupService } from '@/group/services'
+import { useCurrentGroupId, useIsEditor } from '@/group/helpers'
 import { usePlaceService } from '@/places/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
@@ -167,12 +226,15 @@ import ActivityCreateButton from '@/activities/components/ActivityCreateButton.v
 import ActivityList from '@/activities/components/ActivityList.vue'
 import ICSBtn from '@/activities/components/ICSBtn.vue'
 import KarrotSlot from '@/base/components/KarrotSlot.vue'
+import PlaceIcon from '@/places/components/PlaceIcon.vue'
 import KNotice from '@/utils/components/KNotice.vue'
 import KSpinner from '@/utils/components/KSpinner.vue'
 
 export default {
   components: {
     KarrotSlot,
+    PlaceIcon,
+    QSeparator,
     QBtn,
     ICSBtn,
     QIcon,
@@ -189,10 +251,8 @@ export default {
     ActivityCreateButton,
   },
   setup () {
-    const {
-      groupId,
-      isEditor,
-    } = useCurrentGroupService()
+    const groupId = useCurrentGroupId()
+    const isEditor = useIsEditor()
     const { getActivityTypesByGroup } = useActivityTypeService()
     const { getPlacesByGroup } = usePlaceService()
     const { getIsStartedOrUpcoming } = useActivityHelpers()
@@ -241,7 +301,7 @@ export default {
       // as these come from URL query they are strings otherwise
       activityTypeId: toInt(type),
       placeId: toInt(placeIdFilter),
-      placeStatus: 'active',
+      placeArchived: false,
       places: placesFilter,
       // so we can use cached query results for a while, otherwise it'll always be a fresh query
       dateMin: newDateRoundedTo5Minutes(),
@@ -265,8 +325,8 @@ export default {
     // TODO: allow filtering for activities where the type is archived?
     // before we would include archived activity types if we had some activities for that type
     // maybe we can just have an option somewhere to include archived types?
-    const activityTypes = computed(() => getActivityTypesByGroup(groupId, { status: 'active' }))
-    const places = computed(() => getPlacesByGroup(groupId, { status: 'active' }).sort(sortByFavouritesThenName))
+    const activityTypes = computed(() => getActivityTypesByGroup(groupId).filter(activityType => !activityType.isArchived))
+    const places = computed(() => getPlacesByGroup(groupId).filter(place => !place.isArchived).sort(sortByFavouritesThenName))
 
     return {
       isEditor,
@@ -332,12 +392,16 @@ export default {
         ...this.activityTypes.map(activityType => {
           return {
             label: this.getTranslatedName(activityType),
+            caption: activityType.description,
             // convert to a String as it's also reflected in URL query which is always string
             value: String(activityType.id),
             activityType,
           }
         }),
-      ]
+        this.isEditor && {
+          value: '$manage',
+        },
+      ].filter(Boolean)
     },
     placeOptions () {
       return [
@@ -350,6 +414,9 @@ export default {
           label: this.$t('ACTIVITYLIST.FILTER.ALL_FAVOURITE_PLACES'),
           value: 'subscribed',
         },
+        {
+          value: '$seperator',
+        },
         ...this.places.map(place => {
           return {
             label: place.name,
@@ -359,7 +426,7 @@ export default {
         }),
       ].filter(option => {
         if (!option) return false
-        return !this.placeOptionsFilter || option.label.toLowerCase().includes(this.placeOptionsFilter)
+        return !this.placeOptionsFilter || option.label?.toLowerCase().includes(this.placeOptionsFilter)
       })
     },
   },

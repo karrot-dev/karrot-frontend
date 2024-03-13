@@ -164,7 +164,7 @@ const {
 } = usePlaceTypeService()
 
 const placeOptions = computed(() => places.value
-  .filter(place => place.status === 'active')
+  .filter(place => !place.isArchived)
   .map(({ name, id, placeType }) => ({ label: name, value: id, icon: getPlaceTypeById(placeType).icon })))
 
 const placeFilter = ref('')
@@ -206,7 +206,7 @@ const {
   getActivityTypesByGroup,
 } = useActivityTypeService()
 
-const activityTypes = computed(() => getActivityTypesByGroup(groupId, { status: 'active' }))
+const activityTypes = computed(() => getActivityTypesByGroup(groupId, { isArchived: false }))
 
 watch(placeId, id => {
   // replace object to trigger 'value' watcher in editMixin

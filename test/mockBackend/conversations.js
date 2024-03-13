@@ -1,4 +1,5 @@
 import { ctx } from '>/mockBackend/index'
+import { toAPIResponse } from '>/mockBackend/utils'
 
 let nextId = 1
 export function generateConversation (params = {}) {
@@ -16,13 +17,13 @@ export function generateConversation (params = {}) {
   }
 }
 
-export function toResponse (conversation) {
+export function toConversationResponse (conversation) {
   const { participants } = conversation
-  return {
+  return toAPIResponse({
     ...conversation,
     ...participants[ctx.authUser.id],
     participants: Object.keys(participants).map(key => parseInt(key)),
-  }
+  })
 }
 
 export function addUserToConversation (user, conversation) {

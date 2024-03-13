@@ -3,7 +3,7 @@ import addDays from 'date-fns/addDays'
 import subDays from 'date-fns/subDays'
 import { sum, uniq } from 'lodash'
 
-import { toResponse as toConversationResponse } from '>/mockBackend/conversations'
+import { toConversationResponse } from '>/mockBackend/conversations'
 import { cursorPaginated, get, getById, post } from '>/mockBackend/mockAxios'
 import { realSample } from '>/mockBackend/utils'
 

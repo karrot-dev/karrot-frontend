@@ -339,7 +339,7 @@ export default {
       getIconProps,
     } = useActivityTypeHelpers()
 
-    const activityTypes = computed(() => getActivityTypesByGroup(groupId, { status: 'active' }))
+    const activityTypes = computed(() => getActivityTypesByGroup(groupId).filter(activityType => !activityType.isArchived))
 
     // Activities
 

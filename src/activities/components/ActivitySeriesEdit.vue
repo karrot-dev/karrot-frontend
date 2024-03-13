@@ -217,44 +217,58 @@
         autogrow
         outlined
         :input-style="{ overflow: 'hidden' }"
+        class="q-pb-xl"
+        clearable
         @keyup.ctrl.enter="maybeSave"
       >
         <template #before>
           <QIcon name="code" />
         </template>
         <template #hint>
-          <i18n-t
-            scope="global"
-            keypath="CREATEACTIVITY.RRULE_HELPER"
-          >
-            <template #ruleHelper>
-              <a
-                v-t="'CREATEACTIVITY.RRULE_HELPER_URL'"
-                href="https://www.kanzaki.com/docs/ical/rrule.html"
-                target="_blank"
-                rel="noopener nofollow noreferrer"
-                style="text-decoration: underline"
-              />
-            </template>
-            <template #ruleExample>
-              <a
-                v-t="'CREATEACTIVITY.RRULE_EXAMPLE'"
-                href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1"
-                target="_blank"
-                rel="noopener nofollow noreferrer"
-                style="text-decoration: underline"
-              />
-            </template>
-            <template #ruleExample2>
-              <a
-                v-t="'CREATEACTIVITY.RRULE_EXAMPLE2'"
-                href="https://jakubroztocil.github.io/rrule/#/rfc/FREQ=WEEKLY;INTERVAL=2;BYDAY=MO"
-                target="_blank"
-                rel="noopener nofollow noreferrer"
-                style="text-decoration: underline"
-              />
-            </template>
-          </i18n-t>
+          <div style="line-height: 220%; margin-top: -5px;">
+            <i18n-t
+              scope="global"
+              keypath="CREATEACTIVITY.RRULE_HELPER"
+            >
+              <template #ruleHelper>
+                <a
+                  v-t="'CREATEACTIVITY.RRULE_HELPER_URL'"
+                  href="https://icalendar.org/rrule-tool.html"
+                  target="_blank"
+                  rel="noopener nofollow noreferrer"
+                  style="text-decoration: underline"
+                  @click.stop
+                />&nbsp;
+                <QIcon
+                  name="fas fa-external-link-alt"
+                  class="q-mr-xs"
+                />
+              </template>
+              <template #ruleExample>
+                <br>
+                <QBtn
+                  :label="$t('CREATEACTIVITY.RRULE_EXAMPLE')"
+                  color="grey"
+                  size="sm"
+                  unelevated
+                  class="q-py-xs q-px-sm"
+                  no-caps
+                  @click.stop.prevent="edit.rule.custom = 'FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-1'"
+                />
+              </template>
+              <template #ruleExample2>
+                <QBtn
+                  :label="$t('CREATEACTIVITY.RRULE_EXAMPLE2')"
+                  color="grey"
+                  size="sm"
+                  unelevated
+                  class="q-py-xs q-px-sm"
+                  no-caps
+                  @click.stop.prevent="edit.rule.custom = 'FREQ=WEEKLY;INTERVAL=2;BYDAY=MO'"
+                />
+              </template>
+            </i18n-t>
+          </div>
         </template>
       </QInput>
 
@@ -275,6 +289,49 @@
         v-model="edit.participantTypes"
         @maybe-save="maybeSave"
       />
+
+      <QField
+        borderless
+        hide-bottom-space
+      >
+        <QToggle
+          v-model="edit.isPublic"
+          :label="$t('CREATEACTIVITY.MAKE_IT_PUBLIC')"
+        />
+      </QField>
+
+      <QField
+        v-if="edit.isPublic"
+        borderless
+        stack-label
+        bottom-slots
+        :label="$t('CREATEACTIVITY.BANNER_IMAGE')"
+      >
+        <template #hint>
+          <i18n-t
+            scope="global"
+            keypath="CREATEACTIVITY.BANNER_IMAGE_TIP"
+          >
+            <template #website>
+              <a
+                rel="noopener nofollow noreferrer"
+                class="fas-after fa-after-external-link"
+                target="_blank"
+                href="https://www.pexels.com/search/banner/?orientation=landscape"
+              >pexels.com</a>
+            </template>
+          </i18n-t>
+        </template>
+        <ChooseImage
+          v-model="edit.bannerImage"
+          :image-url="value.bannerImageUrls?.fullSize"
+          :aspect-ratio="26/9"
+          width="100%"
+          :title="$t('CREATEACTIVITY.BANNER_IMAGE')"
+          :dialog-title="$t('CREATEACTIVITY.SELECT_BANNER_IMAGE')"
+          class="q-mt-sm"
+        />
+      </QField>
 
       <div
         v-if="hasNonFieldError"
@@ -369,15 +426,18 @@ import { dayOptions } from '@/base/i18n'
 import { useUserService } from '@/users/services'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
+import { objectDiff } from '@/utils/utils'
 
-import ConfirmChangesDialog from '@/activities/components/ConfirmChangesDialog.vue'
+import ConfirmUserChangesDialog from '@/activities/components/ConfirmUserChangesDialog.vue'
 import ParticipantTypesEdit from '@/activities/components/ParticipantTypesEdit.vue'
+import ChooseImage from '@/utils/components/ChooseImage.vue'
 import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
 const ActivityItem = defineAsyncComponent(() => import('@/activities/components/ActivityItem.vue'))
 
 export default {
   components: {
+    ChooseImage,
     ActivityItem,
     QTime,
     QField,
@@ -569,7 +629,7 @@ export default {
         const uniqueUsers = Array.from(new Set(participants.map(participant => participant.user)))
 
         Dialog.create({
-          component: ConfirmChangesDialog,
+          component: ConfirmUserChangesDialog,
           componentProps: {
             users: uniqueUsers,
           },
@@ -581,8 +641,22 @@ export default {
             else {
               this.save()
             }
+
+            // we saved the image, so we rely on the bannerImageUrls now
+            // TODO: this causes a flickr as we don't wait for the save event to finish
+            // TODO: rewrite ActivityEdit (+ series) to use composition API + mutation then we can await save...
+            delete this.edit.bannerImage
           })
       }
+    },
+    // Overrides mixin method
+    getPatchData () {
+      const diff = objectDiff(this.value, this.edit)
+      // Have to explicitly set this...
+      if (this.edit.bannerImage === null) {
+        diff.bannerImage = null
+      }
+      return diff
     },
     destroy () {
       Dialog.create({

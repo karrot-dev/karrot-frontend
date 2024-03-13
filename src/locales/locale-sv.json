@@ -146,6 +146,9 @@
     "NOT_GIVEN_YOU": "You have not given feedback",
     "NOT_GIVEN_YET": "This participant has not given feedback yet",
     "TOGETHER_WITH": "Du gjorde det tillsammans med:",
+    "REPORT_NO_SHOW": "Someone didn't show up?",
+    "NO_SHOW": "No show",
+    "MARKED_NO_SHOW_BY": "Marked as no show by",
     "DISMISS_LABEL": "Dismiss",
     "DISMISS_TITLE": "Dismiss feedback",
     "DISMISS_MESSAGE": "Do you really want to dismiss this feedback? You won't be able to give feedback for this activity later on."
@@ -428,6 +431,7 @@
     "EDIT": "Redigera gruppen",
     "EDIT_ACTIVITY_TYPES": "Activity types",
     "EDIT_PLACE_TYPES": "Place types",
+    "EDIT_PLACE_STATUSES": "Place statuses",
     "EDIT_DETAILS": "Group details",
     "EMAIL_NOTIFICATIONS": "E-mail notifikationer",
     "HEADINGS": {
@@ -555,6 +559,8 @@
     "USER_LOST_EDITOR_ROLE": "lost editing permissions",
     "PLACE_TYPE_CREATE": "created a place type",
     "PLACE_TYPE_MODIFY": "modified a place type",
+    "PLACE_STATUS_CREATE": "created a place status",
+    "PLACE_STATUS_MODIFY": "modified a place status",
     "MEMBER_GOT_ROLE": "received role: {role}",
     "AGREEMENT_CREATE": "agreement created",
     "AGREEMENT_MODIFY": "agreement modified"
@@ -678,6 +684,17 @@
     "WITHDRAW_CONFIRMATION_HEADER": "Ta bort ansökan",
     "WITHDRAW_CONFIRMATION_TEXT": "Är du säker på att du vill ta bort din ansökan för att gå med i {groupName}?"
   },
+  "LABELS": {
+    "ADD_NEW": "Add new",
+    "ACTIVE": "Active",
+    "ARCHIVED": "Archived",
+    "DESCRIPTION": "Description",
+    "NAME": "Name",
+    "MANAGE_TYPES": "Manage types",
+    "MANAGE_STATUSES": "Manage statuses",
+    "STATUS": "Status",
+    "VISIBLE": "Visible"
+  },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Hjälp att översätta!",
     "SWITCH": "Ändra språk"
@@ -791,6 +808,12 @@
     "Restaurant": "Restaurant",
     "Market": "Market"
   },
+  "PLACE_STATUS_NAMES": {
+    "Created": "Created",
+    "Negotiating": "Negotiating",
+    "Active": "Active",
+    "Declined": "Declined"
+  },
   "PLACE_TYPE_STATUS": {
     "ACTIVE": "Active",
     "ARCHIVED": "Archived"
@@ -809,6 +832,12 @@
     "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
+  "PLACE_STATUSES": {
+    "ADD": "Add new place status",
+    "ARCHIVING": "You are archiving",
+    "UPDATE_TO": "Update places with this status to",
+    "VISIBLE_HINT": "Whether to show places with this status on the map and in the list"
+  },
   "PLACE_LIST": {
     "ONLY_FAVOURITES": "Only favourite",
     "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
@@ -817,6 +846,7 @@
     "NONE_DUE_TO_FILTER": "No places match your filters",
     "ALL_TYPES": "All types",
     "ALL_STATUSES": "All statuses",
+    "VISIBLE_STATUSES": "Visible",
     "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then click { icon } on one of them."
   },
   "PLACEWALL": {
@@ -862,7 +892,9 @@
     "FILTER_TIME_PREVIOUS_MONTHS": "Previous {count} months",
     "FILTER_TIME_FOREVER": "Forever",
     "COLUMN_PLACE": "Place",
+    "COLUMN_PLACE_TYPE": "Type",
     "COLUMN_ACTIVITY_DONE": "Done",
+    "COLUMN_ACTIVITY_NO_SHOW": "No show",
     "COLUMN_ACTIVITY_MISSED": "Missed",
     "COLUMN_ACTIVITY_LEFT": "Withdrew",
     "COLUMN_FEEDBACK": "Feedback",
@@ -876,10 +908,8 @@
   },
   "STOREDETAIL": {
     "ARCHIVED": "Denna plats har arkiverats",
-    "CHANGE_STATUS": "Du kan ändra statusen på inställningssidan.",
     "DIRECTIONS": "Visa vägbeskrivning",
     "EDIT": "Redigera platser",
-    "INACTIVE": "Denna plats samarbetar för närvarande inte.",
     "NO_DESCRIPTION": "Denna plats saknar beskrivning"
   },
   "STOREEDIT": {

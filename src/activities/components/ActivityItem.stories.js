@@ -10,7 +10,7 @@ import {
   createUser,
   loginAs,
 } from '>/mockBackend'
-import { joinActivity, toResponse } from '>/mockBackend/activities'
+import { joinActivity, toActivityResponse } from '>/mockBackend/activities'
 import { addUserToGroup } from '>/mockBackend/groups'
 
 import ActivityItem from './ActivityItem.vue'
@@ -46,7 +46,7 @@ export default {
 export const Normal = defineStory(() => {
   const { activity } = generateMockData()
   return {
-    activity: convert(toResponse(activity)),
+    activity: convert(toActivityResponse(activity)),
   }
 })
 

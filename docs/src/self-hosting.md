@@ -32,8 +32,22 @@ _Note: you might find some rough edges at this time, we are very interested to s
     - choose your server
     - choose a domain name that karrot will be deployed under: this is what we refer to as `karrot app name`
 2. `abra app config <karrot app name>` see [configuration options](#configuration-options) below
-3. `abra app deploy <karrot app name>`
-4. Wait for a few minutes while karrot initializes and then you can start creating accounts!
+3. Set all the secrets, even the ones you don't want to use:
+   - `abra app secret list <karrot app name>` for listing all secrets
+   - `abra app secret insert <karrot app name> <secret name> <version> "<secret value>"` for inserting a secret
+   - `abra app secret generate <karrot app name> <secret name> <version>` for generating a secret
+4. `abra app deploy <karrot app name>`
+5. Wait for a few minutes while karrot initializes and then you can start creating accounts!
+
+## Other useful commands
+
+### Checking the logs
+1. `abra app ls` for finding the right app
+2. `abra app logs <karrot app name>` for showing the logs
+
+You can also get the logs for just one service:
+1. `abra app ps <karrot app name>` for listing the services
+2. `abra app logs <karrot app name> <service>` for showing the logs for that service
 
 ## Configuration options
 

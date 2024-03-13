@@ -28,6 +28,7 @@ import { karrotPlugins } from '@/boot/plugins'
 import { useGroupDetailUpdater } from '@/group/queries'
 import { useGroupInfoUpdater } from '@/groupInfo/queries'
 import { useIssuesUpdater } from '@/issues/queries'
+import { useRoomListUpdater } from '@/meet/queries'
 import { useConversationUpdater, useMessageUpdater } from '@/messages/queries'
 import { useDetailService } from '@/messages/services'
 import { useNotificationsUpdater } from '@/notifications/queries'
@@ -36,6 +37,7 @@ import { usePlacesUpdater } from '@/places/queries'
 import { useStatusUpdater } from '@/status/queries'
 import { useUsersUpdater } from '@/users/queries'
 import { useClearDataOnLogout, useTitleStatus } from '@/utils/composables'
+import { showToast } from '@/utils/toasts'
 
 import LoadingProgress from '@/topbar/components/LoadingProgress.vue'
 
@@ -71,6 +73,7 @@ export default {
     useGroupDetailUpdater()
     useNotificationsUpdater()
     useIssuesUpdater()
+    useRoomListUpdater()
 
     // Utilities
     usePerformance()
@@ -82,6 +85,13 @@ export default {
     // It doesn't stop the error propagating elsewhere, it's just seeing it, so nice and neutral
     onErrorCaptured(error => {
       console.error(error)
+      showToast({
+        message: error.message,
+        config: {
+          icon: 'priority_high',
+          color: 'warning',
+        },
+      })
     })
 
     // TODO: remove at some point... just trying it out for now

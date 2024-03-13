@@ -84,6 +84,12 @@
             </QList>
           </QMenu>
         </QBtn>
+        <MeetButton
+          small
+          round
+          color="secondary"
+          :subject="`place:${place.id}`"
+        />
         <component
           :is="directionsURL ? 'a' : 'span'"
           target="_blank"
@@ -157,6 +163,7 @@ import { useUserService } from '@/users/services'
 
 import StandardMap from '@/maps/components/StandardMap.vue'
 import { placeMarker } from '@/maps/components/markers'
+import MeetButton from '@/meet/components/MeetButton.vue'
 import ProfilePicture from '@/users/components/ProfilePicture.vue'
 import KSpinner from '@/utils/components/KSpinner.vue'
 import Markdown from '@/utils/components/Markdown.vue'
@@ -165,6 +172,7 @@ import ShowMore from '@/utils/components/ShowMore.vue'
 
 export default {
   components: {
+    MeetButton,
     ShowMore,
     Markdown,
     StandardMap,

@@ -21,12 +21,12 @@ export const useCommunityFeedService = defineService(() => {
     return meta.value?.markedAt && topic.lastPostedAt > meta.value.markedAt
   }
 
-  const entries = computed(() => latestTopics.value
-    .filter(topic => !topic.pinned)
-    .map(topic => ({
-      topic,
-      isUnread: getIsUnread(topic),
-    })))
+  const entries = computed(() => {
+    if (!latestTopics.value) return []
+    return latestTopics.value
+      .filter(topic => !topic.pinned)
+      .map(topic => ({ topic, isUnread: getIsUnread(topic) }))
+  })
 
   const unreadCount = computed(() => entries.value.filter(entry => entry.isUnread).length)
   return {

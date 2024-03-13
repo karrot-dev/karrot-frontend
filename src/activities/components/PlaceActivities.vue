@@ -1,20 +1,6 @@
 <template>
   <div>
-    <KNotice v-if="isInactive">
-      <template #icon>
-        <QIcon class="far fa-handshake" />
-      </template>
-      {{ $t('STOREDETAIL.INACTIVE') }}
-      <template #desc>
-        <RouterLink
-          v-if="isEditor"
-          :to="{name: 'placeEdit', params: { placeId }}"
-        >
-          {{ $t('STOREDETAIL.CHANGE_STATUS') }}
-        </RouterLink>
-      </template>
-    </KNotice>
-    <KNotice v-else-if="hasNoActivities">
+    <KNotice v-if="hasNoActivities">
       <template #icon>
         <QIcon class="fas fa-bed" />
       </template>
@@ -81,7 +67,7 @@ export default {
     } = useActivityListQuery({
       groupId,
       placeId,
-      placeStatus: 'active',
+      placeArchived: false,
       dateMin: newDateRoundedTo5Minutes(),
     })
 
@@ -108,9 +94,6 @@ export default {
     hasNoActivities () {
       if (this.isLoading) return false
       return this.activities && this.activities.length === 0
-    },
-    isInactive () {
-      return this.place?.status !== 'active'
     },
   },
 }

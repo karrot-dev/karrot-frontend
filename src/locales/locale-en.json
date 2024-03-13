@@ -431,6 +431,7 @@
     "EDIT": "Edit group",
     "EDIT_ACTIVITY_TYPES": "Activity types",
     "EDIT_PLACE_TYPES": "Place types",
+    "EDIT_PLACE_STATUSES": "Place statuses",
     "EDIT_DETAILS": "Group details",
     "EMAIL_NOTIFICATIONS": "Email notifications",
     "HEADINGS": {
@@ -558,6 +559,8 @@
     "USER_LOST_EDITOR_ROLE": "lost editing permissions",
     "PLACE_TYPE_CREATE": "created a place type",
     "PLACE_TYPE_MODIFY": "modified a place type",
+    "PLACE_STATUS_CREATE": "created a place status",
+    "PLACE_STATUS_MODIFY": "modified a place status",
     "MEMBER_GOT_ROLE": "received role: {role}",
     "AGREEMENT_CREATE": "agreement created",
     "AGREEMENT_MODIFY": "agreement modified"
@@ -681,6 +684,17 @@
     "WITHDRAW_CONFIRMATION_HEADER": "Withdraw Application",
     "WITHDRAW_CONFIRMATION_TEXT": "Are you sure you want to withdraw your application to join {groupName}?"
   },
+  "LABELS": {
+    "ADD_NEW": "Add new",
+    "ACTIVE": "Active",
+    "ARCHIVED": "Archived",
+    "DESCRIPTION": "Description",
+    "NAME": "Name",
+    "MANAGE_TYPES": "Manage types",
+    "MANAGE_STATUSES": "Manage statuses",
+    "STATUS": "Status",
+    "VISIBLE": "Visible"
+  },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Help translating!",
     "SWITCH": "Switch language"
@@ -794,6 +808,12 @@
     "Restaurant": "Restaurant",
     "Market": "Market"
   },
+  "PLACE_STATUS_NAMES": {
+    "Created": "Created",
+    "Negotiating": "Negotiating",
+    "Active": "Active",
+    "Declined": "Declined"
+  },
   "PLACE_TYPE_STATUS": {
     "ACTIVE": "Active",
     "ARCHIVED": "Archived"
@@ -812,6 +832,12 @@
     "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
+  "PLACE_STATUSES": {
+    "ADD": "Add new place status",
+    "ARCHIVING": "You are archiving",
+    "UPDATE_TO": "Update places with this status to",
+    "VISIBLE_HINT": "Whether to show places with this status on the map and in the list"
+  },
   "PLACE_LIST": {
     "ONLY_FAVOURITES": "Only favourite",
     "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
@@ -820,6 +846,7 @@
     "NONE_DUE_TO_FILTER": "No places match your filters",
     "ALL_TYPES": "All types",
     "ALL_STATUSES": "All statuses",
+    "VISIBLE_STATUSES": "Visible",
     "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then click { icon } on one of them."
   },
   "PLACEWALL": {
@@ -881,10 +908,8 @@
   },
   "STOREDETAIL": {
     "ARCHIVED": "This place has been archived",
-    "CHANGE_STATUS": "You can change the status on the settings page.",
     "DIRECTIONS": "Show directions",
     "EDIT": "Edit place",
-    "INACTIVE": "This place is currently not cooperating.",
     "NO_DESCRIPTION": "This place does not have a description yet"
   },
   "STOREEDIT": {

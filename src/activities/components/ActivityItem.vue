@@ -283,6 +283,12 @@
           <span v-if="!$q.platform.is.mobile">{{ $t('ACTIVITYLIST.ITEM.DOWNLOAD_ICS') }}</span>
         </template>
       </QBtn>
+      <MeetButton
+        :hide-when-inactive="!isUserParticipant"
+        flat
+        dense
+        :subject="`activity:${activity.id}`"
+      />
       <QBtn
         flat
         no-caps
@@ -326,6 +332,7 @@ import { useDetailService } from '@/messages/services'
 import { usePlaceService } from '@/places/services'
 import { absoluteURL } from '@/utils/absoluteURL'
 
+import MeetButton from '@/meet/components/MeetButton.vue'
 import CustomDialog from '@/utils/components/CustomDialog.vue'
 import Markdown from '@/utils/components/Markdown.vue'
 import ShowMore from '@/utils/components/ShowMore.vue'
@@ -374,6 +381,7 @@ const {
 const {
   getIsUserParticipant,
   getHasStarted,
+  getHasFinished,
   getIsFull,
 } = useActivityHelpers()
 
@@ -383,6 +391,7 @@ const {
 } = useActivityTypeHelpers()
 
 const hasStarted = computed(() => getHasStarted(activity.value))
+const hasFinished = computed(() => getHasFinished(activity.value))
 const isUserParticipant = computed(() => getIsUserParticipant(activity.value))
 
 const place = computed(() => getPlaceById(activity.value.place))
@@ -412,7 +421,7 @@ const canJoin = computed(() => {
   return availableParticipantTypes.value.length > 0
 })
 const canLeave = computed(() => {
-  return isUserParticipant.value && !hasStarted.value
+  return isUserParticipant.value && !hasFinished.value
 })
 const participantTypes = computed(() => {
   return activity.value.participantTypes.filter(entry => !entry._removed)
@@ -435,7 +444,7 @@ const icsUrl = computed(() => {
   return absoluteURL(`/api/activities/${activity.value.id}/ics/`)
 })
 const bannerImageURL = computed(() => {
-  return activity.value?.bannerImageUrls?.fullSize
+  return activity.value?.bannerImageUrls?.fullSize ?? activity.value?.seriesBannerImageUrls?.fullSize
 })
 
 function join () {
@@ -449,7 +458,7 @@ function join () {
   joinDialog.value = true
 }
 function leave () {
-  if (!hasStarted.value) {
+  if (!hasFinished.value) {
     joinDialog.value = false
     leaveDialog.value = true
   }

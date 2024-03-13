@@ -245,3 +245,8 @@ function useSaveUserCurrentLocale () {
 export function sortByName (a, b) {
   return a.name.localeCompare(b.name)
 }
+
+export function useHasFeature (featureName) {
+  const { features } = useCurrentGroupService()
+  return computed(() => features.value?.includes(featureName))
+}

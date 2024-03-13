@@ -146,6 +146,9 @@
     "NOT_GIVEN_YOU": "You have not given feedback",
     "NOT_GIVEN_YET": "This participant has not given feedback yet",
     "TOGETHER_WITH": "Συμμετείχες σε αυτή την δράση/δραστηριότητα με: ",
+    "REPORT_NO_SHOW": "Someone didn't show up?",
+    "NO_SHOW": "No show",
+    "MARKED_NO_SHOW_BY": "Marked as no show by",
     "DISMISS_LABEL": "Απόρριψη ",
     "DISMISS_TITLE": "Απόρριψη feedback, σχολίων ",
     "DISMISS_MESSAGE": "Σίγουρα θέλεις να μην δώσεις feedback; Δεν θα μπορείς αργότερα να δώσεις feedback ή να σχολιάσεις σχετικά με αυτή την δραστηριότητα. "
@@ -428,6 +431,7 @@
     "EDIT": "Επεξεργασία group",
     "EDIT_ACTIVITY_TYPES": "Τύπος δράσεων/δραστηριότητων ",
     "EDIT_PLACE_TYPES": "Place types",
+    "EDIT_PLACE_STATUSES": "Place statuses",
     "EDIT_DETAILS": "Λεπτομέρεις για το group ",
     "EMAIL_NOTIFICATIONS": "Ειδοποιήσεις e-mail ",
     "HEADINGS": {
@@ -555,6 +559,8 @@
     "USER_LOST_EDITOR_ROLE": "έχασε την ικανότητα να κάνει αλλαγές και να επιμελείται το group",
     "PLACE_TYPE_CREATE": "created a place type",
     "PLACE_TYPE_MODIFY": "modified a place type",
+    "PLACE_STATUS_CREATE": "created a place status",
+    "PLACE_STATUS_MODIFY": "modified a place status",
     "MEMBER_GOT_ROLE": "received role: {role}",
     "AGREEMENT_CREATE": "agreement created",
     "AGREEMENT_MODIFY": "agreement modified"
@@ -678,6 +684,17 @@
     "WITHDRAW_CONFIRMATION_HEADER": "Απόσυρση αίτησης",
     "WITHDRAW_CONFIRMATION_TEXT": "Σίγουρα θα θέλατε να αποσύρετε την αίτηση συμμετοχής σας στο group {groupName};"
   },
+  "LABELS": {
+    "ADD_NEW": "Add new",
+    "ACTIVE": "Active",
+    "ARCHIVED": "Archived",
+    "DESCRIPTION": "Description",
+    "NAME": "Name",
+    "MANAGE_TYPES": "Manage types",
+    "MANAGE_STATUSES": "Manage statuses",
+    "STATUS": "Status",
+    "VISIBLE": "Visible"
+  },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "Βοθήστε στην μετάφραση του Karrot σε άλλες γλώσσες. ",
     "SWITCH": "Αλλαγή γλώσσας"
@@ -791,6 +808,12 @@
     "Restaurant": "Restaurant",
     "Market": "Market"
   },
+  "PLACE_STATUS_NAMES": {
+    "Created": "Created",
+    "Negotiating": "Negotiating",
+    "Active": "Active",
+    "Declined": "Declined"
+  },
   "PLACE_TYPE_STATUS": {
     "ACTIVE": "Active",
     "ARCHIVED": "Archived"
@@ -809,6 +832,12 @@
     "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
+  "PLACE_STATUSES": {
+    "ADD": "Add new place status",
+    "ARCHIVING": "You are archiving",
+    "UPDATE_TO": "Update places with this status to",
+    "VISIBLE_HINT": "Whether to show places with this status on the map and in the list"
+  },
   "PLACE_LIST": {
     "ONLY_FAVOURITES": "Only favourite",
     "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
@@ -817,6 +846,7 @@
     "NONE_DUE_TO_FILTER": "No places match your filters",
     "ALL_TYPES": "All types",
     "ALL_STATUSES": "All statuses",
+    "VISIBLE_STATUSES": "Visible",
     "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then click { icon } on one of them."
   },
   "PLACEWALL": {
@@ -862,7 +892,9 @@
     "FILTER_TIME_PREVIOUS_MONTHS": "Προηγούμενοι {count}μήνες",
     "FILTER_TIME_FOREVER": "Για πάντα ",
     "COLUMN_PLACE": "Τοποθεσία",
+    "COLUMN_PLACE_TYPE": "Type",
     "COLUMN_ACTIVITY_DONE": "Έγινε",
+    "COLUMN_ACTIVITY_NO_SHOW": "No show",
     "COLUMN_ACTIVITY_MISSED": "Χάθηκε",
     "COLUMN_ACTIVITY_LEFT": "Απεσύρθει",
     "COLUMN_FEEDBACK": "Feedback, σχόλια ",
@@ -876,10 +908,8 @@
   },
   "STOREDETAIL": {
     "ARCHIVED": "Αυτή η τοποθεσία έχει αρχειοθετηθεί ",
-    "CHANGE_STATUS": "Μπορείτε να άλλαξετε την κατάσταση απο τις ρυθμίσεις ",
     "DIRECTIONS": "Προβολή κατευθύνσεων",
     "EDIT": "Επεξεργασία τοποθεσίας ",
-    "INACTIVE": "Αυτή η τοποθεσία ειναι απενεργοποιημένη",
     "NO_DESCRIPTION": "Αυτή η τοποθεσία δεν έχει ακομά περιγραφή "
   },
   "STOREEDIT": {

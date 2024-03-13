@@ -1,6 +1,7 @@
 <template>
   <QBtn
     size="sm"
+    dense
     round
     flat
     color="green"

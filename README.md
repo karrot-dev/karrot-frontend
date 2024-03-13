@@ -28,7 +28,7 @@ This is the frontend repository, i.e. the browser-side software that powers [kar
 - let newcomers show their trust and get involved :bulb:
 - communicate with your team via group, place, activity, and private chats :speech_balloon:
 - handle team member conflicts via score voting :star:
-- receive real-time notifications via our Android app, e-mail, and web broswer push notifications :loudspeaker:
+- receive real-time notifications via our Android app, e-mail, and web browser push notifications :loudspeaker:
 - use karrot in your preferred language :globe_with_meridians:
 - upload a group logo and customize your public information :camera:
 
@@ -76,6 +76,8 @@ yarn test
 ```
 
 If you want to use an eslint plugin for your editor, please keep in mind that you either have to install all eslint plugins listed in package.json globally or you run `yarn install`. Otherwise your eslint plugin may not work.
+
+Tip: use `DEBUG_PRINT_LIMIT=999999999 yarn test` to see ALL the output.
 
 ## Start contributing?
 

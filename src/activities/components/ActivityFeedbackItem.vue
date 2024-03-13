@@ -2,6 +2,7 @@
   <QCard
     ref="itemRef"
     :class="{ highlight: isHighlighted }"
+    class="overflow-hidden"
   >
     <div
       v-if="bannerImageURL"
@@ -31,7 +32,7 @@
     </QCardSection>
     <QCardSection
       v-if="activityType"
-      :style="{ backgroundColor: lighten(activityType.colour, 80) }"
+      :style="{ background: `linear-gradient(170deg, ${lighten(activityType.colour, 75)}, ${lighten(activityType.colour, 85)})` }"
     >
       <div class="row no-wrap">
         <QIcon
@@ -212,6 +213,7 @@ import {
   QIcon,
   QBtn,
   QSpace,
+  QList,
   QItem,
   QItemSection,
   QItemLabel,

@@ -1,6 +1,6 @@
 /**
- * This plugin is responsible for defining some custom colors for activity types that can be
- * used in quasar components that accept a quasar palette color name.
+ * This plugin is responsible for defining some custom colors for any entries that have
+ * a colour so they can be used in quasar components that accept a quasar palette color name.
  *
  * So, where you might put:
  *
@@ -8,25 +8,51 @@
  *
  * You can also now put:
  *
- *   color="activity-type-5"
+ *   color="my-suffix-5"
  *
- * The number is the database id of the activity type.
+ * The number is the database id of the entry.
  *
  */
+import { computed, onUnmounted, unref } from 'vue'
 
 let nextId = 0
 
-function idFor (activityType) {
-  if (typeof activityType.id !== 'undefined') {
-    return activityType.id
+function idFor (entry) {
+  if (typeof entry.id !== 'undefined') {
+    return entry.id
   }
   else {
     return `new-${nextId++}`
   }
 }
 
+function randomStyleSheetPrefix () {
+  return Math.random().toString(20).slice(2, 6) + '-'
+}
+
+/**
+ * Useful when editing something, and you want a one-off colour name
+ *
+ * @param entry something with a "colour" property
+ * @returns a quasar colour name
+ */
+export function useColourNameFor (entry) {
+  const { updateEntry, removeStylesheet } = createStylesheet(randomStyleSheetPrefix())
+
+  onUnmounted(() => removeStylesheet())
+
+  return computed(() => updateEntry(unref(entry)))
+}
+
 export function createActivityTypeStylesheet (suffix = '') {
-  const defaultColour = '#FF0000'
+  return createStylesheet('activity-type-', suffix)
+}
+
+export function createPlaceStatusStylesheet (suffix = '') {
+  return createStylesheet('place-status-', suffix)
+}
+
+export function createStylesheet (prefix = '', suffix = '', defaultColour) {
   let stylesheet
 
   function getStylesheet () {
@@ -42,33 +68,36 @@ export function createActivityTypeStylesheet (suffix = '') {
     getStylesheet().innerText = styles
   }
 
-  function updateActivityTypes (activityTypes = []) {
-    const colorNames = []
-    const styles = activityTypes.map(activityType => {
-      let color = activityType.colour || defaultColour
-      if (color[0] !== '#') color = '#' + color
-      const colorName = `activity-type-${idFor(activityType)}${suffix}`
-      colorNames.push(colorName)
+  function updateEntries (entries = []) {
+    const styles = []
+
+    const colourNames = entries.map(entry => {
+      let colour = entry.colour || defaultColour
+      if (!colour) return ''
+      if (colour[0] !== '#') colour = '#' + colour
+      const colourName = `${prefix}${idFor(entry)}${suffix}`
 
       // For how to define custom colors for quasar see:
       // https://quasar.dev/style/color-palette#Adding-Your-Own-Colors
-      return `
-          .text-${colorName} {
-            color: ${color};
-          }
-          .bg-${colorName} {
-            background: ${color};
-          }
-        `
-    }).join('\n')
+      styles.push(`
+        .text-${colourName} {
+          color: ${colour};
+        }
+        .bg-${colourName} {
+          background: ${colour};
+        }
+      `)
 
-    updateStyles(styles)
+      return colourName
+    })
 
-    return colorNames
+    updateStyles(styles.join('\n'))
+
+    return colourNames
   }
 
-  function updateActivityType (activityType) {
-    return updateActivityTypes([activityType])[0]
+  function updateEntry (entry) {
+    return updateEntries([entry])[0]
   }
 
   function removeStylesheet () {
@@ -78,8 +107,8 @@ export function createActivityTypeStylesheet (suffix = '') {
   }
 
   return {
-    updateActivityTypes,
-    updateActivityType,
+    updateEntries,
+    updateEntry,
     removeStylesheet,
   }
 }

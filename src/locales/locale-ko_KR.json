@@ -146,6 +146,9 @@
     "NOT_GIVEN_YOU": "You have not given feedback",
     "NOT_GIVEN_YET": "This participant has not given feedback yet",
     "TOGETHER_WITH": "이런 사람들과 함께 했습니다:",
+    "REPORT_NO_SHOW": "Someone didn't show up?",
+    "NO_SHOW": "No show",
+    "MARKED_NO_SHOW_BY": "Marked as no show by",
     "DISMISS_LABEL": "무시",
     "DISMISS_TITLE": "피드백 무시하기",
     "DISMISS_MESSAGE": "정말 이 피드백을 무시하실건가요? 이후 이 활동에 피드백을 줄 수 없게됩니다."
@@ -428,6 +431,7 @@
     "EDIT": "그룹 편집하기",
     "EDIT_ACTIVITY_TYPES": "활동 종류",
     "EDIT_PLACE_TYPES": "Place types",
+    "EDIT_PLACE_STATUSES": "Place statuses",
     "EDIT_DETAILS": "그룹 상세",
     "EMAIL_NOTIFICATIONS": "이메일 알림",
     "HEADINGS": {
@@ -555,6 +559,8 @@
     "USER_LOST_EDITOR_ROLE": "편집 허가를 잃음",
     "PLACE_TYPE_CREATE": "created a place type",
     "PLACE_TYPE_MODIFY": "modified a place type",
+    "PLACE_STATUS_CREATE": "created a place status",
+    "PLACE_STATUS_MODIFY": "modified a place status",
     "MEMBER_GOT_ROLE": "received role: {role}",
     "AGREEMENT_CREATE": "agreement created",
     "AGREEMENT_MODIFY": "agreement modified"
@@ -678,6 +684,17 @@
     "WITHDRAW_CONFIRMATION_HEADER": "지원서 철회",
     "WITHDRAW_CONFIRMATION_TEXT": "정말로 {groupName}에 참가하기 위한 지원서를 철회하시겠습니까?"
   },
+  "LABELS": {
+    "ADD_NEW": "Add new",
+    "ACTIVE": "Active",
+    "ARCHIVED": "Archived",
+    "DESCRIPTION": "Description",
+    "NAME": "Name",
+    "MANAGE_TYPES": "Manage types",
+    "MANAGE_STATUSES": "Manage statuses",
+    "STATUS": "Status",
+    "VISIBLE": "Visible"
+  },
   "LANGUAGECHOOSER": {
     "ADD_MORE": "번역 돕기!",
     "SWITCH": "언어 변경하기"
@@ -791,6 +808,12 @@
     "Restaurant": "Restaurant",
     "Market": "Market"
   },
+  "PLACE_STATUS_NAMES": {
+    "Created": "Created",
+    "Negotiating": "Negotiating",
+    "Active": "Active",
+    "Declined": "Declined"
+  },
   "PLACE_TYPE_STATUS": {
     "ACTIVE": "Active",
     "ARCHIVED": "Archived"
@@ -809,6 +832,12 @@
     "STATUS_ACTIVE_HINT": "You will be able to create new places of this type",
     "STATUS_ARCHIVED_HINT": "It will not be possible to create new place of this type, but existing ones will still be available"
   },
+  "PLACE_STATUSES": {
+    "ADD": "Add new place status",
+    "ARCHIVING": "You are archiving",
+    "UPDATE_TO": "Update places with this status to",
+    "VISIBLE_HINT": "Whether to show places with this status on the map and in the list"
+  },
   "PLACE_LIST": {
     "ONLY_FAVOURITES": "Only favourite",
     "UPCOMING_ACTIVITIES": "One upcoming activity | { count } upcoming activities",
@@ -817,6 +846,7 @@
     "NONE_DUE_TO_FILTER": "No places match your filters",
     "ALL_TYPES": "All types",
     "ALL_STATUSES": "All statuses",
+    "VISIBLE_STATUSES": "Visible",
     "SUBSCRIBE_HINT": "When you mark places as favorite, they will show here. Click below to see all places, then click { icon } on one of them."
   },
   "PLACEWALL": {
@@ -862,7 +892,9 @@
     "FILTER_TIME_PREVIOUS_MONTHS": "이전 {count}달",
     "FILTER_TIME_FOREVER": "영원히",
     "COLUMN_PLACE": "장소",
+    "COLUMN_PLACE_TYPE": "Type",
     "COLUMN_ACTIVITY_DONE": "완료",
+    "COLUMN_ACTIVITY_NO_SHOW": "No show",
     "COLUMN_ACTIVITY_MISSED": "놓침",
     "COLUMN_ACTIVITY_LEFT": "철회",
     "COLUMN_FEEDBACK": "피드백",
@@ -876,10 +908,8 @@
   },
   "STOREDETAIL": {
     "ARCHIVED": "이 장소는 기록되었습니다.",
-    "CHANGE_STATUS": "설정 페이지에서 상태를 수정하셨습니다.",
     "DIRECTIONS": "방향 보기",
     "EDIT": "장소 편집하기",
-    "INACTIVE": "이 장소는 협조 상태가 아닙니다.",
     "NO_DESCRIPTION": "이 장소는 아직 묘사나 설명이 없습니다"
   },
   "STOREEDIT": {

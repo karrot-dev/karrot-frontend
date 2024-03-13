@@ -207,7 +207,7 @@ const activityType = computed(() => publicActivity.value?.activityType)
 const place = computed(() => publicActivity.value?.place)
 const group = computed(() => place.value?.group)
 
-const bannerImageURL = computed(() => publicActivity.value?.bannerImageUrls?.fullSize)
+const bannerImageURL = computed(() => publicActivity.value?.bannerImageUrls?.fullSize ?? publicActivity.value?.seriesBannerImageUrls?.fullSize)
 const groupImageURL = computed(() => group.value?.photoUrls?.[200])
 
 const icsUrl = computed(() => {
@@ -217,8 +217,8 @@ const icsUrl = computed(() => {
 
 // Need this as we might not be signed in, so might not have any activity type stylesheet loaded
 // (This enables the custom activity type colour names)
-const { updateActivityTypes, removeStylesheet } = createActivityTypeStylesheet()
-watch(activityType, value => updateActivityTypes(value ? [value] : []), { immediate: true })
+const { updateEntries, removeStylesheet } = createActivityTypeStylesheet()
+watch(activityType, value => updateEntries(value ? [value] : []), { immediate: true })
 
 onUnmounted(() => removeStylesheet())
 

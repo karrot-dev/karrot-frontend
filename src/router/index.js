@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
+import embedRoutes from '@/base/routes/embed'
 import mainRoutes from '@/base/routes/main'
 import splashRoutes from '@/base/routes/splash'
 
@@ -22,6 +23,8 @@ export default createRouter({
         },
       ],
     },
+    // No layout!
+    ...embedRoutes,
     // Always leave this last one
     { path: '/:catchAll(.*)*', component: RouteError }, // Not found
   ],

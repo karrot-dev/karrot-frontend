@@ -9,6 +9,151 @@
         :class="{ changed: hasChanged }"
       >
         <form @submit.prevent="maybeSave">
+          <div
+            class="row q-col-gutter-md items-center q-mb-lg "
+          >
+            <QIcon
+              :name="placeTypeIcon ?? 'fas fa-circle'"
+              size="lg"
+              class="q-pt-none"
+              :color="placeStatusColour ?? 'grey-4'"
+            />
+            <QSelect
+              v-model="edit.placeType"
+              :options="placeTypeOptions.filter(({ isArchived, value }) => !isArchived || edit.placeType === value || value === '$add')"
+              map-options
+              emit-value
+              :label="$t('STOREEDIT.PLACE_TYPE')"
+              :error="hasPlaceTypeError"
+              :error-message="placeTypeError"
+              outlined
+              class="col"
+              @blur="v$.edit.placeType.$touch"
+            >
+              <template #option="scope">
+                <template v-if="scope.opt.value === '$add'">
+                  <QSeparator />
+                  <QItem
+                    :key="scope.index"
+                    clickable
+                    v-bind="scope.itemProps"
+                    @click="createNewPlaceType"
+                  >
+                    <QItemSection side>
+                      <QIcon
+                        name="fa fa-plus"
+                        color="positive"
+                        size="1.1em"
+                      />
+                    </QItemSection>
+                    <QItemSection>
+                      <QItemLabel class="text-italic">
+                        {{ $t('LABELS.ADD_NEW') }}
+                      </QItemLabel>
+                    </QItemSection>
+                  </QItem>
+                </template>
+                <QItem
+                  v-else
+                  :key="scope.index"
+                  v-bind="scope.itemProps"
+                >
+                  <QItemSection side>
+                    <QIcon
+                      :name="scope.opt.icon"
+                      size="1.1em"
+                      :color="placeStatusColour"
+                    />
+                  </QItemSection>
+                  <QItemSection>
+                    <QItemLabel>{{ scope.opt.label }}</QItemLabel>
+                    <QItemLabel
+                      v-if="scope.opt.caption"
+                      caption
+                      class="ellipsis"
+                      style="max-width: 200px;"
+                    >
+                      {{ scope.opt.caption }}
+                    </QItemLabel>
+                  </QItemSection>
+                </QItem>
+              </template>
+              <template #selected-item="scope">
+                <div class="ellipsis">
+                  {{ scope.opt.label }}
+                </div>
+              </template>
+            </QSelect>
+
+            <QSelect
+              v-model="edit.status"
+              :options="placeStatusOptions.filter(({ isArchived, value }) => !isArchived || edit.status === value || value === '$add')"
+              map-options
+              emit-value
+              :label="$t('STOREEDIT.STATUS')"
+              :error="hasPlaceStatusError"
+              :error-message="placeStatusError"
+              outlined
+              class="col"
+              @blur="v$.edit.status.$touch"
+            >
+              <template #option="scope">
+                <template v-if="scope.opt.value === '$add'">
+                  <QSeparator />
+                  <QItem
+                    :key="scope.index"
+                    clickable
+                    v-bind="scope.itemProps"
+                    @click="createNewPlaceStatus"
+                  >
+                    <QItemSection side>
+                      <QIcon
+                        name="fa fa-plus"
+                        color="positive"
+                        size="1.1em"
+                      />
+                    </QItemSection>
+                    <QItemSection>
+                      <QItemLabel class="text-italic">
+                        {{ $t('LABELS.ADD_NEW') }}
+                      </QItemLabel>
+                    </QItemSection>
+                  </QItem>
+                </template>
+                <QItem
+                  v-else
+                  :key="scope.index"
+                  v-bind="scope.itemProps"
+                >
+                  <QItemSection side>
+                    <QIcon
+                      :name="placeTypeIcon"
+                      :color="scope.opt.color"
+                      size="1.1em"
+                    />
+                  </QItemSection>
+                  <QItemSection>
+                    <QItemLabel>{{ scope.opt.label }}</QItemLabel>
+                    <QItemLabel
+                      v-if="scope.opt.caption"
+                      caption
+                      class="ellipsis"
+                      style="max-width: 200px;"
+                      :title="scope.opt.caption"
+                    >
+                      {{ scope.opt.caption }}
+                    </QItemLabel>
+                  </QItemSection>
+                </QItem>
+              </template>
+              <template #selected-item="scope">
+                <div class="ellipsis">
+                  {{ scope.opt.label }}
+                </div>
+              </template>
+            </QSelect>
+          </div>
+
           <QInput
             v-model="edit.name"
             :autofocus="!$q.platform.has.touch"
@@ -20,101 +165,6 @@
             class="q-mb-lg"
             @blur="v$.edit.name.$touch"
           />
-
-          <QSelect
-            v-model="edit.placeType"
-            :options="placeTypeOptions.filter(({ status, value }) => status === 'active' || edit.placeType === value)"
-            map-options
-            emit-value
-            :label="$t('STOREEDIT.PLACE_TYPE')"
-            :error="hasPlaceTypeError"
-            :error-message="placeTypeError"
-            outlined
-            class="q-mb-lg"
-            @blur="v$.edit.placeType.$touch"
-          >
-            <template #option="scope">
-              <QItem
-                :key="scope.index"
-                dense
-                v-bind="scope.itemProps"
-              >
-                <QItemSection side>
-                  <QIcon
-                    :name="scope.opt.icon"
-                    size="1.1em"
-                    color="positive"
-                  />
-                </QItemSection>
-                <QItemSection>
-                  <QItemLabel>{{ scope.opt.label }}</QItemLabel>
-                </QItemSection>
-              </QItem>
-            </template>
-            <template #selected-item="scope">
-              <div class="row no-wrap ellipsis">
-                <QIcon
-                  :name="scope.opt.icon"
-                  size="1.1em"
-                  class="on-left q-ml-xs"
-                  color="positive"
-                />
-                <div class="ellipsis">
-                  {{ scope.opt.label }}
-                </div>
-              </div>
-            </template>
-            <template #after>
-              <QBtn
-                :label="$t('PLACE_TYPES.MANAGE_TYPES')"
-                :to="{ name: 'groupEditPlaceTypes' }"
-              />
-            </template>
-          </QSelect>
-
-          <QSelect
-            v-model="edit.status"
-            :options="statusOptions"
-            map-options
-            emit-value
-            :label="$t('STOREEDIT.STATUS')"
-            :error="hasError('status')"
-            :error-message="firstError('status')"
-            outlined
-            class="q-mb-lg"
-          >
-            <template #option="scope">
-              <QItem
-                :key="scope.index"
-                dense
-                v-bind="scope.itemProps"
-              >
-                <QItemSection side>
-                  <QIcon
-                    :name="scope.opt.icon"
-                    :color="scope.opt.color"
-                    size="1.1em"
-                  />
-                </QItemSection>
-                <QItemSection>
-                  <QItemLabel>{{ scope.opt.label }}</QItemLabel>
-                </QItemSection>
-              </QItem>
-            </template>
-            <template #selected-item="scope">
-              <div class="row no-wrap ellipsis">
-                <QIcon
-                  :name="scope.opt.icon"
-                  :color="scope.opt.color"
-                  size="1.1em"
-                  class="on-left q-ml-xs"
-                />
-                <div class="ellipsis">
-                  {{ scope.opt.label }}
-                </div>
-              </div>
-            </template>
-          </QSelect>
 
           <MarkdownInput
             v-model="edit.description"
@@ -143,8 +193,8 @@
 
           <AddressPicker
             v-model="edit"
-            :color="markerColor"
-            :font-icon="$icon('place')"
+            :color="placeStatusColour"
+            :font-icon="placeTypeIcon"
             :label="$t('STOREEDIT.ADDRESS')"
             :error="hasAddressError"
             :error-message="addressError"
@@ -235,7 +285,9 @@
 <script>
 import useVuelidate from '@vuelidate/core'
 import { required, minLength, maxLength } from '@vuelidate/validators'
+import { generateKeyBetween } from 'fractional-indexing'
 import {
+  QSeparator,
   QCard,
   QField,
   QSlider,
@@ -250,19 +302,23 @@ import {
 } from 'quasar'
 import { computed } from 'vue'
 
-import { useCurrentGroupService } from '@/group/services'
-import { usePlaceTypeHelpers } from '@/places/helpers'
-import { statusList, optionsFor } from '@/places/placeStatus'
-import { usePlaceTypeService } from '@/places/services'
+import { useCurrentGroupId, useIsEditor } from '@/group/helpers'
+import { usePlaceStatuses, usePlaceStatusHelpers, usePlaceTypeHelpers } from '@/places/helpers'
+import { optionsFor } from '@/places/placeStatus'
+import { usePlaceStatusService, usePlaceTypeService } from '@/places/services'
+import { useOpenDialog } from '@/utils/forms'
 import editMixin from '@/utils/mixins/editMixin'
 import statusMixin from '@/utils/mixins/statusMixin'
 
+import PlaceStatusForm from '@/group/components/PlaceStatusForm.vue'
+import PlaceTypeForm from '@/group/components/PlaceTypeForm.vue'
 import AddressPicker from '@/maps/components/AddressPicker.vue'
 import MarkdownInput from '@/utils/components/MarkdownInput.vue'
 
 export default {
   name: 'PlaceEdit',
   components: {
+    QSeparator,
     QCard,
     QField,
     QSlider,
@@ -288,7 +344,7 @@ export default {
         latitude: undefined,
         longitude: undefined,
         address: undefined,
-        status: 'created',
+        status: undefined,
         defaultView: 'activities',
       }),
     },
@@ -304,28 +360,85 @@ export default {
     'save',
   ],
   setup () {
-    const { groupId } = useCurrentGroupService()
+    const groupId = useCurrentGroupId()
+    const isEditor = useIsEditor()
 
     const { getPlaceTypesByGroup, getPlaceTypeById } = usePlaceTypeService()
+    const { getPlaceStatusById } = usePlaceStatusService()
 
-    const {
-      getTranslatedName,
-      sortByTranslatedName,
-    } = usePlaceTypeHelpers()
+    const placeTypeHelpers = usePlaceTypeHelpers()
+    const placeStatusHelpers = usePlaceStatusHelpers()
 
-    const placeTypes = computed(() => getPlaceTypesByGroup(groupId).sort(sortByTranslatedName))
+    const placeTypes = computed(() => getPlaceTypesByGroup(groupId).sort(placeTypeHelpers.sortByTranslatedName))
 
-    const placeTypeOptions = computed(() => placeTypes.value.map(placeType => ({
-      value: placeType.id,
-      label: getTranslatedName(placeType),
-      icon: placeType.icon,
-      status: placeType.status,
-    })))
+    const placeTypeOptions = computed(() => [
+      ...placeTypes.value.map(placeType => ({
+        value: placeType.id,
+        label: placeTypeHelpers.getTranslatedName(placeType),
+        caption: placeType.description,
+        icon: placeType.icon,
+        isArchived: placeType.isArchived,
+      })),
+      isEditor.value && {
+        value: '$add',
+      },
+    ].filter(Boolean))
+
+    const openDialog = useOpenDialog()
+
+    const placeStatuses = usePlaceStatuses(groupId)
+
+    const placeStatusOptions = computed(() => [
+      ...placeStatuses.value.map(placeStatus => ({
+        value: placeStatus.id,
+        label: placeStatusHelpers.getTranslatedName(placeStatus),
+        caption: placeStatus.description,
+        color: placeStatusHelpers.getColorName(placeStatus),
+        icon: 'fas fa-circle',
+        isArchived: placeStatus.isArchived,
+      })),
+      isEditor.value && {
+        value: '$add',
+      },
+    ].filter(Boolean))
+
+    function generateNextOrder () {
+      return generateKeyBetween(placeStatuses.value[placeStatuses.value.length - 1]?.order || null, null)
+    }
+
+    function createNewPlaceType () {
+      openDialog(PlaceTypeForm, {
+        placeType: {
+          name: undefined,
+          icon: 'fas fa-map-marker',
+          description: undefined,
+          isVisible: true,
+        },
+      })
+    }
+
+    function createNewPlaceStatus () {
+      openDialog(PlaceStatusForm, {
+        placeStatus: {
+          name: undefined,
+          colour: undefined,
+          description: undefined,
+          order: generateNextOrder(),
+          isVisible: true,
+        },
+      })
+    }
 
     return {
       v$: useVuelidate(),
+      isEditor,
       placeTypeOptions,
       getPlaceTypeById,
+      placeStatusOptions,
+      getPlaceStatusById,
+      getPlaceStatusColorName: placeStatusHelpers.getColorName,
+      createNewPlaceType,
+      createNewPlaceStatus,
     }
   },
   computed: {
@@ -360,6 +473,15 @@ export default {
       }
       return this.firstError('placeType')
     },
+    hasPlaceStatusError () {
+      return !!this.placeStatusError
+    },
+    placeStatusError () {
+      if (this.v$.edit.status.$error) {
+        if (this.v$.edit.status.required.$invalid) return this.$t('VALIDATION.REQUIRED')
+      }
+      return this.firstError('status')
+    },
     hasAddressError () {
       return !!this.addressError
     },
@@ -369,16 +491,11 @@ export default {
       }
       return null
     },
-    statusOptions () {
-      const { icon } = this.edit.placeType ? this.getPlaceTypeById(this.edit.placeType) : { icon: 'fas fa-circle' }
-      return statusList
-        .filter(s => s.selectable)
-        .map(s => ({
-          value: s.key,
-          label: this.$t(s.label),
-          color: s.color,
-          icon,
-        }))
+    placeTypeIcon () {
+      return this.edit.placeType ? this.getPlaceTypeById(this.edit.placeType)?.icon : 'fas fa-circle'
+    },
+    placeStatusColour () {
+      return this.edit.status ? this.getPlaceStatusColorName(this.getPlaceStatusById(this.edit.status)) : 'grey'
     },
     markerColor () {
       if (this.edit) return optionsFor(this.edit).color
@@ -424,7 +541,7 @@ export default {
         cancel: this.$t('BUTTON.CANCEL'),
         ok: this.$t('STOREEDIT.DIALOGS.ARCHIVE.CONFIRM'),
       })
-        .onOk(() => this.$emit('save', { id: this.value.id, status: 'archived' }))
+        .onOk(() => this.$emit('save', { id: this.value.id, isArchived: true }))
     },
   },
   validations: {
@@ -441,6 +558,9 @@ export default {
         },
       },
       placeType: {
+        required,
+      },
+      status: {
         required,
       },
     },

@@ -16,8 +16,8 @@ export const useActivityTypeService = defineService(() => {
   const activityTypesById = computed(() => indexById(activityTypes.value))
 
   // utils
-  const { updateActivityTypes } = createActivityTypeStylesheet()
-  watch(activityTypes, updateActivityTypes, { immediate: true })
+  const { updateEntries } = createActivityTypeStylesheet()
+  watch(activityTypes, updateEntries, { immediate: true })
 
   // methods
   function getActivityTypeById (id) {
@@ -26,7 +26,7 @@ export const useActivityTypeService = defineService(() => {
 
   function getActivityTypesByGroup (groupId, filters = {}) {
     const entries = activityTypes.value.filter(entry => entry.group === unref(groupId))
-    return filters.status ? entries.filter(entry => entry.status === unref(filters.status)) : entries
+    return 'isArchived' in filters ? entries.filter(entry => entry.isArchived === unref(filters.isArchived)) : entries
   }
 
   return {

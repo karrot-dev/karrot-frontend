@@ -4,7 +4,7 @@ import en from '@/locales/locale-en.json'
 
 import { db } from '>/mockBackend/index'
 import { get, post, patch } from '>/mockBackend/mockAxios'
-import { realSample } from '>/mockBackend/utils'
+import { realSample, toAPIResponse } from '>/mockBackend/utils'
 
 export const translatablePlaceTypeNames = Object.keys(en.PLACE_TYPE_NAMES)
 
@@ -15,7 +15,7 @@ export function generatePlaceType (params = {}) {
     id: nextId++,
     name: realSample(translatablePlaceTypeNames),
     icon: 'fas fa-circle',
-    status: 'active',
+    archivedAt: null,
     group: null,
     createdAt: faker.date.past(),
     updatedAt: faker.date.recent(),
@@ -23,17 +23,18 @@ export function generatePlaceType (params = {}) {
   }
 }
 
-function toResponse (placeType) {
-  return {
+export function toPlaceTypeResponse (placeType) {
+  return toAPIResponse({
     ...placeType,
+    isArchived: Boolean(placeType.archivedAt),
     nameIsTranslatable: translatablePlaceTypeNames.includes(placeType.name),
-  }
+  })
 }
 
 export function createMockPlaceTypesBackend () {
   get(
     '/api/place-types/',
-    () => [200, db.placeTypes.map(toResponse)],
+    () => [200, db.placeTypes.map(toPlaceTypeResponse)],
   )
 
   post(
@@ -42,7 +43,7 @@ export function createMockPlaceTypesBackend () {
       if (!data.name) return [400, { name: 'name should not be empty!' }]
       const placeType = generatePlaceType({ ...data })
       db.placeTypes.push(placeType)
-      return [201, toResponse(placeType)]
+      return [201, toPlaceTypeResponse(placeType)]
     },
   )
 
@@ -52,7 +53,7 @@ export function createMockPlaceTypesBackend () {
       const placeType = db.placeTypes.find(({ id }) => id === parseInt(pathParams.id))
       if (!placeType) return [404, {}]
       Object.assign(placeType, data)
-      return [200, toResponse(placeType)]
+      return [200, toPlaceTypeResponse(placeType)]
     },
   )
 }

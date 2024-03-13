@@ -1,6 +1,7 @@
-import { computed } from 'vue'
+import { computed, unref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
+import { useActivityTypeService } from '@/activities/services'
 import { useAuthService } from '@/authuser/services'
 import icons from '@/base/icons'
 import { useCurrentGroupService } from '@/group/services'
@@ -33,6 +34,10 @@ export function useActivityHelpers () {
 
   function getHasStarted (activity) {
     return activity.date <= reactiveNow.value && activity.dateEnd > reactiveNow.value
+  }
+
+  function getHasFinished (activity) {
+    return activity.dateEnd <= reactiveNow.value
   }
 
   function getIsUpcoming (activity) {
@@ -73,6 +78,7 @@ export function useActivityHelpers () {
     getIsEmpty,
     getIsFull,
     getHasStarted,
+    getHasFinished,
     getIsUpcoming,
     getIsStartedOrUpcoming,
     roleOptions,
@@ -97,6 +103,10 @@ export function useActivityTypeHelpers () {
     if (!activityType) return
     const { name, nameIsTranslatable } = activityType
     return nameIsTranslatable ? t(`ACTIVITY_TYPE_NAMES.${name}`) : name
+  }
+
+  function sortByTranslatedName (a, b) {
+    return getTranslatedName(a).localeCompare(getTranslatedName(b))
   }
 
   function getIconProps (activityType) {
@@ -129,7 +139,24 @@ export function useActivityTypeHelpers () {
     getTextClass,
     getColorName,
     getTranslatedName,
+    sortByTranslatedName,
     getIconProps,
     getFeedbackIconProps,
   }
+}
+
+export function useActivityTypeTranslatedName (activityType) {
+  const { getTranslatedName } = useActivityTypeHelpers()
+  return computed(() => getTranslatedName(unref(activityType)))
+}
+
+export function useActivityTypes (groupId) {
+  const { activityTypes } = useActivityTypeService()
+  return computed(() => {
+    if (!activityTypes?.value) return []
+    if (!groupId) return activityTypes.value
+    if (!groupId.value) return []
+    const groupIdValue = unref(groupId)
+    return activityTypes.value?.filter(placeStatus => placeStatus.group === groupIdValue)
+  })
 }

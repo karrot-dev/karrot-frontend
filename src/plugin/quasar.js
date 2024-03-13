@@ -1,5 +1,3 @@
-// export * from 'quasar'
-
 import {
   BottomSheet,
   ClosePopup,

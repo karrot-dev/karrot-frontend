@@ -1,3 +1,5 @@
+import { markRaw } from 'vue'
+
 import axios from '@/base/api/axios'
 import { camelizeKeys } from '@/utils/utils'
 
@@ -15,25 +17,74 @@ async function listPlugins () {
 }
 
 export default async context => {
-  const plugins = await listPlugins()
+  await loadLocalPlugins()
+  await loadServerPlugins()
 
-  for (const { name, entry, cssEntries } of plugins) {
-    try {
-      // Import CSS
-      if (cssEntries) {
-        for (const cssEntry of cssEntries) {
-          const stylesheet = document.createElement('link')
-          stylesheet.href = cssEntry
-          stylesheet.rel = 'stylesheet'
-          document.head.appendChild(stylesheet)
+  /**
+   * Supports "local plugins" which is intended to support frontend plugin
+   * development against any version of karrot, even deployed ones in production
+   *
+   * This is enabled by setting a localStorage value using the console, e.g.:
+   *
+   *    localStorage.setItem('KARROT_PLUGINS_LOCAL', 'http://localhost:5173/index.js')
+   *
+   *  On reloading the browser it'll attempt to load from that URL.
+   *
+   *  "http://localhost:5173" is the default address when running a vite app in dev mode.
+   *
+   *  It does *not* support loading plugins that have been bundled
+   *  They must be installed in the backend. It could be implemented here, but hasn't yet.
+   *
+   *  You could use it to load a simple bundled plugin where everything is in the js entrypoint.
+   */
+  async function loadLocalPlugins () {
+    const localPlugins = localStorage.getItem('KARROT_PLUGINS_LOCAL')
+    if (localPlugins) {
+      console.log('using local plugins')
+      for (const localPluginURL of localPlugins.split(',').map(v => v.trim())) {
+        console.log('importing local plugin from', localPluginURL)
+        try {
+          await setupPlugin(await import(localPluginURL))
+        }
+        catch (error) {
+          console.error(`failed to load local plugin from ${localPluginURL}`)
         }
       }
-
-      // Import and set up main entry
-      await setupPlugin(await import(entry /* @vite-ignore */))
     }
-    catch (err) {
-      console.error(`failed to load plugin ${name}`, err)
+  }
+
+  /**
+   * These are the normal plugins. Installed on the server.
+   *
+   * The server returns a nice object that contains CSS entries + a js entrypoint
+   */
+  async function loadServerPlugins () {
+    const plugins = await listPlugins()
+
+    for (const { name, entry, cssEntries } of plugins) {
+      const stylesheets = []
+      try {
+        // Import CSS
+        if (cssEntries) {
+          for (const cssEntry of cssEntries) {
+            const stylesheet = document.createElement('link')
+            stylesheet.href = cssEntry
+            stylesheet.rel = 'stylesheet'
+            document.head.appendChild(stylesheet)
+            stylesheets.push(stylesheet)
+          }
+        }
+
+        // Import and set up main entry
+        await setupPlugin(await import(entry /* @vite-ignore */))
+      }
+      catch (err) {
+        console.error(`failed to load plugin ${name}`, err)
+        // Cleanup in case of error
+        for (const stylesheet of stylesheets) {
+          document.head.removeChild(stylesheet)
+        }
+      }
     }
   }
 
@@ -60,7 +111,7 @@ export default async context => {
 export async function getPluginSlotComponents (name) {
   if (name in slotComponents) {
     const entries = await Promise.all(slotComponents[name].map(fn => fn()))
-    return entries.filter(Boolean)
+    return entries.filter(Boolean).map(markRaw)
   }
   return []
 }
@@ -69,10 +120,11 @@ function resolvableComponent (def) {
   let resolved
 
   async function resolve () {
-    // The definition can be a function
-    // Which can give us a promise
-    // Which can import a module with .default
-    // And can also throw an error, in which case we resolve null
+    /* The definition can be a function
+       ... which can give us a promise
+       ... which can import a module with a .default
+       And might also throw an error, from which we return null
+     */
     try {
       let component = def
       if (typeof component === 'function') {

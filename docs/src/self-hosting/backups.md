@@ -48,7 +48,7 @@ You'll need to use two of the key values for the next step:
 | Backblaze B2 | backup-bot-two |
 |--|--|
 | `keyID` | `AWS_ACCESS_KEY_ID` config |
-| `applicationKey` | `aws_secret_access_key` secret` |
+| `applicationKey` | `aws_secret_access_key` secret |
 
 
 ### 3. Setup backup-bot-two app

@@ -17,16 +17,20 @@ async function listPlugins () {
 }
 
 export default async context => {
-  await loadLocalPlugins()
+  if (import.meta.env.DEV) {
+    await loadLocalPlugins()
+  }
   await loadServerPlugins()
 
   /**
    * Supports "local plugins" which is intended to support frontend plugin
    * development against any version of karrot, even deployed ones in production
    *
-   * This is enabled by setting a localStorage value using the console, e.g.:
+   * This is enabled by setting a LOCAL_PLUGINS environment variable in .env, e.g.:
    *
-   *    localStorage.setItem('KARROT_PLUGINS_LOCAL', 'http://localhost:5173/index.js')
+   *  LOCAL_PLUGINS=http://localhost:5173/index.js
+   *
+   *  You can set multiple, separated by a comma.
    *
    *  On reloading the browser it'll attempt to load from that URL.
    *
@@ -38,7 +42,7 @@ export default async context => {
    *  You could use it to load a simple bundled plugin where everything is in the js entrypoint.
    */
   async function loadLocalPlugins () {
-    const localPlugins = localStorage.getItem('KARROT_PLUGINS_LOCAL')
+    const localPlugins = process.env.LOCAL_PLUGINS
     if (localPlugins) {
       console.log('using local plugins')
       for (const localPluginURL of localPlugins.split(',').map(v => v.trim())) {

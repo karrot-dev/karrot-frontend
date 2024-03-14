@@ -67,6 +67,7 @@ module.exports = configure(function (ctx) {
     },
     NODE_DEBUG: 'false', // workaround for node-util
     ENABLE_DEV_SENTRY: process.env.ENABLE_DEV_SENTRY,
+    LOCAL_PLUGINS: process.env.LOCAL_PLUGINS,
   }
 
   return {

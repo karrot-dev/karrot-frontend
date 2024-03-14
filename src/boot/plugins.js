@@ -44,7 +44,7 @@ export default async context => {
       for (const localPluginURL of localPlugins.split(',').map(v => v.trim())) {
         console.log('importing local plugin from', localPluginURL)
         try {
-          await setupPlugin(await import(localPluginURL))
+          await setupPlugin(await import(/* @vite-ignore */ localPluginURL))
         }
         catch (error) {
           console.error(`failed to load local plugin from ${localPluginURL}`)

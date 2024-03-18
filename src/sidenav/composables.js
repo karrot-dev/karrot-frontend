@@ -31,6 +31,7 @@ export function useSidenavMenuEntries () {
         name: 'wall',
         label: t('GROUP.WALL'),
         icon: 'fas fa-bullhorn',
+        meet: `group:${this.groupId}`,
         to: { name: 'groupWall', params: { groupId: groupId.value } },
         badge: {
           count: cappedWallUnreadCount.value,
@@ -142,9 +143,14 @@ export function useSidenavMenuEntries () {
     let entriesResult = entries.value
     for (const plugin of karrotPlugins) {
       if (plugin.sidenavMenu) {
-        const result = plugin.sidenavMenu(entriesResult)
-        if (Array.isArray(result)) {
-          entriesResult = result
+        try {
+          const result = plugin.sidenavMenu(entriesResult)
+          if (Array.isArray(result)) {
+            entriesResult = result
+          }
+        }
+        catch (error) {
+          console.error('sidenavMenu error from plugin', error)
         }
       }
     }

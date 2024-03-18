@@ -17,9 +17,7 @@ async function listPlugins () {
 }
 
 export default async context => {
-  if (import.meta.env.DEV) {
-    await loadLocalPlugins()
-  }
+  await loadLocalPlugins()
   await loadServerPlugins()
 
   /**
@@ -42,17 +40,17 @@ export default async context => {
    *  You could use it to load a simple bundled plugin where everything is in the js entrypoint.
    */
   async function loadLocalPlugins () {
-    const localPlugins = process.env.LOCAL_PLUGINS
-    if (localPlugins) {
-      console.log('using local plugins')
-      for (const localPluginURL of localPlugins.split(',').map(v => v.trim())) {
-        console.log('importing local plugin from', localPluginURL)
-        try {
-          await setupPlugin(await import(/* @vite-ignore */ localPluginURL))
-        }
-        catch (error) {
-          console.error(`failed to load local plugin from ${localPluginURL}`)
-        }
+    if (!import.meta.env.DEV) return
+    const localPlugins = process.env.LOCAL_PLUGINS?.split(',').map(v => v.trim())
+    if (!localPlugins) return
+    console.log('using local plugins')
+    for (const localPluginURL of localPlugins) {
+      console.log('importing local plugin from', localPluginURL)
+      try {
+        await setupPlugin(await import(/* @vite-ignore */ localPluginURL))
+      }
+      catch (error) {
+        console.error(`failed to load local plugin from ${localPluginURL}`)
       }
     }
   }

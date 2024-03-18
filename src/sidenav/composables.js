@@ -31,7 +31,7 @@ export function useSidenavMenuEntries () {
         name: 'wall',
         label: t('GROUP.WALL'),
         icon: 'fas fa-bullhorn',
-        meet: `group:${this.groupId}`,
+        meet: `group:${groupId.value}`,
         to: { name: 'groupWall', params: { groupId: groupId.value } },
         badge: {
           count: cappedWallUnreadCount.value,

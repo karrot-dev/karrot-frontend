@@ -84,7 +84,7 @@ import {
 } from 'quasar'
 import { computed } from 'vue'
 
-import { useSidenavMenuEntries } from '@/sidenav/use'
+import { useSidenavMenuEntries } from '@/sidenav/composables'
 
 import GroupOptions from './GroupOptions.vue'
 import SidenavBox from './SidenavBox.vue'

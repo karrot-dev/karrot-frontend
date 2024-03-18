@@ -71,6 +71,8 @@ import {
   QItemSection,
   QItemLabel,
 } from 'quasar'
+import { computed, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
 import { useActivityTypeHelpers } from '@/activities/helpers'
 import { usePublicActivityListQuery } from '@/activities/queries'
@@ -83,12 +85,19 @@ const { getIconProps, getTranslatedName } = useActivityTypeHelpers()
 
 const groupId = useIntegerRouteParam('groupId')
 
+const route = useRoute()
+
+const placeId = computed(() => route.query.place)
+const activityTypeId = computed(() => route.query.type)
+
 const {
   publicActivities,
   infiniteScroll,
 } = usePublicActivityListQuery({
   groupId,
   dateMin: newDateRoundedTo5Minutes(),
+  placeId,
+  activityTypeId,
 })
 
 function getBannerImageUrl (publicActivity) {

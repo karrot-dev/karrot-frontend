@@ -1,6 +1,6 @@
 import { extend } from 'quasar'
 import { computed, watch, ref, readonly, watchEffect } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 import { useSaveUserMutation } from '@/authuser/mutations'
 import { useAuthService } from '@/authuser/services'
@@ -37,6 +37,8 @@ export const useCurrentGroupService = defineService(() => {
     clearGroup,
   } = useCurrentGroupId()
 
+  const route = useRoute()
+
   const { groups } = useGroupInfoService()
 
   const {
@@ -46,6 +48,8 @@ export const useCurrentGroupService = defineService(() => {
   } = useGroupDetailQuery({ groupId }, {
     onError (error) {
       if (error?.response?.status === 404) { // TODO: could do for other errors too?
+        if (route.meta.noRedirect) return
+
         // Not found! (only groups we are members of can be found) .. but it might exist for preview
         const groupPreview = groups.value.find(group => group.id === groupId.value)
         if (groupPreview) {

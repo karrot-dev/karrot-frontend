@@ -106,7 +106,7 @@ export function useActivityListQuery ({
   feedbackPossible,
   hasFeedback,
   ordering,
-  pageSize = 10,
+  pageSize = 20,
 }, queryOptions = {}) {
   const query = useInfiniteQuery(
     queryKeyActivityList({ groupId, placeId, placeStatus, placeArchived, seriesId, activityTypeId, slots, feedbackPossible, hasFeedback, places, ordering, dateMin }),

@@ -71,7 +71,7 @@ import {
   QItemSection,
   QItemLabel,
 } from 'quasar'
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { useActivityTypeHelpers } from '@/activities/helpers'

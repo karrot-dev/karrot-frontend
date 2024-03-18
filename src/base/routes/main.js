@@ -42,7 +42,6 @@ const Applications = () => import('@/applications/pages/Applications.vue')
 const GroupDescription = () => import('@/group/pages/Description.vue')
 const GroupMembers = () => import('@/users/pages/Members.vue')
 const GroupHistory = () => import('@/history/pages/GroupHistory.vue')
-const Sidenav = () => import('@/sidenav/components/Sidenav.vue')
 const Settings = () => import('@/authuser/pages/Settings.vue')
 const User = () => import('@/users/pages/Profile.vue')
 const ActivityFeedback = () => import('@/feedback/pages/ActivityFeedback.vue')
@@ -150,6 +149,7 @@ export default [
     path: '/group/:groupId',
     redirect: { name: 'groupWall' },
     meta: {
+      sidenav: true,
       requireLoggedIn: true,
       breadcrumbs: [
         { type: 'currentGroup' },
@@ -160,7 +160,6 @@ export default [
       subheader: RouterViewSubheader,
       detail: RouterViewDetail,
       footer: RouterViewFooter,
-      sidenav: Sidenav,
     },
     children: [
       {
@@ -273,7 +272,7 @@ export default [
         name: 'map',
         path: 'map',
         meta: {
-          disableDesktopSidenav: true,
+          sidenav: false,
           fullpage: true,
           breadcrumbs: [
             { translation: 'GROUPMAP.TITLE', route: { name: 'map' } },
@@ -574,10 +573,7 @@ export default [
             { translation: 'GROUP.STATISTICS', route: { name: 'statistics' } },
           ],
         },
-        components: {
-          default: ActivityHistoryStatistics,
-          sidenav: Sidenav,
-        },
+        component: ActivityHistoryStatistics,
       },
     ],
   },
@@ -594,28 +590,27 @@ export default [
     components: {
       default: Detail,
       subheader: DetailHeader,
-      sidenav: Sidenav,
     },
   },
   {
     name: 'settings',
     path: '/settings',
     meta: {
+      sidenav: true,
       requireLoggedIn: true,
       breadcrumbs: [
         { translation: 'SETTINGS.TITLE', route: { name: 'settings' } },
       ],
-      afterLeave: 'unsubscribe/clear',
     },
     components: {
       default: Settings,
-      sidenav: Sidenav,
     },
   },
   {
     name: 'user',
     path: '/user/:userId',
     meta: {
+      sidenav: true,
       requireLoggedIn: true,
       breadcrumbs: [
         { type: 'activeUser' },
@@ -623,13 +618,13 @@ export default [
     },
     components: {
       default: User,
-      sidenav: Sidenav,
     },
   },
   {
     name: 'userInGroup',
     path: '/group/:groupId/user/:userId',
     meta: {
+      sidenav: true,
       requireLoggedIn: true,
       breadcrumbs: [
         { type: 'activeUser' },
@@ -637,13 +632,13 @@ export default [
     },
     components: {
       default: User,
-      sidenav: Sidenav,
     },
   },
   {
     name: 'userDetail',
     path: '/user/:userId/detail',
     meta: {
+      sidenav: true,
       requireLoggedIn: true,
       breadcrumbs: [
         { type: 'currentGroup' },
@@ -654,7 +649,6 @@ export default [
     components: {
       default: Detail,
       subheader: DetailHeader,
-      sidenav: Sidenav,
     },
   },
   {
@@ -662,6 +656,7 @@ export default [
     path: 'messages',
     redirect: { name: 'latestConversations' },
     meta: {
+      sidenav: true,
       requireLoggedIn: true,
       breadcrumbs: [
         { translation: 'GROUP.MESSAGES', route: { name: 'messages' } },
@@ -669,7 +664,6 @@ export default [
     },
     components: {
       default: Messages,
-      sidenav: Sidenav,
     },
     children: [
       {
@@ -688,6 +682,7 @@ export default [
     name: 'notifications',
     path: 'notifications',
     meta: {
+      sidenav: true,
       requireLoggedIn: true,
       breadcrumbs: [
         { translation: 'NOTIFICATION_BELLS_LIST.TITLE', route: { name: 'notifications' } },
@@ -695,7 +690,6 @@ export default [
     },
     components: {
       default: Notifications,
-      sidenav: Sidenav,
     },
   },
 ]

@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { h, ref, useAttrs, useSlots, watchEffect } from 'vue'
+import { computed, h, ref, useAttrs, useSlots, watchEffect } from 'vue'
 
 import { getPluginSlotComponents } from '@/boot/plugins'
 
@@ -27,10 +27,19 @@ watchEffect(async () => {
   components.value = await getPluginSlotComponents(props.name)
 })
 
+const nonDefaultSlots = computed(() => {
+  return Object.keys(slots).reduce((acc, name) => {
+    if (name !== 'default') {
+      acc[name] = slots[name]
+    }
+    return acc
+  }, {})
+})
+
 function Root () {
   const startNode = slots.default ? h(slots.default, attrs) : null
   return components.value.reduce((node, component) => {
-    return h(component, attrs, { default: node })
+    return h(component, attrs, { default: node, ...nonDefaultSlots.value })
   }, startNode)
 }
 </script>

@@ -50,7 +50,7 @@ export default async context => {
         await setupPlugin(await import(/* @vite-ignore */ localPluginURL))
       }
       catch (error) {
-        console.error(`failed to load local plugin from ${localPluginURL}`)
+        console.error(`failed to load local plugin from ${localPluginURL}`, error)
       }
     }
   }

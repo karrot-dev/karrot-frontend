@@ -46,44 +46,12 @@
           overlay
           elevated
         >
-          <SidenavTitle @click="toggleSidenav" />
-          <RouterView name="sidenav" />
-          <KarrotSlot name="sidenavFooter">
-            <QItem
-              clickable
-              @click="toggleAbout"
-            >
-              <QItemSection
-                side
-                class="text-center"
-              >
-                <KarrotLogo class="logo" />
-              </QItemSection>
-              <QItemSection>
-                {{ $t("GLOBAL.ABOUT_KARROT") }}
-              </QItemSection>
-            </QItem>
-            <CommunityFeed />
-          </KarrotSlot>
-          <QItem
-            clickable
-            @click="logout()"
-          >
-            <QItemSection side>
-              <QIcon
-                size="1em"
-                name="fas fa-sign-out-alt fa-fw"
-              />
-            </QItemSection>
-            <QItemSection>
-              {{ $t('TOPBAR.LOGOUT') }}
-            </QItemSection>
-          </QItem>
+          <Sidenav @toggle-sidenav="toggleSidenav" />
         </QDrawer>
 
         <!-- desktop sidenav -->
         <QDrawer
-          v-else-if="isLoggedIn && currentGroupId && hasSidenavComponent && !disableDesktopSidenav"
+          v-else-if="isLoggedIn && enableSidenav"
           side="left"
           :width="sidenavWidth"
           :breakpoint="0"
@@ -92,24 +60,7 @@
           elevated
           @click="toggleSidenav"
         >
-          <RouterView name="sidenav" />
-          <KarrotSlot name="sidenavFooter">
-            <QItem
-              clickable
-              @click="toggleAbout"
-            >
-              <QItemSection
-                side
-                class="text-center"
-              >
-                <KarrotLogo class="logo" />
-              </QItemSection>
-              <QItemSection>
-                {{ $t("GLOBAL.ABOUT_KARROT") }}
-              </QItemSection>
-            </QItem>
-            <CommunityFeed />
-          </KarrotSlot>
+          <Sidenav @toggle-sidenav="toggleSidenav" />
         </QDrawer>
 
         <QPageContainer>
@@ -152,32 +103,23 @@
       </QLayout>
     </div>
 
-    <QDialog v-model="showAbout">
-      <KAbout @close="toggleAbout" />
-    </QDialog>
-
     <Meeting v-if="roomActive" />
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   QLayout,
   QHeader,
   QDrawer,
   QFooter,
-  QDialog,
   QPageContainer,
   QPage,
-  QItem,
-  QIcon,
-  QItemSection,
-  QBtn,
+  QBtn, useQuasar,
 } from 'quasar'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { useLogoutMutation } from '@/authuser/mutations'
 import { useAuthService } from '@/authuser/services'
 import { useRouteErrorService } from '@/base/services'
 import { useCurrentGroupService } from '@/group/services'
@@ -186,142 +128,79 @@ import { useDetailService } from '@/messages/services'
 import { useStatusService } from '@/status/services'
 
 import Banners from '@/alerts/components/Banners.vue'
-import KAbout from '@/base/components/KAbout.vue'
-import KarrotSlot from '@/base/components/KarrotSlot.vue'
 import RouteError from '@/base/components/RouteError.vue'
 import UnsupportedBrowserWarning from '@/base/components/UnsupportedBrowserWarning.vue'
-import CommunityFeed from '@/communityFeed/components/CommunityFeed.vue'
-import KarrotLogo from '@/logo/components/KarrotLogo.vue'
 import Meeting from '@/meet/components/Meeting.vue'
 import DetailSidebar from '@/messages/components/DetailSidebar.vue'
-import SidenavTitle from '@/sidenav/components/SidenavTitle.vue'
+import Sidenav from '@/sidenav/components/Sidenav.vue'
 import KTopbar from '@/topbar/components/KTopbar.vue'
 import KTopbarLoggedOut from '@/topbar/components/LoggedOut/KTopbar.vue'
 
-export default {
-  components: {
-    KarrotSlot,
-    Meeting,
-    KarrotLogo,
-    QDialog,
-    DetailSidebar,
-    KAbout,
-    KTopbar,
-    KTopbarLoggedOut,
-    SidenavTitle,
-    QLayout,
-    QHeader,
-    QDrawer,
-    QFooter,
-    QPageContainer,
-    QPage,
-    QBtn,
-    QIcon,
-    QItem,
-    QItemSection,
-    Banners,
-    RouteError,
-    UnsupportedBrowserWarning,
-    CommunityFeed,
-  },
-  setup () {
-    const { isLoggedIn } = useAuthService()
-    const { isDetailActive } = useDetailService()
-    const { mutate: logout } = useLogoutMutation()
+const { isLoggedIn } = useAuthService()
+const { isDetailActive } = useDetailService()
 
-    const { hasError } = useRouteErrorService()
+const { hasError } = useRouteErrorService()
 
-    const {
-      groupId: currentGroupId,
-      isBikeKitchen,
-      isGeneralPurpose,
-    } = useCurrentGroupService()
+const $q = useQuasar()
 
-    const {
-      unseenCount,
-      unseenNotificationCount,
-    } = useStatusService()
+const {
+  isBikeKitchen,
+  isGeneralPurpose,
+} = useCurrentGroupService()
 
-    const hasUnseen = computed(() => unseenCount.value > 0 || unseenNotificationCount.value > 0)
+const {
+  unseenCount,
+  unseenNotificationCount,
+} = useStatusService()
 
-    const route = useRoute()
+const hasUnseen = computed(() => unseenCount.value > 0 || unseenNotificationCount.value > 0)
 
-    const disableDesktopSidenav = computed(() => route.meta.disableDesktopSidenav)
+const route = useRoute()
 
-    const isGroupWall = computed(() => route.name === 'group')
+const enableSidenav = computed(() => route.meta.sidenav)
 
-    const { active: roomActive } = useRoomService()
+const isGroupWall = computed(() => route.name === 'group')
 
-    return {
-      logout,
-      hasError,
-      isGroupWall,
-      isDetailActive,
-      isLoggedIn,
-      currentGroupId,
-      isBikeKitchen,
-      isGeneralPurpose,
-      hasUnseen,
-      disableDesktopSidenav,
-      roomActive,
-    }
-  },
-  data () {
-    return {
-      showSidenav: false,
-      showAbout: false,
-    }
-  },
-  computed: {
-    layoutView () {
-      if (this.$q.platform.is.mobile) {
-        return 'hHh LpR fFf'
-      }
-      return 'hHh LpR lfr'
-    },
-    sidenavWidth () {
-      if (this.$q.platform.is.mobile) {
-        return Math.min(380, this.$q.screen.width)
-      }
-      return this.$q.screen.width > 1000 ? 380 : 280
-    },
-    detailWidth () {
-      const contentWidth = this.$q.screen.width - this.sidenavWidth
-      const columnWidth = Math.floor(contentWidth / 2)
-      return Math.min(500, Math.max(280, columnWidth))
-    },
-    routerComponents () {
-      const components = {}
-      for (const m of this.$route.matched) {
-        for (const name of Object.keys(m.components)) {
-          components[name] = true
-        }
-      }
-      return components
-    },
-    fullpage () {
-      return this.$route.matched.some(m => m.meta.fullpage)
-    },
-    hasSidenavComponent () {
-      return Boolean(this.routerComponents.sidenav)
-    },
-    hasDetailComponent () {
-      return this.$route.matched.some(({ meta }) => meta && meta.isDetail === true)
-    },
-    theme () {
-      if (this.isBikeKitchen) return 'bikekitchen'
-      if (this.isGeneralPurpose) return 'general'
-      return ''
-    },
-  },
-  methods: {
-    toggleSidenav () {
-      this.showSidenav = !this.showSidenav
-    },
-    toggleAbout () {
-      this.showAbout = !this.showAbout
-    },
-  },
+const { active: roomActive } = useRoomService()
+
+const showSidenav = ref(false)
+
+const layoutView = computed(() => {
+  if ($q.platform.is.mobile) {
+    return 'hHh LpR fFf'
+  }
+  return 'hHh LpR lfr'
+})
+
+const sidenavWidth = computed(() => {
+  if ($q.platform.is.mobile) {
+    return Math.min(380, $q.screen.width)
+  }
+  return $q.screen.width > 1000 ? 380 : 280
+})
+
+const detailWidth = computed(() => {
+  const contentWidth = $q.screen.width - sidenavWidth.value
+  const columnWidth = Math.floor(contentWidth / 2)
+  return Math.min(500, Math.max(280, columnWidth))
+})
+
+const fullpage = computed(() => {
+  return route.matched.some(m => m.meta.fullpage)
+})
+
+const hasDetailComponent = computed(() => {
+  return route.matched.some(({ meta }) => meta && meta.isDetail === true)
+})
+
+const theme = computed(() => {
+  if (isBikeKitchen.value) return 'bikekitchen'
+  if (isGeneralPurpose.value) return 'general'
+  return ''
+})
+
+function toggleSidenav () {
+  showSidenav.value = !showSidenav.value
 }
 </script>
 

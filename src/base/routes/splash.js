@@ -81,7 +81,6 @@ export default [
       breadcrumbs: [
         { translation: 'VERIFYMAIL.TITLE', route: { name: 'verifymail' } },
       ],
-      afterLeave: 'verifymail/clear',
     },
     components: {
       default: VerifyMail,
@@ -96,7 +95,6 @@ export default [
       breadcrumbs: [
         { translation: 'SIGNUP.TITLE', route: { name: 'signup' } },
       ],
-      afterLeave: 'users/clearSignup',
     },
     components: {
       default: Signup,
@@ -111,7 +109,6 @@ export default [
       breadcrumbs: [
         { translation: 'DELETEACCOUNT.TITLE' },
       ],
-      afterLeave: 'deleteAccount/clear',
     },
     components: {
       default: DeleteAccount,

@@ -18,6 +18,7 @@ RUN yarn build
 FROM docker.io/nginx:${NGINX_VERSION}
 
 ARG KARROT_VERSION="unknown"
+ENV KARROT_VERSION="${KARROT_VERSION}"
 
 COPY --from=build /app/code/dist/pwa /usr/share/nginx/html
 

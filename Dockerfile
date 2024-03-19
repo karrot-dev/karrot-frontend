@@ -1,5 +1,5 @@
 ARG NODE_VERSION=20
-ARG NGINX_VERSION=1.25
+ARG NGINX_VERSION=1.24
 
 FROM docker.io/node:${NODE_VERSION} as build
 
@@ -15,7 +15,7 @@ RUN yarn build
 
 #--------------------------------------
 
-FROM docker.io/nginx:${NGINX_VERSION}-alpine-slim
+FROM docker.io/nginx:${NGINX_VERSION}
 
 COPY --from=build /app/code/dist/pwa /usr/share/nginx/html
 

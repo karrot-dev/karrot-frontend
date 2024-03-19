@@ -6,6 +6,7 @@ steps:
       repo: codeberg.org/${CI_REPO}
       registry: codeberg.org
       auto_tag: true
+      buildkit_debug: true
       tags: tmp-${CI_COMMIT_SHA:0:8}
       username: ${CI_REPO_OWNER}
       cache_images:

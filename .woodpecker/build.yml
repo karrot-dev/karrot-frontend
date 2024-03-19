@@ -8,7 +8,7 @@ steps:
       registry: codeberg.org
       auto_tag: true
       buildkit_debug: true
-      buildkit_driveopt:
+      buildkit_driveropt:
         - "image=moby/buildkit:v0.13.1"
       tags: tmp-${CI_COMMIT_SHA:0:8}
       username: ${CI_REPO_OWNER}

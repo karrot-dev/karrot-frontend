@@ -1,12 +1,15 @@
 steps:
   - name: "Build docker image"
-    image: woodpeckerci/plugin-docker-buildx:3.2.0
+    image: woodpeckerci/plugin-docker-buildx:latest
     settings:
+      # See docs https://woodpecker-ci.org/plugins/Docker%20Buildx
       platforms: linux/amd64
       repo: codeberg.org/${CI_REPO}
       registry: codeberg.org
       auto_tag: true
       buildkit_debug: true
+      buildkit_driveopt:
+        - "image=moby/buildkit:v0.12.5"
       tags: tmp-${CI_COMMIT_SHA:0:8}
       username: ${CI_REPO_OWNER}
       cache_images:
@@ -19,8 +22,13 @@ steps:
           password:
             from_secret: docker_token
 
-
-#  - name: "Build tar.xz"
+  - name: "Build tar.xz"
+    image: "codeberg.org/${CI_REPO}:tmp-${CI_COMMIT_SHA:0:8}"
+    secrets:
+      - cb_token
+    commands:
+      - tar cJvf /tmp/karrot-frontend.tar.xz -C dist/pwa .
+      - curl --user nicksellen:$CB_TOKEN --upload-file /tmp/karrot-frontend.tar.xz https://codeberg.org/api/packages/karrot/generic/karrot-frontend/latest/karrot-frontend.tar.xz
 
 when:
   - event: push

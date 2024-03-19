@@ -25,5 +25,5 @@ when:
   - event: manual
 
 depends_on:
-  # Only build if tests work
+  # Only build if tests pass
   - test

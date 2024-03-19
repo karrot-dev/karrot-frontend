@@ -1,6 +1,6 @@
 steps:
   - name: "Build docker image"
-    image: woodpeckerci/plugin-docker-buildx
+    image: woodpeckerci/plugin-docker-buildx:3.2.0
     settings:
       platforms: linux/amd64
       repo: codeberg.org/${CI_REPO}
@@ -18,6 +18,9 @@ steps:
           username: nicksellen
           password:
             from_secret: docker_token
+
+
+#  - name: "Build tar.xz"
 
 when:
   - event: push

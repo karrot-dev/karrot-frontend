@@ -1,6 +1,6 @@
 variables:
-  karrot_env: &karrot_env
-    KARROT_VERSION: "${CI_COMMIT_TAG=latest}"
+  - karrot_env: &karrot_env
+    - KARROT_VERSION: "${CI_COMMIT_TAG=latest}"
 
 steps:
   - name: "Build docker image"
@@ -12,17 +12,27 @@ steps:
       registry: codeberg.org
       auto_tag: true
       build_args:
-        <<: *karrot_env
-      buildkit_debug: true
-      buildkit_driveropt:
-        - "image=moby/buildkit:v0.13.1"
+        - <<: *karrot_env
       tags: tmp-${CI_COMMIT_SHA:0:8}
       username: ${CI_REPO_OWNER}
+      # Sadly with the cache it fails with:
+      #   ERROR: failed to solve: content digest
+      # See https://ci.codeberg.org/repos/13172/pipeline/22/3
       # cache_images:
       #   - codeberg.org/${CI_REPO}:cache
+      # We can choose our buildkit version
+      # This was to try resolve the image caching issue
+      # buildkit_driveropt:
+      #   - "image=moby/buildkit:v0.13.1"
+      # buildkit_debug: true
       password:
+        # This is a codeberg token that let's us
+        # publish packages
         from_secret: cb_token
       logins:
+        # This is just a public read only key
+        # as we can run into rate limits just
+        # pulling the public docker images
         - registry: docker.io
           username: nicksellen
           password:
@@ -31,9 +41,9 @@ steps:
   - name: "Build tar.gz"
     image: "codeberg.org/${CI_REPO}:tmp-${CI_COMMIT_SHA:0:8}"
     environment:
-      <<: *karrot_env
-      PACKAGE_BASE: "https://codeberg.org/api/packages/karrot/generic/karrot-frontend"
-      PACKAGE_FILENAME: "karrot-frontend.tar.gz"
+      - <<: *karrot_env
+      - PACKAGE_BASE: "https://codeberg.org/api/packages/karrot/generic/karrot-frontend"
+      - PACKAGE_FILENAME: "karrot-frontend.tar.gz"
     secrets:
       - cb_token
     commands:

@@ -1,18 +1,22 @@
 variables:
-  - karrot_env: &karrot_env
-      - KARROT_VERSION: "${CI_COMMIT_TAG=latest}"
+  karrot_env: &karrot_env
+    KARROT_VERSION: "${CI_COMMIT_TAG=latest}"
+    KARROT_COMMIT: "${CI_COMMIT_SHA}"
 
 steps:
   - name: "Build docker image"
     image: woodpeckerci/plugin-docker-buildx:latest
+    environment:
+      <<: *karrot_env
     settings:
       # See docs https://woodpecker-ci.org/plugins/Docker%20Buildx
       platforms: linux/amd64
       repo: codeberg.org/${CI_REPO}
       registry: codeberg.org
       auto_tag: true
-      build_args:
-        - <<: *karrot_env
+      build_args_from_env:
+        - KARROT_VERSION
+        - KARROT_COMMIT
       tags: tmp-${CI_COMMIT_SHA:0:8}
       username: ${CI_REPO_OWNER}
       # Sadly with the cache it fails with:
@@ -41,9 +45,9 @@ steps:
   - name: "Build tar.gz"
     image: "codeberg.org/${CI_REPO}:tmp-${CI_COMMIT_SHA:0:8}"
     environment:
-      - <<: *karrot_env
-      - PACKAGE_BASE: "https://codeberg.org/api/packages/karrot/generic/karrot-frontend"
-      - PACKAGE_FILENAME: "karrot-frontend.tar.gz"
+      <<: *karrot_env
+      PACKAGE_BASE: "https://codeberg.org/api/packages/karrot/generic/karrot-frontend"
+      PACKAGE_FILENAME: "karrot-frontend.tar.gz"
     secrets:
       - cb_token
     commands:

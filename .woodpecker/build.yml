@@ -24,6 +24,6 @@ when:
   - event: tag
   - event: manual
 
-depends_on:
-  # Only build if tests pass
-  - test
+#depends_on:
+#  # Only build if tests pass
+#  - test

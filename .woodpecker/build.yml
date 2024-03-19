@@ -18,8 +18,8 @@ steps:
         - "image=moby/buildkit:v0.13.1"
       tags: tmp-${CI_COMMIT_SHA:0:8}
       username: ${CI_REPO_OWNER}
-      #cache_images:
-      #  - codeberg.org/${CI_REPO}:cache
+      # cache_images:
+      #   - codeberg.org/${CI_REPO}:cache
       password:
         from_secret: cb_token
       logins:
@@ -28,15 +28,26 @@ steps:
           password:
             from_secret: docker_token
 
-  - name: "Build tar.xz"
+  - name: "Build tar.gz"
     image: "codeberg.org/${CI_REPO}:tmp-${CI_COMMIT_SHA:0:8}"
     environment:
       <<: *karrot_env
+      PACKAGE_BASE: "https://codeberg.org/api/packages/karrot/generic/karrot-frontend"
+      PACKAGE_FILENAME: "karrot-frontend.tar.gz"
     secrets:
       - cb_token
     commands:
-      - tar czvf /tmp/karrot-frontend.tar.gz -C /usr/share/nginx/html .
-      - curl --user nicksellen:$CB_TOKEN --upload-file /tmp/karrot-frontend.tar.gz https://codeberg.org/api/packages/karrot/generic/karrot-frontend/$KARROT_VERSION/karrot-frontend.tar.gz
+      - tar czvf "$PACKAGE_FILENAME" -C /usr/share/nginx/html .
+      - > 
+        curl
+          -XDELETE
+          --user "nicksellen:$CB_TOKEN"
+        "$PACKAGE_BASE/$KARROT_VERSION/$PACKAGE_FILENAME" || true
+      - > 
+        curl 
+          --user "nicksellen:$CB_TOKEN"
+          --upload-file "$PACKAGE_FILENAME"
+        "$PACKAGE_BASE/$KARROT_VERSION/$PACKAGE_FILENAME"
 
 when:
   - event: push
@@ -44,6 +55,6 @@ when:
   - event: tag
   - event: manual
 
-#depends_on:
-#  # Only build if tests pass
-#  - test
+# depends_on:
+#   # Only build if tests pass
+#   - test

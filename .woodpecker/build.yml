@@ -38,16 +38,8 @@ steps:
       - cb_token
     commands:
       - tar czvf "$PACKAGE_FILENAME" -C /usr/share/nginx/html .
-      - > 
-        curl
-          -XDELETE
-          --user "nicksellen:$CB_TOKEN"
-        "$PACKAGE_BASE/$KARROT_VERSION/$PACKAGE_FILENAME" || true
-      - > 
-        curl 
-          --user "nicksellen:$CB_TOKEN"
-          --upload-file "$PACKAGE_FILENAME"
-        "$PACKAGE_BASE/$KARROT_VERSION/$PACKAGE_FILENAME"
+      - curl -XDELETE --user "nicksellen:$CB_TOKEN" "$PACKAGE_BASE/$KARROT_VERSION/$PACKAGE_FILENAME" || true
+      - curl --user "nicksellen:$CB_TOKEN" --upload-file "$PACKAGE_FILENAME" "$PACKAGE_BASE/$KARROT_VERSION/$PACKAGE_FILENAME"
 
 when:
   - event: push

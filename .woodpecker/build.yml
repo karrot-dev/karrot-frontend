@@ -1,0 +1,25 @@
+steps:
+  - name: "Build docker image"
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      platforms: linux/amd64
+      repo: codeberg.org/${CI_REPO}
+      registry: codeberg.org
+      auto_tag: true
+      tags: tmp-${CI_COMMIT_SHA:0:8}
+      username: ${CI_REPO_OWNER}
+      cache_images:
+        - codeberg.org/${CI_REPO}:cache
+      password:
+        from_secret: cb_token
+      logins:
+        - registry: docker.io
+          username: nicksellen
+          password:
+            from_secret: docker_token
+
+when:
+  - event: push
+    branch: main
+  - event: tag
+  - event: manual

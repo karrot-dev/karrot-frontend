@@ -1,0 +1,11 @@
+steps:
+  - name: "Test"
+    image: "docker.io/node:20"
+    commands:
+      - yarn
+      - yarn test
+
+when:
+  - branch: main
+  - event: tag
+  - event: manual

@@ -1,6 +1,6 @@
 variables:
   - karrot_env: &karrot_env
-    - KARROT_VERSION: "${CI_COMMIT_TAG=latest}"
+      - KARROT_VERSION: "${CI_COMMIT_TAG=latest}"
 
 steps:
   - name: "Build docker image"

@@ -9,7 +9,7 @@ steps:
       auto_tag: true
       buildkit_debug: true
       buildkit_driveopt:
-        - "image=moby/buildkit:v0.12.5"
+        - "image=moby/buildkit:v0.13.1"
       tags: tmp-${CI_COMMIT_SHA:0:8}
       username: ${CI_REPO_OWNER}
       cache_images:

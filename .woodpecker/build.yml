@@ -1,3 +1,7 @@
+variables:
+  - karrot_env: &karrot_env
+    - KARROT_VERSION="${CI_COMMIT_TAG=${CI_COMMIT_BRANCH}}"
+
 steps:
   - name: "Build docker image"
     image: woodpeckerci/plugin-docker-buildx:latest
@@ -7,6 +11,8 @@ steps:
       repo: codeberg.org/${CI_REPO}
       registry: codeberg.org
       auto_tag: true
+      build_args:
+        - <<: *karrot_env
       buildkit_debug: true
       buildkit_driveropt:
         - "image=moby/buildkit:v0.13.1"
@@ -24,11 +30,13 @@ steps:
 
   - name: "Build tar.xz"
     image: "codeberg.org/${CI_REPO}:tmp-${CI_COMMIT_SHA:0:8}"
+    environment:
+      <<: *karrot_env
     secrets:
       - cb_token
     commands:
       - tar czvf /tmp/karrot-frontend.tar.gz -C /usr/share/nginx/html .
-      - curl --user nicksellen:$CB_TOKEN --upload-file /tmp/karrot-frontend.tar.gz https://codeberg.org/api/packages/karrot/generic/karrot-frontend/latest/karrot-frontend.tar.gz
+      - curl --user nicksellen:$CB_TOKEN --upload-file /tmp/karrot-frontend.tar.gz https://codeberg.org/api/packages/karrot/generic/karrot-frontend/$KARROT_VERSION/karrot-frontend.tar.gz
 
 when:
   - event: push

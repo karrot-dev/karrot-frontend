@@ -17,6 +17,8 @@ RUN yarn build
 
 FROM docker.io/nginx:${NGINX_VERSION}
 
+ARG KARROT_VERSION="unknown"
+
 COPY --from=build /app/code/dist/pwa /usr/share/nginx/html
 
 COPY docker/nginx.conf.template /etc/nginx/templates/default.conf.template

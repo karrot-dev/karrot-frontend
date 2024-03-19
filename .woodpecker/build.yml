@@ -27,7 +27,7 @@ steps:
     secrets:
       - cb_token
     commands:
-      - tar cJvf /tmp/karrot-frontend.tar.xz -C dist/pwa .
+      - tar cJvf /tmp/karrot-frontend.tar.xz -C /usr/share/nginx/html .
       - curl --user nicksellen:$CB_TOKEN --upload-file /tmp/karrot-frontend.tar.xz https://codeberg.org/api/packages/karrot/generic/karrot-frontend/latest/karrot-frontend.tar.xz
 
 when:

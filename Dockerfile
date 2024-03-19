@@ -15,7 +15,7 @@ RUN yarn build
 
 #--------------------------------------
 
-FROM docker.io/nginx:${NGINX_VERSION}-alpine
+FROM docker.io/nginx:${NGINX_VERSION}-alpine-slim
 
 LABEL org.opencontainers.image.source=https://github.com/karrot-dev/karrot-frontend
 

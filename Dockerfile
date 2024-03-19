@@ -3,11 +3,14 @@ ARG NGINX_VERSION=1.25
 
 FROM docker.io/node:${NODE_VERSION} as build
 
-COPY . /app/code
-
 WORKDIR /app/code
 
+COPY package.json yarn.lock /app/code
+
 RUN yarn
+
+COPY . /app/code
+
 RUN yarn build
 
 #--------------------------------------

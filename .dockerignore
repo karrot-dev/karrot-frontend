@@ -3,4 +3,5 @@ storybook-static
 .git
 .idea
 Dockerfile
+.woodpecker
 dist

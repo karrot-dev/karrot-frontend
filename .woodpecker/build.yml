@@ -23,3 +23,7 @@ when:
     branch: main
   - event: tag
   - event: manual
+
+depends_on:
+  # Only build if tests work
+  - test

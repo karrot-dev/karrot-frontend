@@ -3,6 +3,7 @@ steps:
     image: "docker.io/node:20"
     commands:
       - yarn
+      - yarn lint
       - yarn test
 
 when:

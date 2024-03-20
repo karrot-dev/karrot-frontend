@@ -29,7 +29,8 @@ steps:
   - name: "extract content"
     image: codeberg.org/${CI_REPO}:latest
     commands:
-      - find /
+      - find /usr/share/nginx/html
+      - find .woodpecker
       - cp -r /usr/share/nginx/html .woodpecker/dist
 
 #  - name: "publish tar.gz"

@@ -23,7 +23,7 @@ steps:
       tags: ${CI_COMMIT_TAG}
 
   - name: "extract content"
-    image: codeberg.org/${CI_REPO}:${CI_COMMIT_TAG}
+    image: "codeberg.org/${CI_REPO}:${CI_COMMIT_TAG}"
     commands:
       - cp -r /usr/share/nginx/html dist
 

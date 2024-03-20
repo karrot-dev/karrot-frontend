@@ -30,7 +30,7 @@ steps:
     image: codeberg.org/${CI_REPO}:latest
     commands:
       - find /
-      - cp /usr/share/nginx/html .woodpecker/dist
+      - cp -r /usr/share/nginx/html .woodpecker/dist
 
 #  - name: "publish tar.gz"
 #    image: codeberg.org/karrot/plugin-publish-generic-package:latest

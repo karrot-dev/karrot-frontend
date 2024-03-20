@@ -22,12 +22,16 @@ steps:
         - KARROT_COMMIT=${CI_COMMIT_SHA}
       tags: ${CI_COMMIT_TAG}
 
+  - name: "extract content"
+    image: codeberg.org/${CI_REPO}:${CI_COMMIT_TAG}
+    commands:
+      - cp -r /usr/share/nginx/html dist
+
   - name: "publish tar.gz"
-    image: codeberg.org/karrot/plugin-publish-generic-package
+    image: codeberg.org/karrot/plugin-publish-generic-package:latest
     pull: true
     settings:
-      image: codeberg.org/${CI_REPO}:latest
-      path: /usr/share/nginx/html
+      folder: dist
       filename: karrot-frontend.tar.gz
       version: ${CI_COMMIT_TAG}
       registry: codeberg.org

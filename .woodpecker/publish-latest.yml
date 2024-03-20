@@ -27,7 +27,7 @@ steps:
       tags: latest
 
   - name: "publish tar.gz"
-    image: codeberg.org/karrot/plugin-publish-generic-package
+    image: codeberg.org/karrot/plugin-publish-generic-package:latest
     pull: true
     settings:
       image: codeberg.org/${CI_REPO}:latest

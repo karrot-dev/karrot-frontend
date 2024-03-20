@@ -29,6 +29,7 @@ steps:
   - name: "publish tar.gz"
     image: codeberg.org/karrot/plugin-publish-generic-package:latest
     pull: true
+    privileged: true
     settings:
       image: codeberg.org/${CI_REPO}:latest
       path: /usr/share/nginx/html

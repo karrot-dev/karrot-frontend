@@ -30,18 +30,17 @@ steps:
     image: codeberg.org/${CI_REPO}:latest
     commands:
       - find /usr/share/nginx/html
-      - find .woodpecker
-      - cp -r /usr/share/nginx/html .woodpecker/dist
+      - find .
+      - cp -r /usr/share/nginx/html dist
 
-#  - name: "publish tar.gz"
-#    image: codeberg.org/karrot/plugin-publish-generic-package:latest
-#    pull: true
-#    settings:
-#      image: codeberg.org/${CI_REPO}:latest
-#      path: /usr/share/nginx/html
-#      filename: karrot-frontend.tar.gz
-#      version: latest
-#      registry: codeberg.org
-#      username: ${CI_REPO_OWNER}
-#      password:
-#        from_secret: cb_token
+  - name: "publish tar.gz"
+    image: codeberg.org/karrot/plugin-publish-generic-package:latest
+    pull: true
+    settings:
+      folder: dist
+      filename: karrot-frontend.tar.gz
+      version: latest
+      registry: codeberg.org
+      username: ${CI_REPO_OWNER}
+      password:
+        from_secret: cb_token

@@ -19,11 +19,22 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
-## [Unreleased]
+## [14.0.0] - 2024-03-22
+### Changed
+- Move main repository and CI to codeberg @nicksellen
+- Add Dockerfile for frontend and backend @nicksellen
+- Support public activity query params @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2713 https://github.com/karrot-dev/karrot-frontend/pull/2713
+- Increase default activity page size to 20 @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2712
+- Python 3.11 @nicksellen support https://github.com/karrot-dev/karrot-backend/pull/1290
+
+### Fixed
+- Don't pull in all of lodash @nicksellen https://github.com/karrot-dev/karrot-frontend/pull/2709
+- Fix slow database queries @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1288
+- Fix missing conversation meta @nicksellen https://github.com/karrot-dev/karrot-backend/pull/1289
 
 ## [13.0.1] - 2024-02-11
 ### Fixed
-- removed ragged edges effect due to reported performance regression @nicksellen
+- Removed ragged edges effect due to reported performance regression @nicksellen
 
 ## [13.0.0] - 2024-01-25
 ### Added

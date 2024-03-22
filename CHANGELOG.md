@@ -19,6 +19,8 @@ Please document your changes in this format:
   - description of change [#PR] @username
 ```
 
+## [Unreleased]
+
 ## [14.0.0] - 2024-03-22
 ### Changed
 - Move main repository and CI to codeberg @nicksellen
@@ -961,7 +963,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2663]: https://github.com/karrot-dev/karrot-frontend/issues/2663
 [#2677]: https://github.com/karrot-dev/karrot-frontend/issues/2677
 
-[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v13.0.1...HEAD
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v14.0.0...HEAD
+[14.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v13.0.1...v14.0.0
 [13.0.1]: https://github.com/karrot-dev/karrot-frontend/compare/v13.0.0...v13.0.1
 [13.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v12.1.0...v13.0.0
 [12.1.0]: https://github.com/karrot-dev/karrot-frontend/compare/v12.0.1...v12.1.0

@@ -51,7 +51,6 @@ function onProxyRes (proxyRes, req, res) {
   // We generate a local one on the fly
   // Have a look at https://dev.karrot.world/about.json to see what it should contain
   if (req.url === '/about.json' && proxyRes.statusCode !== 200) {
-    console.log('about.json?')
     res.writeHead(200, {
       'Content-Type': 'application/json',
     })

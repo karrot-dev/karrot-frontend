@@ -12,11 +12,13 @@ const RouteError = () => import('@/base/components/RouteError.vue')
 export default createRouter({
   routes: [
     {
+      name: 'main',
       path: '',
       component: MainLayout,
       children: [
         ...mainRoutes,
         {
+          name: 'splash',
           path: '',
           component: SplashLayout,
           children: splashRoutes,

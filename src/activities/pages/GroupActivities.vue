@@ -1,202 +1,203 @@
 <template>
   <div>
-    <KarrotSlot name="activitiesHeader" />
-    <div
-      class="row items-center bg-white q-px-sm q-py-xs q-gutter-sm"
-    >
-      <QSelect
-        v-model="type"
-        :options="typeOptions"
-        emit-value
-        map-options
-        outlined
-        hide-bottom-space
-        dense
+    <KarrotSlot name="groupActivities">
+      <div
+        class="row items-center bg-white q-px-sm q-py-xs q-gutter-sm"
       >
-        <template #option="{ index, opt, itemProps }">
-          <template v-if="opt.value === '$manage'">
-            <QSeparator />
+        <QSelect
+          v-model="type"
+          :options="typeOptions"
+          emit-value
+          map-options
+          outlined
+          hide-bottom-space
+          dense
+        >
+          <template #option="{ index, opt, itemProps }">
+            <template v-if="opt.value === '$manage'">
+              <QSeparator />
+              <QItem
+                :key="index"
+                clickable
+                :to="{ name: 'groupEditActivityTypes' }"
+              >
+                <QItemSection side>
+                  <QIcon
+                    name="fa fa-cog"
+                    color="gray"
+                    size="1.1em"
+                  />
+                </QItemSection>
+                <QItemSection>
+                  <QItemLabel class="text-italic">
+                    {{ $t('LABELS.MANAGE_TYPES') }}
+                  </QItemLabel>
+                </QItemSection>
+              </QItem>
+            </template>
             <QItem
+              v-else
               :key="index"
-              clickable
-              :to="{ name: 'groupEditActivityTypes' }"
+              v-bind="itemProps"
             >
               <QItemSection side>
                 <QIcon
-                  name="fa fa-cog"
-                  color="gray"
+                  v-if="opt.activityType"
+                  v-bind="getIconProps(opt.activityType)"
+                  size="1.1em"
+                />
+                <QIcon
+                  v-else
+                  color="transparent"
                   size="1.1em"
                 />
               </QItemSection>
               <QItemSection>
-                <QItemLabel class="text-italic">
-                  {{ $t('LABELS.MANAGE_TYPES') }}
+                <QItemLabel>
+                  {{ opt.label }}
+                </QItemLabel>
+                <QItemLabel
+                  v-if="opt.caption"
+                  caption
+                  class="ellipsis"
+                  style="max-width: 200px;"
+                  :title="opt.caption"
+                >
+                  {{ opt.caption }}
                 </QItemLabel>
               </QItemSection>
             </QItem>
+            <QSeparator v-if="!opt.value" />
           </template>
-          <QItem
-            v-else
-            :key="index"
-            v-bind="itemProps"
-          >
-            <QItemSection side>
-              <QIcon
-                v-if="opt.activityType"
-                v-bind="getIconProps(opt.activityType)"
-                size="1.1em"
-              />
-              <QIcon
-                v-else
-                color="transparent"
-                size="1.1em"
-              />
-            </QItemSection>
-            <QItemSection>
-              <QItemLabel>
-                {{ opt.label }}
-              </QItemLabel>
-              <QItemLabel
-                v-if="opt.caption"
-                caption
-                class="ellipsis"
-                style="max-width: 200px;"
-                :title="opt.caption"
-              >
-                {{ opt.caption }}
-              </QItemLabel>
-            </QItemSection>
-          </QItem>
-          <QSeparator v-if="!opt.value" />
-        </template>
-      </QSelect>
-      <QSelect
-        v-model="slots"
-        :options="slotsOptions"
-        emit-value
-        map-options
-        outlined
-        hide-bottom-space
-        dense
-      />
-      <QSelect
-        v-if="places.length > 1"
-        v-model="place"
-        :options="placeOptions"
-        emit-value
-        map-options
-        outlined
-        hide-bottom-space
-        dense
-        use-input
-        fill-input
-        hide-selected
-        @filter="filterPlaceOptions"
-      >
-        <template #option="{ index, itemProps, opt }">
-          <QSeparator v-if="opt.value === '$seperator'" />
-          <QItem
-            v-else
-            :key="index"
-            dense
-            v-bind="itemProps"
-          >
-            <QItemSection side>
-              <PlaceIcon
-                v-if="opt.place"
-                :place="opt.place"
-                size="1.1em"
-              />
-              <QIcon
-                v-else-if="opt.value === 'subscribed'"
-                name="fas fa-fw fa-star"
-                color="green"
-                size="1.1em"
-              />
-              <QIcon
-                v-else
-                size="1.1em"
-              />
-            </QItemSection>
-            <QItemSection>
-              <QItemLabel>{{ opt.label }}</QItemLabel>
-            </QItemSection>
-            <QItemSection
-              v-if="opt.place?.isSubscribed"
-              side
-            >
-              <QIcon
-                name="fas fa-fw fa-star"
-                color="green"
-                size="1.1em"
-              />
-            </QItemSection>
-          </QItem>
-        </template>
-      </QSelect>
-      <QSpace />
-      <ActivityCreateButton v-if="isEditor" />
-      <ICSBtn
-        :group="groupId"
-        :joined="true"
-        color="secondary"
-        padding="4px 13px"
-        rounded
-        size="sm"
-      />
-    </div>
-    <QInfiniteScroll
-      :disable="!hasNextPage"
-      :offset="100"
-      @load="maybeFetchMore"
-    >
-      <ActivityList
-        :activities="activities"
-        place-link
-      />
-      <KSpinner v-show="isLoading || isFetchingNextPage" />
-    </QInfiniteScroll>
-    <template v-if="hasNoActivities">
-      <KNotice>
-        <template #icon>
-          <QIcon class="fas fa-bed" />
-        </template>
-        {{ $t('ACTIVITYLIST.NONE') }}
-        <template
-          v-if="isEditor"
-          #desc
+        </QSelect>
+        <QSelect
+          v-model="slots"
+          :options="slotsOptions"
+          emit-value
+          map-options
+          outlined
+          hide-bottom-space
+          dense
+        />
+        <QSelect
+          v-if="places.length > 1"
+          v-model="place"
+          :options="placeOptions"
+          emit-value
+          map-options
+          outlined
+          hide-bottom-space
+          dense
+          use-input
+          fill-input
+          hide-selected
+          @filter="filterPlaceOptions"
         >
-          {{ $t('ACTIVITYLIST.NONE_HINT') }}
-        </template>
-      </KNotice>
-    </template>
-    <div
-      v-if="hasNoActivitiesDueToFilters"
-      class="q-pa-md"
-    >
-      <QBanner
-        class="bg-white"
-        :inline-actions="$q.platform.is.desktop"
+          <template #option="{ index, itemProps, opt }">
+            <QSeparator v-if="opt.value === '$seperator'" />
+            <QItem
+              v-else
+              :key="index"
+              dense
+              v-bind="itemProps"
+            >
+              <QItemSection side>
+                <PlaceIcon
+                  v-if="opt.place"
+                  :place="opt.place"
+                  size="1.1em"
+                />
+                <QIcon
+                  v-else-if="opt.value === 'subscribed'"
+                  name="fas fa-fw fa-star"
+                  color="green"
+                  size="1.1em"
+                />
+                <QIcon
+                  v-else
+                  size="1.1em"
+                />
+              </QItemSection>
+              <QItemSection>
+                <QItemLabel>{{ opt.label }}</QItemLabel>
+              </QItemSection>
+              <QItemSection
+                v-if="opt.place?.isSubscribed"
+                side
+              >
+                <QIcon
+                  name="fas fa-fw fa-star"
+                  color="green"
+                  size="1.1em"
+                />
+              </QItemSection>
+            </QItem>
+          </template>
+        </QSelect>
+        <QSpace />
+        <ActivityCreateButton v-if="isEditor" />
+        <ICSBtn
+          :group="groupId"
+          :joined="true"
+          color="secondary"
+          padding="4px 13px"
+          rounded
+          size="sm"
+        />
+      </div>
+      <QInfiniteScroll
+        :disable="!hasNextPage"
+        :offset="100"
+        @load="maybeFetchMore"
       >
-        <template #avatar>
-          <QIcon
-            name="fas fa-info-circle"
-            color="grey"
-          />
-        </template>
-        <h5 class="q-ma-xs">
-          {{ $t('ACTIVITYLIST.NONE_DUE_TO_FILTER') }}
-        </h5>
-        <template #action>
-          <QBtn
-            flat
-            @click="() => clearFilters()"
+        <ActivityList
+          :activities="activities"
+          place-link
+        />
+        <KSpinner v-show="isLoading || isFetchingNextPage" />
+      </QInfiniteScroll>
+      <template v-if="hasNoActivities">
+        <KNotice>
+          <template #icon>
+            <QIcon class="fas fa-bed" />
+          </template>
+          {{ $t('ACTIVITYLIST.NONE') }}
+          <template
+            v-if="isEditor"
+            #desc
           >
-            {{ $t('GLOBAL.CLEAR_FILTERS') }}
-          </QBtn>
-        </template>
-      </QBanner>
-    </div>
+            {{ $t('ACTIVITYLIST.NONE_HINT') }}
+          </template>
+        </KNotice>
+      </template>
+      <div
+        v-if="hasNoActivitiesDueToFilters"
+        class="q-pa-md"
+      >
+        <QBanner
+          class="bg-white"
+          :inline-actions="$q.platform.is.desktop"
+        >
+          <template #avatar>
+            <QIcon
+              name="fas fa-info-circle"
+              color="grey"
+            />
+          </template>
+          <h5 class="q-ma-xs">
+            {{ $t('ACTIVITYLIST.NONE_DUE_TO_FILTER') }}
+          </h5>
+          <template #action>
+            <QBtn
+              flat
+              @click="() => clearFilters()"
+            >
+              {{ $t('GLOBAL.CLEAR_FILTERS') }}
+            </QBtn>
+          </template>
+        </QBanner>
+      </div>
+    </KarrotSlot>
   </div>
 </template>
 

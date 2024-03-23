@@ -1,39 +1,19 @@
 <template>
   <div class="wrapper">
     <KarrotSlot name="groupWall">
-      <template #default>
-        <div class="notices">
-          <div v-if="joinedActivities.length > 0">
-            <JoinedActivities :activities="joinedActivities" />
-          </div>
-          <div v-if="hasAvailableActivities">
-            <AvailableActivities />
-          </div>
-          <FeedbackNotice
-            v-if="feedbackPossibleCount > 0"
-            :feedback-possible-count="feedbackPossibleCount"
-          />
+      <div class="notices">
+        <div v-if="joinedActivities.length > 0">
+          <JoinedActivities :activities="joinedActivities" />
         </div>
-        <WallConversation :group-id="groupId" />
-      </template>
-      <template #joined-activities>
-        <JoinedActivities
-          v-if="joinedActivities.length > 0"
-          :activities="joinedActivities"
-        />
-      </template>
-      <template #available-activities>
-        <AvailableActivities v-if="hasAvailableActivities" />
-      </template>
-      <template #feedback-notice>
+        <div v-if="hasAvailableActivities">
+          <AvailableActivities />
+        </div>
         <FeedbackNotice
           v-if="feedbackPossibleCount > 0"
           :feedback-possible-count="feedbackPossibleCount"
         />
-      </template>
-      <template #wall>
-        <WallConversation :group-id="groupId" />
-      </template>
+      </div>
+      <WallConversation :group-id="groupId" />
     </KarrotSlot>
   </div>
 </template>

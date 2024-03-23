@@ -14,48 +14,6 @@ const { configure } = require('quasar/wrappers')
 const aliases = require('./aliases').resolve.alias
 const { getHttpsOptions } = require('./build/https')
 
-function GenerateImportMap ({ imports: importsOption }) {
-  return {
-    name: 'karrot:generate-import-map',
-    enforce: 'post',
-    options (options) {
-      // We're just assuming it's a single string input
-      const index = options.input
-
-      Object.assign(options, {
-        // Need this to ensure we actually output stuff that will get
-        // consumed by the things that import stuff, otherwise it gets
-        // removed as it doesn't know it's used
-        preserveEntrySignatures: 'allow-extension',
-        input: {
-          index,
-          ...importsOption,
-        },
-      })
-    },
-    transformIndexHtml (_, { bundle }) {
-      const imports = { ...importsOption }
-      if (bundle) {
-        // Prod mode, convert to bundled name
-        for (const dep of Object.keys(imports)) {
-          const entry = Object
-            .values(bundle)
-            .find(entry => entry.type === 'chunk' && entry.name === dep)
-          if (!entry) throw new Error('missing bundle entry for ' + dep)
-          imports[dep] = './' + entry.fileName
-        }
-      }
-      return [{
-        tag: 'script',
-        attrs: {
-          type: 'importmap',
-        },
-        children: JSON.stringify({ imports }),
-      }]
-    },
-  }
-}
-
 module.exports = configure(function (ctx) {
   const { backend, proxyTable } = require('./build/config')
 
@@ -106,6 +64,7 @@ module.exports = configure(function (ctx) {
         // Trying to make the most compatible version possible :)
         browser: ['es2015', 'edge18', 'firefox60', 'chrome55', 'opera2017', 'ios12'],
       },
+
       vitePlugins: [
         ['@intlify/unplugin-vue-i18n/vite', {
           compositionOnly: false,
@@ -190,3 +149,45 @@ module.exports = configure(function (ctx) {
     },
   }
 })
+
+function GenerateImportMap ({ imports: importsOption }) {
+  return {
+    name: 'karrot:generate-import-map',
+    enforce: 'post',
+    options (options) {
+      // We're just assuming it's a single string input
+      const index = options.input
+
+      Object.assign(options, {
+        // Need this to ensure we actually output stuff that will get
+        // consumed by the things that import stuff, otherwise it gets
+        // removed as it doesn't know it's used
+        preserveEntrySignatures: 'allow-extension',
+        input: {
+          index,
+          ...importsOption,
+        },
+      })
+    },
+    transformIndexHtml (_, { bundle }) {
+      const imports = { ...importsOption }
+      if (bundle) {
+        // Prod mode, convert to bundled name
+        for (const dep of Object.keys(imports)) {
+          const entry = Object
+            .values(bundle)
+            .find(entry => entry.type === 'chunk' && entry.name === dep)
+          if (!entry) throw new Error('missing bundle entry for ' + dep)
+          imports[dep] = './' + entry.fileName
+        }
+      }
+      return [{
+        tag: 'script',
+        attrs: {
+          type: 'importmap',
+        },
+        children: JSON.stringify({ imports }),
+      }]
+    },
+  }
+}

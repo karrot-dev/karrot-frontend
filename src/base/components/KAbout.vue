@@ -39,7 +39,7 @@
         <QItem
           tag="a"
           rel="noopener noreferrer"
-          href="https://github.com/karrot-dev/karrot-frontend"
+          href="https://codeberg.com/karrot/karrot-frontend"
           target="_blank"
         >
           <QItemSection side>
@@ -110,14 +110,19 @@
 
       <div class="text-center k-about-footer">
         karrot
-        <a
-          v-if="release"
-          :href="release.link"
-          target="_blank"
-          rel="noopener"
-        >
-          {{ release.name }}
-        </a>
+        <template v-if="release">
+          <a
+            v-if="release.href"
+            :href="release.href"
+            target="_blank"
+            rel="noopener"
+          >
+            {{ release.name }}
+          </a>
+          <span v-else>
+            {{ release.name }}
+          </span>
+        </template>
         <br><br>
         made with
         <i class="fas fa-heart text-red" />
@@ -142,7 +147,7 @@
   </KarrotSlot>
 </template>
 
-<script>
+<script setup>
 import {
   QBtn,
   QList,
@@ -151,59 +156,34 @@ import {
   QItemLabel,
   QIcon,
 } from 'quasar'
-
-import { useAboutService } from '@/utils/services'
+import { computed } from 'vue'
 
 import KarrotSlot from '@/base/components/KarrotSlot.vue'
 import KarrotLogo from '@/logo/components/KarrotLogo.vue'
 
-export default {
-  components: {
-    KarrotSlot,
-    KarrotLogo,
-    QBtn,
-    QList,
-    QItem,
-    QItemSection,
-    QItemLabel,
-    QIcon,
-  },
-  emits: [
-    'close',
-  ],
-  setup () {
-    const { deployed } = useAboutService()
-    return { deployed }
-  },
-  computed: {
-    release () {
-      if (this.deployed) {
-        if (this.deployed.env === 'local') {
-          return {
-            link: '',
-            name: 'local development',
-          }
-        }
-        if (this.deployed.env === 'production') {
-          return {
-            link: 'https://github.com/karrot-dev/karrot-frontend/blob/master/CHANGELOG.md',
-            name: this.deployed.date,
-          }
-        }
-        if (this.deployed.env === 'development') {
-          return {
-            link: `https://github.com/karrot-dev/karrot-frontend/tree/${this.deployed.commitSHA}`,
-            name: this.deployed.date,
-          }
-        }
-      }
-      return {
-        link: '',
-        name: '',
-      }
-    },
-  },
-}
+defineEmits(['close'])
+
+const release = computed(() => {
+  console.log('kc', process.env.KARROT_COMMIT)
+  if (/^v[0-9]/.test(process.env.KARROT_VERSION)) {
+    // A tag!
+    return {
+      name: process.env.KARROT_VERSION,
+      href: `https://codeberg.org/karrot/karrot/releases/tag/${process.env.KARROT_VERSION}`,
+    }
+  }
+  else if (process.env.KARROT_COMMIT !== 'unknown') {
+    // A commit
+    return {
+      name: process.env.KARROT_VERSION || process.env.KARROT_COMMIT.substring(0, 10),
+      href: `https://codeberg.org/karrot/karrot-frontend/commit/${process.env.KARROT_COMMIT}`,
+    }
+  }
+  // Something else!
+  return {
+    name: process.env.KARROT_VERSION || 'unknown',
+  }
+})
 </script>
 
 <style scoped lang="sass">

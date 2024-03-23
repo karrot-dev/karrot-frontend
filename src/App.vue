@@ -14,7 +14,6 @@
  * Root component
  */
 
-import { useQueryClient } from '@tanstack/vue-query'
 import { onErrorCaptured } from 'vue'
 
 import { useActivitiesUpdater, useActivitySeriesUpdater, useActivityTypeUpdater } from '@/activities/queries'
@@ -94,12 +93,8 @@ export default {
       })
     })
 
-    // TODO: remove at some point... just trying it out for now
-    window.queryClient = useQueryClient()
-
     for (const plugin of karrotPlugins) {
       if (plugin.setup) {
-        // TODO: await?
         plugin.setup()
       }
     }

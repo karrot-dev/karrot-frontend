@@ -34,7 +34,7 @@
   </QDialog>
 </template>
 <script setup>
-import { QItem, QItemSection } from 'quasar'
+import { QDialog, QItem, QItemSection } from 'quasar'
 import { ref } from 'vue'
 
 import { useLogoutMutation } from '@/authuser/mutations'

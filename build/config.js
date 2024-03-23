@@ -42,12 +42,8 @@ module.exports = {
 
 function getLocalAboutJSON () {
   return {
-    commitSHA: run('git rev-parse HEAD'),
-    commitSHAShort: run('git rev-parse --short HEAD'),
-    ref: run('git rev-parse --abbrev-ref HEAD'),
-    env: 'local',
-    apkURL: null,
-    date: new Date().toISOString().replace(/T.*/, ''),
+    KARROT_COMMIT: run('git rev-parse HEAD'),
+    KARROT_VERSION: 'development',
   }
 }
 
@@ -55,6 +51,7 @@ function onProxyRes (proxyRes, req, res) {
   // We generate a local one on the fly
   // Have a look at https://dev.karrot.world/about.json to see what it should contain
   if (req.url === '/about.json' && proxyRes.statusCode !== 200) {
+    console.log('about.json?')
     res.writeHead(200, {
       'Content-Type': 'application/json',
     })

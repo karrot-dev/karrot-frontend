@@ -54,9 +54,16 @@ export const useAboutService = defineService(() => {
   }
 
   const updateAvailable = computed(() => {
-    const latestVersion = deployed.value?.commitSHA
-    const builtVersion = process.env.KARROT.GIT_SHA1
-    return latestVersion && builtVersion && latestVersion !== builtVersion
+    const commit = process.env.KARROT_COMMIT
+    const latestCommit = deployed.value?.KARROT_COMMIT
+    return (
+      // We have both values
+      commit && latestCommit &&
+      // They both look like commit hashes
+      commit.length === 40 && latestCommit.length === 40 &&
+      // They are different!
+      latestCommit !== commit
+    )
   })
 
   return {

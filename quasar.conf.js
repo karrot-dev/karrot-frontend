@@ -21,11 +21,12 @@ module.exports = configure(function (ctx) {
     KARROT: {
       BACKEND: backend,
       THEME: process.env.KARROT_THEME,
-      GIT_SHA1: process.env.GIT_SHA1 || process.env.CIRCLE_SHA1,
     },
     NODE_DEBUG: 'false', // workaround for node-util
     ENABLE_DEV_SENTRY: process.env.ENABLE_DEV_SENTRY,
     LOCAL_PLUGINS: process.env.LOCAL_PLUGINS,
+    KARROT_VERSION: process.env.KARROT_VERSION || 'development',
+    KARROT_COMMIT: process.env.KARROT_COMMIT || 'unknown',
   }
 
   return {

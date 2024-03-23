@@ -5,11 +5,17 @@ FROM docker.io/node:${NODE_VERSION} as build
 
 WORKDIR /app/code
 
-COPY package.json yarn.lock /app/code
+COPY package.json yarn.lock /app/code/
 
 RUN yarn
 
 COPY . /app/code
+
+ARG KARROT_VERSION="unknown"
+ENV KARROT_VERSION="${KARROT_VERSION}"
+
+ARG KARROT_COMMIT="unknown"
+ENV KARROT_COMMIT="${KARROT_COMMIT}"
 
 RUN yarn build
 
@@ -24,5 +30,12 @@ ARG KARROT_COMMIT="unknown"
 ENV KARROT_COMMIT="${KARROT_COMMIT}"
 
 COPY --from=build /app/code/dist/pwa /usr/share/nginx/html
+
+COPY <<EOF /usr/share/nginx/html/about.json
+{
+  "KARROT_VERSION": "$KARROT_VERSION",
+  "KARROT_COMMIT": "$KARROT_COMMIT"
+}
+EOF
 
 COPY docker/nginx.conf.template /etc/nginx/templates/default.conf.template

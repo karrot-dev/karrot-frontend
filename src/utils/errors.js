@@ -17,7 +17,7 @@ export function configureSentry (app, { dsn, environment }) {
       app,
       dsn,
       environment,
-      release: process.env.KARROT.GIT_SHA1,
+      release: process.env.KARROT_COMMIT,
 
       // Disable sentry session tracking
       // See https://docs.sentry.io/platforms/javascript/configuration/releases/?original_referrer=https%3A%2F%2Fwww.startpage.com%2F#sessions

@@ -106,7 +106,7 @@ export function useActivityListQuery ({
   feedbackPossible,
   hasFeedback,
   ordering,
-  pageSize = 10,
+  pageSize = 20,
 }, queryOptions = {}) {
   const query = useInfiniteQuery(
     queryKeyActivityList({ groupId, placeId, placeStatus, placeArchived, seriesId, activityTypeId, slots, feedbackPossible, hasFeedback, places, ordering, dateMin }),
@@ -273,13 +273,17 @@ export function useICSTokenQuery (queryOptions) {
 export function usePublicActivityListQuery ({
   groupId,
   dateMin,
+  placeId,
+  activityTypeId,
   pageSize = 10,
 }, queryOptions = {}) {
   const query = useInfiniteQuery(
-    queryKeyActivityList({ groupId, dateMin }),
+    queryKeyActivityList({ groupId, dateMin, placeId, activityTypeId }),
     ({ pageParam }) => api.listPublic({
       group: unref(groupId),
       dateMin: unref(dateMin),
+      place: unref(placeId),
+      activityType: unref(activityTypeId),
       cursor: pageParam,
       pageSize,
     }),

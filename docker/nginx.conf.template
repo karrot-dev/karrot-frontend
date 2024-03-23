@@ -7,8 +7,7 @@ client_max_body_size ${FILE_UPLOAD_MAX_SIZE};
 
 server {
 
-    listen 80;
-    listen [::]:80;
+    listen ${LISTEN};
 
     root /usr/share/nginx/html;
 

@@ -16,7 +16,7 @@ const VectorIcon = Icon.extend({
 
     if (fontIcon) {
       const i = document.createElement('i')
-      if (fontIcon.includes('fa')) {
+      if (/^fa.? /.test(fontIcon)) {
         // Font-awesome icon
         // Uses class names
         i.className = `${fontIcon} fa-fw`

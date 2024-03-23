@@ -1,0 +1,44 @@
+when:
+  - event: push
+    branch: main
+
+depends_on:
+  - test
+
+steps:
+  - name: "publish image"
+    image: docker.io/woodpeckerci/plugin-docker-buildx
+    settings:
+      platforms: linux/amd64
+      repo: codeberg.org/${CI_REPO}
+      registry: codeberg.org
+      auto_tag: false
+      username: ${CI_REPO_OWNER}
+      password:
+        from_secret: cb_token
+      logins:
+        - registry: docker.io
+          username: nicksellen
+          password:
+            from_secret: docker_token
+      build_args:
+        - KARROT_VERSION=latest
+        - KARROT_COMMIT=${CI_COMMIT_SHA}
+      tags: latest
+
+  - name: "extract content"
+    image: codeberg.org/${CI_REPO}:latest
+    commands:
+      - cp -r /usr/share/nginx/html dist
+
+  - name: "publish tar.gz"
+    image: codeberg.org/karrot/plugin-publish-generic-package:latest
+    pull: true
+    settings:
+      folder: dist
+      filename: karrot-frontend.tar.gz
+      version: latest
+      registry: codeberg.org
+      username: ${CI_REPO_OWNER}
+      password:
+        from_secret: cb_token

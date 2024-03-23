@@ -68,6 +68,11 @@ export const useRoutingLogic = defineService(() => {
   router.beforeEach(async (to, from, nextFn) => {
     let next
 
+    if (to.meta.noRedirect) {
+      nextFn()
+      return
+    }
+
     await waitForUserToLoad()
 
     const requiredGroupFeatures = to.matched.map(m => m.meta.requireFeature).filter(Boolean)

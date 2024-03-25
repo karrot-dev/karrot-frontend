@@ -9,6 +9,16 @@ server {
 
     listen ${LISTEN};
 
+    # This sets $remote_addr to be whatever is passed
+    # in X-Forwarded-For header if it comes from
+    # an IANA-defined private network
+    # When we are behind another proxy, it ensures
+    # requests are logged with proper ip.
+    set_real_ip_from 10.0.0.0/8;
+    set_real_ip_from 172.16.0.0/12;
+    set_real_ip_from 192.168.0.0/16;
+    real_ip_header X-Forwarded-For;
+
     root /usr/share/nginx/html;
 
     location /assets {
@@ -51,17 +61,14 @@ server {
     }
 
     # Special permissive policy for this page
-    #location /bundlesize.html {
-        #include /etc/nginx/snippets/{{ site }}/headers;
-        #{% if csp_config is defined %}
-        #add_header {{ csp_header }} "default-src 'self' 'unsafe-inline' data:;";
-        #{% endif %}
-    #}
+    location /bundlesize.html {
+        add_header Content-Security-Policy "default-src 'self' 'unsafe-inline';";
+        add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
+    }
 
     location ~ ^\/(api(\-auth)?|docs|silk|static)\/ {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $remote_addr;
-        proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header Host $http_host;
 
         resolver 127.0.0.11 valid=3s;

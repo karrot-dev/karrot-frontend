@@ -15,7 +15,7 @@ RUN yarn build
 
 #--------------------------------------
 
-FROM docker.io/nginx:${NGINX_VERSION}
+FROM docker.io/nginx:${NGINX_VERSION}-alpine
 
 ARG KARROT_VERSION="unknown"
 ENV KARROT_VERSION="${KARROT_VERSION}"

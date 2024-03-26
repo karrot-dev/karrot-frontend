@@ -15,9 +15,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/karrot-dev/karrot-frontend"
+    "url": "https://codeberg.org/karrot/karrot-frontend"
   },
-  "bugs": "https://github.com/karrot-dev/karrot-frontend/issues",
+  "bugs": "https://codeberg.org/karrot/karrot-frontend/issues",
   "scripts": {
     "dev": "quasar dev",
     "dev:pwa": "quasar dev -m pwa",

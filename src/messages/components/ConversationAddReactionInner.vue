@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import emojiList from 'markdown-it-emoji/lib/data/full.json'
+import emojiList from 'markdown-it-emoji/lib/data/full.mjs'
 import {
   QInput,
   QIcon,

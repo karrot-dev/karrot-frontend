@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import emojiList from 'markdown-it-emoji/lib/data/full.json'
+import twemoji from '@twemoji/api'
+import emojiList from 'markdown-it-emoji/lib/data/full.mjs'
 import { QBtn } from 'quasar'
-import twemoji from 'twemoji'
 
 const EMOJI_CACHE = {}
 function getEmojiElement (name) {

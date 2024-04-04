@@ -2,7 +2,6 @@
   <MiniParticipant v-if="mini" />
   <QDialog
     maximized
-    style="z-index: 10000"
     persistent
     :class="mini ? 'hidden' : ''"
     :model-value="true"
@@ -50,7 +49,6 @@
     </QCard>
   </QDialog>
   <QDialog
-    style="z-index: 20000"
     :model-value="true"
     seamless
     position="bottom"
@@ -159,7 +157,7 @@ const toolbarHeight = computed(() => toolbar.value?.$el?.offsetHeight ?? 0)
 const showOptions = ref(false)
 const optionsEnabled = computed(() => (videoEnabled.value && videoDevices.value?.length > 0) || (audioEnabled.value && audioDevices.value?.length > 0))
 
-const mini = ref(true)
+const mini = ref(false)
 const screenshare = ref(false)
 
 const {

@@ -2,8 +2,7 @@
   <div
     v-if="hasVideo"
     ref="el"
-    class="fixed-top-right shadow-3"
-    style="width: 120px; height: 120px; z-index: 20000; border-radius: 999999px; overflow: hidden; touch-action: none;"
+    class="speaker fixed-top-right overflow-hidden"
     :style="left && top ? { left, top, cursor } : { top: '12px', right: '12px', cursor }"
   >
     <video
@@ -104,5 +103,10 @@ useEventListener(el, 'touchstart', handleDrag)
 </script>
 
 <style scoped lang="sass">
-
+.speaker
+  width: 160px
+  height: 160px
+  z-index: 20000
+  border-radius: 999999px
+  touch-action: none
 </style>

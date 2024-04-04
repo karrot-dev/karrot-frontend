@@ -21,6 +21,20 @@ Please document your changes in this format:
 
 ## [Unreleased]
 
+## [14.1.0] - 2024-04-04
+### Added
+- Add ETag-based caching @nicksellen https://codeberg.org/karrot/karrot-backend/pulls/1297
+- Add screensharing and mini view for video calls @nicksellen https://codeberg.org/karrot/karrot-frontend/commit/eef993d1b2f6402febf3e52b45e0da6394822178
+
+### Changed
+- Upgrade to Django 5 + other updates @nicksellen https://codeberg.org/karrot/karrot-backend/pulls/1296
+- Update emojis to v15 @nicksellen https://codeberg.org/karrot/karrot-frontend/issues/2714 https://codeberg.org/karrot/karrot-backend/pulls/1295
+- Better scroll handling in chats @nicksellen https://codeberg.org/karrot/karrot-frontend/commit/ed54957771b0e15d7dc37aba1a07eaa6501700aa
+
+### Fixed
+- Fix n+1 queries for .ics endpoints @nicksellen https://codeberg.org/karrot/karrot-backend/pulls/1297
+- Fix broken emoji serving @nicksellen https://codeberg.org/karrot/karrot-frontend/issues/2714
+
 ## [14.0.1] - 2024-03-25
 ### Fixed
 - Nginx configuration improvements @nicksellen https://codeberg.org/karrot/karrot-frontend/commit/f3404300a03d811afe6e2380f7c285db5c812078
@@ -974,7 +988,8 @@ After months of planning and programming, the first version of ~the foodsaving t
 [#2663]: https://github.com/karrot-dev/karrot-frontend/issues/2663
 [#2677]: https://github.com/karrot-dev/karrot-frontend/issues/2677
 
-[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v14.0.1...HEAD
+[Unreleased]: https://github.com/karrot-dev/karrot-frontend/compare/v14.1.0...HEAD
+[14.1.0]: https://github.com/karrot-dev/karrot-frontend/compare/v14.0.1...v14.1.0
 [14.0.1]: https://github.com/karrot-dev/karrot-frontend/compare/v14.0.0...v14.0.1
 [14.0.0]: https://github.com/karrot-dev/karrot-frontend/compare/v13.0.1...v14.0.0
 [13.0.1]: https://github.com/karrot-dev/karrot-frontend/compare/v13.0.0...v13.0.1

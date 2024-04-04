@@ -1,7 +1,8 @@
 when:
   # anything on or targeting the main branch
   # pull requests must be labelled with ci/test
-  - evaluate: 'CI_COMMIT_BRANCH == CI_REPO_DEFAULT_BRANCH && (CI_PIPELINE_EVENT != "pull_request" || CI_COMMIT_PULL_REQUEST_LABELS contains "ci/test")'
+  - evaluate: 'CI_COMMIT_BRANCH == CI_REPO_DEFAULT_BRANCH && (CI_PIPELINE_EVENT == "push" || (CI_PIPELINE_EVENT == "pull_request" && CI_COMMIT_PULL_REQUEST_LABELS contains "ci/test"))'
+  - event: manual
 
 steps:
   - name: test

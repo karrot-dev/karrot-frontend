@@ -19,6 +19,7 @@ export function indexById (iterable) {
 }
 
 export function indexBy (iterable, key) {
+  if (!iterable) return {}
   return iterable.reduce((acc, cur, i) => {
     acc[cur[key]] = cur
     return acc

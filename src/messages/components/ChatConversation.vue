@@ -8,7 +8,7 @@
         ref="scroll"
         class="bg-white"
         :class="inline && 'scroll'"
-        style="flex-grow: 1;"
+        style="flex-grow: 1; overscroll-behavior: contain;"
       >
         <slot name="before-chat-messages" />
         <KSpinner v-show="newestFirst && !hasNextPage && isFetchingNextPage" />

@@ -10,7 +10,7 @@
       :error="hasError('newPassword')"
       :error-message="firstError('newPassword')"
       data-testid="change-password-new-password"
-      outlined
+      filled
     >
       <template #before>
         <QIcon name="fas fa-lock" />
@@ -24,7 +24,7 @@
       :error="hasError('oldPassword')"
       :error-message="firstError('oldPassword')"
       data-testid="change-password-old-password"
-      outlined
+      filled
     >
       <template #before>
         <QIcon name="fas fa-unlock" />

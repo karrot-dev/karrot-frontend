@@ -33,7 +33,7 @@
             :error="hasError('date')"
             size="9"
             hide-bottom-space
-            outlined
+            filled
             class="q-mr-sm"
             @focus="$refs.qStartDateProxy.show()"
           >
@@ -63,7 +63,7 @@
             size="3"
             :error="hasError('date')"
             hide-bottom-space
-            outlined
+            filled
             @focus="$refs.qStartTimeProxy.show()"
           >
             <Component
@@ -106,7 +106,7 @@
               size="3"
               :error="hasError('date')"
               hide-bottom-space
-              outlined
+              filled
               @focus="$refs.qEndTimeProxy.show()"
             >
               <Component
@@ -162,7 +162,7 @@
         maxlength="5000"
         :input-style="{ minHeight: 'auto' }"
         mentions
-        outlined
+        filled
         :bg-color="series && series.description !== edit.description ? 'orange-1' : null"
         @keyup.ctrl.enter="maybeSave"
       >
@@ -243,11 +243,12 @@
         {{ firstNonFieldError }}
       </div>
 
+      <QToggle
+        v-model="showPreview"
+        :label="$t('BUTTON.PREVIEW')"
+      />
+
       <div class="row justify-end q-gutter-sm q-mt-lg">
-        <QToggle
-          v-model="showPreview"
-          :label="$t('BUTTON.PREVIEW')"
-        />
         <QSpace />
         <QBtn
           v-if="canCancel"

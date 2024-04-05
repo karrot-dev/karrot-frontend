@@ -76,6 +76,9 @@ export default {
   width: 100%
   margin: 0
   user-select: none
+  border-top-left-radius: 12px
+  border-top-right-radius: 12px
+  overflow: hidden
 
   > div
     z-index: 1

@@ -51,7 +51,7 @@
           :label="$t('CREATEACTIVITY.PLACE')"
           emit-value
           map-options
-          outlined
+          filled
           hide-bottom-space
           use-input
           input-debounce="250"

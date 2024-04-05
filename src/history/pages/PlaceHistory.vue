@@ -4,18 +4,14 @@
       v-model="typus"
       for="place"
     />
-    <QCard
-      class="no-shadow grey-border"
-    >
-      <div>
-        <HistoryList
-          class="padding-top"
-          :history="history"
-          :pending="isLoading"
-          :can-fetch-past="hasNextPage"
-          :fetch-past="() => fetchNextPage()"
-        />
-      </div>
+    <QCard>
+      <HistoryList
+        class="padding-top"
+        :history="history"
+        :pending="isLoading"
+        :can-fetch-past="hasNextPage"
+        :fetch-past="() => fetchNextPage()"
+      />
     </QCard>
   </div>
 </template>

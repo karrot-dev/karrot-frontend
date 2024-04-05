@@ -35,7 +35,7 @@
           appear
         >
           <div
-            class="photo q-pa-sm q-ma-md bg-white shadow-4 rounded-borders"
+            class="photo q-ma-md bg-white rounded-borders"
           >
             <ProfilePicture
               :is-link="false"

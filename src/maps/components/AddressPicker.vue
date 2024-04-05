@@ -9,6 +9,7 @@
       :error-message="errorMessage"
       :options="options"
       :outlined="outlined"
+      :filled="filled"
       :placeholder="$t('BUTTON.SEARCH')"
       :model-value="modelValue.address"
       :input-debounce="1000"
@@ -134,6 +135,10 @@ export default {
       type: String,
     },
     outlined: {
+      default: false,
+      type: Boolean,
+    },
+    filled: {
       default: false,
       type: Boolean,
     },

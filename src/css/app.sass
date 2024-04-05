@@ -98,13 +98,31 @@ a
     content: "\F095"
 
 
+body
+  background-color: #F9F7EB
+
+
 .q-card,
 .q-banner,
-.rounded-borders
+.rounded-borders,
+.q-dialog__inner > div
   border-radius: 12px
+
+.q-card > div:first-child
+  border-top-left-radius: 12px
+  border-top-right-radius: 12px
+
+.q-card > div:last-child
+  border-bottom-left-radius: 12px
+  border-bottom-right-radius: 12px
 
 .q-btn--rectangle
   border-radius: 9px
+
+// This is just reverting how quasar does it
+// which got broken by .q-btn--rectangle
+.q-fab--form-rounded
+  border-radius: 28px
 
 .q-field--outlined .q-field__control
   border-radius: 9px
@@ -112,3 +130,7 @@ a
 .q-drawer--left
   .q-layout__shadow
     display: none
+
+// Quasar doesn't have gap utilities for some reason :/
+.gap-sm
+  gap: 8px

@@ -15,7 +15,7 @@
       :class="theme"
     >
       <QLayout :view="layoutView">
-        <QHeader reveal>
+        <QHeader>
           <KTopbar
             v-if="isLoggedIn"
             @toggle-sidenav="toggleSidenav"
@@ -342,7 +342,7 @@ body.desktop .mainContent-page:not(.fullpage)
 .background
   //background-image: url('../assets/repeating_grey-600.png')
   //background-attachment: fixed
-  background-color: #F9F7EB
+  //background-color: #F9F7EB
 
   &.bikekitchen
     background-image: url('../assets/bikekitchen_background.jpg')

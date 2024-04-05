@@ -13,6 +13,7 @@
     <QCardSection
       class="no-padding content"
       :class="{ isUserParticipant, isDisabled: activity.isDisabled }"
+      :style="isUserParticipant && !activity.isDisabled ? { background: `linear-gradient(170deg, ${lighten(activityType.colour, 85)}, ${lighten(activityType.colour, 95)})` } : {}"
     >
       <div class="content-inner">
         <div class="row no-wrap items-start justify-between">
@@ -321,6 +322,7 @@ import {
   QItemLabel,
   QRadio,
   QImg,
+  colors,
 } from 'quasar'
 import { computed, ref, toRefs } from 'vue'
 
@@ -339,6 +341,8 @@ import ShowMore from '@/utils/components/ShowMore.vue'
 
 import ActivityEditButton from './ActivityEditButton.vue'
 import ActivityUsers from './ActivityUsers.vue'
+
+const { lighten } = colors
 
 const props = defineProps({
   activity: {

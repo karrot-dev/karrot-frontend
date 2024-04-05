@@ -23,7 +23,7 @@
         :model-value="simple.participantType.maxParticipants"
         type="number"
         stack-label
-        outlined
+        filled
         class="q-my-md"
         :label="$t('CREATEACTIVITY.MAX_PARTICIPANTS')"
         :hint="$t('CREATEACTIVITY.MAX_PARTICIPANTS_HELPER')"
@@ -60,7 +60,6 @@
         v-for="({ participantType, seriesParticipantType, changed, users }, idx) in entries"
         :key="participantType.id || `new-${idx}`"
         flat
-        bordered
         class="participant-type"
       >
         <QCardSection>
@@ -72,7 +71,7 @@
             :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
             maxlength="500"
             :input-style="{ minHeight: 'auto' }"
-            outlined
+            filled
             :bg-color="changed.description ? 'orange-1' : null"
             @keyup.ctrl.enter="$emit('maybe-save')"
           >
@@ -90,7 +89,7 @@
             :model-value="participantType.maxParticipants"
             type="number"
             stack-label
-            outlined
+            filled
             class="q-my-md"
             :label="$t('CREATEACTIVITY.MAX_PARTICIPANTS')"
             :hint="$t('CREATEACTIVITY.MAX_PARTICIPANTS_HELPER')"
@@ -129,7 +128,7 @@
             :options="roleOptions"
             :error="hasError('role')"
             :error-message="firstError('role')"
-            outlined
+            filled
             :behavior="smallScreen ? 'dialog' : 'menu'"
             :bg-color="changed.role ? 'orange-1' : null"
           >

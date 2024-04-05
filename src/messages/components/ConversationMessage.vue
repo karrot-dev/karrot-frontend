@@ -107,10 +107,13 @@
         :current-user-reactions="currentUserReactions"
         @toggle="toggleReaction"
       />
-      <div v-if="showReplies">
+      <div
+        v-if="showReplies"
+        class="q-mb-xs"
+      >
         <QBtn
           unelevated
-          :color="message.threadMeta.unreadReplyCount > 0 ? 'secondary' : 'white'"
+          :color="message.threadMeta.unreadReplyCount > 0 ? 'secondary' : 'grey-3'"
           :text-color="message.threadMeta.unreadReplyCount > 0 ? 'white' : 'black'"
           class="reaction-box k-thread-box"
           no-caps
@@ -363,8 +366,8 @@ body.mobile .conversation-message
     margin-left: 2px
 
   .k-thread-box
-    min-height: 30px
-    max-height: 30px
+    min-height: 36px
+    max-height: 36px
     box-shadow: none
 
     ::v-deep(.q-btn__wrapper)

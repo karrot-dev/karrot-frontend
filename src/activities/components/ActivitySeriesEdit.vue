@@ -46,7 +46,7 @@
           mask="####-##-##"
           :error="hasError('startDate')"
           size="9"
-          outlined
+          filled
           hide-bottom-space
           class="q-mr-sm"
           @focus="$refs.qStartDateProxy.show()"
@@ -75,7 +75,7 @@
           mask="time"
           :rules="['time']"
           size="3"
-          outlined
+          filled
           :error="hasError('startDate')"
           hide-bottom-space
           @focus="$refs.qStartTimeProxy.show()"
@@ -124,7 +124,7 @@
             mask="time"
             :rules="['time']"
             size="3"
-            outlined
+            filled
             :error="hasError('startDate')"
             hide-bottom-space
             @focus="$refs.qEndTimeProxy.show()"
@@ -181,7 +181,7 @@
         :hint="$t('CREATEACTIVITY.WEEKDAYS_HELPER')"
         :error="hasError('rule')"
         :error-message="firstError('rule')"
-        outlined
+        filled
         emit-value
         map-options
       >
@@ -215,7 +215,7 @@
         :error="hasError('rule')"
         :error-message="firstError('rule')"
         autogrow
-        outlined
+        filled
         :input-style="{ overflow: 'hidden' }"
         class="q-pb-xl"
         clearable
@@ -280,7 +280,7 @@
         :hint="$t('CREATEACTIVITY.COMMENT_HELPER')"
         icon="info"
         mentions
-        outlined
+        filled
         maxlength="500"
         @keyup.ctrl.enter="maybeSave"
       />

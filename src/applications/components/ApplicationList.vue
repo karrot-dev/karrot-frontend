@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white">
-    <QList bordered>
+  <div class="bg-white rounded-borders">
+    <QList>
       <ApplicationItem
         v-for="a in pendingApplications"
         :key="a.id"

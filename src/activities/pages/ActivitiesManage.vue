@@ -1,6 +1,6 @@
 <template>
   <div>
-    <QCard class="no-shadow grey-border">
+    <QCard>
       <QCardSection class="row justify-between no-wrap q-mb-md">
         <div class="text-h6">
           <i
@@ -163,7 +163,7 @@
       </QList>
     </QCard>
 
-    <QCard class="no-shadow grey-border secondCard">
+    <QCard class="secondCard">
       <RandomArt
         class="randomBanner"
         :seed="placeId"

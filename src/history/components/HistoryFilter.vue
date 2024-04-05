@@ -7,7 +7,7 @@
       :options="typusOptions"
       emit-value
       map-options
-      outlined
+      filled
       hide-bottom-space
       dense
     />

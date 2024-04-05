@@ -40,7 +40,7 @@
       <QList
         v-if="hasLoaded && messages.length > 0"
         ref="messagesList"
-        class="bg-white desktop-margin relative-position q-pb-md rounded-borders"
+        class="desktop-margin relative-position q-pb-md rounded-borders"
       >
         <QBanner
           v-if="isParticipant && unreadMessageCount > 0"
@@ -75,6 +75,7 @@
           :key="message.id"
           :message="message"
           :is-unread="conversation.seenUpTo && message.id > conversation.seenUpTo"
+          class="bg-white q-mb-md q-pa-md rounded-borders"
         />
         <KSpinner v-show="isLoadingMessages || isFetchingNextPage" />
       </QList>

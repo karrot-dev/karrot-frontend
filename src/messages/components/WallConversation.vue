@@ -75,6 +75,7 @@
           :key="message.id"
           :message="message"
           :is-unread="conversation.seenUpTo && message.id > conversation.seenUpTo"
+          supports-threads
           class="bg-white q-mb-md q-pa-md rounded-borders"
         />
         <KSpinner v-show="isLoadingMessages || isFetchingNextPage" />

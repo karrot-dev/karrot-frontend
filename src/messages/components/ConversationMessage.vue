@@ -138,6 +138,24 @@
           />
         </QBtn>
       </div>
+      <div v-else-if="supportsThreads">
+        <QBtn
+          color="grey-2"
+          text-color="grey-8"
+          class="reaction-box k-thread-box"
+          no-caps
+          @click="() => openThread(message)"
+        >
+          <ProfilePicture
+            class="k-profile-picture"
+            :user="currentUser"
+            :is-link="false"
+          />
+          <span class="k-replies-count text-caption">
+            {{ t('CONVERSATION.REPLY_TO_MESSAGE') }}
+          </span>
+        </QBtn>
+      </div>
     </QItemSection>
   </QItem>
   <ConversationCompose
@@ -161,12 +179,11 @@ import {
   QItemSection,
   QItemLabel,
   QIcon,
-  format,
 } from 'quasar'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-import { useAuthHelpers } from '@/authuser/helpers'
+import { useAuthHelpers, useCurrentUser } from '@/authuser/helpers'
 import { useMessageHelpers } from '@/messages/helpers'
 import {
   useAddReactionMutation,
@@ -186,8 +203,6 @@ import Markdown from '@/utils/components/Markdown.vue'
 
 import ConversationAddReaction from './ConversationAddReaction.vue'
 
-const { humanStorageSize } = format
-
 const props = defineProps({
   message: {
     type: Object,
@@ -205,12 +220,17 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  supportsThreads: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const { getIsCurrentUser } = useAuthHelpers()
 const { getUserById } = useUserService()
 const { openThread } = useDetailService()
 const { getIsMessageEdited } = useMessageHelpers()
+const currentUser = useCurrentUser()
 
 const author = computed(() => getUserById(props.message.author))
 const threadParticipants = computed(() => props.message.threadMeta?.participants?.map(getUserById) ?? [])
@@ -237,7 +257,7 @@ function toggleReaction (name) {
 
 const editMode = ref(false)
 
-const { d } = useI18n()
+const { t, d } = useI18n()
 
 const currentUserReactions = computed(() => {
   return props.message?.reactions?.filter(reaction => getIsCurrentUser(reaction.user)).map(reaction => reaction.name)

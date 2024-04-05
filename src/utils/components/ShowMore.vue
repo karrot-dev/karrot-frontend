@@ -1,9 +1,11 @@
 <template>
   <div
-    :class="hasMore && !more ? 'limit-height' : ''"
     :style="style"
   >
-    <div ref="content">
+    <div
+      ref="content"
+      :style="contentStyle"
+    >
       <slot />
       <div
         v-if="hasMore && more"
@@ -20,10 +22,6 @@
         />
       </div>
     </div>
-    <div
-      class="overlay"
-      :style="overlayStyle"
-    />
     <div
       v-if="hasMore && !more"
       class="full-width absolute-bottom text-center"
@@ -49,10 +47,6 @@ const props = defineProps({
     type: Number,
     required: true,
   },
-  overlayColor: {
-    type: String,
-    default: 'white',
-  },
 })
 
 const content = ref(null)
@@ -67,33 +61,21 @@ onMounted(() => {
 
 const style = computed(() => {
   if (more.value || !hasMore.value) return {}
-  return { maxHeight: `${props.height}px` }
+  return {
+    height: `${props.height}px`,
+    position: 'relative',
+    overflowY: 'hidden',
+  }
 })
 
-const overlayStyle = computed(() => {
+const contentStyle = computed(() => {
+  if (more.value || !hasMore.value) return {}
+  // Technique from https://polypane.app/blog/my-take-on-fading-content-using-transparent-gradients-in-css/
+  const gradient = `linear-gradient(to bottom, white ${props.height / 2}px, transparent ${props.height}px)`
   return {
-    background: `linear-gradient(transparent 10px, ${props.overlayColor}`,
+    'mask-image': gradient,
+    '-webkit-mask-image': gradient,
   }
 })
 
 </script>
-<style scoped lang="sass">
-.overlay
-  display: none
-
-.limit-height
-  position: relative
-  overflow-y: hidden
-
-  .overlay
-    display: block
-    content: ''
-    width: 100%
-    height: 25%
-    position: absolute
-    left: 0
-    bottom: 0
-    // We set this from js, so we can customize the colour if our background changes
-    //background: linear-gradient(transparent 10px, white)
-    text-align: center
-</style>

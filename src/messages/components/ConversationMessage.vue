@@ -151,7 +151,7 @@
   />
 </template>
 
-<script>
+<script setup>
 import {
   Dialog,
   QBtn,
@@ -163,7 +163,8 @@ import {
   QIcon,
   format,
 } from 'quasar'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import { useAuthHelpers } from '@/authuser/helpers'
 import { useMessageHelpers } from '@/messages/helpers'
@@ -187,135 +188,91 @@ import ConversationAddReaction from './ConversationAddReaction.vue'
 
 const { humanStorageSize } = format
 
-export default {
-  name: 'ConversationMessage',
-  components: {
-    Attachments,
-    ConversationReactions,
-    ConversationAddReaction,
-    ConversationCompose,
-    ProfilePicture,
-    Markdown,
-    DateAsWords,
-    QBtn,
-    QBtnGroup,
-    QImg,
-    QItem,
-    QItemSection,
-    QItemLabel,
-    QIcon,
+const props = defineProps({
+  message: {
+    type: Object,
+    required: true,
   },
-  props: {
-    message: {
-      type: Object,
-      required: true,
-    },
-    isUnread: {
-      type: Boolean,
-      default: false,
-    },
-    continuation: {
-      type: Boolean,
-      default: false,
-    },
-    slim: {
-      type: Boolean,
-      default: false,
-    },
+  isUnread: {
+    type: Boolean,
+    default: false,
   },
-  setup (props) {
-    const { getIsCurrentUser } = useAuthHelpers()
-    const { getUserById } = useUserService()
-    const { openThread } = useDetailService()
-    const { getIsMessageEdited } = useMessageHelpers()
-
-    const author = computed(() => getUserById(props.message.author))
-    const threadParticipants = computed(() => props.message.threadMeta?.participants?.map(getUserById) ?? [])
-
-    const {
-      mutateAsync: saveMessage,
-      status: saveMessageStatus,
-    } = useSaveMesssageMutation()
-
-    const { mutate: addReaction } = useAddReactionMutation()
-    const { mutate: removeReaction } = useRemoveReactionMutation()
-
-    function toggleReaction (name) {
-      const messageId = props.message.id
-      const reactionIndex = props.message.reactions.findIndex(reaction => getIsCurrentUser(reaction.user) && reaction.name === name)
-
-      if (reactionIndex === -1) {
-        addReaction({ messageId, name })
-      }
-      else {
-        removeReaction({ messageId, name })
-      }
-    }
-
-    return {
-      humanStorageSize,
-
-      author,
-      threadParticipants,
-
-      getIsMessageEdited,
-      getIsCurrentUser,
-
-      toggleReaction,
-      saveMessage,
-      saveMessageStatus,
-      openThread,
-    }
+  continuation: {
+    type: Boolean,
+    default: false,
   },
-  data () {
-    return {
-      editMode: false,
-    }
+  slim: {
+    type: Boolean,
+    default: false,
   },
-  computed: {
-    currentUserReactions () {
-      return this.message?.reactions?.filter(reaction => this.getIsCurrentUser(reaction.user)).map(reaction => reaction.name)
+})
+
+const { getIsCurrentUser } = useAuthHelpers()
+const { getUserById } = useUserService()
+const { openThread } = useDetailService()
+const { getIsMessageEdited } = useMessageHelpers()
+
+const author = computed(() => getUserById(props.message.author))
+const threadParticipants = computed(() => props.message.threadMeta?.participants?.map(getUserById) ?? [])
+
+const {
+  mutateAsync: saveMessage,
+  status: saveMessageStatus,
+} = useSaveMesssageMutation()
+
+const { mutate: addReaction } = useAddReactionMutation()
+const { mutate: removeReaction } = useRemoveReactionMutation()
+
+function toggleReaction (name) {
+  const messageId = props.message.id
+  const reactionIndex = props.message.reactions.findIndex(reaction => getIsCurrentUser(reaction.user) && reaction.name === name)
+
+  if (reactionIndex === -1) {
+    addReaction({ messageId, name })
+  }
+  else {
+    removeReaction({ messageId, name })
+  }
+}
+
+const editMode = ref(false)
+
+const { d } = useI18n()
+
+const currentUserReactions = computed(() => {
+  return props.message?.reactions?.filter(reaction => getIsCurrentUser(reaction.user)).map(reaction => reaction.name)
+})
+
+const hasReactions = computed(() => props.message?.reactions?.length > 0)
+const showReplies = computed(() => props.message.threadMeta && !props.slim)
+const tooltipDate = computed(() => d(props.message.createdAt, 'long'))
+
+const imagesForDisplay = computed(() => {
+  return props.message?.images?.filter(image => image.id && !image._removed) || []
+})
+
+function toggleEdit () {
+  editMode.value = !editMode.value
+}
+
+function openImageGallery (imageId) {
+  Dialog.create({
+    component: ImageGalleryDialog,
+    componentProps: {
+      message: props.message,
+      selectedImageId: imageId,
     },
-    hasReactions () {
-      return this.message?.reactions?.length > 0
-    },
-    showReplies () {
-      return this.message.threadMeta && !this.slim
-    },
-    tooltipDate () {
-      return this.$d(this.message.createdAt, 'long')
-    },
-    imagesForDisplay () {
-      return this.message?.images?.filter(image => image.id && !image._removed) || []
-    },
-    attachmentsForDisplay () {
-      return this.message?.attachments?.filter(attachment => attachment.id && !attachment._removed) || []
-    },
-  },
-  methods: {
-    toggleEdit () {
-      this.editMode = !this.editMode
-    },
-    openImageGallery (imageId) {
-      Dialog.create({
-        component: ImageGalleryDialog,
-        componentProps: {
-          message: this.message,
-          selectedImageId: imageId,
-        },
-        parent: this,
-      })
-    },
-    async save ({ content, images, attachments }) {
-      await this.saveMessage({
-        id: this.message.id,
-        content,
-        images,
-        attachments,
-      })
-      this.toggleEdit()
-    },
-  },
+  })
+}
+
+async function save ({ content, images, attachments }) {
+  await saveMessage({
+    id: this.message.id,
+    content,
+    images,
+    attachments,
+  })
+  toggleEdit()
 }
 </script>
 

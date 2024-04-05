@@ -7,7 +7,6 @@
       <QCard
         v-if="hasLoaded"
         flat
-        bordered
         class="desktop-margin"
       >
         <div
@@ -42,7 +41,6 @@
         v-if="hasLoaded && messages.length > 0"
         ref="messagesList"
         class="bg-white desktop-margin relative-position q-pb-md rounded-borders"
-        bordered
       >
         <QBanner
           v-if="isParticipant && unreadMessageCount > 0"

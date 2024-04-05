@@ -68,8 +68,8 @@ export default {
 
 .emoji
   ::v-deep(img.emoji)
-    width: 1em
-    height: 1em
+    width: 1.2em
+    height: 1.2em
     margin: .1em .1em
     vertical-align: middle
 </style>

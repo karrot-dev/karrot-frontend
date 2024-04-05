@@ -2,7 +2,6 @@
   <div>
     <QCard
       flat
-      bordered
     >
       <QCardSection>
         <KSpinner v-show="!statistics" />

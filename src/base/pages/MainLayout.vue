@@ -127,7 +127,7 @@
           v-if="!$q.platform.is.mobile && isLoggedIn"
           side="right"
           :width="detailWidth"
-          :overlay="false"
+          :overlay="true"
           :breakpoint="0"
           elevated
           :model-value="isDetailActive || hasDetailComponent"
@@ -277,12 +277,13 @@ export default {
       if (this.$q.platform.is.mobile) {
         return Math.min(380, this.$q.screen.width)
       }
-      return this.$q.screen.width > 1000 ? 380 : 280
+      return this.$q.screen.width > 1000 ? 280 : 280
     },
     detailWidth () {
-      const contentWidth = this.$q.screen.width - this.sidenavWidth
-      const columnWidth = Math.floor(contentWidth / 2)
-      return Math.min(500, Math.max(280, columnWidth))
+      // const contentWidth = this.$q.screen.width - this.sidenavWidth
+      // const columnWidth = Math.floor(contentWidth / 2)
+      // return Math.min(600, Math.max(280, columnWidth))
+      return Math.min(520, this.$q.screen.width)
     },
     routerComponents () {
       const components = {}
@@ -339,8 +340,9 @@ body.desktop .mainContent-page:not(.fullpage)
   margin-left: auto
 
 .background
-  background-image: url('../assets/repeating_grey-600.png')
-  background-attachment: fixed
+  //background-image: url('../assets/repeating_grey-600.png')
+  //background-attachment: fixed
+  background-color: #F9F7EB
 
   &.bikekitchen
     background-image: url('../assets/bikekitchen_background.jpg')

@@ -1,5 +1,5 @@
 <template>
-  <QCard class="no-mobile-margin no-shadow grey-border k-members">
+  <QCard class="no-mobile-margin no-shadow k-members">
     <div class="relative-position">
       <RandomArt
         :seed="groupId"

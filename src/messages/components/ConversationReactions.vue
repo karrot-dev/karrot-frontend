@@ -132,6 +132,7 @@ export default {
 
 .user-reacted
   border-color: $secondary !important
+  background-color: #efefef
 
 .reactions-number
   padding-left: 3px

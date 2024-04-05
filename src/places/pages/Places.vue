@@ -184,7 +184,9 @@
       >
         <RouterLink :to="{ name: placeRoute(place), params: { placeId: place.id } }">
           <QCard>
-            <QItem class="bg-grey-3">
+            <QItem
+              :style="{ background: `linear-gradient(170deg, ${lighten(getPlaceStatusById(place.status).colour, 75)}, ${lighten(getPlaceStatusById(place.status).colour, 85)})` }"
+            >
               <QItemSection side>
                 <PlaceIcon :place="place" />
               </QItemSection>
@@ -326,6 +328,7 @@ import {
   QCardActions,
   QSeparator,
   debounce,
+  colors,
 } from 'quasar'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -343,6 +346,8 @@ import Markdown from '@/utils/components/Markdown.vue'
 
 import { usePlaceStatusHelpers, usePlaceTypeHelpers } from '../helpers'
 import { usePlaceStatusService, usePlaceTypeService } from '../services'
+
+const { lighten } = colors
 
 const {
   groupId,
@@ -366,6 +371,8 @@ const {
   getPlaceTypesByGroup,
   getPlaceTypeById,
 } = usePlaceTypeService()
+
+const { getPlaceStatusById } = usePlaceStatusService()
 
 const { mutate: subscribe } = usePlaceSubscribeMutation()
 const { mutate: unsubscribe } = usePlaceUnsubscribeMutation()

@@ -26,7 +26,6 @@
     <QInfiniteScroll v-bind="infiniteScroll">
       <QList
         class="bg-white q-mt-md"
-        bordered
       >
         <IssueItem
           v-for="issue in issues"

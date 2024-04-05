@@ -39,8 +39,13 @@ export default {
     }
     const fn = options.strict ? formatDistanceStrict : formatDistance
     if (options.days) {
-      // We only care about the days if in this mode, not anything else!
-      return rtf.value.format(differenceInCalendarDays(date, now), 'day')
+      // We care about the days here, this is basically meaning the
+      // lowest resolution we care about is a day
+      // Causes it to format as yesterday/today/tomorrow/in 3 days, etc...
+      const days = differenceInCalendarDays(date, now)
+      if (Math.abs(days) < 10) {
+        return rtf.value.format(days, 'day')
+      }
     }
     return fn(date, now, { locale: state.localeData, ...options })
   },

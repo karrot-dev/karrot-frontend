@@ -30,21 +30,16 @@
         />
       </div>
       <div class="photoAndName row no-wrap">
-        <Transition
-          name="turn-in"
-          appear
+        <div
+          class="photo q-ma-md bg-white rounded-borders"
         >
-          <div
-            class="photo q-ma-md bg-white rounded-borders"
-          >
-            <ProfilePicture
-              :is-link="false"
-              :user="user"
-              :size="profilePictureSize"
-              :editable="isCurrentUser"
-            />
-          </div>
-        </Transition>
+          <ProfilePicture
+            :is-link="false"
+            :user="user"
+            :size="profilePictureSize"
+            :editable="isCurrentUser"
+          />
+        </div>
         <div
           style="overflow: hidden"
           class="self-center"
@@ -427,12 +422,4 @@ body.desktop .k-profile
     top: -24px
     right: 10px
 
-.turn-in-enter
-  transform: rotate(-15deg)
-
-.turn-in-leave-active, .turn-in-enter-active
-  transition: all .5s ease
-
-.turn-in-enter-to
-  transform: rotate(-3deg)
 </style>

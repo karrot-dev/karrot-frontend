@@ -1,7 +1,7 @@
 <template>
   <QCard
     v-if="group"
-    class="no-mobile-margin no-shadow grey-border"
+    class="no-mobile-margin"
   >
     <RandomArt
       :seed="group.id"

@@ -4,39 +4,43 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed, watchEffect } from 'vue'
+import { useI18n } from 'vue-i18n'
+
 import dateFnsHelper from '@/utils/dateFnsHelper'
 
-export default {
-  props: {
-    date: {
-      type: Date,
-      required: true,
-    },
-    future: {
-      type: Boolean,
-      default: undefined,
-    },
-    strict: {
-      type: Boolean,
-      default: false,
-    },
-    noSuffix: {
-      type: Boolean,
-      default: false,
-    },
+const props = defineProps({
+  date: {
+    type: Date,
+    required: true,
   },
-  computed: {
-    tooltipContent () {
-      return this.$d(new Date(this.date), 'long')
-    },
-    dateInWords () {
-      return dateFnsHelper.formatDistanceToNow(this.date, {
-        addSuffix: !this.noSuffix,
-        future: this.future,
-        strict: this.strict,
-      })
-    },
+  future: {
+    type: Boolean,
+    default: undefined,
   },
-}
+  strict: {
+    type: Boolean,
+    default: false,
+  },
+  noSuffix: {
+    type: Boolean,
+    default: false,
+  },
+  days: {
+    type: Boolean,
+    default: false,
+  },
+})
+
+const { d } = useI18n()
+
+const tooltipContent = computed(() => d(new Date(props.date), 'long'))
+
+const dateInWords = computed(() => dateFnsHelper.formatDistanceToNow(props.date, {
+  addSuffix: !props.noSuffix,
+  future: props.future,
+  strict: props.strict,
+  days: props.days,
+}))
 </script>

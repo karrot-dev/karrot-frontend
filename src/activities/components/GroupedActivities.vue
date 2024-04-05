@@ -5,24 +5,30 @@
   >
     <div
       v-if="!dense"
-      class="q-px-sm q-pt-lg full-width text-center text-bold"
-      style="color: rgba(0, 0, 0, 0.7);"
+      class="q-px-sm q-pt-lg q-pb-sm full-width text-center text-bold"
+      style="color: rgba(0, 0, 0, 0.7); position: sticky; top: 32px; z-index: 1;"
     >
-      {{ formattedDate }}
-      <span class="text-weight-light">
-        &mdash;
-      </span>
-      <DateAsWords
-        :date="date"
-        class="inline-block text-weight-light"
-      />
+      <div
+        class="bg-white q-pa-sm inline-block"
+        style="width: 100%; max-width: 400px; border-radius: 48px;"
+      >
+        {{ formattedDate }}
+        <span class="text-weight-light">
+          &mdash;
+        </span>
+        <DateAsWords
+          :date="date"
+          days
+          class="inline-block text-weight-light"
+        />
+      </div>
     </div>
     <slot :entries="entries" />
   </template>
 </template>
 
 <script setup>
-import { computed, toRefs } from 'vue'
+import { computed, ref, toRefs } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import DateAsWords from '@/utils/components/DateAsWords.vue'

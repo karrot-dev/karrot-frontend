@@ -4,7 +4,7 @@
       v-model="typus"
       for="place"
     />
-    <QCard>
+    <QCard class="no-margin">
       <HistoryList
         class="padding-top"
         :history="history"

@@ -26,7 +26,7 @@
   </div>
   <div v-else>
     <PlaceHeader />
-    <PlaceTabs v-if="place" />
+    <PlaceTabs v-if="place"/>
     <RouterView />
   </div>
 </template>

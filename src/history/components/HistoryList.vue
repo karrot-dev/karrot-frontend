@@ -10,8 +10,11 @@
       :key="entry.id"
       :entry="entry"
     />
-    <div v-if="empty">
-      <QIcon name="fas fa-bug" />
+    <div
+      v-if="empty"
+      class="q-pa-lg text-center"
+    >
+      <QIcon name="fas fa-bug"/>
       {{ $t('HISTORY.NOTHING_HAPPENEND') }}
     </div>
     <template #loading>

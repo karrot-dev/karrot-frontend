@@ -1,14 +1,14 @@
 <template>
   <div>
     <div
-      class="row no-wrap items-center justify-between bg-white q-px-sm q-py-xs"
+      class="row no-wrap items-center justify-between bg-white q-pa-sm rounded-borders"
     >
       <QSelect
         v-model="archivedFilter"
         :options="archivedFilterOptions"
         emit-value
         map-options
-        outlined
+        filled
         hide-bottom-space
         dense
       />

@@ -1,11 +1,7 @@
 <template>
   <div>
-    <HistoryFilter
-      v-model="typus"
-    />
-    <QCard
-      class="no-mobile-margin no-shadow"
-    >
+    <HistoryFilter v-model="typus" />
+    <QCard class="no-margin">
       <RandomArt
         v-if="$q.platform.is.desktop"
         :seed="groupId"

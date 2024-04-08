@@ -4,7 +4,7 @@
       v-model="typus"
     />
     <QCard
-      class="no-mobile-margin no-shadow grey-border"
+      class="no-mobile-margin no-shadow"
     >
       <RandomArt
         v-if="$q.platform.is.desktop"

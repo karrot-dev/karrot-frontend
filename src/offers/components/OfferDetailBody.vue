@@ -61,7 +61,7 @@
           </div>
         </QBtnDropdown>
       </div>
-      <div class="q-ma-md q-pa-md bg-white grey-border">
+      <div class="q-ma-md q-px-md q-pt-md q-pb-sm bg-white grey-border rounded-borders">
         <Markdown
           v-measure
           :source="offer.description"

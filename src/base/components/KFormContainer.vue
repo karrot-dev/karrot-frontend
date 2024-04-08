@@ -1,7 +1,7 @@
 <template>
   <Component
     :is="$q.platform.is.mobile ? 'div' : 'QCard'"
-    class="bg-white q-mb-lg no-shadow grey-border"
+    class="bg-white q-mb-lg no-shadow"
     v-bind="$attrs"
   >
     <slot />

@@ -3,7 +3,7 @@
     v-if="audioEnabled && audioDevices"
     v-model="audioDeviceId"
     label="Audio"
-    outlined
+    filled
     :loading="audioLoading"
     emit-value
     map-options

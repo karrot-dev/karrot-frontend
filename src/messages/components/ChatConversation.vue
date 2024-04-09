@@ -70,8 +70,6 @@
           ref="compose"
           :status="sendStatus"
           slim
-          outlined
-          square
           :draft-key="conversation.id"
           :placeholder="messagePrompt"
           :is-participant="isParticipant"

@@ -53,7 +53,6 @@
         :error="hasAddressError"
         :error-message="addressError"
         icon="fas fa-map-marker"
-        filled
       />
 
       <div

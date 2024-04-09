@@ -21,7 +21,7 @@
         :error="Boolean(errors.name)"
         :error-message="errors.name"
         :options="translatableNameOptions"
-        outlined
+        filled
         autofocus
         @blur="v.name.$touch"
       />
@@ -31,7 +31,7 @@
         :label="$t('LABELS.DESCRIPTION')"
         :error="Boolean(errors.description)"
         :error-message="errors.description"
-        outlined
+        filled
       />
 
       <QField

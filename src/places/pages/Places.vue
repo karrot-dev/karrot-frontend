@@ -1,14 +1,14 @@
 <template>
   <div>
     <div
-      class="row items-center bg-white q-px-sm q-py-xs q-gutter-sm"
+      class="row items-center bg-white q-pa-sm rounded-borders gap-sm"
     >
       <QSelect
         v-model="type"
         :options="typeOptions"
         emit-value
         map-options
-        outlined
+        filled
         hide-bottom-space
         dense
       >
@@ -76,7 +76,7 @@
         :options="statusOptions"
         map-options
         emit-value
-        outlined
+        filled
         hide-bottom-space
         dense
       >
@@ -153,7 +153,7 @@
       <QInput
         :model-value="search"
         :label="$t('BUTTON.SEARCH')"
-        outlined
+        filled
         hide-bottom-space
         dense
         @update:model-value="debouncedSearch"

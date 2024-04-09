@@ -5,31 +5,30 @@
     class="conversation-message relative-position"
   >
     <QBtnGroup
-      outline
-      class="hover-button k-message-controls bg-white"
+      unelevated
+      class="hover-button k-message-controls bg-green-1 rounded-borders"
     >
       <QBtn
         v-if="message.isEditable"
-        outline
-        color="secondary"
         :title="$t('BUTTON.EDIT')"
+        unelevated
         @click="toggleEdit"
       >
         <i class="fas fa-pencil-alt" />
       </QBtn>
       <QBtn
         v-if="!slim"
-        outline
-        color="secondary"
         :title="$t('CONVERSATION.REPLIES')"
+        unelevated
+        text-color="secondary"
         @click="() => openThread(message)"
       >
         <i class="fas fa-comments" />
       </QBtn>
       <ConversationAddReaction
         :reacted="currentUserReactions"
-        color="secondary"
-        outline
+        text-color="secondary"
+        unelevated
         @toggle="toggleReaction"
       />
     </QBtnGroup>

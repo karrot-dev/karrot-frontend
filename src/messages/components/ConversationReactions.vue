@@ -56,7 +56,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   QDialog,
   QItem,
@@ -64,52 +64,35 @@ import {
   QItemLabel,
   QBtn,
 } from 'quasar'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 import { useMessageHelpers } from '@/messages/helpers'
 
 import ConversationAddReaction from './ConversationAddReaction.vue'
 import EmojiButton from './EmojiButton.vue'
 
-export default {
-  name: 'ConversationReactions',
-  components: {
-    ConversationAddReaction,
-    EmojiButton,
-    QDialog,
-    QItem,
-    QItemSection,
-    QItemLabel,
-    QBtn,
+const props = defineProps({
+  reactions: {
+    type: Array,
+    default: () => [],
   },
-  props: {
-    reactions: {
-      type: Array,
-      default: () => [],
-    },
-    currentUserReactions: {
-      type: Array,
-      default: () => [],
-    },
+  currentUserReactions: {
+    type: Array,
+    default: () => [],
   },
-  emits: [
-    'toggle',
-  ],
-  setup (props) {
-    const { groupReactions } = useMessageHelpers()
-    const groupedReactions = computed(() => groupReactions(props.reactions))
-    return { groupedReactions }
-  },
-  data () {
-    return {
-      showDetail: false,
-    }
-  },
-  methods: {
-    toggleDetail () {
-      this.showDetail = !this.showDetail
-    },
-  },
+})
+
+defineEmits([
+  'toggle',
+])
+
+const { groupReactions } = useMessageHelpers()
+const groupedReactions = computed(() => groupReactions(props.reactions))
+
+const showDetail = ref(false)
+
+function toggleDetail () {
+  showDetail.value = !showDetail.value
 }
 </script>
 

@@ -14,7 +14,7 @@
           v-bind="nameError"
           :autofocus="!$q.platform.has.touch"
           autocomplete="off"
-          outlined
+          filled
           class="q-mb-lg"
           @blur="v$.edit.name.$touch"
         >
@@ -28,7 +28,7 @@
           icon="fas fa-fw fa-address-card"
           :label="$t('OFFER.DESCRIPTION')"
           v-bind="descriptionError"
-          outlined
+          filled
           mentions
           class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"

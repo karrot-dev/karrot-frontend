@@ -196,7 +196,6 @@
             :error="hasAddressError"
             :error-message="addressError"
             :default-map-center="defaultMapCenter"
-            filled
             class="q-mb-lg"
           />
 

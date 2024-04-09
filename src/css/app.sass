@@ -137,7 +137,8 @@ body
 .gap-sm
   gap: 8px
 
-.overscroll-contain
+.overscroll-contain,
+.scroll
   overscroll-behavior: contain
 
 // Style the tabs
@@ -146,4 +147,11 @@ body
 .q-tab
   border-radius: 24px
   &.q-router-link--active
-    background-color: #ddd
+    background-color: $grey-4
+
+.q-tabs.bg-secondary
+  .q-tab.q-router-link--active
+    background-color: rgba(255, 255, 255, 0.2)
+
+.q-menu
+  border-radius: 12px

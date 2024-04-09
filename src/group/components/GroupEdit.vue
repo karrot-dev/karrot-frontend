@@ -90,7 +90,6 @@
           :default-map-center="defaultMapCenter"
           font-icon="fas fa-home"
           icon="fas fa-fw fa-map-marker"
-          filled
           class="q-mb-lg"
         />
 

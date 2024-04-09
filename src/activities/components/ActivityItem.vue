@@ -13,7 +13,7 @@
     <QCardSection
       class="no-padding content"
       :class="{ isUserParticipant, isDisabled: activity.isDisabled }"
-      :style="isUserParticipant && !activity.isDisabled ? { background: `linear-gradient(170deg, ${lighten(activityType.colour, 85)}, ${lighten(activityType.colour, 95)})` } : {}"
+      :style="contentStyle"
     >
       <div class="content-inner">
         <div class="row no-wrap items-start justify-between">
@@ -414,6 +414,11 @@ const {
   isLoading: isLeaving,
 } = useLeaveActivityMutation()
 
+const contentStyle = computed(() => {
+  if (!isUserParticipant.value || activity.value.isDisabled) return {}
+  return { background: `linear-gradient(170deg, ${lighten(activityType.value.colour, 85)}, ${lighten(activityType.value.colour, 95)})` }
+})
+
 const joinDialog = ref(false)
 const leaveDialog = ref(false)
 const joinParticipantTypeId = ref(null)
@@ -485,10 +490,6 @@ function roleName (role) {
 
 .content
   width: 100%
-
-  &.isUserParticipant
-    &:not(.isDisabled)
-      background-color: $lightGreen
 
   &.isDisabled
     background: $lightRed

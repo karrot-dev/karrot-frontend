@@ -75,7 +75,7 @@
             <QSeparator />
             <QCardActions
               style="height: 42px"
-              class="row no-wrap"
+              class="row no-wrap overflow-hidden"
             >
               <QChip
                 v-if="getAgreementIsActive(agreement)"

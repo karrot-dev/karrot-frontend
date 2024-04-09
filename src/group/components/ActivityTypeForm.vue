@@ -78,7 +78,7 @@
           <template #control>
             <IconPicker
               v-model="edit.feedbackIcon"
-              :color="edit.colour"
+              :color="colourName"
             />
           </template>
         </QField>

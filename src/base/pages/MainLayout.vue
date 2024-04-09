@@ -129,6 +129,7 @@
           :width="detailWidth"
           :overlay="true"
           :breakpoint="0"
+          persistent
           elevated
           :model-value="isDetailActive || hasDetailComponent"
         >

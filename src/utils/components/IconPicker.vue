@@ -12,7 +12,7 @@
       <QSelect
         v-model="iconTag"
         label="Tag"
-        outlined
+        filled
         clearable
         dense
         class="q-ma-md"
@@ -21,7 +21,7 @@
       <QInput
         v-model="iconFilter"
         :label="t('BUTTON.SEARCH')"
-        outlined
+        filled
         dense
         clearable
         class="q-ma-md"

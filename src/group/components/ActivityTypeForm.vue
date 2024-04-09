@@ -29,7 +29,7 @@
         label="Description"
         :error="Boolean(errors.description)"
         :error-message="errors.description"
-        outlined
+        filled
       />
 
       <QField borderless>

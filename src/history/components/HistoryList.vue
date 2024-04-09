@@ -14,7 +14,7 @@
       v-if="empty"
       class="q-pa-lg text-center"
     >
-      <QIcon name="fas fa-bug"/>
+      <QIcon name="fas fa-bug" />
       {{ $t('HISTORY.NOTHING_HAPPENEND') }}
     </div>
     <template #loading>

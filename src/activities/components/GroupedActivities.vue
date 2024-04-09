@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import { computed, ref, toRefs } from 'vue'
+import { computed, toRefs } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import DateAsWords from '@/utils/components/DateAsWords.vue'

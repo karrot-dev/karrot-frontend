@@ -1,5 +1,3 @@
-import { boot } from 'quasar/wrappers'
-
 import { queryKeyActivityTypeListAll } from '@/activities/queries'
 import { queryKeys } from '@/authuser/queries'
 import bootstrap from '@/base/api/bootstrap'

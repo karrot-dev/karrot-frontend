@@ -41,7 +41,7 @@
 <script setup>
 import { QBtn } from 'quasar'
 import { computed, onMounted, ref } from 'vue'
-import { onBeforeRouteLeave, onBeforeRouteUpdate, useRouter } from 'vue-router'
+import { onBeforeRouteUpdate } from 'vue-router'
 
 const props = defineProps({
   height: {

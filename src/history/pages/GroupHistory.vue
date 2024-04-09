@@ -6,6 +6,7 @@
         v-if="$q.platform.is.desktop"
         :seed="groupId"
         type="circles"
+        rounded-top
       />
       <HistoryList
         class="padding-top"

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="row items-center bg-white q-px-sm q-py-xs q-gutter-sm"
+    class="row items-center bg-white q-pa-sm gap-sm rounded-borders"
   >
     <QCheckbox
       v-model="onlyActive"

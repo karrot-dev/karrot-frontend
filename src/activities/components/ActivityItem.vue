@@ -505,6 +505,12 @@ function roleName (role) {
   font-weight: 500
   color: $secondary
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.06)
+  ::v-deep(.q-btn)
+    border-radius: 0px
+    &:first-child
+      border-bottom-left-radius: 12px
+    &:last-child
+      border-bottom-right-radius: 12px
 
 .q-btn.action-button
   ::v-deep(.q-btn__wrapper)

@@ -31,7 +31,7 @@
       </div>
       <div class="photoAndName row no-wrap">
         <div
-          class="photo q-ma-md bg-white rounded-borders"
+          class="photo q-ma-md"
         >
           <ProfilePicture
             :is-link="false"

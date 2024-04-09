@@ -4,6 +4,7 @@
       <RandomArt
         :seed="groupId"
         type="circles"
+        rounded-top
       />
       <div class="q-mx-md actionButtons">
         <QBtn

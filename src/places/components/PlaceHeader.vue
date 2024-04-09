@@ -5,6 +5,7 @@
       <RandomArt
         :seed="placeId"
         type="banner"
+        rounded-top
       />
     </div>
     <div

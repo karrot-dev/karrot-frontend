@@ -41,6 +41,7 @@
 <script setup>
 import { QBtn } from 'quasar'
 import { computed, onMounted, ref } from 'vue'
+import { onBeforeRouteLeave, onBeforeRouteUpdate, useRouter } from 'vue-router'
 
 const props = defineProps({
   height: {
@@ -57,6 +58,12 @@ onMounted(() => {
   if (content.value.clientHeight > props.height) {
     hasMore.value = true
   }
+})
+
+onBeforeRouteUpdate(() => {
+  // When we move to another page within the place (i.e. one of the place tabs)
+  // We need to hide the "more" section, or we jump to the top of the page
+  more.value = false
 })
 
 const style = computed(() => {

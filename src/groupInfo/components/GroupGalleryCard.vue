@@ -62,7 +62,7 @@
         </span>
         <div class="overlay" />
       </QCardSection>
-      <QSeparator />
+      <QSeparator v-if="myApplicationPending || group.isMember" />
       <QCardActions
         v-if="myApplicationPending"
         class="bg-blue text-white"

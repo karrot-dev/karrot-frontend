@@ -571,6 +571,7 @@ export default {
           prompt: {
             model: this.edit.description,
             type: 'text',
+            filled: true,
           },
           cancel: this.$t('BUTTON.CANCEL'),
           ok: this.$t('BUTTON.YES'),
@@ -593,6 +594,7 @@ export default {
             // reset if there's a series default
             model: this.series ? this.series.description : this.edit.description,
             type: 'text',
+            filled: true,
           },
           cancel: this.$t('BUTTON.CANCEL'),
           ok: this.$t('BUTTON.YES'),

@@ -12,7 +12,7 @@
     </div>
     <QCardSection
       class="no-padding content"
-      :class="{ isUserParticipant, isDisabled: activity.isDisabled }"
+      :class="{ 'is-disabled': activity.isDisabled }"
       :style="contentStyle"
     >
       <div class="content-inner">
@@ -415,7 +415,7 @@ const {
 } = useLeaveActivityMutation()
 
 const contentStyle = computed(() => {
-  if (!isUserParticipant.value || activity.value.isDisabled) return {}
+  if (!isUserParticipant.value || activity.value.isDisabled || !activityType.value) return {}
   return { background: `linear-gradient(170deg, ${lighten(activityType.value.colour, 85)}, ${lighten(activityType.value.colour, 95)})` }
 })
 
@@ -491,7 +491,7 @@ function roleName (role) {
 .content
   width: 100%
 
-  &.isDisabled
+  &.is-disabled
     background: $lightRed
 
   .content-inner

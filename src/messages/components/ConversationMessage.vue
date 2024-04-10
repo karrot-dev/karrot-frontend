@@ -12,6 +12,7 @@
         v-if="message.isEditable"
         :title="$t('BUTTON.EDIT')"
         unelevated
+        text-color="secondary"
         @click="toggleEdit"
       >
         <i class="fas fa-pencil-alt" />

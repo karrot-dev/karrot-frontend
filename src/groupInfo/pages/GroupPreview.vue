@@ -1,6 +1,6 @@
 <template>
   <div v-if="group">
-    <QCard class="shadow-6">
+    <QCard>
       <div
         class="photo text-white relative-position row justify-center"
         :class="{ hasPhoto: group.photoUrls['600'] }"

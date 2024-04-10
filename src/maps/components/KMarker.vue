@@ -105,6 +105,7 @@ export default {
     if (this.popup) {
       this.leafletMarker.bindPopup(popup({
         closeButton: false,
+        className: 'k-marker-popup',
         ...this.popup,
       }).setContent(this.$refs.popup))
     }

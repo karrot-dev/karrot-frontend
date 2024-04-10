@@ -3,7 +3,7 @@
     <div class="k-profile">
       <QBanner
         v-if="!currentGroupMembership && currentGroup"
-        class="bg-warning text-white shadow-2 q-mb-sm q-pa-none"
+        class="bg-warning text-white q-mb-sm q-pa-none rounded-borders"
         style="min-height: unset"
       >
         <template #avatar>

@@ -4,7 +4,7 @@
   >
     <div
       v-if="hasInvalidToken"
-      class="bg-white shadow-6 q-py-md q-px-sm"
+      class="bg-white q-py-md q-px-sm"
     >
       <h2>
         <QIcon
@@ -16,7 +16,7 @@
     </div>
     <div
       v-else-if="hasSuccess"
-      class="bg-white shadow-6 q-py-md q-px-sm"
+      class="bg-white rounded-borders q-py-md q-px-sm"
     >
       <h2>
         <QIcon
@@ -30,7 +30,7 @@
       v-else
       @submit.prevent="$emit('save', choice)"
     >
-      <div class="bg-white shadow-6 q-py-md q-px-sm">
+      <div class="bg-white rounded-borders q-py-md q-px-sm">
         <QOptionGroup
           v-model="choice"
           class="q-ma-sm"
@@ -45,10 +45,10 @@
         <i class="fas fa-exclamation-triangle" />
         {{ $t('GLOBAL.GENERIC_ERROR') }}
       </div>
-      <div class="actions bg-white">
+      <div class="actions">
         <QBtn
           type="submit"
-          class="submit shadow-4"
+          class="submit"
           flat
         >
           {{ $t('BUTTON.UNSUBSCRIBE') }}

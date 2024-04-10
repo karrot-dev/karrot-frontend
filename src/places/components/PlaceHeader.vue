@@ -122,6 +122,7 @@
     >
       <ShowMore
         v-if="place.description"
+        :key="place.id"
         :height="200"
       >
         <Markdown

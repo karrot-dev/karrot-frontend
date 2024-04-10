@@ -20,7 +20,7 @@
           dense
         >
           <QItem
-            :to="{name: 'placeCreate', query: latLng}"
+            :to="{ name: 'placeCreate', query: { lat: latLng.lat, lng: latLng.lng } }"
           >
             <QItemSection side>
               <QIcon name="add circle" />

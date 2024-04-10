@@ -4,6 +4,7 @@
     :show-attribution="showAttribution"
     :padding-top-left="paddingTopLeft"
     :scroll-wheel-zoom="scrollWheelZoom"
+    :cluster="cluster"
     @moveend="event => $emit('map-move-end', event.target)"
     @update:zoom="updateZoom"
     @map-click="mapClick"
@@ -35,7 +36,7 @@
 </template>
 
 <script>
-import { latLngBounds } from 'leaflet/dist/leaflet-src.esm'
+import { latLngBounds } from 'leaflet'
 import { QMenu } from 'quasar'
 
 import KMap from './KMap.vue'
@@ -90,6 +91,10 @@ export default {
     scrollWheelZoom: {
       type: Boolean,
       default: true,
+    },
+    cluster: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: [

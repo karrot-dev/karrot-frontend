@@ -1,6 +1,6 @@
 // A custom icon that does everything with vectors
 // (the default leaflet icon uses images)
-import { Icon } from 'leaflet/dist/leaflet-src.esm'
+import { Icon } from 'leaflet'
 
 const VectorIcon = Icon.extend({
   options: {

@@ -10,6 +10,7 @@
       :default-center="center"
       :force-center="forceCenter"
       :force-zoom="forceZoom"
+      cluster
       @map-move-end="mapMoveEnd"
     >
       <template

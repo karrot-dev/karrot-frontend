@@ -7,11 +7,12 @@
     :force-bounds="forceBounds"
     :padding-top-left="paddingTopLeft"
     :show-attribution="false"
+    cluster
   />
 </template>
 
 <script>
-import { latLngBounds } from 'leaflet/dist/leaflet-src.esm'
+import { latLngBounds } from 'leaflet'
 
 import StandardMap from '@/maps/components/StandardMap.vue'
 import { groupMarker } from '@/maps/components/markers'

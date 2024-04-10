@@ -22,7 +22,7 @@
           header-class="text-bold"
         >
           <div class="q-pb-sm bg-grey-2">
-            <div class="q-ma-sm q-pa-sm bg-white">
+            <div class="q-ma-sm q-pa-sm bg-white rounded-borders">
               <span class="text-bold text-uppercase">{{ getGroupById(application.group).name }}</span>
               <span class="message-date">
                 <small class="text-weight-light">
@@ -34,7 +34,7 @@
               </span>
               <Markdown :source="application.questions" />
             </div>
-            <div class="q-ma-sm q-pa-sm bg-white">
+            <div class="q-ma-sm q-pa-sm bg-white rounded-borders">
               <RouterLink :to="{ name: 'user', params: { userId: application.user.id } }">
                 <span class="text-bold text-secondary text-uppercase">{{ application.user.displayName }}</span>
               </RouterLink>
@@ -55,7 +55,7 @@
         <QBtnGroup
           flat
           spread
-          class="bg-grey-2 q-my-sm q-mx-md"
+          class="bg-grey-2 q-my-sm q-mx-md rounded-borders"
         >
           <QBtn
             flat

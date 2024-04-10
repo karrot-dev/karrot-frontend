@@ -30,7 +30,7 @@
       color="secondary"
       icon="fas fa-plus"
       padding="8px"
-      rounded
+      round
       size="md"
       :title="$t('BUTTON.CREATE')"
       :to="{ name: 'agreementCreate', params: { groupId } }"
@@ -39,6 +39,8 @@
   <QInfiniteScroll v-bind="infiniteScroll">
     <QTable
       :grid="grid"
+      flat
+      class="rounded-borders"
       hide-pagination
       :loading="isLoading"
       :columns="columns"

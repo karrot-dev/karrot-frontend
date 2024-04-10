@@ -1,7 +1,7 @@
 <template>
   <QItem
     v-if="!editMode"
-    :class="{ isUnread, slim, continuation }"
+    :class="{ 'is-unread': isUnread, slim, continuation }"
     class="conversation-message relative-position"
   >
     <QBtnGroup
@@ -106,15 +106,11 @@
         :current-user-reactions="currentUserReactions"
         @toggle="toggleReaction"
       />
-      <div
-        v-if="showReplies"
-        class="q-mb-xs"
-      >
+      <div v-if="showReplies">
         <QBtn
           unelevated
-          :color="message.threadMeta.unreadReplyCount > 0 ? 'secondary' : 'grey-3'"
-          :text-color="message.threadMeta.unreadReplyCount > 0 ? 'white' : 'black'"
           class="reaction-box k-thread-box"
+          :class="{ 'has-unread': message.threadMeta.unreadReplyCount > 0 }"
           no-caps
           @click="() => openThread(message)"
         >
@@ -299,9 +295,6 @@ async function save ({ content, images, attachments }) {
 @use 'sass:color'
 @import './reactionBox'
 
-.isUnread
-  background: linear-gradient(to right, $lightGreen, $lighterGreen)
-
 .continuation
   min-height: auto
   padding-top: 0
@@ -319,12 +312,16 @@ body.mobile .conversation-message
 
 .conversation-message
   padding-bottom: 0
+  background-color: white
 
   .hover-button
     visibility: hidden
 
   &:hover .hover-button
     visibility: visible
+
+  &.is-unread
+    background: linear-gradient(to right, color.scale($secondary, $lightness: 82%), color.scale($secondary, $lightness: 93%))
 
   &.q-item-highlight:hover
     background-color: color.change($secondary, $alpha: .07)
@@ -345,6 +342,10 @@ body.mobile .conversation-message
     min-height: 36px
     max-height: 36px
     box-shadow: none
+    background-color: $grey-3
+
+    &.has-unread
+      background-color: color.adjust($secondary, $lightness: 40%)
 
     ::v-deep(.q-btn__wrapper)
       min-height: 0

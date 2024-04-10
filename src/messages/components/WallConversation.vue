@@ -44,7 +44,7 @@
       >
         <QBanner
           v-if="isParticipant && unreadMessageCount > 0"
-          class="bg-secondary text-white q-mt-sm"
+          class="bg-secondary text-white q-mt-sm q-mb-sm"
           style="min-height: unset"
         >
           <template #avatar>
@@ -76,7 +76,7 @@
           :message="message"
           :is-unread="conversation.seenUpTo && message.id > conversation.seenUpTo"
           supports-threads
-          class="bg-white q-mb-md q-pa-md rounded-borders"
+          class="q-mb-sm q-px-md q-py-sm rounded-borders"
         />
         <KSpinner v-show="isLoadingMessages || isFetchingNextPage" />
       </QList>

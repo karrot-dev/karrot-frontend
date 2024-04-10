@@ -97,6 +97,7 @@ function toggleDetail () {
 </script>
 
 <style scoped lang="sass">
+@use 'sass:color'
 @import './reactionBox'
 
 .add-button
@@ -114,8 +115,7 @@ function toggleDetail () {
     visibility: visible
 
 .user-reacted
-  border-color: $secondary !important
-  background-color: #efefef
+  background-color: color.mix($secondary, $grey-2, $weight: 12%)
 
 .reactions-number
   padding-left: 3px

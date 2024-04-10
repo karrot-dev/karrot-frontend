@@ -35,6 +35,7 @@ a
 body.mobile .no-mobile-margin
   margin: 0
   border-top: 0
+  border-radius: 0
 
 .generic-padding
   padding: 1em
@@ -152,6 +153,14 @@ body
 .q-tabs.bg-secondary
   .q-tab.q-router-link--active
     background-color: rgba(255, 255, 255, 0.2)
+
+// Nice faded bits on the side scrolling tabs
+// Prevents the arrow from being on top of the content
+.q-tabs--mobile-with-arrows
+  .q-tabs__arrow--left
+    background: linear-gradient(to right, white 40%, transparent)
+  .q-tabs__arrow--right
+    background: linear-gradient(to right, transparent, white 40%)
 
 .q-menu
   border-radius: 12px

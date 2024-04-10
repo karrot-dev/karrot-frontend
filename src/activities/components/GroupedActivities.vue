@@ -6,7 +6,7 @@
     <div
       v-if="!dense"
       class="q-px-sm q-pt-lg q-pb-sm full-width text-center text-bold"
-      style="color: rgba(0, 0, 0, 0.7); position: sticky; top: 32px; z-index: 1;"
+      style="color: rgba(0, 0, 0, 0.7); position: sticky; top: 26px; z-index: 1;"
     >
       <div
         class="bg-white q-pa-sm inline-block"

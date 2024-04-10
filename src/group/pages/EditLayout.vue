@@ -3,6 +3,7 @@
     <QTabs
       class="q-pa-sm"
       align="left"
+      mobile-arrows
     >
       <QRouteTab
         v-for="(tab, idx) in tabs"

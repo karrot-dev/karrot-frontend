@@ -20,25 +20,6 @@
       </QItemLabel>
     </QItemSection>
   </QItem>
-  <RouterLink
-    v-if="false"
-    :to="target"
-    class="flex items-center gap-sm no-wrap"
-  >
-    <img
-      v-if="group?.photoUrls?.thumbnail"
-      :src="group.photoUrls.thumbnail"
-      style="border-radius: 6px; height: 36px; width: 36px;"
-    >
-    <div>
-      <div class="text-subtitle1">
-        {{ group.name }}
-      </div>
-      <div class="text-caption text-grey-8">
-        {{ group.memberCount }} {{ $tc('JOINGROUP.NUM_MEMBERS', group.memberCount) }}
-      </div>
-    </div>
-  </RouterLink>
 </template>
 
 <script setup>

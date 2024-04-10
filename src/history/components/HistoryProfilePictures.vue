@@ -6,7 +6,7 @@
   />
   <div
     v-else-if="users.length > 1"
-    class="usersCount"
+    class="users-count"
     :style="userCountStyle"
   >
     {{ users.length }}
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="sass">
-.usersCount
+.users-count
   text-align: center
   user-select: none
 </style>

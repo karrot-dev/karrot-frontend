@@ -41,7 +41,7 @@
             <QIcon name="fas fa-fw fa-user" />
           </QItemSection>
           <QItemSection>
-            <div class="col">
+            <div class="row">
               <ProfilePicture
                 v-for="user in users"
                 :key="user.id"

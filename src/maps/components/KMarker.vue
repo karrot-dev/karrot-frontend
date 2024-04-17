@@ -56,6 +56,7 @@ export default {
   },
   emits: [
     'dragend',
+    'marker-clicked',
   ],
   setup () {
     const leafletMap = inject('leafletMap')
@@ -95,6 +96,11 @@ export default {
       icon: this.icon,
       draggable: this.draggable,
     }).addTo(this.leafletMap))
+
+    this.leafletMarker.on('click', event => {
+      // If user click the marker, it would enter localselectMarker array
+      this.$emit('marker-clicked', event)
+    })
 
     if (this.opacity) {
       this.leafletMarker.setOpacity(this.opacity)

@@ -157,7 +157,7 @@
     "workbox-precaching": "^7.0.0"
   },
   "engines": {
-    "node": ">= 16",
+    "node": ">= 18",
     "npm": ">= 6.13.4",
     "yarn": ">= 1.21.1"
   },

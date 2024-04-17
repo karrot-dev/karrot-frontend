@@ -1,17 +1,17 @@
 language: node_js
 node_js:
-  - "14"  # Specify the Node.js versions you want to test against
   - "16"
 
 # Specify branches that should be built
 branches:
   only:
+    - main
     - scofield_map_update
 
 # Define the script to run for tests
 script:
-  - npm install
-  - npm test
+  - yarn dev --frozen-lockfile
+  - yarn test
 
 # Optional: Configure notifications (email, Slack, etc.)
 notifications:

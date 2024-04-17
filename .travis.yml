@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - "14"  # Specify the Node.js versions you want to test against
+  - "16"
+
+# Specify branches that should be built
+branches:
+  only:
+    - scofield_map_update
+
+# Define the script to run for tests
+script:
+  - npm install
+  - npm test
+
+# Optional: Configure notifications (email, Slack, etc.)
+notifications:
+  email:
+    recipients:
+      - your-email@example.com
+    on_success: change  # default: change
+    on_failure: always  # default: always
+

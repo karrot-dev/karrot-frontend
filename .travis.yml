@@ -11,14 +11,7 @@ branches:
 
 # Define the script to run for tests
 script:
-  - yarn dev --frozen-lockfile
+  - yarn --frozen-lockfile
   - yarn test
 
-# Optional: Configure notifications (email, Slack, etc.)
-notifications:
-  email:
-    recipients:
-      - your-email@example.com
-    on_success: change  # default: change
-    on_failure: always  # default: always
 

@@ -1,0 +1,17 @@
+dist: focal
+language: node_js
+node_js:
+  - "18"
+
+# Specify branches that should be built
+branches:
+  only:
+    - main
+    - scofield_map_update
+
+# Define the script to run for tests
+script:
+  - yarn --frozen-lockfile
+  - yarn test
+
+

@@ -333,7 +333,8 @@ export default {
   margin-left: auto
 
 body.desktop .mainContent-page:not(.fullpage)
-  width: 800px
+  min-width: 600px
+  max-width: 800px
   margin: 8px auto 4.5em auto
 
 .background

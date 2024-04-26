@@ -1,7 +1,7 @@
 <template>
   <QItem
     v-if="!editMode"
-    :class="{ 'is-unread': isUnread, slim, continuation }"
+    :class="{ 'is-unread': isUnread, continuation }"
     class="conversation-message relative-position"
   >
     <QBtnGroup
@@ -34,14 +34,14 @@
       />
     </QBtnGroup>
     <QItemSection
-      v-if="!slim"
       side
       top
       class="q-mt-xs q-pr-sm"
     >
       <ProfilePicture
         :user="author"
-        :size="$q.platform.is.mobile ? 30 : 40"
+        :size="$q.platform.is.mobile ? 30 : 36"
+        :class="continuation && 'invisible'"
       />
     </QItemSection>
     <QItemSection>
@@ -375,13 +375,6 @@ body.mobile .conversation-message
       transition: none
 
 body.desktop
-  .conversation-message.slim .k-message-controls
-    top: -8px
-
-    .q-btn
-      min-height: 24px
-      font-size: 13px
-
   .k-message-meta
     padding-top: 4px
 </style>

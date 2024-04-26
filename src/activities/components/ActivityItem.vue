@@ -221,7 +221,6 @@
       >
         <QIcon
           v-bind="activityTypeIconProps"
-          color="grey-9"
           size="xs"
           class="q-mr-sm"
         />

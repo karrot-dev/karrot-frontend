@@ -23,7 +23,7 @@
         >
           <div class="q-pb-sm bg-grey-2">
             <div class="q-ma-sm q-pa-sm bg-white rounded-borders">
-              <span class="text-bold text-uppercase">{{ getGroupById(application.group).name }}</span>
+              <span class="text-bold">{{ getGroupById(application.group).name }}</span>
               <span class="message-date">
                 <small class="text-weight-light">
                   <DateAsWords
@@ -36,7 +36,7 @@
             </div>
             <div class="q-ma-sm q-pa-sm bg-white rounded-borders">
               <RouterLink :to="{ name: 'user', params: { userId: application.user.id } }">
-                <span class="text-bold text-secondary text-uppercase">{{ application.user.displayName }}</span>
+                <span class="text-bold text-secondary">{{ application.user.displayName }}</span>
               </RouterLink>
               <span class="message-date">
                 <small class="text-weight-light">

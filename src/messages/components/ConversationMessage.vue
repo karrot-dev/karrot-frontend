@@ -160,6 +160,7 @@
     :user="author"
     :value="message"
     :slim="slim"
+    class="bg-white"
     @submit="save"
     @leave-edit="toggleEdit"
   />
@@ -283,7 +284,7 @@ function openImageGallery (imageId) {
 
 async function save ({ content, images, attachments }) {
   await saveMessage({
-    id: this.message.id,
+    id: props.message.id,
     content,
     images,
     attachments,

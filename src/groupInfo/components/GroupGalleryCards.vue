@@ -13,41 +13,25 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { QResizeObserver } from 'quasar'
+import { computed, ref } from 'vue'
 
 import GroupGalleryCard from './GroupGalleryCard.vue'
 
-export default {
-  components: {
-    GroupGalleryCard,
-    QResizeObserver,
+defineProps({
+  groups: {
+    default: () => [],
+    type: Array,
   },
-  props: {
-    groups: {
-      default: () => [],
-      type: Array,
-    },
-  },
-  data () {
-    return {
-      width: 230,
-    }
-  },
-  computed: {
-    cols () {
-      return Math.max(1, Math.floor(this.width / 230))
-    },
-    cardStyle () {
-      return {
-        width: (100 / this.cols) + '%',
-      }
-    },
-  },
-  methods: {
-    onResize ({ width }) {
-      this.width = width
-    },
-  },
+})
+
+const width = ref(230)
+
+const cols = computed(() => Math.max(1, Math.floor(width.value / 230)))
+const cardStyle = computed(() => ({ width: (100 / cols.value) + '%' }))
+
+function onResize ({ width: value }) {
+  width.value = value
 }
 </script>

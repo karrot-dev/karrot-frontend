@@ -110,11 +110,7 @@
         <p class="text-primary header">
           {{ $t('JOINGROUP.MY_GROUPS') }}
         </p>
-        <GroupGalleryCards
-          :groups="filteredMyGroups"
-          @preview="(...args) => $emit('preview', ...args)"
-          @visit="(...args) => $emit('visit', ...args)"
-        />
+        <GroupGalleryCards :groups="filteredMyGroups" />
       </div>
       <p
         v-if="hasJoinedGroups && hasOtherGroupsToShow"
@@ -138,10 +134,7 @@
         </i18n-t>
       </p>
       <div v-if="hasOtherGroupsToShow">
-        <GroupGalleryCards
-          :groups="filteredOtherGroups"
-          @preview="(...args) => $emit('preview', ...args)"
-        />
+        <GroupGalleryCards :groups="filteredOtherGroups" />
       </div>
     </div>
   </div>
@@ -198,10 +191,6 @@ export default {
       type: Object,
     },
   },
-  emits: [
-    'visit',
-    'preview',
-  ],
   data () {
     return {
       width: -1, // will get set by our QResizeObserver later

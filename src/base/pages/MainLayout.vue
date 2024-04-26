@@ -127,7 +127,7 @@
           v-if="!$q.platform.is.mobile && isLoggedIn"
           side="right"
           :width="detailWidth"
-          :overlay="true"
+          :overlay="false"
           :breakpoint="0"
           persistent
           elevated
@@ -333,12 +333,8 @@ export default {
   margin-left: auto
 
 body.desktop .mainContent-page:not(.fullpage)
-  min-width: 350px
-  max-width: 57em
-  margin-top: 8px
-  margin-right: auto
-  margin-bottom: 4.5em
-  margin-left: auto
+  width: 800px
+  margin: 8px auto 4.5em auto
 
 .background
   background-attachment: fixed

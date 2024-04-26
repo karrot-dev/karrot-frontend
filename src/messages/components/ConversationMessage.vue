@@ -13,6 +13,9 @@
         outline
         color="secondary"
         :title="$t('BUTTON.EDIT')"
+        group
+        191
+        wall
         @click="toggleEdit"
       >
         <i class="fas fa-pencil-alt" />

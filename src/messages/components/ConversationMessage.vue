@@ -1,47 +1,47 @@
 <template>
   <QItem
     v-if="!editMode"
-    :class="{ isUnread, slim, continuation }"
+    :class="{ 'is-unread': isUnread, continuation }"
     class="conversation-message relative-position"
   >
     <QBtnGroup
-      outline
-      class="hover-button k-message-controls bg-white"
+      unelevated
+      class="hover-button k-message-controls bg-green-1 rounded-borders"
     >
       <QBtn
         v-if="message.isEditable"
-        outline
-        color="secondary"
         :title="$t('BUTTON.EDIT')"
+        unelevated
+        text-color="secondary"
         @click="toggleEdit"
       >
         <i class="fas fa-pencil-alt" />
       </QBtn>
       <QBtn
         v-if="!slim"
-        outline
-        color="secondary"
         :title="$t('CONVERSATION.REPLIES')"
+        unelevated
+        text-color="secondary"
         @click="() => openThread(message)"
       >
         <i class="fas fa-comments" />
       </QBtn>
       <ConversationAddReaction
         :reacted="currentUserReactions"
-        color="secondary"
-        outline
+        text-color="secondary"
+        unelevated
         @toggle="toggleReaction"
       />
     </QBtnGroup>
     <QItemSection
-      v-if="!slim"
       side
       top
       class="q-mt-xs q-pr-sm"
     >
       <ProfilePicture
         :user="author"
-        :size="$q.platform.is.mobile ? 30 : 40"
+        :size="$q.platform.is.mobile ? 30 : 36"
+        :class="continuation && 'invisible'"
       />
     </QItemSection>
     <QItemSection>
@@ -50,7 +50,7 @@
         class="no-wrap k-message-meta"
       >
         <RouterLink :to="{ name: 'user', params: { userId: author.id } }">
-          <span class="k-message-author text-bold text-secondary text-uppercase">{{ author.displayName }}</span>
+          <span class="k-message-author text-bold text-secondary">{{ author.displayName }}</span>
         </RouterLink>
         <span class="message-date">
           <small class="text-weight-light">
@@ -110,9 +110,8 @@
       <div v-if="showReplies">
         <QBtn
           unelevated
-          :color="message.threadMeta.unreadReplyCount > 0 ? 'secondary' : 'white'"
-          :text-color="message.threadMeta.unreadReplyCount > 0 ? 'white' : 'black'"
           class="reaction-box k-thread-box"
+          :class="{ 'has-unread': message.threadMeta.unreadReplyCount > 0 }"
           no-caps
           @click="() => openThread(message)"
         >
@@ -135,6 +134,24 @@
           />
         </QBtn>
       </div>
+      <div v-else-if="supportsThreads">
+        <QBtn
+          color="grey-2"
+          text-color="grey-8"
+          class="reaction-box k-thread-box"
+          no-caps
+          @click="() => openThread(message)"
+        >
+          <ProfilePicture
+            class="k-profile-picture"
+            :user="currentUser"
+            :is-link="false"
+          />
+          <span class="k-replies-count text-caption">
+            {{ t('CONVERSATION.REPLY_TO_MESSAGE') }}
+          </span>
+        </QBtn>
+      </div>
     </QItemSection>
   </QItem>
   <ConversationCompose
@@ -143,12 +160,13 @@
     :user="author"
     :value="message"
     :slim="slim"
+    class="bg-white"
     @submit="save"
     @leave-edit="toggleEdit"
   />
 </template>
 
-<script>
+<script setup>
 import {
   Dialog,
   QBtn,
@@ -158,11 +176,11 @@ import {
   QItemSection,
   QItemLabel,
   QIcon,
-  format,
 } from 'quasar'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-import { useAuthHelpers } from '@/authuser/helpers'
+import { useAuthHelpers, useCurrentUser } from '@/authuser/helpers'
 import { useMessageHelpers } from '@/messages/helpers'
 import {
   useAddReactionMutation,
@@ -182,146 +200,102 @@ import Markdown from '@/utils/components/Markdown.vue'
 
 import ConversationAddReaction from './ConversationAddReaction.vue'
 
-const { humanStorageSize } = format
-
-export default {
-  name: 'ConversationMessage',
-  components: {
-    Attachments,
-    ConversationReactions,
-    ConversationAddReaction,
-    ConversationCompose,
-    ProfilePicture,
-    Markdown,
-    DateAsWords,
-    QBtn,
-    QBtnGroup,
-    QImg,
-    QItem,
-    QItemSection,
-    QItemLabel,
-    QIcon,
+const props = defineProps({
+  message: {
+    type: Object,
+    required: true,
   },
-  props: {
-    message: {
-      type: Object,
-      required: true,
-    },
-    isUnread: {
-      type: Boolean,
-      default: false,
-    },
-    continuation: {
-      type: Boolean,
-      default: false,
-    },
-    slim: {
-      type: Boolean,
-      default: false,
-    },
+  isUnread: {
+    type: Boolean,
+    default: false,
   },
-  setup (props) {
-    const { getIsCurrentUser } = useAuthHelpers()
-    const { getUserById } = useUserService()
-    const { openThread } = useDetailService()
-    const { getIsMessageEdited } = useMessageHelpers()
-
-    const author = computed(() => getUserById(props.message.author))
-    const threadParticipants = computed(() => props.message.threadMeta?.participants?.map(getUserById) ?? [])
-
-    const {
-      mutateAsync: saveMessage,
-      status: saveMessageStatus,
-    } = useSaveMesssageMutation()
-
-    const { mutate: addReaction } = useAddReactionMutation()
-    const { mutate: removeReaction } = useRemoveReactionMutation()
-
-    function toggleReaction (name) {
-      const messageId = props.message.id
-      const reactionIndex = props.message.reactions.findIndex(reaction => getIsCurrentUser(reaction.user) && reaction.name === name)
-
-      if (reactionIndex === -1) {
-        addReaction({ messageId, name })
-      }
-      else {
-        removeReaction({ messageId, name })
-      }
-    }
-
-    return {
-      humanStorageSize,
-
-      author,
-      threadParticipants,
-
-      getIsMessageEdited,
-      getIsCurrentUser,
-
-      toggleReaction,
-      saveMessage,
-      saveMessageStatus,
-      openThread,
-    }
+  continuation: {
+    type: Boolean,
+    default: false,
   },
-  data () {
-    return {
-      editMode: false,
-    }
+  slim: {
+    type: Boolean,
+    default: false,
   },
-  computed: {
-    currentUserReactions () {
-      return this.message?.reactions?.filter(reaction => this.getIsCurrentUser(reaction.user)).map(reaction => reaction.name)
-    },
-    hasReactions () {
-      return this.message?.reactions?.length > 0
-    },
-    showReplies () {
-      return this.message.threadMeta && !this.slim
-    },
-    tooltipDate () {
-      return this.$d(this.message.createdAt, 'long')
-    },
-    imagesForDisplay () {
-      return this.message?.images?.filter(image => image.id && !image._removed) || []
-    },
-    attachmentsForDisplay () {
-      return this.message?.attachments?.filter(attachment => attachment.id && !attachment._removed) || []
-    },
+  supportsThreads: {
+    type: Boolean,
+    default: false,
   },
-  methods: {
-    toggleEdit () {
-      this.editMode = !this.editMode
+})
+
+const { getIsCurrentUser } = useAuthHelpers()
+const { getUserById } = useUserService()
+const { openThread } = useDetailService()
+const { getIsMessageEdited } = useMessageHelpers()
+const currentUser = useCurrentUser()
+
+const author = computed(() => getUserById(props.message.author))
+const threadParticipants = computed(() => props.message.threadMeta?.participants?.map(getUserById) ?? [])
+
+const {
+  mutateAsync: saveMessage,
+  status: saveMessageStatus,
+} = useSaveMesssageMutation()
+
+const { mutate: addReaction } = useAddReactionMutation()
+const { mutate: removeReaction } = useRemoveReactionMutation()
+
+function toggleReaction (name) {
+  const messageId = props.message.id
+  const reactionIndex = props.message.reactions.findIndex(reaction => getIsCurrentUser(reaction.user) && reaction.name === name)
+
+  if (reactionIndex === -1) {
+    addReaction({ messageId, name })
+  }
+  else {
+    removeReaction({ messageId, name })
+  }
+}
+
+const editMode = ref(false)
+
+const { t, d } = useI18n()
+
+const currentUserReactions = computed(() => {
+  return props.message?.reactions?.filter(reaction => getIsCurrentUser(reaction.user)).map(reaction => reaction.name)
+})
+
+const hasReactions = computed(() => props.message?.reactions?.length > 0)
+const showReplies = computed(() => props.message.threadMeta && !props.slim)
+const tooltipDate = computed(() => d(props.message.createdAt, 'long'))
+
+const imagesForDisplay = computed(() => {
+  return props.message?.images?.filter(image => image.id && !image._removed) || []
+})
+
+function toggleEdit () {
+  editMode.value = !editMode.value
+}
+
+function openImageGallery (imageId) {
+  Dialog.create({
+    component: ImageGalleryDialog,
+    componentProps: {
+      message: props.message,
+      selectedImageId: imageId,
     },
-    openImageGallery (imageId) {
-      Dialog.create({
-        component: ImageGalleryDialog,
-        componentProps: {
-          message: this.message,
-          selectedImageId: imageId,
-        },
-        parent: this,
-      })
-    },
-    async save ({ content, images, attachments }) {
-      await this.saveMessage({
-        id: this.message.id,
-        content,
-        images,
-        attachments,
-      })
-      this.toggleEdit()
-    },
-  },
+  })
+}
+
+async function save ({ content, images, attachments }) {
+  await saveMessage({
+    id: props.message.id,
+    content,
+    images,
+    attachments,
+  })
+  toggleEdit()
 }
 </script>
 
 <style scoped lang="sass">
 @use 'sass:color'
 @import './reactionBox'
-
-.isUnread
-  background: linear-gradient(to right, $lightGreen, $lighterGreen)
 
 .continuation
   min-height: auto
@@ -340,12 +314,16 @@ body.mobile .conversation-message
 
 .conversation-message
   padding-bottom: 0
+  background-color: white
 
   .hover-button
     visibility: hidden
 
   &:hover .hover-button
     visibility: visible
+
+  &.is-unread
+    background: linear-gradient(to right, color.scale($secondary, $lightness: 82%), color.scale($secondary, $lightness: 93%))
 
   &.q-item-highlight:hover
     background-color: color.change($secondary, $alpha: .07)
@@ -363,9 +341,13 @@ body.mobile .conversation-message
     margin-left: 2px
 
   .k-thread-box
-    min-height: 30px
-    max-height: 30px
+    min-height: 36px
+    max-height: 36px
     box-shadow: none
+    background-color: $grey-3
+
+    &.has-unread
+      background-color: color.adjust($secondary, $lightness: 40%)
 
     ::v-deep(.q-btn__wrapper)
       min-height: 0
@@ -393,13 +375,6 @@ body.mobile .conversation-message
       transition: none
 
 body.desktop
-  .conversation-message.slim .k-message-controls
-    top: -8px
-
-    .q-btn
-      min-height: 24px
-      font-size: 13px
-
   .k-message-meta
     padding-top: 4px
 </style>

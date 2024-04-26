@@ -1,47 +1,26 @@
 <template>
-  <QList class="history-diff">
-    <QItem class="bg-accent text-white">
-      <QItemSection side>
-        <QIcon
-          color="white"
-          name="fas fa-pencil-alt"
-        />
-      </QItemSection>
-      <QItemSection>
-        {{ $t('HISTORY.CONTENT_CHANGES') }}
-      </QItemSection>
-    </QItem>
+  <div class="history-diff">
     <div
-      class="q-pa-md"
+      v-for="patch in patches"
+      :key="patch.field"
     >
-      <div
-        v-for="patch in patches"
-        :key="patch.field"
-      >
-        <div class="q-mb-sm">
-          <template v-if="typus.startsWith('AGREEMENT')">
-            {{ $t(`AGREEMENT.${patch.field.toUpperCase()}`) }}
-          </template>
-          <template v-else>
-            {{ patch.field }}
-          </template>
-        </div>
-        <!-- eslint-disable vue/no-v-html -->
-        <div v-html="patch.html" />
-        <!-- eslint-enable vue/no-v-html -->
+      <div class="q-mb-sm text-caption">
+        <template v-if="typus.startsWith('AGREEMENT')">
+          {{ $t(`AGREEMENT.${patch.field.toUpperCase()}`) }}
+        </template>
+        <template v-else>
+          {{ patch.field }}
+        </template>
       </div>
+      <!-- eslint-disable vue/no-v-html -->
+      <div v-html="patch.html" />
+      <!-- eslint-enable vue/no-v-html -->
     </div>
-  </QList>
+  </div>
 </template>
 <script setup>
 import { createPatch } from 'diff'
 import * as Diff2html from 'diff2html'
-import {
-  QList,
-  QItem,
-  QItemSection,
-  QIcon,
-} from 'quasar'
 import { computed } from 'vue'
 import 'diff2html/bundles/css/diff2html.min.css'
 

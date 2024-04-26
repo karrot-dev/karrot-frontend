@@ -5,6 +5,9 @@
     <QInput
       v-model="search"
       type="search"
+      class="q-ma-xs"
+      autofocus
+      filled
       :placeholder="$q.lang.label.search"
       dense
     >

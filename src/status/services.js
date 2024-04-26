@@ -43,3 +43,8 @@ export const useStatusService = defineService(() => {
     getPlaceStatus,
   }
 })
+
+export function usePlaceNotificationStatus (placeId) {
+  const { getPlaceStatus } = useStatusService()
+  return computed(() => getPlaceStatus(placeId))
+}

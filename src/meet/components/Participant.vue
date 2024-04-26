@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative-position room-participant rounded-borders overflow-hidden bg-black"
+    class="relative-position room-participant bg-black"
   >
     <div
       v-if="isLocal"
@@ -14,8 +14,9 @@
       <QIcon
         v-if="hasAudio"
         name="fas fa-microphone"
-        class="absolute-top-right q-ma-sm"
+        class="absolute-top-right q-ma-md"
         color="white"
+        size="sm"
         :style="{
           opacity: participant.isSpeaking ? 1 : 0,
           transitionProperty: 'opacity',
@@ -25,10 +26,13 @@
     </template>
 
     <div
-      class="absolute-bottom row no-wrap items-center q-pa-sm"
-      style="background: #00000055; gap: 4px;"
+      class="absolute-bottom row no-wrap items-center q-pa-sm gap-sm"
     >
-      <template v-if="user">
+      <div
+        v-if="user"
+        class="flex gap-sm q-pa-sm rounded-borders"
+        style="background: #00000055;"
+      >
         <ProfilePicture
           v-if="user"
           :user="user"
@@ -47,13 +51,13 @@
           />
           {{ user.displayName }}
         </div>
-      </template>
+      </div>
 
       <QSpace />
 
       <ConnectionQuality
         v-if="participant.connectionQuality !== 'excellent'"
-        class="col-auto"
+        class="col-auto q-mr-sm"
         :connection-quality="participant.connectionQuality"
       />
     </div>
@@ -139,8 +143,6 @@ watch([isLocal, audioMediaStreamTrack, audioRef], ([isLocal, track, element]) =>
 <style scoped lang="sass">
 .room-participant
   aspect-ratio: 4/3
-  //max-height: 100%
-  //margin: 0 auto
 
 video
   object-fit: cover

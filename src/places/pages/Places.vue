@@ -1,14 +1,14 @@
 <template>
   <div>
     <div
-      class="row items-center bg-white q-px-sm q-py-xs q-gutter-sm"
+      class="row items-center bg-white q-pa-sm rounded-borders gap-sm"
     >
       <QSelect
         v-model="type"
         :options="typeOptions"
         emit-value
         map-options
-        outlined
+        filled
         hide-bottom-space
         dense
       >
@@ -76,7 +76,7 @@
         :options="statusOptions"
         map-options
         emit-value
-        outlined
+        filled
         hide-bottom-space
         dense
       >
@@ -153,7 +153,7 @@
       <QInput
         :model-value="search"
         :label="$t('BUTTON.SEARCH')"
-        outlined
+        filled
         hide-bottom-space
         dense
         @update:model-value="debouncedSearch"
@@ -182,100 +182,10 @@
         :key="place.id"
         class="col-md-4 col-6"
       >
-        <RouterLink :to="{ name: placeRoute(place), params: { placeId: place.id } }">
-          <QCard>
-            <QItem class="bg-grey-3">
-              <QItemSection side>
-                <PlaceIcon :place="place" />
-              </QItemSection>
-              <QItemSection>
-                <QItemLabel
-                  class="ellipsis"
-                >
-                  {{ place.name }}
-                </QItemLabel>
-                <QItemLabel
-                  caption
-                  class="row no-wrap items-center q-gutter-x-xs"
-                >
-                  <div class="ellipsis">
-                    {{ getTranslatedName(getPlaceTypeById(place.placeType)) }}
-                  </div>
-                </QItemLabel>
-              </QItemSection>
-            </QItem>
-
-            <div class="q-ml-md q-mr-xs q-mt-xs limit-height text-grey-9">
-              <Markdown
-                v-if="place.description"
-                :source="place.description"
-              />
-              <div v-else>
-                <span class="text-italic">
-                  {{ $t("STOREDETAIL.NO_DESCRIPTION") }}
-                </span>
-              </div>
-            </div>
-
-            <QSeparator />
-            <QCardActions
-              style="height: 42px"
-              class="row no-wrap"
-            >
-              <RouterLink
-                v-if="getUnreadWallMessageCount(place) > 0"
-                :to="{ name: 'placeWall', params: { placeId: place.id }}"
-              >
-                <QChip
-                  square
-                  size="sm"
-                  color="secondary"
-                  text-color="white"
-                  icon="fas fa-comments"
-                  :title="$tc('CONVERSATION.UNREAD_MESSAGES', getUnreadWallMessageCount(place), { count: getUnreadWallMessageCount(place) })"
-                >
-                  <strong class="q-ml-sm">
-                    {{ getUnreadWallMessageCount(place) > 99 ? '99+' : getUnreadWallMessageCount(place) }}
-                  </strong>
-                </QChip>
-              </RouterLink>
-              <RouterLink
-                :to="{ name: 'placeActivities', params: { placeId: place.id }}"
-                :title="$tc('PLACE_LIST.UPCOMING_ACTIVITIES', activityCountFor(place.id), { count: activityCountFor(place.id) })"
-              >
-                <QChip
-                  square
-                  size="sm"
-                  :color="activityCountFor(place.id) > 0 ? 'secondary' : 'grey'"
-                  text-color="white"
-                  icon="fas fa-asterisk"
-                >
-                  <strong class="q-ml-sm">
-                    {{ activityCountFor(place.id) || 0 }}
-                  </strong>
-                </QChip>
-              </RouterLink>
-              <QSpace />
-              <QBtn
-                class="q-ml-sm self-center"
-                size="sm"
-                rounded
-                unelevated
-                icon="fas fa-star"
-                color="white"
-                :text-color="place.isSubscribed ? 'secondary' : 'grey'"
-                :title="place.isSubscribed ? $t('PLACE_LIST.SUBSCRIBED') : $t('PLACEWALL.SUBSCRIPTION.HEADER')"
-                @click.stop.prevent="place.isSubscribed ? unsubscribe(place.id) : subscribe(place.id)"
-              />
-            </QCardActions>
-            <template v-if="place.isArchived">
-              <div class="absolute-full dimmed" />
-              <div class="absolute-full flex flex-center text-h4 text-uppercase text-bold">
-                {{ t('LABELS.ARCHIVED') }}
-              </div>
-            </template>
-          </QCard>
-        </RouterLink>
+        <PlaceCard
+          :place="place"
+          :activity-count="activityCountByPlace[place.id]"
+        />
       </div>
     </div>
 
@@ -311,7 +221,6 @@
 
 <script setup>
 import {
-  QCard,
   QSelect,
   QBtn,
   QIcon,
@@ -321,9 +230,7 @@ import {
   QBanner,
   QCheckbox,
   QInput,
-  QChip,
   QSpace,
-  QCardActions,
   QSeparator,
   debounce,
 } from 'quasar'
@@ -332,14 +239,10 @@ import { useI18n } from 'vue-i18n'
 
 import { useActivityCountQuery } from '@/activities/queries'
 import { useCurrentGroupService } from '@/group/services'
-import { usePlaceSubscribeMutation, usePlaceUnsubscribeMutation } from '@/places/mutations'
-import { placeRoute } from '@/places/utils'
-import { useStatusService } from '@/status/services'
 import { useQueryParams } from '@/utils/mixins/bindRoute'
 import { newDateRoundedTo5Minutes } from '@/utils/queryHelpers'
 
-import PlaceIcon from '@/places/components/PlaceIcon.vue'
-import Markdown from '@/utils/components/Markdown.vue'
+import PlaceCard from '@/places/components/PlaceCard.vue'
 
 import { usePlaceStatusHelpers, usePlaceTypeHelpers } from '../helpers'
 import { usePlaceStatusService, usePlaceTypeService } from '../services'
@@ -351,10 +254,6 @@ const {
 } = useCurrentGroupService()
 
 const {
-  getPlaceStatus,
-} = useStatusService()
-
-const {
   getTranslatedName,
   getIconProps,
   sortByTranslatedName,
@@ -364,22 +263,7 @@ const placeStatusHelpers = usePlaceStatusHelpers()
 
 const {
   getPlaceTypesByGroup,
-  getPlaceTypeById,
 } = usePlaceTypeService()
-
-const { mutate: subscribe } = usePlaceSubscribeMutation()
-const { mutate: unsubscribe } = usePlaceUnsubscribeMutation()
-
-const {
-  activityCountByPlace,
-} = useActivityCountQuery({
-  groupId,
-  dateMin: newDateRoundedTo5Minutes(),
-})
-
-function activityCountFor (placeId) {
-  return activityCountByPlace.value[placeId]
-}
 
 const placeTypes = computed(() => getPlaceTypesByGroup(groupId).sort(sortByTranslatedName))
 
@@ -404,10 +288,6 @@ function showAll () {
   status.value = null
   onlyFavourites.value = false
   search.value = ''
-}
-
-function getUnreadWallMessageCount (place) {
-  return getPlaceStatus(place.id)?.unreadWallMessageCount
 }
 
 const typeOptions = computed(() => [
@@ -539,12 +419,12 @@ const hasNoPlacesDueToFilters = computed(() => {
 })
 
 const debouncedSearch = debounce(value => { search.value = value }, 500)
-</script>
 
-<style lang="sass">
-.limit-height
-  position: relative
-  min-height: 140px
-  max-height: 140px
-  overflow-y: hidden
-</style>
+const {
+  activityCountByPlace,
+} = useActivityCountQuery({
+  groupId,
+  dateMin: newDateRoundedTo5Minutes(),
+})
+
+</script>

@@ -8,7 +8,7 @@
       :error="error"
       :error-message="errorMessage"
       :options="options"
-      :outlined="outlined"
+      filled
       :placeholder="$t('BUTTON.SEARCH')"
       :model-value="modelValue.address"
       :input-debounce="1000"
@@ -132,10 +132,6 @@ export default {
     icon: {
       default: null,
       type: String,
-    },
-    outlined: {
-      default: false,
-      type: Boolean,
     },
     defaultMapCenter: {
       default: null,

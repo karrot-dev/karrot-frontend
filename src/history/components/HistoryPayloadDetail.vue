@@ -3,18 +3,16 @@
     v-if="label === 'participants'"
   >
     <QItemSection>
-      <QItemLabel>
-        <RouterLink
-          v-for="user in value"
-          :key="user"
-          style="margin-right: .4em"
-          :to="{name:'user', params: {userId: user}}"
-        >
-          {{ user }}
-        </RouterLink>
-      </QItemLabel>
       <QItemLabel caption>
         {{ label }}
+      </QItemLabel>
+      <QItemLabel>
+        <ProfilePicture
+          v-for="user in participantUsers"
+          :key="user.id"
+          :user="user"
+          class="inline-block"
+        />
       </QItemLabel>
     </QItemSection>
   </QItem>
@@ -23,11 +21,11 @@
     v-else-if="label === 'date'"
   >
     <QItemSection>
-      <QItemLabel>
-        {{ $d(firstValue, 'long') }}
-      </QItemLabel>
       <QItemLabel caption>
         {{ $t('CREATEACTIVITY.DATE') }}
+      </QItemLabel>
+      <QItemLabel>
+        {{ $d(firstValue, 'long') }}
       </QItemLabel>
     </QItemSection>
   </QItem>
@@ -36,6 +34,9 @@
     v-else
   >
     <QItemSection>
+      <QItemLabel caption>
+        {{ convertedLabel }}
+      </QItemLabel>
       <QItemLabel
         v-if="value !== null || value !== undefined"
       >
@@ -51,43 +52,50 @@
         color="grey"
         icon="fas fa-question-circle"
       />
-      <QItemLabel caption>
-        {{ convertedLabel }}
-      </QItemLabel>
     </QItemSection>
   </QItem>
 </template>
 
-<script>
+<script setup>
 import {
   QItem,
   QItemSection,
   QItemLabel,
 } from 'quasar'
-export default {
-  components: {
-    QItem,
-    QItemSection,
-    QItemLabel,
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+import { useUserService } from '@/users/services'
+
+import ProfilePicture from '@/users/components/ProfilePicture.vue'
+
+const props = defineProps({
+  label: {
+    required: true,
+    type: String,
   },
-  props: {
-    label: {
-      required: true,
-      type: String,
-    },
-    value: {
-      type: [Array, String, Date, Number, Boolean],
-      default: null,
-    },
+  value: {
+    type: [Array, String, Date, Number, Boolean],
+    default: null,
   },
-  computed: {
-    firstValue () {
-      return Array.isArray(this.value) ? this.value[0] : this.value
-    },
-    convertedLabel () {
-      if (this.label === 'description') return this.$t('GROUP.DESCRIPTION')
-      return this.label
-    },
-  },
-}
+})
+
+const { t } = useI18n()
+
+const firstValue = computed(() => {
+  return Array.isArray(props.value) ? props.value[0] : props.value
+})
+
+const convertedLabel = computed(() => {
+  if (props.label === 'description') return t('GROUP.DESCRIPTION')
+  return props.label
+})
+
+const { getUserById } = useUserService()
+
+const participantUsers = computed(() => {
+  if (props.label !== 'participants') return
+  return props.value?.map(entry => getUserById(entry.user)) ?? []
+})
+
 </script>

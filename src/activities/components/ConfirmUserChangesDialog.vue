@@ -45,7 +45,7 @@
             ref="updatedMessageRef"
             v-model="updatedMessage"
             autogrow
-            outlined
+            filled
             autofocus
             :placeholder="$t('WALL.WRITE_MESSAGE')"
             :rules="[val => !willRemoveUsers || Boolean(val) || $t('VALIDATION.REQUIRED')]"

@@ -1,71 +1,71 @@
 <template>
-  <QList
-    bordered
-  >
-    <QItem>
-      <QItemSection>
-        <QItemLabel>
-          {{ $t('ISSUE.VOTING.RESULTS.ENDED_AT', { date: $d(voting.expiresAt, 'long') }) }}
-        </QItemLabel>
-        <QItemLabel caption>
-          {{ $t('ISSUE.VOTING.RESULTS.PARTICIPANTS', { number: voting.participantCount }) }}
-        </QItemLabel>
-      </QItemSection>
-    </QItem>
-    <template
-      v-if="!isCancelled"
-    >
-      <QItem
-        dense
-        class="justify-end"
-      >
-        <QItemSection side>
-          {{ $t('ISSUE.VOTING.RESULTS.TOTAL_SCORE') }}
+  <QCard class="bg-grey-2 rounded-borders q-pa-sm">
+    <QList>
+      <QItem>
+        <QItemSection>
+          <QItemLabel>
+            {{ $t('ISSUE.VOTING.RESULTS.ENDED_AT', { date: $d(voting.expiresAt, 'long') }) }}
+          </QItemLabel>
+          <QItemLabel caption>
+            {{ $t('ISSUE.VOTING.RESULTS.PARTICIPANTS', { number: voting.participantCount }) }}
+          </QItemLabel>
         </QItemSection>
       </QItem>
-      <QItem
-        v-for="{ id, icon, label, isOutcome, sumScore} in options"
-        :key="id"
-        :class="{'text-secondary': isOutcome}"
+      <template
+        v-if="!isCancelled"
       >
-        <QItemSection side>
-          <QIcon
-            :name="icon"
-            :color="isOutcome ? 'secondary' : 'primary'"
-          />
-        </QItemSection>
-        <QItemSection>
-          {{ label }}
-        </QItemSection>
-        <QItemSection
-          side
+        <QItem
+          dense
+          class="justify-end"
+        >
+          <QItemSection side>
+            {{ $t('ISSUE.VOTING.RESULTS.TOTAL_SCORE') }}
+          </QItemSection>
+        </QItem>
+        <QItem
+          v-for="{ id, icon, label, isOutcome, sumScore} in options"
+          :key="id"
           :class="{'text-secondary': isOutcome}"
         >
-          {{ sumScore }}
+          <QItemSection side>
+            <QIcon
+              :name="icon"
+              :color="isOutcome ? 'secondary' : 'primary'"
+            />
+          </QItemSection>
+          <QItemSection>
+            {{ label }}
+          </QItemSection>
+          <QItemSection
+            side
+            :class="{'text-secondary': isOutcome}"
+          >
+            {{ sumScore }}
+          </QItemSection>
+        </QItem>
+      </template>
+      <QItem
+        v-else
+      >
+        <QItemSection>
+          <QItemLabel>
+            {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED') }}
+          </QItemLabel>
+          <QItemLabel caption>
+            {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED_WHY') }}
+            <ul>
+              <li>
+                {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED_REASON_1') }}
+              </li>
+              <li>
+                {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED_REASON_2') }}
+              </li>
+            </ul>
+          </QItemLabel>
         </QItemSection>
       </QItem>
-    </template>
-    <QItem
-      v-else
-    >
-      <QItemSection>
-        <QItemLabel>
-          {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED') }}
-        </QItemLabel>
-        <QItemLabel caption>
-          {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED_WHY') }}
-          <ul>
-            <li>
-              {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED_REASON_1') }}
-            </li>
-            <li>
-              {{ $t('ISSUE.VOTING.RESULTS.UNDECIDED_REASON_2') }}
-            </li>
-          </ul>
-        </QItemLabel>
-      </QItemSection>
-    </QItem>
-  </QList>
+    </QList>
+  </QCard>
 </template>
 
 <script>

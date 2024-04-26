@@ -15,7 +15,7 @@
       :class="theme"
     >
       <QLayout :view="layoutView">
-        <QHeader reveal>
+        <QHeader>
           <KTopbar
             v-if="isLoggedIn"
             @toggle-sidenav="toggleSidenav"
@@ -129,6 +129,7 @@
           :width="detailWidth"
           :overlay="false"
           :breakpoint="0"
+          persistent
           elevated
           :model-value="isDetailActive || hasDetailComponent"
         >
@@ -277,12 +278,13 @@ export default {
       if (this.$q.platform.is.mobile) {
         return Math.min(380, this.$q.screen.width)
       }
-      return this.$q.screen.width > 1000 ? 380 : 280
+      return this.$q.screen.width > 1000 ? 280 : 280
     },
     detailWidth () {
-      const contentWidth = this.$q.screen.width - this.sidenavWidth
-      const columnWidth = Math.floor(contentWidth / 2)
-      return Math.min(500, Math.max(280, columnWidth))
+      // const contentWidth = this.$q.screen.width - this.sidenavWidth
+      // const columnWidth = Math.floor(contentWidth / 2)
+      // return Math.min(600, Math.max(280, columnWidth))
+      return Math.min(520, this.$q.screen.width)
     },
     routerComponents () {
       const components = {}
@@ -331,17 +333,12 @@ export default {
   margin-left: auto
 
 body.desktop .mainContent-page:not(.fullpage)
-  min-width: 350px
-  max-width: 57em
-  margin-top: 8px
-  margin-right: auto
-  margin-bottom: 4.5em
-  margin-left: auto
+  min-width: 600px
+  max-width: 800px
+  margin: 8px auto 4.5em auto
 
 .background
-  background-image: url('../assets/repeating_grey-600.png')
   background-attachment: fixed
-
   &.bikekitchen
     background-image: url('../assets/bikekitchen_background.jpg')
 

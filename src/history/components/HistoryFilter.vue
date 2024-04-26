@@ -1,13 +1,13 @@
 <template>
   <div
-    class="row no-wrap items-center justify-between bg-white q-px-sm q-py-xs"
+    class="row no-wrap items-center justify-between bg-white q-pa-sm rounded-borders q-my-sm"
   >
     <QSelect
       v-model="typus"
       :options="typusOptions"
       emit-value
       map-options
-      outlined
+      filled
       hide-bottom-space
       dense
     />

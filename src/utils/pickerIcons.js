@@ -24,15 +24,3 @@ const icons = [
 ]
 
 export default icons
-
-export const tags = getTags()
-
-function getTags () {
-  const results = new Set()
-  for (const icon of icons) {
-    for (const tag of icon.tags) {
-      results.add(tag)
-    }
-  }
-  return Array.from(results).sort((a, b) => a.localeCompare(b))
-}

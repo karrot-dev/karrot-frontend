@@ -2,7 +2,7 @@
   <div>
     <QBanner
       v-if="user && !hasEmailVerified"
-      class="q-ma-sm bg-warning text-white shadow-2"
+      class="q-ma-sm bg-warning text-white"
       style="min-height: unset"
     >
       <template #avatar>
@@ -42,7 +42,7 @@
     </QBanner>
     <QExpansionItem
       v-if="hasFailedEmailDeliveries"
-      class="q-ma-sm shadow-2"
+      class="q-ma-sm"
       header-class="bg-warning"
       dark
     >

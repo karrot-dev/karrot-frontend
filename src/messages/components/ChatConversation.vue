@@ -6,9 +6,9 @@
     <div class="col-grow column no-wrap">
       <div
         ref="scroll"
-        class="bg-white"
+        class="bg-white overscroll-contain"
         :class="inline && 'scroll'"
-        style="flex-grow: 1; overscroll-behavior: contain;"
+        style="flex-grow: 1;"
       >
         <slot name="before-chat-messages" />
         <KSpinner v-show="newestFirst && !hasNextPage && isFetchingNextPage" />
@@ -70,8 +70,6 @@
           ref="compose"
           :status="sendStatus"
           slim
-          outlined
-          square
           :draft-key="conversation.id"
           :placeholder="messagePrompt"
           :is-participant="isParticipant"

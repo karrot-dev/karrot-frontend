@@ -33,49 +33,50 @@
         />
       </QInfiniteScroll>
       <KSpinner v-if="activeEntriesLimit < activeEntries.length" />
-      <QSeparator />
-      <QExpansionItem
-        v-if="inactiveEntries.length > 0"
-        @show="showInactive = true"
-        @hide="showInactive = false"
-      >
-        <template #header>
-          <QItemSection side>
-            <QIcon
-              name="fas fa-bed"
-              class="q-mr-xs"
-            />
-          </QItemSection>
-          <QItemSection>
-            <QItemLabel>
-              {{ $t('GROUP.INACTIVE') }}
-            </QItemLabel>
-            <QItemLabel caption>
-              {{ inactiveSublabel }}
-            </QItemLabel>
-          </QItemSection>
-          <QItemSection side>
-            <QBtn
-              flat
-              round
-              dense
-              icon="help_outline"
-              @click.stop="inactivityInfo"
-            />
-          </QItemSection>
-        </template>
+      <template v-if="inactiveEntries.length > 0">
+        <QSeparator />
+        <QExpansionItem
+          @show="showInactive = true"
+          @hide="showInactive = false"
+        >
+          <template #header>
+            <QItemSection side>
+              <QIcon
+                name="fas fa-bed"
+                class="q-mr-xs"
+              />
+            </QItemSection>
+            <QItemSection>
+              <QItemLabel>
+                {{ $t('GROUP.INACTIVE') }}
+              </QItemLabel>
+              <QItemLabel caption>
+                {{ inactiveSublabel }}
+              </QItemLabel>
+            </QItemSection>
+            <QItemSection side>
+              <QBtn
+                flat
+                round
+                dense
+                icon="help_outline"
+                @click.stop="inactivityInfo"
+              />
+            </QItemSection>
+          </template>
 
-        <template v-if="showInactive">
-          <UserItem
-            v-for="entry in inactiveEntries"
-            :key="entry.key"
-            :user="entry.user"
-            :membership="entry.membership"
-            :added-by="entry.addedBy"
-            class="inactive"
-          />
-        </template>
-      </QExpansionItem>
+          <template v-if="showInactive">
+            <UserItem
+              v-for="entry in inactiveEntries"
+              :key="entry.key"
+              :user="entry.user"
+              :membership="entry.membership"
+              :added-by="entry.addedBy"
+              class="inactive"
+            />
+          </template>
+        </QExpansionItem>
+      </template>
     </QList>
   </div>
 </template>

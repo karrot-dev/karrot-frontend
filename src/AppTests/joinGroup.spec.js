@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom'
 import { faker } from '@faker-js/faker'
-import { fireEvent, render, waitFor } from '@testing-library/vue'
+import userEvent from '@testing-library/user-event'
+import { render, waitFor } from '@testing-library/vue'
 import { times } from 'lodash'
 
 import App from '@/App.vue'
@@ -15,6 +16,7 @@ import { useMockBackend } from '>/mockBackend/setup'
 useMockBackend()
 
 test('join group', async () => {
+  const { type, click } = userEvent.setup()
   const user = createUser()
   const group = createGroup()
 
@@ -35,25 +37,26 @@ test('join group', async () => {
     queryByText,
   } = render(App, config)
 
-  // We're on the group preview page with a link to the group :)
-  const groupLink = await findByRole('link', { name: group.name })
+  // We're on the group gallery page with a link to the group :)
   await waitFor(() => {
     expect(router.currentRoute.value.path).toBe('/groupPreview')
   })
+  const groupLink = await findByRole('link', { name: group.name })
 
   // Open the group preview page
-  await fireEvent.click(groupLink)
+  await click(groupLink)
 
-  const applyLink = await findByRole('link', { name: 'Apply' })
   await waitFor(() => {
     expect(router.currentRoute.value.path).toBe(`/groupPreview/${group.id}`)
   })
 
+  const applyLink = await findByRole('link', { name: 'Apply' })
+
   // Let's apply!
-  await fireEvent.click(applyLink)
-  const applicationAnswers = faker.lorem.paragraphs(2)
-  await fireEvent.update(await findByPlaceholderText('Reply to message...'), applicationAnswers)
-  await fireEvent.submit(getByRole('button', { name: 'Submit' }))
+  await click(applyLink)
+  const applicationAnswers = faker.lorem.sentences(2)
+  await type(await findByPlaceholderText('Reply to message...'), applicationAnswers)
+  await click(getByRole('button', { name: 'Submit' }))
 
   // Yay \o/
   await findByText('Your application is pending!')
@@ -65,7 +68,7 @@ test('join group', async () => {
   expect(queryByText('Your application is pending!')).not.toBeInTheDocument()
 
   // Open the group!
-  await fireEvent.click(getByRole('link', { name: 'Open' }))
+  await click(getByRole('link', { name: 'Open' }))
 
   // Ooh on the wall page :)
   await waitFor(() => {

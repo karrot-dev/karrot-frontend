@@ -10,6 +10,7 @@
       :default-center="center"
       :force-center="forceCenter"
       :force-zoom="forceZoom"
+      cluster
       @map-move-end="mapMoveEnd"
     >
       <template
@@ -20,7 +21,7 @@
           dense
         >
           <QItem
-            :to="{name: 'placeCreate', query: latLng}"
+            :to="{ name: 'placeCreate', query: { lat: latLng.lat, lng: latLng.lng } }"
           >
             <QItemSection side>
               <QIcon name="add circle" />

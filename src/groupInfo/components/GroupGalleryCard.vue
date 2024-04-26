@@ -1,12 +1,13 @@
 <template>
   <div class="inline-block">
     <QCard
-      class="groupPreviewCard relative-position"
-      :class="{
-        application: myApplicationPending,
-      }"
+      class="groupPreviewCard relative-position block"
+      :class="{ application: myApplicationPending }"
       :style="cardStyle"
-      @click="() => group.isMember ? visit() : preview()"
+      tag="a"
+      :href="href"
+      :aria-label="group.name"
+      @click.stop.prevent="router.push(to)"
     >
       <QTooltip v-if="myApplicationPending">
         {{ $t('APPLICATION.GALLERY_TOOLTIP') }}
@@ -62,7 +63,7 @@
         </span>
         <div class="overlay" />
       </QCardSection>
-      <QSeparator />
+      <QSeparator v-if="myApplicationPending || group.isMember" />
       <QCardActions
         v-if="myApplicationPending"
         class="bg-blue text-white"
@@ -80,7 +81,8 @@
           flat
           size="sm"
           icon="fas fa-home"
-          @click.stop="visit"
+          :to="{ name: 'group', params: { groupId: group.id } }"
+          @click.stop
         >
           <QTooltip>
             {{ $t('GROUPINFO.MEMBER_VIEW') }}
@@ -90,7 +92,8 @@
           flat
           size="sm"
           icon="fas fa-info-circle"
-          @click.stop="preview"
+          :to="{ name: 'groupPreview', params: { groupPreviewId: group.id } }"
+          @click.stop
         >
           <QTooltip>
             {{ $t('GROUPINFO.META') }}
@@ -101,7 +104,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import {
   QCard,
   QCardSection,
@@ -112,67 +115,46 @@ import {
   QIcon,
   QImg,
 } from 'quasar'
-import { computed, toRefs } from 'vue'
+import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 
-import { useApplicationHelpers } from '@/applications/helpers'
-import { useGroupHelpers } from '@/group/helpers'
+import { useMyApplicationPending } from '@/applications/helpers'
 
 import Markdown from '@/utils/components/Markdown.vue'
 import RandomArt from '@/utils/components/RandomArt.vue'
 
-export default {
-  components: {
-    Markdown,
-    RandomArt,
-    QCard,
-    QCardSection,
-    QSeparator,
-    QCardActions,
-    QBtn,
-    QTooltip,
-    QIcon,
-    QImg,
+const props = defineProps({
+  group: {
+    type: Object,
+    default: () => ({
+      members: [],
+    }),
   },
-  props: {
-    group: {
-      type: Object,
-      default: () => ({
-        members: [],
-      }),
-    },
-  },
-  setup (props) {
-    const { group } = toRefs(props)
-    const router = useRouter()
-    const { getHasMyApplicationPending } = useApplicationHelpers()
-    const { getIsCurrentGroup } = useGroupHelpers()
+})
 
-    function preview () {
-      router.push({ name: 'groupPreview', params: { groupPreviewId: group.value.id } })
-    }
+const router = useRouter()
 
-    function visit () {
-      router.push({ name: 'group', params: { groupId: group.value.id } })
-    }
+const groupId = computed(() => props.group.id)
 
-    return {
-      myApplicationPending: computed(() => getHasMyApplicationPending(group.value.id)),
-      isCurrentGroup: computed(() => getIsCurrentGroup(group)),
-      preview,
-      visit,
-    }
-  },
-  computed: {
-    cardStyle () {
-      const reduceOpacity = this.group.status === 'inactive' && !this.group.isMember
-      if (reduceOpacity) {
-        return { opacity: 0.5 }
-      }
-      return {}
-    },
-  },
-}
+const myApplicationPending = useMyApplicationPending(groupId)
+
+const cardStyle = computed(() => {
+  const reduceOpacity = props.group.status === 'inactive' && !props.group.isMember
+  if (reduceOpacity) {
+    return { opacity: 0.5 }
+  }
+  return {}
+})
+
+const to = computed(() => {
+  if (props.group.isMember) {
+    return { name: 'group', params: { groupId: props.group.id } }
+  }
+  return { name: 'groupPreview', params: { groupPreviewId: props.group.id } }
+})
+
+const href = computed(() => router.resolve(to.value).href)
+
 </script>
 
 <style scoped lang="sass">

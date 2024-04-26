@@ -1,6 +1,6 @@
 <template>
   <div
-    class="row items-center bg-white q-px-sm q-py-xs q-gutter-sm"
+    class="row items-center bg-white q-pa-sm gap-sm rounded-borders"
   >
     <QCheckbox
       v-model="onlyActive"
@@ -30,7 +30,7 @@
       color="secondary"
       icon="fas fa-plus"
       padding="8px"
-      rounded
+      round
       size="md"
       :title="$t('BUTTON.CREATE')"
       :to="{ name: 'agreementCreate', params: { groupId } }"
@@ -39,6 +39,8 @@
   <QInfiniteScroll v-bind="infiniteScroll">
     <QTable
       :grid="grid"
+      flat
+      class="rounded-borders"
       hide-pagination
       :loading="isLoading"
       :columns="columns"
@@ -75,7 +77,7 @@
             <QSeparator />
             <QCardActions
               style="height: 42px"
-              class="row no-wrap"
+              class="row no-wrap overflow-hidden"
             >
               <QChip
                 v-if="getAgreementIsActive(agreement)"

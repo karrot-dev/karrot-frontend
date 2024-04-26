@@ -23,7 +23,7 @@
   </ChooseImage>
   <div
     v-else-if="user?.id"
-    class="profile-picture relative-position rounded-borders overflow-hidden"
+    class="profile-picture relative-position overflow-hidden"
     :style="pictureStyle"
   >
     <component
@@ -99,6 +99,7 @@ const tooltip = computed(() => {
 const pictureStyle = computed(() => ({
   width: props.size + 'px',
   height: props.size + 'px',
+  borderRadius: `${Math.min(props.size / 4, 12)}px`,
   ...(props.dimmed
     ? {
         opacity: 0.5,

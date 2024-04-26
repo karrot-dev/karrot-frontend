@@ -29,7 +29,7 @@
         label="Description"
         :error="Boolean(errors.description)"
         :error-message="errors.description"
-        outlined
+        filled
       />
 
       <QField borderless>
@@ -78,7 +78,7 @@
           <template #control>
             <IconPicker
               v-model="edit.feedbackIcon"
-              :color="edit.colour"
+              :color="colourName"
             />
           </template>
         </QField>

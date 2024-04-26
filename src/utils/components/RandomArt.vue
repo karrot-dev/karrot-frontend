@@ -1,5 +1,8 @@
 <template>
-  <div class="art-wrapper">
+  <div
+    class="art-wrapper"
+    :class="{ 'rounded-top': roundedTop }"
+  >
     <div>
       <slot />
     </div>
@@ -15,6 +18,7 @@ export default {
     text: { default: '', type: String },
     type: { default: 'profile', type: String },
     above: { default: false, type: Boolean },
+    roundedTop: { default: false, type: Boolean },
   },
   computed: {
     initials () {
@@ -76,6 +80,10 @@ export default {
   width: 100%
   margin: 0
   user-select: none
+  overflow: hidden
+  &.rounded-top
+    border-top-left-radius: 12px
+    border-top-right-radius: 12px
 
   > div
     z-index: 1

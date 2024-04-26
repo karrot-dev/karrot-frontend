@@ -1,14 +1,14 @@
 <template>
   <div>
     <div
-      class="row items-center bg-white q-px-sm q-py-xs q-gutter-sm"
+      class="row items-center bg-white q-pa-sm gap-sm rounded-borders"
     >
       <QSelect
         v-model="type"
         :options="typeOptions"
         emit-value
         map-options
-        outlined
+        filled
         hide-bottom-space
         dense
       >
@@ -74,7 +74,7 @@
         :options="slotsOptions"
         emit-value
         map-options
-        outlined
+        filled
         hide-bottom-space
         dense
       />
@@ -84,7 +84,7 @@
         :options="placeOptions"
         emit-value
         map-options
-        outlined
+        filled
         hide-bottom-space
         dense
         use-input

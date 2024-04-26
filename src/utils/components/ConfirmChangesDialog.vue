@@ -27,7 +27,7 @@
             ref="updatedMessageRef"
             v-model="updatedMessage"
             autogrow
-            outlined
+            filled
             autofocus
             :placeholder="$t('WALL.WRITE_MESSAGE')"
             @keyup.ctrl.enter="submit"

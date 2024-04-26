@@ -9,19 +9,10 @@
       ref="iconMenu"
       square
     >
-      <QSelect
-        v-model="iconTag"
-        label="Tag"
-        outlined
-        clearable
-        dense
-        class="q-ma-md"
-        :options="pickerTags"
-      />
       <QInput
         v-model="iconFilter"
         :label="t('BUTTON.SEARCH')"
-        outlined
+        filled
         dense
         clearable
         class="q-ma-md"
@@ -45,11 +36,11 @@
 
 <script setup>
 import { QIconPicker } from '@quasar/quasar-ui-qiconpicker'
-import { QBtn, QInput, QMenu, QSelect } from 'quasar'
-import { computed, reactive, ref } from 'vue'
+import { QBtn, QInput, QMenu } from 'quasar'
+import { reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-import allPickerIcons, { tags as pickerTags } from '@/utils/pickerIcons'
+import pickerIcons from '@/utils/pickerIcons'
 
 const { t } = useI18n()
 
@@ -75,14 +66,9 @@ if (!props.modelValue) {
 }
 
 const iconFilter = ref('')
-const iconTag = ref(null)
 const iconPagination = reactive({
   itemsPerPage: 20,
   page: 0,
-})
-const pickerIcons = computed(() => {
-  if (!iconTag.value) return allPickerIcons
-  return allPickerIcons.filter(icon => icon.tags.includes(iconTag.value))
 })
 </script>
 

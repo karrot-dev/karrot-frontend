@@ -22,7 +22,6 @@
       place-link
       dense
     />
-    <hr v-if="showActivities">
   </div>
 </template>
 

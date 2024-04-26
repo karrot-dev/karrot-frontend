@@ -2,7 +2,7 @@
   <QSelect
     ref="nameInput"
     :model-value="modelValue.name"
-    outlined
+    filled
     emit-value
     map-options
     use-input

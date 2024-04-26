@@ -3,7 +3,7 @@
     v-if="videoEnabled && videoDevices"
     v-model="videoDeviceId"
     label="Video"
-    outlined
+    filled
     :loading="videoLoading"
     emit-value
     map-options

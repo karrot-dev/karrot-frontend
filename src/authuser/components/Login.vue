@@ -55,7 +55,7 @@
           <QBtn
             v-measure
             type="submit"
-            class="submit shadow-4"
+            class="submit"
             :loading="isPending"
           >
             {{ $t('LOGIN.SUBMIT') }}

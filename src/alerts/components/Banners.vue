@@ -114,8 +114,11 @@ const formattedBanners = computed(() => banners.value.map(banner => {
 body.desktop .k-banner
   min-width: 500px
 
-.k-banner ::v-deep(.q-banner__avatar)
-  align-self: center
+.k-banner
+  border-radius: 0
+
+  ::v-deep(.q-banner__avatar)
+    align-self: center
 
 .html
   ::v-deep(p:last-child)

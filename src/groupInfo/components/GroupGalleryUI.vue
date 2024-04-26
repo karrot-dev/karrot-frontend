@@ -21,7 +21,7 @@
       />
       <QBanner
         v-if="!isLoggedIn"
-        class="q-ma-sm bg-warning text-white shadow-2"
+        class="q-ma-sm bg-warning text-white"
         style="min-height: unset"
       >
         <template #avatar>
@@ -110,11 +110,7 @@
         <p class="text-primary header">
           {{ $t('JOINGROUP.MY_GROUPS') }}
         </p>
-        <GroupGalleryCards
-          :groups="filteredMyGroups"
-          @preview="(...args) => $emit('preview', ...args)"
-          @visit="(...args) => $emit('visit', ...args)"
-        />
+        <GroupGalleryCards :groups="filteredMyGroups" />
       </div>
       <p
         v-if="hasJoinedGroups && hasOtherGroupsToShow"
@@ -138,10 +134,7 @@
         </i18n-t>
       </p>
       <div v-if="hasOtherGroupsToShow">
-        <GroupGalleryCards
-          :groups="filteredOtherGroups"
-          @preview="(...args) => $emit('preview', ...args)"
-        />
+        <GroupGalleryCards :groups="filteredOtherGroups" />
       </div>
     </div>
   </div>
@@ -198,10 +191,6 @@ export default {
       type: Object,
     },
   },
-  emits: [
-    'visit',
-    'preview',
-  ],
   data () {
     return {
       width: -1, // will get set by our QResizeObserver later
@@ -296,7 +285,6 @@ body.desktop .gallery-wrapper
     @media screen and (min-width: $breakpoint-sm)
       max-width: 42vw
       padding: 0 1em 1em 1em
-      box-shadow: 6px 0px 5px 0px rgba(0, 0, 0, 0.3)
 
       &.expanded
         min-height: 100vh

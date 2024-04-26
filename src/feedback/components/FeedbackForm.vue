@@ -28,7 +28,7 @@
     </div>
     <MarkdownInput
       v-model="edit.comment"
-      outlined
+      filled
       class="q-mx-md q-mt-md"
       :label="$t('ACTIVITY_FEEDBACK.COMMENT_PLACEHOLDER')"
       @keyup.ctrl.enter="maybeSave"

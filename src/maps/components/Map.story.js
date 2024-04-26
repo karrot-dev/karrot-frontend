@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue3'
-import { latLng as LlatLng } from 'leaflet/dist/leaflet-src.esm'
+import { latLng as LlatLng } from 'leaflet'
 import { h } from 'vue'
 
 import { storybookDefaults as defaults } from '>/helpers'

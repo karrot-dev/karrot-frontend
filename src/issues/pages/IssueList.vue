@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="row items-center bg-white q-px-sm q-py-xs q-gutter-sm"
+      class="row items-center bg-white q-pa-sm gap-sm rounded-borders"
     >
       <QSelect
         v-model="status"
@@ -12,7 +12,7 @@
         ]"
         emit-value
         map-options
-        outlined
+        filled
         hide-bottom-space
         dense
       />
@@ -26,7 +26,6 @@
     <QInfiniteScroll v-bind="infiniteScroll">
       <QList
         class="bg-white q-mt-md"
-        bordered
       >
         <IssueItem
           v-for="issue in issues"

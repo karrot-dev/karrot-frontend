@@ -1,9 +1,6 @@
 <template>
   <div v-if="v$.edit">
-    <QCard
-      class="no-shadow grey-border"
-      style="max-width: 700px"
-    >
+    <QCard>
       <div
         class="edit-box"
         :class="{ changed: hasChanged }"
@@ -26,7 +23,7 @@
               :label="$t('STOREEDIT.PLACE_TYPE')"
               :error="hasPlaceTypeError"
               :error-message="placeTypeError"
-              outlined
+              filled
               class="col"
               @blur="v$.edit.placeType.$touch"
             >
@@ -93,7 +90,7 @@
               :label="$t('STOREEDIT.STATUS')"
               :error="hasPlaceStatusError"
               :error-message="placeStatusError"
-              outlined
+              filled
               class="col"
               @blur="v$.edit.status.$touch"
             >
@@ -161,7 +158,7 @@
             :error-message="nameError"
             :label="$t('STOREEDIT.NAME')"
             autocomplete="off"
-            outlined
+            filled
             class="q-mb-lg"
             @blur="v$.edit.name.$touch"
           />
@@ -171,7 +168,7 @@
             :label="$t('STOREEDIT.DESCRIPTION')"
             :error="hasError('description')"
             :error-message="firstError('description')"
-            outlined
+            filled
             mentions
             class="q-mb-lg"
             @keyup.ctrl.enter="maybeSave"
@@ -186,7 +183,7 @@
             map-options
             emit-value
             :label="$t('STOREEDIT.DEFAULT_VIEW')"
-            outlined
+            filled
             :hint="$t('STOREEDIT.DEFAULT_VIEW_HINT')"
             class="q-mb-lg"
           />
@@ -199,7 +196,6 @@
             :error="hasAddressError"
             :error-message="addressError"
             :default-map-center="defaultMapCenter"
-            outlined
             class="q-mb-lg"
           />
 

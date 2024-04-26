@@ -1,15 +1,15 @@
 <template>
   <div
     v-if="hasError"
-    class="error-page window-height window-width bg-primary column items-center no-wrap"
+    class="error-page window-height window-width column items-center no-wrap"
   >
-    <div class="error-code bg-grey-2 flex items-center justify-center">
+    <div class="error-code flex items-center justify-center">
       <img :src="rolling">
     </div>
-    <div class="error-card shadow-4 bg-white column items-center justify-center no-wrap">
-      <h1>
+    <div class="error-card q-pa-lg bg-white column items-center justify-center no-wrap rounded-borders">
+      <div class="text-h2 q-pa-md">
         Oooooops!
-      </h1>
+      </div>
       <p
         v-if="message"
         class="caption text-center"
@@ -28,14 +28,14 @@
       <p class="q-gutter-md">
         <QBtn
           v-if="canGoBack()"
-          color="secondary"
+          color="grey"
           icon="keyboard_arrow_left"
           :label="$t('BUTTON.BACK')"
           @click="goBack"
         />
         <QBtn
           color="secondary"
-          icon-right="fas fa-home"
+          icon="fas fa-home"
           :label="$t('NOT_FOUND.HOME')"
           @click="goHome"
         />
@@ -98,9 +98,7 @@ function goHome () {
     z-index: 10
     width: 80vw
     max-width: 600px
-    padding: 25px
     margin-top: -30px
-    border-radius: 2px
 
     > h1
       margin-bottom: 0

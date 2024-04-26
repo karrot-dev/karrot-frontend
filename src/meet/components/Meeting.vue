@@ -33,15 +33,12 @@
           <div
             v-for="participant in participants"
             :key="participant.identity"
+            class="participant-wrapper rounded-borders overflow-hidden"
+            :class="{ 'is-speaking': participant.isSpeaking }"
           >
             <Participant
               class="participant"
               :participant="participant"
-              :style="{
-                border: `1px solid ${participant.isSpeaking ? 'white' : 'transparent'}`,
-                transitionProperty: 'border',
-                transitionDuration: '0.3s',
-              }"
             />
           </div>
         </div>
@@ -225,5 +222,12 @@ async function leave () {
     // this is a hack to fix that case when there is only 1 participant (i.e. YOU)
     max-width: calc(((100vh - var(--toolbar-height) - 16px - 16px) / 3) * 4)
     margin: 0 auto
+
+.participant-wrapper
+  border: 2px solid transparent
+  transition-property: border
+  transition-duration: 0.3s
+  &.is-speaking
+    border-color: $grey-5
 
 </style>

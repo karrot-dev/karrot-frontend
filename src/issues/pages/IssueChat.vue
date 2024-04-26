@@ -37,7 +37,7 @@
         </QBtn>
       </div>
       <div class="q-mx-sm q-mb-sm q-pa-sm bg-white">
-        <span class="text-bold text-secondary text-uppercase">
+        <span class="text-bold text-secondary">
           <RouterLink
             :to="{name: 'user', params: { userId: issue.createdBy }}"
             @click.stop

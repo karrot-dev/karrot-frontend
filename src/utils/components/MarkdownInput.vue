@@ -22,9 +22,7 @@
           <QIcon :name="icon" />
         </template>
         <template #hint>
-          <div
-            class="row markdown-helper"
-          >
+          <div class="row markdown-helper">
             <span class="text-bold">**{{ $t('MARKDOWN_INPUT.BOLD') }}**</span>
             <span class="text-italic">_{{ $t('MARKDOWN_INPUT.ITALIC') }}_</span>
             <span>~~<s>{{ $t('MARKDOWN_INPUT.STRIKE') }}</s>~~</span>
@@ -134,10 +132,51 @@ export default {
       show: false,
     }
   },
+  mounted () {
+    this.$refs.input.$el.addEventListener('keydown', this.handleKeydown)
+  },
+  beforeUnmount () {
+    this.$refs.input.$el.removeEventListener('keydown', this.handleKeydown)
+  },
   methods: {
+    handleKeydown (event) {
+      const { key, ctrlKey, altKey, shiftKey } = event
+      if (ctrlKey && key.toLowerCase() === 'b') {
+        this.applyMarkdown('**', '**')
+        event.preventDefault()
+      }
+      else if (ctrlKey && key.toLowerCase() === 'i') {
+        this.applyMarkdown('_', '_')
+        event.preventDefault()
+      }
+      else if (ctrlKey && key.toLowerCase() === 'u') {
+        this.applyMarkdown('<u>', '</u>')
+        event.preventDefault()
+      }
+      else if ((altKey && shiftKey && key === '5') || (ctrlKey && altKey && key === '5')) {
+        this.applyMarkdown('~~', '~~')
+        event.preventDefault()
+      }
+    },
+    applyMarkdown (prefix, suffix) {
+      const textArea = this.$refs.input.$el
+      const start = textArea.selectionStart
+      const end = textArea.selectionEnd
+      const selectedText = textArea.value.substring(start, end)
+      const beforeText = textArea.value.substring(0, start)
+      const afterText = textArea.value.substring(end)
+
+      const newText = beforeText + prefix + selectedText + suffix + afterText
+      this.$emit('update:modelValue', newText)
+      this.$nextTick(() => {
+        textArea.selectionStart = start + prefix.length
+        textArea.selectionEnd = end + prefix.length
+        textArea.focus()
+      })
+    },
     onApplyMentions () {
       // It loses focus when you click the mention menu without this
-      const input = this.$refs.input
+      const input = this.$refs.input.$el
       if (!input) return
       requestAnimationFrame(() => {
         input.focus()

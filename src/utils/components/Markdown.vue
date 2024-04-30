@@ -72,6 +72,8 @@ export default {
 
   p
     margin-bottom: 0.5rem
+    &:last-child
+      margin-bottom: 0.3rem
 
   h1
     font-size: 1.6em

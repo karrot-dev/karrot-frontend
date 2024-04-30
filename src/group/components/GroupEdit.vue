@@ -40,7 +40,7 @@
           v-bind="nameError"
           :label="$t('GROUP.TITLE')"
           autocomplete="off"
-          outlined
+          filled
           class="q-mb-lg"
           @blur="v$.edit.name.$touch"
         >
@@ -56,7 +56,7 @@
           :error-message="firstError('publicDescription')"
           :label="$t('GROUPINFO.TITLE')"
           icon="fas fa-fw fa-question"
-          outlined
+          filled
           class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
         />
@@ -67,7 +67,7 @@
           :error-message="firstError('description')"
           :label="$t('GROUP.DESCRIPTION_VERBOSE')"
           icon="fas fa-fw fa-address-card"
-          outlined
+          filled
           mentions
           class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
@@ -90,7 +90,6 @@
           :default-map-center="defaultMapCenter"
           font-icon="fas fa-home"
           icon="fas fa-fw fa-map-marker"
-          outlined
           class="q-mb-lg"
         />
 
@@ -102,7 +101,7 @@
           fill-input
           hide-selected
           input-debounce="0"
-          outlined
+          filled
           use-input
           class="q-mb-lg"
           @filter="timezoneFilter"
@@ -128,7 +127,7 @@
           :label="$t('GROUP.APPLICATION_QUESTIONS')"
           :model-value="applicationQuestionsOrDefault"
           icon="fas fa-fw fa-question"
-          outlined
+          filled
           class="q-mb-lg"
           @update:model-value="applicationQuestionsInput"
           @keyup.ctrl.enter="maybeSave"
@@ -141,7 +140,7 @@
           :error-message="firstError('welcomeMessage')"
           :label="$t('GROUP.WELCOMEMESSAGE_VERBOSE')"
           icon="fas fa-fw fa-address-card"
-          outlined
+          filled
           class="q-mb-lg"
           @keyup.ctrl.enter="maybeSave"
         />

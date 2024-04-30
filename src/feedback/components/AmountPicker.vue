@@ -38,7 +38,7 @@
           min="0"
           step="0.1"
           class="q-pr-lg"
-          outlined
+          filled
           size="8"
           data-testid="amount-picker"
         >

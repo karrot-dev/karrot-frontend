@@ -1,3 +1,4 @@
+[![status-badge](https://ci.codeberg.org/api/badges/13172/status.svg)](https://ci.codeberg.org/repos/13172)
 
 <div align="center">
   <img width="200" src="https://karrot.world/statics/carrot_logo.png">
@@ -10,14 +11,14 @@ Karrot is a free and open-source tool for grassroots initiatives and groups of p
 It is designed in ways to enable community-building and support a more transparent, democratic and participatory governance of your group.
 
 <div align="center">
-  <img height="300" src="https://github.com/karrot-dev/karrot-frontend/raw/master/src/base/pages/images/app-screenshots-browser/karrot-screenshot-browser-800.png">
+  <img height="300" src="https://codeberg.org/karrot/karrot-frontend/raw/branch/main/src/base/pages/images/app-screenshots-browser/karrot-screenshot-browser-800.png">
   <img width="20" src="https://user-images.githubusercontent.com/4410802/42418563-705d917c-82a3-11e8-91d8-8a234af008e4.png">
-  <img height="240" src="https://github.com/karrot-dev/karrot-frontend/raw/master/src/base/pages/images/app-screenshots-phone/karrot-screenshot-phone-200.png">
+  <img height="240" src="https://codeberg.org/karrot/karrot-frontend/raw/branch/main/src/base/pages/images/app-screenshots-phone/karrot-screenshot-phone-200.png">
 </div>
 <br>
 <br>
 
-This is the frontend repository, i.e. the browser-side software that powers [karrot.world](https://karrot.world). Have a look at our server-side code at [karrot-backend](https://github.com/karrot-dev/karrot-backend), too!
+This is the frontend repository, i.e. the browser-side software that powers [karrot.world](https://karrot.world). Have a look at our server-side code at [karrot-backend](https://codeberg.org/karrot/karrot-backend), and the [Karrot Documentation](https://docs.karrot.world/) too!
 
 ## Features
 

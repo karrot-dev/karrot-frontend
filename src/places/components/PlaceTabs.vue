@@ -1,6 +1,6 @@
 <template>
   <QTabs
-    class="shadow-3 bg-white k-place-tabs"
+    class="bg-white k-place-tabs q-pa-xs"
     align="left"
     mobile-arrows
   >
@@ -89,3 +89,10 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="sass">
+.k-place-tabs
+  border-bottom-left-radius: 12px
+  border-bottom-right-radius: 12px
+
+</style>

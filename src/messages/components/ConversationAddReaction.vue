@@ -2,7 +2,9 @@
   <QBtn
     :outline="$attrs.outline"
     :flat="$attrs.flat"
-    :color="color"
+    :unelevated="$attrs.unelevated"
+    :color="$attrs.color"
+    :text-color="$attrs.textColor"
   >
     <span :style="{opacity}">
       <i class="far fa-smile" /> +
@@ -21,7 +23,7 @@
   </QBtn>
 </template>
 
-<script>
+<script setup>
 import {
   QBtn,
   QMenu,
@@ -30,28 +32,18 @@ import { defineAsyncComponent } from 'vue'
 
 const ConversationAddReactionInner = defineAsyncComponent(() => import('./ConversationAddReactionInner.vue'))
 
-export default {
-  components: {
-    QBtn,
-    QMenu,
-    ConversationAddReactionInner,
+defineProps({
+  opacity: {
+    type: Number,
+    default: 1,
   },
-  props: {
-    opacity: {
-      type: Number,
-      default: 1,
-    },
-    reacted: {
-      type: Array,
-      default: () => [],
-    },
-    color: {
-      type: String,
-      default: 'black',
-    },
+  reacted: {
+    type: Array,
+    default: () => [],
   },
-  emits: [
-    'toggle',
-  ],
-}
+})
+
+defineEmits([
+  'toggle',
+])
 </script>

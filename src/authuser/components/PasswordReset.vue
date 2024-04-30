@@ -34,7 +34,7 @@
         <div class="actions">
           <QBtn
             type="submit"
-            class="submit shadow-4"
+            class="submit"
             :loading="isPending"
           >
             {{ $t('PASSWORD.RESET.OK') }}

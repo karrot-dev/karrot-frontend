@@ -23,3 +23,8 @@ export function useIsCurrentUser (userOrId) {
   const { getIsCurrentUser } = useAuthHelpers()
   return computed(() => getIsCurrentUser(userOrId))
 }
+
+export function useCurrentUser () {
+  const { user } = useAuthService()
+  return user
+}

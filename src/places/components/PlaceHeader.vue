@@ -5,6 +5,7 @@
       <RandomArt
         :seed="placeId"
         type="banner"
+        rounded-top
       />
     </div>
     <div
@@ -121,6 +122,7 @@
     >
       <ShowMore
         v-if="place.description"
+        :key="place.id"
         :height="200"
       >
         <Markdown

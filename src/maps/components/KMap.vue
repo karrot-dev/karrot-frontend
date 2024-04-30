@@ -3,132 +3,141 @@
     ref="map"
     class="k-map"
   >
-    <template v-if="leafletMap">
+    <template v-if="leafletMapRef">
       <slot />
     </template>
   </div>
 </template>
 
-<script>
-import { map, tileLayer } from 'leaflet/dist/leaflet-src.esm'
+<script setup>
+import * as L from 'leaflet'
 import { debounce } from 'quasar'
-import { computed, markRaw } from 'vue'
+import { computed, markRaw, ref, provide, watchEffect, onMounted } from 'vue'
 
-export default {
-  provide () {
-    return {
-      leafletMap: computed(() => this.leafletMap),
+import 'leaflet.markercluster'
+import 'leaflet.markercluster/dist/MarkerCluster.css'
+import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
+
+const url = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+
+const props = defineProps({
+  showAttribution: {
+    type: Boolean,
+    default: true,
+  },
+  bounds: {
+    type: Object,
+    default: null,
+  },
+  center: {
+    type: Object,
+    default: null,
+  },
+  zoom: {
+    type: Number,
+    default: 15,
+  },
+  paddingTopLeft: {
+    type: Array,
+    default: null,
+  },
+  scrollWheelZoom: {
+    type: Boolean,
+    default: true,
+  },
+  cluster: {
+    type: Boolean,
+    default: false,
+  },
+})
+
+const map = ref(null)
+const leafletMapRef = ref(null)
+const leafletMarkerClusterGroupRef = ref(null)
+
+if (props.cluster) {
+  provide('leafletLayer', leafletMarkerClusterGroupRef)
+}
+else {
+  provide('leafletLayer', leafletMapRef)
+}
+
+const emit = defineEmits([
+  'contextmenu',
+  'moveend',
+  'update:zoom',
+  'map-click',
+])
+
+const attribution = computed(() => {
+  if (props.showAttribution) {
+    return '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }
+  return ''
+})
+
+watchEffect(() => setMapOptions(leafletMapRef.value))
+
+onMounted(() => {
+  const leafletMap = L.map(map.value, { scrollWheelZoom: props.scrollWheelZoom })
+
+  if (props.cluster) {
+    const clusterGroup = markRaw(L.markerClusterGroup({
+      zoomToBoundsOnClick: false,
+    }))
+
+    // Override the default version of zoomToBoundsOnClick to add the padding
+    clusterGroup.on('clusterclick', event => {
+      event.layer.zoomToBounds({ paddingTopLeft: props.paddingTopLeft })
+    })
+    leafletMap.addLayer(clusterGroup)
+    leafletMarkerClusterGroupRef.value = clusterGroup
+  }
+
+  L.tileLayer(url, {
+    maxZoom: 19,
+    attribution: attribution.value,
+  }).addTo(leafletMap)
+
+  leafletMap.on('moveend', debounce(event => {
+    emit('moveend', event)
+    emit('update:zoom', leafletMap.getZoom())
+  }), 100)
+
+  leafletMap.on('click', ({ latlng }) => {
+    // sometimes latlng is undefined, let's skip those pointless events...
+    if (!latlng) return
+    emit('map-click', latlng)
+  })
+
+  leafletMap.on('contextmenu', event => {
+    emit('contextmenu', event)
+  })
+
+  leafletMap.on('zoom', () => {
+    leafletMap.closePopup()
+  })
+
+  setMapOptions(leafletMap)
+
+  leafletMap.whenReady(() => {
+    leafletMapRef.value = markRaw(leafletMap)
+  })
+})
+
+function setMapOptions (leafletMap) {
+  if (!leafletMap) return
+
+  leafletMap.closePopup()
+  if (props.bounds) {
+    leafletMap.fitBounds(props.bounds, { paddingTopLeft: props.paddingTopLeft })
+  }
+  else {
+    if (props.paddingTopLeft) {
+      console.warn('paddingTopLeft ignored as no bounds set')
     }
-  },
-  props: {
-    showAttribution: {
-      type: Boolean,
-      default: true,
-    },
-    bounds: {
-      type: Object,
-      default: null,
-    },
-    center: {
-      type: Object,
-      default: null,
-    },
-    zoom: {
-      type: Number,
-      default: 15,
-    },
-    paddingTopLeft: {
-      type: Array,
-      default: null,
-    },
-    scrollWheelZoom: {
-      type: Boolean,
-      default: true,
-    },
-  },
-  emits: [
-    'contextmenu',
-    'moveend',
-    'update:zoom',
-    'map-click',
-  ],
-  data () {
-    return {
-      leafletMap: null,
-      url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    }
-  },
-  computed: {
-    attribution () {
-      if (this.showAttribution) {
-        return '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-      }
-      return ''
-    },
-  },
-  watch: {
-    bounds () {
-      this.setMapOptions(this.leafletMap)
-    },
-    center () {
-      this.setMapOptions(this.leafletMap)
-    },
-    zoom () {
-      this.setMapOptions(this.leafletMap)
-    },
-    paddingTopLeft () {
-      this.setMapOptions(this.leafletMap)
-    },
-  },
-  mounted () {
-    const leafletMap = map(this.$refs.map, { scrollWheelZoom: this.scrollWheelZoom })
-
-    tileLayer(this.url, {
-      maxZoom: 19,
-      attribution: this.attribution,
-    }).addTo(leafletMap)
-
-    leafletMap.on('moveend', debounce(event => {
-      this.$emit('moveend', event)
-      this.$emit('update:zoom', this.leafletMap.getZoom())
-    }), 100)
-
-    leafletMap.on('click', ({ latlng }) => {
-      // sometimes latlng is undefined, let's skip those pointless events...
-      if (!latlng) return
-      this.$emit('map-click', latlng)
-    })
-
-    leafletMap.on('contextmenu', event => {
-      this.$emit('contextmenu', event)
-    })
-
-    leafletMap.on('zoom', () => {
-      leafletMap.closePopup()
-    })
-
-    this.setMapOptions(leafletMap)
-
-    leafletMap.whenReady(() => {
-      this.leafletMap = markRaw(leafletMap)
-    })
-  },
-  methods: {
-    setMapOptions (leafletMap) {
-      if (!leafletMap) return
-
-      leafletMap.closePopup()
-      if (this.bounds) {
-        leafletMap.fitBounds(this.bounds, { paddingTopLeft: this.paddingTopLeft })
-      }
-      else {
-        if (this.paddingTopLeft) {
-          console.warn('paddingTopLeft ignored as no bounds set')
-        }
-        leafletMap.setView(this.center, this.zoom)
-      }
-    },
-  },
+    leafletMap.setView(props.center, props.zoom)
+  }
 }
 </script>
 

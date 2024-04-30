@@ -28,6 +28,7 @@ steps:
 
   - name: "extract content"
     image: codeberg.org/${CI_REPO}:latest
+    pull: true
     commands:
       - cp -r /usr/share/nginx/html dist
 

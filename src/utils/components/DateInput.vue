@@ -5,7 +5,7 @@
     mask="####-##-##"
     size="9"
     hide-bottom-space
-    outlined
+    filled
     class="q-mr-sm"
     v-bind="$attrs"
     @focus="focus"

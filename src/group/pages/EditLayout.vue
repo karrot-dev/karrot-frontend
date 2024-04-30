@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="bg-white rounded-borders overflow-hidden">
     <QTabs
-      class="bg-white"
+      class="q-pa-sm"
       align="left"
+      mobile-arrows
     >
       <QRouteTab
         v-for="(tab, idx) in tabs"

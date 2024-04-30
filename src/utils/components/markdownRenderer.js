@@ -1,10 +1,10 @@
+import twemoji from '@twemoji/api'
 import markdownIt from 'markdown-it'
-import emoji from 'markdown-it-emoji'
+import { full as emoji } from 'markdown-it-emoji'
 import defaultEmojiShortcuts from 'markdown-it-emoji/lib/data/shortcuts'
 import markdownLinkAttributes from 'markdown-it-link-attributes'
 import RegexPlugin from 'markdown-it-regexp'
 import utils from 'markdown-it-regexp/lib/utils'
-import twemoji from 'twemoji'
 
 // Override to pass the env through...
 RegexPlugin.prototype.render = function (tokens, id, options, env) {

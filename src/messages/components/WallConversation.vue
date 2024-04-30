@@ -7,7 +7,6 @@
       <QCard
         v-if="hasLoaded"
         flat
-        bordered
         class="desktop-margin"
       >
         <div
@@ -41,12 +40,11 @@
       <QList
         v-if="hasLoaded && messages.length > 0"
         ref="messagesList"
-        class="bg-white desktop-margin relative-position q-pb-md rounded-borders"
-        bordered
+        class="desktop-margin relative-position q-pb-md rounded-borders"
       >
         <QBanner
           v-if="isParticipant && unreadMessageCount > 0"
-          class="bg-secondary text-white q-mt-sm"
+          class="bg-secondary text-white q-mt-sm q-mb-sm"
           style="min-height: unset"
         >
           <template #avatar>
@@ -77,6 +75,8 @@
           :key="message.id"
           :message="message"
           :is-unread="conversation.seenUpTo && message.id > conversation.seenUpTo"
+          supports-threads
+          class="q-mb-sm q-px-md q-py-sm rounded-borders"
         />
         <KSpinner v-show="isLoadingMessages || isFetchingNextPage" />
       </QList>

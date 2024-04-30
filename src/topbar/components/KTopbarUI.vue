@@ -6,14 +6,15 @@
     <slot />
     <QBtn
       v-if="!$q.platform.is.mobile"
-      padding="4px 8px 8px"
+      class="q-pa-sm"
       flat
     >
       <div class="logo">
         <img
           v-if="currentGroup?.photoUrls?.thumbnail"
           :src="currentGroup.photoUrls.thumbnail"
-          style="height: 95%"
+          style="border-radius: 6px;"
+          class="fit"
         >
         <KarrotLogo
           v-else
@@ -35,7 +36,7 @@
             >
               <QAvatar
                 v-if="group.photoUrls?.fullSize"
-                square
+                rounded
               >
                 <img :src="group.photoUrls.thumbnail">
               </QAvatar>
@@ -49,6 +50,7 @@
               {{ group.name }}
             </QItemSection>
           </QItem>
+          <QSeparator />
           <QItem
             :to="{name: 'groupsGallery'}"
           >
@@ -206,6 +208,7 @@ import {
   QList,
   QItem,
   QItemSection,
+  QSeparator,
 } from 'quasar'
 import { ref } from 'vue'
 
@@ -226,6 +229,7 @@ export default {
     QList,
     QItem,
     QItemSection,
+    QSeparator,
     KarrotLogo,
     KBreadcrumb,
     Search,
@@ -321,6 +325,7 @@ export default {
 .profilePicture
   height: 36px
   margin-left: 1em
+  border-radius: 6px
 
 .k-search-button, .k-more-options
   opacity: $topbar-opacity-low

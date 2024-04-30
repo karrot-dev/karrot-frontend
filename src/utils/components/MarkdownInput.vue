@@ -9,6 +9,7 @@
         v-bind="$attrs"
         :model-value="modelValue"
         type="textarea"
+        input-class="overscroll-contain"
         :input-style="{ minHeight: '100px', ...$attrs['input-style'] }"
         autogrow
         bottom-slots

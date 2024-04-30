@@ -6,6 +6,7 @@
     v-bind="sidenav ? {flat: true, dense: true} : {}"
     :class="{ 'no-margin': sidenav, 'pulsate': roomActive }"
     :style="style"
+    :disable="active"
     @click="joinRoom(subject)"
   >
     <template v-if="roomActive">
@@ -57,7 +58,7 @@ const props = defineProps({
 
 const endpoint = useLivekitEndpoint()
 const hasMeet = useHasFeature('meet')
-const { joinRoom } = useRoomService()
+const { active, joinRoom } = useRoomService()
 
 const { rooms } = useRoomListQuery()
 const { getUserById } = useUserService()

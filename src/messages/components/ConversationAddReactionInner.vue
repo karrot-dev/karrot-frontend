@@ -5,6 +5,9 @@
     <QInput
       v-model="search"
       type="search"
+      class="q-ma-xs"
+      autofocus
+      filled
       :placeholder="$q.lang.label.search"
       dense
     >
@@ -27,7 +30,7 @@
 </template>
 
 <script>
-import emojiList from 'markdown-it-emoji/lib/data/full.json'
+import emojiList from 'markdown-it-emoji/lib/data/full.mjs'
 import {
   QInput,
   QIcon,

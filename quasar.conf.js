@@ -35,6 +35,7 @@ module.exports = configure(function (ctx) {
       title: 'Karrot - Start a group, become a community',
     },
     boot: [
+      'defaults',
       'vueQuery',
       'loglevel',
       'pwa',

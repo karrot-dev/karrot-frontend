@@ -261,8 +261,8 @@ export const useRoomService = defineService(() => {
       }
       const participantInfo = participantsByIdentity.value[participant.identity]
       const { identity, isLocal, audioLevel = 0, isSpeaking, connectionQuality } = participant
-      function getMediaStreamTrack (kind) {
-        const track = participant.getTracks().find(track => track.kind === kind)
+      function getMediaStreamTrack (kind, source) {
+        const track = participant.getTracks().find(track => track.kind === kind && track.source === source)
         if (!track || track.isMuted || !track.isSubscribed) return
         return track.track?.mediaStream.getTracks().find(t => t.kind === kind)
       }
@@ -274,8 +274,9 @@ export const useRoomService = defineService(() => {
         audioLevel,
         isSpeaking,
         connectionQuality,
-        videoMediaStreamTrack: getMediaStreamTrack('video') ?? null,
-        audioMediaStreamTrack: getMediaStreamTrack('audio') ?? null,
+        videoMediaStreamTrack: getMediaStreamTrack('video', 'camera') ?? null,
+        audioMediaStreamTrack: getMediaStreamTrack('audio', 'microphone') ?? null,
+        screenShareVideoMediaStreamTrack: getMediaStreamTrack('video', 'screen_share') ?? null,
       })
       return participantInfo
     }

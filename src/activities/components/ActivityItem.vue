@@ -12,7 +12,8 @@
     </div>
     <QCardSection
       class="no-padding content"
-      :class="{ isUserParticipant, isDisabled: activity.isDisabled }"
+      :class="{ 'is-disabled': activity.isDisabled }"
+      :style="contentStyle"
     >
       <div class="content-inner">
         <div class="row no-wrap items-start justify-between">
@@ -220,7 +221,6 @@
       >
         <QIcon
           v-bind="activityTypeIconProps"
-          color="grey-9"
           size="xs"
           class="q-mr-sm"
         />
@@ -321,6 +321,7 @@ import {
   QItemLabel,
   QRadio,
   QImg,
+  colors,
 } from 'quasar'
 import { computed, ref, toRefs } from 'vue'
 
@@ -339,6 +340,8 @@ import ShowMore from '@/utils/components/ShowMore.vue'
 
 import ActivityEditButton from './ActivityEditButton.vue'
 import ActivityUsers from './ActivityUsers.vue'
+
+const { lighten } = colors
 
 const props = defineProps({
   activity: {
@@ -409,6 +412,11 @@ const {
   mutate: leaveActivity,
   isLoading: isLeaving,
 } = useLeaveActivityMutation()
+
+const contentStyle = computed(() => {
+  if (!isUserParticipant.value || activity.value.isDisabled || !activityType.value) return {}
+  return { background: `linear-gradient(170deg, ${lighten(activityType.value.colour, 85)}, ${lighten(activityType.value.colour, 95)})` }
+})
 
 const joinDialog = ref(false)
 const leaveDialog = ref(false)
@@ -482,11 +490,7 @@ function roleName (role) {
 .content
   width: 100%
 
-  &.isUserParticipant
-    &:not(.isDisabled)
-      background-color: $lightGreen
-
-  &.isDisabled
+  &.is-disabled
     background: $lightRed
 
   .content-inner
@@ -501,6 +505,12 @@ function roleName (role) {
   font-weight: 500
   color: $secondary
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.06)
+  ::v-deep(.q-btn)
+    border-radius: 0px
+    &:first-child
+      border-bottom-left-radius: 12px
+    &:last-child
+      border-bottom-right-radius: 12px
 
 .q-btn.action-button
   ::v-deep(.q-btn__wrapper)

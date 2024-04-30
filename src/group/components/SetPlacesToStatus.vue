@@ -20,7 +20,7 @@
       map-options
       emit-value
       :label="t('LABELS.STATUS')"
-      outlined
+      filled
       bg-color="white"
       class="q-mb-md"
     >

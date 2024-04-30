@@ -3,7 +3,7 @@
     <div class="k-profile">
       <QBanner
         v-if="!currentGroupMembership && currentGroup"
-        class="bg-warning text-white shadow-2 q-mb-sm q-pa-none"
+        class="bg-warning text-white q-mb-sm q-pa-none rounded-borders"
         style="min-height: unset"
       >
         <template #avatar>
@@ -30,21 +30,16 @@
         />
       </div>
       <div class="photoAndName row no-wrap">
-        <Transition
-          name="turn-in"
-          appear
+        <div
+          class="photo q-ma-md"
         >
-          <div
-            class="photo q-pa-sm q-ma-md bg-white shadow-4 rounded-borders"
-          >
-            <ProfilePicture
-              :is-link="false"
-              :user="user"
-              :size="profilePictureSize"
-              :editable="isCurrentUser"
-            />
-          </div>
-        </Transition>
+          <ProfilePicture
+            :is-link="false"
+            :user="user"
+            :size="profilePictureSize"
+            :editable="isCurrentUser"
+          />
+        </div>
         <div
           style="overflow: hidden"
           class="self-center"
@@ -427,12 +422,4 @@ body.desktop .k-profile
     top: -24px
     right: 10px
 
-.turn-in-enter
-  transform: rotate(-15deg)
-
-.turn-in-leave-active, .turn-in-enter-active
-  transition: all .5s ease
-
-.turn-in-enter-to
-  transform: rotate(-3deg)
 </style>

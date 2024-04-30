@@ -28,7 +28,7 @@
         v-bind="titleError"
         :label="$t('AGREEMENT.TITLE')"
         :hint="$t('AGREEMENT.TITLE_HELPER')"
-        outlined
+        filled
         class="q-mb-lg"
         @blur="v$.edit.title.$touch"
       />
@@ -59,7 +59,7 @@
         :error="hasError('summary')"
         :error-message="firstError('summary')"
         :label="`${$t('AGREEMENT.SUMMARY')} (${$t('VALIDATION.OPTIONAL')})`"
-        outlined
+        filled
         class="q-mb-lg"
         @keyup.ctrl.enter="maybeSave"
       />
@@ -69,7 +69,7 @@
         :error="hasError('content')"
         :error-message="firstError('content')"
         :label="$t('AGREEMENT.CONTENT')"
-        outlined
+        filled
         class="q-mb-lg"
         @keyup.ctrl.enter="maybeSave"
       />

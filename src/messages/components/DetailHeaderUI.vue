@@ -43,7 +43,7 @@
       <template v-else-if="user">
         <ProfilePicture
           :user="conversationPartner"
-          :size="$q.platform.is.mobile ? 25 : 40"
+          :size="$q.platform.is.mobile ? 20 : 26"
         />
         <QToolbarTitle>
           {{ user.displayName }}
@@ -65,7 +65,7 @@
         <ProfilePicture
           v-if="!getIsCurrentUser(application.user)"
           :user="application.user"
-          :size="$q.platform.is.mobile ? 25 : 40"
+          :size="$q.platform.is.mobile ? 20 : 26"
         />
         <QToolbarTitle class="column">
           <div>
@@ -137,7 +137,7 @@
         v-for="participant in participants"
         :key="participant.id"
         :user="participant"
-        :size="$q.platform.is.mobile ? 20 : 35"
+        :size="$q.platform.is.mobile ? 20 : 26"
       />
     </div>
   </div>

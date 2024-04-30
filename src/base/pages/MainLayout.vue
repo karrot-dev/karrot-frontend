@@ -15,7 +15,7 @@
       :class="theme"
     >
       <QLayout :view="layoutView">
-        <QHeader reveal>
+        <QHeader>
           <KTopbar
             v-if="isLoggedIn"
             @toggle-sidenav="toggleSidenav"
@@ -84,6 +84,7 @@
           :width="detailWidth"
           :overlay="false"
           :breakpoint="0"
+          persistent
           elevated
           :model-value="isDetailActive || hasDetailComponent"
         >
@@ -216,17 +217,12 @@ function toggleSidenav () {
   margin-left: auto
 
 body.desktop .mainContent-page:not(.fullpage)
-  min-width: 350px
-  max-width: 57em
-  margin-top: 8px
-  margin-right: auto
-  margin-bottom: 4.5em
-  margin-left: auto
+  min-width: 600px
+  max-width: 800px
+  margin: 8px auto 4.5em auto
 
 .background
-  background-image: url('../assets/repeating_grey-600.png')
   background-attachment: fixed
-
   &.bikekitchen
     background-image: url('../assets/bikekitchen_background.jpg')
 
